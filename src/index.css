@@ -3,13 +3,35 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --background: 242 239 231;
+    --foreground: 19 38 92;
+    --primary: 19 38 92;
+    --accent: 139 0 74;
+    --muted: 224 221 213;
+    --muted-foreground: 100 116 139;
+    --accent-foreground: 242 239 231;
+    --input: 209 207 199;
+  }
+
+  .dark {
+    --background: 20 14 14;
+    --foreground: 242 239 231;
+    --primary: 242 239 231;
+    --accent: 176 228 204;
+    --muted: 42 53 40;
+    --muted-foreground: 138 153 136;
+    --accent-foreground: 20 14 14;
+    --input: 42 53 40;
+  }
+
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans antialiased transition-colors duration-200;
   }
 }
 
 @layer utilities {
   .glassmorphism {
-    @apply backdrop-blur-md bg-background/80 border-b border-muted;
+    @apply backdrop-blur-md bg-background/80 border-b border-muted transition-colors duration-200;
   }
 }

@@ -24,8 +24,8 @@ export const MainCanvas = ({ activePage, activeMode }: MainCanvasProps) => {
       </div>
       
       {activePage === 'prd' && (
-        <article className="prose prose-slate prose-headings:text-primary prose-a:text-accent hover:prose-a:text-accent/80 max-w-none">
-          <h1 className="text-4xl font-extrabold tracking-tight mb-8 text-primary">
+        <article className="prose prose-kontxt hover:prose-a:opacity-80 max-w-none">
+          <h1 className="text-4xl font-extrabold tracking-tight mb-8">
             Product Requirements Document (PRD)
           </h1>
           
@@ -45,19 +45,19 @@ export const MainCanvas = ({ activePage, activeMode }: MainCanvasProps) => {
             When prompting an LLM to build features, you must enforce boundaries. Use the following prompt block to lock the AI into your specific requirements:
           </p>
 
-          <div className="relative group mt-6 mb-8 rounded-lg overflow-hidden bg-primary text-background">
-            <div className="flex items-center justify-between px-4 py-2 bg-primary/90 text-xs font-mono text-muted border-b border-primary/50">
+          <div className="not-prose relative group mt-6 mb-8 rounded-lg overflow-hidden border-2 border-primary/20 bg-muted/10">
+            <div className="flex items-center justify-between px-4 py-2 bg-primary/10 text-xs font-mono text-primary font-bold border-b-2 border-primary/20">
               <span>prompt_template.md</span>
               <div className="flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button className="hover:text-background transition-colors" title="Mark as used">
+                <button className="hover:text-accent transition-colors" title="Mark as used">
                   <CheckSquare size={14} />
                 </button>
-                <button className="hover:text-background transition-colors" title="Copy to clipboard">
+                <button className="hover:text-accent transition-colors" title="Copy to clipboard">
                   <Copy size={14} />
                 </button>
               </div>
             </div>
-            <pre className="p-4 text-sm font-mono text-background/90 overflow-x-auto leading-relaxed">
+            <pre className="p-4 text-sm font-mono text-foreground overflow-x-auto leading-relaxed">
               <code>
 {`You are an expert Staff Engineer acting as the technical lead for this project.
 
@@ -98,14 +98,14 @@ CRITICAL CONSTRAINTS:
       )}
 
       {activePage === 'schema' && (
-        <article className="prose prose-slate prose-headings:text-primary max-w-none">
-          <h1 className="text-4xl font-extrabold tracking-tight mb-8 text-primary">
+        <article className="prose prose-kontxt max-w-none">
+          <h1 className="text-4xl font-extrabold tracking-tight mb-8">
             Database Schema
           </h1>
           <p className="leading-relaxed mb-6 text-foreground/90 text-lg">
             Define your tables beforehand. This stops the AI from hallucinating tables mid-build.
           </p>
-          <div className="bg-primary text-background/90 rounded-lg p-4 font-mono text-sm border-l-4 border-accent">
+          <div className="not-prose bg-muted/20 text-foreground rounded-lg p-4 font-mono text-sm border-l-4 border-accent">
             {`model User {
   id        String   @id @default(uuid())
   email     String   @unique
@@ -116,8 +116,8 @@ CRITICAL CONSTRAINTS:
       )}
 
       {activePage === 'techspec' && (
-        <article className="prose prose-slate prose-headings:text-primary max-w-none">
-          <h1 className="text-4xl font-extrabold tracking-tight mb-8 text-primary">
+        <article className="prose prose-kontxt max-w-none">
+          <h1 className="text-4xl font-extrabold tracking-tight mb-8">
             Technical Specification
           </h1>
           <p className="leading-relaxed mb-6 text-foreground/90 text-lg">

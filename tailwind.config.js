@@ -4,21 +4,44 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        background: '#F2EFE7', // Murrey / Alabaster requested bg
-        primary: '#13265C', // Dark Blue
-        accent: '#8B004A', // Alabaster / Magenta accent
-        muted: '#E0DDD5', // Slightly darker than background for borders/cards
-        'muted-foreground': '#64748B',
-        foreground: '#13265C', // Use primary for main text
-        'accent-foreground': '#F2EFE7',
-        input: '#D1CFC7', // For borders
+        background: 'rgb(var(--background) / <alpha-value>)',
+        primary: 'rgb(var(--primary) / <alpha-value>)',
+        accent: 'rgb(var(--accent) / <alpha-value>)',
+        muted: 'rgb(var(--muted) / <alpha-value>)',
+        'muted-foreground': 'rgb(var(--muted-foreground) / <alpha-value>)',
+        foreground: 'rgb(var(--foreground) / <alpha-value>)',
+        'accent-foreground': 'rgb(var(--accent-foreground) / <alpha-value>)',
+        input: 'rgb(var(--input) / <alpha-value>)',
       },
       fontFamily: {
         sans: ['Inter', 'Roboto', 'sans-serif'],
       },
+      typography: ({ theme }) => ({
+        kontxt: {
+          css: {
+            '--tw-prose-body': theme('colors.foreground'),
+            '--tw-prose-headings': theme('colors.primary'),
+            '--tw-prose-lead': theme('colors.foreground'),
+            '--tw-prose-links': theme('colors.accent'),
+            '--tw-prose-bold': theme('colors.foreground'),
+            '--tw-prose-counters': theme('colors.muted-foreground'),
+            '--tw-prose-bullets': theme('colors.muted-foreground'),
+            '--tw-prose-hr': theme('colors.muted'),
+            '--tw-prose-quotes': theme('colors.foreground'),
+            '--tw-prose-quote-borders': theme('colors.primary'),
+            '--tw-prose-captions': theme('colors.muted-foreground'),
+            '--tw-prose-code': theme('colors.foreground'),
+            '--tw-prose-pre-code': theme('colors.foreground'),
+            '--tw-prose-pre-bg': 'transparent',
+            '--tw-prose-th-borders': theme('colors.muted'),
+            '--tw-prose-td-borders': theme('colors.muted'),
+          },
+        },
+      }),
     },
   },
   plugins: [

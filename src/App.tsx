@@ -28,6 +28,11 @@ function App() {
     if (savedActive) {
       setActiveProjectId(savedActive);
     }
+    
+    // Load theme
+    if (localStorage.getItem('kontxt_theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
   }, []);
 
   const handleCreateProject = (name: string, mode: Mode) => {
