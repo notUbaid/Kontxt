@@ -1,0 +1,1235 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontxt — Architecture Playbook</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+:root,[data-theme=light]{
+  --bg:oklch(95% 0.011 90);
+  --surface:oklch(100% 0.002 90);
+  --fg:oklch(18% 0.018 80);
+  --muted:oklch(45% 0.012 80);
+  --border:oklch(85% 0.008 80);
+  --accent:oklch(41% 0.168 359);
+  --accent-soft:oklch(75% 0.06 359);
+  --accent-glass:oklch(41% 0.168 359 / 0.08);
+  --accent-hover:oklch(36% 0.18 359);
+  --accent-blue:oklch(29% 0.13 266);
+  --accent-blue-soft:oklch(60% 0.10 266);
+  --accent-blue-glass:oklch(29% 0.13 266 / 0.08);
+  --nav-blur:oklch(95% 0.011 90 / 0.72);
+  --success:oklch(52% 0.14 145);
+  --warn:oklch(62% 0.14 85);
+  --danger:oklch(52% 0.18 25);
+  --shadow-sm:0 1px 2px oklch(0% 0 0 / 0.04);
+  --shadow-md:0 4px 12px oklch(0% 0 0 / 0.06);
+  --radius-sm:6px;
+  --radius-md:10px;
+  --radius-lg:16px;
+}
+[data-theme=dark]{
+  --bg:oklch(13% 0.008 80);
+  --surface:oklch(17% 0.01 80);
+  --fg:oklch(92% 0.006 80);
+  --muted:oklch(55% 0.008 80);
+  --border:oklch(25% 0.008 80);
+  --accent:oklch(62% 0.16 359);
+  --accent-soft:oklch(40% 0.08 359);
+  --accent-glass:oklch(62% 0.16 359 / 0.12);
+  --accent-hover:oklch(67% 0.17 359);
+  --accent-blue:oklch(62% 0.14 266);
+  --accent-blue-soft:oklch(45% 0.10 266);
+  --accent-blue-glass:oklch(62% 0.14 266 / 0.12);
+  --nav-blur:oklch(13% 0.008 80 / 0.78);
+  --shadow-sm:0 1px 2px oklch(0% 0 0 / 0.2);
+  --shadow-md:0 4px 12px oklch(0% 0 0 / 0.3);
+}
+
+body{background:var(--bg);color:var(--fg);font-size:15px;line-height:1.5}
+
+/* Skip-to-content */
+.skip-link{position:fixed;top:-100%;left:12px;z-index:200;padding:10px 16px;background:var(--accent);color:#fff;font-size:13px;font-weight:500;border-radius:0 0 var(--radius-sm) var(--radius-sm);text-decoration:none;transition:top 0.15s}
+.skip-link:focus{top:0}
+
+/* Layout */
+.app-container{max-width:1536px;margin:0 auto;padding:0 12px;height:100vh;display:grid;grid-template-rows:56px 1fr}
+.app-container>*{min-width:0}
+.app-body{display:grid;grid-template-columns:240px 1fr 280px;gap:0;height:calc(100vh - 56px);position:relative}
+
+/* Nav */
+.top-nav{height:56px;display:flex;align-items:center;gap:16px;padding:0 8px;background:var(--nav-blur);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50}
+.nav-left{display:flex;align-items:center;gap:10px;flex-shrink:0;width:240px;transition:width 0.2s}
+.nav-center{flex:1;display:flex;justify-content:center}
+.nav-right{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:20px;letter-spacing:-0.02em}
+.logo-text{display:inline-flex}
+.logo-kon{color:var(--accent)}
+.logo-txt{color:var(--accent-blue)}
+.version-badge{font-size:11px;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:1px 6px;border-radius:4px;letter-spacing:0.02em}
+
+/* Hamburger */
+.hamburger{display:none;width:34px;height:34px;align-items:center;justify-content:center;border:none;background:transparent;color:var(--muted);border-radius:var(--radius-sm);cursor:pointer;padding:0}
+.hamburger svg{width:20px;height:20px}
+.hamburger:hover{background:var(--accent-blue-glass);color:var(--fg)}
+
+/* Mode switcher */
+.mode-switcher{display:inline-flex;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:2px;gap:1px}
+.mode-btn{padding:5px 12px;font-size:12px;font-weight:500;border:none;background:transparent;color:var(--muted);border-radius:4px;cursor:pointer;white-space:nowrap;font-family:inherit}
+.mode-btn:hover{color:var(--fg);background:var(--accent-blue-glass)}
+.mode-btn.active{color:var(--accent-blue);background:var(--accent-blue-glass);font-weight:600}
+
+/* Nav buttons */
+.nav-btn{width:34px;height:34px;display:grid;place-items:center;border:none;background:transparent;color:var(--muted);border-radius:var(--radius-sm);cursor:pointer;font-family:inherit;position:relative}
+.nav-btn:hover{background:var(--accent-blue-glass);color:var(--fg)}
+.nav-btn svg{width:18px;height:18px}
+.kbd-hint{position:absolute;right:-2px;bottom:-2px;font-size:8px;color:var(--muted);background:var(--border);padding:0 3px;border-radius:2px;line-height:1.3;letter-spacing:0.02em;pointer-events:none}
+
+/* Sign In */
+.sign-in-btn{display:flex;align-items:center;gap:6px;padding:6px 14px;font-size:13px;font-weight:500;border:none;background:var(--accent);color:#fff;border-radius:var(--radius-sm);cursor:pointer;font-family:inherit;transition:background 0.15s}
+.sign-in-btn:hover{background:var(--accent-hover)}
+.avatar-btn{width:32px;height:32px;border-radius:50%;border:2px solid var(--border);overflow:hidden;cursor:pointer;padding:0;background:var(--surface);transition:border-color 0.15s}
+.avatar-btn:hover{border-color:var(--accent)}
+.avatar-btn img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Auth banner */
+.auth-banner{display:none;background:var(--accent-glass);border:1px solid var(--accent-soft);padding:8px 14px;font-size:13px;color:var(--fg);border-radius:var(--radius-md);margin-bottom:16px}
+.auth-banner.visible{display:flex;align-items:center;gap:8px}
+.auth-banner button{margin-left:auto;padding:4px 12px;background:var(--accent);color:#fff;border:none;border-radius:4px;font-size:12px;cursor:pointer;font-family:inherit}
+
+/* Left sidebar */
+.left-sidebar{width:240px;border-right:1px solid var(--border);overflow-y:auto;padding:12px 0;flex-shrink:0;background:var(--bg);transition:transform 0.25s ease}
+.mobile-sidebar-overlay{position:fixed;inset:0;background:oklch(0% 0 0 / 0.3);z-index:40;opacity:0;pointer-events:none;transition:opacity 0.25s ease}
+.mobile-sidebar-overlay.open{opacity:1;pointer-events:auto}
+.left-sidebar::-webkit-scrollbar{width:4px}
+.left-sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+.accordion-item{border-bottom:1px solid var(--border)}
+.accordion-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;padding:8px 16px;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:0.04em;text-transform:uppercase;border:none;background:transparent;cursor:pointer;font-family:inherit}
+.accordion-trigger:hover{color:var(--fg)}
+.accordion-trigger svg{width:14px;height:14px;color:var(--muted);flex-shrink:0;transition:transform 0.2s}
+.accordion-item.open .accordion-trigger svg{transform:rotate(90deg)}
+.accordion-content{max-height:0;overflow:hidden;transition:max-height 0.25s ease}
+.accordion-item.open .accordion-content{max-height:400px}
+
+.nav-link{display:flex;align-items:center;gap:8px;padding:6px 16px 6px 16px;font-size:13px;color:var(--muted);text-decoration:none;border-radius:4px;cursor:pointer;margin:0 4px}
+.nav-link:hover{color:var(--fg);background:var(--accent-blue-glass)}
+.nav-link.active{color:var(--accent);background:var(--accent-glass);font-weight:500}
+.nav-link .count{margin-left:auto;font-size:11px;color:var(--muted);background:var(--border);padding:0 6px;border-radius:3px}
+.nav-link svg{width:16px;height:16px;flex-shrink:0;color:currentColor}
+
+/* Main canvas */
+.main-canvas{overflow-y:auto;padding:32px 40px 80px;min-width:0}
+.main-canvas::-webkit-scrollbar{width:4px}
+.main-canvas::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+@keyframes fade-up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.canvas-inner{max-width:720px;margin:0 auto;animation:fade-up 0.25s ease-out}
+
+.page-title{font-size:36px;font-weight:700;letter-spacing:-0.02em;line-height:1.15;margin-bottom:6px;color:var(--fg)}
+.page-meta{font-size:13px;color:var(--muted);margin-bottom:32px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.page-meta .tag{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500}
+.page-meta .tag.draft{background:var(--warn);color:#1a1a0a}
+.page-meta .tag.updated{background:var(--accent-blue-glass);color:var(--accent-blue)}
+
+.prose{font-size:15px;line-height:1.65}
+.prose h2{font-size:22px;font-weight:650;letter-spacing:-0.01em;margin:32px 0 12px;color:var(--fg)}
+.prose h3{font-size:17px;font-weight:600;margin:24px 0 8px;color:var(--fg)}
+.prose p{margin-bottom:16px;color:var(--fg)}
+.prose p:last-child{margin-bottom:0}
+.prose ul,.prose ol{padding-left:20px;margin-bottom:16px}
+.prose li{margin-bottom:4px;color:var(--fg)}
+.prose a{color:var(--accent-blue);text-decoration:underline;text-decoration-color:var(--accent-blue-soft);text-underline-offset:2px}
+.prose a:hover{text-decoration-color:var(--accent-blue)}
+.prose strong{font-weight:600;color:var(--fg)}
+.prose hr{border:none;border-top:1px solid var(--border);margin:28px 0}
+.prose blockquote{border-left:3px solid var(--accent-soft);padding:8px 16px;margin:16px 0;background:var(--accent-glass);border-radius:0 var(--radius-sm) var(--radius-sm) 0;color:var(--fg);font-style:italic}
+.prose code{font-family:'JetBrains Mono','IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:13px;background:var(--accent-blue-glass);padding:1px 5px;border-radius:3px;color:var(--accent-blue)}
+.prose pre{margin:16px 0;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden}
+.prose pre .code-header{display:flex;align-items:center;justify-content:space-between;padding:6px 12px;border-bottom:1px solid var(--border);font-size:11px;color:var(--muted)}
+.prose pre .copy-btn{padding:2px 8px;font-size:11px;border:none;background:transparent;color:var(--muted);cursor:pointer;border-radius:3px;font-family:inherit}
+.prose pre .copy-btn:hover{background:var(--accent-glass);color:var(--fg)}
+.prose pre code{display:block;padding:14px 16px;overflow-x:auto;font-size:13px;line-height:1.55;color:var(--fg);background:transparent}
+.prose .checklist{list-style:none;padding:0}
+.prose .checklist li{display:flex;align-items:flex-start;gap:8px;padding:4px 0;cursor:pointer;position:relative}
+.prose .checklist li::before{content:'';width:18px;height:18px;border:1.5px solid var(--border);border-radius:3px;flex-shrink:0;margin-top:2px}
+.prose .checklist li.checked::before{background:var(--accent);border-color:var(--accent)}
+.prose .checklist li.checked::after{content:'';position:absolute;width:6px;height:10px;border:solid #fff;border-width:0 1.5px 1.5px 0;transform:rotate(45deg);left:6px;top:5px}
+.prose .checklist li.checked{color:var(--muted);text-decoration:line-through}
+
+.feature-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:20px;margin:20px 0}
+.feature-card h4{font-size:15px;font-weight:600;margin-bottom:6px}
+.feature-card p{font-size:13px;color:var(--muted);margin:0}
+
+/* Right sidebar */
+.right-sidebar{width:280px;border-left:1px solid var(--border);overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:16px;flex-shrink:0;background:var(--bg)}
+.right-sidebar::-webkit-scrollbar{width:4px}
+.right-sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.sidebar-section-title{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px}
+
+.quick-links{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.ql-card{display:flex;flex-direction:column;gap:2px;padding:10px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;transition:border-color 0.12s;text-decoration:none}
+.ql-card:hover{background:var(--accent-blue-glass);border-color:var(--accent-blue-soft)}
+.ql-card .ql-icon{color:var(--accent);margin-bottom:2px}
+.ql-card .ql-icon svg{width:18px;height:18px;display:block}
+.ql-card .ql-label{font-size:12px;font-weight:500;color:var(--fg)}
+.ql-card .ql-desc{font-size:10px;color:var(--muted);line-height:1.3}
+
+/* Chat widget */
+.chat-widget{display:flex;flex-direction:column;flex:1;min-height:0;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden}
+.chat-header{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--border);font-size:13px;font-weight:500}
+.chat-header .status-dot{width:7px;height:7px;border-radius:50%;background:var(--success);flex-shrink:0}
+.chat-messages{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px;min-height:120px}
+.chat-msg{font-size:12px;line-height:1.5;padding:8px 10px;border-radius:var(--radius-sm);max-width:90%}
+.chat-msg.bot{background:var(--bg);color:var(--fg);align-self:flex-start;border-bottom-left-radius:2px}
+.chat-msg.user{background:var(--accent-glass);color:var(--fg);align-self:flex-end;border-bottom-right-radius:2px}
+.chat-msg.error{background:oklch(92% 0.04 25);color:var(--danger);align-self:flex-start;font-style:italic}
+[data-theme=dark] .chat-msg.error{background:oklch(20% 0.04 25)}
+.chat-input-wrap{display:flex;align-items:center;gap:6px;padding:8px;border-top:1px solid var(--border)}
+.chat-input{flex:1;border:none;background:var(--bg);color:var(--fg);font-size:12px;padding:6px 10px;border-radius:20px;outline:none;font-family:inherit}
+.chat-input:focus{box-shadow:inset 0 0 0 1.5px var(--accent-blue-soft)}
+.search-input:focus{box-shadow:0 0 0 1.5px var(--accent-blue-soft);border-radius:2px}
+.mode-btn:focus-visible,.nav-btn:focus-visible,.nav-link:focus-visible{outline:2px solid var(--accent-blue-soft);outline-offset:1px}
+
+/* Typing indicator */
+.typing-dots{display:flex;align-items:center;gap:3px;padding:8px 10px;background:var(--bg);border-radius:var(--radius-sm);align-self:flex-start;border-bottom-left-radius:2px}
+.typing-dots span{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:typing-pulse 1s ease-in-out infinite}
+.typing-dots span:nth-child(2){animation-delay:0.2s}
+.typing-dots span:nth-child(3){animation-delay:0.4s}
+@keyframes typing-pulse{0%,60%,100%{opacity:0.3}30%{opacity:1}}
+.chat-input::placeholder{color:var(--muted)}
+.chat-send{width:28px;height:28px;border:none;background:var(--accent);color:#fff;border-radius:50%;cursor:pointer;display:grid;place-items:center;flex-shrink:0}
+.chat-send:hover{background:var(--accent-hover)}
+.chat-send svg{width:14px;height:14px}
+.chat-send:disabled{opacity:0.4;cursor:default}
+
+/* Avatar dropdown */
+.avatar-dropdown{position:relative}
+.dropdown-menu{position:absolute;top:calc(100% + 6px);right:0;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-md);min-width:200px;padding:4px;display:none;z-index:60}
+.dropdown-menu.open{display:block}
+.dropdown-item{display:flex;align-items:center;gap:8px;padding:7px 10px;font-size:13px;color:var(--fg);text-decoration:none;border-radius:4px;cursor:pointer;border:none;background:transparent;width:100%;text-align:left;font-family:inherit}
+.dropdown-item:hover{background:var(--accent-glass)}
+.dropdown-item svg{width:16px;height:16px;color:var(--muted);flex-shrink:0}
+.dropdown-divider{height:1px;background:var(--border);margin:4px 0}
+
+/* Mode transition */
+.app-body.switching{opacity:0.5;transition:opacity 0.2s}
+
+/* Command palette search */
+.search-overlay{display:none;position:fixed;inset:0;z-index:100;align-items:flex-start;justify-content:center;padding-top:15vh}
+.search-overlay.open{display:flex}
+.search-backdrop{position:absolute;inset:0;background:oklch(0% 0 0 / 0.4)}
+.search-modal{position:relative;width:540px;max-width:90vw;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:0 16px 48px oklch(0% 0 0 / 0.15);overflow:hidden}
+.search-input-wrap{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border)}
+.search-input-wrap svg{width:18px;height:18px;color:var(--muted);flex-shrink:0}
+.search-input{flex:1;border:none;background:transparent;font-size:15px;color:var(--fg);outline:none;font-family:inherit}
+.search-input::placeholder{color:var(--muted)}
+.search-input-clear{width:20px;height:20px;border:none;background:var(--border);color:var(--muted);border-radius:50%;cursor:pointer;display:none;align-items:center;justify-content:center;padding:0;font-size:12px;line-height:1;font-family:inherit}
+.search-input-clear.visible{display:flex}
+.search-results{max-height:320px;overflow-y:auto;padding:4px}
+.search-results::-webkit-scrollbar{width:4px}
+.search-results::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.search-result-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--radius-sm);cursor:pointer;transition:background 0.1s}
+.search-result-item:hover,.search-result-item.highlighted{background:var(--accent-blue-glass)}
+.search-result-item svg{width:16px;height:16px;color:var(--accent);flex-shrink:0}
+.search-result-item .sri-label{font-size:13px;color:var(--fg);font-weight:500}
+.search-result-item .sri-desc{font-size:11px;color:var(--muted)}
+.search-no-results{padding:24px 16px;text-align:center;color:var(--muted);font-size:13px}
+
+/* Responsive */
+@media(max-width:1200px){
+  .right-sidebar{width:240px}
+  .app-body{grid-template-columns:220px 1fr 240px}
+}
+@media(max-width:1024px){
+  .right-sidebar{display:none}
+  .app-body{grid-template-columns:220px 1fr}
+  .main-canvas{padding:24px}
+}
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .left-sidebar{position:fixed;top:56px;left:0;bottom:0;z-index:45;transform:translateX(-100%);width:280px;box-shadow:var(--shadow-md)}
+  .left-sidebar.open{transform:translateX(0)}
+  .mobile-sidebar-overlay.open{opacity:1;pointer-events:auto}
+  .app-body{grid-template-columns:1fr}
+  .mode-switcher{overflow-x:auto;max-width:200px;flex-shrink:0}
+  .mode-btn{padding:4px 8px;font-size:11px}
+  .nav-left{width:auto}
+  .main-canvas{padding:16px}
+  .search-modal{max-width:95vw;margin:0 10px}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#mainCanvas">Skip to content</a>
+<div class="app-container">
+  <!-- Top Nav -->
+  <nav class="top-nav">
+    <div class="nav-left">
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+      <a href="#" class="logo" onclick="return false">
+        <span class="logo-text"><span class="logo-kon">Kon</span><span class="logo-txt">txt</span></span>
+      </a>
+      <span class="version-badge">v0.4.2</span>
+    </div>
+
+    <div class="nav-center">
+      <div class="mode-switcher" role="tablist" aria-label="Mode">
+        <button class="mode-btn active" data-mode="hackathon" role="tab" aria-selected="true">Hackathon</button>
+        <button class="mode-btn" data-mode="personal" role="tab" aria-selected="false">Personal</button>
+        <button class="mode-btn" data-mode="production" role="tab" aria-selected="false">Production</button>
+        <button class="mode-btn" data-mode="custom" role="tab" aria-selected="false">Custom</button>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <button class="nav-btn" id="searchBtn" aria-label="Search pages" title="Search pages (Cmd+K)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span class="kbd-hint">⌘K</span>
+      </button>
+      <button class="nav-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme" aria-pressed="false">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <div class="auth-container" id="authContainer">
+        <button class="sign-in-btn" id="signInBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="16" height="16"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13 12H3"/></svg>
+          Sign In
+        </button>
+        <div class="avatar-dropdown" id="avatarDropdown" style="display:none">
+          <button class="avatar-btn" id="avatarBtn">
+            <svg viewBox="0 0 32 32" fill="none" width="32" height="32"><circle cx="16" cy="16" r="16" fill="var(--accent-soft)"/><circle cx="16" cy="12" r="4" fill="var(--accent)"/><path d="M6 26c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="var(--accent)"/></svg>
+          </button>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <button class="dropdown-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>Projects Journal</button>
+            <button class="dropdown-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Custom Modes</button>
+            <button class="dropdown-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Saved Sessions</button>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" id="signOutBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>Sign Out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile sidebar overlay -->
+  <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay"></div>
+
+  <!-- Body -->
+  <div class="app-body">
+    <!-- Left Sidebar -->
+    <aside class="left-sidebar" id="leftSidebar">
+      <div class="accordion-item open" data-section="foundation">
+        <button class="accordion-trigger" aria-expanded="true" aria-controls="accordion-foundation">
+          <span style="color:var(--accent-blue);font-weight:650">Phase 1</span> · Foundation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        <div class="accordion-content" id="accordion-foundation">
+          <a class="nav-link active" data-page="prd" href="#prd">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>PRD
+          </a>
+          <a class="nav-link" data-page="schema" href="#schema">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>Schema
+          </a>
+          <a class="nav-link" data-page="persona" href="#persona">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Persona Maps
+          </a>
+          <a class="nav-link" data-page="tech-stack" href="#tech-stack">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Tech Stack
+          </a>
+        </div>
+      </div>
+      <div class="accordion-item open" data-section="execution">
+        <button class="accordion-trigger" aria-expanded="true" aria-controls="accordion-execution">
+          <span style="color:var(--accent-blue);font-weight:650">Phase 2</span> · Execution
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        <div class="accordion-content" id="accordion-execution">
+          <a class="nav-link" data-page="auth" href="#auth">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Auth Flow
+          </a>
+          <a class="nav-link" data-page="database" href="#database">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>Database
+          </a>
+          <a class="nav-link" data-page="seo" href="#seo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>SEO
+          </a>
+          <a class="nav-link" data-page="deploy" href="#deploy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 14.9A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.2"/><path d="M12 12v9"/><path d="m8 17 4 4 4-4"/></svg>Deploy
+          </a>
+        </div>
+      </div>
+      <div class="accordion-item open" data-section="ecosystem">
+        <button class="accordion-trigger" aria-expanded="true" aria-controls="accordion-ecosystem">
+          Ecosystem
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        <div class="accordion-content" id="accordion-ecosystem">
+          <a class="nav-link" data-page="prompt-vault" href="#prompt-vault">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Prompt Vault <span class="count">24</span>
+          </a>
+          <a class="nav-link" data-page="ai-guide" href="#ai-guide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg>AI Guide
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Canvas -->
+    <main class="main-canvas" id="mainCanvas">
+      <div class="auth-banner" id="authBanner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Sign in with GitHub to save your Projects Journal & sync progress.</span>
+        <button>Sign In</button>
+      </div>
+
+      <div class="canvas-inner" id="canvasContent">
+      </div>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="right-sidebar" id="rightSidebar">
+      <div>
+        <div class="sidebar-section-title">Quick Links</div>
+        <div class="quick-links">
+          <div class="ql-card" data-page="prd">
+            <span class="ql-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+            <span class="ql-label">PRD</span>
+            <span class="ql-desc">Product requirements</span>
+          </div>
+          <div class="ql-card" data-page="schema">
+            <span class="ql-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>
+            <span class="ql-label">Schema</span>
+            <span class="ql-desc">Data models</span>
+          </div>
+          <div class="ql-card" data-page="auth">
+            <span class="ql-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+            <span class="ql-label">Auth Flow</span>
+            <span class="ql-desc">Authentication design</span>
+          </div>
+          <div class="ql-card" data-page="deploy">
+            <span class="ql-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 14.9A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.2"/><path d="M12 12v9"/><path d="m8 17 4 4 4-4"/></svg></span>
+            <span class="ql-label">Deploy</span>
+            <span class="ql-desc">CI/CD pipeline</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex:1;min-height:0;display:flex;flex-direction:column">
+        <div class="sidebar-section-title">Playbook Assistant</div>
+        <div class="chat-widget">
+          <div class="chat-header">
+            <span class="status-dot"></span>
+            <span>Playbook AI</span>
+          </div>
+          <div class="chat-messages" id="chatMessages">
+            <div class="chat-msg bot">Hi. I can answer questions about the Playbook. Try asking about auth, schema, or deployment.</div>
+          </div>
+          <div class="chat-input-wrap">
+            <input class="chat-input" id="chatInput" placeholder="Ask about the Playbook..." type="text">
+            <button class="chat-send" id="chatSend" aria-label="Send">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- Search overlay -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Search pages">
+  <div class="search-backdrop" id="searchBackdrop"></div>
+  <div class="search-modal">
+    <div class="search-input-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input class="search-input" id="searchInput" placeholder="Search pages..." type="text" autocomplete="off">
+      <button class="search-input-clear" id="searchClear">x</button>
+    </div>
+    <div class="search-results" id="searchResults" role="listbox"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const PAGES = {
+    prd: {
+      title: 'Product Requirements Document',
+      meta: 'v1.3 · Last updated 3 days ago',
+      tags: ['draft: Phase 1', 'updated: Jun 2026'],
+      body: `
+        <div class="prose">
+          <h2>Overview</h2>
+          <p>Kontxt is a developer-first architecture playbook — a living document hub that combines structured documentation, AI-assisted navigation, and a persistent project memory layer. Unlike standard wikis, Kontxt organizes knowledge by <strong>execution phase</strong> and adapts its content density to what the reader is building.</p>
+
+          <h2>Core Principles</h2>
+          <ul>
+            <li><strong>Provide value first</strong> — never block reading behind a login wall</li>
+            <li><strong>Phase-aware organisation</strong> — foundation docs before execution, execution before ecosystem</li>
+            <li><strong>State persistence</strong> — localStorage for guests, cloud sync for authenticated users</li>
+          </ul>
+
+          <h2>Feature Scope</h2>
+          <div class="feature-card">
+            <h4>Playbook Engine</h4>
+            <p>Multi-phase documentation with collapsible taxonomy, inline checklists, and copy-to-clipboard code blocks.</p>
+          </div>
+          <div class="feature-card">
+            <h4>Prompt Vault</h4>
+            <p>24 curated AI prompts organised by domain. One-click copy, community templates, and custom prompt chaining.</p>
+          </div>
+          <div class="feature-card">
+            <h4>Projects Journal</h4>
+            <p>Persistent scratchpad that saves checklists, mode configurations, and Universal Links per project. Synced to Supabase on sign-in.</p>
+          </div>
+
+          <h2>Key Metrics</h2>
+          <p>Target: <strong>zero friction</strong> between "I want to read" and "I'm reading." The Playbook loads in under 800ms on a cold start with all 3 panes rendered simultaneously.</p>
+        </div>
+      `
+    },
+    schema: {
+      title: 'Data Schema',
+      meta: 'v2.1 · Last updated 1 week ago',
+      tags: ['draft: Phase 1', 'updated: Jun 2026'],
+      body: `
+        <div class="prose">
+          <h2>Core Tables</h2>
+          <p>All tables use <code>uuid</code> primary keys and <code>created_at</code> / <code>updated_at</code> timestamps. Supabase Row Level Security (RLS) is enabled on every user-facing table.</p>
+
+          <pre><div class="code-header"><span>users.sql</span><button class="copy-btn">Copy</button></div><code>CREATE TABLE users (
+  id          uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  email       text UNIQUE NOT NULL,
+  github_id   text UNIQUE,
+  avatar_url  text,
+  display_name text,
+  created_at  timestamptz DEFAULT now(),
+  updated_at  timestamptz DEFAULT now()
+);</code></pre>
+
+          <pre><div class="code-header"><span>projects.sql</span><button class="copy-btn">Copy</button></div><code>CREATE TABLE projects (
+  id          uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id     uuid REFERENCES users(id) ON DELETE CASCADE,
+  name        text NOT NULL,
+  mode        text DEFAULT 'personal',
+  config      jsonb DEFAULT '{}',
+  created_at  timestamptz DEFAULT now()
+);</code></pre>
+
+          <h2>RLS Policies</h2>
+          <ul>
+            <li><code>users</code> — users can read/update their own row only</li>
+            <li><code>projects</code> — users can CRUD their own projects; anonymous reads blocked</li>
+            <li><code>prompts</code> — public read, authenticated users can create/update own</li>
+          </ul>
+        </div>
+      `
+    },
+    persona: {
+      title: 'Persona Maps',
+      meta: 'v1.0 · Initial draft',
+      tags: ['draft: Phase 1'],
+      body: `
+        <div class="prose">
+          <h2>The Architect</h2>
+          <p><strong>Role:</strong> Senior engineer or tech lead defining the system architecture. They read the Playbook to align their team on decisions and to reference schemas during implementation.</p>
+          <blockquote>"I need one source of truth for our architecture decisions that doesn't require a meeting to update."</blockquote>
+          <p><strong>Needs:</strong> Structured docs, versioned updates, searchable taxonomy, copy-paste code blocks.</p>
+
+          <h2>The Builder</h2>
+          <p><strong>Role:</strong> Frontend or backend developer implementing against the spec. They use Kontxt as a living reference while writing code.</p>
+          <blockquote>"If the schema changes, I want to see it in the Playbook before I hit a broken migration."</blockquote>
+          <p><strong>Needs:</strong> Up-to-date tables, quick link access, AI assistant for lookup questions.</p>
+
+          <h2>The Evaluator</h2>
+          <p><strong>Role:</strong> CTO, investor, or internal reviewer evaluating the project's technical foundation. They skim the Playbook for decisions rather than depth.</p>
+          <p><strong>Needs:</strong> Clean PRD, tech stack overview, deployment strategy.</p>
+        </div>
+      `
+    },
+    'tech-stack': {
+      title: 'Tech Stack',
+      meta: 'v1.2 · Last updated 5 days ago',
+      tags: ['draft: Phase 1', 'updated: Jun 2026'],
+      body: `
+        <div class="prose">
+          <h2>Frontend</h2>
+          <ul>
+            <li><strong>Framework:</strong> Next.js 15 (App Router)</li>
+            <li><strong>UI:</strong> Tailwind CSS 4 + shadcn/ui component library</li>
+            <li><strong>Typography:</strong> Tailwind Typography (<code>@tailwindcss/typography</code>)</li>
+            <li><strong>State:</strong> React Context + localStorage for persistence</li>
+          </ul>
+
+          <h2>Backend & Auth</h2>
+          <ul>
+            <li><strong>Auth:</strong> Supabase Auth (OAuth via GitHub & Google)</li>
+            <li><strong>Database:</strong> Supabase PostgreSQL with RLS</li>
+            <li><strong>Storage:</strong> Supabase Storage for user assets</li>
+          </ul>
+
+          <h2>AI Layer</h2>
+          <ul>
+            <li><strong>RAG Pipeline:</strong> pgvector embeddings + OpenAI text-embedding-3-small</li>
+            <li><strong>Chat:</strong> Streaming completions via Supabase Edge Functions</li>
+            <li><strong>Context Window:</strong> Top-5 document chunks per query</li>
+          </ul>
+        </div>
+      `
+    },
+    auth: {
+      title: 'Auth Flow',
+      meta: 'v1.1 · Last updated 2 days ago',
+      tags: ['draft: Phase 2', 'updated: Jun 2026'],
+      body: `
+        <div class="prose">
+          <h2>Philosophy: Provide Value First</h2>
+          <p>Kontxt never blocks reading behind authentication. Guests have full access to the Playbook, Quick Links, and Prompt Vault. Auth only gates <strong>persistence</strong> — saving progress, creating projects, and cloud sync.</p>
+
+          <h2>State 1: Guest</h2>
+          <ul>
+            <li>Full read access to all public docs</li>
+            <li>localStorage-based progress tracking</li>
+            <li>Subtle banner prompting sign-in on premium features</li>
+          </ul>
+          <div class="feature-card">
+            <h4>Key Behavior</h4>
+            <p>A non-intrusive banner appears only when the user attempts a premium action: "Sign in with GitHub to save your Projects Journal."</p>
+          </div>
+
+          <h2>State 2: Architect (Authenticated)</h2>
+          <ul>
+            <li>Sign In button morphs into avatar dropdown</li>
+            <li>Unlocks: Projects Journal, Custom Universal Links, custom Modes</li>
+            <li>Cloud-synced checklists and reading progress</li>
+          </ul>
+
+          <h2>OAuth Flow</h2>
+          <pre><div class="code-header"><span>auth-flow.ts</span><button class="copy-btn">Copy</button></div><code>const { data, error } = await supabase.auth.signInWithOAuth({
+  provider: 'github',
+  options: { redirectTo: 'https://kontxt.dev/callback' }
+});</code></pre>
+
+          <h2>Session Handling</h2>
+          <ul>
+            <li>Access token: 1 hour expiry, refreshed via refresh token</li>
+            <li>Session persisted in localStorage for page reloads</li>
+            <li>On expiry: silent refresh; if refresh fails, degrade to guest state</li>
+          </ul>
+        </div>
+      `
+    },
+    database: {
+      title: 'Database Architecture',
+      meta: 'v1.0 · Initial draft',
+      tags: ['draft: Phase 2'],
+      body: `
+        <div class="prose">
+          <h2>Overview</h2>
+          <p>Supabase PostgreSQL with Row-Level Security. Two schemas: <code>public</code> for user data and <code>analytics</code> for usage metrics.</p>
+
+          <h2>Indexes</h2>
+          <pre><div class="code-header"><span>indexes.sql</span><button class="copy-btn">Copy</button></div><code>CREATE INDEX idx_projects_user_id ON projects(user_id);
+CREATE INDEX idx_prompts_embedding ON prompts
+  USING ivfflat (embedding vector_cosine_ops)
+  WITH (lists = 100);</code></pre>
+
+          <h2>Migrations</h2>
+          <p>All migrations use Supabase CLI with <code>supabase migration new</code>. Local <code>supabase start</code> for development, linked to project for CI/CD.</p>
+
+          <ul class="checklist">
+            <li class="checked">Users table with RLS</li>
+            <li class="checked">Projects table with cascade delete</li>
+            <li class="">Analytics events table</li>
+            <li class="">Prompt embeddings index</li>
+          </ul>
+        </div>
+      `
+    },
+    seo: {
+      title: 'SEO Strategy',
+      meta: 'v0.5 · Draft',
+      tags: ['draft: Phase 2'],
+      body: `
+        <div class="prose">
+          <h2>Approach</h2>
+          <p>Kontxt targets technical search queries: "Next.js architecture template", "Supabase RLS best practices", "developer documentation tool." Organic discovery through technical content rather than marketing.</p>
+
+          <h2>Technical SEO</h2>
+          <ul>
+            <li>Server-side rendered Playbook pages via Next.js App Router</li>
+            <li>Dynamic OG images for each doc page</li>
+            <li>Structured JSON-LD for SoftwareApplication schema</li>
+            <li>Sitemap auto-generated from doc structure</li>
+          </ul>
+
+          <h2>Content Strategy</h2>
+          <p>Every Playbook page doubles as a landing page for its topic. Schema pages rank for "database schema template", PRD pages rank for "product requirements doc example."</p>
+        </div>
+      `
+    },
+    deploy: {
+      title: 'Deployment',
+      meta: 'v1.0 · Initial draft',
+      tags: ['draft: Phase 2'],
+      body: `
+        <div class="prose">
+          <h2>CI/CD Pipeline</h2>
+          <p>GitHub Actions → Vercel (web) + Supabase (DB + Edge Functions). Preview deployments on every PR.</p>
+
+          <pre><div class="code-header"><span>.github/workflows/deploy.yml</span><button class="copy-btn">Copy</button></div><code>name: Deploy
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci && npm run build
+      - run: npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }}</code></pre>
+
+          <h2>Environments</h2>
+          <ul>
+            <li><strong>Production:</strong> Vercel production branch, Supabase production project</li>
+            <li><strong>Preview:</strong> Automatic per-PR Vercel preview + Supabase branch</li>
+            <li><strong>Local:</strong> <code>supabase start</code> + <code>npm run dev</code></li>
+          </ul>
+
+          <h2>Monitoring</h2>
+          <ul>
+            <li>Vercel Analytics for frontend performance</li>
+            <li>Supabase Logs for DB queries and auth events</li>
+            <li>Sentry for error tracking (DSN configured via env)</li>
+          </ul>
+        </div>
+      `
+    },
+    'prompt-vault': {
+      title: 'Prompt Vault',
+      meta: '24 prompts · 3 categories',
+      tags: ['ecosystem'],
+      body: `
+        <div class="prose">
+          <h2>Curated Prompts</h2>
+          <p>AI prompts optimised for architecture, code generation, and documentation tasks.</p>
+
+          <div class="feature-card">
+            <h4>Architecture Review</h4>
+            <p>"Review this system design for scalability, security, and maintainability. Focus on database choices, caching strategy, and API boundaries."</p>
+          </div>
+          <div class="feature-card">
+            <h4>Schema Generation</h4>
+            <p>"Generate a PostgreSQL schema for a multi-tenant SaaS app with users, organizations, roles, and audit logging. Include RLS policies."</p>
+          </div>
+          <div class="feature-card">
+            <h4>Doc Writer</h4>
+            <p>"Write a PRD for a developer tool that combines documentation with AI-assisted project memory. Target audience: senior engineers."</p>
+          </div>
+
+          <p style="margin-top:20px;color:var(--muted);font-size:13px">Showing 3 of 24 prompts. <a href="#" onclick="return false">Browse the full vault →</a></p>
+        </div>
+      `
+    },
+    'ai-guide': {
+      title: 'AI Guide',
+      meta: 'v0.3 · Draft',
+      tags: ['ecosystem'],
+      body: `
+        <div class="prose">
+          <h2>How the AI Works</h2>
+          <p>The Playbook Assistant uses a RAG pipeline:</p>
+          <ol>
+            <li>User asks a question in the chat widget</li>
+            <li>Question is embedded with <code>text-embedding-3-small</code></li>
+            <li>Top-5 matching chunks from the Playbook are retrieved via pgvector cosine similarity</li>
+            <li>Context + question are sent to GPT-4o for a grounded answer</li>
+          </ol>
+
+          <h2>Capabilities</h2>
+          <ul>
+            <li>Answer questions about any Playbook page</li>
+            <li>Explain schema relationships</li>
+            <li>Summarise PRD decisions</li>
+            <li>Guide through deployment steps</li>
+          </ul>
+
+          <h2>Limitations</h2>
+          <ul>
+            <li>Only answers from indexed Playbook content — no general knowledge</li>
+            <li>Does not have access to your project's specific codebase</li>
+            <li>Session context is not persisted between conversations</li>
+          </ul>
+        </div>
+      `
+    }
+  };
+
+  const PAGE_ICONS = {
+    prd: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
+    schema: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/></svg>',
+    persona: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="9" cy="7" r="4"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/></svg>',
+    'tech-stack': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>',
+    auth: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>',
+    database: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/></svg>',
+    seo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>',
+    deploy: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 14.9A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.2"/><path d="M12 12v9"/></svg>',
+    'prompt-vault': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
+    'ai-guide': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg>'
+  };
+
+  const PAGE_DESCRIPTIONS = {
+    prd: 'Product requirements and feature scope',
+    schema: 'Database schema and RLS policies',
+    persona: 'User persona maps',
+    'tech-stack': 'Frontend, backend, and AI layer',
+    auth: 'OAuth flow and session handling',
+    database: 'Tables, indexes, and migrations',
+    seo: 'Technical SEO and content strategy',
+    deploy: 'CI/CD pipeline and environments',
+    'prompt-vault': 'Curated AI prompts',
+    'ai-guide': 'RAG pipeline and capabilities'
+  };
+
+  const canvasContent = document.getElementById('canvasContent');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const qlCards = document.querySelectorAll('.ql-card');
+  const authBanner = document.getElementById('authBanner');
+  const signInBtn = document.getElementById('signInBtn');
+  const avatarDropdown = document.getElementById('avatarDropdown');
+  const avatarBtn = document.getElementById('avatarBtn');
+  const dropdownMenu = document.getElementById('dropdownMenu');
+  const signOutBtn = document.getElementById('signOutBtn');
+  const themeToggle = document.getElementById('themeToggle');
+  const sunIcon = document.querySelector('.sun-icon');
+  const moonIcon = document.querySelector('.moon-icon');
+  const modeBtns = document.querySelectorAll('.mode-btn');
+  const appBody = document.querySelector('.app-body');
+  const accordionTriggers = document.querySelectorAll('.accordion-trigger');
+  const authBannerBtn = authBanner.querySelector('button');
+
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchBackdrop = document.getElementById('searchBackdrop');
+  const searchInput = document.getElementById('searchInput');
+  const searchResults = document.getElementById('searchResults');
+  const searchClear = document.getElementById('searchClear');
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const leftSidebar = document.getElementById('leftSidebar');
+  const mobileSidebarOverlay = document.getElementById('mobileSidebarOverlay');
+
+  const chatInput = document.getElementById('chatInput');
+  const chatSend = document.getElementById('chatSend');
+  const chatMessages = document.getElementById('chatMessages');
+
+  let currentPage = 'prd';
+  let searchHighlightIdx = -1;
+
+  function renderPage(pageId) {
+    const page = PAGES[pageId];
+    if (!page) return;
+    currentPage = pageId;
+
+    var content = [
+      '<h1 class="page-title">', page.title, '</h1>',
+      '<div class="page-meta"><span>', page.meta, '</span>',
+      page.tags.map(function(t) {
+        return '<span class="tag ' + (t.includes('updated') ? 'updated' : 'draft') + '">' + t + '</span>';
+      }).join(''),
+      '</div>',
+      page.body
+    ].join('');
+
+    canvasContent.style.animation = 'none';
+    canvasContent.offsetHeight;
+    canvasContent.style.animation = '';
+    canvasContent.innerHTML = content;
+    document.getElementById('mainCanvas').scrollTop = 0;
+
+    navLinks.forEach(function(link) {
+      link.classList.toggle('active', link.dataset.page === pageId);
+    });
+    qlCards.forEach(function(card) {
+      card.style.borderColor = card.dataset.page === pageId ? 'var(--accent-blue-soft)' : 'var(--border)';
+    });
+
+    document.querySelectorAll('.copy-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        copyCode(this);
+      });
+    });
+
+    document.querySelectorAll('.checklist li').forEach(function(item) {
+      item.addEventListener('click', function() {
+        this.classList.toggle('checked');
+      });
+    });
+
+    if (window.innerWidth <= 768) {
+      closeMobileSidebar();
+    }
+  }
+
+  function copyCode(btn) {
+    var pre = btn.closest('pre');
+    var code = pre ? pre.querySelector('code') : null;
+    if (!code) return;
+    var text = code.textContent.trim();
+    navigator.clipboard.writeText(text).then(function() {
+      var orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(function() { btn.textContent = orig; }, 1500);
+    }).catch(function() {
+      var orig = btn.textContent;
+      btn.textContent = 'Failed';
+      setTimeout(function() { btn.textContent = orig; }, 2000);
+    });
+  }
+
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var page = this.dataset.page;
+      if (page && PAGES[page]) renderPage(page);
+    });
+  });
+
+  qlCards.forEach(function(card) {
+    card.addEventListener('click', function() {
+      var page = this.dataset.page;
+      if (page && PAGES[page]) renderPage(page);
+    });
+  });
+
+  accordionTriggers.forEach(function(trigger) {
+    trigger.addEventListener('click', function() {
+      var item = this.parentElement;
+      var isOpen = item.classList.toggle('open');
+      this.setAttribute('aria-expanded', isOpen);
+    });
+  });
+
+  let isAuthenticated = false;
+
+  function setAuthState(authd) {
+    isAuthenticated = authd;
+    signInBtn.style.display = authd ? 'none' : 'flex';
+    avatarDropdown.style.display = authd ? 'block' : 'none';
+    dropdownMenu.classList.remove('open');
+    if (authd) {
+      authBanner.classList.remove('visible');
+    }
+  }
+
+  signInBtn.addEventListener('click', function() {
+    setAuthState(true);
+  });
+
+  authBannerBtn.addEventListener('click', function() {
+    signInBtn.click();
+  });
+
+  signOutBtn.addEventListener('click', function() {
+    setAuthState(false);
+    dropdownMenu.classList.remove('open');
+  });
+
+  avatarBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    dropdownMenu.classList.toggle('open');
+  });
+
+  document.addEventListener('click', function() {
+    dropdownMenu.classList.remove('open');
+  });
+
+  var html = document.documentElement;
+  var theme = localStorage.getItem('kontxt-theme') || 'light';
+
+  function setTheme(t) {
+    theme = t;
+    html.setAttribute('data-theme', t);
+    localStorage.setItem('kontxt-theme', t);
+    themeToggle.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
+    if (t === 'dark') {
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = 'block';
+    } else {
+      sunIcon.style.display = 'block';
+      moonIcon.style.display = 'none';
+    }
+  }
+  setTheme(theme);
+
+  themeToggle.addEventListener('click', function() {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  });
+
+  modeBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      modeBtns.forEach(function(b) {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      this.classList.add('active');
+      this.setAttribute('aria-selected', 'true');
+      appBody.classList.add('switching');
+      setTimeout(function() {
+        appBody.classList.remove('switching');
+      }, 300);
+    });
+  });
+
+  /* Search */
+  var searchFocusable = null;
+
+  function openSearch() {
+    searchOverlay.classList.add('open');
+    searchHighlightIdx = -1;
+    searchInput.value = '';
+    searchInput.focus();
+    searchClear.classList.remove('visible');
+    filterSearch('');
+    searchFocusable = searchOverlay.querySelectorAll('input, button, [tabindex]:not([tabindex="-1"])');
+  }
+
+  function closeSearch() {
+    searchOverlay.classList.remove('open');
+    searchHighlightIdx = -1;
+    searchFocusable = null;
+    document.getElementById('searchBtn').focus();
+  }
+
+  function filterSearch(query) {
+    var q = query.toLowerCase().trim();
+    var pageIds = Object.keys(PAGES);
+    var results = [];
+
+    if (q.length === 0) {
+      pageIds.forEach(function(id) {
+        results.push({ id: id, label: PAGES[id].title, desc: PAGE_DESCRIPTIONS[id] });
+      });
+    } else {
+      pageIds.forEach(function(id) {
+        var title = PAGES[id].title.toLowerCase();
+        var desc = PAGE_DESCRIPTIONS[id].toLowerCase();
+        if (title.includes(q) || desc.includes(q) || id.includes(q)) {
+          results.push({ id: id, label: PAGES[id].title, desc: PAGE_DESCRIPTIONS[id] });
+        }
+      });
+    }
+
+    searchClear.classList.toggle('visible', q.length > 0);
+    searchHighlightIdx = -1;
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<div class="search-no-results">No pages match "' + query + '"</div>';
+      return;
+    }
+
+    var html = '';
+    results.forEach(function(r, i) {
+      html += '<div class="search-result-item" data-page="' + r.id + '" data-idx="' + i + '" role="option" aria-selected="false" tabindex="-1">'
+        + PAGE_ICONS[r.id]
+        + '<div><div class="sri-label">' + r.label + '</div><div class="sri-desc">' + r.desc + '</div></div>'
+        + '</div>';
+    });
+    searchResults.innerHTML = html;
+    searchResults.setAttribute('role', 'listbox');
+
+    searchResults.querySelectorAll('.search-result-item').forEach(function(item) {
+      item.addEventListener('click', function() {
+        var page = this.dataset.page;
+        if (page && PAGES[page]) {
+          closeSearch();
+          renderPage(page);
+        }
+      });
+    });
+  }
+
+  searchInput.addEventListener('input', function() {
+    filterSearch(this.value);
+  });
+
+  function syncSearchAria() {
+    var items = searchResults.querySelectorAll('.search-result-item');
+    items.forEach(function(i, idx) {
+      i.setAttribute('aria-selected', idx === searchHighlightIdx ? 'true' : 'false');
+    });
+  }
+
+  searchInput.addEventListener('keydown', function(e) {
+    var items = searchResults.querySelectorAll('.search-result-item');
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (items.length === 0) return;
+      items.forEach(function(i) { i.classList.remove('highlighted'); });
+      searchHighlightIdx = searchHighlightIdx < 0 ? 0 : Math.min(searchHighlightIdx + 1, items.length - 1);
+      items[searchHighlightIdx].classList.add('highlighted');
+      items[searchHighlightIdx].scrollIntoView({ block: 'nearest' });
+      syncSearchAria();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (items.length === 0) return;
+      items.forEach(function(i) { i.classList.remove('highlighted'); });
+      searchHighlightIdx = searchHighlightIdx <= 0 ? items.length - 1 : Math.max(searchHighlightIdx - 1, 0);
+      items[searchHighlightIdx].classList.add('highlighted');
+      items[searchHighlightIdx].scrollIntoView({ block: 'nearest' });
+      syncSearchAria();
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (searchHighlightIdx >= 0 && items[searchHighlightIdx]) {
+        var page = items[searchHighlightIdx].dataset.page;
+        if (page && PAGES[page]) {
+          closeSearch();
+          renderPage(page);
+        }
+      } else if (items.length > 0) {
+        var page = items[0].dataset.page;
+        if (page && PAGES[page]) {
+          closeSearch();
+          renderPage(page);
+        }
+      }
+    } else if (e.key === 'Escape') {
+      closeSearch();
+    } else if (e.key === 'Tab' && searchFocusable) {
+      e.preventDefault();
+    }
+  });
+
+  searchClear.addEventListener('click', function() {
+    searchInput.value = '';
+    filterSearch('');
+    searchInput.focus();
+  });
+
+  searchBackdrop.addEventListener('click', function() {
+    closeSearch();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      if (searchOverlay.classList.contains('open')) {
+        closeSearch();
+      } else {
+        openSearch();
+      }
+    }
+    if (e.key === 'Escape' && searchOverlay.classList.contains('open')) {
+      closeSearch();
+    }
+  });
+
+  /* Mobile sidebar */
+  function openMobileSidebar() {
+    leftSidebar.classList.add('open');
+    mobileSidebarOverlay.classList.add('open');
+  }
+
+  function closeMobileSidebar() {
+    leftSidebar.classList.remove('open');
+    mobileSidebarOverlay.classList.remove('open');
+  }
+
+  hamburgerBtn.addEventListener('click', function() {
+    if (leftSidebar.classList.contains('open')) {
+      closeMobileSidebar();
+    } else {
+      openMobileSidebar();
+    }
+  });
+
+  mobileSidebarOverlay.addEventListener('click', function() {
+    closeMobileSidebar();
+  });
+
+  leftSidebar.querySelectorAll('.nav-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 768) closeMobileSidebar();
+    });
+  });
+
+  /* Chat */
+  var BOT_RESPONSES = {
+    auth: 'The auth flow uses Supabase OAuth with GitHub and Google. Guests have full read access; signing in unlocks Projects Journal, custom Modes, and cloud sync.',
+    schema: 'The schema uses PostgreSQL with uuid primary keys and RLS policies. Key tables: users, projects, prompts. Each table has created_at/updated_at timestamps.',
+    deploy: 'Deployment is handled via GitHub Actions to Vercel + Supabase. Preview deployments on every PR. Production deploys on push to main.',
+    prd: 'The PRD describes Kontxt as a developer-first architecture playbook with phase-aware organization, frictionless auth, and an AI assistant layer.',
+    default: 'I can help you navigate the Playbook. Try asking about auth, schema, deployment, or the PRD.'
+  };
+
+  function addChatMessage(text, isUser, isError) {
+    var msg = document.createElement('div');
+    var cls = 'chat-msg';
+    if (isUser) cls += ' user';
+    else if (isError) cls += ' error';
+    else cls += ' bot';
+    msg.className = cls;
+    msg.textContent = text;
+    chatMessages.appendChild(msg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  var typingEl = null;
+  function showTyping() {
+    if (!typingEl) {
+      typingEl = document.createElement('div');
+      typingEl.className = 'typing-dots';
+      typingEl.innerHTML = '<span></span><span></span><span></span>';
+    }
+    chatMessages.appendChild(typingEl);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+  function hideTyping() {
+    if (typingEl && typingEl.parentNode) {
+      typingEl.parentNode.removeChild(typingEl);
+    }
+  }
+
+  function handleChat() {
+    var text = chatInput.value.trim();
+    if (!text) return;
+    addChatMessage(text, true);
+    chatInput.value = '';
+    chatSend.disabled = true;
+    showTyping();
+
+    var lower = text.toLowerCase();
+    var reply = BOT_RESPONSES.default;
+    for (var key in BOT_RESPONSES) {
+      if (key !== 'default' && lower.includes(key)) {
+        reply = BOT_RESPONSES[key];
+        break;
+      }
+    }
+
+    setTimeout(function() {
+      hideTyping();
+      addChatMessage(reply, false, false);
+      chatSend.disabled = false;
+    }, 600);
+  }
+
+  chatSend.addEventListener('click', handleChat);
+  chatInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') handleChat();
+  });
+
+  renderPage('prd');
+
+  setTimeout(function() {
+    if (!isAuthenticated) {
+      authBanner.classList.add('visible');
+    }
+  }, 4000);
+})();
+</script>
+</body>
+</html>

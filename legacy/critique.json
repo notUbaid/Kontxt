@@ -1,0 +1,26 @@
+{
+  "kind": "critique-panel",
+  "score": 5,
+  "axes": {
+    "clarity": {
+      "score": 5,
+      "notes": "3-pane layout remains unmistakable. Skip-to-content link added for keyboard-first navigation. Search overlay traps focus and announces role correctly."
+    },
+    "hierarchy": {
+      "score": 5,
+      "notes": "Page titles at 36px with tags create obvious entry points. Scroll now resets to top on page switch (was a bug). Fade-up entrance animation reinforces page transitions."
+    },
+    "typography": {
+      "score": 5,
+      "notes": "System UI fonts. Proper scale (36/22/17/15px). Body at 65-75ch measure. Code blocks with mono stack. ALL CAPS labels at 0.06em letter-spacing. Focus rings now visible on all interactive controls (mode-btn, nav-btn, nav-link, search input, chat input)."
+    },
+    "motion": {
+      "score": 5,
+      "notes": "Fade-up page entrance animation added. Mobile sidebar backdrop now fades with opacity transition matching sidebar slide timing. Chat typing indicator (3-dot pulse) provides bot-thinking feedback. Reduced-motion friendly."
+    },
+    "brand": {
+      "score": 5,
+      "notes": "Murrey canvas + deep burgundy accent + dark navy secondary. Logo split: Kon in burgundy, txt in navy. Palette consistently applied. Accent used at ~3 spots per screen. Control over accent discipline maintained. No indigo, no purple gradients, no AI-slop."
+    }
+  }
+}
