@@ -1,6 +1,6 @@
 import { 
   FileText, Database, Settings, Globe, Box, CheckSquare, Shield, Rocket, 
-  Lock, BookOpen, Layers, Server, Cloud, Cpu, Activity, Zap, Search, Key, ShieldAlert
+  BookOpen, Layers, Server, Cloud, Cpu, Activity, Zap, Search, Key, ShieldAlert
 } from 'lucide-react';
 import type { Mode } from '../components/TopNav';
 

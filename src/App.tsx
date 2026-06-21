@@ -93,7 +93,7 @@ function App() {
       />
       <div className="flex-1 flex max-w-[1536px] mx-auto w-full relative">
         <LeftSidebar activeMode={activeProject.mode} activePage={activePage} setActivePage={setActivePage} />
-        <MainCanvas activePage={activePage} activeMode={activeProject.mode} />
+        <MainCanvas activePage={activePage} activeMode={activeProject.mode} projectId={activeProjectId} />
         <RightSidebar activePage={activePage} activeMode={activeProject.mode} />
       </div>
     </div>
