@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Onboarding } from '../components/Onboarding';
 import type { Project, AppType } from '../App';
