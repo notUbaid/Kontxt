@@ -71,6 +71,16 @@ const globalTopicLinks: Record<string, QuickLink[]> = {
     { name: 'Amazon Working Backwards', url: 'https://www.workingbackwards.com/' },
     { name: 'Template: Coda PR/FAQ', url: 'https://coda.io/@coda/amazon-pr-faq' },
     { name: 'Tool: FigJam (Brainstorming)', url: 'https://www.figma.com/figjam/' }
+  ],
+  'valueproposition': [
+    { name: 'Strategyzer Canvas', url: 'https://www.strategyzer.com/library/the-value-proposition-canvas' },
+    { name: 'Tool: Miro Template', url: 'https://miro.com/templates/value-proposition-canvas/' },
+    { name: 'First Round: Value Prop', url: 'https://firstround.com/review/this-is-how-you-write-a-value-proposition/' }
+  ],
+  'elevatorpitch': [
+    { name: 'YC: How to Pitch', url: 'https://www.ycombinator.com/library/6p-how-to-pitch-your-startup' },
+    { name: 'Video: Michael Seibel', url: 'https://www.youtube.com/watch?v=11h2q_AOSpY' },
+    { name: 'Geoffrey Moore Framework', url: 'https://firstround.com/review/the-positioning-framework-that-has-helped-founders-cut-through-the-noise/' }
   ]
 };
 

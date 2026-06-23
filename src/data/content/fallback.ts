@@ -699,6 +699,191 @@ Write your official 1-paragraph Solution Statement (Press Release style) below.
 \`\`\`
 `,
 
+  'valueproposition': `# Value Proposition
+
+**🕒 Estimated Time:** 20-30 min
+
+---
+
+## Overview
+A Value Proposition is not a marketing slogan (like Nike's "Just Do It"). It is a clear, concise statement that explains exactly what measurable benefit your product delivers, and why the customer should buy it from you instead of a competitor. We use the **Value Proposition Canvas** by Strategyzer to guarantee problem-solution fit.
+
+---
+
+## Think First
+Map your solution against the customer's actual reality.
+
+**Pain Relievers** (How exactly does your product eliminate or minimize the customer's "Hair on Fire" pain?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Gain Creators** (What unexpected, magical outcomes does your product create that the customer didn't even know they wanted?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The "So What?" Test** (If you list your best feature to a customer, and they rudely reply "So what?", what is your answer?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Reality Check: The Differentiation Axis**
+- [ ] My product is 10x Faster.
+- [ ] My product is 10x Cheaper.
+- [ ] My product provides a 10x Better Experience.
+- [ ] (Warning: You cannot choose all three. Pick one).
+
+---
+
+## Key Decisions
+- **Features vs. Benefits:** "256-bit AES Encryption" is a feature. "You will never get sued for a data breach" is a benefit. Your value proposition must only contain benefits.
+- **The Core Differentiator:** If your value proposition sounds identical to a competitor's, you do not have a value proposition.
+
+---
+
+## Common Mistakes
+- **Being a "Vitamin":** Selling nice-to-have improvements rather than "Painkiller" solutions that stop active bleeding.
+- **Vague Promises:** Using phrases like "Increases productivity" or "Empowers teams." Use hard numbers and specific outcomes.
+
+---
+
+## AI Prompt
+Use this prompt to build out a complete Value Proposition Canvas.
+
+\`\`\`prompt
+Act as a Product Strategist specializing in the Strategyzer Value Proposition Canvas.
+My target customer is: [INSERT ICP].
+My solution is: [INSERT SOLUTION STATEMENT].
+
+Generate a Value Proposition Canvas:
+1. Customer Profile: List 3 functional Jobs, 3 extreme Pains, and 3 desired Gains.
+2. Value Map: List the specific Products/Services, 3 Pain Relievers, and 3 Gain Creators.
+3. Finally, synthesize this into a single, punchy 2-sentence Value Proposition statement.
+\`\`\`
+
+---
+
+## What Good Looks Like
+
+**A strong Value Proposition:**
+✓ Specific and measurable (e.g., "Cuts reporting time by 80%").
+✓ Passes the "So What?" test instantly.
+✓ Clearly differentiated from the status quo.
+
+**A weak Value Proposition:**
+✗ Loaded with adjectives ("The most innovative, seamless, scalable platform").
+✗ Focuses on the company, not the customer.
+✗ Completely interchangeable with a competitor's website copy.
+
+---
+
+## Validation Checklist
+- [ ] Is there exactly ONE primary benefit highlighted?
+- [ ] Have you removed all technical jargon?
+- [ ] If a customer reads this, do they instantly know if it's for them or not?
+
+---
+
+## Deliverable
+Write your official 1-2 sentence Value Proposition below.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+
+  'elevatorpitch': `# Elevator Pitch
+
+**🕒 Estimated Time:** 15-20 min
+
+---
+
+## Overview
+The goal of an elevator pitch is not to explain every feature of your business. The goal is to be interesting enough that the listener says, "Tell me more." We use Geoffrey Moore's framework to *think* about our strategy, and the Y Combinator framework to actually *speak* to humans.
+
+---
+
+## Think First
+Use Geoffrey Moore's "Crossing the Chasm" mad-libs format to clarify your internal strategy.
+
+**For** (target customer) **who are dissatisfied with** (current workaround), **our product is a** (product category) **that provides** (key benefit). **Unlike** (the alternative), **we** (primary differentiator).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The YC "XYZ" Format** (We are doing [X] for [Y] that does [Z]).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The "Mom Test"** (Explain it in one sentence. If your mom wouldn't understand it, rewrite it).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Reality Check: The "Jargon" Filter**
+- [ ] I removed the word "AI-powered" (unless it is literally an AI infrastructure company).
+- [ ] I removed the word "Platform".
+- [ ] I removed the word "Synergy" or "Empower".
+- [ ] I can say it out loud in less than 10 seconds without running out of breath.
+
+---
+
+## Key Decisions
+- **Clarity over Comprehensiveness:** When someone asks what Airbnb does, they don't say "A two-sided marketplace utilizing dynamic pricing algorithms." They say, "We help you rent out your spare bedroom."
+- **The "Why Now?":** Investors and smart hires will ask why this didn't exist 5 years ago. Is there a new technology? A regulatory shift? A cultural change?
+
+---
+
+## Common Mistakes
+- **Pitching the Tech Stack:** Nobody cares that you are using Rust and WebSockets. They care about what the product does.
+- **Explaining the "How" before the "What":** Say what the product is *before* you explain how it works under the hood.
+
+---
+
+## AI Prompt
+Use this prompt to distill your strategy into a YC-style pitch.
+
+\`\`\`prompt
+Act as Michael Seibel from Y Combinator. You are ruthless about clarity and hate jargon.
+My target customer is: [INSERT ICP].
+My solution is: [INSERT SOLUTION STATEMENT].
+My differentiator is: [INSERT KEY DIFFERENTIATOR].
+
+Generate 3 different variations of a 10-second elevator pitch using the YC framework. 
+They must be written in plain English, completely devoid of buzzwords, and immediately explain exactly what the product actually does.
+\`\`\`
+
+---
+
+## What Good Looks Like
+
+**A strong Elevator Pitch:**
+✓ "We are Stripe. We provide an API that lets developers accept credit cards on the internet."
+✓ Conversational, confident, and simple.
+
+**A weak Elevator Pitch:**
+✗ "We are a B2B SaaS synergistic platform that leverages machine learning to optimize enterprise workflows."
+✗ Defensive, complex, and full of buzzwords.
+
+---
+
+## Validation Checklist
+- [ ] Does it take less than 15 seconds to say out loud?
+- [ ] Would a 12-year-old understand exactly what you do?
+- [ ] Does it invite a follow-up question rather than confusion?
+
+---
+
+## Deliverable
+Write your final, Y Combinator-style Elevator Pitch below. Memorize it.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+
   'mvpfeatures': `# MVP Features (Minimum Viable Product)
 
 The MVP is the absolute minimum set of features required to prove that your solution solves the problem.
