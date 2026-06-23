@@ -947,28 +947,279 @@ Feature creep is the #1 killer of software projects. You do not need a dark mode
 
 ## Feature Prioritization Matrix
 When deciding what makes the cut, map your ideas on this matrix:
-1. **High Impact, Low Effort:** Build immediately.
-2. **High Impact, High Effort:** Build if it's the core differentiator.
-3. **Low Impact, Low Effort:** Ignore for now.
-4. **Low Impact, High Effort:** Never build.
+  'marketresearch': `# Market Research
 
-## AI Prompt Guidance
+**🕒 Estimated Time:** 45-60 min
 
-Use AI to aggressively cut scope.
+---
 
-\`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-My current feature list is:
-[PASTE FEATURE LIST]
+## Overview
+Market research is rarely about reading generic industry reports (e.g., "The global CRM market is projected to reach $80B by 2028"). Those reports are useless for a startup. True market research is about **Behavioral Evidence**. Are people actively, currently frustrated? Are they actively hacking together spreadsheets because a good solution doesn't exist? You aren't looking for a "Market Size"—you are looking for a "Hair on Fire" problem.
 
-Act as a ruthless CTO focused on shipping in 2 weeks. 
-1. Categorize these features into "Must Have for MVP" and "Cut for Now".
-2. For the "Must Haves", suggest the absolute simplest, most hard-coded way I can implement them to save time.
+---
+
+## Think First
+Before running to Google or ChatGPT, think about where your specific users congregate and complain.
+
+**The "Watering Hole"** (Where exactly do your users hang out online? Name specific Subreddits, Discord servers, LinkedIn groups, or niche forums).
+\`\`\`input
+✍️ Type your answer here...
 \`\`\`
 
-## Deliverable Expectations
-Create a checklist below of the 3 to 5 features that constitute your MVP. If there are more than 5, you are probably building too much.
+**The "Desperation Signal"** (What exact phrases are they typing into Google when they are angry or frustrated with this problem? e.g., "How to sync stripe to airtable without zapier")
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Trend** (Is this problem growing because of a recent shift? e.g., A new law passed, a new API was released, or a shift to remote work?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Reality Check: The "Echo Chamber" Test**
+- [ ] Have I looked outside of my immediate friend group/Twitter bubble?
+- [ ] Are people currently spending money to solve adjacent problems in this space?
+- [ ] Is this a problem that people *must* solve, or just *nice* to solve?
+
+---
+
+## Key Decisions
+- **Bottom-Up vs. Top-Down Research:** Ignore top-down (TAM/SAM/SOM charts). Focus entirely on bottom-up: Find 100 people complaining about the exact same thing on Reddit. That is your market.
+- **Willingness to Pay:** A large market of people who refuse to pay for software (e.g., college students) is worse than a tiny market of people who happily pay for software (e.g., corporate lawyers). 
+
+---
+
+## Common Mistakes
+- **Confirmation Bias:** Only looking for data that proves your idea is brilliant, while ignoring forum posts that say "I tried a tool for this and it wasn't worth the hassle."
+- **Asking "Would you use this?":** Never ask users if they *would* use something. Humans are polite and will lie to you. Ask them what they *currently do* to solve the problem today.
+
+---
+
+## AI & Architecture Reality Check
+- **The Knowledge Cutoff:** Do not ask AI "What is the market size of X?" LLMs hallucinate numbers and are frozen in time. 
+- **The Ultimate AI Research Hack:** Instead of asking AI for facts, use AI for **Synthesis**. Go to a Reddit thread where people are complaining, copy the entire thread (all 150 comments), paste it into the AI, and ask it to synthesize the underlying psychological pain points.
+
+---
+
+## AI Prompt
+Use this prompt to process raw, unstructured market complaints into actionable insights.
+
+\`\`\`prompt
+Act as a world-class User Researcher. 
+I am going to provide you with raw text scraped from [Reddit / G2 Reviews / Forums] where my target users are discussing their workflows.
+
+[PASTE YOUR SCRAPED RAW TEXT/COMMENTS HERE]
+
+Analyze this raw data and provide:
+1. The top 3 recurring emotional frustrations.
+2. The exact vocabulary and jargon they use to describe their problem (so I can use it in my marketing).
+3. The underlying "Root Cause" of their frustration that they might not even realize themselves.
+\`\`\`
+
+---
+
+## What Good Looks Like
+
+**Strong Market Research:**
+✓ "I found 4 Reddit threads with 500+ upvotes complaining about this exact issue."
+✓ "I know the exact search terms they use when they hit their breaking point."
+✓ "The market is small (10,000 agencies), but they lose $5,000/month to this problem."
+
+**Weak Market Research:**
+✗ "Gartner says the AI market is growing at 35% CAGR."
+✗ "Everyone needs to be more productive, so the market is 1 billion knowledge workers."
+
+---
+
+## Deliverable
+Write a highly specific, 3-4 sentence summary of your Bottom-Up market research. Prove that the bleeding neck actually exists.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
 `,
+
+  'competitoranalysis': `# Competitor Analysis
+
+**🕒 Estimated Time:** 45-60 min
+
+---
+
+## Overview
+You do not analyze competitors to copy their feature list. You analyze competitors to find their **Structural Weaknesses**. A structural weakness is a flaw that a competitor *cannot* fix without cannibalizing their own revenue or completely rewriting their core architecture. You are David; they are Goliath. You must find the exposed armor.
+
+---
+
+## Think First
+Identify your top competitors and immediately look for their blind spots.
+
+**The Goliath** (Who is the massive, billion-dollar incumbent in this space? e.g., Salesforce, Jira, Excel)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Goliath's Weakness** (What are they too big to care about? Are they too complex? Too expensive? Do they ignore small teams?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Nimble Upstart** (Who is the closest modern startup trying to do exactly what you want to do?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Reality Check: The "Feature Matrix of Death"**
+- [ ] Am I trying to beat the competitor by having *more* features? (Hint: You can't. They have 500 engineers; you have 1).
+- [ ] Can the competitor easily copy my differentiation in a weekend? (If yes, you have no moat).
+- [ ] Am I competing on a specific Niche or Workflow that the competitor fundamentally ignores?
+
+---
+
+## Key Decisions
+- **The Wedge:** How will you pry users away? Will you be the "Jira for Plumbers"? Will you be the "Stripe for Africa"? Pick a wedge that the incumbent views as too small to bother with.
+- **Positioning:** You must position *against* the competitor. "We are the anti-Jira. Jira takes 4 weeks to configure; we take 4 seconds."
+
+---
+
+## Common Mistakes
+- **The "No Competitors" Delusion:** If you think you have no competitors, you either haven't done enough research, or the market doesn't exist because the problem isn't worth solving.
+- **Copying the Leader:** If you just build a cheaper, slightly prettier clone of the market leader, their customers will not go through the pain of migrating to you.
+
+---
+
+## AI & Architecture Reality Check
+- **The Speed Advantage:** Competitors with massive legacy codebases move slowly. With modern AI tools like Antigravity, Next.js, and Supabase, you can build and iterate 100x faster than a mid-sized competitor. Use AI to out-maneuver them on speed of execution.
+- **Review Mining:** AI is exceptionally good at analyzing competitors' 1-star reviews on G2 or Capterra.
+
+---
+
+## AI Prompt
+Use this prompt to find your competitor's structural vulnerabilities.
+
+\`\`\`prompt
+Act as a ruthless Corporate Strategist.
+My main competitor is: [INSERT COMPETITOR NAME].
+Here are 10 of their 1-star and 2-star reviews from G2/Capterra:
+[PASTE NEGATIVE REVIEWS]
+
+Analyze these reviews and tell me:
+1. What is the core, unfixable structural weakness of this competitor? (e.g., "Their architecture is inherently slow," "Their UI is built for enterprise admins, not end-users").
+2. What specific "Wedge" should I use to position my product directly against them? Give me a 1-sentence marketing hook.
+\`\`\`
+
+---
+
+## What Good Looks Like
+
+**A strong Competitor Analysis:**
+✓ Focuses on the competitor's UX friction and pricing gaps.
+✓ Identifies a specific niche the competitor is ignoring.
+✓ Results in a clear, aggressive positioning statement.
+
+**A weak Competitor Analysis:**
+✗ A giant spreadsheet comparing 50 different features with green checkmarks.
+✗ Assuming the competitor is stupid. (They aren't. They just have different incentives).
+
+---
+
+## Deliverable
+Identify your primary competitor and write exactly how you will position against their structural weakness.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+
+  'existingalternatives': `# Existing Alternatives
+
+**🕒 Estimated Time:** 20-30 min
+
+---
+
+## Overview
+Your biggest competitor is rarely a venture-backed SaaS company. Your biggest competitor is the **Status Quo**: Excel, Google Sheets, a shared Slack channel, an intern, or simply "doing nothing." If the pain of migrating to your software is higher than the pain of their current messy workaround, your product will fail.
+
+---
+
+## Think First
+Understand exactly what the user is doing *right now* before your product exists.
+
+**The Duct-Tape Workaround** (Step-by-step, how do they solve this problem today? e.g., "They export a CSV from Tool A, manually format it in Excel, and upload it to Tool B").
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Hidden Cost of the Workaround** (Is it costing them 5 hours a week? Does it cause massive human error? Does it destroy team morale?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Switching Friction** (If they use your tool, what data do they have to migrate? Who has to be retrained?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Reality Check: The "Good Enough" Threshold**
+- [ ] Is their current Excel spreadsheet actually "good enough" for 90% of their needs?
+- [ ] Does my tool offer a 10x improvement over the spreadsheet, or just a 1.2x improvement?
+- [ ] Do I have a plan to make onboarding and data migration completely frictionless?
+
+---
+
+## Key Decisions
+- **Augment vs. Replace:** Should you try to replace their entire workflow, or should you just build an integration/plugin that makes their *current* workflow better? (e.g., Don't build a new CRM, build a Chrome Extension that sits on top of their CRM).
+- **The "Trojan Horse":** Provide a free tool that solves a tiny part of their workaround perfectly, then up-sell them on the core product later.
+
+---
+
+## Common Mistakes
+- **Underestimating Apathy:** Users are tired. Learning a new UI is exhausting. If your onboarding requires them to read a manual, they will go back to their spreadsheet.
+- **Ignoring Migration:** If a user has 5 years of historical data in their workaround, and you don't offer a 1-click CSV import, they will never switch to you.
+
+---
+
+## AI & Architecture Reality Check
+- **Data Imports are Trivial:** In the past, building custom CSV parsers and migration tools was tedious. Today, you can use AI to instantly write robust data migration scripts or use LLMs to automatically map messy CSV columns to your database schema. **Make migration a core feature, not an afterthought.**
+
+---
+
+## AI Prompt
+Use this prompt to expose the hidden costs of the status quo and design a frictionless migration plan.
+
+\`\`\`prompt
+Act as a Customer Success Architect.
+My target user currently solves their problem by doing the following:
+[INSERT DUCT-TAPE WORKAROUND]
+
+I want them to switch to my dedicated software.
+1. Identify the 3 "Hidden Costs" of their current workaround that they might be blind to (e.g., security risks, unscalable bottlenecks).
+2. Propose a "Frictionless Migration Strategy." How can I design my onboarding so they experience value in the first 60 seconds without having to manually input data?
+\`\`\`
+
+---
+
+## What Good Looks Like
+
+**Strong Alternative Analysis:**
+✓ Deep empathy for why the user is currently using a messy workaround.
+✓ A concrete plan to make switching utterly painless.
+✓ Clear articulation of the hidden costs of doing nothing.
+
+**Weak Alternative Analysis:**
+✗ "They use Excel, but Excel is ugly so they will use my app."
+✗ Assuming users will happily spend 4 hours setting up your tool.
+
+---
+
+## Deliverable
+Describe the user's current workaround, its hidden cost, and your exact strategy for making them switch painlessly.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+
+  'featureplanning': `# Feature Planning
 
   'businessmodel': `# Business Model & Pricing
 
