@@ -38,12 +38,29 @@ export const generateId = (name: string) => name.toLowerCase().replace(/[^a-z0-9
 
 const globalTopicLinks: Record<string, QuickLink[]> = {
   'ideadefinition': [
-    { name: 'Paul Graham: Startup Ideas', url: 'http://paulgraham.com/startupideas.html' },
-    { name: 'YC: Evaluate Ideas', url: 'https://www.ycombinator.com/library/6e-how-to-evaluate-startup-ideas' }
+    { name: 'YC: Evaluate Ideas', url: 'https://www.ycombinator.com/library/6e-how-to-evaluate-startup-ideas' },
+    { name: 'Tool: Google Trends', url: 'https://trends.google.com/' },
+    { name: 'Tool: Exploding Topics', url: 'https://explodingtopics.com/' }
   ],
   'problemstatement': [
     { name: 'Lenny: Validate Idea', url: 'https://www.lennysnewsletter.com/p/validating-your-startup-idea' },
-    { name: 'YC: Get & Evaluate Ideas', url: 'https://www.ycombinator.com/library/8g-how-to-get-startup-ideas' }
+    { name: 'Tool: Typeform (Surveys)', url: 'https://www.typeform.com/' },
+    { name: 'Tool: GigaBrain (Reddit Search)', url: 'https://thegigabrain.com/' }
+  ],
+  'userpainpoints': [
+    { name: 'YC: Get Startup Ideas', url: 'https://www.ycombinator.com/library/8g-how-to-get-startup-ideas' },
+    { name: 'Tool: G2 (Competitor Reviews)', url: 'https://www.g2.com/' },
+    { name: 'Tool: Capterra (Software Reviews)', url: 'https://www.capterra.com/' }
+  ],
+  'targetusers': [
+    { name: 'Superhuman PMF Engine', url: 'https://firstround.com/review/how-superhuman-built-an-engine-to-find-product-market-fit/' },
+    { name: 'Tool: Apollo.io (B2B Leads)', url: 'https://www.apollo.io/' },
+    { name: 'Tool: LinkedIn Sales Nav', url: 'https://business.linkedin.com/sales-solutions/sales-navigator' }
+  ],
+  'icpidealcustomerprofile': [
+    { name: 'Superhuman PMF Engine', url: 'https://firstround.com/review/how-superhuman-built-an-engine-to-find-product-market-fit/' },
+    { name: 'Tool: Apollo.io (B2B Leads)', url: 'https://www.apollo.io/' },
+    { name: 'Tool: LinkedIn Sales Nav', url: 'https://business.linkedin.com/sales-solutions/sales-navigator' }
   ]
 };
 

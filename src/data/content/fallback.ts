@@ -65,13 +65,7 @@ Challenge my assumptions. Do not validate my idea automatically.
 3. What 3 difficult questions do I need to answer before writing any code?
 \`\`\`
 
----
 
-## Essential Reading
-- [How to Get Startup Ideas](http://paulgraham.com/startupideas.html) by Paul Graham
-- [How to Evaluate Startup Ideas](https://www.ycombinator.com/library/6e-how-to-evaluate-startup-ideas) by Kevin Hale (Y Combinator)
-
----
 
 ## What Good Looks Like
 
@@ -203,13 +197,7 @@ Act as a skeptical user research expert. Read my problem inputs above.
 3. Based on my "Symptom", what are 3 alternative "Root Causes" I might be ignoring?
 \`\`\`
 
----
 
-## Essential Reading
-- [How to Validate Your Startup Idea](https://www.lennysnewsletter.com/p/validating-your-startup-idea) by Lenny Rachitsky
-- [How to Get and Evaluate Startup Ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas) by Jared Friedman (Y Combinator)
-
----
 
 ## What Good Looks Like
 
@@ -308,13 +296,7 @@ The problem they face is: [INSERT PROBLEM STATEMENT].
 3. Generate 3 specific, open-ended interview questions I should ask my next prospect to uncover their true pain.
 \`\`\`
 
----
 
-## Essential Reading
-- [How to get startup ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas) by Y Combinator (Jared Friedman)
-- [How to know if you've got product-market fit](https://www.lennysnewsletter.com/p/how-to-know-if-youve-got-productmarket) by Lenny Rachitsky
-
----
 
 ## What Good Looks Like
 
@@ -408,13 +390,7 @@ For the Primary "Bullseye" ICP, include:
 3. The absolute best marketing channel to reach them with $0 budget
 \`\`\`
 
----
 
-## Essential Reading
-- [How Superhuman Built an Engine to Find Product/Market Fit](https://firstround.com/review/how-superhuman-built-an-engine-to-find-product-market-fit/) by Rahul Vohra
-- [How to find your target market](https://www.lennysnewsletter.com/p/how-to-find-your-target-market) by Lenny Rachitsky
-
----
 
 ## What Good Looks Like
 
@@ -509,13 +485,7 @@ For the Primary "Bullseye" ICP, include:
 3. The absolute best marketing channel to reach them with $0 budget
 \`\`\`
 
----
 
-## Essential Reading
-- [How Superhuman Built an Engine to Find Product/Market Fit](https://firstround.com/review/how-superhuman-built-an-engine-to-find-product-market-fit/) by Rahul Vohra
-- [How to find your target market](https://www.lennysnewsletter.com/p/how-to-find-your-target-market) by Lenny Rachitsky
-
----
 
 ## What Good Looks Like
 
