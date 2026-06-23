@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Edit2, Eye, Sparkles, FileEdit, CheckCircle2, Loader2, AlertCircle, Copy, Check } from 'lucide-react';
+import { Edit2, Eye, Sparkles, FileEdit, CheckCircle2, Loader2, AlertCircle, Copy, Check, ArrowRight } from 'lucide-react';
 import type { SaveStatus } from '../hooks/useDocumentStore';
 
 interface DocumentEditorProps {
@@ -13,6 +13,8 @@ interface DocumentEditorProps {
   isGenerating: boolean;
   saveStatus?: SaveStatus;
   onNavigate: (page: string) => void;
+  nextTopic?: { id: string; name: string } | null;
+  activeMode: string;
 }
 
 const PromptBlock = ({ children }: { children: string }) => {
@@ -99,7 +101,9 @@ export const DocumentEditor = ({
   onGenerate, 
   isGenerating,
   saveStatus = 'idle',
-  onNavigate
+  onNavigate,
+  nextTopic,
+  activeMode
 }: DocumentEditorProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -331,6 +335,20 @@ export const DocumentEditor = ({
                 {content}
               </ReactMarkdown>
             </div>
+            {nextTopic && !isEmpty && (
+              <div className="mt-16 pt-8 border-t border-muted/50 pb-8">
+                <h3 className="text-xl font-bold text-foreground mb-4">Next Step</h3>
+                <p className="text-muted-foreground mb-6">
+                  Move on to <span className="font-semibold text-foreground">{nextTopic.name}</span> to continue your {activeMode} playbook.
+                </p>
+                <button
+                  onClick={() => onNavigate(nextTopic.id)}
+                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary font-semibold transition-colors"
+                >
+                  Go to {nextTopic.name} <ArrowRight size={18} />
+                </button>
+              </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

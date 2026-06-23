@@ -20,6 +20,10 @@ interface MainCanvasProps {
 export const MainCanvas = ({ activeType, activePage, activeMode, projectId, isAuthenticated, onRequestLogin, onNavigate }: MainCanvasProps) => {
   let activeTopicName = activePage;
   const taxonomy = getTaxonomy(activeType, activeMode);
+  const allTopics = taxonomy.flatMap(cat => cat.topics);
+  const currentIndex = allTopics.findIndex(t => t.id === activePage);
+  const nextTopic = currentIndex !== -1 && currentIndex < allTopics.length - 1 ? allTopics[currentIndex + 1] : null;
+
   for (const cat of taxonomy) {
     const topic = cat.topics.find(t => t.id === activePage);
     if (topic) {
@@ -104,6 +108,8 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
         isGenerating={isGenerating}
         saveStatus={saveStatus}
         onNavigate={onNavigate}
+        nextTopic={nextTopic}
+        activeMode={activeMode}
       />
     </motion.main>
   );
