@@ -36,10 +36,24 @@ export const universalLinks: QuickLink[] = [
 
 export const generateId = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '');
 
-export const createTopic = (name: string, icon: any): Topic => ({
-  id: generateId(name),
-  name,
-  icon,
-  modes: ['Hackathon', 'Personal', 'Production', 'Custom'],
-  quickLinks: []
-});
+const globalTopicLinks: Record<string, QuickLink[]> = {
+  'ideadefinition': [
+    { name: 'Paul Graham: Startup Ideas', url: 'http://paulgraham.com/startupideas.html' },
+    { name: 'YC: Evaluate Ideas', url: 'https://www.ycombinator.com/library/6e-how-to-evaluate-startup-ideas' }
+  ],
+  'problemstatement': [
+    { name: 'Lenny: Validate Idea', url: 'https://www.lennysnewsletter.com/p/validating-your-startup-idea' },
+    { name: 'YC: Get & Evaluate Ideas', url: 'https://www.ycombinator.com/library/8g-how-to-get-startup-ideas' }
+  ]
+};
+
+export const createTopic = (name: string, icon: any, customLinks: QuickLink[] = []): Topic => {
+  const id = generateId(name);
+  return {
+    id,
+    name,
+    icon,
+    modes: ['Hackathon', 'Personal', 'Production', 'Custom'],
+    quickLinks: [...(globalTopicLinks[id] || []), ...customLinks]
+  };
+};
