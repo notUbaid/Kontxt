@@ -248,8 +248,22 @@ export const DocumentEditor = ({
                     }
                     return <a {...props} className="text-primary hover:underline" target="_blank" rel="noopener noreferrer" />;
                   },
+                  li: ({ node, className, children, ...props }) => {
+                    if (className === 'task-list-item' && node?.position) {
+                      return (
+                        <li 
+                          className={className} 
+                          data-line={node.position.start.line}
+                          {...props}
+                        >
+                          {children}
+                        </li>
+                      );
+                    }
+                    return <li className={className} {...props}>{children}</li>;
+                  },
                   input: ({ node, checked, disabled, ...props }) => {
-                    if (props.type === 'checkbox' && node?.position) {
+                    if (props.type === 'checkbox') {
                       return (
                         <input
                           type="checkbox"
@@ -257,15 +271,19 @@ export const DocumentEditor = ({
                           className="cursor-pointer w-4 h-4 text-primary bg-background border-muted rounded focus:ring-primary focus:ring-2 mt-1 mr-2 inline-block shadow-sm transition-all hover:ring-2 hover:ring-primary/50 hover:border-primary/50"
                           onChange={(e) => {
                             const newChecked = e.target.checked;
-                            const lineIndex = node.position!.start.line - 1;
-                            const lines = content.split('\n');
-                            if (lines[lineIndex]) {
-                              if (newChecked) {
-                                lines[lineIndex] = lines[lineIndex].replace(/\[\s\]/, '[x]');
-                              } else {
-                                lines[lineIndex] = lines[lineIndex].replace(/\[x\]/i, '[ ]');
+                            const li = e.target.closest('li');
+                            const lineAttr = li?.getAttribute('data-line');
+                            if (lineAttr) {
+                              const lineIndex = parseInt(lineAttr, 10) - 1;
+                              const lines = content.split('\n');
+                              if (lines[lineIndex]) {
+                                if (newChecked) {
+                                  lines[lineIndex] = lines[lineIndex].replace(/\[\s\]/, '[x]');
+                                } else {
+                                  lines[lineIndex] = lines[lineIndex].replace(/\[x\]/i, '[ ]');
+                                }
+                                onChange(lines.join('\n'));
                               }
-                              onChange(lines.join('\n'));
                             }
                           }}
                         />
