@@ -13,13 +13,13 @@ export const saasProductionTaxonomy: Category[] = [
     topics: [
       createTopic('Idea Definition', Rocket),
       createTopic('Problem Statement', AlertCircle),
-      createTopic('Solution Statement', CheckSquare),
-      createTopic('Value Proposition', Target),
-      createTopic('Elevator Pitch', Presentation),
+      createTopic('User Pain Points', AlertCircle),
       createTopic('Target Users', Users),
       createTopic('ICP (Ideal Customer Profile)', UserCheck),
       createTopic('Personas', Users),
-      createTopic('User Pain Points', AlertCircle),
+      createTopic('Solution Statement', CheckSquare),
+      createTopic('Value Proposition', Target),
+      createTopic('Elevator Pitch', Presentation),
       createTopic('Market Research', Globe),
       createTopic('Competitor Analysis', BarChart),
       createTopic('Existing Alternatives', Layers),
@@ -57,10 +57,10 @@ export const saasProductionTaxonomy: Category[] = [
       createTopic('Tech Stack Selection', Settings),
       createTopic('Frontend Architecture', Box),
       createTopic('Backend Architecture', Server),
-      createTopic('Database Schema', Database),
       createTopic('API Design', Globe),
       createTopic('Authentication', Key),
       createTopic('Authorization & Roles', Shield),
+      createTopic('Database Schema', Database),
       createTopic('File Storage', Cloud),
       createTopic('Third Party Integrations', Layers),
       createTopic('AI Architecture (optional)', Cpu),
@@ -72,10 +72,10 @@ export const saasProductionTaxonomy: Category[] = [
     id: 'phase-3',
     name: 'PHASE 3 — DEVELOPMENT',
     topics: [
-      createTopic('Frontend', Box),
-      createTopic('Backend', Server),
-      createTopic('Database', Database),
       createTopic('Auth', Key),
+      createTopic('Database', Database),
+      createTopic('Backend', Server),
+      createTopic('Frontend', Box),
       createTopic('Payments', DollarSign),
       createTopic('Emails', Mail),
       createTopic('Notifications', Bell),
@@ -92,16 +92,16 @@ export const saasProductionTaxonomy: Category[] = [
     name: 'PHASE 4 — PRODUCTION READINESS',
     topics: [
       createTopic('Security', ShieldAlert),
+      createTopic('Performance Optimization', Zap),
       createTopic('Monitoring', Activity),
       createTopic('Logging', FileText),
       createTopic('Error Tracking', AlertCircle),
       createTopic('Rate Limiting', Activity),
       createTopic('Caching', Zap),
       createTopic('Backups', Database),
-      createTopic('Disaster Recovery', ShieldAlert),
       createTopic('CI/CD', Layers),
       createTopic('Infrastructure', Server),
-      createTopic('Performance Optimization', Zap),
+      createTopic('Disaster Recovery', ShieldAlert),
       createTopic('Scalability Planning', TrendingUp),
     ]
   },
@@ -109,13 +109,13 @@ export const saasProductionTaxonomy: Category[] = [
     id: 'phase-5',
     name: 'PHASE 5 — LAUNCH',
     topics: [
+      createTopic('Privacy Policy', Lock),
+      createTopic('Terms of Service', FileText),
       createTopic('Beta Testing', CheckSquare),
       createTopic('Launch Checklist', CheckSquare),
       createTopic('SEO', Search),
       createTopic('Analytics Setup', BarChart),
       createTopic('Legal Documents', FileText),
-      createTopic('Terms of Service', FileText),
-      createTopic('Privacy Policy', Lock),
       createTopic('Cookie Policy', FileText),
       createTopic('Customer Support', HelpCircle),
     ]
@@ -124,13 +124,13 @@ export const saasProductionTaxonomy: Category[] = [
     id: 'phase-6',
     name: 'PHASE 6 — GROWTH',
     topics: [
-      createTopic('User Feedback', MessageSquare),
       createTopic('Retention', Users),
+      createTopic('User Feedback', MessageSquare),
+      createTopic('Scaling Strategy', TrendingUp),
       createTopic('Marketing', Globe),
       createTopic('Referral Systems', Users),
       createTopic('Feature Roadmap', Globe),
       createTopic('Technical Debt', AlertCircle),
-      createTopic('Scaling Strategy', TrendingUp),
     ]
   }
 ];
@@ -166,9 +166,9 @@ export const saasHackathonTaxonomy: Category[] = [
     id: 'phase-3',
     name: 'PHASE 3',
     topics: [
-      createTopic('Frontend', Box),
-      createTopic('Backend', Server),
       createTopic('Database', Database),
+      createTopic('Backend', Server),
+      createTopic('Frontend', Box),
       createTopic('Demo Data', Database),
       createTopic('Presentation Prep', Presentation),
     ]
@@ -189,9 +189,9 @@ export const saasPersonalTaxonomy: Category[] = [
     id: 'discovery',
     name: 'PHASE 1 — DISCOVERY',
     topics: [
+      createTopic('Personas', Users),
       createTopic('Idea', Rocket),
       createTopic('Features', CheckSquare),
-      createTopic('Personas', Users),
     ]
   },
   {
@@ -208,8 +208,8 @@ export const saasPersonalTaxonomy: Category[] = [
     name: 'PHASE 3 — ARCHITECTURE',
     topics: [
       createTopic('Tech Stack', Settings),
-      createTopic('Database', Database),
       createTopic('Auth', Key),
+      createTopic('Database', Database),
       createTopic('APIs', Globe),
       createTopic('Storage', Cloud),
     ]
@@ -218,9 +218,9 @@ export const saasPersonalTaxonomy: Category[] = [
     id: 'development',
     name: 'PHASE 4 — DEVELOPMENT',
     topics: [
-      createTopic('Frontend', Box),
-      createTopic('Backend', Server),
       createTopic('Database', Database),
+      createTopic('Backend', Server),
+      createTopic('Frontend', Box),
       createTopic('Emails', Mail),
       createTopic('Analytics', BarChart),
     ]
@@ -229,19 +229,19 @@ export const saasPersonalTaxonomy: Category[] = [
     id: 'production-lite',
     name: 'PHASE 5 — PRODUCTION LITE',
     topics: [
-      createTopic('Security Basics', Shield),
-      createTopic('Backups', Database),
       createTopic('Performance', Zap),
+      createTopic('Backups', Database),
       createTopic('Deployment', Cloud),
+      createTopic('Security Basics', Shield),
     ]
   },
   {
     id: 'growth-lite',
     name: 'PHASE 6 — GROWTH LITE',
     topics: [
-      createTopic('SEO', Search),
       createTopic('Feedback', MessageSquare),
       createTopic('Roadmap', Globe),
+      createTopic('SEO', Search),
     ]
   }
 ];
@@ -255,7 +255,7 @@ export const saasCustomTaxonomy: Category[] = [
           ...cat.topics,
           createTopic('Demo Data', Database),
           createTopic('Presentation Prep', Presentation)
-        ]
+    ]
       };
     }
     if (cat.id === 'phase-6') {
@@ -266,7 +266,7 @@ export const saasCustomTaxonomy: Category[] = [
           createTopic('Pitch Deck', Presentation),
           createTopic('Demo Script', FileText),
           createTopic('Submission Checklist', CheckSquare)
-        ]
+    ]
       };
     }
     return cat;

@@ -13,15 +13,15 @@ export const gameProductionTaxonomy: Category[] = [
     id: 'phase-0-discovery',
     name: 'PHASE 0 — GAME DISCOVERY',
     topics: [
+      createTopic('Target Audience', Users),
+      createTopic('Competitor Analysis', BarChart),
+      createTopic('Monetization', DollarSign),
       createTopic('Game Concept', Target),
       createTopic('Genre', Gamepad2),
       createTopic('Target Platform', Monitor),
-      createTopic('Target Audience', Users),
       createTopic('Scope Reality Check', AlertCircle),
       createTopic('Core Gameplay Loop', PlayCircle),
-      createTopic('Competitor Analysis', BarChart),
       createTopic('Scope Planning', Layers),
-      createTopic('Monetization', DollarSign),
     ]
   },
   {
@@ -49,6 +49,8 @@ export const gameProductionTaxonomy: Category[] = [
     id: 'phase-2-architecture',
     name: 'PHASE 2 — GAME ARCHITECTURE',
     topics: [
+      createTopic('Backend Architecture', Server),
+      createTopic('Cost Estimation', DollarSign),
       createTopic('Engine Selection', Cpu),
       createTopic('Architecture Fundamentals', Layers),
       createTopic('Game Loop', RefreshCcw),
@@ -60,14 +62,15 @@ export const gameProductionTaxonomy: Category[] = [
       createTopic('Data Architecture', Database),
       createTopic('Cloud Saves', Cloud),
       createTopic('Multiplayer Architecture', Network),
-      createTopic('Backend Architecture', Server),
-      createTopic('Cost Estimation', DollarSign),
     ]
   },
   {
     id: 'phase-3-development',
     name: 'PHASE 3 — DEVELOPMENT',
     topics: [
+      createTopic('Backend', Server),
+      createTopic('Testing', CheckSquare),
+      createTopic('Documentation', BookOpen),
       createTopic('Core Gameplay', Play),
       createTopic('UI Systems', LayoutDashboard),
       createTopic('Save System', HardDrive),
@@ -79,54 +82,51 @@ export const gameProductionTaxonomy: Category[] = [
       createTopic('Economy', DollarSign),
       createTopic('Levels', Box),
       createTopic('Multiplayer', Users),
-      createTopic('Backend', Server),
-      createTopic('Testing', CheckSquare),
-      createTopic('Documentation', BookOpen),
     ]
   },
   {
     id: 'phase-4-production',
     name: 'PHASE 4 — PRODUCTION READINESS',
     topics: [
+      createTopic('Analytics', BarChart),
+      createTopic('Security', Shield),
       createTopic('Performance Optimization', Zap),
+      createTopic('Crash Reporting', AlertCircle),
+      createTopic('Monitoring', Monitor),
+      createTopic('CI/CD', Rocket),
       createTopic('FPS Optimization', Activity),
       createTopic('Memory Optimization', Cpu),
       createTopic('Loading Optimization', Clock),
-      createTopic('Crash Reporting', AlertCircle),
-      createTopic('Security', Shield),
       createTopic('Anti-Cheat', ShieldAlert),
-      createTopic('Monitoring', Monitor),
-      createTopic('Analytics', BarChart),
       createTopic('Cloud Infrastructure', Cloud),
-      createTopic('CI/CD', Rocket),
     ]
   },
   {
     id: 'phase-5-release',
     name: 'PHASE 5 — RELEASE',
     topics: [
-      createTopic('Store Assets', Camera),
-      createTopic('Steam Setup', Globe),
       createTopic('App Store Setup', Smartphone),
       createTopic('Screenshots', Camera),
-      createTopic('Trailers', Film),
       createTopic('Beta Testing', Target),
-      createTopic('Community Testing', Users),
       createTopic('Release Checklist', ListChecks),
+      createTopic('Store Assets', Camera),
+      createTopic('Steam Setup', Globe),
+      createTopic('Trailers', Film),
+      createTopic('Community Testing', Users),
     ]
   },
   {
     id: 'phase-6-live-operations',
     name: 'PHASE 6 — LIVE OPERATIONS',
     topics: [
+      createTopic('Retention', TrendingUp),
+      createTopic('Roadmap', Layers),
       createTopic('Player Feedback', MessageSquare),
       createTopic('Balancing', Activity),
       createTopic('Updates', RefreshCcw),
       createTopic('Seasonal Content', Crown),
-      createTopic('Retention', TrendingUp),
       createTopic('Community Management', Users),
       createTopic('Monetization Optimization', DollarSign),
-      createTopic('Roadmap', Layers),
     ]
   }
 ];

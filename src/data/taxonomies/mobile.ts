@@ -13,12 +13,12 @@ export const mobileProductionTaxonomy: Category[] = [
     topics: [
       createTopic('Idea Definition', Rocket),
       createTopic('Problem Statement', AlertCircle),
-      createTopic('Solution Statement', CheckSquare),
-      createTopic('Elevator Pitch', Presentation),
-      createTopic('Target Audience', Users),
-      createTopic('Personas', Users),
       createTopic('Use Cases', Target),
       createTopic('User Journey', Globe),
+      createTopic('Target Audience', Users),
+      createTopic('Personas', Users),
+      createTopic('Solution Statement', CheckSquare),
+      createTopic('Elevator Pitch', Presentation),
       createTopic('Competitor Analysis', BarChart),
       createTopic('Similar Apps', Layers),
       createTopic('Play Store Research', Search),
@@ -81,15 +81,15 @@ export const mobileProductionTaxonomy: Category[] = [
     id: 'phase-3',
     name: 'PHASE 3 — DEVELOPMENT',
     topics: [
+      createTopic('State Management', Layers),
+      createTopic('Auth', Key),
+      createTopic('Database', Database),
+      createTopic('Backend', Server),
+      createTopic('Push Notifications', Bell),
       createTopic('Frontend (UI)', Box),
       createTopic('Navigation', Smartphone),
-      createTopic('State Management', Layers),
-      createTopic('Backend', Server),
       createTopic('APIs', Globe),
-      createTopic('Database', Database),
-      createTopic('Auth', Key),
       createTopic('Payments', CreditCard),
-      createTopic('Push Notifications', Bell),
       createTopic('Media Uploads', Cloud),
       createTopic('Maps & Location', Map),
       createTopic('Device Permissions', Lock),
@@ -139,8 +139,8 @@ export const mobileProductionTaxonomy: Category[] = [
     id: 'phase-6',
     name: 'PHASE 6 — GROWTH',
     topics: [
-      createTopic('Analytics', BarChart),
       createTopic('Retention', Users),
+      createTopic('Analytics', BarChart),
       createTopic('Notifications Strategy', Bell),
       createTopic('User Feedback', MessageSquare),
       createTopic('Reviews & Ratings', Target),
@@ -182,8 +182,8 @@ export const mobileHackathonTaxonomy: Category[] = [
     id: 'phase-3',
     name: 'PHASE 3',
     topics: [
-      createTopic('Frontend', Box),
       createTopic('Backend', Server),
+      createTopic('Frontend', Box),
       createTopic('Demo Data', Database),
       createTopic('Play Store Mockups', Smartphone),
     ]
@@ -204,8 +204,8 @@ export const mobilePersonalTaxonomy: Category[] = [
     id: 'discovery',
     name: 'PHASE 1 — DISCOVERY',
     topics: [
-      createTopic('Discovery', Rocket),
       createTopic('PRD', FileText),
+      createTopic('Discovery', Rocket),
       createTopic('Design', PenTool),
     ]
   },
@@ -214,8 +214,8 @@ export const mobilePersonalTaxonomy: Category[] = [
     name: 'PHASE 2 — ARCHITECTURE',
     topics: [
       createTopic('Tech Stack', Settings),
-      createTopic('Database', Database),
       createTopic('Auth', Key),
+      createTopic('Database', Database),
     ]
   },
   {
@@ -231,11 +231,11 @@ export const mobilePersonalTaxonomy: Category[] = [
     id: 'production',
     name: 'PHASE 4 — PRODUCTION',
     topics: [
+      createTopic('Basic Security', Shield),
+      createTopic('Performance', Zap),
       createTopic('Deployment', Cloud),
       createTopic('Play Store Setup', Smartphone),
       createTopic('Privacy Policy', FileText),
-      createTopic('Basic Security', Shield),
-      createTopic('Performance', Zap),
     ]
   },
   {
@@ -256,12 +256,12 @@ export const mobileCustomTaxonomy: Category[] = [
         ...cat,
         topics: [
           ...cat.topics,
+          createTopic('Ads', DollarSign),
           createTopic('Demo Data', Database),
           createTopic('Play Store Mockups', Smartphone),
           createTopic('Multi-language', Globe),
           createTopic('Subscription Billing', DollarSign),
           createTopic('Referral System', Users),
-          createTopic('Ads', DollarSign),
           createTopic('Wearables', Watch),
           createTopic('Widgets', Box),
           createTopic('Background Services', Settings),
@@ -270,7 +270,7 @@ export const mobileCustomTaxonomy: Category[] = [
           createTopic('Camera', Smartphone),
           createTopic('Location Services', Map),
           createTopic('Social Login', Users)
-        ]
+    ]
       };
     }
     if (cat.id === 'phase-5') {
@@ -281,7 +281,7 @@ export const mobileCustomTaxonomy: Category[] = [
           createTopic('Pitch Deck', Presentation),
           createTopic('Demo Script', FileText),
           createTopic('Submission Checklist', CheckSquare)
-        ]
+    ]
       };
     }
     return cat;

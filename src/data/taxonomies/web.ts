@@ -13,18 +13,18 @@ export const webProductionTaxonomy: Category[] = [
     topics: [
       createTopic('Idea Definition', Rocket),
       createTopic('Problem Statement', AlertCircle),
+      createTopic('User Journey', Globe),
+      createTopic('Personas', Users),
       createTopic('Solution Statement', CheckSquare),
       createTopic('Elevator Pitch', Presentation),
-      createTopic('Users & Audience', Users),
-      createTopic('Personas', Users),
-      createTopic('User Goals', Target),
-      createTopic('User Journey', Globe),
       createTopic('Competitor Analysis', BarChart),
       createTopic('Feature Planning', CheckSquare),
       createTopic('MVP Features', Rocket),
-      createTopic('Nice-to-Have Features', Layers),
       createTopic('Future Features', Layers),
       createTopic('Success Metrics', Activity),
+      createTopic('Users & Audience', Users),
+      createTopic('User Goals', Target),
+      createTopic('Nice-to-Have Features', Layers),
     ]
   },
   {
@@ -33,53 +33,53 @@ export const webProductionTaxonomy: Category[] = [
     topics: [
       createTopic('PRD', FileText),
       createTopic('User Flows', Globe),
-      createTopic('Sitemap', Layers),
       createTopic('Information Architecture', Layers),
       createTopic('Wireframes', Box),
       createTopic('Design System', PenTool),
       createTopic('Branding', Target),
       createTopic('Accessibility', Users),
       createTopic('Empty States', Box),
-      createTopic('Loading States', Activity),
       createTopic('Error States', AlertCircle),
+      createTopic('Loading States', Activity),
+      createTopic('Sitemap', Layers),
     ]
   },
   {
     id: 'phase-2',
     name: 'PHASE 2 — TECHNICAL ARCHITECTURE',
     topics: [
-      createTopic('Web Fundamentals', BookOpen),
       createTopic('Tech Stack Selection', Settings),
       createTopic('Frontend Architecture', Monitor),
       createTopic('Backend Architecture', Server),
-      createTopic('Database Schema', Database),
       createTopic('API Design', Globe),
       createTopic('Authentication', Key),
-      createTopic('Authorization', Lock),
+      createTopic('Database Schema', Database),
       createTopic('File Storage', Cloud),
+      createTopic('Cost Estimation', DollarSign),
+      createTopic('Web Fundamentals', BookOpen),
+      createTopic('Authorization', Lock),
       createTopic('Search System', Search),
       createTopic('Third-Party Integrations', Link),
       createTopic('AI Features (Optional)', Cpu),
-      createTopic('Cost Estimation', DollarSign),
     ]
   },
   {
     id: 'phase-3',
     name: 'PHASE 3 — DEVELOPMENT',
     topics: [
-      createTopic('Frontend', Monitor),
-      createTopic('Backend', Server),
-      createTopic('Database', Database),
-      createTopic('APIs', Globe),
       createTopic('Auth', Key),
-      createTopic('Search', Search),
-      createTopic('Email Notifications', MessageSquare),
+      createTopic('Database', Database),
+      createTopic('Backend', Server),
+      createTopic('Frontend', Monitor),
+      createTopic('APIs', Globe),
       createTopic('Notifications', Bell),
-      createTopic('File Uploads', Cloud),
-      createTopic('Integrations', Link),
+      createTopic('Search', Search),
       createTopic('Admin Panel', LayoutDashboard),
+      createTopic('Integrations', Link),
       createTopic('Testing', CheckSquare),
       createTopic('Documentation', FileText),
+      createTopic('Email Notifications', MessageSquare),
+      createTopic('File Uploads', Cloud),
     ]
   },
   {
@@ -87,6 +87,7 @@ export const webProductionTaxonomy: Category[] = [
     name: 'PHASE 4 — PRODUCTION READINESS',
     topics: [
       createTopic('Security', Shield),
+      createTopic('Performance Optimization', Zap),
       createTopic('Monitoring', Activity),
       createTopic('Logging', FileText),
       createTopic('Error Tracking', AlertCircle),
@@ -94,7 +95,6 @@ export const webProductionTaxonomy: Category[] = [
       createTopic('Caching', Zap),
       createTopic('Backups', Database),
       createTopic('CI/CD', Settings),
-      createTopic('Performance Optimization', Zap),
       createTopic('SEO', Search),
       createTopic('Scalability Planning', BarChart),
     ]
@@ -103,13 +103,13 @@ export const webProductionTaxonomy: Category[] = [
     id: 'phase-5',
     name: 'PHASE 5 — DEPLOYMENT',
     topics: [
+      createTopic('Beta Testing', Users),
+      createTopic('User Feedback', MessageSquare),
       createTopic('Domain Setup', Globe),
       createTopic('Hosting', Server),
       createTopic('Analytics Setup', BarChart),
       createTopic('Legal Pages', FileText),
       createTopic('Launch Checklist', CheckSquare),
-      createTopic('Beta Testing', Users),
-      createTopic('User Feedback', MessageSquare),
     ]
   },
   {
@@ -117,11 +117,11 @@ export const webProductionTaxonomy: Category[] = [
     name: 'PHASE 6 — GROWTH',
     topics: [
       createTopic('Analytics', BarChart),
+      createTopic('Scaling Strategy', BarChart),
       createTopic('SEO Optimization', Search),
       createTopic('User Retention', Users),
       createTopic('Feature Roadmap', Globe),
       createTopic('Technical Debt', Settings),
-      createTopic('Scaling Strategy', BarChart),
     ]
   }
 ];
@@ -156,20 +156,20 @@ export const webHackathonTaxonomy: Category[] = [
     id: 'phase-3',
     name: 'PHASE 3',
     topics: [
-      createTopic('Frontend', Monitor),
       createTopic('Backend', Server),
-      createTopic('Auth (Optional)', Key),
+      createTopic('Frontend', Monitor),
       createTopic('Demo Data', Database),
+      createTopic('Auth (Optional)', Key),
     ]
   },
   {
     id: 'phase-5',
     name: 'PHASE 5',
     topics: [
-      createTopic('Hosting', Server),
       createTopic('Pitch Deck', Presentation),
       createTopic('Demo Script', FileText),
       createTopic('Submission Checklist', CheckSquare),
+      createTopic('Hosting', Server),
     ]
   }
 ];
@@ -179,8 +179,8 @@ export const webPersonalTaxonomy: Category[] = [
     id: 'discovery',
     name: 'PHASE 1 — DISCOVERY',
     topics: [
-      createTopic('Discovery', Rocket),
       createTopic('PRD', FileText),
+      createTopic('Discovery', Rocket),
       createTopic('Design', PenTool),
     ]
   },
@@ -189,9 +189,9 @@ export const webPersonalTaxonomy: Category[] = [
     name: 'PHASE 2 — ARCHITECTURE',
     topics: [
       createTopic('Tech Stack', Settings),
+      createTopic('Auth', Key),
       createTopic('Database', Database),
       createTopic('APIs', Globe),
-      createTopic('Auth', Key),
       createTopic('Search', Search),
     ]
   },
@@ -199,8 +199,8 @@ export const webPersonalTaxonomy: Category[] = [
     id: 'production',
     name: 'PHASE 3 — PRODUCTION',
     topics: [
-      createTopic('Hosting', Server),
       createTopic('Analytics', BarChart),
+      createTopic('Hosting', Server),
       createTopic('Security Basics', Shield),
       createTopic('SEO Basics', Search),
     ]
@@ -222,8 +222,8 @@ export const webCustomTaxonomy: Category[] = [
         ...cat,
         topics: [
           ...cat.topics,
-          createTopic('Demo Data', Database),
           createTopic('Payments', CreditCard),
+          createTopic('Demo Data', Database),
           createTopic('Multi-language', Globe),
           createTopic('PWA Support', Monitor),
           createTopic('Real-time Features', Zap),
@@ -242,7 +242,7 @@ export const webCustomTaxonomy: Category[] = [
           createTopic('Cost Controls', DollarSign),
           createTopic('Rate Limits', Shield),
           createTopic('RAG', Database),
-        ]
+    ]
       };
     }
     if (cat.id === 'phase-5') {
@@ -253,7 +253,7 @@ export const webCustomTaxonomy: Category[] = [
           createTopic('Pitch Deck', Presentation),
           createTopic('Demo Script', FileText),
           createTopic('Submission Checklist', CheckSquare)
-        ]
+    ]
       };
     }
     return cat;
