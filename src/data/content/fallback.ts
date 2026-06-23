@@ -153,7 +153,7 @@ At the bottom of this page, write a definitive 3-sentence summary of your idea. 
 ---
 
 ## Overview
-Your product does not exist in a vacuum. It exists to eliminate a specific, painful problem. Founders often fall in love with their solution and ignore the problem. If the problem isn't painful enough, people won't pay for your SaaS, no matter how beautiful the UI is.
+Your product does not exist in a vacuum. It exists to eliminate a specific, painful problem. While your [Idea Definition](#ideadefinition) gave you a starting point, founders often fall in love with their solution and ignore the problem. If the problem isn't painful enough, people won't pay for your SaaS, no matter how beautiful the UI is.
 
 ---
 
@@ -262,7 +262,7 @@ Write a 3-part Problem Statement below:
 ---
 
 ## Overview
-A problem statement defines *what* is broken. User Pain Points define *how* it feels and *why* it matters. If you do not intimately understand the friction your users experience daily, you will build features they don't care about. Remember: users don't buy software, they buy a better version of themselves.
+A [Problem Statement](#problemstatement) defines *what* is broken. User Pain Points define *how* it feels and *why* it matters. If you do not intimately understand the friction your users experience daily, you will build features they don't care about. Remember: users don't buy software, they buy a better version of themselves.
 
 ---
 
@@ -355,7 +355,7 @@ Summarize the Top 3 User Pain Points below, ranked by severity. For each, list t
 ---
 
 ## Overview
-"Everyone" is not a target audience. If you build for everyone, you build for no one. A hyper-specific ICP allows you to build features faster, write better marketing copy, and completely ignore distractions. The goal here is to find the "Bullseye" customer—the subset of people who are desperate for your solution.
+"Everyone" is not a target audience. If you build for everyone, you build for no one. A hyper-specific ICP allows you to build features faster, write better marketing copy, and completely ignore distractions. The goal here is to find the "Bullseye" customer—the subset of people who are desperate to solve their [User Pain Points](#userpainpoints).
 
 ---
 
@@ -545,7 +545,7 @@ Define your 1 Primary ICP below. Delete everything else. When you are tempted to
 ---
 
 ## Overview
-A "Persona" tells you *who* the user is. A "Job to be Done" (JTBD) tells you *why* they buy. High-performing product teams use JTBD to drive the roadmap (what features to build) and Personas to build empathy (how to design and market it). Combining both ensures you build a product that is both useful and resonant.
+A "Persona" tells you *who* the user is. A "Job to be Done" (JTBD) tells you *why* they buy. High-performing product teams use JTBD to drive the roadmap (what features to build) and Personas to build empathy (how to design and market it). Combining both ensures you build a product that is both useful and resonant with your [Target Users](#targetusers).
 
 ---
 
@@ -639,7 +639,7 @@ Define your Primary User Persona and their core "Job to be Done" below.
 ---
 
 ## Overview
-The Solution Statement bridges the gap between the Problem and the Product. Using Amazon's famous "Working Backwards" PR/FAQ methodology, this document forces you to articulate exactly *what* you are building, *how* it works, and *why* it is significantly better than the alternatives—all from the customer's perspective, before writing a single line of code.
+The Solution Statement bridges the gap between the [Problem Statement](#problemstatement) and the Product. Using Amazon's famous "Working Backwards" PR/FAQ methodology, this document forces you to articulate exactly *what* you are building, *how* it works, and *why* it is significantly better than the alternatives—all from the customer's perspective, before writing a single line of code.
 
 ---
 
@@ -740,7 +740,7 @@ Write your official 1-paragraph Solution Statement (Press Release style) below.
 ---
 
 ## Overview
-A Value Proposition is not a marketing slogan (like Nike's "Just Do It"). It is a clear, concise statement that explains exactly what measurable benefit your product delivers, and why the customer should buy it from you instead of a competitor. We use the **Value Proposition Canvas** by Strategyzer to guarantee problem-solution fit.
+A Value Proposition is not a marketing slogan (like Nike's "Just Do It"). It is a clear, concise statement that explains exactly what measurable benefit your [Solution Statement](#solutionstatement) delivers, and why the customer should buy it from you instead of a competitor to relieve their [User Pain Points](#userpainpoints). We use the **Value Proposition Canvas** by Strategyzer to guarantee problem-solution fit.
 
 ---
 
@@ -840,7 +840,7 @@ Write your official 1-2 sentence Value Proposition below.
 ---
 
 ## Overview
-The goal of an elevator pitch is not to explain every feature of your business. The goal is to be interesting enough that the listener says, "Tell me more." We use Geoffrey Moore's framework to *think* about our strategy, and the Y Combinator framework to actually *speak* to humans.
+The goal of an elevator pitch is not to explain every feature of your business. The goal is to be interesting enough that the listener says, "Tell me more." We use Geoffrey Moore's framework to synthesize your [Value Proposition](#valueproposition) and [Solution Statement](#solutionstatement) into a strategy, and the Y Combinator framework to actually *speak* to humans.
 
 ---
 
@@ -915,54 +915,7 @@ They must be written in plain English, completely devoid of buzzwords, and immed
 ---
 
 ## Validation Checklist
-- [ ] Does it take less than 15 seconds to say out loud?
-- [ ] Would a 12-year-old understand exactly what you do?
-- [ ] Does it invite a follow-up question rather than confusion?
-
----
-
-## Deliverable
-Write your final, Y Combinator-style Elevator Pitch below. Memorize it.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-`,
-
-  'mvpfeatures': `# MVP Features (Minimum Viable Product)
-
-The MVP is the absolute minimum set of features required to prove that your solution solves the problem.
-
-## Why It Matters
-Feature creep is the #1 killer of software projects. You do not need a dark mode toggle, social login, or a complex notification system to validate your core hypothesis.
-
-> [!CAUTION]
-> **Common Mistake:** Building an admin dashboard before you even have a single user.
-
-## Decisions You Must Make
-- [ ] What is the **Core Loop**? (The 1-2 actions a user takes that delivers the value).
-- [ ] What features are absolutely necessary for the Core Loop?
-- [ ] What features can be manually done by you behind the scenes (Concierge MVP)?
-- [ ] What are the "Nice to Haves" that must be cut?
-
-## Feature Prioritization Matrix
-When deciding what makes the cut, map your ideas on this matrix:
-1. **High Impact, Low Effort:** Build immediately.
-2. **High Impact, High Effort:** Build if it's the core differentiator.
-3. **Low Impact, Low Effort:** Ignore for now.
-4. **Low Impact, High Effort:** Never build.
-
-## AI Prompt Guidance
-
-Use AI to aggressively cut scope.
-
-\`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-My current feature list is:
-[PASTE FEATURE LIST]
-
-Act as a ruthless CTO focused on shipping in 2 weeks. 
-1. Categorize these features into "Must Have for MVP" and "Cut for Now".
+- [ ] Does it take less than 15 seconds t for Now".
 2. For the "Must Haves", suggest the absolute simplest, most hard-coded way I can implement them to save time.
 \`\`\`
 
@@ -1242,31 +1195,242 @@ Describe the user's current workaround, its hidden cost, and your exact strategy
 \`\`\`
 `,
 
-  'featureplanning': `# Feature Planning
+  'marketpositioning': `# Market Positioning
 
-## Feature Prioritization Matrix
-When deciding what makes the cut, map your ideas on this matrix:
-1. **High Impact, Low Effort:** Build immediately.
-2. **High Impact, High Effort:** Build if it's the core differentiator.
-3. **Low Impact, Low Effort:** Ignore for now.
-4. **Low Impact, High Effort:** Never build.
+**🕒 Estimated Time:** 30 min
 
-## AI Prompt Guidance
+---
 
-Use AI to aggressively cut scope.
+## Overview
+Now that you know your competitors ([Competitor Analysis](#competitoranalysis)) and the status quo ([Existing Alternatives](#existingalternatives)), you must position your product. Positioning is not marketing fluff; it dictates what you build and who you sell to. If you position as an "Enterprise Solution," you must build SSO. If you position as a "Solo-preneur tool," you must build self-serve onboarding.
+
+---
+
+## Think First
+Define exactly where you sit in the market ecosystem.
+
+**The Axiom (What do you believe about the market that your competitors don't?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Superpower (What is the *one* thing you will be world-class at?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## AI Prompt
+Use this prompt to carve out a unique space in the market.
 
 \`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-My current feature list is:
-[PASTE FEATURE LIST]
+Act as an expert Brand Strategist.
+Here is my Competitor Analysis: [PASTE COMPETITOR ANALYSIS OR GOLIATH'S WEAKNESS]
+Here is my Value Proposition: [PASTE VALUE PROPOSITION]
+
+1. Give me 3 distinct positioning angles I could take (e.g., "The Premium Option", "The Developer-First Option").
+2. Write a 1-sentence positioning statement for the angle you recommend most strongly.
+3. What is the biggest risk of taking this position?
+\`\`\`
+
+---
+
+## Deliverable
+Write your final 1-sentence positioning statement.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+
+  'featureplanning': `# Feature Planning
+
+**🕒 Estimated Time:** 20 min
+
+---
+
+## Overview
+You have a [Solution Statement](#solutionstatement) and a defined [Market Positioning](#marketpositioning). Now it's time to brainstorm features. At this stage, do not filter. Write down every single feature you *could* possibly build to deliver your value proposition.
+
+---
+
+## Think First
+Brainstorm freely before we start cutting.
+
+**The Core Engine (What features power the primary value?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Expansion (What features would make this a billion-dollar company?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## AI Prompt
+Use AI to expand your thinking and identify features you might have missed.
+
+\`\`\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH]
+My core functionality is: [PASTE CORE ENGINE]
+
+Act as a visionary Product Manager.
+Brainstorm a comprehensive list of 20 features that this platform could eventually have. Group them logically (e.g., "User Management", "Core Workflow", "Integrations", "Analytics"). Do not worry about effort or cost yet.
+\`\`\`
+
+---
+
+## Deliverable
+Paste your comprehensive, unfiltered list of features here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+
+  'mvpfeatures': `# MVP Features (Minimum Viable Product)
+
+**🕒 Estimated Time:** 45 min
+
+---
+
+## Overview
+Take the massive list you generated in [Feature Planning](#featureplanning) and aggressively cut it down. The MVP is the absolute minimum set of features required to solve the [User Pain Points](#userpainpoints) and prove your hypothesis. Feature creep is the #1 killer of software projects.
+
+---
+
+## Think First
+Identify what is truly necessary to deliver value.
+
+**The Non-Negotiables (If I don't build these, the product is useless)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The "Do Things That Don't Scale" Hack (What can I manually do behind the scenes instead of writing code?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## AI Prompt
+Use AI to act as an aggressive editor.
+
+\`\`\`prompt
+Here is my massive feature list: [PASTE FEATURE PLANNING LIST]
+My core value proposition is: [PASTE VALUE PROPOSITION]
 
 Act as a ruthless CTO focused on shipping in 2 weeks. 
 1. Categorize these features into "Must Have for MVP" and "Cut for Now".
-2. For the "Must Haves", suggest the absolute simplest, most hard-coded way I can implement them to save time.
+2. For the "Must Haves", suggest the absolute simplest, most hard-coded way I can implement them to save time (e.g., instead of a password reset flow, just have them email support).
 \`\`\`
 
-## Deliverable Expectations
-Create a checklist below of the 3 to 5 features that constitute your MVP. If there are more than 5, you are probably building too much.
+---
+
+## Deliverable
+Create a strict checklist of the 3 to 5 features that constitute your MVP.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+
+  'futurefeatures': `# Future Features
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+Just because a feature was cut from the [MVP Features](#mvpfeatures) doesn't mean it's gone forever. Documenting your future features prevents you from getting distracted today while keeping a roadmap for tomorrow.
+
+---
+
+## Think First
+Park your long-term ideas here so they don't block your current progress.
+
+**The "V2" Features (What will you build immediately after the MVP succeeds?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Moat Builders (What complex features will eventually make you impossible to copy?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## AI Prompt
+Use AI to structure your long-term roadmap.
+
+\`\`\`prompt
+Here are the features I cut from my MVP: [PASTE CUT FEATURES]
+
+Act as a strategic VP of Product.
+Organize these remaining features into a logical "V2, V3, V4" roadmap. Explain *why* you ordered them this way based on standard SaaS growth trajectories (e.g., building retention features before expansion features).
+\`\`\`
+
+---
+
+## Deliverable
+Paste your organized roadmap for post-MVP features.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+
+  'featureprioritization': `# Feature Prioritization
+
+**🕒 Estimated Time:** 30 min
+
+---
+
+## Overview
+You now have your core [MVP Features](#mvpfeatures). But in what exact order should you write the code? Prioritization ensures you build the riskiest, most complex core systems first, rather than wasting time on UI polish.
+
+---
+
+## Think First
+Apply the Action Priority Matrix (Impact vs. Effort).
+
+**High Impact, Low Effort (Quick Wins - Do First)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**High Impact, High Effort (Major Projects - Do Second)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## AI Prompt
+Use AI to sequence your actual development sprint.
+
+\`\`\`prompt
+Here is my MVP Feature List: [PASTE MVP FEATURES]
+
+Act as an Agile Scrum Master. 
+1. Break these features down into a strict, step-by-step development sequence for a solo developer.
+2. Tell me exactly which feature I should code *first* and why it is the most critical foundation.
+3. Identify the biggest technical risk in this list.
+\`\`\`
+
+---
+
+## Deliverable
+Paste your sequenced, step-by-step development plan.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
 `,
 
   'businessmodel': `# Business Model & Pricing
