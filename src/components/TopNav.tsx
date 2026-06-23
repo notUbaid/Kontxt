@@ -178,19 +178,21 @@ export const TopNav = ({
         <div className="w-px h-8 bg-muted/80 hidden md:block"></div>
 
         {/* Progress Tracker */}
-        <div className="hidden lg:flex flex-col justify-center">
-          <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-1">Progress</span>
-          <div className="flex items-center gap-3">
-            <span className="text-sm font-bold text-foreground w-8">{progressPercent}%</span>
-            <div className="w-24 h-2 bg-muted rounded-full overflow-hidden">
-              <div 
-                className="h-full bg-accent transition-all duration-500 ease-out rounded-full"
-                style={{ width: `${progressPercent}%` }}
-              ></div>
+        {activeProject.progressEnabled !== false && (
+          <div className="hidden lg:flex flex-col justify-center">
+            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-1">Progress</span>
+            <div className="flex items-center gap-3">
+              <span className="text-sm font-bold text-foreground w-8">{progressPercent}%</span>
+              <div className="w-24 h-2 bg-muted rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-accent transition-all duration-500 ease-out rounded-full"
+                  style={{ width: `${progressPercent}%` }}
+                ></div>
+              </div>
+              <span className="text-[11px] font-medium text-muted-foreground whitespace-nowrap">Phase {currentPhase} of {totalPhases}</span>
             </div>
-            <span className="text-[11px] font-medium text-muted-foreground whitespace-nowrap">Phase {currentPhase} of {totalPhases}</span>
           </div>
-        </div>
+        )}
       </div>
 
       {/* CENTER SECTION - Search */}

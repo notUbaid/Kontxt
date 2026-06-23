@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Key, User, Trash2, FolderOpen, Zap } from 'lucide-react';
+import { X, Key, User, Trash2, FolderOpen } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Project } from '../App';
 import type { Mode } from './TopNav';
@@ -244,31 +244,39 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
                           <p className="font-bold text-foreground">Current Mode</p>
                           <p className="text-sm text-muted-foreground">The current scope and phase of the blueprint.</p>
                         </div>
-                        <div className="px-4 py-2 bg-muted text-muted-foreground font-semibold rounded-lg text-sm uppercase tracking-widest">
-                          {activeProject.mode}
-                        </div>
+                        <select 
+                          value={activeProject.mode}
+                          onChange={(e) => {
+                            if (onModeChange) onModeChange(e.target.value as Mode);
+                          }}
+                          className="bg-background border border-input rounded-lg px-4 py-2 text-sm font-semibold uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-foreground cursor-pointer"
+                        >
+                          <option value="Hackathon">Hackathon</option>
+                          <option value="Personal">Personal</option>
+                          <option value="Production">Production</option>
+                          <option value="Custom">Custom</option>
+                        </select>
                       </div>
                       
-                      {activeProject.mode !== 'Custom' && (
-                        <div className="p-5 border-2 border-accent/20 bg-accent/5 rounded-xl flex flex-col gap-4 mt-8">
-                          <div>
-                            <p className="font-bold text-accent text-lg flex items-center gap-2">
-                              <Zap size={20} className="fill-accent" /> Unlock Custom Mode
-                            </p>
-                            <p className="text-sm text-foreground/80 mt-1">
-                              Need more flexibility? Convert this project to Custom Mode. This will permanently unlock all topics and phases from the master Production blueprint for you to mix and match as you see fit. <strong>This action cannot be undone.</strong>
-                            </p>
-                          </div>
-                          <button 
-                            onClick={() => {
-                              if (onModeChange) onModeChange('Custom');
-                            }}
-                            className="w-fit px-6 py-2.5 bg-accent text-accent-foreground font-bold rounded-lg hover:brightness-110 transition-all shadow-lg"
-                          >
-                            Convert to Custom Mode
-                          </button>
+                      <div className="p-4 border border-muted rounded-xl flex items-center justify-between bg-muted/10">
+                        <div>
+                          <p className="font-bold text-foreground">Progress Tracking</p>
+                          <p className="text-sm text-muted-foreground">Show progress bar and topic checkmarks.</p>
                         </div>
-                      )}
+                        <label className="relative inline-flex items-center cursor-pointer">
+                          <input 
+                            type="checkbox" 
+                            className="sr-only peer"
+                            checked={activeProject.progressEnabled !== false}
+                            onChange={(e) => {
+                              if (onProjectUpdate) {
+                                onProjectUpdate({ ...activeProject, progressEnabled: e.target.checked });
+                              }
+                            }}
+                          />
+                          <div className="w-11 h-6 bg-muted peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                        </label>
+                      </div>
                     </div>
                   </div>
                 )}

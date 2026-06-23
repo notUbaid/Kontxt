@@ -86,13 +86,15 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
                             <topic.icon size={16} className={isActive ? 'text-accent-foreground' : 'text-muted-foreground'} />
                             <span>{topic.name}</span>
                           </div>
-                          <div 
-                            onClick={(e) => toggleTopicProgress(e, topic.id)}
-                            className={`p-1 rounded-full transition-all ${isCompleted ? 'text-green-500 opacity-100' : 'text-muted-foreground opacity-0 group-hover/item:opacity-40 hover:!opacity-100 hover:bg-muted/50'}`}
-                            title={isCompleted ? "Mark as uncompleted" : "Mark as completed"}
-                          >
-                            <CheckCircle2 size={16} className={isCompleted ? 'fill-green-500/20' : ''} />
-                          </div>
+                          {activeProject.progressEnabled !== false && (
+                            <div 
+                              onClick={(e) => toggleTopicProgress(e, topic.id)}
+                              className={`p-1 rounded-full transition-all ${isCompleted ? 'text-green-500 opacity-100' : 'text-muted-foreground opacity-0 group-hover/item:opacity-40 hover:!opacity-100 hover:bg-muted/50'}`}
+                              title={isCompleted ? "Mark as uncompleted" : "Mark as completed"}
+                            >
+                              <CheckCircle2 size={16} className={isCompleted ? 'fill-green-500/20' : ''} />
+                            </div>
+                          )}
                         </button>
                       </li>
                     );

@@ -30,6 +30,7 @@ export interface Project {
   customLinks?: CustomLink[];
   hiddenLinks?: string[];
   completedTopics?: string[];
+  progressEnabled?: boolean;
 }
 
 function App() {
