@@ -415,14 +415,7 @@ For the Primary "Bullseye" ICP, include:
 ---
 
 ## Deliverable
-Define your 1 Primary ICP below. Delete everything else. When you are tempted to build a feature, ask yourself: "Does this specific person actually care about this?"
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-`,
-
-  'icpidealcustomerprofile': `# Target Users & Ideal Customer Profile (ICP)
+Define your 1 Primary ICP below. Delete everything else. When you are tempted to build   'icpidealcustomerprofile': `# Target Users & Ideal Customer Profile (ICP)
 
 **🕒 Estimated Time:** 20-30 min
 
@@ -485,7 +478,7 @@ For the Primary "Bullseye" ICP, include:
 3. The absolute best marketing channel to reach them with $0 budget
 \`\`\`
 
-
+---
 
 ## What Good Looks Like
 
@@ -511,6 +504,195 @@ For the Primary "Bullseye" ICP, include:
 
 ## Deliverable
 Define your 1 Primary ICP below. Delete everything else. When you are tempted to build a feature, ask yourself: "Does this specific person actually care about this?"
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+
+  'personas': `# User Personas & Jobs to be Done
+
+**🕒 Estimated Time:** 30-40 min
+
+---
+
+## Overview
+A "Persona" tells you *who* the user is. A "Job to be Done" (JTBD) tells you *why* they buy. High-performing product teams use JTBD to drive the roadmap (what features to build) and Personas to build empathy (how to design and market it). Combining both ensures you build a product that is both useful and resonant.
+
+---
+
+## Think First
+Before using AI, ground your personas in reality. Answer these questions based on actual user behavior, not assumptions.
+
+**The "Hire" Trigger** (What specific event caused them to look for a solution today?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The "Fire" Trigger** (What specific frustration will cause them to abandon your product?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Context & Constraints** (Are they using this on their phone during a commute? Are they locked into strict IT policies?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Reality Check: The "Vanity" Test**
+- [ ] My persona includes irrelevant details (e.g., "likes long walks on the beach").
+- [ ] My persona is based entirely on my imagination.
+- [ ] My persona focuses heavily on the "Job" they are trying to accomplish.
+- [ ] I can map this persona directly to my Ideal Customer Profile (ICP).
+
+---
+
+## Key Decisions
+- **JTBD vs Persona:** Use JTBD ("When [situation], I want to [motivation], so I can [expected outcome]") to prioritize your backlog. Use Personas to write marketing copy and design the UI tone.
+- **The Decision Maker vs. The End User:** In B2B SaaS, the person buying the software (e.g., VP of Sales) is often not the person using it (e.g., Account Executive). You must define both.
+
+---
+
+## Common Mistakes
+- **Assumption-Driven Personas:** Creating fictional characters that don't match real data, leading to a false sense of empathy.
+- **Feature-Obsessed Personas:** Defining a user solely by the features they use, rather than the problem they are trying to solve.
+
+---
+
+## AI Prompt
+Use this prompt to bridge your ICP with actionable Jobs to be Done.
+
+\`\`\`prompt
+Act as a Principal Product Manager specializing in the Jobs to be Done framework.
+My target ICP is: [INSERT ICP].
+The problem they face is: [INSERT PROBLEM STATEMENT].
+
+Generate 2 detailed User Personas. For each persona, provide:
+1. A 1-sentence "Job Story" (When [situation], I want to [motivation], so I can [outcome]).
+2. Their primary constraint (Time, Budget, Technical Literacy, Authority).
+3. The exact emotion they feel before using the product, and the exact emotion they want to feel after.
+\`\`\`
+
+---
+
+## What Good Looks Like
+
+**A strong Persona/JTBD:**
+✓ Focuses heavily on the triggering situation and desired outcome.
+✓ Highlights real-world constraints (e.g., "Only has 5 minutes between meetings").
+✓ Distinguishes between the buyer and the user.
+
+**A weak Persona/JTBD:**
+✗ Reads like a fictional biography.
+✗ Has no actionable impact on the product roadmap.
+✗ Assumes the user has unlimited time to learn a new interface.
+
+---
+
+## Validation Checklist
+- [ ] Are these personas based on patterns observed in actual customer interviews?
+- [ ] Can you point to a specific feature on your roadmap and explain exactly which "Job" it satisfies?
+- [ ] Did you avoid demographic stereotypes in favor of behavioral patterns?
+
+---
+
+## Deliverable
+Define your Primary User Persona and their core "Job to be Done" below.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+
+  'solutionstatement': `# Solution Statement
+
+**🕒 Estimated Time:** 20-30 min
+
+---
+
+## Overview
+The Solution Statement bridges the gap between the Problem and the Product. Using Amazon's famous "Working Backwards" PR/FAQ methodology, this document forces you to articulate exactly *what* you are building, *how* it works, and *why* it is significantly better than the alternatives—all from the customer's perspective, before writing a single line of code.
+
+---
+
+## Think First
+Before using AI, clearly define the mechanics of your solution.
+
+**The "Aha!" Moment** (What is the exact moment the user realizes your product is magic?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Core Mechanism** (How does your product actually solve the root cause of the problem?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The 10x Factor** (Why is this fundamentally better, faster, or cheaper than the workaround?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Reality Check: Feasibility**
+- [ ] Can this solution be built by my current team within 3 months?
+- [ ] Does this solution rely on unproven or inaccessible technology?
+- [ ] Is the solution completely dependent on massive network effects to work?
+- [ ] Does the solution directly address the "Hair on Fire" pain point?
+
+---
+
+## Key Decisions
+- **Narrative over Bullet Points:** A solution statement should read like a press release. It must be compelling, customer-centric, and completely devoid of technical jargon.
+- **Verifiable Value:** Avoid vague claims like "it makes you more productive." Use verifiable claims like "it reduces the time to generate a report from 3 hours to 3 seconds."
+
+---
+
+## Common Mistakes
+- **Focusing on Features, Not Benefits:** Customers don't care about your React frontend or your AI backend. They care about what the product *does for them*.
+- **Building a Better Mousetrap:** If your solution solves the problem in the exact same way as existing products, but just looks slightly nicer, it will fail. You need a paradigm shift.
+
+---
+
+## AI Prompt
+Use this prompt to draft a compelling, Amazon-style Press Release for your solution.
+
+\`\`\`prompt
+Act as a "Bar Raiser" at Amazon, an expert in the Working Backwards methodology.
+My problem statement is: [INSERT PROBLEM STATEMENT].
+My proposed solution mechanism is: [INSERT CORE MECHANISM].
+
+Draft the "Solution Paragraph" of a PR/FAQ Press Release.
+1. It must be written entirely from the customer's perspective.
+2. It must clearly explain how the product works without using any technical jargon.
+3. It must emphasize the "Aha!" moment and the specific, verifiable benefit over existing workarounds.
+Make it punchy and persuasive.
+\`\`\`
+
+---
+
+## What Good Looks Like
+
+**A strong Solution Statement:**
+✓ Customer-centric language (focuses on benefits, not features).
+✓ Clearly maps back directly to the identified root cause of the pain point.
+✓ Provides a concrete, verifiable outcome.
+
+**A weak Solution Statement:**
+✗ Reads like a technical spec sheet or an architecture diagram.
+✗ Uses buzzwords ("AI-powered synergy platform").
+✗ Solves a problem that wasn't previously identified.
+
+---
+
+## Validation Checklist
+- [ ] If you read this statement to a non-technical user, would they instantly understand what the product does?
+- [ ] Does the solution offer a meaningfully better experience than the current workaround?
+- [ ] Are you excited to actually build this?
+
+---
+
+## Deliverable
+Write your official 1-paragraph Solution Statement (Press Release style) below.
 
 \`\`\`input
 ✍️ Type your answer here...

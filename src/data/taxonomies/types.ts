@@ -61,6 +61,16 @@ const globalTopicLinks: Record<string, QuickLink[]> = {
     { name: 'Superhuman PMF Engine', url: 'https://firstround.com/review/how-superhuman-built-an-engine-to-find-product-market-fit/' },
     { name: 'Tool: Apollo.io (B2B Leads)', url: 'https://www.apollo.io/' },
     { name: 'Tool: LinkedIn Sales Nav', url: 'https://business.linkedin.com/sales-solutions/sales-navigator' }
+  ],
+  'personas': [
+    { name: 'Lenny: Jobs to be Done', url: 'https://www.lennysnewsletter.com/p/jobs-to-be-done' },
+    { name: 'Tool: ADPList (User Interviews)', url: 'https://adplist.org/' },
+    { name: 'Tool: Hubspot Persona Maker', url: 'https://www.hubspot.com/make-my-persona' }
+  ],
+  'solutionstatement': [
+    { name: 'Amazon Working Backwards', url: 'https://www.workingbackwards.com/' },
+    { name: 'Template: Coda PR/FAQ', url: 'https://coda.io/@coda/amazon-pr-faq' },
+    { name: 'Tool: FigJam (Brainstorming)', url: 'https://www.figma.com/figjam/' }
   ]
 };
 
