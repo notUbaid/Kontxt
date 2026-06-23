@@ -128,39 +128,39 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'Tool: Jira (Backlog)', url: 'https://www.atlassian.com/software/jira' }
   ],
   'businessmodel': [
-    { name: 'Patrick Campbell: Pricing', url: 'https://www.youtube.com/watch?v=2eEwU8G9K1I' },
-    { name: 'Lenny: B2B vs B2C', url: 'https://www.lennysnewsletter.com/p/b2b-vs-b2c' },
-    { name: 'Tool: Stripe (Payments)', url: 'https://stripe.com/' }
+    { name: 'David Sacks: SaaSGrid Metrics', url: 'https://saasgrid.com/' },
+    { name: 'Tomasz Tunguz: The 10 Metrics', url: 'https://tomtunguz.com/the-10-most-important-metrics-in-a-startup/' },
+    { name: 'Tool: BurnRate.io', url: 'https://burnrate.io/' }
   ],
   'pricing': [
-    { name: 'Patrick Campbell: Value Metric', url: 'https://www.youtube.com/watch?v=kYJvP8Z4fEY' },
-    { name: 'YC: Pricing 101', url: 'https://www.ycombinator.com/library/6x-pricing-101' },
-    { name: 'Tool: Stripe Pricing Builder', url: 'https://stripe.com/pricing' }
+    { name: 'Kyle Poyar: Growth Unhinged', url: 'https://www.growthunhinged.com/' },
+    { name: 'Patrick Campbell: Pricing Anatomy', url: 'https://www.profitwell.com/recur/all/anatomy-of-saas-pricing-strategy' },
+    { name: 'OpenView: B2B Pricing Playbook', url: 'https://openviewpartners.com/blog/saas-pricing-playbook/' }
   ],
   'subscriptionmodel': [
-    { name: 'ProfitWell: Churn Benchmarks', url: 'https://www.profitwell.com/recur/all/churn-benchmarks' },
-    { name: 'First Round: Annual vs Monthly', url: 'https://firstround.com/review/how-superhuman-built-an-engine-to-find-product-market-fit/' },
-    { name: 'Tool: ChartMogul', url: 'https://chartmogul.com/' }
+    { name: 'BVP: 10 Laws of Cloud Computing', url: 'https://www.bvp.com/atlas/the-10-laws-of-cloud-computing' },
+    { name: 'Tool: Baremetrics Open Startups', url: 'https://baremetrics.com/open-startups' },
+    { name: 'Elena Verna: B2B Growth', url: 'https://www.elenaverna.com/' }
   ],
   'revenuestreams': [
-    { name: 'Lenny: PLG vs Sales-Led', url: 'https://www.lennysnewsletter.com/p/plg-vs-slg' },
-    { name: 'Intercom: Monetization Strategy', url: 'https://www.intercom.com/blog/saas-pricing-strategy/' },
-    { name: 'Tool: Paddle (MoR)', url: 'https://paddle.com/' }
+    { name: 'Sarah Tavel: Hierarchy of Engagement', url: 'https://sarahtavel.medium.com/the-hierarchy-of-engagement-5803bf4e6cfa' },
+    { name: 'SaaStr: Rules of Expansion Revenue', url: 'https://www.saastr.com/the-10-rules-of-expansion-revenue/' },
+    { name: 'Ben Thompson: Aggregation Theory', url: 'https://stratechery.com/aggregation-theory/' }
   ],
   'successmetrics': [
-    { name: 'A16Z: 16 Startup Metrics', url: 'https://a16z.com/16-startup-metrics/' },
-    { name: 'Lenny: Leading vs Lagging', url: 'https://www.lennysnewsletter.com/p/leading-vs-lagging-indicators' },
-    { name: 'Tool: PostHog', url: 'https://posthog.com/' }
+    { name: 'Sequoia: Matrix for Series A', url: 'https://www.sequoiacap.com/article/framework-for-series-a/' },
+    { name: 'Andrew Chen: Power User Curve', url: 'https://andrewchen.com/the-power-user-curve-the-best-way-to-understand-your-most-engaged-users/' },
+    { name: 'Amplitude: Retention Playbook', url: 'https://amplitude.com/retention' }
   ],
   'kpis': [
-    { name: 'Y Combinator: Growth KPIs', url: 'https://www.ycombinator.com/library/4D-how-to-measure-weekly-growth' },
-    { name: 'Mixpanel: KPI Guide', url: 'https://mixpanel.com/topics/key-performance-indicators/' },
-    { name: 'Tool: Metabase', url: 'https://www.metabase.com/' }
+    { name: 'David Sacks: SaaS Metrics That Matter', url: 'https://medium.com/craft-ventures/the-saas-metrics-that-matter-f29729ce7a2b' },
+    { name: 'Tool: Visible.vc (Investor Updates)', url: 'https://visible.vc/' },
+    { name: 'First Round: Building KPI Trees', url: 'https://firstround.com/review/this-is-the-framework-that-helped-us-align-our-team-and-build-a-kpi-tree/' }
   ],
   'northstarmetric': [
-    { name: 'Lenny: Choosing a North Star', url: 'https://www.lennysnewsletter.com/p/choosing-your-north-star-metric' },
-    { name: 'Amplitude: NSM Playbook', url: 'https://amplitude.com/north-star' },
-    { name: 'Reforge: Metric Hierarchies', url: 'https://www.reforge.com/brief/the-north-star-metric' }
+    { name: 'Reforge: NSM Models', url: 'https://www.reforge.com/brief/the-north-star-metric' },
+    { name: 'Casey Winters: Don\'t Make Revenue Your NSM', url: 'https://caseyaccidental.com/revenue-not-a-north-star-metric/' },
+    { name: 'Amplitude: North Star Playbook', url: 'https://amplitude.com/north-star' }
   ]
 };
 

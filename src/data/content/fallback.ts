@@ -1638,14 +1638,14 @@ Paste your sequenced, step-by-step development plan.
 ---
 
 ## Overview
-A great product with a fundamentally broken business model is a hobby, not a business. The business model defines the mechanics of how you create, deliver, and capture value. Will you be Product-Led (PLG) where the product sells itself, or Sales-Led where you do demos? Will you sell B2B (Business-to-Business) or B2C (Business-to-Consumer)? 
+A great product with a fundamentally broken business model is a hobby, not a business. The business model defines the mechanics of how you create, deliver, and capture value. Do not guess here. The math must work from Day 1, or you will slowly bleed to death over 2 years.
 
 ---
 
 ## Think First
 Define the foundational mechanics of your business.
 
-**The Value Exchange (Who pays, and what exact outcome are they buying?)**
+**The Value Exchange (Who writes the check, and what exact outcome are they buying?)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
@@ -1656,40 +1656,40 @@ Define the foundational mechanics of your business.
 \`\`\`
 
 **Reality Check: The "Willingness to Pay" Test**
-- [ ] Does my target audience actually have a budget for this?
-- [ ] Are they currently paying for a workaround or a competitor?
-- [ ] Does the cost of acquiring a customer (CAC) make sense for the price?
+- [ ] Is my target audience an individual consumer (B2C) or a business (B2B)?
+- [ ] Do they actually have a pre-allocated budget for this problem, or am I asking them to find new money?
+- [ ] Does the Customer Acquisition Cost (CAC) make mathematical sense for my price point?
 
 ---
 
 ## Key Decisions
-- **B2B vs B2C:** B2C (consumers) churn fast and hate subscriptions. B2B (businesses) expect subscriptions, churn slowly, and have corporate credit cards. When in doubt, go B2B.
-- **Product-Led Growth (PLG) vs Sales-Led:** If your product costs $29/mo, it must be PLG (self-serve onboarding). You cannot afford to do 45-minute sales calls for a $29 product.
+- **B2B vs B2C:** A $12/mo B2C tool needs 100,000 active users to hit $1.2M ARR. A $1,000/mo B2B tool needs 100 users. You are a solo developer. You do not have the marketing budget to acquire 100,000 users. Go B2B.
+- **Product-Led Growth (PLG) vs Sales-Led:** If your product costs $29/mo, it must be PLG (100% self-serve onboarding). You cannot afford to do 45-minute Zoom sales calls for a $29 product. Your margins will evaporate.
 
 ---
 
 ## Common Mistakes
-- **The Freemium Trap:** Freemium is a marketing expense, not a business model. Only do Freemium if free users naturally invite paid users (e.g., Slack, Zoom, Calendly). Otherwise, use a 14-day Free Trial.
-- **Assuming "If I build it, they will come":** Having a product is 10% of the battle. Distribution is the other 90%.
+- **The Freemium Trap:** Freemium is a massive marketing expense, not a business model. Only do Freemium if free users naturally and aggressively invite paid users (e.g., Slack, Calendly). Otherwise, use a strict 14-day Free Trial.
+- **Assuming "If I build it, they will come":** Having a product is 10% of the battle. Distribution is the other 90%. If you don't know exactly how you will get your first 100 customers, stop coding.
 
 ---
 
 ## AI & Architecture Reality Check
-- **Architecture Dictates Margins:** If your app relies heavily on large context windows in LLMs (like GPT-4), every time a user clicks a button, it costs you $0.05. You cannot offer an unlimited $10/mo plan, or you will go bankrupt. Your architecture must align with your model.
+- **Architecture Dictates Margins:** If your app relies heavily on large context windows in LLMs (like GPT-4), every time a user clicks a button, it costs you $0.05. You cannot offer an "Unlimited" $10/mo plan, or one power user will literally put you in debt. Your backend architecture must align with your monetization.
 
 ---
 
 ## AI Prompt
-Use AI to validate your assumptions about the market.
+Use AI to validate your mathematical assumptions.
 
 \`\`\`prompt
 My SaaS product is: [INSERT ELEVATOR PITCH].
 My target users are: [INSERT ICP].
 
-Act as a seasoned SaaS investor.
-1. Suggest the most viable business model for this (e.g., PLG, Sales-Led, Marketplace).
-2. What is the single biggest existential risk to this business model?
-3. How should I acquire my first 100 paying customers without spending money on ads?
+Act as a ruthless Series A SaaS investor (like David Sacks).
+1. Tell me why this business model will fail based on Customer Acquisition Cost (CAC) vs Lifetime Value (LTV).
+2. What is the single biggest existential risk to my distribution strategy?
+3. Give me the brutal math on how many users I need at $X/mo to hit $1M ARR, and tell me if that's realistic for a bootstrapped founder.
 \`\`\`
 
 ---
@@ -1697,24 +1697,24 @@ Act as a seasoned SaaS investor.
 ## What Good Looks Like
 
 **Strong Business Model:**
-✓ Clear path to reaching customers affordably.
-✓ High margins and scalable delivery.
-✓ Focuses on corporate budgets rather than personal wallets.
+✓ Clear, mathematically viable path to reaching customers affordably.
+✓ Focuses on established corporate budgets rather than personal wallets.
+✓ High margins (>80%) and scalable, zero-marginal-cost delivery.
 
 **Weak Business Model:**
-✗ High customer acquisition cost but low lifetime value.
+✗ High CAC but low Lifetime Value (LTV).
 ✗ Relies entirely on viral consumer growth to survive.
 
 ---
 
 ## Validation Checklist
 - [ ] Can I articulate exactly how money gets from their bank account to mine?
-- [ ] Do my margins make sense after cloud and AI API costs?
+- [ ] Have I modeled my margins after cloud, database, and AI API costs are deducted?
 
 ---
 
 ## Deliverable
-Write your 1-sentence business model summary.
+Write your 1-sentence business model summary and your target LTV:CAC ratio.
 
 \`\`\`input
 ✍️ Type your answer here...
@@ -1728,14 +1728,14 @@ Write your 1-sentence business model summary.
 ---
 
 ## Overview
-Pricing is the most powerful lever you have for profitability, yet most founders treat it as an afterthought. Your [Business Model](#businessmodel) dictates *how* you make money; your pricing dictates *how much*. If you get this wrong, you leave millions on the table or price yourself out of the market entirely.
+Pricing is the most powerful lever you have for profitability, yet most founders treat it as an emotional afterthought. Your [Business Model](#businessmodel) dictates *how* you make money; your pricing dictates *how much*. If you get this wrong, you leave millions on the table or price yourself out of the market entirely.
 
 ---
 
 ## Think First
-Pricing is deeply psychological.
+Pricing is a psychological weapon. Use it properly.
 
-**The "Value Metric" (What exact unit do you charge for? e.g., per seat, per gigabyte, per active project)**
+**The "Value Metric" (What exact unit do you charge for? e.g., per seat, per 1,000 API calls, per active project)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
@@ -1747,39 +1747,39 @@ Pricing is deeply psychological.
 
 **Reality Check: The "Too Cheap" Test**
 - [ ] Is my highest tier at least $100/month? (If not, why?)
-- [ ] Am I pricing based on my costs, or based on the value I provide to the user?
-- [ ] Does my pricing page anchor the user to a high price?
+- [ ] Am I pricing based on my internal server costs, or based on the immense value I provide to the user?
+- [ ] Does my pricing page anchor the user to a high price first (e.g. showing the $499 Enterprise plan to make the $49 Pro plan look cheap)?
 
 ---
 
 ## Key Decisions
-- **The Paywall Trigger:** What exact feature makes a free or basic user say, "Damn, I need to upgrade right now"? That is your paywall trigger.
-- **Flat-Rate vs Usage-Based:** Flat rate is predictable for the user. Usage-based scales infinitely with their success. A hybrid (flat rate with usage limits) is often best.
+- **The Paywall Trigger:** What exact feature makes a free or basic user slam their fist on the desk and say, "Damn, I need to upgrade right now"? That is your paywall trigger. Guard it with your life.
+- **Flat-Rate vs Usage-Based:** Flat rate is predictable for the user. Usage-based scales infinitely with their success. A hybrid (flat platform fee + usage limits) is the gold standard in modern B2B SaaS.
 
 ---
 
 ## Common Mistakes
-- **Underpricing:** Pricing at $5/month because you feel insecure. B2B software should rarely be under $29/mo. 
-- **Infinite Options:** Giving users 8 different sliders to customize their price. A confused mind says "No." Keep it to 3 distinct tiers.
+- **Insecure Underpricing:** Pricing at $5/month because you feel insecure about your code is a fatal error. B2B software should rarely be under $39/mo. If your tool doesn't save a business at least $39 of time or money, you haven't found a real problem.
+- **The Options Matrix of Death:** Giving users 8 different sliders to customize their price. A confused mind says "No." Keep it to 3 distinct tiers.
 
 ---
 
 ## AI & Architecture Reality Check
-- **The Billing Nightmare:** Do not build your own billing engine. Use Stripe Checkout and Stripe Customer Portal. Let them handle prorations, failed cards, and taxes. Your architecture should just listen to Stripe Webhooks to update user status.
+- **The Billing Nightmare:** Do not write custom billing logic. Do not build your own prorations. Use Stripe Checkout and Stripe Customer Portal. Let them handle failed cards, dunning, and taxes. Your architecture should just listen to Stripe Webhooks to update a boolean.
 
 ---
 
 ## AI Prompt
-Use AI to calculate your tiers.
+Use AI to calculate your tiers based on perceived value.
 
 \`\`\`prompt
 My product is: [INSERT ELEVATOR PITCH].
 My Value Metric is: [INSERT VALUE METRIC].
 
-Act as a SaaS Pricing Strategist.
-1. Design a 3-tier pricing structure (Basic, Pro, Enterprise).
-2. Recommend the exact starting price for each, and explain the psychological reasoning behind the number.
-3. What feature should be the "paywall trigger" that forces users to upgrade to Pro?
+Act as Patrick Campbell, the world's leading SaaS Pricing Strategist.
+1. Design a 3-tier pricing structure (Basic, Pro, Enterprise) for my specific niche.
+2. Recommend the exact starting price for each, and explain the psychological and economic reasoning behind the number.
+3. What feature MUST be the "paywall trigger" that forces users to upgrade to Pro?
 \`\`\`
 
 ---
@@ -1787,13 +1787,13 @@ Act as a SaaS Pricing Strategist.
 ## What Good Looks Like
 
 **Strong Pricing:**
-✓ Anchors high (e.g., Enterprise is $499, making Pro at $49 look like a steal).
+✓ Anchors high (Enterprise is $499, making Pro at $49 look like a steal).
 ✓ Scales automatically as the user gets more value out of the product.
-✓ Dead simple to understand.
+✓ Dead simple to understand in 5 seconds.
 
 **Weak Pricing:**
-✗ Overly complex formulas.
-✗ Too cheap to ever hit $1M ARR.
+✗ Overly complex formulas requiring a calculator.
+✗ Too cheap to ever hit $1M ARR without 50,000 users.
 
 ---
 
@@ -1804,7 +1804,7 @@ Act as a SaaS Pricing Strategist.
 ---
 
 ## Deliverable
-Define your 3 tiers and their exact price points.
+Define your 3 tiers, their exact price points, and the core paywall trigger.
 
 \`\`\`input
 ✍️ Type your answer here...
@@ -1823,38 +1823,38 @@ Not all recurring revenue is created equal. The structure of your subscription d
 ---
 
 ## Think First
-Design the recurring nature of the relationship.
+Design the recurring nature of the relationship to defend against churn.
 
-**The Annual Incentive (How will you convince users to pay upfront?)**
+**The Annual Incentive (How will you convince users to front you a year of cash?)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
 
-**The Churn Defender (Why will they keep paying month 6?)**
+**The Churn Defender (Why will it be mathematically painful for them to cancel in Month 6?)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
 
 **Reality Check: The "Recurring Value" Test**
-- [ ] Does my product actually provide recurring value, or is it a one-time utility?
-- [ ] If I stop updating the product today, will they still pay next month?
+- [ ] Does my product actually provide recurring value week after week, or is it a one-time utility masquerading as a subscription?
+- [ ] If I stop shipping new features today, will they still pay me next month?
 
 ---
 
 ## Key Decisions
-- **The Annual Discount:** Always offer an annual plan with a 15-20% discount (e.g., "2 months free"). Upfront cash flow allows you to survive the early days without raising money.
-- **Cancellation Flow:** Will you let them cancel with one click, or require an exit survey? (Hint: Always ask why they are leaving, but don't make it impossible to leave).
+- **The Annual Discount:** Always offer an annual plan with a 15-20% discount (e.g., "2 months free"). Upfront cash flow from annual plans is non-dilutive funding. It allows you to survive the early days without giving up equity to VCs.
+- **Cancellation Flow:** Will you let them cancel with one click, or require an exit survey? (Hint: Always ask why they are leaving, but don't be hostile. Hostile cancellations lead to chargebacks, which destroy your Stripe account).
 
 ---
 
 ## Common Mistakes
-- **No Annual Option:** Forcing users into monthly plans when they actually *want* to give you $500 upfront to use their remaining budget for the year.
-- **The "One-Time Use" Trap:** Trying to put a subscription on a product that is naturally a one-time purchase (e.g., a resume builder). 
+- **No Annual Option:** Forcing users into monthly plans when their procurement department actually *wants* to give you $5,000 upfront to use their remaining annual budget.
+- **The "One-Time Use" Trap:** Trying to slap a subscription on a product that is naturally a one-time purchase (e.g., a resume builder, a logo generator).
 
 ---
 
 ## AI & Architecture Reality Check
-- **Entitlement Management:** Your database must cleanly separate "Users" from "Subscriptions". A user can exist without an active subscription. Use a \`subscriptions\` table that tracks \`current_period_end\` and \`status\`.
+- **Entitlement Management:** Your database must cleanly separate "Users" from "Subscriptions". A user can exist without an active subscription. Use a \`subscriptions\` table that tracks \`current_period_end\` and \`status\`. Never delete a user when they cancel; mark them as \`canceled\` so you can win them back later.
 
 ---
 
@@ -1864,9 +1864,9 @@ Use AI to optimize the subscription lifecycle.
 \`\`\`prompt
 My SaaS product is: [INSERT ELEVATOR PITCH].
 
-Act as a Retention Expert.
-1. Give me 3 strategies to incentivize users to choose the Annual plan over the Monthly plan.
-2. What is the most likely reason a user will churn in Month 3, and how can I design the product to prevent it?
+Act as Elena Verna, B2B Growth and Retention Expert.
+1. Give me 3 psychological strategies to incentivize users to choose the Annual plan over the Monthly plan on the pricing page.
+2. What is the most likely reason a user will churn in Month 3, and how can I structurally design the product to prevent it?
 \`\`\`
 
 ---
@@ -1874,19 +1874,19 @@ Act as a Retention Expert.
 ## What Good Looks Like
 
 **Strong Subscription Model:**
-✓ High percentage of annual lock-ins.
-✓ Predictable cash flow.
-✓ Product naturally becomes harder to leave over time (data lock-in).
+✓ High percentage of annual lock-ins (30%+ of revenue).
+✓ Predictable cash flow that outpaces server costs.
+✓ Product naturally becomes harder to leave over time (data lock-in / compounding value).
 
 **Weak Subscription Model:**
-✗ Massive drop-off after Month 1.
+✗ Massive drop-off after Month 1 (High churn).
 ✗ Users constantly pausing and resuming based on immediate need.
 
 ---
 
 ## Validation Checklist
 - [ ] Do I have an annual pricing option explicitly defined?
-- [ ] Have I designed the product to accumulate value over time?
+- [ ] Have I designed the product to accumulate value over time, making it painful to leave?
 
 ---
 
@@ -1905,55 +1905,55 @@ Define your monthly vs annual split and how you will drive annual upgrades.
 ---
 
 ## Overview
-While your core [Subscription Model](#subscriptionmodel) is the engine, mature SaaS companies have multiple revenue streams. Relying entirely on MRR (Monthly Recurring Revenue) leaves money on the table. Are there add-ons, implementation fees, or transactional cuts you can take?
+While your core [Subscription Model](#subscriptionmodel) is the engine, elite SaaS companies have Net Dollar Retention (NDR) over 120%. That means even if you acquire zero new customers, your revenue grows by 20% every year because existing customers buy more. This requires secondary revenue streams.
 
 ---
 
 ## Think First
-Look beyond the basic monthly fee.
+Look beyond the basic monthly fee. How do you extract more value from successful customers?
 
 **The Primary Stream (Where does 80% of the money come from?)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
 
-**The Expansion Streams (What else can they buy?)**
+**The Expansion Streams (What add-ons drive your NDR above 100%?)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
 
 **Reality Check: The "Focus" Test**
 - [ ] Are these extra streams distracting me from the core subscription?
-- [ ] Do these add-ons actually solve a real problem, or am I just being greedy?
+- [ ] Do these add-ons actually solve a real, acute problem, or am I just nickel-and-diming my users?
 
 ---
 
 ## Key Decisions
-- **Services vs Software:** Will you charge a one-time $1,000 "Implementation & Training" fee for Enterprise customers? (Hint: You absolutely should. Enterprises don't trust software that is too cheap or too easy to set up).
-- **Consumption Add-ons:** If a user hits their limit, do they upgrade to a higher tier, or just buy "refill packs" of credits?
+- **Services vs Software:** Will you charge a one-time $2,500 "Implementation & Training" fee for Enterprise customers? (Hint: Yes. Enterprises don't trust software that is too cheap or too easy to set up. Charge for onboarding).
+- **Consumption Add-ons:** If a user hits their API limit, do they upgrade to a higher tier, or just buy "refill packs" of credits?
 
 ---
 
 ## Common Mistakes
-- **Dilution:** Having 15 different tiny ways to monetize before you have 100 core subscribers. Keep it simple early on.
-- **Hidden Fees:** Surprising users with transactional fees they didn't expect.
+- **Premature Dilution:** Having 15 different tiny ways to monetize before you have 100 core subscribers. Keep it brutally simple early on. Nail the core subscription first.
+- **Hidden Fees:** Surprising users with transactional fees they didn't expect. This destroys trust and guarantees churn.
 
 ---
 
 ## AI & Architecture Reality Check
-- **Credit Systems:** If you use consumption add-ons, you must architect a bulletproof "ledger" system in your database to track credits in and credits out. Never just increment an integer—log every transaction.
+- **Idempotency and Credit Systems:** If you use consumption add-ons, you must architect a bulletproof "ledger" system in your database to track credits. Never just \`UPDATE users SET credits = credits - 1\`. Log every transaction in an append-only ledger table to prevent race conditions and ensure auditability.
 
 ---
 
 ## AI Prompt
-Use AI to uncover hidden revenue.
+Use AI to uncover expansion revenue.
 
 \`\`\`prompt
 My SaaS product is: [INSERT ELEVATOR PITCH].
 My primary revenue stream is a monthly subscription.
 
-Act as a Chief Revenue Officer.
-1. Suggest 2 secondary revenue streams that naturally complement the core subscription (e.g., API access, premium integrations, priority support).
+Act as a Chief Revenue Officer at a high-growth B2B SaaS.
+1. Suggest 2 secondary revenue streams that naturally complement the core subscription and drive Net Dollar Retention (NDR) above 120% (e.g., API access, premium integrations, priority SLAs).
 2. Explain how to pitch these add-ons without making the core product feel broken or incomplete.
 \`\`\`
 
@@ -1963,22 +1963,22 @@ Act as a Chief Revenue Officer.
 
 **Strong Revenue Streams:**
 ✓ Core subscription drives 80%+ of revenue.
-✓ Add-ons feel like premium upgrades, not extortion.
-✓ Clear path to increasing Average Revenue Per User (ARPU) over time.
+✓ Add-ons feel like premium upgrades for power users, not extortion for basic users.
+✓ Clear, mathematical path to >110% Net Dollar Retention (NDR).
 
 **Weak Revenue Streams:**
-✗ Confusing matrix of a-la-carte features.
+✗ Confusing matrix of a-la-carte features that overwhelms buyers.
 ✗ Reliance on one-time services rather than recurring software.
 
 ---
 
 ## Validation Checklist
-- [ ] Have I identified at least one way to expand revenue from an existing customer?
+- [ ] Have I identified at least one structural way to expand revenue from an existing, successful customer?
 
 ---
 
 ## Deliverable
-List your Primary and Secondary revenue streams.
+List your Primary and Secondary revenue streams and how they drive NDR.
 
 \`\`\`input
 ✍️ Type your answer here...
@@ -1992,7 +1992,7 @@ List your Primary and Secondary revenue streams.
 ---
 
 ## Overview
-If you can't measure it, you can't improve it. Success metrics are the overarching categories of data that tell you the health of your business. Before you define specific [KPIs](#kpis), you must agree on what "Success" actually means for this specific stage of your startup.
+If you can't measure it, you can't improve it. Success metrics are the overarching categories of data that tell you the health of your business. Investors don't care about your feelings; they care about your metrics. Before you define specific [KPIs](#kpis), you must agree on what "Success" actually means.
 
 ---
 
@@ -2004,44 +2004,44 @@ What actually matters right now?
 ✍️ Type your answer here...
 \`\`\`
 
-**The Leading Indicator (What metric predicts future success?)**
+**The Leading Indicator (What metric predicts future success before the money hits the bank?)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
 
 **Reality Check: The "Vanity" Test**
-- [ ] Do I care more about "Total Registered Users" or "Daily Active Users"?
-- [ ] Does this metric directly correlate with revenue or retention?
-- [ ] Can I actively influence this metric with my code?
+- [ ] Do I care more about "Total Registered Users" or "Weekly Active Users (WAU)"?
+- [ ] Does this metric directly correlate with revenue or long-term retention?
+- [ ] Can I actively influence this metric by shipping better code?
 
 ---
 
 ## Key Decisions
-- **Engagement vs Acquisition:** In Phase 0, engagement and retention matter 100x more than acquisition. 10 users who use the app every day is a billion-dollar company seed. 1,000 users who sign up and never return is a failed startup.
+- **Retention over Acquisition:** In Phase 0, retention matters 100x more than acquisition. 10 users who use the app every day is a billion-dollar company seed. 1,000 users who sign up and never return is a failed startup. Fix your leaky bucket before pouring more water into it.
 
 ---
 
 ## Common Mistakes
-- **Vanity Metrics:** Celebrating "Page Views" or "Social Media Followers." These do not pay the server bills.
-- **Lagging Indicators:** MRR is a lagging indicator. By the time MRR drops, the users stopped using the app 3 months ago. Focus on leading indicators (e.g., "Time to First Value").
+- **Vanity Metrics:** Celebrating "Page Views" or "Social Media Followers." If you show a Series A investor your 'Total Registered Users' instead of your 'Weekly Active Users', they will instantly assume you are hiding terrible churn and pass on the deal.
+- **Lagging Indicators:** MRR is a lagging indicator. By the time MRR drops, the users stopped getting value from the app 3 months ago. Focus on leading indicators (e.g., "Time to First Value").
 
 ---
 
 ## AI & Architecture Reality Check
-- **Telemetry Infrastructure:** You cannot track metrics if you don't emit events. You must integrate a tool like PostHog or Mixpanel early, and fire a telemetry event every time a user does something significant in the backend.
+- **Telemetry Infrastructure:** You cannot track metrics if you don't emit events. You must integrate a tool like PostHog or Amplitude early. Do not track everything. Track the 5 core actions that define a "Power User."
 
 ---
 
 ## AI Prompt
-Use AI to cut through the noise.
+Use AI to cut through the noise and identify the metrics that matter.
 
 \`\`\`prompt
 My SaaS product is: [INSERT ELEVATOR PITCH].
 We are pre-launch / just launched.
 
-Act as a VP of Data.
+Act as a partner at Sequoia Capital.
 1. What are the 3 most critical Leading Indicators I should track to ensure users are actually getting value?
-2. What is one common Vanity Metric for this type of product that I should completely ignore?
+2. What is one common Vanity Metric for this type of product that founders obsess over but investors completely ignore?
 \`\`\`
 
 ---
@@ -2049,9 +2049,9 @@ Act as a VP of Data.
 ## What Good Looks Like
 
 **Strong Success Metrics:**
-✓ Focused heavily on user engagement and retention.
+✓ Focused heavily on user engagement and retention (e.g., WAU/MAU ratio).
 ✓ Hard to manipulate or fake.
-✓ Immediately actionable.
+✓ Immediately actionable for the engineering team.
 
 **Weak Success Metrics:**
 ✗ Total Signups.
@@ -2079,12 +2079,12 @@ Define the 3 overarching metrics that will define your success this quarter.
 ---
 
 ## Overview
-While [Success Metrics](#successmetrics) are the categories (e.g., "Retention"), KPIs are the specific, numerical targets you aim to hit within a timeframe (e.g., "40% Day-30 Retention by Q3"). KPIs turn vague goals into mathematical accountability.
+While [Success Metrics](#successmetrics) are the categories (e.g., "Retention"), KPIs are the specific, numerical targets you aim to hit within a timeframe (e.g., "40% Day-30 Retention by Q3"). KPIs turn vague strategic goals into mathematical accountability for your team.
 
 ---
 
 ## Think First
-Assign numbers to your goals.
+Assign rigorous numbers to your goals.
 
 **The Baseline (Where are you right now? Even if it's 0)**
 \`\`\`input
@@ -2103,30 +2103,30 @@ Assign numbers to your goals.
 ---
 
 ## Key Decisions
-- **The Magic Number:** Often, there is a specific action threshold. E.g., "Users who invite 2 teammates within 24 hours never churn." Your KPI becomes: "Get 30% of new signups to invite 2 teammates within 24 hours."
+- **The Magic Number:** Often, there is a specific action threshold. E.g., "Users who invite 2 teammates within 24 hours never churn." Your KPI becomes: "Get 30% of new signups to invite 2 teammates within 24 hours." Find your magic number.
 
 ---
 
 ## Common Mistakes
-- **Tracking Everything:** If you have 20 KPIs, you have 0 KPIs. Pick 3.
-- **Ignoring the Denominator:** "We got 100 new active users!" is useless. Did you get 100 out of 110 signups (amazing), or 100 out of 50,000 signups (terrible)? Always use ratios and percentages.
+- **Tracking Everything:** If you have 20 KPIs, you have 0 KPIs. Pick 3. The rest is noise.
+- **Ignoring the Denominator:** "We got 100 new active users!" is useless. Did you get 100 out of 110 signups (amazing), or 100 out of 50,000 signups (terrible)? Always use ratios and percentages (e.g., Activation Rate %).
 
 ---
 
 ## AI & Architecture Reality Check
-- **Dashboarding:** Don't build custom analytics dashboards in your app just for yourself. It's a waste of time. Query your Postgres database directly or use PostHog's built-in dashboards.
+- **Dashboarding:** Don't build custom analytics dashboards in your app just for yourself. It is a massive waste of engineering cycles. Query your Postgres database directly using a tool like Metabase, or use PostHog's built-in dashboards.
 
 ---
 
 ## AI Prompt
-Use AI to set realistic benchmarks.
+Use AI to set realistic benchmarks based on industry standards.
 
 \`\`\`prompt
 My SaaS product is: [INSERT ELEVATOR PITCH].
 
-Act as an experienced SaaS founder.
-1. What is a realistic "Day 1 Retention" percentage for a B2B SaaS tool in this space?
-2. Suggest 3 specific, measurable KPIs I should aim to hit in my first 30 days post-launch.
+Act as David Sacks (Craft Ventures) reviewing a seed-stage startup.
+1. What is a realistic "Day 1 Retention" and "Day 30 Retention" percentage for a B2B SaaS tool in this space?
+2. Suggest 3 specific, measurable KPIs I should aim to hit in my first 30 days post-launch to prove I have Product-Market Fit.
 \`\`\`
 
 ---
@@ -2135,11 +2135,11 @@ Act as an experienced SaaS founder.
 
 **Strong KPIs:**
 ✓ Specific, measurable, and time-bound (SMART).
-✓ Ratios instead of absolute numbers (e.g., Activation Rate %).
+✓ Ratios instead of absolute numbers (e.g., Activation Rate % > 40%).
 ✓ Tied directly to the core value loop.
 
 **Weak KPIs:**
-✗ "Grow revenue" (Not specific).
+✗ "Grow revenue" (Not specific, not time-bound).
 ✗ "Get 10,000 users" (Vanity, ignores retention).
 
 ---
@@ -2165,19 +2165,19 @@ Write your top 3 specific, numerical KPIs for the next 90 days.
 ---
 
 ## Overview
-Of all your [KPIs](#kpis) and metrics, one rules them all. The North Star Metric (NSM) is the single indicator that best captures the core value your product delivers to your customers. If this number goes up, everything else (revenue, retention, virality) naturally follows. 
+Of all your [KPIs](#kpis) and metrics, one rules them all. The North Star Metric (NSM) is the single indicator that best captures the core value your product delivers to your customers. If this number goes up, everything else (revenue, retention, virality) mathematically follows. 
 
 ---
 
 ## Think First
 Find the one metric that matters.
 
-**The "Aha!" Moment (What action proves they got value?)**
+**The "Aha!" Moment (What action proves they got undeniable value?)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
 
-**The North Star (The single number you will obsess over)**
+**The North Star (The single number you will obsess over at the expense of all else)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
@@ -2189,32 +2189,32 @@ Find the one metric that matters.
 ---
 
 ## Key Decisions
-- **Value over Extraction:** Airbnb's NSM is "Nights Booked," not "Host Fees Collected." Zoom's NSM is "Weekly Hosted Meetings." Slack's NSM is "Messages Sent." What is the fundamental unit of value in your app?
+- **Value over Extraction:** Airbnb's NSM is "Nights Booked," not "Host Fees Collected." Zoom's NSM is "Weekly Hosted Meetings." Slack's NSM is "Messages Sent." What is the fundamental unit of value in your app? Optimize for that, and the money will follow.
 
 ---
 
 ## Common Mistakes
 - **Picking a metric you can't measure:** "Customer Happiness" is a great concept, but a terrible NSM because it's subjective. It must be a hard, queryable data point.
-- **Changing it weekly:** The North Star shouldn't change unless your entire business pivots.
+- **Changing it weekly:** The North Star shouldn't change unless your entire business pivots. It is the anchor for your entire engineering and product roadmap.
 
 ---
 
 ## AI & Architecture Reality Check
-- **The SQL Test:** If you cannot calculate your North Star Metric with a single SQL query against your database, it is too complex. 
-*(e.g., \`SELECT COUNT(*) FROM generated_reports WHERE created_at > NOW() - INTERVAL '7 days' AND status = 'completed'\`)*
+- **The SQL Test:** If you cannot calculate your North Star Metric with a single, highly performant SQL query against an indexed table, it is too complex. 
+*(e.g., \`SELECT COUNT(DISTINCT user_id) FROM core_actions WHERE created_at > NOW() - INTERVAL '7 days'\`)*
 
 ---
 
 ## AI Prompt
-Use AI to find your North Star.
+Use AI to find your true North Star.
 
 \`\`\`prompt
 My SaaS product is: [INSERT ELEVATOR PITCH].
 
-Act as an expert Growth Hacker.
+Act as an expert Growth Hacker and Product Strategist from Reforge.
 1. Suggest 3 potential North Star Metrics for this product. 
 2. Remember: it must measure the *value delivered to the user*, not the revenue extracted from them.
-3. Tell me which of the 3 is the strongest and why.
+3. Tell me which of the 3 is the strongest and why it correlates with long-term retention.
 \`\`\`
 
 ---
