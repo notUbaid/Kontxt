@@ -4,6 +4,8 @@ import { X, Key, User, Trash2, FolderOpen, Zap } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Project } from '../App';
 import type { Mode } from './TopNav';
+import { universalLinks, type QuickLink } from '../data/taxonomy';
+import { Link2, Plus, EyeOff, Eye } from 'lucide-react';
 
 interface SettingsModalProps {
   isOpen: boolean;
@@ -12,9 +14,10 @@ interface SettingsModalProps {
   onModeChange?: (mode: Mode) => void;
   isAuthenticated?: boolean;
   onRequestLogin?: () => void;
+  onProjectUpdate?: (project: Project) => void;
 }
 
-type Tab = 'project' | 'profile' | 'apikeys';
+type Tab = 'project' | 'profile' | 'apikeys' | 'links';
 export type Provider = 'OpenAI' | 'Google' | 'Groq' | 'OpenRouter' | 'Together' | 'Mistral' | 'DeepSeek';
 
 export const MODELS: Record<Provider, string[]> = {
@@ -27,7 +30,7 @@ export const MODELS: Record<Provider, string[]> = {
   DeepSeek: ['deepseek-chat', 'deepseek-coder']
 };
 
-export const SettingsModal = ({ isOpen, onClose, activeProject, onModeChange, isAuthenticated, onRequestLogin }: SettingsModalProps) => {
+export const SettingsModal = ({ isOpen, onClose, activeProject, onModeChange, isAuthenticated, onRequestLogin, onProjectUpdate }: SettingsModalProps) => {
   const [activeTab, setActiveTab] = useState<Tab>('project');
   
   const [provider, setProvider] = useState<Provider>('OpenAI');
@@ -43,6 +46,14 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, onModeChange, is
   });
   
   const [isSaved, setIsSaved] = useState(false);
+
+  // Link Management State
+  const [globalCustomLinks, setGlobalCustomLinks] = useState<QuickLink[]>([]);
+  const [globalHiddenLinks, setGlobalHiddenLinks] = useState<string[]>([]);
+  
+  const [newLinkName, setNewLinkName] = useState('');
+  const [newLinkUrl, setNewLinkUrl] = useState('');
+  const [newLinkType, setNewLinkType] = useState<'global' | 'project'>('global');
 
   useEffect(() => {
     if (isOpen) {
@@ -62,6 +73,16 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, onModeChange, is
       if (savedModel) {
         setModel(savedModel);
       }
+      
+      const savedGlobalLinks = localStorage.getItem('kontxt_global_custom_links');
+      if (savedGlobalLinks) {
+        try { setGlobalCustomLinks(JSON.parse(savedGlobalLinks)); } catch(e) {}
+      }
+      
+      const savedHiddenLinks = localStorage.getItem('kontxt_global_hidden_links');
+      if (savedHiddenLinks) {
+        try { setGlobalHiddenLinks(JSON.parse(savedHiddenLinks)); } catch(e) {}
+      }
     }
   }, [isOpen]);
 
@@ -71,6 +92,56 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, onModeChange, is
     localStorage.setItem('kontxt_model', model);
     setIsSaved(true);
     setTimeout(() => setIsSaved(false), 2000);
+  };
+
+  const handleAddLink = () => {
+    if (!newLinkName.trim() || !newLinkUrl.trim()) return;
+    
+    let url = newLinkUrl.trim();
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+      url = 'https://' + url;
+    }
+    
+    const newLink: QuickLink = { name: newLinkName.trim(), url };
+    
+    if (newLinkType === 'global') {
+      const updated = [...globalCustomLinks, newLink];
+      setGlobalCustomLinks(updated);
+      localStorage.setItem('kontxt_global_custom_links', JSON.stringify(updated));
+    } else {
+      if (activeProject && onProjectUpdate) {
+        const customLinks = [...(activeProject.customLinks || []), newLink];
+        onProjectUpdate({ ...activeProject, customLinks });
+      }
+    }
+    
+    setNewLinkName('');
+    setNewLinkUrl('');
+  };
+
+  const handleRemoveGlobalCustomLink = (linkName: string) => {
+    const updated = globalCustomLinks.filter(l => l.name !== linkName);
+    setGlobalCustomLinks(updated);
+    localStorage.setItem('kontxt_global_custom_links', JSON.stringify(updated));
+  };
+
+  const handleRemoveProjectCustomLink = (linkName: string) => {
+    if (activeProject && onProjectUpdate) {
+      const customLinks = (activeProject.customLinks || []).filter(l => l.name !== linkName);
+      onProjectUpdate({ ...activeProject, customLinks });
+    }
+  };
+
+  const handleToggleHiddenUniversalLink = (linkName: string) => {
+    const isHidden = globalHiddenLinks.includes(linkName);
+    let updated;
+    if (isHidden) {
+      updated = globalHiddenLinks.filter(n => n !== linkName);
+    } else {
+      updated = [...globalHiddenLinks, linkName];
+    }
+    setGlobalHiddenLinks(updated);
+    localStorage.setItem('kontxt_global_hidden_links', JSON.stringify(updated));
   };
 
   if (!isOpen) return null;
@@ -108,6 +179,12 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, onModeChange, is
                   className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'apikeys' ? 'bg-primary text-background' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}`}
                 >
                   <Key size={16} /> AI Configuration
+                </button>
+                <button 
+                  onClick={() => setActiveTab('links')}
+                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'links' ? 'bg-primary text-background' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}`}
+                >
+                  <Link2 size={16} /> Quick Links
                 </button>
               </nav>
             </div>
@@ -275,6 +352,108 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, onModeChange, is
                         {isSaved ? 'Configuration Saved!' : 'Save Configuration'}
                       </button>
                     </div>
+                  </div>
+                )}
+
+                {activeTab === 'links' && (
+                  <div className="animate-in fade-in space-y-8">
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground">Quick Links Management</h3>
+                      <p className="text-muted-foreground">Add new custom links globally or per-project, and hide default links you don't need.</p>
+                    </div>
+
+                    <div className="space-y-4 bg-muted/10 p-5 rounded-xl border border-muted">
+                      <h4 className="font-bold text-foreground">Add New Link</h4>
+                      <div className="flex gap-4 items-start">
+                        <div className="flex-1 space-y-3">
+                          <input 
+                            value={newLinkName}
+                            onChange={e => setNewLinkName(e.target.value)}
+                            placeholder="Link Name (e.g. My Backend Repo)" 
+                            className="w-full bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground"
+                          />
+                          <input 
+                            value={newLinkUrl}
+                            onChange={e => setNewLinkUrl(e.target.value)}
+                            placeholder="https://github.com/..." 
+                            className="w-full bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground"
+                          />
+                        </div>
+                        <div className="w-48 space-y-3">
+                          <select 
+                            value={newLinkType}
+                            onChange={e => setNewLinkType(e.target.value as 'global' | 'project')}
+                            className="w-full bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground cursor-pointer"
+                          >
+                            <option value="global">Global Link</option>
+                            <option value="project">Project Only</option>
+                          </select>
+                          <button 
+                            onClick={handleAddLink}
+                            disabled={!newLinkName.trim() || !newLinkUrl.trim()}
+                            className="w-full px-4 py-2 bg-primary text-background font-bold text-sm rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+                          >
+                            <Plus size={16} /> Add Link
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <h4 className="font-bold text-foreground">Custom Links</h4>
+                      {globalCustomLinks.length === 0 && (!activeProject?.customLinks || activeProject.customLinks.length === 0) && (
+                        <p className="text-sm text-muted-foreground">No custom links added yet.</p>
+                      )}
+                      
+                      <div className="space-y-2">
+                        {globalCustomLinks.map(link => (
+                          <div key={link.name} className="flex items-center justify-between p-3 bg-background border border-muted rounded-lg">
+                            <div>
+                              <p className="font-semibold text-sm text-foreground">{link.name} <span className="text-xs ml-2 px-1.5 py-0.5 bg-primary/10 text-primary rounded">Global</span></p>
+                              <p className="text-xs text-muted-foreground truncate max-w-sm">{link.url}</p>
+                            </div>
+                            <button onClick={() => handleRemoveGlobalCustomLink(link.name)} className="p-2 text-destructive hover:bg-destructive/10 rounded-lg transition-colors">
+                              <Trash2 size={16} />
+                            </button>
+                          </div>
+                        ))}
+                        
+                        {activeProject?.customLinks?.map(link => (
+                          <div key={link.name} className="flex items-center justify-between p-3 bg-background border border-muted rounded-lg">
+                            <div>
+                              <p className="font-semibold text-sm text-foreground">{link.name} <span className="text-xs ml-2 px-1.5 py-0.5 bg-accent/10 text-accent rounded">Project</span></p>
+                              <p className="text-xs text-muted-foreground truncate max-w-sm">{link.url}</p>
+                            </div>
+                            <button onClick={() => handleRemoveProjectCustomLink(link.name)} className="p-2 text-destructive hover:bg-destructive/10 rounded-lg transition-colors">
+                              <Trash2 size={16} />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <h4 className="font-bold text-foreground">Pre-existing Universal Links</h4>
+                      <p className="text-xs text-muted-foreground mb-2">Hide universal links you don't use.</p>
+                      <div className="grid grid-cols-2 gap-2">
+                        {universalLinks.map(link => {
+                          const isHidden = globalHiddenLinks.includes(link.name);
+                          return (
+                            <div key={link.name} className={`flex items-center justify-between p-3 border rounded-lg transition-colors ${isHidden ? 'bg-muted/30 border-muted/50 opacity-60' : 'bg-background border-muted'}`}>
+                              <span className="text-sm font-medium text-foreground">{link.name}</span>
+                              <button 
+                                onClick={() => handleToggleHiddenUniversalLink(link.name)}
+                                className={`p-1.5 rounded transition-colors ${isHidden ? 'text-primary hover:bg-primary/10' : 'text-muted-foreground hover:bg-muted'}`}
+                                title={isHidden ? 'Restore Link' : 'Hide Link'}
+                              >
+                                {isHidden ? <Eye size={16} /> : <EyeOff size={16} />}
+                              </button>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+
                   </div>
                 )}
               </div>

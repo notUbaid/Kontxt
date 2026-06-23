@@ -4,7 +4,10 @@ import type { Mode } from './TopNav';
 import { getTaxonomy, universalLinks, type QuickLink } from '../data/taxonomy';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import type { Project } from '../App';
+
 interface RightSidebarProps {
+  activeProject?: Project;
   activeType: string;
   activePage: string; // Topic ID
   activeMode: Mode;
@@ -16,9 +19,13 @@ interface ChatMessage {
   content: string;
 }
 
-export const RightSidebar = ({ activeType, activePage, activeMode }: RightSidebarProps) => {
+export const RightSidebar = ({ activeProject, activeType, activePage, activeMode }: RightSidebarProps) => {
   const [favorites, setFavorites] = useState<string[]>([]);
   const [customLinks, setCustomLinks] = useState<Record<string, string>>({});
+  
+  // Read from localStorage to sync with Settings
+  const [globalCustomLinks, setGlobalCustomLinks] = useState<QuickLink[]>([]);
+  const [globalHiddenLinks, setGlobalHiddenLinks] = useState<string[]>([]);
   const [chatInput, setChatInput] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
@@ -40,6 +47,24 @@ export const RightSidebar = ({ activeType, activePage, activeMode }: RightSideba
     if (savedCustomLinks) {
       setCustomLinks(JSON.parse(savedCustomLinks));
     }
+    
+    // Periodically poll or sync global links from localStorage if they change across tabs/modals
+    const updateLinksState = () => {
+      const gl = localStorage.getItem('kontxt_global_custom_links');
+      if (gl) setGlobalCustomLinks(JSON.parse(gl));
+      
+      const hl = localStorage.getItem('kontxt_global_hidden_links');
+      if (hl) setGlobalHiddenLinks(JSON.parse(hl));
+    };
+    
+    updateLinksState();
+    // Optional: add interval or listen to storage event to sync instantly if changed in SettingsModal
+    window.addEventListener('storage', updateLinksState);
+    const interval = setInterval(updateLinksState, 1000);
+    return () => {
+      window.removeEventListener('storage', updateLinksState);
+      clearInterval(interval);
+    };
   }, []);
 
   const getDomainColor = (url: string) => {
@@ -107,7 +132,18 @@ export const RightSidebar = ({ activeType, activePage, activeMode }: RightSideba
     }
   }
 
-  const sortedUniversalLinks = [...universalLinks].sort((a, b) => {
+  const visibleUniversalLinks = universalLinks.filter(l => !globalHiddenLinks.includes(l.name));
+  
+  const allUniversalLinks = [
+    ...globalCustomLinks,
+    ...(activeProject?.customLinks || []),
+    ...visibleUniversalLinks
+  ];
+
+  // Remove duplicates by name (custom overrides default)
+  const uniqueUniversalLinks = Array.from(new Map(allUniversalLinks.map(item => [item.name, item])).values());
+
+  const sortedUniversalLinks = uniqueUniversalLinks.sort((a, b) => {
     const aFav = favorites.includes(a.name) ? 1 : 0;
     const bFav = favorites.includes(b.name) ? 1 : 0;
     return bFav - aFav;

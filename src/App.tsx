@@ -20,11 +20,15 @@ export type AppType =
   | 'Hackathon Project' 
   | 'Open Source Project';
 
+import type { QuickLink } from './data/taxonomy';
+
 export interface Project {
   id: string;
   name: string;
   mode: Mode;
   type?: AppType;
+  customLinks?: QuickLink[];
+  hiddenLinks?: string[];
 }
 
 function App() {
@@ -82,6 +86,14 @@ function App() {
     localStorage.setItem('kontxt_projects', JSON.stringify(updatedProjects));
   };
 
+  const handleProjectUpdate = (updatedProject: Project) => {
+    const updatedProjects = projects.map(p => 
+      p.id === updatedProject.id ? updatedProject : p
+    );
+    setProjects(updatedProjects);
+    localStorage.setItem('kontxt_projects', JSON.stringify(updatedProjects));
+  };
+
   if (!activeProjectId) {
     return (
       <Onboarding 
@@ -102,6 +114,7 @@ function App() {
       <TopNav 
         activeProject={activeProject}
         onModeChange={handleModeChange} 
+        onProjectUpdate={handleProjectUpdate}
         isAuthenticated={isAuthenticated} 
         setIsAuthenticated={setIsAuthenticated} 
         onGoHome={handleGoHome}
@@ -110,7 +123,7 @@ function App() {
       <div className="flex-1 flex max-w-[1536px] mx-auto w-full relative">
         <LeftSidebar activeType={activeProject.type || 'SaaS'} activeMode={activeProject.mode} activePage={activePage} setActivePage={setActivePage} />
         <MainCanvas activeType={activeProject.type || 'SaaS'} activePage={activePage} activeMode={activeProject.mode} projectId={activeProjectId} />
-        <RightSidebar activeType={activeProject.type || 'SaaS'} activePage={activePage} activeMode={activeProject.mode} />
+        <RightSidebar activeProject={activeProject} activeType={activeProject.type || 'SaaS'} activePage={activePage} activeMode={activeProject.mode} />
       </div>
     </div>
   );

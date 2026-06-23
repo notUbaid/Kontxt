@@ -10,13 +10,14 @@ export type Mode = 'Hackathon' | 'Personal' | 'Production' | 'Custom';
 interface TopNavProps {
   activeProject: Project;
   onModeChange: (mode: Mode) => void;
+  onProjectUpdate?: (project: Project) => void;
   isAuthenticated: boolean;
   setIsAuthenticated: (auth: boolean) => void;
   onGoHome: () => void;
   onNavigate: (topicId: string) => void;
 }
 
-export const TopNav = ({ activeProject, onModeChange, isAuthenticated, setIsAuthenticated, onGoHome, onNavigate }: TopNavProps) => {
+export const TopNav = ({ activeProject, onModeChange, onProjectUpdate, isAuthenticated, setIsAuthenticated, onGoHome, onNavigate }: TopNavProps) => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
@@ -256,6 +257,7 @@ export const TopNav = ({ activeProject, onModeChange, isAuthenticated, setIsAuth
         onClose={() => setIsSettingsOpen(false)} 
         activeProject={activeProject}
         onModeChange={onModeChange}
+        onProjectUpdate={onProjectUpdate}
         isAuthenticated={isAuthenticated}
         onRequestLogin={() => {
           setIsSettingsOpen(false);
