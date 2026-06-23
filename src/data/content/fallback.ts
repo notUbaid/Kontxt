@@ -947,6 +947,29 @@ Feature creep is the #1 killer of software projects. You do not need a dark mode
 
 ## Feature Prioritization Matrix
 When deciding what makes the cut, map your ideas on this matrix:
+1. **High Impact, Low Effort:** Build immediately.
+2. **High Impact, High Effort:** Build if it's the core differentiator.
+3. **Low Impact, Low Effort:** Ignore for now.
+4. **Low Impact, High Effort:** Never build.
+
+## AI Prompt Guidance
+
+Use AI to aggressively cut scope.
+
+\`\`\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH].
+My current feature list is:
+[PASTE FEATURE LIST]
+
+Act as a ruthless CTO focused on shipping in 2 weeks. 
+1. Categorize these features into "Must Have for MVP" and "Cut for Now".
+2. For the "Must Haves", suggest the absolute simplest, most hard-coded way I can implement them to save time.
+\`\`\`
+
+## Deliverable Expectations
+Create a checklist below of the 3 to 5 features that constitute your MVP. If there are more than 5, you are probably building too much.
+`,
+
   'marketresearch': `# Market Research
 
 **🕒 Estimated Time:** 45-60 min
@@ -1220,6 +1243,31 @@ Describe the user's current workaround, its hidden cost, and your exact strategy
 `,
 
   'featureplanning': `# Feature Planning
+
+## Feature Prioritization Matrix
+When deciding what makes the cut, map your ideas on this matrix:
+1. **High Impact, Low Effort:** Build immediately.
+2. **High Impact, High Effort:** Build if it's the core differentiator.
+3. **Low Impact, Low Effort:** Ignore for now.
+4. **Low Impact, High Effort:** Never build.
+
+## AI Prompt Guidance
+
+Use AI to aggressively cut scope.
+
+\`\`\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH].
+My current feature list is:
+[PASTE FEATURE LIST]
+
+Act as a ruthless CTO focused on shipping in 2 weeks. 
+1. Categorize these features into "Must Have for MVP" and "Cut for Now".
+2. For the "Must Haves", suggest the absolute simplest, most hard-coded way I can implement them to save time.
+\`\`\`
+
+## Deliverable Expectations
+Create a checklist below of the 3 to 5 features that constitute your MVP. If there are more than 5, you are probably building too much.
+`,
 
   'businessmodel': `# Business Model & Pricing
 
