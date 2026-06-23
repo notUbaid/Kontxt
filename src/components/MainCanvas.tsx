@@ -66,7 +66,21 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
     });
   };
 
-  if (!isLoaded) return null;
+  if (!isLoaded) {
+    return (
+      <div className="flex-1 flex flex-col items-center justify-center min-w-0 pt-8 pb-24 px-8 mx-auto max-w-3xl w-full h-[calc(100vh-4rem)]">
+        <div className="animate-pulse space-y-6 w-full">
+          <div className="h-8 bg-muted rounded w-1/3 mb-10"></div>
+          <div className="h-4 bg-muted rounded w-full"></div>
+          <div className="h-4 bg-muted rounded w-full"></div>
+          <div className="h-4 bg-muted rounded w-5/6"></div>
+          <div className="h-4 bg-muted rounded w-4/5"></div>
+          <div className="h-4 bg-muted rounded w-full"></div>
+          <div className="h-4 bg-muted rounded w-3/4"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <motion.main 
