@@ -67,6 +67,12 @@ Challenge my assumptions. Do not validate my idea automatically.
 
 ---
 
+## Essential Reading
+- [How to Get Startup Ideas](http://paulgraham.com/startupideas.html) by Paul Graham
+- [How to Evaluate Startup Ideas](https://www.ycombinator.com/library/6e-how-to-evaluate-startup-ideas) by Kevin Hale (Y Combinator)
+
+---
+
 ## What Good Looks Like
 
 **A strong idea definition:**
@@ -199,6 +205,12 @@ Act as a skeptical user research expert. Read my problem inputs above.
 2. What are the secondary or hidden pain points associated with this problem that I haven't considered?
 3. Based on my "Symptom", what are 3 alternative "Root Causes" I might be ignoring?
 \`\`\`
+
+---
+
+## Essential Reading
+- [How to Validate Your Startup Idea](https://www.lennysnewsletter.com/p/validating-your-startup-idea) by Lenny Rachitsky
+- [How to Get and Evaluate Startup Ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas) by Jared Friedman (Y Combinator)
 
 ---
 
