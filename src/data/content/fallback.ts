@@ -96,39 +96,6 @@ At the bottom of this page, write a definitive 3-sentence summary of your idea. 
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-
-
-`,
-
-  'elevatorpitch': `# Elevator Pitch
-
-The Elevator Pitch is a highly condensed summary of your product's value proposition. You should be able to say it out loud in 15 seconds.
-
-## Why It Matters
-If you cannot explain your product quickly and clearly, you will lose the attention of investors, customers, and even your own team. A strong elevator pitch forces you to distill your idea down to its absolute core.
-
-## The Formula
-A great elevator pitch usually follows this structure:
-**For** [target audience] 
-**Who** [have this specific problem], 
-**Our product is a** [category] 
-**That provides** [core benefit/solution]. 
-**Unlike** [competitor/alternative], 
-**We** [unfair advantage/key differentiator].
-
-## AI Prompt Guidance
-
-If you are struggling to condense your idea, ask AI to help you draft options based on your Problem Statement and Value Proposition.
-
-\`\`\`prompt
-My product solves [PROBLEM] for [TARGET AUDIENCE]. 
-Our main benefit is [BENEFIT] and our key differentiator from [COMPETITOR] is [DIFFERENTIATOR].
-
-Act as a world-class copywriter. Draft 3 distinct elevator pitches using the standard formula. Keep them punchy, avoid jargon, and ensure they can be spoken aloud in under 15 seconds.
-\`\`\`
-
-## Deliverable Expectations
-Draft your final 1-2 sentence Elevator Pitch below.
 `,
 
   'problemstatement': `# Problem Statement
