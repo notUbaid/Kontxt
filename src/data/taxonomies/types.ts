@@ -131,6 +131,36 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'Patrick Campbell: Pricing', url: 'https://www.youtube.com/watch?v=2eEwU8G9K1I' },
     { name: 'Lenny: B2B vs B2C', url: 'https://www.lennysnewsletter.com/p/b2b-vs-b2c' },
     { name: 'Tool: Stripe (Payments)', url: 'https://stripe.com/' }
+  ],
+  'pricing': [
+    { name: 'Patrick Campbell: Value Metric', url: 'https://www.youtube.com/watch?v=kYJvP8Z4fEY' },
+    { name: 'YC: Pricing 101', url: 'https://www.ycombinator.com/library/6x-pricing-101' },
+    { name: 'Tool: Stripe Pricing Builder', url: 'https://stripe.com/pricing' }
+  ],
+  'subscriptionmodel': [
+    { name: 'ProfitWell: Churn Benchmarks', url: 'https://www.profitwell.com/recur/all/churn-benchmarks' },
+    { name: 'First Round: Annual vs Monthly', url: 'https://firstround.com/review/how-superhuman-built-an-engine-to-find-product-market-fit/' },
+    { name: 'Tool: ChartMogul', url: 'https://chartmogul.com/' }
+  ],
+  'revenuestreams': [
+    { name: 'Lenny: PLG vs Sales-Led', url: 'https://www.lennysnewsletter.com/p/plg-vs-slg' },
+    { name: 'Intercom: Monetization Strategy', url: 'https://www.intercom.com/blog/saas-pricing-strategy/' },
+    { name: 'Tool: Paddle (MoR)', url: 'https://paddle.com/' }
+  ],
+  'successmetrics': [
+    { name: 'A16Z: 16 Startup Metrics', url: 'https://a16z.com/16-startup-metrics/' },
+    { name: 'Lenny: Leading vs Lagging', url: 'https://www.lennysnewsletter.com/p/leading-vs-lagging-indicators' },
+    { name: 'Tool: PostHog', url: 'https://posthog.com/' }
+  ],
+  'kpis': [
+    { name: 'Y Combinator: Growth KPIs', url: 'https://www.ycombinator.com/library/4D-how-to-measure-weekly-growth' },
+    { name: 'Mixpanel: KPI Guide', url: 'https://mixpanel.com/topics/key-performance-indicators/' },
+    { name: 'Tool: Metabase', url: 'https://www.metabase.com/' }
+  ],
+  'northstarmetric': [
+    { name: 'Lenny: Choosing a North Star', url: 'https://www.lennysnewsletter.com/p/choosing-your-north-star-metric' },
+    { name: 'Amplitude: NSM Playbook', url: 'https://amplitude.com/north-star' },
+    { name: 'Reforge: Metric Hierarchies', url: 'https://www.reforge.com/brief/the-north-star-metric' }
   ]
 };
 
