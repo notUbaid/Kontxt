@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Search, Moon, Sun, Settings, X, Download, ChevronDown, ArchiveRestore, Link2, BookOpen } from 'lucide-react';
 import { getTaxonomy } from '../data/taxonomy';
 import type { Project } from '../App';
@@ -369,7 +370,7 @@ export const TopNav = ({
       </div>
 
       {/* Search Modal */}
-      {isSearchOpen && (
+      {isSearchOpen && createPortal(
         <div className="fixed inset-0 z-[100] flex items-start justify-center pt-[20vh] bg-foreground/20 backdrop-blur-sm">
           <div className="bg-background w-full max-w-2xl rounded-2xl shadow-2xl border-2 border-primary/20 overflow-hidden"
                onClick={(e) => e.stopPropagation()}>
@@ -431,7 +432,8 @@ export const TopNav = ({
           </div>
           {/* Click outside overlay */}
           <div className="absolute inset-0 -z-10" onClick={() => setIsSearchOpen(false)} />
-        </div>
+        </div>,
+        document.body
       )}
 
       <SettingsModal 
