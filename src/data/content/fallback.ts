@@ -2244,5 +2244,274 @@ Define your exact North Star Metric.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
+`,
+
+  'prd': `# Product Requirements Document (PRD)
+
+**🕒 Estimated Time:** 45 min
+
+---
+
+## Overview
+A PRD is not a 40-page wish list of cool features you hallucinated in the shower. It is a ruthless, living contract between product and engineering. It forces you to define exactly what you are building, who it is for, and why it matters—before you write a single line of code. If your PRD is vague, your developers will build the wrong thing, resent you, and quit.
+
+---
+
+## Think First
+Strip the idea down to its absolute core.
+
+**The "Job to be Done" (JTBD) (When a user hires this feature, what exact job are they trying to accomplish?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Scope Cut (If you had to launch this feature in 48 hours, what is the ONE piece you would build?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Reality Check: The "So What?" Test**
+- [ ] Does this PRD solve a "Hair on Fire" problem, or is it just a "Nice to Have"?
+- [ ] Have I defined the exact technical constraints (e.g., latency limits, API rate limits)?
+- [ ] If I hand this to a junior developer, can they start coding immediately without asking me 15 questions?
+
+---
+
+## Key Decisions
+- **The JTBD Framework:** Stop writing "As a user, I want..." Instead, write: "When [Situation], I want to [Motivation], so I can [Expected Outcome]." This forces you to focus on the user's context, not your UI.
+- **Explicit Non-Goals:** The most important section of a PRD is what you are NOT building. Explicitly list out the features, edge cases, and platforms (e.g., "No mobile support in v1") that are out of scope. 
+
+---
+
+## Common Mistakes
+- **Designing in the PRD:** A PRD should describe the *what* and the *why*, not the *how*. Do not dictate button colors or layout. Leave that to the designer and the engineer.
+- **Ignoring Edge Cases:** "What happens if the user's credit card fails while this job is processing?" If you don't define the error states in the PRD, your app will crash in production.
+
+---
+
+## AI & Architecture Reality Check
+- **Data Models Dictate Reality:** A PRD is useless if it requires a fundamentally different database schema than what you currently have. Before finalizing a PRD, a senior engineer must confirm: "Yes, our current Postgres schema supports this query efficiently."
+
+---
+
+## AI Prompt
+Use AI to pressure-test your PRD and find the massive holes you missed.
+
+\`\`\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH].
+I am writing a PRD for this feature: [INSERT FEATURE].
+
+Act as Kevin Yien (ex-Square/Mutiny Product Leader) doing a ruthless PRD tear-down.
+1. What are the 3 most likely technical edge cases or error states I have completely forgotten to account for?
+2. Write the perfect "Job to be Done" (JTBD) statement for this feature.
+3. Give me 3 explicit "Non-Goals" I must add to prevent scope creep.
+\`\`\`
+
+---
+
+## What Good Looks Like
+
+**Strong PRD:**
+✓ Obsessively focuses on the user's problem, not the UI.
+✓ Contains a massive "Out of Scope / Non-Goals" list.
+✓ Explicitly defines error states and edge cases.
+
+**Weak PRD:**
+✗ 15 pages long with zero technical constraints.
+✗ Filled with subjective adjectives like "Make it easy to use."
+
+---
+
+## Validation Checklist
+- [ ] Have I explicitly defined what we are NOT building?
+- [ ] Have I mapped out the error states?
+
+---
+
+## Deliverable
+Write your primary Job to be Done (JTBD) and your top 3 Non-Goals.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+
+  'userflows': `# User Flows
+
+**🕒 Estimated Time:** 45 min
+
+---
+
+## Overview
+Funnels are for 2012. You need to design Loops. A linear funnel assumes a user signs up, buys, and the journey ends. A Product Loop assumes that a user completing an action naturally creates a trigger for another user to join, or for that same user to return. If your user flow ends with a "Success!" toast message and no clear next step, you are leaking users.
+
+---
+
+## Think First
+Map the exact journey from "Anonymous Visitor" to "Retained Power User."
+
+**The Golden Path (The perfect, frictionless sequence of steps to hit the "Aha!" moment)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Friction Points (Where will they get confused, bored, or ask for a credit card too early?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Reality Check: The "Blank Slate" Test**
+- [ ] When a user logs in for the first time and has no data, does the app look broken, or do I provide dummy data and a clear call-to-action?
+- [ ] Am I forcing them to verify their email *before* they even see the dashboard? (Hint: Stop doing this. Let them see the value first).
+- [ ] Is there a clear, compounding Loop? (e.g., User creates a doc -> Shares doc with a coworker -> Coworker signs up to comment).
+
+---
+
+## Key Decisions
+- **Time to First Value (TTFV):** How many seconds does it take for a new user to experience the core value of your app? Every required input field cuts your conversion rate by 10%. Delay account creation as long as legally and technically possible.
+- **Empty States:** The most critical screen in your app is the empty dashboard. Do not show them a blank table. Show them a template, a video tutorial, or a giant "Create your first X" button.
+
+---
+
+## Common Mistakes
+- **The "Dead End" Flow:** A user successfully exports a PDF, and the app just says "Exported." What now? Suggest their next action. "Export successful. Want to email this to your boss?"
+- **Ignoring the Unhappy Path:** What happens when they enter a duplicate email? What happens when their password is too weak? Design the error states, not just the happy path.
+
+---
+
+## AI & Architecture Reality Check
+- **State Machines:** UI flows are essentially State Machines. Do not manage complex multi-step wizards with \`useState\` booleans (\`isStep1\`, \`isStep2\`). Use a proper state machine library (like XState) or define a rigid URL-driven routing structure for your flows.
+
+---
+
+## AI Prompt
+Use AI to optimize your flows for retention.
+
+\`\`\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH].
+
+Act as an expert Growth Designer from Reforge.
+1. Design a viral "Product Loop" for my app. How does a user successfully completing the core action naturally bring a new user into the app?
+2. Map out the absolute shortest "Time to First Value" (TTFV) onboarding flow. What inputs can I legally delay or remove?
+3. What should the "Empty State" of my dashboard look like to guarantee they take their first action?
+\`\`\`
+
+---
+
+## What Good Looks Like
+
+**Strong User Flow:**
+✓ Delays friction (like email verification or credit cards) until the user has experienced value.
+✓ Ends every action with a clear, logical next step (No dead ends).
+✓ Employs loops, not just linear funnels.
+
+**Weak User Flow:**
+✗ Asks for 15 data points before showing the dashboard.
+✗ Leaves the user staring at a blank screen after a successful action.
+
+---
+
+## Validation Checklist
+- [ ] Have I mapped the "Unhappy Path" (errors, denied permissions)?
+- [ ] Does my flow include a mechanism to naturally re-engage the user later?
+
+---
+
+## Deliverable
+Write out the 3 to 5 exact steps of your "Golden Path" onboarding flow.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+
+  'informationarchitecture': `# Information Architecture (IA)
+
+**🕒 Estimated Time:** 60 min
+
+---
+
+## Overview
+Your database schema and your UI are not the same thing. Information Architecture is the art of hiding your messy backend tables behind a seamless, logical hierarchy that perfectly matches the user's mental model. If users have to click 4 times to find a setting, or if they don't understand the difference between a "Workspace", a "Project", and a "Folder", your app will fail, regardless of how clean the code is.
+
+---
+
+## Think First
+Structure the app how the user thinks, not how the computer stores data.
+
+**The Core Nouns (What are the 3 fundamental objects the user interacts with? e.g., Workspaces, Documents, Comments)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Hierarchy (How do these nouns nest inside each other?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Reality Check: The "Mental Model" Test**
+- [ ] If I asked a user to draw my app on a napkin, does their drawing match my navigation bar?
+- [ ] Am I using internal engineering jargon in the UI (e.g., "Execute Job") instead of user-friendly terms (e.g., "Run Report")?
+- [ ] Is it immediately obvious where global settings live versus project-specific settings?
+
+---
+
+## Key Decisions
+- **Broad and Shallow vs. Narrow and Deep:** Do you have 10 items in your top navigation (Broad/Shallow), or 3 items that you must click deeply into (Narrow/Deep)? SaaS apps usually perform best with a left-sidebar (Broad) so users can jump between contexts without losing their place.
+- **The "Workspace" Problem:** Will you support multiple users collaborating? If yes, you must introduce a "Workspace" or "Organization" at the very top of the hierarchy immediately. Retrofitting workspaces into a single-user architecture later is an engineering nightmare.
+
+---
+
+## Common Mistakes
+- **Exposing the Relational Database:** Just because \`users\` has a many-to-many relationship with \`tags\` in Postgres doesn't mean the user needs to see a complex mapping matrix. Hide the complexity.
+- **Mystery Meat Navigation:** Using obscure icons without text labels. If your icon looks like a squiggly line and doesn't say "Analytics" next to it, nobody will click it.
+
+---
+
+## AI & Architecture Reality Check
+- **URL Routing reflects IA:** Your Information Architecture dictates your URL structure. A clean IA creates clean URLs: \`/workspace/123/projects/456/settings\`. If your URLs look like \`/app?item=456&mode=edit\`, your IA is broken, and your React Router configuration will be a living hell.
+
+---
+
+## AI Prompt
+Use AI to organize your chaos into a structured hierarchy.
+
+\`\`\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH].
+The core objects the user interacts with are: [INSERT NOUNS].
+
+Act as an expert UX Architect from the Nielsen Norman Group.
+1. Design the perfect Information Architecture (IA) hierarchy for this app. Tell me exactly what goes in the Top Navigation, what goes in the Left Sidebar, and what goes in the Settings menu.
+2. Outline the URL routing structure that perfectly matches this hierarchy.
+3. What is the most common mental model mismatch founders make when designing this specific type of app?
+\`\`\`
+
+---
+
+## What Good Looks Like
+
+**Strong Information Architecture:**
+✓ Matches the user's existing mental models from tools they already use.
+✓ URL structure is predictable, clean, and copy-pasteable.
+✓ Clear distinction between global navigation and contextual navigation.
+
+**Weak Information Architecture:**
+✗ Exposes backend database complexity to the user.
+✗ Forces the user to dig through 5 layers of menus to perform a daily action.
+
+---
+
+## Validation Checklist
+- [ ] Does my URL structure perfectly mirror my navigation hierarchy?
+- [ ] Have I accounted for multi-tenant "Workspaces" at the top level?
+
+---
+
+## Deliverable
+Map out your exact URL structure for your core feature (e.g., /org/:orgId/project/:projectId)
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
 `
 };

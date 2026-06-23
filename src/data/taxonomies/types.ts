@@ -161,6 +161,21 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'Reforge: NSM Models', url: 'https://www.reforge.com/brief/the-north-star-metric' },
     { name: 'Casey Winters: Don\'t Make Revenue Your NSM', url: 'https://caseyaccidental.com/revenue-not-a-north-star-metric/' },
     { name: 'Amplitude: North Star Playbook', url: 'https://amplitude.com/north-star' }
+  ],
+  'prd': [
+    { name: 'Lenny\'s Best PRD Templates', url: 'https://www.lennysnewsletter.com/p/my-favorite-product-management-templates' },
+    { name: 'Intercom: Jobs-to-be-Done (JTBD)', url: 'https://www.intercom.com/blog/jobs-to-be-done/' },
+    { name: 'Kevin Yien: Writing PRDs that don\'t suck', url: 'https://kevinyien.com/prd.html' }
+  ],
+  'userflows': [
+    { name: 'Reforge: Product Loops vs. Funnels', url: 'https://www.reforge.com/blog/growth-loops' },
+    { name: 'Tool: Mobbin (Elite UI Patterns)', url: 'https://mobbin.com/' },
+    { name: 'Tool: PageFlows (SaaS flows)', url: 'https://pageflows.com/' }
+  ],
+  'informationarchitecture': [
+    { name: 'NNGroup: Information Architecture', url: 'https://www.nngroup.com/articles/information-architecture-study-guide/' },
+    { name: 'Untools: Mental Models', url: 'https://untools.co/' },
+    { name: 'Book: Information Architecture (Polar Bear)', url: 'https://www.oreilly.com/library/view/information-architecture-4th/9781491911679/' }
   ]
 };
 
