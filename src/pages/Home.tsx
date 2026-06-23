@@ -26,7 +26,7 @@ export default function Home({ projects, addProject, isAuthenticated, setIsAuthe
       type
     };
     addProject(project);
-    navigate(`/project/${project.id}/topic/prd`);
+    navigate(`/project/${project.id}/topic/prd`, { state: { openCustomModal: mode === 'Custom' } });
   };
 
   const handleSelectProject = (id: string) => {

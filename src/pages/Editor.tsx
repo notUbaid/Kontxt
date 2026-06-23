@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams, useNavigate, Navigate } from 'react-router-dom';
+import { useParams, useNavigate, Navigate, useLocation } from 'react-router-dom';
 import { TopNav, type Mode } from '../components/TopNav';
 import { LeftSidebar } from '../components/LeftSidebar';
 import { MainCanvas } from '../components/MainCanvas';
@@ -20,8 +20,9 @@ interface EditorProps {
 export default function Editor({ projects, updateProject, deleteProject, isAuthenticated, setIsAuthenticated }: EditorProps) {
   const { projectId, topicId } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   
-  const [isCustomModeModalOpen, setIsCustomModeModalOpen] = useState(false);
+  const [isCustomModeModalOpen, setIsCustomModeModalOpen] = useState(location.state?.openCustomModal || false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isLeftSidebarOpen, setIsLeftSidebarOpen] = useState(false);
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
