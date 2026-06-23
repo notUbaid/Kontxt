@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
-import { ExternalLink, MessageSquare, Send, Star, Bot, User } from 'lucide-react';
+import { ExternalLink, MessageSquare, Send, Star, Bot, User, Edit2 } from 'lucide-react';
 import type { Mode } from './TopNav';
-import { taxonomy, universalLinks, type QuickLink } from '../data/taxonomy';
+import { getTaxonomy, universalLinks, type QuickLink } from '../data/taxonomy';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface RightSidebarProps {
+  activeType: string;
   activePage: string; // Topic ID
   activeMode: Mode;
 }
@@ -15,8 +16,9 @@ interface ChatMessage {
   content: string;
 }
 
-export const RightSidebar = ({ activePage, activeMode }: RightSidebarProps) => {
+export const RightSidebar = ({ activeType, activePage, activeMode }: RightSidebarProps) => {
   const [favorites, setFavorites] = useState<string[]>([]);
+  const [customLinks, setCustomLinks] = useState<Record<string, string>>({});
   const [chatInput, setChatInput] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
@@ -28,13 +30,52 @@ export const RightSidebar = ({ activePage, activeMode }: RightSidebarProps) => {
   const [isTyping, setIsTyping] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
-  // Load favorites on mount
+  // Load favorites and custom links on mount
   useEffect(() => {
     const savedFavs = localStorage.getItem('kontxt_favorites');
     if (savedFavs) {
       setFavorites(JSON.parse(savedFavs));
     }
+    const savedCustomLinks = localStorage.getItem('kontxt_custom_links');
+    if (savedCustomLinks) {
+      setCustomLinks(JSON.parse(savedCustomLinks));
+    }
   }, []);
+
+  const getDomainColor = (url: string) => {
+    try {
+      const hostname = new URL(url).hostname.replace('www.', '');
+      if (hostname.includes('youtube')) return 'rgba(255, 0, 0, 0.15)';
+      if (hostname.includes('play.google')) return 'rgba(0, 150, 255, 0.15)';
+      if (hostname.includes('github')) return 'rgba(128, 128, 128, 0.15)';
+      if (hostname.includes('google')) return 'rgba(255, 165, 0, 0.15)';
+      if (hostname.includes('vercel')) return 'rgba(128, 128, 128, 0.15)';
+      if (hostname.includes('figma')) return 'rgba(255, 100, 100, 0.15)';
+      if (hostname.includes('supabase')) return 'rgba(63, 207, 142, 0.15)';
+      if (hostname.includes('clerk')) return 'rgba(100, 100, 255, 0.15)';
+      if (hostname.includes('sentry')) return 'rgba(255, 50, 50, 0.15)';
+      
+      let hash = 0;
+      for (let i = 0; i < hostname.length; i++) {
+        hash = hostname.charCodeAt(i) + ((hash << 5) - hash);
+      }
+      const h = Math.abs(hash) % 360;
+      return `hsla(${h}, 70%, 50%, 0.15)`;
+    } catch {
+      return 'rgba(128, 128, 128, 0.15)';
+    }
+  };
+
+  const handleEditLink = (linkName: string, currentUrl: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const newUrl = window.prompt(`Edit URL for ${linkName}:`, currentUrl);
+    if (newUrl !== null && newUrl.trim() !== '') {
+      const updated = { ...customLinks, [linkName]: newUrl.trim() };
+      setCustomLinks(updated);
+      localStorage.setItem('kontxt_custom_links', JSON.stringify(updated));
+    }
+  };
 
   const toggleFavorite = (linkName: string, e: React.MouseEvent) => {
     e.preventDefault(); // Prevent navigating
@@ -56,6 +97,7 @@ export const RightSidebar = ({ activePage, activeMode }: RightSidebarProps) => {
   let activeTopicName = 'Unknown Topic';
   let activeTopicLinks: QuickLink[] = [];
   
+  const taxonomy = getTaxonomy(activeType, activeMode);
   for (const cat of taxonomy) {
     const topic = cat.topics.find(t => t.id === activePage);
     if (topic) {
@@ -118,27 +160,50 @@ export const RightSidebar = ({ activePage, activeMode }: RightSidebarProps) => {
           <div className="space-y-1">
             {sortedUniversalLinks.map((link) => {
               const isFav = favorites.includes(link.name);
+              const actualUrl = customLinks[link.name] || link.url;
+              const bgColor = getDomainColor(actualUrl);
+
               return (
                 <a
                   key={link.name}
-                  href={link.url}
+                  href={actualUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-between px-2 py-1.5 rounded-md hover:bg-muted/60 transition-colors group text-sm"
+                  style={{ backgroundColor: bgColor }}
+                  className="flex items-center justify-between px-3 py-2 rounded-lg hover:brightness-95 dark:hover:brightness-125 transition-all group text-sm border border-transparent hover:border-border/50 relative overflow-hidden"
                 >
-                  <span className="text-foreground font-medium flex items-center gap-2">
+                  <span className="text-foreground font-medium truncate pr-2">
                     {link.name}
                   </span>
-                  <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <button 
-                      onClick={(e) => toggleFavorite(link.name, e)}
-                      className="hover:scale-110 transition-transform"
-                    >
-                      <Star size={14} className={isFav ? "fill-accent text-accent" : "text-muted-foreground hover:text-accent"} />
-                    </button>
-                    <ExternalLink size={12} className="text-muted-foreground" />
+                  
+                  <div className="flex items-center gap-2 shrink-0">
+                    <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <button 
+                        onClick={(e) => toggleFavorite(link.name, e)}
+                        className="hover:scale-110 transition-transform p-1"
+                        title="Toggle Favorite"
+                      >
+                        <Star size={14} className={isFav ? "fill-accent text-accent" : "text-muted-foreground hover:text-accent"} />
+                      </button>
+                      <button 
+                        onClick={(e) => handleEditLink(link.name, actualUrl, e)}
+                        className="hover:scale-110 transition-transform p-1"
+                        title="Edit Link"
+                      >
+                        <Edit2 size={12} className="text-muted-foreground hover:text-foreground" />
+                      </button>
+                      <ExternalLink size={12} className="text-muted-foreground ml-0.5" />
+                    </div>
+                    
+                    {isFav && <Star size={12} className="fill-accent text-accent absolute right-9 group-hover:opacity-0 transition-opacity pointer-events-none" />}
+                    
+                    <img 
+                      src={`https://www.google.com/s2/favicons?domain=${new URL(actualUrl).hostname}&sz=32`} 
+                      alt="" 
+                      className="w-4 h-4 rounded-sm opacity-70 group-hover:opacity-100 transition-opacity object-contain"
+                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                    />
                   </div>
-                  {isFav && <Star size={14} className="fill-accent text-accent absolute right-8 group-hover:hidden" />}
                 </a>
               );
             })}
@@ -157,20 +222,43 @@ export const RightSidebar = ({ activePage, activeMode }: RightSidebarProps) => {
           
           {activeTopicLinks.length > 0 ? (
             <div className="grid grid-cols-2 gap-2">
-              {activeTopicLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex flex-col items-center justify-center gap-1 p-2 rounded-lg border border-muted bg-background/50 hover:bg-muted/80 transition-all group relative"
-                >
-                  <span className="text-[11px] font-medium text-foreground text-center">
-                    {link.name}
-                  </span>
-                  <ExternalLink size={10} className="absolute top-1.5 right-1.5 opacity-0 group-hover:opacity-50 text-muted-foreground transition-opacity" />
-                </a>
-              ))}
+              {activeTopicLinks.map((link) => {
+                const actualUrl = customLinks[link.name] || link.url;
+                const bgColor = getDomainColor(actualUrl);
+
+                return (
+                  <a
+                    key={link.name}
+                    href={actualUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ backgroundColor: bgColor }}
+                    className="flex flex-col items-center justify-center gap-2 p-3 rounded-xl border border-border/50 hover:brightness-95 dark:hover:brightness-125 transition-all group relative overflow-hidden"
+                  >
+                    <img 
+                      src={`https://www.google.com/s2/favicons?domain=${new URL(actualUrl).hostname}&sz=32`} 
+                      alt="" 
+                      className="w-5 h-5 rounded-sm opacity-80 group-hover:opacity-100 transition-opacity object-contain drop-shadow-sm"
+                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                    />
+                    <span className="text-[11px] font-semibold text-foreground text-center leading-tight line-clamp-2 px-1">
+                      {link.name}
+                    </span>
+                    <div className="absolute top-1 right-1 flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity bg-background/50 backdrop-blur-md rounded p-0.5 border border-border/50">
+                      <button 
+                        onClick={(e) => handleEditLink(link.name, actualUrl, e)}
+                        className="p-1 hover:scale-110 transition-transform"
+                        title="Edit Link"
+                      >
+                        <Edit2 size={10} className="text-foreground" />
+                      </button>
+                      <div className="p-1">
+                        <ExternalLink size={10} className="text-foreground" />
+                      </div>
+                    </div>
+                  </a>
+                );
+              })}
             </div>
           ) : (
             <div className="text-[11px] text-muted-foreground text-center p-3 border border-dashed border-muted rounded-lg">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Search, Moon, Sun, UserCircle, Settings, X, Download } from 'lucide-react';
-import { taxonomy } from '../data/taxonomy';
+import { getTaxonomy } from '../data/taxonomy';
 import type { Project } from '../App';
 import { SettingsModal } from './SettingsModal';
 import { AuthModal } from './AuthModal';
@@ -17,7 +17,6 @@ interface TopNavProps {
 }
 
 export const TopNav = ({ activeProject, onModeChange, isAuthenticated, setIsAuthenticated, onGoHome, onNavigate }: TopNavProps) => {
-  const modes: Mode[] = ['Hackathon', 'Personal', 'Production', 'Custom'];
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
@@ -41,8 +40,9 @@ export const TopNav = ({ activeProject, onModeChange, isAuthenticated, setIsAuth
   const handleExport = () => {
     let combinedMarkdown = `# Project: ${activeProject.name}\nMode: ${activeProject.mode}\n\n`;
     
+    const taxonomy = getTaxonomy(activeProject.type || 'SaaS', activeProject.mode);
     for (const cat of taxonomy) {
-      const modeTopics = cat.topics.filter(t => t.modes.includes(activeProject.mode));
+      const modeTopics = cat.topics;
       if (modeTopics.length === 0) continue;
       
       combinedMarkdown += `## ${cat.name}\n\n`;
@@ -81,9 +81,9 @@ export const TopNav = ({ activeProject, onModeChange, isAuthenticated, setIsAuth
     const query = searchQuery.toLowerCase();
     const results: {id: string, name: string, snippet: string}[] = [];
     
+    const taxonomy = getTaxonomy(activeProject.type || 'SaaS', activeProject.mode);
     for (const cat of taxonomy) {
       for (const topic of cat.topics) {
-        if (!topic.modes.includes(activeProject.mode)) continue;
         
         let snippet = '';
         let matched = false;
@@ -135,22 +135,12 @@ export const TopNav = ({ activeProject, onModeChange, isAuthenticated, setIsAuth
         </div>
       </div>
 
-      {/* Center - Mode Switcher */}
+      {/* Center - Mode & Type Badge */}
       <div className="hidden md:flex items-center justify-center w-1/3">
-        <div className="flex bg-muted rounded-full p-1">
-          {modes.map((mode) => (
-            <button
-              key={mode}
-              onClick={() => onModeChange(mode)}
-              className={`px-4 py-1 text-sm font-medium rounded-full transition-all duration-200 ${
-                activeProject.mode === mode
-                  ? 'bg-background text-accent shadow-sm'
-                  : 'text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              {mode}
-            </button>
-          ))}
+        <div className="flex bg-muted/50 rounded-full px-4 py-1.5 border border-muted items-center gap-2">
+          <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">{activeProject.type || 'SaaS'}</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-primary/50"></span>
+          <span className="text-sm font-semibold text-foreground">{activeProject.mode} Mode</span>
         </div>
       </div>
 
@@ -264,8 +254,13 @@ export const TopNav = ({ activeProject, onModeChange, isAuthenticated, setIsAuth
       <SettingsModal 
         isOpen={isSettingsOpen} 
         onClose={() => setIsSettingsOpen(false)} 
-        isDarkMode={isDarkMode}
-        toggleDarkMode={toggleDarkMode}
+        activeProject={activeProject}
+        onModeChange={onModeChange}
+        isAuthenticated={isAuthenticated}
+        onRequestLogin={() => {
+          setIsSettingsOpen(false);
+          setIsAuthOpen(true);
+        }}
       />
       
       <AuthModal 

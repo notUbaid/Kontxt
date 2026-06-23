@@ -108,9 +108,9 @@ function App() {
         onNavigate={setActivePage}
       />
       <div className="flex-1 flex max-w-[1536px] mx-auto w-full relative">
-        <LeftSidebar activeMode={activeProject.mode} activePage={activePage} setActivePage={setActivePage} />
-        <MainCanvas activePage={activePage} activeMode={activeProject.mode} projectId={activeProjectId} />
-        <RightSidebar activePage={activePage} activeMode={activeProject.mode} />
+        <LeftSidebar activeType={activeProject.type || 'SaaS'} activeMode={activeProject.mode} activePage={activePage} setActivePage={setActivePage} />
+        <MainCanvas activeType={activeProject.type || 'SaaS'} activePage={activePage} activeMode={activeProject.mode} projectId={activeProjectId} />
+        <RightSidebar activeType={activeProject.type || 'SaaS'} activePage={activePage} activeMode={activeProject.mode} />
       </div>
     </div>
   );

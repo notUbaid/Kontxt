@@ -1,21 +1,26 @@
- import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
-import { taxonomy } from '../data/taxonomy';
+import { getTaxonomy } from '../data/taxonomy';
 import type { Mode } from './TopNav';
 
 interface LeftSidebarProps {
+  activeType: string;
   activeMode: Mode;
   activePage: string; // The topic ID
   setActivePage: (page: string) => void;
 }
 
-export const LeftSidebar = ({ activeMode, activePage, setActivePage }: LeftSidebarProps) => {
+export const LeftSidebar = ({ activeType, activeMode, activePage, setActivePage }: LeftSidebarProps) => {
+  const taxonomy = getTaxonomy(activeType, activeMode);
+
   // Simple state to track which categories are expanded in the accordion
-  const [expandedCats, setExpandedCats] = useState<Record<string, boolean>>({
-    foundation: true,
-    execution: true,
-    ecosystem: true,
-  });
+  const [expandedCats, setExpandedCats] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    const initialExpanded: Record<string, boolean> = {};
+    taxonomy.forEach(cat => { initialExpanded[cat.id] = true; });
+    setExpandedCats(initialExpanded);
+  }, [taxonomy]);
 
   const toggleCategory = (catId: string) => {
     setExpandedCats(prev => ({ ...prev, [catId]: !prev[catId] }));

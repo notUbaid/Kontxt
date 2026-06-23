@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Mail, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -22,7 +23,9 @@ export const AuthModal = ({ isOpen, onClose, onLogin }: AuthModalProps) => {
     }
   };
 
-  return (
+  if (!isOpen) return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-foreground/20 backdrop-blur-sm p-4">
@@ -140,6 +143,7 @@ export const AuthModal = ({ isOpen, onClose, onLogin }: AuthModalProps) => {
           <div className="absolute inset-0 -z-10" onClick={onClose} />
         </div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 };
