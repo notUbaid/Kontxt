@@ -415,7 +415,14 @@ For the Primary "Bullseye" ICP, include:
 ---
 
 ## Deliverable
-Define your 1 Primary ICP below. Delete everything else. When you are tempted to build   'icpidealcustomerprofile': `# Target Users & Ideal Customer Profile (ICP)
+Define your 1 Primary ICP below. Delete everything else. When you are tempted to build a feature, ask yourself: "Does this specific person actually care about this?"
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+
+  'icpidealcustomerprofile': `# Target Users & Ideal Customer Profile (ICP)
 
 **🕒 Estimated Time:** 20-30 min
 
