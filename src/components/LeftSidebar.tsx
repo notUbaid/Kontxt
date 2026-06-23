@@ -1,4 +1,4 @@
-import { useState } from 'react';
+ import { useState } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { taxonomy } from '../data/taxonomy';
 import type { Mode } from './TopNav';

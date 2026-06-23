@@ -1,6 +1,9 @@
-import { useState, useRef, useEffect } from 'react';
-import { Search, Moon, Sun, UserCircle, Settings, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Search, Moon, Sun, UserCircle, Settings, X, Download } from 'lucide-react';
+import { taxonomy } from '../data/taxonomy';
 import type { Project } from '../App';
+import { SettingsModal } from './SettingsModal';
+import { AuthModal } from './AuthModal';
 
 export type Mode = 'Hackathon' | 'Personal' | 'Production' | 'Custom';
 
@@ -10,15 +13,17 @@ interface TopNavProps {
   isAuthenticated: boolean;
   setIsAuthenticated: (auth: boolean) => void;
   onGoHome: () => void;
+  onNavigate: (topicId: string) => void;
 }
 
-export const TopNav = ({ activeProject, onModeChange, isAuthenticated, setIsAuthenticated, onGoHome }: TopNavProps) => {
+export const TopNav = ({ activeProject, onModeChange, isAuthenticated, setIsAuthenticated, onGoHome, onNavigate }: TopNavProps) => {
   const modes: Mode[] = ['Hackathon', 'Personal', 'Production', 'Custom'];
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState<{id: string, name: string, snippet: string}[]>([]);
   const [isDarkMode, setIsDarkMode] = useState(() => document.documentElement.classList.contains('dark'));
-  const settingsRef = useRef<HTMLDivElement>(null);
 
   const toggleDarkMode = () => {
     const root = document.documentElement;
@@ -33,15 +38,84 @@ export const TopNav = ({ activeProject, onModeChange, isAuthenticated, setIsAuth
     }
   };
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (settingsRef.current && !settingsRef.current.contains(event.target as Node)) {
-        setIsSettingsOpen(false);
+  const handleExport = () => {
+    let combinedMarkdown = `# Project: ${activeProject.name}\nMode: ${activeProject.mode}\n\n`;
+    
+    for (const cat of taxonomy) {
+      const modeTopics = cat.topics.filter(t => t.modes.includes(activeProject.mode));
+      if (modeTopics.length === 0) continue;
+      
+      combinedMarkdown += `## ${cat.name}\n\n`;
+      for (const topic of modeTopics) {
+        const key = `kontxt_doc_${activeProject.id}_${topic.id}`;
+        const savedData = localStorage.getItem(key);
+        let content = "_No content drafted yet._";
+        
+        if (savedData) {
+          try {
+            const parsed = JSON.parse(savedData);
+            if (parsed.content.trim()) {
+              content = parsed.content;
+            }
+          } catch (e) {}
+        }
+        
+        combinedMarkdown += `### ${topic.name}\n\n${content}\n\n---\n\n`;
       }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+    }
+
+    const blob = new Blob([combinedMarkdown], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${activeProject.name.replace(/\s+/g, '-').toLowerCase()}-kontxt.md`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  useEffect(() => {
+    if (!searchQuery.trim()) {
+      setSearchResults([]);
+      return;
+    }
+    const query = searchQuery.toLowerCase();
+    const results: {id: string, name: string, snippet: string}[] = [];
+    
+    for (const cat of taxonomy) {
+      for (const topic of cat.topics) {
+        if (!topic.modes.includes(activeProject.mode)) continue;
+        
+        let snippet = '';
+        let matched = false;
+
+        if (topic.name.toLowerCase().includes(query)) {
+          matched = true;
+          snippet = "Matched in topic name";
+        } else {
+          const key = `kontxt_doc_${activeProject.id}_${topic.id}`;
+          const savedData = localStorage.getItem(key);
+          if (savedData) {
+            try {
+              const parsed = JSON.parse(savedData);
+              const content = parsed.content.toLowerCase();
+              const idx = content.indexOf(query);
+              if (idx !== -1) {
+                matched = true;
+                const start = Math.max(0, idx - 20);
+                const end = Math.min(parsed.content.length, idx + query.length + 20);
+                snippet = "..." + parsed.content.substring(start, end).replace(/\n/g, ' ') + "...";
+              }
+            } catch (e) {}
+          }
+        }
+        
+        if (matched) {
+          results.push({ id: topic.id, name: topic.name, snippet });
+        }
+      }
+    }
+    setSearchResults(results);
+  }, [searchQuery, activeProject]);
   
   return (
     <header className="h-14 sticky top-0 z-50 glassmorphism flex items-center justify-between px-4">
@@ -96,26 +170,22 @@ export const TopNav = ({ activeProject, onModeChange, isAuthenticated, setIsAuth
         >
           {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
         </button>
-        <div className="relative" ref={settingsRef}>
+        <button 
+          onClick={handleExport}
+          className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-sm bg-primary/10 px-3 py-1.5 rounded-full border border-primary/20"
+          title="Export Project to Markdown"
+        >
+          <Download size={16} />
+          <span className="hidden lg:inline font-semibold">Export</span>
+        </button>
+        <div>
           <button 
-            onClick={() => setIsSettingsOpen(!isSettingsOpen)}
+            onClick={() => setIsSettingsOpen(true)}
             className="text-muted-foreground hover:text-foreground transition-colors mt-1"
             title="Settings"
           >
             <Settings size={20} />
           </button>
-          
-          {isSettingsOpen && (
-            <div className="absolute right-0 mt-4 w-48 bg-background border-2 border-primary/20 rounded-xl shadow-lg py-2 z-50">
-              <div className="px-4 py-2 border-b border-primary/10 mb-2">
-                <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Settings</p>
-              </div>
-              <button className="w-full text-left px-4 py-2 text-sm text-foreground hover:bg-primary/5 transition-colors">Account Profile</button>
-              <button className="w-full text-left px-4 py-2 text-sm text-foreground hover:bg-primary/5 transition-colors">Appearance</button>
-              <button className="w-full text-left px-4 py-2 text-sm text-foreground hover:bg-primary/5 transition-colors">Billing & Plans</button>
-              <button className="w-full text-left px-4 py-2 text-sm text-foreground hover:bg-primary/5 transition-colors">API Keys</button>
-            </div>
-          )}
         </div>
         {isAuthenticated ? (
           <button onClick={() => setIsAuthenticated(false)} className="text-primary hover:text-accent transition-colors" title="Sign Out">
@@ -123,7 +193,7 @@ export const TopNav = ({ activeProject, onModeChange, isAuthenticated, setIsAuth
           </button>
         ) : (
           <button 
-            onClick={() => setIsAuthenticated(true)}
+            onClick={() => setIsAuthOpen(true)}
             className="text-sm font-medium bg-primary text-background px-4 py-1.5 rounded-full hover:bg-primary/90 transition-colors shadow-sm"
           >
             Sign In
@@ -150,11 +220,35 @@ export const TopNav = ({ activeProject, onModeChange, isAuthenticated, setIsAuth
                 <X size={20} />
               </button>
             </div>
-            <div className="p-4 max-h-64 overflow-y-auto bg-muted/10">
+            <div className="p-4 max-h-96 overflow-y-auto bg-muted/10">
               {searchQuery ? (
-                <div className="text-center py-8 text-muted-foreground">
-                  Press enter to search for "{searchQuery}"
-                </div>
+                searchResults.length > 0 ? (
+                  <div className="space-y-2">
+                    {searchResults.map((result) => (
+                      <button
+                        key={result.id}
+                        onClick={() => {
+                          onNavigate(result.id);
+                          setIsSearchOpen(false);
+                          setSearchQuery('');
+                        }}
+                        className="w-full text-left p-3 rounded-xl hover:bg-muted/50 border border-transparent hover:border-muted transition-colors flex items-center justify-between group"
+                      >
+                        <div>
+                          <p className="font-bold text-foreground">{result.name}</p>
+                          <p className="text-xs text-muted-foreground mt-1 truncate max-w-lg">{result.snippet}</p>
+                        </div>
+                        <span className="text-xs font-semibold bg-primary/10 text-primary px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                          Jump
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-8 text-muted-foreground">
+                    No results found for "{searchQuery}"
+                  </div>
+                )
               ) : (
                 <div className="text-center py-8 text-muted-foreground">
                   Type to start searching across the Kontxt Playbook.
@@ -166,6 +260,19 @@ export const TopNav = ({ activeProject, onModeChange, isAuthenticated, setIsAuth
           <div className="absolute inset-0 -z-10" onClick={() => setIsSearchOpen(false)} />
         </div>
       )}
+
+      <SettingsModal 
+        isOpen={isSettingsOpen} 
+        onClose={() => setIsSettingsOpen(false)} 
+        isDarkMode={isDarkMode}
+        toggleDarkMode={toggleDarkMode}
+      />
+      
+      <AuthModal 
+        isOpen={isAuthOpen} 
+        onClose={() => setIsAuthOpen(false)} 
+        onLogin={() => setIsAuthenticated(true)} 
+      />
     </header>
   );
 };

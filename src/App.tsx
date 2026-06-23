@@ -5,10 +5,26 @@ import { MainCanvas } from './components/MainCanvas';
 import { RightSidebar } from './components/RightSidebar';
 import { Onboarding } from './components/Onboarding';
 
+export type AppType = 
+  | 'SaaS' 
+  | 'Mobile App' 
+  | 'Web App' 
+  | 'AI Tool' 
+  | 'Browser Extension' 
+  | 'Desktop App' 
+  | 'API Product' 
+  | 'Internal Tool' 
+  | 'Marketplace' 
+  | 'E-commerce' 
+  | 'Game' 
+  | 'Hackathon Project' 
+  | 'Open Source Project';
+
 export interface Project {
   id: string;
   name: string;
   mode: Mode;
+  type?: AppType;
 }
 
 function App() {
@@ -24,10 +40,6 @@ function App() {
     if (savedProjects) {
       setProjects(JSON.parse(savedProjects));
     }
-    const savedActive = localStorage.getItem('kontxt_active_project');
-    if (savedActive) {
-      setActiveProjectId(savedActive);
-    }
     
     // Load theme
     if (localStorage.getItem('kontxt_theme') === 'dark') {
@@ -35,11 +47,12 @@ function App() {
     }
   }, []);
 
-  const handleCreateProject = (name: string, mode: Mode) => {
+  const handleCreateProject = (name: string, mode: Mode, type?: AppType) => {
     const newProject: Project = {
       id: crypto.randomUUID(),
       name,
-      mode
+      mode,
+      type
     };
     const updatedProjects = [...projects, newProject];
     setProjects(updatedProjects);
@@ -75,6 +88,8 @@ function App() {
         projects={projects} 
         onCreateProject={handleCreateProject} 
         onSelectProject={handleSelectProject} 
+        isAuthenticated={isAuthenticated}
+        setIsAuthenticated={setIsAuthenticated}
       />
     );
   }
@@ -90,6 +105,7 @@ function App() {
         isAuthenticated={isAuthenticated} 
         setIsAuthenticated={setIsAuthenticated} 
         onGoHome={handleGoHome}
+        onNavigate={setActivePage}
       />
       <div className="flex-1 flex max-w-[1536px] mx-auto w-full relative">
         <LeftSidebar activeMode={activeProject.mode} activePage={activePage} setActivePage={setActivePage} />
