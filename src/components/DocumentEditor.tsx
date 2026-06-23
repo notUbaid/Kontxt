@@ -125,7 +125,35 @@ export const DocumentEditor = ({
             className="flex-1 w-full"
           >
             <div className="prose prose-kontxt max-w-none hover:prose-a:opacity-80">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              <ReactMarkdown 
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  input: ({ node, checked, ...props }) => {
+                    if (props.type === 'checkbox' && node?.position) {
+                      return (
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          onChange={(e) => {
+                            const newChecked = e.target.checked;
+                            const lineIndex = node.position!.start.line - 1;
+                            const lines = content.split('\n');
+                            if (lines[lineIndex]) {
+                              if (newChecked) {
+                                lines[lineIndex] = lines[lineIndex].replace(/\[\s\]/, '[x]');
+                              } else {
+                                lines[lineIndex] = lines[lineIndex].replace(/\[x\]/i, '[ ]');
+                              }
+                              onChange(lines.join('\n'));
+                            }
+                          }}
+                        />
+                      );
+                    }
+                    return <input {...props} />;
+                  }
+                }}
+              >
                 {content}
               </ReactMarkdown>
             </div>

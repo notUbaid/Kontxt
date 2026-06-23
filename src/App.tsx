@@ -31,6 +31,7 @@ export interface Project {
   hiddenLinks?: string[];
   completedTopics?: string[];
   progressEnabled?: boolean;
+  lastViewedTopic?: string;
 }
 
 function App() {
@@ -44,7 +45,20 @@ function App() {
   useEffect(() => {
     const savedProjects = localStorage.getItem('kontxt_projects');
     if (savedProjects) {
-      setProjects(JSON.parse(savedProjects));
+      try {
+        const parsed = JSON.parse(savedProjects) as Project[];
+        setProjects(parsed);
+        const activeId = localStorage.getItem('kontxt_active_project');
+        if (activeId && parsed.some(p => p.id === activeId)) {
+          setActiveProjectId(activeId);
+          const activeProj = parsed.find(p => p.id === activeId);
+          if (activeProj && activeProj.lastViewedTopic) {
+            setActivePage(activeProj.lastViewedTopic);
+          }
+        }
+      } catch (e) {
+        console.error("Failed to parse projects", e);
+      }
     }
     
     // Load theme
@@ -71,6 +85,21 @@ function App() {
   const handleSelectProject = (id: string) => {
     setActiveProjectId(id);
     localStorage.setItem('kontxt_active_project', id);
+    const p = projects.find(proj => proj.id === id);
+    if (p && p.lastViewedTopic) {
+      setActivePage(p.lastViewedTopic);
+    }
+  };
+
+  const handleSetActivePage = (page: string) => {
+    setActivePage(page);
+    if (activeProjectId) {
+      const updatedProjects = projects.map(p => 
+        p.id === activeProjectId ? { ...p, lastViewedTopic: page } : p
+      );
+      setProjects(updatedProjects);
+      localStorage.setItem('kontxt_projects', JSON.stringify(updatedProjects));
+    }
   };
 
   const handleGoHome = () => {
@@ -122,7 +151,7 @@ function App() {
         isAuthenticated={isAuthenticated} 
         setIsAuthenticated={setIsAuthenticated} 
         onGoHome={handleGoHome}
-        onNavigate={setActivePage}
+        onNavigate={handleSetActivePage}
       />
       <div className="flex-1 flex max-w-[1536px] mx-auto w-full relative">
         <LeftSidebar 
@@ -130,7 +159,7 @@ function App() {
           activeType={activeProject.type || 'SaaS'} 
           activeMode={activeProject.mode} 
           activePage={activePage} 
-          setActivePage={setActivePage}
+          setActivePage={handleSetActivePage}
           onProjectUpdate={handleProjectUpdate}
         />
         <MainCanvas activeType={activeProject.type || 'SaaS'} activePage={activePage} activeMode={activeProject.mode} projectId={activeProjectId} />
