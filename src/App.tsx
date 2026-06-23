@@ -151,6 +151,7 @@ function App() {
         setIsAuthenticated={setIsAuthenticated} 
         onGoHome={handleGoHome}
         onNavigate={handleSetActivePage}
+        onSelectProject={handleSelectProject}
       />
       <div className="flex-1 flex max-w-[1536px] mx-auto w-full relative">
         <LeftSidebar 

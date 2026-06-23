@@ -16,6 +16,7 @@ interface TopNavProps {
   setIsAuthenticated: (auth: boolean) => void;
   onGoHome: () => void;
   onNavigate: (topicId: string) => void;
+  onSelectProject: (id: string) => void;
 }
 
 export const TopNav = ({ 
@@ -26,13 +27,14 @@ export const TopNav = ({
   isAuthenticated,
   setIsAuthenticated,
   onGoHome,
-  onNavigate
+  onNavigate,
+  onSelectProject
 }: TopNavProps) => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState<{id: string, name: string, snippet: string}[]>([]);
+  const [searchResults, setSearchResults] = useState<{id: string, name: string, snippet: string, projectId: string, projectName: string}[]>([]);
   const [isDarkMode, setIsDarkMode] = useState(() => document.documentElement.classList.contains('dark'));
 
   const toggleDarkMode = () => {
@@ -84,49 +86,72 @@ export const TopNav = ({
     URL.revokeObjectURL(url);
   };
 
+  // Keyboard shortcut for Search
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setIsSearchOpen(true);
+      }
+      if (e.key === 'Escape') {
+        setIsSearchOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   useEffect(() => {
     if (!searchQuery.trim()) {
       setSearchResults([]);
       return;
     }
     const query = searchQuery.toLowerCase();
-    const results: {id: string, name: string, snippet: string}[] = [];
+    const results: {id: string, name: string, snippet: string, projectId: string, projectName: string}[] = [];
     
-    const taxonomy = getTaxonomy(activeProject.type || 'SaaS', activeProject.mode);
-    for (const cat of taxonomy) {
-      for (const topic of cat.topics) {
-        
-        let snippet = '';
-        let matched = false;
+    for (const project of projects) {
+      const taxonomy = getTaxonomy(project.type || 'SaaS', project.mode);
+      for (const cat of taxonomy) {
+        for (const topic of cat.topics) {
+          
+          let snippet = '';
+          let matched = false;
 
-        if (topic.name.toLowerCase().includes(query)) {
-          matched = true;
-          snippet = "Matched in topic name";
-        } else {
-          const key = `kontxt_doc_${activeProject.id}_${topic.id}`;
-          const savedData = localStorage.getItem(key);
-          if (savedData) {
-            try {
-              const parsed = JSON.parse(savedData);
-              const content = parsed.content.toLowerCase();
-              const idx = content.indexOf(query);
-              if (idx !== -1) {
-                matched = true;
-                const start = Math.max(0, idx - 20);
-                const end = Math.min(parsed.content.length, idx + query.length + 20);
-                snippet = "..." + parsed.content.substring(start, end).replace(/\n/g, ' ') + "...";
-              }
-            } catch (e) {}
+          if (topic.name.toLowerCase().includes(query)) {
+            matched = true;
+            snippet = "Matched in topic name";
+          } else {
+            const key = `kontxt_doc_${project.id}_${topic.id}`;
+            const savedData = localStorage.getItem(key);
+            if (savedData) {
+              try {
+                const parsed = JSON.parse(savedData);
+                const content = parsed.content.toLowerCase();
+                const idx = content.indexOf(query);
+                if (idx !== -1) {
+                  matched = true;
+                  const start = Math.max(0, idx - 20);
+                  const end = Math.min(parsed.content.length, idx + query.length + 20);
+                  snippet = "..." + parsed.content.substring(start, end).replace(/\n/g, ' ') + "...";
+                }
+              } catch (e) {}
+            }
           }
-        }
-        
-        if (matched) {
-          results.push({ id: topic.id, name: topic.name, snippet });
+          
+          if (matched) {
+            results.push({ 
+              id: topic.id, 
+              name: topic.name, 
+              snippet, 
+              projectId: project.id, 
+              projectName: project.name 
+            });
+          }
         }
       }
     }
     setSearchResults(results);
-  }, [searchQuery, activeProject]);
+  }, [searchQuery, projects]);
   
   const taxonomy = getTaxonomy(activeProject.type || 'SaaS', activeProject.mode);
   
@@ -322,10 +347,13 @@ export const TopNav = ({
               {searchQuery ? (
                 searchResults.length > 0 ? (
                   <div className="space-y-2">
-                    {searchResults.map((result) => (
+                    {searchResults.map((result, i) => (
                       <button
-                        key={result.id}
+                        key={`${result.projectId}-${result.id}-${i}`}
                         onClick={() => {
+                          if (activeProject.id !== result.projectId) {
+                            onSelectProject(result.projectId);
+                          }
                           onNavigate(result.id);
                           setIsSearchOpen(false);
                           setSearchQuery('');
@@ -333,8 +361,11 @@ export const TopNav = ({
                         className="w-full text-left p-3 rounded-xl hover:bg-muted/50 border border-transparent hover:border-muted transition-colors flex items-center justify-between group"
                       >
                         <div>
-                          <p className="font-bold text-foreground">{result.name}</p>
-                          <p className="text-xs text-muted-foreground mt-1 truncate max-w-lg">{result.snippet}</p>
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="text-[10px] uppercase font-bold text-muted-foreground bg-muted/50 px-2 py-0.5 rounded">{result.projectName}</span>
+                            <p className="font-bold text-foreground text-sm">{result.name}</p>
+                          </div>
+                          <p className="text-xs text-muted-foreground truncate max-w-lg">{result.snippet}</p>
                         </div>
                         <span className="text-xs font-semibold bg-primary/10 text-primary px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
                           Jump
