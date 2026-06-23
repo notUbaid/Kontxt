@@ -67,6 +67,22 @@ Challenge my assumptions. Do not validate my idea automatically.
 
 ---
 
+## What Good Looks Like
+
+**A strong idea definition:**
+✓ Hyper-specific target audience
+✓ Solves an active, painful problem
+✓ Clear path to monetization
+✓ Has a real unfair advantage
+
+**A weak idea definition:**
+✗ "For everyone"
+✗ A "nice to have" vitamin, not a painkiller
+✗ Depends on achieving viral consumer scale
+✗ Unfair advantage is just "better UI"
+
+---
+
 ## Validation Checklist
 - [ ] Can you explain the idea to a non-technical person in under 15 seconds?
 - [ ] Does the idea solve a real pain point, or is it just cool tech?
@@ -183,6 +199,21 @@ Act as a skeptical user research expert. Read my problem inputs above.
 2. What are the secondary or hidden pain points associated with this problem that I haven't considered?
 3. Based on my "Symptom", what are 3 alternative "Root Causes" I might be ignoring?
 \`\`\`
+
+---
+
+## What Good Looks Like
+
+**A strong problem statement:**
+✓ Specific
+✓ Quantifiable
+✓ Repeated frequently
+✓ Expensive to ignore
+
+**A weak problem statement:**
+✗ Vague
+✗ Rare
+✗ No measurable impact
 
 ---
 
