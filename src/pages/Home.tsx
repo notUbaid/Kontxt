@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Onboarding } from '../components/Onboarding';
-import { AuthModal } from '../components/AuthModal';
 import type { Project, AppType } from '../App';
 import type { Mode } from '../components/TopNav';
 
@@ -14,9 +13,13 @@ interface HomeProps {
 
 export default function Home({ projects, addProject, isAuthenticated, setIsAuthenticated }: HomeProps) {
   const navigate = useNavigate();
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(!isAuthenticated);
 
   const handleCreateProject = (name: string, mode: Mode, type?: AppType) => {
+    if (!isAuthenticated) {
+      // Just a safeguard, the UI should encourage them to sign in
+      alert("Please Sign In first to create and save projects.");
+      return;
+    }
     const project: Project = {
       id: crypto.randomUUID(),
       name,
@@ -36,24 +39,12 @@ export default function Home({ projects, addProject, isAuthenticated, setIsAuthe
   };
 
   return (
-    <>
-      <Onboarding 
-        projects={projects} 
-        onCreateProject={handleCreateProject} 
-        onSelectProject={handleSelectProject} 
-        isAuthenticated={isAuthenticated}
-        setIsAuthenticated={setIsAuthenticated}
-      />
-      <AuthModal 
-        isOpen={isAuthModalOpen || !isAuthenticated} 
-        onClose={() => {
-          if (isAuthenticated) setIsAuthModalOpen(false);
-        }} 
-        onLogin={() => {
-          setIsAuthenticated(true);
-          setIsAuthModalOpen(false);
-        }} 
-      />
-    </>
+    <Onboarding 
+      projects={projects} 
+      onCreateProject={handleCreateProject} 
+      onSelectProject={handleSelectProject} 
+      isAuthenticated={isAuthenticated}
+      setIsAuthenticated={setIsAuthenticated}
+    />
   );
 }
