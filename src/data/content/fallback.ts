@@ -1,5 +1,5 @@
 export const fallbackContent: Record<string, string> = {
-  'idea-definition': `# Idea Definition
+  'ideadefinition': `# Idea Definition
 
 Welcome to Phase 0. Before writing any code or choosing a database, we must clearly define what you are building. This document serves as the foundational anchor for your project.
 
@@ -40,7 +40,7 @@ Please act as a brutally honest Senior Product Manager.
 By the end of this exercise, edit this document to include a 1-paragraph **Elevator Pitch**. This paragraph will be heavily referenced by Kontxt AI in the future.
 `,
 
-  'elevator-pitch': `# Elevator Pitch
+  'elevatorpitch': `# Elevator Pitch
 
 The Elevator Pitch is a highly condensed summary of your product's value proposition. You should be able to say it out loud in 15 seconds.
 
@@ -71,7 +71,7 @@ Act as a world-class copywriter. Draft 3 distinct elevator pitches using the sta
 Draft your final 1-2 sentence Elevator Pitch below.
 `,
 
-  'problem-statement': `# Problem Statement
+  'problemstatement': `# Problem Statement
 
 Your product does not exist in a vacuum. It exists to eliminate a specific, painful problem for a specific group of people. 
 
@@ -110,7 +110,7 @@ Write a 3-part Problem Statement below:
 3. **The Impact:** The cost (time, money, sanity) of the flaw.
 `,
 
-  'target-users': `# Ideal Customer Profile (ICP) & Target Users
+  'targetusers': `# Ideal Customer Profile (ICP) & Target Users
 
 Who exactly is pulling out their credit card to pay for your software?
 
@@ -144,7 +144,7 @@ Please generate 3 detailed Ideal Customer Profiles (ICPs). For each ICP, include
 List 1 Primary ICP and 1 Secondary ICP below. Delete everything else. When you are tempted to build a feature, ask yourself: "Does my Primary ICP actually care about this?"
 `,
 
-  'icp-ideal-customer-profile': `# Ideal Customer Profile (ICP) & Target Users
+  'icpidealcustomerprofile': `# Ideal Customer Profile (ICP) & Target Users
 
 Who exactly is pulling out their credit card to pay for your software?
 
@@ -178,7 +178,7 @@ Please generate 3 detailed Ideal Customer Profiles (ICPs). For each ICP, include
 List 1 Primary ICP and 1 Secondary ICP below. Delete everything else. When you are tempted to build a feature, ask yourself: "Does my Primary ICP actually care about this?"
 `,
 
-  'mvp-features': `# MVP Features (Minimum Viable Product)
+  'mvpfeatures': `# MVP Features (Minimum Viable Product)
 
 The MVP is the absolute minimum set of features required to prove that your solution solves the problem.
 
@@ -219,7 +219,7 @@ Act as a ruthless CTO focused on shipping in 2 weeks.
 Create a checklist below of the 3 to 5 features that constitute your MVP. If there are more than 5, you are probably building too much.
 `,
 
-  'business-model': `# Business Model & Pricing
+  'businessmodel': `# Business Model & Pricing
 
 How will this product actually make money?
 
