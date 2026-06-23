@@ -1,43 +1,86 @@
 export const fallbackContent: Record<string, string> = {
   'ideadefinition': `# Idea Definition
 
-Welcome to Phase 0. Before writing any code or choosing a database, we must clearly define what you are building. This document serves as the foundational anchor for your project.
+**🕒 Estimated Time:** 15-20 min
 
-## Why It Matters
-A blurry idea leads to a blurry product. When your idea is sharply defined, every downstream decision—what features to build, who to market to, and what tech stack to use—becomes obvious.
+---
 
-> [!TIP]
-> **Hackathon vs Production**
-> - **Hackathon Mode:** Write 3 sentences. What is it, who is it for, and what's the gimmick?
-> - **Production Mode:** You need a crystal clear elevator pitch, validated market context, and a strong understanding of your unfair advantage.
+## Overview
+Welcome to Phase 0. Before writing any code or choosing a database, we must clearly define what you are building. This document serves as the foundational anchor for your project. A blurry idea leads to a blurry product.
 
-## Decisions You Must Make
-- [ ] What is the core value proposition? (If you could only do ONE thing, what is it?)
-- [ ] Who is the specific target audience?
-- [ ] What existing solution are you replacing?
-- [ ] What is your "unfair advantage"? (Why are *you* building this?)
+---
 
-## How to Use AI Effectively
+## Think First
+Before you ask AI to evaluate your idea, answer these questions honestly. Type your answers right here:
 
-Do not ask AI to "generate an idea for me." Ask AI to **stress-test** your idea.
+**Core Value Proposition** (If you could only do ONE thing, what is it?)
+> [Type your answer here...]
+
+**Target Audience** (Who exactly needs this?)
+> [Type your answer here...]
+
+**Existing Solution** (What do they use today?)
+> [Type your answer here...]
+
+**Unfair Advantage** (Why are *you* the one to build this?)
+> [Type your answer here...]
+
+**Why Now?** (Why does this idea make sense in 2026 but not 2022?)
+> [Type your answer here...]
+
+---
+
+## Key Decisions
+- Hackathon vs Production: If Hackathon, prioritize a gimmick and speed. If Production, prioritize a clear path to revenue.
+- Focus: Narrow your target audience. You cannot build for "everyone".
+
+---
+
+## Common Mistakes
+- **Solution looking for a problem:** Building a cool AI wrapper without a real-world use case.
+- **Overestimating the Unfair Advantage:** Thinking "better UI" is an unfair advantage. It's not. Distribution is an unfair advantage.
+
+---
+
+## AI Prompt
+Use this prompt to stress-test your idea. It will automatically read the answers you typed above.
 
 \`\`\`prompt
-I am building a SaaS product. 
-My initial idea is: [DESCRIBE YOUR IDEA HERE].
+Act as a brutally honest Senior Product Manager and SaaS Founder.
+Read my Idea Definition above.
 
-Please act as a brutally honest Senior Product Manager.
-1. What is the biggest flaw in this idea?
+Challenge my assumptions. Do not validate my idea automatically.
+1. What is the biggest, most fatal flaw in this idea?
 2. What feature am I likely overestimating the importance of?
-3. What 3 questions do I need to answer before writing any code?
+3. What 3 difficult questions do I need to answer before writing any code?
 \`\`\`
+
+---
+
+## Example Output
+
+> **Core Value Proposition:** A CLI tool that automatically writes boilerplate tests for undocumented legacy codebases.
+> **Target Audience:** Agency developers who inherit messy React projects.
+> **Existing Solution:** Reading code manually and writing tests by hand.
+> **Unfair Advantage:** I spent 4 years working at an agency doing exactly this, so I know the edge cases.
+> **Why Now?** LLMs finally have the context windows necessary to ingest entire legacy repos at once.
+
+---
 
 ## Validation Checklist
 - [ ] Can you explain the idea to a non-technical person in under 15 seconds?
-- [ ] Does the idea solve a real pain point, or is it a "solution looking for a problem"?
+- [ ] Does the idea solve a real pain point, or is it just cool tech?
 - [ ] Is the scope narrow enough to actually launch within your timeline?
 
-## Deliverable Expectations
-By the end of this exercise, edit this document to include a 1-paragraph **Elevator Pitch**. This paragraph will be heavily referenced by Kontxt AI in the future.
+---
+
+## Deliverable
+At the bottom of this page, write a definitive 3-sentence summary of your idea. This will be referenced by Kontxt AI for all future phases.
+
+---
+
+## Next Step
+Move on to **Problem Statement** to validate that your idea actually solves something painful.
 `,
 
   'elevatorpitch': `# Elevator Pitch
@@ -73,41 +116,92 @@ Draft your final 1-2 sentence Elevator Pitch below.
 
   'problemstatement': `# Problem Statement
 
-Your product does not exist in a vacuum. It exists to eliminate a specific, painful problem for a specific group of people. 
+**🕒 Estimated Time:** 20-30 min
 
-## Why It Matters
-Founders often fall in love with their solution and ignore the problem. If the problem isn't painful enough, people won't pay for your SaaS, no matter how beautiful the UI is.
+---
 
-> [!WARNING]
-> "People need a better way to track tasks" is **not** a good problem statement. "Freelance designers waste 4 hours a week manually copying invoices from Figma to Notion" **is** a great problem statement.
+## Overview
+Your product does not exist in a vacuum. It exists to eliminate a specific, painful problem. Founders often fall in love with their solution and ignore the problem. If the problem isn't painful enough, people won't pay for your SaaS, no matter how beautiful the UI is.
 
-## Key Concepts
+---
+
+## Think First
+Before using AI, answer these questions to capture project memory.
+
+**Current Workflow** (What is the exact workflow that is broken?)
+> [Type your answer here...]
+
+**Current Workaround** (How do they solve it today? e.g., Spreadsheets, Zapier)
+> [Type your answer here...]
+
+**Cost of Problem** (How much time/money does this cost them?)
+> [Type your answer here...]
+
+**Reality Check: Market Size**
+- [ ] Thousands
+- [ ] Tens of Thousands
+- [ ] Millions
+- [ ] Not Sure
+
+**Reality Check: Willingness to Pay**
+- [ ] Definitely
+- [ ] Maybe
+- [ ] Unlikely
+
+---
+
+## Key Decisions
 - **Vitamin vs. Painkiller:** Does your app make things slightly better (vitamin) or does it cure a massive headache (painkiller)? SaaS products that are painkillers are much easier to sell.
 - **Urgency:** How often does the user experience this problem? Daily? Annually?
 
-## Decisions You Must Make
-- [ ] What is the EXACT workflow that is currently broken?
-- [ ] How are users currently solving this problem? (e.g., Spreadsheets, Zapier, manual labor)
-- [ ] How much time/money does this problem cost them?
+---
 
-## AI Prompt Guidance
+## Common Mistakes: Symptoms vs Root Cause
+Most founders solve symptoms, not causes. 
+- **Symptom:** Students miss deadlines.
+- **Root Cause:** Assignments are spread across 5 different learning platforms.
 
-Use AI to expand your understanding of the problem space and find adjacent pain points you might have missed.
+---
+
+## AI Prompt
+Use this prompt to expand your understanding of the problem space.
 
 \`\`\`prompt
-I am building a SaaS that solves the following problem: [DESCRIBE PROBLEM].
+Act as a skeptical user research expert. Read my problem inputs above.
 
-Act as a user research expert.
-1. What are the secondary or hidden pain points associated with this problem?
-2. What are the typical workarounds people use today?
-3. Provide a list of 5 specific interview questions I could ask potential users to validate this problem.
+1. Tell me why this problem might actually NOT be as painful as I think it is.
+2. What are the secondary or hidden pain points associated with this problem that I haven't considered?
+3. Based on my "Symptom", what are 3 alternative "Root Causes" I might be ignoring?
 \`\`\`
 
-## Deliverable Expectations
+---
+
+## Example Output
+
+> **Current Workflow:** Small businesses manually track invoices in Excel and cross-reference them with bank statements.
+> **Current Workaround:** Hiring a part-time bookkeeper or spending Sunday nights manually auditing.
+> **Cost of Problem:** Owners spend 6-8 hours weekly chasing payments and often miss out on $1,000+ in forgotten invoices per month.
+> **Root Cause:** Invoicing and banking exist in two entirely disconnected systems.
+
+---
+
+## Validation Checklist
+- [ ] The problem exists independent of your proposed solution.
+- [ ] You have identified a root cause, not just a symptom.
+- [ ] Users are actively spending time or money attempting to fix this today.
+
+---
+
+## Deliverable
 Write a 3-part Problem Statement below:
 1. **The Current State:** How things are done today.
 2. **The Flaw:** Why the current state is terrible.
 3. **The Impact:** The cost (time, money, sanity) of the flaw.
+
+---
+
+## Next Step
+Move on to **Target Users** to define exactly who feels this problem the most.
 `,
 
   'targetusers': `# Ideal Customer Profile (ICP) & Target Users
