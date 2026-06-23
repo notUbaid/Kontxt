@@ -59,7 +59,7 @@ function App() {
   // Load theme
   useEffect(() => {
     const savedTheme = localStorage.getItem('kontxt_theme');
-    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    if (savedTheme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
