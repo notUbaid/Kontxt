@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import { TopNav, type Mode } from './components/TopNav';
-import { LeftSidebar } from './components/LeftSidebar';
-import { MainCanvas } from './components/MainCanvas';
-import { RightSidebar } from './components/RightSidebar';
-import { Onboarding } from './components/Onboarding';
+import { useState, useEffect, Suspense, lazy } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import type { Mode } from './components/TopNav';
+import { supabase } from './lib/supabase';
+import { useProjectStore } from './hooks/useProjectStore';
+import type { CustomLink } from './data/taxonomies/types';
 
 export type AppType = 
   | 'SaaS' 
@@ -16,11 +16,7 @@ export type AppType =
   | 'Internal Tool' 
   | 'Marketplace' 
   | 'E-commerce' 
-  | 'Game' 
-  | 'Hackathon Project' 
-  | 'Open Source Project';
-
-import type { CustomLink } from './data/taxonomies/types';
+  | 'Game';
 
 export interface Project {
   id: string;
@@ -30,142 +26,91 @@ export interface Project {
   customLinks?: CustomLink[];
   hiddenLinks?: string[];
   completedTopics?: string[];
+  customTopics?: string[];
   progressEnabled?: boolean;
   lastViewedTopic?: string;
 }
 
-function App() {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [activeProjectId, setActiveProjectId] = useState<string | null>(null);
-  
-  const [activePage, setActivePage] = useState('prd'); // Using topic ID now
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+// Lazy load pages for code splitting
+const Home = lazy(() => import('./pages/Home'));
+const Editor = lazy(() => import('./pages/Editor'));
+const ResetPassword = lazy(() => import('./pages/ResetPassword'));
 
-  // Load state from local storage on mount
+function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+
+  // Auth listener
   useEffect(() => {
-    const savedProjects = localStorage.getItem('kontxt_projects');
-    if (savedProjects) {
-      try {
-        const parsed = JSON.parse(savedProjects) as Project[];
-        setProjects(parsed);
-        const activeId = localStorage.getItem('kontxt_active_project');
-        if (activeId && parsed.some(p => p.id === activeId)) {
-          setActiveProjectId(activeId);
-          const activeProj = parsed.find(p => p.id === activeId);
-          if (activeProj && activeProj.lastViewedTopic) {
-            setActivePage(activeProj.lastViewedTopic);
-          }
-        }
-      } catch (e) {
-        console.error("Failed to parse projects", e);
-      }
-    }
-    
-    // Load theme
-    if (localStorage.getItem('kontxt_theme') === 'dark') {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setIsAuthenticated(!!session);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setIsAuthenticated(!!session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const { projects, addProject, updateProject } = useProjectStore(!!isAuthenticated);
+
+  // Load theme
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('kontxt_theme');
+    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
     }
   }, []);
 
-  const handleCreateProject = (name: string, mode: Mode, type?: AppType) => {
-    const newProject: Project = {
-      id: crypto.randomUUID(),
-      name,
-      mode,
-      type
-    };
-    const updatedProjects = [...projects, newProject];
-    setProjects(updatedProjects);
-    setActiveProjectId(newProject.id);
-    
-    localStorage.setItem('kontxt_projects', JSON.stringify(updatedProjects));
-    localStorage.setItem('kontxt_active_project', newProject.id);
-  };
-
-  const handleSelectProject = (id: string) => {
-    setActiveProjectId(id);
-    localStorage.setItem('kontxt_active_project', id);
-    const p = projects.find(proj => proj.id === id);
-    if (p && p.lastViewedTopic) {
-      setActivePage(p.lastViewedTopic);
-    }
-  };
-
-  const handleSetActivePage = (page: string) => {
-    setActivePage(page);
-    if (activeProjectId) {
-      const updatedProjects = projects.map(p => 
-        p.id === activeProjectId ? { ...p, lastViewedTopic: page } : p
-      );
-      setProjects(updatedProjects);
-      localStorage.setItem('kontxt_projects', JSON.stringify(updatedProjects));
-    }
-  };
-
-  const handleGoHome = () => {
-    setActiveProjectId(null);
-    localStorage.removeItem('kontxt_active_project');
-  };
-
-  const handleModeChange = (mode: Mode) => {
-    if (!activeProjectId) return;
-    
-    const updatedProjects = projects.map(p => 
-      p.id === activeProjectId ? { ...p, mode } : p
-    );
-    setProjects(updatedProjects);
-    localStorage.setItem('kontxt_projects', JSON.stringify(updatedProjects));
-  };
-
-  const handleProjectUpdate = (updatedProject: Project) => {
-    const updatedProjects = projects.map(p => 
-      p.id === updatedProject.id ? updatedProject : p
-    );
-    setProjects(updatedProjects);
-    localStorage.setItem('kontxt_projects', JSON.stringify(updatedProjects));
-  };
-
-  if (!activeProjectId) {
-    return (
-      <Onboarding 
-        projects={projects} 
-        onCreateProject={handleCreateProject} 
-        onSelectProject={handleSelectProject} 
-        isAuthenticated={isAuthenticated}
-        setIsAuthenticated={setIsAuthenticated}
-      />
-    );
+  if (isAuthenticated === null) {
+    return <div className="min-h-screen bg-background flex items-center justify-center text-muted-foreground font-medium">Authenticating...</div>;
   }
 
-  const activeProject = projects.find(p => p.id === activeProjectId);
-  if (!activeProject) return null;
+  // Suspense fallback for lazy loaded components
+  const LoadingFallback = () => (
+    <div className="min-h-screen bg-background flex items-center justify-center text-muted-foreground font-medium">
+      Loading...
+    </div>
+  );
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col font-sans">
-      <TopNav 
-        activeProject={activeProject}
-        projects={projects}
-        onModeChange={handleModeChange} 
-        onProjectUpdate={handleProjectUpdate}
-        isAuthenticated={isAuthenticated} 
-        setIsAuthenticated={setIsAuthenticated} 
-        onGoHome={handleGoHome}
-        onNavigate={handleSetActivePage}
-        onSelectProject={handleSelectProject}
-      />
-      <div className="flex-1 flex max-w-[1536px] mx-auto w-full relative">
-        <LeftSidebar 
-          activeProject={activeProject}
-          activeType={activeProject.type || 'SaaS'} 
-          activeMode={activeProject.mode} 
-          activePage={activePage} 
-          setActivePage={handleSetActivePage}
-          onProjectUpdate={handleProjectUpdate}
+    <Suspense fallback={<LoadingFallback />}>
+      <Routes>
+        <Route 
+          path="/" 
+          element={
+            <Home 
+              projects={projects} 
+              addProject={addProject} 
+              isAuthenticated={isAuthenticated} 
+              setIsAuthenticated={setIsAuthenticated} 
+            />
+          } 
         />
-        <MainCanvas activeType={activeProject.type || 'SaaS'} activePage={activePage} activeMode={activeProject.mode} projectId={activeProjectId} />
-        <RightSidebar activeProject={activeProject} activeType={activeProject.type || 'SaaS'} activePage={activePage} activeMode={activeProject.mode} />
-      </div>
-    </div>
+        
+        <Route 
+          path="/project/:projectId/topic/:topicId" 
+          element={
+            <Editor 
+              projects={projects}
+              updateProject={updateProject}
+              deleteProject={deleteProject}
+              isAuthenticated={isAuthenticated}
+              setIsAuthenticated={setIsAuthenticated}
+            />
+          } 
+        />
+
+        <Route path="/reset-password" element={<ResetPassword />} />
+        
+        {/* Fallback route */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Suspense>
   );
 }
 

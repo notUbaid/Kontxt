@@ -187,7 +187,7 @@ export const saasHackathonTaxonomy: Category[] = [
 export const saasPersonalTaxonomy: Category[] = [
   {
     id: 'discovery',
-    name: 'Discovery',
+    name: 'PHASE 1 — DISCOVERY',
     topics: [
       createTopic('Idea', Rocket),
       createTopic('Features', CheckSquare),
@@ -196,7 +196,7 @@ export const saasPersonalTaxonomy: Category[] = [
   },
   {
     id: 'product',
-    name: 'Product',
+    name: 'PHASE 2 — PRODUCT',
     topics: [
       createTopic('PRD', FileText),
       createTopic('Design', PenTool),
@@ -205,7 +205,7 @@ export const saasPersonalTaxonomy: Category[] = [
   },
   {
     id: 'architecture',
-    name: 'Architecture',
+    name: 'PHASE 3 — ARCHITECTURE',
     topics: [
       createTopic('Tech Stack', Settings),
       createTopic('Database', Database),
@@ -216,7 +216,7 @@ export const saasPersonalTaxonomy: Category[] = [
   },
   {
     id: 'development',
-    name: 'Development',
+    name: 'PHASE 4 — DEVELOPMENT',
     topics: [
       createTopic('Frontend', Box),
       createTopic('Backend', Server),
@@ -227,7 +227,7 @@ export const saasPersonalTaxonomy: Category[] = [
   },
   {
     id: 'production-lite',
-    name: 'Production Lite',
+    name: 'PHASE 5 — PRODUCTION LITE',
     topics: [
       createTopic('Security Basics', Shield),
       createTopic('Backups', Database),
@@ -237,11 +237,38 @@ export const saasPersonalTaxonomy: Category[] = [
   },
   {
     id: 'growth-lite',
-    name: 'Growth Lite',
+    name: 'PHASE 6 — GROWTH LITE',
     topics: [
       createTopic('SEO', Search),
       createTopic('Feedback', MessageSquare),
       createTopic('Roadmap', Globe),
     ]
   }
+];
+
+export const saasCustomTaxonomy: Category[] = [
+  ...saasProductionTaxonomy.map(cat => {
+    if (cat.id === 'phase-3') {
+      return {
+        ...cat,
+        topics: [
+          ...cat.topics,
+          createTopic('Demo Data', Database),
+          createTopic('Presentation Prep', Presentation)
+        ]
+      };
+    }
+    if (cat.id === 'phase-6') {
+      return {
+        ...cat,
+        topics: [
+          ...cat.topics,
+          createTopic('Pitch Deck', Presentation),
+          createTopic('Demo Script', FileText),
+          createTopic('Submission Checklist', CheckSquare)
+        ]
+      };
+    }
+    return cat;
+  })
 ];

@@ -2,7 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Edit2, Eye, Sparkles, FileEdit } from 'lucide-react';
+import { Edit2, Eye, Sparkles, FileEdit, CheckCircle2, Loader2, AlertCircle, Copy, Check } from 'lucide-react';
+import type { SaveStatus } from '../hooks/useDocumentStore';
 
 interface DocumentEditorProps {
   topicName: string;
@@ -10,14 +11,47 @@ interface DocumentEditorProps {
   onChange: (content: string) => void;
   onGenerate: () => void;
   isGenerating: boolean;
+  saveStatus?: SaveStatus;
 }
+
+const PromptBlock = ({ children }: { children: string }) => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(children);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="relative my-6 group rounded-xl overflow-hidden border-2 border-primary/20 bg-muted/30">
+      <div className="flex items-center justify-between px-4 py-2 bg-primary/10 border-b border-primary/10">
+        <div className="flex items-center gap-2 text-primary font-bold text-sm tracking-wide uppercase">
+          <Sparkles size={14} />
+          <span>AI Prompt Template</span>
+        </div>
+        <button
+          onClick={handleCopy}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-background border border-border text-xs font-medium text-foreground hover:bg-muted transition-colors shadow-sm"
+        >
+          {copied ? <Check size={14} className="text-green-500" /> : <Copy size={14} />}
+          {copied ? 'Copied!' : 'Copy Prompt'}
+        </button>
+      </div>
+      <div className="p-4 font-mono text-sm leading-relaxed text-foreground whitespace-pre-wrap">
+        {children}
+      </div>
+    </div>
+  );
+};
 
 export const DocumentEditor = ({ 
   topicName, 
   content, 
   onChange, 
   onGenerate, 
-  isGenerating 
+  isGenerating,
+  saveStatus = 'idle'
 }: DocumentEditorProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -48,19 +82,40 @@ export const DocumentEditor = ({
             </motion.div>
           )}
         </h1>
-        
-        {!isEmpty && !isGenerating && (
-          <button
-            onClick={() => setIsEditing(!isEditing)}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-muted/40 hover:bg-muted text-sm font-medium transition-colors text-foreground"
-          >
-            {isEditing ? (
-              <><Eye size={16} /> Read Mode</>
-            ) : (
-              <><Edit2 size={16} /> Edit Mode</>
-            )}
-          </button>
-        )}
+        <div className="flex items-center gap-4">
+          {saveStatus !== 'idle' && !isEmpty && !isGenerating && (
+            <div className="flex items-center text-xs font-medium">
+              {saveStatus === 'saving' && (
+                <span className="flex items-center gap-1 text-muted-foreground">
+                  <Loader2 size={14} className="animate-spin" /> Saving...
+                </span>
+              )}
+              {saveStatus === 'saved' && (
+                <span className="flex items-center gap-1 text-green-500/80">
+                  <CheckCircle2 size={14} /> Saved
+                </span>
+              )}
+              {saveStatus === 'error' && (
+                <span className="flex items-center gap-1 text-destructive">
+                  <AlertCircle size={14} /> Error saving
+                </span>
+              )}
+            </div>
+          )}
+
+          {!isEmpty && !isGenerating && (
+            <button
+              onClick={() => setIsEditing(!isEditing)}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-muted/40 hover:bg-muted text-sm font-medium transition-colors text-foreground"
+            >
+              {isEditing ? (
+                <><Eye size={16} /> Read Mode</>
+              ) : (
+                <><Edit2 size={16} /> Edit Mode</>
+              )}
+            </button>
+          )}
+        </div>
       </div>
 
       <AnimatePresence mode="wait">
@@ -151,6 +206,17 @@ export const DocumentEditor = ({
                       );
                     }
                     return <input {...props} />;
+                  },
+                  code: ({ node, inline, className, children, ...props }: any) => {
+                    const match = /language-(\w+)/.exec(className || '');
+                    if (!inline && match && match[1] === 'prompt') {
+                      return <PromptBlock>{String(children).replace(/\n$/, '')}</PromptBlock>;
+                    }
+                    return (
+                      <code className={className} {...props}>
+                        {children}
+                      </code>
+                    );
                   }
                 }}
               >

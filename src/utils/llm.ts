@@ -6,6 +6,10 @@ export interface GenerateParams {
   onChunk: (text: string) => void;
   onComplete: () => void;
   onError: (error: string) => void;
+  isAuthenticated?: boolean;
+  onRequestLogin?: () => void;
+  providerOverride?: string;
+  modelOverride?: string;
 }
 
 export const generateStream = async ({
@@ -13,11 +17,25 @@ export const generateStream = async ({
   userPrompt,
   onChunk,
   onComplete,
-  onError
+  onError,
+  isAuthenticated,
+  onRequestLogin,
+  providerOverride,
+  modelOverride
 }: GenerateParams) => {
   const savedKeys = localStorage.getItem('kontxt_api_keys');
-  const provider = (localStorage.getItem('kontxt_provider') || 'OpenAI') as Provider;
-  const model = localStorage.getItem('kontxt_model');
+  const provider = (providerOverride || localStorage.getItem('kontxt_provider') || 'Groq') as Provider;
+  
+  const defaultModels: Record<string, string> = {
+    'Groq': 'llama3-70b-8192',
+    'OpenAI': 'gpt-4o',
+    'Google': 'gemini-1.5-pro',
+    'OpenRouter': 'anthropic/claude-3-opus',
+    'Together': 'meta-llama/Llama-3-70b-chat-hf',
+    'Mistral': 'mistral-large-latest',
+    'DeepSeek': 'deepseek-chat',
+  };
+  const model = modelOverride || localStorage.getItem('kontxt_model') || defaultModels[provider] || '';
 
   let apiKeys: Record<Provider, string> = { 
     OpenAI: '', Google: '', Groq: '', OpenRouter: '', Together: '', Mistral: '', DeepSeek: '' 
@@ -40,6 +58,12 @@ export const generateStream = async ({
 
   const userKey = apiKeys[provider];
   const apiKey = userKey || fallbackKeys[provider];
+
+  if (!userKey && !isAuthenticated) {
+    if (onRequestLogin) onRequestLogin();
+    onError('Authentication required: Please sign in to use the default Kontxt AI key, or provide your own API key in Settings.');
+    return;
+  }
 
   if (!apiKey) {
     onError(`Missing API key for ${provider}. Please add it in Settings > AI Configuration.`);

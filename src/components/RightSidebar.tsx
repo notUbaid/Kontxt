@@ -1,9 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
-import { ExternalLink, MessageSquare, Send, Star, Bot, User, Edit2 } from 'lucide-react';
+import { ExternalLink, MessageSquare, Send, Star, Bot, User, Edit2, Trash2 } from 'lucide-react';
 import type { Mode } from './TopNav';
-import { getTaxonomy } from '../data/taxonomyRegistry';
-import { universalLinks, type QuickLink, type CustomLink } from '../data/taxonomies/types';
+import { getTaxonomy } from '../data/taxonomy';
+import { universalLinks, type QuickLink } from '../data/taxonomies/types';
 import { motion, AnimatePresence } from 'framer-motion';
+import { generateStream } from '../utils/llm';
+import { useDocumentStore } from '../hooks/useDocumentStore';
+import { useSettingsStore } from '../hooks/useSettingsStore';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 import type { Project } from '../App';
 
@@ -12,6 +17,8 @@ interface RightSidebarProps {
   activeType: string;
   activePage: string; // Topic ID
   activeMode: Mode;
+  isAuthenticated: boolean;
+  onRequestLogin: () => void;
 }
 
 interface ChatMessage {
@@ -20,13 +27,13 @@ interface ChatMessage {
   content: string;
 }
 
-export const RightSidebar = ({ activeProject, activeType, activePage, activeMode }: RightSidebarProps) => {
-  const [favorites, setFavorites] = useState<string[]>([]);
-  const [customLinks, setCustomLinks] = useState<Record<string, string>>({});
+export const RightSidebar = ({ activeProject, activeType, activePage, activeMode, isAuthenticated, onRequestLogin }: RightSidebarProps) => {
+  const { settings, updateSettings } = useSettingsStore(isAuthenticated);
   
-  // Read from localStorage to sync with Settings
-  const [globalCustomLinks, setGlobalCustomLinks] = useState<CustomLink[]>([]);
-  const [globalHiddenLinks, setGlobalHiddenLinks] = useState<string[]>([]);
+  const favorites = settings.favorites;
+  const customLinks = settings.customLinks;
+  const globalCustomLinks = settings.globalCustomLinks;
+  const globalHiddenLinks = settings.globalHiddenLinks;
   const [chatInput, setChatInput] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
@@ -37,36 +44,8 @@ export const RightSidebar = ({ activeProject, activeType, activePage, activeMode
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
-
-  // Load favorites and custom links on mount
-  useEffect(() => {
-    const savedFavs = localStorage.getItem('kontxt_favorites');
-    if (savedFavs) {
-      setFavorites(JSON.parse(savedFavs));
-    }
-    const savedCustomLinks = localStorage.getItem('kontxt_custom_links');
-    if (savedCustomLinks) {
-      setCustomLinks(JSON.parse(savedCustomLinks));
-    }
-    
-    // Periodically poll or sync global links from localStorage if they change across tabs/modals
-    const updateLinksState = () => {
-      const gl = localStorage.getItem('kontxt_global_custom_links');
-      if (gl) setGlobalCustomLinks(JSON.parse(gl));
-      
-      const hl = localStorage.getItem('kontxt_global_hidden_links');
-      if (hl) setGlobalHiddenLinks(JSON.parse(hl));
-    };
-    
-    updateLinksState();
-    // Optional: add interval or listen to storage event to sync instantly if changed in SettingsModal
-    window.addEventListener('storage', updateLinksState);
-    const interval = setInterval(updateLinksState, 1000);
-    return () => {
-      window.removeEventListener('storage', updateLinksState);
-      clearInterval(interval);
-    };
-  }, []);
+  
+  const { content } = useDocumentStore(activeProject?.id || null, activePage);
 
   const getDomainColor = (url: string) => {
     try {
@@ -97,22 +76,14 @@ export const RightSidebar = ({ activeProject, activeType, activePage, activeMode
     e.stopPropagation();
     const newUrl = window.prompt(`Edit URL for ${linkName}:`, currentUrl);
     if (newUrl !== null && newUrl.trim() !== '') {
-      const updated = { ...customLinks, [linkName]: newUrl.trim() };
-      setCustomLinks(updated);
-      localStorage.setItem('kontxt_custom_links', JSON.stringify(updated));
+      const newLinks = { ...customLinks, [linkName]: newUrl.trim() };
+      updateSettings({ customLinks: newLinks });
     }
   };
 
-  const toggleFavorite = (linkName: string, e: React.MouseEvent) => {
-    e.preventDefault(); // Prevent navigating
-    let newFavs = [...favorites];
-    if (newFavs.includes(linkName)) {
-      newFavs = newFavs.filter(f => f !== linkName);
-    } else {
-      newFavs.push(linkName);
-    }
-    setFavorites(newFavs);
-    localStorage.setItem('kontxt_favorites', JSON.stringify(newFavs));
+  const toggleFavorite = (id: string) => {
+    const newFavs = favorites.includes(id) ? favorites.filter(f => f !== id) : [...favorites, id];
+    updateSettings({ favorites: newFavs });
   };
 
   // Auto-scroll chat
@@ -132,6 +103,19 @@ export const RightSidebar = ({ activeProject, activeType, activePage, activeMode
       break;
     }
   }
+
+  // Reset chat when topic changes
+  useEffect(() => {
+    setMessages([
+      {
+        id: 'init',
+        role: 'ai',
+        content: `Hi! I'm Kontxt AI. I have full context of your current playbook. Ask me anything about ${activeTopicName}!`,
+      }
+    ]);
+    setChatInput('');
+    setIsTyping(false);
+  }, [activeProject?.id, activePage, activeTopicName]);
 
   const visibleUniversalLinks = universalLinks.filter(l => !globalHiddenLinks.includes(l.name));
   
@@ -157,7 +141,7 @@ export const RightSidebar = ({ activeProject, activeType, activePage, activeMode
     return bFav - aFav;
   });
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (!chatInput.trim() || isTyping) return;
 
     const userMsg: ChatMessage = {
@@ -166,34 +150,56 @@ export const RightSidebar = ({ activeProject, activeType, activePage, activeMode
       content: chatInput.trim()
     };
     
-    setMessages(prev => [...prev, userMsg]);
+    const newMessages = [...messages, userMsg];
+    setMessages(newMessages);
     setChatInput('');
     setIsTyping(true);
 
-    // Simulate AI response delay
-    setTimeout(() => {
-      const aiMsgId = crypto.randomUUID();
-      setMessages(prev => [...prev, { id: aiMsgId, role: 'ai', content: '' }]);
-      
-      const mockResponse = `Looking at the ${activeTopicName} for a ${activeMode} project, you should focus on minimizing scope and maximizing speed. Don't over-engineer!`;
-      
-      let i = 0;
-      const interval = setInterval(() => {
-        i += Math.floor(Math.random() * 3) + 1;
-        if (i >= mockResponse.length) {
-          clearInterval(interval);
-          setMessages(prev => prev.map(m => m.id === aiMsgId ? { ...m, content: mockResponse } : m));
-          setIsTyping(false);
-        } else {
-          setMessages(prev => prev.map(m => m.id === aiMsgId ? { ...m, content: mockResponse.slice(0, i) + '▌' } : m));
-        }
-      }, 30);
-      
-    }, 600);
+    const aiMsgId = crypto.randomUUID();
+    setMessages(prev => [...prev, { id: aiMsgId, role: 'ai', content: '▌' }]);
+
+    // Format chat history for context
+    const chatHistoryStr = newMessages
+      .filter(m => m.id !== 'init') // Skip init message
+      .map(m => `${m.role === 'user' ? 'User' : 'Assistant'}: ${m.content}`).join('\n');
+
+    const systemPrompt = `You are a world-class Staff Engineer and Product Manager acting as an interactive assistant for a user's project playbook.
+The project is a ${activeType} app in ${activeMode} mode.
+The user is currently viewing the topic: ${activeTopicName}.
+Here is the current content of the document they are viewing:
+
+<document_content>
+${content || '(Empty document)'}
+</document_content>
+
+Use this context to answer their questions accurately. Keep your answers concise, practical, and formatted in markdown.`;
+
+    let currentResponse = '';
+
+    await generateStream({
+      systemPrompt,
+      userPrompt: chatHistoryStr + '\nAssistant:',
+      isAuthenticated,
+      onRequestLogin,
+      providerOverride: settings.provider,
+      modelOverride: settings.model,
+      onChunk: (chunk) => {
+        currentResponse += chunk;
+        setMessages(prev => prev.map(m => m.id === aiMsgId ? { ...m, content: currentResponse + '▌' } : m));
+      },
+      onComplete: () => {
+        setMessages(prev => prev.map(m => m.id === aiMsgId ? { ...m, content: currentResponse } : m));
+        setIsTyping(false);
+      },
+      onError: (err) => {
+        setMessages(prev => prev.map(m => m.id === aiMsgId ? { ...m, content: currentResponse + `\n\n> **Error**: ${err}` } : m));
+        setIsTyping(false);
+      }
+    });
   };
 
   return (
-    <aside className="w-80 fixed right-0 top-14 h-[calc(100vh-3.5rem)] border-l border-muted bg-background/30 backdrop-blur-md flex flex-col z-40">
+    <aside className="w-80 shrink-0 h-[calc(100vh-4rem)] border-l border-muted bg-background/95 backdrop-blur-md flex flex-col">
       
       {/* Top Half: Links Section */}
       <div className="h-1/2 overflow-y-auto border-b border-muted/50 flex flex-col shrink-0">
@@ -223,9 +229,13 @@ export const RightSidebar = ({ activeProject, activeType, activePage, activeMode
                   <div className="flex items-center gap-2 shrink-0">
                     <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                       <button 
-                        onClick={(e) => toggleFavorite(link.name, e)}
-                        className="hover:scale-110 transition-transform p-1"
-                        title="Toggle Favorite"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          toggleFavorite(link.name);
+                        }}
+                        className={`p-1.5 rounded-full transition-colors ${
+                          isFav ? 'text-yellow-500 hover:bg-yellow-500/10' : 'text-muted-foreground opacity-0 group-hover:opacity-100 hover:bg-muted'
+                        }`}
                       >
                         <Star size={14} className={isFav ? "fill-accent text-accent" : "text-muted-foreground hover:text-accent"} />
                       </button>
@@ -319,7 +329,18 @@ export const RightSidebar = ({ activeProject, activeType, activePage, activeMode
             <MessageSquare size={16} />
             <span>Kontxt AI</span>
           </div>
-          <span className="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+          <div className="flex items-center gap-2">
+            <button 
+              onClick={() => {
+                setMessages([{ id: 'init', role: 'ai', content: `Hi! I'm Kontxt AI. I have full context of your current playbook. Ask me anything about ${activeTopicName}!` }]);
+              }}
+              className="p-1 text-muted-foreground hover:text-foreground hover:bg-muted rounded transition-colors"
+              title="Clear Chat"
+            >
+              <Trash2 size={14} />
+            </button>
+            <span className="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+          </div>
         </div>
         
         {/* Chat History */}
@@ -340,7 +361,15 @@ export const RightSidebar = ({ activeProject, activeType, activePage, activeMode
                     ? 'bg-primary text-primary-foreground rounded-tr-none' 
                     : 'bg-muted/60 text-foreground rounded-tl-none border border-muted'
                 }`}>
-                  {msg.content}
+                  {msg.role === 'user' ? (
+                    msg.content
+                  ) : (
+                    <div className="prose prose-sm dark:prose-invert max-w-none prose-p:leading-relaxed prose-pre:bg-muted prose-pre:border prose-pre:border-muted/50">
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        {msg.content}
+                      </ReactMarkdown>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -353,6 +382,10 @@ export const RightSidebar = ({ activeProject, activeType, activePage, activeMode
           <div className="relative">
             <input
               type="text"
+              name="kontxt-chat-input"
+              autoComplete="off"
+              autoCorrect="off"
+              spellCheck={false}
               value={chatInput}
               onChange={(e) => setChatInput(e.target.value)}
               placeholder={`Ask about ${activeTopicName}...`}

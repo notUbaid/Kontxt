@@ -15,15 +15,23 @@ interface LeftSidebarProps {
 
 export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage, setActivePage, onProjectUpdate }: LeftSidebarProps) => {
   const taxonomy = getTaxonomy(activeType, activeMode);
+  
+  // In custom mode, filter out topics the user didn't select
+  const filteredTaxonomy = activeMode === 'Custom' && activeProject.customTopics
+    ? taxonomy.map(cat => ({
+        ...cat,
+        topics: cat.topics.filter(t => activeProject.customTopics!.includes(t.id))
+      })).filter(cat => cat.topics.length > 0)
+    : taxonomy;
 
   // Simple state to track which categories are expanded in the accordion
   const [expandedCats, setExpandedCats] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     const initialExpanded: Record<string, boolean> = {};
-    taxonomy.forEach(cat => { initialExpanded[cat.id] = true; });
+    filteredTaxonomy.forEach(cat => { initialExpanded[cat.id] = true; });
     setExpandedCats(initialExpanded);
-  }, [taxonomy]);
+  }, [taxonomy, activeProject.customTopics]);
 
   const toggleCategory = (catId: string) => {
     setExpandedCats(prev => ({ ...prev, [catId]: !prev[catId] }));
@@ -31,7 +39,8 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
 
   const toggleTopicProgress = (e: React.MouseEvent, topicId: string) => {
     e.stopPropagation();
-    const completed = activeProject.completedTopics || [];
+    const completedRaw = activeProject.completedTopics || [];
+    const completed = Array.isArray(completedRaw) ? completedRaw : Object.values(completedRaw).flat();
     const isCompleted = completed.includes(topicId);
     
     let newCompleted;
@@ -41,39 +50,82 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
       newCompleted = [...completed, topicId];
     }
     
-    onProjectUpdate({ ...activeProject, completedTopics: newCompleted });
+    // We keep all completed topics, regardless of mode. 
+    // They are filtered when calculating progress.
+    onProjectUpdate({ ...activeProject, completedTopics: newCompleted as any });
+  };
+
+  const toggleCategoryProgress = (e: React.MouseEvent, modeTopics: any[]) => {
+    e.stopPropagation();
+    const completedRaw = activeProject.completedTopics || [];
+    const completed = Array.isArray(completedRaw) ? completedRaw : Object.values(completedRaw).flat();
+    
+    const topicIds = modeTopics.map(t => t.id);
+    const isAllCompleted = topicIds.every(id => completed.includes(id));
+    
+    let newCompleted;
+    if (isAllCompleted) {
+      // Remove all topics in this category
+      newCompleted = completed.filter(id => !topicIds.includes(id));
+    } else {
+      // Add all topics in this category
+      const toAdd = topicIds.filter(id => !completed.includes(id));
+      newCompleted = [...completed, ...toAdd];
+    }
+    
+    onProjectUpdate({ ...activeProject, completedTopics: newCompleted as any });
   };
 
   return (
-    <aside className="w-64 fixed top-14 left-0 h-[calc(100vh-3.5rem)] overflow-y-auto border-r border-muted bg-background/50 backdrop-blur-sm pb-10">
+    <aside className="w-72 shrink-0 h-[calc(100vh-4rem)] overflow-y-auto border-r border-muted bg-background/95 backdrop-blur-sm pb-10">
       <nav className="p-4 space-y-6">
-        {taxonomy.map((category) => {
+        {filteredTaxonomy.map((category) => {
           // Filter topics for the active mode
-          const modeTopics = category.topics.filter(t => t.modes.includes(activeMode));
+          const modeTopics = category.topics.filter(t => !t.modes || t.modes.includes(activeMode));
           
           // If no topics for this mode in this category, don't show the category
           if (modeTopics.length === 0) return null;
 
           const isExpanded = expandedCats[category.id];
+          
+          const completedRaw = activeProject.completedTopics || [];
+          const completedArray = Array.isArray(completedRaw) ? completedRaw : Object.values(completedRaw).flat();
+          const isAllCompleted = modeTopics.every(t => completedArray.includes(t.id));
 
           return (
             <div key={category.id}>
-              <button 
-                onClick={() => toggleCategory(category.id)}
-                className="w-full flex items-center justify-between text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2 px-3 py-1 hover:text-foreground transition-colors group"
-              >
-                {category.name}
-                {isExpanded ? <ChevronDown size={14} className="opacity-50 group-hover:opacity-100" /> : <ChevronRight size={14} className="opacity-50 group-hover:opacity-100" />}
-              </button>
+              <div className="flex items-center justify-between mb-2 px-3 py-1 group/cat">
+                <button 
+                  onClick={() => toggleCategory(category.id)}
+                  className="flex items-center flex-1 text-xs font-bold text-muted-foreground uppercase tracking-wider hover:text-foreground transition-colors text-left"
+                >
+                  <span className="truncate">{category.name}</span>
+                  {isExpanded ? <ChevronDown size={14} className="ml-1 opacity-50 shrink-0" /> : <ChevronRight size={14} className="ml-1 opacity-50 shrink-0" />}
+                </button>
+                <button
+                  onClick={(e) => toggleCategoryProgress(e, modeTopics)}
+                  className={`ml-2 shrink-0 p-1 rounded-full transition-all ${
+                    isAllCompleted 
+                      ? 'text-primary bg-primary/10' 
+                      : 'text-muted-foreground/30 hover:bg-muted opacity-0 group-hover/cat:opacity-100 hover:text-muted-foreground'
+                  }`}
+                  title={isAllCompleted ? "Mark phase as incomplete" : "Mark phase as complete"}
+                >
+                  <CheckCircle2 size={14} />
+                </button>
+              </div>
               
               {isExpanded && (
                 <ul className="space-y-1">
                   {modeTopics.map((topic) => {
+                    const topicId = topic.id;
                     const isActive = activePage === topic.id;
-                    const isCompleted = (activeProject.completedTopics || []).includes(topic.id);
+                    const completedRaw = activeProject.completedTopics || [];
+                    const completedArray = Array.isArray(completedRaw) ? completedRaw : Object.values(completedRaw).flat();
+                    const isCompleted = completedArray.includes(topicId);
                     
                     return (
-                      <li key={topic.id} className="relative group/item">
+                      <li key={topicId} className="relative group/item">
                         <button
                           onClick={() => setActivePage(topic.id)}
                           className={`w-full flex items-center justify-between py-1.5 pl-3 pr-2 rounded-md text-sm transition-colors ${
@@ -82,13 +134,13 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
                               : 'text-foreground hover:bg-muted/60'
                           }`}
                         >
-                          <div className="flex items-center gap-3">
-                            <topic.icon size={16} className={isActive ? 'text-accent-foreground' : 'text-muted-foreground'} />
-                            <span>{topic.name}</span>
+                          <div className="flex items-center gap-3 w-full pr-2">
+                            <topic.icon size={16} className={`shrink-0 ${isActive ? 'text-accent-foreground' : 'text-muted-foreground'}`} />
+                            <span className="text-left leading-tight">{topic.name}</span>
                           </div>
                           {activeProject.progressEnabled !== false && (
                             <div 
-                              onClick={(e) => toggleTopicProgress(e, topic.id)}
+                              onClick={(e) => toggleTopicProgress(e, topicId)}
                               className={`p-1 rounded-full transition-all ${isCompleted ? 'text-green-500 opacity-100' : 'text-muted-foreground opacity-0 group-hover/item:opacity-40 hover:!opacity-100 hover:bg-muted/50'}`}
                               title={isCompleted ? "Mark as uncompleted" : "Mark as completed"}
                             >

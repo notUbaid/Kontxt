@@ -5,15 +5,18 @@ import { useDocumentStore } from '../hooks/useDocumentStore';
 import { DocumentEditor } from './DocumentEditor';
 import { motion } from 'framer-motion';
 import { generateStream } from '../utils/llm';
+import { useSettingsStore } from '../hooks/useSettingsStore';
 
 interface MainCanvasProps {
   activeType: string;
   activePage: string;
   activeMode: Mode;
   projectId: string;
+  isAuthenticated: boolean;
+  onRequestLogin: () => void;
 }
 
-export const MainCanvas = ({ activeType, activePage, activeMode, projectId }: MainCanvasProps) => {
+export const MainCanvas = ({ activeType, activePage, activeMode, projectId, isAuthenticated, onRequestLogin }: MainCanvasProps) => {
   let activeTopicName = activePage;
   const taxonomy = getTaxonomy(activeType, activeMode);
   for (const cat of taxonomy) {
@@ -24,7 +27,8 @@ export const MainCanvas = ({ activeType, activePage, activeMode, projectId }: Ma
     }
   }
 
-  const { content, setContent, isLoaded } = useDocumentStore(projectId, activePage);
+  const { content, setContent, isLoaded, saveStatus } = useDocumentStore(projectId, activePage);
+  const { settings } = useSettingsStore(isAuthenticated);
   const [isGenerating, setIsGenerating] = useState(false);
 
   const handleGenerate = async () => {
@@ -42,6 +46,10 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
     await generateStream({
       systemPrompt,
       userPrompt,
+      isAuthenticated,
+      onRequestLogin,
+      providerOverride: settings.provider,
+      modelOverride: settings.model,
       onChunk: (chunk) => {
         currentContent += chunk;
         setContent(currentContent + '▌');
@@ -67,7 +75,7 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.3 }}
-      className="flex-1 ml-64 mr-72 max-w-3xl pt-8 pb-24 px-8 w-full"
+      className="flex-1 min-w-0 pt-8 pb-24 px-8 mx-auto max-w-3xl w-full h-[calc(100vh-4rem)] overflow-y-auto scroll-smooth"
     >
       <div className="mb-4 inline-block px-3 py-1 bg-muted rounded-md text-xs font-bold text-muted-foreground uppercase tracking-widest">
         Mode: <span className="text-accent">{activeMode}</span>
@@ -79,6 +87,7 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
         onChange={setContent}
         onGenerate={handleGenerate}
         isGenerating={isGenerating}
+        saveStatus={saveStatus}
       />
     </motion.main>
   );

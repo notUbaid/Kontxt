@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Key, User, Trash2, FolderOpen } from 'lucide-react';
+import { X, Key, User, Trash2, FolderOpen, Tag, Link2, Globe, EyeOff, Eye, Folder, PenLine, Plus } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Project } from '../App';
 import type { Mode } from './TopNav';
-import { universalLinks } from '../data/taxonomy';
+import { universalLinks, getTaxonomy } from '../data/taxonomy';
 import type { CustomLink } from '../data/taxonomies/types';
-import { saasProductionTaxonomy } from '../data/taxonomies/saas';
-import { Link2, Plus, EyeOff, Eye, Globe, Folder, Tag } from 'lucide-react';
+import { supabase } from '../lib/supabase';
+import { useSettingsStore } from '../hooks/useSettingsStore';
 
 interface SettingsModalProps {
   isOpen: boolean;
@@ -18,6 +18,7 @@ interface SettingsModalProps {
   isAuthenticated?: boolean;
   onRequestLogin?: () => void;
   onProjectUpdate?: (project: Project) => void;
+  onProjectDelete?: (projectId: string) => void;
 }
 
 type Tab = 'project' | 'profile' | 'apikeys' | 'links';
@@ -33,7 +34,7 @@ export const MODELS: Record<Provider, string[]> = {
   DeepSeek: ['deepseek-chat', 'deepseek-coder']
 };
 
-export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onModeChange, isAuthenticated, onRequestLogin, onProjectUpdate }: SettingsModalProps) => {
+export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onModeChange, isAuthenticated, onRequestLogin, onProjectUpdate, onProjectDelete }: SettingsModalProps) => {
   const [activeTab, setActiveTab] = useState<Tab>('project');
   
   const [provider, setProvider] = useState<Provider>('OpenAI');
@@ -49,10 +50,13 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
   });
   
   const [isSaved, setIsSaved] = useState(false);
+  const [userEmail, setUserEmail] = useState<string>('');
+
+  const { settings, updateSettings } = useSettingsStore(isAuthenticated || false);
 
   // Link Management State
-  const [globalCustomLinks, setGlobalCustomLinks] = useState<CustomLink[]>([]);
-  const [globalHiddenLinks, setGlobalHiddenLinks] = useState<string[]>([]);
+  const globalCustomLinks = settings.globalCustomLinks;
+  const globalHiddenLinks = settings.globalHiddenLinks;
   
   const [newLinkName, setNewLinkName] = useState('');
   const [newLinkUrl, setNewLinkUrl] = useState('');
@@ -60,10 +64,12 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
   const [newLinkProjectId, setNewLinkProjectId] = useState<string>('');
   const [newLinkTargetType, setNewLinkTargetType] = useState<'universal' | 'topic'>('universal');
   const [newLinkTopics, setNewLinkTopics] = useState<string[]>([]);
+  const [editingLinkId, setEditingLinkId] = useState<string | null>(null);
 
-  // Get all unique topics
+  // Get all unique topics for the active project's type
+  const activeTaxonomy = getTaxonomy(activeProject?.type || 'SaaS', 'Production');
   const allTopics = Array.from(new Map(
-    saasProductionTaxonomy.flatMap(cat => cat.topics.map(t => [t.id, t]))
+    activeTaxonomy.flatMap(cat => cat.topics.map(t => [t.id, t]))
   ).values());
 
   useEffect(() => {
@@ -74,33 +80,26 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
           setApiKeys({ ...apiKeys, ...JSON.parse(savedKeys) });
         } catch(e) {}
       }
-      
-      const savedProvider = localStorage.getItem('kontxt_provider') as Provider;
-      if (savedProvider && MODELS[savedProvider]) {
-        setProvider(savedProvider);
+
+      // Fetch user email
+      if (isAuthenticated) {
+        supabase.auth.getUser().then(({ data: { user } }) => {
+          if (user?.email) setUserEmail(user.email);
+        });
+      }
+      if (settings.provider && MODELS[settings.provider as Provider]) {
+        setProvider(settings.provider as Provider);
       }
       
-      const savedModel = localStorage.getItem('kontxt_model');
-      if (savedModel) {
-        setModel(savedModel);
-      }
-      
-      const savedGlobalLinks = localStorage.getItem('kontxt_global_custom_links');
-      if (savedGlobalLinks) {
-        try { setGlobalCustomLinks(JSON.parse(savedGlobalLinks)); } catch(e) {}
-      }
-      
-      const savedHiddenLinks = localStorage.getItem('kontxt_global_hidden_links');
-      if (savedHiddenLinks) {
-        try { setGlobalHiddenLinks(JSON.parse(savedHiddenLinks)); } catch(e) {}
+      if (settings.model) {
+        setModel(settings.model);
       }
     }
-  }, [isOpen]);
+  }, [isOpen, settings.provider, settings.model]);
 
   const handleSaveKey = () => {
     localStorage.setItem('kontxt_api_keys', JSON.stringify(apiKeys));
-    localStorage.setItem('kontxt_provider', provider);
-    localStorage.setItem('kontxt_model', model);
+    updateSettings({ provider, model });
     setIsSaved(true);
     setTimeout(() => setIsSaved(false), 2000);
   };
@@ -116,7 +115,7 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
     }
     
     const newLink: CustomLink = { 
-      id: crypto.randomUUID(),
+      id: editingLinkId || crypto.randomUUID(),
       name: newLinkName.trim(), 
       url,
       scope: newLinkScope,
@@ -126,13 +125,17 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
     };
     
     if (newLinkScope === 'global') {
-      const updated = [...globalCustomLinks, newLink];
-      setGlobalCustomLinks(updated);
-      localStorage.setItem('kontxt_global_custom_links', JSON.stringify(updated));
+      const updated = editingLinkId 
+        ? globalCustomLinks.map(l => l.id === editingLinkId ? newLink : l)
+        : [...globalCustomLinks, newLink];
+      updateSettings({ globalCustomLinks: updated });
     } else {
       const targetProject = projects?.find(p => p.id === newLinkProjectId);
       if (targetProject && onProjectUpdate) {
-        const customLinks = [...(targetProject.customLinks || []), newLink];
+        const existingLinks = targetProject.customLinks || [];
+        const customLinks = editingLinkId
+          ? existingLinks.map(l => l.id === editingLinkId ? newLink : l)
+          : [...existingLinks, newLink];
         onProjectUpdate({ ...targetProject, customLinks });
       }
     }
@@ -140,12 +143,29 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
     setNewLinkName('');
     setNewLinkUrl('');
     setNewLinkTopics([]);
+    setEditingLinkId(null);
+  };
+  
+  const handleEditCustomLink = (link: CustomLink) => {
+    setEditingLinkId(link.id);
+    setNewLinkName(link.name);
+    setNewLinkUrl(link.url);
+    setNewLinkScope(link.scope);
+    setNewLinkProjectId(link.projectId || (projects && projects.length > 0 ? projects[0].id : ''));
+    setNewLinkTargetType(link.targetType);
+    setNewLinkTopics(link.targetTopics || []);
+  };
+  
+  const handleCancelEdit = () => {
+    setEditingLinkId(null);
+    setNewLinkName('');
+    setNewLinkUrl('');
+    setNewLinkTopics([]);
   };
 
   const handleRemoveGlobalCustomLink = (linkId: string) => {
     const updated = globalCustomLinks.filter(l => l.id !== linkId);
-    setGlobalCustomLinks(updated);
-    localStorage.setItem('kontxt_global_custom_links', JSON.stringify(updated));
+    updateSettings({ globalCustomLinks: updated });
   };
 
   const handleRemoveProjectCustomLink = (projectId: string, linkId: string) => {
@@ -164,8 +184,7 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
     } else {
       updated = [...globalHiddenLinks, linkName];
     }
-    setGlobalHiddenLinks(updated);
-    localStorage.setItem('kontxt_global_hidden_links', JSON.stringify(updated));
+    updateSettings({ globalHiddenLinks: updated });
   };
 
   if (!isOpen) return null;
@@ -229,6 +248,24 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
                     <p className="text-muted-foreground">Manage your current active project parameters.</p>
                     
                     <div className="space-y-4">
+                      
+                      <div className="p-4 border border-muted rounded-xl flex items-center justify-between bg-muted/10">
+                        <div>
+                          <p className="font-bold text-foreground">Project Name</p>
+                          <p className="text-sm text-muted-foreground">The display name of your project.</p>
+                        </div>
+                        <input 
+                          type="text"
+                          value={activeProject.name}
+                          onChange={(e) => {
+                            if (onProjectUpdate) {
+                              onProjectUpdate({ ...activeProject, name: e.target.value });
+                            }
+                          }}
+                          className="bg-background border border-input rounded-lg px-4 py-2 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-foreground w-64"
+                        />
+                      </div>
+
                       <div className="p-4 border border-muted rounded-xl flex items-center justify-between bg-muted/10">
                         <div>
                           <p className="font-bold text-foreground">App Type</p>
@@ -277,6 +314,27 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
                           <div className="w-11 h-6 bg-muted peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
                         </label>
                       </div>
+
+                      <div className="p-4 mt-8 border border-destructive/20 bg-destructive/5 rounded-xl flex items-center justify-between">
+                        <div>
+                          <p className="font-bold text-destructive">Danger Zone</p>
+                          <p className="text-sm text-destructive/80">Permanently delete this project and all its documents.</p>
+                        </div>
+                        <button 
+                          onClick={() => {
+                            if (confirm('Are you sure you want to delete this project? This cannot be undone.')) {
+                              if (onProjectDelete) {
+                                onProjectDelete(activeProject.id);
+                                onClose();
+                              }
+                            }
+                          }}
+                          className="px-4 py-2 bg-destructive text-destructive-foreground rounded-lg font-medium text-sm hover:opacity-90 flex items-center gap-2"
+                        >
+                          <Trash2 size={16} /> Delete Project
+                        </button>
+                      </div>
+
                     </div>
                   </div>
                 )}
@@ -289,20 +347,26 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
                       <div className="space-y-4">
                         <div className="flex items-center gap-4 p-4 border border-muted rounded-xl">
                           <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center text-primary text-2xl font-bold">
-                            K
+                            {userEmail ? userEmail.charAt(0).toUpperCase() : 'K'}
                           </div>
                           <div>
-                            <p className="font-bold text-foreground text-lg">Kontxt User</p>
-                            <p className="text-muted-foreground text-sm">user@kontxt.app</p>
+                            <p className="font-bold text-foreground text-lg">{userEmail || 'Loading...'}</p>
+                            <p className="text-muted-foreground text-sm">Signed in with Supabase</p>
                           </div>
                         </div>
                         <div className="p-4 border border-destructive/20 bg-destructive/5 rounded-xl flex items-center justify-between">
                           <div>
-                            <p className="font-bold text-destructive">Danger Zone</p>
-                            <p className="text-sm text-destructive/80">Permanently delete your account and all data.</p>
+                            <p className="font-bold text-destructive">Sign Out</p>
+                            <p className="text-sm text-destructive/80">Log out of this device.</p>
                           </div>
-                          <button className="flex items-center gap-2 px-4 py-2 bg-destructive text-destructive-foreground rounded-lg font-medium text-sm hover:opacity-90">
-                            <Trash2 size={16} /> Delete Account
+                          <button 
+                            onClick={async () => {
+                              await supabase.auth.signOut();
+                              onClose();
+                            }}
+                            className="flex items-center gap-2 px-4 py-2 bg-destructive text-destructive-foreground rounded-lg font-medium text-sm hover:opacity-90"
+                          >
+                            <User size={16} /> Sign Out
                           </button>
                         </div>
                       </div>
@@ -395,24 +459,25 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
                     </div>
 
                     <div className="space-y-4 bg-muted/10 p-5 rounded-xl border border-muted">
-                      <h4 className="font-bold text-foreground">Add New Link</h4>
+                      <h4 className="font-bold text-foreground">{editingLinkId ? 'Edit Link' : 'Add New Link'}</h4>
                       <div className="flex flex-col gap-4">
-                        <div className="flex gap-4 items-start">
-                          <div className="flex-1 space-y-3">
+                        <div className="flex flex-col gap-3">
+                          <div className="flex gap-3">
                             <input 
                               value={newLinkName}
                               onChange={e => setNewLinkName(e.target.value)}
                               placeholder="Link Name (e.g. My Backend Repo)" 
-                              className="w-full bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground"
+                              className="flex-1 bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground min-w-0"
                             />
                             <input 
                               value={newLinkUrl}
                               onChange={e => setNewLinkUrl(e.target.value)}
                               placeholder="https://github.com/..." 
-                              className="w-full bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground"
+                              className="flex-1 bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground min-w-0"
                             />
                           </div>
-                          <div className="w-48 space-y-3">
+                          
+                          <div className="flex gap-3">
                             <select 
                               value={newLinkScope}
                               onChange={e => {
@@ -421,7 +486,7 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
                                   setNewLinkProjectId(projects[0].id);
                                 }
                               }}
-                              className="w-full bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground cursor-pointer"
+                              className="flex-1 bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground cursor-pointer min-w-0"
                             >
                               <option value="global">Global Scope</option>
                               <option value="project">Project Scope</option>
@@ -431,37 +496,22 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
                               <select 
                                 value={newLinkProjectId}
                                 onChange={e => setNewLinkProjectId(e.target.value)}
-                                className="w-full bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground cursor-pointer"
+                                className="flex-1 bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground cursor-pointer min-w-0"
                               >
                                 {projects?.map(p => (
                                   <option key={p.id} value={p.id}>{p.name}</option>
                                 ))}
                               </select>
                             )}
-                          </div>
-                          
-                          <div className="w-48 space-y-3">
+                            
                             <select 
                               value={newLinkTargetType}
                               onChange={e => setNewLinkTargetType(e.target.value as 'universal' | 'topic')}
-                              className="w-full bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground cursor-pointer"
+                              className="flex-1 bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground cursor-pointer min-w-0"
                             >
-                              <option value="universal">Universal (All)</option>
+                              <option value="universal">Universal</option>
                               <option value="topic">Specific Topics</option>
                             </select>
-                            
-                            <button 
-                              onClick={handleAddLink}
-                              disabled={
-                                !newLinkName.trim() || 
-                                !newLinkUrl.trim() || 
-                                (newLinkScope === 'project' && !newLinkProjectId) ||
-                                (newLinkTargetType === 'topic' && newLinkTopics.length === 0)
-                              }
-                              className="w-full px-4 py-2 bg-primary text-background font-bold text-sm rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
-                            >
-                              <Plus size={16} /> Add Link
-                            </button>
                           </div>
                         </div>
 
@@ -481,7 +531,7 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
                                         setNewLinkTopics([...newLinkTopics, topic.id]);
                                       }
                                     }}
-                                    className={`px-2 py-1 text-xs rounded-full border transition-colors ${isSelected ? 'bg-primary text-primary-foreground border-primary' : 'bg-transparent border-muted hover:border-primary/50 text-foreground'}`}
+                                    className={`px-2 py-1 text-xs rounded-full border transition-colors ${isSelected ? 'bg-primary text-background border-primary' : 'bg-transparent border-muted hover:border-primary/50 text-foreground'}`}
                                   >
                                     {topic.name}
                                   </button>
@@ -490,6 +540,25 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
                             </div>
                           </div>
                         )}
+
+                        <div className="flex justify-end mt-4 gap-2">
+                          {editingLinkId && (
+                            <button 
+                              onClick={handleCancelEdit}
+                              className="px-4 py-2 bg-muted text-muted-foreground hover:bg-muted/80 rounded-lg text-sm font-semibold transition-colors"
+                            >
+                              Cancel
+                            </button>
+                          )}
+                          <button 
+                            onClick={handleAddLink}
+                            disabled={!newLinkName.trim() || !newLinkUrl.trim() || (newLinkScope === 'project' && !newLinkProjectId) || (newLinkTargetType === 'topic' && newLinkTopics.length === 0)}
+                            className="px-4 py-2 bg-primary text-background hover:bg-primary/90 rounded-lg text-sm font-semibold transition-colors disabled:opacity-50 flex items-center gap-2"
+                          >
+                            <Plus size={16} />
+                            {editingLinkId ? 'Update Link' : 'Add Link'}
+                          </button>
+                        </div>
                       </div>
                     </div>
 
@@ -516,9 +585,14 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
                               </div>
                               <p className="text-xs text-muted-foreground truncate max-w-sm">{link.url}</p>
                             </div>
-                            <button onClick={() => handleRemoveGlobalCustomLink(link.id)} className="p-2 text-destructive hover:bg-destructive/10 rounded-lg transition-colors">
-                              <Trash2 size={16} />
-                            </button>
+                            <div className="flex items-center gap-1">
+                              <button onClick={() => handleEditCustomLink(link)} className="p-2 text-muted-foreground hover:bg-muted hover:text-foreground rounded-lg transition-colors">
+                                <PenLine size={16} />
+                              </button>
+                              <button onClick={() => handleRemoveGlobalCustomLink(link.id)} className="p-2 text-destructive hover:bg-destructive/10 rounded-lg transition-colors">
+                                <Trash2 size={16} />
+                              </button>
+                            </div>
                           </div>
                         ))}
                         
@@ -539,9 +613,14 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
                                 </div>
                                 <p className="text-xs text-muted-foreground truncate max-w-sm">{link.url}</p>
                               </div>
-                              <button onClick={() => handleRemoveProjectCustomLink(p.id, link.id)} className="p-2 text-destructive hover:bg-destructive/10 rounded-lg transition-colors">
-                                <Trash2 size={16} />
-                              </button>
+                              <div className="flex items-center gap-1">
+                                <button onClick={() => handleEditCustomLink(link)} className="p-2 text-muted-foreground hover:bg-muted hover:text-foreground rounded-lg transition-colors">
+                                  <PenLine size={16} />
+                                </button>
+                                <button onClick={() => handleRemoveProjectCustomLink(p.id, link.id)} className="p-2 text-destructive hover:bg-destructive/10 rounded-lg transition-colors">
+                                  <Trash2 size={16} />
+                                </button>
+                              </div>
                             </div>
                           ))
                         )}

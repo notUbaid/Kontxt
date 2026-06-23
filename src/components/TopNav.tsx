@@ -4,37 +4,46 @@ import { Search, Moon, Sun, Settings, X, Download, ChevronDown, ArchiveRestore, 
 import { getTaxonomy } from '../data/taxonomy';
 import type { Project } from '../App';
 import { SettingsModal } from './SettingsModal';
-import { AuthModal } from './AuthModal';
+import { supabase } from '../lib/supabase';
 
 export type Mode = 'Hackathon' | 'Personal' | 'Production' | 'Custom';
 
 interface TopNavProps {
   activeProject: Project;
   projects: Project[];
+  activePage: string;
   onModeChange: (mode: Mode) => void;
   onProjectUpdate?: (project: Project) => void;
+  onProjectDelete?: (projectId: string) => void;
   isAuthenticated: boolean;
   setIsAuthenticated: (auth: boolean) => void;
   onGoHome: () => void;
   onNavigate: (topicId: string) => void;
   onSelectProject: (id: string) => void;
+  onRequestLogin: () => void;
+  toggleLeftSidebar?: () => void;
+  toggleRightSidebar?: () => void;
 }
 
 export const TopNav = ({ 
   activeProject, 
   projects,
+  activePage,
   onModeChange, 
   onProjectUpdate,
   isAuthenticated,
   setIsAuthenticated,
   onGoHome,
   onNavigate,
-  onSelectProject
+  onSelectProject,
+  onRequestLogin,
+  toggleLeftSidebar,
+  toggleRightSidebar,
+  onProjectDelete
 }: TopNavProps) => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isProjectDropdownOpen, setIsProjectDropdownOpen] = useState(false);
-  const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<{id: string, name: string, snippet: string, projectId: string, projectName: string}[]>([]);
   const [isDarkMode, setIsDarkMode] = useState(() => document.documentElement.classList.contains('dark'));
@@ -52,7 +61,20 @@ export const TopNav = ({
     }
   };
 
-  const handleExport = () => {
+  const handleExport = async () => {
+    // Fetch all documents for this project from Supabase
+    const { data: docs } = await supabase
+      .from('documents')
+      .select('topic_id, content')
+      .eq('project_id', activeProject.id);
+
+    const docMap = new Map<string, string>();
+    if (docs) {
+      for (const doc of docs) {
+        if (doc.content?.trim()) docMap.set(doc.topic_id, doc.content);
+      }
+    }
+
     let combinedMarkdown = `# Project: ${activeProject.name}\nMode: ${activeProject.mode}\n\n`;
     
     const taxonomy = getTaxonomy(activeProject.type || 'SaaS', activeProject.mode);
@@ -62,19 +84,7 @@ export const TopNav = ({
       
       combinedMarkdown += `## ${cat.name}\n\n`;
       for (const topic of modeTopics) {
-        const key = `kontxt_doc_${activeProject.id}_${topic.id}`;
-        const savedData = localStorage.getItem(key);
-        let content = "_No content drafted yet._";
-        
-        if (savedData) {
-          try {
-            const parsed = JSON.parse(savedData);
-            if (parsed.content.trim()) {
-              content = parsed.content;
-            }
-          } catch (e) {}
-        }
-        
+        const content = docMap.get(topic.id) || "_No content drafted yet._";
         combinedMarkdown += `### ${topic.name}\n\n${content}\n\n---\n\n`;
       }
     }
@@ -109,64 +119,87 @@ export const TopNav = ({
       return;
     }
     const query = searchQuery.toLowerCase();
-    const results: {id: string, name: string, snippet: string, projectId: string, projectName: string}[] = [];
     
-    for (const project of projects) {
-      const taxonomy = getTaxonomy(project.type || 'SaaS', project.mode);
-      for (const cat of taxonomy) {
-        for (const topic of cat.topics) {
-          
-          let snippet = '';
-          let matched = false;
+    const doSearch = async () => {
+      const results: {id: string, name: string, snippet: string, projectId: string, projectName: string}[] = [];
+      
+      for (const project of projects) {
+        const taxonomy = getTaxonomy(project.type || 'SaaS', project.mode);
+        
+        // Fetch all documents for this project
+        const { data: docs } = await supabase
+          .from('documents')
+          .select('topic_id, content')
+          .eq('project_id', project.id);
+        
+        const docMap = new Map<string, string>();
+        if (docs) {
+          for (const doc of docs) {
+            if (doc.content) docMap.set(doc.topic_id, doc.content);
+          }
+        }
 
-          if (topic.name.toLowerCase().includes(query)) {
-            matched = true;
-            snippet = "Matched in topic name";
-          } else {
-            const key = `kontxt_doc_${project.id}_${topic.id}`;
-            const savedData = localStorage.getItem(key);
-            if (savedData) {
-              try {
-                const parsed = JSON.parse(savedData);
-                const content = parsed.content.toLowerCase();
-                const idx = content.indexOf(query);
+        for (const cat of taxonomy) {
+          for (const topic of cat.topics) {
+            let snippet = '';
+            let matched = false;
+
+            if (topic.name.toLowerCase().includes(query)) {
+              matched = true;
+              snippet = "Matched in topic name";
+            } else {
+              const docContent = docMap.get(topic.id);
+              if (docContent) {
+                const lowerContent = docContent.toLowerCase();
+                const idx = lowerContent.indexOf(query);
                 if (idx !== -1) {
                   matched = true;
                   const start = Math.max(0, idx - 20);
-                  const end = Math.min(parsed.content.length, idx + query.length + 20);
-                  snippet = "..." + parsed.content.substring(start, end).replace(/\n/g, ' ') + "...";
+                  const end = Math.min(docContent.length, idx + query.length + 20);
+                  snippet = "..." + docContent.substring(start, end).replace(/\n/g, ' ') + "...";
                 }
-              } catch (e) {}
+              }
             }
-          }
-          
-          if (matched) {
-            results.push({ 
-              id: topic.id, 
-              name: topic.name, 
-              snippet, 
-              projectId: project.id, 
-              projectName: project.name 
-            });
+            
+            if (matched) {
+              results.push({ 
+                id: topic.id, 
+                name: topic.name, 
+                snippet, 
+                projectId: project.id, 
+                projectName: project.name 
+              });
+            }
           }
         }
       }
-    }
-    setSearchResults(results);
+      setSearchResults(results);
+    };
+
+    const debounce = setTimeout(doSearch, 300);
+    return () => clearTimeout(debounce);
   }, [searchQuery, projects]);
   
-  const taxonomy = getTaxonomy(activeProject.type || 'SaaS', activeProject.mode);
+  const baseTaxonomy = getTaxonomy(activeProject.type || 'SaaS', activeProject.mode);
   
+  // In custom mode, filter out topics the user didn't select
+  const taxonomy = activeProject.mode === 'Custom' && activeProject.customTopics
+    ? baseTaxonomy.map(cat => ({
+        ...cat,
+        topics: cat.topics.filter(t => activeProject.customTopics!.includes(t.id))
+      })).filter(cat => cat.topics.length > 0)
+    : baseTaxonomy;
+
   let totalTopics = 0;
   
   let maxPhaseNum = -1;
   let activePhaseNum = -1;
   let activeCatIndex = -1;
+  
   let totalCatsWithTopics = 0;
-  let foundWorkingPhase = false;
-
+  
   taxonomy.forEach((cat) => {
-    const modeTopics = cat.topics.filter(t => t.modes.includes(activeProject.mode));
+    const modeTopics = cat.topics.filter(t => !t.modes || t.modes.includes(activeProject.mode));
     if (modeTopics.length > 0) {
       totalCatsWithTopics++;
       totalTopics += modeTopics.length;
@@ -178,21 +211,18 @@ export const TopNav = ({
         if (thisCatPhaseNum > maxPhaseNum) maxPhaseNum = thisCatPhaseNum;
       }
 
-      // Check if this category has any incomplete topics
-      const hasIncomplete = modeTopics.some(t => !(activeProject.completedTopics || []).includes(t.id));
-      
-      if (!foundWorkingPhase && hasIncomplete) {
-        foundWorkingPhase = true;
+      // If the current active page is in this category, set it as the active phase
+      if (modeTopics.some(t => t.id === activePage)) {
         activeCatIndex = totalCatsWithTopics;
         activePhaseNum = thisCatPhaseNum;
       }
     }
   });
 
-  // If all topics are completed, we are on the final phase
-  if (!foundWorkingPhase && totalCatsWithTopics > 0) {
-    activeCatIndex = totalCatsWithTopics;
-    activePhaseNum = maxPhaseNum;
+  // Fallback if activePage isn't found in taxonomy (e.g. invalid state)
+  if (activePhaseNum === -1 && totalCatsWithTopics > 0) {
+    activeCatIndex = 1;
+    activePhaseNum = taxonomy[0].name.match(/PHASE\s+(\d+)/i) ? parseInt(taxonomy[0].name.match(/PHASE\s+(\d+)/i)![1], 10) : -1;
   }
 
   let currentPhaseStr = '';
@@ -202,14 +232,36 @@ export const TopNav = ({
     currentPhaseStr = `Phase ${activeCatIndex > 0 ? activeCatIndex : 1} of ${totalCatsWithTopics}`;
   }
 
-  const completedCount = activeProject.completedTopics?.length || 0;
+  const getCompletedForMode = () => {
+    const completed = activeProject.completedTopics || [];
+    // If it's somehow an object from the previous migration, convert it to array
+    const completedArray = Array.isArray(completed) ? completed : Object.values(completed).flat();
+    
+    // Only count completed topics that are actively part of the current mode's taxonomy AND are not filtered out by modes
+    const validTopicIds = taxonomy.flatMap(c => 
+      c.topics
+        .filter(t => !t.modes || t.modes.includes(activeProject.mode))
+        .map(t => t.id)
+    );
+    return completedArray.filter(id => validTopicIds.includes(id as string));
+  };
+
+  const completedCount = getCompletedForMode().length;
   const progressPercent = totalTopics > 0 ? Math.round((completedCount / totalTopics) * 100) : 0;
   
   return (
-    <header className="h-[4.5rem] sticky top-0 z-50 glassmorphism flex items-center justify-between px-6 bg-background/90">
+    <nav className="h-16 border-b border-muted bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex items-center justify-between px-4 sticky top-0 z-50 shrink-0">
       
       {/* LEFT SECTION */}
-      <div className="flex items-center gap-6 h-full">
+      <div className="flex items-center gap-4 h-full">
+        {/* Mobile Left Sidebar Toggle */}
+        <button 
+          onClick={toggleLeftSidebar}
+          className="md:hidden p-2 text-muted-foreground hover:bg-muted rounded-lg transition-colors"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+
         {/* Logo */}
         <button 
           onClick={onGoHome}
@@ -220,10 +272,10 @@ export const TopNav = ({
           <span className="text-primary">txt</span>
         </button>
 
-        <div className="w-px h-8 bg-muted/80"></div>
+        <div className="hidden md:block w-px h-8 bg-muted/80"></div>
 
         {/* Project Selector */}
-        <div className="flex flex-col justify-center relative">
+        <div className="hidden md:flex flex-col justify-center relative">
           <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-1">Project</span>
           <button 
             onClick={() => setIsProjectDropdownOpen(!isProjectDropdownOpen)}
@@ -273,7 +325,7 @@ export const TopNav = ({
           )}
         </div>
 
-        <div className="w-px h-8 bg-muted/80 hidden md:block"></div>
+        <div className="hidden lg:block w-px h-8 bg-muted/80"></div>
 
         {/* Progress Tracker */}
         {activeProject.progressEnabled !== false && (
@@ -294,7 +346,7 @@ export const TopNav = ({
       </div>
 
       {/* CENTER SECTION - Search */}
-      <div className="hidden xl:flex items-center justify-center absolute left-1/2 -translate-x-1/2">
+      <div className="hidden xl:flex items-center justify-center">
         <button 
           onClick={() => setIsSearchOpen(true)}
           className="flex items-center gap-3 bg-background border border-muted hover:border-primary/30 hover:shadow-sm transition-all px-4 py-2 w-[400px] rounded-full text-left group"
@@ -308,7 +360,7 @@ export const TopNav = ({
       </div>
 
       {/* RIGHT SECTION */}
-      <div className="flex items-center gap-6 h-full">
+      <div className="flex items-center gap-2 h-full">
         {/* Button Group */}
         <div className="hidden 2xl:flex items-center">
           <button className="flex items-center gap-2 px-3 py-1.5 text-xs font-semibold text-foreground bg-background border border-muted hover:bg-muted/30 transition-colors rounded-l-lg border-r-0 hover:text-accent">
@@ -325,10 +377,10 @@ export const TopNav = ({
           </button>
         </div>
 
-        <div className="w-px h-8 bg-muted/80 hidden lg:block"></div>
+        <div className="hidden lg:block w-px h-8 bg-muted/80"></div>
 
         {/* Global Utilities */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1 md:gap-3">
           <button 
             onClick={toggleDarkMode}
             className="text-muted-foreground hover:text-foreground transition-colors p-1.5 rounded-full hover:bg-muted/30"
@@ -339,7 +391,7 @@ export const TopNav = ({
           
           <button 
             onClick={handleExport}
-            className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5 text-xs font-semibold bg-background px-3 py-1.5 rounded-full border border-muted hover:border-primary/30 hover:bg-muted/20"
+            className="hidden md:flex text-muted-foreground hover:text-foreground transition-colors items-center gap-1.5 text-xs font-semibold bg-background px-3 py-1.5 rounded-full border border-muted hover:border-primary/30 hover:bg-muted/20"
             title="Export Project to Markdown"
           >
             <Download size={14} />
@@ -354,13 +406,21 @@ export const TopNav = ({
             <Settings size={18} />
           </button>
 
+          {/* Mobile Right Sidebar Toggle (Chatbot) */}
+          <button 
+            onClick={toggleRightSidebar}
+            className="md:hidden p-2 text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </button>
+
           {isAuthenticated ? (
             <button onClick={() => setIsAuthenticated(false)} className="w-8 h-8 rounded-full bg-primary text-background font-bold text-sm flex items-center justify-center hover:opacity-90 transition-opacity ml-1 shadow-sm" title="Sign Out">
               K
             </button>
           ) : (
             <button 
-              onClick={() => setIsAuthOpen(true)}
+              onClick={onRequestLogin}
               className="text-xs font-bold bg-primary text-background px-4 py-1.5 rounded-full hover:bg-primary/90 transition-colors shadow-sm ml-1"
             >
               Sign In
@@ -443,18 +503,13 @@ export const TopNav = ({
         projects={projects}
         onModeChange={onModeChange}
         onProjectUpdate={onProjectUpdate}
+        onProjectDelete={onProjectDelete}
         isAuthenticated={isAuthenticated}
         onRequestLogin={() => {
           setIsSettingsOpen(false);
-          setIsAuthOpen(true);
+          onRequestLogin();
         }}
       />
-      
-      <AuthModal 
-        isOpen={isAuthOpen} 
-        onClose={() => setIsAuthOpen(false)} 
-        onLogin={() => setIsAuthenticated(true)} 
-      />
-    </header>
+    </nav>
   );
 };

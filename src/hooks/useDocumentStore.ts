@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { supabase } from '../lib/supabase';
+import { fallbackContent } from '../data/content/fallback';
 
 export interface DocumentData {
   projectId: string;
@@ -7,12 +9,13 @@ export interface DocumentData {
   lastModified: number;
 }
 
+export type SaveStatus = 'saved' | 'saving' | 'error' | 'idle';
+
 export function useDocumentStore(projectId: string | null, topicId: string) {
   const [content, setContent] = useState<string>('');
   const [isLoaded, setIsLoaded] = useState(false);
-
-  // Key for local storage
-  const getStorageKey = (pId: string, tId: string) => `kontxt_doc_${pId}_${tId}`;
+  const [saveStatus, setSaveStatus] = useState<SaveStatus>('idle');
+  const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   // Load document
   useEffect(() => {
@@ -22,43 +25,70 @@ export function useDocumentStore(projectId: string | null, topicId: string) {
       return;
     }
 
-    const key = getStorageKey(projectId, topicId);
-    const savedData = localStorage.getItem(key);
-    
-    if (savedData) {
-      try {
-        const parsed = JSON.parse(savedData) as DocumentData;
-        setContent(parsed.content);
-      } catch (e) {
-        console.error("Failed to parse document data", e);
-        setContent('');
+    let isMounted = true;
+    setIsLoaded(false);
+
+    const loadDoc = async () => {
+      const { data, error } = await supabase
+        .from('documents')
+        .select('content')
+        .eq('project_id', projectId)
+        .eq('topic_id', topicId)
+        .maybeSingle(); // Use maybeSingle to prevent error on no rows
+      
+      if (isMounted) {
+        if (error || !data) {
+          setContent(fallbackContent[topicId] || '');
+        } else {
+          setContent(data.content || fallbackContent[topicId] || '');
+        }
+        setIsLoaded(true);
+        setSaveStatus('saved');
       }
-    } else {
-      setContent(''); // Reset to empty if no doc
-    }
-    
-    setIsLoaded(true);
+    };
+
+    loadDoc();
+
+    return () => { isMounted = false; };
   }, [projectId, topicId]);
 
   // Save document
   const saveContent = (newContent: string) => {
     setContent(newContent);
+    setSaveStatus('saving');
     if (!projectId || !topicId) return;
 
-    const key = getStorageKey(projectId, topicId);
-    const data: DocumentData = {
-      projectId,
-      topicId,
-      content: newContent,
-      lastModified: Date.now(),
-    };
-    
-    localStorage.setItem(key, JSON.stringify(data));
+    if (saveTimeoutRef.current) {
+      clearTimeout(saveTimeoutRef.current);
+    }
+
+    saveTimeoutRef.current = setTimeout(async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+
+      const { error } = await supabase
+        .from('documents')
+        .upsert({
+          project_id: projectId,
+          topic_id: topicId,
+          content: newContent,
+          last_modified: new Date().toISOString(),
+          user_id: user.id
+        }, { onConflict: 'project_id, topic_id' });
+
+      if (error) {
+        console.error("Error saving document:", error);
+        setSaveStatus('error');
+      } else {
+        setSaveStatus('saved');
+      }
+    }, 1000);
   };
 
   return {
     content,
     setContent: saveContent,
-    isLoaded
+    isLoaded,
+    saveStatus
   };
 }
