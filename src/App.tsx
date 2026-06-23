@@ -54,7 +54,7 @@ function App() {
     return () => subscription.unsubscribe();
   }, []);
 
-  const { projects, addProject, updateProject } = useProjectStore(!!isAuthenticated);
+  const { projects, addProject, updateProject, deleteProject } = useProjectStore(!!isAuthenticated);
 
   // Load theme
   useEffect(() => {
