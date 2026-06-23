@@ -145,7 +145,6 @@ function App() {
       <TopNav 
         activeProject={activeProject}
         projects={projects}
-        activePage={activePage}
         onModeChange={handleModeChange} 
         onProjectUpdate={handleProjectUpdate}
         isAuthenticated={isAuthenticated} 

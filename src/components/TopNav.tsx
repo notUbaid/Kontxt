@@ -10,7 +10,6 @@ export type Mode = 'Hackathon' | 'Personal' | 'Production' | 'Custom';
 interface TopNavProps {
   activeProject: Project;
   projects: Project[];
-  activePage: string;
   onModeChange: (mode: Mode) => void;
   onProjectUpdate?: (project: Project) => void;
   isAuthenticated: boolean;
@@ -22,7 +21,6 @@ interface TopNavProps {
 export const TopNav = ({ 
   activeProject, 
   projects,
-  activePage,
   onModeChange, 
   onProjectUpdate,
   isAuthenticated,
@@ -138,6 +136,7 @@ export const TopNav = ({
   let activePhaseNum = -1;
   let activeCatIndex = -1;
   let totalCatsWithTopics = 0;
+  let foundWorkingPhase = false;
 
   taxonomy.forEach((cat) => {
     const modeTopics = cat.topics.filter(t => t.modes.includes(activeProject.mode));
@@ -146,19 +145,28 @@ export const TopNav = ({
       totalTopics += modeTopics.length;
       
       const match = cat.name.match(/PHASE\s+(\d+)/i);
+      let thisCatPhaseNum = -1;
       if (match) {
-        const num = parseInt(match[1], 10);
-        if (num > maxPhaseNum) maxPhaseNum = num;
+        thisCatPhaseNum = parseInt(match[1], 10);
+        if (thisCatPhaseNum > maxPhaseNum) maxPhaseNum = thisCatPhaseNum;
       }
 
-      if (modeTopics.some(t => t.id === activePage)) {
+      // Check if this category has any incomplete topics
+      const hasIncomplete = modeTopics.some(t => !(activeProject.completedTopics || []).includes(t.id));
+      
+      if (!foundWorkingPhase && hasIncomplete) {
+        foundWorkingPhase = true;
         activeCatIndex = totalCatsWithTopics;
-        if (match) {
-          activePhaseNum = parseInt(match[1], 10);
-        }
+        activePhaseNum = thisCatPhaseNum;
       }
     }
   });
+
+  // If all topics are completed, we are on the final phase
+  if (!foundWorkingPhase && totalCatsWithTopics > 0) {
+    activeCatIndex = totalCatsWithTopics;
+    activePhaseNum = maxPhaseNum;
+  }
 
   let currentPhaseStr = '';
   if (maxPhaseNum >= 0 && activePhaseNum >= 0) {
