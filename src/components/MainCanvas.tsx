@@ -77,7 +77,7 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
 
   const handleTopicComplete = () => {
     const completedRaw = activeProject.completedTopics || [];
-    const completedArray = Array.isArray(completedRaw) ? completedRaw : Object.values(completedRaw).flat();
+    const completedArray = (Array.isArray(completedRaw) ? completedRaw : Object.values(completedRaw).flat()) as string[];
     
     if (!completedArray.includes(activePage)) {
       onProjectUpdate({

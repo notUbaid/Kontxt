@@ -105,7 +105,7 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
           <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
             <div 
               className="h-full bg-primary transition-all duration-500 ease-out rounded-full" 
-              style={{ width: \`\${progressPercentage}%\` }}
+              style={{ width: `${progressPercentage}%` }}
             />
           </div>
         </div>
