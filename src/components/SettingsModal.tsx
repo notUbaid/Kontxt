@@ -4,13 +4,16 @@ import { X, Key, User, Trash2, FolderOpen, Zap } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Project } from '../App';
 import type { Mode } from './TopNav';
-import { universalLinks, type QuickLink } from '../data/taxonomy';
-import { Link2, Plus, EyeOff, Eye } from 'lucide-react';
+import { universalLinks } from '../data/taxonomy';
+import type { CustomLink } from '../data/taxonomies/types';
+import { saasProductionTaxonomy } from '../data/taxonomies/saas';
+import { Link2, Plus, EyeOff, Eye, Globe, Folder, Tag } from 'lucide-react';
 
 interface SettingsModalProps {
   isOpen: boolean;
   onClose: () => void;
   activeProject?: Project;
+  projects?: Project[];
   onModeChange?: (mode: Mode) => void;
   isAuthenticated?: boolean;
   onRequestLogin?: () => void;
@@ -30,7 +33,7 @@ export const MODELS: Record<Provider, string[]> = {
   DeepSeek: ['deepseek-chat', 'deepseek-coder']
 };
 
-export const SettingsModal = ({ isOpen, onClose, activeProject, onModeChange, isAuthenticated, onRequestLogin, onProjectUpdate }: SettingsModalProps) => {
+export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onModeChange, isAuthenticated, onRequestLogin, onProjectUpdate }: SettingsModalProps) => {
   const [activeTab, setActiveTab] = useState<Tab>('project');
   
   const [provider, setProvider] = useState<Provider>('OpenAI');
@@ -48,12 +51,20 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, onModeChange, is
   const [isSaved, setIsSaved] = useState(false);
 
   // Link Management State
-  const [globalCustomLinks, setGlobalCustomLinks] = useState<QuickLink[]>([]);
+  const [globalCustomLinks, setGlobalCustomLinks] = useState<CustomLink[]>([]);
   const [globalHiddenLinks, setGlobalHiddenLinks] = useState<string[]>([]);
   
   const [newLinkName, setNewLinkName] = useState('');
   const [newLinkUrl, setNewLinkUrl] = useState('');
-  const [newLinkType, setNewLinkType] = useState<'global' | 'project'>('global');
+  const [newLinkScope, setNewLinkScope] = useState<'global' | 'project'>('global');
+  const [newLinkProjectId, setNewLinkProjectId] = useState<string>('');
+  const [newLinkTargetType, setNewLinkTargetType] = useState<'universal' | 'topic'>('universal');
+  const [newLinkTopics, setNewLinkTopics] = useState<string[]>([]);
+
+  // Get all unique topics
+  const allTopics = Array.from(new Map(
+    saasProductionTaxonomy.flatMap(cat => cat.topics.map(t => [t.id, t]))
+  ).values());
 
   useEffect(() => {
     if (isOpen) {
@@ -96,39 +107,52 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, onModeChange, is
 
   const handleAddLink = () => {
     if (!newLinkName.trim() || !newLinkUrl.trim()) return;
+    if (newLinkScope === 'project' && !newLinkProjectId) return;
+    if (newLinkTargetType === 'topic' && newLinkTopics.length === 0) return;
     
     let url = newLinkUrl.trim();
     if (!url.startsWith('http://') && !url.startsWith('https://')) {
       url = 'https://' + url;
     }
     
-    const newLink: QuickLink = { name: newLinkName.trim(), url };
+    const newLink: CustomLink = { 
+      id: crypto.randomUUID(),
+      name: newLinkName.trim(), 
+      url,
+      scope: newLinkScope,
+      projectId: newLinkScope === 'project' ? newLinkProjectId : undefined,
+      targetType: newLinkTargetType,
+      targetTopics: newLinkTargetType === 'topic' ? newLinkTopics : undefined
+    };
     
-    if (newLinkType === 'global') {
+    if (newLinkScope === 'global') {
       const updated = [...globalCustomLinks, newLink];
       setGlobalCustomLinks(updated);
       localStorage.setItem('kontxt_global_custom_links', JSON.stringify(updated));
     } else {
-      if (activeProject && onProjectUpdate) {
-        const customLinks = [...(activeProject.customLinks || []), newLink];
-        onProjectUpdate({ ...activeProject, customLinks });
+      const targetProject = projects?.find(p => p.id === newLinkProjectId);
+      if (targetProject && onProjectUpdate) {
+        const customLinks = [...(targetProject.customLinks || []), newLink];
+        onProjectUpdate({ ...targetProject, customLinks });
       }
     }
     
     setNewLinkName('');
     setNewLinkUrl('');
+    setNewLinkTopics([]);
   };
 
-  const handleRemoveGlobalCustomLink = (linkName: string) => {
-    const updated = globalCustomLinks.filter(l => l.name !== linkName);
+  const handleRemoveGlobalCustomLink = (linkId: string) => {
+    const updated = globalCustomLinks.filter(l => l.id !== linkId);
     setGlobalCustomLinks(updated);
     localStorage.setItem('kontxt_global_custom_links', JSON.stringify(updated));
   };
 
-  const handleRemoveProjectCustomLink = (linkName: string) => {
-    if (activeProject && onProjectUpdate) {
-      const customLinks = (activeProject.customLinks || []).filter(l => l.name !== linkName);
-      onProjectUpdate({ ...activeProject, customLinks });
+  const handleRemoveProjectCustomLink = (projectId: string, linkId: string) => {
+    const targetProject = projects?.find(p => p.id === projectId);
+    if (targetProject && onProjectUpdate) {
+      const customLinks = (targetProject.customLinks || []).filter(l => l.id !== linkId);
+      onProjectUpdate({ ...targetProject, customLinks });
     }
   };
 
@@ -364,71 +388,155 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, onModeChange, is
 
                     <div className="space-y-4 bg-muted/10 p-5 rounded-xl border border-muted">
                       <h4 className="font-bold text-foreground">Add New Link</h4>
-                      <div className="flex gap-4 items-start">
-                        <div className="flex-1 space-y-3">
-                          <input 
-                            value={newLinkName}
-                            onChange={e => setNewLinkName(e.target.value)}
-                            placeholder="Link Name (e.g. My Backend Repo)" 
-                            className="w-full bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground"
-                          />
-                          <input 
-                            value={newLinkUrl}
-                            onChange={e => setNewLinkUrl(e.target.value)}
-                            placeholder="https://github.com/..." 
-                            className="w-full bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground"
-                          />
+                      <div className="flex flex-col gap-4">
+                        <div className="flex gap-4 items-start">
+                          <div className="flex-1 space-y-3">
+                            <input 
+                              value={newLinkName}
+                              onChange={e => setNewLinkName(e.target.value)}
+                              placeholder="Link Name (e.g. My Backend Repo)" 
+                              className="w-full bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground"
+                            />
+                            <input 
+                              value={newLinkUrl}
+                              onChange={e => setNewLinkUrl(e.target.value)}
+                              placeholder="https://github.com/..." 
+                              className="w-full bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground"
+                            />
+                          </div>
+                          <div className="w-48 space-y-3">
+                            <select 
+                              value={newLinkScope}
+                              onChange={e => {
+                                setNewLinkScope(e.target.value as 'global' | 'project');
+                                if (e.target.value === 'project' && projects?.length && !newLinkProjectId) {
+                                  setNewLinkProjectId(projects[0].id);
+                                }
+                              }}
+                              className="w-full bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground cursor-pointer"
+                            >
+                              <option value="global">Global Scope</option>
+                              <option value="project">Project Scope</option>
+                            </select>
+                            
+                            {newLinkScope === 'project' && (
+                              <select 
+                                value={newLinkProjectId}
+                                onChange={e => setNewLinkProjectId(e.target.value)}
+                                className="w-full bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground cursor-pointer"
+                              >
+                                {projects?.map(p => (
+                                  <option key={p.id} value={p.id}>{p.name}</option>
+                                ))}
+                              </select>
+                            )}
+                          </div>
+                          
+                          <div className="w-48 space-y-3">
+                            <select 
+                              value={newLinkTargetType}
+                              onChange={e => setNewLinkTargetType(e.target.value as 'universal' | 'topic')}
+                              className="w-full bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground cursor-pointer"
+                            >
+                              <option value="universal">Universal (All)</option>
+                              <option value="topic">Specific Topics</option>
+                            </select>
+                            
+                            <button 
+                              onClick={handleAddLink}
+                              disabled={
+                                !newLinkName.trim() || 
+                                !newLinkUrl.trim() || 
+                                (newLinkScope === 'project' && !newLinkProjectId) ||
+                                (newLinkTargetType === 'topic' && newLinkTopics.length === 0)
+                              }
+                              className="w-full px-4 py-2 bg-primary text-background font-bold text-sm rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+                            >
+                              <Plus size={16} /> Add Link
+                            </button>
+                          </div>
                         </div>
-                        <div className="w-48 space-y-3">
-                          <select 
-                            value={newLinkType}
-                            onChange={e => setNewLinkType(e.target.value as 'global' | 'project')}
-                            className="w-full bg-background border border-input rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-foreground cursor-pointer"
-                          >
-                            <option value="global">Global Link</option>
-                            <option value="project">Project Only</option>
-                          </select>
-                          <button 
-                            onClick={handleAddLink}
-                            disabled={!newLinkName.trim() || !newLinkUrl.trim()}
-                            className="w-full px-4 py-2 bg-primary text-background font-bold text-sm rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
-                          >
-                            <Plus size={16} /> Add Link
-                          </button>
-                        </div>
+
+                        {newLinkTargetType === 'topic' && (
+                          <div className="space-y-2 p-3 bg-background rounded-lg border border-input">
+                            <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Select Topics</p>
+                            <div className="flex flex-wrap gap-2 max-h-32 overflow-y-auto p-1">
+                              {allTopics.map(topic => {
+                                const isSelected = newLinkTopics.includes(topic.id);
+                                return (
+                                  <button
+                                    key={topic.id}
+                                    onClick={() => {
+                                      if (isSelected) {
+                                        setNewLinkTopics(newLinkTopics.filter(id => id !== topic.id));
+                                      } else {
+                                        setNewLinkTopics([...newLinkTopics, topic.id]);
+                                      }
+                                    }}
+                                    className={`px-2 py-1 text-xs rounded-full border transition-colors ${isSelected ? 'bg-primary text-primary-foreground border-primary' : 'bg-transparent border-muted hover:border-primary/50 text-foreground'}`}
+                                  >
+                                    {topic.name}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
 
                     <div className="space-y-4">
                       <h4 className="font-bold text-foreground">Custom Links</h4>
-                      {globalCustomLinks.length === 0 && (!activeProject?.customLinks || activeProject.customLinks.length === 0) && (
+                      {globalCustomLinks.length === 0 && (!projects || !projects.some(p => p.customLinks && p.customLinks.length > 0)) && (
                         <p className="text-sm text-muted-foreground">No custom links added yet.</p>
                       )}
                       
                       <div className="space-y-2">
                         {globalCustomLinks.map(link => (
-                          <div key={link.name} className="flex items-center justify-between p-3 bg-background border border-muted rounded-lg">
+                          <div key={link.id} className="flex items-center justify-between p-3 bg-background border border-muted rounded-lg">
                             <div>
-                              <p className="font-semibold text-sm text-foreground">{link.name} <span className="text-xs ml-2 px-1.5 py-0.5 bg-primary/10 text-primary rounded">Global</span></p>
+                              <div className="flex items-center gap-2 mb-1">
+                                <p className="font-semibold text-sm text-foreground">{link.name}</p>
+                                <span className="text-[10px] px-1.5 py-0.5 bg-primary/10 text-primary rounded flex items-center gap-1"><Globe size={10}/> Global</span>
+                                {link.targetType === 'universal' ? (
+                                  <span className="text-[10px] px-1.5 py-0.5 bg-muted text-muted-foreground rounded">Universal</span>
+                                ) : (
+                                  <span className="text-[10px] px-1.5 py-0.5 bg-accent/10 text-accent rounded flex items-center gap-1" title={link.targetTopics?.join(', ')}>
+                                    <Tag size={10}/> {link.targetTopics?.length} Topics
+                                  </span>
+                                )}
+                              </div>
                               <p className="text-xs text-muted-foreground truncate max-w-sm">{link.url}</p>
                             </div>
-                            <button onClick={() => handleRemoveGlobalCustomLink(link.name)} className="p-2 text-destructive hover:bg-destructive/10 rounded-lg transition-colors">
+                            <button onClick={() => handleRemoveGlobalCustomLink(link.id)} className="p-2 text-destructive hover:bg-destructive/10 rounded-lg transition-colors">
                               <Trash2 size={16} />
                             </button>
                           </div>
                         ))}
                         
-                        {activeProject?.customLinks?.map(link => (
-                          <div key={link.name} className="flex items-center justify-between p-3 bg-background border border-muted rounded-lg">
-                            <div>
-                              <p className="font-semibold text-sm text-foreground">{link.name} <span className="text-xs ml-2 px-1.5 py-0.5 bg-accent/10 text-accent rounded">Project</span></p>
-                              <p className="text-xs text-muted-foreground truncate max-w-sm">{link.url}</p>
+                        {projects?.flatMap(p => 
+                          (p.customLinks || []).map(link => (
+                            <div key={link.id} className="flex items-center justify-between p-3 bg-background border border-muted rounded-lg">
+                              <div>
+                                <div className="flex items-center gap-2 mb-1">
+                                  <p className="font-semibold text-sm text-foreground">{link.name}</p>
+                                  <span className="text-[10px] px-1.5 py-0.5 bg-accent/10 text-accent rounded flex items-center gap-1"><Folder size={10}/> {p.name}</span>
+                                  {link.targetType === 'universal' ? (
+                                    <span className="text-[10px] px-1.5 py-0.5 bg-muted text-muted-foreground rounded">Universal</span>
+                                  ) : (
+                                    <span className="text-[10px] px-1.5 py-0.5 bg-accent/10 text-accent rounded flex items-center gap-1" title={link.targetTopics?.join(', ')}>
+                                      <Tag size={10}/> {link.targetTopics?.length} Topics
+                                    </span>
+                                  )}
+                                </div>
+                                <p className="text-xs text-muted-foreground truncate max-w-sm">{link.url}</p>
+                              </div>
+                              <button onClick={() => handleRemoveProjectCustomLink(p.id, link.id)} className="p-2 text-destructive hover:bg-destructive/10 rounded-lg transition-colors">
+                                <Trash2 size={16} />
+                              </button>
                             </div>
-                            <button onClick={() => handleRemoveProjectCustomLink(link.name)} className="p-2 text-destructive hover:bg-destructive/10 rounded-lg transition-colors">
-                              <Trash2 size={16} />
-                            </button>
-                          </div>
-                        ))}
+                          ))
+                        )}
                       </div>
                     </div>
 

@@ -6,6 +6,14 @@ export interface QuickLink {
   icon?: any;
 }
 
+export interface CustomLink extends QuickLink {
+  id: string;
+  scope: 'global' | 'project';
+  projectId?: string;
+  targetType: 'universal' | 'topic';
+  targetTopics?: string[];
+}
+
 export interface Topic {
   id: string;
   name: string;

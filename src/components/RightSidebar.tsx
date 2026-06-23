@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { ExternalLink, MessageSquare, Send, Star, Bot, User, Edit2 } from 'lucide-react';
 import type { Mode } from './TopNav';
-import { getTaxonomy, universalLinks, type QuickLink } from '../data/taxonomy';
+import { getTaxonomy } from '../data/taxonomyRegistry';
+import { universalLinks, type QuickLink, type CustomLink } from '../data/taxonomies/types';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import type { Project } from '../App';
@@ -24,7 +25,7 @@ export const RightSidebar = ({ activeProject, activeType, activePage, activeMode
   const [customLinks, setCustomLinks] = useState<Record<string, string>>({});
   
   // Read from localStorage to sync with Settings
-  const [globalCustomLinks, setGlobalCustomLinks] = useState<QuickLink[]>([]);
+  const [globalCustomLinks, setGlobalCustomLinks] = useState<CustomLink[]>([]);
   const [globalHiddenLinks, setGlobalHiddenLinks] = useState<string[]>([]);
   const [chatInput, setChatInput] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -134,9 +135,16 @@ export const RightSidebar = ({ activeProject, activeType, activePage, activeMode
 
   const visibleUniversalLinks = universalLinks.filter(l => !globalHiddenLinks.includes(l.name));
   
-  const allUniversalLinks = [
+  const allCustomLinks = [
     ...globalCustomLinks,
-    ...(activeProject?.customLinks || []),
+    ...(activeProject?.customLinks || [])
+  ];
+
+  const universalCustomLinks = allCustomLinks.filter(l => l.targetType === 'universal');
+  const topicCustomLinks = allCustomLinks.filter(l => l.targetType === 'topic' && l.targetTopics?.includes(activePage));
+  
+  const allUniversalLinks = [
+    ...universalCustomLinks,
     ...visibleUniversalLinks
   ];
 
@@ -256,9 +264,9 @@ export const RightSidebar = ({ activeProject, activeType, activePage, activeMode
             </span>
           </div>
           
-          {activeTopicLinks.length > 0 ? (
+          {(activeTopicLinks.length > 0 || topicCustomLinks.length > 0) ? (
             <div className="grid grid-cols-2 gap-2">
-              {activeTopicLinks.map((link) => {
+              {[...topicCustomLinks, ...activeTopicLinks].map((link) => {
                 const actualUrl = customLinks[link.name] || link.url;
                 const bgColor = getDomainColor(actualUrl);
 

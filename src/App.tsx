@@ -20,14 +20,14 @@ export type AppType =
   | 'Hackathon Project' 
   | 'Open Source Project';
 
-import type { QuickLink } from './data/taxonomy';
+import type { CustomLink } from './data/taxonomies/types';
 
 export interface Project {
   id: string;
   name: string;
   mode: Mode;
   type?: AppType;
-  customLinks?: QuickLink[];
+  customLinks?: CustomLink[];
   hiddenLinks?: string[];
 }
 
@@ -113,6 +113,7 @@ function App() {
     <div className="min-h-screen bg-background text-foreground flex flex-col font-sans">
       <TopNav 
         activeProject={activeProject}
+        projects={projects}
         onModeChange={handleModeChange} 
         onProjectUpdate={handleProjectUpdate}
         isAuthenticated={isAuthenticated} 
