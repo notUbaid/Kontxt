@@ -246,72 +246,305 @@ Write a 3-part Problem Statement below:
 
 `,
 
-  'targetusers': `# Ideal Customer Profile (ICP) & Target Users
+  'userpainpoints': `# User Pain Points
 
-Who exactly is pulling out their credit card to pay for your software?
+**🕒 Estimated Time:** 15-20 min
 
-## Why It Matters
-"Everyone" is not a target audience. If you build for everyone, you build for no one. A hyper-specific ICP allows you to build features faster, write better marketing copy, and ignore distractions.
+---
 
-## Decisions You Must Make
-- [ ] Are you B2B (selling to businesses) or B2C (selling to consumers)?
-- [ ] What is the specific job title or role of your buyer?
-- [ ] What is their budget?
-- [ ] Where do they hang out on the internet? (Reddit, LinkedIn, Discord?)
+## Overview
+A problem statement defines *what* is broken. User Pain Points define *how* it feels and *why* it matters. If you do not intimately understand the friction your users experience daily, you will build features they don't care about. Remember: users don't buy software, they buy a better version of themselves.
 
-> [!TIP]
-> **Example ICP:** "B2B SaaS founders doing $10k-$50k MRR who are actively running Facebook Ads but struggling with attribution."
+---
 
-## How to Use AI Effectively
+## Think First
+Before relying on AI, document your actual conversations with real humans (or your own experience).
 
-AI is fantastic for generating hypothetical user personas that you can use to guide your design and feature prioritization.
-
-\`\`\`prompt
-My SaaS product does: [INSERT ELEVATOR PITCH].
-
-Please generate 3 detailed Ideal Customer Profiles (ICPs). For each ICP, include:
-- Demographics (Role, Company Size)
-- Psychographics (Motivations, Frustrations)
-- Where they currently spend money to solve this problem
-- The specific marketing channel most likely to reach them
+**The "Hair on Fire" Metric** (Is this a mild annoyance, or are they actively bleeding time/money?)
+\`\`\`input
+✍️ Type your answer here...
 \`\`\`
 
-## Deliverable Expectations
-List 1 Primary ICP and 1 Secondary ICP below. Delete everything else. When you are tempted to build a feature, ask yourself: "Does my Primary ICP actually care about this?"
+**The Current Workaround** (How are they duct-taping a solution together today? Spreadsheets? Zapier?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Cost of Inaction** (What happens if they NEVER buy your product?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Reality Check: The "Skin in the Game" Test**
+- [ ] They have actively complained about this publicly (e.g., Reddit, Twitter).
+- [ ] They are currently paying for a suboptimal tool just to handle this.
+- [ ] They have tried to build an in-house tool to solve this.
+- [ ] They just shrug when asked about it (Red flag!).
+
+---
+
+## Key Decisions
+- **Focusing on the Root Cause:** Users often complain about a symptom ("This export takes too long"). The root cause is usually deeper ("We shouldn't need to export this to Excel in the first place"). 
+- **Urgency vs. Importance:** A problem can be important but not urgent. Software that solves *urgent* problems sells 10x faster.
+
+---
+
+## Common Mistakes
+- **Leading the Witness:** Asking users "Would you pay for a tool that does X?". People are polite and will say yes. Ask them: "Walk me through how you did X yesterday."
+- **Assuming Everyone Has Your Pain:** Just because you hate a specific dev tool doesn't mean non-technical founders care.
+
+---
+
+## AI Prompt
+Use this prompt to uncover blind spots in your pain point analysis.
+
+\`\`\`prompt
+Act as a skeptical User Researcher at Y Combinator.
+My target audience is: [INSERT TARGET AUDIENCE].
+The problem they face is: [INSERT PROBLEM STATEMENT].
+
+1. Play Devil's Advocate: Why might this pain point actually NOT be severe enough to make them switch software?
+2. What are the secondary or hidden pain points associated with this problem that I haven't considered?
+3. Generate 3 specific, open-ended interview questions I should ask my next prospect to uncover their true pain.
+\`\`\`
+
+---
+
+## Essential Reading
+- [How to get startup ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas) by Y Combinator (Jared Friedman)
+- [How to know if you've got product-market fit](https://www.lennysnewsletter.com/p/how-to-know-if-youve-got-productmarket) by Lenny Rachitsky
+
+---
+
+## What Good Looks Like
+
+**Strong Pain Point Validation:**
+✓ You have quotes from actual users experiencing the pain.
+✓ The pain occurs frequently (daily or weekly).
+✓ The user is actively searching for a solution.
+
+**Weak Pain Point Validation:**
+✗ You assume the pain based on a shower thought.
+✗ The pain happens once a year.
+✗ Users don't even realize they have a problem.
+
+---
+
+## Validation Checklist
+- [ ] Can you describe the pain point using the exact words of your target user?
+- [ ] Have you verified that this pain is attached to a specific budget line-item or time sink?
+- [ ] Does solving this pain point directly lead to a measurable outcome (e.g., +20% revenue)?
+
+---
+
+## Deliverable
+Summarize the Top 3 User Pain Points below, ranked by severity. For each, list the exact consequence of the pain point.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
 `,
 
-  'icpidealcustomerprofile': `# Ideal Customer Profile (ICP) & Target Users
+  'targetusers': `# Target Users & Ideal Customer Profile (ICP)
 
-Who exactly is pulling out their credit card to pay for your software?
+**🕒 Estimated Time:** 20-30 min
 
-## Why It Matters
-"Everyone" is not a target audience. If you build for everyone, you build for no one. A hyper-specific ICP allows you to build features faster, write better marketing copy, and ignore distractions.
+---
 
-## Decisions You Must Make
-- [ ] Are you B2B (selling to businesses) or B2C (selling to consumers)?
-- [ ] What is the specific job title or role of your buyer?
-- [ ] What is their budget?
-- [ ] Where do they hang out on the internet? (Reddit, LinkedIn, Discord?)
+## Overview
+"Everyone" is not a target audience. If you build for everyone, you build for no one. A hyper-specific ICP allows you to build features faster, write better marketing copy, and completely ignore distractions. The goal here is to find the "Bullseye" customer—the subset of people who are desperate for your solution.
 
-> [!TIP]
-> **Example ICP:** "B2B SaaS founders doing $10k-$50k MRR who are actively running Facebook Ads but struggling with attribution."
+---
 
-## How to Use AI Effectively
+## Think First
+Before using AI, answer these core questions about who is actually pulling out their credit card:
 
-AI is fantastic for generating hypothetical user personas that you can use to guide your design and feature prioritization.
+**Demographics & Role** (Who are they exactly? E.g., "B2B SaaS Founders doing $10k-$50k MRR")
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Where do they hang out?** (Subreddits, LinkedIn groups, specific Discord servers)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Superhuman PMF Test** (Who would be "very disappointed" if your product disappeared?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Reality Check: Budget**
+- [ ] Enterprise / High Budget ($1,000+/mo)
+- [ ] Mid-Market ($100-$500/mo)
+- [ ] Prosumer ($20-$50/mo)
+- [ ] Consumer (Reluctant to pay)
+
+---
+
+## Key Decisions
+- **B2B vs B2C:** B2C requires massive viral scale because consumers churn fast and hate paying for software. B2B businesses expect to pay for software that saves them time or makes them money.
+- **The Bullseye Approach:** Identify the concentric circles of your market. Start entirely focused on the absolute center (the Bullseye) before trying to expand outward.
+
+---
+
+## Common Mistakes
+- **Vague Personas:** Saying your target is "Small Business Owners". That's millions of completely different businesses. Be specific: "Plumbing businesses in Texas with 5-10 employees."
+- **Listening to the Wrong Users:** Taking feature requests from people who are not in your Bullseye ICP.
+
+---
+
+## AI Prompt
+Use this prompt to generate actionable, hypothetical user personas to guide your feature prioritization.
 
 \`\`\`prompt
 My SaaS product does: [INSERT ELEVATOR PITCH].
 
-Please generate 3 detailed Ideal Customer Profiles (ICPs). For each ICP, include:
-- Demographics (Role, Company Size)
-- Psychographics (Motivations, Frustrations)
-- Where they currently spend money to solve this problem
-- The specific marketing channel most likely to reach them
+Act as a world-class Product Marketing Manager.
+Generate 3 detailed Ideal Customer Profiles (ICPs) for this product using the "Bullseye" framework.
+For the Primary "Bullseye" ICP, include:
+1. Demographics & Psychographics (Motivations, Frustrations)
+2. Where they currently spend money to solve this problem today
+3. The absolute best marketing channel to reach them with $0 budget
 \`\`\`
 
-## Deliverable Expectations
-List 1 Primary ICP and 1 Secondary ICP below. Delete everything else. When you are tempted to build a feature, ask yourself: "Does my Primary ICP actually care about this?"
+---
+
+## Essential Reading
+- [How Superhuman Built an Engine to Find Product/Market Fit](https://firstround.com/review/how-superhuman-built-an-engine-to-find-product-market-fit/) by Rahul Vohra
+- [How to find your target market](https://www.lennysnewsletter.com/p/how-to-find-your-target-market) by Lenny Rachitsky
+
+---
+
+## What Good Looks Like
+
+**A strong ICP definition:**
+✓ Role-specific and highly constrained
+✓ Clear understanding of their budget
+✓ Identifiable watering holes (where they hang out)
+✓ They actively experience the pain point
+
+**A weak ICP definition:**
+✗ "Anyone who wants to save time"
+✗ "Small to Medium Businesses (SMBs)"
+✗ No clear acquisition channel
+
+---
+
+## Validation Checklist
+- [ ] Can you find a list of 100 specific people who fit this profile right now?
+- [ ] Do these users have the authority to make a purchasing decision?
+- [ ] Have you manually spoken to at least 5 of them?
+
+---
+
+## Deliverable
+Define your 1 Primary ICP below. Delete everything else. When you are tempted to build a feature, ask yourself: "Does this specific person actually care about this?"
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+
+  'icpidealcustomerprofile': `# Target Users & Ideal Customer Profile (ICP)
+
+**🕒 Estimated Time:** 20-30 min
+
+---
+
+## Overview
+"Everyone" is not a target audience. If you build for everyone, you build for no one. A hyper-specific ICP allows you to build features faster, write better marketing copy, and completely ignore distractions. The goal here is to find the "Bullseye" customer—the subset of people who are desperate for your solution.
+
+---
+
+## Think First
+Before using AI, answer these core questions about who is actually pulling out their credit card:
+
+**Demographics & Role** (Who are they exactly? E.g., "B2B SaaS Founders doing $10k-$50k MRR")
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Where do they hang out?** (Subreddits, LinkedIn groups, specific Discord servers)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Superhuman PMF Test** (Who would be "very disappointed" if your product disappeared?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Reality Check: Budget**
+- [ ] Enterprise / High Budget ($1,000+/mo)
+- [ ] Mid-Market ($100-$500/mo)
+- [ ] Prosumer ($20-$50/mo)
+- [ ] Consumer (Reluctant to pay)
+
+---
+
+## Key Decisions
+- **B2B vs B2C:** B2C requires massive viral scale because consumers churn fast and hate paying for software. B2B businesses expect to pay for software that saves them time or makes them money.
+- **The Bullseye Approach:** Identify the concentric circles of your market. Start entirely focused on the absolute center (the Bullseye) before trying to expand outward.
+
+---
+
+## Common Mistakes
+- **Vague Personas:** Saying your target is "Small Business Owners". That's millions of completely different businesses. Be specific: "Plumbing businesses in Texas with 5-10 employees."
+- **Listening to the Wrong Users:** Taking feature requests from people who are not in your Bullseye ICP.
+
+---
+
+## AI Prompt
+Use this prompt to generate actionable, hypothetical user personas to guide your feature prioritization.
+
+\`\`\`prompt
+My SaaS product does: [INSERT ELEVATOR PITCH].
+
+Act as a world-class Product Marketing Manager.
+Generate 3 detailed Ideal Customer Profiles (ICPs) for this product using the "Bullseye" framework.
+For the Primary "Bullseye" ICP, include:
+1. Demographics & Psychographics (Motivations, Frustrations)
+2. Where they currently spend money to solve this problem today
+3. The absolute best marketing channel to reach them with $0 budget
+\`\`\`
+
+---
+
+## Essential Reading
+- [How Superhuman Built an Engine to Find Product/Market Fit](https://firstround.com/review/how-superhuman-built-an-engine-to-find-product-market-fit/) by Rahul Vohra
+- [How to find your target market](https://www.lennysnewsletter.com/p/how-to-find-your-target-market) by Lenny Rachitsky
+
+---
+
+## What Good Looks Like
+
+**A strong ICP definition:**
+✓ Role-specific and highly constrained
+✓ Clear understanding of their budget
+✓ Identifiable watering holes (where they hang out)
+✓ They actively experience the pain point
+
+**A weak ICP definition:**
+✗ "Anyone who wants to save time"
+✗ "Small to Medium Businesses (SMBs)"
+✗ No clear acquisition channel
+
+---
+
+## Validation Checklist
+- [ ] Can you find a list of 100 specific people who fit this profile right now?
+- [ ] Do these users have the authority to make a purchasing decision?
+- [ ] Have you manually spoken to at least 5 of them?
+
+---
+
+## Deliverable
+Define your 1 Primary ICP below. Delete everything else. When you are tempted to build a feature, ask yourself: "Does this specific person actually care about this?"
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
 `,
 
   'mvpfeatures': `# MVP Features (Minimum Viable Product)
