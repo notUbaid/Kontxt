@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Key, User, Trash2, FolderOpen, Tag, Link2, Globe, EyeOff, Eye, Folder, PenLine, Plus } from 'lucide-react';
+import { X, Key, User, Trash2, FolderOpen, Tag, Link2, Globe, EyeOff, Eye, Folder, PenLine, Plus, BookOpen, Sparkles, Download, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Project } from '../App';
 import type { Mode } from './TopNav';
@@ -21,7 +21,7 @@ interface SettingsModalProps {
   onProjectDelete?: (projectId: string) => void;
 }
 
-type Tab = 'project' | 'profile' | 'apikeys' | 'links';
+type Tab = 'project' | 'profile' | 'apikeys' | 'links' | 'tutorial';
 export type Provider = 'OpenAI' | 'Google' | 'Groq' | 'OpenRouter' | 'Together' | 'Mistral' | 'DeepSeek';
 
 export const MODELS: Record<Provider, string[]> = {
@@ -228,6 +228,13 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
                   className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'links' ? 'bg-primary text-background' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}`}
                 >
                   <Link2 size={16} /> Quick Links
+                </button>
+                <div className="my-2 border-t border-muted/50"></div>
+                <button 
+                  onClick={() => setActiveTab('tutorial')}
+                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'tutorial' ? 'bg-accent text-accent-foreground' : 'text-accent/80 hover:bg-accent/10 hover:text-accent'}`}
+                >
+                  <BookOpen size={16} /> How to use Kontxt
                 </button>
               </nav>
             </div>
@@ -649,6 +656,70 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
                       </div>
                     </div>
 
+                  </div>
+                )}
+
+                {activeTab === 'tutorial' && (
+                  <div className="animate-in fade-in space-y-6 pb-12">
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground flex items-center gap-2">
+                        <BookOpen size={24} className="text-accent" /> How to use Kontxt
+                      </h3>
+                      <p className="text-muted-foreground mt-1">Master the Agentic Workflow to build mass-production applications.</p>
+                    </div>
+
+                    <div className="space-y-6">
+                      <div className="bg-primary/5 border border-primary/20 rounded-xl p-6">
+                        <h4 className="font-bold text-foreground text-lg mb-2">The Goal: The Ultimate System Prompt</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                          Kontxt is not just a place to take notes. Your goal is to fill the global progress bar and click <strong>Export</strong>. Kontxt will then generate a hyper-structured <code>blueprint.md</code> file that acts as an unparalleled System Prompt for an Agentic AI Developer (like Antigravity or Cursor).
+                        </p>
+                      </div>
+
+                      <div className="space-y-4">
+                        <h4 className="font-bold text-foreground uppercase tracking-widest text-xs">The Workflow Loop</h4>
+                        
+                        <div className="flex gap-4 p-4 border border-muted rounded-xl bg-background">
+                          <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0">1</div>
+                          <div>
+                            <p className="font-bold text-foreground text-sm">Read the Guide</p>
+                            <p className="text-xs text-muted-foreground mt-1">Each topic in the left sidebar contains expert guidance on why this phase is critical to your app's success.</p>
+                          </div>
+                        </div>
+
+                        <div className="flex gap-4 p-4 border border-muted rounded-xl bg-background">
+                          <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold shrink-0">2</div>
+                          <div>
+                            <p className="font-bold text-foreground text-sm">Answer the "Think First" Questions</p>
+                            <p className="text-xs text-muted-foreground mt-1">Fill out the inline text boxes. You don't need to be perfect. Just get your raw thoughts down.</p>
+                          </div>
+                        </div>
+
+                        <div className="flex gap-4 p-4 border border-primary/30 rounded-xl bg-primary/5">
+                          <div className="w-8 h-8 rounded-full bg-primary text-background flex items-center justify-center font-bold shrink-0"><Sparkles size={16} /></div>
+                          <div>
+                            <p className="font-bold text-foreground text-sm">Use the AI Prompt Template</p>
+                            <p className="text-xs text-muted-foreground mt-1">Click "Copy Prompt" and paste it into ChatGPT, Claude, or Gemini alongside your answers from Step 2. Let the AI do the heavy lifting of refining your thoughts.</p>
+                          </div>
+                        </div>
+
+                        <div className="flex gap-4 p-4 border border-muted rounded-xl bg-background">
+                          <div className="w-8 h-8 rounded-full bg-green-500/10 text-green-500 flex items-center justify-center font-bold shrink-0"><CheckCircle2 size={16} /></div>
+                          <div>
+                            <p className="font-bold text-foreground text-sm">Paste the Deliverable</p>
+                            <p className="text-xs text-muted-foreground mt-1">Paste the final AI response into the Deliverable box. Kontxt will automatically mark the topic as complete and tick up your progress bar.</p>
+                          </div>
+                        </div>
+
+                        <div className="flex gap-4 p-4 border border-accent/30 rounded-xl bg-accent/5">
+                          <div className="w-8 h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold shrink-0"><Download size={16} /></div>
+                          <div>
+                            <p className="font-bold text-foreground text-sm">The Handoff</p>
+                            <p className="text-xs text-muted-foreground mt-1">Once your progress bar is full, hit <strong>Export</strong> in the top nav. Drop the <code>blueprint.md</code> file into your AI Developer IDE and watch it build your app step-by-step.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>
