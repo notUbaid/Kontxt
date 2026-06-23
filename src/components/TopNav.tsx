@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Search, Moon, Sun, UserCircle, Settings, X, Download } from 'lucide-react';
+import { Search, Moon, Sun, Settings, X, Download, ChevronDown, ArchiveRestore, Link2, BookOpen } from 'lucide-react';
 import { getTaxonomy } from '../data/taxonomy';
 import type { Project } from '../App';
 import { SettingsModal } from './SettingsModal';
@@ -10,6 +10,7 @@ export type Mode = 'Hackathon' | 'Personal' | 'Production' | 'Custom';
 interface TopNavProps {
   activeProject: Project;
   projects: Project[];
+  activePage: string;
   onModeChange: (mode: Mode) => void;
   onProjectUpdate?: (project: Project) => void;
   isAuthenticated: boolean;
@@ -21,6 +22,7 @@ interface TopNavProps {
 export const TopNav = ({ 
   activeProject, 
   projects,
+  activePage,
   onModeChange, 
   onProjectUpdate,
   isAuthenticated,
@@ -128,10 +130,32 @@ export const TopNav = ({
     setSearchResults(results);
   }, [searchQuery, activeProject]);
   
+  const taxonomy = getTaxonomy(activeProject.type || 'SaaS', activeProject.mode);
+  
+  let totalTopics = 0;
+  let currentPhase = 1;
+  let totalPhases = 0;
+  
+  taxonomy.forEach((cat) => {
+    const modeTopics = cat.topics.filter(t => t.modes.includes(activeProject.mode));
+    if (modeTopics.length > 0) {
+      totalPhases++;
+      totalTopics += modeTopics.length;
+      if (modeTopics.some(t => t.id === activePage)) {
+        currentPhase = totalPhases;
+      }
+    }
+  });
+
+  const completedCount = activeProject.completedTopics?.length || 0;
+  const progressPercent = totalTopics > 0 ? Math.round((completedCount / totalTopics) * 100) : 0;
+  
   return (
-    <header className="h-14 sticky top-0 z-50 glassmorphism flex items-center justify-between px-4">
-      {/* Left */}
-      <div className="flex items-center gap-6 w-1/3">
+    <header className="h-[4.5rem] sticky top-0 z-50 glassmorphism flex items-center justify-between px-6 bg-background/90">
+      
+      {/* LEFT SECTION */}
+      <div className="flex items-center gap-6 h-full">
+        {/* Logo */}
         <button 
           onClick={onGoHome}
           className="font-black text-2xl tracking-tighter flex items-center select-none hover:opacity-80 transition-opacity"
@@ -140,66 +164,109 @@ export const TopNav = ({
           <span className="text-accent">Kon</span>
           <span className="text-primary">txt</span>
         </button>
-        <div className="hidden lg:flex flex-col border-l-2 border-muted pl-4">
-          <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider leading-none mb-1">Active Project</span>
-          <span className="text-sm font-medium text-foreground leading-none">{activeProject.name}</span>
+
+        <div className="w-px h-8 bg-muted/80"></div>
+
+        {/* Project Selector */}
+        <div className="flex flex-col justify-center">
+          <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-1">Project</span>
+          <button className="text-sm font-bold text-foreground flex items-center gap-1 hover:text-accent transition-colors">
+            {activeProject.name} <ChevronDown size={14} className="text-muted-foreground" />
+          </button>
+        </div>
+
+        <div className="w-px h-8 bg-muted/80 hidden md:block"></div>
+
+        {/* Progress Tracker */}
+        <div className="hidden lg:flex flex-col justify-center">
+          <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-1">Progress</span>
+          <div className="flex items-center gap-3">
+            <span className="text-sm font-bold text-foreground w-8">{progressPercent}%</span>
+            <div className="w-24 h-2 bg-muted rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-accent transition-all duration-500 ease-out rounded-full"
+                style={{ width: `${progressPercent}%` }}
+              ></div>
+            </div>
+            <span className="text-[11px] font-medium text-muted-foreground whitespace-nowrap">Phase {currentPhase} of {totalPhases}</span>
+          </div>
         </div>
       </div>
 
-      {/* Center - Mode & Type Badge */}
-      <div className="hidden md:flex items-center justify-center w-1/3">
-        <div className="flex bg-muted/50 rounded-full px-4 py-1.5 border border-muted items-center gap-2">
-          <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">{activeProject.type || 'SaaS'}</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-primary/50"></span>
-          <span className="text-sm font-semibold text-foreground">{activeProject.mode} Mode</span>
-        </div>
-      </div>
-
-      {/* Right */}
-      <div className="flex items-center justify-end gap-4 w-1/3">
+      {/* CENTER SECTION - Search */}
+      <div className="hidden xl:flex items-center justify-center absolute left-1/2 -translate-x-1/2">
         <button 
           onClick={() => setIsSearchOpen(true)}
-          className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2 text-sm bg-muted/50 px-4 py-1.5 rounded-full border border-muted"
+          className="flex items-center gap-3 bg-background border border-muted hover:border-primary/30 hover:shadow-sm transition-all px-4 py-2 w-[400px] rounded-full text-left group"
         >
-          <Search size={16} />
-          <span className="hidden lg:inline">Search...</span>
+          <Search size={16} className="text-muted-foreground group-hover:text-primary transition-colors" />
+          <span className="flex-1 text-sm text-muted-foreground group-hover:text-foreground transition-colors">Search docs, prompts, tools...</span>
+          <div className="flex items-center justify-center bg-muted/50 rounded text-[10px] font-bold text-muted-foreground px-1.5 py-0.5 border border-muted group-hover:border-primary/20">
+            ⌘K
+          </div>
         </button>
-        <button 
-          onClick={toggleDarkMode}
-          className="text-muted-foreground hover:text-foreground transition-colors"
-          title="Toggle Theme"
-        >
-          {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-        </button>
-        <button 
-          onClick={handleExport}
-          className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-sm bg-primary/10 px-3 py-1.5 rounded-full border border-primary/20"
-          title="Export Project to Markdown"
-        >
-          <Download size={16} />
-          <span className="hidden lg:inline font-semibold">Export</span>
-        </button>
-        <div>
-          <button 
-            onClick={() => setIsSettingsOpen(true)}
-            className="text-muted-foreground hover:text-foreground transition-colors mt-1"
-            title="Settings"
-          >
-            <Settings size={20} />
+      </div>
+
+      {/* RIGHT SECTION */}
+      <div className="flex items-center gap-6 h-full">
+        {/* Button Group */}
+        <div className="hidden 2xl:flex items-center">
+          <button className="flex items-center gap-2 px-3 py-1.5 text-xs font-semibold text-foreground bg-background border border-muted hover:bg-muted/30 transition-colors rounded-l-lg border-r-0 hover:text-accent">
+            <ArchiveRestore size={14} className="text-accent" />
+            Prompt Vault
+          </button>
+          <button className="flex items-center gap-2 px-3 py-1.5 text-xs font-semibold text-foreground bg-background border border-muted hover:bg-muted/30 transition-colors hover:text-accent">
+            <Link2 size={14} className="text-accent" />
+            Quick Links
+          </button>
+          <button className="flex items-center gap-2 px-3 py-1.5 text-xs font-semibold text-foreground bg-background border border-muted hover:bg-muted/30 transition-colors rounded-r-lg border-l-0 hover:text-accent">
+            <BookOpen size={14} className="text-accent" />
+            Project Journal
           </button>
         </div>
-        {isAuthenticated ? (
-          <button onClick={() => setIsAuthenticated(false)} className="text-primary hover:text-accent transition-colors" title="Sign Out">
-            <UserCircle size={28} />
-          </button>
-        ) : (
+
+        <div className="w-px h-8 bg-muted/80 hidden lg:block"></div>
+
+        {/* Global Utilities */}
+        <div className="flex items-center gap-3">
           <button 
-            onClick={() => setIsAuthOpen(true)}
-            className="text-sm font-medium bg-primary text-background px-4 py-1.5 rounded-full hover:bg-primary/90 transition-colors shadow-sm"
+            onClick={toggleDarkMode}
+            className="text-muted-foreground hover:text-foreground transition-colors p-1.5 rounded-full hover:bg-muted/30"
+            title="Toggle Theme"
           >
-            Sign In
+            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-        )}
+          
+          <button 
+            onClick={handleExport}
+            className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5 text-xs font-semibold bg-background px-3 py-1.5 rounded-full border border-muted hover:border-primary/30 hover:bg-muted/20"
+            title="Export Project to Markdown"
+          >
+            <Download size={14} />
+            <span>Export</span>
+          </button>
+          
+          <button 
+            onClick={() => setIsSettingsOpen(true)}
+            className="text-muted-foreground hover:text-foreground transition-colors p-1.5 rounded-full hover:bg-muted/30"
+            title="Settings"
+          >
+            <Settings size={18} />
+          </button>
+
+          {isAuthenticated ? (
+            <button onClick={() => setIsAuthenticated(false)} className="w-8 h-8 rounded-full bg-primary text-background font-bold text-sm flex items-center justify-center hover:opacity-90 transition-opacity ml-1 shadow-sm" title="Sign Out">
+              K
+            </button>
+          ) : (
+            <button 
+              onClick={() => setIsAuthOpen(true)}
+              className="text-xs font-bold bg-primary text-background px-4 py-1.5 rounded-full hover:bg-primary/90 transition-colors shadow-sm ml-1"
+            >
+              Sign In
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Search Modal */}

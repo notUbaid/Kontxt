@@ -29,6 +29,7 @@ export interface Project {
   type?: AppType;
   customLinks?: CustomLink[];
   hiddenLinks?: string[];
+  completedTopics?: string[];
 }
 
 function App() {
@@ -114,6 +115,7 @@ function App() {
       <TopNav 
         activeProject={activeProject}
         projects={projects}
+        activePage={activePage}
         onModeChange={handleModeChange} 
         onProjectUpdate={handleProjectUpdate}
         isAuthenticated={isAuthenticated} 
@@ -122,7 +124,14 @@ function App() {
         onNavigate={setActivePage}
       />
       <div className="flex-1 flex max-w-[1536px] mx-auto w-full relative">
-        <LeftSidebar activeType={activeProject.type || 'SaaS'} activeMode={activeProject.mode} activePage={activePage} setActivePage={setActivePage} />
+        <LeftSidebar 
+          activeProject={activeProject}
+          activeType={activeProject.type || 'SaaS'} 
+          activeMode={activeProject.mode} 
+          activePage={activePage} 
+          setActivePage={setActivePage}
+          onProjectUpdate={handleProjectUpdate}
+        />
         <MainCanvas activeType={activeProject.type || 'SaaS'} activePage={activePage} activeMode={activeProject.mode} projectId={activeProjectId} />
         <RightSidebar activeProject={activeProject} activeType={activeProject.type || 'SaaS'} activePage={activePage} activeMode={activeProject.mode} />
       </div>

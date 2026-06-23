@@ -1,16 +1,19 @@
 import { useState, useEffect } from 'react';
-import { ChevronDown, ChevronRight } from 'lucide-react';
+import { ChevronDown, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { getTaxonomy } from '../data/taxonomy';
 import type { Mode } from './TopNav';
+import type { Project } from '../App';
 
 interface LeftSidebarProps {
+  activeProject: Project;
   activeType: string;
   activeMode: Mode;
   activePage: string; // The topic ID
   setActivePage: (page: string) => void;
+  onProjectUpdate: (project: Project) => void;
 }
 
-export const LeftSidebar = ({ activeType, activeMode, activePage, setActivePage }: LeftSidebarProps) => {
+export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage, setActivePage, onProjectUpdate }: LeftSidebarProps) => {
   const taxonomy = getTaxonomy(activeType, activeMode);
 
   // Simple state to track which categories are expanded in the accordion
@@ -24,6 +27,21 @@ export const LeftSidebar = ({ activeType, activeMode, activePage, setActivePage 
 
   const toggleCategory = (catId: string) => {
     setExpandedCats(prev => ({ ...prev, [catId]: !prev[catId] }));
+  };
+
+  const toggleTopicProgress = (e: React.MouseEvent, topicId: string) => {
+    e.stopPropagation();
+    const completed = activeProject.completedTopics || [];
+    const isCompleted = completed.includes(topicId);
+    
+    let newCompleted;
+    if (isCompleted) {
+      newCompleted = completed.filter(id => id !== topicId);
+    } else {
+      newCompleted = [...completed, topicId];
+    }
+    
+    onProjectUpdate({ ...activeProject, completedTopics: newCompleted });
   };
 
   return (
@@ -52,18 +70,29 @@ export const LeftSidebar = ({ activeType, activeMode, activePage, setActivePage 
                 <ul className="space-y-1">
                   {modeTopics.map((topic) => {
                     const isActive = activePage === topic.id;
+                    const isCompleted = (activeProject.completedTopics || []).includes(topic.id);
+                    
                     return (
-                      <li key={topic.id}>
+                      <li key={topic.id} className="relative group/item">
                         <button
                           onClick={() => setActivePage(topic.id)}
-                          className={`w-full flex items-center gap-3 py-1.5 px-3 rounded-md text-sm transition-colors ${
+                          className={`w-full flex items-center justify-between py-1.5 pl-3 pr-2 rounded-md text-sm transition-colors ${
                             isActive
                               ? 'bg-accent text-accent-foreground font-medium shadow-sm'
                               : 'text-foreground hover:bg-muted/60'
                           }`}
                         >
-                          <topic.icon size={16} className={isActive ? 'text-accent-foreground' : 'text-muted-foreground'} />
-                          {topic.name}
+                          <div className="flex items-center gap-3">
+                            <topic.icon size={16} className={isActive ? 'text-accent-foreground' : 'text-muted-foreground'} />
+                            <span>{topic.name}</span>
+                          </div>
+                          <div 
+                            onClick={(e) => toggleTopicProgress(e, topic.id)}
+                            className={`p-1 rounded-full transition-all ${isCompleted ? 'text-green-500 opacity-100' : 'text-muted-foreground opacity-0 group-hover/item:opacity-40 hover:!opacity-100 hover:bg-muted/50'}`}
+                            title={isCompleted ? "Mark as uncompleted" : "Mark as completed"}
+                          >
+                            <CheckCircle2 size={16} className={isCompleted ? 'fill-green-500/20' : ''} />
+                          </div>
                         </button>
                       </li>
                     );
