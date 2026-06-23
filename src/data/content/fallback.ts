@@ -14,29 +14,29 @@ Welcome to Phase 0. Before writing any code or choosing a database, we must clea
 Before you ask AI to evaluate your idea, answer these questions honestly. Type your answers right here:
 
 **Core Value Proposition** (If you could only do ONE thing, what is it?)
-```input
+\`\`\`input
 ✍️ Type your answer here...
-```
+\`\`\`
 
 **Target Audience** (Who exactly needs this?)
-```input
+\`\`\`input
 ✍️ Type your answer here...
-```
+\`\`\`
 
 **Existing Solution** (What do they use today?)
-```input
+\`\`\`input
 ✍️ Type your answer here...
-```
+\`\`\`
 
 **Unfair Advantage** (Why are *you* the one to build this?)
-```input
+\`\`\`input
 ✍️ Type your answer here...
-```
+\`\`\`
 
 **Why Now?** (Why does this idea make sense in 2026 but not 2022?)
-```input
+\`\`\`input
 ✍️ Type your answer here...
-```
+\`\`\`
 
 ---
 
@@ -77,9 +77,9 @@ Challenge my assumptions. Do not validate my idea automatically.
 ## Deliverable
 At the bottom of this page, write a definitive 3-sentence summary of your idea. This will be referenced by Kontxt AI for all future phases.
 
-```input
+\`\`\`input
 ✍️ Type your answer here...
-```
+\`\`\`
 
 ---
 
@@ -133,19 +133,19 @@ Your product does not exist in a vacuum. It exists to eliminate a specific, pain
 Before using AI, answer these questions to capture project memory.
 
 **Current Workflow** (What is the exact workflow that is broken?)
-```input
+\`\`\`input
 ✍️ Type your answer here...
-```
+\`\`\`
 
 **Current Workaround** (How do they solve it today? e.g., Spreadsheets, Zapier)
-```input
+\`\`\`input
 ✍️ Type your answer here...
-```
+\`\`\`
 
 **Cost of Problem** (How much time/money does this cost them?)
-```input
+\`\`\`input
 ✍️ Type your answer here...
-```
+\`\`\`
 
 **Reality Check: Market Size**
 - [ ] Thousands
@@ -199,9 +199,9 @@ Write a 3-part Problem Statement below:
 2. **The Flaw:** Why the current state is terrible.
 3. **The Impact:** The cost (time, money, sanity) of the flaw.
 
-```input
+\`\`\`input
 ✍️ Type your answer here...
-```
+\`\`\`
 
 ---
 
