@@ -5,6 +5,7 @@ import { getTaxonomy } from '../data/taxonomy';
 import type { Project } from '../App';
 import { SettingsModal } from './SettingsModal';
 import { supabase } from '../lib/supabase';
+import { fallbackContent } from '../data/content/fallback';
 
 export type Mode = 'Hackathon' | 'Personal' | 'Production' | 'Custom';
 
@@ -84,7 +85,7 @@ export const TopNav = ({
       
       combinedMarkdown += `## ${cat.name}\n\n`;
       for (const topic of modeTopics) {
-        const content = docMap.get(topic.id) || "_No content drafted yet._";
+        const content = docMap.get(topic.id) || fallbackContent[topic.id] || "_No content drafted yet._";
         combinedMarkdown += `### ${topic.name}\n\n${content}\n\n---\n\n`;
       }
     }
