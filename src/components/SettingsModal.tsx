@@ -665,14 +665,14 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
                       <h3 className="text-2xl font-bold text-foreground flex items-center gap-2">
                         <BookOpen size={24} className="text-accent" /> How to use Kontxt
                       </h3>
-                      <p className="text-muted-foreground mt-1">Master the Agentic Workflow to build mass-production applications.</p>
+                      <p className="text-muted-foreground mt-1">Master the AI-Assisted Workflow to build mass-production applications.</p>
                     </div>
 
                     <div className="space-y-6">
                       <div className="bg-primary/5 border border-primary/20 rounded-xl p-6">
-                        <h4 className="font-bold text-foreground text-lg mb-2">The Goal: The Ultimate System Prompt</h4>
+                        <h4 className="font-bold text-foreground text-lg mb-2">The Goal: Build Your Master Project Context</h4>
                         <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                          Kontxt is not just a place to take notes. Your goal is to fill the global progress bar and click <strong>Export</strong>. Kontxt will then generate a hyper-structured <code>blueprint.md</code> file that acts as an unparalleled System Prompt for an Agentic AI Developer (like Antigravity or Cursor).
+                          Kontxt is your command center. We provide the expert guidance and the exact prompts you need. You take these prompts to AI tools like ChatGPT or Claude, get the refined output, and save it back here. By the end, you'll have a complete, structured Master Document of your entire project.
                         </p>
                       </div>
 
@@ -699,23 +699,23 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
                           <div className="w-8 h-8 rounded-full bg-primary text-background flex items-center justify-center font-bold shrink-0"><Sparkles size={16} /></div>
                           <div>
                             <p className="font-bold text-foreground text-sm">Use the AI Prompt Template</p>
-                            <p className="text-xs text-muted-foreground mt-1">Click "Copy Prompt" and paste it into ChatGPT, Claude, or Gemini alongside your answers from Step 2. Let the AI do the heavy lifting of refining your thoughts.</p>
+                            <p className="text-xs text-muted-foreground mt-1">Click "Copy Prompt" and paste it into ChatGPT, Claude, or Gemini alongside your raw answers. Let the AI do the heavy lifting of refining and structuring your thoughts.</p>
                           </div>
                         </div>
 
                         <div className="flex gap-4 p-4 border border-muted rounded-xl bg-background">
                           <div className="w-8 h-8 rounded-full bg-green-500/10 text-green-500 flex items-center justify-center font-bold shrink-0"><CheckCircle2 size={16} /></div>
                           <div>
-                            <p className="font-bold text-foreground text-sm">Paste the Deliverable</p>
-                            <p className="text-xs text-muted-foreground mt-1">Paste the final AI response into the Deliverable box. Kontxt will automatically mark the topic as complete and tick up your progress bar.</p>
+                            <p className="font-bold text-foreground text-sm">Save the Deliverable</p>
+                            <p className="text-xs text-muted-foreground mt-1">Paste the final AI response back into the Deliverable box in Kontxt. We will automatically mark the topic as complete and tick up your progress bar.</p>
                           </div>
                         </div>
 
                         <div className="flex gap-4 p-4 border border-accent/30 rounded-xl bg-accent/5">
                           <div className="w-8 h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold shrink-0"><Download size={16} /></div>
                           <div>
-                            <p className="font-bold text-foreground text-sm">The Handoff</p>
-                            <p className="text-xs text-muted-foreground mt-1">Once your progress bar is full, hit <strong>Export</strong> in the top nav. Drop the <code>blueprint.md</code> file into your AI Developer IDE and watch it build your app step-by-step.</p>
+                            <p className="font-bold text-foreground text-sm">The Master Document Export</p>
+                            <p className="text-xs text-muted-foreground mt-1">Once your progress bar is full, hit <strong>Export</strong> in the top nav. You now have a beautifully formatted Markdown file of your entire project context. Provide this file to any AI assistant in the future whenever you want to build a feature or write code.</p>
                           </div>
                         </div>
                       </div>
