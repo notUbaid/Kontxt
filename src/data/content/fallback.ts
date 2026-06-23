@@ -94,6 +94,12 @@ Before you ask AI to evaluate your idea, answer these questions honestly. Type y
 
 ---
 
+## AI & Architecture Reality Check
+- **Play to AI's Strengths:** AI developers (like Antigravity) are exceptional at building standard SaaS applications using Supabase (for database and Auth) and React. If your idea requires highly custom hardware integrations or obscure 3D rendering, AI will struggle. 
+- **Can I leave out Y?** Absolutely. At this stage, do not assume you need complex machine learning or custom algorithms. Define the simplest possible software that solves the problem.
+
+---
+
 ## AI Prompt
 Use this prompt to stress-test your idea. It will automatically read the answers you typed above.
 
@@ -192,6 +198,12 @@ Before using AI, answer these questions to capture project memory.
 Most founders solve symptoms, not causes. 
 - **Symptom:** Students miss deadlines.
 - **Root Cause:** Assignments are spread across 5 different learning platforms.
+
+---
+
+## AI & Architecture Reality Check
+- **Can AI solve this?** Before committing to a problem, ask yourself: Is this a problem that software can actually solve? AI is great at automating workflows, parsing data, and generating content. It cannot force your users to change deeply ingrained physical habits.
+- **Data Availability:** Does solving this problem require data you don't have access to? If the solution requires scraping a closed API, the AI can't magically bypass those restrictions.
 
 ---
 
@@ -669,6 +681,12 @@ Before using AI, clearly define the mechanics of your solution.
 
 ---
 
+## AI & Architecture Reality Check
+- **The "Boring Tech" Rule:** Your solution should rely on standard infrastructure. Don't invent a new way to do Authentication. Use standard Supabase Auth. Don't invent a custom database router. Use standard Postgres.
+- **Why Z is Significant:** Sticking to established patterns means AI tools have millions of examples in their training data. If your solution relies on a well-known architecture, Antigravity can build it flawlessly. If you ask for something highly obscure, the AI will hallucinate.
+
+---
+
 ## AI Prompt
 Use this prompt to draft a compelling, Amazon-style Press Release for your solution.
 
@@ -764,6 +782,12 @@ Map your solution against the customer's actual reality.
 
 ---
 
+## AI & Architecture Reality Check
+- **Features vs Infrastructure:** Your value proposition should never be "We use Supabase." Users do not care about your database. They care about speed, reliability, and outcomes.
+- **Focusing the AI:** When you eventually hand this document to an AI developer, the Value Proposition tells the AI *what to optimize for*. If your value is "Extreme Speed", the AI will know to prioritize performance over complex UI animations.
+
+---
+
 ## AI Prompt
 Use this prompt to build out a complete Value Proposition Canvas.
 
@@ -855,6 +879,11 @@ Use Geoffrey Moore's "Crossing the Chasm" mad-libs format to clarify your intern
 ## Common Mistakes
 - **Pitching the Tech Stack:** Nobody cares that you are using Rust and WebSockets. They care about what the product does.
 - **Explaining the "How" before the "What":** Say what the product is *before* you explain how it works under the hood.
+
+---
+
+## AI & Architecture Reality Check
+- **The Context Window:** An Elevator Pitch isn't just for humans. When you start a new chat with an AI developer (like Antigravity), pasting this 1-sentence pitch at the very top of your prompt instantly grounds the AI in the reality of what you are building, preventing it from hallucinating irrelevant features.
 
 ---
 
