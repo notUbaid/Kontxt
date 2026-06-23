@@ -229,7 +229,7 @@ export const DocumentEditor = ({
               <ReactMarkdown 
                 remarkPlugins={[remarkGfm]}
                 components={{
-                  input: ({ node, checked, ...props }) => {
+                  input: ({ node, checked, disabled, ...props }) => {
                     if (props.type === 'checkbox' && node?.position) {
                       return (
                         <input
@@ -252,7 +252,7 @@ export const DocumentEditor = ({
                         />
                       );
                     }
-                    return <input {...props} />;
+                    return <input disabled={disabled} {...props} />;
                   },
                   code: ({ node, inline, className, children, ...props }: any) => {
                     const match = /language-(\w+)/.exec(className || '');
