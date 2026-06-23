@@ -100,7 +100,7 @@ At the bottom of this page, write a definitive 3-sentence summary of your idea. 
 ---
 
 ## Next Step
-Move on to **Problem Statement** to validate that your idea actually solves something painful.
+Move on to [Problem Statement](#problemstatement) to validate that your idea actually solves something painful.
 `,
 
   'elevatorpitch': `# Elevator Pitch
@@ -237,7 +237,7 @@ Write a 3-part Problem Statement below:
 ---
 
 ## Next Step
-Move on to **Target Users** to define exactly who feels this problem the most.
+Move on to [Target Users](#targetusers) to define exactly who feels this problem the most.
 `,
 
   'targetusers': `# Ideal Customer Profile (ICP) & Target Users

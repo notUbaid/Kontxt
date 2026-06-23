@@ -12,6 +12,7 @@ interface DocumentEditorProps {
   onGenerate: () => void;
   isGenerating: boolean;
   saveStatus?: SaveStatus;
+  onNavigate: (page: string) => void;
 }
 
 const PromptBlock = ({ children }: { children: string }) => {
@@ -97,7 +98,8 @@ export const DocumentEditor = ({
   onChange, 
   onGenerate, 
   isGenerating,
-  saveStatus = 'idle'
+  saveStatus = 'idle',
+  onNavigate
 }: DocumentEditorProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -229,6 +231,23 @@ export const DocumentEditor = ({
               <ReactMarkdown 
                 remarkPlugins={[remarkGfm]}
                 components={{
+                  a: ({ node, ...props }) => {
+                    if (props.href?.startsWith('#')) {
+                      return (
+                        <a 
+                          href={props.href}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            onNavigate(props.href!.slice(1));
+                          }}
+                          className="text-primary hover:text-primary/80 font-bold underline decoration-primary/30 underline-offset-4 transition-colors cursor-pointer"
+                        >
+                          {props.children}
+                        </a>
+                      );
+                    }
+                    return <a {...props} className="text-primary hover:underline" target="_blank" rel="noopener noreferrer" />;
+                  },
                   input: ({ node, checked, disabled, ...props }) => {
                     if (props.type === 'checkbox' && node?.position) {
                       return (

@@ -14,9 +14,10 @@ interface MainCanvasProps {
   projectId: string;
   isAuthenticated: boolean;
   onRequestLogin: () => void;
+  onNavigate: (page: string) => void;
 }
 
-export const MainCanvas = ({ activeType, activePage, activeMode, projectId, isAuthenticated, onRequestLogin }: MainCanvasProps) => {
+export const MainCanvas = ({ activeType, activePage, activeMode, projectId, isAuthenticated, onRequestLogin, onNavigate }: MainCanvasProps) => {
   let activeTopicName = activePage;
   const taxonomy = getTaxonomy(activeType, activeMode);
   for (const cat of taxonomy) {
@@ -102,6 +103,7 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
         onGenerate={handleGenerate}
         isGenerating={isGenerating}
         saveStatus={saveStatus}
+        onNavigate={onNavigate}
       />
     </motion.main>
   );

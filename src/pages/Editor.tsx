@@ -130,6 +130,7 @@ export default function Editor({ projects, updateProject, deleteProject, isAuthe
           projectId={activeProject.id} 
           isAuthenticated={isAuthenticated}
           onRequestLogin={() => setIsAuthModalOpen(true)}
+          onNavigate={handleSetActivePage}
         />
 
         {/* Right Sidebar - Drawer on Mobile, Static on Desktop */}
