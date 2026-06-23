@@ -52,7 +52,12 @@ export const AuthModal = ({ isOpen, onClose, onLogin }: AuthModalProps) => {
 
   const handleOAuth = async (provider: 'github' | 'google') => {
     try {
-      const { error } = await supabase.auth.signInWithOAuth({ provider });
+      const { error } = await supabase.auth.signInWithOAuth({ 
+        provider,
+        options: {
+          redirectTo: window.location.origin
+        }
+      });
       if (error) throw error;
     } catch (err: any) {
       setError(err.message);
