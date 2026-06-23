@@ -32,6 +32,7 @@ export const TopNav = ({
 }: TopNavProps) => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isProjectDropdownOpen, setIsProjectDropdownOpen] = useState(false);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<{id: string, name: string, snippet: string, projectId: string, projectName: string}[]>([]);
@@ -221,11 +222,54 @@ export const TopNav = ({
         <div className="w-px h-8 bg-muted/80"></div>
 
         {/* Project Selector */}
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center relative">
           <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-1">Project</span>
-          <button className="text-sm font-bold text-foreground flex items-center gap-1 hover:text-accent transition-colors">
-            {activeProject.name} <ChevronDown size={14} className="text-muted-foreground" />
+          <button 
+            onClick={() => setIsProjectDropdownOpen(!isProjectDropdownOpen)}
+            className="text-sm font-bold text-foreground flex items-center gap-1 hover:text-accent transition-colors"
+          >
+            {activeProject.name} <ChevronDown size={14} className={`text-muted-foreground transition-transform ${isProjectDropdownOpen ? 'rotate-180' : ''}`} />
           </button>
+          
+          {/* Dropdown Menu */}
+          {isProjectDropdownOpen && (
+            <>
+              <div 
+                className="fixed inset-0 z-40" 
+                onClick={() => setIsProjectDropdownOpen(false)}
+              />
+              <div className="absolute top-full left-0 mt-2 w-56 bg-background border border-muted shadow-xl rounded-xl py-2 z-50 overflow-hidden flex flex-col">
+                <div className="px-3 pb-2 mb-2 border-b border-muted/50">
+                  <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Switch Project</span>
+                </div>
+                <div className="max-h-[300px] overflow-y-auto">
+                  {projects.map(p => (
+                    <button
+                      key={p.id}
+                      onClick={() => {
+                        onSelectProject(p.id);
+                        setIsProjectDropdownOpen(false);
+                      }}
+                      className={`w-full text-left px-4 py-2 text-sm transition-colors hover:bg-muted/50 ${p.id === activeProject.id ? 'text-accent font-semibold bg-accent/5' : 'text-foreground'}`}
+                    >
+                      {p.name}
+                    </button>
+                  ))}
+                </div>
+                <div className="mt-2 pt-2 border-t border-muted/50 px-2">
+                  <button 
+                    onClick={() => {
+                      onGoHome();
+                      setIsProjectDropdownOpen(false);
+                    }}
+                    className="w-full text-left px-2 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-colors flex items-center gap-2"
+                  >
+                    View All Projects
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
         </div>
 
         <div className="w-px h-8 bg-muted/80 hidden md:block"></div>
