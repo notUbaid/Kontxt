@@ -133,19 +133,39 @@ export const TopNav = ({
   const taxonomy = getTaxonomy(activeProject.type || 'SaaS', activeProject.mode);
   
   let totalTopics = 0;
-  let currentPhase = 1;
-  let totalPhases = 0;
   
+  let maxPhaseNum = -1;
+  let activePhaseNum = -1;
+  let activeCatIndex = -1;
+  let totalCatsWithTopics = 0;
+
   taxonomy.forEach((cat) => {
     const modeTopics = cat.topics.filter(t => t.modes.includes(activeProject.mode));
     if (modeTopics.length > 0) {
-      totalPhases++;
+      totalCatsWithTopics++;
       totalTopics += modeTopics.length;
+      
+      const match = cat.name.match(/PHASE\s+(\d+)/i);
+      if (match) {
+        const num = parseInt(match[1], 10);
+        if (num > maxPhaseNum) maxPhaseNum = num;
+      }
+
       if (modeTopics.some(t => t.id === activePage)) {
-        currentPhase = totalPhases;
+        activeCatIndex = totalCatsWithTopics;
+        if (match) {
+          activePhaseNum = parseInt(match[1], 10);
+        }
       }
     }
   });
+
+  let currentPhaseStr = '';
+  if (maxPhaseNum >= 0 && activePhaseNum >= 0) {
+    currentPhaseStr = `Phase ${activePhaseNum} of ${maxPhaseNum}`;
+  } else {
+    currentPhaseStr = `Phase ${activeCatIndex > 0 ? activeCatIndex : 1} of ${totalCatsWithTopics}`;
+  }
 
   const completedCount = activeProject.completedTopics?.length || 0;
   const progressPercent = totalTopics > 0 ? Math.round((completedCount / totalTopics) * 100) : 0;
@@ -189,7 +209,7 @@ export const TopNav = ({
                   style={{ width: `${progressPercent}%` }}
                 ></div>
               </div>
-              <span className="text-[11px] font-medium text-muted-foreground whitespace-nowrap">Phase {currentPhase} of {totalPhases}</span>
+              <span className="text-[11px] font-medium text-muted-foreground whitespace-nowrap">{currentPhaseStr}</span>
             </div>
           </div>
         )}
