@@ -1219,6 +1219,28 @@ Define exactly where you sit in the market ecosystem.
 ✍️ Type your answer here...
 \`\`\`
 
+**Reality Check: The "Niche" Test**
+- [ ] Does my positioning immediately repel people outside my target audience?
+- [ ] Can my biggest competitor claim the exact same thing? (If yes, it's not positioning).
+- [ ] Does this position allow me to charge a premium?
+
+---
+
+## Key Decisions
+- **Niche vs. Horizontal:** A tool for "project management" is horizontal (hard). A tool for "architectural firm project management" is niche (easier). Always start niche.
+- **The Enemy:** Strong positioning works best when you have an enemy. Who or what are you explicitly fighting against?
+
+---
+
+## Common Mistakes
+- **Being "Better":** "Better" is not a position. "Faster", "Cheaper", or "More Secure" are positions.
+- **Appeasing Everyone:** If nobody dislikes your positioning, it's not strong enough. It's generic.
+
+---
+
+## AI & Architecture Reality Check
+- **Architecture follows Positioning:** If you position yourself as "Enterprise-grade," you cannot use a cheap SQLite database. You need robust Role-Based Access Control (RBAC) and Supabase row-level security. 
+
 ---
 
 ## AI Prompt
@@ -1233,6 +1255,25 @@ Here is my Value Proposition: [PASTE VALUE PROPOSITION]
 2. Write a 1-sentence positioning statement for the angle you recommend most strongly.
 3. What is the biggest risk of taking this position?
 \`\`\`
+
+---
+
+## What Good Looks Like
+
+**Strong Positioning:**
+✓ Actively repels non-ideal customers.
+✓ Claims a specific superpower.
+✓ Makes your competitors look outdated or overly complex.
+
+**Weak Positioning:**
+✗ Tries to be all things to all people.
+✗ Uses generic marketing jargon ("The leading synergy platform").
+
+---
+
+## Validation Checklist
+- [ ] If I read this to my target user, would they instantly know if it's for them?
+- [ ] Is it clearly differentiated from the "Goliath" in my space?
 
 ---
 
@@ -1268,6 +1309,28 @@ Brainstorm freely before we start cutting.
 ✍️ Type your answer here...
 \`\`\`
 
+**Reality Check: The "Nice to Have" Trap**
+- [ ] Are these features actually required to deliver the value prop?
+- [ ] Am I building this because it's fun to code, or because the user actually needs it?
+- [ ] Does this feature align with my [Market Positioning](#marketpositioning)?
+
+---
+
+## Key Decisions
+- **Core vs. Edge Cases:** Build for the 90% use case. Ignore the 10% edge cases completely for now.
+- **The "Magic" Feature:** What is the single feature that will make users say "Wow" during their first 5 minutes using the app?
+
+---
+
+## Common Mistakes
+- **The "Settings" Black Hole:** Spending 2 weeks building a robust settings page, profile image upload, and dark mode toggle before the core loop even works.
+- **Premature Optimization:** Planning scaling infrastructure for 100,000 users when you currently have 0 users.
+
+---
+
+## AI & Architecture Reality Check
+- **Don't Reinvent the Wheel:** Need a rich text editor? Use TipTap. Need auth? Use Supabase Auth. Do not waste time coding commodities from scratch. AI tools like Antigravity are exceptionally good at implementing standard libraries.
+
 ---
 
 ## AI Prompt
@@ -1280,6 +1343,25 @@ My core functionality is: [PASTE CORE ENGINE]
 Act as a visionary Product Manager.
 Brainstorm a comprehensive list of 20 features that this platform could eventually have. Group them logically (e.g., "User Management", "Core Workflow", "Integrations", "Analytics"). Do not worry about effort or cost yet.
 \`\`\`
+
+---
+
+## What Good Looks Like
+
+**Strong Feature Planning:**
+✓ Categorized by logical modules or user flows.
+✓ Focuses heavily on the core engine and user outcomes.
+✓ Differentiates between admin needs and user needs.
+
+**Weak Feature Planning:**
+✗ A massive, completely unstructured bulleted list.
+✗ Heavily focused on infrastructure instead of user-facing value.
+
+---
+
+## Validation Checklist
+- [ ] Did I include the features necessary to actually monetize the product (e.g., Stripe integration)?
+- [ ] Did I document the "Magic" feature that delivers the Aha! moment?
 
 ---
 
@@ -1315,6 +1397,28 @@ Identify what is truly necessary to deliver value.
 ✍️ Type your answer here...
 \`\`\`
 
+**Reality Check: The Hard Truth**
+- [ ] If I launch with only these 3 features, will it actually solve the problem?
+- [ ] Is there literally anything else I can cut or manually fake?
+- [ ] Does this MVP prove my biggest assumption?
+
+---
+
+## Key Decisions
+- **Hardcoding:** Hardcode everything that doesn't need to be dynamic on day 1. If you only have 3 pricing plans, hardcode them in the frontend. Do not build a dynamic pricing engine.
+- **The Core Loop:** Your MVP must flawlessly execute the 1-2 actions a user takes that delivers the value. Everything else is secondary.
+
+---
+
+## Common Mistakes
+- **"But what if they want to...":** If they want to, they will complain or ask for it. Build it *then*, not *now*.
+- **Over-building Auth:** You don't need Google, GitHub, Apple, and Magic Link auth on day 1. Pick Email/Password and move on.
+
+---
+
+## AI & Architecture Reality Check
+- **The AI Limitation:** AI writes code best when the scope is tiny. A 3-feature MVP will be generated flawlessly by an AI developer. A 30-feature MVP will result in spaghetti code, hallucinated imports, and infinite debugging loops.
+
 ---
 
 ## AI Prompt
@@ -1328,6 +1432,25 @@ Act as a ruthless CTO focused on shipping in 2 weeks.
 1. Categorize these features into "Must Have for MVP" and "Cut for Now".
 2. For the "Must Haves", suggest the absolute simplest, most hard-coded way I can implement them to save time (e.g., instead of a password reset flow, just have them email support).
 \`\`\`
+
+---
+
+## What Good Looks Like
+
+**Strong MVP:**
+✓ Can be built by a solo developer in less than 3 weeks.
+✓ Delivers the core value proposition perfectly.
+✓ Hacks together non-essential features (e.g., using a Typeform instead of building a custom onboarding flow).
+
+**Weak MVP:**
+✗ Takes 3 months to build.
+✗ Includes an Admin Dashboard, complex notifications, and a referral system.
+
+---
+
+## Validation Checklist
+- [ ] Is the list under 5 core features?
+- [ ] Have I eliminated all "Nice to Have" UI polish?
 
 ---
 
@@ -1363,6 +1486,27 @@ Park your long-term ideas here so they don't block your current progress.
 ✍️ Type your answer here...
 \`\`\`
 
+**Reality Check: The Distraction Test**
+- [ ] Am I working on these instead of my MVP?
+- [ ] Do these features assume the MVP was successful?
+- [ ] Are these features driven by user requests, or just my imagination?
+
+---
+
+## Key Decisions
+- **Retention vs Acquisition:** V2 features should generally focus on *retaining* the users who loved the MVP, not trying to acquire completely different types of users.
+
+---
+
+## Common Mistakes
+- **Committing to Timelines:** Never promise users exactly *when* future features will be built. You will inevitably be wrong.
+- **Scope Creep:** Sneaking a V2 feature into the MVP sprint because "it won't take that long."
+
+---
+
+## AI & Architecture Reality Check
+- **Database Extensibility:** Use standard relational databases (like Postgres via Supabase) because they allow you to easily add new tables and relationships for V2 features later, without needing to rewrite your entire backend architecture.
+
 ---
 
 ## AI Prompt
@@ -1374,6 +1518,23 @@ Here are the features I cut from my MVP: [PASTE CUT FEATURES]
 Act as a strategic VP of Product.
 Organize these remaining features into a logical "V2, V3, V4" roadmap. Explain *why* you ordered them this way based on standard SaaS growth trajectories (e.g., building retention features before expansion features).
 \`\`\`
+
+---
+
+## What Good Looks Like
+
+**Strong Future Roadmap:**
+✓ Organized by strategic impact (e.g., "Phase 2: Retention", "Phase 3: Virality").
+✓ Realistic assumptions about technical debt.
+
+**Weak Future Roadmap:**
+✗ A random assortment of shiny objects.
+✗ Features that pivot the company into an entirely different market.
+
+---
+
+## Validation Checklist
+- [ ] Did I remove all of these features from the immediate MVP sprint?
 
 ---
 
@@ -1409,6 +1570,25 @@ Apply the Action Priority Matrix (Impact vs. Effort).
 ✍️ Type your answer here...
 \`\`\`
 
+**Reality Check: The Risk Test**
+- [ ] Am I building the easiest thing first, or the riskiest thing first?
+- [ ] If the core engine fails, does the rest of the app matter?
+
+---
+
+## Key Decisions
+- **Eat the Frog:** Build the most technically complex, uncertain feature first. If it fails or takes 3x longer than expected, the app fails. Better to know on day 1 than day 30.
+
+---
+
+## Common Mistakes
+- **Building UI First:** Building beautiful login screens, footers, and dashboards before the core backend logic actually works. Connect the database *before* making it pretty.
+
+---
+
+## AI & Architecture Reality Check
+- **The AI Workflow:** Give the AI your prioritization list and say: "We are on Step 1. Ignore all other steps. Build Step 1." This prevents the AI from jumping ahead and hallucinating code for Step 3.
+
 ---
 
 ## AI Prompt
@@ -1422,6 +1602,24 @@ Act as an Agile Scrum Master.
 2. Tell me exactly which feature I should code *first* and why it is the most critical foundation.
 3. Identify the biggest technical risk in this list.
 \`\`\`
+
+---
+
+## What Good Looks Like
+
+**Strong Prioritization:**
+✓ Strictly sequenced.
+✓ Tackles technical risk immediately (e.g., "Build the AI generation pipeline first").
+✓ Defers low-risk UI work to the end.
+
+**Weak Prioritization:**
+✗ Starts with "Setup Tailwind config" and "Design the logo".
+✗ Leaves the hardest part of the app for the very last day.
+
+---
+
+## Validation Checklist
+- [ ] Do I know exactly what I am coding the moment I close this document?
 
 ---
 
