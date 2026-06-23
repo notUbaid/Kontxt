@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Navigate, useLocation } from 'react-router-dom';
 import { TopNav, type Mode } from '../components/TopNav';
 import { LeftSidebar } from '../components/LeftSidebar';
@@ -26,6 +26,14 @@ export default function Editor({ projects, updateProject, deleteProject, isAuthe
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isLeftSidebarOpen, setIsLeftSidebarOpen] = useState(false);
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    if (location.state?.openCustomModal) {
+      setIsCustomModeModalOpen(true);
+      // Clear the state so a refresh doesn't reopen it
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+  }, [location.state, navigate, location.pathname]);
 
   const activeProject = projects.find(p => p.id === projectId);
 
