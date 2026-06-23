@@ -1,4 +1,43 @@
 export const fallbackContent: Record<string, string> = {
+  'welcome': `# Welcome to Kontxt
+
+**🕒 Estimated Time:** 2 min
+
+---
+
+## The Master Plan
+
+If you are a beginner, building a SaaS application can feel completely overwhelming. You might have tried asking ChatGPT to "Build me an Uber clone," only to realize it gives you a tiny script and gives up.
+
+To build a **mass-production application** using AI, you cannot just write a single prompt. You need an **Agentic AI** (like Antigravity or Cursor), and you need to feed it a hyper-structured **Blueprint**.
+
+That is what Kontxt is for. You are not writing code here. You are building the Ultimate Prompt.
+
+---
+
+## Your Workflow
+
+Follow this loop for every Phase in the left sidebar:
+
+1. **Read the Guide:** Understand *why* the topic matters.
+2. **Answer the Questions:** Fill in the text boxes under "Think First." Don't worry about being perfect.
+3. **Use the AI Prompt:** Copy the provided prompt block, paste it into ChatGPT or Claude along with your answers, and let the AI generate a high-quality response.
+4. **Paste the Deliverable:** Paste the final AI response into the "Deliverable" box at the bottom. **Kontxt will automatically save your progress and mark the topic as complete.**
+
+---
+
+## The Final Handoff (The Magic)
+
+Once the progress bar is completely full, hit **Export Context**.
+
+Kontxt will generate a \`kontxt-blueprint.md\` file. This is not a simple dump of your notes. It is a strictly formatted, Agentic System Prompt.
+
+You will drop this single file into your AI Developer (like Antigravity), and simply say:
+> *"Read \`kontxt-blueprint.md\` and execute the plan step-by-step."*
+
+Let's begin. Scroll down and click the "Next Step" button to start defining your idea!
+`,
+
   'ideadefinition': `# Idea Definition
 
 **🕒 Estimated Time:** 15-20 min

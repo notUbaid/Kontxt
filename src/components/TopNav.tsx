@@ -76,7 +76,7 @@ export const TopNav = ({
       }
     }
 
-    let combinedMarkdown = `# Project: ${activeProject.name}\nMode: ${activeProject.mode}\n\n`;
+    let combinedMarkdown = `> **SYSTEM INSTRUCTIONS FOR AI AGENT:**\n> You are an expert AI developer (e.g., Cursor, Antigravity). I am providing you with the complete blueprint for my application.\n> Your goal is to build this application step-by-step based on the provided context.\n> DO NOT hallucinate features. Stick strictly to the scope defined below.\n> Read this entire document before writing any code.\n\n---\n\n# Project: ${activeProject.name}\nMode: ${activeProject.mode}\n\n`;
     
     const taxonomy = getTaxonomy(activeProject.type || 'SaaS', activeProject.mode);
     for (const cat of taxonomy) {
@@ -94,7 +94,7 @@ export const TopNav = ({
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${activeProject.name.replace(/\s+/g, '-').toLowerCase()}-kontxt.md`;
+    a.download = `${activeProject.name.replace(/\s+/g, '-').toLowerCase()}-blueprint.md`;
     a.click();
     URL.revokeObjectURL(url);
   };

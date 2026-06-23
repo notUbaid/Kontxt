@@ -15,6 +15,7 @@ interface DocumentEditorProps {
   onNavigate: (page: string) => void;
   nextTopic?: { id: string; name: string } | null;
   activeMode: string;
+  onTopicComplete?: () => void;
 }
 
 const PromptBlock = ({ children }: { children: string }) => {
@@ -27,21 +28,21 @@ const PromptBlock = ({ children }: { children: string }) => {
   };
 
   return (
-    <div className="relative my-6 group rounded-xl overflow-hidden border-2 border-primary/20 bg-muted/30">
-      <div className="flex items-center justify-between px-4 py-2 bg-primary/10 border-b border-primary/10">
+    <div className="relative my-8 group rounded-2xl overflow-hidden border border-primary/20 bg-background shadow-lg hover:shadow-xl transition-shadow">
+      <div className="flex items-center justify-between px-5 py-3 bg-primary/5 border-b border-primary/10">
         <div className="flex items-center gap-2 text-primary font-bold text-sm tracking-wide uppercase">
           <Sparkles size={14} />
           <span>AI Prompt Template</span>
         </div>
         <button
           onClick={handleCopy}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-background border border-border text-xs font-medium text-foreground hover:bg-muted transition-colors shadow-sm"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-primary/20 text-xs font-semibold text-foreground hover:bg-primary/10 hover:border-primary/40 transition-all shadow-sm"
         >
           {copied ? <Check size={14} className="text-green-500" /> : <Copy size={14} />}
           {copied ? 'Copied!' : 'Copy Prompt'}
         </button>
       </div>
-      <div className="p-4 font-mono text-sm leading-relaxed text-foreground whitespace-pre-wrap">
+      <div className="p-5 font-mono text-sm leading-relaxed text-foreground whitespace-pre-wrap bg-muted/5">
         {children}
       </div>
     </div>
@@ -88,8 +89,8 @@ const InlineTextarea = ({
       placeholder="✍️ Type your answer here..."
       onChange={e => setValue(e.target.value)}
       onBlur={handleBlur}
-      className="w-full bg-muted/20 border border-muted/50 rounded-lg p-3 text-foreground placeholder:text-muted-foreground/50 resize-none outline-none focus:ring-2 focus:ring-primary/30 transition-all font-sans text-base leading-relaxed my-4 block shadow-sm hover:border-primary/30"
-      style={{ minHeight: '80px' }}
+      className="w-full bg-background border border-muted/60 rounded-xl p-5 text-foreground placeholder:text-muted-foreground/40 resize-none outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all font-sans text-base leading-relaxed my-4 block shadow-sm hover:border-muted-foreground/30 hover:shadow-md"
+      style={{ minHeight: '100px' }}
     />
   );
 };
@@ -103,7 +104,8 @@ export const DocumentEditor = ({
   saveStatus = 'idle',
   onNavigate,
   nextTopic,
-  activeMode
+  activeMode,
+  onTopicComplete
 }: DocumentEditorProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -315,6 +317,11 @@ export const DocumentEditor = ({
                             const newLines = ['```input', newText, '```'];
                             currentContentLines.splice(startL, endL - startL + 1, ...newLines);
                             onChange(currentContentLines.join('\n'));
+                            
+                            // If the user typed something other than the placeholder, mark topic complete
+                            if (newText.trim() !== '' && newText.trim() !== '✍️ Type your answer here...' && onTopicComplete) {
+                              onTopicComplete();
+                            }
                           }}
                         />
                       );

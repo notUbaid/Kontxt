@@ -76,9 +76,41 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
     onProjectUpdate({ ...activeProject, completedTopics: newCompleted as any });
   };
 
+  let totalTopics = 0;
+  let completedTopicsCount = 0;
+  const globalCompletedArray = Array.isArray(activeProject.completedTopics) 
+    ? activeProject.completedTopics 
+    : (activeProject.completedTopics ? Object.values(activeProject.completedTopics).flat() : []);
+
+  filteredTaxonomy.forEach((category) => {
+    const modeTopics = category.topics.filter(t => !t.modes || t.modes.includes(activeMode));
+    totalTopics += modeTopics.length;
+    modeTopics.forEach(t => {
+      if (globalCompletedArray.includes(t.id)) {
+        completedTopicsCount++;
+      }
+    });
+  });
+
+  const progressPercentage = totalTopics > 0 ? Math.round((completedTopicsCount / totalTopics) * 100) : 0;
+
   return (
-    <aside className="w-72 shrink-0 h-[calc(100vh-4rem)] overflow-y-auto border-r border-muted bg-background/95 backdrop-blur-sm pb-10">
-      <nav className="p-4 space-y-6">
+    <aside className="w-72 shrink-0 h-[calc(100vh-4rem)] overflow-y-auto border-r border-muted bg-background/95 backdrop-blur-sm pb-10 flex flex-col">
+      {activeProject.progressEnabled !== false && totalTopics > 0 && (
+        <div className="p-5 pb-2 border-b border-muted/50 bg-muted/10 shrink-0">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Progress</span>
+            <span className="text-xs font-bold text-primary">{progressPercentage}%</span>
+          </div>
+          <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
+            <div 
+              className="h-full bg-primary transition-all duration-500 ease-out rounded-full" 
+              style={{ width: \`\${progressPercentage}%\` }}
+            />
+          </div>
+        </div>
+      )}
+      <nav className="p-4 space-y-6 flex-1 overflow-y-auto">
         {filteredTaxonomy.map((category) => {
           // Filter topics for the active mode
           const modeTopics = category.topics.filter(t => !t.modes || t.modes.includes(activeMode));

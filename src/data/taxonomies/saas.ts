@@ -11,6 +11,7 @@ export const saasProductionTaxonomy: Category[] = [
     id: 'phase-0',
     name: 'PHASE 0 — DISCOVERY & VALIDATION',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Idea Definition', Rocket),
       createTopic('Problem Statement', AlertCircle),
       createTopic('User Pain Points', AlertCircle),
@@ -140,6 +141,7 @@ export const saasHackathonTaxonomy: Category[] = [
     id: 'phase-0',
     name: 'PHASE 0',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Idea Definition', Rocket),
       createTopic('MVP Features', CheckSquare),
     ]
@@ -189,6 +191,7 @@ export const saasPersonalTaxonomy: Category[] = [
     id: 'discovery',
     name: 'PHASE 1 — DISCOVERY',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Personas', Users),
       createTopic('Idea', Rocket),
       createTopic('Features', CheckSquare),

@@ -7,6 +7,8 @@ import { motion } from 'framer-motion';
 import { generateStream } from '../utils/llm';
 import { useSettingsStore } from '../hooks/useSettingsStore';
 
+import type { Project } from '../App';
+
 interface MainCanvasProps {
   activeType: string;
   activePage: string;
@@ -15,9 +17,11 @@ interface MainCanvasProps {
   isAuthenticated: boolean;
   onRequestLogin: () => void;
   onNavigate: (page: string) => void;
+  activeProject: Project;
+  onProjectUpdate: (p: Project) => void;
 }
 
-export const MainCanvas = ({ activeType, activePage, activeMode, projectId, isAuthenticated, onRequestLogin, onNavigate }: MainCanvasProps) => {
+export const MainCanvas = ({ activeType, activePage, activeMode, projectId, isAuthenticated, onRequestLogin, onNavigate, activeProject, onProjectUpdate }: MainCanvasProps) => {
   let activeTopicName = activePage;
   const taxonomy = getTaxonomy(activeType, activeMode);
   const allTopics = taxonomy.flatMap(cat => cat.topics);
@@ -71,6 +75,18 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
     });
   };
 
+  const handleTopicComplete = () => {
+    const completedRaw = activeProject.completedTopics || [];
+    const completedArray = Array.isArray(completedRaw) ? completedRaw : Object.values(completedRaw).flat();
+    
+    if (!completedArray.includes(activePage)) {
+      onProjectUpdate({
+        ...activeProject,
+        completedTopics: [...completedArray, activePage]
+      });
+    }
+  };
+
   if (!isLoaded) {
     return (
       <div className="flex-1 flex flex-col items-center justify-center min-w-0 pt-8 pb-24 px-8 mx-auto max-w-3xl w-full h-[calc(100vh-4rem)]">
@@ -110,6 +126,7 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
         onNavigate={onNavigate}
         nextTopic={nextTopic}
         activeMode={activeMode}
+        onTopicComplete={handleTopicComplete}
       />
     </motion.main>
   );

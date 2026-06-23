@@ -36,7 +36,12 @@ export const universalLinks: QuickLink[] = [
 
 export const generateId = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '');
 
-const globalTopicLinks: Record<string, QuickLink[]> = {
+export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
+  'welcome': [
+    { name: 'Guide: How to build with AI', url: 'https://github.com/notUbaid/Kontxt' },
+    { name: 'Tool: Antigravity IDE', url: 'https://deepmind.google/technologies/gemini/' },
+    { name: 'Tool: Cursor IDE', url: 'https://cursor.sh/' }
+  ],
   'ideadefinition': [
     { name: 'YC: Evaluate Ideas', url: 'https://www.ycombinator.com/library/6e-how-to-evaluate-startup-ideas' },
     { name: 'Tool: Google Trends', url: 'https://trends.google.com/' },
