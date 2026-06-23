@@ -45,6 +45,52 @@ const PromptBlock = ({ children }: { children: string }) => {
   );
 };
 
+const InlineTextarea = ({ 
+  initialValue, 
+  startLine, 
+  endLine, 
+  onSave 
+}: { 
+  initialValue: string, 
+  startLine: number, 
+  endLine: number, 
+  onSave: (newText: string, startL: number, endL: number) => void 
+}) => {
+  const [value, setValue] = useState(initialValue);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    setValue(initialValue);
+  }, [initialValue]);
+
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px';
+    }
+  }, [value]);
+
+  const handleBlur = () => {
+    if (value !== initialValue) {
+      onSave(value, startLine, endLine);
+    }
+  };
+
+  const isPlaceholder = value.trim() === '✍️ Type your answer here...';
+
+  return (
+    <textarea
+      ref={textareaRef}
+      value={isPlaceholder ? '' : value}
+      placeholder="✍️ Type your answer here..."
+      onChange={e => setValue(e.target.value)}
+      onBlur={handleBlur}
+      className="w-full bg-muted/20 border border-muted/50 rounded-lg p-3 text-foreground placeholder:text-muted-foreground/50 resize-none outline-none focus:ring-2 focus:ring-primary/30 transition-all font-sans text-base leading-relaxed my-4 block shadow-sm hover:border-primary/30"
+      style={{ minHeight: '80px' }}
+    />
+  );
+};
+
 export const DocumentEditor = ({ 
   topicName, 
   content, 
@@ -189,6 +235,7 @@ export const DocumentEditor = ({
                         <input
                           type="checkbox"
                           checked={checked}
+                          className="cursor-pointer w-4 h-4 text-primary bg-background border-muted rounded focus:ring-primary focus:ring-2 mt-1 mr-2 inline-block shadow-sm transition-all hover:ring-2 hover:ring-primary/50 hover:border-primary/50"
                           onChange={(e) => {
                             const newChecked = e.target.checked;
                             const lineIndex = node.position!.start.line - 1;
@@ -209,9 +256,33 @@ export const DocumentEditor = ({
                   },
                   code: ({ node, inline, className, children, ...props }: any) => {
                     const match = /language-(\w+)/.exec(className || '');
+                    
+                    if (!inline && match && match[1] === 'input') {
+                      if (!node?.position) return <code className={className} {...props}>{children}</code>;
+                      
+                      const start = node.position.start.line - 1;
+                      const end = node.position.end.line - 1;
+                      const rawText = String(children).replace(/\n$/, '');
+
+                      return (
+                        <InlineTextarea
+                          initialValue={rawText}
+                          startLine={start}
+                          endLine={end}
+                          onSave={(newText, startL, endL) => {
+                            const currentContentLines = content.split('\n');
+                            const newLines = ['```input', newText, '```'];
+                            currentContentLines.splice(startL, endL - startL + 1, ...newLines);
+                            onChange(currentContentLines.join('\n'));
+                          }}
+                        />
+                      );
+                    }
+
                     if (!inline && match && match[1] === 'prompt') {
                       return <PromptBlock>{String(children).replace(/\n$/, '')}</PromptBlock>;
                     }
+                    
                     return (
                       <code className={className} {...props}>
                         {children}

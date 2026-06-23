@@ -14,19 +14,29 @@ Welcome to Phase 0. Before writing any code or choosing a database, we must clea
 Before you ask AI to evaluate your idea, answer these questions honestly. Type your answers right here:
 
 **Core Value Proposition** (If you could only do ONE thing, what is it?)
-> [Type your answer here...]
+```input
+✍️ Type your answer here...
+```
 
 **Target Audience** (Who exactly needs this?)
-> [Type your answer here...]
+```input
+✍️ Type your answer here...
+```
 
 **Existing Solution** (What do they use today?)
-> [Type your answer here...]
+```input
+✍️ Type your answer here...
+```
 
 **Unfair Advantage** (Why are *you* the one to build this?)
-> [Type your answer here...]
+```input
+✍️ Type your answer here...
+```
 
 **Why Now?** (Why does this idea make sense in 2026 but not 2022?)
-> [Type your answer here...]
+```input
+✍️ Type your answer here...
+```
 
 ---
 
@@ -57,16 +67,6 @@ Challenge my assumptions. Do not validate my idea automatically.
 
 ---
 
-## Example Output
-
-> **Core Value Proposition:** A CLI tool that automatically writes boilerplate tests for undocumented legacy codebases.
-> **Target Audience:** Agency developers who inherit messy React projects.
-> **Existing Solution:** Reading code manually and writing tests by hand.
-> **Unfair Advantage:** I spent 4 years working at an agency doing exactly this, so I know the edge cases.
-> **Why Now?** LLMs finally have the context windows necessary to ingest entire legacy repos at once.
-
----
-
 ## Validation Checklist
 - [ ] Can you explain the idea to a non-technical person in under 15 seconds?
 - [ ] Does the idea solve a real pain point, or is it just cool tech?
@@ -76,6 +76,10 @@ Challenge my assumptions. Do not validate my idea automatically.
 
 ## Deliverable
 At the bottom of this page, write a definitive 3-sentence summary of your idea. This will be referenced by Kontxt AI for all future phases.
+
+```input
+✍️ Type your answer here...
+```
 
 ---
 
@@ -129,13 +133,19 @@ Your product does not exist in a vacuum. It exists to eliminate a specific, pain
 Before using AI, answer these questions to capture project memory.
 
 **Current Workflow** (What is the exact workflow that is broken?)
-> [Type your answer here...]
+```input
+✍️ Type your answer here...
+```
 
 **Current Workaround** (How do they solve it today? e.g., Spreadsheets, Zapier)
-> [Type your answer here...]
+```input
+✍️ Type your answer here...
+```
 
 **Cost of Problem** (How much time/money does this cost them?)
-> [Type your answer here...]
+```input
+✍️ Type your answer here...
+```
 
 **Reality Check: Market Size**
 - [ ] Thousands
@@ -176,15 +186,6 @@ Act as a skeptical user research expert. Read my problem inputs above.
 
 ---
 
-## Example Output
-
-> **Current Workflow:** Small businesses manually track invoices in Excel and cross-reference them with bank statements.
-> **Current Workaround:** Hiring a part-time bookkeeper or spending Sunday nights manually auditing.
-> **Cost of Problem:** Owners spend 6-8 hours weekly chasing payments and often miss out on $1,000+ in forgotten invoices per month.
-> **Root Cause:** Invoicing and banking exist in two entirely disconnected systems.
-
----
-
 ## Validation Checklist
 - [ ] The problem exists independent of your proposed solution.
 - [ ] You have identified a root cause, not just a symptom.
@@ -197,6 +198,10 @@ Write a 3-part Problem Statement below:
 1. **The Current State:** How things are done today.
 2. **The Flaw:** Why the current state is terrible.
 3. **The Impact:** The cost (time, money, sanity) of the flaw.
+
+```input
+✍️ Type your answer here...
+```
 
 ---
 
