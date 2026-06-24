@@ -8670,7 +8670,10 @@ At the bottom of this page, write a definitive 3-sentence summary of your idea. 
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Y Combinator: How to Evaluate Startup Ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas)\n- [The Lean Canvas Guide](https://leanstack.com/lean-canvas)`,
   'mobileproblemstatement': `# Problem Statement
 
 **🕒 Estimated Time:** 15 min
@@ -8739,7 +8742,10 @@ Paste the AI-refined, punchy Problem Statement here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Y Combinator: How to Evaluate Startup Ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas)\n- [The Lean Canvas Guide](https://leanstack.com/lean-canvas)`,
   'mobileusecases': `# Use Cases
 
 **🕒 Estimated Time:** 20 min
@@ -8808,7 +8814,10 @@ Paste your finalized list of 3-5 Mobile Use Cases here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Y Combinator: How to Evaluate Startup Ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas)\n- [The Lean Canvas Guide](https://leanstack.com/lean-canvas)`,
   'mobileuserjourney': `# User Journey
 
 **🕒 Estimated Time:** 25 min
@@ -8879,7 +8888,10 @@ Paste the finalized 4-stage User Journey Map here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Y Combinator: How to Evaluate Startup Ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas)\n- [The Lean Canvas Guide](https://leanstack.com/lean-canvas)`,
   'mobiletargetaudience': `# Target Audience
 
 **🕒 Estimated Time:** 15 min
@@ -8948,7 +8960,10 @@ Paste the refined Beachhead Market and the list of keywords here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Nielsen Norman Group: User Personas](https://www.nngroup.com/articles/persona/)\n- [HubSpot: How to Create Detailed Buyer Personas](https://blog.hubspot.com/marketing/buyer-persona-research)`,
   'mobilepersonas': `# Personas
 
 **🕒 Estimated Time:** 15 min
@@ -9020,7 +9035,10 @@ Paste your comprehensive Primary Persona here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Nielsen Norman Group: User Personas](https://www.nngroup.com/articles/persona/)\n- [HubSpot: How to Create Detailed Buyer Personas](https://blog.hubspot.com/marketing/buyer-persona-research)`,
   'mobilesolutionstatement': `# Solution Statement
 
 **🕒 Estimated Time:** 15 min
@@ -9083,7 +9101,10 @@ Paste your 2-paragraph Solution Statement and 1-sentence Hook here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Y Combinator: How to Evaluate Startup Ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas)\n- [The Lean Canvas Guide](https://leanstack.com/lean-canvas)`,
   'mobileelevatorpitch': `# Elevator Pitch
 
 **🕒 Estimated Time:** 10 min
@@ -9158,7 +9179,10 @@ Paste your favorite of the 3 Elevator Pitches here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Y Combinator: How to Evaluate Startup Ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas)\n- [The Lean Canvas Guide](https://leanstack.com/lean-canvas)`,
   'mobilecompetitoranalysis': `# Competitor Analysis
 
 **🕒 Estimated Time:** 20 min
@@ -9226,7 +9250,10 @@ Paste your Positioning Strategy and your Key MVP Feature here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [AppTweak: App Store Optimization (ASO)](https://www.apptweak.com/)\n- [SensorTower: App Market Intelligence](https://sensortower.com/)`,
   'mobilesimilarapps': `# Similar Apps (UI/UX Inspiration)
 
 **🕒 Estimated Time:** 15-20 min
@@ -9295,7 +9322,10 @@ Paste the recommended Navigation Structure and the list of UI patterns you plan 
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [AppTweak: App Store Optimization (ASO)](https://www.apptweak.com/)\n- [SensorTower: App Market Intelligence](https://sensortower.com/)`,
   'play-store-research': `# Play Store Research
 
 **🕒 Estimated Time:** 20 min
@@ -9364,7 +9394,10 @@ Paste your suggested Title, Short Description, and the key screenshot concept he
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [AppTweak: App Store Optimization (ASO)](https://www.apptweak.com/)\n- [SensorTower: App Market Intelligence](https://sensortower.com/)`,
   'appstoreresearch': `# App Store Research
 
 **🕒 Estimated Time:** 20 min
@@ -9502,7 +9535,10 @@ Paste your organized list of Feature Epics and the list of features you are dele
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [MoSCoW Prioritization Method](https://www.productplan.com/glossary/moscow-prioritization/)\n- [Y Combinator: How to Plan an MVP](https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising)`,
   'mobilemvpfeatures': `# MVP Features
 
 **🕒 Estimated Time:** 15 min
@@ -9567,7 +9603,10 @@ Paste your finalized, trimmed-down list of MVP Features here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [MoSCoW Prioritization Method](https://www.productplan.com/glossary/moscow-prioritization/)\n- [Y Combinator: How to Plan an MVP](https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising)`,
   'mobilefuturefeatures': `# Future Features
 
 **🕒 Estimated Time:** 10 min
@@ -9630,7 +9669,10 @@ Paste your Future Features list and the architectural advice here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [MoSCoW Prioritization Method](https://www.productplan.com/glossary/moscow-prioritization/)\n- [Y Combinator: How to Plan an MVP](https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising)`,
   'mobilefeatureprioritization': `# Feature Prioritization
 
 **🕒 Estimated Time:** 15 min
@@ -9699,8 +9741,18 @@ Paste your step-by-step Build Order here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [MoSCoW Prioritization Method](https://www.productplan.com/glossary/moscow-prioritization/)\n- [Y Combinator: How to Plan an MVP](https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising)`,
   'mobilemonetization': `# Monetization Strategy
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+How will your app make money? On mobile, this is a much harder question than on desktop. App Store users are notorious for refusing to pay \'mobilemonetization': `# Monetization Strategy
 
 **🕒 Estimated Time:** 15 min
 
@@ -9768,7 +9820,139 @@ Paste your chosen monetization model and paywall strategy here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+.99 for an app, while simultaneously spending \$5.00 on a coffee every morning. Additionally, Apple and Google take a 15-30% cut of all digital transactions processed through their stores. You must choose a model that fits your audience's psychology.
+
+---
+
+## Think First
+Evaluate your app's core value:
+
+**The Value Equation** (Is your app a "painkiller" that solves an urgent problem, or a "vitamin" that is nice to have?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Frequency of Use** (Will they open this once a year, or 5 times a day?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Competition's Model** (How do your competitors make money? Are they all free with ads, or are they all \$9.99/month subscriptions?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **The "Apple Tax":** If you sell a digital good or service (like a premium subscription or virtual coins), you MUST use Apple/Google's In-App Purchases (IAP) and give them 30%. If you sell physical goods (like ordering a pizza) or services rendered outside the app (like an Uber ride), you can use Stripe and avoid the 30% cut.
+- **The Initial Hook:** Will you force users to pay before they can even see the main screen, or let them fall in love with the app first?
+
+---
+
+## Common Mistakes
+- **Assuming Ads are Easy:** To make a living wage purely from banner ads, you need hundreds of thousands of daily active users. 
+- **Underpricing:** Selling a highly specialized B2B mobile tool for \$0.99 because you are afraid to ask for \'mobilemonetization': `# Monetization Strategy
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+How will your app make money? On mobile, this is a much harder question than on desktop. App Store users are notorious for refusing to pay \$1.99 for an app, while simultaneously spending \$5.00 on a coffee every morning. Additionally, Apple and Google take a 15-30% cut of all digital transactions processed through their stores. You must choose a model that fits your audience's psychology.
+
+---
+
+## Think First
+Evaluate your app's core value:
+
+**The Value Equation** (Is your app a "painkiller" that solves an urgent problem, or a "vitamin" that is nice to have?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Frequency of Use** (Will they open this once a year, or 5 times a day?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Competition's Model** (How do your competitors make money? Are they all free with ads, or are they all \$9.99/month subscriptions?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **The "Apple Tax":** If you sell a digital good or service (like a premium subscription or virtual coins), you MUST use Apple/Google's In-App Purchases (IAP) and give them 30%. If you sell physical goods (like ordering a pizza) or services rendered outside the app (like an Uber ride), you can use Stripe and avoid the 30% cut.
+- **The Initial Hook:** Will you force users to pay before they can even see the main screen, or let them fall in love with the app first?
+
+---
+
+## Common Mistakes
+- **Assuming Ads are Easy:** To make a living wage purely from banner ads, you need hundreds of thousands of daily active users. 
+- **Underpricing:** Selling a highly specialized B2B mobile tool for \$0.99 because you are afraid to ask for \$19.99/month.
+
+---
+
+## AI Prompt
+Use AI to match your app with the most profitable, user-friendly model.
+
+\`\`\`prompt
+Act as a Mobile App Monetization Expert.
+Review my app concept and the answers above.
+
+1. Which monetization model (Free, Freemium, Subscription, Ads, One-time) is statistically the most successful for my specific app category?
+2. If I use this model, how do I structure the "Paywall" so users don't instantly uninstall the app when they see it?
+3. Does my app concept require me to pay the 30% App Store fee, or can I use Stripe?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like RevenueCat, Stripe, App Store Connect) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your chosen monetization model and paywall strategy here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+9.99/month.
+
+---
+
+## AI Prompt
+Use AI to match your app with the most profitable, user-friendly model.
+
+\`\`\`prompt
+Act as a Mobile App Monetization Expert.
+Review my app concept and the answers above.
+
+1. Which monetization model (Free, Freemium, Subscription, Ads, One-time) is statistically the most successful for my specific app category?
+2. If I use this model, how do I structure the "Paywall" so users don't instantly uninstall the app when they see it?
+3. Does my app concept require me to pay the 30% App Store fee, or can I use Stripe?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like RevenueCat, Stripe, App Store Connect) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your chosen monetization model and paywall strategy here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+
+## 📚 Context Links
+- [RevenueCat: State of Subscription Apps](https://www.revenuecat.com/state-of-subscription-apps/)\n- [Apple App Store: Monetization Guidelines](https://developer.apple.com/app-store/business-models/)`,
   'mobilefree': `# Completely Free
 
 **🕒 Estimated Time:** 10 min
@@ -9832,7 +10016,10 @@ Paste your specific usage limits and financial safety strategy here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [RevenueCat: State of Subscription Apps](https://www.revenuecat.com/state-of-subscription-apps/)\n- [Apple App Store: Monetization Guidelines](https://developer.apple.com/app-store/business-models/)`,
   'mobilefreemium': `# Freemium
 
 **🕒 Estimated Time:** 15 min
@@ -9896,7 +10083,10 @@ Paste your chosen Free/Premium dividing line here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [RevenueCat: State of Subscription Apps](https://www.revenuecat.com/state-of-subscription-apps/)\n- [Apple App Store: Monetization Guidelines](https://developer.apple.com/app-store/business-models/)`,
   'mobilesubscription': `# Subscription
 
 **🕒 Estimated Time:** 15 min
@@ -9960,7 +10150,10 @@ Paste your Pricing Tiers and Paywall copy here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [RevenueCat: State of Subscription Apps](https://www.revenuecat.com/state-of-subscription-apps/)\n- [Apple App Store: Monetization Guidelines](https://developer.apple.com/app-store/business-models/)`,
   'mobileads': `# Ad-Supported
 
 **🕒 Estimated Time:** 15 min
@@ -10024,8 +10217,43 @@ Paste your Ad Format strategy and "Remove Ads" pricing here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [RevenueCat: State of Subscription Apps](https://www.revenuecat.com/state-of-subscription-apps/)\n- [Apple App Store: Monetization Guidelines](https://developer.apple.com/app-store/business-models/)`,
   'mobileonetimepurchase': `# One-time Purchase (Paid App)
+
+**🕒 Estimated Time:** 10 min
+
+---
+
+## Overview
+The classic software model: The user pays \$4.99 upfront, downloads the app, and owns it forever. In today's App Store, this model is almost dead. Users are incredibly hesitant to pay for an app before they can try it. However, for certain niches (like indie games, specialized professional tools, or privacy-focused utilities), a one-time purchase is highly respected by users tired of subscriptions.
+
+---
+
+## Think First
+Are you building a utility or an ongoing service?
+
+**The "Done" State** (Is your app a complete, finished tool that won't require massive server costs or daily updates to function?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Upfront Promise** (Why would someone risk \$5 on your app without trying it first? Do you have an amazing promotional video or massive social proof?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Paid Upfront vs "Freemium Unlock":** Instead of charging \$4.99 upfront, it is almost always better to make the app free to download, let them poke around, and charge a \$4.99 "Pro Lifetime Unlock" In-App Purchase. It achieves the exact same revenue model but drastically lowers the barrier to entry.
+
+---
+
+## Common Mistakes
+- **High Server Costs:** Selling the app for \'mobileonetimepurchase': `# One-time Purchase (Paid App)
 
 **🕒 Estimated Time:** 10 min
 
@@ -10087,7 +10315,102 @@ Paste your final Pricing strategy (Paid Upfront vs Lifetime IAP) and Price Point
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+.99 upfront, but the app relies on the OpenAI API. If a user uses the app heavily for 2 years, they will cost you \$50 in API fees, bankrupting you. One-time purchase apps must rely entirely on the device's local processing (offline) to be profitable long-term.
+- **No Refund Policy:** Users who buy a paid app and don't like it will instantly leave a 1-star review to warn others.
+
+---
+
+## AI Prompt
+Use AI to decide if the upfront model will destroy your download metrics.
+
+\`\`\`prompt
+Act as an App Store Analytics Expert.
+My app concept is a one-time purchase.
+
+1. Tell me bluntly if this app concept will survive as a "Paid Upfront" app, or if I should switch to a "Free Download with a Lifetime Unlock IAP." Explain why.
+2. If my app requires a server or API, calculate the financial risk of charging a one-time fee.
+3. Suggest the optimal price point (\$0.99, \$4.99, \$9.99, \'mobileonetimepurchase': `# One-time Purchase (Paid App)
+
+**🕒 Estimated Time:** 10 min
+
+---
+
+## Overview
+The classic software model: The user pays \$4.99 upfront, downloads the app, and owns it forever. In today's App Store, this model is almost dead. Users are incredibly hesitant to pay for an app before they can try it. However, for certain niches (like indie games, specialized professional tools, or privacy-focused utilities), a one-time purchase is highly respected by users tired of subscriptions.
+
+---
+
+## Think First
+Are you building a utility or an ongoing service?
+
+**The "Done" State** (Is your app a complete, finished tool that won't require massive server costs or daily updates to function?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Upfront Promise** (Why would someone risk \$5 on your app without trying it first? Do you have an amazing promotional video or massive social proof?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Paid Upfront vs "Freemium Unlock":** Instead of charging \$4.99 upfront, it is almost always better to make the app free to download, let them poke around, and charge a \$4.99 "Pro Lifetime Unlock" In-App Purchase. It achieves the exact same revenue model but drastically lowers the barrier to entry.
+
+---
+
+## Common Mistakes
+- **High Server Costs:** Selling the app for \$1.99 upfront, but the app relies on the OpenAI API. If a user uses the app heavily for 2 years, they will cost you \$50 in API fees, bankrupting you. One-time purchase apps must rely entirely on the device's local processing (offline) to be profitable long-term.
+- **No Refund Policy:** Users who buy a paid app and don't like it will instantly leave a 1-star review to warn others.
+
+---
+
+## AI Prompt
+Use AI to decide if the upfront model will destroy your download metrics.
+
+\`\`\`prompt
+Act as an App Store Analytics Expert.
+My app concept is a one-time purchase.
+
+1. Tell me bluntly if this app concept will survive as a "Paid Upfront" app, or if I should switch to a "Free Download with a Lifetime Unlock IAP." Explain why.
+2. If my app requires a server or API, calculate the financial risk of charging a one-time fee.
+3. Suggest the optimal price point (\$0.99, \$4.99, \$9.99, \$19.99) for this specific type of utility.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like App Store Connect) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your final Pricing strategy (Paid Upfront vs Lifetime IAP) and Price Point here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+9.99) for this specific type of utility.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like App Store Connect) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your final Pricing strategy (Paid Upfront vs Lifetime IAP) and Price Point here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+
+## 📚 Context Links
+- [RevenueCat: State of Subscription Apps](https://www.revenuecat.com/state-of-subscription-apps/)\n- [Apple App Store: Monetization Guidelines](https://developer.apple.com/app-store/business-models/)`,
   'mobilesuccessmetrics': `# Success Metrics
 
 **🕒 Estimated Time:** 15 min
@@ -10151,7 +10474,10 @@ Paste your 3 Critical Analytics Events and your Onboarding Benchmark here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Mixpanel: Guide to Product Metrics](https://mixpanel.com/topics/product-metrics/)\n- [Amplitude: The Retention Playbook](https://amplitude.com/retention-playbook)`,
   'mobileretention': `# Retention
 
 **🕒 Estimated Time:** 15 min
@@ -10215,7 +10541,10 @@ Paste your Core Loop strategy and Push Notification concepts here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Mixpanel: Guide to Product Metrics](https://mixpanel.com/topics/product-metrics/)\n- [Amplitude: The Retention Playbook](https://amplitude.com/retention-playbook)`,
   'mobiledau': `# DAU (Daily Active Users)
 
 **🕒 Estimated Time:** 10 min
@@ -10270,7 +10599,10 @@ Paste your decision on whether DAU is your primary metric here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Mixpanel: Guide to Product Metrics](https://mixpanel.com/topics/product-metrics/)\n- [Amplitude: The Retention Playbook](https://amplitude.com/retention-playbook)`,
   'mobilemau': `# MAU (Monthly Active Users)
 
 **🕒 Estimated Time:** 10 min
@@ -10325,7 +10657,10 @@ Paste your Monthly Trigger strategy and target DAU/MAU ratio here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Mixpanel: Guide to Product Metrics](https://mixpanel.com/topics/product-metrics/)\n- [Amplitude: The Retention Playbook](https://amplitude.com/retention-playbook)`,
   'mobilesessionduration': `# Session Duration
 
 **🕒 Estimated Time:** 10 min
@@ -10380,7 +10715,10 @@ Paste your Ideal Session Duration and UX philosophy here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Mixpanel: Guide to Product Metrics](https://mixpanel.com/topics/product-metrics/)\n- [Amplitude: The Retention Playbook](https://amplitude.com/retention-playbook)`,
   'mobileprd': `# Product Requirements Document (PRD)
 
 **🕒 Estimated Time:** 30 min
@@ -10452,7 +10790,10 @@ Paste your finalized Mobile MVP PRD here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Y Combinator: How to Evaluate Startup Ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas)\n- [The Lean Canvas Guide](https://leanstack.com/lean-canvas)`,
   'mobileuserflows': `# User Flows
 
 **🕒 Estimated Time:** 30 min
@@ -10515,7 +10856,10 @@ Paste your optimized User Flows here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Mobbin: Mobile UI/UX Patterns](https://mobbin.com/)\n- [Apple HIG: Navigation Interfaces](https://developer.apple.com/design/human-interface-guidelines/navigation)`,
   'appnavigation': `# App Navigation
 
 **🕒 Estimated Time:** 20 min
@@ -10578,7 +10922,10 @@ Paste your exact Navigation Hierarchy (Tabs, Stacks, Modals) here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Mobbin: Mobile UI/UX Patterns](https://mobbin.com/)\n- [Apple HIG: Navigation Interfaces](https://developer.apple.com/design/human-interface-guidelines/navigation)`,
   'mobilewireframes': `# Wireframes
 
 **🕒 Estimated Time:** 45 min
@@ -10647,7 +10994,10 @@ Paste your 3 Text Wireframes here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Nielsen Norman: Empty States in UI Design](https://www.nngroup.com/articles/empty-states/)\n- [Material Design: Communication & Error States](https://m3.material.io/components)`,
   'mobiledesignsystem': `# Design System
 
 **🕒 Estimated Time:** 30 min
@@ -10681,7 +11031,10 @@ Establish your rules:
 
 ## Key Decisions
 - **Dark Mode Support:** Mobile users *expect* dark mode. Your design system must define a "Light" semantic palette and a "Dark" semantic palette from Day 1. If you try to hack dark mode in later, it will take weeks.
-- **UI Frameworks:** Will you build all components from scratch using React Native \`StyleSheet\`, or use a pre-built component library like NativeWind (Tailwind for RN), Tamagui, or React Native Paper? (NativeWind is highly recommended for speed).
+- **UI Frameworks:** Will you build all components from scratch using React Native \`StyleSheet\
+
+## 📚 Context Links
+- [Material 3 Design System](https://m3.material.io/)\n- [Apple HIG: Accessibility Guide](https://developer.apple.com/design/human-interface-guidelines/accessibility)`, or use a pre-built component library like NativeWind (Tailwind for RN), Tamagui, or React Native Paper? (NativeWind is highly recommended for speed).
 
 ---
 
@@ -10783,7 +11136,10 @@ Paste your finalized App Name, Icon Concept, and Tone of Voice example here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Material 3 Design System](https://m3.material.io/)\n- [Apple HIG: Accessibility Guide](https://developer.apple.com/design/human-interface-guidelines/accessibility)`,
   'mobileaccessibility': `# Accessibility
 
 **🕒 Estimated Time:** 15 min
@@ -10846,7 +11202,10 @@ Paste your React Native Accessibility Checklist here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Material 3 Design System](https://m3.material.io/)\n- [Apple HIG: Accessibility Guide](https://developer.apple.com/design/human-interface-guidelines/accessibility)`,
   'mobileemptystates': `# Empty States
 
 **🕒 Estimated Time:** 15 min
@@ -10908,7 +11267,10 @@ Paste your Empty State copy and CTA strategies here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Nielsen Norman: Empty States in UI Design](https://www.nngroup.com/articles/empty-states/)\n- [Material Design: Communication & Error States](https://m3.material.io/components)`,
   'mobileerrorstates': `# Error States
 
 **🕒 Estimated Time:** 15 min
@@ -10976,7 +11338,10 @@ Paste your Error State copy and UI rules (Toasts vs Modals) here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Nielsen Norman: Empty States in UI Design](https://www.nngroup.com/articles/empty-states/)\n- [Material Design: Communication & Error States](https://m3.material.io/components)`,
   'mobileloadingstates': `# Loading States
 
 **🕒 Estimated Time:** 15 min
@@ -11039,7 +11404,10 @@ Paste your Loading State strategies (Skeletons, Optimistic UI, Button states) he
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Nielsen Norman: Empty States in UI Design](https://www.nngroup.com/articles/empty-states/)\n- [Material Design: Communication & Error States](https://m3.material.io/components)`,
   'mobileplatformstrategy': `# Platform Strategy
 
 **🕒 Estimated Time:** 15 min
@@ -11102,7 +11470,10 @@ Paste your Platform Strategy (e.g., Cross-platform React Native, iOS only) here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Expo Documentation](https://docs.expo.dev/)\n- [React Native vs Flutter Comparison](https://www.appcues.com/blog/react-native-vs-flutter)`,
   'mobilefundamentals': `# Mobile Fundamentals
 
 **🕒 Estimated Time:** 20 min
@@ -11160,7 +11531,10 @@ Paste your notes on App Lifecycle and OTA updating here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Expo Documentation](https://docs.expo.dev/)\n- [React Native vs Flutter Comparison](https://www.appcues.com/blog/react-native-vs-flutter)`,
   'mobiletechstackselection': `# Tech Stack Selection
 
 **🕒 Estimated Time:** 20 min
@@ -11223,7 +11597,10 @@ Paste your finalized Tech Stack (e.g., React Native + Expo + TypeScript) here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Expo Documentation](https://docs.expo.dev/)\n- [React Native vs Flutter Comparison](https://www.appcues.com/blog/react-native-vs-flutter)`,
   'mobilestatemanagement': `# State Management
 
 **🕒 Estimated Time:** 20 min
@@ -11282,7 +11659,10 @@ Paste your chosen State Management stack (e.g., Zustand + React Query) here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [React Query: Data Fetching in React](https://tanstack.com/query/latest)\n- [Supabase: Open Source Firebase Alternative](https://supabase.com/docs)\n- [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)`,
   'mobileapistrategy': `# API Strategy
 
 **🕒 Estimated Time:** 15 min
@@ -11345,7 +11725,10 @@ Paste your API and Data Fetching Strategy here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [React Query: Data Fetching in React](https://tanstack.com/query/latest)\n- [Supabase: Open Source Firebase Alternative](https://supabase.com/docs)\n- [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)`,
   'mobilelocalstorage': `# Local Storage
 
 **🕒 Estimated Time:** 15 min
@@ -11370,7 +11753,10 @@ What needs to survive an app restart?
 ## Key Decisions
 - **AsyncStorage vs SecureStore:** 
   - For non-sensitive data (like theme preferences or cached JSON), use \`AsyncStorage\` (or faster alternatives like \`MMKV\`). 
-  - For sensitive data (like passwords, auth tokens, or API keys), you MUST use \`expo-secure-store\`, which encrypts the data using the device's native Keychain (iOS) or Keystore (Android).
+  - For sensitive data (like passwords, auth tokens, or API keys), you MUST use \`expo-secure-store\
+
+## 📚 Context Links
+- [React Query: Data Fetching in React](https://tanstack.com/query/latest)\n- [Supabase: Open Source Firebase Alternative](https://supabase.com/docs)\n- [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)`, which encrypts the data using the device's native Keychain (iOS) or Keystore (Android).
 - **High-Performance Storage:** If you are building a data-heavy app that needs to search through thousands of records offline, AsyncStorage is too slow. You will need a local SQLite database or a high-performance key-value store like MMKV.
 
 ---
@@ -11463,7 +11849,10 @@ Paste your chosen Auth Provider and Login Methods here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [React Query: Data Fetching in React](https://tanstack.com/query/latest)\n- [Supabase: Open Source Firebase Alternative](https://supabase.com/docs)\n- [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)`,
   'mobiledatabase': `# Database
 
 **🕒 Estimated Time:** 20 min
@@ -11528,7 +11917,10 @@ Paste your chosen Database Engine and Schema Draft here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [React Query: Data Fetching in React](https://tanstack.com/query/latest)\n- [Supabase: Open Source Firebase Alternative](https://supabase.com/docs)\n- [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)`,
   'mobilebackend': `# Backend
 
 **🕒 Estimated Time:** 15 min
@@ -11592,7 +11984,10 @@ Paste your Backend Strategy (BaaS vs Custom Server) and list of required server 
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [React Query: Data Fetching in React](https://tanstack.com/query/latest)\n- [Supabase: Open Source Firebase Alternative](https://supabase.com/docs)\n- [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)`,
   'mobilepushnotifications': `# Push Notifications
 
 **🕒 Estimated Time:** 20 min
@@ -11650,7 +12045,10 @@ Paste your Notification Provider choice and your "Warm Up" strategy here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Expo Push Notifications](https://docs.expo.dev/push-notifications/overview/)\n- [Branch.io: Deep Linking for Mobile](https://branch.io/)`,
   'mobiledeeplinking': `# Deep Linking
 
 **🕒 Estimated Time:** 15 min
@@ -11709,7 +12107,10 @@ Paste your Deep Linking strategy and React Navigation config structure here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [Expo Push Notifications](https://docs.expo.dev/push-notifications/overview/)\n- [Branch.io: Deep Linking for Mobile](https://branch.io/)`,
   'mobilefilestorage': `# File Storage
 
 **🕒 Estimated Time:** 15 min
@@ -11767,7 +12168,10 @@ Paste your Storage Provider choice and Image Compression library here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [WatermelonDB: Offline-first React Native Database](https://watermelondb.dev/)\n- [React Native NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)`,
   'mobileofflinestrategy': `# Offline Strategy
 
 **🕒 Estimated Time:** 20 min
@@ -11825,7 +12229,10 @@ Paste your chosen Offline Architecture (Caching vs Full Sync) here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [WatermelonDB: Offline-first React Native Database](https://watermelondb.dev/)\n- [React Native NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)`,
   'mobileanalyticsstrategy': `# Analytics Strategy
 
 **🕒 Estimated Time:** 15 min
@@ -11882,7 +12289,10 @@ Paste your Analytics Tooling (e.g., PostHog + Sentry) and the 5 Custom Events yo
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+
+
+## 📚 Context Links
+- [PostHog: Open Source Product Analytics](https://posthog.com/)\n- [AWS Pricing Calculator](https://calculator.aws/)`,
   'mobilecostestimation': `# Cost Estimation
 
 **🕒 Estimated Time:** 15 min
