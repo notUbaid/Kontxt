@@ -1,13 +1,14 @@
-import { useState } from 'react';
+import { Suspense, lazy, useState } from 'react';
 import { 
   Rocket, User, Building2, Sliders, FolderOpen, Plus, ArrowRight,
   Cloud, Smartphone, Globe, Brain, Puzzle, Monitor, Server, Wrench,
   Store, ShoppingCart, Gamepad2, AlertTriangle
 } from 'lucide-react';
-import { AuthModal } from './AuthModal';
 import type { Mode } from './TopNav';
 import type { Project, AppType } from '../App';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
+
+const AuthModal = lazy(() => import('./AuthModal').then(({ AuthModal }) => ({ default: AuthModal })));
 
 interface OnboardingProps {
   projects: Project[];
@@ -205,6 +206,7 @@ export const Onboarding = ({ projects, onCreateProject, onSelectProject, isAuthe
         ) : (
           <button 
             onClick={async () => {
+              const supabase = await getSupabase();
               await supabase.auth.signOut();
               setIsAuthenticated(false);
             }}
@@ -422,11 +424,15 @@ export const Onboarding = ({ projects, onCreateProject, onSelectProject, isAuthe
         )}
       </div>
 
-      <AuthModal 
-        isOpen={isAuthModalOpen} 
-        onClose={() => setIsAuthModalOpen(false)} 
-        onLogin={() => setIsAuthenticated(true)} 
-      />
+      <Suspense fallback={null}>
+        {isAuthModalOpen && (
+          <AuthModal 
+            isOpen={isAuthModalOpen} 
+            onClose={() => setIsAuthModalOpen(false)} 
+            onLogin={() => setIsAuthenticated(true)} 
+          />
+        )}
+      </Suspense>
     </div>
   );
 };

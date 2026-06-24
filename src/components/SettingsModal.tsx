@@ -6,7 +6,7 @@ import type { Project } from '../App';
 import type { Mode } from './TopNav';
 import { universalLinks, getTaxonomy } from '../data/taxonomy';
 import type { CustomLink } from '../data/taxonomies/types';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
 import { useSettingsStore } from '../hooks/useSettingsStore';
 
 interface SettingsModalProps {
@@ -83,7 +83,7 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
 
       // Fetch user email
       if (isAuthenticated) {
-        supabase.auth.getUser().then(({ data: { user } }) => {
+        getSupabase().then((supabase) => supabase.auth.getUser()).then(({ data: { user } }) => {
           if (user?.email) setUserEmail(user.email);
         });
       }
@@ -368,6 +368,7 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
                           </div>
                           <button 
                             onClick={async () => {
+                              const supabase = await getSupabase();
                               await supabase.auth.signOut();
                               onClose();
                             }}

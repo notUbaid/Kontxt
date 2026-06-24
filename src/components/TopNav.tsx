@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
+import { Suspense, lazy, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Search, Moon, Sun, Settings, X, Download, ChevronDown, ArchiveRestore, Link2, BookOpen } from 'lucide-react';
 import { getTaxonomy } from '../data/taxonomy';
 import type { Project } from '../App';
-import { SettingsModal } from './SettingsModal';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
 import { fallbackContent } from '../data/content/fallback';
 
 export type Mode = 'Hackathon' | 'Personal' | 'Production' | 'Custom';
+
+const SettingsModal = lazy(() => import('./SettingsModal').then(({ SettingsModal }) => ({ default: SettingsModal })));
 
 interface TopNavProps {
   activeProject: Project;
@@ -64,6 +65,7 @@ export const TopNav = ({
 
   const handleExport = async () => {
     // Fetch all documents for this project from Supabase
+    const supabase = await getSupabase();
     const { data: docs } = await supabase
       .from('documents')
       .select('topic_id, content')
@@ -128,6 +130,7 @@ export const TopNav = ({
         const taxonomy = getTaxonomy(project.type || 'SaaS', project.mode);
         
         // Fetch all documents for this project
+        const supabase = await getSupabase();
         const { data: docs } = await supabase
           .from('documents')
           .select('topic_id, content')
@@ -497,20 +500,24 @@ export const TopNav = ({
         document.body
       )}
 
-      <SettingsModal 
-        isOpen={isSettingsOpen} 
-        onClose={() => setIsSettingsOpen(false)} 
-        activeProject={activeProject}
-        projects={projects}
-        onModeChange={onModeChange}
-        onProjectUpdate={onProjectUpdate}
-        onProjectDelete={onProjectDelete}
-        isAuthenticated={isAuthenticated}
-        onRequestLogin={() => {
-          setIsSettingsOpen(false);
-          onRequestLogin();
-        }}
-      />
+      <Suspense fallback={null}>
+        {isSettingsOpen && (
+          <SettingsModal 
+            isOpen={isSettingsOpen} 
+            onClose={() => setIsSettingsOpen(false)} 
+            activeProject={activeProject}
+            projects={projects}
+            onModeChange={onModeChange}
+            onProjectUpdate={onProjectUpdate}
+            onProjectDelete={onProjectDelete}
+            isAuthenticated={isAuthenticated}
+            onRequestLogin={() => {
+              setIsSettingsOpen(false);
+              onRequestLogin();
+            }}
+          />
+        )}
+      </Suspense>
     </nav>
   );
 };

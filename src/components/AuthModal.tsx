@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Mail, ArrowRight, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -26,6 +26,7 @@ export const AuthModal = ({ isOpen, onClose, onLogin }: AuthModalProps) => {
     setLoading(true);
 
     try {
+      const supabase = await getSupabase();
       if (isForgotPassword) {
         const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
           redirectTo: `${window.location.origin}/reset-password`,
@@ -52,6 +53,7 @@ export const AuthModal = ({ isOpen, onClose, onLogin }: AuthModalProps) => {
 
   const handleOAuth = async (provider: 'github' | 'google') => {
     try {
+      const supabase = await getSupabase();
       const { error } = await supabase.auth.signInWithOAuth({ 
         provider,
         options: {

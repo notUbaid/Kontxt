@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
 import { fallbackContent } from '../data/content/fallback';
 
 export interface DocumentData {
@@ -33,10 +33,10 @@ export function useDocumentStore(projectId: string | null, topicId: string) {
       if (isMounted) {
         setContent(fallbackContent[topicId] || '');
         setIsLoaded(true);
-        setSaveStatus('loading' as any); // Optional: indicate background sync
       }
 
       try {
+        const supabase = await getSupabase();
         const { data, error } = await supabase
           .from('documents')
           .select('content')
@@ -75,6 +75,7 @@ export function useDocumentStore(projectId: string | null, topicId: string) {
     }
 
     saveTimeoutRef.current = setTimeout(async () => {
+      const supabase = await getSupabase();
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) return;
 

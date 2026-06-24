@@ -1,9 +1,10 @@
 import { useState, useEffect, Suspense, lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import type { Mode } from './components/TopNav';
-import { supabase } from './lib/supabase';
+import { getSupabase } from './lib/supabase';
 import { useProjectStore } from './hooks/useProjectStore';
 import type { CustomLink } from './data/taxonomies/types';
+import { scheduleIdleTask } from './utils/idle';
 
 export type AppType = 
   | 'SaaS' 
@@ -37,44 +38,47 @@ import Home from './pages/Home';
 const Editor = lazy(() => import('./pages/Editor'));
 const ResetPassword = lazy(() => import('./pages/ResetPassword'));
 
+const LoadingFallback = () => (
+  <div className="min-h-screen bg-background flex items-center justify-center text-muted-foreground font-medium">
+    Loading...
+  </div>
+);
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
   // Auth listener
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setIsAuthenticated(!!session);
-    });
+    let cancelled = false;
+    let unsubscribe: (() => void) | undefined;
 
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setIsAuthenticated(!!session);
-    });
+    const cancelIdleTask = scheduleIdleTask(() => {
+      getSupabase().then(async (supabase) => {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!cancelled) {
+          setIsAuthenticated(!!session);
+        }
 
-    return () => subscription.unsubscribe();
+        const {
+          data: { subscription },
+        } = supabase.auth.onAuthStateChange((_event, session) => {
+          setIsAuthenticated(!!session);
+        });
+
+        unsubscribe = () => subscription.unsubscribe();
+      });
+    }, 800);
+
+    return () => {
+      cancelled = true;
+      cancelIdleTask();
+      unsubscribe?.();
+    };
   }, []);
 
   const { projects, addProject, updateProject, deleteProject } = useProjectStore(!!isAuthenticated);
 
-  // Load theme
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('kontxt_theme');
-    if (savedTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, []);
-
   // Removed the blocking auth screen to allow Home to render immediately for better LCP
-
-  // Suspense fallback for lazy loaded components
-  const LoadingFallback = () => (
-    <div className="min-h-screen bg-background flex items-center justify-center text-muted-foreground font-medium">
-      Loading...
-    </div>
-  );
 
   return (
     <Suspense fallback={<LoadingFallback />}>

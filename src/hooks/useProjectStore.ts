@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
 import type { Project } from '../App';
 import type { AppType } from '../App';
 import type { Mode } from '../components/TopNav';
@@ -17,6 +17,7 @@ export const useProjectStore = (isAuthenticated: boolean) => {
     }
     
     setLoading(true);
+    const supabase = await getSupabase();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
       setLoading(false);
@@ -55,6 +56,7 @@ export const useProjectStore = (isAuthenticated: boolean) => {
   }, [fetchProjects]);
 
   const addProject = async (project: Project) => {
+    const supabase = await getSupabase();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return;
 
@@ -93,6 +95,7 @@ export const useProjectStore = (isAuthenticated: boolean) => {
     }
 
     updateTimeoutRef.current = setTimeout(async () => {
+      const supabase = await getSupabase();
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) return;
 
@@ -120,6 +123,7 @@ export const useProjectStore = (isAuthenticated: boolean) => {
   };
 
   const deleteProject = async (projectId: string) => {
+    const supabase = await getSupabase();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return;
 

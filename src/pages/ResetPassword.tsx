@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
 import { KeyRound, ArrowRight, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -30,6 +30,7 @@ export default function ResetPassword() {
     setLoading(true);
     setError(null);
     
+    const supabase = await getSupabase();
     const { error } = await supabase.auth.updateUser({ password });
     
     setLoading(false);

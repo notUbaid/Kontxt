@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
 import type { CustomLink } from '../data/taxonomies/types';
 
 export interface UserSettings {
@@ -32,6 +32,7 @@ export function useSettingsStore(isAuthenticated: boolean) {
       return;
     }
 
+    const supabase = await getSupabase();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
       setIsLoaded(true);
@@ -76,6 +77,7 @@ export function useSettingsStore(isAuthenticated: boolean) {
       }
 
       saveTimeoutRef.current = setTimeout(async () => {
+        const supabase = await getSupabase();
         const { data: { user } } = await supabase.auth.getUser();
         if (!user) return;
 
