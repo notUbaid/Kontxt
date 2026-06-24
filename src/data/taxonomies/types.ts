@@ -379,6 +379,21 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'GitHub Actions Documentation', url: 'https://docs.github.com/en/actions' },
     { name: 'Branch Protection Rules', url: 'https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-a-branch-protection-rule' },
     { name: 'Vercel Git Integration', url: 'https://vercel.com/docs/deployments/git' }
+  ],
+  'infrastructure': [
+    { name: 'Vercel vs Render vs Railway', url: 'https://blog.railway.app/' },
+    { name: 'DigitalOcean App Platform', url: 'https://www.digitalocean.com/products/app-platform' },
+    { name: 'Fly.io Documentation', url: 'https://fly.io/docs/' }
+  ],
+  'disasterrecovery': [
+    { name: 'Instatus (Free Status Pages)', url: 'https://instatus.com/' },
+    { name: 'PagerDuty Incident Response', url: 'https://www.pagerduty.com/' },
+    { name: 'Google SRE: Incident Response', url: 'https://sre.google/sre-book/managing-incidents/' }
+  ],
+  'scalabilityplanning': [
+    { name: 'Supabase Connection Pooling', url: 'https://supabase.com/docs/guides/database/connecting-to-postgres#connection-pooler' },
+    { name: 'PostgreSQL Read Replicas', url: 'https://www.postgresql.org/docs/current/warm-standby.html' },
+    { name: 'ByteByteGo: System Design', url: 'https://bytebytego.com/' }
   ]
 };
 

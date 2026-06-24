@@ -5628,4 +5628,237 @@ Act as a DevOps Engineer.
 **File Name:** \`.github/workflows/ci.yml\`
 **Purpose:** Automate quality gates and eliminate manual deployments.
 **Contents:** The complete GitHub Actions workflow and the branch protection configuration.`
+,
+  'infrastructure': `# Infrastructure
+
+**🕒 Estimated Time:** 45-60 min
+
+---
+
+## Overview
+Infrastructure is the physical (or virtual) foundation your code runs on. Choosing the wrong hosting setup is like building a skyscraper on sand — it works until it doesn't. For most SaaS MVPs, the goal is to pick the simplest infrastructure that removes operational burden so you can focus on building the product, not babysitting servers at 3 AM.
+
+---
+
+## Think First
+Define your operational tolerance.
+
+**The DevOps Budget (How many hours per week are you willing to spend managing servers, containers, and deployments? Be honest.)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Traffic Profile (Is your app read-heavy or write-heavy? Does it serve mostly static content, or does every request trigger complex server-side computation?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Serverless vs. Containers vs. VPS:**
+  - *Serverless (Vercel, AWS Lambda):* Zero server management. Scales to zero (costs \$0 when nobody is using it). Perfect for SaaS MVPs. Downside: cold starts, execution time limits, and vendor lock-in.
+  - *Containers (Docker on Render, Railway, Fly.io):* You package your app into a Docker container that runs continuously. Predictable performance, no cold starts, but you pay even when idle.
+  - *VPS (DigitalOcean Droplet, Hetzner):* You rent a raw Linux server and manage everything yourself. Maximum control, minimum cost, maximum operational burden.
+  - *Decision:* If you have zero DevOps experience, start with Serverless (Vercel). If you need long-running processes (WebSockets, cron jobs), use Containers (Render/Railway).
+- **Multi-Region vs. Single Region:** Deploying your app in a single region is fine for an MVP. Multi-region deployments reduce latency for global users but massively increase complexity and cost.
+
+---
+
+## Common Mistakes
+- **Over-Engineering from Day 1:**
+  - *Why it happens:* Reading blog posts about how Netflix runs Kubernetes clusters across 12 availability zones.
+  - *Consequence:* You spend 3 weeks setting up Terraform, Docker Compose, Kubernetes, and a CI/CD pipeline before writing a single line of product code.
+  - *Prevention:* Deploy on a managed platform first. Migrate to more complex infrastructure only when you hit a specific, measurable limitation.
+- **Not Pinning Runtime Versions:** Your app runs on Node 20 locally but the production environment defaults to Node 18. Subtle bugs appear only in production.
+
+---
+
+## Examples
+- *Good Implementation:* Frontend and API deployed on Vercel (zero config). Database on Supabase (managed Postgres). Background jobs on a single Render worker. Total monthly cost at launch: \$0-\$25.
+- *Bad Implementation:* Renting 3 bare-metal servers, manually installing Nginx, configuring SSL with Let's Encrypt, writing custom systemd services, and SSHing into production to deploy via \`git pull\`.
+
+---
+
+## AI Prompt
+\`\`\`prompt
+My SaaS is built with [INSERT STACK, e.g., Next.js, Supabase].
+My expected traffic at launch is [INSERT ESTIMATE, e.g., 100-500 users/day].
+My budget for infrastructure is [INSERT BUDGET, e.g., \$0-\$50/month].
+
+Act as a Cloud Infrastructure Architect.
+1. Recommend the exact hosting platform for my frontend, backend, and database.
+2. Should I use Serverless, Containers, or a VPS for this specific workload and budget?
+3. What region should I deploy in based on my target user geography?
+4. Write the exact deployment configuration files needed.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Is your hosting platform fully managed (no manual server maintenance required)?
+- [ ] Is SSL/HTTPS configured automatically by the platform?
+- [ ] Have you pinned your Node.js (or runtime) version in both your project config and the hosting platform?
+- [ ] Can you deploy a new version of your app with a single \`git push\`?
+
+---
+
+## Deliverable
+**File Name:** \`infrastructure.md\`
+**Purpose:** Document where everything runs and why.
+**Contents:** A map of services (Frontend, Backend, DB, Workers) to their hosting platforms, regions, and estimated costs.`,
+  'disasterrecovery': `# Disaster Recovery
+
+**🕒 Estimated Time:** 45 min
+
+---
+
+## Overview
+Disaster Recovery (DR) is the plan you execute when everything has already gone catastrophically wrong. Your database is corrupted. Your hosting provider has a regional outage. A developer force-pushed to \`main\` and wiped out 2 weeks of work. DR is not about preventing disasters — that's what Backups, Monitoring, and Security are for. DR is about how fast and how completely you can restore normal operations after the worst has already happened.
+
+---
+
+## Think First
+Define the worst-case scenarios.
+
+**The Nightmare Scenario (What is the single worst thing that could happen to your application right now? e.g., Complete database deletion, Hosting provider goes offline for 24 hours)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Communication Plan (When your app goes down, how do you notify your paying customers? Do you have a status page? A support email? A Twitter account?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Active-Passive vs. Active-Active:**
+  - *Active-Passive:* You have a primary server. If it dies, you manually switch to a standby server. Simpler, cheaper, slower recovery.
+  - *Active-Active:* Traffic is load-balanced across multiple servers simultaneously. If one dies, the others absorb the load automatically. Complex, expensive, instant recovery.
+  - *Decision:* For an MVP, Active-Passive (or relying on your managed platform's built-in redundancy) is perfectly sufficient.
+- **Runbook vs. Improvisation:** When your database goes down at 2 AM and your heart is racing, you will not think clearly. A **Runbook** is a step-by-step checklist written in advance that tells you exactly what to do, in what order, with the exact commands to run. Never improvise disaster recovery.
+
+---
+
+## Common Mistakes
+- **No Written Runbook:**
+  - *Why it happens:* "I'll remember what to do." No you won't. Not at 2 AM. Not when your biggest customer is threatening to churn.
+  - *Consequence:* You panic, make the situation worse by running the wrong restore command, and turn a 1-hour outage into a 12-hour data loss event.
+  - *Prevention:* Write the Runbook now, while you are calm and thinking clearly. Include exact commands, not vague instructions.
+- **Single Points of Failure:** Your entire business runs on one Supabase project with no backup database, no redundant hosting, and no way to migrate if Supabase has a multi-hour outage.
+
+---
+
+## Examples
+- *Good Implementation:* A documented Runbook stored in the team's Notion that covers 3 scenarios: (1) Database corruption -> Restore from latest PITR backup, (2) Vercel outage -> Deploy to Render using the Docker backup, (3) Compromised API keys -> Rotate all secrets via the emergency rotation script. Each scenario has exact commands and an estimated recovery time.
+- *Bad Implementation:* The founder is the only person who knows the database password, which is stored in a Slack DM from 6 months ago.
+
+---
+
+## AI Prompt
+\`\`\`prompt
+My SaaS runs on [INSERT STACK, e.g., Vercel + Supabase].
+My backups are [INSERT BACKUP STRATEGY, e.g., Daily Supabase snapshots + 6-hourly pg_dump to S3].
+
+Act as a Disaster Recovery Specialist.
+1. Identify the top 3 disaster scenarios most likely to affect this specific stack.
+2. For each scenario, write a step-by-step Runbook with the exact terminal commands required to restore service.
+3. For each scenario, estimate the Recovery Time Objective (RTO) and Recovery Point Objective (RPO).
+4. Recommend a free status page tool I can use to communicate outages to my users.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Do you have a written, step-by-step Runbook for at least 3 disaster scenarios?
+- [ ] Does your Runbook include the exact terminal commands (not vague instructions)?
+- [ ] Is there a public Status Page where customers can check if your service is down?
+- [ ] Does more than one person on your team know how to execute the recovery plan?
+
+---
+
+## Deliverable
+**File Name:** \`disaster_recovery_runbook.md\`
+**Purpose:** Survive the worst day of your business.
+**Contents:** Step-by-step recovery procedures for database corruption, hosting outages, and security breaches, with exact commands and estimated recovery times.`,
+  'scalabilityplanning': `# Scalability Planning
+
+**🕒 Estimated Time:** 30-45 min
+
+---
+
+## Overview
+Scalability Planning is the art of building for today while anticipating tomorrow. It is NOT about handling 10 million users on day one. It IS about identifying the 2-3 architectural bottlenecks that will break first as you grow, and having a documented plan for when to address them. The best time to think about scaling is before you need it — but the best time to implement scaling is the moment you actually need it, and not a second earlier.
+
+---
+
+## Think First
+Identify where you will break.
+
+**The First Bottleneck (Based on your architecture, what will break first when you go from 100 to 10,000 users? The database? The API? The AI token budget?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Scale Trigger (At what specific metric will you know it's time to scale? e.g., "Database CPU consistently above 70%", "API P95 latency exceeds 2 seconds")**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Vertical Scaling vs. Horizontal Scaling:**
+  - *Vertical (Scale Up):* Give your existing server more RAM and CPU. Simple but has a hard ceiling.
+  - *Horizontal (Scale Out):* Add more servers and distribute traffic between them using a load balancer. Complex but theoretically unlimited.
+  - *Decision:* Always start with Vertical scaling. It requires zero code changes. Switch to Horizontal only when you physically max out the biggest available server.
+- **Database Scaling:** The database is almost always the first bottleneck. Before doing anything complex, try these in order: (1) Add indexes, (2) Optimize slow queries, (3) Add read replicas, (4) Implement connection pooling. Only after exhausting all of these should you consider sharding or switching databases.
+
+---
+
+## Common Mistakes
+- **Premature Scaling:**
+  - *Why it happens:* Fear of success. "What if we go viral tomorrow?"
+  - *Consequence:* You spend \$500/month on a Kubernetes cluster, a Redis cache, and 3 read replicas for an app with 12 users. Your runway burns 10x faster.
+  - *Prevention:* Scale reactively based on metrics, not proactively based on anxiety. Set up monitoring alerts, and only scale when they fire.
+- **Ignoring the Database:** Adding 5 more API servers while the single PostgreSQL instance is at 95% CPU. The API servers just send more traffic to the already-dying database.
+
+---
+
+## Examples
+- *Good Implementation:* A documented "Scale Plan" that says: "At 1,000 users, upgrade Supabase to Pro for connection pooling. At 5,000 users, add a read replica. At 10,000 users, implement Redis caching for the dashboard. At 50,000 users, evaluate horizontal API scaling."
+- *Bad Implementation:* Deploying a Kubernetes cluster with auto-scaling policies for an app that currently has 3 beta testers.
+
+---
+
+## AI Prompt
+\`\`\`prompt
+My SaaS architecture is:
+- Frontend: [INSERT, e.g., Next.js on Vercel]
+- Backend: [INSERT, e.g., Next.js API Routes]
+- Database: [INSERT, e.g., Supabase Postgres]
+
+Act as a Principal Systems Architect planning for growth.
+1. Based on this architecture, what will be the FIRST component to fail as I scale from 100 to 10,000 users?
+2. Create a "Scale Plan" document with specific milestones: What should I do at 1,000 users? 5,000? 10,000? 50,000?
+3. For each milestone, estimate the monthly infrastructure cost increase.
+4. What are the 3 cheapest optimizations I can make RIGHT NOW that will delay the need for complex scaling the longest?
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Have you identified the single component most likely to become the bottleneck first?
+- [ ] Do you have a written "Scale Plan" with specific user-count milestones and corresponding actions?
+- [ ] Are you monitoring the metrics (DB CPU, API latency, memory) that will tell you when it's time to scale?
+- [ ] Have you exhausted simple optimizations (indexes, caching, query optimization) before considering complex infrastructure changes?
+
+---
+
+## Deliverable
+**File Name:** \`scale_plan.md\`
+**Purpose:** Grow without breaking.
+**Contents:** A milestone-based plan mapping user counts to specific infrastructure upgrades, with estimated costs and the metrics that trigger each upgrade.`
 };
