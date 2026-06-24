@@ -4786,4 +4786,159 @@ Act as an Expert Technical Writer.
 **File Name:** \`README.md\` and \`/docs\` folder
 **Purpose:** Educate users and developers to reduce support burden.
 **Contents:** Markdown files containing tutorials, API references, and architecture notes.`
+,
+  'demodata': `# Demo Data
+
+**🕒 Estimated Time:** 45-60 min
+
+---
+
+## Overview
+You cannot launch on Product Hunt, record a promotional video, or do a live sales pitch with an empty dashboard. An empty app forces the user to use their imagination. Your application needs to look lived-in, active, and valuable from the very first second. Generating high-quality "Demo Data" is the bridge between a functional codebase and a sellable product.
+
+---
+
+## Think First
+Define the "Aha!" moment.
+
+**The Golden Scenario (What is the absolute best-case scenario a user can experience in your app? e.g., A dashboard showing $10k in Monthly Recurring Revenue, or a project board fully populated with completed tasks.)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Industry Context (Who is your target persona? If you are building a tool for lawyers, your demo data must look like legal case files, not generic "lorem ipsum" text.)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Automated Seeding vs. Manual Curation:**
+  - *Automated:* Using a script (like Faker.js) to generate 1,000 rows of data so your pagination and analytics charts look impressive.
+  - *Manual:* Hand-crafting 3 to 5 highly specific "Hero" items that tell a compelling story when clicked.
+  - *Decision:* Do both. Automate the volume, manually curate the Hero items.
+- **Wiping vs. Sandboxing:** When a user signs up for a free trial, do you inject demo data directly into their account to help them learn, or do you leave it empty? Injecting 3 realistic "example" items into a new user's workspace drastically improves onboarding conversion.
+
+---
+
+## Common Mistakes
+- **Using "Test 123" and "asdfasdf":**
+  - *Why it happens:* Developers get lazy when testing forms.
+  - *Consequence:* An investor or customer looks at a table full of "Test User" and assumes the product is broken, amateurish, or not ready for production.
+  - *Prevention:* Always use contextually relevant, realistic dummy data.
+- **Static Timestamps:** Generating 500 rows of data where \`created_at\` is the exact same second. Your analytics charts will show a massive spike on one day and zero activity everywhere else. 
+
+---
+
+## Examples
+- *Good Implementation:* A CRM demo environment populated with 50 realistic leads (e.g., "Acme Corp", "Globex"). The \`created_at\` dates are mathematically distributed over the last 6 months so the "Revenue over Time" line chart curves upwards beautifully.
+- *Bad Implementation:* A completely blank dashboard that says "You have no projects. Click here to create one."
+
+---
+
+## AI Prompt
+Use AI to write a hyper-realistic data generation script.
+
+\`\`\`prompt
+My SaaS is a [INSERT NICHE, e.g., CRM for Dental Clinics].
+My database uses [INSERT ORM, e.g., Prisma].
+
+Act as a Product Marketer and Backend Engineer.
+1. Write a TypeScript seeding script using \`@faker-js/faker\`.
+2. Generate highly realistic, industry-specific data (Do NOT use generic 'Lorem Ipsum'. Use realistic dental terminology, patient names, and procedure codes).
+3. Generate exactly 100 records.
+4. Ensure the \`created_at\` timestamps are distributed randomly over the past 90 days so my analytics charts will look active and realistic.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Does your application look like a real, active company is currently using it?
+- [ ] Are all graphs, charts, and metrics fully populated and showing positive trends?
+- [ ] Have you completely eliminated any "test", "asdf", or "lorem ipsum" strings from the UI?
+
+---
+
+## Deliverable
+**File Name:** \`demo_seed.ts\`
+**Purpose:** Make the product instantly impressive.
+**Contents:** A dedicated script used exclusively for populating presentation environments.`,
+  'presentationprep': `# Presentation Prep
+
+**🕒 Estimated Time:** 60-120 min
+
+---
+
+## Overview
+Building the software is only 50% of the battle; the other 50% is convincing people to care. Presentation Prep is about translating your technical architecture into a compelling narrative. Whether you are pitching to Y Combinator, launching on Product Hunt, or doing a 1-on-1 sales call, a confused audience will never buy.
+
+---
+
+## Think First
+Understand your audience.
+
+**The Audience (Who are you presenting to? Investors care about Market Size and Traction. Users care about "Will this save me time/money?")**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Core Metric (What is the single most impressive number you can share? e.g., "We grew 20% this week" or "Our software saves users 5 hours a week")**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Live Demo vs. Pre-Recorded Video:**
+  - *Live Demo:* Highly engaging, but risky. Live demos have a mystical ability to crash due to network errors or edge cases.
+  - *Pre-Recorded:* Safe, polished, and allows you to edit out load times. 
+  - *Decision:* ALWAYS have a pre-recorded Loom video ready. If doing a live pitch, attempt the live demo, but switch to the video the second something goes wrong.
+- **The Pitch Structure:** Never start by explaining the tech stack or how you built it. Start with the **Problem** (make it hurt), introduce the **Solution** (your app), and end with **Traction** (why you will win).
+
+---
+
+## Common Mistakes
+- **The Feature Dump:**
+  - *Why it happens:* You spent 3 weeks building a complex settings page, so you want to show it off.
+  - *Consequence:* You spend 2 minutes of a 3-minute pitch clicking through menus, boring the audience to death before showing the actual value.
+  - *Prevention:* Only show the "Golden Flow". Ignore the settings, the login screen, and the edge cases.
+- **"We have no competitors":** Saying this to an investor instantly proves you haven't researched your market. Excel/Spreadsheets is almost always your biggest competitor.
+
+---
+
+## Examples
+- *Good Implementation:* A 90-second Loom video. First 10 seconds: "Lawyers waste 5 hours a week summarizing cases." Next 60 seconds: Showing a document being uploaded and perfectly summarized by AI in 5 seconds. Final 20 seconds: "We have 5 law firms paying us $100/mo."
+- *Bad Implementation:* A 10-minute video where the founder talks over a slide deck, spends 3 minutes showing how the login page works, and the demo crashes halfway through.
+
+---
+
+## AI Prompt
+Use AI to write a high-converting pitch script.
+
+\`\`\`prompt
+My SaaS is: [INSERT ELEVATOR PITCH].
+My target audience for this presentation is: [INSERT AUDIENCE, e.g., Seed Investors / Product Hunt Users].
+
+Act as a Y Combinator Pitch Coach.
+1. Write a strict 2-minute pitch script for me to read over a demo video.
+2. Structure it as: The Problem, The Solution (The Demo), The Business Model, and The Ask.
+3. Keep the sentences short, punchy, and jargon-free.
+4. Tell me exactly what actions I should be performing on-screen during each sentence of the script.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Have you written out a literal script for your presentation rather than winging it?
+- [ ] Have you recorded a high-quality backup video (e.g., using Loom) in case the live demo fails?
+- [ ] Does your pitch get to the core value proposition (the "Aha!" moment) in the first 30 seconds?
+
+---
+
+## Deliverable
+**File Name:** \`pitch_script.md\`
+**Purpose:** Convert viewers into users or investors.
+**Contents:** The timed script and the recorded Loom video link.`
 };

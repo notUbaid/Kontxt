@@ -324,6 +324,16 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'Mintlify Documentation Sites', url: 'https://mintlify.com/' },
     { name: 'Swagger (OpenAPI)', url: 'https://swagger.io/' },
     { name: 'Google Developer Documentation Style Guide', url: 'https://developers.google.com/style' }
+  ],
+  'demodata': [
+    { name: 'Faker.js Documentation', url: 'https://fakerjs.dev/' },
+    { name: 'Mockaroo (CSV Test Data)', url: 'https://www.mockaroo.com/' },
+    { name: 'Why Your Demo Data Matters', url: 'https://www.lennysnewsletter.com/' }
+  ],
+  'presentationprep': [
+    { name: 'Y Combinator: How to Pitch', url: 'https://www.ycombinator.com/library/4q-how-to-pitch-your-company' },
+    { name: 'Loom (Video Recording)', url: 'https://www.loom.com/' },
+    { name: 'Product Hunt Launch Guide', url: 'https://www.producthunt.com/launch' }
   ]
 };
 
