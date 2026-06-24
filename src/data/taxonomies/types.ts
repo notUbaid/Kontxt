@@ -439,6 +439,34 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'Crisp (Chat Widget)', url: 'https://crisp.chat/' },
     { name: 'Resend (Transactional Emails)', url: 'https://resend.com/' },
     { name: 'Linear (Issue Tracking)', url: 'https://linear.app/' }
+  ],
+  'retention': [
+    { name: 'ProfitWell (Churn Tracking)', url: 'https://www.profitwell.com/' },
+    { name: 'Baremetrics', url: 'https://baremetrics.com/' }
+  ],
+  'userfeedback': [
+    { name: 'Canny (Feedback Boards)', url: 'https://canny.io/' },
+    { name: 'Typeform (Surveys)', url: 'https://www.typeform.com/' }
+  ],
+  'scalingstrategy': [
+    { name: 'AWS', url: 'https://aws.amazon.com/' },
+    { name: 'DigitalOcean', url: 'https://www.digitalocean.com/' }
+  ],
+  'marketing': [
+    { name: 'HubSpot (Inbound)', url: 'https://www.hubspot.com/' },
+    { name: 'Apollo.io (Cold Email)', url: 'https://www.apollo.io/' }
+  ],
+  'referralsystems': [
+    { name: 'Rewardful (Affiliates)', url: 'https://www.rewardful.com/' },
+    { name: 'PartnerStack', url: 'https://partnerstack.com/' }
+  ],
+  'featureroadmap': [
+    { name: 'Linear (Roadmaps)', url: 'https://linear.app/' },
+    { name: 'Productboard', url: 'https://www.productboard.com/' }
+  ],
+  'technicaldebt': [
+    { name: 'SonarQube (Code Quality)', url: 'https://www.sonarqube.org/' },
+    { name: 'Sentry (Error Tracking)', url: 'https://sentry.io/' }
   ]
 };
 
