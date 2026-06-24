@@ -467,6 +467,18 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
   'technicaldebt': [
     { name: 'SonarQube (Code Quality)', url: 'https://www.sonarqube.org/' },
     { name: 'Sentry (Error Tracking)', url: 'https://sentry.io/' }
+  ],
+  'pitchdeck': [
+    { name: 'Pitch.com (Presentations)', url: 'https://pitch.com/' },
+    { name: 'Canva (Slide Templates)', url: 'https://www.canva.com/' }
+  ],
+  'demoscript': [
+    { name: 'Loom (Screen Recording)', url: 'https://www.loom.com/' },
+    { name: 'OBS Studio (Live Demos)', url: 'https://obsproject.com/' }
+  ],
+  'submissionchecklist': [
+    { name: 'Product Hunt Launch Guide', url: 'https://www.producthunt.com/launch' },
+    { name: 'Devpost (Hackathons)', url: 'https://devpost.com/' }
   ]
 };
 

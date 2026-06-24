@@ -7053,5 +7053,242 @@ Identify the single piece of technical debt that is slowing you down the most ri
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
+`,
+  'pitchdeck': `# Pitch Deck
+
+**🕒 Estimated Time:** 45-60 min
+
+---
+
+## Overview
+You have built a phenomenal product. But whether you are pitching to a panel of hackathon judges, a Venture Capitalist, or a massive enterprise client, your code does not speak for itself. You must translate your technical achievement into a compelling business narrative. A Pitch Deck is a visual story that proves you understand the problem deeply, your solution is unique, and you have the ability to execute.
+
+---
+
+## Think First
+Distill your narrative.
+
+**What is the single biggest "Villain" (the problem) your pitch is fighting against?**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Why are *you* (or your team) the exact right people to solve this? (The "Why Us?")**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **The 10-Slide Rule:** Guy Kawasaki famously created the 10/20/30 rule. A pitch deck should have 10 slides, last no more than 20 minutes, and contain no font smaller than 30 points. For a hackathon or quick pitch, you only have 3 minutes. Less is always more.
+- **Problem First, Product Second:** Never start by showing screenshots of your app. Always start by making the audience feel the pain of the problem. If they don't care about the problem, they will immediately tune out your solution.
+
+---
+
+## Common Mistakes
+- **The "Wall of Text" Slide:** 
+  - *Why it happens:* You are nervous you will forget what to say, so you write your entire script on the slide.
+  - *Consequence:* The audience reads the slide instead of listening to you. They finish reading before you finish talking, and then they get bored.
+  - *Prevention:* Slides should be strictly visual. Use large icons, single metrics (e.g., "40% Time Saved"), and high-contrast imagery. Your voice provides the context.
+- **Feature Dumping:** Explaining exactly how your Redis cache architecture works to a non-technical judge. They don't care how it works; they care what it enables.
+
+---
+
+## Examples
+- *Good Implementation:* Slide 1: The Problem (A stark, emotional statistic). Slide 2: The Solution (A 1-sentence value proposition). Slide 3: The Demo (A 60-second video). Slide 4: The Market/Traction. Slide 5: The Team. 
+- *Bad Implementation:* A 25-slide deck where 14 slides are complex UML diagrams of your backend architecture.
+
+---
+
+## AI Prompt
+Use AI to outline the narrative arc of your pitch deck based on your product.
+
+\`\`\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH].
+My target audience for this pitch is: [Hackathon Judges / Venture Capitalists / Enterprise Clients].
+I have [INSERT TIME, e.g., 3 minutes] to present.
+
+Act as an Expert Presentation Coach (like Steve Jobs).
+1. Outline a strict, slide-by-slide narrative arc for my pitch deck. Limit it to maximum 7 slides.
+2. For each slide, tell me exactly what the core visual should be.
+3. For each slide, write the 1-2 sentence "talking point" I must memorize.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Is your deck 10 slides or fewer?
+- [ ] Is the font size on your slides 30pt or larger?
+- [ ] Did you put the problem *before* the solution?
+
+---
+
+## Deliverable
+Write out the single most important sentence of your pitch—the "Hook" that will open your presentation.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'demoscript': `# Demo Script
+
+**🕒 Estimated Time:** 30-45 min
+
+---
+
+## Overview
+A live demo is a high-wire act. It is the moment your product goes from an abstract idea to a tangible reality. A great demo feels like magic; it shows the user achieving their ultimate goal with zero friction. A bad demo is a confusing series of clicking through settings menus, waiting for loading spinners, and praying the app doesn't crash. You must choreograph every single mouse click.
+
+---
+
+## Think First
+Identify the "Aha!" moment.
+
+**What is the single most impressive, "magic" moment in your app? (e.g., The moment the AI generates the final video, the moment the payment clears instantly)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**What is the "Happy Path" you will take to get to that magic moment as quickly as possible?**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Live Demo vs. Recorded Video:** 
+  - *Live Demo:* Highly authentic, builds massive trust, but carries the risk of a fatal crash or slow Wi-Fi.
+  - *Recorded Video:* Zero risk of crashing, allows you to edit out loading times. If you have 3 minutes to pitch on a stage, **always use a pre-recorded video** and talk over it. The risk of the Wi-Fi failing is too high.
+- **Story-Driven vs. Feature-Driven:** Do not say "Here is the login page. Now I will click the dropdown. Here is the settings page." Instead, invent a character: "Meet Sarah. Sarah is a stressed founder. Watch how Sarah uses our app to save 5 hours..."
+
+---
+
+## Common Mistakes
+- **Showing the "Boring" Stuff:** 
+  - *Why it happens:* You spent 3 weeks building a robust JWT authentication system and a beautiful settings page, so you want to show it off.
+  - *Consequence:* You waste 45 seconds of your 3-minute demo logging in and resetting a password while the judges fall asleep.
+  - *Prevention:* Start the demo already logged in. Start directly on the dashboard. Cut straight to the value.
+- **Moving the Mouse Too Fast:** When you are nervous, you click quickly. The audience cannot follow your cursor. Move your mouse slowly and deliberately.
+
+---
+
+## Examples
+- *Good Implementation:* "Our app turns text into podcasts. Let's start. I paste an article here. I click 'Generate'. While that runs in the background, let me tell you about our market size... And it's done! Let's listen." 
+- *Bad Implementation:* "Okay, let me type in a dummy email to sign up... oops, password must be 8 characters... let me try again... okay, now I have to check my email for the verification link..."
+
+---
+
+## AI Prompt
+Use AI to choreograph the exact timing of your demo.
+
+\`\`\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH].
+The "Magic Moment" of my app is: [INSERT MAGIC MOMENT].
+I have exactly [INSERT TIME, e.g., 90 seconds] to do a live demo.
+
+Act as a Broadway Director.
+Write a strict, second-by-second script for my demo.
+Divide the script into two columns: 
+1. "Action" (Exactly what I should click on screen).
+2. "Voiceover" (Exactly what I should say while clicking it).
+Ensure the demo skips all boring setup steps and gets to the Magic Moment before the 45-second mark.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Have you removed all login/signup steps from the demo?
+- [ ] Does the demo focus on a specific user story (e.g., "Sarah") rather than a list of features?
+- [ ] Have you practiced the demo while timing yourself with a stopwatch to ensure it fits the time limit?
+
+---
+
+## Deliverable
+Define the exact starting state of your app when the demo begins (e.g., "Logged in, empty dashboard, fake data pre-loaded").
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'submissionchecklist': `# Submission Checklist
+
+**🕒 Estimated Time:** 15-20 min
+
+---
+
+## Overview
+You did it. You validated the idea, designed the architecture, wrote the code, and crafted the pitch. Now it's time to hit submit. Whether you are submitting to a Hackathon, launching on Product Hunt, or sending your final proposal to an enterprise client, unforced errors at the very end can ruin weeks of hard work. This is the final sanity check.
+
+---
+
+## Think First
+Review your critical links.
+
+**What is the public URL where judges/users can test your app right now?**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**What is the link to your demo video (e.g., unlisted YouTube link)?**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Frictionless Access:** Judges and early adopters are lazy. If your app requires them to enter a credit card to try it, they will close the tab. If you are submitting to a hackathon, **provide a dummy login** (e.g., Email: \`judge@test.com\`, Password: \`password123\`) right in the README so they don't even have to sign up.
+- **The Fallback Plan:** If your deployed app crashes 5 minutes after submission because of a database spike, the judges will see a blank screen. You must include a high-quality video demo link in your submission. If the app fails, the video proves it worked.
+
+---
+
+## Common Mistakes
+- **Private Repositories / Broken Links:** 
+  - *Why it happens:* You are rushing at the 11th hour to submit.
+  - *Consequence:* You submit a link to a private GitHub repo, or an unlisted YouTube video that is actually set to "Private". The judges give you a score of 0 because they can't see your work.
+  - *Prevention:* Send your submission links to a friend on Discord/Slack and ask them to open it in an Incognito window to verify access.
+- **Forgetting Environment Variables:** You deploy to Vercel, but forget to add your Supabase/Stripe keys in the Vercel dashboard. The app works locally but crashes in production.
+
+---
+
+## Examples
+- *Good Implementation:* A submission with a crisp 2-paragraph description, a public GitHub repo containing a beautiful README, a working Vercel link, a set of test credentials, and a 2-minute YouTube demo.
+- *Bad Implementation:* Submitting a link to \`localhost:3000\`. (Yes, this happens constantly).
+
+---
+
+## AI Prompt
+Use AI to write your final submission description or Product Hunt launch post.
+
+\`\`\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH].
+The core features are: [INSERT 3 FEATURES].
+The tech stack is: [INSERT TECH STACK].
+
+Act as a top-tier Developer Advocate.
+Write a 300-word submission post for my app.
+It must include:
+1. A hook that explains the problem.
+2. How my app solves it.
+3. A brief mention of the tech stack (to impress technical judges).
+4. Clear instructions on how to use the provided test credentials.
+Keep the tone energetic and confident.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Is your deployed app accessible via a public URL?
+- [ ] Have you tested the public URL in an Incognito window?
+- [ ] Have you provided test credentials so users don't have to sign up?
+- [ ] Is your GitHub repository set to Public (if required)?
+- [ ] Is your demo video accessible (Unlisted or Public, NOT Private)?
+
+---
+
+## Deliverable
+Take a deep breath. You built an entire application from scratch. You planned the architecture, wrote the code, and prepared the pitch. You are a builder. Hit submit, celebrate your achievement, and get ready for the next one.
 `
 };
