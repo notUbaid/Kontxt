@@ -304,6 +304,26 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'PostHog Documentation', url: 'https://posthog.com/docs' },
     { name: 'Product Analytics vs Marketing Analytics', url: 'https://posthog.com/blog/product-analytics-vs-marketing-analytics' },
     { name: 'Server-Side Event Tracking', url: 'https://posthog.com/docs/getting-started/send-events' }
+  ],
+  'adminpanel': [
+    { name: 'Retool for Internal Tools', url: 'https://retool.com/' },
+    { name: 'Supabase Studio', url: 'https://supabase.com/docs/guides/platform/studio' },
+    { name: 'Role-Based Access Control (RBAC)', url: 'https://www.permit.io/blog/what-is-rbac' }
+  ],
+  'integrations': [
+    { name: 'Understanding OAuth 2.0', url: 'https://oauth.net/2/' },
+    { name: 'Exponential Backoff Strategies', url: 'https://cloud.google.com/iot/docs/how-tos/exponential-backoff' },
+    { name: 'Encrypting Data at Rest', url: 'https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html' }
+  ],
+  'testing': [
+    { name: 'Playwright E2E Testing', url: 'https://playwright.dev/docs/intro' },
+    { name: 'Vitest Documentation', url: 'https://vitest.dev/guide/' },
+    { name: 'GitHub Actions for CI/CD', url: 'https://docs.github.com/en/actions' }
+  ],
+  'documentation': [
+    { name: 'Mintlify Documentation Sites', url: 'https://mintlify.com/' },
+    { name: 'Swagger (OpenAPI)', url: 'https://swagger.io/' },
+    { name: 'Google Developer Documentation Style Guide', url: 'https://developers.google.com/style' }
   ]
 };
 

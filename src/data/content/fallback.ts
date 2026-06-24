@@ -4483,4 +4483,307 @@ Act as a Product Data Analyst.
 **File Name:** \`analytics.ts\`
 **Purpose:** Provide visibility into how users interact with your business.
 **Contents:** The initialization code, the \`identify\` logic, and the event tracking wrappers.`
+,
+  'adminpanel': `# Admin Panel (Implementation)
+
+**🕒 Estimated Time:** 60-90 min
+
+---
+
+## Overview
+Once your SaaS is live, you need a way to manage it. You will need to refund users, ban spammers, manually trigger syncs, and view high-level metrics. Without an Admin Panel, you will be forced to manually edit raw database tables to resolve customer support tickets—a highly dangerous practice. 
+
+---
+
+## Think First
+Define your operational requirements.
+
+**The Daily Operations (What are the 3 most common actions you will need to perform on behalf of a user? e.g., Reset password, Extend trial, Delete account)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Access Control (Who on your team needs access to this panel? Do you need different roles like "Support" vs "Super Admin"?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Build from scratch vs. 3rd Party Tools:** 
+  - *No-Code (Retool):* Incredible for building admin panels rapidly by dragging and dropping UI components over your database.
+  - *BaaS UI (Supabase Studio):* If you use Supabase, the built-in Studio UI is often enough for an MVP.
+  - *Custom Build:* Building a \`/admin\` route in your Next.js app gives you ultimate control but takes time away from building the core product.
+- **Role-Based Access Control (RBAC):** Your database must have a \`role\` column (e.g., \`USER\` or \`ADMIN\`). Your backend middleware must strictly enforce that only \`ADMIN\` roles can hit admin API endpoints.
+
+---
+
+## Common Mistakes
+- **Unprotected Admin Routes:**
+  - *Why it happens:* Hiding the "Admin Dashboard" link in the UI, but forgetting to secure the actual \`/api/admin/users\` endpoint.
+  - *Consequence:* A malicious user discovers the endpoint and downloads your entire user list, or worse, makes themselves an Admin.
+  - *Prevention:* Every single Admin API route must check the user's role against the database before executing.
+- **No Audit Logs:** When multiple people have Admin access, someone will inevitably delete the wrong account. Without an audit log tracking *who* did *what*, you cannot prevent it from happening again.
+
+---
+
+## Examples
+- *Good Implementation:* A Next.js middleware that blocks any user without \`role === 'ADMIN'\` from accessing \`/admin/*\`. Inside the panel, a simple data table fetches the latest 50 users and provides a "Toggle Subscription" button.
+- *Bad Implementation:* Logging directly into the production PostgreSQL database via a terminal to manually run \`UPDATE users SET plan = 'PRO' WHERE id = 1;\` every time a customer emails support.
+
+---
+
+## AI Prompt
+Use AI to scaffold a secure admin view.
+
+\`\`\`prompt
+My SaaS is built with [INSERT FRAMEWORK, e.g., Next.js].
+My database uses [INSERT ORM, e.g., Prisma].
+
+Act as an Internal Tools Developer.
+1. Write the backend Middleware required to strictly protect the \`/admin\` route, ensuring only users with \`role === 'ADMIN'\` can access it.
+2. Build a React component for an Admin Dashboard that displays a table of Users (Name, Email, Subscription Status).
+3. Include a secure API endpoint that allows an Admin to manually upgrade a user's subscription to 'PRO'.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Attempt to visit the \`/admin\` URL with a standard user account. Are you correctly blocked or redirected?
+- [ ] Attempt to send a POST request to an Admin API endpoint (e.g., via Postman) using a standard user's session token. Does it fail?
+- [ ] Does the admin panel allow you to perform your most critical customer support task without touching the raw database?
+
+---
+
+## Deliverable
+**File Name:** \`/admin/dashboard.tsx\` and \`/api/admin/*\`
+**Purpose:** Provide the tools needed to run the business.
+**Contents:** Secure administrative interfaces and high-privilege API routes.`,
+  'integrations': `# Integrations (Implementation)
+
+**🕒 Estimated Time:** 60-120 min
+
+---
+
+## Overview
+Phase 2 covered "Third Party Integrations" (integrating external services *into* your app, like Stripe). This topic covers implementing integrations that push/pull your user's data *out* to other platforms (e.g., syncing your SaaS data with their Slack, GitHub, or Salesforce). Building these integrations requires handling complex OAuth flows, securely storing third-party tokens, and respecting rate limits.
+
+---
+
+## Think First
+Understand the data flow.
+
+**The Target Platform (What external tool are you integrating with? e.g., Slack, GitHub, HubSpot)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Trigger (Does data sync automatically via webhooks, on a schedule via cron jobs, or manually via a button click?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **OAuth 2.0 vs. API Keys:** 
+  - *API Keys:* The user copies a key from the external platform and pastes it into your SaaS. Easy to build, but a terrible user experience and highly insecure.
+  - *OAuth 2.0:* The user clicks "Connect to Slack", logs in on Slack's website, and Slack securely sends you a token. Much harder to build, but the industry standard for a reason.
+- **Handling Rate Limits:** External APIs will block you if you send too many requests. You must implement **Exponential Backoff** (if a request fails, wait 1 second, then 2, then 4) instead of aggressively retrying and getting your app permanently banned.
+
+---
+
+## Common Mistakes
+- **Storing OAuth Tokens in Plain Text:**
+  - *Why it happens:* It's the easiest way to save the token returned from the OAuth flow.
+  - *Consequence:* If your database is breached, the attacker now has full access to your customers' Slack workspaces or GitHub repos.
+  - *Prevention:* Encrypt all third-party access tokens at rest using a strong KMS (Key Management Service) or encryption library before saving them to the database.
+- **Ignoring Token Expiration:** OAuth tokens usually expire after 1 hour. You must write the logic to use the \`refresh_token\` to get a new access token seamlessly.
+
+---
+
+## Examples
+- *Good Implementation:* User clicks "Connect Notion". They complete the OAuth flow. Your backend receives the \`access_token\` and \`refresh_token\`, encrypts them, and saves them. When your app needs to sync data, it decrypts the token, checks if it's expired, refreshes it if necessary, and makes the API call.
+- *Bad Implementation:* Telling the user to "Go to Notion settings, create an internal integration, copy the 50-character secret, and paste it into this text box."
+
+---
+
+## AI Prompt
+Use AI to navigate complex API integrations.
+
+\`\`\`prompt
+My SaaS needs to integrate with [INSERT EXTERNAL PLATFORM, e.g., Slack API].
+I need to allow users to [INSERT GOAL, e.g., send a message to a specific channel].
+
+Act as a Senior Integration Engineer.
+1. Outline the exact OAuth 2.0 flow required to securely authenticate a user with this platform.
+2. Write the backend API utility function to fetch data from this API using the access token.
+3. Include error handling logic that specifically catches "429 Too Many Requests" errors and implements Exponential Backoff.
+4. Explain how I should securely encrypt and store their access tokens in my PostgreSQL database.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Can a user successfully complete the OAuth flow and connect their external account?
+- [ ] Are the third-party \`access_tokens\` encrypted before being stored in your database?
+- [ ] Does your code gracefully handle token expiration by automatically fetching a new token via the \`refresh_token\`?
+
+---
+
+## Deliverable
+**File Name:** \`/api/integrations/[provider]\`
+**Purpose:** Connect your SaaS to the broader software ecosystem.
+**Contents:** OAuth callback handlers, token management, and external API fetch utilities.`,
+  'testing': `# Testing (Implementation)
+
+**🕒 Estimated Time:** 60-90 min
+
+---
+
+## Overview
+"Move fast and break things" only works until you break the checkout flow and lose $5,000 in a day. Testing implementation ensures your core features remain stable as your codebase grows. For an MVP, you do not need 100% test coverage. You need strategic tests that verify the critical "Happy Paths" of your application.
+
+---
+
+## Think First
+Identify the critical paths.
+
+**The Golden Flow (What is the single most important sequence of actions a user takes in your app? e.g., Signup -> Create Project -> Pay)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Testing Tool (Are you using Playwright/Cypress for UI testing, or Jest/Vitest for unit testing?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **E2E (End-to-End) vs. Unit Tests:** 
+  - *Unit Tests (Jest):* Tests individual functions (e.g., does \`calculateTax(10)\` return \`1.5\`?). Great for complex logic, but terrible for UI.
+  - *E2E Tests (Playwright):* Spins up a real browser, clicks buttons, and verifies the screen. **Always prioritize E2E tests for MVPs.** If the "Login" button works in a real browser, you know the frontend, backend, and DB are all functioning together.
+- **CI/CD Integration:** Tests are useless if you don't run them. Configure GitHub Actions to automatically run your Playwright tests every time you push code to \`main\`. If the tests fail, the deployment is blocked.
+
+---
+
+## Common Mistakes
+- **Testing Implementation Details:**
+  - *Why it happens:* Writing a test that asserts a button has the class name \`bg-blue-500\`.
+  - *Consequence:* You change the button color to red, and the test fails, even though the app works perfectly. This leads to "Test Fatigue".
+  - *Prevention:* Test user behavior, not code. Assert that clicking the button shows a "Success" message, regardless of what color the button is.
+- **Flaky Tests:** Tests that fail 10% of the time due to slow network requests or animations. Always use robust selectors and built-in auto-waiting (like \`page.waitForSelector()\`).
+
+---
+
+## Examples
+- *Good Implementation:* A Playwright script that visits the homepage, fills in the login form, clicks submit, and asserts that the URL changes to \`/dashboard\` and the text "Welcome back" is visible.
+- *Bad Implementation:* Writing 50 Unit Tests for a generic React Button component, but having zero tests verifying that the Stripe checkout actually works.
+
+---
+
+## AI Prompt
+Use AI to write robust End-to-End tests.
+
+\`\`\`prompt
+My SaaS uses [INSERT FRAMEWORK, e.g., Next.js].
+I want to use [INSERT TESTING FRAMEWORK, e.g., Playwright] for End-to-End testing.
+
+Act as a QA Automation Engineer.
+1. Write a Playwright test script that simulates the "Golden Flow": Visiting the homepage, navigating to the signup page, filling out the form, and verifying the dashboard loads.
+2. Ensure the test uses resilient selectors (e.g., filtering by text or aria-labels, not fragile CSS class names).
+3. Write the exact GitHub Actions YAML workflow file required to run these Playwright tests automatically on every push to the \`main\` branch.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Do your E2E tests cover the critical paths (Signup, Login, Core Action, Payment)?
+- [ ] Do the tests run successfully in a headless browser locally?
+- [ ] Is your CI/CD pipeline (e.g., GitHub Actions) configured to block deployments if the tests fail?
+
+---
+
+## Deliverable
+**File Name:** \`/tests/e2e/core.spec.ts\` and \`.github/workflows/test.yml\`
+**Purpose:** Prevent regressions and deploy with confidence.
+**Contents:** Automated browser tests and the CI/CD pipeline configuration.`,
+  'documentation': `# Documentation (Implementation)
+
+**🕒 Estimated Time:** 30-60 min
+
+---
+
+## Overview
+Code without documentation is a black box. You need two types of documentation: **Developer Docs** (for your future self or team members) and **User Docs** (for your customers). Excellent documentation drastically reduces customer support tickets and makes onboarding new developers frictionless.
+
+---
+
+## Think First
+Define the audience.
+
+**The Target Audience (Are you writing an API reference for developers, or a "How-To" guide for non-technical users?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Platform (Will you host the docs on Mintlify, Docusaurus, or just keep them in a Notion workspace?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Hosted Docs vs. Readme:** For internal developer docs, a well-written \`README.md\` in the GitHub repo is sufficient. If you offer a public API or a complex B2B SaaS, you must use a hosted documentation platform like **Mintlify** or **Docusaurus** to provide search, navigation, and professional branding.
+- **Documenting "Why" vs "What":** The code already explains *what* it does. Good developer documentation explains *why* it does it. (e.g., "We use a cron job here instead of a webhook because the external API is unstable.")
+
+---
+
+## Common Mistakes
+- **Outdated Docs:**
+  - *Why it happens:* You update the API code but forget to update the documentation site.
+  - *Consequence:* Users copy-paste the documented code, it fails, and they churn immediately.
+  - *Prevention:* Treat documentation as code. Keep it in the same repository so it gets updated in the same Pull Request as the code changes.
+- **Assuming Knowledge:** Writing a "Quick Start" guide that assumes the user already knows how to configure their environment variables or install specific dependencies.
+
+---
+
+## Examples
+- *Good Implementation:* Using Mintlify. The docs are stored as \`.mdx\` files in the main repository. When a developer updates an API route, they update the corresponding \`.mdx\` file. The documentation site rebuilds automatically.
+- *Bad Implementation:* Keeping the official API documentation in a private Google Doc and manually emailing it to customers as a PDF.
+
+---
+
+## AI Prompt
+Use AI to generate comprehensive technical documentation.
+
+\`\`\`prompt
+I have written the following API endpoint for my SaaS:
+[INSERT CODE SNIPPET OF API ENDPOINT]
+
+Act as an Expert Technical Writer.
+1. Generate a comprehensive Markdown documentation page for this endpoint.
+2. Include a clear description of what the endpoint does and when to use it.
+3. Document the required headers, authentication method, and request body parameters (with types).
+4. Provide a realistic \`curl\` request example.
+5. Provide realistic JSON response examples for both a \`200 OK\` success and a \`400 Bad Request\` error.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Is there a clear "Quick Start" or "Getting Started" guide that takes a user from 0 to 1 in under 5 minutes?
+- [ ] If you have a public API, are all endpoints documented with request/response examples?
+- [ ] Is the \`README.md\` in your code repository updated with instructions on how to run the project locally?
+
+---
+
+## Deliverable
+**File Name:** \`README.md\` and \`/docs\` folder
+**Purpose:** Educate users and developers to reduce support burden.
+**Contents:** Markdown files containing tutorials, API references, and architecture notes.`
 };
