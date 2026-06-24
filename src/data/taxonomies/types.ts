@@ -214,6 +214,31 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'Supabase Architecture Guide', url: 'https://supabase.com/docs/guides/architecture' },
     { name: 'Prisma: Data Modeling', url: 'https://www.prisma.io/docs/concepts/components/prisma-schema/data-model' },
     { name: 'Designing Data-Intensive Applications', url: 'https://dataintensive.net/' }
+  ],
+  'apidesign': [
+    { name: 'OpenAPI Specification', url: 'https://swagger.io/specification/' },
+    { name: 'tRPC: End-to-end typesafe APIs', url: 'https://trpc.io/' },
+    { name: 'REST vs GraphQL vs gRPC', url: 'https://www.youtube.com/watch?v=yIEkwcmk3os' }
+  ],
+  'authentication': [
+    { name: 'Supabase Auth Docs', url: 'https://supabase.com/docs/guides/auth' },
+    { name: 'Auth.js (NextAuth)', url: 'https://authjs.dev/' },
+    { name: 'Why JWTs Suck as Session Tokens', url: 'https://redis.com/blog/json-web-tokens-jwt-are-dangerous-for-user-sessions/' }
+  ],
+  'authorizationroles': [
+    { name: 'Supabase Row Level Security', url: 'https://supabase.com/docs/guides/auth/row-level-security' },
+    { name: 'OSWAP: Insecure Direct Object Reference (IDOR)', url: 'https://cheatsheetseries.owasp.org/cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html' },
+    { name: 'RBAC vs ABAC', url: 'https://www.osohq.com/academy/rbac-vs-abac' }
+  ],
+  'databaseschema': [
+    { name: 'Prisma Schema Reference', url: 'https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference' },
+    { name: 'Database Normalization Explained', url: 'https://www.youtube.com/watch?v=UrYLYV7WSHM' },
+    { name: 'Drizzle ORM', url: 'https://orm.drizzle.team/' }
+  ],
+  'filestorage': [
+    { name: 'Supabase Storage Docs', url: 'https://supabase.com/docs/guides/storage' },
+    { name: 'AWS S3 Presigned URLs', url: 'https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html' },
+    { name: 'Cloudinary Image Transformations', url: 'https://cloudinary.com/documentation/image_transformations' }
   ]
 };
 

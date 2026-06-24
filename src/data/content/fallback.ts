@@ -3120,4 +3120,384 @@ Act as a Senior Database Architect.
 **File Name:** \`schema.sql\` or \`schema.prisma\`
 **Purpose:** The mathematical definition of your application's data.
 **Contents:** The database tables, columns, data types, indexes, and relationship mappings.`
+,
+  'apidesign': `# API Design
+
+**🕒 Estimated Time:** 30-45 min
+
+---
+
+## Overview
+Your API is the legal contract between your frontend and your backend. It defines exactly how data is requested and mutated. A well-designed API prevents frontend developers (even if that's also you) from guessing how to fetch data. In a SaaS environment, your API must be predictable, versioned, and structured to handle scalability from day one.
+
+---
+
+## Think First
+Define the communication boundaries.
+
+**The Paradigm (Will you use REST, GraphQL, or a type-safe RPC like tRPC?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Core Entities (What are the 3 primary resources this API will expose? e.g., /users, /workspaces, /projects)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **REST vs. tRPC:** If your frontend and backend are in different languages, stick to REST. If you are building a full-stack TypeScript SaaS (e.g., Next.js or React + Node), **tRPC** is the modern gold standard. It provides end-to-end type safety, meaning if you change a database column, your frontend won't compile until you fix the UI.
+- **Over-fetching vs. Under-fetching:** Will your endpoints return massive nested objects (heavy on bandwidth), or require the frontend to make 5 separate requests to render a single page (heavy on latency)?
+
+---
+
+## Common Mistakes
+- **Leaking the Database Schema:** Returning exactly what the database spits out, including password hashes, internal IDs, and deleted flags.
+  - *Consequence:* Massive security vulnerabilities and tight coupling between the UI and the DB.
+  - *Prevention:* Always use Data Transfer Objects (DTOs) or serializers to strip sensitive data before responding.
+- **Ignoring Pagination:** Returning \`SELECT * FROM users\`.
+  - *Consequence:* It works on day 1 with 10 users. On day 100 with 10,000 users, your server crashes instantly from out-of-memory errors.
+  - *Prevention:* Always enforce \`limit\` and \`offset\` (or cursor pagination) on endpoints returning lists.
+
+---
+
+## Examples
+- *Good REST API:* \`GET /api/v1/workspaces/:id/projects?limit=20\` (Predictable, noun-based, paginated).
+- *Bad REST API:* \`POST /api/getProjectsForWorkspace\` (Verb-based, unpredictable, acts like an RPC but isn't type-safe).
+
+---
+
+## AI Prompt
+Use AI to scaffold a rock-solid API contract.
+
+\`\`\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH].
+I am using [INSERT PARADIGM: REST or tRPC].
+
+Act as a Principal API Architect.
+1. Outline the API endpoints required to handle the core CRUD operations for my primary entities: [INSERT ENTITIES].
+2. For the 'List' endpoints, define the pagination and filtering parameters.
+3. Write a TypeScript interface for the expected JSON response, ensuring we do not leak sensitive database columns.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Are all list endpoints strictly paginated by default?
+- [ ] Is sensitive data (passwords, internal tokens) explicitly stripped from the response payloads?
+- [ ] Are the endpoints predictable (e.g., noun-based for REST, or strictly typed for tRPC)?
+
+---
+
+## Deliverable
+**File Name:** \`api_spec.md\` (or OpenAPI YAML)
+**Purpose:** A strict contract defining exactly what the backend accepts and returns.
+**Contents:** Endpoint URLs, accepted methods (GET/POST), request body schemas, and response interfaces.`,
+  'authentication': `# Authentication
+
+**🕒 Estimated Time:** 30 min
+
+---
+
+## Overview
+Authentication (AuthN) answers one question: **"Who is this user?"** For a SaaS product, this encompasses sign-ups, log-ins, password resets, and OAuth (Sign in with Google/GitHub). Building your own authentication from scratch using raw bcrypt and JWTs is a massive security risk and a waste of time. Your goal is to integrate a robust Identity Provider (IdP) so you can focus on your core product.
+
+---
+
+## Think First
+Determine how users want to access your system.
+
+**The Login Methods (Will you support Magic Links, Passwords, or specific OAuth providers like Google or Microsoft?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Identity Provider (Are you using Supabase Auth, Clerk, Auth0, or Firebase?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **BaaS vs. Dedicated Auth:** Supabase and Firebase provide excellent built-in auth that tightly integrates with their databases. If you are building a highly customized backend, dedicated auth providers like Clerk or Auth0 offer drop-in UI components that save weeks of development.
+- **Passwords vs. Passwordless:** Passwords require you to build "Forgot Password" flows, enforce complexity rules, and handle breaches. Magic Links or OAuth (Google) push the security burden onto Google or the user's email provider.
+
+---
+
+## Common Mistakes
+- **Rolling Your Own Crypto:** Attempting to hash passwords and manually sign JWTs without using an established library.
+  - *Consequence:* You will inevitably introduce a vulnerability (like timing attacks or weak salts) that compromises your entire user base.
+  - *Prevention:* Always use a managed Auth provider or heavily audited libraries like NextAuth/Auth.js.
+- **Storing JWTs in LocalStorage:** 
+  - *Consequence:* Cross-Site Scripting (XSS) attacks can easily steal the tokens and hijack user sessions.
+  - *Prevention:* Store authentication tokens in \`HttpOnly\` secure cookies.
+
+---
+
+## Examples
+- *Good Auth:* Using Supabase Auth with Google OAuth. The frontend receives an \`HttpOnly\` cookie, and Supabase automatically manages session expiry and refresh tokens.
+- *Bad Auth:* Storing plaintext passwords in a \`users\` table and saving the logged-in user's ID in \`localStorage\`.
+
+---
+
+## AI Prompt
+Use AI to scaffold your authentication integration.
+
+\`\`\`prompt
+I am building a SaaS app using [INSERT FRAMEWORK, e.g., Next.js] and [INSERT AUTH PROVIDER, e.g., Supabase Auth].
+I want users to log in via Google OAuth and Magic Links.
+
+Act as a Security Engineer.
+1. Write the boilerplate code required to initiate the login flow securely.
+2. Provide the code to create an authentication middleware that protects private routes (e.g., /dashboard) and redirects unauthenticated users to /login.
+3. Explain how to securely handle the session token without exposing it to XSS attacks.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Are we using a managed Identity Provider (Supabase, Clerk, Auth0) instead of building auth from scratch?
+- [ ] Are user sessions stored securely (e.g., HttpOnly cookies) rather than accessible LocalStorage?
+- [ ] Is there a protected route middleware that strictly rejects unauthenticated users?
+
+---
+
+## Deliverable
+**File Name:** \`auth_middleware.ts\`
+**Purpose:** Ensure no unauthorized user can view private app pages.
+**Contents:** The routing logic that intercepts page requests, checks the valid session, and redirects to login if the session is missing or expired.`,
+  'authorizationroles': `# Authorization & Roles
+
+**🕒 Estimated Time:** 45 min
+
+---
+
+## Overview
+While Authentication proves *who* the user is, Authorization (AuthZ) dictates **what they are allowed to do**. In a multi-tenant SaaS application, Authorization is arguably the most critical piece of architecture. If User A can manipulate the URL to view User B's billing data, your startup is dead. You must establish strict rules governing data access and user roles (e.g., Admin, Editor, Viewer).
+
+---
+
+## Think First
+Map out your data boundaries.
+
+**The Tenancy Model (Is your app multi-tenant where users belong to a "Workspace" or "Organization"?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Roles (What specific roles exist within a workspace, and what can they do? e.g., Admins can delete, Viewers can only read)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **RBAC vs. ABAC:** Role-Based Access Control (RBAC) assigns roles like "Admin" or "Editor" and is sufficient for 90% of SaaS apps. Attribute-Based Access Control (ABAC) is much more complex (e.g., "User can edit documents only if they were created on a Tuesday") and should be avoided until strictly necessary.
+- **Application Logic vs. Row Level Security (RLS):** You can enforce authorization in your API logic (\`if user.workspaceId !== doc.workspaceId throw Error\`), OR you can enforce it directly at the database level using Postgres RLS. RLS is significantly more secure because even if an API route forgets the \`if\` statement, the database will block the query.
+
+---
+
+## Common Mistakes
+- **UI-Only Authorization:** Hiding the "Delete Project" button in React for non-admins, but forgetting to secure the actual \`DELETE /api/projects\` endpoint.
+  - *Consequence:* A malicious user can open Postman, send a DELETE request, and bypass the hidden UI button entirely.
+  - *Prevention:* The backend must re-verify permissions on every single request.
+- **Insecure Direct Object Reference (IDOR):**
+  - *Why it happens:* Fetching data using just an ID: \`SELECT * FROM invoices WHERE id = 5\`.
+  - *Consequence:* User A changes the URL from \`/invoice/4\` to \`/invoice/5\` and views User B's invoice.
+  - *Prevention:* Always query with the tenant ID: \`SELECT * FROM invoices WHERE id = 5 AND workspace_id = UserA.workspace_id\`.
+
+---
+
+## Examples
+- *Good AuthZ:* Using Supabase Row Level Security (RLS). An RLS policy is written: \`CREATE POLICY "Users can only view their own workspace data" ...\`. 
+- *Bad AuthZ:* Trusting the \`workspace_id\` sent in the JSON body of a POST request instead of deriving it securely from the user's JWT server-side.
+
+---
+
+## AI Prompt
+Use AI to write bulletproof Row Level Security (RLS) policies.
+
+\`\`\`prompt
+My SaaS uses [INSERT DB, e.g., Postgres/Supabase].
+I have a multi-tenant architecture where Users belong to Workspaces, and Projects belong to Workspaces.
+The roles are: Admin (can do anything) and Viewer (can only read Projects).
+
+Act as a Database Security Expert.
+1. Write the Postgres Row Level Security (RLS) policies required to enforce this multi-tenant boundary.
+2. Ensure an Admin in Workspace A cannot read or update data in Workspace B.
+3. Explain how IDOR vulnerabilities are prevented by these specific policies.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Is authorization enforced on the backend (API or DB level), not just by hiding UI elements?
+- [ ] Are all database queries scoped to the current user's Tenant/Workspace ID to prevent IDOR attacks?
+- [ ] Are the distinct roles (Admin, Member, Viewer) clearly defined and mapped to exact CRUD permissions?
+
+---
+
+## Deliverable
+**File Name:** \`rls_policies.sql\` (or middleware logic)
+**Purpose:** The security barrier preventing cross-tenant data leaks.
+**Contents:** Database policies or API middleware functions that intercept requests and validate ownership before querying data.`,
+  'databaseschema': `# Database Schema
+
+**🕒 Estimated Time:** 60-90 min
+
+---
+
+## Overview
+Your Database Schema is the physical manifestation of your application's logic. If your code is messy, you can refactor it over a weekend. If your database schema is fundamentally flawed, migrating millions of rows of production data without downtime is a nightmare. In Phase 2, you must design normalized, relational structures that map exactly to the entities defined in your PRD.
+
+---
+
+## Think First
+Draw the relationships before writing SQL.
+
+**The Core Entities (What are the nouns in your application? e.g., User, Organization, Document, Invoice)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Relationships (How do they connect? e.g., 1 User has Many Documents. 1 Organization has Many Users)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **ORM vs. Query Builder:** An Object-Relational Mapper (ORM) like Prisma or TypeORM makes writing schemas and queries incredibly easy and type-safe, which is perfect for SaaS speed. Query builders (like Drizzle or Kysely) are closer to raw SQL and offer better performance for complex queries. For 90% of SaaS products, **Prisma** or **Drizzle** are the correct choices.
+- **Soft Deletes vs. Hard Deletes:** When a user clicks "Delete", do you actually \`DELETE\` the row, or do you set a \`deleted_at\` timestamp column? In SaaS, always use soft deletes (\`deleted_at\`) for critical data (like Workspaces or Invoices) to prevent accidental, unrecoverable data loss.
+
+---
+
+## Common Mistakes
+- **Using JSON Columns for Everything:**
+  - *Why it happens:* Developers want the flexibility of NoSQL inside a SQL database.
+  - *Consequence:* You cannot easily index, filter, or join on deeply nested JSON data. Query performance collapses.
+  - *Prevention:* Only use \`JSONB\` columns for truly unstructured data (like third-party API webhook payloads). Use strictly typed columns and Foreign Keys for everything else.
+- **Missing Indexes on Foreign Keys:**
+  - *Consequence:* Looking up all projects for a specific workspace requires a full table scan. The app grinds to a halt at 10,000 rows.
+  - *Prevention:* Always add indexes to columns used in \`WHERE\` clauses, especially \`workspace_id\` or \`user_id\`.
+
+---
+
+## Examples
+- *Good Schema:* A \`projects\` table with a \`workspace_id\` foreign key. The \`workspace_id\` column has a B-Tree index. 
+- *Bad Schema:* A \`workspaces\` table with a \`projects\` column that holds a giant comma-separated string of project IDs (\`"1,4,99"\`).
+
+---
+
+## AI Prompt
+Use AI to translate your PRD into a production-ready schema.
+
+\`\`\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH].
+I need to design a PostgreSQL database schema using [INSERT ORM, e.g., Prisma].
+The core features require these entities: [INSERT CORE ENTITIES].
+
+Act as a Senior Data Architect.
+1. Generate the complete Prisma schema (\`schema.prisma\`).
+2. Clearly define the 1-to-many and many-to-many relationships.
+3. Ensure every table has \`created_at\` and \`updated_at\` timestamps.
+4. Add necessary indexes (e.g., \`@@index\`) on Foreign Keys that will be queried frequently.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Are Foreign Key relationships explicitly defined between tables (e.g., Projects belong to Workspaces)?
+- [ ] Are indexes applied to columns that will be frequently filtered (e.g., \`user_id\`, \`status\`)?
+- [ ] Are we using strict data types (e.g., \`TIMESTAMPTZ\`, \`UUID\`) instead of generic strings?
+
+---
+
+## Deliverable
+**File Name:** \`schema.prisma\` or \`schema.sql\`
+**Purpose:** The source of truth for your data structures.
+**Contents:** The physical table definitions, column constraints, and index declarations.`,
+  'filestorage': `# File Storage
+
+**🕒 Estimated Time:** 30 min
+
+---
+
+## Overview
+If your SaaS allows users to upload avatars, PDFs, or CSV exports, you need a File Storage architecture. Storing files directly on your web server's hard drive will fail the moment you scale to multiple servers (or deploy to serverless environments like Vercel). You must decouple file storage from your application logic using specialized Cloud Object Storage.
+
+---
+
+## Think First
+Determine the security requirements of your files.
+
+**The Asset Types (What exactly are users uploading? Images, heavy videos, or sensitive legal PDFs?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Access Rules (Are these files Public—like a profile picture, or Private—like a medical record?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Object Storage Provider:** AWS S3 is the industry standard but has a complex API. Supabase Storage provides a massive developer-experience wrapper around S3. Cloudinary is unparalleled for image/video transformations (resizing on the fly). 
+- **Direct Uploads vs. Server Proxies:** 
+  - *Server Proxy:* The user uploads the 10MB file to your Node API, which then uploads it to S3. This burns your server's memory and bandwidth.
+  - *Direct Upload (Presigned URLs):* The user asks your API for a temporary permission ticket (Presigned URL), and uploads the file *directly* from their browser to S3. This is the only scalable way to handle large files.
+
+---
+
+## Common Mistakes
+- **Storing Files in the Database:** Saving base64 encoded images or binary blobs directly inside a PostgreSQL column.
+  - *Why it happens:* It seems easier to keep everything in one place.
+  - *Consequence:* Your database size explodes, backups take hours, and query performance is destroyed.
+  - *Prevention:* Store the file in an S3 Bucket, and only save the URL string (e.g., \`https://bucket.com/avatar.png\`) in the database.
+- **Forgetting File Size Limits:** 
+  - *Consequence:* A malicious user uploads a 50GB file and bankrupts your AWS account.
+  - *Prevention:* Always enforce strict size limits and MIME-type validation both on the frontend and the backend/storage rules.
+
+---
+
+## Examples
+- *Good Storage:* Using Supabase Storage. The browser fetches a secure upload token, pushes the image directly to the bucket, and saves the resulting URL to the \`users\` table.
+- *Bad Storage:* Using \`fs.writeFileSync\` to save uploaded files to a \`/public/uploads\` folder on a Render or Heroku server, which gets wiped out every time the server restarts.
+
+---
+
+## AI Prompt
+Use AI to scaffold a highly scalable direct-upload flow.
+
+\`\`\`prompt
+I am building a SaaS app using [INSERT FRAMEWORK].
+Users need to upload [INSERT FILE TYPE, e.g., Profile Pictures / PDF Invoices].
+I am using [INSERT STORAGE PROVIDER, e.g., AWS S3 / Supabase Storage].
+
+Act as a Cloud Infrastructure Architect.
+1. Write the backend API code to generate a secure "Presigned URL" that restricts uploads to a maximum of 5MB and only accepts the correct MIME types.
+2. Write the frontend React component that uses this Presigned URL to upload the file directly to the storage bucket, completely bypassing the backend server.
+3. Explain how to ensure the files remain private and accessible only to the authenticated owner.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Are files being stored in a dedicated Object Storage bucket (S3, Supabase) and NOT on the local server disk or database?
+- [ ] Have we implemented strict file size and MIME-type (extension) limits to prevent abuse?
+- [ ] Are we using Direct Uploads (Presigned URLs) to save server bandwidth?
+
+---
+
+## Deliverable
+**File Name:** \`upload_service.ts\`
+**Purpose:** A utility to handle secure file uploads without crashing the server.
+**Contents:** The API route for generating presigned URLs and the frontend helper function for executing the direct bucket upload.`
 };
