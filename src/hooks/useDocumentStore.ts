@@ -29,21 +29,32 @@ export function useDocumentStore(projectId: string | null, topicId: string) {
     setIsLoaded(false);
 
     const loadDoc = async () => {
-      const { data, error } = await supabase
-        .from('documents')
-        .select('content')
-        .eq('project_id', projectId)
-        .eq('topic_id', topicId)
-        .maybeSingle(); // Use maybeSingle to prevent error on no rows
-      
-      if (isMounted) {
-        if (error || !data) {
-          setContent(fallbackContent[topicId] || '');
-        } else {
-          setContent(data.content || fallbackContent[topicId] || '');
+      try {
+        const { data, error } = await supabase
+          .from('documents')
+          .select('content')
+          .eq('project_id', projectId)
+          .eq('topic_id', topicId)
+          .maybeSingle(); 
+        
+        if (isMounted) {
+          if (error || !data) {
+            setContent(fallbackContent[topicId] || '');
+          } else {
+            setContent(data.content || fallbackContent[topicId] || '');
+          }
+          setSaveStatus('saved');
         }
-        setIsLoaded(true);
-        setSaveStatus('saved');
+      } catch (err) {
+        console.error('Failed to load document:', err);
+        if (isMounted) {
+          setContent(fallbackContent[topicId] || '');
+          setSaveStatus('error');
+        }
+      } finally {
+        if (isMounted) {
+          setIsLoaded(true);
+        }
       }
     };
 

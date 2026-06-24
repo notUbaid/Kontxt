@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { supabase } from '../lib/supabase';
 import type { Project } from '../App';
 import type { AppType } from '../App';
@@ -7,6 +7,7 @@ import type { Mode } from '../components/TopNav';
 export const useProjectStore = (isAuthenticated: boolean) => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
+  const updateTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const fetchProjects = useCallback(async () => {
     if (!isAuthenticated) {
@@ -84,32 +85,38 @@ export const useProjectStore = (isAuthenticated: boolean) => {
   };
 
   const updateProject = async (project: Project) => {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return;
-
-    // Optimistic update
+    // Optimistic update immediately
     setProjects(prev => prev.map(p => p.id === project.id ? project : p));
 
-    const { error } = await supabase
-      .from('projects')
-      .update({
-        name: project.name,
-        mode: project.mode,
-        type: project.type,
-        custom_links: project.customLinks || [],
-        hidden_links: project.hiddenLinks || [],
-        completed_topics: project.completedTopics || [],
-        custom_topics: project.customTopics || [],
-        progress_enabled: project.progressEnabled || false,
-        last_viewed_topic: project.lastViewedTopic || null,
-        updated_at: new Date().toISOString()
-      })
-      .eq('id', project.id)
-      .eq('user_id', user.id);
-
-    if (error) {
-      console.error('Error updating project:', error);
+    if (updateTimeoutRef.current) {
+      clearTimeout(updateTimeoutRef.current);
     }
+
+    updateTimeoutRef.current = setTimeout(async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+
+      const { error } = await supabase
+        .from('projects')
+        .update({
+          name: project.name,
+          mode: project.mode,
+          type: project.type,
+          custom_links: project.customLinks || [],
+          hidden_links: project.hiddenLinks || [],
+          completed_topics: project.completedTopics || [],
+          custom_topics: project.customTopics || [],
+          progress_enabled: project.progressEnabled || false,
+          last_viewed_topic: project.lastViewedTopic || null,
+          updated_at: new Date().toISOString()
+        })
+        .eq('id', project.id)
+        .eq('user_id', user.id);
+
+      if (error) {
+        console.error('Error updating project:', error);
+      }
+    }, 1000);
   };
 
   const deleteProject = async (projectId: string) => {

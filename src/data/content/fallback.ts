@@ -8436,7 +8436,7 @@ Paste the recommended Navigation Structure and the list of UI patterns you plan 
 ✍️ Type your answer here...
 \`\`\`
 `,
-  'playstoreresearch': `# Play Store Research
+  'play-store-research': `# Play Store Research
 
 **🕒 Estimated Time:** 20 min
 
