@@ -334,6 +334,31 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'Y Combinator: How to Pitch', url: 'https://www.ycombinator.com/library/4q-how-to-pitch-your-company' },
     { name: 'Loom (Video Recording)', url: 'https://www.loom.com/' },
     { name: 'Product Hunt Launch Guide', url: 'https://www.producthunt.com/launch' }
+  ],
+  'security': [
+    { name: 'OWASP Top 10', url: 'https://owasp.org/www-project-top-ten/' },
+    { name: 'OWASP Cheat Sheet Series', url: 'https://cheatsheetseries.owasp.org/' },
+    { name: 'Helmet.js (HTTP Security Headers)', url: 'https://helmetjs.github.io/' }
+  ],
+  'performanceoptimization': [
+    { name: 'web.dev Core Web Vitals', url: 'https://web.dev/vitals/' },
+    { name: 'Next.js Image Optimization', url: 'https://nextjs.org/docs/app/building-your-application/optimizing/images' },
+    { name: 'Webpack Bundle Analyzer', url: 'https://www.npmjs.com/package/webpack-bundle-analyzer' }
+  ],
+  'monitoring': [
+    { name: 'BetterStack Uptime Monitoring', url: 'https://betterstack.com/uptime' },
+    { name: 'Vercel Analytics', url: 'https://vercel.com/docs/analytics' },
+    { name: 'What is an SLA?', url: 'https://www.atlassian.com/incident-management/kpis/sla-vs-slo-vs-sli' }
+  ],
+  'logging': [
+    { name: 'Pino Logger', url: 'https://getpino.io/' },
+    { name: 'Axiom (Log Aggregation)', url: 'https://axiom.co/' },
+    { name: 'Structured Logging Best Practices', url: 'https://www.loggly.com/ultimate-guide/node-logging-basics/' }
+  ],
+  'errortracking': [
+    { name: 'Sentry for Next.js', url: 'https://docs.sentry.io/platforms/javascript/guides/nextjs/' },
+    { name: 'Source Maps Explained', url: 'https://web.dev/articles/source-maps' },
+    { name: 'LogRocket Session Replay', url: 'https://logrocket.com/' }
   ]
 };
 

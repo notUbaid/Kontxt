@@ -4941,4 +4941,388 @@ Act as a Y Combinator Pitch Coach.
 **File Name:** \`pitch_script.md\`
 **Purpose:** Convert viewers into users or investors.
 **Contents:** The timed script and the recorded Loom video link.`
+,
+  'security': `# Security
+
+**🕒 Estimated Time:** 60-90 min
+
+---
+
+## Overview
+Security is not a feature you add at the end; it is a discipline woven into every line of code. A single vulnerability — an exposed API key, a missing rate limit, an unescaped input — can destroy your business overnight. You do not need to become a penetration tester, but you must understand the most common attack vectors and how to defend against them systematically.
+
+---
+
+## Think First
+Audit your attack surface.
+
+**The Crown Jewels (What is the single most sensitive piece of data in your database? User passwords? Payment info? Medical records? That data requires the highest level of protection.)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Entry Points (List every way an external user can send data into your application: forms, URL parameters, file uploads, API endpoints, webhooks.)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Input Sanitization Strategy:** Every single input — form fields, URL params, file uploads, webhook payloads — is a potential injection vector. You must sanitize and validate *all* inputs on the server, regardless of any client-side validation you've already implemented. Use Zod for structural validation and a library like \`DOMPurify\` for any user-generated HTML content.
+- **Rate Limiting:** Without rate limiting, a single attacker can send 10,000 requests per second to your login endpoint, brute-forcing passwords or crashing your server. Implement rate limiting on every public-facing API endpoint, especially \`/login\`, \`/signup\`, and \`/api/webhook\`.
+
+---
+
+## Common Mistakes
+- **SQL Injection via Raw Queries:**
+  - *Why it happens:* Writing \`db.query("SELECT * FROM users WHERE id = " + req.params.id)\` instead of using parameterized queries.
+  - *Consequence:* An attacker sends \`id=1; DROP TABLE users;\` and deletes your entire user database.
+  - *Prevention:* Always use parameterized queries or an ORM like Prisma (which parameterizes automatically). Never concatenate user input into SQL strings.
+- **Exposing Stack Traces in Production:**
+  - *Why it happens:* Your error handler returns the full Node.js stack trace in the API response during development, and nobody disables it before deploying.
+  - *Consequence:* The attacker can see your exact file structure, library versions, and database column names.
+  - *Prevention:* In production, return generic error messages and log the real error server-side only.
+- **Missing CORS Configuration:** Leaving CORS wide open (\`Access-Control-Allow-Origin: *\`) allows any website on the internet to make authenticated requests to your API on behalf of your users.
+
+---
+
+## Examples
+- *Good Implementation:* All API routes are rate-limited to 100 requests/min per IP. All inputs are validated with Zod. All database queries use Prisma (auto-parameterized). CORS is locked to your exact domain. Environment variables are never exposed to the client bundle.
+- *Bad Implementation:* A public API with no rate limiting, raw SQL queries built from string concatenation, and a \`.env\` file accidentally committed to a public GitHub repo.
+
+---
+
+## AI Prompt
+Use AI to perform a security audit on your codebase.
+
+\`\`\`prompt
+I am building a SaaS with [INSERT STACK, e.g., Next.js, Supabase, Prisma].
+
+Act as a Senior Application Security Engineer performing a code review.
+1. List the OWASP Top 10 vulnerabilities and explain which ones are most likely to affect my specific stack.
+2. Write the exact middleware code required to implement rate limiting on my API routes.
+3. Audit my CORS configuration. What should Access-Control-Allow-Origin be set to?
+4. Provide a security checklist I can run before every deployment.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Are all API inputs validated server-side with Zod (or equivalent)?
+- [ ] Is rate limiting enabled on all public endpoints, especially \`/login\` and \`/signup\`?
+- [ ] Have you confirmed that no \`.env\` files or secrets are committed to your Git history?
+- [ ] Is CORS locked to your specific domain, not \`*\`?
+- [ ] Are production error responses generic (no stack traces, no file paths)?
+
+---
+
+## Deliverable
+**File Name:** \`security_checklist.md\`
+**Purpose:** A living document of security controls and their status.
+**Contents:** The complete list of implemented defenses, pending items, and the schedule for periodic security reviews.`,
+  'performanceoptimization': `# Performance Optimization
+
+**🕒 Estimated Time:** 45-60 min
+
+---
+
+## Overview
+Users abandon pages that take longer than 3 seconds to load. Performance optimization is about identifying the bottlenecks — massive JavaScript bundles, unoptimized images, slow database queries, and unnecessary API calls — and surgically eliminating them. The goal is not to optimize everything, but to identify and fix the 2-3 issues responsible for 80% of the slowness.
+
+---
+
+## Think First
+Measure before you optimize.
+
+**The Slowest Page (Which page in your app takes the longest to load? Open your browser DevTools → Network tab and check.)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Largest Asset (Open your browser DevTools → Network tab → sort by Size. What is the single largest file being downloaded?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Server-Side Rendering (SSR) vs. Client-Side Rendering (CSR):** Pages that must be indexed by Google (Landing pages, Blog) should use SSR or Static Generation (SSG). Authenticated dashboard pages can use CSR since search engines don't need to crawl them.
+- **Image Optimization:** Never serve raw \`.png\` files uploaded by users. Always convert them to \`.webp\` (which is 30-50% smaller), resize them to the exact dimensions needed, and serve them via a CDN.
+
+---
+
+## Common Mistakes
+- **Premature Optimization:**
+  - *Why it happens:* Spending 3 days micro-optimizing a React component that renders in 2ms.
+  - *Consequence:* You waste time on something that has zero user-facing impact while the actual bottleneck goes unnoticed.
+  - *Prevention:* Always profile first. Use Lighthouse, Vercel Analytics, or browser DevTools to find the *actual* bottleneck before writing a single line of optimization code.
+- **Loading Everything Upfront:** Importing a massive charting library on the homepage even though charts are only used on the dashboard.
+
+---
+
+## Examples
+- *Good Implementation:* Using \`next/image\` for automatic WebP conversion and lazy loading. Code-splitting the dashboard so the charting library is only downloaded when the user navigates to the Analytics page. Database queries use \`SELECT\` with only the needed columns, not \`SELECT *\`.
+- *Bad Implementation:* A single 2MB JavaScript bundle that downloads entirely before the page renders. All 500 user avatars load simultaneously on page load.
+
+---
+
+## AI Prompt
+Use AI to audit and optimize your application performance.
+
+\`\`\`prompt
+My SaaS uses [INSERT STACK, e.g., Next.js, React, Supabase].
+My slowest page is [INSERT PAGE, e.g., /dashboard].
+
+Act as a Principal Performance Engineer.
+1. What are the 5 most common performance bottlenecks for this specific tech stack?
+2. Write the exact code required to implement dynamic imports (code splitting) for heavy components like Charts or Rich Text Editors.
+3. Explain how to set up proper Cache-Control headers to cache static assets on the CDN edge.
+4. What database query optimizations (indexes, pagination, column selection) should I apply?
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Does your Lighthouse Performance score exceed 80 on mobile?
+- [ ] Are images served in WebP format via a CDN, not raw PNGs from your server?
+- [ ] Is your main JavaScript bundle under 200KB (gzipped)?
+- [ ] Are heavy libraries (Charts, Editors) loaded via dynamic imports / code splitting?
+
+---
+
+## Deliverable
+**File Name:** \`performance_audit.md\`
+**Purpose:** Document bottlenecks and the fixes applied.
+**Contents:** Lighthouse scores before/after, the specific optimizations implemented, and the remaining improvement opportunities.`,
+  'monitoring': `# Monitoring
+
+**🕒 Estimated Time:** 30-45 min
+
+---
+
+## Overview
+Once your SaaS is live, you are flying blind without monitoring. Monitoring is the practice of continuously observing your application's health — uptime, response times, error rates, and resource consumption — in real time. It answers the question: "Is my application working right now?" before a frustrated user has to email you about it.
+
+---
+
+## Think First
+Define your health indicators.
+
+**The Uptime Target (What percentage of uptime are you promising? 99.9% = 8.7 hours of downtime per year. 99% = 3.6 days.)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Alert Threshold (At what point should you be woken up at 3 AM? e.g., Error rate > 5%, API response time > 3s, Database CPU > 80%)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Synthetic Monitoring vs. Real User Monitoring (RUM):**
+  - *Synthetic:* A bot pings your \`/api/health\` endpoint every 60 seconds from 10 global locations. If it doesn't get a \`200 OK\`, you get an alert. Simple and effective.
+  - *RUM:* A JavaScript snippet on every page tracks real users' actual load times and errors. More detailed, but requires more setup.
+  - *Decision:* Start with Synthetic (it's free on most platforms), then add RUM as you scale.
+- **Status Page:** When your app goes down, users need to know you are aware of the issue. A public status page shows current system health and historical uptime.
+
+---
+
+## Common Mistakes
+- **Alert Fatigue:**
+  - *Why it happens:* Setting alerts for every single minor warning.
+  - *Consequence:* You receive 50 Slack notifications per day, start ignoring them, and miss the critical one when the database actually goes down.
+  - *Prevention:* Only alert on actionable, critical thresholds. Everything else should be a dashboard metric you glance at during business hours.
+- **No Health Check Endpoint:** Your monitoring service has nothing to ping because you never created a \`/api/health\` route.
+
+---
+
+## Examples
+- *Good Implementation:* A \`/api/health\` endpoint that queries the database to confirm connectivity and returns \`{ status: "ok", db: "connected" }\`. BetterStack pings it every 60 seconds. If it fails 3 times in a row, you receive an SMS alert.
+- *Bad Implementation:* Discovering your site has been down for 6 hours because a customer tweets about it.
+
+---
+
+## AI Prompt
+Use AI to set up production monitoring.
+
+\`\`\`prompt
+My SaaS is deployed on [INSERT PLATFORM, e.g., Vercel].
+My database is [INSERT DB, e.g., Supabase Postgres].
+
+Act as a Site Reliability Engineer (SRE).
+1. Write the code for a robust \`/api/health\` endpoint that checks both the application server and the database connection.
+2. Recommend a monitoring service (free tier) and explain how to configure it to ping this endpoint.
+3. What 3 specific metrics should I set alerts for, and what should their thresholds be?
+4. Should I set up a public Status Page? If yes, which free tool do you recommend?
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Does your application have a \`/api/health\` endpoint that verifies both app and database health?
+- [ ] Is a monitoring service actively pinging your health endpoint at regular intervals?
+- [ ] Will you receive an SMS/Slack/Email alert within 5 minutes if your application goes down?
+
+---
+
+## Deliverable
+**File Name:** \`/api/health.ts\` and monitoring dashboard configuration
+**Purpose:** Detect and respond to outages before your users do.
+**Contents:** The health check endpoint and the external monitoring configuration.`,
+  'logging': `# Logging
+
+**🕒 Estimated Time:** 30-45 min
+
+---
+
+## Overview
+When something breaks in production at 2 AM, the only evidence you have is your logs. Logging is the practice of recording structured, searchable records of everything your application does — API requests, database queries, user actions, and errors. Without proper logging, debugging a production bug is like solving a murder mystery with no witnesses.
+
+---
+
+## Think First
+Define what is worth recording.
+
+**The Critical Events (What events, if they occurred, would you absolutely need a record of? e.g., Failed login attempts, Payment failures, Permission denials)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Noise Filter (What events should you explicitly NOT log? e.g., Every single successful health check ping, every static asset request)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Structured Logging vs. console.log:**
+  - *console.log("User created"):* Unstructured. Impossible to search, filter, or analyze at scale.
+  - *Structured: logger.info({ event: "user_created", userId: "abc", plan: "pro" }):* Machine-readable JSON. You can search your logs instantly.
+  - *Decision:* Always use structured logging in production. Use a library like **Pino** (fastest) or **Winston**.
+- **Log Levels:** Not all logs are equal. Use \`DEBUG\` for verbose development info, \`INFO\` for normal operations, \`WARN\` for recoverable issues, and \`ERROR\` for failures that need immediate attention. In production, set the minimum log level to \`INFO\`.
+
+---
+
+## Common Mistakes
+- **Logging Sensitive Data:**
+  - *Why it happens:* Logging the entire \`req.body\` for debugging, which includes the user's password or API key.
+  - *Consequence:* Your log aggregation service now has a copy of your users' passwords in plain text.
+  - *Prevention:* Create a sanitization utility that strips sensitive fields before logging.
+- **Logging to stdout Only:** \`console.log\` output disappears the moment a serverless function finishes executing. You lose all evidence.
+
+---
+
+## Examples
+- *Good Implementation:* Using Pino. Every API request logs \`{ method: "POST", path: "/api/projects", userId: "abc", statusCode: 201, durationMs: 45 }\`. Logs are shipped to a centralized service like Axiom where they can be searched and filtered.
+- *Bad Implementation:* 500 lines of \`console.log("here")\` and \`console.log("it worked!!!")\` scattered across the codebase.
+
+---
+
+## AI Prompt
+Use AI to implement structured, production-grade logging.
+
+\`\`\`prompt
+My SaaS is built with [INSERT FRAMEWORK, e.g., Next.js / Express].
+
+Act as a DevOps Engineer specializing in Observability.
+1. Set up a structured logging library (e.g., Pino or Winston) with JSON output.
+2. Write a logging middleware that automatically logs every API request with: method, path, status code, user ID, and response time.
+3. Write a utility function that sanitizes sensitive fields (password, token, secret) before logging.
+4. Recommend a free-tier log aggregation service and explain how to ship logs to it.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Are all logs structured as JSON (not unstructured console.log strings)?
+- [ ] Are sensitive fields (passwords, tokens) explicitly stripped before logging?
+- [ ] Are logs shipped to a centralized, searchable service (not just stdout)?
+- [ ] Can you search your logs by \`userId\` to trace all actions a specific user took?
+
+---
+
+## Deliverable
+**File Name:** \`logger.ts\` and logging middleware
+**Purpose:** Create a searchable audit trail for debugging production issues.
+**Contents:** The structured logging configuration, the request-logging middleware, and the sanitization utility.`,
+  'errortracking': `# Error Tracking
+
+**🕒 Estimated Time:** 30 min
+
+---
+
+## Overview
+Errors will happen in production. The question is: will you know about them before your users complain, or after? Error Tracking tools like **Sentry** automatically capture every unhandled exception, group duplicates, attach the full stack trace, and alert you on Slack. They are the single most impactful DevOps tool you can add to a SaaS in under 15 minutes.
+
+---
+
+## Think First
+Classify your error severity.
+
+**The Critical Errors (What errors would you classify as "drop everything and fix"? e.g., Payment processing failure, Auth system crash, Database connection lost)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Ignorable Errors (What errors are expected and can be safely suppressed? e.g., 404 Not Found for a missing page, cancelled network requests)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Sentry vs. LogRocket vs. BugSnag:** Sentry is the industry standard for error tracking. It's free for small teams, integrates with every framework, and provides source-mapped stack traces. LogRocket adds session replay (watching the user's screen when the error happened), which is extremely powerful but more expensive.
+- **Source Maps:** In production, your JavaScript is minified and unreadable. Without uploading Source Maps to Sentry, your stack traces will say \`Error at chunk-abc123.js:1:45678\` — completely useless. With Source Maps, it says \`Error at Dashboard.tsx:42\`.
+
+---
+
+## Common Mistakes
+- **Not Filtering Noise:**
+  - *Why it happens:* Connecting Sentry and immediately getting 500 alerts for benign errors like \`ResizeObserver loop limit exceeded\`.
+  - *Consequence:* You mute Sentry notifications entirely, and when a real critical error happens, nobody sees it.
+  - *Prevention:* Configure \`ignoreErrors\` in Sentry's initialization to suppress known, harmless browser errors.
+- **Missing User Context:** Sentry captures the error, but doesn't know *who* experienced it. You can't contact the affected user.
+
+---
+
+## Examples
+- *Good Implementation:* Sentry is initialized in the app entry point. \`Sentry.setUser({ id: user.id, email: user.email })\` is called after login. Source Maps are uploaded during the CI/CD build step. Alerts are sent to a dedicated #errors Slack channel only for new, unresolved issues.
+- *Bad Implementation:* \`try { ... } catch(e) { /* TODO: handle this later */ }\` — swallowing the error entirely so nobody ever knows it happened.
+
+---
+
+## AI Prompt
+Use AI to set up comprehensive error tracking.
+
+\`\`\`prompt
+My SaaS is built with [INSERT FRAMEWORK, e.g., Next.js].
+I want to use [INSERT TOOL, e.g., Sentry] for error tracking.
+
+Act as a Site Reliability Engineer.
+1. Write the exact initialization code required to set up this error tracking tool in both the client-side and server-side of my application.
+2. Show how to attach user context (userId, email) after login so errors are linked to specific users.
+3. Provide the exact CI/CD step (e.g., GitHub Actions) required to upload Source Maps during the build process.
+4. List 5 common browser errors I should add to the ignoreErrors configuration to reduce noise.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Is Sentry (or equivalent) initialized on both the client and server?
+- [ ] Are Source Maps uploaded to Sentry during the build step so stack traces show original file names and line numbers?
+- [ ] Is user context (userId, email) attached to error reports after login?
+- [ ] Are common noise errors (like ResizeObserver) filtered out?
+
+---
+
+## Deliverable
+**File Name:** \`sentry.config.ts\` and CI/CD source map upload step
+**Purpose:** Detect, diagnose, and resolve production errors before users report them.
+**Contents:** The Sentry initialization, the user context attachment, and the CI/CD integration.`
 };
