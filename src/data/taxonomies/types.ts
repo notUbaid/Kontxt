@@ -359,6 +359,26 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'Sentry for Next.js', url: 'https://docs.sentry.io/platforms/javascript/guides/nextjs/' },
     { name: 'Source Maps Explained', url: 'https://web.dev/articles/source-maps' },
     { name: 'LogRocket Session Replay', url: 'https://logrocket.com/' }
+  ],
+  'ratelimiting': [
+    { name: 'Upstash Ratelimit SDK', url: 'https://upstash.com/docs/oss/sdks/ts/ratelimit/overview' },
+    { name: 'express-rate-limit', url: 'https://www.npmjs.com/package/express-rate-limit' },
+    { name: 'Rate Limiting Algorithms Explained', url: 'https://blog.bytebytego.com/p/rate-limiting-fundamentals' }
+  ],
+  'caching': [
+    { name: 'MDN: Cache-Control', url: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control' },
+    { name: 'Vercel Edge Caching', url: 'https://vercel.com/docs/edge-network/caching' },
+    { name: 'stale-while-revalidate Explained', url: 'https://web.dev/articles/stale-while-revalidate' }
+  ],
+  'backups': [
+    { name: 'Supabase Backups', url: 'https://supabase.com/docs/guides/platform/backups' },
+    { name: 'pg_dump Documentation', url: 'https://www.postgresql.org/docs/current/app-pgdump.html' },
+    { name: 'Disaster Recovery Planning', url: 'https://cloud.google.com/architecture/dr-scenarios-planning-guide' }
+  ],
+  'cicd': [
+    { name: 'GitHub Actions Documentation', url: 'https://docs.github.com/en/actions' },
+    { name: 'Branch Protection Rules', url: 'https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-a-branch-protection-rule' },
+    { name: 'Vercel Git Integration', url: 'https://vercel.com/docs/deployments/git' }
   ]
 };
 

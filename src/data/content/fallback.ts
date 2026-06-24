@@ -5325,4 +5325,307 @@ Act as a Site Reliability Engineer.
 **File Name:** \`sentry.config.ts\` and CI/CD source map upload step
 **Purpose:** Detect, diagnose, and resolve production errors before users report them.
 **Contents:** The Sentry initialization, the user context attachment, and the CI/CD integration.`
+,
+  'ratelimiting': `# Rate Limiting
+
+**🕒 Estimated Time:** 30-45 min
+
+---
+
+## Overview
+Without rate limiting, your SaaS is an open buffet for bots. A single bad actor can hammer your \`/login\` endpoint 50,000 times per minute to brute-force passwords, spam your \`/api/generate\` endpoint to drain your OpenAI budget, or simply DDoS your server into oblivion. Rate limiting is the bouncer at the door — it counts how many requests each visitor has made and kicks them out when they exceed the limit.
+
+---
+
+## Think First
+Identify your most abusable endpoints.
+
+**The Expensive Endpoints (Which API routes cost you real money per request? e.g., AI generation, email sending, file uploads)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Sensitive Endpoints (Which routes are prime targets for automated attacks? e.g., \`/login\`, \`/signup\`, \`/forgot-password\`)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **IP-Based vs. User-Based Rate Limiting:**
+  - *IP-Based:* Limits requests per IP address. Simple but can accidentally block all users behind a shared corporate VPN.
+  - *User-Based:* Limits requests per authenticated user ID. More accurate but requires the user to be logged in first.
+  - *Decision:* Use IP-based for unauthenticated routes and User-based for authenticated routes.
+- **Fixed Window vs. Sliding Window:** A "Fixed Window" resets the counter every minute on the clock. A "Sliding Window" counts the last 60 seconds from *now*, providing smoother throttling.
+
+---
+
+## Common Mistakes
+- **Only Rate Limiting the Frontend:**
+  - *Why it happens:* Disabling the "Submit" button in React after 5 clicks and calling it "rate limiting."
+  - *Consequence:* An attacker bypasses the UI entirely using \`curl\` and sends 10,000 requests directly to your API.
+  - *Prevention:* Rate limiting MUST be enforced on the server/edge, never on the client.
+- **Returning Unhelpful Errors:** Returning a generic \`500 Internal Server Error\` when a user is rate-limited. They have no idea what happened.
+
+---
+
+## Examples
+- *Good Implementation:* Using \`upstash/ratelimit\` with a Redis backend. The \`/api/generate\` endpoint allows 10 requests per minute per user. When exceeded, it returns \`429 Too Many Requests\` with a \`Retry-After: 30\` header.
+- *Bad Implementation:* No rate limiting at all. A competitor writes a script that creates 10,000 fake accounts on your platform overnight.
+
+---
+
+## AI Prompt
+\`\`\`prompt
+My SaaS is built with [INSERT FRAMEWORK, e.g., Next.js App Router].
+I need to rate limit the following endpoints: [INSERT ENDPOINTS].
+
+Act as a Security Infrastructure Engineer.
+1. Write the exact middleware code to implement rate limiting using [INSERT TOOL, e.g., Upstash Ratelimit / express-rate-limit].
+2. Use IP-based limiting for unauthenticated routes and User ID-based limiting for authenticated routes.
+3. Return a proper 429 Too Many Requests response with a Retry-After header.
+4. Explain how to use Redis as the backing store for the rate limit counters.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Is rate limiting enforced server-side (not just a disabled button in the UI)?
+- [ ] Do rate-limited responses return HTTP \`429\` with a \`Retry-After\` header?
+- [ ] Are expensive endpoints (AI, email) rate-limited per authenticated user?
+- [ ] Are public endpoints (\`/login\`, \`/signup\`) rate-limited per IP address?
+
+---
+
+## Deliverable
+**File Name:** \`ratelimit.ts\` middleware
+**Purpose:** Protect your server and budget from abuse.
+**Contents:** The rate limiting middleware, the Redis/Upstash configuration, and the per-route limit definitions.`,
+  'caching': `# Caching
+
+**🕒 Estimated Time:** 30-45 min
+
+---
+
+## Overview
+Caching is the art of not doing the same work twice. If 1,000 users visit your landing page in a minute, your server should NOT render that page 1,000 times. It should render it once, cache the result, and serve the cached version 999 times. Proper caching can reduce your server load by 90%, your database costs by 80%, and your page load times from 3 seconds to 50 milliseconds.
+
+---
+
+## Think First
+Identify what can be cached.
+
+**The Static Content (What content on your app rarely changes? e.g., Landing page, Blog posts, Pricing page, Public API responses)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Dynamic Content (What content is unique per user and must NEVER be cached publicly? e.g., Dashboard data, user settings, billing info)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **CDN Edge Caching vs. Application Caching:**
+  - *CDN (Cloudflare, Vercel Edge):* Caches the HTTP response at edge servers worldwide. The fastest possible caching. Best for static pages and public API responses.
+  - *Application (Redis, in-memory):* Caches the result of expensive computations inside your application code. Best for authenticated, personalized data.
+- **Cache Invalidation:** The hardest problem in computer science. When you update a blog post, how do you tell Cloudflare's 300 edge servers to stop serving the old version? Use time-based expiration, manual purging, or "stale-while-revalidate" strategies.
+
+---
+
+## Common Mistakes
+- **Caching Authenticated Data on the CDN:**
+  - *Why it happens:* Setting \`Cache-Control: public, max-age=3600\` on an API endpoint that returns user-specific billing data.
+  - *Consequence:* User A's billing page gets cached. User B visits the same URL and sees User A's invoices. Catastrophic privacy breach.
+  - *Prevention:* NEVER set \`Cache-Control: public\` on any endpoint that returns personalized data.
+- **Never Invalidating the Cache:** Updating a product's price in the database, but the CDN serves the old price for 24 hours.
+
+---
+
+## Examples
+- *Good Implementation:* The landing page uses ISR (Incremental Static Regeneration) with a 60-second revalidation window. Static assets are served with \`Cache-Control: public, max-age=31536000, immutable\`. Dashboard API routes use \`Cache-Control: private, no-store\`.
+- *Bad Implementation:* Setting \`Cache-Control: no-cache\` on every single response, forcing your server to re-render everything on every request.
+
+---
+
+## AI Prompt
+\`\`\`prompt
+My SaaS is deployed on [INSERT PLATFORM, e.g., Vercel] and uses [INSERT DB, e.g., Supabase].
+
+Act as a Performance & Caching Expert.
+1. Write the exact Cache-Control headers I should set for: Static assets, Public pages, and Authenticated API responses.
+2. Explain how to implement ISR or stale-while-revalidate for my landing page.
+3. Should I introduce Redis for application-level caching? If yes, write the code for a simple cache wrapper.
+4. How do I manually invalidate the cache when I update content?
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Are static assets (JS, CSS, fonts) served with long-lived, immutable \`Cache-Control\` headers?
+- [ ] Are authenticated API responses explicitly set to \`Cache-Control: private, no-store\`?
+- [ ] Is the landing page cached at the CDN edge?
+- [ ] Do you have a cache invalidation strategy for when content is updated?
+
+---
+
+## Deliverable
+**File Name:** \`cache_strategy.md\`
+**Purpose:** Document what is cached, where, and for how long.
+**Contents:** A table mapping each route/asset type to its caching strategy and TTL.`,
+  'backups': `# Backups
+
+**🕒 Estimated Time:** 30 min
+
+---
+
+## Overview
+Databases fail. Disks corrupt. Developers accidentally run \`DELETE FROM users WHERE 1=1;\` at 11 PM on a Friday. Without backups, your entire business — every user account, every transaction, every piece of content — is gone permanently. Backups are not optional; they are the insurance policy that keeps your SaaS alive when everything else burns.
+
+---
+
+## Think First
+Define your recovery requirements.
+
+**The RPO (Recovery Point Objective): How much data can you afford to lose? e.g., "We can tolerate losing the last 1 hour of data, but not 24 hours."**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The RTO (Recovery Time Objective): How quickly must the system be back online after a failure?**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Managed vs. Manual Backups:**
+  - *Managed (Supabase, AWS RDS):* Your database provider automatically takes daily snapshots and retains them for 7-30 days. You don't write any code.
+  - *Manual (pg_dump):* You write a cron job that runs \`pg_dump\` every 6 hours and uploads the SQL file to a separate cloud storage bucket.
+  - *Decision:* Always enable managed backups. Add manual backups as an extra safety layer for critical production data.
+- **Point-in-Time Recovery (PITR):** Some providers offer PITR, which lets you restore your database to any second in the past. This is the gold standard.
+
+---
+
+## Common Mistakes
+- **Never Testing Restores:**
+  - *Why it happens:* You enabled automated backups 6 months ago and assumed they work.
+  - *Consequence:* When disaster strikes, you discover the backups were silently failing or the restore takes 12 hours.
+  - *Prevention:* Schedule a quarterly "Disaster Recovery Drill." Actually restore a backup to a test database.
+- **Storing Backups in the Same Region:** If your database is in \`us-east-1\` and your backups are also in \`us-east-1\`, a regional outage destroys both simultaneously.
+
+---
+
+## Examples
+- *Good Implementation:* Supabase daily backups enabled (managed). A cron job runs \`pg_dump\` every 6 hours and uploads to a separate AWS S3 bucket in a different region. The team tests a restore every quarter.
+- *Bad Implementation:* No backups configured. The founder's laptop is the only copy of the SQLite database.
+
+---
+
+## AI Prompt
+\`\`\`prompt
+My database is [INSERT DB, e.g., Supabase Postgres / AWS RDS].
+
+Act as a Database Administrator focused on Disaster Recovery.
+1. Confirm whether my provider offers automated backups and PITR. Explain how to enable them.
+2. Write a cron job script that runs pg_dump, compresses the output, and uploads it to a cloud storage bucket every 6 hours.
+3. Write the exact commands required to restore the database from a backup file.
+4. Design a quarterly "Disaster Recovery Test" checklist I can follow.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Are automated daily backups enabled on your database provider?
+- [ ] Is PITR (Point-in-Time Recovery) enabled if your plan supports it?
+- [ ] Are backups stored in a separate region or cloud provider from your primary database?
+- [ ] Have you actually tested restoring from a backup at least once?
+
+---
+
+## Deliverable
+**File Name:** \`backup_strategy.md\`
+**Purpose:** Ensure your business can survive catastrophic data loss.
+**Contents:** The backup schedule, storage locations, retention policy, and the disaster recovery test plan.`,
+  'cicd': `# CI/CD
+
+**🕒 Estimated Time:** 45-60 min
+
+---
+
+## Overview
+CI/CD (Continuous Integration / Continuous Deployment) automates the process of testing and deploying your code. Without CI/CD, your deployment process is: SSH into a server, run \`git pull\`, pray nothing breaks. With CI/CD, every \`git push\` to \`main\` automatically runs your tests, builds the application, and deploys it to production — with zero human intervention and zero downtime.
+
+---
+
+## Think First
+Define your deployment pipeline.
+
+**The Trigger (When should a deployment happen? On every push to main? Only when a Pull Request is merged? Only when a Git tag is created?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Checks (What must pass before the code reaches production? e.g., TypeScript compilation, Lint checks, E2E tests, Build success)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Platform-Managed vs. Custom Pipelines:**
+  - *Platform-Managed (Vercel, Netlify):* Every push to \`main\` automatically builds and deploys. Zero configuration required.
+  - *Custom (GitHub Actions):* You write a YAML file that defines each step. More complex but gives you complete control.
+  - *Decision:* Use platform-managed deployments for the app itself. Use GitHub Actions for running tests and quality gates.
+- **Preview Deployments:** Every Pull Request should generate a unique, temporary URL where you can preview the changes before merging to \`main\`.
+
+---
+
+## Common Mistakes
+- **"It works on my machine":**
+  - *Why it happens:* Your local Node.js version is 20, but the CI server runs Node 18.
+  - *Consequence:* Deployments fail randomly and nobody knows why.
+  - *Prevention:* Pin your Node version in \`.nvmrc\` or \`package.json engines\`, and ensure your CI pipeline uses the same version.
+- **No Branch Protection:** Allowing direct pushes to \`main\` without requiring a passing CI check first. A single typo deploys broken code to production.
+
+---
+
+## Examples
+- *Good Implementation:* GitHub branch protection requires all checks to pass before merging to \`main\`. A GitHub Actions workflow runs: TypeScript compilation -> ESLint -> Playwright E2E tests -> Build. If any step fails, the merge is blocked. On successful merge, Vercel automatically deploys.
+- *Bad Implementation:* FTP-ing files directly to a production server. No tests, no build step, no rollback capability.
+
+---
+
+## AI Prompt
+\`\`\`prompt
+My SaaS is built with [INSERT FRAMEWORK, e.g., Next.js].
+I deploy on [INSERT PLATFORM, e.g., Vercel].
+I want to use GitHub Actions for CI.
+
+Act as a DevOps Engineer.
+1. Write the complete .github/workflows/ci.yml file.
+2. The pipeline should: Install dependencies, run TypeScript type checking, run ESLint, run Playwright E2E tests, and build the project.
+3. This workflow should run on every Pull Request to main.
+4. Explain how to set up GitHub Branch Protection rules so that PRs cannot be merged unless this CI workflow passes.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Does every push or Pull Request trigger an automated CI pipeline?
+- [ ] Does the pipeline include type checking, linting, and at least one E2E test?
+- [ ] Is the \`main\` branch protected so that code cannot be merged without passing CI?
+- [ ] Do Pull Requests generate Preview Deployments for easy review?
+
+---
+
+## Deliverable
+**File Name:** \`.github/workflows/ci.yml\`
+**Purpose:** Automate quality gates and eliminate manual deployments.
+**Contents:** The complete GitHub Actions workflow and the branch protection configuration.`
 };
