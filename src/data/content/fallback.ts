@@ -3809,4 +3809,304 @@ Act as a Cloud FinOps Engineer.
 **File Name:** \`cost_estimation.md\`
 **Purpose:** Ensure your business remains profitable.
 **Contents:** A documented breakdown of expected fixed and variable costs for 100 and 1,000 users, and the profit margin based on your pricing model.`
+,
+  'auth': `# Auth (Implementation)
+
+**🕒 Estimated Time:** 60-120 min
+
+---
+
+## Overview
+In Phase 2, you decided *how* users will log in (e.g., Supabase Auth, Auth.js). In Phase 3, you actually write the code to lock the doors. Implementing authentication is usually the first code you write because almost every other feature (Database, Backend APIs, Frontend Dashboards) requires a logged-in user ID to function. Your goal is to establish a secure session and robust route protection.
+
+---
+
+## Think First
+Map out the exact user flow for logging in.
+
+**The Redirects (Where does a user go immediately after a successful signup? Where do they go if they try to access a protected route while logged out?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The User Record (When a user signs up via an Identity Provider like Google, how do you sync that new user to your own \`public.users\` database table?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Middleware Protection vs. Client-Side Redirects:** Checking authentication on the client side (e.g., inside a React \`useEffect\`) is slow and causes a "flicker" where the user sees the dashboard for a second before being kicked out. **Middleware** (running on the edge/server) intercepts the request *before* the page loads, offering a vastly superior and more secure user experience.
+- **Session Strategy:** Using \`HttpOnly\` cookies vs \`localStorage\`. Cookies are automatically sent with every API request and are immune to XSS attacks. \`localStorage\` is vulnerable. Always choose cookies for session tokens.
+
+---
+
+## Common Mistakes
+- **The Infinite Redirect Loop:** 
+  - *Why it happens:* Your middleware redirects unauthenticated users to \`/login\`. But you accidentally applied the middleware to the \`/login\` page itself.
+  - *Consequence:* The browser crashes with a "Too many redirects" error.
+  - *Prevention:* Explicitly exclude public routes (\`/login\`, \`/signup\`, \`/api/webhook\`) from your auth middleware.
+- **Ignoring the "Sign Out" Flow:** Forgetting to clear the cookies on logout, causing the user to remain authenticated on the backend even though the frontend UI says they are logged out.
+
+---
+
+## Examples
+- *Good Implementation:* A Next.js \`middleware.ts\` file that reads the session cookie. If missing, it rewrites the URL to \`/login\`. If present, it attaches the \`userId\` to the request headers for the backend API to consume securely.
+- *Bad Implementation:* Passing \`isLoggedIn={true}\` down as a React prop from the top-level app component and trusting it completely.
+
+---
+
+## AI Prompt
+Use AI to write your secure authentication wrappers and middleware.
+
+\`\`\`prompt
+My SaaS uses [INSERT FRAMEWORK, e.g., Next.js App Router].
+I am implementing Auth using [INSERT PROVIDER, e.g., Supabase Auth].
+
+Act as a Senior Security Engineer.
+1. Write the \`middleware.ts\` file to protect all routes under \`/dashboard/*\`.
+2. Ensure the middleware redirects unauthenticated users to \`/login\`.
+3. Ensure authenticated users who try to visit \`/login\` are redirected to \`/dashboard\`.
+4. Provide the exact code required to securely sign out the user and clear their session cookies.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Try to access the dashboard in an Incognito window. Were you redirected to \`/login\` without seeing a flash of the dashboard?
+- [ ] Try to access \`/login\` while already authenticated. Were you redirected to the dashboard?
+- [ ] Create a new account. Was a corresponding record successfully created in your database's \`users\` table?
+
+---
+
+## Deliverable
+**File Name:** \`middleware.ts\` and \`Login.tsx\`
+**Purpose:** Secure the perimeter of your application.
+**Contents:** The route protection logic and the user-facing Login/Signup components.`,
+  'database': `# Database (Implementation)
+
+**🕒 Estimated Time:** 45-60 min
+
+---
+
+## Overview
+You designed the schema in Phase 2. Now, you must instantiate it. Database implementation involves provisioning your local and production databases, running your migration scripts to create the tables, and writing "Seed Data". Developing a SaaS with an empty database is incredibly difficult; you need realistic dummy data (users, projects, invoices) to properly build out the frontend UI later.
+
+---
+
+## Think First
+Plan your local development environment.
+
+**The Development Environment (Are you running a local Postgres instance via Docker, or connecting to a remote "Dev" database on the cloud?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Seed Strategy (What specific dummy data do you need immediately to test your core UI? e.g., 1 Admin User, 5 Workspaces, 20 Projects)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Local DB vs. Cloud Dev DB:** Running a local database (via Docker or Supabase CLI) is faster, works offline, and is safer. Using a shared cloud "Dev" database is easier to set up but risks team members overwriting each other's test data.
+- **Automated Migrations vs. Manual SQL:** *Never* modify your database schema by clicking buttons in a UI (like pgAdmin or Supabase Studio) in production. Always use a migration tool (like Prisma Migrate or Drizzle Kit) that turns schema changes into version-controlled SQL files (\`001_init.sql\`).
+
+---
+
+## Common Mistakes
+- **Developing Against Production:**
+  - *Why it happens:* It's tedious to set up a separate local database.
+  - *Consequence:* You accidentally run a \`DROP TABLE\` command while testing a new feature, deleting real customer data.
+  - *Prevention:* Keep strict separation of environments. Your \`.env.local\` should NEVER contain the production database URL.
+- **Empty State Paralysis:** Trying to build a complex dashboard UI without any data in the database. You end up hardcoding values in React just to see what it looks like.
+
+---
+
+## Examples
+- *Good Implementation:* Running \`npx prisma migrate dev\` to push the schema to a local Postgres container, followed by \`npx prisma db seed\` which runs a Faker.js script to populate the database with 100 realistic fake users.
+- *Bad Implementation:* Manually creating tables one-by-one in the cloud UI, forgetting to document the schema changes, and having the app break on deployment.
+
+---
+
+## AI Prompt
+Use AI to write your database seeding script.
+
+\`\`\`prompt
+My schema is managed by [INSERT ORM, e.g., Prisma].
+My core tables are [INSERT TABLES, e.g., Users, Workspaces, Projects].
+
+Act as a Backend Engineer.
+1. Write a robust database Seed script in TypeScript.
+2. Use the \`@faker-js/faker\` library to generate realistic dummy data.
+3. The script should generate exactly 3 Users, 2 Workspaces per User, and 10 Projects per Workspace.
+4. Ensure the script cleans/truncates the existing tables before inserting the new data so it can be run multiple times safely.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Has the schema been successfully pushed to your local/development database?
+- [ ] Do you have a version-controlled migration file (e.g., \`init.sql\`) committed to Git?
+- [ ] Did the seed script run successfully and populate the database with realistic test data?
+
+---
+
+## Deliverable
+**File Name:** \`seed.ts\` and \`migrations/\`
+**Purpose:** Version control your database structure and populate it with test data.
+**Contents:** The automated SQL migration files and the Faker.js seeding utility.`,
+  'backend': `# Backend (Implementation)
+
+**🕒 Estimated Time:** 90-120 min
+
+---
+
+## Overview
+Backend implementation is where you write the core business logic of your SaaS. This is where you connect the Authentication middleware to the Database schema via API Endpoints or Server Actions. Your backend must securely validate incoming data from the frontend, execute the required database queries (CRUD), and return clean, predictable responses. 
+
+---
+
+## Think First
+Focus on the "Happy Path" first.
+
+**The Core MVP Endpoints (What are the 3 most critical API endpoints required for your app to basically function? e.g., Create Project, List Projects, Delete Project)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Validation Strategy (How will you ensure the data sent from the frontend is structurally correct before it hits the database?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Server Actions vs. Traditional API Routes:** If you are using Next.js App Router, Server Actions allow you to run backend code directly from frontend forms, bypassing the need to write manual \`fetch\` API endpoints. Traditional API Routes (REST/tRPC) are better if you have a separate frontend (e.g., React SPA) or a mobile app.
+- **Schema Validation (Zod):** Never trust \`req.body\`. Always run incoming data through a validation library like **Zod**. If a user sends a string where an integer was expected, Zod will instantly reject the request before it crashes your database query.
+
+---
+
+## Common Mistakes
+- **The N+1 Query Problem:**
+  - *Why it happens:* Looping over an array of 50 Projects in your backend code, and querying the database inside the loop to get the Owner for each project.
+  - *Consequence:* You make 51 separate database queries for a single API request. The endpoint takes 6 seconds to load.
+  - *Prevention:* Use SQL \`JOIN\`s or your ORM's relational include capabilities (e.g., \`include: { owner: true }\` in Prisma) to fetch everything in 1 query.
+- **Swallowing Errors:** Wrapping database calls in a \`try/catch\` block but returning a generic \`500 Internal Server Error\` without logging the actual failure, making debugging in production impossible.
+
+---
+
+## Examples
+- *Good Implementation:* An endpoint \`POST /api/projects\`. It first checks the session cookie. It validates the body using a Zod schema. It executes a Prisma query using the logged-in user's ID. It returns a \`201 Created\` status with the new project data.
+- *Bad Implementation:* Taking \`req.body.projectId\` and passing it directly into a raw SQL query without validation or checking if the user actually owns that project.
+
+---
+
+## AI Prompt
+Use AI to write secure, validated backend controllers.
+
+\`\`\`prompt
+I am building a backend using [INSERT FRAMEWORK, e.g., Next.js API Routes / Express].
+I am using [INSERT ORM, e.g., Prisma] and [INSERT VALIDATOR, e.g., Zod].
+
+Act as a Senior Backend Engineer.
+1. Write the API endpoint to [INSERT CORE ACTION, e.g., Create a new Project].
+2. Create the strict Zod schema required to validate the incoming request body.
+3. Ensure the endpoint first verifies the user's authentication session.
+4. Write the database query to insert the data, ensuring it is linked to the authenticated User's ID.
+5. Handle errors gracefully, returning proper HTTP status codes (400, 401, 500).
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Is every API endpoint verifying the user's authentication status?
+- [ ] Is incoming data (\`req.body\`, URL parameters) strictly validated using a schema library like Zod?
+- [ ] Do endpoints return predictable HTTP status codes (e.g., 400 for bad data, 401 for unauthorized, 200/201 for success)?
+
+---
+
+## Deliverable
+**File Name:** \`/api\` directory or Server Actions
+**Purpose:** The engine that processes your business logic securely.
+**Contents:** The core CRUD endpoints, Zod validation schemas, and database interaction logic.`,
+  'frontend': `# Frontend (Implementation)
+
+**🕒 Estimated Time:** 120+ min
+
+---
+
+## Overview
+With the Auth, Database, and Backend APIs built, you finally have the infrastructure to support your UI. Frontend implementation involves translating your Phase 1 Wireframes into real React/Vue components and connecting them to the live data flowing from your backend. The focus here is on state management, loading states, and providing instant, snappy feedback to the user.
+
+---
+
+## Think First
+Plan your component hierarchy.
+
+**The Core User Flow (What is the exact sequence of pages a user navigates to accomplish the primary goal of the app?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The UI Library (Are you using shadcn/ui, Tailwind UI, MUI, or building components from scratch?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Optimistic UI vs. Pessimistic UI:** 
+  - *Pessimistic (Standard):* User clicks "Like". App shows a spinner. API call succeeds. App updates UI to show the Like.
+  - *Optimistic (Advanced):* User clicks "Like". App instantly updates UI to show the Like. API call happens in the background. If it fails, the UI reverts. Optimistic UI feels vastly faster but is harder to code.
+- **Data Fetching:** Do not use raw \`useEffect\` and \`fetch()\` to get data. Always use a dedicated data-fetching library like **React Query (TanStack Query)** or **SWR**. They handle caching, loading states, error retries, and background refetching automatically.
+
+---
+
+## Common Mistakes
+- **Missing Loading/Error States:**
+  - *Why it happens:* On \`localhost\`, your API responds in 5 milliseconds. You forget that real users have slow 3G connections.
+  - *Consequence:* The user clicks a button, nothing happens for 3 seconds, they click it 5 more times, creating 6 duplicate records in the database.
+  - *Prevention:* Every asynchronous action must have an \`isLoading\` state that disables the button and shows a spinner.
+- **Prop Drilling:** Passing state down through 10 levels of nested components instead of using Context or Zustand.
+
+---
+
+## Examples
+- *Good Implementation:* A dashboard built with \`shadcn/ui\`. Data is fetched using \`useQuery\`. While loading, skeleton UI components are displayed. When a user creates a project, the button shows a spinner and a success Toast notification appears upon completion.
+- *Bad Implementation:* A massive 2,000-line \`Dashboard.tsx\` file containing raw fetch calls, hardcoded CSS, and zero error handling if the API goes down.
+
+---
+
+## AI Prompt
+Use AI to scaffold beautiful, functional UI components.
+
+\`\`\`prompt
+My SaaS uses [INSERT FRAMEWORK, e.g., React/Vite].
+I am using [INSERT CSS, e.g., Tailwind CSS] and [INSERT COMPONENTS, e.g., shadcn/ui].
+
+Act as a Principal Frontend Engineer.
+1. Build a "Dashboard Layout" component featuring a left-side navigation sidebar and a top header.
+2. Inside the main content area, build a data table that fetches a list of Projects from \`/api/projects\`.
+3. Use [INSERT FETCHING LIBRARY, e.g., React Query] to handle the data fetching.
+4. Explicitly include a loading skeleton state for while the data is fetching, and an error state if the API call fails.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Do all interactive buttons (Save, Delete) show a loading state and disable themselves while processing?
+- [ ] Is data fetching handled by a robust library (React Query/SWR) or Server Components rather than raw \`useEffect\`?
+- [ ] Are errors presented to the user via Toast notifications or inline alerts, rather than failing silently in the console?
+
+---
+
+## Deliverable
+**File Name:** \`/components\` and \`/pages\`
+**Purpose:** The visual, interactive layer of your SaaS.
+**Contents:** Reusable UI components, page layouts, data-fetching hooks, and routing logic.`
 };

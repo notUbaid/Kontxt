@@ -259,6 +259,26 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'AWS Pricing Calculator', url: 'https://calculator.aws/#/' },
     { name: 'Vercel Pricing Explained', url: 'https://vercel.com/docs/pricing' },
     { name: 'Cloudflare (Zero Egress Costs)', url: 'https://www.cloudflare.com/' }
+  ],
+  'auth': [
+    { name: 'Supabase Auth Server-Side', url: 'https://supabase.com/docs/guides/auth/server-side-rendering' },
+    { name: 'OWASP Authentication Cheat Sheet', url: 'https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html' },
+    { name: 'Clerk vs Supabase Auth', url: 'https://clerk.com/blog/clerk-vs-supabase' }
+  ],
+  'database': [
+    { name: 'Prisma Seeding Guide', url: 'https://www.prisma.io/docs/guides/migrate/seed-database' },
+    { name: 'Faker.js Documentation', url: 'https://fakerjs.dev/guide/' },
+    { name: 'Database Migrations Best Practices', url: 'https://planetscale.com/blog/database-migrations-best-practices' }
+  ],
+  'backend': [
+    { name: 'Zod Validation Schema', url: 'https://zod.dev/' },
+    { name: 'The N+1 Query Problem', url: 'https://planetscale.com/blog/what-is-n-1-query-problem' },
+    { name: 'REST API Best Practices', url: 'https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/' }
+  ],
+  'frontend': [
+    { name: 'shadcn/ui Components', url: 'https://ui.shadcn.com/' },
+    { name: 'TanStack Query (Data Fetching)', url: 'https://tanstack.com/query/latest' },
+    { name: 'Optimistic UI Updates', url: 'https://tanstack.com/query/latest/docs/react/guides/optimistic-updates' }
   ]
 };
 
