@@ -12,18 +12,17 @@ Testing mobile apps is notoriously difficult because you have to account for tou
 
 ## Think First
 **Are you writing tests to catch UI regressions, or testing complex business logic?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **How much time are you willing to dedicate to maintaining End-to-End (E2E) tests?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Is your core functionality (like Checkout) critical enough that a bug would cost you money?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -46,9 +45,7 @@ Testing mobile apps is notoriously difficult because you have to account for tou
 ---
 
 ## AI Prompt
-```prompt
-I am using Jest and React Native Testing Library. Generate a component test for a 'LoginForm' component. The test should verify that the submit button is disabled if the email is invalid, and that pressing submit with valid credentials calls the provided 'onSubmit' prop with the correct data.
-```
+> "I am using Jest and React Native Testing Library. Generate a component test for a 'LoginForm' component. The test should verify that the submit button is disabled if the email is invalid, and that pressing submit with valid credentials calls the provided 'onSubmit' prop with the correct data."
 
 ---
 
@@ -73,9 +70,9 @@ I am using Jest and React Native Testing Library. Generate a component test for 
 **Contents:** Automated tests simulating user interactions using Testing Library.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -93,18 +90,17 @@ Monetizing a mobile app requires integrating with Apple's App Store and Google P
 
 ## Think First
 **Are you selling physical goods/services or digital content?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Physical Goods (e.g., Uber, food delivery): Use Stripe or Braintree.**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Digital Goods (e.g., Premium features, ad removal): You MUST use Apple/Google In-App Purchases (IAP).**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -126,9 +122,7 @@ Monetizing a mobile app requires integrating with Apple's App Store and Google P
 ---
 
 ## AI Prompt
-```prompt
-I am building a React Native app and need to implement In-App Purchases for a 'Pro' subscription. Generate a complete implementation using RevenueCat (react-native-purchases). Include the initialization logic, a function to fetch available offerings, and a function to trigger the purchase flow. Explain how to securely verify the purchase on a Supabase backend.
-```
+> "I am building a React Native app and need to implement In-App Purchases for a 'Pro' subscription. Generate a complete implementation using RevenueCat (react-native-purchases). Include the initialization logic, a function to fetch available offerings, and a function to trigger the purchase flow. Explain how to securely verify the purchase on a Supabase backend."
 
 ---
 
@@ -153,9 +147,9 @@ I am building a React Native app and need to implement In-App Purchases for a 'P
 **Contents:** Functions for initializing the SDK, fetching products, and processing payments.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -173,18 +167,17 @@ While BaaS (Backend as a Service) platforms like Supabase or Firebase handle dir
 
 ## Think First
 **Are there operations that require keeping API keys secret (e.g., charging credit cards, sending emails)?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Does the logic require heavy computation that would drain a mobile battery?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Can this be handled by Edge Functions or Serverless functions, or do you need a dedicated server?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -208,9 +201,7 @@ While BaaS (Backend as a Service) platforms like Supabase or Firebase handle dir
 ---
 
 ## AI Prompt
-```prompt
-I need a serverless Edge Function written in TypeScript (for Supabase) that handles user checkout. It should receive a product ID and user ID, securely query the database for the price, create a Stripe PaymentIntent, and return the client secret to the mobile app. Include Zod validation for the incoming request.
-```
+> "I need a serverless Edge Function written in TypeScript (for Supabase) that handles user checkout. It should receive a product ID and user ID, securely query the database for the price, create a Stripe PaymentIntent, and return the client secret to the mobile app. Include Zod validation for the incoming request."
 
 ---
 
@@ -235,9 +226,9 @@ I need a serverless Edge Function written in TypeScript (for Supabase) that hand
 **Contents:** An endpoint that validates input, processes an external API call, and returns formatted data.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -255,18 +246,17 @@ Your database is the foundation of your app's data. In mobile development, you m
 
 ## Think First
 **Does this data need to be strictly relational, or is a document model sufficient?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **What are the most common queries the app will run? (Optimize for reads).**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Are there strict privacy requirements? (Row Level Security).**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -290,9 +280,7 @@ Your database is the foundation of your app's data. In mobile development, you m
 ---
 
 ## AI Prompt
-```prompt
-I am setting up a PostgreSQL database in Supabase for a social mobile app. I have users, posts, and comments. Generate the SQL schema for these tables including necessary foreign keys, indexes for performance, and Row Level Security (RLS) policies ensuring users can only edit their own posts.
-```
+> "I am setting up a PostgreSQL database in Supabase for a social mobile app. I have users, posts, and comments. Generate the SQL schema for these tables including necessary foreign keys, indexes for performance, and Row Level Security (RLS) policies ensuring users can only edit their own posts."
 
 ---
 
@@ -317,9 +305,9 @@ I am setting up a PostgreSQL database in Supabase for a social mobile app. I hav
 **Contents:** SQL commands defining tables, relations, and security policies.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -337,18 +325,17 @@ Authentication is the gatekeeper of your mobile app. It verifies who the user is
 
 ## Think First
 **Will users log in with email/password, or social providers (Google, Apple)?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **(iOS Only) Apple strictly requires "Sign in with Apple" if you offer any other social login.**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Do you need OTP (One Time Password) via SMS or email?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -372,9 +359,7 @@ Authentication is the gatekeeper of your mobile app. It verifies who the user is
 ---
 
 ## AI Prompt
-```prompt
-I am building an Expo React Native app using Supabase for authentication. Generate a complete authentication flow including: a sign-in screen, a sign-up screen, and an AuthProvider context that automatically checks for a session on app start and securely stores the token.
-```
+> "I am building an Expo React Native app using Supabase for authentication. Generate a complete authentication flow including: a sign-in screen, a sign-up screen, and an AuthProvider context that automatically checks for a session on app start and securely stores the token."
 
 ---
 
@@ -399,9 +384,9 @@ I am building an Expo React Native app using Supabase for authentication. Genera
 **Contents:** Context provider that handles login, logout, and session restoration logic.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -744,18 +729,17 @@ If a user notices their phone is hot and their battery drops 10% after using you
 
 ## Think First
 **Is your app constantly "phoning home" in the background?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Does your app keep the screen awake unnecessarily?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Are you rendering complex animations that push the GPU to 100%?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -778,9 +762,7 @@ If a user notices their phone is hot and their battery drops 10% after using you
 ---
 
 ## AI Prompt
-```prompt
-I am optimizing a React Native app for battery life. Identify the top 3 causes of battery drain in React Native. Provide a code example of how to properly use a 'useEffect' cleanup function to prevent memory leaks with setIntervals. Explain the difference between location accuracy levels in 'expo-location' regarding battery usage.
-```
+> "I am optimizing a React Native app for battery life. Identify the top 3 causes of battery drain in React Native. Provide a code example of how to properly use a 'useEffect' cleanup function to prevent memory leaks with setIntervals. Explain the difference between location accuracy levels in 'expo-location' regarding battery usage."
 
 ---
 
@@ -805,9 +787,9 @@ I am optimizing a React Native app for battery life. Identify the top 3 causes o
 **Contents:** Code managing sensors and background tasks to prioritize battery life.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -825,18 +807,17 @@ Users will not download your app if it is 300MB. In emerging markets with expens
 
 ## Think First
 **What are the heaviest assets currently bundled inside your app?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Are you importing entire massive libraries (like lodash or moment.js) when you only need one function?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Have you actually inspected your JavaScript bundle?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -859,9 +840,7 @@ Users will not download your app if it is 300MB. In emerging markets with expens
 ---
 
 ## AI Prompt
-```prompt
-I am optimizing the bundle size of my Expo React Native app. Provide a checklist of techniques to reduce the final .aab and .ipa file sizes. Explain how to use the 'expo-optimize' CLI command for assets, how to ensure Hermes is enabled, and recommend lightweight alternatives for heavy libraries like 'moment.js'.
-```
+> "I am optimizing the bundle size of my Expo React Native app. Provide a checklist of techniques to reduce the final .aab and .ipa file sizes. Explain how to use the 'expo-optimize' CLI command for assets, how to ensure Hermes is enabled, and recommend lightweight alternatives for heavy libraries like 'moment.js'."
 
 ---
 
@@ -886,9 +865,9 @@ I am optimizing the bundle size of my Expo React Native app. Provide a checklist
 **Contents:** Hermes configuration and optimized dependency list.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -906,18 +885,17 @@ No matter how much you test, your app will crash in production. Users have weird
 
 ## Think First
 **If a user opens the app and it immediately closes, how will you find out?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Are you logging React rendering errors (JS crashes) or Native module errors (Java/Swift crashes)?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Does your reporting tool capture the breadcrumbs (the button clicks leading up to the crash)?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -939,9 +917,7 @@ No matter how much you test, your app will crash in production. Users have weird
 ---
 
 ## AI Prompt
-```prompt
-I am setting up Sentry in an Expo React Native app. Generate the initialization code for Sentry. Explain the exact EAS Build configuration (app.json / eas.json) required to automatically upload source maps to Sentry so my production stack traces are readable.
-```
+> "I am setting up Sentry in an Expo React Native app. Generate the initialization code for Sentry. Explain the exact EAS Build configuration (app.json / eas.json) required to automatically upload source maps to Sentry so my production stack traces are readable."
 
 ---
 
@@ -966,9 +942,9 @@ I am setting up Sentry in an Expo React Native app. Generate the initialization 
 **Contents:** Crash reporter initialization and build-time source map configuration.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -986,18 +962,17 @@ Mobile apps fail constantly. APIs go down, memory runs out, and edge cases are h
 
 ## Think First
 **What happens if the server returns a 500 error on the home screen?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **How do you catch errors that happen deep inside a component's render cycle?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Are you distinguishing between user errors (wrong password) and system errors (database down)?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -1020,9 +995,7 @@ Mobile apps fail constantly. APIs go down, memory runs out, and edge cases are h
 ---
 
 ## AI Prompt
-```prompt
-I am building a React Native app. Generate a robust React Error Boundary component that catches rendering errors. When an error occurs, it should log the error to Sentry, and display a beautiful fallback UI to the user with a 'Restart App' button (using Expo Updates to reload the JS bundle).
-```
+> "I am building a React Native app. Generate a robust React Error Boundary component that catches rendering errors. When an error occurs, it should log the error to Sentry, and display a beautiful fallback UI to the user with a 'Restart App' button (using Expo Updates to reload the JS bundle)."
 
 ---
 
@@ -1047,9 +1020,9 @@ I am building a React Native app. Generate a robust React Error Boundary compone
 **Contents:** React Error Boundary implementation with reporting and fallback UI.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -1067,18 +1040,17 @@ If you don't track user behavior, you are flying blind. You will have no idea wh
 
 ## Think First
 **What is your North Star Metric? (What single action defines success? e.g., Completing a purchase).**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **What are the 5 critical events that lead up to that metric?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Are you sending Personally Identifiable Information (PII) to a third party?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -1101,9 +1073,7 @@ If you don't track user behavior, you are flying blind. You will have no idea wh
 ---
 
 ## AI Prompt
-```prompt
-I am integrating PostHog into my React Native Expo app. Generate a centralized Analytics utility file (analytics.ts) with strict TypeScript types for my events. It should enforce that I can only fire specific events like 'signup_completed' and 'checkout_started', and ensure I capture the user's ID securely without sending plain-text PII.
-```
+> "I am integrating PostHog into my React Native Expo app. Generate a centralized Analytics utility file (analytics.ts) with strict TypeScript types for my events. It should enforce that I can only fire specific events like 'signup_completed' and 'checkout_started', and ensure I capture the user's ID securely without sending plain-text PII."
 
 ---
 
@@ -1128,9 +1098,9 @@ I am integrating PostHog into my React Native Expo app. Generate a centralized A
 **Contents:** Wrapper functions for your chosen analytics provider.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -1148,18 +1118,17 @@ Mobile apps travel. Users open them on subways, airplanes, and areas with spotty
 
 ## Think First
 **What must work offline?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Does the app *need* to function fully offline (like a Notes app), or does it just need to show a polite "No Internet" screen (like a Banking app)?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **How will you handle data conflicts when the device comes back online?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -1182,9 +1151,7 @@ Mobile apps travel. Users open them on subways, airplanes, and areas with spotty
 ---
 
 ## AI Prompt
-```prompt
-I am building a React Native app. Generate a global network listener using '@react-native-community/netinfo' that displays a persistent, animated 'No Internet Connection' banner across the top of the app when the device goes offline. Also, explain how to configure React Query to serve cached data when a network request fails.
-```
+> "I am building a React Native app. Generate a global network listener using '@react-native-community/netinfo' that displays a persistent, animated 'No Internet Connection' banner across the top of the app when the device goes offline. Also, explain how to configure React Query to serve cached data when a network request fails."
 
 ---
 
@@ -1209,9 +1176,9 @@ I am building a React Native app. Generate a global network listener using '@rea
 **Contents:** A listener component that mounts at the root level of the app.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -1229,18 +1196,17 @@ Modern mobile operating systems are highly restrictive. You cannot access the ca
 
 ## Think First
 **Why do you *actually* need this permission?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Will the user understand why you are asking for it at this exact moment?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **What happens to the UI if the user permanently denies the permission?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -1262,9 +1228,7 @@ Modern mobile operating systems are highly restrictive. You cannot access the ca
 ---
 
 ## AI Prompt
-```prompt
-I am building an Expo app. Generate a reusable hook 'useCameraPermission' that checks the current permission status. If denied, it should trigger an alert guiding the user to the device Settings app using 'Linking.openSettings()'. Explain exactly what needs to be added to the app.json to satisfy Apple's review team.
-```
+> "I am building an Expo app. Generate a reusable hook 'useCameraPermission' that checks the current permission status. If denied, it should trigger an alert guiding the user to the device Settings app using 'Linking.openSettings()'. Explain exactly what needs to be added to the app.json to satisfy Apple's review team."
 
 ---
 
@@ -1289,9 +1253,9 @@ I am building an Expo app. Generate a reusable hook 'useCameraPermission' that c
 **Contents:** Accurate, user-facing permission justification strings.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -1309,18 +1273,17 @@ Location-awareness bridges the digital and physical worlds. Whether tracking a d
 
 ## Think First
 **Do you just need a one-time location ping (e.g., tagging a post), or continuous background tracking (e.g., a running app)?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **How precise does the location need to be? High accuracy drains the battery rapidly.**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Are you prepared for the strict app store reviews surrounding location tracking?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -1343,9 +1306,7 @@ Location-awareness bridges the digital and physical worlds. Whether tracking a d
 ---
 
 ## AI Prompt
-```prompt
-I am building an Expo React Native app. Generate a screen that uses 'expo-location' to request foreground location permissions, fetches the user's current coordinates, and displays them as a marker on a map using 'react-native-maps'. Include fallback UI if the user denies location permissions.
-```
+> "I am building an Expo React Native app. Generate a screen that uses 'expo-location' to request foreground location permissions, fetches the user's current coordinates, and displays them as a marker on a map using 'react-native-maps'. Include fallback UI if the user denies location permissions."
 
 ---
 
@@ -1370,9 +1331,9 @@ I am building an Expo React Native app. Generate a screen that uses 'expo-locati
 **Contents:** MapView component with custom markers and permission handling.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -1390,18 +1351,17 @@ Allowing users to upload photos and videos drastically increases engagement, but
 
 ## Think First
 **Do users need to take a live photo, or just pick from their camera roll?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Are you compressing the images before sending them over the network?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Who can view this media once it's uploaded?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -1424,9 +1384,7 @@ Allowing users to upload photos and videos drastically increases engagement, but
 ---
 
 ## AI Prompt
-```prompt
-I am building an Expo app. Generate a React Native component that allows a user to pick an image from their gallery using 'expo-image-picker', compresses the image to a maximum width of 1080px using 'expo-image-manipulator', and securely uploads the resulting file to a Supabase Storage bucket. Include error handling and a loading state.
-```
+> "I am building an Expo app. Generate a React Native component that allows a user to pick an image from their gallery using 'expo-image-picker', compresses the image to a maximum width of 1080px using 'expo-image-manipulator', and securely uploads the resulting file to a Supabase Storage bucket. Include error handling and a loading state."
 
 ---
 
@@ -1451,9 +1409,9 @@ I am building an Expo app. Generate a React Native component that allows a user 
 **Contents:** Helper functions wrapping the image picker and storage SDKs.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -1471,18 +1429,17 @@ Your app is only a shell until it connects to data. API implementation involves 
 
 ## Think First
 **How will you handle situations when the user loses cell service mid-request?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **How frequently does this data need to be refreshed?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **What happens if the API returns an error?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -1506,9 +1463,7 @@ Your app is only a shell until it connects to data. API implementation involves 
 ---
 
 ## AI Prompt
-```prompt
-I am using React Native with React Query and Axios. Generate a custom hook called useFetchProfile that fetches user data from '/api/profile'. Include proper TypeScript typing, an Axios interceptor setup to attach a Bearer token, and show how to handle loading and error states in a component.
-```
+> "I am using React Native with React Query and Axios. Generate a custom hook called useFetchProfile that fetches user data from '/api/profile'. Include proper TypeScript typing, an Axios interceptor setup to attach a Bearer token, and show how to handle loading and error states in a component."
 
 ---
 
@@ -1533,9 +1488,9 @@ I am using React Native with React Query and Axios. Generate a custom hook calle
 **Contents:** Configured API client, interceptors, and custom hooks for specific endpoints.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -1553,18 +1508,17 @@ Navigation dictates how users move through your app. Unlike web browsers with na
 
 ## Think First
 **What is the primary way users switch contexts? (Bottom Tabs are standard).**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Which screens should slide in from the right (Stack) versus slide up from the bottom (Modal)?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **How will you handle authenticated vs. unauthenticated routes?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -1588,9 +1542,7 @@ Navigation dictates how users move through your app. Unlike web browsers with na
 ---
 
 ## AI Prompt
-```prompt
-I am setting up Expo Router for my React Native app. Generate the file structure and layout code required to create a root layout that handles authentication state, directing unauthenticated users to a '/login' screen, and authenticated users to a bottom tab layout containing 'Home' and 'Settings'.
-```
+> "I am setting up Expo Router for my React Native app. Generate the file structure and layout code required to create a root layout that handles authentication state, directing unauthenticated users to a '/login' screen, and authenticated users to a bottom tab layout containing 'Home' and 'Settings'."
 
 ---
 
@@ -1615,9 +1567,9 @@ I am setting up Expo Router for my React Native app. Generate the file structure
 **Contents:** Navigation containers, tab definitions, and route guards.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -1635,18 +1587,17 @@ The Frontend (UI) is where your application comes to life. In mobile development
 
 ## Think First
 **Are you using a component library or building custom components from scratch?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **How will your app adapt to different screen sizes and dark/light modes?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Are your touch targets large enough for human thumbs?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -1670,9 +1621,7 @@ The Frontend (UI) is where your application comes to life. In mobile development
 ---
 
 ## AI Prompt
-```prompt
-I am building a React Native app. Generate a highly reusable, accessible custom Button component using TypeScript and StyleSheet. It should support 'primary', 'secondary', and 'outline' variants, accept a 'loading' boolean to show an ActivityIndicator, and have proper touch feedback using Pressable.
-```
+> "I am building a React Native app. Generate a highly reusable, accessible custom Button component using TypeScript and StyleSheet. It should support 'primary', 'secondary', and 'outline' variants, accept a 'loading' boolean to show an ActivityIndicator, and have proper touch feedback using Pressable."
 
 ---
 
@@ -1697,9 +1646,9 @@ I am building a React Native app. Generate a highly reusable, accessible custom 
 **Contents:** Fully typed, responsive components ready to be used across screens.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -1717,18 +1666,17 @@ Push Notifications are the strongest tool for mobile user retention, allowing yo
 
 ## Think First
 **What events truly warrant interrupting the user's day?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **How will you handle the permission prompt? (Timing is critical).**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Do notifications need to carry deep-links to specific screens?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -1752,9 +1700,7 @@ Push Notifications are the strongest tool for mobile user retention, allowing yo
 ---
 
 ## AI Prompt
-```prompt
-I am using Expo and React Native. Generate the complete code to request push notification permissions gracefully, retrieve the Expo Push Token, and set up listeners for incoming notifications while the app is foregrounded and backgrounded.
-```
+> "I am using Expo and React Native. Generate the complete code to request push notification permissions gracefully, retrieve the Expo Push Token, and set up listeners for incoming notifications while the app is foregrounded and backgrounded."
 
 ---
 
@@ -1779,9 +1725,9 @@ I am using Expo and React Native. Generate the complete code to request push not
 **Contents:** Hook that registers for push notifications, saves the token, and handles incoming notification events.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -1799,18 +1745,17 @@ State Management is how your app remembers data across different screens. When a
 
 ## Think First
 **Does this data need to be available globally, or just on this screen?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **How often does this data change?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Does it need to be persisted when the app closes?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -1834,9 +1779,7 @@ State Management is how your app remembers data across different screens. When a
 ---
 
 ## AI Prompt
-```prompt
-I am building a React Native app. I need a robust state management setup using Zustand for client state and React Query for server state. Please generate the boilerplate for a Zustand store that handles user session (logged in, user data), and explain how to persist this securely using MMKV.
-```
+> "I am building a React Native app. I need a robust state management setup using Zustand for client state and React Query for server state. Please generate the boilerplate for a Zustand store that handles user session (logged in, user data), and explain how to persist this securely using MMKV."
 
 ---
 
@@ -1861,9 +1804,9 @@ I am building a React Native app. I need a robust state management setup using Z
 **Contents:** A configured Zustand store with actions for updating user sessions and app preferences.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -7038,18 +6981,17 @@ Mobile security is unique because the client (the phone) is in the hands of the 
 
 ## Think First
 **Are you storing sensitive data (passwords, JWTs, PII) in plain text on the device?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Is your API verifying the identity of the user on *every* request?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Have you restricted your API keys to prevent quota theft?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -7072,9 +7014,7 @@ Mobile security is unique because the client (the phone) is in the hands of the 
 ---
 
 ## AI Prompt
-```prompt
-I am preparing my React Native app for production. Generate a comprehensive security checklist covering token storage (SecureStore vs AsyncStorage), API key restrictions (Google Maps, Firebase), and how to prevent reverse engineering of my JavaScript bundle. Explain the concept of Row Level Security (RLS) assuming I am using Supabase.
-```
+> "I am preparing my React Native app for production. Generate a comprehensive security checklist covering token storage (SecureStore vs AsyncStorage), API key restrictions (Google Maps, Firebase), and how to prevent reverse engineering of my JavaScript bundle. Explain the concept of Row Level Security (RLS) assuming I am using Supabase."
 
 ---
 
@@ -7099,9 +7039,9 @@ I am preparing my React Native app for production. Generate a comprehensive secu
 **Contents:** A signed-off checklist confirming token security and key restrictions.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -7119,18 +7059,17 @@ Users will tolerate a web page taking 3 seconds to load, but a mobile app that s
 
 ## Think First
 **Does your app freeze when scrolling through a long list?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Are images taking forever to load or consuming massive amounts of memory?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Does the entire app re-render when a single switch is toggled?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -7153,9 +7092,7 @@ Users will tolerate a web page taking 3 seconds to load, but a mobile app that s
 ---
 
 ## AI Prompt
-```prompt
-I am optimizing a React Native app. Generate a code snippet demonstrating how to replace a standard React Native FlatList with Shopify's FlashList. Include an 'estimatedItemSize', an optimized renderItem function using 'React.memo', and explain why 'expo-image' is necessary inside the list items.
-```
+> "I am optimizing a React Native app. Generate a code snippet demonstrating how to replace a standard React Native FlatList with Shopify's FlashList. Include an 'estimatedItemSize', an optimized renderItem function using 'React.memo', and explain why 'expo-image' is necessary inside the list items."
 
 ---
 
@@ -7180,9 +7117,9 @@ I am optimizing a React Native app. Generate a code snippet demonstrating how to
 **Contents:** A list component utilizing FlashList and memoization.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -7200,18 +7137,17 @@ Crash reporting tells you when the app dies. Monitoring tells you when the app i
 
 ## Think First
 **How do you know if your backend API goes down at 3 AM?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Are you tracking the latency of your most critical endpoints (e.g., Checkout)?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Do you have alerts set up to wake you up if the database CPU hits 100%?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -7234,9 +7170,7 @@ Crash reporting tells you when the app dies. Monitoring tells you when the app i
 ---
 
 ## AI Prompt
-```prompt
-I am preparing a mobile app and Node.js backend for production. Generate a Monitoring and Alerting strategy. Recommend free or low-cost tools for Uptime Monitoring (pinging the API), and explain what 3 specific metrics I should set SMS alerts for to ensure I am not caught off-guard by an outage.
-```
+> "I am preparing a mobile app and Node.js backend for production. Generate a Monitoring and Alerting strategy. Recommend free or low-cost tools for Uptime Monitoring (pinging the API), and explain what 3 specific metrics I should set SMS alerts for to ensure I am not caught off-guard by an outage."
 
 ---
 
@@ -7261,9 +7195,9 @@ I am preparing a mobile app and Node.js backend for production. Generate a Monit
 **Contents:** Links to uptime dashboards and the exact thresholds for triggering alerts.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -7281,18 +7215,17 @@ When a bug occurs in production that doesn't trigger a hard crash, logs are your
 
 ## Think First
 **Are your logs easily searchable in a central dashboard?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Are you accidentally logging Personally Identifiable Information (PII) like passwords or credit card numbers?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Are you logging too much (wasting money) or too little (flying blind)?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -7314,9 +7247,7 @@ When a bug occurs in production that doesn't trigger a hard crash, logs are your
 ---
 
 ## AI Prompt
-```prompt
-I am building a Node.js Edge Function backend for my mobile app. Generate a robust, structured logging utility using Pino. Show how to log an incoming API request, how to redact sensitive fields (like 'password' and 'token'), and how to differentiate between INFO, WARN, and ERROR levels.
-```
+> "I am building a Node.js Edge Function backend for my mobile app. Generate a robust, structured logging utility using Pino. Show how to log an incoming API request, how to redact sensitive fields (like 'password' and 'token'), and how to differentiate between INFO, WARN, and ERROR levels."
 
 ---
 
@@ -7341,9 +7272,9 @@ I am building a Node.js Edge Function backend for my mobile app. Generate a robu
 **Contents:** A structured logging wrapper with built-in redaction for sensitive data.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -7441,18 +7372,17 @@ If your API is on the internet, someone will try to abuse it. Rate limiting is y
 
 ## Think First
 **What endpoints are the most expensive to run or most vulnerable to attack? (e.g., /login, /send-sms, /checkout).**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **How many requests per minute is reasonable for a normal human user?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **What should the mobile app display when the rate limit is hit?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -7474,9 +7404,7 @@ If your API is on the internet, someone will try to abuse it. Rate limiting is y
 ---
 
 ## AI Prompt
-```prompt
-I am using Next.js/Vercel (or Supabase Edge Functions) as the backend for my mobile app. Generate a rate limiting middleware using Upstash Redis. It should limit the '/send-sms' route to 3 requests per hour per IP address, and return a clean 429 JSON response. Also, provide the React Query code for the mobile app to handle this 429 gracefully.
-```
+> "I am using Next.js/Vercel (or Supabase Edge Functions) as the backend for my mobile app. Generate a rate limiting middleware using Upstash Redis. It should limit the '/send-sms' route to 3 requests per hour per IP address, and return a clean 429 JSON response. Also, provide the React Query code for the mobile app to handle this 429 gracefully."
 
 ---
 
@@ -7501,9 +7429,9 @@ I am using Next.js/Vercel (or Supabase Edge Functions) as the backend for my mob
 **Contents:** Edge middleware utilizing Redis to track and block excessive requests.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -7600,18 +7528,17 @@ There are two types of developers: those who have accidentally dropped a product
 
 ## Think First
 **If your database is destroyed right now, how much data are you willing to lose? (1 hour? 24 hours?)**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Do you know *how* to restore the backup, or have you just assumed the automated system works?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Are your backups stored in the same region/provider as your primary database?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -7634,9 +7561,7 @@ There are two types of developers: those who have accidentally dropped a product
 ---
 
 ## AI Prompt
-```prompt
-I am launching a production app using Supabase. Generate a disaster recovery checklist. Explain exactly how to enable Point-in-Time Recovery (PITR), how to routinely test a restore operation without impacting the production database, and how to ensure my Supabase Storage buckets are also backed up.
-```
+> "I am launching a production app using Supabase. Generate a disaster recovery checklist. Explain exactly how to enable Point-in-Time Recovery (PITR), how to routinely test a restore operation without impacting the production database, and how to ensure my Supabase Storage buckets are also backed up."
 
 ---
 
@@ -7661,9 +7586,9 @@ I am launching a production app using Supabase. Generate a disaster recovery che
 **Contents:** Step-by-step instructions on how to restore the database from a backup during an emergency.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -7681,18 +7606,17 @@ Continuous Integration and Continuous Deployment (CI/CD) automates the boring, e
 
 ## Think First
 **Are you currently wasting hours staring at Xcode while your app builds?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **How do you guarantee that broken code doesn't accidentally get merged into the main branch?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Do you need to manage different environments (Development, Staging, Production)?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -7714,9 +7638,7 @@ Continuous Integration and Continuous Deployment (CI/CD) automates the boring, e
 ---
 
 ## AI Prompt
-```prompt
-I am setting up CI/CD for my Expo React Native app. Generate an eas.json configuration file with three profiles: 'development', 'preview', and 'production'. Also, generate a GitHub Actions workflow (.github/workflows/build.yml) that runs type-checking and tests on every PR, and triggers an EAS Build when code is merged to main.
-```
+> "I am setting up CI/CD for my Expo React Native app. Generate an eas.json configuration file with three profiles: 'development', 'preview', and 'production'. Also, generate a GitHub Actions workflow (.github/workflows/build.yml) that runs type-checking and tests on every PR, and triggers an EAS Build when code is merged to main."
 
 ---
 
@@ -7741,9 +7663,9 @@ I am setting up CI/CD for my Expo React Native app. Generate an eas.json configu
 **Contents:** Configuration files for Expo Application Services and GitHub Actions.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -7761,18 +7683,17 @@ Infrastructure is the invisible plumbing that powers your app. Choosing the righ
 
 ## Think First
 **Are you going to manage servers (EC2/DigitalOcean), or use Serverless platforms (Vercel/Supabase)?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Where are your users geographically located? (Latency matters).**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Do you have separate environments for Staging and Production?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -7795,9 +7716,7 @@ Infrastructure is the invisible plumbing that powers your app. Choosing the righ
 ---
 
 ## AI Prompt
-```prompt
-I am launching a mobile app using React Native and Supabase. Generate an infrastructure overview outlining how to structure my environments (Local, Staging, Production). Explain how to use Supabase CLI migrations to ensure schema changes made in Local are safely promoted to Staging and Production without manual clicking in the dashboard.
-```
+> "I am launching a mobile app using React Native and Supabase. Generate an infrastructure overview outlining how to structure my environments (Local, Staging, Production). Explain how to use Supabase CLI migrations to ensure schema changes made in Local are safely promoted to Staging and Production without manual clicking in the dashboard."
 
 ---
 
@@ -7822,9 +7741,9 @@ I am launching a mobile app using React Native and Supabase. Generate an infrast
 **Contents:** SQL files representing the exact state of the production database.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
@@ -13331,18 +13250,17 @@ Going viral is the dream, until your database crashes, your users get 500 errors
 
 ## Think First
 **What breaks first if 10,000 users sign up in the next hour? (Usually the database).**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Are you serving static assets directly from your server instead of a CDN?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
+\`\`\`
 **Do you have unindexed database queries that will grind to a halt when the table hits 1 million rows?**
-```input
+\`\`\`input
 ✏️ Type your answer here...
-```
-
+\`\`\`
 ---
 
 ## Key Decisions
@@ -13365,9 +13283,7 @@ Going viral is the dream, until your database crashes, your users get 500 errors
 ---
 
 ## AI Prompt
-```prompt
-I am preparing my Supabase backend and React Native app for a massive launch. Explain the concept of Database Connection Pooling and why it is critical for Serverless architectures. Provide an SQL snippet to add an index to a frequently queried 'username' column, and explain how to identify the 'N+1 query problem' in my API routes.
-```
+> "I am preparing my Supabase backend and React Native app for a massive launch. Explain the concept of Database Connection Pooling and why it is critical for Serverless architectures. Provide an SQL snippet to add an index to a frequently queried 'username' column, and explain how to identify the 'N+1 query problem' in my API routes."
 
 ---
 
@@ -13392,9 +13308,9 @@ I am preparing my Supabase backend and React Native app for a massive launch. Ex
 **Contents:** SQL commands adding performance indexes to critical tables.
 
 
-```input
+\`\`\`input
 ✏️ Paste your deliverable here...
-```
+\`\`\`
 ---
 
 ## Next Step
