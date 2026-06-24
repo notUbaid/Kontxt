@@ -17,12 +17,17 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
   const taxonomy = getTaxonomy(activeType, activeMode);
   
   // In custom mode, filter out topics the user didn't select
-  const filteredTaxonomy = activeMode === 'Custom' && activeProject.customTopics
-    ? taxonomy.map(cat => ({
-        ...cat,
-        topics: cat.topics.filter(t => activeProject.customTopics!.includes(t.id))
-      })).filter(cat => cat.topics.length > 0)
-    : taxonomy;
+  let filteredTaxonomy = taxonomy;
+  if (activeMode === 'Custom' && activeProject.customTopics && activeProject.customTopics.length > 0) {
+    const customFiltered = taxonomy.map(cat => ({
+      ...cat,
+      topics: cat.topics.filter(t => activeProject.customTopics!.includes(t.id))
+    })).filter(cat => cat.topics.length > 0);
+    
+    if (customFiltered.length > 0) {
+      filteredTaxonomy = customFiltered;
+    }
+  }
 
   // Simple state to track which categories are expanded in the accordion
   const [expandedCats, setExpandedCats] = useState<Record<string, boolean>>({});

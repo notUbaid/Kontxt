@@ -138,6 +138,11 @@ Challenge my assumptions. Do not validate my idea automatically.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 At the bottom of this page, write a definitive 3-sentence summary of your idea. This will be referenced by Kontxt AI for all future phases.
 
@@ -242,6 +247,11 @@ Act as a skeptical user research expert. Read my problem inputs above.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 Write a 3-part Problem Statement below:
 1. **The Current State:** How things are done today.
@@ -340,6 +350,11 @@ The problem they face is: [INSERT PROBLEM STATEMENT].
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 Summarize the Top 3 User Pain Points below, ranked by severity. For each, list the exact consequence of the pain point.
 
@@ -435,6 +450,11 @@ For the Primary "Bullseye" ICP, include:
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 Define your 1 Primary ICP below. Delete everything else. When you are tempted to build a feature, ask yourself: "Does this specific person actually care about this?"
 
@@ -514,6 +534,11 @@ Include:
 - [ ] Have you defined at least 3 disqualifying criteria?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Write your highly constrained ICP below, including the firmographics and the exact role of the buyer.
@@ -607,6 +632,11 @@ Generate 2 detailed User Personas. For each persona, provide:
 - [ ] Did you avoid demographic stereotypes in favor of behavioral patterns?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Define your Primary User Persona and their core "Job to be Done" below.
@@ -709,6 +739,11 @@ Make it punchy and persuasive.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 Write your official 1-paragraph Solution Statement (Press Release style) below.
 
@@ -809,6 +844,11 @@ Generate a Value Proposition Canvas:
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 Write your official 1-2 sentence Value Proposition below.
 
@@ -903,6 +943,11 @@ They must be written in plain English, completely devoid of buzzwords, and immed
 2. For the "Must Haves", suggest the absolute simplest, most hard-coded way I can implement them to save time.
 \`\`\`
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable Expectations
 Create a checklist below of the 3 to 5 features that constitute your MVP. If there are more than 5, you are probably building too much.
 `,
@@ -990,6 +1035,11 @@ Analyze this raw data and provide:
 ✗ "Everyone needs to be more productive, so the market is 1 billion knowledge workers."
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Write a highly specific, 3-4 sentence summary of your Bottom-Up market research. Prove that the bleeding neck actually exists.
@@ -1082,6 +1132,11 @@ Analyze these reviews and tell me:
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 Identify your primary competitor and write exactly how you will position against their structural weakness.
 
@@ -1170,6 +1225,11 @@ I want them to switch to my dedicated software.
 ✗ Assuming users will happily spend 4 hours setting up your tool.
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Describe the user's current workaround, its hidden cost, and your exact strategy for making them switch painlessly.
@@ -1261,6 +1321,11 @@ Here is my Value Proposition: [PASTE VALUE PROPOSITION]
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 Write your final 1-sentence positioning statement.
 
@@ -1348,6 +1413,11 @@ Brainstorm a comprehensive list of 20 features that this platform could eventual
 - [ ] Did I document the "Magic" feature that delivers the Aha! moment?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Paste your comprehensive, unfiltered list of features here.
@@ -1438,6 +1508,11 @@ Act as a ruthless CTO focused on shipping in 2 weeks.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 Create a strict checklist of the 3 to 5 features that constitute your MVP.
 
@@ -1517,6 +1592,11 @@ Act as a ruthless Lead Engineer and Product Manager.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 List your top 3 Future Features below, and clearly state the specific milestone you must hit before you are allowed to build them.
 
@@ -1594,6 +1674,11 @@ Act as a Senior Product Manager.
 - [ ] Have you doubled your engineering Effort estimates to account for edge cases and testing?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Write down the feature with the highest RICE score that you are committing to building next.
@@ -1683,6 +1768,11 @@ Act as a ruthless Series A SaaS investor (like David Sacks).
 - [ ] Have I modeled my margins after cloud, database, and AI API costs are deducted?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Write your 1-sentence business model summary and your target LTV:CAC ratio.
@@ -1774,6 +1864,11 @@ Act as Patrick Campbell, the world's leading SaaS Pricing Strategist.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 Define your 3 tiers, their exact price points, and the core paywall trigger.
 
@@ -1860,6 +1955,11 @@ Act as Elena Verna, B2B Growth and Retention Expert.
 - [ ] Have I designed the product to accumulate value over time, making it painful to leave?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Define your monthly vs annual split and how you will drive annual upgrades.
@@ -1948,6 +2048,11 @@ Act as a Chief Revenue Officer at a high-growth B2B SaaS.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 List your Primary and Secondary revenue streams and how they drive NDR.
 
@@ -2035,6 +2140,11 @@ Act as a partner at Sequoia Capital.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 Define the 3 overarching metrics that will define your success this quarter.
 
@@ -2115,6 +2225,11 @@ Act as a Fractional CFO and Data Analyst.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 List your 3 most critical KPIs below, along with the specific tool you will use to track them (e.g., Stripe, PostHog).
 
@@ -2193,6 +2308,11 @@ Act as a VP of Product at a top-tier tech company.
 - [ ] Is your NSM responsive? (If you ship a great feature today, will you see the metric move next week?)
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Write your single North Star Metric below. This is the one number your entire company will rally around.
@@ -2283,6 +2403,11 @@ Act as Kevin Yien (ex-Square/Mutiny Product Leader) doing a ruthless PRD tear-do
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 Write your primary Job to be Done (JTBD) and your top 3 Non-Goals.
 
@@ -2371,6 +2496,11 @@ Act as an expert Growth Designer from Reforge.
 - [ ] Does my flow include a mechanism to naturally re-engage the user later?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Write out the 3 to 5 exact steps of your "Golden Path" onboarding flow.
@@ -2461,6 +2591,11 @@ Act as an expert UX Architect from the Nielsen Norman Group.
 - [ ] Have I accounted for multi-tenant "Workspaces" at the top level?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Map out your exact URL structure for your core feature (e.g., /org/:orgId/project/:projectId)
@@ -2555,6 +2690,11 @@ Act as an expert UX Designer from IDEO.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`core_wireframes_v1\`
 **Purpose:** A structural blueprint proving the core user flows fit on a screen.
@@ -2646,6 +2786,11 @@ Act as a Senior Frontend Architect.
 - [ ] Is our spacing system standardized (e.g., multiples of 4px or 8px)?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`tailwind.config.ts\` (or \`theme.css\`)
@@ -2739,6 +2884,11 @@ Act as an elite Brand Strategist.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`brand_guidelines.md\`
 **Purpose:** A strict rulebook for visual and written communication.
@@ -2830,6 +2980,11 @@ I am building a custom [INSERT COMPONENT, e.g., Combobox Dropdown / Date Picker]
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`a11y_audit.md\` (or integrated into your ESLint config)
 **Purpose:** Ensure legal compliance and universal usability.
@@ -2913,6 +3068,11 @@ Act as a cynical, highly-experienced Staff Engineer.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`tech_stack_decisions.md\`
 **Purpose:** Document the chosen stack to ensure AI coding agents (Cursor/Windsurf) and future hires understand the boundaries of the codebase.
@@ -2991,6 +3151,11 @@ Act as a Principal Frontend Architect.
 - [ ] Are we strictly separating UI presentation components from heavy business-logic components?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`/src\` directory initialized
@@ -3071,6 +3236,11 @@ Act as a Senior Database Architect.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`schema.sql\` or \`schema.prisma\`
 **Purpose:** The mathematical definition of your application's data.
@@ -3146,6 +3316,11 @@ Act as a Principal API Architect.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`api_spec.md\` (or OpenAPI YAML)
 **Purpose:** A strict contract defining exactly what the backend accepts and returns.
@@ -3219,6 +3394,11 @@ Act as a Security Engineer.
 - [ ] Is there a protected route middleware that strictly rejects unauthenticated users?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`auth_middleware.ts\`
@@ -3296,6 +3476,11 @@ Act as a Database Security Expert.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`rls_policies.sql\` (or middleware logic)
 **Purpose:** The security barrier preventing cross-tenant data leaks.
@@ -3372,6 +3557,11 @@ Act as a Senior Data Architect.
 - [ ] Are we using strict data types (e.g., \`TIMESTAMPTZ\`, \`UUID\`) instead of generic strings?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`schema.prisma\` or \`schema.sql\`
@@ -3451,6 +3641,11 @@ Act as a Cloud Infrastructure Architect.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`upload_service.ts\`
 **Purpose:** A utility to handle secure file uploads without crashing the server.
@@ -3528,6 +3723,11 @@ Act as a Principal Integration Engineer.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`integrations.md\`
 **Purpose:** Map out external dependencies and required environment variables.
@@ -3603,6 +3803,11 @@ Act as an AI Systems Architect.
 - [ ] Is there a rate-limit in place to prevent a single user from running up your OpenAI bill?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`ai_pipeline.md\`
@@ -3684,6 +3889,11 @@ Act as a Principal Cloud Architect.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`architecture.md\`
 **Purpose:** A visual map of your entire infrastructure.
@@ -3760,6 +3970,11 @@ Act as a Cloud FinOps Engineer.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`cost_estimation.md\`
 **Purpose:** Ensure your business remains profitable.
@@ -3835,6 +4050,11 @@ Act as a Senior Security Engineer.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`middleware.ts\` and \`Login.tsx\`
 **Purpose:** Secure the perimeter of your application.
@@ -3908,6 +4128,11 @@ Act as a Backend Engineer.
 - [ ] Did the seed script run successfully and populate the database with realistic test data?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`seed.ts\` and \`migrations/\`
@@ -3983,6 +4208,11 @@ Act as a Senior Backend Engineer.
 - [ ] Do endpoints return predictable HTTP status codes (e.g., 400 for bad data, 401 for unauthorized, 200/201 for success)?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`/api\` directory or Server Actions
@@ -4060,6 +4290,11 @@ Act as a Principal Frontend Engineer.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`/components\` and \`/pages\`
 **Purpose:** The visual, interactive layer of your SaaS.
@@ -4135,6 +4370,11 @@ Act as a Principal Billing Engineer.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`stripe_webhook.ts\` and \`checkout.ts\`
 **Purpose:** The engine that securely captures revenue.
@@ -4207,6 +4447,11 @@ Act as a Frontend Engineer specializing in Email Deliverability.
 - [ ] Are email sending functions executed asynchronously so they don't block the user's UI?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`/emails/WelcomeEmail.tsx\` and \`mailer.ts\`
@@ -4284,6 +4529,11 @@ Act as a Full Stack Engineer.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`NotificationBell.tsx\` and \`notifications.ts\`
 **Purpose:** Keep the user informed and engaged with app activity.
@@ -4360,6 +4610,11 @@ Act as a Full Stack Performance Expert.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`SearchBar.tsx\` and \`/api/search\`
 **Purpose:** Allow users to instantly locate their data.
@@ -4433,6 +4688,11 @@ Act as a Product Data Analyst.
 - [ ] Have you verified that events are actively appearing in your provider's live dashboard?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`analytics.ts\`
@@ -4511,6 +4771,11 @@ Act as an Internal Tools Developer.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`/admin/dashboard.tsx\` and \`/api/admin/*\`
 **Purpose:** Provide the tools needed to run the business.
@@ -4587,6 +4852,11 @@ Act as a Senior Integration Engineer.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`/api/integrations/[provider]\`
 **Purpose:** Connect your SaaS to the broader software ecosystem.
@@ -4662,6 +4932,11 @@ Act as a QA Automation Engineer.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`/tests/e2e/core.spec.ts\` and \`.github/workflows/test.yml\`
 **Purpose:** Prevent regressions and deploy with confidence.
@@ -4736,6 +5011,11 @@ Act as an Expert Technical Writer.
 - [ ] Is the \`README.md\` in your code repository updated with instructions on how to run the project locally?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`README.md\` and \`/docs\` folder
@@ -4815,6 +5095,11 @@ Act as a Product Marketer and Backend Engineer.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`demo_seed.ts\`
 **Purpose:** Make the product instantly impressive.
@@ -4891,6 +5176,11 @@ Act as a Y Combinator Pitch Coach.
 - [ ] Does your pitch get to the core value proposition (the "Aha!" moment) in the first 30 seconds?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`pitch_script.md\`
@@ -4972,6 +5262,11 @@ Act as a Senior Application Security Engineer performing a code review.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`security_checklist.md\`
 **Purpose:** A living document of security controls and their status.
@@ -5046,6 +5341,11 @@ Act as a Principal Performance Engineer.
 - [ ] Are heavy libraries (Charts, Editors) loaded via dynamic imports / code splitting?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`performance_audit.md\`
@@ -5124,6 +5424,11 @@ Act as a Site Reliability Engineer (SRE).
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`/api/health.ts\` and monitoring dashboard configuration
 **Purpose:** Detect and respond to outages before your users do.
@@ -5201,6 +5506,11 @@ Act as a DevOps Engineer specializing in Observability.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`logger.ts\` and logging middleware
 **Purpose:** Create a searchable audit trail for debugging production issues.
@@ -5275,6 +5585,11 @@ Act as a Site Reliability Engineer.
 - [ ] Are common noise errors (like ResizeObserver) filtered out?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`sentry.config.ts\` and CI/CD source map upload step
@@ -5353,6 +5668,11 @@ Act as a Security Infrastructure Engineer.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`ratelimit.ts\` middleware
 **Purpose:** Protect your server and budget from abuse.
@@ -5426,6 +5746,11 @@ Act as a Performance & Caching Expert.
 - [ ] Do you have a cache invalidation strategy for when content is updated?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`cache_strategy.md\`
@@ -5501,6 +5826,11 @@ Act as a Database Administrator focused on Disaster Recovery.
 - [ ] Have you actually tested restoring from a backup at least once?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`backup_strategy.md\`
@@ -5578,6 +5908,11 @@ Act as a DevOps Engineer.
 - [ ] Do Pull Requests generate Preview Deployments for easy review?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`.github/workflows/ci.yml\`
@@ -5658,6 +5993,11 @@ Act as a Cloud Infrastructure Architect.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`infrastructure.md\`
 **Purpose:** Document where everything runs and why.
@@ -5733,6 +6073,11 @@ Act as a Disaster Recovery Specialist.
 - [ ] Does more than one person on your team know how to execute the recovery plan?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`disaster_recovery_runbook.md\`
@@ -5812,6 +6157,11 @@ Act as a Principal Systems Architect planning for growth.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`scale_plan.md\`
 **Purpose:** Grow without breaking.
@@ -5889,6 +6239,11 @@ Act as a Legal Tech Assistant.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`/app/privacy-policy/page.tsx\`
 **Purpose:** Comply with international law and build trust with users.
@@ -5964,6 +6319,11 @@ Act as a Legal Tech Assistant.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`/app/terms/page.tsx\`
 **Purpose:** Protect your business from lawsuits and bad actors.
@@ -6038,6 +6398,11 @@ Act as a UX Researcher.
 - [ ] Have you fixed the top 2 points of confusion identified during the tests?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`beta_feedback_log.md\`
@@ -6116,6 +6481,11 @@ Act as a strict Release Manager.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`LAUNCH_DAY_CHECKLIST.md\`
 **Purpose:** Prevent unforced errors on your biggest day.
@@ -6188,6 +6558,11 @@ Act as a Technical SEO Expert.
 - [ ] Are your marketing pages server-side rendered (SSR) or statically generated (SSG) for fast crawler access?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 **File Name:** \`sitemap.xml\` & Metadata config
@@ -6266,6 +6641,11 @@ Act as a Head of Data.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 **File Name:** \`analytics.ts\`
 **Purpose:** To mathematically prove if your product is growing or dying.
@@ -6341,6 +6721,11 @@ Act as a SaaS Startup Lawyer.
 - [ ] Are your Stripe payouts flowing directly into the business bank account?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Identify your incorporation strategy and your banking setup below.
@@ -6418,6 +6803,11 @@ Act as a GDPR Compliance Officer.
 - [ ] Do you have a dedicated \`/cookie-policy\` page explaining what data you collect?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Write your Cookie Strategy below. Will you use a CMP, or will you use privacy-first tools to avoid the banner entirely?
@@ -6499,6 +6889,11 @@ Keep the tone empathetic, professional, and concise.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 Define your primary support channel and your commitment to reply times below.
 
@@ -6574,6 +6969,11 @@ Act as a Head of Growth.
 - [ ] Is your cancellation process easy, but actively capturing the *reason* for churn?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Define the single biggest bottleneck in your retention funnel right now, and one experiment you will run this week to fix it.
@@ -6651,6 +7051,11 @@ Act as a Senior Product Manager.
 - [ ] Are you digging into the *root cause* of feature requests, rather than blindly building what users ask for?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Write down the single most impactful piece of feedback you've received recently, and the root problem it represents.
@@ -6730,6 +7135,11 @@ Act as a Principal Infrastructure Engineer.
 - [ ] Are you intentionally delaying complex architectures (Kubernetes/Microservices) until absolutely necessary?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Define the single biggest technical or human bottleneck in your app right now, and the simplest possible fix for it.
@@ -6812,6 +7222,11 @@ Ensure the tone is human, casual, and completely devoid of corporate buzzwords.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 Define your single marketing channel and the daily action you will take to drive traffic.
 
@@ -6891,6 +7306,11 @@ Act as a Head of Growth.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 Define your exact Double-Sided reward structure below.
 
@@ -6968,6 +7388,11 @@ Act as a Lead Product Manager.
 - [ ] Do you have a scheduled cadence (e.g., every 1st of the month) to update the roadmap?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Write down the 1-3 features that are strictly in your "Now" column.
@@ -7047,6 +7472,11 @@ Act as a Principal Software Engineer.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 Identify the single piece of technical debt that is slowing you down the most right now, and schedule exactly when you will fix it.
 
@@ -7123,6 +7553,11 @@ Act as an Expert Presentation Coach (like Steve Jobs).
 - [ ] Did you put the problem *before* the solution?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Write out the single most important sentence of your pitch—the "Hook" that will open your presentation.
@@ -7204,6 +7639,11 @@ Ensure the demo skips all boring setup steps and gets to the Magic Moment before
 - [ ] Have you practiced the demo while timing yourself with a stopwatch to ensure it fits the time limit?
 
 ---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
 
 ## Deliverable
 Define the exact starting state of your app when the demo begins (e.g., "Logged in, empty dashboard, fake data pre-loaded").
@@ -7288,7 +7728,3358 @@ Keep the tone energetic and confident.
 
 ---
 
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
 ## Deliverable
 Take a deep breath. You built an entire application from scratch. You planned the architecture, wrote the code, and prepared the pitch. You are a builder. Hit submit, celebrate your achievement, and get ready for the next one.
 `,
+  'mobileideadefinition': `# Idea Definition
+
+**🕒 Estimated Time:** 15-20 min
+
+---
+
+## Overview
+Welcome to Phase 0 of your Mobile App journey. Before writing any code in React Native or opening Xcode, we must clearly define what you are building. The mobile app market is brutal—users will delete an app within 10 seconds if it doesn't immediately solve a problem or provide entertainment. This document serves as the foundational anchor for your project. A blurry idea leads to a deleted app.
+
+---
+
+## Think First
+Before you ask AI to evaluate your idea, answer these questions honestly. Type your answers right here:
+
+**Core Value Proposition** (If the user opens your app for exactly 5 seconds, what value do they get?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Target Audience** (Who exactly needs this on their phone right now?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Existing Solution** (What app do they use today, or how do they solve it without an app?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Why a Native App?** (Why does this need to be an app installed from the App Store, and not just a mobile website?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Does it need to be an app?** If your idea doesn't require push notifications, offline access, camera, GPS, or deep OS integration, it should probably be a responsive web app.
+- **Platform Focus:** Will you target iOS first, Android first, or both simultaneously using React Native/Expo? (Hint: Use React Native/Expo to target both).
+
+---
+
+## Common Mistakes
+- **Building a Website Wrapped in an App:** Apple will reject your app if it just feels like a website loaded in a web view. It must have native mobile interactions.
+- **Overestimating the Unfair Advantage:** Thinking "better UI" is an unfair advantage. It's not. Distribution and retention are unfair advantages.
+
+---
+
+## AI Prompt
+Use this prompt to stress-test your mobile app idea. It will automatically read the answers you typed above.
+
+\`\`\`prompt
+Act as a brutally honest Senior Mobile Product Manager and App Store Editor.
+Read my Idea Definition above.
+
+Challenge my assumptions. Do not validate my idea automatically.
+1. What is the biggest, most fatal flaw in this idea for a mobile environment?
+2. Does this actually need to be an App Store app, or is it better as a mobile website? Why?
+3. What 3 difficult questions do I need to answer before writing any React Native code?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Apple Developer Program, Google Play Console, or Supabase) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+At the bottom of this page, write a definitive 3-sentence summary of your idea. This will be referenced by Kontxt AI for all future phases.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileproblemstatement': `# Problem Statement
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+A mobile app is essentially a tool that lives in someone's pocket. If that tool doesn't solve a highly specific, painful problem, the user will uninstall it to save storage space. The Problem Statement defines the exact friction your user experiences in the real world before they discover your app.
+
+---
+
+## Think First
+Analyze the problem you are solving in the context of a mobile user:
+
+**The Trigger** (In what exact real-world scenario does the user pull out their phone and say, "I need to solve this right now"?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Pain Point** (What makes the current way of doing things frustrating, slow, or expensive?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Consequence** (What happens if they don't solve this problem? Do they lose money? Time? Social status?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Urgency:** Is this a "hair on fire" problem that requires an immediate mobile solution (e.g., calling an Uber), or a casual problem (e.g., tracking water intake)?
+- **Frequency:** Do users face this problem daily, weekly, or once a year? (High frequency = high mobile retention).
+
+---
+
+## Common Mistakes
+- **Inventing a problem:** Assuming people care about something just because the technology to build it is cool.
+- **Being too vague:** "People want to be healthier" is not a problem statement. "People forget to take their daily medication and feel anxious about it" is a problem statement.
+
+---
+
+## AI Prompt
+Use AI to sharpen your problem statement and ensure it justifies a mobile application.
+
+\`\`\`prompt
+Act as a strict Mobile App Investor. 
+Review my Problem Statement answers above.
+
+1. Rewrite my problem into a single, punchy paragraph that highlights the real-world friction.
+2. Tell me if this problem is urgent and frequent enough to justify installing a dedicated mobile app, or if users would rather just Google a solution when they need it.
+3. What is the emotional core of this problem? (e.g., Anxiety? Boredom? Greed?)
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste the AI-refined, punchy Problem Statement here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileusecases': `# Use Cases
+
+**🕒 Estimated Time:** 20 min
+
+---
+
+## Overview
+Use Cases define exactly *how* and *when* someone will interact with your mobile app. Unlike a desktop website where a user might sit down for an hour to work, mobile use cases are often characterized by short, distracted bursts of activity (micro-sessions). Understanding the context in which your app is used dictates your entire UI/UX strategy.
+
+---
+
+## Think First
+Imagine the user in the real world:
+
+**The "On-the-Go" Scenario** (Describe a situation where the user has only 15 seconds to use your app while walking or commuting.)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The "Deep Dive" Scenario** (Describe a situation where the user is sitting on their couch using your app for 5+ minutes.)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Offline Constraints** (What happens if they try to use this specific feature while on a subway with zero internet connection?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Primary vs Secondary Use Cases:** What is the ONE thing the user opens the app to do 90% of the time? That feature must be accessible with a single tap from the home screen.
+- **Offline Capabilities:** Will your app cache data locally (using SQLite or AsyncStorage) so it remains functional without Wi-Fi?
+
+---
+
+## Common Mistakes
+- **Designing for perfect conditions:** Assuming the user has two free hands, 100% battery, and perfect 5G connection.
+- **Burying the core action:** Making the user tap through 3 menus just to reach the primary use case.
+
+---
+
+## AI Prompt
+Let AI help you generate and stress-test your mobile use cases based on real-world constraints.
+
+\`\`\`prompt
+Act as a Mobile UX Researcher.
+Read my Use Case scenarios above and the core concept of my app.
+
+1. Generate a list of 3-5 hyper-specific Mobile Use Cases. Format them as: "When [Context], the user wants to [Action] so they can [Outcome]."
+2. For the Primary Use Case, how can I reduce the friction to less than 3 taps?
+3. What edge cases (e.g., poor network, low battery, distracted user) could break these use cases?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your finalized list of 3-5 Mobile Use Cases here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileuserjourney': `# User Journey
+
+**🕒 Estimated Time:** 25 min
+
+---
+
+## Overview
+A Mobile User Journey maps the entire lifecycle of your user, from the moment they discover your app in the App Store, through the onboarding process, to the moment they become a daily active user. In mobile, the onboarding journey is the deadliest phase—if it's too long or asks for too many permissions upfront, you will lose 80% of your users immediately.
+
+---
+
+## Think First
+Map out the high-level steps of your user's experience:
+
+**Discovery & Installation** (How do they find your app, and what makes them click "Download"?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The First 60 Seconds (Onboarding)** (What do they see immediately after opening the app? Do you force them to create an account immediately, or let them explore first?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The "Aha!" Moment** (At what exact moment do they realize your app is incredibly valuable to them?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Deferred Registration:** Can you delay asking for an email/password until the user actually needs to save data or make a purchase? (Highly recommended for mobile).
+- **Permission Requests:** Never ask for Push Notifications, Location, or Camera access on the very first screen. Wait until the user performs an action that requires that permission (e.g., tapping a "Find Near Me" button).
+
+---
+
+## Common Mistakes
+- **The "Tutorial Carousel":** Forcing users to swipe through 5 screens of text explaining how the app works before they can use it. Nobody reads them.
+- **Immediate Login Walls:** Showing a blank login screen the millisecond the app launches without explaining the value first.
+
+---
+
+## AI Prompt
+Use AI to design a high-conversion mobile user journey.
+
+\`\`\`prompt
+Act as a Mobile Growth Hacker and UX Expert.
+Based on my app concept and the answers above, design a detailed 4-stage User Journey map:
+1. Discovery
+2. First-Time Onboarding (Focus on maximizing completion rate and getting to the "Aha!" moment as fast as possible)
+3. Core Habit Formation (How do we get them to open the app on Day 2 and Day 7?)
+4. The Trigger for monetization or sharing.
+
+Please explicitly state *when* I should ask for push notification/location permissions to avoid being denied.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste the finalized 4-stage User Journey Map here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobiletargetaudience': `# Target Audience
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+Your Target Audience defines the specific group of people who are most likely to download and use your mobile app. In the App Store, trying to appeal to "everyone" means you will appeal to no one, and your app will be buried under millions of others. A hyper-niche audience allows you to optimize your App Store Optimization (ASO) and marketing spend.
+
+---
+
+## Think First
+Narrow down exactly who you are building for:
+
+**Demographics** (Age, location, profession, income level)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Psychographics** (What are their interests, values, and daily habits?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Mobile Behavior** (Are they power users who live on their phones, or older users who prefer larger text and simple interfaces?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Niche Down:** Instead of targeting "Fitness Enthusiasts", target "Busy single parents who only have 15 minutes to work out at home".
+- **Early Adopters:** Who are the first 100 people who will forgive the bugs in your V1 because they need the solution so badly?
+
+---
+
+## Common Mistakes
+- **Broad Targeting:** Thinking your audience is "anyone with a smartphone."
+- **Ignoring the Device:** Designing an app for teenagers but ignoring the fact that they heavily skew towards iOS (in the US) and expect heavily animated, TikTok-style vertical scrolling.
+
+---
+
+## AI Prompt
+Let AI refine and define your core audience.
+
+\`\`\`prompt
+Act as a Mobile Marketing Director.
+Analyze my target audience inputs above.
+
+1. Refine my audience into a highly specific, niche "Beachhead Market" (the first group of users I should target to get my first 1,000 downloads).
+2. What specific App Store search terms (keywords) is this audience likely typing into the search bar right now?
+3. Where does this audience hang out online (e.g., specific Reddit communities, TikTok hashtags, Facebook groups)?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste the refined Beachhead Market and the list of keywords here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilepersonas': `# Personas
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+While a Target Audience is a broad demographic, a Persona is a fictional character representing your ideal user. Giving your user a name, face, and specific set of frustrations helps you make empathetic design decisions. When deciding whether to add a complex new feature, you won't ask "Would users like this?", you will ask "Would Sarah have time to figure this out during her morning commute?"
+
+---
+
+## Think First
+Create the profile of your most desperate user:
+
+**Name & Basic Info** (e.g., "Commuter Craig", 34, takes the train 1 hour each way)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Their Main Goal in Your App** (What constitutes a "win" for them?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Their Biggest Frustration with Mobile Apps** (e.g., hates typing long paragraphs on a phone keyboard, hates apps that drain battery)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Primary Persona:** Focus 90% of your MVP design on pleasing this single persona.
+- **Anti-Persona:** Define who you are explicitly *not* building for, so you can comfortably say "no" to feature requests that don't fit.
+
+---
+
+## Common Mistakes
+- **Too many personas:** Trying to design an MVP for 5 different personas at once. Stick to ONE for V1.
+- **Superficial details:** Writing that your persona "likes the color blue" instead of focusing on their software behavior (e.g., "never turns on push notifications").
+
+---
+
+## AI Prompt
+Use AI to flesh out a deep, behavioral persona.
+
+\`\`\`prompt
+Act as a UX Researcher.
+Using my inputs above, generate a comprehensive "Primary User Persona" for my mobile app.
+
+Include:
+- Name and brief background
+- Behavioral Traits (How do they use their phone? Are they a scroller, a searcher, a multitasker?)
+- Key Motivations (Why do they open the app?)
+- Key Friction Points (What will make them instantly uninstall the app?)
+- "The 10-Second Test" (What must this persona see in the first 10 seconds to stick around?)
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your comprehensive Primary Persona here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilesolutionstatement': `# Solution Statement
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+You've defined the problem and the audience. The Solution Statement clearly articulates exactly *how* your mobile app bridges the gap. It translates the abstract idea into concrete mobile features. This is the foundation of your App Store description.
+
+---
+
+## Think First
+Describe your mechanical solution:
+
+**The Core Mechanism** (How does the app actually solve the problem? Does it connect two people? Does it use the camera to scan something? Does it organize data?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The "Magic" Moment** (What is the specific action where the user feels relief or joy? e.g., "The moment the background is instantly removed from their photo")
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Native Advantage:** Ensure your solution leverages the fact that it is a mobile app. If your solution is just "a database of articles", it might not be a compelling app. If your solution is "a database of articles that sends you one push notification summary per day", that's an app.
+
+---
+
+## Common Mistakes
+- **Focusing on tech instead of outcomes:** "It uses a React Native bridging module to communicate with a vector database" (Tech) vs. "It instantly finds the exact song you are humming" (Outcome).
+- **Overcomplicating the solution:** Your solution statement should not require a flowchart to understand.
+
+---
+
+## AI Prompt
+Let AI refine your mechanical description into a compelling Solution Statement.
+
+\`\`\`prompt
+Act as an elite Product Marketer.
+Read my inputs above.
+
+1. Write a 2-paragraph Solution Statement that clearly explains exactly what my mobile app does and how it solves the user's problem.
+2. Highlight the "Native Advantage" (Why this solution works perfectly on a mobile phone compared to a desktop computer).
+3. Provide a 1-sentence "Hook" that I can use as the subtitle in the App Store.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your 2-paragraph Solution Statement and 1-sentence Hook here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileelevatorpitch': `# Elevator Pitch
+
+**🕒 Estimated Time:** 10 min
+
+---
+
+## Overview
+You have 30 seconds to explain your app to an investor, a potential co-founder, or a user at a coffee shop. If they don't understand it immediately, you've lost them. The Elevator Pitch distills the Problem, the Audience, and the Solution into a single, punchy formula.
+
+---
+
+## Think First
+Fill in the blanks for the standard pitch formula:
+
+**"My app is a [Category/Type of App]..."** (e.g., social network, utility tool, fitness tracker)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**"...that helps [Target Audience]..."**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**"...solve [Specific Problem]..."**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**"...by [The Core Mechanism/Secret Sauce]."**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **The Analogy (The "X for Y"):** Is your app the "Tinder for Dog Owners"? Or the "Uber for Lawn Care"? Using a known framework helps people grasp the UX immediately, but use it cautiously—don't force a bad analogy.
+
+---
+
+## Common Mistakes
+- **Jargon:** Using words like "synergistic paradigm shift" or "blockchain-enabled." Speak like a normal human.
+- **Rambling:** A true elevator pitch is 1 to 2 sentences. Max.
+
+---
+
+## AI Prompt
+Use AI to polish your pitch and make it memorable.
+
+\`\`\`prompt
+Act as an Angel Investor and Y Combinator Partner.
+Take my pitch components above and generate 3 variations of an Elevator Pitch:
+
+1. The "X for Y" Pitch (e.g., "We are the Uber for X")
+2. The Problem/Solution Pitch (Focus heavily on the pain point)
+3. The Visionary Pitch (Focus on how this changes the user's life)
+
+Keep each variation under 2 sentences. Tell me which one you think is the strongest and why.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your favorite of the 3 Elevator Pitches here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilecompetitoranalysis': `# Competitor Analysis
+
+**🕒 Estimated Time:** 20 min
+
+---
+
+## Overview
+Unless you are inventing a fundamentally new category of technology, you have competitors. Even if there is no app that does exactly what yours does, your user is currently solving their problem *somehow* (even if it's just using a spreadsheet or the Notes app). Understanding the competitive landscape in the App Store is crucial for positioning.
+
+---
+
+## Think First
+Identify the giants and the alternatives:
+
+**Direct Competitors** (Name 2-3 apps that do exactly what you want to do. If you say "there are none", look harder.)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Indirect Competitors** (How are people solving this problem without a dedicated app? e.g., WhatsApp groups, Excel, paper notebooks)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Their Weakness** (Read the 1-star and 2-star reviews of your direct competitors on the App Store. What are users constantly complaining about?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Your Differentiator:** You cannot beat a massive incumbent by building a clone. You must be significantly better at ONE specific thing (e.g., 10x faster, cheaper, vastly superior design, or hyper-niche).
+
+---
+
+## Common Mistakes
+- **Ignoring "Non-App" Competitors:** Forgetting that "doing nothing" or "using Google Sheets" is often your biggest competitor.
+- **Copying their bloated features:** Established apps have years of feature bloat. Your V1 should only copy their core value, not their 50 settings menus.
+
+---
+
+## AI Prompt
+Let AI synthesize your competitive landscape and identify your opening.
+
+\`\`\`prompt
+Act as a Product Strategist.
+Review my direct and indirect competitors, and their weaknesses, listed above.
+
+1. Create a positioning strategy: How can my app stand out in the crowded App Store against these specific competitors?
+2. Based on the weaknesses I identified, what is the ONE feature I must absolutely nail in my MVP to win over their frustrated users?
+3. What is a strategic trap I should avoid when competing with these specific entities?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Positioning Strategy and your Key MVP Feature here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilesimilarapps': `# Similar Apps (UI/UX Inspiration)
+
+**🕒 Estimated Time:** 15-20 min
+
+---
+
+## Overview
+Good artists copy, great artists steal. When designing a mobile app, you should not reinvent the wheel for standard interactions (like navigation bars, settings screens, or login flows). Users have established mental models based on the apps they already use daily (Instagram, Uber, Spotify). Identifying "Similar Apps" helps you borrow proven UI/UX patterns so your app feels instantly familiar.
+
+---
+
+## Think First
+Look outside your direct competitors for inspiration:
+
+**Best-in-Class UI** (Which app in a COMPLETELY DIFFERENT industry has a design or "vibe" you want to emulate?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Specific Interactions** (Are there specific animations or gestures you love? e.g., "The swipe-to-archive in Gmail", "The pull-down search in iOS")
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Onboarding Inspiration** (Which app had an onboarding experience that you actually enjoyed instead of skipping?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Platform Conventions:** If you are building for iOS, study Apple's Human Interface Guidelines. If Android, study Material Design. Do not force an Android-style bottom sheet navigation on iOS users if it feels alien.
+- **The "Familiarity" Baseline:** Borrow 80% of your UX from standard apps so you can spend your innovation budget on the 20% that makes your app unique.
+
+---
+
+## Common Mistakes
+- **Reinventing Navigation:** Creating a weird hidden gesture menu just to be "different." Stick to standard bottom tab bars or hamburger menus unless you have a genius reason not to.
+- **Copying bad design:** Just because a big app does it, doesn't mean it's good UX. Make sure the pattern actually serves your use case.
+
+---
+
+## AI Prompt
+Use AI to extract actionable design patterns from the apps you admire.
+
+\`\`\`prompt
+Act as a Lead UI/UX Mobile Designer.
+I want to borrow UX patterns from the following apps: [Insert the apps you listed above].
+
+1. Break down the core navigation structure of these apps (e.g., Bottom Tab Bar, Floating Action Button, Swipeable Pages). Which structure is best for my app concept?
+2. What specific micro-interactions or standard mobile conventions should I "steal" from these apps to make my UI feel premium and familiar?
+3. Are there any UX dark patterns or frustrating elements in these apps that I should avoid?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste the recommended Navigation Structure and the list of UI patterns you plan to borrow here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'playstoreresearch': `# Play Store Research
+
+**🕒 Estimated Time:** 20 min
+
+---
+
+## Overview
+If you plan to launch on Android, the Google Play Store is your battleground. The Play Store algorithm heavily favors keyword density, localization, and early retention metrics. Researching how your competitors position themselves in the Play Store gives you the blueprint for your own App Store Optimization (ASO) strategy.
+
+---
+
+## Think First
+Open the Google Play Store on your Android device (or via the web browser) and search for the core keyword of your app.
+
+**Top 3 Search Results** (What apps appear first? Are they massive companies or indie developers?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Their Titles & Short Descriptions** (Google Play indexes the Title (30 chars) and Short Description (80 chars) heavily. What exact keywords are they using in these fields?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Negative Reviews** (Filter their reviews by 1-star. What is the most common complaint? "Too many ads"? "Crashes on Samsung"? "Requires too many permissions"?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Android First vs iOS First:** Android has a larger global market share but typically lower revenue per user. If your monetization strategy relies on sheer volume of users (e.g., ad-supported apps), the Play Store is critical.
+- **Android Device Fragmentation:** Because there are thousands of different Android screen sizes, your UI must be exceptionally responsive.
+
+---
+
+## Common Mistakes
+- **Ignoring Screenshots:** Android users often make downloading decisions entirely based on the first 3 screenshots. If your screenshots are just plain captures without explanatory text, you will lose downloads.
+- **Keyword Stuffing:** Google's algorithm will penalize you if your long description reads like a spammy list of keywords instead of natural language.
+
+---
+
+## AI Prompt
+Use AI to extract an actionable ASO strategy for the Play Store.
+
+\`\`\`prompt
+Act as a Google Play ASO Expert.
+Review my research inputs above.
+
+1. Suggest a 30-character App Title and an 80-character Short Description for my app that optimizes for my core keywords but still sounds natural.
+2. Based on the negative reviews of my competitors, what is the #1 feature I should highlight in my first Play Store screenshot to steal their frustrated users?
+3. What is a common Android-specific UX expectation that my app must meet to avoid 1-star reviews?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Google Play Console, Supabase, Vercel) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your suggested Title, Short Description, and the key screenshot concept here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'appstoreresearch': `# App Store Research
+
+**🕒 Estimated Time:** 20 min
+
+---
+
+## Overview
+If you are launching on iOS, Apple's App Store is a totally different ecosystem than Google Play. Apple prioritizes high-quality design, strict privacy compliance, and human curation. App Store Optimization (ASO) on iOS relies on a hidden 100-character keyword field rather than scraping your long description. Understanding how apps succeed here is vital for your iOS launch.
+
+---
+
+## Think First
+Open the Apple App Store and search for your app's core concept.
+
+**The Top Performers** (Who ranks #1 for your main search term? Are they running Apple Search Ads?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Visual Identity** (Look at their icons and screenshots. What color palettes and typography do the top iOS apps in your category use?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Subtitles** (Apple gives you a 30-character subtitle. What are your competitors using it for? Explaining the app, or listing keywords?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Privacy Nutrition Labels:** Apple forces you to declare exactly what data you collect. If you collect location, contacts, and browsing history for a simple calculator app, users won't download it. Can you build your app while collecting the absolute minimum data?
+- **Sign in with Apple:** If you offer Google or Facebook login, Apple *requires* you to offer "Sign in with Apple." You must plan for this in your authentication architecture.
+
+---
+
+## Common Mistakes
+- **Treating the App Store like the Play Store:** Writing a 4,000-character SEO description for Apple. Apple's algorithm doesn't index the long description for search rankings; it only indexes your Title, Subtitle, and the hidden Keyword field.
+- **Ignoring App Review Guidelines:** Apple's human reviewers will reject your app for minor UX infractions, like not providing a "Delete Account" button or hiding features behind a forced login without letting users browse first.
+
+---
+
+## AI Prompt
+Use AI to navigate Apple's strict ecosystem and optimize your iOS listing.
+
+\`\`\`prompt
+Act as an Apple App Store ASO Specialist and App Review Consultant.
+Review my App Store research inputs above.
+
+1. Provide an optimized 30-character App Title and 30-character Subtitle.
+2. Provide a comma-separated list of keywords exactly totaling 100 characters for the hidden iOS keyword field. Do not repeat words used in the Title or Subtitle.
+3. What is the most likely reason Apple's human reviewers would reject my app concept, and how can I design around it to ensure approval?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like App Store Connect, Supabase, Vercel) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Title, Subtitle, 100-character keyword list, and the key App Review warning here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilefeatureplanning': `# Feature Planning
+
+**🕒 Estimated Time:** 20 min
+
+---
+
+## Overview
+Feature Planning is where your abstract solution statement turns into a concrete list of screens and buttons. In mobile development, less is more. Every new feature increases your app bundle size, introduces potential crashes, and creates more cognitive load for a user staring at a 6-inch screen. 
+
+---
+
+## Think First
+Brainstorm all the features you *want* to build. Don't filter yourself yet.
+
+**Core Mobile Features** (What features require native mobile capabilities? e.g., Camera scanner, Push Notifications, GPS tracking, Biometric Login)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Standard Features** (What basic features do users expect? e.g., User Profile, Settings, Search, Payment processing)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**"Nice to Have" Features** (What features would be really cool, but aren't strictly necessary for the app to function? e.g., Dark Mode, Social Sharing, AI Chatbot)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Native vs Web-views:** Will every screen be built with native components (React Native), or will you use a WebView to load a web page for things like the Privacy Policy or Help Center? (Using WebViews for non-core pages saves immense development time).
+- **The "One Thing":** If a user can only do ONE thing in your app, what is it? Everything else is secondary.
+
+---
+
+## Common Mistakes
+- **Building a Swiss Army Knife:** Trying to make a social network, a fitness tracker, and a diet planner all in one app. The user will be overwhelmed and delete it.
+- **Underestimating "Boring" Features:** Forgetting that building a robust password reset flow, a profile editing screen, and an onboarding flow will take 40% of your development time.
+
+---
+
+## AI Prompt
+Use AI to organize your raw brainstorm into a structured list of mobile epics.
+
+\`\`\`prompt
+Act as a strict Mobile Product Manager.
+Review my brainstormed list of features above.
+
+1. Group these features into 3-5 high-level "Epics" (e.g., Authentication, Core Workflow, Social, Settings).
+2. Flag any feature that relies heavily on native device capabilities (Camera, GPS, Bluetooth) and warn me about the complexity it will add to my React Native/Expo codebase.
+3. Identify at least 3 features in my list that I should completely delete or move to a web-view to save time.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your organized list of Feature Epics and the list of features you are deleting/delaying here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilemvpfeatures': `# MVP Features
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+MVP stands for Minimum Viable Product. In mobile, getting your app into the hands of real users as fast as possible is critical. The App Store approval process can take days, and debugging React Native builds can be painful. Your MVP must be the absolute bare minimum set of features required to prove your core value proposition. If you aren't embarrassed by your V1, you launched too late.
+
+---
+
+## Think First
+Be brutal. Cut the fat.
+
+**The "Must-Haves"** (If you remove this feature, the app literally does not work and the user cannot achieve their goal).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The "Friction Reducers"** (Features that make the MVP usable. e.g., "Apple/Google Sign In" because nobody wants to type a long password on a mobile keyboard).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Cutting Corners Safely:** Can you manually do things behind the scenes instead of building a feature? (e.g., Instead of building an automated in-app reporting dashboard for vendors, can you just email them a PDF once a week?)
+- **Hardcoded Data:** Do you really need a fully dynamic backend for the settings menu, or can you just hardcode the options for V1?
+
+---
+
+## Common Mistakes
+- **The "Just One More Feature" Trap:** Delaying your App Store launch by a month because you decided you *really* needed a dark mode toggle.
+- **Ignoring Onboarding in the MVP:** Thinking onboarding is a "V2" feature. Onboarding is the only way a user understands your MVP. It is a Must-Have.
+
+---
+
+## AI Prompt
+Use AI to mercilessly trim your feature list down to a true MVP.
+
+\`\`\`prompt
+Act as a ruthless Startup Advisor.
+I need to launch my mobile app in the App Store in 4 weeks.
+Review my "Must-Haves" list above.
+
+1. Challenge my list: Which of these "Must-Haves" is actually a "Nice-to-Have" in disguise? Tell me exactly why I should cut it from V1.
+2. Define the absolute minimum user flow from App Launch -> "Aha Moment" -> Goal Achieved.
+3. What manual workaround can I use to avoid building a complex backend feature for V1?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your finalized, trimmed-down list of MVP Features here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilefuturefeatures': `# Future Features
+
+**🕒 Estimated Time:** 10 min
+
+---
+
+## Overview
+It hurts to cut features from your MVP. The "Future Features" list is your mental parking lot. Writing these ideas down allows you to stay focused on the MVP without feeling like you are abandoning your grand vision. Plus, keeping a roadmap helps you write a scalable database schema in Phase 2.
+
+---
+
+## Think First
+Dump all the grand ideas you just cut from the MVP here:
+
+**V2 Features** (Features you will build immediately after launching the MVP and fixing the initial bugs. e.g., Push Notifications, Social Sharing)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The "Dream" Features** (Features that require massive scale, AI, or tons of money. e.g., "An AI that automatically books your flights")
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Schema Preparation:** Even if you aren't building "Teams" or "Workspaces" for V1, you might want to design your database schema to support them later so you don't have to do a massive data migration in 6 months.
+
+---
+
+## Common Mistakes
+- **Promising them too early:** Putting "Coming Soon" buttons all over your MVP. It makes the app look unfinished. Just leave the buttons out completely.
+- **Building architecture for the dream:** Spending 3 weeks setting up a Kubernetes cluster because your "Dream Feature" requires it, even though your MVP only needs a simple Supabase instance.
+
+---
+
+## AI Prompt
+Use AI to ensure your future vision doesn't accidentally ruin your MVP architecture.
+
+\`\`\`prompt
+Act as a Lead Mobile Architect.
+Review my Future Features list above.
+
+1. Which of these future features will require the most significant architectural change to my database or backend if I don't plan for them now?
+2. Provide 1 piece of advice on how I should structure my initial database schema to make adding these features easier later.
+3. Which of these "Dream" features is actually a distraction that I should completely forget about for the next 12 months?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Future Features list and the architectural advice here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilefeatureprioritization': `# Feature Prioritization
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+You have a list of MVP features. Now you need to decide the exact order in which you will build them. If you build the easy UI stuff first, you might hit a massive technical roadblock on the core feature 3 weeks into development and have to abandon the project. In mobile, you must tackle the highest-risk features first.
+
+---
+
+## Think First
+Evaluate your MVP list based on risk and value:
+
+**High Risk / High Value** (Which feature is absolutely critical, but you have no idea how to code it yet? e.g., "Real-time location tracking")
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Low Risk / High Value** (Which feature is easy to build but provides massive value to the user? e.g., "A clean, native Apple Sign-In flow")
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Low Risk / Low Value** (What are the easiest things to build that don't really matter right now? e.g., "An 'About Us' screen")
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **The "Spike":** A "spike" is a small, throwaway prototype you build just to prove you can do the hard part. Always do a spike on your High Risk features before building the rest of the app.
+- **The Build Order:** Build the High Risk/High Value core first. Build the Auth and Onboarding last. (You can test the core app without Auth during development).
+
+---
+
+## Common Mistakes
+- **Building the Login Screen First:** It feels productive, but you spend a week tweaking the UI of a login screen while ignoring the fact that you don't know how to build the actual app yet.
+- **Building chronologically:** Just because a user sees the Welcome screen first doesn't mean you should build it first.
+
+---
+
+## AI Prompt
+Use AI to generate a ruthlessly efficient sprint plan.
+
+\`\`\`prompt
+Act as a Technical Project Manager.
+Review my risk/value feature inputs above.
+
+1. Generate a step-by-step Build Order for my mobile app MVP. 
+2. Explicitly tell me what to build in Week 1 to eliminate the most technical risk.
+3. Tell me which features I should push to the very end of the development cycle.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel, Stripe) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your step-by-step Build Order here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilemonetization': `# Monetization Strategy
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+How will your app make money? On mobile, this is a much harder question than on desktop. App Store users are notorious for refusing to pay \$1.99 for an app, while simultaneously spending \$5.00 on a coffee every morning. Additionally, Apple and Google take a 15-30% cut of all digital transactions processed through their stores. You must choose a model that fits your audience's psychology.
+
+---
+
+## Think First
+Evaluate your app's core value:
+
+**The Value Equation** (Is your app a "painkiller" that solves an urgent problem, or a "vitamin" that is nice to have?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Frequency of Use** (Will they open this once a year, or 5 times a day?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Competition's Model** (How do your competitors make money? Are they all free with ads, or are they all \$9.99/month subscriptions?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **The "Apple Tax":** If you sell a digital good or service (like a premium subscription or virtual coins), you MUST use Apple/Google's In-App Purchases (IAP) and give them 30%. If you sell physical goods (like ordering a pizza) or services rendered outside the app (like an Uber ride), you can use Stripe and avoid the 30% cut.
+- **The Initial Hook:** Will you force users to pay before they can even see the main screen, or let them fall in love with the app first?
+
+---
+
+## Common Mistakes
+- **Assuming Ads are Easy:** To make a living wage purely from banner ads, you need hundreds of thousands of daily active users. 
+- **Underpricing:** Selling a highly specialized B2B mobile tool for \$0.99 because you are afraid to ask for \$19.99/month.
+
+---
+
+## AI Prompt
+Use AI to match your app with the most profitable, user-friendly model.
+
+\`\`\`prompt
+Act as a Mobile App Monetization Expert.
+Review my app concept and the answers above.
+
+1. Which monetization model (Free, Freemium, Subscription, Ads, One-time) is statistically the most successful for my specific app category?
+2. If I use this model, how do I structure the "Paywall" so users don't instantly uninstall the app when they see it?
+3. Does my app concept require me to pay the 30% App Store fee, or can I use Stripe?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like RevenueCat, Stripe, App Store Connect) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your chosen monetization model and paywall strategy here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilefree': `# Completely Free
+
+**🕒 Estimated Time:** 10 min
+
+---
+
+## Overview
+A completely free app has no paywalls, no ads, and no premium tiers. This model is incredibly rare for indie developers because server costs (like Supabase, Firebase, or OpenAI API calls) add up quickly. However, it is the absolute best way to maximize growth, acquire users rapidly, and establish a dominant market position before introducing monetization later.
+
+---
+
+## Think First
+Can you afford to be free?
+
+**The Core Cost** (What is the most expensive API or server action in your app? E.g., uploading 4K video, hitting the GPT-4 API).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Long Game** (How do you eventually plan to survive? E.g., selling the company, introducing a premium tier in V2, selling aggregated data?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Hard Limits:** Even if the app is free, you must hardcode limits. If a malicious user decides to upload 10,000 photos an hour, they will bankrupt your AWS/Supabase account. 
+- **The "Trojan Horse":** Is this free app just a lead-generation tool for your main, expensive desktop SaaS?
+
+---
+
+## Common Mistakes
+- **Accidental Bankrupcy:** Not setting up billing alerts on your backend (Vercel/Supabase). If your free app goes viral on TikTok, your server bill could be \$5,000 the next morning.
+- **Being Afraid to Pivot:** Being so terrified of "betraying" your early free users that you never introduce a way to keep the servers running, causing the app to shut down.
+
+---
+
+## AI Prompt
+Use AI to calculate your risk and set up defensive limits.
+
+\`\`\`prompt
+Act as a strict Cloud Infrastructure Architect.
+I am launching a completely free mobile app. 
+
+1. Based on my app's core features, what is my biggest financial vulnerability if I suddenly get 10,000 users overnight?
+2. What specific hard-coded limits should I implement in my React Native code and backend to protect myself?
+3. Write a polite, transparent sentence I can put in the app to explain these limits to my users.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Supabase, Vercel) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your specific usage limits and financial safety strategy here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilefreemium': `# Freemium
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+Freemium is the dominant model in the App Store. The app is free to download and use, but "Premium" features or capacities are locked behind a paywall. The goal is to cast a wide net with the free version, letting users build a habit around your app, and then converting a small percentage (usually 2-5%) of them to paid users.
+
+---
+
+## Think First
+Where do you draw the line?
+
+**The Free Hook** (What core feature is so good that users will download it and use it daily, without paying?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Premium Pain Point** (At what exact moment will the user hit the limit and feel the urge to pull out their credit card?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Feature vs Capacity Limits:** Will you lock entire features (e.g., "Export to PDF is premium") or capacities (e.g., "Save 10 notes for free, unlimited notes is premium")? Capacity limits often convert better because the user has already proven they love the core feature.
+- **RevenueCat:** You should absolutely use a tool like RevenueCat or Glassfy to handle the complex nightmare of Apple/Google in-app purchase receipts, rather than building it yourself.
+
+---
+
+## Common Mistakes
+- **The Useless Free Version:** Making the free tier so restricted that users can't actually accomplish anything, leading to immediate uninstalls.
+- **The Generous Free Version:** Giving away so much value for free that literally nobody feels the need to upgrade.
+
+---
+
+## AI Prompt
+Use AI to find the perfect balance between free value and paid friction.
+
+\`\`\`prompt
+Act as a Mobile App Monetization Specialist.
+Review my app concept.
+
+1. Suggest a "Capacity Limit" Freemium structure (what do they get for free, and when do they hit the limit?).
+2. Suggest a "Feature Limit" Freemium structure (which specific feature should be locked?).
+3. Between those two options, which will convert better for my specific target audience, and why?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like RevenueCat) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your chosen Free/Premium dividing line here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilesubscription': `# Subscription
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+Subscriptions (\$X per month/year) are the holy grail of mobile development. Apple heavily incentivizes developers to use this model because it generates recurring revenue. However, users are experiencing massive "subscription fatigue." To convince a user to pay you every single month, your app must provide continuous, renewing value, not just a static tool.
+
+---
+
+## Think First
+Justify the recurring cost:
+
+**The Continuous Value** (Why does this app deserve \$5/month? Are you adding new content weekly? Does it use expensive AI processing? Does it save them money every month?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Trial Strategy** (Will you offer a 7-day free trial? A 3-day trial? No trial?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Annual vs Monthly:** Always offer an Annual plan at a massive discount compared to the Monthly plan. Users who subscribe annually are significantly more likely to forget to cancel, and you get the cash upfront to reinvest in marketing.
+- **The Onboarding Paywall:** Many top grossing apps show the subscription paywall *immediately* during the onboarding flow, before the user even sees the home screen. It feels aggressive, but it mathematically converts higher.
+
+---
+
+## Common Mistakes
+- **Charging a subscription for a static utility:** If your app is just a nice calculator, users will be furious if you ask for \$4.99/month. That is a one-time purchase app.
+- **Hiding the cancel button:** Apple will reject your app if the user cannot easily manage or cancel their subscription from within the app settings.
+
+---
+
+## AI Prompt
+Use AI to design a high-converting, ethical subscription strategy.
+
+\`\`\`prompt
+Act as an iOS Subscription Revenue Optimizer.
+Review my app concept.
+
+1. Provide a compelling argument for *why* a user would pay for my app every single month. If my app doesn't fit a subscription model, tell me directly.
+2. Suggest 3 pricing tiers (Monthly, Annual, and a "Lifetime" decoy price).
+3. Draft the exact copy (headline and bullet points) for my Paywall screen to maximize conversion during the onboarding flow.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like RevenueCat) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Pricing Tiers and Paywall copy here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileads': `# Ad-Supported
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+The ad-supported model (using AdMob, AppLovin, or Unity Ads) allows your app to remain completely free while generating revenue from banner, interstitial, or rewarded video ads. While this sounds like a great compromise, the reality is that ad revenue requires massive scale. You are trading user experience for pennies per view.
+
+---
+
+## Think First
+Evaluate your volume and user tolerance:
+
+**The Session Length** (How long does a user stare at the screen per session? Long sessions = more ad impressions).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Ad Format** (Will you use annoying pop-up Interstitials, subtle bottom Banners, or "Watch this video to unlock" Rewarded Ads?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Rewarded Video vs Forced Ads:** "Rewarded Ads" (where the user voluntarily watches a 30-second ad in exchange for an extra life or premium feature) have the highest payout rates and the highest user satisfaction. Forced pop-up ads have terrible payout rates and cause 1-star reviews.
+- **The "Remove Ads" IAP:** Always offer a \$2.99 or \$4.99 In-App Purchase to remove all ads.
+
+---
+
+## Common Mistakes
+- **Destroying the UX:** Placing banner ads right next to critical navigation buttons so users accidentally click them. Apple will reject your app for deceptive ad placement.
+- **Expecting to get rich on 1,000 users:** Mobile ad CPMs (cost per 1,000 impressions) can be as low as \$0.50. You need hundreds of thousands of sessions to make a full-time income.
+
+---
+
+## AI Prompt
+Use AI to place ads ethically while maximizing revenue.
+
+\`\`\`prompt
+Act as a Mobile Ad Monetization Strategist.
+Review my app concept.
+
+1. Recommend the exact ad format (Banner, Interstitial, or Rewarded Video) that fits my app without destroying the user experience.
+2. Where is the absolute best screen/moment in my app to show a "Rewarded Video" ad?
+3. How much should I charge for the "Remove Ads" in-app purchase based on current App Store averages?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like Google AdMob) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Ad Format strategy and "Remove Ads" pricing here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileonetimepurchase': `# One-time Purchase (Paid App)
+
+**🕒 Estimated Time:** 10 min
+
+---
+
+## Overview
+The classic software model: The user pays \$4.99 upfront, downloads the app, and owns it forever. In today's App Store, this model is almost dead. Users are incredibly hesitant to pay for an app before they can try it. However, for certain niches (like indie games, specialized professional tools, or privacy-focused utilities), a one-time purchase is highly respected by users tired of subscriptions.
+
+---
+
+## Think First
+Are you building a utility or an ongoing service?
+
+**The "Done" State** (Is your app a complete, finished tool that won't require massive server costs or daily updates to function?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Upfront Promise** (Why would someone risk \$5 on your app without trying it first? Do you have an amazing promotional video or massive social proof?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Paid Upfront vs "Freemium Unlock":** Instead of charging \$4.99 upfront, it is almost always better to make the app free to download, let them poke around, and charge a \$4.99 "Pro Lifetime Unlock" In-App Purchase. It achieves the exact same revenue model but drastically lowers the barrier to entry.
+
+---
+
+## Common Mistakes
+- **High Server Costs:** Selling the app for \$1.99 upfront, but the app relies on the OpenAI API. If a user uses the app heavily for 2 years, they will cost you \$50 in API fees, bankrupting you. One-time purchase apps must rely entirely on the device's local processing (offline) to be profitable long-term.
+- **No Refund Policy:** Users who buy a paid app and don't like it will instantly leave a 1-star review to warn others.
+
+---
+
+## AI Prompt
+Use AI to decide if the upfront model will destroy your download metrics.
+
+\`\`\`prompt
+Act as an App Store Analytics Expert.
+My app concept is a one-time purchase.
+
+1. Tell me bluntly if this app concept will survive as a "Paid Upfront" app, or if I should switch to a "Free Download with a Lifetime Unlock IAP." Explain why.
+2. If my app requires a server or API, calculate the financial risk of charging a one-time fee.
+3. Suggest the optimal price point (\$0.99, \$4.99, \$9.99, \$19.99) for this specific type of utility.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like App Store Connect) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your final Pricing strategy (Paid Upfront vs Lifetime IAP) and Price Point here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilesuccessmetrics': `# Success Metrics
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+How do you know if your MVP is actually good? In mobile, "Downloads" is a vanity metric. You can buy 10,000 downloads with ads, but if 9,900 people delete the app within 5 minutes, your app is a failure. Success metrics define the exact numbers you need to hit to prove your app has Product-Market Fit.
+
+---
+
+## Think First
+Define what a "Win" looks like.
+
+**The Primary Action** (What is the ONE action a user takes that proves they got value? E.g., Completing a workout, sending a message, saving a photo).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Aha Timeline** (How fast should a user achieve that Primary Action after opening the app for the first time? 30 seconds? 5 minutes?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Analytics Provider:** You cannot track these metrics by guessing. You must integrate an analytics SDK. For mobile MVPs, **PostHog**, **Amplitude**, or **Firebase Analytics** are the industry standards.
+- **Privacy Tradeoffs:** If you use strict privacy policies (e.g., Apple's App Tracking Transparency), many users will opt out of tracking, meaning your metrics will be partially blind.
+
+---
+
+## Common Mistakes
+- **Tracking Everything:** Firing an analytics event every time the user scrolls or clicks a minor button. Your dashboard will be a chaotic mess. Only track the 3-5 actions that actually matter.
+- **Ignoring the Funnel:** Knowing that 100 people downloaded the app and 10 created an account is useless unless you know *exactly which screen* the other 90 people closed the app on.
+
+---
+
+## AI Prompt
+Use AI to set realistic, actionable goals for your launch.
+
+\`\`\`prompt
+Act as a Mobile Data Scientist.
+Review my app concept and the Primary Action defined above.
+
+1. Define the 3 most critical custom analytics "Events" I need to track in my React Native code (e.g., 'signup_completed', 'photo_uploaded').
+2. Set a realistic benchmark for my "Onboarding Completion Rate" (What percentage of downloads should successfully finish the initial setup?).
+3. What is the most dangerous "Vanity Metric" I should ignore?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like PostHog, Firebase) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your 3 Critical Analytics Events and your Onboarding Benchmark here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileretention': `# Retention
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+Retention is the ultimate arbiter of truth in the App Store. Retention measures the percentage of users who return to your app on Day 1, Day 7, and Day 30 after installing it. If your Day 30 retention is near 0%, your app is a leaky bucket—spending money on marketing is entirely pointless until you fix the core experience.
+
+---
+
+## Think First
+Why would they come back?
+
+**The Core Loop** (What triggers the user to open the app again tomorrow? Is it a notification? A daily habit? A social obligation?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The D1 Drop-off** (If a user opens your app today, but deletes it tomorrow, what is the most likely reason why?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Push Notification Strategy:** Push notifications are the strongest tool for retention, but abusing them causes users to instantly uninstall. You must design notifications that are *valuable*, not just promotional.
+- **Gamification vs Utility:** Will you use streaks, badges, or daily rewards to force retention, or will the raw utility of the app naturally bring them back?
+
+---
+
+## Common Mistakes
+- **Focusing on Acquisition over Retention:** Spending thousands on ads while your Day 1 retention is 10%. You are literally burning money.
+- **"We miss you" notifications:** Sending generic, desperate push notifications that say "Come back to the app!" Provide actual value (e.g., "Your daily report is ready").
+
+---
+
+## AI Prompt
+Use AI to design a retention loop that keeps users hooked.
+
+\`\`\`prompt
+Act as a Mobile Growth & Retention Specialist.
+Review my app concept.
+
+1. Design a "Core Loop" that naturally brings the user back on Day 2 and Day 7.
+2. Suggest 2 high-value Push Notifications I can send that the user will actually appreciate, rather than find annoying.
+3. What is a realistic Day 1 and Day 30 retention benchmark for my specific category of app?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms (like OneSignal or Supabase Edge Functions) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Core Loop strategy and Push Notification concepts here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobiledau': `# DAU (Daily Active Users)
+
+**🕒 Estimated Time:** 10 min
+
+---
+
+## Overview
+DAU (Daily Active Users) measures the exact number of unique people who open your app on any given day. This is the heartbeat of highly interactive apps (like social media, games, or daily planners). However, not every app is meant to be used daily. 
+
+---
+
+## Think First
+Does your app demand daily attention?
+
+**Daily Expectation** (Honestly, does your user *need* to use this app every single day? Why?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Is DAU the right metric?** If you are building an app to help people file their quarterly taxes, a low DAU is totally fine. Do not force daily mechanics (like arbitrary daily streaks) into an app that is fundamentally a weekly or monthly utility.
+
+---
+
+## Common Mistakes
+- **Confusing DAU with Sessions:** If one person opens the app 50 times in one day, that is 50 Sessions, but only 1 DAU. DAU measures *people*, not clicks.
+
+---
+
+## AI Prompt
+Use AI to evaluate if Daily Active Users is a metric you should obsess over.
+
+\`\`\`prompt
+Act as a Mobile Data Analyst.
+Review my app concept.
+
+1. Should DAU be my primary health metric, or is my app better measured by Weekly or Monthly activity? Explain why.
+2. If DAU is important for my app, what specific feature can I add to the MVP to encourage a daily check-in habit?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your decision on whether DAU is your primary metric here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilemau': `# MAU (Monthly Active Users)
+
+**🕒 Estimated Time:** 10 min
+
+---
+
+## Overview
+MAU (Monthly Active Users) measures the number of unique people who open your app at least once in a 30-day period. Investors and App Store algorithms love MAU because it demonstrates the true, long-term footprint of your app. For many utilities (like travel booking, budgeting, or smart home management), MAU is the ultimate health indicator.
+
+---
+
+## Think First
+How do you survive a 30-day gap?
+
+**The Monthly Trigger** (What event happens in your user's life once a month that forces them to remember your app exists?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **The DAU/MAU Ratio:** Dividing your DAU by your MAU gives you a percentage representing user "stickiness." (e.g., If DAU is 1,000 and MAU is 10,000, your stickiness is 10%). A ratio over 20% is considered excellent.
+
+---
+
+## Common Mistakes
+- **Focusing only on downloads:** Bragging about "100,000 downloads" while your MAU is 500. This means your app is heavily marketed but fundamentally broken.
+
+---
+
+## AI Prompt
+Use AI to design long-term engagement strategies.
+
+\`\`\`prompt
+Act as a Mobile Growth Hacker.
+Review my app concept.
+
+1. How can I increase my MAU by creating a monthly "trigger" or summary report (like Spotify Wrapped or a Monthly Budget Summary) that brings users back?
+2. What is a healthy DAU/MAU ratio for my specific app category?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Monthly Trigger strategy and target DAU/MAU ratio here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilesessionduration': `# Session Duration
+
+**🕒 Estimated Time:** 10 min
+
+---
+
+## Overview
+Session Duration measures how long a user stares at your app from the moment they open it to the moment they background it. In the mobile world, longer is NOT always better. For a game or a social feed (TikTok), you want 30-minute sessions. For a utility app (Uber, Weather), a 30-minute session means your UI is incredibly confusing and broken.
+
+---
+
+## Think First
+What is your ideal session length?
+
+**The Quick Task** (If your app is a utility, how quickly should a power user be able to get in, accomplish their goal, and get out?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **The Friction Goal:** If you are building a utility app, your goal is to *decrease* session duration in every update by removing clicks and speeding up API calls.
+
+---
+
+## Common Mistakes
+- **Optimizing for the wrong metric:** Adding a mandatory 5-second intro animation to a calculator app just to keep users on the screen longer. You will be uninstalled immediately.
+
+---
+
+## AI Prompt
+Use AI to optimize your app's intended session flow.
+
+\`\`\`prompt
+Act as a UX Performance Analyst.
+Review my app concept.
+
+1. What is the ideal Session Duration for my specific app? (e.g., 30 seconds? 5 minutes?)
+2. If my sessions are currently running twice as long as the ideal, what are the top 3 UI bottlenecks I should investigate?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Ideal Session Duration and UX philosophy here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileprd': `# Product Requirements Document (PRD)
+
+**🕒 Estimated Time:** 30 min
+
+---
+
+## Overview
+A PRD (Product Requirements Document) is the master blueprint for your mobile app. Without a PRD, you will start coding in React Native, get lost in UI details, and realize 3 weeks later that you forgot to build a password reset flow. In the mobile world, the PRD also dictates which native device features (Camera, GPS, Push Notifications) you absolutely need.
+
+---
+
+## Think First
+Consolidate everything from Phase 0:
+
+**The One-Sentence Summary** (What is this app, who is it for, and why do they care?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Native Requirements** (List every hardware feature this app requires: e.g., Camera, Microphone, GPS, Push Notifications, Local Storage, Biometrics).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The "Out of Scope" List** (What are 3 things you explicitly promise NOT to build in V1 to ensure you launch on time?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Offline First vs Cloud First:** Does the app need to function if the user is on an airplane without WiFi? If yes, your PRD must explicitly state that "Local Data Caching" is a core requirement, which drastically changes your architecture.
+- **Cross-Platform Parity:** Will iOS and Android have the exact same features at launch? (Using React Native/Expo usually guarantees this, but native module bridging can sometimes cause discrepancies).
+
+---
+
+## Common Mistakes
+- **Writing a 50-page essay:** A good MVP PRD is 2 pages long. It should be bullet points, not paragraphs.
+- **Ignoring Edge Cases:** Failing to specify what happens when the user denies the camera permission prompt.
+
+---
+
+## AI Prompt
+Use AI to generate a highly structured, technical PRD.
+
+\`\`\`prompt
+Act as a Senior Mobile Product Manager.
+Review my inputs above and the decisions I made in Phase 0.
+
+Generate a concise, bulleted Mobile MVP PRD containing:
+1. Executive Summary
+2. Core User Flows (Step-by-step from App Launch to Goal Achieved)
+3. Native Device Requirements & Required Permissions
+4. Non-Functional Requirements (e.g., Target load times, offline behavior)
+5. Out of Scope (V2) Features
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your finalized Mobile MVP PRD here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileuserflows': `# User Flows
+
+**🕒 Estimated Time:** 30 min
+
+---
+
+## Overview
+A User Flow maps out the exact sequence of screens a user taps through to accomplish a goal. On a desktop website, users tolerate clicking through multiple pages. On mobile, every single tap causes a micro-drop in conversion. If it takes 7 taps to send a message, users will uninstall. You must map the shortest possible path to the "Aha!" moment.
+
+---
+
+## Think First
+Map the journey tap-by-tap:
+
+**The Onboarding Flow** (From tapping the app icon on the home screen -> Splash Screen -> Welcome -> Permissions -> Main Feed. How many screens is that?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Core Action Flow** (From the Main Feed -> Tapping the '+' button -> Filling out a form -> Success Screen. Map every single tap).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Login Walls:** Will you force the user to create an account immediately upon opening the app (High Friction), or let them explore the app as a "Guest" and only ask for an account when they try to save data (Low Friction)?
+- **Permission Timing:** Map exactly *when* the OS dialogue box for "Allow Notifications?" appears. It should never be on the first screen.
+
+---
+
+## Common Mistakes
+- **The Dead End:** Designing a flow where a user completes a task (e.g., "Payment Successful") but there is no button to return to the home screen.
+- **The Infinite Form:** Putting 15 text input fields on a single mobile screen. Split long forms into multiple "Wizard" steps (e.g., Step 1 of 3).
+
+---
+
+## AI Prompt
+Use AI to ruthlessly optimize your screen sequences.
+
+\`\`\`prompt
+Act as a Lead Mobile UX Architect.
+Review my User Flows above.
+
+1. Rewrite my Core Action flow to reduce the number of required taps by at least 20%. Where can I use defaults, swipes, or auto-advancing to speed it up?
+2. Design a "Deferred Registration" onboarding flow for my app. Tell me exactly what the user can do *before* being forced to create an account.
+3. Identify the most likely "Drop-off Point" in these flows where a user might get frustrated and close the app.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your optimized User Flows here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'appnavigation': `# App Navigation
+
+**🕒 Estimated Time:** 20 min
+
+---
+
+## Overview
+App Navigation is the skeleton of your mobile app. Unlike web browsers, mobile apps do not have a universal "Back" button or a URL bar. The navigation hierarchy you choose (Tabs, Drawers, Stacks) defines the mental model of the entire application. Getting this wrong makes the app feel like a maze.
+
+---
+
+## Think First
+How will users move around?
+
+**The Primary Destinations** (What are the 3 to 5 main areas of your app? e.g., Home, Search, Messages, Profile).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Core Action** (Is there one action the user does constantly? e.g., posting a photo on Instagram, requesting a ride on Uber).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Bottom Tab Bar vs Hamburger Menu:** The Bottom Tab Bar is the undisputed king of mobile navigation because it is reachable by the user's thumb. Hamburger Menus (side drawers) hide features and should only be used for secondary settings (like "Privacy Policy" or "Log Out").
+- **The Floating Action Button (FAB):** If your app has one primary action (like composing a tweet), placing a giant button hovering over the bottom right of the screen is highly effective.
+
+---
+
+## Common Mistakes
+- **Too Many Tabs:** Having 6 or 7 icons crammed into a bottom tab bar. Apple's HIG (Human Interface Guidelines) recommends a maximum of 5.
+- **Deep Nesting:** Forcing the user to tap into a category, then a sub-category, then a sub-sub-category. By the time they get there, they have forgotten how to get back to the home screen.
+
+---
+
+## AI Prompt
+Use AI to select the optimal React Navigation structure.
+
+\`\`\`prompt
+Act as a Mobile UX Architect specializing in React Navigation.
+Review my Primary Destinations and Core Action above.
+
+1. Recommend the optimal Navigation Structure for my app (e.g., A Bottom Tab Navigator containing 4 tabs, with a Stack Navigator inside each tab).
+2. What should the exact 4 or 5 icons in my Bottom Tab Bar be?
+3. Should I use a Floating Action Button (FAB) or a prominent central tab for my Core Action?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your exact Navigation Hierarchy (Tabs, Stacks, Modals) here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilewireframes': `# Wireframes
+
+**🕒 Estimated Time:** 45 min
+
+---
+
+## Overview
+Wireframes are the raw blueprints of your screens. They strip away colors, logos, and fonts, forcing you to focus entirely on layout, button placement, and hierarchy. On a mobile screen, real estate is extremely limited. If you jump straight into designing a beautiful UI without wireframing, you will likely create something pretty but unusable.
+
+---
+
+## Think First
+Visualize the skeleton of your most important screens:
+
+**The "Home/Feed" Screen** (What is at the very top? What is in the middle? Where is the main call to action?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The "Detail/Action" Screen** (When they tap an item on the home screen, what does the detail view look like? Where is the "Back" button? Where is the "Submit/Buy" button?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **The Thumb Zone:** 75% of mobile users rely entirely on their thumb to navigate. Critical actions (like "Buy" or "Next") must be placed in the bottom half of the screen. The top left corner is the hardest place to reach.
+- **Scroll vs Pagination:** Will your lists scroll infinitely vertically (like TikTok/Twitter), or require swiping horizontally through a carousel?
+
+---
+
+## Common Mistakes
+- **Tiny Tap Targets:** Designing buttons that look great on a 27-inch monitor but are impossible to tap with a thumb on a physical phone. Apple recommends a minimum tap target of 44x44 points.
+- **Ignoring the Keyboard:** Forgetting that when a user taps a text input, the native keyboard pops up and covers the bottom 50% of the screen. You must ensure the "Submit" button isn't hidden behind the keyboard.
+
+---
+
+## AI Prompt
+Use AI to generate text-based layout structures for your core screens.
+
+\`\`\`prompt
+Act as a Lead Mobile UI Designer.
+Review my screen concepts above.
+
+For my 3 most critical screens (Home, Detail, and Core Action Form), provide a "Text Wireframe." 
+Format it strictly top-to-bottom as the user sees it on a phone screen.
+Example:
+[Header: Title + Settings Icon]
+[Horizontal Scroll Carousel: Featured Items]
+[List View: Recent Activity]
+[Sticky Bottom Button: "Create New"]
+
+Ensure all critical actions are placed in the ergonomic "Thumb Zone."
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your 3 Text Wireframes here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobiledesignsystem': `# Design System
+
+**🕒 Estimated Time:** 30 min
+
+---
+
+## Overview
+A Design System is a collection of reusable components (buttons, text inputs, cards) and rules (colors, spacing, typography). In mobile development (React Native), a design system is what separates a premium app from a cheap prototype. If you hardcode a different shade of blue on every screen, your app will feel chaotic.
+
+---
+
+## Think First
+Establish your rules:
+
+**The Primary Action Color** (What is the exact hex code of your main "Submit/Buy/Next" buttons? It should stand out from everything else).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Typography Strategy** (Are you using the system default fonts—San Francisco for iOS, Roboto for Android—or a custom Google font like Inter or Poppins?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Corner Radius** (Are your buttons and cards sharp and serious (0px radius), slightly rounded and modern (8px radius), or fully pill-shaped and playful (99px radius)?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Dark Mode Support:** Mobile users *expect* dark mode. Your design system must define a "Light" semantic palette and a "Dark" semantic palette from Day 1. If you try to hack dark mode in later, it will take weeks.
+- **UI Frameworks:** Will you build all components from scratch using React Native \`StyleSheet\`, or use a pre-built component library like NativeWind (Tailwind for RN), Tamagui, or React Native Paper? (NativeWind is highly recommended for speed).
+
+---
+
+## Common Mistakes
+- **Too Many Font Sizes:** Using 15 different font sizes across the app. You only need 5: H1, H2, H3, Body, and Caption.
+- **Low Contrast:** Using light gray text on a white background. Users will literally not be able to read it if they are outside in the sun.
+
+---
+
+## AI Prompt
+Use AI to generate a complete React Native design token system.
+
+\`\`\`prompt
+Act as a Design Systems Engineer for a React Native app.
+Review my style preferences above.
+
+1. Generate a standardized Color Palette including Primary, Secondary, Background (Light/Dark), Surface (Light/Dark), Error, and Text colors. Provide exact Hex codes.
+2. Define a standard spacing/padding scale (e.g., xs: 4px, sm: 8px, md: 16px, lg: 24px).
+3. Recommend a UI Component Library (e.g., NativeWind, Tamagui, Gluestack) that best fits a fast MVP workflow, and explain why.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Color Palette, Spacing Scale, and UI Framework decision here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilebranding': `# Branding
+
+**🕒 Estimated Time:** 20 min
+
+---
+
+## Overview
+In the App Store, branding is everything. You have roughly 3 seconds to convince a user scrolling past your app icon to stop and click. Your app's name, icon, and tone of voice must instantly communicate trust and purpose. A poorly designed app icon is the #1 reason for low download conversion rates.
+
+---
+
+## Think First
+Define your identity:
+
+**The App Name** (Is it literal like "Sleep Tracker", or abstract like "Aura"? Literal names rank better for ASO, abstract names build stronger long-term brands).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The App Icon Concept** (What is the single, central glyph or symbol on your app icon? Keep it incredibly simple. Don't put text in the icon).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Tone of Voice** (How does the app speak to the user in popups and alerts? Formal and secure? Playful and encouraging? Snarky?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **App Icon Contrast:** Your app icon will sit on user's home screens against thousands of different wallpapers. It must have high contrast and stand out against both light and dark backgrounds.
+- **The "Splash Screen":** When the app launches, it takes 1-2 seconds to load. The Splash screen should feature your brand logo seamlessly transitioning into the main app UI.
+
+---
+
+## Common Mistakes
+- **Words in the App Icon:** Putting your app's name inside the 1024x1024 app icon. When scaled down to a 40x40 pixel square on a phone screen, text becomes illegible smudge.
+- **Inconsistent Voice:** Having playful, fun marketing copy on the App Store, but robotic, technical error messages ("Error 404: Null pointer exception") inside the app.
+
+---
+
+## AI Prompt
+Use AI to refine your brand identity and App Store presence.
+
+\`\`\`prompt
+Act as a Mobile Brand Strategist.
+Review my App Name, Icon Concept, and Tone of Voice above.
+
+1. Evaluate my App Name for App Store Optimization (ASO). Does it need a subtitle modifier? (e.g., "Aura: Sleep Tracker").
+2. Give me 3 highly visual, simple concepts for my App Icon that will stand out against a dark wallpaper.
+3. Write an example of a "Welcome" push notification using my app's specific Tone of Voice.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your finalized App Name, Icon Concept, and Tone of Voice example here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileaccessibility': `# Accessibility
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+Accessibility (a11y) ensures your mobile app is usable by everyone, including people with visual, motor, or auditory impairments. Beyond being an ethical obligation (and in many countries, a legal one), iOS and Android have powerful built-in accessibility features like VoiceOver and TalkBack. If your app doesn't support them, a massive segment of users cannot use your product.
+
+---
+
+## Think First
+Evaluate your UI for common barriers:
+
+**Color Reliance** (Are there places where color is the *only* way information is conveyed? e.g., A red outline on an invalid text box without an error message below it).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Dynamic Type** (If a user has their phone's system font size set to "Huge" because of poor vision, will your app's UI completely break and overlap?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Touch Targets:** Are all interactive buttons at least 44x44 points (iOS) or 48x48 dp (Android)? Small buttons are impossible for users with motor tremors to tap.
+- **Contrast Ratios:** Do your text and background colors meet the WCAG AA standard of 4.5:1 contrast?
+
+---
+
+## Common Mistakes
+- **Ignoring Screen Readers:** Using a custom-built, animated "Checkbox" component in React Native but forgetting to add \`accessible={true}\` and an \`accessibilityLabel\`. VoiceOver will just read it as "Button," leaving blind users completely lost.
+- **Disabling System Scaling:** Hardcoding font sizes with \`allowFontScaling={false}\` in React Native because you want to "preserve your design." This infuriates users who need larger text.
+
+---
+
+## AI Prompt
+Use AI to audit your app for critical accessibility failures.
+
+\`\`\`prompt
+Act as a Mobile Accessibility (a11y) Expert.
+I am building a React Native mobile app.
+
+1. Provide a checklist of the 5 absolute most important accessibility props I must include on my React Native components (e.g., TextInput, TouchableOpacity, Image).
+2. Explain how I should handle "Dynamic Type" (user-enlarged font sizes) so my layout doesn't break, without hard-locking the font size.
+3. How do I test VoiceOver/TalkBack on my physical device during development?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your React Native Accessibility Checklist here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileemptystates': `# Empty States
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+An Empty State occurs when a screen has no data to display. This happens to every single user on Day 1 (e.g., zero messages, zero saved items, zero completed workouts). If your app just shows a blank white screen, users will assume the app is broken or frozen. Empty States are your most powerful opportunity to drive user action.
+
+---
+
+## Think First
+Identify the dead zones in your app:
+
+**The Primary Feed/Dashboard** (What does the main screen look like the very first time they log in?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Search/Filter Results** (What happens when they search for something that doesn't exist?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **The Call to Action (CTA):** Every single empty state MUST have a button telling the user exactly what to do next. An empty "Saved Items" screen shouldn't just say "No items saved." It should say "No items saved" with a large button that says "Browse Items."
+- **Educational Illustrations:** Mobile empty states are the perfect place for a beautiful, simple illustration that explains the feature's value.
+
+---
+
+## Common Mistakes
+- **The "No Data Found" text:** Showing a raw database response string like \`[]\` or a tiny, unstyled "No Data Found" in the top left corner.
+- **Dead Ends:** Showing a nice illustration, but providing no button or link to actually generate data. The user is stuck.
+
+---
+
+## AI Prompt
+Use AI to design high-converting empty states.
+
+\`\`\`prompt
+Act as a Mobile Product Designer.
+Review my Primary Feed and Search functions.
+
+1. Write the Headline, Body Copy, and Call-to-Action (CTA) button text for the "Day 1 Empty State" of my main feed. It should be highly encouraging and tell them exactly how to get started.
+2. Write the copy for my "Zero Search Results" empty state. How can I help them recover from a bad search instead of just saying "Not found"?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Empty State copy and CTA strategies here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileerrorstates': `# Error States
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+Mobile devices lose internet connection constantly. They switch from WiFi to 5G, they go through tunnels, and their batteries die. If your app doesn't handle these network failures gracefully, the app will crash, and the user will delete it. Error states must be designed as carefully as your "happy path."
+
+---
+
+## Think First
+Plan for disaster:
+
+**The Offline Scenario** (What happens if the user opens your app while on Airplane mode?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The API Timeout** (What happens if your backend database is slow and takes 15 seconds to respond? Does the app freeze?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Form Error** (What happens if they type an invalid email address and hit submit?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Toast Notifications vs Modals:** Will you show non-critical errors as a temporary pop-up at the bottom of the screen (a Toast), or a blocking alert box (a Modal) that forces them to tap "OK"? (Toasts are far superior for minor network glitches).
+- **Graceful Degradation:** Can you show cached data from their last session instead of a giant "No Internet" screen?
+
+---
+
+## Common Mistakes
+- **Raw API Errors:** Showing the user an alert box that says \`[AxiosError: Network Error 500]\`. Users don't know what Axios is. Say "We couldn't connect to our servers. Please try again."
+- **Blaming the User:** Writing aggressive copy like "You entered the wrong password." Use passive, helpful copy like "That password didn't match our records."
+
+---
+
+## AI Prompt
+Use AI to design resilient error handling for mobile environments.
+
+\`\`\`prompt
+Act as a Senior React Native Engineer.
+I am designing my app's error states.
+
+1. Write the exact user-facing copy for a "No Internet Connection" error state. Include a CTA button.
+2. Explain the difference between a "Toast", a "Modal Alert", and an "Inline Error". Give me a strict rule on when to use each in my mobile app.
+3. How should I handle an API timeout so the app doesn't appear frozen?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Error State copy and UI rules (Toasts vs Modals) here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileloadingstates': `# Loading States
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+Nobody likes waiting. On mobile, if a screen is blank for more than 2 seconds, the user assumes the app has crashed and will force-quit it. Loading states (spinners, progress bars, skeletons) are psychological tools used to make the app *feel* faster than it actually is by providing immediate visual feedback.
+
+---
+
+## Think First
+Identify your slowest actions:
+
+**The Initial App Load** (What does the user see during the 1-3 seconds it takes for React Native to boot up and fetch the initial database payload?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Action Load** (When they hit "Submit" on a heavy API call like uploading an image, what visual feedback do they get so they don't hit the button 5 times in a row?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Skeleton Screens vs Spinners:** A "Skeleton" (gray blocks flashing where text and images *will* be) is the modern standard for loading entire screens. A spinner (activity indicator) should only be used for small, localized actions like submitting a button.
+- **Optimistic UI:** Can you fake the speed? (e.g., When a user "Likes" a post, instantly turn the heart red on the UI, and do the actual database update silently in the background).
+
+---
+
+## Common Mistakes
+- **Blocking the UI:** Using a giant, full-screen transparent gray overlay with a spinner every time an API call happens, preventing the user from scrolling or doing anything else.
+- **Button Double-Taps:** Failing to disable a "Submit" button while it is loading, causing the user to accidentally create 4 identical accounts because they tapped the button 4 times.
+
+---
+
+## AI Prompt
+Use AI to design psychological speed optimizations.
+
+\`\`\`prompt
+Act as a Mobile UX Performance Specialist.
+Review my loading scenarios.
+
+1. Explain exactly how I should design a "Skeleton Loader" for my main feed to make the app feel 2x faster.
+2. What is "Optimistic UI Updates" in React Native? Give me one example of how I can use it in my app to completely hide a loading state from the user.
+3. How should I handle the loading state on my primary "Submit" button to prevent double-submissions?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Loading State strategies (Skeletons, Optimistic UI, Button states) here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileplatformstrategy': `# Platform Strategy
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+Before you choose a coding language, you must decide *where* your app will live. Building for iOS vs Android vs Web involves entirely different ecosystems, review processes, and revenue splits. A bad platform strategy means you spend 6 months building an app only to realize Apple won't approve it, or your target audience doesn't use iPhones.
+
+---
+
+## Think First
+Where are your users?
+
+**The Target OS** (Is your target demographic primarily using high-end iPhones in the US, or budget Android devices globally?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Web Fallback** (Does this app *have* to be downloaded from an App Store to provide value, or would a mobile-friendly website work just as well?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **iOS First vs Cross-Platform:** Historically, startups built for iOS first because iPhone users spend significantly more money. Today, cross-platform tools (like React Native) allow you to deploy to both iOS and Android from a single codebase, making "iOS First" largely obsolete for most apps.
+- **The App Store Review:** Apple's review process is notoriously strict. If your app relies on highly controversial content, real-money gambling, or scraping third-party APIs without permission, Apple will reject it. You might need to pivot to a Progressive Web App (PWA).
+
+---
+
+## Common Mistakes
+- **Building Native Swift/Kotlin for an MVP:** Hiring two separate teams (one for iOS Swift, one for Android Kotlin) to build a basic MVP. This doubles your cost and doubles your time to market.
+- **Ignoring the Web:** Refusing to build a landing page because "it's a mobile app." You still need a web presence for marketing and SEO.
+
+---
+
+## AI Prompt
+Use AI to sanity-check your platform assumptions.
+
+\`\`\`prompt
+Act as a Mobile Platform Strategist.
+Review my app concept: [Insert App Concept]
+
+1. Based on my concept, are there any obvious App Store Guidelines (Apple or Google) that might get my app rejected? 
+2. What is the demographic split of iOS vs Android users for my specific target audience?
+3. Would a Progressive Web App (PWA) be a smarter MVP than a native App Store app for this concept?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Platform Strategy (e.g., Cross-platform React Native, iOS only) here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilefundamentals': `# Mobile Fundamentals
+
+**🕒 Estimated Time:** 20 min
+
+---
+
+## Overview
+If you are coming from Web Development (React, HTML, CSS), mobile development will shock you. Mobile apps do not have URLs you can just refresh. They run in sandboxed environments, they have to be compiled into binary files (.ipa or .apk), and they are subject to the OS killing them if they use too much RAM. You must understand these fundamental constraints.
+
+---
+
+## Think First
+Adjust your mental model:
+
+**The Update Cycle** (On the web, you push code and users see it instantly. On mobile, you submit an update, wait 24 hours for Apple to approve it, and then hope the user actually downloads the update. How does this change how you handle bugs?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **App Lifecycle:** You must handle what happens when your app goes into the "Background" (the user minimizes it) and comes back to the "Foreground." If you were playing audio or maintaining an active socket connection, the OS will likely kill it.
+- **Permissions:** Unlike the web where you can just ask for location in the browser, mobile requires explicit, legally binding permission prompts for Camera, Location, Push Notifications, and Photo Library access. If the user hits "Deny", you must handle that gracefully.
+
+---
+
+## Common Mistakes
+- **Assuming Instant Updates:** Pushing a breaking API change to your backend, forgetting that 40% of your users are still running a 3-month-old version of your mobile app. Their apps will instantly crash.
+- **Memory Leaks:** Rendering 10,000 images in a list without recycling components. On a desktop browser, it might just stutter. On a mobile phone, the OS will terminate your app for using too much memory.
+
+---
+
+## AI Prompt
+Use AI to learn how to defend against mobile constraints.
+
+\`\`\`prompt
+Act as a Senior Mobile Systems Architect.
+I am coming from a Web Development background.
+
+1. Explain the "App Lifecycle" (Foreground, Background, Inactive, Terminated) and how it affects background tasks like downloading a large file.
+2. How do I force users to update my app if I deploy a critical security fix?
+3. What is "Over-the-Air" (OTA) updating in React Native, and how does it bypass the App Store review process?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your notes on App Lifecycle and OTA updating here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobiletechstackselection': `# Tech Stack Selection
+
+**🕒 Estimated Time:** 20 min
+
+---
+
+## Overview
+Your Tech Stack is the foundation of your app. For modern mobile MVPs, there are really only three viable options: React Native (via Expo), Flutter, or Swift/Kotlin (Native). Making the wrong choice here means entirely rewriting your app in 6 months. For 95% of builders, React Native with Expo is the undisputed winner because it allows web developers to build iOS and Android apps using JavaScript/TypeScript.
+
+---
+
+## Think First
+What are your team's skills?
+
+**Your Current Knowledge** (Do you already know React/JavaScript? Do you know Dart? Do you know Swift?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Hardware Limit** (Does your app require extremely low-level hardware access, like custom Bluetooth drivers or ARKit?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Expo vs Bare React Native:** You should almost certainly use **Expo**. Historically, Expo was limiting because it didn't support custom native code. Today, with Expo Prebuild (Continuous Native Generation), Expo supports literally everything Bare React Native does, but handles all the painful Xcode/Android Studio configuration for you.
+- **Flutter vs React Native:** Flutter (by Google) uses Dart and has incredible UI performance. React Native (by Meta) uses JavaScript and has the largest ecosystem of third-party libraries in the world. Choose React Native unless you specifically want to learn Dart.
+
+---
+
+## Common Mistakes
+- **Ejecting from Expo:** Hitting a minor native module issue and instantly "ejecting" from Expo to Bare React Native. Once you eject, you are responsible for maintaining complex iOS/Android build configurations forever. Use Expo Development Builds instead.
+- **Choosing Native for a CRUD App:** Building a simple "To-Do List" app using Swift and Kotlin natively. You are wasting massive amounts of time for zero performance gain.
+
+---
+
+## AI Prompt
+Use AI to finalize your stack and justify the decision.
+
+\`\`\`prompt
+Act as a Mobile Tech Lead.
+Review my app concept.
+
+1. Confirm if React Native with Expo is sufficient for my app's specific hardware requirements. Are there any known limitations?
+2. What are the specific trade-offs if I chose Flutter instead of React Native for this project?
+3. If I use React Native, should I use TypeScript or stick to plain JavaScript for an MVP? Why?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your finalized Tech Stack (e.g., React Native + Expo + TypeScript) here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilestatemanagement': `# State Management
+
+**🕒 Estimated Time:** 20 min
+
+---
+
+## Overview
+State Management is how your app remembers things. When a user logs in on the Profile tab, the Home tab needs to instantly "know" they are logged in and show their username. If your state management is messy, your app will suffer from infinite re-renders, sluggish UI, and phantom bugs where the screen doesn't update when data changes.
+
+---
+
+## Think First
+Analyze the data flow:
+
+**Global vs Local** (What data needs to be accessed globally by every screen? e.g., The User Object, The Shopping Cart. What data only matters to one screen? e.g., The text typed in a search bar).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **The Server State:** Data fetched from your backend (e.g., a list of posts) should NOT be stored in a global Redux store. It should be managed by a data-fetching library like **React Query** or **SWR**, which handles caching, loading states, and automatic refetching for you.
+- **The Client State:** For lightweight global state (e.g., is dark mode on? is the user logged in?), use a modern, boilerplate-free library like **Zustand**. Avoid Redux unless you are building a massive enterprise application.
+- **Local State:** Use standard \`useState\` and \`useReducer\` for things that don't need to leave the current component.
+
+---
+
+## Common Mistakes
+- **The React Context Trap:** Using React Context for everything. React Context forces every component that consumes it to re-render whenever *anything* in the context changes. This destroys mobile performance.
+- **Prop Drilling:** Passing a user ID down through 6 layers of nested components instead of just pulling it from global state when needed.
+
+---
+
+## AI Prompt
+Use AI to select your specific state libraries.
+
+\`\`\`prompt
+Act as a Senior React Native Architect.
+I need to choose a state management stack.
+
+1. Compare Zustand vs Redux Toolkit for managing "Client State" in a mobile MVP. Which do you recommend and why?
+2. Explain why "Server State" (like fetching data from an API) should be separated from Client State, and recommend a library for handling Server State.
+3. Write a small code example showing how I would structure a Zustand store to hold the user's authentication status.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your chosen State Management stack (e.g., Zustand + React Query) here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileapistrategy': `# API Strategy
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+Your mobile app is essentially a highly interactive display for your API. How your app talks to your backend dictates its perceived speed and reliability. Mobile networks drop constantly, so your API strategy must account for retries, caching, and minimizing payload sizes to save the user's cellular data.
+
+---
+
+## Think First
+How chatty is your app?
+
+**The Data Volume** (Are you fetching a 5KB JSON object with a user's name, or a 50MB array of high-res images?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Real-time vs Static** (Does a messaging screen need to update instantly via WebSockets, or is it okay if the user pulls-to-refresh to see new data?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **REST vs GraphQL:** REST is the industry standard and easier to cache. GraphQL is incredibly powerful for mobile because it prevents "over-fetching"—you ask the server for exactly the fields you need, saving precious mobile bandwidth.
+- **Backend-as-a-Service (BaaS):** If you use Supabase or Firebase, you don't even need to build a traditional API. You can query the database directly from your React Native code using their SDKs, which handle WebSockets and real-time updates automatically.
+
+---
+
+## Common Mistakes
+- **Waterfall Requests:** Fetching the User Object, waiting for it to finish, then using the User ID to fetch their Posts, waiting for it to finish, then fetching the Post Comments. The screen will be loading for 5 seconds. Use \`Promise.all\` to fetch parallel requests simultaneously.
+- **Ignoring Pagination:** Fetching all 10,000 items in a database table at once instead of fetching the first 20 and using an "Infinite Scroll" list.
+
+---
+
+## AI Prompt
+Use AI to design an efficient data fetching architecture.
+
+\`\`\`prompt
+Act as a Backend-to-Mobile Integration Expert.
+Review my app concept.
+
+1. For my MVP, should I build a traditional REST API, use GraphQL, or use a BaaS SDK like Supabase/Firebase? Explain the specific bandwidth and speed advantages for mobile.
+2. How do I implement "Infinite Scrolling" (pagination) for my main feed to avoid crashing the app with massive payloads?
+3. Give me an example of how to use React Query to cache my API responses so the app feels instant on the second open.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your API and Data Fetching Strategy here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilelocalstorage': `# Local Storage
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+Unlike a web browser that relies entirely on the cloud, a mobile phone has gigabytes of highly secure, blazing-fast local storage. You must use local storage to save user preferences, authentication tokens, and cached data so the app can boot up instantly even when the phone is in airplane mode.
+
+---
+
+## Think First
+What needs to survive an app restart?
+
+**Security Requirements** (Are you saving a simple "Dark Mode = True" preference, or a highly sensitive JWT Authentication token?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **AsyncStorage vs SecureStore:** 
+  - For non-sensitive data (like theme preferences or cached JSON), use \`AsyncStorage\` (or faster alternatives like \`MMKV\`). 
+  - For sensitive data (like passwords, auth tokens, or API keys), you MUST use \`expo-secure-store\`, which encrypts the data using the device's native Keychain (iOS) or Keystore (Android).
+- **High-Performance Storage:** If you are building a data-heavy app that needs to search through thousands of records offline, AsyncStorage is too slow. You will need a local SQLite database or a high-performance key-value store like MMKV.
+
+---
+
+## Common Mistakes
+- **Storing Auth Tokens in AsyncStorage:** This is a massive security vulnerability. If the phone is compromised, hackers can extract the raw text token. Always use SecureStore for auth.
+- **Hitting Storage on Every Render:** Local storage is fast, but it is still asynchronous. If you read from AsyncStorage inside a React component's render cycle without caching it in memory (state), your app will stutter violently.
+
+---
+
+## AI Prompt
+Use AI to select the right storage mechanisms for your specific data.
+
+\`\`\`prompt
+Act as a React Native Security and Performance Expert.
+
+1. I need to store the following items locally: A user's JWT auth token, their theme preference (dark/light), and a cached list of their 50 most recent messages.
+2. Recommend the exact React Native/Expo libraries I should use for each of those 3 items (e.g., SecureStore, MMKV, SQLite).
+3. Write a code snippet showing the correct way to read from SecureStore when the app boots up, without blocking the UI.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your chosen Local Storage libraries and strategy here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileauthentication': `# Authentication
+
+**🕒 Estimated Time:** 20 min
+
+---
+
+## Overview
+Authentication on mobile is uniquely frustrating. Users hate typing passwords on tiny keyboards. Furthermore, Apple has a strict rule: If your app offers third-party logins (like Google or Facebook), you MUST also offer \"Sign in with Apple.\" If you don't, Apple will reject your app during the review process.
+
+---
+
+## Think First
+Reduce friction at the front door:
+
+**The Login Methods** (Will you support Email/Password, Magic Links, Google, Apple, or Phone Number/SMS?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Social Auth (OAuth):** Adding \"Sign in with Google\" and \"Sign in with Apple\" dramatically increases your signup conversion rate because it's a one-tap process. However, configuring the OAuth certificates in Xcode and Android Studio is notoriously difficult.
+- **Authentication Provider:** Do not build your own authentication system (hashing passwords, managing sessions, sending password reset emails). Use an Auth Provider like **Supabase Auth**, **Firebase Auth**, or **Clerk**. They handle all the heavy lifting and security compliance for you.
+- **Biometrics:** You can use Expo's \`LocalAuthentication\` module to let users unlock the app using FaceID or Fingerprint instead of typing a PIN.
+
+---
+
+## Common Mistakes
+- **Forgetting \"Sign in with Apple\":** The #1 reason for app rejection. If you have Google login, you must have Apple login.
+- **Forcing Login Too Early:** Showing the login screen before the user has any idea what the app does. Let them see a preview or onboarding carousel first.
+
+---
+
+## AI Prompt
+Use AI to design a compliant, high-converting Auth flow.
+
+\`\`\`prompt
+Act as a Mobile Authentication Architect.
+I am using Expo and [Insert Auth Provider, e.g., Supabase].
+
+1. I want to offer Email/Password and Google OAuth. Explain Apple's mandatory \"Sign in with Apple\" rule and how it applies to me.
+2. Walk me through the high-level flow of how a JWT token is received from the Auth Provider and securely stored on the device using expo-secure-store.
+3. How do I design a React Navigation flow that automatically redirects the user to the Login screen if their token expires?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your chosen Auth Provider and Login Methods here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobiledatabase': `# Database
+
+**🕒 Estimated Time:** 20 min
+
+---
+
+## Overview
+Your database is the brain of your backend. Mobile apps generate massive amounts of unstructured data, relational data, and binary data (images). Selecting the right database architecture ensures your app can scale from 10 users to 100,000 without crashing or costing you a fortune.
+
+---
+
+## Think First
+What is the shape of your data?
+
+**Data Relationships** (Do you have highly connected data, like Users who have Posts, and Posts that have Comments, and Comments that have Likes? This is relational data).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Offline Sync** (Do you need the database to automatically sync local offline changes to the cloud when the phone reconnects to WiFi?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **SQL (PostgreSQL) vs NoSQL (Firebase/MongoDB):** 
+  - **PostgreSQL (via Supabase):** The absolute best choice for 90% of apps. It is highly structured, prevents bad data from being saved, and scales infinitely. 
+  - **NoSQL (via Firebase Firestore):** Great for rapid prototyping and apps that require massive real-time syncing (like a live chat app), but NoSQL data can quickly become a disorganized mess if you aren't careful.
+- **Row Level Security (RLS):** If you use Supabase, your mobile app talks directly to the database. You MUST write strict RLS policies to ensure User A cannot delete User B's data.
+
+---
+
+## Common Mistakes
+- **Storing Images in the Database:** Never save a massive Base64 image string inside a database column. Save the image to a Storage Bucket (like AWS S3 or Supabase Storage), and save the *URL string* to the database.
+- **Ignoring Indexes:** Querying a table of 100,000 users by their email address without indexing the email column. The database will search every row one by one, destroying your API response times.
+
+---
+
+## AI Prompt
+Use AI to select the right database engine and design the schema.
+
+\`\`\`prompt
+Act as a Lead Database Architect.
+Review my app concept and data relationships.
+
+1. Recommend either PostgreSQL (Supabase) or NoSQL (Firebase) for my specific MVP. Explain why based on my data structure.
+2. Draft the initial Database Schema. List the 3-5 core tables (or collections) I will need, and the exact columns/fields for each.
+3. Identify the primary "Foreign Key" relationships between these tables.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your chosen Database Engine and Schema Draft here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilebackend': `# Backend
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+The Backend is the server that runs your business logic. If your mobile app needs to process a Stripe payment, generate an AI image using OpenAI, or send an email, it CANNOT do this directly from the phone. The phone must ask the Backend to do it securely. If you put your Stripe Secret Key inside your React Native code, hackers will extract it in 5 minutes.
+
+---
+
+## Think First
+What must be hidden from the user?
+
+**The Secrets** (What API keys or sensitive algorithms must be executed securely away from the user's phone?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Heavy Compute** (Are there tasks that take too long or require too much processing power to run on a mobile device?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **BaaS vs Custom Server:** 
+  - **BaaS (Supabase/Firebase):** For MVPs, using a Backend-as-a-Service is highly recommended. They provide "Edge Functions" (Supabase) or "Cloud Functions" (Firebase)—tiny snippets of server code you can write without having to maintain a massive Node.js server.
+  - **Custom Server (Node/Express, Python):** Necessary if you have incredibly complex background jobs, websockets, or video processing that requires dedicated hardware.
+
+---
+
+## Common Mistakes
+- **Client-Side Secrets:** Storing an API key (like an OpenAI key) inside your React Native \`.env\` file and calling the API directly from the phone. Anyone can decompile your \`.apk\` and steal your key.
+- **Over-engineering:** Building a massive microservices architecture on AWS Kubernetes for an MVP that currently has 0 users.
+
+---
+
+## AI Prompt
+Use AI to define your server strategy.
+
+\`\`\`prompt
+Act as a Cloud Infrastructure Architect.
+Review my app concept.
+
+1. Based on my concept, do I need to build a custom Node.js/Express server on Render/Heroku, or can I survive purely on Supabase Edge Functions?
+2. List exactly which actions in my app MUST be executed on the backend for security reasons (e.g., Payment processing).
+3. How do I securely pass an authentication token from my mobile app to the backend to verify the user's identity?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Backend Strategy (BaaS vs Custom Server) and list of required server functions here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilepushnotifications': `# Push Notifications
+
+**🕒 Estimated Time:** 20 min
+
+---
+
+## Overview
+Push Notifications are the most powerful tool for mobile retention. They are also incredibly complex to implement. You cannot just send a notification to a phone. You must ask Apple/Google for a unique "Device Token", save that token to your database, and then use a third-party service to ping Apple/Google's servers to actually deliver the message.
+
+---
+
+## Think First
+Define your notification strategy:
+
+**The Trigger** (When exactly should a user receive a notification? e.g., When someone likes their post, or a daily reminder at 9 AM).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **The Infrastructure:** Do not attempt to build a direct connection to Apple Push Notification Service (APNs) or Firebase Cloud Messaging (FCM) yourself. Use a wrapper service like **Expo Push Notifications** (easiest for Expo apps) or **OneSignal** (best for advanced marketing campaigns). They abstract away the nightmare of Apple/Google certificates.
+- **The Permission Prompt:** If you ask for Push Notification permission the second the app opens, 80% of users will hit "Deny", and you can NEVER ask them again (they must manually go into iOS Settings to fix it). You must "Warm Up" the user by explaining *why* they need notifications before triggering the native OS prompt.
+
+---
+
+## Common Mistakes
+- **Spamming:** Sending generic "Come back to the app!" notifications. Users will instantly revoke your notification privileges.
+- **Ignoring Badge Counts:** Failing to clear the little red number on your app icon after the user opens the app.
+
+---
+
+## AI Prompt
+Use AI to design a robust notification architecture.
+
+\`\`\`prompt
+Act as a Mobile Notification Architect.
+I am using React Native with Expo.
+
+1. Walk me through the exact database schema I need to store user "Device Push Tokens". Remember that one user might have multiple devices (an iPhone and an iPad).
+2. Write a "Warm Up" screen copy that convinces the user to click "Allow" when the native OS permission prompt appears.
+3. Should I use Expo's built-in Push Notification service or integrate OneSignal? Compare the two for an MVP.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Notification Provider choice and your "Warm Up" strategy here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobiledeeplinking': `# Deep Linking
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+Deep Linking allows you to click a URL (like \`myapp://profile/123\` or \`https://myapp.com/profile/123\`) in an email or SMS, and have it instantly open your mobile app directly to that specific screen, instead of opening a web browser. Without deep links, sharing content from your app is impossible.
+
+---
+
+## Think First
+What needs to be shareable?
+
+**The Core Entities** (What specific screens will users want to share with their friends? e.g., A specific recipe, a user profile, a product page).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Custom Schemes vs Universal Links:** 
+  - **Custom Schemes (\`myapp://...\`):** Easy to set up, but if the user doesn't have the app installed, clicking the link does nothing (or shows an error).
+  - **Universal Links (iOS) / App Links (Android):** Uses a standard web URL (\`https://myapp.com/...\`). If the app is installed, it opens the app. If not, it opens the website or redirects to the App Store. This is much harder to set up (requires hosting specific verification files on your web domain) but provides a vastly superior user experience.
+
+---
+
+## Common Mistakes
+- **Ignoring React Navigation Integration:** Setting up the deep link in the OS, but failing to configure React Navigation to actually parse the URL and route the user to the correct screen.
+- **Blank Screens:** Clicking a deep link, the app opens, but because the user isn't logged in, the app crashes or shows a blank screen instead of routing them to the Login screen first.
+
+---
+
+## AI Prompt
+Use AI to configure your deep linking strategy.
+
+\`\`\`prompt
+Act as a React Navigation Expert.
+I need to implement Deep Linking for my app.
+
+1. Explain the difference between a Custom URL Scheme and a Universal Link. Which should I prioritize for my MVP?
+2. Write the React Navigation \`linking\` configuration object required to map a URL like \`myapp://post/123\` to my \`PostDetails\` screen, passing the \`123\` ID as a parameter.
+3. How do I handle a deep link if the user is currently logged out?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Deep Linking strategy and React Navigation config structure here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilefilestorage': `# File Storage
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+If your app allows users to upload profile pictures, record audio, or upload documents, you need a File Storage strategy. You cannot store large binary files in a standard SQL database. You must upload the file to a "Storage Bucket" and then save the resulting URL string to your database.
+
+---
+
+## Think First
+What are users uploading?
+
+**File Types & Sizes** (Are they uploading 1MB JPEGs, or 500MB 4K Videos?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **The Storage Provider:** AWS S3 is the industry standard, but it is notoriously complex to configure. If you are using **Supabase** or **Firebase**, use their built-in Storage solutions. They integrate seamlessly with your database and handle permissions automatically.
+- **Image Compression:** You MUST compress images locally on the phone *before* uploading them. Uploading a raw 12MB photo from an iPhone camera will consume massive amounts of cellular data, take forever, and cost you a fortune in cloud storage fees.
+
+---
+
+## Common Mistakes
+- **Direct to Database:** Attempting to convert an image to a Base64 string and saving it in a PostgreSQL text column. This will destroy your database performance.
+- **Public Buckets:** Leaving your storage bucket entirely public, allowing anyone on the internet to upload files and bankrupt your AWS account. You must implement Row Level Security (RLS) on your storage buckets.
+
+---
+
+## AI Prompt
+Use AI to design a secure, efficient upload pipeline.
+
+\`\`\`prompt
+Act as a Cloud Storage Architect.
+My app requires users to upload Profile Pictures and Short Videos.
+
+1. I am using [Insert Backend, e.g., Supabase]. Explain the exact architecture of how I get an image from the user's phone, to my Storage Bucket, and save the URL in my database.
+2. Recommend a React Native library for selecting images from the camera roll and compressing them *before* upload.
+3. How do I write a security rule so that a user can only delete their own profile picture, but everyone can view it?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Storage Provider choice and Image Compression library here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileofflinestrategy': `# Offline Strategy
+
+**🕒 Estimated Time:** 20 min
+
+---
+
+## Overview
+Mobile apps are fundamentally different from websites because they travel. Users open them on subways, airplanes, and areas with spotty 3G. If your app instantly crashes or shows a giant white screen the moment the internet drops, it is a bad mobile app. A solid offline strategy degrades gracefully.
+
+---
+
+## Think First
+What must work offline?
+
+**The Offline Requirement** (Does the app *need* to function fully offline like a Notes app, or does it just need to show a polite "No Internet" screen like a Banking app?)
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Caching:** The simplest offline strategy is caching API responses. If a user opens the app offline, show them the data from their last session instead of a blank screen.
+- **Offline Mutations (Advanced):** If you want users to be able to create data (like writing a Tweet) while offline, you must save it to local storage, queue it, and automatically sync it to the server when the connection is restored. This is extremely complex and should generally be avoided for an MVP unless it is the core value proposition of the app.
+
+---
+
+## Common Mistakes
+- **Infinite Loading:** A spinner that spins forever because the API call failed due to no internet, and the code never caught the error.
+- **Assuming Fast Networks:** Testing your app on your blazing-fast home WiFi and assuming it will load that fast for a user on a crowded 3G network.
+
+---
+
+## AI Prompt
+Use AI to design an achievable offline strategy for your MVP.
+
+\`\`\`prompt
+Act as a Mobile Reliability Engineer.
+Review my app concept.
+
+1. Based on my concept, should I build a "Fully Offline" architecture (complex sync), or a "Cache & Error" architecture (show cached data, disable buttons)?
+2. How can I use React Query or AsyncStorage to easily cache my main feed so it loads instantly even in airplane mode?
+3. Provide a React Native code snippet using \`@react-native-community/netinfo\` to detect when the internet drops and show a "You are offline" banner.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your chosen Offline Architecture (Caching vs Full Sync) here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobileanalyticsstrategy': `# Analytics Strategy
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+If you don't track user behavior, you are flying blind. You will have no idea why users are uninstalling your app. However, mobile analytics are highly regulated. Apple requires you to explicitly declare what you are tracking (Privacy Nutrition Labels) and, under App Tracking Transparency (ATT), you must ask permission to track users across other companies' apps and websites.
+
+---
+
+## Think First
+What metrics actually matter?
+
+**The North Star Metric** (What is the single action that defines success? e.g., Completing a purchase, creating a post).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **The Tool:** **PostHog** is currently the gold standard for mobile product analytics (event tracking, session replay). **Google Analytics / Firebase** is free and ubiquitous but can be complex to query. **Sentry** or **Crashlytics** is absolutely mandatory for tracking app crashes.
+- **First-Party vs Third-Party:** If you only track what users do *inside* your app to improve your app (First-Party), you usually do not need the dreaded Apple ATT popup. If you send data to Facebook Ads to track conversions across the web (Third-Party), you MUST trigger the ATT popup.
+
+---
+
+## Common Mistakes
+- **Tracking Everything:** Firing an event for every single button press. You will max out your analytics provider's free tier in a week and your dashboard will be unreadable.
+- **Ignoring Crash Reporting:** Releasing an app without Sentry or Crashlytics. When a user leaves a 1-star review saying "It crashes on startup," you will have absolutely no idea what line of code caused it.
+
+---
+
+## AI Prompt
+Use AI to set up a compliant, focused analytics plan.
+
+\`\`\`prompt
+Act as a Mobile Product Data Scientist.
+
+1. Recommend an Analytics stack for my React Native MVP that includes Event Tracking and Crash Reporting. Is PostHog + Sentry a good choice?
+2. Define the exact 5 Custom Events I should track in my app to understand the user journey (e.g., 'signup_completed', 'checkout_started').
+3. Explain Apple's App Tracking Transparency (ATT). Do I need to show the popup if I am only using PostHog to track internal button clicks?
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Analytics Tooling (e.g., PostHog + Sentry) and the 5 Custom Events you will track here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'mobilecostestimation': `# Cost Estimation
+
+**🕒 Estimated Time:** 15 min
+
+---
+
+## Overview
+Building an MVP is relatively cheap. *Scaling* an app can bankrupt you if you architect it poorly. You must forecast your monthly costs for hosting, databases, APIs, and developer accounts before you write a line of code.
+
+---
+
+## Think First
+Where are your financial vulnerabilities?
+
+**The Expensive Feature** (Does your app rely on the OpenAI API, video hosting, or complex map routing? These cost money per usage).
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Developer Accounts:** Apple charges \$99/year just to have the privilege of publishing on the App Store. Google charges a one-time \$25 fee.
+- **Server & Database:** Supabase and Firebase both offer incredibly generous free tiers that will easily support your MVP up to your first few thousand users.
+- **Third-Party APIs:** If you use OpenAI, Google Maps, or Twilio (for SMS auth), these are pay-as-you-go. A malicious user spamming your SMS login screen can cost you hundreds of dollars in hours.
+
+---
+
+## Common Mistakes
+- **No Billing Limits:** Failing to set hard spending limits or alerts on your AWS/Vercel/Supabase accounts. If your app goes viral, you could wake up to a \$5,000 bill.
+- **Expensive Auth:** Using SMS text messages for authentication. SMS is notoriously expensive and prone to toll-fraud. Use Email/Password or OAuth (Google/Apple) instead; they are free.
+
+---
+
+## AI Prompt
+Use AI to forecast your runway and set up financial defenses.
+
+\`\`\`prompt
+Act as a Cloud FinOps Architect.
+Review my tech stack (e.g., React Native, Expo, Supabase) and my app's core features.
+
+1. Provide a rough Monthly Cost Estimate for running this app with 1,000 Daily Active Users. Break down the costs (Developer Accounts, Database, Auth, Third-Party APIs).
+2. What is the single biggest financial vulnerability in my architecture?
+3. Give me step-by-step instructions on what billing alerts or rate limits I MUST set up to prevent accidental bankruptcy.
+\`\`\`
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+## Deliverable
+Paste your Monthly Cost Estimate and your critical Billing Alerts strategy here.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`
 };

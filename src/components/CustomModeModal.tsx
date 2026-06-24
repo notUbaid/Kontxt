@@ -377,6 +377,10 @@ export const CustomModeModal = ({ isOpen, onClose, activeProject, onProjectUpdat
   };
 
   const handleSave = () => {
+    if (selectedTopicIds.size === 0) {
+      alert("Please select at least one topic.");
+      return;
+    }
     onProjectUpdate({
       ...activeProject,
       customTopics: Array.from(selectedTopicIds)
