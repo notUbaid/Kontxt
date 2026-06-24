@@ -139,14 +139,14 @@ export const mobileProductionTaxonomy: Category[] = [
     id: 'phase-6',
     name: 'PHASE 6 — GROWTH',
     topics: [
-      createTopic('Retention', Users),
-      createTopic('Analytics', BarChart),
-      createTopic('Notifications Strategy', Bell),
-      createTopic('User Feedback', MessageSquare),
-      createTopic('Reviews & Ratings', Target),
-      createTopic('Referral Programs', Users),
-      createTopic('Roadmap', Globe),
-      createTopic('Scaling Strategy', BarChart),
+      createTopic('Retention', Users, [], 'mobile-retention'),
+      createTopic('Analytics', BarChart, [], 'mobile-analytics'),
+      createTopic('Notifications Strategy', Bell, [], 'mobile-notificationsstrategy'),
+      createTopic('User Feedback', MessageSquare, [], 'mobile-userfeedback'),
+      createTopic('Reviews & Ratings', Target, [], 'mobile-reviewsratings'),
+      createTopic('Referral Programs', Users, [], 'mobile-referralprograms'),
+      createTopic('Roadmap', Globe, [], 'mobile-roadmap'),
+      createTopic('Scaling Strategy', BarChart, [], 'mobile-scalingstrategy'),
     ]
   }
 ];

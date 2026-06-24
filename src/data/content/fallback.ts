@@ -13964,4 +13964,575 @@ Act as an App Store Reviewer. Review my app's functionality: [Describe what your
 
 ## Next Step
 Congratulations! Your app is in review. Once live, proceed to Phase 6 to focus on Growth and Analytics.`,
+
+  'mobile-retention': `# Retention
+
+🕒 **Estimated Time:** Ongoing
+
+---
+
+## Overview
+Acquiring users is easy; keeping them is hard. Retention measures how many users return to your app on Day 1, Day 7, and Day 30. A poor Day 1 retention means your onboarding is confusing. A poor Day 30 retention means your app lacks long-term value.
+
+---
+
+## Think First
+**What is the single core action a user must take in their first 5 minutes to experience the 'Aha!' moment?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Why would a user open your app next Tuesday? What is the trigger?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Hook vs Habit:** You must design a 'hook' to get users to return initially (e.g., a push notification), but eventually, the app must become an internal habit.
+- **Active vs Passive Retention:** Passive retention relies on external triggers (emails). Active retention relies on intrinsic motivation (the user wants to check their stats).
+
+---
+
+## Common Mistakes
+- **Focusing Only on Acquisition:** Spending money on ads when your Day 7 retention is 2%. You are pouring water into a leaky bucket.
+- **Overwhelming Onboarding:** Asking users to create an account, verify their email, and allow 3 permissions before they even see what the app does.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+My app is a [describe app]. Act as a Growth Product Manager. Design a 7-day onboarding sequence (including push notifications and emails) designed specifically to increase Day 7 retention. Identify the exact 'Aha!' moment my users need to reach, and tell me how to get them there faster.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Define your 'Aha!' moment.
+- [ ] Track Day 1, Day 7, and Day 30 retention in your analytics tool.
+- [ ] Implement an email or push sequence for the first 7 days.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** retention_strategy.md
+**Purpose:** A blueprint for bringing users back.
+**Contents:** The 7-day email/push sequence and defined 'Aha!' moment.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+To measure retention, you need proper Analytics tracking.`,
+
+  'mobile-analytics': `# Analytics
+
+🕒 **Estimated Time:** 2-3 hours
+
+---
+
+## Overview
+You cannot improve what you do not measure. Product analytics tools (like PostHog or Amplitude) allow you to track specific user events, build conversion funnels, and perform cohort analysis to understand exactly where users are dropping off.
+
+---
+
+## Think First
+**What are the 5 most important buttons in your app that indicate a user is engaged?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Are you tracking 'activation' (e.g., user created their first project) instead of just 'signups'?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Event Tracking vs Page Views:** Page views are a vanity metric. You must track specific user actions (e.g., 'Clicked Upgrade Button', 'Completed Workout').
+- **Server-Side vs Client-Side Tracking:** Client-side tracking can be blocked by ad-blockers. Critical events (like payments) should always be tracked server-side.
+
+---
+
+## Common Mistakes
+- **Tracking Everything:** Logging every single click and scroll. Your analytics dashboard will become useless noise. Only track events tied to your core KPIs.
+- **Vague Event Naming:** Naming an event \`Button_Click_2\`. Always use a clear Object-Action framework, like \`Project_Created\` or \`Subscription_Upgraded\`.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+I am integrating product analytics (like PostHog) into my [describe app] app. Act as a Data Scientist. Provide me with a strict 'Tracking Plan' containing the top 10 most critical events I should track. Use an 'Object_Action' naming convention and define what properties (metadata) I should send with each event.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Install a product analytics SDK (PostHog, Amplitude).
+- [ ] Create a standardized Tracking Plan spreadsheet.
+- [ ] Implement tracking for your core 'Activation' event.
+- [ ] Build a funnel dashboard (Signup -> Activation -> Retention).
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** tracking_plan.csv
+**Purpose:** Maintains consistency in your analytics data.
+**Contents:** List of Event Names, Descriptions, and Properties.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+Use the data from your analytics to trigger your Notifications Strategy.`,
+
+  'mobile-notificationsstrategy': `# Notifications Strategy
+
+🕒 **Estimated Time:** 1-2 hours
+
+---
+
+## Overview
+Push notifications are a powerful tool to re-engage users, but they are a double-edged sword. If used incorrectly, they are the fastest way to get your app uninstalled. A good strategy balances transactional, educational, and promotional notifications.
+
+---
+
+## Think First
+**Are your notifications providing immediate value to the user, or just asking them to open the app?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Do users have granular control over what types of notifications they receive?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Push vs Email vs In-App:** Use Push for urgent/time-sensitive alerts. Use Email for long-form summaries or re-engaging inactive users. Use In-App messages for feature announcements while they are actively using the app.
+
+---
+
+## Common Mistakes
+- **The 'We Miss You' Push:** Sending generic, guilt-tripping notifications ('It has been a while, come back!'). Provide value instead ('Here is your weekly summary!').
+- **Asking for Permission Immediately:** Prompting the iOS 'Allow Notifications' dialog on the very first screen. Users will click 'Deny'. Ask for permission only after explaining *why* they need it.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+My app is a [describe app]. Act as a CRM Marketing Expert. Draft a notification strategy that includes 2 Push Notifications, 2 Transactional Emails, and 1 In-App message. For the Push Notifications, explain the exact 'trigger' (when it sends) and write the 50-character copy. Ensure the copy focuses on user value, not app usage.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Implement a pre-permission 'soft prompt' before triggering the OS permission dialog.
+- [ ] Build a settings screen allowing users to toggle specific notification categories.
+- [ ] Draft copy for 3 high-value push notifications.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** notification_matrix.md
+**Purpose:** Maps out exactly what notifications send and when.
+**Contents:** Triggers, Channels (Push/Email), and Copy.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+Now that you are communicating with users, you need a way to receive User Feedback.`,
+
+  'mobile-userfeedback': `# User Feedback
+
+🕒 **Estimated Time:** 1-2 hours
+
+---
+
+## Overview
+Silent users are churning users. Providing a frictionless way for users to report bugs, suggest features, or rate their experience is crucial for product growth. Do not rely entirely on App Store reviews for your feedback loop.
+
+---
+
+## Think First
+**If a user encounters a bug right now, how many clicks does it take for them to tell you about it?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Are you actively surveying users who churn (cancel their subscription)?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **In-App vs External:** An in-app widget (like Crisp or Intercom) gets 10x more feedback than a 'Contact Us' button that opens their email client.
+- **Passive vs Active:** Passive feedback is a 'Report Bug' button. Active feedback is triggering an NPS (Net Promoter Score) survey after they successfully complete a core task.
+
+---
+
+## Common Mistakes
+- **Ignoring the Silent Majority:** Only listening to the 1% of extremely vocal, angry users. You must proactively survey the quiet, happy users to understand what is actually working.
+- **Long Surveys:** Sending a 20-question Typeform. Keep it to 1-2 questions maximum if you want a decent response rate.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+I want to implement a 'Churn Survey' that triggers when a user cancels their subscription to my [describe app] app. Act as a User Researcher. Draft a short, multi-choice survey with 4 options and 1 optional text field. Ensure the questions help me identify if the issue is pricing, missing features, or bugs.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Add an easily accessible 'Provide Feedback' button in the app settings.
+- [ ] Implement a short churn survey for cancelled subscriptions.
+- [ ] Set up an NPS (Net Promoter Score) survey to trigger after a positive app experience.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** feedback_loops.md
+**Purpose:** Defines how you listen to your users.
+**Contents:** Survey questions and feedback widget placement strategy.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+Leverage happy users by asking for App Store Reviews & Ratings.`,
+
+  'mobile-reviewsratings': `# Reviews & Ratings
+
+🕒 **Estimated Time:** 2-3 hours
+
+---
+
+## Overview
+App Store algorithms heavily favor apps with high ratings and recent reviews. Getting a 4.5+ star average is non-negotiable for organic growth. The secret is knowing exactly *when* to ask the user for a review.
+
+---
+
+## Think First
+**What is the moment of highest joy or relief in your app? (e.g., beating a level, finishing a task).**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**How many times has the user opened the app before you ask them for a review?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Native Prompts vs Custom:** Both Apple and Google provide a native API (\`StoreReview\`) that allows users to rate the app without leaving it. You should always use this API, as it converts significantly higher than linking them to the App Store.
+- **The Pre-Prompt Strategy:** A common tactic is to ask an internal question first: 'Are you enjoying the app?'. If Yes -> Trigger Native Review API. If No -> Trigger internal feedback form. (Note: Apple strictly forbids incentivizing reviews).
+
+---
+
+## Common Mistakes
+- **Asking on Launch:** Triggering the review prompt the second the app opens. The user hasn't done anything yet; they will dismiss it.
+- **Spamming the API:** Apple restricts the native review prompt to showing a maximum of 3 times per 365 days. If you waste it, you can't ask again for months.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+My app is a [describe app]. Act as a Growth Engineer. Identify the exact 'moment of highest joy' in my user journey where I should trigger the native iOS/Android App Store Review prompt. Write the logic rules for this trigger (e.g., 'User has opened app 3 times AND completed X action').
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Implement the native \`StoreReview\` API using React Native or Expo.
+- [ ] Write conditional logic to ensure the prompt only fires after a 'win'.
+- [ ] Ensure the prompt does not fire in the middle of a critical task.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** review_prompt_logic.js
+**Purpose:** The code logic determining when to ask for a rating.
+**Contents:** Conditional statements for triggering the StoreReview API.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+Turn your highly-rated app into a viral loop with Referral Programs.`,
+
+  'mobile-referralprograms': `# Referral Programs
+
+🕒 **Estimated Time:** 1-2 days
+
+---
+
+## Overview
+A referral program incentivizes your current users to invite their friends, lowering your Customer Acquisition Cost (CAC). The most successful programs offer a 'double-sided reward' where both the inviter and the invitee get something of value.
+
+---
+
+## Think First
+**What can you give away for free that has high perceived value to the user but low marginal cost to you?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Are you using Deep Links to ensure the invited user is seamlessly credited to the inviter upon app install?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Financial vs Feature Rewards:** Giving away $5 account credit (Financial) vs giving away a 'Pro feature' or 'Premium Avatar' (Feature). Feature rewards are often cheaper and build deeper product engagement.
+- **Single vs Double-Sided:** Double-sided ('Give $10, Get $10') vastly outperforms single-sided because the inviter feels like they are giving a gift rather than spamming their friends.
+
+---
+
+## Common Mistakes
+- **Friction in the Invite Process:** Forcing the user to copy-paste a complex code instead of just sharing a direct, dynamic deep-link.
+- **Lack of Fraud Prevention:** Users will try to refer themselves using multiple emails to get free credits. You must tie referrals to unique device IDs or require the new user to complete an action (like making a purchase) before the reward is granted.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+I want to build a referral program for my [describe app] app. Act as a Viral Growth Expert. Design a 'Double-Sided Reward' system. Detail exactly what the reward should be, what action the new user must take to unlock the reward to prevent fraud, and write the 1-sentence marketing copy explaining the offer.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Decide on a high-value, low-cost double-sided reward.
+- [ ] Implement dynamic deep-linking (e.g., via Firebase Dynamic Links or Branch.io).
+- [ ] Add fraud prevention (e.g., reward only unlocks after the invitee completes a specific action).
+- [ ] Design a beautiful 'Invite Friends' screen in the app.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** referral_mechanics.md
+**Purpose:** Outlines the viral loop and fraud prevention.
+**Contents:** Reward structure, tracking mechanism, and marketing copy.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+Share your future plans with your community via a Public Roadmap.`,
+
+  'mobile-roadmap': `# Roadmap
+
+🕒 **Estimated Time:** 2-3 hours
+
+---
+
+## Overview
+A product roadmap outlines what you are building next. For indie developers and startups, maintaining a 'Public Roadmap' builds immense trust with early adopters. It shows the app is actively maintained and gives users a voice in the product's direction.
+
+---
+
+## Think First
+**Will your roadmap be timeline-based (Q1, Q2) or status-based (Now, Next, Later)?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Do you want users to be able to upvote features on the public roadmap?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Internal vs Public:** Internal roadmaps are strict and tied to business goals. Public roadmaps are marketing tools; they build hype and community engagement.
+- **Timeline vs Now/Next/Later:** Timeline roadmaps are dangerous because software is notoriously hard to estimate. Missing a public deadline frustrates users. 'Now, Next, Later' provides direction without strict commitments.
+
+---
+
+## Common Mistakes
+- **Promising Features You Can't Deliver:** Putting 'AI Integration' on the roadmap to generate hype, without knowing how much it will cost or if it's technically feasible.
+- **Letting Users Dictate the Product:** If you blindly build whatever gets the most upvotes on a public board, you will end up with a bloated, confused 'Frankenstein' app. You must curate the roadmap.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+I am creating a public-facing 'Now, Next, Later' roadmap for my [describe app] app. Act as a Lead Product Manager. Given that my app is in its early growth stage, suggest 2 features for 'Now' (quick wins/retention), 2 features for 'Next' (growth/referrals), and 1 ambitious feature for 'Later'. Briefly explain why this prioritization makes strategic sense.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Choose a roadmap tool (Notion, Canny, Linear, or GitHub Projects).
+- [ ] Populate the board using the 'Now, Next, Later' framework.
+- [ ] Add a link to the public roadmap in your app's settings or footer.
+- [ ] Regularly move completed items to a 'Shipped' column to show momentum.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** product_roadmap.md
+**Purpose:** A structured plan for the next 6 months of development.
+**Contents:** Categorized list of features (Now, Next, Later) with brief justifications.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+As your user base grows, you must finalize your Scaling Strategy to ensure the servers don't melt.`,
+
+  'mobile-scalingstrategy': `# Scaling Strategy
+
+🕒 **Estimated Time:** Ongoing
+
+---
+
+## Overview
+Growth is great until your app goes viral on TikTok and your database crashes, resulting in 10,000 angry 1-star reviews. A scaling strategy ensures your architecture can handle a 10x or 100x sudden spike in traffic without breaking a sweat.
+
+---
+
+## Think First
+**What is the single biggest bottleneck in your current architecture? (Hint: It is almost always the database connection limit).**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Do you have monitoring alerts set up if CPU usage hits 90%?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Vertical vs Horizontal Scaling:** Vertical scaling means upgrading to a bigger, more expensive server (easy, but has a limit). Horizontal scaling means adding more servers to distribute the load (harder, but scales infinitely).
+- **Edge Caching vs Database Queries:** The cheapest and most scalable query is the one that never hits your database. Utilize Redis or Vercel Edge Cache for data that is read frequently but updated rarely.
+
+---
+
+## Common Mistakes
+- **Ignoring Connection Pooling:** If you use Serverless functions (which scale instantly) hitting a traditional PostgreSQL database without a connection pooler (like Supavisor or PgBouncer), the database will immediately run out of connections and crash.
+- **Premature Optimization:** Spending 3 months building a complex Kubernetes microservices architecture for an app with 50 users. Start with a majestic monolith or serverless functions, and scale only when the metrics demand it.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+My app's backend uses [Node.js/Supabase/Vercel]. We are expecting a massive traffic spike tomorrow due to a marketing push. Act as a Site Reliability Engineer (SRE). Provide a 5-point emergency checklist to ensure our infrastructure doesn't crash, specifically addressing database connection limits, caching strategies, and CDN configuration.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Ensure a Connection Pooler is active for your SQL database.
+- [ ] Cache heavily accessed, static data at the Edge/CDN.
+- [ ] Add database indexes to your most frequent queries.
+- [ ] Set up an automated billing alert in AWS/Vercel to prevent a massive surprise bill.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** scaling_playbook.md
+**Purpose:** Emergency protocols and architectural improvements for handling scale.
+**Contents:** List of bottlenecks, caching strategies, and connection pooling configurations.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+Congratulations! You have completed Phase 6. Your app is now an optimized, growing, and scalable product. Continue iterating on feedback and executing your roadmap!`,
 };
