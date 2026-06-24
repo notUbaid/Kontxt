@@ -414,6 +414,31 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'Product Hunt Launch Guide', url: 'https://www.producthunt.com/launch' },
     { name: 'Stripe: Testing to Live', url: 'https://docs.stripe.com/testing' },
     { name: 'Supabase Production Checklist', url: 'https://supabase.com/docs/guides/deployment/going-into-prod' }
+  ],
+  'seo': [
+    { name: 'Next.js SEO Guide', url: 'https://nextjs.org/learn/seo/introduction-to-seo' },
+    { name: 'Programmatic SEO Example', url: 'https://www.indiehackers.com/post/how-to-do-programmatic-seo-as-a-developer-a20c32c4e5' },
+    { name: 'MetaTags.io', url: 'https://metatags.io/' }
+  ],
+  'analyticssetup': [
+    { name: 'PostHog (Product Analytics)', url: 'https://posthog.com/' },
+    { name: 'Plausible (Privacy-Friendly)', url: 'https://plausible.io/' },
+    { name: 'Amplitude: Event Tracking Guide', url: 'https://amplitude.com/behavioral-analytics-guide' }
+  ],
+  'legaldocuments': [
+    { name: 'Stripe Atlas', url: 'https://stripe.com/atlas' },
+    { name: 'Mercury (Business Banking)', url: 'https://mercury.com/' },
+    { name: 'Termly (Terms Generator)', url: 'https://termly.io/' }
+  ],
+  'cookiepolicy': [
+    { name: 'Cookiebot', url: 'https://www.cookiebot.com/' },
+    { name: 'GDPR Rules on Cookies', url: 'https://gdpr.eu/cookies/' },
+    { name: 'Fathom Analytics (No Cookies)', url: 'https://usefathom.com/' }
+  ],
+  'customersupport': [
+    { name: 'Crisp (Chat Widget)', url: 'https://crisp.chat/' },
+    { name: 'Resend (Transactional Emails)', url: 'https://resend.com/' },
+    { name: 'Linear (Issue Tracking)', url: 'https://linear.app/' }
   ]
 };
 

@@ -6119,5 +6119,391 @@ Act as a strict Release Manager.
 ## Deliverable
 **File Name:** \`LAUNCH_DAY_CHECKLIST.md\`
 **Purpose:** Prevent unforced errors on your biggest day.
-**Contents:** A rigorous, unskippable list of checks.`
+**Contents:** A rigorous, unskippable list of checks.`,
+  'seo': `# SEO (Search Engine Optimization)
+
+**🕒 Estimated Time:** 30-45 min
+
+---
+
+## Overview
+SEO is how you acquire customers for free over the long term. While paying for ads works immediately, SEO compounds. For a SaaS, there are two types of SEO: **Technical SEO** (ensuring Google can read your site, your meta tags look good on Twitter, and your sitemaps are submitted) and **Programmatic/Content SEO** (generating hundreds of landing pages targeting specific long-tail keywords your [ICP](#icpidealcustomerprofile) is searching for). 
+
+---
+
+## Think First
+Define your entry points.
+
+**The Primary Keyword (If someone types exactly this into Google, your app should be the #1 result. e.g., "AI invoice generator for freelancers")**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The "Versus" Pages (Who are your top 3 competitors? People often search "Alternative to X" or "X vs Y")**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Blog vs. Programmatic SEO:** Writing a weekly blog post takes massive effort. Programmatic SEO uses code to generate hundreds of pages based on a template and a database (e.g., "Plumbers in [City]", "Accountants in [City]"). Programmatic SEO is vastly superior for developers building SaaS.
+- **Subdomain vs. Subdirectory:** Should your blog live at \`blog.yoursite.com\` or \`yoursite.com/blog\`? **Always use a subdirectory (\`/blog\`).** Google treats subdomains as entirely different websites, meaning your blog's SEO juice won't pass to your main marketing site.
+
+---
+
+## Common Mistakes
+- **Ignoring OpenGraph Tags:** 
+  - *Why it happens:* You focus only on Google Search Console.
+  - *Consequence:* When a user shares your link in a Slack channel, iMessage, or Twitter, it shows up as a blank gray square with no title. Nobody clicks it.
+  - *Prevention:* Always generate \`og:image\`, \`og:title\`, and \`twitter:card\` meta tags.
+- **Single Page Applications (SPAs):** If your entire app is a React SPA (Create React App/Vite) without Server-Side Rendering (SSR), Google's crawlers will struggle to index your dynamic pages. Use Next.js, Remix, or Astro for marketing pages.
+
+---
+
+## Examples
+- *Good Implementation:* Your marketing site is built with Next.js App Router. You use the \`generateMetadata\` function to dynamically create titles and OpenGraph images for every single generated page. You submit your \`sitemap.xml\` to Google Search Console on launch day.
+- *Bad Implementation:* No \`robots.txt\`, no \`sitemap.xml\`, and the title of your website is just "React App" because you forgot to change the default \`index.html\`.
+
+---
+
+## AI Prompt
+Use this prompt to generate your technical SEO configuration.
+
+\`\`\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH].
+My primary framework is: [INSERT FRAMEWORK, e.g., Next.js 14].
+
+Act as a Technical SEO Expert.
+1. Provide the exact code required to set up dynamic \`robots.txt\` and \`sitemap.xml\` in my framework.
+2. Provide the code for a reusable \`<SEO />\` component (or metadata layout) that injects the required Title, Description, \`og:image\`, \`og:url\`, and Twitter Card tags.
+3. List 5 programmatic SEO page templates I should generate based on my niche (e.g., "Alternative to X").
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Have you set up Google Search Console and submitted your \`sitemap.xml\`?
+- [ ] Have you verified your OpenGraph tags using a tool like MetaTags.io?
+- [ ] Are your marketing pages server-side rendered (SSR) or statically generated (SSG) for fast crawler access?
+
+---
+
+## Deliverable
+**File Name:** \`sitemap.xml\` & Metadata config
+**Purpose:** Ensure humans and robots can discover your app.
+**Contents:** Code ensuring your link looks beautiful when shared, and structured data for Google.
+`,
+  'analyticssetup': `# Analytics Setup
+
+**🕒 Estimated Time:** 20-30 min
+
+---
+
+## Overview
+Launching without analytics is like driving with your eyes closed. You might get 1,000 visitors on launch day, but if you don't track them, you won't know if they dropped off at the pricing page, the signup form, or immediately after logging in. Proper analytics setup allows you to measure your [KPIs](#kpis) and [North Star Metric](#northstarmetric) mathematically.
+
+---
+
+## Think First
+Identify the 3 critical events you must track on Day 1.
+
+**Event 1: The "Aha!" Moment (What action proves the user got value? e.g., "Generated first report")**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Event 2: The Conversion (e.g., "Viewed Pricing Page", "Clicked Upgrade")**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Privacy-Friendly vs. Heavy Analytics:**
+  - *Google Analytics (GA4):* Standard, free, but heavily blocks by ad-blockers and requires massive, ugly GDPR cookie banners.
+  - *PostHog / Mixpanel:* Product analytics. Better for tracking specific user actions (e.g., "User clicked button X").
+  - *Plausible / Fathom:* Privacy-friendly, lightweight, bypasses ad-blockers, no cookie banner required. Great for simple traffic counting.
+- **Client-Side vs. Server-Side Tracking:** Client-side tracking (putting a script in your HTML) is easy but blocked by ad-blockers. Server-side tracking (triggering the event from your Node/Python backend) is 100% accurate because the user cannot block it. Track critical events (like "Payment Success") on the server.
+
+---
+
+## Common Mistakes
+- **Tracking Everything (Event Bloat):** 
+  - *Why it happens:* You use auto-capture tools and track every single mouse movement.
+  - *Consequence:* Your dashboard is filled with 10,000 useless events. You can't find the signal in the noise.
+  - *Prevention:* Explicitly manually track only 3-5 core events (Signup, Upgrade, Core Action).
+- **Not Tracking Errors:** Analytics isn't just for marketing. If your frontend crashes, you need an error tracking tool (like Sentry) to log it, or you'll never know your users are experiencing blank white screens.
+
+---
+
+## Examples
+- *Good Implementation:* Using Plausible for simple marketing site traffic. Using PostHog to track the specific event: \`posthog.capture('user_generated_invoice', { invoiceValue: 500 })\`. Tracking Stripe webhooks on the server.
+- *Bad Implementation:* Installing 5 different tracking pixels (Facebook, Google, TikTok, Hotjar, Mixpanel) causing your app to take 8 seconds to load.
+
+---
+
+## AI Prompt
+Use this prompt to generate your analytics tracking plan.
+
+\`\`\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH].
+My chosen analytics tool is: [INSERT TOOL, e.g., PostHog or Plausible].
+
+Act as a Head of Data.
+1. Define the 5 exact custom events I need to track to monitor my funnel from Visitor -> Free User -> Paid User.
+2. For each event, provide the exact JavaScript/TypeScript snippet to trigger it using my chosen tool's SDK.
+3. Identify which of these events MUST be tracked server-side to prevent ad-blocker data loss.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Do you have a tool installed to track basic marketing site traffic?
+- [ ] Are you tracking your "Aha!" moment core action?
+- [ ] Are you tracking conversion events (Signup, Upgrade)?
+
+---
+
+## Deliverable
+**File Name:** \`analytics.ts\`
+**Purpose:** To mathematically prove if your product is growing or dying.
+**Contents:** Wrapper functions for tracking events (e.g., \`trackEvent('signup')\`) that can be called anywhere in your app.
+`,
+  'legaldocuments': `# Legal Documents & Structure
+
+**🕒 Estimated Time:** 45-60 min
+
+---
+
+## Overview
+A SaaS business is a real business. If a user uploads illegal content to your platform, or your software has a bug that costs a B2B client \$10,000, you can be sued. The purpose of legal structure is to build a "firewall" between the business's liabilities and your personal assets (your house, your savings). 
+
+---
+
+## Think First
+Assess your risk profile.
+
+**What is the absolute worst-case scenario if your software fails or is hacked? (e.g., "Users lose their photos", "Users lose their medical data")**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Will you be taking outside investment (Venture Capital)? (Yes/No)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **LLC vs. C-Corp (US Context):**
+  - *LLC (Limited Liability Company):* Cheap, easy to run, pass-through taxation. Perfect for bootstrapped founders and solo developers. (Use Stripe Atlas to set this up in a few days).
+  - *C-Corp:* Complex, double taxation. Mandatory if you plan to raise Venture Capital and issue stock options to employees.
+- **Personal vs. Business Bank Accounts:** The absolute biggest mistake you can make is "Piercing the Corporate Veil." If you buy groceries using your business bank account, or accept Stripe payouts into your personal checking account, a judge can rule that your LLC is fake, and you will be held personally liable in a lawsuit.
+
+---
+
+## Common Mistakes
+- **Launching as a Sole Proprietorship:** 
+  - *Why it happens:* You think your app is just a "side project."
+  - *Consequence:* You have zero legal protection. If you get sued, they can take your personal assets.
+  - *Prevention:* Incorporate an LLC before accepting a single dollar from a customer.
+- **Copying Another Company's Documents:** Copying Apple's Terms of Service for your 2-person SaaS. Apple's TOS is designed for hardware returns and media licenses. It provides zero protection for your specific software use case.
+
+---
+
+## Examples
+- *Good Implementation:* You use Stripe Atlas to form a Delaware LLC. You open a Mercury business bank account. You use a platform like Termly.io or a startup lawyer to generate a Terms of Service explicitly stating you offer no warranties for software downtime.
+- *Bad Implementation:* Charging users via your personal PayPal account and operating without a Terms of Service.
+
+---
+
+## AI Prompt
+Use this prompt to identify your specific legal blind spots.
+
+\`\`\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH].
+My users will be uploading/processing this type of data: [INSERT DATA TYPE, e.g., basic text, financial records, PII].
+
+Act as a SaaS Startup Lawyer.
+1. What are the 3 biggest legal liabilities specific to my business model?
+2. What specific clauses MUST I include in my Terms of Service to protect myself from these liabilities?
+3. Do I need any special compliance certifications (e.g., HIPAA, SOC2, GDPR) to operate this legally?
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Have you incorporated a legal entity (e.g., LLC) to protect your personal assets?
+- [ ] Do you have a dedicated Business Bank Account completely separate from your personal finances?
+- [ ] Are your Stripe payouts flowing directly into the business bank account?
+
+---
+
+## Deliverable
+Identify your incorporation strategy and your banking setup below.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'cookiepolicy': `# Cookie Policy (GDPR / CCPA)
+
+**🕒 Estimated Time:** 15-20 min
+
+---
+
+## Overview
+The internet is heavily regulated. If your SaaS operates globally, you are subject to the European Union's GDPR and California's CCPA laws. These laws require you to inform users if you are tracking them, and in many cases, force you to get explicit consent *before* you place a tracking cookie on their browser. Fines for non-compliance can be devastating.
+
+---
+
+## Think First
+Understand what you are actually tracking.
+
+**Are you using any third-party marketing trackers? (e.g., Facebook Pixel, Google Analytics, TikTok Pixel)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**Are you setting cookies required for the app to function? (e.g., Session tokens, CSRF tokens)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Essential vs. Non-Essential Cookies:** 
+  - *Essential:* Cookies used strictly for authentication (keeping the user logged in) or security. **You do NOT need consent for these.**
+  - *Non-Essential:* Analytics, advertising pixels, cross-site trackers. **You MUST get explicit consent before firing these in the EU.**
+- **To Banner or Not to Banner:** The easiest way to avoid writing a complex cookie banner is to simply *not use non-essential cookies*. If you use a privacy-friendly analytics tool (like Plausible) and don't run retargeting ads, you can completely skip the annoying cookie banner.
+
+---
+
+## Common Mistakes
+- **The "Fake" Cookie Banner:** 
+  - *Why it happens:* You download a UI component that says "We use cookies! [Accept]", but Google Analytics fires in the background before the user even clicks the button.
+  - *Consequence:* This is entirely illegal under GDPR. Consent must be *prior* to tracking.
+  - *Prevention:* Your code must physically block the execution of tracking scripts until the \`has_consented\` state is true.
+- **Dark Patterns:** Making the "Accept All" button massive and green, while hiding the "Decline" button under 3 layers of menus. EU regulators are actively fining companies for this.
+
+---
+
+## Examples
+- *Good Implementation:* Using a dedicated Consent Management Platform (CMP) like Cookiebot or Termly that automatically scans your site and blocks third-party scripts until consent is given.
+- *Bad Implementation:* A custom React state \`<CookieBanner />\` that just hides the UI but doesn't actually stop Stripe or Google from setting cookies.
+
+---
+
+## AI Prompt
+Use this prompt to figure out exactly what your compliance burden is.
+
+\`\`\`prompt
+My SaaS product uses the following tools: [INSERT TOOLS, e.g., Next.js, Supabase Auth, Stripe, Google Analytics].
+
+Act as a GDPR Compliance Officer.
+1. Categorize these tools into "Essential" and "Non-Essential" cookies.
+2. Based on this list, do I legally require a Cookie Consent Banner for EU users?
+3. If yes, explain exactly how I must conditionally render my scripts in my \`&lt;head&gt;\` tag to ensure I do not violate the "prior consent" rule.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Have you categorized all your cookies as Essential or Non-Essential?
+- [ ] If using Non-Essential cookies, does your banner actually block scripts from loading prior to consent?
+- [ ] Do you have a dedicated \`/cookie-policy\` page explaining what data you collect?
+
+---
+
+## Deliverable
+Write your Cookie Strategy below. Will you use a CMP, or will you use privacy-first tools to avoid the banner entirely?
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`,
+  'customersupport': `# Customer Support
+
+**🕒 Estimated Time:** 15-20 min
+
+---
+
+## Overview
+When you launch, things will break. Users will be confused. Payments will fail. How you handle these first few support tickets determines whether those early adopters become your biggest evangelists or your loudest haters. In the early days, "doing things that don't scale" (like jumping on a 15-minute Zoom call to fix a bug for a \$10/mo user) is your ultimate competitive advantage against massive, slow corporations.
+
+---
+
+## Think First
+Establish your support channels.
+
+**Where will users go when they are angry or confused? (e.g., A chat widget, a support email, a Discord server?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**What is your SLA (Service Level Agreement) for yourself? (e.g., I will reply to all bugs within 4 hours)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Email vs. Live Chat vs. Community:**
+  - *Email (\`support@yoursite.com\`):* Standard, asynchronous. You control the pace.
+  - *Live Chat (Intercom, Crisp):* Extremely high conversion rate for sales, but users expect a reply in 30 seconds. If you are a solo dev, a chat widget will ruin your life.
+  - *Community (Discord/Slack):* Great for technical products where users can help each other. Terrible for B2B enterprise products where privacy matters.
+- **Self-Serve vs. Manual:** The best support ticket is the one that is never submitted. Spend time building robust [Documentation](#documentation) and an FAQ page so users can unblock themselves.
+
+---
+
+## Common Mistakes
+- **The "Black Hole" Support Form:** 
+  - *Why it happens:* You build a simple HTML form that sends an email to your personal inbox, but you forget to set up an auto-responder.
+  - *Consequence:* The user submits a bug and has no idea if you received it. They get angry and churn.
+  - *Prevention:* Always use a tool (like Zendesk, HelpScout, or simple Resend logic) to send an immediate automated reply: "We received this, we will reply in X hours."
+- **Arguing with the User:** If a user says your UX is confusing, it is confusing. Do not tell them they are clicking the wrong button. Fix the button.
+
+---
+
+## Examples
+- *Good Implementation:* A clear "Help" button in the app that opens a modal. The modal searches the Docs first. If they still need help, it creates a ticket in Linear/HelpScout, and the user gets an email receipt.
+- *Bad Implementation:* Hiding your support email at the bottom of the Terms of Service page so nobody can contact you.
+
+---
+
+## AI Prompt
+Use AI to draft your macro templates to save you hours of typing.
+
+\`\`\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH].
+
+Act as a Head of Customer Experience.
+Write 3 reusable email templates for me to use in my support desk:
+1. "The Angry User" (They experienced a critical bug that deleted their data).
+2. "The Feature Request" (They asked for a feature I have zero intention of ever building).
+3. "The Refund Request" (They forgot to cancel their trial and want their money back).
+Keep the tone empathetic, professional, and concise.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Is there a highly visible "Support" or "Help" link inside the logged-in dashboard?
+- [ ] Do users receive an immediate automated confirmation when they submit a ticket?
+- [ ] Have you set up an actual \`support@domain.com\` email address?
+
+---
+
+## Deliverable
+Define your primary support channel and your commitment to reply times below.
+
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+`
 };
