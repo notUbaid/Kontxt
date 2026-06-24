@@ -62,11 +62,76 @@ Generate sidebar content. The sidebar should NEVER be empty. Choose the most rel
 - **Leverage Unfair Advantages:** Actively use all available tools, including MCP (Model Context Protocol) servers, search, and specialized plugins, to provide the best possible implementation and gather context.
 - **Token Efficiency vs. Quality:** Strive to be token-efficient (be concise, avoid massive unrelated diffs), but **NEVER** even slightly sacrifice quality, correctness, or completeness for the sake of token efficiency. Quality and thoroughness are always the highest priority.
 
-## Output Format
-When generating topics, return the information cleanly so it feels like a premium software product, not a generated article:
-1. Main Topic Content
-2. Sidebar Content
-3. Suggested Input Fields
-4. Suggested Deliverable
-5. Suggested AI Prompt
-6. Suggested Validation Checklist
+## Output Format & Interactive UI Components
+Kontxt parses specific Markdown syntax to render interactive React components (like the AI Prompt box with a "Copy" button, and user input fields).
+
+**CRITICAL RULE FOR TYPESCRIPT**: Because content is stored inside JavaScript/TypeScript template literals (using backticks ` ` `), you **MUST** escape the backticks when creating code blocks, otherwise you will break the build (`tsc` will fail). ALWAYS write `\`\`\`` instead of ` ``` `.
+
+When generating a topic in `src/data/content/fallback.ts`, you MUST use this exact structure:
+
+```markdown
+# Topic Name
+
+🕒 **Estimated Time:** X
+
+---
+
+## Overview
+Text
+
+---
+
+## Think First
+**Question 1?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- Bullets
+
+---
+
+## Common Mistakes
+- Bullets
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+Act as a Senior Developer...
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Checklist item
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** ...
+**Purpose:** ...
+**Contents:** ...
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+Text
+```
+
+Ensure that every major section is separated by `---` with blank lines before and after.
