@@ -1,145 +1,211 @@
 export const fallbackContent: Record<string, string> = {
   'mobiletesting': `# Testing
 
-**🕒 Estimated Time:** 6 hours
+🕒 **Estimated Time:** 4-8 hours
 
-Implement automated testing to ensure app stability across different device screen sizes, OS versions, and network conditions.
+### Overview
+Testing mobile apps is notoriously difficult because you have to account for touch gestures, varying screen sizes, and native device states. However, automated testing is the only way to guarantee that adding a new feature today doesn't break a critical feature from yesterday.
 
-### Testing Pyramid
-1. **Unit Tests:** Use Jest to test pure utility functions, state reducers, and complex data formatting logic.
-2. **Component Tests:** Use React Native Testing Library (RNTL) to verify that UI components render correctly and respond to user interactions (e.g., firing a button press event).
-3. **End-to-End (E2E) Tests:** Use Detox or Maestro to script interactions across the entire app on real simulators (e.g., automating the full login to checkout flow).
+### Think First
+- Are you writing tests to catch UI regressions, or testing complex business logic?
+- How much time are you willing to dedicate to maintaining End-to-End (E2E) tests?
+- Is your core functionality (like Checkout) critical enough that a bug would cost you money?
 
-### CI/CD Integration
-- Run unit and component tests automatically on every Pull Request.
-- Run heavy E2E tests nightly or before cutting a release branch.
+### Key Decisions
+- **Unit Testing:** Use Jest to test pure business logic (e.g., a function that calculates tax). These are fast, cheap, and highly reliable.
+- **Component Testing:** Use React Native Testing Library to mount components in memory and simulate button presses. Focus on testing *behavior* (e.g., "Does tapping submit call the API?"), not implementation details.
+- **E2E Testing (Advanced):** Use Detox or Maestro. These tools install your app on a real emulator, physically tap the screen, and verify that the app behaves correctly. E2E tests are slow and flaky, but they are the only way to truly guarantee the app works.
 
-\`\`\`input
-What testing frameworks have you chosen for unit and E2E testing, and what are the 3 most critical flows that require E2E automation?
-\`\`\`
+### Common Mistakes
+- **Testing Implementation:** Writing a test that asserts a button has backgroundColor: 'red'. When the designer changes it to blue, the test fails, even though the app works perfectly.
+- **Mocking Too Much:** Mocking the database, the API, and the navigation until the test is just checking if your mocks talk to each other.
+- **Ignoring CI/CD:** Writing tests but not running them automatically on GitHub Actions before every pull request.
 
-\`\`\`prompt
-Write a Jest and React Native Testing Library test suite for a Login screen component, verifying that error messages appear correctly when an invalid email is submitted.
-\`\`\`
+### Examples
+- **Component Test:** Rendering the Login screen, using React Native Testing Library to type "test@example.com" into the email field, pressing "Login", and asserting that the mockLoginFn was called with the correct email.
 
-## 📚 Context Links
-- [React Native Testing Library](https://callstack.github.io/react-native-testing-library/)
-- [Maestro (Mobile E2E Testing)](https://maestro.mobile.dev/)
-- [Detox E2E Testing](https://wix.github.io/Detox/)`,
+### AI Prompt
+> "I am using Jest and React Native Testing Library. Generate a component test for a 'LoginForm' component. The test should verify that the submit button is disabled if the email is invalid, and that pressing submit with valid credentials calls the provided 'onSubmit' prop with the correct data."
+
+### Validation Checklist
+- [ ] Jest is configured correctly for the React Native environment.
+- [ ] Critical utility functions and data transformations have unit tests.
+- [ ] Key UI flows (like Authentication or Checkout) have component or E2E tests.
+- [ ] Tests run automatically on your CI provider (e.g., GitHub Actions).
+
+### Deliverable
+**File Name:** src/components/__tests__/LoginForm.test.tsx
+**Purpose:** Ensures regressions do not break critical UI workflows.
+**Contents:** Automated tests simulating user interactions using Testing Library.
+
+### Next Step
+Congratulations, you have completed Phase 3! Move on to Phase 4 to prepare your app for **Production Readiness**.`,
   'mobilepayments': `# Payments & Subscriptions
 
-**🕒 Estimated Time:** 6 hours
+🕒 **Estimated Time:** 4-8 hours
 
-Implement monetization through In-App Purchases (IAP). **Critical:** Apple and Google guidelines mandate that digital goods/services used within the app MUST be purchased using their native IAP systems (taking a 15-30% cut).
+### Overview
+Monetizing a mobile app requires integrating with Apple's App Store and Google Play billing systems. If you try to bypass their 30% cut by exclusively using a third-party gateway (like Stripe) for digital goods, Apple and Google will reject your app during review.
 
-### Implementation Strategy
-1. **Provider Selection:** Strongly consider using a wrapper like RevenueCat or Adapty rather than raw \`react-native-iap\`. They handle cross-platform subscription logic, receipt validation, and server-to-server webhooks seamlessly.
-2. **Store Configuration:** Set up products and subscription groups in App Store Connect and Google Play Console.
-3. **Paywall UI:** Design a high-converting paywall screen.
-4. **Entitlement Checking:** Lock premium features behind a robust, globally accessible entitlement check hook.
+### Think First
+- Are you selling physical goods/services or digital content?
+- Physical Goods (e.g., Uber, food delivery): Use Stripe or Braintree.
+- Digital Goods (e.g., Premium features, ad removal): You MUST use Apple/Google In-App Purchases (IAP).
 
-### Compliance Checklist
-- [ ] "Restore Purchases" button is clearly visible on the paywall.
-- [ ] Links to Terms of Service and Privacy Policy are on the paywall.
-- [ ] Subscription terms (price, duration, auto-renewal) are explicitly stated.
+### Key Decisions
+- **IAP Management:** Integrating native IAP from scratch is notoriously difficult. Use a managed service like RevenueCat. It acts as a single source of truth for user subscriptions across both iOS and Android.
+- **Backend Verification:** Never trust the mobile client to verify a purchase. Always validate receipts on your secure backend to prevent users from spoofing purchases and stealing premium features.
 
-\`\`\`input
-What monetization model are you using, and which IAP provider (e.g., RevenueCat) will you integrate?
-\`\`\`
+### Common Mistakes
+- **Bypassing App Store Rules:** Adding a hidden Stripe link to buy a digital subscription to avoid the 30% fee. Your app will be permanently banned.
+- **Ignoring Subscription Lifecycles:** Failing to handle subscription renewals, cancellations, or billing issues (when a user's credit card expires).
 
-\`\`\`prompt
-Generate a React Native paywall screen component that fetches offerings from RevenueCat and displays a "Restore Purchases" button.
-\`\`\`
+### Examples
+- **Stripe:** A user orders a physical pair of shoes and checks out using Apple Pay via the Stripe React Native SDK.
+- **RevenueCat:** A user taps "Upgrade to Pro" to unlock a digital feature. RevenueCat securely handles the App Store transaction and updates the user's entitlement in your database.
 
-## 📚 Context Links
-- [RevenueCat React Native SDK](https://docs.revenuecat.com/docs/react-native)
-- [Apple App Store Review Guidelines (Payments)](https://developer.apple.com/app-store/review/guidelines/#payments)
-- [Google Play Billing Library Overview](https://developer.android.com/google/play/billing)`,
-  'mobilebackendimplementation': `# Backend Integration
+### AI Prompt
+> "I am building a React Native app and need to implement In-App Purchases for a 'Pro' subscription. Generate a complete implementation using RevenueCat (react-native-purchases). Include the initialization logic, a function to fetch available offerings, and a function to trigger the purchase flow. Explain how to securely verify the purchase on a Supabase backend."
 
-**🕒 Estimated Time:** 5 hours
+### Validation Checklist
+- [ ] Appropriate payment gateway selected based on digital vs physical goods.
+- [ ] Purchases successfully unlock premium features.
+- [ ] Purchases are validated server-side.
+- [ ] User can restore previous purchases (crucial App Store requirement).
 
-Connect your mobile frontend to your backend API services. This phase focuses on network robustness, data serialization, and error handling.
+### Deliverable
+**File Name:** src/services/purchases.ts
+**Purpose:** Handles all interactions with the payment gateway (RevenueCat or Stripe).
+**Contents:** Functions for initializing the SDK, fetching products, and processing payments.
 
-### Implementation Guide
-1. **API Client Setup:** Configure Axios or Fetch with base URLs, headers, and strict timeout settings (e.g., 10 seconds).
-2. **Environment Variables:** Set up \`.env\` files for development, staging, and production endpoints using \`expo-env\` or \`react-native-config\`.
-3. **Data Fetching Strategy:** Never fetch directly in \`useEffect\` without a caching layer. Use React Query to handle caching, background refetching, and deduplication.
-4. **Error Handling:** Create a centralized error handler to translate backend HTTP errors into friendly, localized user messages.
+### Next Step
+With monetization active, implement **Media Uploads** to allow users to generate robust content.`,
+  'mobilebackendimplementation': `# Backend Implementation
 
-### Best Practices
-- Automatically retry failed idempotent requests (e.g., GET requests).
-- Log network failures to a crash reporting tool with sufficient context to debug backend outages.
+🕒 **Estimated Time:** 3-6 hours
 
-\`\`\`input
-What data fetching library are you using, and how are you managing environment variables for different release channels?
-\`\`\`
+### Overview
+While BaaS (Backend as a Service) platforms like Supabase or Firebase handle direct data access, a custom backend layer is essential for complex business logic, third-party integrations (like Stripe), and secure operations that cannot be trusted to the mobile client.
 
-\`\`\`prompt
-Create a comprehensive Axios client setup for a React Native app that includes an interceptor for logging slow requests and a global error handler that displays toast notifications.
-\`\`\`
+### Think First
+- Are there operations that require keeping API keys secret (e.g., charging credit cards, sending emails)?
+- Does the logic require heavy computation that would drain a mobile battery?
+- Can this be handled by Edge Functions or Serverless functions, or do you need a dedicated server?
 
-## 📚 Context Links
-- [Axios Documentation](https://axios-http.com/docs/intro)
-- [React Native Network Troubleshooting](https://reactnative.dev/docs/network)
-- [React Native Toast Message](https://github.com/calintamas/react-native-toast-message)`,
+### Key Decisions
+- **Architecture:** Serverless Edge Functions (via Vercel or Supabase) are ideal for mobile backends because they spin up instantly and scale infinitely without server maintenance.
+- **Language Stack:** Using TypeScript (Node.js/Edge) on the backend allows you to share types directly with your React Native frontend, preventing a massive class of bugs.
+- **Validation:** Always validate incoming data from the mobile app using a library like Zod before processing it.
+
+### Common Mistakes
+- **Fat Clients:** Putting complex business logic (like calculating tax rates or processing image metadata) directly in the mobile app. This forces app store updates for simple logic changes.
+- **Exposing Secrets:** Hardcoding backend API keys (like Stripe Secret Key) in the mobile app bundle. Mobile apps are easily decompiled.
+- **Ignoring Latency:** Mobile connections are often slow. Minimize the number of API calls by aggregating data on the backend before sending it to the client.
+
+### Examples
+- **Payment Processing:** The mobile app sends a request to an Edge Function, which securely talks to Stripe to create a payment intent, then returns the safe client secret to the app.
+- **Push Notification Trigger:** A backend webhook listens for a database insert and triggers an automated push notification to the relevant user via OneSignal.
+
+### AI Prompt
+> "I need a serverless Edge Function written in TypeScript (for Supabase) that handles user checkout. It should receive a product ID and user ID, securely query the database for the price, create a Stripe PaymentIntent, and return the client secret to the mobile app. Include Zod validation for the incoming request."
+
+### Validation Checklist
+- [ ] Backend routes are protected and verify the user's authentication token.
+- [ ] Secret API keys are stored as environment variables on the server, not in the app.
+- [ ] Input data is strictly validated.
+- [ ] Responses are structured consistently (e.g., returning { data, error }).
+
+### Deliverable
+**File Name:** supabase/functions/checkout/index.ts (or equivalent backend route)
+**Purpose:** Secure execution of business logic.
+**Contents:** An endpoint that validates input, processes an external API call, and returns formatted data.
+
+### Next Step
+With the backend logic solid, configure **Push Notifications** to start engaging users proactively.`,
   'mobiledatabaseimplementation': `# Database Implementation
 
-**🕒 Estimated Time:** 5 hours
+🕒 **Estimated Time:** 2-5 hours
 
-Implement the mobile data layer, focusing on efficient data fetching, caching, and handling intermittent network connectivity.
+### Overview
+Your database is the foundation of your app's data. In mobile development, you must bridge the gap between the remote cloud database and the local device cache. A robust implementation ensures data is structured efficiently for quick reads and structured securely to prevent unauthorized access.
 
-### Key Steps
-1. **Client Initialization:** Set up the database client SDK (e.g., Supabase JS client) or configure your GraphQL/REST fetcher.
-2. **Offline-First Caching:** Mobile apps cannot assume a perfect connection. Use tools like WatermelonDB or React Query with a persistent cache (MMKV) to ensure data is available immediately on launch.
-3. **CRUD Operations:** Write reusable hooks for creating, reading, updating, and deleting records.
-4. **Realtime Subscriptions:** If using Supabase or Firebase, implement WebSockets for live data updates, ensuring you clean up listeners when components unmount.
+### Think First
+- Does this data need to be strictly relational, or is a document model sufficient?
+- What are the most common queries the app will run? (Optimize for reads).
+- Are there strict privacy requirements? (Row Level Security).
 
-### Best Practices
-- Always handle edge cases: empty states, loading skeletons, and offline error states.
-- Paginate large lists (e.g., infinite scrolling in a \`FlatList\`) to preserve memory and battery.
+### Key Decisions
+- **Cloud Database:** PostgreSQL (via Supabase) offers strict relational schemas and powerful JSONB capabilities. Firebase Firestore is excellent for real-time document sync.
+- **Local Database (Optional):** If your app requires heavy offline capabilities, consider WatermelonDB or Realm to sync local data with the remote server.
+- **Security:** Use Row Level Security (RLS) policies. Your mobile app acts as an untrusted client; the database must enforce access rules natively.
 
-\`\`\`input
-List the primary data models you need to implement. Which of these require offline caching or realtime subscriptions?
-\`\`\`
+### Common Mistakes
+- **Client-Side Filtering:** Downloading 10,000 rows to the mobile device and filtering them in JavaScript. Always filter and paginate on the database/backend.
+- **Missing Indexes:** Failing to index frequently queried columns (like user_id), causing queries to slow down drastically as data grows.
+- **Trusting the Client:** Allowing the mobile app to blindly update critical fields (like account_balance) without server-side validation.
 
-\`\`\`prompt
-Generate a React Native custom hook using React Query and Supabase to fetch a paginated list of user posts, including an optimistic UI update for "liking" a post.
-\`\`\`
+### Examples
+- **Relational Data:** A posts table that links to a users table via foreign keys, ensuring data integrity.
+- **Real-time Subscriptions:** Listening to a specific chat room row in Supabase so the UI updates instantly when a new message is inserted.
 
-## 📚 Context Links
-- [Supabase React Native Guide](https://supabase.com/docs/guides/getting-started/tutorials/with-expo-react-native)
-- [React Query (TanStack) Mutating Data](https://tanstack.com/query/latest/docs/react/guides/mutations)
-- [WatermelonDB (Offline-First)](https://watermelondb.dev/)`,
-  'mobileauth': `# Auth Implementation
+### AI Prompt
+> "I am setting up a PostgreSQL database in Supabase for a social mobile app. I have users, posts, and comments. Generate the SQL schema for these tables including necessary foreign keys, indexes for performance, and Row Level Security (RLS) policies ensuring users can only edit their own posts."
 
-**🕒 Estimated Time:** 6 hours
+### Validation Checklist
+- [ ] Schema is defined with appropriate data types and relations.
+- [ ] Row Level Security (RLS) is active to prevent unauthorized reads/writes.
+- [ ] Indexes are created for columns frequently used in WHERE clauses.
+- [ ] Client application successfully performs CRUD operations.
 
-Implement the authentication flow specifically tailored for a mobile environment, utilizing native capabilities for a seamless and secure experience.
+### Deliverable
+**File Name:** supabase/migrations/01_initial_schema.sql
+**Purpose:** Defines the foundational database architecture.
+**Contents:** SQL commands defining tables, relations, and security policies.
 
-### Key Workflows
-1. **Splash/Launch Screen:** Determine if the user is authenticated from local secure storage and navigate immediately to the Auth Stack or Main App Stack.
-2. **Token Management:** Securely store JWTs using iOS Keychain and Android Keystore (e.g., \`expo-secure-store\`). Never store session tokens in plain \`AsyncStorage\`.
-3. **Social Logins:** Implement "Sign In with Apple" (mandatory for iOS if you offer any other social login) and Google Sign-In using native SDKs.
-4. **Biometrics:** Offer FaceID/TouchID for returning users to reduce friction.
+### Next Step
+Now that the database is structured, build the **Backend APIs** to execute complex logic and interface with this data safely.`,
+  'mobileauth': `# Authentication
 
-### Security Checklist
-- [ ] Tokens are stored in hardware-backed secure storage.
-- [ ] API interceptors successfully handle 401 token refreshes.
-- [ ] Sensitive screens clear their state when the app goes into the background.
+🕒 **Estimated Time:** 2-4 hours
 
-\`\`\`input
-What authentication methods (Email, Google, Apple) are you implementing, and how are you managing secure token storage?
-\`\`\`
+### Overview
+Authentication is the gatekeeper of your mobile app. It verifies who the user is and manages their session. Unlike web apps where cookies handle much of the heavy lifting, mobile apps require securely storing tokens locally and refreshing them seamlessly to keep users logged in indefinitely.
 
-\`\`\`prompt
-Write a secure Axios interceptor for a React Native app that automatically refreshes a JWT token from \`expo-secure-store\` when a 401 response is received.
-\`\`\`
+### Think First
+- Will users log in with email/password, or social providers (Google, Apple)?
+- (iOS Only) Apple strictly requires "Sign in with Apple" if you offer any other social login.
+- Do you need OTP (One Time Password) via SMS or email?
 
-## 📚 Context Links
-- [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)
-- [Sign In with Apple (Expo)](https://docs.expo.dev/versions/latest/sdk/apple-authentication/)
-- [Expo LocalAuthentication (Biometrics)](https://docs.expo.dev/versions/latest/sdk/local-authentication/)`,
+### Key Decisions
+- **Auth Provider:** Supabase or Firebase Auth handle social logins, secure token storage, and password resets out of the box, saving you weeks of backend work.
+- **Token Storage:** Never store JWTs in plain AsyncStorage. Use expo-secure-store or a keychain equivalent to encrypt sensitive tokens.
+- **Session Restoration:** When the app cold starts, you must immediately check for a stored token and restore the session before rendering the main UI.
+
+### Common Mistakes
+- **Rolling your own Auth:** Writing custom password hashing and JWT issuance is a security nightmare. Use a managed provider.
+- **Forgetting Token Refresh:** If your token expires after an hour and you don't implement a refresh flow, users will be randomly logged out while using the app.
+- **Blocking Onboarding:** Forcing users to create an account before they even see what the app does. Allow guest access if possible.
+
+### Examples
+- **Social Login:** A one-tap "Continue with Google" button that securely redirects back to the app using Deep Links.
+- **Magic Links:** Sending an email with a secure link that logs the user in upon clicking, eliminating password fatigue.
+
+### AI Prompt
+> "I am building an Expo React Native app using Supabase for authentication. Generate a complete authentication flow including: a sign-in screen, a sign-up screen, and an AuthProvider context that automatically checks for a session on app start and securely stores the token."
+
+### Validation Checklist
+- [ ] User can successfully sign up and log in.
+- [ ] The app remembers the user across app restarts (session restoration).
+- [ ] "Sign in with Apple" is implemented if other social logins are used (iOS requirement).
+- [ ] Tokens are stored securely using SecureStore.
+
+### Deliverable
+**File Name:** src/contexts/AuthContext.tsx
+**Purpose:** Manages the authentication state globally.
+**Contents:** Context provider that handles login, logout, and session restoration logic.
+
+### Next Step
+With users authenticated, move on to connecting the **Database** to store and retrieve their specific data.`,
   'referral-programs': `# Referral Programs
 
 **🕒 Estimated Time:** Ongoing
@@ -465,400 +531,583 @@ Generate a step-by-step checklist for configuring Play App Signing and uploading
 - [Google Play Console Setup](https://play.google.com/console/about/)
 - [Expo EAS Build for Android](https://docs.expo.dev/build/setup/)
 - [Play Console Data Safety Form](https://support.google.com/googleplay/android-developer/answer/10787469)`,
-  'battery-optimization': `# Battery Optimization
+  'batteryoptimization': `# Battery Optimization
+
+🕒 **Estimated Time:** 1-3 hours
 
-**🕒 Estimated Time:** 3 hours
+### Overview
+If a user notices their phone is hot and their battery drops 10% after using your app for 5 minutes, they will uninstall it immediately. Mobile apps must be deeply respectful of device resources. The primary culprits for battery drain are excessive network requests, high-accuracy GPS, and complex background tasks.
 
-Ensure your app doesn't drain the user's battery, which is a leading cause of 1-star reviews and app uninstalls.
+### Think First
+- Is your app constantly "phoning home" in the background?
+- Does your app keep the screen awake unnecessarily?
+- Are you rendering complex animations that push the GPU to 100%?
 
-### Optimization Strategies
-1. **Location Services:** Never use high-accuracy GPS unless actively needed. Fall back to cell-tower location for background tasks.
-2. **Background Sync:** Batch network requests. Avoid keeping WebSockets alive indefinitely when the app is backgrounded.
-3. **Animations:** Use native-driven animations (Reanimated or \`useNativeDriver\`) to offload work from the JavaScript thread.
-4. **Wake Locks:** Ensure your app releases audio/video sessions and wake locks immediately when suspended.
+### Key Decisions
+- **Batching Network Requests:** Waking up the device's radio antenna uses massive power. Do not send 10 separate API requests to track 10 analytics events. Batch them and send them in one payload every 30 seconds.
+- **GPS Accuracy:** Only use Accuracy.Highest (which uses power-hungry GPS hardware) for turn-by-turn navigation. For everything else (weather, finding nearby restaurants), use Accuracy.Balanced or Accuracy.Low (which uses efficient WiFi/Cellular triangulation).
+- **Background Tasks:** Avoid running JavaScript in the background unless absolutely necessary. Rely on native OS background fetching mechanisms or Push Notifications to wake the app up only when data changes.
 
-\`\`\`input
-Does your app use continuous background processes or location tracking? How will you mitigate battery drain?
-\`\`\`
+### Common Mistakes
+- **Memory Leaks:** A useEffect that creates a setInterval but forgets to clearInterval on unmount. The interval continues running forever, draining the CPU silently.
+- **Unoptimized Re-renders:** A complex UI component that re-renders 60 times a second due to poor state management, keeping the CPU pegged at 100%.
+- **Leaving Sensors On:** Activating the camera or location services and forgetting to turn them off when the user navigates to a different screen.
+
+### Examples
+- **The Smart Polling:** An app needs to check for new messages. Instead of polling the server every 1 second (killing the battery), it uses WebSockets or Push Notifications so the server pushes data *only* when necessary.
 
-\`\`\`prompt
-Write a React Native \`AppState\` listener hook that automatically pauses a WebSocket connection when the app goes into the background and resumes it when active.
-\`\`\`
+### AI Prompt
+> "I am optimizing a React Native app for battery life. Identify the top 3 causes of battery drain in React Native. Provide a code example of how to properly use a 'useEffect' cleanup function to prevent memory leaks with setIntervals. Explain the difference between location accuracy levels in 'expo-location' regarding battery usage."
 
-## 📚 Context Links
-- [React Native AppState](https://reactnative.dev/docs/appstate)
-- [Optimizing Battery Life (Android)](https://developer.android.com/topic/performance/power)`,
-  'app-size-optimization': `# App Size Optimization
+### Validation Checklist
+- [ ] All useEffect hooks that set intervals or event listeners have strict cleanup functions.
+- [ ] Location tracking uses the lowest acceptable accuracy setting.
+- [ ] Network requests (like analytics) are batched rather than sent individually.
+- [ ] The app uses WebSockets or Push Notifications instead of aggressive HTTP polling.
+
+### Deliverable
+**File Name:** src/hooks/useOptimizedLocation.ts (Example)
+**Purpose:** Ensures hardware resources are used efficiently.
+**Contents:** Code managing sensors and background tasks to prioritize battery life.
+
+### Next Step
+With the app optimized perfectly for a single user, it's time to ensure it can handle millions. Move to **Scalability**.`,
+  'appsizeoptimization': `# App Size Optimization
+
+🕒 **Estimated Time:** 2-4 hours
 
-**🕒 Estimated Time:** 4 hours
+### Overview
+Users will not download your app if it is 300MB. In emerging markets with expensive data plans, or users with full iPhones, a massive app size results in immediate abandonment. Optimizing your bundle size increases your download conversion rate directly.
 
-Reduce the download size of your application to improve install rates, especially in emerging markets.
+### Think First
+- What are the heaviest assets currently bundled inside your app?
+- Are you importing entire massive libraries (like lodash or moment.js) when you only need one function?
+- Have you actually inspected your JavaScript bundle?
 
-### Optimization Techniques
-1. **Asset Compression:** Optimize all PNGs, JPGs, and SVGs. Consider converting heavy assets to WebP or Lottie files.
-2. **Bundle Analysis:** Use \`react-native-bundle-visualizer\` to identify massive third-party dependencies and replace them with lighter alternatives.
-3. **Hermes Engine:** Enable the Hermes JavaScript engine to pre-compile JS into smaller, faster bytecode.
-4. **App Bundles:** Build Android Apps as \`.aab\` (Android App Bundles) rather than \`.apk\` so users only download architecture-specific code.
+### Key Decisions
+- **Asset Offloading:** Do not bundle heavy videos, massive 4K background images, or large JSON datasets inside the app binary. Host them on a CDN (like Supabase Storage) and fetch them dynamically when the app loads.
+- **Hermes Engine:** Ensure the Hermes JavaScript engine is enabled (it is by default in modern Expo). Hermes pre-compiles JavaScript into bytecode, making the app smaller, start faster, and use less memory.
+- **Bundle Analysis:** Use tools like react-native-bundle-visualizer to see exactly which NPM packages are bloating your app. Replace heavy libraries with lightweight alternatives (e.g., date-fns instead of moment).
+
+### Common Mistakes
+- **Importing Full Libraries:** Doing import _ from 'lodash' includes the entire massive library. Use import debounce from 'lodash/debounce' to only bundle the specific function.
+- **Unoptimized Images:** Bundling raw, uncompressed PNGs. Run all static assets through tools like ImageOptim or TinyPNG before adding them to your assets/ folder.
+- **Duplicate Fonts:** Bundling the same font file multiple times under different names.
+
+### Examples
+- **The Diet:** You run the bundle visualizer and notice lottie-react-native is taking up 4MB, but you only use it for one tiny animation. You replace it with a simple CSS animation, instantly shaving 4MB off the app store download.
+
+### AI Prompt
+> "I am optimizing the bundle size of my Expo React Native app. Provide a checklist of techniques to reduce the final .aab and .ipa file sizes. Explain how to use the 'expo-optimize' CLI command for assets, how to ensure Hermes is enabled, and recommend lightweight alternatives for heavy libraries like 'moment.js'."
 
-\`\`\`input
-What is your target maximum app size (in MB), and what are the heaviest dependencies in your \`package.json\` right now?
-\`\`\`
+### Validation Checklist
+- [ ] Hermes engine is explicitly enabled in app.json.
+- [ ] All bundled images have been compressed (e.g., via TinyPNG or expo-optimize).
+- [ ] Massive libraries (moment, lodash) have been removed or tree-shaken.
+- [ ] Large media files are fetched remotely from a CDN, not bundled locally.
+
+### Deliverable
+**File Name:** app.json & package.json (updated)
+**Purpose:** Ensures the leanest possible binary for the App Store.
+**Contents:** Hermes configuration and optimized dependency list.
+
+### Next Step
+A small app is good, but it must also respect the user's phone. Time for **Battery Optimization**.`,
+  'crashreporting': `# Crash Reporting
+
+🕒 **Estimated Time:** 2-3 hours
+
+### Overview
+No matter how much you test, your app will crash in production. Users have weird devices, spotty networks, and unpredictable behavior. Without Crash Reporting, a crash just results in a 1-star review saying "It's broken." With Crash Reporting, you get the exact line of code that caused the failure.
 
-\`\`\`prompt
-List the steps to analyze a React Native bundle size and configure Hermes for both iOS and Android.
-\`\`\`
+### Think First
+- If a user opens the app and it immediately closes, how will you find out?
+- Are you logging React rendering errors (JS crashes) or Native module errors (Java/Swift crashes)?
+- Does your reporting tool capture the breadcrumbs (the button clicks leading up to the crash)?
+
+### Key Decisions
+- **The Tool:** Sentry is currently the industry standard for React Native. Firebase Crashlytics is also excellent and free. Both capture JS errors, Native crashes, and promise rejections.
+- **Source Maps:** Minified React Native code is unreadable (e.g., Error at a.b in main.jsbundle). You MUST upload your Source Maps to Sentry during the build process so the dashboard shows the actual file and line number.
+- **User Context:** Always attach the user_id to the crash report so you can email the exact user who experienced the crash to apologize and tell them it's fixed.
+
+### Common Mistakes
+- **Forgetting Source Maps:** Installing Sentry but failing to configure the Webpack/Metro plugin to upload source maps. Your crash reports will be completely useless.
+- **Alert Fatigue:** Failing to ignore non-fatal, expected errors (like "Network Request Failed"). Your Slack channel will be spammed, and you will eventually ignore real crashes.
+
+### Examples
+- **The Silent Killer:** A user on a Samsung S8 with a specific accessibility setting triggers a null pointer exception. Sentry catches it, groups it, and shows you exactly what they tapped right before the app died.
+
+### AI Prompt
+> "I am setting up Sentry in an Expo React Native app. Generate the initialization code for Sentry. Explain the exact EAS Build configuration (app.json / eas.json) required to automatically upload source maps to Sentry so my production stack traces are readable."
 
-## 📚 Context Links
-- [React Native Bundle Visualizer](https://github.com/mrousavy/react-native-bundle-visualizer)
-- [Using Hermes in React Native](https://reactnative.dev/docs/hermes)
-- [Android App Bundles](https://developer.android.com/guide/app-bundle)`,
-  'crash-reporting': `# Crash Reporting
-
-**🕒 Estimated Time:** 3 hours
-
-Integrate a crash reporting tool to identify and fix fatal errors in production rapidly.
-
-### Implementation
-1. **Provider Setup:** Integrate Sentry, Firebase Crashlytics, or Bugsnag.
-2. **Source Maps:** Configure your build process to upload JavaScript source maps to your provider, so production crashes display readable stack traces instead of minified code.
-3. **Breadcrumbs:** Log critical user actions (navigation events, button presses) as breadcrumbs leading up to a crash.
-4. **User Context:** Attach the \`userId\` to crash reports to understand who was affected without sending PII.
-
-\`\`\`input
-Which crash reporting tool are you using, and how are you handling automatic source map uploads in your CI pipeline?
-\`\`\`
-
-\`\`\`prompt
-Write a Sentry initialization script for a React Native/Expo app, including configuration for capturing user IDs and React Navigation breadcrumbs.
-\`\`\`
-
-## 📚 Context Links
-- [Sentry for React Native](https://docs.sentry.io/platforms/react-native/)
-- [Firebase Crashlytics (React Native)](https://rnfirebase.io/crashlytics/usage)
-- [Expo Sentry Plugin](https://docs.expo.dev/guides/using-sentry/)`,
-  'error-handling': `# Error Handling
-
-**🕒 Estimated Time:** 4 hours
-
-Implement a robust error handling architecture to prevent fatal app crashes and provide clear, actionable feedback to the user.
-
-### Layers of Defense
-1. **Error Boundaries:** Wrap your root component and critical screens in React Error Boundaries (\`react-error-boundary\`) to catch render errors and show a fallback UI instead of a blank white screen.
-2. **Global Promise Rejections:** Catch unhandled promise rejections globally.
-3. **API Error Translation:** Map obscure backend HTTP errors into friendly UI toast messages (e.g., \`429\` -> "You're doing that too fast. Please wait a minute.").
-4. **Form Validation:** Use Zod or Yup with React Hook Form to catch invalid input before it hits your API.
-
-### Best Practices
-- Never show raw stack traces, SQL errors, or JSON blobs to end-users.
-- Provide a "Restart App" or "Retry" button on fatal error screens.
-
-\`\`\`input
-How are you currently managing global API errors, and what is your fallback UI strategy for fatal app crashes?
-\`\`\`
-
-\`\`\`prompt
-Write a global React Error Boundary component using \`react-error-boundary\` that displays a friendly error screen with a "Restart App" button, and logs the error to an external service.
-\`\`\`
-
-## 📚 Context Links
-- [React Error Boundary](https://github.com/bvaughn/react-error-boundary)
-- [Handling API Errors in React Native](https://reactnative.dev/docs/network)
-- [React Hook Form & Zod](https://react-hook-form.com/get-started#SchemaValidation)`,
-  'analytics-events': `# Analytics Events
-
-**🕒 Estimated Time:** 3 hours
-
-Instrument your app with analytics to track user behavior, feature adoption, and conversion funnels to drive growth decisions.
-
-### Setup Process
-1. **Provider Integration:** Install PostHog, Mixpanel, Firebase Analytics, or Amplitude.
-2. **Identity Tracking:** Implement \`identify\` calls during login/signup to tie events to specific users. Call \`reset\` on logout.
-3. **Core Events:** Track critical business events: \`signed_up\`, \`subscription_started\`, \`feature_x_used\`.
-4. **Screen Tracking:** Automatically track screen views by hooking into React Navigation's global state change listener.
-
-### Privacy Compliance
-- Ensure analytics respect the user's tracking preferences (App Tracking Transparency on iOS).
-- Do not log PII (Personally Identifiable Information) directly in event properties.
-
-\`\`\`input
-What are the 5 most critical business events you need to track in your funnel, and what properties will you attach to them?
-\`\`\`
-
-\`\`\`prompt
-Create an analytics utility class for PostHog or Mixpanel in React Native that handles user identification, event tracking, and automatically strips PII before sending data.
-\`\`\`
-
-## 📚 Context Links
-- [PostHog React Native Integration](https://posthog.com/docs/libraries/react-native)
-- [React Navigation Screen Tracking](https://reactnavigation.org/docs/screen-tracking/)
-- [App Tracking Transparency (iOS)](https://developer.apple.com/documentation/apptrackingtransparency)\`, \`subscription_started\`, \`feature_x_used\`.
-4. **Screen Tracking:** Automatically track screen views by hooking into React Navigation's state change listener.
-
-### Privacy Compliance
-- Ensure analytics respect the user's tracking preferences (App Tracking Transparency on iOS).
-- Do not log PII (Personally Identifiable Information) directly in event properties.
-
-\`\`\`input
-What are the 5 most critical business events you need to track in your funnel?
-\`\`\`
-
-\`\`\`prompt
-Create an analytics utility class for Mixpanel that handles user identification, event tracking, and screen view logging securely.
-\`\`\``,
-  'offline-features': `# Offline Features
-
-**🕒 Estimated Time:** 5 hours
-
-Ensure your app remains functional and gracefully handles network loss, a common scenario in mobile environments.
-
-### Core Strategies
-1. **Network Detection:** Use \`@react-native-community/netinfo\` to track connection status globally.
-2. **Local Caching:** Store critical API responses using WatermelonDB, SQLite, or MMKV so the app launches instantly with stale data.
-3. **Optimistic Updates:** Immediately reflect user actions in the UI, queue the network request, and sync when the connection returns.
-4. **Sync Queue:** Implement a background queue to process failed mutations once online.
-
-### User Experience
-- Show a subtle "Offline Mode" banner at the top of the screen.
-- Disable actions that strictly require a network connection (like checkout) with a clear explanation.
-
-\`\`\`input
-What specific user data must be available offline, and what critical user actions should be queued for later synchronization when the network returns?
-\`\`\`
-
-\`\`\`prompt
-Write a global network listener hook using NetInfo that provides the current connection status, and create a non-intrusive "You are offline" banner component that animates into view.
-\`\`\`
-
-## 📚 Context Links
-- [React Native NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)
-- [WatermelonDB Offline Sync](https://watermelondb.dev/docs/Sync/Intro)
-- [React Query Offline Mutations](https://tanstack.com/query/latest/docs/react/guides/mutations#network-offline-mutations)`,
-  'device-permissions': `# Device Permissions
-
-**🕒 Estimated Time:** 3 hours
-
-Manage access to sensitive device features (Camera, Contacts, Location, Microphone) smoothly to maximize opt-in rates.
-
-### The "Soft Prompt" Strategy
-Never trigger the native OS permission dialog without context. Once a user clicks "Deny" on the native OS dialog, you can never show it again (they must manually go to iOS/Android Settings).
-1. Show a custom UI explaining *why* you need the permission.
-2. If they agree, trigger the OS dialog.
-3. If they deny the OS dialog, show a fallback UI explaining how to enable it in Settings and providing a deep link directly to the app's settings page.
-
-### Implementation
-- Use \`react-native-permissions\` or Expo's built-in permission hooks.
-- Create a centralized \`PermissionsManager\` utility.
-
-\`\`\`input
-List all the sensitive device permissions your app requires and describe the exact user action that will trigger each soft-prompt request.
-\`\`\`
-
-\`\`\`prompt
-Write a reusable React Native hook that implements a soft-prompt pattern for requesting Camera permissions. If the native permission is permanently denied, it should provide a function to open the device settings.
-\`\`\`
-
-## 📚 Context Links
-- [React Native Permissions](https://github.com/zoontek/react-native-permissions)
-- [Expo AppSettings / IntentLauncher](https://docs.expo.dev/versions/latest/sdk/intent-launcher/)`,
-  'maps-location': `# Maps & Location
-
-**🕒 Estimated Time:** 5 hours
-
-Integrate geolocation services and interactive maps into your application.
-
-### Implementation Steps
-1. **Library Setup:** Install \`react-native-maps\` and configure Google Maps API keys (Android) and Apple Maps capabilities (iOS).
-2. **Location Tracking:** Use \`expo-location\` or \`react-native-geolocation-service\` to get current coordinates.
-3. **Permissions:** Handle the complex flow of Foreground vs Background location permissions securely.
-4. **Map UI:** Implement markers, clustering, and custom map styling.
-
-### Performance
-- Avoid rendering thousands of individual markers; implement marker clustering for large datasets (e.g., \`react-native-map-clustering\`).
-- Debounce location updates to save battery life.
-
-\`\`\`input
-How is location data used in your app? Do you require continuous background tracking or just one-off foreground checks?
-\`\`\`
-
-\`\`\`prompt
-Create a React Native component displaying a map centered on the user's current location using \`react-native-maps\`, including a custom styled marker and a button to re-center the map.
-\`\`\`
-
-## 📚 Context Links
-- [React Native Maps Integration](https://github.com/react-native-maps/react-native-maps)
-- [Expo Location](https://docs.expo.dev/versions/latest/sdk/location/)`,
-  'media-uploads': `# Media Uploads
-
-**🕒 Estimated Time:** 4 hours
-
-Implement robust handling for capturing, selecting, and uploading photos, videos, or documents from the device.
-
-### Key Workflows
-1. **Media Picker:** Integrate \`expo-image-picker\` or \`react-native-image-crop-picker\` to access the camera roll.
-2. **Permissions:** Request Camera and Photo Library permissions gracefully using a soft-prompt.
-3. **Compression:** Compress images client-side before upload to save bandwidth and storage costs (e.g., \`expo-image-manipulator\`).
-4. **Upload Logic:** Implement multipart/form-data uploads or direct-to-S3 presigned URL uploads with progress indicators.
-
-### Edge Cases
-- Handle app backgrounding during long uploads.
-- Provide clear UI feedback if an upload fails due to network loss.
-
-\`\`\`input
-What types of media will users upload, and what is your strategy for client-side compression and backend storage (e.g., AWS S3, Supabase Storage)?
-\`\`\`
-
-\`\`\`prompt
-Write a React Native function using \`expo-image-picker\` and \`expo-image-manipulator\` to pick an image from the gallery, compress it to 80% quality, and upload it to a Supabase Storage bucket.
-\`\`\`
-
-## 📚 Context Links
-- [Expo Image Picker](https://docs.expo.dev/versions/latest/sdk/imagepicker/)
-- [Expo Image Manipulator](https://docs.expo.dev/versions/latest/sdk/imagemanipulator/)
-- [Supabase Storage Guide](https://supabase.com/docs/guides/storage)`,
-  'apis': `# APIs & Integrations
-
-**🕒 Estimated Time:** 5 hours
-
-Implement connections to third-party APIs and external services beyond your core backend (e.g., Payments, Social, Maps).
-
-### Key Integrations
-1. **Payment Gateways:** RevenueCat or Adapty for in-app purchases.
-2. **Social APIs:** Graph API for Facebook login, or Apple/Google Sign-In SDKs.
-3. **Utility APIs:** Twilio for SMS verification, SendGrid for emails.
-4. **SDK Initialization:** Initialize SDKs early in the app lifecycle (e.g., in \`App.tsx\` or a dedicated bootstrap phase).
-
-### Best Practices
-- Keep API keys out of your source code by using \`react-native-dotenv\` or Expo Environment variables.
-- Wrap third-party SDKs in custom service classes so you can easily swap providers or mock them during testing.
-
-\`\`\`input
-List the third-party APIs and SDKs you are integrating in this phase, and explain how you will securely store their respective API keys.
-\`\`\`
-
-\`\`\`prompt
-Write a generic wrapper service for a third-party analytics SDK (like Mixpanel) in TypeScript, ensuring it can gracefully fail without crashing the app if the SDK fails to initialize.
-\`\`\`
-
-## 📚 Context Links
-- [Expo Environment Variables](https://docs.expo.dev/guides/environment-variables/)
-- [React Native Config](https://github.com/lugg/react-native-config)`,
-  'navigation': `# Navigation Implementation
-
-**🕒 Estimated Time:** 4 hours
-
-Set up the routing structure of your app to manage flow between screens and deep link handling using React Navigation or Expo Router.
-
-### Core Structure
-1. **Navigation Container:** Initialize the root provider.
-2. **Authentication Flow:** Create a conditional stack that swaps between the Auth Stack (Login/Signup) and the App Stack based on session state.
-3. **Tab & Stack Navigators:** Implement Bottom Tabs for primary navigation and Native Stacks for pushing detail screens.
-4. **Header Configurations:** Customize navigation headers to match your brand UI.
-
-### Deep Linking
-- Configure scheme and universal links to allow external URLs (e.g., password reset emails) to open specific screens within the app.
-
-\`\`\`input
-Describe your app's navigation hierarchy. What are the main bottom tabs, and what specific screens require deep linking support?
-\`\`\`
-
-\`\`\`prompt
-Set up a React Navigation v6 structure containing a Bottom Tab Navigator inside an authenticated Stack, with a separate Auth stack for logged-out users. Include a deep linking configuration object for a "Reset Password" screen.
-\`\`\`
-
-## 📚 Context Links
-- [React Navigation Fundamentals](https://reactnavigation.org/docs/getting-started)
-- [Expo Router Deep Linking](https://docs.expo.dev/router/introduction/)
-- [Handling Deep Links in React Native](https://reactnative.dev/docs/linking)`,
-  'frontend-ui': `# Frontend (UI) Implementation
-
-**🕒 Estimated Time:** 8 hours
-
-Build out the core visual components and screens of your mobile app, adhering to your design system and platform guidelines (Human Interface Guidelines for iOS, Material Design for Android).
-
-### Component Library
-1. **Core Elements:** Build reusable Buttons, Inputs, Cards, and Typography components.
-2. **Theming:** Implement a robust theming system (Light/Dark mode) using tools like NativeWind, Restyle, or styled-components.
-3. **Responsive Design:** Ensure layouts adapt to different screen sizes using flexbox and safe area contexts (\`react-native-safe-area-context\`).
-4. **Animations:** Add micro-interactions using Reanimated or React Native Animated to make the app feel premium.
-
-### Accessibility (a11y)
-- Add \`accessible={true}\` and \`accessibilityLabel\` to all interactive elements.
-- Ensure text scales correctly with the device's accessibility settings.
-
-\`\`\`input
-What UI framework or styling solution (e.g., NativeWind, Restyle) are you using, and what are the 3 most complex screens you need to build?
-\`\`\`
-
-\`\`\`prompt
-Generate a reusable, accessible Button component in React Native using NativeWind that supports variants (primary, secondary, outline), disabled states, loading spinners, and respects the device's dark mode setting.
-\`\`\`
-
-## 📚 Context Links
-- [NativeWind Documentation](https://www.nativewind.dev/)
-- [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/)
-- [React Native Safe Area Context](https://docs.expo.dev/versions/latest/sdk/safe-area-context/)`,
-  'push-notifications': `# Push Notifications Setup
-
-**🕒 Estimated Time:** 6 hours
-
-Implement Apple Push Notification service (APNs) and Firebase Cloud Messaging (FCM) to engage users with timely alerts.
-
-### Setup Process
-1. **Certificates & Keys:** Generate APNs keys in the Apple Developer Portal and configure Firebase for Android.
-2. **SDK Integration:** Install \`expo-notifications\` or \`@react-native-firebase/messaging\`.
-3. **Permission Flow:** Implement a soft-prompt UI before triggering the native OS permission dialog to maximize opt-in rates.
-4. **Token Registration:** Retrieve the device push token and sync it to your user record in the backend.
-5. **Handling Payloads:** Write listeners for background and foreground notifications to route users to specific screens (deep linking).
-
-### Best Practices
-- Never spam users; allow granular notification preferences in settings.
-- Handle notification badges cleanly (clear them when the app is opened).
-
-\`\`\`input
-Describe your push notification strategy. What specific events trigger a notification, and how will users manage their preferences in the app?
-\`\`\`
-
-\`\`\`prompt
-Write an Expo Notifications setup script that requests permissions using a soft-prompt pattern, gets the device token, and handles a notification tap event to navigate to a specific screen using React Navigation.
-\`\`\`
-
-## 📚 Context Links
-- [Expo Notifications Setup](https://docs.expo.dev/versions/latest/sdk/notifications/)
-- [React Native Firebase Messaging](https://rnfirebase.io/messaging/usage)
-- [Apple Push Notification service](https://developer.apple.com/documentation/usernotifications)`,
-  'state-management': `# State Management Implementation
-
-**🕒 Estimated Time:** 4 hours
-
-Implement a robust state management solution based on your Phase 2 architecture decisions. For modern React Native applications, lightweight solutions like Zustand or Jotai are highly recommended over legacy Redux setups.
-
-### Core Implementation Steps
-1. **Store Setup:** Initialize the global store.
-2. **Feature Slices:** Break down state into logical domains (user, settings, feed, etc.).
-3. **Persistence:** Implement async storage for offline caching and session persistence using \`@react-native-async-storage/async-storage\` or \`react-native-mmkv\`.
-4. **Hooks:** Create custom hooks for accessing and dispatching state safely across components.
-
-### Best Practices
-- Keep the global state minimal; use local component state for transient UI changes.
-- Normalize complex nested data structures to avoid deep re-renders.
-- Use selectors for derived data to optimize performance.
-
-\`\`\`input
-Describe your chosen state management library, the core slices of state you need to implement, and your persistence strategy (e.g., MMKV or AsyncStorage).
-\`\`\`
-
-### Common Challenges
-- **Re-render Optimization:** Unoptimized selectors causing the whole app to re-render.
-- **Async Data:** Managing loading and error states consistently.
-
-\`\`\`prompt
-Generate a boilerplate setup for a React Native app using Zustand, including persistent storage using react-native-mmkv, and a user authentication slice with login/logout actions.
-\`\`\`
-
-## 📚 Context Links
-- [Zustand Documentation](https://github.com/pmndrs/zustand)
-- [React Native MMKV](https://github.com/mrousavy/react-native-mmkv)
-- [Jotai Core Concepts](https://jotai.org/docs/core/concepts)`,
+### Validation Checklist
+- [ ] Sentry or Crashlytics SDK is initialized at the root of the app.
+- [ ] Source maps are successfully uploading during the release build process.
+- [ ] A forced test crash (throw new Error('Test')) successfully appears in the dashboard.
+- [ ] User IDs are securely attached to the crash context.
+
+### Deliverable
+**File Name:** App.tsx / sentry.config.js
+**Purpose:** Ensures total visibility into fatal errors.
+**Contents:** Crash reporter initialization and build-time source map configuration.
+
+### Next Step
+Beyond just crashes, you need proactive **Monitoring** to ensure your APIs and services are healthy.`,
+  'errorhandling': `# Error Handling
+
+🕒 **Estimated Time:** 2-4 hours
+
+### Overview
+Mobile apps fail constantly. APIs go down, memory runs out, and edge cases are hit. Good error handling prevents your app from closing abruptly (crashing) and instead guides the user safely back to a working state while reporting the failure to developers.
+
+### Think First
+- What happens if the server returns a 500 error on the home screen?
+- How do you catch errors that happen deep inside a component's render cycle?
+- Are you distinguishing between user errors (wrong password) and system errors (database down)?
+
+### Key Decisions
+- **Global Error Boundaries:** Wrap your entire React Native navigation tree in an Error Boundary. If a component throws an unhandled error, the Boundary catches it and displays a friendly "Oops, something went wrong" screen with a "Reload App" button, instead of a fatal crash.
+- **Crash Reporting:** Integrate Sentry. When a user experiences a fatal error in production, Sentry captures the exact stack trace, device model, OS version, and the sequence of API calls that led up to the crash.
+- **API Interceptors:** Use Axios interceptors or React Query global callbacks to catch all 401 (Unauthorized) errors and automatically redirect the user to the login screen.
+
+### Common Mistakes
+- **Naked Try/Catch:** Wrapping an API call in a try/catch but leaving the catch empty. The user taps a button, nothing happens, and they think the app is broken. Always show a UI toast or alert.
+- **Exposing Stack Traces:** Showing raw SQL errors or Javascript stack traces to the end user. It looks unprofessional and exposes security vulnerabilities.
+- **Ignoring Promise Rejections:** Forgetting to handle .catch() on background promises, leading to silent failures that are impossible to debug.
+
+### Examples
+- **Graceful Degradation:** An API request to fetch recommended friends fails. Instead of breaking the whole screen, that specific section shows a polite "Unable to load recommendations right now" message while the rest of the app functions normally.
+
+### AI Prompt
+> "I am building a React Native app. Generate a robust React Error Boundary component that catches rendering errors. When an error occurs, it should log the error to Sentry, and display a beautiful fallback UI to the user with a 'Restart App' button (using Expo Updates to reload the JS bundle)."
+
+### Validation Checklist
+- [ ] An Error Boundary wraps the root application layout.
+- [ ] Sentry or an equivalent crash reporter is installed and configured.
+- [ ] API errors trigger visible, user-friendly UI alerts (e.g., Toasts).
+- [ ] The app handles expired authentication tokens by forcing a logout.
+
+### Deliverable
+**File Name:** src/components/GlobalErrorBoundary.tsx
+**Purpose:** Catches fatal React rendering errors and prevents app crashes.
+**Contents:** React Error Boundary implementation with reporting and fallback UI.
+
+### Next Step
+With errors caught, implement **Testing** to prevent them from happening in the first place.`,
+  'analyticsevents': `# Analytics Events
+
+🕒 **Estimated Time:** 2-4 hours
+
+### Overview
+If you don't track user behavior, you are flying blind. You will have no idea why users are uninstalling your app or abandoning their shopping carts. However, mobile analytics must be implemented carefully to respect user privacy and avoid massive data bills.
+
+### Think First
+- What is your North Star Metric? (What single action defines success? e.g., Completing a purchase).
+- What are the 5 critical events that lead up to that metric?
+- Are you sending Personally Identifiable Information (PII) to a third party?
+
+### Key Decisions
+- **The Tool:** PostHog is currently the gold standard for product analytics (event tracking, session replay). Google Analytics/Firebase is ubiquitous. Sentry or Crashlytics is absolutely mandatory for tracking app crashes.
+- **Funnel Tracking:** Don't just track "Checkout Completed". Track "Checkout Started", "Address Entered", and "Payment Failed". This creates a funnel so you can see exactly where users are dropping off.
+- **Privacy Compliance:** Under Apple's rules, if you only track what users do *inside* your app to improve your app (First-Party), you usually do not need the dreaded ATT popup.
+
+### Common Mistakes
+- **Tracking Everything:** Firing an event for every single button press and scroll. You will max out your provider's free tier in a week and your dashboard will be an unreadable mess.
+- **Inconsistent Naming:** Having events named User Signed Up, signup, and completed_registration. Stick to a strict naming convention like Noun_Verb (e.g., checkout_started).
+- **Sending Passwords/Tokens:** Accidentally attaching secure tokens or plain-text passwords as metadata in an analytics event payload.
+
+### Examples
+- **The Onboarding Funnel:** Tracking onboarding_started, profile_photo_skipped, and onboarding_completed to discover that 80% of users quit when asked for a profile photo.
+
+### AI Prompt
+> "I am integrating PostHog into my React Native Expo app. Generate a centralized Analytics utility file (analytics.ts) with strict TypeScript types for my events. It should enforce that I can only fire specific events like 'signup_completed' and 'checkout_started', and ensure I capture the user's ID securely without sending plain-text PII."
+
+### Validation Checklist
+- [ ] A crash reporting tool (like Sentry) is installed and tested.
+- [ ] Core funnel events (Signup, Core Action) are actively tracked.
+- [ ] Event names follow a strict, consistent casing and naming convention.
+- [ ] Apple Privacy Nutrition Labels accurately reflect your tracking setup.
+
+### Deliverable
+**File Name:** src/utils/analytics.ts
+**Purpose:** Centralizes all tracking calls to ensure consistency and type safety.
+**Contents:** Wrapper functions for your chosen analytics provider.
+
+### Next Step
+To ensure those analytics aren't just showing crashes, implement robust **Error Handling**.`,
+  'offlinefeatures': `# Offline Features
+
+🕒 **Estimated Time:** 3-6 hours
+
+### Overview
+Mobile apps travel. Users open them on subways, airplanes, and areas with spotty 3G. If your app instantly crashes or shows a giant white screen the moment the internet drops, it provides a poor user experience. A solid offline strategy degrades gracefully.
+
+### Think First
+- What must work offline?
+- Does the app *need* to function fully offline (like a Notes app), or does it just need to show a polite "No Internet" screen (like a Banking app)?
+- How will you handle data conflicts when the device comes back online?
+
+### Key Decisions
+- **The "Cache & Read" Strategy:** The simplest offline strategy. Use React Query to aggressively cache API responses. If the user opens the app offline, show them the data from their last session instead of a blank screen.
+- **The "Full Sync" Strategy (Advanced):** If users need to create data offline (like writing an email), you must save it locally (WatermelonDB), queue the mutation, and automatically sync it to the server when the connection is restored. This is extremely complex.
+- **Network Detection:** Use @react-native-community/netinfo to globally listen for network changes and show an "Offline Mode" banner at the top of the screen.
+
+### Common Mistakes
+- **Infinite Loading Spinners:** A spinner that spins forever because an API call failed due to no internet, and the code never caught the network error.
+- **Assuming Fast Networks:** Testing your app exclusively on your blazing-fast home WiFi and assuming API calls will always complete in 50ms.
+- **Silent Failures:** Letting a user fill out a massive form offline, tapping "Submit", and having the data simply vanish into the void.
+
+### Examples
+- **Optimistic UI:** A user "Likes" a post while in a tunnel. The heart instantly turns red. The app queues the API request and sends it seamlessly when the subway emerges above ground.
+
+### AI Prompt
+> "I am building a React Native app. Generate a global network listener using '@react-native-community/netinfo' that displays a persistent, animated 'No Internet Connection' banner across the top of the app when the device goes offline. Also, explain how to configure React Query to serve cached data when a network request fails."
+
+### Validation Checklist
+- [ ] The app detects offline status and visually informs the user.
+- [ ] Existing cached data is displayed when offline, avoiding white screens.
+- [ ] Actions that require a network connection are disabled or queued.
+- [ ] The app gracefully recovers when the connection is restored.
+
+### Deliverable
+**File Name:** src/components/NetworkBanner.tsx
+**Purpose:** Visually communicates network state to the user.
+**Contents:** A listener component that mounts at the root level of the app.
+
+### Next Step
+With the app functioning in all environments, implement **Analytics Events** to see how users are interacting with it.`,
+  'devicepermissions': `# Device Permissions
+
+🕒 **Estimated Time:** 1-2 hours
+
+### Overview
+Modern mobile operating systems are highly restrictive. You cannot access the camera, microphone, contacts, or location without explicit user consent. How and when you ask for these permissions drastically impacts your user retention and App Store review success.
+
+### Think First
+- Why do you *actually* need this permission?
+- Will the user understand why you are asking for it at this exact moment?
+- What happens to the UI if the user permanently denies the permission?
+
+### Key Decisions
+- **Timing is Everything:** Never bombard the user with permission popups the moment they open the app. Wait until they initiate an action. (e.g., Only ask for Camera permission when they tap "Take Photo").
+- **Pre-Prompting:** iOS only lets you ask for a permission *once*. If they say no, they must dig through the iOS Settings app to turn it back on. Use a "Soft Prompt" (a custom modal explaining why you need the permission) before triggering the scary OS-level popup.
+- **App Tracking Transparency (ATT):** If you use third-party analytics (like Facebook Ads) to track users across apps, you MUST implement the ATT prompt on iOS, or Apple will reject your app.
+
+### Common Mistakes
+- **Crashing on Denial:** Attempting to access the contacts book immediately after the user taps "Deny", causing a fatal crash.
+- **Vague Justifications:** Apple requires you to write a UsageDescription string in your Info.plist (e.g., NSCameraUsageDescription). If you write "App needs camera," Apple will reject it. You must write "Kontxt needs the camera to let you take a profile picture."
+
+### Examples
+- **The Soft Prompt:** The user taps "Find Friends". A beautiful, custom screen appears: "Find your friends! We need access to your contacts to see who is already here." The user taps "Continue", and *then* the native OS prompt appears.
+
+### AI Prompt
+> "I am building an Expo app. Generate a reusable hook 'useCameraPermission' that checks the current permission status. If denied, it should trigger an alert guiding the user to the device Settings app using 'Linking.openSettings()'. Explain exactly what needs to be added to the app.json to satisfy Apple's review team."
+
+### Validation Checklist
+- [ ] Permissions are requested in-context, not at launch.
+- [ ] Usage description strings are highly specific and explain the user benefit.
+- [ ] The app does not crash if a permission is denied.
+- [ ] Links to OS settings are provided if the user previously permanently denied access.
+
+### Deliverable
+**File Name:** app.json / Info.plist configurations
+**Purpose:** Formally declares the app's intent to access secure hardware.
+**Contents:** Accurate, user-facing permission justification strings.
+
+### Next Step
+With hardware access secured, build robust **Offline Features** for when the device loses connection.`,
+  'mapslocation': `# Maps & Location
+
+🕒 **Estimated Time:** 3-5 hours
+
+### Overview
+Location-awareness bridges the digital and physical worlds. Whether tracking a delivery, finding nearby friends, or tagging a photo, location services require precise handling of device sensors and battery-draining GPS polling.
+
+### Think First
+- Do you just need a one-time location ping (e.g., tagging a post), or continuous background tracking (e.g., a running app)?
+- How precise does the location need to be? High accuracy drains the battery rapidly.
+- Are you prepared for the strict app store reviews surrounding location tracking?
+
+### Key Decisions
+- **Map Library:** react-native-maps is the industry standard for rendering Apple Maps (iOS) and Google Maps (Android) natively.
+- **Location Polling:** Use expo-location to securely request permissions and read coordinates. For simple features, use getCurrentPositionAsync. Only use background location tracking if it is absolutely vital to the app's core purpose.
+- **Geocoding:** Coordinates (Latitude 40.71, Longitude -74.00) are useless to users. You must use a Geocoding API (like Google Maps or Mapbox) to convert coordinates into human-readable addresses.
+
+### Common Mistakes
+- **Leaking API Keys:** Hardcoding your Google Maps API key in the frontend. This key must be restricted by Android package name and iOS bundle identifier in the Google Cloud Console to prevent abuse.
+- **Ignoring Permission Rejections:** Assuming the user will always grant location access. If they select "Don't Allow", your app must degrade gracefully, perhaps by letting them type in a zip code manually.
+- **Battery Drain:** Leaving high-accuracy GPS polling active when the app is in the background.
+
+### Examples
+- **Store Locator:** Displaying a map with custom markers indicating nearby stores, updating dynamically as the user pans the map.
+
+### AI Prompt
+> "I am building an Expo React Native app. Generate a screen that uses 'expo-location' to request foreground location permissions, fetches the user's current coordinates, and displays them as a marker on a map using 'react-native-maps'. Include fallback UI if the user denies location permissions."
+
+### Validation Checklist
+- [ ] Location permissions are requested only when necessary, with clear explanations.
+- [ ] The app handles users denying location access gracefully.
+- [ ] Map renders correctly on both iOS and Android.
+- [ ] API keys are secured and restricted in their respective cloud consoles.
+
+### Deliverable
+**File Name:** src/screens/MapScreen.tsx
+**Purpose:** Renders the map and handles coordinate logic.
+**Contents:** MapView component with custom markers and permission handling.
+
+### Next Step
+Now ensure your app handles all other **Device Permissions** correctly before launching.`,
+  'mediauploads': `# Media Uploads
+
+🕒 **Estimated Time:** 3-6 hours
+
+### Overview
+Allowing users to upload photos and videos drastically increases engagement, but it introduces massive complexity. Media files are huge, mobile networks are unreliable, and device storage is limited. You must handle image compression, background uploading, and secure storage buckets.
+
+### Think First
+- Do users need to take a live photo, or just pick from their camera roll?
+- Are you compressing the images before sending them over the network?
+- Who can view this media once it's uploaded?
+
+### Key Decisions
+- **Image Picker Library:** Use expo-image-picker for robust, native access to the camera and photo library. It handles permissions and basic cropping automatically.
+- **Compression:** Uploading a raw 12MB iPhone photo over 3G will fail. Always use a library like expo-image-manipulator to resize and compress JPEGs down to <500kb before the upload begins.
+- **Storage Strategy:** Never store base64 strings in your PostgreSQL database. Upload the binary file to a storage bucket (like Supabase Storage or AWS S3), and save the resulting public URL in your database.
+
+### Common Mistakes
+- **Missing Permissions:** Trying to open the camera without explicitly asking the user for permission first, causing the app to instantly crash.
+- **Blocking the UI:** Forcing the user to stare at a spinner while a video uploads. Media should upload asynchronously while the user continues to use the app.
+- **Ignoring Image Rotation:** Failing to read EXIF data, resulting in photos uploading sideways or upside down.
+
+### Examples
+- **Profile Picture:** A user selects a photo, the app crops it to a square, compresses it, uploads it to Supabase Storage, and saves the new avatar URL to their profile.
+
+### AI Prompt
+> "I am building an Expo app. Generate a React Native component that allows a user to pick an image from their gallery using 'expo-image-picker', compresses the image to a maximum width of 1080px using 'expo-image-manipulator', and securely uploads the resulting file to a Supabase Storage bucket. Include error handling and a loading state."
+
+### Validation Checklist
+- [ ] Camera and Photo Library permissions are handled gracefully.
+- [ ] Images are compressed locally before network transmission.
+- [ ] Files upload successfully to a secure storage bucket.
+- [ ] The app handles network interruptions during upload.
+
+### Deliverable
+**File Name:** src/utils/mediaUpload.ts
+**Purpose:** Standardizes how media is selected, compressed, and uploaded.
+**Contents:** Helper functions wrapping the image picker and storage SDKs.
+
+### Next Step
+With content generation solved, integrate **Maps & Location** for location-aware features.`,
+  'apis': `# APIs & Data Fetching
+
+🕒 **Estimated Time:** 3-5 hours
+
+### Overview
+Your app is only a shell until it connects to data. API implementation involves fetching external data, caching it locally to prevent redundant network requests, handling slow mobile connections, and presenting loading or error states to the user.
+
+### Think First
+- How will you handle situations when the user loses cell service mid-request?
+- How frequently does this data need to be refreshed?
+- What happens if the API returns an error?
+
+### Key Decisions
+- **Fetching Strategy:** Do not use plain useEffect + fetch for data management. Use React Query (TanStack Query). It automatically handles caching, background refetching, retries, and offline mutations.
+- **API Client:** Use axios or the native fetch API configured with interceptors to automatically attach the user's Auth JWT token to every outgoing request.
+- **Type Safety:** Ensure the data coming from the API is strictly typed. Using tools like OpenAPI generators or Supabase's type generator guarantees your frontend expects the correct data structure.
+
+### Common Mistakes
+- **Silent Failures:** Wrapping API calls in a try/catch but failing to show a Toast or Error UI to the user when it fails.
+- **Spamming the Server:** Re-fetching heavy data every time a screen comes into focus without using a cache.
+- **Blocking the UI:** Forcing the user to stare at a full-screen loading spinner for every minor background request. Use skeleton loaders and background refetching.
+
+### Examples
+- **Data Caching:** React Query fetches a list of articles once. When the user navigates away and back, it instantly shows the cached articles while silently checking the server for updates in the background.
+- **Optimistic Updates:** When a user "Likes" a post, instantly turning the heart red in the UI before the API request completes, making the app feel incredibly fast.
+
+### AI Prompt
+> "I am using React Native with React Query and Axios. Generate a custom hook called useFetchProfile that fetches user data from '/api/profile'. Include proper TypeScript typing, an Axios interceptor setup to attach a Bearer token, and show how to handle loading and error states in a component."
+
+### Validation Checklist
+- [ ] React Query (or similar caching layer) is configured globally.
+- [ ] Auth tokens are securely and automatically attached to requests.
+- [ ] Error states and loading skeletons are displayed appropriately.
+- [ ] Mutations (POST/PUT/DELETE) correctly invalidate the cache to show fresh data.
+
+### Deliverable
+**File Name:** src/api/client.ts
+**Purpose:** Centralizes all network communication.
+**Contents:** Configured API client, interceptors, and custom hooks for specific endpoints.
+
+### Next Step
+With data flowing securely and the app fully functional, proceed to Phase 4 to focus on **Production Readiness**.`,
+  'navigation': `# Navigation
+
+🕒 **Estimated Time:** 2-4 hours
+
+### Overview
+Navigation dictates how users move through your app. Unlike web browsers with native back buttons and URLs, mobile apps require a dedicated navigation library to handle stack pushes, tab bars, modal presentations, and deep linking natively.
+
+### Think First
+- What is the primary way users switch contexts? (Bottom Tabs are standard).
+- Which screens should slide in from the right (Stack) versus slide up from the bottom (Modal)?
+- How will you handle authenticated vs. unauthenticated routes?
+
+### Key Decisions
+- **Navigation Library:** Expo Router (file-based routing, heavily recommended for new Expo apps) or React Navigation (traditional component-based routing).
+- **Architecture:** Keep your navigation trees shallow. Deeply nested navigators (a Stack inside a Drawer inside a Tab) cause massive performance issues and memory leaks.
+- **Auth Flow Guarding:** Implement a root navigator that checks auth state. If no user is found, render the Auth Stack. If logged in, render the Main App Tabs.
+
+### Common Mistakes
+- **Passing Huge Objects in Params:** Passing a massive user object via route params. Route params should only contain IDs (e.g., { userId: 123 }), and the screen should fetch the data.
+- **Memory Leaks:** Pushing the same screen onto the stack repeatedly instead of using navigate() or goBack().
+- **Ignoring Deep Links:** Failing to configure URL schemes, meaning users can't click a link in an email and be taken directly to a specific screen in your app.
+
+### Examples
+- **Bottom Tab Navigator:** A main interface featuring Home, Search, Notifications, and Profile tabs.
+- **Modal Presentation:** A "Create Post" screen that slides up over the current context, allowing the user to easily swipe it away to cancel.
+
+### AI Prompt
+> "I am setting up Expo Router for my React Native app. Generate the file structure and layout code required to create a root layout that handles authentication state, directing unauthenticated users to a '/login' screen, and authenticated users to a bottom tab layout containing 'Home' and 'Settings'."
+
+### Validation Checklist
+- [ ] Auth state automatically switches the user between login and main app screens.
+- [ ] Android hardware back button behaves as expected (goes back, doesn't close app unexpectedly).
+- [ ] Route parameters are strictly typed using TypeScript.
+- [ ] Deep links are configured for crucial app screens.
+
+### Deliverable
+**File Name:** app/_layout.tsx
+**Purpose:** Defines the skeleton and routing rules of the application.
+**Contents:** Navigation containers, tab definitions, and route guards.
+
+### Next Step
+Now that screens are connected, integrate **APIs** to fetch and populate real data into these views.`,
+  'frontendui': `# Frontend (UI)
+
+🕒 **Estimated Time:** 4-8 hours
+
+### Overview
+The Frontend (UI) is where your application comes to life. In mobile development, UI isn't just about making things look pretty; it's about translating static designs into fluid, responsive, and accessible interactive elements using React Native components.
+
+### Think First
+- Are you using a component library or building custom components from scratch?
+- How will your app adapt to different screen sizes and dark/light modes?
+- Are your touch targets large enough for human thumbs?
+
+### Key Decisions
+- **UI Library:** Using libraries like Restyle, Tamagui, or React Native Paper dramatically speeds up development by providing accessible, pre-built components (buttons, cards, inputs).
+- **Styling Approach:** Choose a consistent styling paradigm. Tailwind (via NativeWind) is popular, or stick to robust StyleSheet definitions. Avoid inline styles for performance.
+- **Animations:** Use react-native-reanimated for 60fps animations. Avoid standard React Native Animated for complex transitions, as it can block the JS thread.
+
+### Common Mistakes
+- **Ignoring Safe Areas:** Placing buttons behind the iOS notch or the Android navigation bar. Always wrap main screens in a SafeAreaView.
+- **Keyboard Overlaps:** Failing to use KeyboardAvoidingView, resulting in the on-screen keyboard hiding text inputs so the user can't see what they are typing.
+- **Unoptimized Images:** Rendering massive 4K images in lists. Use expo-image for aggressive caching and resizing.
+
+### Examples
+- **Design System Implementation:** Creating a Button.tsx that accepts variants ('primary', 'secondary', 'danger') and automatically handles disabled states and loading spinners.
+- **Responsive Lists:** A FlatList component that renders items efficiently, reusing memory as the user scrolls through thousands of items.
+
+### AI Prompt
+> "I am building a React Native app. Generate a highly reusable, accessible custom Button component using TypeScript and StyleSheet. It should support 'primary', 'secondary', and 'outline' variants, accept a 'loading' boolean to show an ActivityIndicator, and have proper touch feedback using Pressable."
+
+### Validation Checklist
+- [ ] UI correctly adapts to both iOS and Android safe areas (notches/bezels).
+- [ ] Keyboards do not obscure input fields.
+- [ ] Custom components use strict TypeScript interfaces.
+- [ ] Dark mode and light mode are supported seamlessly.
+
+### Deliverable
+**File Name:** src/components/ui/Button.tsx
+**Purpose:** Establishes the reusable design system blocks.
+**Contents:** Fully typed, responsive components ready to be used across screens.
+
+### Next Step
+With UI blocks built, implement **Navigation** to connect these screens together logically.`,
+  'pushnotifications': `# Push Notifications
+
+🕒 **Estimated Time:** 2-4 hours
+
+### Overview
+Push Notifications are the strongest tool for mobile user retention, allowing you to pull users back into your app. However, they are technically complex, requiring registration with Apple/Google, securing unique device tokens, and managing external delivery services.
+
+### Think First
+- What events truly warrant interrupting the user's day?
+- How will you handle the permission prompt? (Timing is critical).
+- Do notifications need to carry deep-links to specific screens?
+
+### Key Decisions
+- **Infrastructure:** Never build direct connections to Apple Push Notification service (APNs) or Firebase Cloud Messaging (FCM) from scratch. Use Expo Push Notifications for ease of use, or OneSignal for advanced marketing segments.
+- **Permission Strategy:** Do not ask for notification permission on the very first screen. Wait until the user performs an action where a notification provides clear value (e.g., after they enable "Remind me daily").
+- **Token Management:** You must store the user's unique Push Token in your database, associated with their User ID, to know where to send the messages.
+
+### Common Mistakes
+- **Notification Fatigue:** Sending generic, daily "We miss you!" messages. This guarantees the user will revoke permissions or uninstall the app.
+- **Broken Certificates:** For iOS, failing to configure the correct APNs certificates or keys in your Apple Developer account, causing silent failures in production.
+- **Ignoring Background State:** Failing to handle what happens when a user taps a notification while the app is completely closed versus running in the background.
+
+### Examples
+- **Transactional:** "Your ride is arriving in 3 minutes." (High value, context-aware).
+- **Engagement:** "User X just liked your post." (Social proof, drives immediate opening).
+
+### AI Prompt
+> "I am using Expo and React Native. Generate the complete code to request push notification permissions gracefully, retrieve the Expo Push Token, and set up listeners for incoming notifications while the app is foregrounded and backgrounded."
+
+### Validation Checklist
+- [ ] APNs and FCM certificates are correctly configured in your provider.
+- [ ] The app successfully requests and retrieves a device push token.
+- [ ] The push token is securely saved to your backend database.
+- [ ] Tapping a test notification successfully opens the app.
+
+### Deliverable
+**File Name:** src/hooks/usePushNotifications.ts
+**Purpose:** Manages the entire lifecycle of push permissions and tokens.
+**Contents:** Hook that registers for push notifications, saves the token, and handles incoming notification events.
+
+### Next Step
+With notifications active, refine your **Frontend (UI)** components to ensure the app looks as good as it functions.`,
+  'statemanagement': `# State Management
+
+🕒 **Estimated Time:** 1-2 hours
+
+### Overview
+State Management is how your app remembers data across different screens. When a user updates their profile on the Settings tab, the Home tab needs to instantly reflect those changes. Without a solid state management strategy, your app will suffer from infinite re-renders, sluggish UI, and complex bugs where the screen doesn't update correctly.
+
+### Think First
+- Does this data need to be available globally, or just on this screen?
+- How often does this data change?
+- Does it need to be persisted when the app closes?
+
+### Key Decisions
+- **Local vs Global State:** Use React useState for UI-only state (e.g., is this dropdown open?). Only use global state (Zustand, Redux) for data that multiple screens care about.
+- **Persistence:** Choose MMKV or AsyncStorage for saving data across app restarts. MMKV is significantly faster.
+- **Server vs Client State:** Use tools like React Query or SWR for server state (data fetched from APIs). Use Zustand/Context for client state (theme, current step in a wizard).
+
+### Common Mistakes
+- **Overusing Global State:** Putting everything in Redux/Zustand. If only one component uses it, keep it local.
+- **Prop Drilling:** Passing state down through 10 layers of components instead of using Context or a state library.
+- **Ignoring Re-renders:** Storing complex, rapidly changing objects in Context can cause your entire app to re-render on every keystroke.
+
+### Examples
+- **User Authentication:** Storing the current logged-in user and their JWT token in a global Zustand store.
+- **Shopping Cart:** Keeping track of selected items and total price across the product, cart, and checkout screens.
+
+### AI Prompt
+> "I am building a React Native app. I need a robust state management setup using Zustand for client state and React Query for server state. Please generate the boilerplate for a Zustand store that handles user session (logged in, user data), and explain how to persist this securely using MMKV."
+
+### Validation Checklist
+- [ ] Global state is used only when data needs to be shared across screens.
+- [ ] Server state (fetching, caching) is separated from client UI state.
+- [ ] Sensitive data is securely persisted (not stored in plain text if it's a token).
+- [ ] State updates do not cause unnecessary full-app re-renders.
+
+### Deliverable
+**File Name:** src/store/useAppStore.ts
+**Purpose:** Centralized state management for global client data.
+**Contents:** A configured Zustand store with actions for updating user sessions and app preferences.
+
+### Next Step
+With state management in place, proceed to implement the **Auth** flows to populate that state with real user data.`,
   'welcome': `# Welcome to Kontxt
 
 **🕒 Estimated Time:** 2 min
@@ -6018,332 +6267,167 @@ Act as a Y Combinator Pitch Coach.
 **Contents:** The timed script and the recorded Loom video link.`,
   'security': `# Security
 
-**🕒 Estimated Time:** 60-90 min
+🕒 **Estimated Time:** 4-6 hours
 
----
+### Overview
+Mobile security is unique because the client (the phone) is in the hands of the attacker. You cannot trust anything coming from the mobile app. A compromised app can be reverse-engineered, its API keys extracted, and its network traffic intercepted. Security must be enforced on the server, not just hidden in the client.
 
-## Overview
-Security is not a feature you add at the end; it is a discipline woven into every line of code. A single vulnerability — an exposed API key, a missing rate limit, an unescaped input — can destroy your business overnight. You do not need to become a penetration tester, but you must understand the most common attack vectors and how to defend against them systematically.
+### Think First
+- Are you storing sensitive data (passwords, JWTs, PII) in plain text on the device?
+- Is your API verifying the identity of the user on *every* request?
+- Have you restricted your API keys to prevent quota theft?
 
----
+### Key Decisions
+- **Token Storage:** Never use AsyncStorage for session tokens. Always use expo-secure-store or the native Keychain/Keystore.
+- **Row Level Security (RLS):** If using Supabase or Firebase, your database *must* have RLS policies active. The mobile app connects directly to the database; without RLS, any user can download your entire user table.
+- **Certificate Pinning (Advanced):** For highly sensitive apps (banking), use SSL pinning to ensure the app only communicates with your specific server, preventing Man-in-the-Middle (MITM) attacks on public WiFi.
 
-## Think First
-Audit your attack surface.
+### Common Mistakes
+- **Hardcoded Secrets:** Putting AWS Secret Keys or Stripe Secret Keys in your React Native .env file. These are bundled into the JavaScript and can be extracted in 5 seconds.
+- **Client-Side Validation Only:** Validating an email address format in the app, but failing to validate it on the backend.
+- **Over-Permissioning:** Requesting access to the user's Camera when the app only needs to upload screenshots from the gallery.
 
-**The Crown Jewels (What is the single most sensitive piece of data in your database? User passwords? Payment info? Medical records? That data requires the highest level of protection.)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Examples
+- **Secure Architecture:** The mobile app stores the JWT in the Secure Enclave. When calling the backend to DELETE /user/123, the backend ignores the 123 in the URL and instead reads the user_id securely from the JWT.
 
-**The Entry Points (List every way an external user can send data into your application: forms, URL parameters, file uploads, API endpoints, webhooks.)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### AI Prompt
+> "I am preparing my React Native app for production. Generate a comprehensive security checklist covering token storage (SecureStore vs AsyncStorage), API key restrictions (Google Maps, Firebase), and how to prevent reverse engineering of my JavaScript bundle. Explain the concept of Row Level Security (RLS) assuming I am using Supabase."
 
----
+### Validation Checklist
+- [ ] No secret API keys (Stripe Secret, AWS Secret) are present in the frontend codebase.
+- [ ] Session tokens are stored using expo-secure-store.
+- [ ] Database queries are protected by Row Level Security.
+- [ ] Public API keys (Google Maps, Sentry) are restricted by bundle identifier/package name.
 
-## Key Decisions
-- **Input Sanitization Strategy:** Every single input — form fields, URL params, file uploads, webhook payloads — is a potential injection vector. You must sanitize and validate *all* inputs on the server, regardless of any client-side validation you've already implemented. Use Zod for structural validation and a library like \`DOMPurify\` for any user-generated HTML content.
-- **Rate Limiting:** Without rate limiting, a single attacker can send 10,000 requests per second to your login endpoint, brute-forcing passwords or crashing your server. Implement rate limiting on every public-facing API endpoint, especially \`/login\`, \`/signup\`, and \`/api/webhook\`.
+### Deliverable
+**File Name:** security_audit.md
+**Purpose:** Documents that all major attack vectors have been mitigated.
+**Contents:** A signed-off checklist confirming token security and key restrictions.
 
----
-
-## Common Mistakes
-- **SQL Injection via Raw Queries:**
-  - *Why it happens:* Writing \`db.query("SELECT * FROM users WHERE id = " + req.params.id)\` instead of using parameterized queries.
-  - *Consequence:* An attacker sends \`id=1; DROP TABLE users;\` and deletes your entire user database.
-  - *Prevention:* Always use parameterized queries or an ORM like Prisma (which parameterizes automatically). Never concatenate user input into SQL strings.
-- **Exposing Stack Traces in Production:**
-  - *Why it happens:* Your error handler returns the full Node.js stack trace in the API response during development, and nobody disables it before deploying.
-  - *Consequence:* The attacker can see your exact file structure, library versions, and database column names.
-  - *Prevention:* In production, return generic error messages and log the real error server-side only.
-- **Missing CORS Configuration:** Leaving CORS wide open (\`Access-Control-Allow-Origin: *\`) allows any website on the internet to make authenticated requests to your API on behalf of your users.
-
----
-
-## Examples
-- *Good Implementation:* All API routes are rate-limited to 100 requests/min per IP. All inputs are validated with Zod. All database queries use Prisma (auto-parameterized). CORS is locked to your exact domain. Environment variables are never exposed to the client bundle.
-- *Bad Implementation:* A public API with no rate limiting, raw SQL queries built from string concatenation, and a \`.env\` file accidentally committed to a public GitHub repo.
-
----
-
-## AI Prompt
-Use AI to perform a security audit on your codebase.
-
-\`\`\`prompt
-I am building a SaaS with [INSERT STACK, e.g., Next.js, Supabase, Prisma].
-
-Act as a Senior Application Security Engineer performing a code review.
-1. List the OWASP Top 10 vulnerabilities and explain which ones are most likely to affect my specific stack.
-2. Write the exact middleware code required to implement rate limiting on my API routes.
-3. Audit my CORS configuration. What should Access-Control-Allow-Origin be set to?
-4. Provide a security checklist I can run before every deployment.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Are all API inputs validated server-side with Zod (or equivalent)?
-- [ ] Is rate limiting enabled on all public endpoints, especially \`/login\` and \`/signup\`?
-- [ ] Have you confirmed that no \`.env\` files or secrets are committed to your Git history?
-- [ ] Is CORS locked to your specific domain, not \`*\`?
-- [ ] Are production error responses generic (no stack traces, no file paths)?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-**File Name:** \`security_checklist.md\`
-**Purpose:** A living document of security controls and their status.
-**Contents:** The complete list of implemented defenses, pending items, and the schedule for periodic security reviews.`,
+### Next Step
+With the app secured against attackers, move on to **Performance Optimization** to ensure it runs smoothly for users.`,
   'performanceoptimization': `# Performance Optimization
 
-**🕒 Estimated Time:** 45-60 min
+🕒 **Estimated Time:** 4-8 hours
 
----
+### Overview
+Users will tolerate a web page taking 3 seconds to load, but a mobile app that stutters or hangs feels instantly broken. Performance optimization in React Native revolves around keeping the JavaScript thread clear so the UI thread can maintain a buttery-smooth 60 frames per second (fps).
 
-## Overview
-Users abandon pages that take longer than 3 seconds to load. Performance optimization is about identifying the bottlenecks — massive JavaScript bundles, unoptimized images, slow database queries, and unnecessary API calls — and surgically eliminating them. The goal is not to optimize everything, but to identify and fix the 2-3 issues responsible for 80% of the slowness.
+### Think First
+- Does your app freeze when scrolling through a long list?
+- Are images taking forever to load or consuming massive amounts of memory?
+- Does the entire app re-render when a single switch is toggled?
 
----
+### Key Decisions
+- **List Rendering:** Never use ScrollView for long lists. Use FlatList, or better yet, Shopify's @shopify/flash-list. FlashList recycles components natively, completely eliminating scroll stutter on complex feeds.
+- **Image Caching:** Do not use the default <Image> component for remote images. Use expo-image. It leverages native caching so images load instantly the second time they are seen.
+- **Animation Execution:** Use react-native-reanimated. Standard animations run on the JS thread, meaning if you fetch data, the animation stutters. Reanimated runs entirely on the native UI thread.
 
-## Think First
-Measure before you optimize.
+### Common Mistakes
+- **Inline Functions:** Writing onPress={() => doSomething()} inside a list item. This creates a new function reference every time the list scrolls, forcing React to re-render every item continuously.
+- **Over-fetching Data:** Downloading a 5MB JSON payload to display a 10-item list. Always paginate API responses.
+- **Console.log in Production:** Leaving heavy console.log() statements in the code. In React Native, console logging across the JS bridge significantly degrades performance.
 
-**The Slowest Page (Which page in your app takes the longest to load? Open your browser DevTools → Network tab and check.)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Examples
+- **The FlashList Upgrade:** Converting a laggy Instagram-style feed from FlatList to FlashList, instantly moving the frame rate from 25fps back up to 60fps.
 
-**The Largest Asset (Open your browser DevTools → Network tab → sort by Size. What is the single largest file being downloaded?)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### AI Prompt
+> "I am optimizing a React Native app. Generate a code snippet demonstrating how to replace a standard React Native FlatList with Shopify's FlashList. Include an 'estimatedItemSize', an optimized renderItem function using 'React.memo', and explain why 'expo-image' is necessary inside the list items."
 
----
+### Validation Checklist
+- [ ] Long lists use FlashList or highly optimized FlatList components.
+- [ ] Remote images use expo-image for aggressive caching.
+- [ ] The app maintains 60fps during rapid scrolling and navigation.
+- [ ] Console logs are stripped out of the production build.
 
-## Key Decisions
-- **Server-Side Rendering (SSR) vs. Client-Side Rendering (CSR):** Pages that must be indexed by Google (Landing pages, Blog) should use SSR or Static Generation (SSG). Authenticated dashboard pages can use CSR since search engines don't need to crawl them.
-- **Image Optimization:** Never serve raw \`.png\` files uploaded by users. Always convert them to \`.webp\` (which is 30-50% smaller), resize them to the exact dimensions needed, and serve them via a CDN.
+### Deliverable
+**File Name:** src/components/OptimizedFeed.tsx
+**Purpose:** Demonstrates high-performance rendering techniques.
+**Contents:** A list component utilizing FlashList and memoization.
 
----
-
-## Common Mistakes
-- **Premature Optimization:**
-  - *Why it happens:* Spending 3 days micro-optimizing a React component that renders in 2ms.
-  - *Consequence:* You waste time on something that has zero user-facing impact while the actual bottleneck goes unnoticed.
-  - *Prevention:* Always profile first. Use Lighthouse, Vercel Analytics, or browser DevTools to find the *actual* bottleneck before writing a single line of optimization code.
-- **Loading Everything Upfront:** Importing a massive charting library on the homepage even though charts are only used on the dashboard.
-
----
-
-## Examples
-- *Good Implementation:* Using \`next/image\` for automatic WebP conversion and lazy loading. Code-splitting the dashboard so the charting library is only downloaded when the user navigates to the Analytics page. Database queries use \`SELECT\` with only the needed columns, not \`SELECT *\`.
-- *Bad Implementation:* A single 2MB JavaScript bundle that downloads entirely before the page renders. All 500 user avatars load simultaneously on page load.
-
----
-
-## AI Prompt
-Use AI to audit and optimize your application performance.
-
-\`\`\`prompt
-My SaaS uses [INSERT STACK, e.g., Next.js, React, Supabase].
-My slowest page is [INSERT PAGE, e.g., /dashboard].
-
-Act as a Principal Performance Engineer.
-1. What are the 5 most common performance bottlenecks for this specific tech stack?
-2. Write the exact code required to implement dynamic imports (code splitting) for heavy components like Charts or Rich Text Editors.
-3. Explain how to set up proper Cache-Control headers to cache static assets on the CDN edge.
-4. What database query optimizations (indexes, pagination, column selection) should I apply?
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Does your Lighthouse Performance score exceed 80 on mobile?
-- [ ] Are images served in WebP format via a CDN, not raw PNGs from your server?
-- [ ] Is your main JavaScript bundle under 200KB (gzipped)?
-- [ ] Are heavy libraries (Charts, Editors) loaded via dynamic imports / code splitting?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-**File Name:** \`performance_audit.md\`
-**Purpose:** Document bottlenecks and the fixes applied.
-**Contents:** Lighthouse scores before/after, the specific optimizations implemented, and the remaining improvement opportunities.`,
+### Next Step
+To know if the app fails in the wild, implement **Crash Reporting**.`,
   'monitoring': `# Monitoring
 
-**🕒 Estimated Time:** 30-45 min
+🕒 **Estimated Time:** 3-5 hours
 
----
+### Overview
+Crash reporting tells you when the app dies. Monitoring tells you when the app is suffering. If your API suddenly takes 4 seconds to respond instead of 200ms, the app won't crash, but users will leave. Monitoring provides a heartbeat for your entire architecture.
 
-## Overview
-Once your SaaS is live, you are flying blind without monitoring. Monitoring is the practice of continuously observing your application's health — uptime, response times, error rates, and resource consumption — in real time. It answers the question: "Is my application working right now?" before a frustrated user has to email you about it.
+### Think First
+- How do you know if your backend API goes down at 3 AM?
+- Are you tracking the latency of your most critical endpoints (e.g., Checkout)?
+- Do you have alerts set up to wake you up if the database CPU hits 100%?
 
----
+### Key Decisions
+- **Uptime Monitoring:** Use a simple service like UptimeRobot or BetterStack to ping your critical backend endpoints every minute. If they fail, it texts you immediately.
+- **Application Performance Monitoring (APM):** Use tools like Datadog, New Relic, or Sentry Performance to trace requests from the mobile app, through the network, into the database.
+- **Real User Monitoring (RUM):** Track how long the app takes to start up (Cold Start Time) and how long critical screens take to render on actual user devices.
 
-## Think First
-Define your health indicators.
+### Common Mistakes
+- **No Alerts:** Setting up beautiful Grafana dashboards but failing to configure Slack/SMS alerts. Dashboards are useless if no one is looking at them.
+- **Alert Fatigue:** Setting alerts too aggressively (e.g., alerting every time a single user has a slow connection). Only alert on system-wide degradation.
+- **Ignoring Database Metrics:** Focusing entirely on API latency but failing to monitor Supabase/PostgreSQL connection limits or storage space.
 
-**The Uptime Target (What percentage of uptime are you promising? 99.9% = 8.7 hours of downtime per year. 99% = 3.6 days.)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Examples
+- **The Slow Query:** Sentry Performance shows that POST /checkout usually takes 300ms, but suddenly spiked to 5 seconds. You trace it down to a missing database index on the orders table.
 
-**The Alert Threshold (At what point should you be woken up at 3 AM? e.g., Error rate > 5%, API response time > 3s, Database CPU > 80%)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### AI Prompt
+> "I am preparing a mobile app and Node.js backend for production. Generate a Monitoring and Alerting strategy. Recommend free or low-cost tools for Uptime Monitoring (pinging the API), and explain what 3 specific metrics I should set SMS alerts for to ensure I am not caught off-guard by an outage."
 
----
+### Validation Checklist
+- [ ] Critical backend APIs are monitored by an external ping service.
+- [ ] Slack or SMS alerts are configured for downtime or severe latency spikes.
+- [ ] Database health metrics (CPU, Memory, Connections) are visible.
+- [ ] App startup time is tracked via Sentry Performance or equivalent.
 
-## Key Decisions
-- **Synthetic Monitoring vs. Real User Monitoring (RUM):**
-  - *Synthetic:* A bot pings your \`/api/health\` endpoint every 60 seconds from 10 global locations. If it doesn't get a \`200 OK\`, you get an alert. Simple and effective.
-  - *RUM:* A JavaScript snippet on every page tracks real users' actual load times and errors. More detailed, but requires more setup.
-  - *Decision:* Start with Synthetic (it's free on most platforms), then add RUM as you scale.
-- **Status Page:** When your app goes down, users need to know you are aware of the issue. A public status page shows current system health and historical uptime.
+### Deliverable
+**File Name:** monitoring_plan.md
+**Purpose:** Defines how the system is observed in production.
+**Contents:** Links to uptime dashboards and the exact thresholds for triggering alerts.
 
----
-
-## Common Mistakes
-- **Alert Fatigue:**
-  - *Why it happens:* Setting alerts for every single minor warning.
-  - *Consequence:* You receive 50 Slack notifications per day, start ignoring them, and miss the critical one when the database actually goes down.
-  - *Prevention:* Only alert on actionable, critical thresholds. Everything else should be a dashboard metric you glance at during business hours.
-- **No Health Check Endpoint:** Your monitoring service has nothing to ping because you never created a \`/api/health\` route.
-
----
-
-## Examples
-- *Good Implementation:* A \`/api/health\` endpoint that queries the database to confirm connectivity and returns \`{ status: "ok", db: "connected" }\`. BetterStack pings it every 60 seconds. If it fails 3 times in a row, you receive an SMS alert.
-- *Bad Implementation:* Discovering your site has been down for 6 hours because a customer tweets about it.
-
----
-
-## AI Prompt
-Use AI to set up production monitoring.
-
-\`\`\`prompt
-My SaaS is deployed on [INSERT PLATFORM, e.g., Vercel].
-My database is [INSERT DB, e.g., Supabase Postgres].
-
-Act as a Site Reliability Engineer (SRE).
-1. Write the code for a robust \`/api/health\` endpoint that checks both the application server and the database connection.
-2. Recommend a monitoring service (free tier) and explain how to configure it to ping this endpoint.
-3. What 3 specific metrics should I set alerts for, and what should their thresholds be?
-4. Should I set up a public Status Page? If yes, which free tool do you recommend?
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Does your application have a \`/api/health\` endpoint that verifies both app and database health?
-- [ ] Is a monitoring service actively pinging your health endpoint at regular intervals?
-- [ ] Will you receive an SMS/Slack/Email alert within 5 minutes if your application goes down?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-**File Name:** \`/api/health.ts\` and monitoring dashboard configuration
-**Purpose:** Detect and respond to outages before your users do.
-**Contents:** The health check endpoint and the external monitoring configuration.`,
+### Next Step
+When an alert fires, you need **Logging** to dig in and find out exactly what happened.`,
   'logging': `# Logging
 
-**🕒 Estimated Time:** 30-45 min
+🕒 **Estimated Time:** 2-4 hours
 
----
+### Overview
+When a bug occurs in production that doesn't trigger a hard crash, logs are your only breadcrumbs. Proper logging allows you to reconstruct the exact sequence of events that a user took, both on their device and on your servers.
 
-## Overview
-When something breaks in production at 2 AM, the only evidence you have is your logs. Logging is the practice of recording structured, searchable records of everything your application does — API requests, database queries, user actions, and errors. Without proper logging, debugging a production bug is like solving a murder mystery with no witnesses.
+### Think First
+- Are your logs easily searchable in a central dashboard?
+- Are you accidentally logging Personally Identifiable Information (PII) like passwords or credit card numbers?
+- Are you logging too much (wasting money) or too little (flying blind)?
 
----
+### Key Decisions
+- **Structured Logging:** Never use console.log("User logged in"). Use structured JSON logging: logger.info({ event: "user_login", userId: 123, status: "success" }). This allows you to filter and query logs in tools like Datadog or AWS CloudWatch.
+- **Log Levels:** Use strict levels. ERROR (wakes someone up), WARN (needs investigation tomorrow), INFO (normal business events), DEBUG (only active in development).
+- **Backend vs Frontend:** Mobile apps should generally *not* send raw logs to a server (it drains battery and data). Rely on Analytics for user behavior, Crashlytics for errors, and reserve heavy logging for your Backend APIs.
 
-## Think First
-Define what is worth recording.
+### Common Mistakes
+- **Logging PII:** The single biggest mistake. Accidentally writing logger.info({ requestBody: req.body }) on a login route, resulting in plaintext user passwords being stored in your logging provider forever.
+- **Silent Swallows:** Catching an error and logging it, but failing to alert anyone. try { doSomething() } catch(e) { console.error(e) }.
 
-**The Critical Events (What events, if they occurred, would you absolutely need a record of? e.g., Failed login attempts, Payment failures, Permission denials)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Examples
+- **The Audit Trail:** A user claims their account was deleted maliciously. Because you implemented structured backend logging, you query userId: 456 AND action: "delete_account" and see exactly which IP address initiated the request at what time.
 
-**The Noise Filter (What events should you explicitly NOT log? e.g., Every single successful health check ping, every static asset request)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### AI Prompt
+> "I am building a Node.js Edge Function backend for my mobile app. Generate a robust, structured logging utility using Pino. Show how to log an incoming API request, how to redact sensitive fields (like 'password' and 'token'), and how to differentiate between INFO, WARN, and ERROR levels."
 
----
+### Validation Checklist
+- [ ] Backend uses structured JSON logging (e.g., Pino or Winston).
+- [ ] PII, passwords, and API keys are strictly redacted from all log outputs.
+- [ ] Logs are centralized in a searchable platform (CloudWatch, Datadog, Supabase Logs).
+- [ ] Production environments only log INFO level and above (no DEBUG spam).
 
-## Key Decisions
-- **Structured Logging vs. console.log:**
-  - *console.log("User created"):* Unstructured. Impossible to search, filter, or analyze at scale.
-  - *Structured: logger.info({ event: "user_created", userId: "abc", plan: "pro" }):* Machine-readable JSON. You can search your logs instantly.
-  - *Decision:* Always use structured logging in production. Use a library like **Pino** (fastest) or **Winston**.
-- **Log Levels:** Not all logs are equal. Use \`DEBUG\` for verbose development info, \`INFO\` for normal operations, \`WARN\` for recoverable issues, and \`ERROR\` for failures that need immediate attention. In production, set the minimum log level to \`INFO\`.
+### Deliverable
+**File Name:** src/utils/logger.ts
+**Purpose:** Standardizes how the application records events.
+**Contents:** A structured logging wrapper with built-in redaction for sensitive data.
 
----
-
-## Common Mistakes
-- **Logging Sensitive Data:**
-  - *Why it happens:* Logging the entire \`req.body\` for debugging, which includes the user's password or API key.
-  - *Consequence:* Your log aggregation service now has a copy of your users' passwords in plain text.
-  - *Prevention:* Create a sanitization utility that strips sensitive fields before logging.
-- **Logging to stdout Only:** \`console.log\` output disappears the moment a serverless function finishes executing. You lose all evidence.
-
----
-
-## Examples
-- *Good Implementation:* Using Pino. Every API request logs \`{ method: "POST", path: "/api/projects", userId: "abc", statusCode: 201, durationMs: 45 }\`. Logs are shipped to a centralized service like Axiom where they can be searched and filtered.
-- *Bad Implementation:* 500 lines of \`console.log("here")\` and \`console.log("it worked!!!")\` scattered across the codebase.
-
----
-
-## AI Prompt
-Use AI to implement structured, production-grade logging.
-
-\`\`\`prompt
-My SaaS is built with [INSERT FRAMEWORK, e.g., Next.js / Express].
-
-Act as a DevOps Engineer specializing in Observability.
-1. Set up a structured logging library (e.g., Pino or Winston) with JSON output.
-2. Write a logging middleware that automatically logs every API request with: method, path, status code, user ID, and response time.
-3. Write a utility function that sanitizes sensitive fields (password, token, secret) before logging.
-4. Recommend a free-tier log aggregation service and explain how to ship logs to it.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Are all logs structured as JSON (not unstructured console.log strings)?
-- [ ] Are sensitive fields (passwords, tokens) explicitly stripped before logging?
-- [ ] Are logs shipped to a centralized, searchable service (not just stdout)?
-- [ ] Can you search your logs by \`userId\` to trace all actions a specific user took?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-**File Name:** \`logger.ts\` and logging middleware
-**Purpose:** Create a searchable audit trail for debugging production issues.
-**Contents:** The structured logging configuration, the request-logging middleware, and the sanitization utility.`,
+### Next Step
+To protect your freshly monitored APIs from abuse, implement **Rate Limiting**.`,
   'errortracking': `# Error Tracking
 
 **🕒 Estimated Time:** 30 min
@@ -6426,85 +6510,44 @@ Act as a Site Reliability Engineer.
 **Contents:** The Sentry initialization, the user context attachment, and the CI/CD integration.`,
   'ratelimiting': `# Rate Limiting
 
-**🕒 Estimated Time:** 30-45 min
+🕒 **Estimated Time:** 2-3 hours
 
----
+### Overview
+If your API is on the internet, someone will try to abuse it. Rate limiting is your shield against brute-force password attacks, malicious scraping, and accidental Denial of Service (DoS) caused by a bug in your own mobile app stuck in an infinite retry loop.
 
-## Overview
-Without rate limiting, your SaaS is an open buffet for bots. A single bad actor can hammer your \`/login\` endpoint 50,000 times per minute to brute-force passwords, spam your \`/api/generate\` endpoint to drain your OpenAI budget, or simply DDoS your server into oblivion. Rate limiting is the bouncer at the door — it counts how many requests each visitor has made and kicks them out when they exceed the limit.
+### Think First
+- What endpoints are the most expensive to run or most vulnerable to attack? (e.g., /login, /send-sms, /checkout).
+- How many requests per minute is reasonable for a normal human user?
+- What should the mobile app display when the rate limit is hit?
 
----
+### Key Decisions
+- **The Infrastructure:** Implement rate limiting at the Edge (Cloudflare, Vercel Edge, Upstash Redis). Do not let malicious requests reach your main database.
+- **Tiered Limits:** Apply different limits to different routes. A user might fetch their feed 50 times a minute, but they should only be allowed to request an SMS OTP 3 times an hour.
+- **Client Handling:** When the server returns a 429 Too Many Requests status code, the mobile app must catch it gracefully and show a friendly message ("You're doing that too fast, please wait a minute"), rather than crashing or showing a blank screen.
 
-## Think First
-Identify your most abusable endpoints.
+### Common Mistakes
+- **IP-Based Limiting on Mobile:** Mobile devices frequently change IP addresses (moving from WiFi to 5G), and many users on a corporate network share the same IP. Rate limit based on user_id or an API token whenever possible, falling back to IP only for unauthenticated routes.
+- **Missing Auth Limits:** Failing to strictly rate-limit the /login or /reset-password routes, allowing attackers to brute-force passwords indefinitely.
 
-**The Expensive Endpoints (Which API routes cost you real money per request? e.g., AI generation, email sending, file uploads)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Examples
+- **The Infinite Loop Bug:** You accidentally ship a useEffect missing a dependency array. The app starts calling GET /profile 100 times a second. Because you have Upstash Rate Limiting configured to 60 req/min, your database survives the onslaught.
 
-**The Sensitive Endpoints (Which routes are prime targets for automated attacks? e.g., \`/login\`, \`/signup\`, \`/forgot-password\`)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### AI Prompt
+> "I am using Next.js/Vercel (or Supabase Edge Functions) as the backend for my mobile app. Generate a rate limiting middleware using Upstash Redis. It should limit the '/send-sms' route to 3 requests per hour per IP address, and return a clean 429 JSON response. Also, provide the React Query code for the mobile app to handle this 429 gracefully."
 
----
+### Validation Checklist
+- [ ] Authentication and OTP routes are strictly rate-limited to prevent brute-forcing.
+- [ ] Global rate limiting protects the database from runaway client loops.
+- [ ] Mobile app intercepts HTTP 429 errors and displays a user-friendly message.
+- [ ] Rate limit headers (X-RateLimit-Remaining) are returned to the client.
 
-## Key Decisions
-- **IP-Based vs. User-Based Rate Limiting:**
-  - *IP-Based:* Limits requests per IP address. Simple but can accidentally block all users behind a shared corporate VPN.
-  - *User-Based:* Limits requests per authenticated user ID. More accurate but requires the user to be logged in first.
-  - *Decision:* Use IP-based for unauthenticated routes and User-based for authenticated routes.
-- **Fixed Window vs. Sliding Window:** A "Fixed Window" resets the counter every minute on the clock. A "Sliding Window" counts the last 60 seconds from *now*, providing smoother throttling.
+### Deliverable
+**File Name:** supabase/functions/_shared/rateLimiter.ts
+**Purpose:** Protects backend infrastructure from abuse and bugs.
+**Contents:** Edge middleware utilizing Redis to track and block excessive requests.
 
----
-
-## Common Mistakes
-- **Only Rate Limiting the Frontend:**
-  - *Why it happens:* Disabling the "Submit" button in React after 5 clicks and calling it "rate limiting."
-  - *Consequence:* An attacker bypasses the UI entirely using \`curl\` and sends 10,000 requests directly to your API.
-  - *Prevention:* Rate limiting MUST be enforced on the server/edge, never on the client.
-- **Returning Unhelpful Errors:** Returning a generic \`500 Internal Server Error\` when a user is rate-limited. They have no idea what happened.
-
----
-
-## Examples
-- *Good Implementation:* Using \`upstash/ratelimit\` with a Redis backend. The \`/api/generate\` endpoint allows 10 requests per minute per user. When exceeded, it returns \`429 Too Many Requests\` with a \`Retry-After: 30\` header.
-- *Bad Implementation:* No rate limiting at all. A competitor writes a script that creates 10,000 fake accounts on your platform overnight.
-
----
-
-## AI Prompt
-\`\`\`prompt
-My SaaS is built with [INSERT FRAMEWORK, e.g., Next.js App Router].
-I need to rate limit the following endpoints: [INSERT ENDPOINTS].
-
-Act as a Security Infrastructure Engineer.
-1. Write the exact middleware code to implement rate limiting using [INSERT TOOL, e.g., Upstash Ratelimit / express-rate-limit].
-2. Use IP-based limiting for unauthenticated routes and User ID-based limiting for authenticated routes.
-3. Return a proper 429 Too Many Requests response with a Retry-After header.
-4. Explain how to use Redis as the backing store for the rate limit counters.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Is rate limiting enforced server-side (not just a disabled button in the UI)?
-- [ ] Do rate-limited responses return HTTP \`429\` with a \`Retry-After\` header?
-- [ ] Are expensive endpoints (AI, email) rate-limited per authenticated user?
-- [ ] Are public endpoints (\`/login\`, \`/signup\`) rate-limited per IP address?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-**File Name:** \`ratelimit.ts\` middleware
-**Purpose:** Protect your server and budget from abuse.
-**Contents:** The rate limiting middleware, the Redis/Upstash configuration, and the per-route limit definitions.`,
+### Next Step
+With the infrastructure protected, secure your data against catastrophic loss via **Backups**.`,
   'caching': `# Caching
 
 **🕒 Estimated Time:** 30-45 min
@@ -6586,249 +6629,126 @@ Act as a Performance & Caching Expert.
 **Contents:** A table mapping each route/asset type to its caching strategy and TTL.`,
   'backups': `# Backups
 
-**🕒 Estimated Time:** 30 min
+🕒 **Estimated Time:** 1-2 hours
 
----
+### Overview
+There are two types of developers: those who have accidentally dropped a production database, and those who will. If a rogue script deletes all your users, or a cloud provider region goes offline, your backup strategy is the only thing standing between a minor inconvenience and the death of your company.
 
-## Overview
-Databases fail. Disks corrupt. Developers accidentally run \`DELETE FROM users WHERE 1=1;\` at 11 PM on a Friday. Without backups, your entire business — every user account, every transaction, every piece of content — is gone permanently. Backups are not optional; they are the insurance policy that keeps your SaaS alive when everything else burns.
+### Think First
+- If your database is destroyed right now, how much data are you willing to lose? (1 hour? 24 hours?)
+- Do you know *how* to restore the backup, or have you just assumed the automated system works?
+- Are your backups stored in the same region/provider as your primary database?
 
----
+### Key Decisions
+- **Point-in-Time Recovery (PITR):** Modern databases (Supabase, AWS RDS) offer PITR. This is essential. It allows you to restore the database to the exact millisecond before a catastrophic deletion occurred, rather than relying on a 24-hour old snapshot.
+- **Geographic Redundancy:** Storing your database in AWS us-east-1, and your backups in AWS us-east-1, is a bad idea. Replicate or copy backups to a different geographic region.
+- **Routine Testing:** A backup doesn't exist until you have successfully restored it. You must practice restoring the database to a staging environment to prove the backups are valid.
 
-## Think First
-Define your recovery requirements.
+### Common Mistakes
+- **Relying Solely on Snapshots:** Daily snapshots mean if the database dies at 11:59 PM, you lose an entire day's worth of user data and transactions. Use continuous archiving (PITR).
+- **Forgetting File Storage:** Backing up the PostgreSQL database but forgetting to back up the S3/Supabase Storage buckets containing user profile pictures and uploaded documents.
+- **Hardcoding IDs:** Writing code that relies on a specific row having id: 1. When you restore a backup, sequence IDs might shift, breaking your app.
 
-**The RPO (Recovery Point Objective): How much data can you afford to lose? e.g., "We can tolerate losing the last 1 hour of data, but not 24 hours."**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Examples
+- **The "Oops" Moment:** An engineer runs DELETE FROM users instead of DELETE FROM users WHERE test = true. Because PITR is enabled, you simply rewind the database 5 minutes and the company is saved.
 
-**The RTO (Recovery Time Objective): How quickly must the system be back online after a failure?**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### AI Prompt
+> "I am launching a production app using Supabase. Generate a disaster recovery checklist. Explain exactly how to enable Point-in-Time Recovery (PITR), how to routinely test a restore operation without impacting the production database, and how to ensure my Supabase Storage buckets are also backed up."
 
----
+### Validation Checklist
+- [ ] Point-in-Time Recovery (PITR) is enabled on the primary database.
+- [ ] Daily or weekly snapshots are configured and retained for at least 30 days.
+- [ ] Media/File storage buckets are included in the backup strategy.
+- [ ] A test restoration has been successfully performed.
 
-## Key Decisions
-- **Managed vs. Manual Backups:**
-  - *Managed (Supabase, AWS RDS):* Your database provider automatically takes daily snapshots and retains them for 7-30 days. You don't write any code.
-  - *Manual (pg_dump):* You write a cron job that runs \`pg_dump\` every 6 hours and uploads the SQL file to a separate cloud storage bucket.
-  - *Decision:* Always enable managed backups. Add manual backups as an extra safety layer for critical production data.
-- **Point-in-Time Recovery (PITR):** Some providers offer PITR, which lets you restore your database to any second in the past. This is the gold standard.
+### Deliverable
+**File Name:** disaster_recovery.md
+**Purpose:** A playbook for worst-case scenarios.
+**Contents:** Step-by-step instructions on how to restore the database from a backup during an emergency.
 
----
-
-## Common Mistakes
-- **Never Testing Restores:**
-  - *Why it happens:* You enabled automated backups 6 months ago and assumed they work.
-  - *Consequence:* When disaster strikes, you discover the backups were silently failing or the restore takes 12 hours.
-  - *Prevention:* Schedule a quarterly "Disaster Recovery Drill." Actually restore a backup to a test database.
-- **Storing Backups in the Same Region:** If your database is in \`us-east-1\` and your backups are also in \`us-east-1\`, a regional outage destroys both simultaneously.
-
----
-
-## Examples
-- *Good Implementation:* Supabase daily backups enabled (managed). A cron job runs \`pg_dump\` every 6 hours and uploads to a separate AWS S3 bucket in a different region. The team tests a restore every quarter.
-- *Bad Implementation:* No backups configured. The founder's laptop is the only copy of the SQLite database.
-
----
-
-## AI Prompt
-\`\`\`prompt
-My database is [INSERT DB, e.g., Supabase Postgres / AWS RDS].
-
-Act as a Database Administrator focused on Disaster Recovery.
-1. Confirm whether my provider offers automated backups and PITR. Explain how to enable them.
-2. Write a cron job script that runs pg_dump, compresses the output, and uploads it to a cloud storage bucket every 6 hours.
-3. Write the exact commands required to restore the database from a backup file.
-4. Design a quarterly "Disaster Recovery Test" checklist I can follow.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Are automated daily backups enabled on your database provider?
-- [ ] Is PITR (Point-in-Time Recovery) enabled if your plan supports it?
-- [ ] Are backups stored in a separate region or cloud provider from your primary database?
-- [ ] Have you actually tested restoring from a backup at least once?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-**File Name:** \`backup_strategy.md\`
-**Purpose:** Ensure your business can survive catastrophic data loss.
-**Contents:** The backup schedule, storage locations, retention policy, and the disaster recovery test plan.`,
+### Next Step
+With data secured, automate your deployment pipelines using **CI/CD**.`,
   'cicd': `# CI/CD
 
-**🕒 Estimated Time:** 45-60 min
+🕒 **Estimated Time:** 4-8 hours
 
----
+### Overview
+Continuous Integration and Continuous Deployment (CI/CD) automates the boring, error-prone tasks of mobile development. Instead of manually building an APK/IPA on your laptop and uploading it to the stores, you push code to GitHub, and the robots take over—running tests, building the app in the cloud, and submitting it to TestFlight or the Play Store.
 
-## Overview
-CI/CD (Continuous Integration / Continuous Deployment) automates the process of testing and deploying your code. Without CI/CD, your deployment process is: SSH into a server, run \`git pull\`, pray nothing breaks. With CI/CD, every \`git push\` to \`main\` automatically runs your tests, builds the application, and deploys it to production — with zero human intervention and zero downtime.
+### Think First
+- Are you currently wasting hours staring at Xcode while your app builds?
+- How do you guarantee that broken code doesn't accidentally get merged into the main branch?
+- Do you need to manage different environments (Development, Staging, Production)?
 
----
+### Key Decisions
+- **The Build Platform:** Expo Application Services (EAS) is the undisputed king for React Native CI/CD. It handles the nightmare of iOS certificates and Android Keystores automatically. Do not try to build iOS apps on GitHub Actions manually; use EAS Build.
+- **Over-The-Air (OTA) Updates:** Use Expo Updates to push JavaScript changes directly to users' phones instantly, completely bypassing the grueling 2-day App Store review process for minor bug fixes.
+- **Pull Request Checks:** Configure GitHub Actions to automatically run Prettier, ESLint, and Jest on every Pull Request. Block merging unless all tests pass.
 
-## Think First
-Define your deployment pipeline.
+### Common Mistakes
+- **Building Locally for Prod:** Building the production release on a developer's laptop. It guarantees that "it works on my machine" bugs will make it to production. Always build in a pristine cloud environment.
+- **Losing the Keystore:** For Android, if you lose the .jks Keystore file and its password, you can *never* update your app on the Play Store again. Let EAS manage your credentials securely.
 
-**The Trigger (When should a deployment happen? On every push to main? Only when a Pull Request is merged? Only when a Git tag is created?)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Examples
+- **The Automated Pipeline:** You push to main. GitHub Actions runs tests. It triggers EAS Build. EAS provisions a Mac, builds the iOS .ipa, signs it with Apple, and automatically submits it to TestFlight. You do nothing but write code.
 
-**The Checks (What must pass before the code reaches production? e.g., TypeScript compilation, Lint checks, E2E tests, Build success)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### AI Prompt
+> "I am setting up CI/CD for my Expo React Native app. Generate an eas.json configuration file with three profiles: 'development', 'preview', and 'production'. Also, generate a GitHub Actions workflow (.github/workflows/build.yml) that runs type-checking and tests on every PR, and triggers an EAS Build when code is merged to main."
 
----
+### Validation Checklist
+- [ ] Code is formatted and linted automatically via Git Hooks (Husky) or CI.
+- [ ] Automated tests run and must pass before code can be merged to main.
+- [ ] Production builds are executed on cloud infrastructure (EAS), not local laptops.
+- [ ] Over-The-Air (OTA) updates are configured for rapid hotfixes.
 
-## Key Decisions
-- **Platform-Managed vs. Custom Pipelines:**
-  - *Platform-Managed (Vercel, Netlify):* Every push to \`main\` automatically builds and deploys. Zero configuration required.
-  - *Custom (GitHub Actions):* You write a YAML file that defines each step. More complex but gives you complete control.
-  - *Decision:* Use platform-managed deployments for the app itself. Use GitHub Actions for running tests and quality gates.
-- **Preview Deployments:** Every Pull Request should generate a unique, temporary URL where you can preview the changes before merging to \`main\`.
+### Deliverable
+**File Name:** eas.json & .github/workflows/main.yml
+**Purpose:** Automates testing and deployment.
+**Contents:** Configuration files for Expo Application Services and GitHub Actions.
 
----
-
-## Common Mistakes
-- **"It works on my machine":**
-  - *Why it happens:* Your local Node.js version is 20, but the CI server runs Node 18.
-  - *Consequence:* Deployments fail randomly and nobody knows why.
-  - *Prevention:* Pin your Node version in \`.nvmrc\` or \`package.json engines\`, and ensure your CI pipeline uses the same version.
-- **No Branch Protection:** Allowing direct pushes to \`main\` without requiring a passing CI check first. A single typo deploys broken code to production.
-
----
-
-## Examples
-- *Good Implementation:* GitHub branch protection requires all checks to pass before merging to \`main\`. A GitHub Actions workflow runs: TypeScript compilation -> ESLint -> Playwright E2E tests -> Build. If any step fails, the merge is blocked. On successful merge, Vercel automatically deploys.
-- *Bad Implementation:* FTP-ing files directly to a production server. No tests, no build step, no rollback capability.
-
----
-
-## AI Prompt
-\`\`\`prompt
-My SaaS is built with [INSERT FRAMEWORK, e.g., Next.js].
-I deploy on [INSERT PLATFORM, e.g., Vercel].
-I want to use GitHub Actions for CI.
-
-Act as a DevOps Engineer.
-1. Write the complete .github/workflows/ci.yml file.
-2. The pipeline should: Install dependencies, run TypeScript type checking, run ESLint, run Playwright E2E tests, and build the project.
-3. This workflow should run on every Pull Request to main.
-4. Explain how to set up GitHub Branch Protection rules so that PRs cannot be merged unless this CI workflow passes.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Does every push or Pull Request trigger an automated CI pipeline?
-- [ ] Does the pipeline include type checking, linting, and at least one E2E test?
-- [ ] Is the \`main\` branch protected so that code cannot be merged without passing CI?
-- [ ] Do Pull Requests generate Preview Deployments for easy review?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-**File Name:** \`.github/workflows/ci.yml\`
-**Purpose:** Automate quality gates and eliminate manual deployments.
-**Contents:** The complete GitHub Actions workflow and the branch protection configuration.`,
+### Next Step
+Review your backend **Infrastructure** to ensure it's ready for the public.`,
   'infrastructure': `# Infrastructure
 
-**🕒 Estimated Time:** 45-60 min
+🕒 **Estimated Time:** 2-4 hours
 
----
+### Overview
+Infrastructure is the invisible plumbing that powers your app. Choosing the right infrastructure determines whether your app can handle going viral, how much it costs to run, and how much time you spend doing DevOps instead of building features.
 
-## Overview
-Infrastructure is the physical (or virtual) foundation your code runs on. Choosing the wrong hosting setup is like building a skyscraper on sand — it works until it doesn't. For most SaaS MVPs, the goal is to pick the simplest infrastructure that removes operational burden so you can focus on building the product, not babysitting servers at 3 AM.
+### Think First
+- Are you going to manage servers (EC2/DigitalOcean), or use Serverless platforms (Vercel/Supabase)?
+- Where are your users geographically located? (Latency matters).
+- Do you have separate environments for Staging and Production?
 
----
+### Key Decisions
+- **Serverless First:** Unless you have a massive, sustained workload or strict compliance requirements, use Serverless architectures (Supabase Edge Functions, Vercel, AWS Lambda). You pay zero when traffic is zero, and it scales infinitely when you go viral. No Linux patching required.
+- **Environment Isolation:** Never use your production database for testing. You MUST have separate Supabase projects for Development (local), Staging (testing with stakeholders), and Production (real users).
+- **Infrastructure as Code (IaC):** While not strictly required for an MVP, defining your infrastructure in code (e.g., Supabase Migrations, Terraform) ensures that your Staging environment is an exact replica of Production.
 
-## Think First
-Define your operational tolerance.
+### Common Mistakes
+- **Single Point of Failure:** Hosting your database, backend, and file storage on a single $5/month DigitalOcean droplet. When that droplet restarts, the entire business goes offline.
+- **Cross-Region Latency:** Putting your database in Frankfurt and your Edge Functions in Virginia. The mobile app will feel incredibly slow as data travels across the Atlantic on every API call. Keep compute and databases in the same region.
+- **Missing Staging Environment:** Pushing code directly to Production because "it worked on my localhost," only to realize the production database has a different schema.
 
-**The DevOps Budget (How many hours per week are you willing to spend managing servers, containers, and deployments? Be honest.)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Examples
+- **The Modern Stack:** The React Native app talks to Supabase Edge Functions (deployed globally via Deno). The functions query a PostgreSQL database hosted securely in AWS us-east-1. Media is stored in S3-compatible Supabase Storage.
 
-**The Traffic Profile (Is your app read-heavy or write-heavy? Does it serve mostly static content, or does every request trigger complex server-side computation?)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### AI Prompt
+> "I am launching a mobile app using React Native and Supabase. Generate an infrastructure overview outlining how to structure my environments (Local, Staging, Production). Explain how to use Supabase CLI migrations to ensure schema changes made in Local are safely promoted to Staging and Production without manual clicking in the dashboard."
 
----
+### Validation Checklist
+- [ ] Staging and Production environments are completely isolated (different databases, different API keys).
+- [ ] Compute (Backend) and Storage (Database) are located in the same geographic region to minimize latency.
+- [ ] Database schemas are managed via code/migrations, not manual UI clicks.
+- [ ] Serverless architectures are utilized to minimize DevOps overhead.
 
-## Key Decisions
-- **Serverless vs. Containers vs. VPS:**
-  - *Serverless (Vercel, AWS Lambda):* Zero server management. Scales to zero (costs $0 when nobody is using it). Perfect for SaaS MVPs. Downside: cold starts, execution time limits, and vendor lock-in.
-  - *Containers (Docker on Render, Railway, Fly.io):* You package your app into a Docker container that runs continuously. Predictable performance, no cold starts, but you pay even when idle.
-  - *VPS (DigitalOcean Droplet, Hetzner):* You rent a raw Linux server and manage everything yourself. Maximum control, minimum cost, maximum operational burden.
-  - *Decision:* If you have zero DevOps experience, start with Serverless (Vercel). If you need long-running processes (WebSockets, cron jobs), use Containers (Render/Railway).
-- **Multi-Region vs. Single Region:** Deploying your app in a single region is fine for an MVP. Multi-region deployments reduce latency for global users but massively increase complexity and cost.
+### Deliverable
+**File Name:** supabase/migrations/
+**Purpose:** Defines your infrastructure and schema as version-controlled code.
+**Contents:** SQL files representing the exact state of the production database.
 
----
-
-## Common Mistakes
-- **Over-Engineering from Day 1:**
-  - *Why it happens:* Reading blog posts about how Netflix runs Kubernetes clusters across 12 availability zones.
-  - *Consequence:* You spend 3 weeks setting up Terraform, Docker Compose, Kubernetes, and a CI/CD pipeline before writing a single line of product code.
-  - *Prevention:* Deploy on a managed platform first. Migrate to more complex infrastructure only when you hit a specific, measurable limitation.
-- **Not Pinning Runtime Versions:** Your app runs on Node 20 locally but the production environment defaults to Node 18. Subtle bugs appear only in production.
-
----
-
-## Examples
-- *Good Implementation:* Frontend and API deployed on Vercel (zero config). Database on Supabase (managed Postgres). Background jobs on a single Render worker. Total monthly cost at launch: $0-$25.
-- *Bad Implementation:* Renting 3 bare-metal servers, manually installing Nginx, configuring SSL with Let's Encrypt, writing custom systemd services, and SSHing into production to deploy via \`git pull\`.
-
----
-
-## AI Prompt
-\`\`\`prompt
-My SaaS is built with [INSERT STACK, e.g., Next.js, Supabase].
-My expected traffic at launch is [INSERT ESTIMATE, e.g., 100-500 users/day].
-My budget for infrastructure is [INSERT BUDGET, e.g., $0-$50/month].
-
-Act as a Cloud Infrastructure Architect.
-1. Recommend the exact hosting platform for my frontend, backend, and database.
-2. Should I use Serverless, Containers, or a VPS for this specific workload and budget?
-3. What region should I deploy in based on my target user geography?
-4. Write the exact deployment configuration files needed.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Is your hosting platform fully managed (no manual server maintenance required)?
-- [ ] Is SSL/HTTPS configured automatically by the platform?
-- [ ] Have you pinned your Node.js (or runtime) version in both your project config and the hosting platform?
-- [ ] Can you deploy a new version of your app with a single \`git push\`?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-**File Name:** \`infrastructure.md\`
-**Purpose:** Document where everything runs and why.
-**Contents:** A map of services (Frontend, Backend, DB, Workers) to their hosting platforms, regions, and estimated costs.`,
+### Next Step
+With the backend solid, focus on the mobile client by performing **App Size Optimization**.`,
   'disasterrecovery': `# Disaster Recovery
 
 **🕒 Estimated Time:** 45 min
@@ -12318,4 +12238,45 @@ Paste your Monthly Cost Estimate and your critical Billing Alerts strategy here.
 ✍️ Type your answer here...
 \`\`\`
 `,
+  'scalability': `# Scalability
+
+🕒 **Estimated Time:** 3-6 hours
+
+### Overview
+Going viral is the dream, until your database crashes, your users get 500 errors, and the opportunity is lost forever. Scalability isn't just about handling more traffic; it's about handling it elegantly without your costs exploding. A production-ready app must be architected to scale horizontally.
+
+### Think First
+- What breaks first if 10,000 users sign up in the next hour? (Usually the database).
+- Are you serving static assets directly from your server instead of a CDN?
+- Do you have unindexed database queries that will grind to a halt when the table hits 1 million rows?
+
+### Key Decisions
+- **Database Indexes:** The #1 cause of scaling failure. If you query SELECT * FROM users WHERE email = 'x', and the email column isn't indexed, the database scans every single row. With 10 users, it's instant. With 1 million users, it takes 5 seconds and crashes the server. Always index columns used in WHERE or JOIN clauses.
+- **Connection Pooling:** Serverless functions scale infinitely (spinning up 1,000 instances instantly). If all 1,000 instances open a direct connection to your PostgreSQL database, the database will immediately run out of connections and crash. You MUST use a connection pooler (like Supavisor or PgBouncer).
+- **Caching:** Never hit the database for data that rarely changes (like a list of supported countries). Cache it at the Edge using Redis or a CDN so the database doesn't even feel the traffic.
+
+### Common Mistakes
+- **Vertical Scaling Only:** Throwing money at the problem by just upgrading to a bigger database server. Eventually, you run out of bigger servers. You must optimize queries and cache data.
+- **N+1 Query Problem:** Fetching a list of 100 posts, then making 100 separate API/Database calls to fetch the author for each post. Always use SQL JOINs to fetch everything in a single query.
+- **Storing Large Blobs in DB:** Saving base64 images directly in PostgreSQL. It bloats the database size, kills memory, and ruins backup times. Use S3/Supabase Storage.
+
+### Examples
+- **The Viral Launch:** A TikTok video goes viral. 50,000 users download the app. Because the backend uses Supabase Edge Functions (auto-scaling) and Supavisor (connection pooling), the database handles the load smoothly, and the developer sleeps through the night.
+
+### AI Prompt
+> "I am preparing my Supabase backend and React Native app for a massive launch. Explain the concept of Database Connection Pooling and why it is critical for Serverless architectures. Provide an SQL snippet to add an index to a frequently queried 'username' column, and explain how to identify the 'N+1 query problem' in my API routes."
+
+### Validation Checklist
+- [ ] Indexes are applied to all frequently queried database columns.
+- [ ] A Connection Pooler is sitting in front of the PostgreSQL database.
+- [ ] Static assets and heavy media are served via a global CDN.
+- [ ] Serverless Edge Functions are utilized to handle sudden traffic spikes automatically.
+
+### Deliverable
+**File Name:** supabase/migrations/02_add_indexes.sql
+**Purpose:** Prepares the database for high concurrency and massive data volume.
+**Contents:** SQL commands adding performance indexes to critical tables.
+
+### Next Step
+Your app is fully production-ready, secure, performant, and scalable! You are ready to move to **Phase 5: Store Deployment**.`,
 };

@@ -58,6 +58,10 @@ Generate sidebar content. The sidebar should NEVER be empty. Choose the most rel
 - **Prefer**: Decision-making, practical examples, real-world tradeoffs, actionable guidance.
 - *Every section must answer:* "How does this help me build better software?"
 
+## Agent Execution Rules
+- **Leverage Unfair Advantages:** Actively use all available tools, including MCP (Model Context Protocol) servers, search, and specialized plugins, to provide the best possible implementation and gather context.
+- **Token Efficiency vs. Quality:** Strive to be token-efficient (be concise, avoid massive unrelated diffs), but **NEVER** even slightly sacrifice quality, correctness, or completeness for the sake of token efficiency. Quality and thoroughness are always the highest priority.
+
 ## Output Format
 When generating topics, return the information cleanly so it feels like a premium software product, not a generated article:
 1. Main Topic Content

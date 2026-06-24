@@ -37,6 +37,70 @@ export const universalLinks: QuickLink[] = [
 export const generateId = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '');
 
 export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
+  'mobilepayments': [
+    { name: 'Stripe React Native SDK', url: 'https://docs.stripe.com/payments/accept-a-payment?platform=react-native' },
+    { name: 'RevenueCat (In-App Purchases)', url: 'https://www.revenuecat.com/docs/getting-started/installation/react-native' }
+  ],
+  'mediauploads': [
+    { name: 'Expo Image Picker', url: 'https://docs.expo.dev/versions/latest/sdk/imagepicker/' },
+    { name: 'Supabase Storage', url: 'https://supabase.com/docs/guides/storage' }
+  ],
+  'mapslocation': [
+    { name: 'React Native Maps', url: 'https://github.com/react-native-maps/react-native-maps' },
+    { name: 'Expo Location', url: 'https://docs.expo.dev/versions/latest/sdk/location/' }
+  ],
+  'devicepermissions': [
+    { name: 'React Native Permissions', url: 'https://github.com/zoontek/react-native-permissions' },
+    { name: 'Expo App Tracking Transparency', url: 'https://docs.expo.dev/versions/latest/sdk/tracking-transparency/' }
+  ],
+  'offlinefeatures': [
+    { name: 'WatermelonDB (Offline-First)', url: 'https://watermelondb.dev/' },
+    { name: 'React Native NetInfo', url: 'https://github.com/react-native-netinfo/react-native-netinfo' }
+  ],
+  'analyticsevents': [
+    { name: 'PostHog React Native', url: 'https://posthog.com/docs/libraries/react-native' },
+    { name: 'Amplitude', url: 'https://amplitude.com/docs/sdks/analytics/react-native' }
+  ],
+  'errorhandling': [
+    { name: 'Sentry Crash Reporting', url: 'https://docs.sentry.io/platforms/react-native/' },
+    { name: 'React Error Boundaries', url: 'https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary' }
+  ],
+  'mobiletesting': [
+    { name: 'Jest React Native', url: 'https://reactnative.dev/docs/testing-overview' },
+    { name: 'Detox (E2E Testing)', url: 'https://wix.github.io/Detox/' }
+  ],
+  'statemanagement': [
+    { name: 'Zustand Documentation', url: 'https://zustand-demo.pmnd.rs/' },
+    { name: 'React Native MMKV', url: 'https://github.com/mrousavy/react-native-mmkv' }
+  ],
+  'mobileauth': [
+    { name: 'Supabase Auth Docs', url: 'https://supabase.com/docs/guides/auth' },
+    { name: 'Expo SecureStore', url: 'https://docs.expo.dev/versions/latest/sdk/securestore/' }
+  ],
+  'mobiledatabaseimplementation': [
+    { name: 'WatermelonDB', url: 'https://nozbe.github.io/WatermelonDB/' },
+    { name: 'Supabase PostgreSQL', url: 'https://supabase.com/docs/guides/database' }
+  ],
+  'mobilebackendimplementation': [
+    { name: 'Supabase Edge Functions', url: 'https://supabase.com/docs/guides/functions' },
+    { name: 'Vercel Serverless Functions', url: 'https://vercel.com/docs/functions' }
+  ],
+  'pushnotifications': [
+    { name: 'Expo Push Notifications', url: 'https://docs.expo.dev/push-notifications/overview/' },
+    { name: 'OneSignal React Native', url: 'https://documentation.onesignal.com/docs/react-native-sdk-setup' }
+  ],
+  'frontendui': [
+    { name: 'Restyle', url: 'https://shopify.github.io/restyle/' },
+    { name: 'React Native Paper', url: 'https://callstack.github.io/react-native-paper/' }
+  ],
+  'navigation': [
+    { name: 'Expo Router', url: 'https://docs.expo.dev/router/introduction/' },
+    { name: 'React Navigation', url: 'https://reactnavigation.org/' }
+  ],
+  'apis': [
+    { name: 'React Query (TanStack)', url: 'https://tanstack.com/query/latest' },
+    { name: 'Axios Documentation', url: 'https://axios-http.com/docs/intro' }
+  ],
   'welcome': [
     { name: 'Guide: How to build with AI', url: 'https://github.com/notUbaid/Kontxt' },
     { name: 'Tool: Antigravity IDE', url: 'https://deepmind.google/technologies/gemini/' },
@@ -492,3 +556,5 @@ export const createTopic = (name: string, icon: any, customLinks: QuickLink[] = 
     quickLinks: [...(globalTopicLinks[id] || []), ...customLinks]
   };
 };
+
+
