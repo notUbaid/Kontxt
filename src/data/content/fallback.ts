@@ -1,4 +1,584 @@
 export const fallbackContent: Record<string, string> = {
+  'referral-programs': `# Referral Programs
+
+**🕒 Estimated Time:** Ongoing
+
+Leverage your existing user base to acquire new users organically.
+
+### Program Design
+1. **Incentives:** Offer a compelling two-sided reward (e.g., "Give $10, Get $10", or unlock a premium feature).
+2. **Frictionless Sharing:** Use the native Share API (`Share` in React Native) to easily send personalized referral links via WhatsApp, SMS, or Twitter.
+3. **Deep Linking:** Ensure the referral link opens the app directly to a welcoming screen that automatically applies the promo code.
+
+```input
+What is the primary incentive for a user to invite a friend, and how does the referred friend benefit?
+```
+
+```prompt
+Design a database schema and API flow for tracking a two-sided referral program where both the inviter and invitee receive a premium account credit.
+````,
+  'reviews-ratings': `# Reviews & Ratings
+
+**🕒 Estimated Time:** Ongoing
+
+Boost your App Store ranking by strategically prompting happy users for reviews.
+
+### The Strategy
+1. **Timing is Everything:** Never ask for a review when the app launches or crashes. Ask immediately after a positive moment (e.g., after they complete a task or make a purchase).
+2. **The Pre-Prompt:** Show a custom popup: "Are you enjoying the app?". If yes -> trigger native OS review prompt. If no -> redirect to an internal feedback form.
+3. **Native APIs:** Use `StoreReview` from Expo or `react-native-store-review` to show the native rating dialog without leaving the app.
+
+```input
+Identify the absolute best "positive moment" in your app's user flow to trigger a review request.
+```
+
+```prompt
+Write a React Native function that implements a two-step review prompt strategy, ensuring the native review dialog is only shown to satisfied users.
+````,
+  'user-feedback': `# User Feedback Loop
+
+**🕒 Estimated Time:** Ongoing
+
+Establish channels to listen to your users and iterate the product based on their needs.
+
+### Implementation
+1. **In-App Feedback:** Integrate a subtle "Send Feedback" button in settings or after key milestones.
+2. **Community:** Build a Discord, Subreddit, or Facebook Group for your most passionate users.
+3. **Surveys:** Trigger short, one-question NPS surveys to active users after 30 days.
+
+```input
+How will you categorize and prioritize feature requests vs bug reports coming from users?
+```
+
+```prompt
+Write a standard operating procedure (SOP) for triaging user feedback received through an in-app support channel.
+````,
+  'notifications-strategy': `# Notifications Strategy
+
+**🕒 Estimated Time:** Ongoing
+
+Optimize push notifications to drive engagement without causing churn.
+
+### Best Practices
+1. **Personalization:** "John liked your photo" performs drastically better than "Someone interacted with your profile."
+2. **Timing:** Send notifications in the user's local timezone at a time they are historically active.
+3. **Actionability:** Deep link directly to the relevant screen; don't dump them on the home screen.
+4. **Value-Driven:** Ensure every notification provides immediate value, rather than just pulling them back for your own metrics.
+
+```input
+Describe your transactional vs promotional push notification split. How do you ensure you aren't spamming users?
+```
+
+```prompt
+Write a strategy document detailing how to use rich push notifications (with images and action buttons) to increase engagement for a social app.
+````,
+  'release-checklist': `# Release Checklist
+
+**🕒 Estimated Time:** 2 hours
+
+Ensure every detail is perfect before submitting for final App Store and Play Store review.
+
+### Pre-Submission Checklist
+- [ ] Test the production build on a physical device, not just a simulator.
+- [ ] Verify that new user registration and login work against the production database.
+- [ ] Ensure all debug logs are stripped from the production bundle.
+- [ ] Verify that Push Notification production certificates are active.
+- [ ] Ensure "Sign in with Apple" works flawlessly (common rejection reason).
+- [ ] Provide App Review test account credentials in App Store Connect.
+
+```input
+What is your target launch date, and who is responsible for the final sign-off before hitting "Submit for Review"?
+```
+
+```prompt
+Generate a comprehensive pre-launch QA checklist covering authentication, payments, and offline states for a React Native app.
+````,
+  'beta-testing': `# Beta Testing
+
+**🕒 Estimated Time:** 1-2 weeks
+
+Conduct a structured beta test with external users to catch edge cases and validate the UX.
+
+### Beta Strategy
+1. **Recruitment:** Invite highly engaged users from your waitlist or community via a public TestFlight link or Google Play Open Testing.
+2. **Feedback Loop:** Provide an easy, in-app way to submit feedback (e.g., shaking the device to open a bug reporter, or a simple form).
+3. **Analytics:** Monitor crash rates and drop-offs closely.
+
+```input
+How many beta testers are you aiming for, and what specific flows are you asking them to stress-test?
+```
+
+```prompt
+Write an invitation email to a waitlisted user asking them to join the TestFlight beta, setting clear expectations for bugs and feedback.
+````,
+  'test-tracks': `# Test Tracks
+
+**🕒 Estimated Time:** 2 hours
+
+Set up staging environments in the app stores to distribute builds to internal testers before public release.
+
+### Workflow
+1. **iOS (TestFlight):** Add internal team members to App Store Connect. Internal builds are available immediately. External testers require a brief Beta App Review.
+2. **Android (Play Console):** Use the Internal Testing track for immediate distribution to a whitelist of up to 100 emails.
+
+```input
+Who is on your initial internal testing roster, and what is your process for collecting bug reports from them?
+```
+
+```prompt
+Outline the differences between Google Play Internal, Closed, and Open testing tracks, and recommend a strategy for a small startup.
+````,
+  'content-rating': `# Content Rating
+
+**🕒 Estimated Time:** 1 hour
+
+Accurately declare your app's content to receive appropriate age ratings on both stores.
+
+### Process
+1. **Play Store:** Fill out the IARC questionnaire in the Play Console. Answer truthfully regarding violence, profanity, and user-generated content.
+2. **App Store:** Complete the Age Rating section in App Store Connect.
+3. **User-Generated Content (UGC):** If your app has social features, you MUST have an EULA, a way to block abusive users, and a mechanism to report objectionable content, or Apple will reject your app.
+
+```input
+Does your app feature User-Generated Content (UGC)? If so, how will you implement the required reporting and blocking features to pass Apple Review?
+```
+
+```prompt
+Generate an implementation checklist for User-Generated Content (UGC) compliance to avoid App Store rejection.
+````,
+  'store-listing-seo': `# Store Listing SEO (ASO)
+
+**🕒 Estimated Time:** 4 hours
+
+App Store Optimization (ASO) is critical for organic discovery. Optimize your title, subtitle, and keyword fields.
+
+### Optimization Strategy
+1. **Title:** Include your primary keyword in the app title naturally (e.g., "Kontxt - Habit Tracker").
+2. **Subtitle (iOS) / Short Description (Android):** Use compelling copy that includes secondary keywords.
+3. **Keyword Field (iOS):** Maximize the 100-character limit. Separate words by commas with no spaces. Do not repeat words used in the Title.
+4. **Long Description (Android):** The Play Store algorithm indexes the entire description. Include target keywords organically throughout the text.
+
+```input
+What are the top 5 high-volume, low-competition keywords you are targeting for organic acquisition?
+```
+
+```prompt
+Write an optimized App Store Subtitle (30 chars max) and a comma-separated keyword list (100 chars max) for a new fitness tracking app.
+````,
+  'feature-graphics': `# Feature Graphics
+
+**🕒 Estimated Time:** 1 hour
+
+Design the primary promotional graphic for the Google Play Store.
+
+### Requirements
+- **Dimensions:** `1024x500` pixels.
+- **Content:** This is displayed at the top of your Play Store listing. It should be visually striking, feature your logo prominently, and avoid putting critical text near the edges where it might be cropped.
+- **Video:** If you have a promo video, the feature graphic will act as the video thumbnail.
+
+```input
+Describe the visual concept for your Feature Graphic. What branding elements will it include?
+```
+
+```prompt
+Generate a design brief for a designer to create a Google Play Feature Graphic (1024x500), detailing safe zones and required branding.
+````,
+  'screenshots': `# Screenshots
+
+**🕒 Estimated Time:** 3 hours
+
+Create compelling App Store and Play Store screenshots that sell your app's core value proposition.
+
+### Guidelines
+1. **Focus on Value:** Don't just show the UI; add large, legible captions explaining the benefit of the feature being shown.
+2. **Required Sizes:** 
+   - iOS: 6.5-inch (iPhone Pro Max) and 5.5-inch formats.
+   - Android: Smartphone and 7-inch tablet formats.
+3. **Localization:** Translate captions for your primary target markets.
+
+```input
+What are the 3-5 core features or "Aha!" moments you will highlight in your screenshots?
+```
+
+```prompt
+Provide a copywriting framework for 5 App Store screenshots, including a short headline and sub-headline for each feature.
+````,
+  'app-icons': `# App Icons
+
+**🕒 Estimated Time:** 2 hours
+
+Design and generate perfectly sized app icons for all iOS and Android device resolutions.
+
+### Requirements
+1. **iOS:** Requires a flat, opaque `1024x1024` PNG. No transparency allowed.
+2. **Android:** Requires Adaptive Icons (a foreground layer with transparency and a solid background layer) to support varying OEM shapes.
+
+### Tools
+- Use Figma templates or an automated generator like `expo-image-cli` or MakeAppIcon to output the required sizes.
+
+```input
+Describe the concept for your app icon. How does it stand out on a crowded home screen while maintaining brand identity?
+```
+
+```prompt
+Write a script or list the exact CLI commands needed to generate all required iOS and Android app icon sizes from a single 1024x1024 source image using Expo.
+````,
+  'app-store-setup': `# App Store Setup
+
+**🕒 Estimated Time:** 4 hours
+
+Configure App Store Connect and the Apple Developer Portal.
+
+### Configuration Checklist
+- [ ] Enroll in the Apple Developer Program.
+- [ ] Create an App ID, configure Capabilities (Push Notifications, Sign In With Apple).
+- [ ] Create Provisioning Profiles and Distribution Certificates.
+- [ ] Create a new App record in App Store Connect.
+- [ ] Upload your first build via Xcode or Transporter.
+- [ ] Set up TestFlight internal testing.
+
+```input
+Who holds the Account Holder role in the Apple Developer Program, and how will you manage provisioning profiles?
+```
+
+```prompt
+Outline the complete process for generating an iOS Distribution Certificate, creating a Provisioning Profile, and submitting a build to TestFlight.
+````,
+  'play-store-setup': `# Play Store Setup
+
+**🕒 Estimated Time:** 4 hours
+
+Configure your Google Play Console account and prepare your app for distribution.
+
+### Configuration Checklist
+- [ ] Create a Google Play Developer account and pay the registration fee.
+- [ ] Generate an Upload Keystore and configure Play App Signing.
+- [ ] Set up the internal testing track and upload your first `.aab` file.
+- [ ] Complete the Data Safety questionnaire accurately.
+- [ ] Configure pricing and distribution settings.
+
+```input
+Who is managing the Google Play Developer account, and what is your plan for securely storing the Android Keystore?
+```
+
+```prompt
+Generate a step-by-step checklist for configuring Play App Signing and uploading the first Android App Bundle (.aab).
+````,
+  'battery-optimization': `# Battery Optimization
+
+**🕒 Estimated Time:** 3 hours
+
+Ensure your app doesn't drain the user's battery, which is a leading cause of app uninstalls.
+
+### Optimization Strategies
+1. **Location Services:** Never use high-accuracy GPS unless actively needed. Fall back to cell-tower location for background tasks.
+2. **Background Sync:** Batch network requests. Avoid keeping WebSockets alive indefinitely when the app is backgrounded.
+3. **Animations:** Use native-driven animations (Reanimated or `useNativeDriver`) to offload work from the JavaScript thread.
+4. **Wake Locks:** Ensure your app releases audio/video sessions and wake locks immediately when suspended.
+
+```input
+Does your app use continuous background processes or location tracking? How will you mitigate battery drain?
+```
+
+```prompt
+Write a React Native `AppState` listener that pauses a WebSocket connection when the app goes into the background and resumes it when active.
+````,
+  'app-size-optimization': `# App Size Optimization
+
+**🕒 Estimated Time:** 4 hours
+
+Reduce the download size of your application to improve install rates, especially in emerging markets.
+
+### Optimization Techniques
+1. **Asset Compression:** Optimize all PNGs, JPGs, and SVGs. Consider converting heavy assets to WebP or Lottie files.
+2. **Bundle Analysis:** Use `react-native-bundle-visualizer` to identify massive third-party dependencies and replace them with lighter alternatives.
+3. **Hermes Engine:** Enable the Hermes JavaScript engine (default in Expo) to pre-compile JS into smaller, faster bytecode.
+4. **App Bundles:** Build Android Apps as `.aab` (Android App Bundles) rather than `.apk` so users only download architecture-specific code.
+
+```input
+What is your target maximum app size (in MB), and what are the heaviest dependencies in your `package.json`?
+```
+
+```prompt
+List the steps to analyze a React Native bundle size and configure Hermes for both iOS and Android.
+````,
+  'crash-reporting': `# Crash Reporting
+
+**🕒 Estimated Time:** 3 hours
+
+Integrate a crash reporting tool to identify and fix fatal errors in production rapidly.
+
+### Implementation
+1. **Provider Setup:** Integrate Sentry, Firebase Crashlytics, or Bugsnag.
+2. **Source Maps:** Configure your build process to upload JavaScript source maps to your provider, so production crashes display readable stack traces instead of minified code.
+3. **Breadcrumbs:** Log critical user actions (navigation events, button presses) as breadcrumbs leading up to a crash.
+4. **User Context:** Attach the `userId` to crash reports to understand who was affected.
+
+```input
+Which crash reporting tool are you using, and how are you handling source map uploads in your CI pipeline?
+```
+
+```prompt
+Write a Sentry initialization script for a React Native/Expo app, including configuration for capturing user IDs and breadcrumbs.
+````,
+  'error-handling': `# Error Handling
+
+**🕒 Estimated Time:** 4 hours
+
+Implement a robust error handling architecture to prevent app crashes and provide clear feedback to the user.
+
+### Layers of Defense
+1. **Error Boundaries:** Wrap your root component and critical screens in React Error Boundaries to catch render errors and show a fallback UI instead of a white screen.
+2. **Global Promise Rejections:** Catch unhandled promise rejections globally.
+3. **API Error Translation:** Map obscure backend HTTP errors into friendly UI toast messages (e.g., `429` -> "You're doing that too fast. Please wait a minute.").
+4. **Form Validation:** Use Yup or Zod with React Hook Form to catch invalid input before it hits your API.
+
+### Best Practices
+- Never show raw stack traces or JSON blobs to end-users.
+- Provide a "Retry" button on error screens.
+
+```input
+How are you currently managing global API errors, and what is your fallback UI strategy for fatal app crashes?
+```
+
+```prompt
+Write a global React Error Boundary component that displays a friendly error screen with a "Restart App" button.
+````,
+  'analytics-events': `# Analytics Events
+
+**🕒 Estimated Time:** 3 hours
+
+Instrument your app with analytics to track user behavior, feature adoption, and conversion funnels.
+
+### Setup Process
+1. **Provider Integration:** Install PostHog, Mixpanel, Firebase Analytics, or Amplitude.
+2. **Identity Tracking:** Implement `identify` calls during login/signup to tie events to specific users.
+3. **Core Events:** Track critical business events: `signed_up`, `subscription_started`, `feature_x_used`.
+4. **Screen Tracking:** Automatically track screen views by hooking into React Navigation's state change listener.
+
+### Privacy Compliance
+- Ensure analytics respect the user's tracking preferences (App Tracking Transparency on iOS).
+- Do not log PII (Personally Identifiable Information) directly in event properties.
+
+```input
+What are the 5 most critical business events you need to track in your funnel?
+```
+
+```prompt
+Create an analytics utility class for Mixpanel that handles user identification, event tracking, and screen view logging securely.
+````,
+  'offline-features': `# Offline Features
+
+**🕒 Estimated Time:** 5 hours
+
+Ensure your app remains functional and gracefully handles network loss.
+
+### Core Strategies
+1. **Network Detection:** Use `@react-native-community/netinfo` to track connection status.
+2. **Local Caching:** Store critical API responses using WatermelonDB, SQLite, or MMKV.
+3. **Optimistic Updates:** Immediately reflect user actions in the UI, queue the network request, and sync when the connection returns.
+4. **Sync Queue:** Implement a background queue (e.g., using Redux Offline or a custom SQLite queue) to process failed mutations once online.
+
+### User Experience
+- Show a subtle "Offline Mode" banner.
+- Disable actions that strictly require a network connection (like checkout) with a clear explanation.
+
+```input
+What data must be available offline, and what user actions should be queued for later synchronization?
+```
+
+```prompt
+Write a network listener component that displays a non-intrusive "You are offline" banner when connection drops.
+````,
+  'device-permissions': `# Device Permissions
+
+**🕒 Estimated Time:** 3 hours
+
+Manage access to sensitive device features (Camera, Contacts, Location, Microphone) smoothly to maximize opt-in rates.
+
+### The "Soft Prompt" Strategy
+Never trigger the native OS permission dialog without context. Once a user clicks "Deny" on the native OS dialog, you can never show it again (they must manually go to Settings).
+1. Show a custom UI explaining *why* you need the permission.
+2. If they agree, trigger the OS dialog.
+3. If they deny the OS dialog, show a fallback UI explaining how to enable it in Settings.
+
+### Implementation
+- Use `react-native-permissions` or Expo's built-in permission hooks.
+- Create a centralized `PermissionsManager` utility.
+
+```input
+List all the device permissions your app requires and the exact user action that will trigger each request.
+```
+
+```prompt
+Write a reusable React Native hook that implements a soft-prompt pattern for requesting Camera permissions.
+````,
+  'maps-location': `# Maps & Location
+
+**🕒 Estimated Time:** 5 hours
+
+Integrate geolocation services and interactive maps into your application.
+
+### Implementation Steps
+1. **Library Setup:** Install `react-native-maps` and configure Google Maps API keys (Android) and Apple Maps capabilities (iOS).
+2. **Location Tracking:** Use `expo-location` or `react-native-geolocation-service` to get current coordinates.
+3. **Permissions:** Handle the complex flow of Foreground vs Background location permissions.
+4. **Map UI:** Implement markers, clustering, and custom map styling.
+
+### Performance
+- Avoid rendering thousands of individual markers; implement marker clustering for large datasets.
+- Debounce location updates to save battery life.
+
+```input
+How is location data used in your app? Do you require continuous background tracking or just one-off foreground checks?
+```
+
+```prompt
+Create a React Native component displaying a map centered on the user's current location with a custom styled marker.
+````,
+  'media-uploads': `# Media Uploads
+
+**🕒 Estimated Time:** 4 hours
+
+Implement robust handling for capturing, selecting, and uploading photos, videos, or documents.
+
+### Key Workflows
+1. **Media Picker:** Integrate `expo-image-picker` or `react-native-image-crop-picker` to access the camera roll.
+2. **Permissions:** Request Camera and Photo Library permissions gracefully.
+3. **Compression:** Compress images client-side before upload to save bandwidth and storage costs.
+4. **Upload Logic:** Implement multipart/form-data uploads or direct-to-S3 presigned URL uploads with progress indicators.
+
+### Edge Cases
+- Handle app backgrounding during long uploads.
+- Provide clear UI feedback if an upload fails due to network loss.
+
+```input
+What types of media will users upload, and where are you storing these assets (e.g., AWS S3, Supabase Storage)?
+```
+
+```prompt
+Write a React Native function to pick an image from the gallery, compress it, and upload it to a Supabase Storage bucket.
+````,
+  'apis': `# APIs & Integrations
+
+**🕒 Estimated Time:** 5 hours
+
+Implement connections to third-party APIs and external services beyond your core backend.
+
+### Key Integrations
+1. **Payment Gateways:** Stripe, RevenueCat, or Adapty for in-app purchases.
+2. **Social APIs:** Graph API for Facebook login, or Twitter API.
+3. **Utility APIs:** Twilio for SMS verification, SendGrid for emails.
+4. **SDK Initialization:** Initialize SDKs early in the app lifecycle (e.g., in `App.tsx` or a dedicated bootstrap phase).
+
+### Best Practices
+- Keep API keys out of your source code.
+- Wrap third-party SDKs in custom service classes so you can easily swap providers later.
+
+```input
+List the third-party APIs and SDKs you are integrating in this phase.
+```
+
+```prompt
+Write a wrapper service for RevenueCat (react-native-purchases) to handle user initialization, fetching offerings, and making a purchase.
+````,
+  'navigation': `# Navigation Implementation
+
+**🕒 Estimated Time:** 4 hours
+
+Set up the routing structure of your app to manage flow between screens and deep link handling.
+
+### Core Structure
+1. **Navigation Container:** Initialize React Navigation or Expo Router.
+2. **Authentication Flow:** Create a conditional stack that swaps between the Auth Stack (Login/Signup) and the App Stack based on session state.
+3. **Tab & Stack Navigators:** Implement Bottom Tabs for primary navigation and Native Stacks for pushing detail screens.
+4. **Header Configurations:** Customize navigation headers to match your brand UI.
+
+### Deep Linking
+- Configure scheme and universal links to allow external URLs (e.g., password reset emails) to open specific screens within the app.
+
+```input
+Describe your app's navigation hierarchy. What are the main tabs, and what screens require deep linking?
+```
+
+```prompt
+Set up a React Navigation v6 structure containing a Bottom Tab Navigator inside an authenticated Stack, with a separate Auth stack for logged-out users.
+````,
+  'frontend-ui': `# Frontend (UI) Implementation
+
+**🕒 Estimated Time:** 8 hours
+
+Build out the core visual components and screens of your mobile app, adhering to your design system and platform guidelines.
+
+### Component Library
+1. **Core Elements:** Build reusable Buttons, Inputs, Cards, and Typography components.
+2. **Theming:** Implement a robust theming system (Light/Dark mode) using tools like NativeWind, Restyle, or styled-components.
+3. **Responsive Design:** Ensure layouts adapt to different screen sizes (smartphones vs tablets) using flexbox and safe area contexts.
+4. **Animations:** Add micro-interactions using Reanimated or React Native Animated to make the app feel premium.
+
+### Accessibility (a11y)
+- Add `accessible={true}` and `accessibilityLabel` to all interactive elements.
+- Ensure text scales correctly with the device's accessibility settings.
+
+```input
+What UI framework or styling solution are you using, and what are the 3 most complex screens you need to build?
+```
+
+```prompt
+Generate a reusable, accessible Button component in React Native using NativeWind that supports variants (primary, secondary, outline) and loading states.
+````,
+  'push-notifications': `# Push Notifications Setup
+
+**🕒 Estimated Time:** 6 hours
+
+Implement Apple Push Notification service (APNs) and Firebase Cloud Messaging (FCM) to engage users with timely alerts.
+
+### Setup Process
+1. **Certificates & Keys:** Generate APNs keys in the Apple Developer Portal and configure Firebase for Android.
+2. **SDK Integration:** Install `expo-notifications` or `react-native-push-notification`.
+3. **Permission Flow:** Implement a soft-prompt UI before triggering the native OS permission dialog to maximize opt-in rates.
+4. **Token Registration:** Retrieve the device push token and sync it to your user record in the backend.
+5. **Handling Payloads:** Write listeners for background and foreground notifications to route users to specific screens (deep linking).
+
+### Best Practices
+- Never spam users; allow granular notification preferences in settings.
+- Handle notification badges cleanly (clear them when the app is opened).
+
+```input
+Describe your push notification strategy. What triggers a notification, and how will users manage their preferences?
+```
+
+```prompt
+Write an Expo Notifications setup script that requests permissions, gets the device token, and handles a notification tap event to navigate to a specific screen.
+````,
+  'state-management': `# State Management Implementation
+
+**🕒 Estimated Time:** 4 hours
+
+Implement a robust state management solution based on your Phase 2 architecture decisions. For React Native, this typically means setting up Redux Toolkit, Zustand, or Jotai.
+
+### Core Implementation Steps
+1. **Store Setup:** Initialize the global store and configure middleware (e.g., async thunks, persistence).
+2. **Feature Slices:** Break down state into logical domains (user, settings, feed, etc.).
+3. **Persistence:** Implement async storage for offline caching and session persistence.
+4. **Hooks:** Create custom hooks for accessing and dispatching state safely across components.
+
+### Best Practices
+- Keep the global state minimal; use local component state for transient UI changes.
+- Normalize complex nested data structures to avoid deep re-renders.
+- Use selectors for derived data to optimize performance.
+
+```input
+Describe your chosen state management library and the core slices of state you need to implement.
+```
+
+### Common Challenges
+- **Re-render Optimization:** Unoptimized selectors causing the whole app to re-render.
+- **Async Data:** Managing loading and error states consistently.
+
+```prompt
+Generate a boilerplate setup for a React Native app using Zustand, including async storage persistence and a user authentication slice.
+````,
   'welcome': `# Welcome to Kontxt
 
 **🕒 Estimated Time:** 2 min
