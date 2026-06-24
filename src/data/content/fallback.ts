@@ -13371,4 +13371,863 @@ I am preparing my Supabase backend and React Native app for a massive launch. Ex
 
 ## Next Step
 Your app is fully production-ready, secure, performant, and scalable! You are ready to move to **Phase 5: Store Deployment**.`,
+
+  'playstoresetup': `# Play Store Setup
+
+🕒 **Estimated Time:** 2-3 days (Verification)
+
+---
+
+## Overview
+Setting up your Google Play Console developer account is the first step to publishing on Android. It costs a one-time fee of $25. Google now requires strict identity verification and, for personal accounts, a rigorous 20-tester closed beta process.
+
+---
+
+## Think First
+**Do you have a D-U-N-S number if you are registering as a business?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Are you aware of Google's new requirement for personal accounts to have 20 testers opt-in for 14 continuous days before you can publish to production?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Personal vs Organization Account:** Organization accounts do not have the 20-tester requirement but require a D-U-N-S number and legal entity documents. Personal accounts only require an ID but have strict testing requirements.
+- **App Signing by Google Play:** Let Google manage your app signing key. This is highly recommended and required for Android App Bundles (AABs).
+
+---
+
+## Common Mistakes
+- **Losing the Upload Key:** If you lose the keystore used to sign your app before uploading to Google, you cannot update your app. Keep it secure.
+- **Mismatched Identity:** Ensuring your developer account name matches your legal ID exactly, otherwise verification will fail and delay your launch.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+I am setting up a Google Play Console account as a [Personal/Organization] developer. Create a step-by-step checklist of the exact documents I need for identity verification, the timeline for approval, and explain the App Signing process so I don't lose my keystore.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Pay the $25 one-time registration fee.
+- [ ] Complete Identity Verification via Google.
+- [ ] Create the App property in the console.
+- [ ] Opt-in to App Signing by Google Play.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** play_console_details.txt
+**Purpose:** Securely tracking keystore passwords and developer IDs.
+**Contents:** Developer Account ID, Keystore alias, and Keystore password (do NOT store the actual key file in plain text, use a secure vault).
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+Once your Android account is pending verification, move on to setting up your Apple App Store account.`,
+
+  'appstoresetup': `# App Store Setup
+
+🕒 **Estimated Time:** 1-2 weeks (Verification)
+
+---
+
+## Overview
+To publish to iOS devices, you must enroll in the Apple Developer Program ($99/year). It provides access to App Store Connect, where you manage your apps, TestFlight, and analytics. Apple's review process is notoriously strict regarding design and functionality.
+
+---
+
+## Think First
+**Are you registering as an Individual or a Company? (Companies require a D-U-N-S number).**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Does your app rely heavily on third-party logins? (Apple requires 'Sign in with Apple' if you offer Google/Facebook login).**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **D-U-N-S Number:** If registering as a company, the company name will appear under the app on the App Store. If registering as an individual, your legal first and last name will be public.
+- **Certificates & Profiles:** You must decide whether to manually manage Provisioning Profiles and Certificates or let Xcode/EAS automatically manage them (Highly recommended).
+
+---
+
+## Common Mistakes
+- **Missing the D-U-N-S Number:** Not realizing that getting a D-U-N-S number from Dun & Bradstreet can take up to 14 days, delaying the entire launch.
+- **Using 'Beta' or 'Test' in the App Name:** Apple will reject apps that look like unfinished betas. Never use the word 'beta' in your App Store title or screenshots.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+I am applying for the Apple Developer Program as a [Company/Individual]. Explain the exact process to generate a Certificate Signing Request (CSR), create an App ID, and set up a Provisioning Profile. Also, list the top 3 reasons Apple automatically rejects new app submissions.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Enroll in the Apple Developer Program ($99/year).
+- [ ] Request a D-U-N-S number (if Company).
+- [ ] Set up App Store Connect.
+- [ ] Register an App ID (Bundle Identifier, e.g., com.yourcompany.app).
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** app_store_identifiers.txt
+**Purpose:** Tracking your Apple specific identifiers.
+**Contents:** Team ID, Bundle Identifier, and Apple ID.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+With the accounts created, it's time to design the visual assets, starting with the App Icon.`,
+
+  'appicons': `# App Icons
+
+🕒 **Estimated Time:** 2-4 hours
+
+---
+
+## Overview
+Your app icon is the first impression users have of your app. Both Apple and Google have strict design guidelines. An icon must look good at 1024x1024 pixels on a retina display, and still be legible at 16x16 pixels in a notification tray.
+
+---
+
+## Think First
+**Does your icon rely on text? (Text usually scales terribly on small screens).**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Does your icon stand out against both pure black (dark mode) and pure white backgrounds?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **iOS vs Android:** iOS requires a square image with NO transparency (Apple applies the rounded corners automatically). Android requires an 'Adaptive Icon' (foreground and background layers) to accommodate different manufacturer shapes (circles, squiggles, rounded rectangles).
+- **Simplicity vs Detail:** Choosing a minimalist, recognizable glyph over a highly detailed, complex illustration.
+
+---
+
+## Common Mistakes
+- **Including Rounded Corners for iOS:** If you upload an icon with pre-rounded corners and transparent edges to App Store Connect, it will render with an ugly black background.
+- **Ignoring the Android Safe Zone:** If your logo extends to the very edge of an Android Adaptive Icon, it will be chopped off on devices that use circular icon masks.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+I am designing an app icon for a [describe your app]. Act as a Senior Brand Designer. Suggest 3 distinct conceptual metaphors for the icon. Then, explain the technical requirements for an iOS App Icon (size, alpha channel) and an Android Adaptive Icon (foreground/background sizing).
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Create a 1024x1024 flat, opaque PNG for iOS.
+- [ ] Create a 108x108 dp foreground and background layer for Android Adaptive Icons.
+- [ ] Verify the icon is legible at very small sizes.
+- [ ] Ensure no transparent pixels exist in the iOS icon.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** app_icon_specs.md
+**Purpose:** Defines the exact hex colors and metaphor used for the icon.
+**Contents:** Primary Hex colors, Icon metaphor description, and links to the exported PNGs.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+Now that you have an icon, you need to show users what the app actually does using Screenshots.`,
+
+  'screenshots': `# Screenshots
+
+🕒 **Estimated Time:** 4-6 hours
+
+---
+
+## Overview
+App Store and Play Store screenshots aren't just raw screen captures; they are your primary marketing billboard. High-converting apps use 'designed' screenshots—device frames wrapped in branded backgrounds with large, bold text calling out the main value proposition.
+
+---
+
+## Think First
+**What are the top 3 'Aha!' moments in your app that you want users to see first?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Are your text callouts large enough to read on a phone without zooming in?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Raw vs Designed:** Choosing between simply uploading direct device screenshots (raw) or designing marketing graphics that feature a phone frame, a solid background, and a text headline (designed).
+- **Order of Screenshots:** The first two screenshots are critical because they appear in search results. The first image must instantly convey the app's primary value.
+
+---
+
+## Common Mistakes
+- **Uploading Incorrect Sizes:** Apple is incredibly strict. You MUST provide screenshots for exactly 6.5-inch (iPhone Pro Max) and 5.5-inch (iPhone 8 Plus) displays.
+- **Too Much Text:** Writing full paragraphs on the screenshots. Users scroll past in seconds; use 3-5 word punchy headlines.
+- **Showing Login Screens First:** Never make your first screenshot a login or signup page. Show the core feature immediately.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+I need to design marketing screenshots for the App Store. My app is a [describe app]. Act as a Conversion Rate Optimization expert. Write the punchy, 3-5 word headlines for my first 5 screenshots that tell a cohesive story of why a user should download the app.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Design exactly sized screens for iOS 6.5" (1284x2778).
+- [ ] Design exactly sized screens for iOS 5.5" (1242x2208).
+- [ ] Ensure the first two screenshots convey the primary value proposition.
+- [ ] Use high-contrast text that is legible on small screens.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** screenshot_copy.md
+**Purpose:** Outlines the headlines and visual focus for each screenshot.
+**Contents:** Screenshot 1: [Headline] -> [Screen to show]. Screenshot 2: [Headline] -> [Screen to show].
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+Android requires an additional promotional asset called the Feature Graphic.`,
+
+  'featuregraphics': `# Feature Graphics
+
+🕒 **Estimated Time:** 1-2 hours
+
+---
+
+## Overview
+The Feature Graphic is an Android-specific promotional banner (1024x500 pixels). It sits at the top of your Google Play Store listing and is often used by Google for featuring apps in the 'Recommended' sections of the Play Store.
+
+---
+
+## Think First
+**Does this graphic visually match your app icon and screenshots?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Will this graphic look good if Google scales it down on a smaller device?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Branding focus vs UI focus:** Deciding whether the feature graphic should just be your logo on a nice background, or if it should show a device frame with your app's best feature.
+
+---
+
+## Common Mistakes
+- **Putting text near the edges:** Google often crops the edges of the feature graphic depending on the device. All logos and text must be in the 'safe zone' in the center.
+- **Overcrowding the graphic:** Treating it like a billboard. It should be a simple, striking image that conveys the mood of the app.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+I am creating a 1024x500 Feature Graphic for the Google Play Store for my app [describe app]. Suggest 3 different visual concepts for this graphic that will catch a user's eye while browsing the store. Include instructions on where to place the focal point to avoid edge-cropping.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Create a 1024px by 500px JPEG or 24-bit PNG.
+- [ ] Keep text and logos centered in the safe zone.
+- [ ] Ensure it matches the visual identity of the App Icon.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** feature_graphic_concept.md
+**Purpose:** A brief for the designer or yourself on what the graphic should portray.
+**Contents:** Visual concept description, color palette, and focal point.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+Visuals are done. Now you need to optimize your text for search algorithms via App Store SEO.`,
+
+  'storelistingseo': `# Store Listing SEO (ASO)
+
+🕒 **Estimated Time:** 2-3 hours
+
+---
+
+## Overview
+App Store Optimization (ASO) is how your app gets discovered organically. If you rank #1 for a high-traffic keyword, you get free downloads forever. iOS and Android use completely different algorithms to index your app.
+
+---
+
+## Think First
+**What exact phrases are your target users typing into the App Store search bar?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Are your competitors dominating the obvious keywords, forcing you to target long-tail, niche keywords?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **App Title Strategy:** Your App Name has the highest SEO weight. Decide whether to use just your brand name (e.g., 'Kontxt') or append keywords (e.g., 'Kontxt - Habit Tracker & Goals').
+- **iOS Keyword Field:** Apple gives you a hidden 100-character keyword field. You must decide the absolute most critical words to include here, separated by commas, with no spaces.
+
+---
+
+## Common Mistakes
+- **Repeating Keywords on iOS:** Apple's algorithm does not stack keywords. If 'Tracker' is in your title, do not waste space putting 'Tracker' in your subtitle or hidden keyword field.
+- **Ignoring the Long Description on Android:** Unlike Apple, Google reads your entire long description to find keywords. Failing to naturally weave keywords into the Android description will tank your search ranking.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+I am launching an app that [describe app functionality]. Act as an App Store Optimization (ASO) expert. Generate a list of 10 high-traffic, low-competition keywords. Then, draft a 30-character App Title, a 30-character Subtitle, and the 100-character hidden keyword string for Apple. Make sure NO words are repeated across the Title, Subtitle, and Keyword string.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Draft an App Title with a strong keyword (max 30 chars).
+- [ ] Draft a Subtitle with secondary keywords (max 30 chars).
+- [ ] Generate a 100-character hidden keyword list for iOS (comma separated, no spaces).
+- [ ] Write a 4,000-character description for Android with natural keyword density.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** aso_metadata.md
+**Purpose:** The final text you will copy-paste into the App Store and Play Store.
+**Contents:** Title, Subtitle, Short Description (Android), Long Description, and iOS Keywords.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+You cannot submit an app without a valid Privacy Policy URL.`,
+
+  'privacypolicy': `# Privacy Policy
+
+🕒 **Estimated Time:** 1-2 hours
+
+---
+
+## Overview
+Both Apple and Google strictly require a publicly accessible Privacy Policy URL. If you collect emails, use analytics (like PostHog), or serve ads, you are legally required to disclose exactly what data you collect and how you use it.
+
+---
+
+## Think First
+**What 3rd party SDKs are running in your app? (Supabase, Sentry, PostHog, RevenueCat all collect data).**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Are you storing user data on servers, and if so, how can a user request their data to be deleted? (Apple strictly requires an account deletion feature).**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Hosting Location:** Decide where the policy will live. You can host it on your landing page (e.g., `yourapp.com/privacy`), or use a free hosting tool like Termly, Iubenda, or a Notion public page.
+- **Generators vs Lawyers:** For a simple indie app, an online generator is usually sufficient. If you are handling medical data (HIPAA) or financial data, you need a lawyer.
+
+---
+
+## Common Mistakes
+- **Failing Apple's Account Deletion Rule:** Apple will reject your app if you require users to email you to delete their account. The deletion must be initiated inside the app UI.
+- **Not Disclosing SDKs:** Failing to mention that you use tools like Google Analytics or Sentry, which can result in App Store rejection during review.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+I am building a mobile app using React Native, Supabase (Auth and Database), RevenueCat (Payments), and Sentry (Crash Reporting). Act as a legal expert and generate a standard, compliant Privacy Policy. Ensure you explicitly mention the third-party services I just listed, how data is handled, and outline a user's right to delete their account.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Generate a Privacy Policy outlining all data collected.
+- [ ] Explicitly list all third-party SDKs (Analytics, Crash Reporting).
+- [ ] Host the Privacy Policy on a public URL.
+- [ ] Ensure the app has a working 'Delete Account' button.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** privacy_policy.md
+**Purpose:** The legal text to host on your website.
+**Contents:** Full Privacy Policy text.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+Generate the Terms of Service to protect your intellectual property.`,
+
+  'termsofservice': `# Terms of Service
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Overview
+The Terms of Service (ToS) or End User License Agreement (EULA) is a contract between you and the user. It dictates the rules of using your app and protects you from liability if your app crashes or causes a user to lose data.
+
+---
+
+## Think First
+**Are users generating content? (If so, you need terms allowing you to ban abusive users).**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Is your app a paid subscription? (You must outline refund policies).**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Apple's Standard EULA vs Custom ToS:** Apple allows you to fall back on their standard EULA by default. However, having a custom ToS on your website is recommended for stronger liability protection.
+
+---
+
+## Common Mistakes
+- **No User Generated Content (UGC) Policy:** If your app allows users to post content (like a social network), Apple requires a strict ToS that states there is zero tolerance for objectionable content, AND you must have a way for users to flag/block bad actors.
+- **Copy-Pasting Blindly:** Using a competitor's ToS without replacing their company name or adjusting it to fit your specific feature set.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+Generate a standard Terms of Service (EULA) for my mobile app. The app allows users to create accounts and post text content. Include a strict 'User Generated Content' policy stating that abusive users will be banned, a 'Limitation of Liability' clause, and state that subscriptions are handled by the respective App Stores.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Generate the Terms of Service.
+- [ ] Include a Limitation of Liability clause.
+- [ ] Include a User Generated Content (UGC) moderation clause (if applicable).
+- [ ] Host the ToS on a public URL.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** terms_of_service.md
+**Purpose:** Protects you legally from misuse of your app.
+**Contents:** Full Terms of Service text.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+Fill out the content rating questionnaires to get your age rating.`,
+
+  'contentrating': `# Content Rating
+
+🕒 **Estimated Time:** 30 minutes
+
+---
+
+## Overview
+Both Google and Apple require you to fill out a questionnaire to assign an age rating to your app (e.g., 4+, 12+, 17+). This ensures parents can restrict apps that contain violence, profanity, or gambling.
+
+---
+
+## Think First
+**Does your app have unrestricted internet access (like a web browser)?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Does your app facilitate dating, or meeting people in real life?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Honesty is Key:** You must accurately declare if your app contains simulated gambling, frequent intense profanity, or medical advice. Attempting to hide this to get a '4+' rating will result in an immediate rejection and potential account ban.
+
+---
+
+## Common Mistakes
+- **Medical Advice:** If you claim your app provides medical advice, Apple requires you to be a recognized institution (hospital/insurance). Always state your app is for 'informational/fitness purposes only' if you are an indie dev.
+- **Unmoderated UGC:** If you have user-generated content, you must check 'Yes' to 'Does the app allow users to interact?'. If you lack a blocking/reporting feature, you will be rejected.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+I am preparing to fill out the App Store and Google Play Content Rating questionnaires. My app is a [describe app]. Are there any specific features in my app that might trigger a 17+ rating or cause a rejection regarding medical claims, dating, or user interactions?
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Complete the IARC questionnaire in Google Play Console.
+- [ ] Complete the Age Rating questionnaire in App Store Connect.
+- [ ] Ensure your UGC blocking/reporting UI is functional before submitting.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** content_rating_notes.txt
+**Purpose:** A record of potential flags for the reviewers.
+**Contents:** List of 'Yes' answers you plan to provide on the rating questionnaire.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+Upload your binary to the Test Tracks to ensure it installs correctly.`,
+
+  'testtracks': `# Test Tracks
+
+🕒 **Estimated Time:** 1-2 hours
+
+---
+
+## Overview
+Before pushing to Production, you should upload your app binary (.aab or .ipa) to an Internal Test Track. This allows you and your team to download the app directly from the real App Store/Play Store to verify push notifications and in-app purchases work in a production environment.
+
+---
+
+## Think First
+**Have you tested your app on a physical device, not just an emulator?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Are your environment variables pointing to the Production database, not the Local/Staging database?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Internal vs Closed Beta:** Internal tracks are for your immediate team (instant updates, no review required). Closed Beta is for external testers (requires a basic store review before testers can see it).
+
+---
+
+## Common Mistakes
+- **Testing with Staging APIs:** Uploading an app to TestFlight that is hardcoded to talk to `localhost:3000` or a Staging database, causing it to instantly crash for real users.
+- **Forgetting Sandbox Accounts:** When testing In-App Purchases on TestFlight, you must use an Apple Sandbox Account, otherwise your real credit card will be charged.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+I am about to upload my React Native Expo app to TestFlight and Google Play Internal Testing. Provide a checklist of environment variables and configuration files (like app.json) that I MUST verify are set to 'production' before I trigger the EAS Build.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Verify all API endpoints point to Production.
+- [ ] Build the `.aab` (Android) and `.ipa` (iOS) binaries.
+- [ ] Upload to App Store Connect and Google Play Console.
+- [ ] Add your email to the Internal Testers list and download the app.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** test_track_strategy.md
+**Purpose:** Defines how builds move from staging to production.
+**Contents:** List of internal testers, and the environment variable checklist.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+Expand your testing pool to real users via Beta Testing.`,
+
+  'betatesting': `# Beta Testing
+
+🕒 **Estimated Time:** 14+ days
+
+---
+
+## Overview
+Beta testing gets your app into the hands of real users before the official launch. This uncovers edge-case bugs and UI confusion. For new Google Play Personal Accounts, a 14-day Closed Beta with 20 testers is legally required before you can launch.
+
+---
+
+## Think First
+**How will testers report bugs? (Email, Discord, in-app feedback button?)**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**If you are on Android, how will you recruit 20 people to keep your app installed for 14 days?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Public Link vs Email Invites:** TestFlight allows you to generate a public link to share on Twitter/Reddit to quickly get testers. Email invites are better for a highly controlled, private group.
+- **In-App Analytics:** You must rely heavily on tools like Sentry and PostHog during the beta, as users rarely report bugs manually. Let the crash reports guide you.
+
+---
+
+## Common Mistakes
+- **Launching the Beta with Critical Blockers:** If the sign-up screen is broken, all 20 of your testers will churn on Day 1, wasting the entire beta period.
+- **Ignoring Tester Feedback:** If 5 testers tell you a button is confusing, don't argue with them. Fix the button.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+I need to recruit 20 beta testers for my Android app to satisfy Google's 14-day requirement. Generate a polite, engaging message I can post on Reddit and Discord to ask for testers. Include instructions on how they should report bugs.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Submit the app for Beta Review (required for external TestFlight).
+- [ ] Generate a public beta link.
+- [ ] Distribute the link to your community/waitlist.
+- [ ] Monitor Sentry for crashes daily.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** beta_recruitment_post.txt
+**Purpose:** The copy you will use to acquire beta testers.
+**Contents:** The Reddit/Discord recruitment post.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+Complete the final Release Checklist to go live.`,
+
+  'releasechecklist': `# Release Checklist
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Overview
+You are ready to hit the 'Submit for Review' button. Apple and Google will take anywhere from 24 hours to 7 days to manually review your app. Once approved, your app will be live and searchable by millions of users.
+
+---
+
+## Think First
+**Do you have a demo account ready? (Apple requires you to provide a test username and password so they can log into your app).**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+**Do you want to release manually or automatically?**
+\`\`\`input
+✏️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Manual Release vs Automatic:** ALWAYS choose 'Manually release this version'. If you choose automatic, Apple might approve your app at 3 AM on a Sunday, ruining your coordinated Product Hunt launch.
+- **Phased Release:** For updates, choose a 7-day Phased Release. This sends the update to 1% of users, then 10%, etc. If a critical bug is found, you can halt the rollout before it impacts everyone.
+
+---
+
+## Common Mistakes
+- **Missing Demo Credentials:** Forgetting to provide a working test username/password in the App Store Connect 'Review Notes'. Apple will instantly reject the app.
+- **No Content:** Submitting an app that is entirely blank because your production database has no seed data. The reviewer must see a functioning app.
+
+---
+
+## AI Prompt
+Use this prompt to generate your output.
+\`\`\`prompt
+Act as an App Store Reviewer. Review my app's functionality: [Describe what your app does]. What are the top 3 obscure App Store Guidelines that I might be violating without realizing it, which could cause my submission to be rejected?
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Provide working Demo Credentials for the App Store reviewer.
+- [ ] Ensure 'Manually release this version' is checked.
+- [ ] Verify all Screenshots and Metadata are perfect.
+- [ ] Click 'Submit for Review'.
+
+---
+
+## How to Use AI's Output
+1. Review the generated response.
+2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
+3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+
+---
+
+## Deliverable
+**File Name:** launch_plan.md
+**Purpose:** Coordinates your exact steps once the app is approved.
+**Contents:** Marketing steps, Product Hunt link, Social media announcements.
+
+\`\`\`input
+✏️ Paste your deliverable here...
+\`\`\`
+
+---
+
+## Next Step
+Congratulations! Your app is in review. Once live, proceed to Phase 6 to focus on Growth and Analytics.`,
 };
