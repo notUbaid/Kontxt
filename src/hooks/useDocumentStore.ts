@@ -29,6 +29,13 @@ export function useDocumentStore(projectId: string | null, topicId: string) {
     setIsLoaded(false);
 
     const loadDoc = async () => {
+      // SWR: Show fallback content immediately so LCP is not blocked by network
+      if (isMounted) {
+        setContent(fallbackContent[topicId] || '');
+        setIsLoaded(true);
+        setSaveStatus('loading' as any); // Optional: indicate background sync
+      }
+
       try {
         const { data, error } = await supabase
           .from('documents')
@@ -38,22 +45,16 @@ export function useDocumentStore(projectId: string | null, topicId: string) {
           .maybeSingle(); 
         
         if (isMounted) {
-          if (error || !data) {
-            setContent(fallbackContent[topicId] || '');
-          } else {
-            setContent(data.content || fallbackContent[topicId] || '');
+          if (!error && data && data.content) {
+            // Only update if there is custom content in the database
+            setContent(data.content);
           }
           setSaveStatus('saved');
         }
       } catch (err) {
         console.error('Failed to load document:', err);
         if (isMounted) {
-          setContent(fallbackContent[topicId] || '');
           setSaveStatus('error');
-        }
-      } finally {
-        if (isMounted) {
-          setIsLoaded(true);
         }
       }
     };
