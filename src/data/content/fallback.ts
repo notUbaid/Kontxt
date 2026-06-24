@@ -1826,2304 +1826,640 @@ I am building a React Native app. I need a robust state management setup using Z
 With state management in place, proceed to implement the **Auth** flows to populate that state with real user data.`,
   'welcome': `# Welcome to Kontxt
 
-**🕒 Estimated Time:** 2 min
+🕒 **Estimated Time:** 15 min
 
 ---
 
-## The Master Plan
+## Why this matters
+Welcome to Phase 0. Before writing any code or choosing a database, we must clearly define *what* you are building and *why* it matters. A blurry idea leads to a blurry product.
 
-If you are a beginner, building a mass-production SaaS application can feel completely overwhelming. You might have tried asking ChatGPT to "Build me an app," only to realize it gives you a tiny script and gives up.
+This platform isn't just a reading guide-it's a **Project Memory Engine**. Every time you fill out an input field, you are building up the context that will fuel your AI code generators later on. 
 
-Kontxt is not just a text editor; it is your **educational and architectural guide**. Our goal is to guide you step-by-step to build a mass-production app. We will teach you:
-- How to effectively use AI developers (like Antigravity and Cursor) to write your code.
-- How to set up critical infrastructure like Supabase, Auth, and Databases.
-- Architectural decision-making: We'll tell you if feature X is important, if you can safely leave out Y to save time, and why concept Z is significant for your project's success.
+## The Core Objective
+What is the single biggest goal you want to achieve with this SaaS? (e.g. "Generate $1k MRR", "Learn full-stack development", "Solve a problem for my own business").
 
-You are not writing code here. You are building your **Master Project Context**.
+**Declare your primary goal:**
+\`\`\`input
+✏️ My primary goal for this SaaS is: 
+\`\`\`
 
----
-
-## Your Workflow
-
-Follow this loop for every Phase in the left sidebar:
-
-1. **Read the Guide:** Understand *why* the topic matters and the architectural trade-offs involved.
-2. **Answer the Questions:** Fill in the text boxes under "Think First." Don't worry about being perfect.
-3. **Use the AI Prompt:** Copy the provided prompt block, paste it into ChatGPT or Claude along with your answers, and let the AI generate a high-quality, structured response.
-4. **Paste the Deliverable:** Paste the final AI response into the "Deliverable" box at the bottom. **Kontxt will automatically save your progress and mark the topic as complete.**
-
----
-
-## The Master Document (The Magic)
-
-Once the progress bar is completely full, hit **Export** in the top navigation.
-
-Kontxt will generate a \`[project-name]-kontxt.md\` file. This is not a simple dump of your notes. It is a strictly formatted Master Document containing the complete structural blueprint of your app.
-
-Whenever you want to build a feature, start a new chat with an AI Developer (like Antigravity) and simply say:
-> *"I have attached my Master Project Context document. Please read it to understand the architecture, then build feature X."*
-
-Let's begin. Scroll down and click the "Next Step" button to start defining your idea!
+## The Commitment
+Building a SaaS is hard. It requires patience and accountability. 
+- [ ] I commit to not writing code until Phase 0 is complete.
+- [ ] I understand that ignoring market validation is the fastest way to fail.
+- [ ] I will answer the input fields thoroughly to give my AI the best context possible.
 `,
   'ideadefinition': `# Idea Definition
 
-**🕒 Estimated Time:** 15-20 min
+🕒 **Estimated Time:** 30 min
 
 ---
 
-## Overview
-Welcome to Phase 0. Before writing any code or choosing a database, we must clearly define what you are building. This document serves as the foundational anchor for your project. A blurry idea leads to a blurry product.
+## Why this matters
+Ideas are cheap; execution is everything. However, an idea that is too vague cannot be executed. We must strip away the buzzwords and define the product in plain, undeniable terms.
 
----
-
-## Think First
-Before you ask AI to evaluate your idea, answer these questions honestly. Type your answers right here:
-
-**Core Value Proposition** (If you could only do ONE thing, what is it?)
+## The Raw Concept
+Don't use marketing speak. Explain what the software does as if you are explaining it to a 10-year-old.
+**What exactly does your app do?**
 \`\`\`input
-✍️ Type your answer here...
+✏️ 
 \`\`\`
 
-**Target Audience** (Who exactly needs this?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Existing Solution** (What do they use today?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Unfair Advantage** (Why are *you* the one to build this?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Why Now?** (Why does this idea make sense in 2026 but not 2022?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- Hackathon vs Production: If Hackathon, prioritize a gimmick and speed. If Production, prioritize a clear path to revenue.
-- Focus: Narrow your target audience. You cannot build for "everyone".
-
----
-
-## Common Mistakes
-- **Solution looking for a problem:** Building a cool AI wrapper without a real-world use case.
-- **Overestimating the Unfair Advantage:** Thinking "better UI" is an unfair advantage. It's not. Distribution is an unfair advantage.
-
----
-
-## AI & Architecture Reality Check
-- **Play to AI's Strengths:** AI developers (like Antigravity) are exceptional at building standard SaaS applications using Supabase (for database and Auth) and React. If your idea requires highly custom hardware integrations or obscure 3D rendering, AI will struggle.
-- **Can I leave out Y?** Absolutely. At this stage, do not assume you need complex machine learning or custom algorithms. Define the simplest possible software that solves the problem.
-
----
-
-## AI Prompt
-Use this prompt to stress-test your idea. It will automatically read the answers you typed above.
+## AI Brainstorming & Stress Test
+Let's use AI to poke holes in your idea and suggest sharper angles.
 
 \`\`\`prompt
-Act as a brutally honest Senior Product Manager and SaaS Founder.
-Read my Idea Definition above.
-
-Challenge my assumptions. Do not validate my idea automatically.
-1. What is the biggest, most fatal flaw in this idea?
-2. What feature am I likely overestimating the importance of?
-3. What 3 difficult questions do I need to answer before writing any code?
+Act as a ruthless Y Combinator Partner. Here is my raw SaaS idea: [PASTE YOUR RAW CONCEPT HERE].
+1. Tear it down: What is the most obvious reason this will fail?
+2. Pivot it: Give me 3 highly-specific, nichified angles for this same idea that have a higher chance of survival.
 \`\`\`
 
+## The Refined Decision
+Based on the AI's feedback, you must now lock in your final, sharpened idea. 
 
-
-## What Good Looks Like
-
-**A strong idea definition:**
-✓ Hyper-specific target audience
-✓ Solves an active, painful problem
-✓ Clear path to monetization
-✓ Has a real unfair advantage
-
-**A weak idea definition:**
-✗ "For everyone"
-✗ A "nice to have" vitamin, not a painkiller
-✗ Depends on achieving viral consumer scale
-✗ Unfair advantage is just "better UI"
-
----
-
-## Validation Checklist
-- [ ] Can you explain the idea to a non-technical person in under 15 seconds?
-- [ ] Does the idea solve a real pain point, or is it just cool tech?
-- [ ] Is the scope narrow enough to actually launch within your timeline?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-At the bottom of this page, write a definitive 3-sentence summary of your idea. This will be referenced by Kontxt AI for all future phases.
-
+**State your final, refined idea:**
 \`\`\`input
-✍️ Type your answer here...
+✏️ The final idea we are executing is:
 \`\`\`
+- [ ] I have verified this idea is technically feasible with my current skillset.
 `,
   'problemstatement': `# Problem Statement
 
-**🕒 Estimated Time:** 20-30 min
+🕒 **Estimated Time:** 45 min
 
 ---
 
-## Overview
-Your product does not exist in a vacuum. It exists to eliminate a specific, painful problem. While your [Idea Definition](#ideadefinition) gave you a starting point, founders often fall in love with their solution and ignore the problem. If the problem isn't painful enough, people won't pay for your SaaS, no matter how beautiful the UI is.
+## Why this matters
+People do not buy software; they buy painkillers. If the problem you are solving isn't painful enough, no one will pay for your solution, regardless of how beautiful the UI is. You must fall in love with the problem, not your solution.
 
----
-
-## Think First
-Before using AI, answer these questions to capture project memory.
-
-**Current Workflow** (What is the exact workflow that is broken?)
+## Documenting the Pain
+What is the exact workflow that is currently broken? How much time or money is being wasted?
+**Describe the broken workflow:**
 \`\`\`input
-✍️ Type your answer here...
+✏️ 
+\`\`\`
+**What is the financial or emotional cost of this problem?**
+\`\`\`input
+✏️ 
 \`\`\`
 
-**Current Workaround** (How do they solve it today? e.g., Spreadsheets, Zapier)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Cost of Problem** (How much time/money does this cost them?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: Market Size**
-- [ ] Thousands
-- [ ] Tens of Thousands
-- [ ] Millions
-- [ ] Not Sure
-
-**Reality Check: Willingness to Pay**
-- [ ] Definitely
-- [ ] Maybe
-- [ ] Unlikely
-
----
-
-## Key Decisions
-- **Vitamin vs. Painkiller:** Does your app make things slightly better (vitamin) or does it cure a massive headache (painkiller)? SaaS products that are painkillers are much easier to sell.
-- **Urgency:** How often does the user experience this problem? Daily? Annually?
-
----
-
-## Common Mistakes: Symptoms vs Root Cause
-Most founders solve symptoms, not causes.
-- **Symptom:** Students miss deadlines.
-- **Root Cause:** Assignments are spread across 5 different learning platforms.
-
----
-
-## AI & Architecture Reality Check
-- **Can AI solve this?** Before committing to a problem, ask yourself: Is this a problem that software can actually solve? AI is great at automating workflows, parsing data, and generating content. It cannot force your users to change deeply ingrained physical habits.
-- **Data Availability:** Does solving this problem require data you don't have access to? If the solution requires scraping a closed API, the AI can't magically bypass those restrictions.
-
----
-
-## AI Prompt
-Use this prompt to expand your understanding of the problem space.
+## AI Problem Refinement (Jobs To Be Done)
+The "Jobs To Be Done" (JTBD) framework helps clarify *why* someone hires your product.
 
 \`\`\`prompt
-Act as a skeptical user research expert. Read my problem inputs above.
-
-1. Tell me why this problem might actually NOT be as painful as I think it is.
-2. What are the secondary or hidden pain points associated with this problem that I haven't considered?
-3. Based on my "Symptom", what are 3 alternative "Root Causes" I might be ignoring?
+Act as a Product Strategist. Based on this broken workflow: [PASTE WORKFLOW], generate 3 different "Jobs To Be Done" statements in the format: "When I [context], but [problem], help me [goal], so I can [outcome]."
 \`\`\`
 
+## The Final Problem Statement
+Review the JTBD statements. Choose the most compelling one and finalize your problem statement.
 
-
-## What Good Looks Like
-
-**A strong problem statement:**
-✓ Specific
-✓ Quantifiable
-✓ Repeated frequently
-✓ Expensive to ignore
-
-**A weak problem statement:**
-✗ Vague
-✗ Rare
-✗ No measurable impact
-
----
-
-## Validation Checklist
-- [ ] The problem exists independent of your proposed solution.
-- [ ] You have identified a root cause, not just a symptom.
-- [ ] Users are actively spending time or money attempting to fix this today.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Write a 3-part Problem Statement below:
-1. **The Current State:** How things are done today.
-2. **The Flaw:** Why the current state is terrible.
-3. **The Impact:** The cost (time, money, sanity) of the flaw.
-
+**Final Problem Statement:**
 \`\`\`input
-✍️ Type your answer here...
+✏️ Our product exists to solve...
 \`\`\`
-
-
 `,
   'userpainpoints': `# User Pain Points
 
-**🕒 Estimated Time:** 15-20 min
+🕒 **Estimated Time:** 30 min
 
 ---
 
-## Overview
-A [Problem Statement](#problemstatement) defines *what* is broken. User Pain Points define *how* it feels and *why* it matters. If you do not intimately understand the friction your users experience daily, you will build features they don't care about. Remember: users don't buy software, they buy a better version of themselves.
+## Why this matters
+Empathy drives design. A Problem Statement defines *what* is broken on a macro level. User Pain Points define *how it feels* on a micro level. If you understand the exact friction points, your marketing copy will write itself.
 
----
-
-## Think First
-Before relying on AI, document your actual conversations with real humans (or your own experience).
-
-**The "Hair on Fire" Metric** (Is this a mild annoyance, or are they actively bleeding time/money?)
+## Extracting the Friction
+List three highly specific complaints a user might shout at their computer right now.
+**Pain Point 1:**
 \`\`\`input
-✍️ Type your answer here...
+✏️ "I am so sick of having to..."
+\`\`\`
+**Pain Point 2:**
+\`\`\`input
+✏️ "It takes me 4 hours every week just to..."
+\`\`\`
+**Pain Point 3:**
+\`\`\`input
+✏️ "Why isn't there a way to simply..."
 \`\`\`
 
-**The Current Workaround** (How are they duct-taping a solution together today? Spreadsheets? Zapier?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Cost of Inaction** (What happens if they NEVER buy your product?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: The "Skin in the Game" Test**
-- [ ] They have actively complained about this publicly (e.g., Reddit, Twitter).
-- [ ] They are currently paying for a suboptimal tool just to handle this.
-- [ ] They have tried to build an in-house tool to solve this.
-- [ ] They just shrug when asked about it (Red flag!).
-
----
-
-## Key Decisions
-- **Focusing on the Root Cause:** Users often complain about a symptom ("This export takes too long"). The root cause is usually deeper ("We shouldn't need to export this to Excel in the first place").
-- **Urgency vs. Importance:** A problem can be important but not urgent. Software that solves *urgent* problems sells 10x faster.
-
----
-
-## Common Mistakes
-- **Leading the Witness:** Asking users "Would you pay for a tool that does X?". People are polite and will say yes. Ask them: "Walk me through how you did X yesterday."
-- **Assuming Everyone Has Your Pain:** Just because you hate a specific dev tool doesn't mean non-technical founders care.
-
----
-
-## AI Prompt
-Use this prompt to uncover blind spots in your pain point analysis.
-
+## AI Empathy Generation
 \`\`\`prompt
-Act as a skeptical User Researcher at Y Combinator.
-My target audience is: [INSERT TARGET AUDIENCE].
-The problem they face is: [INSERT PROBLEM STATEMENT].
-
-1. Play Devil's Advocate: Why might this pain point actually NOT be severe enough to make them switch software?
-2. What are the secondary or hidden pain points associated with this problem that I haven't considered?
-3. Generate 3 specific, open-ended interview questions I should ask my next prospect to uncover their true pain.
+Act as a User Researcher. I am solving this problem: [PASTE PROBLEM STATEMENT]. My users complain about: [PASTE PAIN POINTS]. 
+Write a short, highly-emotional narrative from the perspective of the user experiencing this problem at 4 PM on a Friday. Help me feel their frustration.
 \`\`\`
 
-
-
-## What Good Looks Like
-
-**Strong Pain Point Validation:**
-✓ You have quotes from actual users experiencing the pain.
-✓ The pain occurs frequently (daily or weekly).
-✓ The user is actively searching for a solution.
-
-**Weak Pain Point Validation:**
-✗ You assume the pain based on a shower thought.
-✗ The pain happens once a year.
-✗ Users don't even realize they have a problem.
-
----
-
-## Validation Checklist
-- [ ] Can you describe the pain point using the exact words of your target user?
-- [ ] Have you verified that this pain is attached to a specific budget line-item or time sink?
-- [ ] Does solving this pain point directly lead to a measurable outcome (e.g., +20% revenue)?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Summarize the Top 3 User Pain Points below, ranked by severity. For each, list the exact consequence of the pain point.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+## Accountability Check
+- [ ] I have actually spoken to at least ONE real human being who experiences these pain points.
+- [ ] I am not just making these up based on assumptions.
 `,
-  'targetusers': `# Target Users & Ideal Customer Profile (ICP)
+  'targetusers': `# Target Users
 
-**🕒 Estimated Time:** 20-30 min
-
----
-
-## Overview
-"Everyone" is not a target audience. If you build for everyone, you build for no one. A hyper-specific ICP allows you to build features faster, write better marketing copy, and completely ignore distractions. The goal here is to find the "Bullseye" customer—the subset of people who are desperate to solve their [User Pain Points](#userpainpoints).
+🕒 **Estimated Time:** 20 min
 
 ---
 
-## Think First
-Before using AI, answer these core questions about who is actually pulling out their credit card:
+## Why this matters
+"Everyone" is a terrible demographic. If you build for everyone, you build for no one. A hyper-specific audience allows you to build features faster, write better marketing copy, and completely ignore distractions.
 
-**Demographics & Role** (Who are they exactly? E.g., "B2B SaaS Founders doing $10k-$50k MRR")
+## Broad Demographic Mapping
+Before we narrow down to the exact buyer, let's establish the sandbox we are playing in.
+**Who is the primary broad audience for this tool? (e.g., Freelance Designers, Small E-commerce Brands, Local Plumbers)**
 \`\`\`input
-✍️ Type your answer here...
+✏️ Our broad target audience is:
 \`\`\`
 
-**Where do they hang out?** (Subreddits, LinkedIn groups, specific Discord servers)
+## The Negative Audience
+Who explicitly should *never* use this product? Excluding users is just as important as including them.
+**Who are we explicitly NOT building for?**
 \`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Superhuman PMF Test** (Who would be "very disappointed" if your product disappeared?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: Budget**
-- [ ] Enterprise / High Budget ($1,000+/mo)
-- [ ] Mid-Market ($100-$500/mo)
-- [ ] Prosumer ($20-$50/mo)
-- [ ] Consumer (Reluctant to pay)
-
----
-
-## Key Decisions
-- **B2B vs B2C:** B2C requires massive viral scale because consumers churn fast and hate paying for software. B2B businesses expect to pay for software that saves them time or makes them money.
-- **The Bullseye Approach:** Identify the concentric circles of your market. Start entirely focused on the absolute center (the Bullseye) before trying to expand outward.
-
----
-
-## Common Mistakes
-- **Vague Personas:** Saying your target is "Small Business Owners". That's millions of completely different businesses. Be specific: "Plumbing businesses in Texas with 5-10 employees."
-- **Listening to the Wrong Users:** Taking feature requests from people who are not in your Bullseye ICP.
-
----
-
-## AI Prompt
-Use this prompt to generate actionable, hypothetical user personas to guide your feature prioritization.
-
-\`\`\`prompt
-My SaaS product does: [INSERT ELEVATOR PITCH].
-
-Act as a world-class Product Marketing Manager.
-Generate 3 detailed Ideal Customer Profiles (ICPs) for this product using the "Bullseye" framework.
-For the Primary "Bullseye" ICP, include:
-1. Demographics & Psychographics (Motivations, Frustrations)
-2. Where they currently spend money to solve this problem today
-3. The absolute best marketing channel to reach them with $0 budget
-\`\`\`
-
-
-
-## What Good Looks Like
-
-**A strong ICP definition:**
-✓ Role-specific and highly constrained
-✓ Clear understanding of their budget
-✓ Identifiable watering holes (where they hang out)
-✓ They actively experience the pain point
-
-**A weak ICP definition:**
-✗ "Anyone who wants to save time"
-✗ "Small to Medium Businesses (SMBs)"
-✗ No clear acquisition channel
-
----
-
-## Validation Checklist
-- [ ] Can you find a list of 100 specific people who fit this profile right now?
-- [ ] Do these users have the authority to make a purchasing decision?
-- [ ] Have you manually spoken to at least 5 of them?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Define your 1 Primary ICP below. Delete everything else. When you are tempted to build a feature, ask yourself: "Does this specific person actually care about this?"
-
-\`\`\`input
-✍️ Type your answer here...
+✏️ We will actively ignore feature requests from:
 \`\`\`
 `,
   'icpidealcustomerprofile': `# ICP (Ideal Customer Profile)
 
-**🕒 Estimated Time:** 20-30 min
+🕒 **Estimated Time:** 45 min
 
 ---
 
-## Overview
-While your [Target Users](#targetusers) define the broad market segment you are going after (e.g., "B2B Sales Teams"), your Ideal Customer Profile (ICP) is the hyper-specific, fictional representation of your *absolute perfect buyer*. If you try to sell to every sales team, your marketing will be generic and your conversions will be zero. Your ICP defines the exact person who is actively bleeding time or money and has the budget to buy your software *today*.
+## Why this matters
+Your Ideal Customer Profile (ICP) is the hyper-specific, fictional representation of your *absolute perfect buyer*. If your ICP is "Local plumbers in Texas with exactly 3 trucks who currently use paper invoices", you can easily find exactly where those 5,000 people hang out and sell directly to them.
 
----
-
-## Think First
-Define the exact criteria that disqualifies a lead.
-
-**The "Must-Have" Criteria (e.g., Must use Salesforce, Must have 10-50 employees, Must be generating >$1M ARR)**
+## The Variables
+Define the rigid parameters of the person holding the credit card.
+**Role/Title:**
 \`\`\`input
-✍️ Type your answer here...
+✏️ 
+\`\`\`
+**Company Size/Revenue (if B2B):**
+\`\`\`input
+✏️ 
+\`\`\`
+**Current Workaround (What are they doing right now?):**
+\`\`\`input
+✏️ 
 \`\`\`
 
-**The "Disqualifiers" (e.g., Does not have a dedicated sales manager, Uses Hubspot instead of Salesforce)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Narrowing the Niche:** It feels terrifying to exclude 90% of your potential market. Do it anyway. If your ICP is "Local plumbers in Texas with exactly 3 trucks who currently use paper invoices", you can easily find exactly where those 5,000 people hang out and sell directly to them.
-- **Buyer vs. User:** In B2B SaaS, the person using the software (the Sales Rep) is often NOT the person buying the software (the VP of Sales). Your ICP must define the *Buyer*, because they hold the credit card.
-
----
-
-## Common Mistakes
-- **No Disqualifiers:**
-  - *Why it happens:* You want as many customers as possible.
-  - *Consequence:* You spend 3 months onboarding a massive client who demands 50 custom features, eats up all your support time, and then churns anyway because they weren't your ICP.
-  - *Prevention:* Explicitly write down who your software is *not* for.
-- **The "Fortune 500" Trap:** Trying to sell your MVP to a massive enterprise. Enterprise sales cycles take 12 months. Your startup will run out of money in 6 months. Target mid-market or prosumers first.
-
----
-
-## Examples
-- *Good Implementation:* "Our ICP is the Director of Customer Success at a B2B SaaS company with 50-200 employees, currently using Zendesk, who has at least $5,000 in monthly churn."
-- *Bad Implementation:* "Our ICP is anyone who wants to improve customer service."
-
----
-
-## AI Prompt
-Use this prompt to turn your broad target audience into a hyper-specific ICP.
-
+## AI ICP Narrowing
 \`\`\`prompt
-My SaaS product does: [INSERT ELEVATOR PITCH].
-My broad Target Audience is: [INSERT TARGET AUDIENCE].
-
-Act as a world-class B2B Product Marketer.
-Generate a strictly constrained Ideal Customer Profile (ICP) for this product.
-Include:
-1. Firmographics (Company size, revenue, industry).
-2. Technographics (What software must they already be using?).
-3. The exact Job Title of the economic buyer.
-4. The Top 3 Red Flags (Disqualifiers) that indicate a prospect is a bad fit.
+Act as a B2B SaaS Marketer. My broad audience is [PASTE BROAD AUDIENCE]. My product solves [PASTE PROBLEM STATEMENT]. 
+Give me 3 hyper-specific "Bullseye" ICP definitions that are desperate for this solution right now. Explain exactly where they hang out online.
 \`\`\`
 
----
-
-## Validation Checklist
-- [ ] Is your ICP specific enough that you could filter a list of 10,000 companies down to exactly 100 perfect fits?
-- [ ] Have you explicitly defined who the economic buyer is (the person with the credit card)?
-- [ ] Have you defined at least 3 disqualifying criteria?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Write your highly constrained ICP below, including the firmographics and the exact role of the buyer.
-
+## The Final Decision
+**Paste your final, hyper-specific ICP here:**
 \`\`\`input
-✍️ Type your answer here...
+✏️ 
 \`\`\`
 `,
-  'personas': `# User Personas & Jobs to be Done
+  'personas': `# Personas
 
-**🕒 Estimated Time:** 30-40 min
-
----
-
-## Overview
-A "Persona" tells you *who* the user is. A "Job to be Done" (JTBD) tells you *why* they buy. High-performing product teams use JTBD to drive the roadmap (what features to build) and Personas to build empathy (how to design and market it). Combining both ensures you build a product that is both useful and resonant with your [Target Users](#targetusers).
+🕒 **Estimated Time:** 30 min
 
 ---
 
-## Think First
-Before using AI, ground your personas in reality. Answer these questions based on actual user behavior, not assumptions.
+## Why this matters
+An ICP tells you *who to sell to*. A Persona tells you *how to design for them*. By giving your ICP a name, a personality, and a technical proficiency level, you prevent endless debates over UI decisions. "Would Dave the Plumber know what a hamburger menu is?"
 
-**The "Hire" Trigger** (What specific event caused them to look for a solution today?)
+## Persona Development
+Define the actual human using the software.
+**Name & Age:**
 \`\`\`input
-✍️ Type your answer here...
+✏️ 
+\`\`\`
+**Technical Proficiency (1 = Beginner, 10 = Expert):**
+\`\`\`input
+✏️ 
+\`\`\`
+**Primary Motivation for using the app:**
+\`\`\`input
+✏️ 
 \`\`\`
 
-**The "Fire" Trigger** (What specific frustration will cause them to abandon your product?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Context & Constraints** (Are they using this on their phone during a commute? Are they locked into strict IT policies?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: The "Vanity" Test**
-- [ ] My persona includes irrelevant details (e.g., "likes long walks on the beach").
-- [ ] My persona is based entirely on my imagination.
-- [ ] My persona focuses heavily on the "Job" they are trying to accomplish.
-- [ ] I can map this persona directly to my Ideal Customer Profile (ICP).
-
----
-
-## Key Decisions
-- **JTBD vs Persona:** Use JTBD ("When [situation], I want to [motivation], so I can [expected outcome]") to prioritize your backlog. Use Personas to write marketing copy and design the UI tone.
-- **The Decision Maker vs. The End User:** In B2B SaaS, the person buying the software (e.g., VP of Sales) is often not the person using it (e.g., Account Executive). You must define both.
-
----
-
-## Common Mistakes
-- **Assumption-Driven Personas:** Creating fictional characters that don't match real data, leading to a false sense of empathy.
-- **Feature-Obsessed Personas:** Defining a user solely by the features they use, rather than the problem they are trying to solve.
-
----
-
-## AI Prompt
-Use this prompt to bridge your ICP with actionable Jobs to be Done.
-
+## AI Persona Generation
 \`\`\`prompt
-Act as a Principal Product Manager specializing in the Jobs to be Done framework.
-My target ICP is: [INSERT ICP].
-The problem they face is: [INSERT PROBLEM STATEMENT].
-
-Generate 2 detailed User Personas. For each persona, provide:
-1. A 1-sentence "Job Story" (When [situation], I want to [motivation], so I can [outcome]).
-2. Their primary constraint (Time, Budget, Technical Literacy, Authority).
-3. The exact emotion they feel before using the product, and the exact emotion they want to feel after.
+Act as a UX Researcher. Based on my ICP: [PASTE ICP], generate a detailed User Persona. Include their daily routine, their biggest technical frustrations, and the tone of voice I should use when communicating with them in the app UI.
 \`\`\`
 
----
-
-## What Good Looks Like
-
-**A strong Persona/JTBD:**
-✓ Focuses heavily on the triggering situation and desired outcome.
-✓ Highlights real-world constraints (e.g., "Only has 5 minutes between meetings").
-✓ Distinguishes between the buyer and the user.
-
-**A weak Persona/JTBD:**
-✗ Reads like a fictional biography.
-✗ Has no actionable impact on the product roadmap.
-✗ Assumes the user has unlimited time to learn a new interface.
-
----
-
-## Validation Checklist
-- [ ] Are these personas based on patterns observed in actual customer interviews?
-- [ ] Can you point to a specific feature on your roadmap and explain exactly which "Job" it satisfies?
-- [ ] Did you avoid demographic stereotypes in favor of behavioral patterns?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Define your Primary User Persona and their core "Job to be Done" below.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+## Accountability Check
+- [ ] I have mapped this persona directly back to my ICP.
+- [ ] I have verified that my technical proficiency rating matches reality.
 `,
   'solutionstatement': `# Solution Statement
 
-**🕒 Estimated Time:** 20-30 min
+🕒 **Estimated Time:** 30 min
 
 ---
 
-## Overview
-The Solution Statement bridges the gap between the [Problem Statement](#problemstatement) and the Product. Using Amazon's famous "Working Backwards" PR/FAQ methodology, this document forces you to articulate exactly *what* you are building, *how* it works, and *why* it is significantly better than the alternatives—all from the customer's perspective, before writing a single line of code.
+## Why this matters
+You know the problem and you know exactly who has it. Now, how do you solve it? The Solution Statement bridges the gap between the Problem Statement and the actual code. We use Amazon's famous "Working Backwards" PR/FAQ methodology to articulate exactly *what* you are building from the customer's perspective.
 
----
-
-## Think First
-Before using AI, clearly define the mechanics of your solution.
-
-**The "Aha!" Moment** (What is the exact moment the user realizes your product is magic?)
+## First Draft
+Without using any technical jargon (no "AI-powered blockchain"), describe exactly how your product solves the problem.
+**How does it work?**
 \`\`\`input
-✍️ Type your answer here...
+✏️ 
 \`\`\`
 
-**The Core Mechanism** (How does your product actually solve the root cause of the problem?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The 10x Factor** (Why is this fundamentally better, faster, or cheaper than the workaround?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: Feasibility**
-- [ ] Can this solution be built by my current team within 3 months?
-- [ ] Does this solution rely on unproven or inaccessible technology?
-- [ ] Is the solution completely dependent on massive network effects to work?
-- [ ] Does the solution directly address the "Hair on Fire" pain point?
-
----
-
-## Key Decisions
-- **Narrative over Bullet Points:** A solution statement should read like a press release. It must be compelling, customer-centric, and completely devoid of technical jargon.
-- **Verifiable Value:** Avoid vague claims like "it makes you more productive." Use verifiable claims like "it reduces the time to generate a report from 3 hours to 3 seconds."
-
----
-
-## Common Mistakes
-- **Focusing on Features, Not Benefits:** Customers don't care about your React frontend or your AI backend. They care about what the product *does for them*.
-- **Building a Better Mousetrap:** If your solution solves the problem in the exact same way as existing products, but just looks slightly nicer, it will fail. You need a paradigm shift.
-
----
-
-## AI & Architecture Reality Check
-- **The "Boring Tech" Rule:** Your solution should rely on standard infrastructure. Don't invent a new way to do Authentication. Use standard Supabase Auth. Don't invent a custom database router. Use standard Postgres.
-- **Why Z is Significant:** Sticking to established patterns means AI tools have millions of examples in their training data. If your solution relies on a well-known architecture, Antigravity can build it flawlessly. If you ask for something highly obscure, the AI will hallucinate.
-
----
-
-## AI Prompt
-Use this prompt to draft a compelling, Amazon-style Press Release for your solution.
+## AI Stress Test (The Amazon PR/FAQ)
+Let's see how this sounds in a press release.
 
 \`\`\`prompt
-Act as a "Bar Raiser" at Amazon, an expert in the Working Backwards methodology.
-My problem statement is: [INSERT PROBLEM STATEMENT].
-My proposed solution mechanism is: [INSERT CORE MECHANISM].
-
-Draft the "Solution Paragraph" of a PR/FAQ Press Release.
-1. It must be written entirely from the customer's perspective.
-2. It must clearly explain how the product works without using any technical jargon.
-3. It must emphasize the "Aha!" moment and the specific, verifiable benefit over existing workarounds.
-Make it punchy and persuasive.
+Act as a Product Manager at Amazon. Using the "Working Backwards" PR/FAQ methodology, write a 1-page internal Press Release announcing my product: [PASTE YOUR DRAFT HERE]. Include a fictional quote from a frustrated user who just experienced the 'Aha!' moment using my solution.
 \`\`\`
 
----
-
-## What Good Looks Like
-
-**A strong Solution Statement:**
-✓ Customer-centric language (focuses on benefits, not features).
-✓ Clearly maps back directly to the identified root cause of the pain point.
-✓ Provides a concrete, verifiable outcome.
-
-**A weak Solution Statement:**
-✗ Reads like a technical spec sheet or an architecture diagram.
-✗ Uses buzzwords ("AI-powered synergy platform").
-✗ Solves a problem that wasn't previously identified.
-
----
-
-## Validation Checklist
-- [ ] If you read this statement to a non-technical user, would they instantly understand what the product does?
-- [ ] Does the solution offer a meaningfully better experience than the current workaround?
-- [ ] Are you excited to actually build this?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Write your official 1-paragraph Solution Statement (Press Release style) below.
-
+## The Final Decision
+**Paste your finalized Solution Statement here:**
 \`\`\`input
-✍️ Type your answer here...
+✏️ 
 \`\`\`
 `,
   'valueproposition': `# Value Proposition
 
-**🕒 Estimated Time:** 20-30 min
+🕒 **Estimated Time:** 20 min
 
 ---
 
-## Overview
-A Value Proposition is not a marketing slogan (like Nike's "Just Do It"). It is a clear, concise statement that explains exactly what measurable benefit your [Solution Statement](#solutionstatement) delivers, and why the customer should buy it from you instead of a competitor to relieve their [User Pain Points](#userpainpoints). We use the **Value Proposition Canvas** by Strategyzer to guarantee problem-solution fit.
+## Why this matters
+A Value Proposition is not a marketing slogan (like Nike's "Just Do It"). It is a clear, concise statement that explains exactly what measurable benefit your solution delivers, and why the customer should buy it from *you* instead of a competitor.
 
----
-
-## Think First
-Map your solution against the customer's actual reality.
-
-**Pain Relievers** (How exactly does your product eliminate or minimize the customer's "Hair on Fire" pain?)
+## Your Unfair Advantage
+Why are you the right person to build this? Do you have insider knowledge? A unique distribution channel?
+**My unfair advantage is:**
 \`\`\`input
-✍️ Type your answer here...
+✏️ 
 \`\`\`
 
-**Gain Creators** (What unexpected, magical outcomes does your product create that the customer didn't even know they wanted?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The "So What?" Test** (If you list your best feature to a customer, and they rudely reply "So what?", what is your answer?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: The Differentiation Axis**
-- [ ] My product is 10x Faster.
-- [ ] My product is 10x Cheaper.
-- [ ] My product provides a 10x Better Experience.
-- [ ] (Warning: You cannot choose all three. Pick one).
-
----
-
-## Key Decisions
-- **Features vs. Benefits:** "256-bit AES Encryption" is a feature. "You will never get sued for a data breach" is a benefit. Your value proposition must only contain benefits.
-- **The Core Differentiator:** If your value proposition sounds identical to a competitor's, you do not have a value proposition.
-
----
-
-## Common Mistakes
-- **Being a "Vitamin":** Selling nice-to-have improvements rather than "Painkiller" solutions that stop active bleeding.
-- **Vague Promises:** Using phrases like "Increases productivity" or "Empowers teams." Use hard numbers and specific outcomes.
-
----
-
-## AI & Architecture Reality Check
-- **Features vs Infrastructure:** Your value proposition should never be "We use Supabase." Users do not care about your database. They care about speed, reliability, and outcomes.
-- **Focusing the AI:** When you eventually hand this document to an AI developer, the Value Proposition tells the AI *what to optimize for*. If your value is "Extreme Speed", the AI will know to prioritize performance over complex UI animations.
-
----
-
-## AI Prompt
-Use this prompt to build out a complete Value Proposition Canvas.
-
+## AI Value Prop Generator
 \`\`\`prompt
-Act as a Product Strategist specializing in the Strategyzer Value Proposition Canvas.
-My target customer is: [INSERT ICP].
-My solution is: [INSERT SOLUTION STATEMENT].
-
-Generate a Value Proposition Canvas:
-1. Customer Profile: List 3 functional Jobs, 3 extreme Pains, and 3 desired Gains.
-2. Value Map: List the specific Products/Services, 3 Pain Relievers, and 3 Gain Creators.
-3. Finally, synthesize this into a single, punchy 2-sentence Value Proposition statement.
+Act as a B2B Copywriter. My solution is [PASTE SOLUTION STATEMENT]. My target audience is [PASTE ICP]. Generate 5 highly-differentiated Value Propositions using the format: "We help [ICP] achieve [Desired Outcome] by doing [Unique Action]."
 \`\`\`
 
----
-
-## What Good Looks Like
-
-**A strong Value Proposition:**
-✓ Specific and measurable (e.g., "Cuts reporting time by 80%").
-✓ Passes the "So What?" test instantly.
-✓ Clearly differentiated from the status quo.
-
-**A weak Value Proposition:**
-✗ Loaded with adjectives ("The most innovative, seamless, scalable platform").
-✗ Focuses on the company, not the customer.
-✗ Completely interchangeable with a competitor's website copy.
-
----
-
-## Validation Checklist
-- [ ] Is there exactly ONE primary benefit highlighted?
-- [ ] Have you removed all technical jargon?
-- [ ] If a customer reads this, do they instantly know if it's for them or not?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Write your official 1-2 sentence Value Proposition below.
-
+## Finalizing the Proposition
+Review the AI's output and select the strongest one.
+**Our Official Value Proposition:**
 \`\`\`input
-✍️ Type your answer here...
+✏️ 
 \`\`\`
 `,
   'elevatorpitch': `# Elevator Pitch
 
-**🕒 Estimated Time:** 15-20 min
+🕒 **Estimated Time:** 15 min
 
 ---
 
-## Overview
-The goal of an elevator pitch is not to explain every feature of your business. The goal is to be interesting enough that the listener says, "Tell me more." We use Geoffrey Moore's framework to synthesize your [Value Proposition](#valueproposition) and [Solution Statement](#solutionstatement) into a strategy, and the Y Combinator framework to actually *speak* to humans.
+## Why this matters
+You have 10 seconds to not sound boring. If you cannot explain your product in a single sentence at a dinner party without confusing people, your website visitors will definitely bounce within 3 seconds. 
 
----
-
-## Think First
-Use Geoffrey Moore's "Crossing the Chasm" mad-libs format to clarify your internal strategy.
-
-**For** (target customer) **who are dissatisfied with** (current workaround), **our product is a** (product category) **that provides** (key benefit). **Unlike** (the alternative), **we** (primary differentiator).
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The YC "XYZ" Format** (We are doing [X] for [Y] that does [Z]).
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The "Mom Test"** (Explain it in one sentence. If your mom wouldn't understand it, rewrite it).
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: The "Jargon" Filter**
-- [ ] I removed the word "AI-powered" (unless it is literally an AI infrastructure company).
-- [ ] I removed the word "Platform".
-- [ ] I removed the word "Synergy" or "Empower".
-- [ ] I can say it out loud in less than 10 seconds without running out of breath.
-
----
-
-## Key Decisions
-- **Clarity over Comprehensiveness:** When someone asks what Airbnb does, they don't say "A two-sided marketplace utilizing dynamic pricing algorithms." They say, "We help you rent out your spare bedroom."
-- **The "Why Now?":** Investors and smart hires will ask why this didn't exist 5 years ago. Is there a new technology? A regulatory shift? A cultural change?
-
----
-
-## Common Mistakes
-- **Pitching the Tech Stack:** Nobody cares that you are using Rust and WebSockets. They care about what the product does.
-- **Explaining the "How" before the "What":** Say what the product is *before* you explain how it works under the hood.
-
----
-
-## AI & Architecture Reality Check
-- **The Context Window:** An Elevator Pitch isn't just for humans. When you start a new chat with an AI developer (like Antigravity), pasting this 1-sentence pitch at the very top of your prompt instantly grounds the AI in the reality of what you are building, preventing it from hallucinating irrelevant features.
-
----
-
-## AI Prompt
-Use this prompt to distill your strategy into a YC-style pitch.
+## AI Pitch Synthesizer
+Let's condense your Value Proposition into something punchy.
 
 \`\`\`prompt
-Act as Michael Seibel from Y Combinator. You are ruthless about clarity and hate jargon.
-My target customer is: [INSERT ICP].
-My solution is: [INSERT SOLUTION STATEMENT].
-My differentiator is: [INSERT KEY DIFFERENTIATOR].
-
-Generate 3 different variations of a 10-second elevator pitch using the YC framework.
-They must be written in plain English, completely devoid of buzzwords, and immediately explain exactly what the product actually does.
+Act as a Startup Pitch Coach. My Value Proposition is: [PASTE VALUE PROP]. Distill this into a single, punchy, conversational Elevator Pitch. It must be under 140 characters. Give me 3 variations.
 \`\`\`
 
----
-
-## What Good Looks Like
-
-**A strong Elevator Pitch:**
-✓ "We are Stripe. We provide an API that lets developers accept credit cards on the internet."
-✓ Conversational, confident, and simple.
-
-**A weak Elevator Pitch:**
-✗ "We are a B2B SaaS synergistic platform that leverages machine learning to optimize enterprise workflows."
-✗ Defensive, complex, and full of buzzwords.
-
----
-
-## Validation Checklist
-- [ ] Does it take less than 15 seconds t for Now".
-2. For the "Must Haves", suggest the absolute simplest, most hard-coded way I can implement them to save time.
+## The Final Pitch
+**Commit your best Elevator Pitch to memory (and to this field):**
+\`\`\`input
+✏️ 
 \`\`\`
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable Expectations
-Create a checklist below of the 3 to 5 features that constitute your MVP. If there are more than 5, you are probably building too much.
 `,
   'marketresearch': `# Market Research
 
-**🕒 Estimated Time:** 45-60 min
+🕒 **Estimated Time:** 1-2 hours
 
 ---
 
-## Overview
-Market research is rarely about reading generic industry reports (e.g., "The global CRM market is projected to reach $80B by 2028"). Those reports are useless for a startup. True market research is about **Behavioral Evidence**. Are people actively, currently frustrated? Are they actively hacking together spreadsheets because a good solution doesn't exist? You aren't looking for a "Market Size"—you are looking for a "Hair on Fire" problem.
+## Why this matters
+Is your market growing, shrinking, or completely stagnant? A brilliant product in a dying market will fail. A mediocre product in a rapidly growing market can thrive. You must understand the macroeconomic trends before committing months of your life to this codebase.
 
----
-
-## Think First
-Before running to Google or ChatGPT, think about where your specific users congregate and complain.
-
-**The "Watering Hole"** (Where exactly do your users hang out online? Name specific Subreddits, Discord servers, LinkedIn groups, or niche forums).
+## Finding the Watering Holes
+Where do your users hang out online?
+**Paste links to 3 specific subreddits, Facebook groups, or forums where your ICP complains:**
 \`\`\`input
-✍️ Type your answer here...
+✏️ 1. 
+2. 
+3. 
 \`\`\`
 
-**The "Desperation Signal"** (What exact phrases are they typing into Google when they are angry or frustrated with this problem? e.g., "How to sync stripe to airtable without zapier")
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Trend** (Is this problem growing because of a recent shift? e.g., A new law passed, a new API was released, or a shift to remote work?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: The "Echo Chamber" Test**
-- [ ] Have I looked outside of my immediate friend group/Twitter bubble?
-- [ ] Are people currently spending money to solve adjacent problems in this space?
-- [ ] Is this a problem that people *must* solve, or just *nice* to solve?
-
----
-
-## Key Decisions
-- **Bottom-Up vs. Top-Down Research:** Ignore top-down (TAM/SAM/SOM charts). Focus entirely on bottom-up: Find 100 people complaining about the exact same thing on Reddit. That is your market.
-- **Willingness to Pay:** A large market of people who refuse to pay for software (e.g., college students) is worse than a tiny market of people who happily pay for software (e.g., corporate lawyers).
-
----
-
-## Common Mistakes
-- **Confirmation Bias:** Only looking for data that proves your idea is brilliant, while ignoring forum posts that say "I tried a tool for this and it wasn't worth the hassle."
-- **Asking "Would you use this?":** Never ask users if they *would* use something. Humans are polite and will lie to you. Ask them what they *currently do* to solve the problem today.
-
----
-
-## AI & Architecture Reality Check
-- **The Knowledge Cutoff:** Do not ask AI "What is the market size of X?" LLMs hallucinate numbers and are frozen in time.
-- **The Ultimate AI Research Hack:** Instead of asking AI for facts, use AI for **Synthesis**. Go to a Reddit thread where people are complaining, copy the entire thread (all 150 comments), paste it into the AI, and ask it to synthesize the underlying psychological pain points.
-
----
-
-## AI Prompt
-Use this prompt to process raw, unstructured market complaints into actionable insights.
-
-\`\`\`prompt
-Act as a world-class User Researcher.
-I am going to provide you with raw text scraped from [Reddit / G2 Reviews / Forums] where my target users are discussing their workflows.
-
-[PASTE YOUR SCRAPED RAW TEXT/COMMENTS HERE]
-
-Analyze this raw data and provide:
-1. The top 3 recurring emotional frustrations.
-2. The exact vocabulary and jargon they use to describe their problem (so I can use it in my marketing).
-3. The underlying "Root Cause" of their frustration that they might not even realize themselves.
-\`\`\`
-
----
-
-## What Good Looks Like
-
-**Strong Market Research:**
-✓ "I found 4 Reddit threads with 500+ upvotes complaining about this exact issue."
-✓ "I know the exact search terms they use when they hit their breaking point."
-✓ "The market is small (10,000 agencies), but they lose $5,000/month to this problem."
-
-**Weak Market Research:**
-✗ "Gartner says the AI market is growing at 35% CAGR."
-✗ "Everyone needs to be more productive, so the market is 1 billion knowledge workers."
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Write a highly specific, 3-4 sentence summary of your Bottom-Up market research. Prove that the bleeding neck actually exists.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+## Accountability Check
+- [ ] I have read at least 20 raw, unfiltered complaints from my target users on these platforms.
+- [ ] I have identified the exact words they use to describe their pain.
 `,
   'competitoranalysis': `# Competitor Analysis
 
-**🕒 Estimated Time:** 45-60 min
+🕒 **Estimated Time:** 45 min
 
 ---
 
-## Overview
-You do not analyze competitors to copy their feature list. You analyze competitors to find their **Structural Weaknesses**. A structural weakness is a flaw that a competitor *cannot* fix without cannibalizing their own revenue or completely rewriting their core architecture. You are David; they are Goliath. You must find the exposed armor.
+## Why this matters
+"We don't have any competitors." If this is true, there is no market. Competitors are proof that the problem is painful enough that people are willing to pay for a solution. Your goal is not to copy them, but to figure out exactly what they suck at.
 
----
-
-## Think First
-Identify your top competitors and immediately look for their blind spots.
-
-**The Goliath** (Who is the massive, billion-dollar incumbent in this space? e.g., Salesforce, Jira, Excel)
+## The Big Players
+Identify the 3 heaviest hitters in your space.
+**Competitor 1 & Their Biggest Weakness:**
 \`\`\`input
-✍️ Type your answer here...
+✏️ Name:
+Weakness:
+\`\`\`
+**Competitor 2 & Their Biggest Weakness:**
+\`\`\`input
+✏️ Name:
+Weakness:
 \`\`\`
 
-**The Goliath's Weakness** (What are they too big to care about? Are they too complex? Too expensive? Do they ignore small teams?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Nimble Upstart** (Who is the closest modern startup trying to do exactly what you want to do?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: The "Feature Matrix of Death"**
-- [ ] Am I trying to beat the competitor by having *more* features? (Hint: You can't. They have 500 engineers; you have 1).
-- [ ] Can the competitor easily copy my differentiation in a weekend? (If yes, you have no moat).
-- [ ] Am I competing on a specific Niche or Workflow that the competitor fundamentally ignores?
-
----
-
-## Key Decisions
-- **The Wedge:** How will you pry users away? Will you be the "Jira for Plumbers"? Will you be the "Stripe for Africa"? Pick a wedge that the incumbent views as too small to bother with.
-- **Positioning:** You must position *against* the competitor. "We are the anti-Jira. Jira takes 4 weeks to configure; we take 4 seconds."
-
----
-
-## Common Mistakes
-- **The "No Competitors" Delusion:** If you think you have no competitors, you either haven't done enough research, or the market doesn't exist because the problem isn't worth solving.
-- **Copying the Leader:** If you just build a cheaper, slightly prettier clone of the market leader, their customers will not go through the pain of migrating to you.
-
----
-
-## AI & Architecture Reality Check
-- **The Speed Advantage:** Competitors with massive legacy codebases move slowly. With modern AI tools like Antigravity, Next.js, and Supabase, you can build and iterate 100x faster than a mid-sized competitor. Use AI to out-maneuver them on speed of execution.
-- **Review Mining:** AI is exceptionally good at analyzing competitors' 1-star reviews on G2 or Capterra.
-
----
-
-## AI Prompt
-Use this prompt to find your competitor's structural vulnerabilities.
-
+## AI Competitive Tear-Down
 \`\`\`prompt
-Act as a ruthless Corporate Strategist.
-My main competitor is: [INSERT COMPETITOR NAME].
-Here are 10 of their 1-star and 2-star reviews from G2/Capterra:
-[PASTE NEGATIVE REVIEWS]
-
-Analyze these reviews and tell me:
-1. What is the core, unfixable structural weakness of this competitor? (e.g., "Their architecture is inherently slow," "Their UI is built for enterprise admins, not end-users").
-2. What specific "Wedge" should I use to position my product directly against them? Give me a 1-sentence marketing hook.
-\`\`\`
-
----
-
-## What Good Looks Like
-
-**A strong Competitor Analysis:**
-✓ Focuses on the competitor's UX friction and pricing gaps.
-✓ Identifies a specific niche the competitor is ignoring.
-✓ Results in a clear, aggressive positioning statement.
-
-**A weak Competitor Analysis:**
-✗ A giant spreadsheet comparing 50 different features with green checkmarks.
-✗ Assuming the competitor is stupid. (They aren't. They just have different incentives).
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Identify your primary competitor and write exactly how you will position against their structural weakness.
-
-\`\`\`input
-✍️ Type your answer here...
+Act as a Market Analyst. My 2 main competitors are [PASTE COMPETITORS]. My Value Proposition is [PASTE VALUE PROP]. Create a SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis highlighting exactly how I can disrupt them.
 \`\`\`
 `,
   'existingalternatives': `# Existing Alternatives
 
-**🕒 Estimated Time:** 20-30 min
+🕒 **Estimated Time:** 15 min
 
 ---
 
-## Overview
-Your biggest competitor is rarely a venture-backed SaaS company. Your biggest competitor is the **Status Quo**: Excel, Google Sheets, a shared Slack channel, an intern, or simply "doing nothing." If the pain of migrating to your software is higher than the pain of their current messy workaround, your product will fail.
+## Why this matters
+Your biggest competitor isn't a venture-backed startup; it's Microsoft Excel. Or a messy Slack channel. Or a notebook. Understanding the "Free & Manual" alternative is crucial for pricing your product. 
 
----
-
-## Think First
-Understand exactly what the user is doing *right now* before your product exists.
-
-**The Duct-Tape Workaround** (Step-by-step, how do they solve this problem today? e.g., "They export a CSV from Tool A, manually format it in Excel, and upload it to Tool B").
+## The Status Quo
+**What is the exact manual workaround your users are doing right now?**
 \`\`\`input
-✍️ Type your answer here...
+✏️ They currently use...
 \`\`\`
 
-**The Hidden Cost of the Workaround** (Is it costing them 5 hours a week? Does it cause massive human error? Does it destroy team morale?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Switching Friction** (If they use your tool, what data do they have to migrate? Who has to be retrained?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: The "Good Enough" Threshold**
-- [ ] Is their current Excel spreadsheet actually "good enough" for 90% of their needs?
-- [ ] Does my tool offer a 10x improvement over the spreadsheet, or just a 1.2x improvement?
-- [ ] Do I have a plan to make onboarding and data migration completely frictionless?
-
----
-
-## Key Decisions
-- **Augment vs. Replace:** Should you try to replace their entire workflow, or should you just build an integration/plugin that makes their *current* workflow better? (e.g., Don't build a new CRM, build a Chrome Extension that sits on top of their CRM).
-- **The "Trojan Horse":** Provide a free tool that solves a tiny part of their workaround perfectly, then up-sell them on the core product later.
-
----
-
-## Common Mistakes
-- **Underestimating Apathy:** Users are tired. Learning a new UI is exhausting. If your onboarding requires them to read a manual, they will go back to their spreadsheet.
-- **Ignoring Migration:** If a user has 5 years of historical data in their workaround, and you don't offer a 1-click CSV import, they will never switch to you.
-
----
-
-## AI & Architecture Reality Check
-- **Data Imports are Trivial:** In the past, building custom CSV parsers and migration tools was tedious. Today, you can use AI to instantly write robust data migration scripts or use LLMs to automatically map messy CSV columns to your database schema. **Make migration a core feature, not an afterthought.**
-
----
-
-## AI Prompt
-Use this prompt to expose the hidden costs of the status quo and design a frictionless migration plan.
-
-\`\`\`prompt
-Act as a Customer Success Architect.
-My target user currently solves their problem by doing the following:
-[INSERT DUCT-TAPE WORKAROUND]
-
-I want them to switch to my dedicated software.
-1. Identify the 3 "Hidden Costs" of their current workaround that they might be blind to (e.g., security risks, unscalable bottlenecks).
-2. Propose a "Frictionless Migration Strategy." How can I design my onboarding so they experience value in the first 60 seconds without having to manually input data?
-\`\`\`
-
----
-
-## What Good Looks Like
-
-**Strong Alternative Analysis:**
-✓ Deep empathy for why the user is currently using a messy workaround.
-✓ A concrete plan to make switching utterly painless.
-✓ Clear articulation of the hidden costs of doing nothing.
-
-**Weak Alternative Analysis:**
-✗ "They use Excel, but Excel is ugly so they will use my app."
-✗ Assuming users will happily spend 4 hours setting up your tool.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Describe the user's current workaround, its hidden cost, and your exact strategy for making them switch painlessly.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+## Accountability Check
+- [ ] I am 100% confident that my solution is at least 10x better or 10x faster than this manual workaround. If it's only 2x better, they won't switch.
 `,
   'marketpositioning': `# Market Positioning
 
-**🕒 Estimated Time:** 30 min
+🕒 **Estimated Time:** 30 min
 
 ---
 
-## Overview
-Now that you know your competitors ([Competitor Analysis](#competitoranalysis)) and the status quo ([Existing Alternatives](#existingalternatives)), you must position your product. Positioning is not marketing fluff; it dictates what you build and who you sell to. If you position as an "Enterprise Solution," you must build SSO. If you position as a "Solo-preneur tool," you must build self-serve onboarding.
+## Why this matters
+Are you the cheap, fast alternative? Or the premium, slow, high-quality agency? Positioning dictates your pricing, your UI design, and your feature set. You cannot be "The Best" and "The Cheapest" at the same time.
 
----
-
-## Think First
-Define exactly where you sit in the market ecosystem.
-
-**The Axiom (What do you believe about the market that your competitors don't?)**
+## Defining Your Axes
+A positioning matrix requires two axes (e.g., Price vs Quality, Speed vs Customization). 
+**What two axes define your market?**
 \`\`\`input
-✍️ Type your answer here...
+✏️ Axis 1:
+Axis 2:
+\`\`\`
+**Where do you sit on this matrix compared to your competitors?**
+\`\`\`input
+✏️ 
 \`\`\`
 
-**The Superpower (What is the *one* thing you will be world-class at?)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: The "Niche" Test**
-- [ ] Does my positioning immediately repel people outside my target audience?
-- [ ] Can my biggest competitor claim the exact same thing? (If yes, it's not positioning).
-- [ ] Does this position allow me to charge a premium?
-
----
-
-## Key Decisions
-- **Niche vs. Horizontal:** A tool for "project management" is horizontal (hard). A tool for "architectural firm project management" is niche (easier). Always start niche.
-- **The Enemy:** Strong positioning works best when you have an enemy. Who or what are you explicitly fighting against?
-
----
-
-## Common Mistakes
-- **Being "Better":** "Better" is not a position. "Faster", "Cheaper", or "More Secure" are positions.
-- **Appeasing Everyone:** If nobody dislikes your positioning, it's not strong enough. It's generic.
-
----
-
-## AI & Architecture Reality Check
-- **Architecture follows Positioning:** If you position yourself as "Enterprise-grade," you cannot use a cheap SQLite database. You need robust Role-Based Access Control (RBAC) and Supabase row-level security.
-
----
-
-## AI Prompt
-Use this prompt to carve out a unique space in the market.
-
+## AI Positioning Strategy
 \`\`\`prompt
-Act as an expert Brand Strategist.
-Here is my Competitor Analysis: [PASTE COMPETITOR ANALYSIS OR GOLIATH'S WEAKNESS]
-Here is my Value Proposition: [PASTE VALUE PROPOSITION]
-
-1. Give me 3 distinct positioning angles I could take (e.g., "The Premium Option", "The Developer-First Option").
-2. Write a 1-sentence positioning statement for the angle you recommend most strongly.
-3. What is the biggest risk of taking this position?
-\`\`\`
-
----
-
-## What Good Looks Like
-
-**Strong Positioning:**
-✓ Actively repels non-ideal customers.
-✓ Claims a specific superpower.
-✓ Makes your competitors look outdated or overly complex.
-
-**Weak Positioning:**
-✗ Tries to be all things to all people.
-✗ Uses generic marketing jargon ("The leading synergy platform").
-
----
-
-## Validation Checklist
-- [ ] If I read this to my target user, would they instantly know if it's for them?
-- [ ] Is it clearly differentiated from the "Goliath" in my space?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Write your final 1-sentence positioning statement.
-
-\`\`\`input
-✍️ Type your answer here...
+Act as a Brand Strategist. I am positioning my product as [PASTE POSITIONING] in a market dominated by [PASTE COMPETITORS]. Provide a 3-point strategy on how our UI/UX should visually communicate this positioning to a new visitor instantly.
 \`\`\`
 `,
   'featureplanning': `# Feature Planning
 
-**🕒 Estimated Time:** 20 min
+🕒 **Estimated Time:** 45 min
 
 ---
 
-## Overview
-You have a [Solution Statement](#solutionstatement) and a defined [Market Positioning](#marketpositioning). Now it's time to brainstorm features. At this stage, do not filter. Write down every single feature you *could* possibly build to deliver your value proposition.
+## Why this matters
+You have a problem and a solution. Now, what does the software actually *do*? Feature planning is the process of translating your Solution Statement into actionable engineering tasks. 
 
----
-
-## Think First
-Brainstorm freely before we start cutting.
-
-**The Core Engine (What features power the primary value?)**
+## The Brain Dump
+Don't censor yourself yet. List the 5 core features you think your app absolutely needs to function.
+**List 5 core features:**
 \`\`\`input
-✍️ Type your answer here...
+✏️ 1. 
+2. 
+3. 
+4. 
+5. 
 \`\`\`
 
-**The Expansion (What features would make this a billion-dollar company?)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: The "Nice to Have" Trap**
-- [ ] Are these features actually required to deliver the value prop?
-- [ ] Am I building this because it's fun to code, or because the user actually needs it?
-- [ ] Does this feature align with my [Market Positioning](#marketpositioning)?
-
----
-
-## Key Decisions
-- **Core vs. Edge Cases:** Build for the 90% use case. Ignore the 10% edge cases completely for now.
-- **The "Magic" Feature:** What is the single feature that will make users say "Wow" during their first 5 minutes using the app?
-
----
-
-## Common Mistakes
-- **The "Settings" Black Hole:** Spending 2 weeks building a robust settings page, profile image upload, and dark mode toggle before the core loop even works.
-- **Premature Optimization:** Planning scaling infrastructure for 100,000 users when you currently have 0 users.
-
----
-
-## AI & Architecture Reality Check
-- **Don't Reinvent the Wheel:** Need a rich text editor? Use TipTap. Need auth? Use Supabase Auth. Do not waste time coding commodities from scratch. AI tools like Antigravity are exceptionally good at implementing standard libraries.
-
----
-
-## AI Prompt
-Use AI to expand your thinking and identify features you might have missed.
+## AI CTO Review
+Developers love to build. That is our weakness. Let's use AI to forcefully cut your scope.
 
 \`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH]
-My core functionality is: [PASTE CORE ENGINE]
-
-Act as a visionary Product Manager.
-Brainstorm a comprehensive list of 20 features that this platform could eventually have. Group them logically (e.g., "User Management", "Core Workflow", "Integrations", "Analytics"). Do not worry about effort or cost yet.
+Act as a ruthless, pragmatic CTO who hates writing unnecessary code. Review my 5 core features: [PASTE FEATURES]. Explain why at least 2 of these features are "Nice-to-Haves" and should be immediately cut from the initial build.
 \`\`\`
 
----
-
-## What Good Looks Like
-
-**Strong Feature Planning:**
-✓ Categorized by logical modules or user flows.
-✓ Focuses heavily on the core engine and user outcomes.
-✓ Differentiates between admin needs and user needs.
-
-**Weak Feature Planning:**
-✗ A massive, completely unstructured bulleted list.
-✗ Heavily focused on infrastructure instead of user-facing value.
-
----
-
-## Validation Checklist
-- [ ] Did I include the features necessary to actually monetize the product (e.g., Stripe integration)?
-- [ ] Did I document the "Magic" feature that delivers the Aha! moment?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your comprehensive, unfiltered list of features here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+## Accountability Check
+- [ ] I accept that my initial feature list was bloated.
+- [ ] I have emotionally detached from the features that were cut.
 `,
-  'mvpfeatures': `# MVP Features (Minimum Viable Product)
+  'mvpfeatures': `# MVP Features
 
-**🕒 Estimated Time:** 45 min
-
----
-
-## Overview
-Take the massive list you generated in [Feature Planning](#featureplanning) and aggressively cut it down. The MVP is the absolute minimum set of features required to solve the [User Pain Points](#userpainpoints) and prove your hypothesis. Feature creep is the #1 killer of software projects.
+🕒 **Estimated Time:** 30 min
 
 ---
 
-## Think First
-Identify what is truly necessary to deliver value.
+## Why this matters
+An MVP (Minimum Viable Product) is not a "crappy version of your app". It is the absolute smallest thing you can build to prove your core hypothesis. If you spend 3 months building a login system and a settings page before users can experience the core value, you have failed the MVP test.
 
-**The Non-Negotiables (If I don't build these, the product is useless)**
+## The 'Aha!' Moment
+What is the exact second the user realizes your product is valuable? (e.g., "When they see their first invoice generated in 3 seconds").
+**Define the Aha! Moment:**
 \`\`\`input
-✍️ Type your answer here...
+✏️ 
 \`\`\`
 
-**The "Do Things That Don't Scale" Hack (What can I manually do behind the scenes instead of writing code?)**
+## The Critical Path
+**What are the ONLY features required to get the user to that Aha! Moment?**
 \`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: The Hard Truth**
-- [ ] If I launch with only these 3 features, will it actually solve the problem?
-- [ ] Is there literally anything else I can cut or manually fake?
-- [ ] Does this MVP prove my biggest assumption?
-
----
-
-## Key Decisions
-- **Hardcoding:** Hardcode everything that doesn't need to be dynamic on day 1. If you only have 3 pricing plans, hardcode them in the frontend. Do not build a dynamic pricing engine.
-- **The Core Loop:** Your MVP must flawlessly execute the 1-2 actions a user takes that delivers the value. Everything else is secondary.
-
----
-
-## Common Mistakes
-- **"But what if they want to...":** If they want to, they will complain or ask for it. Build it *then*, not *now*.
-- **Over-building Auth:** You don't need Google, GitHub, Apple, and Magic Link auth on day 1. Pick Email/Password and move on.
-
----
-
-## AI & Architecture Reality Check
-- **The AI Limitation:** AI writes code best when the scope is tiny. A 3-feature MVP will be generated flawlessly by an AI developer. A 30-feature MVP will result in spaghetti code, hallucinated imports, and infinite debugging loops.
-
----
-
-## AI Prompt
-Use AI to act as an aggressive editor.
-
-\`\`\`prompt
-Here is my massive feature list: [PASTE FEATURE PLANNING LIST]
-My core value proposition is: [PASTE VALUE PROPOSITION]
-
-Act as a ruthless CTO focused on shipping in 2 weeks.
-1. Categorize these features into "Must Have for MVP" and "Cut for Now".
-2. For the "Must Haves", suggest the absolute simplest, most hard-coded way I can implement them to save time (e.g., instead of a password reset flow, just have them email support).
-\`\`\`
-
----
-
-## What Good Looks Like
-
-**Strong MVP:**
-✓ Can be built by a solo developer in less than 3 weeks.
-✓ Delivers the core value proposition perfectly.
-✓ Hacks together non-essential features (e.g., using a Typeform instead of building a custom onboarding flow).
-
-**Weak MVP:**
-✗ Takes 3 months to build.
-✗ Includes an Admin Dashboard, complex notifications, and a referral system.
-
----
-
-## Validation Checklist
-- [ ] Is the list under 5 core features?
-- [ ] Have I eliminated all "Nice to Have" UI polish?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Create a strict checklist of the 3 to 5 features that constitute your MVP.
-
-\`\`\`input
-✍️ Type your answer here...
+✏️ 
 \`\`\`
 `,
   'futurefeatures': `# Future Features (The Parking Lot)
 
-**🕒 Estimated Time:** 15-20 min
+🕒 **Estimated Time:** 15 min
 
 ---
 
-## Overview
-Scope creep is the number one reason MVPs fail to launch. Every time you have a brilliant idea for a new feature, your brain releases dopamine, and you are tempted to add it to the MVP. The "Future Features" list (or Parking Lot) is where you safely store these brilliant ideas so you don't lose them, but you also don't let them derail your launch timeline.
+## Why this matters
+As you build the MVP, you will have brilliant ideas for new features. If you act on them, you will suffer from "Feature Creep" and never launch. You must rigorously write them down here, get them out of your head, and ignore them.
 
----
-
-## Think First
-Be honest about what is *not* essential for Day 1.
-
-**The "Nice to Have" List (What features do you love, but aren't strictly necessary for the user to achieve the core value?)**
+## The Parking Lot
+**Dump all the features you *want* to build, but are strictly forbidden from building right now:**
 \`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The "Complex Integration" List (What requires massive engineering effort but only benefits 10% of users?)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **The "If-Then" Rule:** Every Future Feature should have an "If-Then" condition. E.g., "IF we get 100 paying users, THEN we will build the Slack integration." This prevents you from building features blindly.
-- **Public vs. Private Roadmap:**
-  - *Public:* Builds trust and allows users to vote on features. Great for early-stage communities.
-  - *Private:* Keeps your competitors from seeing your next move. Better if you are in a highly competitive market.
-
----
-
-## Common Mistakes
-- **Building for Edge Cases:**
-  - *Why it happens:* A single vocal user says, "I can't use this unless it integrates with my obscure CRM."
-  - *Consequence:* You spend 2 weeks building an integration for one person who ends up churning anyway.
-  - *Prevention:* Put the feature in the Parking Lot until at least 5 different paying customers ask for it.
-- **Ignoring the Core Loop:** You plan 15 future features like "Dark Mode" and "Avatar Uploads", but the core mechanism of your app still feels clunky.
-
----
-
-## Examples
-- *Good Implementation:* The MVP is just a web app that generates PDFs. The Future Features list contains: "1. Mobile App (Trigger: $5k MRR). 2. Team Collaboration (Trigger: 20 user requests). 3. Custom CSS (Trigger: Enterprise plan launch)."
-- *Bad Implementation:* Trying to launch the web app, mobile app, iPad app, and Chrome extension all on Day 1.
-
----
-
-## AI Prompt
-Use this prompt to aggressively cut scope and build a disciplined roadmap.
-
-\`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-Here is a list of features I want to build: [INSERT ALL FEATURES].
-
-Act as a ruthless Lead Engineer and Product Manager.
-1. Force-rank these features. Identify the absolute minimum features required for the MVP to function.
-2. Take all the remaining features and move them to a "Parking Lot".
-3. For each Parking Lot feature, define a specific "Trigger Metric" (e.g., number of user requests, MRR target) that must be hit before I am allowed to build it.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Is your MVP scope as small as physically possible?
-- [ ] Does every future feature have a specific condition or trigger attached to it?
-- [ ] Have you removed all "cool but unnecessary" features from the immediate development plan?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-List your top 3 Future Features below, and clearly state the specific milestone you must hit before you are allowed to build them.
-
-\`\`\`input
-✍️ Type your answer here...
+✏️ - AI Integration
+- Dark Mode
+- Complex Analytics Dashboard
+- 
 \`\`\`
 `,
-  'featureprioritization': `# Feature Prioritization (RICE Framework)
+  'featureprioritization': `# Feature Prioritization
 
-**🕒 Estimated Time:** 20-30 min
-
----
-
-## Overview
-Once your app is live, you will be bombarded with feature requests. If you build whatever the loudest customer asks for, your product will turn into a bloated, confusing mess. You need a mathematical framework to evaluate which features actually drive the business forward. The RICE framework (Reach, Impact, Confidence, Effort) is the industry standard for taking the emotion out of product decisions.
+🕒 **Estimated Time:** 30 min
 
 ---
 
-## Think First
-Understand the RICE variables.
+## Why this matters
+Once you launch, users will ask for 100 different things. How do you decide what to build next? The RICE framework (Reach, Impact, Confidence, Effort) removes emotion from the roadmap.
 
-**Reach:** How many users will this feature affect in a given quarter?
-**Impact:** How much will this feature increase your core metric? (3=Massive, 2=High, 1=Medium, 0.5=Low)
-**Confidence:** How sure are you about your Reach and Impact estimates? (100%=High, 80%=Medium, 50%=Low)
-**Effort:** How many weeks of engineering time will this take?
-
-**The RICE Formula:** (Reach × Impact × Confidence) / Effort = RICE Score
-
-List 3 features you are currently debating building:
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Impact vs. Effort:** The Holy Grail is "High Impact, Low Effort" (Quick Wins). The trap is "Low Impact, Low Effort" (Fill-ins). The danger zone is "Low Impact, High Effort" (Time Sinks).
-- **Saying No:** Prioritization is not about deciding what to build first. It is about deciding what to permanently say "No" to. If a feature has a low RICE score, delete it from the backlog.
-
----
-
-## Common Mistakes
-- **The Recency Bias:**
-  - *Why it happens:* A user churned yesterday because you don't have an Android app. You immediately start building an Android app.
-  - *Consequence:* You ignore the 500 users requesting a better search feature, which has a 10x higher RICE score.
-  - *Prevention:* Always run new requests through the RICE formula before writing code.
-- **Underestimating Effort:** Developers notoriously underestimate how long a feature will take. A "quick weekend project" usually takes 3 weeks. Always double your initial effort estimate.
-
----
-
-## Examples
-- *Good Implementation:* Feature A affects 1,000 users, has an impact of 2, 80% confidence, and takes 2 weeks of effort. RICE = (1000 * 2 * 0.8) / 2 = 800. Feature B affects 100 users, impact 3, 100% confidence, effort 4 weeks. RICE = (100 * 3 * 1.0) / 4 = 75. You build Feature A.
-- *Bad Implementation:* Building Feature B because the CEO really likes it, ignoring the math.
-
----
-
-## AI Prompt
-Use AI to help you score your backlog objectively.
-
+## AI RICE Analysis
 \`\`\`prompt
-Here are 3 features I am debating building: [INSERT FEATURES].
-My core business goal right now is: [INSERT GOAL, e.g., Increasing free-to-paid conversion].
-
-Act as a Senior Product Manager.
-1. Evaluate each feature using the RICE framework (Reach, Impact, Confidence, Effort). Provide estimated numbers for each variable based on standard SaaS benchmarks.
-2. Calculate the final RICE score for each feature.
-3. Recommend exactly which feature I should build next, and explain why the others should be deprioritized.
+Act as a Senior Product Manager. I have these 3 features requested by users: [PASTE 3 FEATURES]. Walk me through a RICE scoring matrix for each of them to determine which one I should build first.
 \`\`\`
 
----
-
-## Validation Checklist
-- [ ] Do you have a mathematical RICE score for your top 3 backlog features?
-- [ ] Are you actively ignoring features with high Effort and low Impact?
-- [ ] Have you doubled your engineering Effort estimates to account for edge cases and testing?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Write down the feature with the highest RICE score that you are committing to building next.
-
+## The Verdict
+**What is the #1 feature you are prioritizing next?**
 \`\`\`input
-✍️ Type your answer here...
+✏️ We are building: 
+Because:
 \`\`\`
 `,
   'businessmodel': `# Business Model
 
-**🕒 Estimated Time:** 30 min
+🕒 **Estimated Time:** 30 min
 
 ---
 
-## Overview
-A great product with a fundamentally broken business model is a hobby, not a business. The business model defines the mechanics of how you create, deliver, and capture value. Do not guess here. The math must work from Day 1, or you will slowly bleed to death over 2 years.
+## Why this matters
+How does this actually make money? Are you a B2B SaaS charging per seat? A B2C app using freemium? A marketplace taking a 10% cut? Your business model dictates your entire software architecture (e.g., if you are seat-based, you need an organization/team database schema).
 
----
-
-## Think First
-Define the foundational mechanics of your business.
-
-**The Value Exchange (Who writes the check, and what exact outcome are they buying?)**
+## The Flow of Money
+**Who specifically pays you, and what exactly are they paying for?**
 \`\`\`input
-✍️ Type your answer here...
+✏️ 
 \`\`\`
 
-**The Acquisition Motion (How do they find out about you and convert?)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: The "Willingness to Pay" Test**
-- [ ] Is my target audience an individual consumer (B2C) or a business (B2B)?
-- [ ] Do they actually have a pre-allocated budget for this problem, or am I asking them to find new money?
-- [ ] Does the Customer Acquisition Cost (CAC) make mathematical sense for my price point?
-
----
-
-## Key Decisions
-- **B2B vs B2C:** A $12/mo B2C tool needs 100,000 active users to hit $1.2M ARR. A $1,000/mo B2B tool needs 100 users. You are a solo developer. You do not have the marketing budget to acquire 100,000 users. Go B2B.
-- **Product-Led Growth (PLG) vs Sales-Led:** If your product costs $29/mo, it must be PLG (100% self-serve onboarding). You cannot afford to do 45-minute Zoom sales calls for a $29 product. Your margins will evaporate.
-
----
-
-## Common Mistakes
-- **The Freemium Trap:** Freemium is a massive marketing expense, not a business model. Only do Freemium if free users naturally and aggressively invite paid users (e.g., Slack, Calendly). Otherwise, use a strict 14-day Free Trial.
-- **Assuming "If I build it, they will come":** Having a product is 10% of the battle. Distribution is the other 90%. If you don't know exactly how you will get your first 100 customers, stop coding.
-
----
-
-## AI & Architecture Reality Check
-- **Architecture Dictates Margins:** If your app relies heavily on large context windows in LLMs (like GPT-4), every time a user clicks a button, it costs you $0.05. You cannot offer an "Unlimited" $10/mo plan, or one power user will literally put you in debt. Your backend architecture must align with your monetization.
-
----
-
-## AI Prompt
-Use AI to validate your mathematical assumptions.
-
+## AI Business Model Stress Test
 \`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-My target users are: [INSERT ICP].
-
-Act as a ruthless Series A SaaS investor (like David Sacks).
-1. Tell me why this business model will fail based on Customer Acquisition Cost (CAC) vs Lifetime Value (LTV).
-2. What is the single biggest existential risk to my distribution strategy?
-3. Give me the brutal math on how many users I need at $X/mo to hit $1M ARR, and tell me if that's realistic for a bootstrapped founder.
-\`\`\`
-
----
-
-## What Good Looks Like
-
-**Strong Business Model:**
-✓ Clear, mathematically viable path to reaching customers affordably.
-✓ Focuses on established corporate budgets rather than personal wallets.
-✓ High margins (>80%) and scalable, zero-marginal-cost delivery.
-
-**Weak Business Model:**
-✗ High CAC but low Lifetime Value (LTV).
-✗ Relies entirely on viral consumer growth to survive.
-
----
-
-## Validation Checklist
-- [ ] Can I articulate exactly how money gets from their bank account to mine?
-- [ ] Have I modeled my margins after cloud, database, and AI API costs are deducted?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Write your 1-sentence business model summary and your target LTV:CAC ratio.
-
-\`\`\`input
-✍️ Type your answer here...
+Act as a SaaS CFO. My business model is: [PASTE MODEL]. My target ICP is: [PASTE ICP]. Identify the top 2 cash-flow or scaling risks with this specific model, and suggest a way to mitigate them.
 \`\`\`
 `,
   'pricing': `# Pricing Strategy
 
-**🕒 Estimated Time:** 25 min
+🕒 **Estimated Time:** 1 hour
 
 ---
 
-## Overview
-Pricing is the most powerful lever you have for profitability, yet most founders treat it as an emotional afterthought. Your [Business Model](#businessmodel) dictates *how* you make money; your pricing dictates *how much*. If you get this wrong, you leave millions on the table or price yourself out of the market entirely.
+## Why this matters
+Pricing is a marketing tool. If you price too low, users will assume your product is cheap/low-quality. If you price based on "what it cost me to build", you are leaving money on the table. You must use Value-Based Pricing.
 
----
-
-## Think First
-Pricing is a psychological weapon. Use it properly.
-
-**The "Value Metric" (What exact unit do you charge for? e.g., per seat, per 1,000 API calls, per active project)**
+## The Competitive Landscape
+**How much are your top 3 competitors charging per month?**
 \`\`\`input
-✍️ Type your answer here...
+✏️ 1.
+2.
+3.
 \`\`\`
 
-**The Tiers (What are the names of your 3 tiers?)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: The "Too Cheap" Test**
-- [ ] Is my highest tier at least $100/month? (If not, why?)
-- [ ] Am I pricing based on my internal server costs, or based on the immense value I provide to the user?
-- [ ] Does my pricing page anchor the user to a high price first (e.g. showing the $499 Enterprise plan to make the $49 Pro plan look cheap)?
-
----
-
-## Key Decisions
-- **The Paywall Trigger:** What exact feature makes a free or basic user slam their fist on the desk and say, "Damn, I need to upgrade right now"? That is your paywall trigger. Guard it with your life.
-- **Flat-Rate vs Usage-Based:** Flat rate is predictable for the user. Usage-based scales infinitely with their success. A hybrid (flat platform fee + usage limits) is the gold standard in modern B2B SaaS.
-
----
-
-## Common Mistakes
-- **Insecure Underpricing:** Pricing at $5/month because you feel insecure about your code is a fatal error. B2B software should rarely be under $39/mo. If your tool doesn't save a business at least $39 of time or money, you haven't found a real problem.
-- **The Options Matrix of Death:** Giving users 8 different sliders to customize their price. A confused mind says "No." Keep it to 3 distinct tiers.
-
----
-
-## AI & Architecture Reality Check
-- **The Billing Nightmare:** Do not write custom billing logic. Do not build your own prorations. Use Stripe Checkout and Stripe Customer Portal. Let them handle failed cards, dunning, and taxes. Your architecture should just listen to Stripe Webhooks to update a boolean.
-
----
-
-## AI Prompt
-Use AI to calculate your tiers based on perceived value.
-
+## AI Pricing Tiers Generator
 \`\`\`prompt
-My product is: [INSERT ELEVATOR PITCH].
-My Value Metric is: [INSERT VALUE METRIC].
-
-Act as Patrick Campbell, the world's leading SaaS Pricing Strategist.
-1. Design a 3-tier pricing structure (Basic, Pro, Enterprise) for my specific niche.
-2. Recommend the exact starting price for each, and explain the psychological and economic reasoning behind the number.
-3. What feature MUST be the "paywall trigger" that forces users to upgrade to Pro?
+Act as a SaaS Pricing Expert. My competitors charge [PASTE COMPETITOR PRICING]. My Value Proposition is [PASTE VALUE PROP]. Generate 3 pricing tiers (Hobby, Pro, Enterprise) using Value-Based Pricing principles. Tell me exactly what features should be gated behind the 'Pro' tier to force upgrades.
 \`\`\`
 
----
-
-## What Good Looks Like
-
-**Strong Pricing:**
-✓ Anchors high (Enterprise is $499, making Pro at $49 look like a steal).
-✓ Scales automatically as the user gets more value out of the product.
-✓ Dead simple to understand in 5 seconds.
-
-**Weak Pricing:**
-✗ Overly complex formulas requiring a calculator.
-✗ Too cheap to ever hit $1M ARR without 50,000 users.
-
----
-
-## Validation Checklist
-- [ ] Are there exactly 3 tiers?
-- [ ] Is the "Pro" tier the most obvious, attractive choice?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Define your 3 tiers, their exact price points, and the core paywall trigger.
-
+## The Final Tiers
+**Define your 3 Pricing Tiers and their prices:**
 \`\`\`input
-✍️ Type your answer here...
+✏️ Tier 1:
+Tier 2:
+Tier 3:
 \`\`\`
 `,
   'subscriptionmodel': `# Subscription Model
 
-**🕒 Estimated Time:** 15 min
+🕒 **Estimated Time:** 20 min
 
 ---
 
-## Overview
-Not all recurring revenue is created equal. The structure of your subscription dictates your cash flow, your churn rate, and how quickly you can reinvest in growth. Will you offer monthly plans? Annual plans with a discount? Multi-year lock-ins?
+## Why this matters
+Will you offer a 14-day free trial? A freemium tier? A reverse trial? Freemium is incredibly expensive to maintain (you pay server costs for free users). Free trials force a buying decision after 14 days. 
 
----
-
-## Think First
-Design the recurring nature of the relationship to defend against churn.
-
-**The Annual Incentive (How will you convince users to front you a year of cash?)**
+## The Trial Decision
+**Are you offering a Free Trial, a Freemium tier, or a Reverse Trial? Why?**
 \`\`\`input
-✍️ Type your answer here...
+✏️ We are choosing [Model] because...
 \`\`\`
 
-**The Churn Defender (Why will it be mathematically painful for them to cancel in Month 6?)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: The "Recurring Value" Test**
-- [ ] Does my product actually provide recurring value week after week, or is it a one-time utility masquerading as a subscription?
-- [ ] If I stop shipping new features today, will they still pay me next month?
-
----
-
-## Key Decisions
-- **The Annual Discount:** Always offer an annual plan with a 15-20% discount (e.g., "2 months free"). Upfront cash flow from annual plans is non-dilutive funding. It allows you to survive the early days without giving up equity to VCs.
-- **Cancellation Flow:** Will you let them cancel with one click, or require an exit survey? (Hint: Always ask why they are leaving, but don't be hostile. Hostile cancellations lead to chargebacks, which destroy your Stripe account).
-
----
-
-## Common Mistakes
-- **No Annual Option:** Forcing users into monthly plans when their procurement department actually *wants* to give you $5,000 upfront to use their remaining annual budget.
-- **The "One-Time Use" Trap:** Trying to slap a subscription on a product that is naturally a one-time purchase (e.g., a resume builder, a logo generator).
-
----
-
-## AI & Architecture Reality Check
-- **Entitlement Management:** Your database must cleanly separate "Users" from "Subscriptions". A user can exist without an active subscription. Use a \`subscriptions\` table that tracks \`current_period_end\` and \`status\`. Never delete a user when they cancel; mark them as \`canceled\` so you can win them back later.
-
----
-
-## AI Prompt
-Use AI to optimize the subscription lifecycle.
-
-\`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-
-Act as Elena Verna, B2B Growth and Retention Expert.
-1. Give me 3 psychological strategies to incentivize users to choose the Annual plan over the Monthly plan on the pricing page.
-2. What is the most likely reason a user will churn in Month 3, and how can I structurally design the product to prevent it?
-\`\`\`
-
----
-
-## What Good Looks Like
-
-**Strong Subscription Model:**
-✓ High percentage of annual lock-ins (30%+ of revenue).
-✓ Predictable cash flow that outpaces server costs.
-✓ Product naturally becomes harder to leave over time (data lock-in / compounding value).
-
-**Weak Subscription Model:**
-✗ Massive drop-off after Month 1 (High churn).
-✗ Users constantly pausing and resuming based on immediate need.
-
----
-
-## Validation Checklist
-- [ ] Do I have an annual pricing option explicitly defined?
-- [ ] Have I designed the product to accumulate value over time, making it painful to leave?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Define your monthly vs annual split and how you will drive annual upgrades.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+## Accountability Check
+- [ ] If choosing Freemium, I understand I need a massive top-of-funnel (SEO/Ads) to convert the 3% who actually pay.
+- [ ] If choosing a Free Trial, I know exactly what sequence of emails I will send on Day 1, Day 7, and Day 14.
 `,
   'revenuestreams': `# Revenue Streams
 
-**🕒 Estimated Time:** 15 min
+🕒 **Estimated Time:** 15 min
 
 ---
 
-## Overview
-While your core [Subscription Model](#subscriptionmodel) is the engine, elite SaaS companies have Net Dollar Retention (NDR) over 120%. That means even if you acquire zero new customers, your revenue grows by 20% every year because existing customers buy more. This requires secondary revenue streams.
+## Why this matters
+Subscriptions are the holy grail of SaaS, but there are often secondary revenue streams that can cover your server costs early on. (e.g., charging a one-time $500 "White-glove setup fee" for Enterprise clients, or charging for API access).
 
----
-
-## Think First
-Look beyond the basic monthly fee. How do you extract more value from successful customers?
-
-**The Primary Stream (Where does 80% of the money come from?)**
+## Secondary Streams
+**List any secondary revenue streams you can implement immediately:**
 \`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Expansion Streams (What add-ons drive your NDR above 100%?)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: The "Focus" Test**
-- [ ] Are these extra streams distracting me from the core subscription?
-- [ ] Do these add-ons actually solve a real, acute problem, or am I just nickel-and-diming my users?
-
----
-
-## Key Decisions
-- **Services vs Software:** Will you charge a one-time $2,500 "Implementation & Training" fee for Enterprise customers? (Hint: Yes. Enterprises don't trust software that is too cheap or too easy to set up. Charge for onboarding).
-- **Consumption Add-ons:** If a user hits their API limit, do they upgrade to a higher tier, or just buy "refill packs" of credits?
-
----
-
-## Common Mistakes
-- **Premature Dilution:** Having 15 different tiny ways to monetize before you have 100 core subscribers. Keep it brutally simple early on. Nail the core subscription first.
-- **Hidden Fees:** Surprising users with transactional fees they didn't expect. This destroys trust and guarantees churn.
-
----
-
-## AI & Architecture Reality Check
-- **Idempotency and Credit Systems:** If you use consumption add-ons, you must architect a bulletproof "ledger" system in your database to track credits. Never just \`UPDATE users SET credits = credits - 1\`. Log every transaction in an append-only ledger table to prevent race conditions and ensure auditability.
-
----
-
-## AI Prompt
-Use AI to uncover expansion revenue.
-
-\`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-My primary revenue stream is a monthly subscription.
-
-Act as a Chief Revenue Officer at a high-growth B2B SaaS.
-1. Suggest 2 secondary revenue streams that naturally complement the core subscription and drive Net Dollar Retention (NDR) above 120% (e.g., API access, premium integrations, priority SLAs).
-2. Explain how to pitch these add-ons without making the core product feel broken or incomplete.
-\`\`\`
-
----
-
-## What Good Looks Like
-
-**Strong Revenue Streams:**
-✓ Core subscription drives 80%+ of revenue.
-✓ Add-ons feel like premium upgrades for power users, not extortion for basic users.
-✓ Clear, mathematical path to >110% Net Dollar Retention (NDR).
-
-**Weak Revenue Streams:**
-✗ Confusing matrix of a-la-carte features that overwhelms buyers.
-✗ Reliance on one-time services rather than recurring software.
-
----
-
-## Validation Checklist
-- [ ] Have I identified at least one structural way to expand revenue from an existing, successful customer?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-List your Primary and Secondary revenue streams and how they drive NDR.
-
-\`\`\`input
-✍️ Type your answer here...
+✏️ 1.
+2.
 \`\`\`
 `,
   'successmetrics': `# Success Metrics
 
-**🕒 Estimated Time:** 20 min
+🕒 **Estimated Time:** 20 min
 
 ---
 
-## Overview
-If you can't measure it, you can't improve it. Success metrics are the overarching categories of data that tell you the health of your business. Investors don't care about your feelings; they care about your metrics. Before you define specific [KPIs](#kpis), you must agree on what "Success" actually means.
+## Why this matters
+You cannot improve what you do not measure. But if you measure everything, you understand nothing. Success metrics define the health of your product at a high level. Is the patient breathing? Is the heart rate normal?
 
----
-
-## Think First
-What actually matters right now?
-
-**The "Hair on Fire" Metric (If this goes to zero, the company dies tomorrow)**
+## Initial Definition
+Before we get into specific KPIs, define what success looks like to you right now. 
+**What must happen for this app to be considered a success in 6 months?**
 \`\`\`input
-✍️ Type your answer here...
+✏️ 
 \`\`\`
 
-**The Leading Indicator (What metric predicts future success before the money hits the bank?)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: The "Vanity" Test**
-- [ ] Do I care more about "Total Registered Users" or "Weekly Active Users (WAU)"?
-- [ ] Does this metric directly correlate with revenue or long-term retention?
-- [ ] Can I actively influence this metric by shipping better code?
-
----
-
-## Key Decisions
-- **Retention over Acquisition:** In Phase 0, retention matters 100x more than acquisition. 10 users who use the app every day is a billion-dollar company seed. 1,000 users who sign up and never return is a failed startup. Fix your leaky bucket before pouring more water into it.
-
----
-
-## Common Mistakes
-- **Vanity Metrics:** Celebrating "Page Views" or "Social Media Followers." If you show a Series A investor your 'Total Registered Users' instead of your 'Weekly Active Users', they will instantly assume you are hiding terrible churn and pass on the deal.
-- **Lagging Indicators:** MRR is a lagging indicator. By the time MRR drops, the users stopped getting value from the app 3 months ago. Focus on leading indicators (e.g., "Time to First Value").
-
----
-
-## AI & Architecture Reality Check
-- **Telemetry Infrastructure:** You cannot track metrics if you don't emit events. You must integrate a tool like PostHog or Amplitude early. Do not track everything. Track the 5 core actions that define a "Power User."
-
----
-
-## AI Prompt
-Use AI to cut through the noise and identify the metrics that matter.
-
-\`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-We are pre-launch / just launched.
-
-Act as a partner at Sequoia Capital.
-1. What are the 3 most critical Leading Indicators I should track to ensure users are actually getting value?
-2. What is one common Vanity Metric for this type of product that founders obsess over but investors completely ignore?
-\`\`\`
-
----
-
-## What Good Looks Like
-
-**Strong Success Metrics:**
-✓ Focused heavily on user engagement and retention (e.g., WAU/MAU ratio).
-✓ Hard to manipulate or fake.
-✓ Immediately actionable for the engineering team.
-
-**Weak Success Metrics:**
-✗ Total Signups.
-✗ Website visits.
-
----
-
-## Validation Checklist
-- [ ] Do my success metrics tell me *why* someone is or isn't paying?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Define the 3 overarching metrics that will define your success this quarter.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+## Accountability Check
+- [ ] My success definition is tied to user value, not just my own ego (e.g., "10 users completing a workflow daily" vs "Being featured on TechCrunch").
 `,
   'kpis': `# KPIs (Key Performance Indicators)
 
-**🕒 Estimated Time:** 20-30 min
+🕒 **Estimated Time:** 30 min
 
 ---
 
-## Overview
-What gets measured gets managed. Key Performance Indicators (KPIs) are the vital signs of your SaaS business. If your MRR (Monthly Recurring Revenue) is dropping, your KPIs will tell you *why*. Are fewer people signing up? Are more people churning? Are they downgrading their plans? Without clear KPIs, you are flying a plane blindfolded.
+## Why this matters
+Vanity metrics (e.g., "Total Registered Users") make you feel good but don't help you make decisions. Actionable KPIs (e.g., "Daily Active Users", "Churn Rate") tell you exactly when the house is on fire.
 
----
-
-## Think First
-Identify the metrics that matter.
-
-**The Acquisition Metric (How many people are finding you? e.g., Website Visitors, Signups)**
+## The Vanity Trap
+**List 3 Vanity Metrics you will actively ignore:**
 \`\`\`input
-✍️ Type your answer here...
+✏️ 1.
+2.
+3.
 \`\`\`
 
-**The Retention Metric (How many people are staying? e.g., Monthly Churn Rate, Daily Active Users)**
+## The Core KPIs
+**List 3 Actionable KPIs you will look at every single morning:**
 \`\`\`input
-✍️ Type your answer here...
+✏️ 1.
+2.
+3.
 \`\`\`
 
----
-
-## Key Decisions
-- **Actionable vs. Vanity Metrics:**
-  - *Vanity Metric:* "We have 100,000 registered accounts!" (Sounds great, but 99,000 haven't logged in since 2023. This metric doesn't help you make decisions).
-  - *Actionable Metric:* "Our Week 1 retention rate is 15%." (This tells you exactly where the problem is: your onboarding sucks).
-  - *Decision:* Only track metrics that force you to change your behavior if the number goes down.
-- **Leading vs. Lagging Indicators:** MRR is a lagging indicator (it tells you what happened last month). "Number of users who completed the onboarding tutorial" is a leading indicator (it predicts who will pay next month). Focus on leading indicators.
-
----
-
-## Common Mistakes
-- **Tracking Everything:**
-  - *Why it happens:* You install Google Analytics and PostHog and set up 45 different dashboards.
-  - *Consequence:* Dashboard fatigue. You look at a wall of numbers and have no idea what to focus on, so you ignore all of them.
-  - *Prevention:* Pick exactly 3 to 5 core KPIs for the entire business. Ignore the rest until you hit $1M ARR.
-- **Ignoring Churn:** Celebrating 100 new signups while ignoring the 110 users who cancelled their subscription. Your bucket is leaking faster than you can fill it.
-
----
-
-## Examples
-- *Good Implementation:* Tracking exactly 4 numbers every Monday: (1) Unique Visitors, (2) Signup Conversion Rate, (3) Free-to-Paid Conversion Rate, (4) Monthly Churn Rate.
-- *Bad Implementation:* Checking Twitter followers and page views every 10 minutes to feel good about the business.
-
----
-
-## AI Prompt
-Use AI to build a customized KPI tree for your specific business model.
-
+## AI KPI Auditor
 \`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-My monetization model is: [INSERT PRICING MODEL, e.g., $20/mo B2B Subscription].
-
-Act as a Fractional CFO and Data Analyst.
-1. Define the 5 most critical, actionable KPIs I must track for this specific business model.
-2. For each KPI, explicitly explain whether it is a "Leading" or "Lagging" indicator.
-3. For each KPI, provide a healthy industry benchmark target I should aim for (e.g., "Good B2B churn is under 5% monthly").
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Have you identified 3-5 core metrics that are highly actionable (not vanity metrics)?
-- [ ] Do you have a mix of leading indicators (predictive) and lagging indicators (historical)?
-- [ ] Do you know the industry benchmark for a "healthy" version of each of your KPIs?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-List your 3 most critical KPIs below, along with the specific tool you will use to track them (e.g., Stripe, PostHog).
-
-\`\`\`input
-✍️ Type your answer here...
+Act as a Data Scientist. I have selected these 3 KPIs to track daily: [PASTE KPIs]. Tell me exactly how I can manipulate or misinterpret these numbers, and suggest a 'Counter-Metric' for each to keep me honest.
 \`\`\`
 `,
-  'northstarmetric': `# North Star Metric (NSM)
+  'northstarmetric': `# North Star Metric
 
-**🕒 Estimated Time:** 15-20 min
-
----
-
-## Overview
-If [KPIs](#kpis) are the instrument panel on your dashboard, the North Star Metric (NSM) is the steering wheel. It is the single, overarching metric that best captures the core value your product delivers to its customers. When your entire team aligns around optimizing the North Star Metric, everything else (revenue, retention, growth) naturally follows.
+🕒 **Estimated Time:** 20 min
 
 ---
 
-## Think First
-Connect value to measurement.
+## Why this matters
+When your team grows, developers will want to refactor, marketing will want to run ads, and sales will want new features. How do you align them? The North Star Metric is the single measurement that best captures the core value your product delivers to its customers. If the North Star goes up, the business grows.
 
-**What is the core action a user takes when they get value out of your product? (e.g., Booking a ride on Uber, Sending a message on Slack)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**How can you mathematically measure that action? (e.g., Number of rides completed per week)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Value vs. Revenue:** Do NOT make "Revenue" or "MRR" your North Star Metric. Revenue is the *result* of delivering value. If MRR is your North Star, your team will resort to dark patterns and pricing tricks to boost numbers short-term, which destroys trust.
-- **The 3 Core Models:** Most SaaS North Star Metrics fall into three buckets:
-  1. *Attention (Time/Engagement):* E.g., Netflix (Total hours watched).
-  2. *Transaction (Volume):* E.g., Amazon (Number of purchases completed).
-  3. *Productivity (Efficiency):* E.g., Salesforce (Number of customer records updated).
-
----
-
-## Common Mistakes
-- **Picking a metric you can't control:**
-  - *Why it happens:* Choosing a broad macroeconomic metric or something completely detached from the daily product experience.
-  - *Consequence:* Your engineering team ships a massive feature, but the North Star Metric doesn't budge because it's completely disconnected.
-  - *Prevention:* The NSM must be highly responsive to product updates. If you make the UI 10% better, the NSM should go up.
-- **Daily Active Users (DAU):** DAU is almost always a terrible North Star Metric. Just because someone logged in doesn't mean they got value out of the product. Measure the *action*, not the login.
-
----
-
-## Examples
-- *Good Implementation:* Zoom's NSM: "Weekly Hosted Meetings." Slack's NSM: "Messages Sent Within a Team." Airbnb's NSM: "Nights Booked."
-- *Bad Implementation:* "Total Registered Users." This number can only go up, making it useless for measuring the daily health of the product.
-
----
-
-## AI Prompt
-Use AI to help you identify the perfect North Star Metric.
-
+## AI North Star Generator
 \`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-The core value users get from my app is: [INSERT CORE VALUE].
-
-Act as a VP of Product at a top-tier tech company.
-1. Based on my core value, propose 3 potential North Star Metrics for my business.
-2. For each proposal, explain why it directly correlates with long-term customer retention and revenue growth.
-3. Recommend the single best NSM out of the three, and explicitly explain why "Daily Active Users" or "MRR" would be inferior choices for my specific product.
+Act as a VP of Product. My business model is [PASTE BUSINESS MODEL]. My core KPIs are [PASTE KPIs]. Generate 3 potential North Star Metrics. Explain why each one perfectly aligns customer value with our company revenue.
 \`\`\`
 
----
-
-## Validation Checklist
-- [ ] Does your NSM directly measure the moment a user receives value from the product?
-- [ ] If your NSM goes up, does revenue naturally go up as a byproduct?
-- [ ] Is your NSM responsive? (If you ship a great feature today, will you see the metric move next week?)
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Write your single North Star Metric below. This is the one number your entire company will rally around.
-
+## The Final Decision
+**What is your North Star Metric?**
 \`\`\`input
-✍️ Type your answer here...
+✏️ Our North Star Metric is:
 \`\`\`
 `,
   'prd': `# Product Requirements Document (PRD)

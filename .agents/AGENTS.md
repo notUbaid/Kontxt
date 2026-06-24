@@ -22,58 +22,38 @@ Kontxt is a guided software-building platform that teaches users how to think li
 Every page must guide the user through this workflow (this workflow is more important than the content itself):
 **Learn → Think → Decide → Generate → Validate → Save → Continue**
 
-## UI Structure
-When generating content, structure the page using the following components when appropriate:
-1. **Estimated Time**: (e.g. 🕒 Estimated Time: 15-20 min)
-2. **Overview**: Short explanation, max 150 words.
-3. **Think First**: Interactive fields for project memory. Force decisions, be specific, and ensure they are useful later. Avoid generic questions.
-4. **Key Decisions**: Explain tradeoffs. Don't simply list options.
-5. **Common Mistakes**: Show mistakes beginners and vibe coders commonly make. Explain why it happens, consequences, and prevention.
-6. **Examples**: Include at least one realistic example whenever useful.
-7. **AI Prompt Section**: Generate a high-quality prompt with a Copy button. It must use previous project memory, encourage critical thinking, challenge assumptions, and produce professional output.
-8. **Validation Checklist**: Checkboxes that are practical and actionable.
-9. **Deliverable**: Clearly define the File Name, Purpose, and Contents.
-10. **Next Step**: Explain what comes next and why. (Never simply say "Go to next topic").
+## Content Structure & Interactivity (Accountability-Driven)
+The rigid 10-step template is DEAD. Every topic is unique, so its structure must be entirely dynamic. Form follows function.
+- **Niche Topics**: Might just be a brief overview and a single input field.
+- **Crucial Topics**: Might have massive amounts of content, 5 specific input fields, and multiple AI prompts.
+- **Goal of Interactivity**: Input fields (` ```input `) are not for "boring questions" or "fill-in-the-blanks". They are designed to extract specific, highly-structured data that an AI will later read to understand the user's project state. Demand URLs, pricing data, feature lists, target demographics. Create an *accountability* check.
+- **Multiple Prompts**: If a task requires multiple steps (e.g. "Prompt 1: Brainstorm", "Prompt 2: Refine"), use multiple ` ```prompt ` blocks!
 
-## Right Sidebar & Context Links
-Generate sidebar content. The sidebar should NEVER be empty. Choose the most relevant items for the topic and keep them concise:
-- Quick Definitions
-- Common Terms
-- Decision Cheatsheet
-- Recommended Resources
-- Example Deliverables
-- Useful Frameworks
-- Warnings
-- Related Topics
-- Best Practices
+## Output Format Syntax
+Kontxt parses specific Markdown syntax to render interactive React components. 
 
-**CRITICAL RULE FOR CONTEXT LINKS**: Whenever you create a new topic in any taxonomy, you MUST also add context links for it in `src/data/taxonomies/types.ts` under the `globalTopicLinks` object.
-- Conduct deep research to find the absolute best, highest-quality external resources (official docs, elite blogs like Lenny's Newsletter, specific tools).
-- For very niche topics, provide 1-2 highly specific links.
-- For common/broad topics, provide 4-5 high-quality links.
+**CRITICAL RULE FOR TYPESCRIPT**: Because content is stored inside JavaScript/TypeScript template literals (using backticks ` ` `), you **MUST** escape the backticks when creating code blocks (`\``). ALWAYS write `\`\`\`` instead of ` ``` `.
 
-## Mode Adaptation
-- **Hackathon Mode**: Shorter content, focus on speed, MVP, judging criteria. Remove unnecessary complexity.
-- **Personal Project Mode**: Focus on learning, maintainability, low-cost tools, realistic solo development.
-- **Production Mode**: Cover security, scalability, long-term maintainability, monitoring and operations, advanced considerations.
-- **Custom Mode**: Respect enabled modules.
+**Available Dynamic Components:**
 
-## Content Quality Rules
-- **Deep Research & Attention**: Take your time and focus intently on *each individual topic*. Do thorough research before generating content. Do not rush or output generic filler text when bulk-generating topics.
-- **Avoid**: Blog-style writing, corporate jargon, long introductions, academic explanations, generic advice.
-- **Prefer**: Decision-making, practical examples, real-world tradeoffs, actionable guidance.
-- *Every section must answer:* "How does this help me build better software?"
+1. **Input Fields (The Project Memory)**
+Use these aggressively to extract specific data for the AI's future context.
+\`\`\`input
+✏️ Paste your top 3 competitor URLs here...
+\`\`\`
 
-## Agent Execution Rules
-- **Leverage Unfair Advantages:** Actively use all available tools, including MCP (Model Context Protocol) servers, search, and specialized plugins, to provide the best possible implementation and gather context.
-- **Token Efficiency vs. Quality:** Strive to be token-efficient (be concise, avoid massive unrelated diffs), but **NEVER** even slightly sacrifice quality, correctness, or completeness for the sake of token efficiency. Quality and thoroughness are always the highest priority.
+2. **AI Prompts (The Execution)**
+Use these to give the user exactly what they need to paste into ChatGPT/Claude. You can have 0, 1, or 5 prompts depending on the topic.
+\`\`\`prompt
+Act as a Senior Architect...
+\`\`\`
 
-## Output Format & Interactive UI Components
-Kontxt parses specific Markdown syntax to render interactive React components (like the AI Prompt box with a "Copy" button, and user input fields).
+3. **Checkboxes (The Accountability)**
+Standard markdown checkboxes. Use them for concrete actions the user must take.
+- [ ] Checklist item 1
 
-**CRITICAL RULE FOR TYPESCRIPT**: Because content is stored inside JavaScript/TypeScript template literals (using backticks ` ` `), you **MUST** escape the backticks when creating code blocks, otherwise you will break the build (`tsc` will fail). ALWAYS write `\`\`\`` instead of ` ``` `.
-
-When generating a topic in `src/data/content/fallback.ts`, you MUST use this exact structure:
+**Example of a Dynamic Topic Structure:**
+(You don't have to follow this exactly; adapt to the topic's needs).
 
 ```markdown
 # Topic Name
@@ -82,62 +62,29 @@ When generating a topic in `src/data/content/fallback.ts`, you MUST use this exa
 
 ---
 
-## Overview
-Text
+## Why this matters
+Explain the real-world impact. Why are we doing this?
 
----
-
-## Think First
-**Question 1?**
+## The Data We Need From You
+Explain what decisions the user must make.
+**List your top 3 direct competitors:**
 \`\`\`input
-✏️ Type your answer here...
+✏️ 1.
+2.
+3.
 \`\`\`
 
----
-
-## Key Decisions
-- Bullets
-
----
-
-## Common Mistakes
-- Bullets
-
----
-
-## AI Prompt
-Use this prompt to generate your output.
+## AI Brainstorming Phase
 \`\`\`prompt
-Act as a Senior Developer...
+Based on my competitors, suggest 5 unique differentiation angles...
 \`\`\`
 
----
-
-## Validation Checklist
-- [ ] Checklist item
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** ...
-**Purpose:** ...
-**Contents:** ...
-
+## The Final Decision
+**Which angle are you choosing and why?**
 \`\`\`input
-✏️ Paste your deliverable here...
+✏️ Angle:
+Reason:
 \`\`\`
-
----
-
-## Next Step
-Text
 ```
 
-Ensure that every major section is separated by `---` with blank lines before and after.
+Ensure logical sections are separated by `---` with blank lines before and after.
