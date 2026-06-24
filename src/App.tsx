@@ -31,8 +31,9 @@ export interface Project {
   lastViewedTopic?: string;
 }
 
+import Home from './pages/Home';
+
 // Lazy load pages for code splitting
-const Home = lazy(() => import('./pages/Home'));
 const Editor = lazy(() => import('./pages/Editor'));
 const ResetPassword = lazy(() => import('./pages/ResetPassword'));
 
@@ -66,9 +67,7 @@ function App() {
     }
   }, []);
 
-  if (isAuthenticated === null) {
-    return <div className="min-h-screen bg-background flex items-center justify-center text-muted-foreground font-medium">Authenticating...</div>;
-  }
+  // Removed the blocking auth screen to allow Home to render immediately for better LCP
 
   // Suspense fallback for lazy loaded components
   const LoadingFallback = () => (
@@ -86,7 +85,7 @@ function App() {
             <Home 
               projects={projects} 
               addProject={addProject} 
-              isAuthenticated={isAuthenticated} 
+              isAuthenticated={!!isAuthenticated} 
               setIsAuthenticated={setIsAuthenticated} 
             />
           } 
@@ -99,7 +98,7 @@ function App() {
               projects={projects}
               updateProject={updateProject}
               deleteProject={deleteProject}
-              isAuthenticated={isAuthenticated}
+              isAuthenticated={!!isAuthenticated}
               setIsAuthenticated={setIsAuthenticated}
             />
           } 
