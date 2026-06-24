@@ -279,6 +279,31 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'shadcn/ui Components', url: 'https://ui.shadcn.com/' },
     { name: 'TanStack Query (Data Fetching)', url: 'https://tanstack.com/query/latest' },
     { name: 'Optimistic UI Updates', url: 'https://tanstack.com/query/latest/docs/react/guides/optimistic-updates' }
+  ],
+  'payments': [
+    { name: 'Stripe API Docs', url: 'https://docs.stripe.com/api' },
+    { name: 'Handling Stripe Webhooks', url: 'https://docs.stripe.com/webhooks' },
+    { name: 'SCA (Strong Customer Authentication)', url: 'https://stripe.com/en-gb-us/guides/strong-customer-authentication' }
+  ],
+  'emails': [
+    { name: 'Resend Documentation', url: 'https://resend.com/docs' },
+    { name: 'React-Email Components', url: 'https://react.email/' },
+    { name: 'DKIM and SPF Explained', url: 'https://www.cloudflare.com/learning/dns/dns-records/dns-dkim-record/' }
+  ],
+  'notifications': [
+    { name: 'Sonner (React Toasts)', url: 'https://sonner.emilkowal.ski/' },
+    { name: 'Supabase Realtime (WebSockets)', url: 'https://supabase.com/docs/guides/realtime' },
+    { name: 'Server-Sent Events vs WebSockets', url: 'https://web.dev/articles/eventsource-basics' }
+  ],
+  'search': [
+    { name: 'PostgreSQL Full-Text Search', url: 'https://www.postgresql.org/docs/current/textsearch.html' },
+    { name: 'Prisma Full-Text Search', url: 'https://www.prisma.io/docs/orm/prisma-client/queries/full-text-search' },
+    { name: 'usehooks-ts: useDebounce', url: 'https://usehooks-ts.com/react-hook/use-debounce' }
+  ],
+  'analytics': [
+    { name: 'PostHog Documentation', url: 'https://posthog.com/docs' },
+    { name: 'Product Analytics vs Marketing Analytics', url: 'https://posthog.com/blog/product-analytics-vs-marketing-analytics' },
+    { name: 'Server-Side Event Tracking', url: 'https://posthog.com/docs/getting-started/send-events' }
   ]
 };
 

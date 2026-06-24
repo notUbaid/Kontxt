@@ -4109,4 +4109,378 @@ Act as a Principal Frontend Engineer.
 **File Name:** \`/components\` and \`/pages\`
 **Purpose:** The visual, interactive layer of your SaaS.
 **Contents:** Reusable UI components, page layouts, data-fetching hooks, and routing logic.`
+,
+  'payments': `# Payments (Implementation)
+
+**🕒 Estimated Time:** 90-120 min
+
+---
+
+## Overview
+A SaaS without payments is just a hobby. Implementing payments involves creating checkout sessions, securely handling webhooks, and gating premium features based on the user's subscription status. Because real money is involved, your code must be perfectly resilient to network failures, race conditions, and malicious users attempting to bypass the paywall.
+
+---
+
+## Think First
+Map out the exact path to revenue.
+
+**The Checkout Flow (When exactly does the user hit the paywall? Do they start on a Free plan, or is it a hard paywall at signup?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Premium Gates (List the specific UI components or API routes that must be locked for non-paying users.)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Hosted Checkout vs. Custom UI:** Always use the provider's Hosted Checkout page (e.g., Stripe Checkout) for an MVP. Building your own credit card form using Stripe Elements requires you to handle SCA (Strong Customer Authentication), 3D Secure, and complex error states. Hosted Checkout handles all of this automatically and is highly optimized for conversion.
+- **Webhook Source of Truth:** Never trust the frontend to tell the backend "The user paid!". The *only* way a user's database record should be upgraded to "Pro" is when your backend receives the securely signed \`checkout.session.completed\` webhook directly from Stripe.
+
+---
+
+## Common Mistakes
+- **Failing to handle Idempotency:** 
+  - *Why it happens:* Stripe accidentally sends the same webhook twice due to a network retry.
+  - *Consequence:* Your webhook handler processes it twice, giving the user 2 months of credit instead of 1.
+  - *Prevention:* Always record the Stripe \`event_id\` in your database. If you receive a webhook with an \`event_id\` you've already seen, ignore it.
+- **Client-Side Paywalls:** Hiding the "Premium Feature" button in React, but forgetting to check the user's subscription status in the actual backend API route. 
+
+---
+
+## Examples
+- *Good Implementation:* A user clicks "Upgrade". Your backend generates a Stripe Checkout URL and redirects them. They pay. Stripe sends a Webhook to your backend. Your backend verifies the signature, looks up the user via the \`customer_id\`, and updates \`plan = 'PRO'\` in the database.
+- *Bad Implementation:* After paying, the user is redirected to \`/success?paid=true\`, and your frontend reads that URL parameter to update their status.
+
+---
+
+## AI Prompt
+Use AI to write your secure payment webhooks.
+
+\`\`\`prompt
+My SaaS uses [INSERT PAYMENT PROVIDER, e.g., Stripe].
+My backend is built with [INSERT FRAMEWORK, e.g., Next.js App Router].
+
+Act as a Principal Billing Engineer.
+1. Write the code to generate a Stripe Checkout Session for a monthly subscription.
+2. Write the robust Webhook handler to receive the \`checkout.session.completed\` event.
+3. Include the exact code to verify the Stripe cryptographic signature to prevent fake webhooks.
+4. Explain how to implement Idempotency to prevent double-upgrades if the webhook is sent twice.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Have you tested the entire flow using Stripe's "Test Mode" credit cards (e.g., 4242 4242...)?
+- [ ] Can a user on the "Free" plan successfully bypass the frontend UI and hit a premium API endpoint directly? (They shouldn't be able to).
+- [ ] Is your Webhook endpoint publicly accessible so Stripe can actually reach it during testing?
+
+---
+
+## Deliverable
+**File Name:** \`stripe_webhook.ts\` and \`checkout.ts\`
+**Purpose:** The engine that securely captures revenue.
+**Contents:** The API routes for generating checkout sessions and the cryptographically secure webhook handler.`,
+  'emails': `# Emails (Implementation)
+
+**🕒 Estimated Time:** 45-60 min
+
+---
+
+## Overview
+Transactional emails are the heartbeat of user retention. Welcome emails, password resets, and billing receipts keep users engaged and informed. Implementing emails used to mean writing massive, fragile HTML tables that broke in Outlook. Today, modern tools allow you to write emails using React components and send them via fast, developer-friendly APIs.
+
+---
+
+## Think First
+Define the critical communication touchpoints.
+
+**The Triggers (What 3 events in your app absolutely require an email to be sent?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Provider (Are you using Resend, Postmark, or SendGrid?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **React-Email vs. Raw HTML:** Writing raw HTML for emails is a nightmare because email clients (Gmail, Outlook, Apple Mail) render HTML differently. Use **React-Email**. It allows you to build emails using Tailwind CSS and React components, and it automatically compiles them into bulletproof HTML that works in every client.
+- **Synchronous vs. Asynchronous Sending:** When a user signs up, do you make them wait 3 seconds while your server talks to the email provider? Always send emails asynchronously (in the background) so the user experiences an instant UI response.
+
+---
+
+## Common Mistakes
+- **Using a "@gmail.com" Sender Address:**
+  - *Consequence:* 100% of your transactional emails will go straight to the user's Spam folder.
+  - *Prevention:* You must purchase a custom domain, verify it with your email provider, and set up DKIM/SPF DNS records.
+- **Hardcoding Email Templates in API Routes:** 
+  - *Consequence:* Your backend files become 500 lines long and the emails are impossible to edit or preview.
+  - *Prevention:* Keep email templates in a dedicated \`/emails\` directory.
+
+---
+
+## Examples
+- *Good Implementation:* Using Resend and React-Email. The backend triggers \`resend.emails.send({ react: WelcomeEmail({ firstName }) })\` in the background immediately after the user is saved to the database.
+- *Bad Implementation:* Writing a massive string template literal \`const html = "<html><body><h1>Hello " + name + "</h1></body></html>"\` directly inside the signup controller.
+
+---
+
+## AI Prompt
+Use AI to scaffold modern, beautiful email templates.
+
+\`\`\`prompt
+My SaaS uses [INSERT EMAIL PROVIDER, e.g., Resend] and [INSERT TEMPLATING TOOL, e.g., React-Email].
+
+Act as a Frontend Engineer specializing in Email Deliverability.
+1. Write a reusable React-Email component for a "Welcome" email. Include a logo placeholder, a friendly greeting, and a primary Call-to-Action (CTA) button using Tailwind CSS.
+2. Write the backend API utility function required to trigger this email securely using the Resend SDK.
+3. Explain exactly what DNS records (DKIM/SPF) I need to configure to prevent my emails from landing in Spam.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Are emails rendering correctly on both mobile and desktop email clients?
+- [ ] Have you verified your custom domain (DKIM/SPF records) with your email provider to avoid the Spam folder?
+- [ ] Are email sending functions executed asynchronously so they don't block the user's UI?
+
+---
+
+## Deliverable
+**File Name:** \`/emails/WelcomeEmail.tsx\` and \`mailer.ts\`
+**Purpose:** Engage users reliably without breaking layout in Outlook.
+**Contents:** The React-based email templates and the utility function used to dispatch them.`,
+  'notifications': `# Notifications (Implementation)
+
+**🕒 Estimated Time:** 45 min
+
+---
+
+## Overview
+Notifications provide immediate feedback to the user. They come in two flavors: **Passive** (Toast messages saying "Settings Saved") and **Active** (An in-app inbox or bell icon showing "John commented on your project"). Implementing notifications properly makes your app feel alive and responsive, but over-engineering them will drown your users in noise and crash your database.
+
+---
+
+## Think First
+Categorize your alerts.
+
+**The Toasts (What actions require immediate, temporary on-screen feedback?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Inbox (What events are important enough to be saved in a database and shown in a notification bell dropdown?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Real-time vs. Polling:** If User A comments on a doc, how does User B see it instantly? 
+  - *WebSockets (Pusher/Supabase Realtime):* Instant, but complex to scale and maintain.
+  - *Polling (SWR/React Query):* Fetching the \`/api/notifications\` endpoint every 15 seconds. Much easier to build, and usually "good enough" for an MVP unless you are building a chat app.
+- **Toast Libraries:** Never build your own Toast component. Use a highly polished, accessible library like **Sonner** or **React-Hot-Toast**.
+
+---
+
+## Common Mistakes
+- **No "Mark as Read" Logic:**
+  - *Why it happens:* Developers build the \`notifications\` database table but forget the \`is_read\` boolean.
+  - *Consequence:* The user's bell icon permanently shows "99+ unread", rendering the feature completely useless.
+  - *Prevention:* Always include a way to mark individual notifications, or all notifications, as read.
+- **Notification Spam:** Sending an email, a push notification, and an in-app alert for a trivial action.
+
+---
+
+## Examples
+- *Good Implementation:* Using the \`Sonner\` library for instant success/error feedback. For in-app alerts, a \`notifications\` table stores the event, and a React Query hook fetches unread counts every 30 seconds to update the bell icon.
+- *Bad Implementation:* Attempting to build a raw WebSocket server in Node.js for an MVP just to show a "Settings saved" alert.
+
+---
+
+## AI Prompt
+Use AI to build a notification system.
+
+\`\`\`prompt
+My SaaS uses [INSERT FRAMEWORK, e.g., Next.js].
+I need to build an in-app "Bell Icon" notification dropdown.
+
+Act as a Full Stack Engineer.
+1. Design the Database schema (Prisma/SQL) for a \`notifications\` table, ensuring it supports unread counts and different notification types (e.g., 'comment', 'invite').
+2. Write the backend endpoint to fetch unread notifications.
+3. Write the React component for the dropdown menu, including a button to "Mark all as read".
+4. Recommend a strategy: Should I use WebSockets, Server-Sent Events (SSE), or simple Polling for this?
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Do success/error actions trigger an immediate Toast notification (using Sonner/React-Hot-Toast)?
+- [ ] Can users successfully mark their inbox notifications as "Read"?
+- [ ] Does the notification database table have an index on \`user_id\` and \`is_read\` for fast querying?
+
+---
+
+## Deliverable
+**File Name:** \`NotificationBell.tsx\` and \`notifications.ts\`
+**Purpose:** Keep the user informed and engaged with app activity.
+**Contents:** The UI component for the inbox dropdown and the backend schema/API to support it.`,
+  'search': `# Search (Implementation)
+
+**🕒 Estimated Time:** 45-60 min
+
+---
+
+## Overview
+As your users generate data, they will need a way to find it. Search implementation can range from a simple SQL \`ILIKE\` query to a massive AI-powered Vector Database. For an MVP, the goal is to implement a fast, reliable search bar that queries your primary database directly, without introducing the immense complexity of syncing data to a dedicated search engine like Algolia.
+
+---
+
+## Think First
+Define the search scope.
+
+**The Target Data (What exactly are users searching for? Project names? Document contents? User emails?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Search Experience (Do they need "Search as you type" auto-complete, or a dedicated search results page?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Database Search vs. Dedicated Search Engine:** 
+  - *PostgreSQL Full-Text Search:* Powerful, built-in, and requires zero extra infrastructure. Perfect for SaaS MVPs.
+  - *Algolia / Typesense:* Incredibly fast and handles typos (fuzzy search) beautifully, but requires you to write complex sync logic to keep it updated with your main database.
+- **Client-Side vs. Server-Side:** Never fetch all 10,000 rows to the frontend and use \`Array.filter()\` to search. Always send the search query to the backend and let the database do the heavy lifting.
+
+---
+
+## Common Mistakes
+- **Not Debouncing the Input:**
+  - *Why it happens:* Firing an API request on every single keystroke (\`onChange\`).
+  - *Consequence:* If a user types "Dashboard", you send 9 separate API requests to your database in one second. Your server crashes under the load.
+  - *Prevention:* Use a "Debounce" hook to wait 300ms after the user *stops* typing before sending the API request.
+- **Missing Database Indexes:** Running \`WHERE title ILIKE '%query%'\` on a table with 1 million rows without a \`pg_trgm\` or GIN index will cause the query to take seconds.
+
+---
+
+## Examples
+- *Good Implementation:* A React input uses \`useDebounce(searchTerm, 300)\`. When the debounced value changes, React Query fetches \`/api/search?q=Dashboard\`. The backend uses Postgres Full-Text Search and returns the top 10 results instantly.
+- *Bad Implementation:* Fetching the entire \`users\` table on page load and searching it using JavaScript in the browser.
+
+---
+
+## AI Prompt
+Use AI to write a highly optimized search implementation.
+
+\`\`\`prompt
+My SaaS uses [INSERT DB/ORM, e.g., Postgres + Prisma] and [INSERT FRONTEND, e.g., React].
+Users need to search for [INSERT TARGET DATA, e.g., Projects by name and description].
+
+Act as a Full Stack Performance Expert.
+1. Write the frontend React Search Input component. Include a 300ms Debounce hook to prevent API spam.
+2. Write the backend API endpoint to handle the search query.
+3. Write the exact PostgreSQL query (or Prisma syntax) required to perform a fast, case-insensitive Full-Text Search on the target data.
+4. What specific Database Indexes should I add to ensure this query remains fast when the table hits 1 million rows?
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Is the search input debounced (waiting ~300ms before firing the API request)?
+- [ ] Is the search executing server-side (in the database) rather than client-side?
+- [ ] Have you added the appropriate Full-Text Search indexes (e.g., GIN indexes in Postgres) to your database schema?
+
+---
+
+## Deliverable
+**File Name:** \`SearchBar.tsx\` and \`/api/search\`
+**Purpose:** Allow users to instantly locate their data.
+**Contents:** The debounced UI component and the optimized database query.`,
+  'analytics': `# Analytics (Implementation)
+
+**🕒 Estimated Time:** 30 min
+
+---
+
+## Overview
+Analytics are the eyes and ears of your business. Without them, you have no idea if users are actually using the features you spent 3 weeks building. Implementing analytics involves setting up a tracking provider, capturing core user events, and explicitly tracking conversion funnels. The goal is to track *meaningful* events, not just page views.
+
+---
+
+## Think First
+Define your success metrics.
+
+**The Core Events (What are the 3 most important actions a user can take that indicate they are getting value from your app? e.g., "Project Created", "Invite Sent")**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Tracking Plan (Are you using PostHog, Mixpanel, or basic Google Analytics?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Product Analytics vs. Marketing Analytics:** Google Analytics is for tracking *where* visitors came from (Marketing). Tools like **PostHog** or **Mixpanel** are for tracking *what* logged-in users actually do inside the app (Product Analytics). For SaaS, Product Analytics are vastly more important.
+- **Server-Side vs. Client-Side Tracking:** Tracking events on the frontend is easy but can be blocked by AdBlockers. Tracking events on the backend (e.g., sending the "User Upgraded" event directly from your Stripe Webhook) is 100% reliable.
+
+---
+
+## Common Mistakes
+- **Tracking Everything (The Noise Problem):**
+  - *Why it happens:* Auto-capturing every single button click, mouse movement, and page view.
+  - *Consequence:* Your dashboard becomes a chaotic mess of useless data, and your analytics bill skyrockets.
+  - *Prevention:* Explicitly track only key milestones (Signup, Subscription, Core Feature Usage).
+- **Failing to Identify Users:** Tracking events but forgetting to attach the \`user_id\`. You end up with 500 anonymous events and no way to know *who* actually performed them.
+
+---
+
+## Examples
+- *Good Implementation:* Using PostHog. When a user logs in, the app calls \`posthog.identify('user-123', { email: 'test@test.com' })\`. When they create a project, the app calls \`posthog.capture('project_created', { plan: 'Pro' })\`.
+- *Bad Implementation:* Adding a Google Analytics script tag, looking at the "Page Views" metric, and assuming that means people are using the product.
+
+---
+
+## AI Prompt
+Use AI to implement a clean, reliable tracking plan.
+
+\`\`\`prompt
+My SaaS uses [INSERT ANALYTICS PROVIDER, e.g., PostHog].
+My core events are: User Signup, Subscription Started, and [INSERT CORE APP EVENT].
+
+Act as a Product Data Analyst.
+1. Write the boilerplate code to initialize the analytics provider securely in my frontend.
+2. Write the exact code required to 'Identify' the user immediately after they log in.
+3. Write a wrapper utility function for capturing events so I can easily swap analytics providers in the future if needed.
+4. Explain why I should track the 'Subscription Started' event on my Backend (via webhook) rather than on my Frontend.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Does your app call the \`.identify()\` method immediately after a user successfully logs in or signs up?
+- [ ] Are critical conversion events (like Subscriptions) tracked server-side to bypass ad-blockers?
+- [ ] Have you verified that events are actively appearing in your provider's live dashboard?
+
+---
+
+## Deliverable
+**File Name:** \`analytics.ts\`
+**Purpose:** Provide visibility into how users interact with your business.
+**Contents:** The initialization code, the \`identify\` logic, and the event tracking wrappers.`
 };
