@@ -37,6 +37,64 @@ export const universalLinks: QuickLink[] = [
 export const generateId = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '');
 
 export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
+  'crashreporting': [
+    { name: 'Sentry Crash Reporting', url: 'https://docs.sentry.io/platforms/react-native/' },
+    { name: 'Crashlytics for React Native', url: 'https://rnfirebase.io/crashlytics/usage' }
+  ],
+  'appsizeoptimization': [
+    { name: 'React Native Bundle Visualizer', url: 'https://github.com/IjzerenHein/react-native-bundle-visualizer' },
+    { name: 'Android App Bundles (AAB)', url: 'https://developer.android.com/guide/app-bundle' }
+  ],
+  'batteryoptimization': [
+    { name: 'React Native Performance Guide', url: 'https://reactnative.dev/docs/performance' },
+    { name: 'Identifying Battery Drain', url: 'https://developer.android.com/topic/performance/power' }
+  ],
+  'scalability': [
+    { name: 'Supabase Connection Pooling', url: 'https://supabase.com/docs/guides/database/connecting-to-postgres#connection-pooler' },
+    { name: 'ByteByteGo: System Design', url: 'https://bytebytego.com/' }
+  ],
+  'playstoresetup': [
+    { name: 'Google Play Console', url: 'https://play.google.com/console/about/' },
+    { name: 'Play Store Developer Policies', url: 'https://play.google.com/about/developer-content-policy/' }
+  ],
+  'appstoresetup': [
+    { name: 'Apple Developer Program', url: 'https://developer.apple.com/programs/' },
+    { name: 'App Store Review Guidelines', url: 'https://developer.apple.com/app-store/review/guidelines/' },
+    { name: 'Apple D-U-N-S Number Guide', url: 'https://developer.apple.com/support/D-U-N-S/' }
+  ],
+  'appicons': [
+    { name: 'Apple HIG: App Icons', url: 'https://developer.apple.com/design/human-interface-guidelines/app-icons' },
+    { name: 'Android Adaptive Icons', url: 'https://developer.android.com/develop/ui/views/launch/icon_design_adaptive' },
+    { name: 'App Icon Generator', url: 'https://appicon.co/' }
+  ],
+  'screenshots': [
+    { name: 'App Store Screenshot Sizes', url: 'https://help.apple.com/app-store-connect/#/devd274dd925' },
+    { name: 'Previewed.app (Screenshot Generator)', url: 'https://previewed.app/' },
+    { name: 'Mobbin: Best App Screenshots', url: 'https://mobbin.com/' }
+  ],
+  'featuregraphics': [
+    { name: 'Google Play Feature Graphic Guidelines', url: 'https://support.google.com/googleplay/android-developer/answer/9866151?hl=en' },
+    { name: 'Figma Feature Graphic Templates', url: 'https://www.figma.com/community' }
+  ],
+  'storelistingseo': [
+    { name: 'AppTweak (ASO Tool)', url: 'https://www.apptweak.com/' },
+    { name: 'SensorTower ASO Guide', url: 'https://sensortower.com/blog/app-store-optimization' },
+    { name: 'Apple Search Ads Keyword Planner', url: 'https://searchads.apple.com/' }
+  ],
+  'contentrating': [
+    { name: 'IARC Rating System', url: 'https://www.globalratings.com/' },
+    { name: 'App Store Age Ratings', url: 'https://developer.apple.com/help/app-store-connect/manage-app-information/assign-an-age-rating' }
+  ],
+  'testtracks': [
+    { name: 'Google Play Internal Testing', url: 'https://support.google.com/googleplay/android-developer/answer/9845334' },
+    { name: 'Expo EAS Submit', url: 'https://docs.expo.dev/submit/introduction/' }
+  ],
+  'releasechecklist': [
+    { name: 'Product Hunt Launch Guide', url: 'https://www.producthunt.com/launch' },
+    { name: 'App Store Review Process', url: 'https://developer.apple.com/app-store/review/' },
+    { name: 'Google Play Rollout Guide', url: 'https://support.google.com/googleplay/android-developer/answer/6369910' }
+  ],
+
   'mobilepayments': [
     { name: 'Stripe React Native SDK', url: 'https://docs.stripe.com/payments/accept-a-payment?platform=react-native' },
     { name: 'RevenueCat (In-App Purchases)', url: 'https://www.revenuecat.com/docs/getting-started/installation/react-native' }
