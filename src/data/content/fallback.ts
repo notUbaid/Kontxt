@@ -443,101 +443,85 @@ Define your 1 Primary ICP below. Delete everything else. When you are tempted to
 \`\`\`
 `,
 
-  'icpidealcustomerprofile': `# Target Users & Ideal Customer Profile (ICP)
+  'icpidealcustomerprofile': `# ICP (Ideal Customer Profile)
 
 **🕒 Estimated Time:** 20-30 min
 
 ---
 
 ## Overview
-"Everyone" is not a target audience. If you build for everyone, you build for no one. A hyper-specific ICP allows you to build features faster, write better marketing copy, and completely ignore distractions. The goal here is to find the "Bullseye" customer—the subset of people who are desperate for your solution.
+While your [Target Users](#targetusers) define the broad market segment you are going after (e.g., "B2B Sales Teams"), your Ideal Customer Profile (ICP) is the hyper-specific, fictional representation of your *absolute perfect buyer*. If you try to sell to every sales team, your marketing will be generic and your conversions will be zero. Your ICP defines the exact person who is actively bleeding time or money and has the budget to buy your software *today*.
 
 ---
 
 ## Think First
-Before using AI, answer these core questions about who is actually pulling out their credit card:
+Define the exact criteria that disqualifies a lead.
 
-**Demographics & Role** (Who are they exactly? E.g., "B2B SaaS Founders doing $10k-$50k MRR")
+**The "Must-Have" Criteria (e.g., Must use Salesforce, Must have 10-50 employees, Must be generating >\$1M ARR)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
 
-**Where do they hang out?** (Subreddits, LinkedIn groups, specific Discord servers)
+**The "Disqualifiers" (e.g., Does not have a dedicated sales manager, Uses Hubspot instead of Salesforce)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-
-**The Superhuman PMF Test** (Who would be "very disappointed" if your product disappeared?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: Budget**
-- [ ] Enterprise / High Budget ($1,000+/mo)
-- [ ] Mid-Market ($100-$500/mo)
-- [ ] Prosumer ($20-$50/mo)
-- [ ] Consumer (Reluctant to pay)
 
 ---
 
 ## Key Decisions
-- **B2B vs B2C:** B2C requires massive viral scale because consumers churn fast and hate paying for software. B2B businesses expect to pay for software that saves them time or makes them money.
-- **The Bullseye Approach:** Identify the concentric circles of your market. Start entirely focused on the absolute center (the Bullseye) before trying to expand outward.
+- **Narrowing the Niche:** It feels terrifying to exclude 90% of your potential market. Do it anyway. If your ICP is "Local plumbers in Texas with exactly 3 trucks who currently use paper invoices", you can easily find exactly where those 5,000 people hang out and sell directly to them.
+- **Buyer vs. User:** In B2B SaaS, the person using the software (the Sales Rep) is often NOT the person buying the software (the VP of Sales). Your ICP must define the *Buyer*, because they hold the credit card.
 
 ---
 
 ## Common Mistakes
-- **Vague Personas:** Saying your target is "Small Business Owners". That's millions of completely different businesses. Be specific: "Plumbing businesses in Texas with 5-10 employees."
-- **Listening to the Wrong Users:** Taking feature requests from people who are not in your Bullseye ICP.
+- **No Disqualifiers:** 
+  - *Why it happens:* You want as many customers as possible.
+  - *Consequence:* You spend 3 months onboarding a massive client who demands 50 custom features, eats up all your support time, and then churns anyway because they weren't your ICP.
+  - *Prevention:* Explicitly write down who your software is *not* for.
+- **The "Fortune 500" Trap:** Trying to sell your MVP to a massive enterprise. Enterprise sales cycles take 12 months. Your startup will run out of money in 6 months. Target mid-market or prosumers first.
+
+---
+
+## Examples
+- *Good Implementation:* "Our ICP is the Director of Customer Success at a B2B SaaS company with 50-200 employees, currently using Zendesk, who has at least \$5,000 in monthly churn."
+- *Bad Implementation:* "Our ICP is anyone who wants to improve customer service."
 
 ---
 
 ## AI Prompt
-Use this prompt to generate actionable, hypothetical user personas to guide your feature prioritization.
+Use this prompt to turn your broad target audience into a hyper-specific ICP.
 
 \`\`\`prompt
 My SaaS product does: [INSERT ELEVATOR PITCH].
+My broad Target Audience is: [INSERT TARGET AUDIENCE].
 
-Act as a world-class Product Marketing Manager.
-Generate 3 detailed Ideal Customer Profiles (ICPs) for this product using the "Bullseye" framework.
-For the Primary "Bullseye" ICP, include:
-1. Demographics & Psychographics (Motivations, Frustrations)
-2. Where they currently spend money to solve this problem today
-3. The absolute best marketing channel to reach them with $0 budget
+Act as a world-class B2B Product Marketer.
+Generate a strictly constrained Ideal Customer Profile (ICP) for this product.
+Include:
+1. Firmographics (Company size, revenue, industry).
+2. Technographics (What software must they already be using?).
+3. The exact Job Title of the economic buyer.
+4. The Top 3 Red Flags (Disqualifiers) that indicate a prospect is a bad fit.
 \`\`\`
 
 ---
 
-## What Good Looks Like
-
-**A strong ICP definition:**
-✓ Role-specific and highly constrained
-✓ Clear understanding of their budget
-✓ Identifiable watering holes (where they hang out)
-✓ They actively experience the pain point
-
-**A weak ICP definition:**
-✗ "Anyone who wants to save time"
-✗ "Small to Medium Businesses (SMBs)"
-✗ No clear acquisition channel
-
----
-
 ## Validation Checklist
-- [ ] Can you find a list of 100 specific people who fit this profile right now?
-- [ ] Do these users have the authority to make a purchasing decision?
-- [ ] Have you manually spoken to at least 5 of them?
+- [ ] Is your ICP specific enough that you could filter a list of 10,000 companies down to exactly 100 perfect fits?
+- [ ] Have you explicitly defined who the economic buyer is (the person with the credit card)?
+- [ ] Have you defined at least 3 disqualifying criteria?
 
 ---
 
 ## Deliverable
-Define your 1 Primary ICP below. Delete everything else. When you are tempted to build a feature, ask yourself: "Does this specific person actually care about this?"
+Write your highly constrained ICP below, including the firmographics and the exact role of the buyer.
 
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'personas': `# User Personas & Jobs to be Done
 
 **🕒 Estimated Time:** 30-40 min
@@ -1462,175 +1446,162 @@ Create a strict checklist of the 3 to 5 features that constitute your MVP.
 \`\`\`
 `,
 
-  'futurefeatures': `# Future Features
+  'futurefeatures': `# Future Features (The Parking Lot)
 
-**🕒 Estimated Time:** 15 min
+**🕒 Estimated Time:** 15-20 min
 
 ---
 
 ## Overview
-Just because a feature was cut from the [MVP Features](#mvpfeatures) doesn't mean it's gone forever. Documenting your future features prevents you from getting distracted today while keeping a roadmap for tomorrow.
+Scope creep is the number one reason MVPs fail to launch. Every time you have a brilliant idea for a new feature, your brain releases dopamine, and you are tempted to add it to the MVP. The "Future Features" list (or Parking Lot) is where you safely store these brilliant ideas so you don't lose them, but you also don't let them derail your launch timeline.
 
 ---
 
 ## Think First
-Park your long-term ideas here so they don't block your current progress.
+Be honest about what is *not* essential for Day 1.
 
-**The "V2" Features (What will you build immediately after the MVP succeeds?)**
+**The "Nice to Have" List (What features do you love, but aren't strictly necessary for the user to achieve the core value?)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
 
-**The Moat Builders (What complex features will eventually make you impossible to copy?)**
+**The "Complex Integration" List (What requires massive engineering effort but only benefits 10% of users?)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-
-**Reality Check: The Distraction Test**
-- [ ] Am I working on these instead of my MVP?
-- [ ] Do these features assume the MVP was successful?
-- [ ] Are these features driven by user requests, or just my imagination?
 
 ---
 
 ## Key Decisions
-- **Retention vs Acquisition:** V2 features should generally focus on *retaining* the users who loved the MVP, not trying to acquire completely different types of users.
+- **The "If-Then" Rule:** Every Future Feature should have an "If-Then" condition. E.g., "IF we get 100 paying users, THEN we will build the Slack integration." This prevents you from building features blindly.
+- **Public vs. Private Roadmap:** 
+  - *Public:* Builds trust and allows users to vote on features. Great for early-stage communities.
+  - *Private:* Keeps your competitors from seeing your next move. Better if you are in a highly competitive market.
 
 ---
 
 ## Common Mistakes
-- **Committing to Timelines:** Never promise users exactly *when* future features will be built. You will inevitably be wrong.
-- **Scope Creep:** Sneaking a V2 feature into the MVP sprint because "it won't take that long."
+- **Building for Edge Cases:**
+  - *Why it happens:* A single vocal user says, "I can't use this unless it integrates with my obscure CRM."
+  - *Consequence:* You spend 2 weeks building an integration for one person who ends up churning anyway.
+  - *Prevention:* Put the feature in the Parking Lot until at least 5 different paying customers ask for it.
+- **Ignoring the Core Loop:** You plan 15 future features like "Dark Mode" and "Avatar Uploads", but the core mechanism of your app still feels clunky.
 
 ---
 
-## AI & Architecture Reality Check
-- **Database Extensibility:** Use standard relational databases (like Postgres via Supabase) because they allow you to easily add new tables and relationships for V2 features later, without needing to rewrite your entire backend architecture.
+## Examples
+- *Good Implementation:* The MVP is just a web app that generates PDFs. The Future Features list contains: "1. Mobile App (Trigger: \$5k MRR). 2. Team Collaboration (Trigger: 20 user requests). 3. Custom CSS (Trigger: Enterprise plan launch)."
+- *Bad Implementation:* Trying to launch the web app, mobile app, iPad app, and Chrome extension all on Day 1.
 
 ---
 
 ## AI Prompt
-Use AI to structure your long-term roadmap.
+Use this prompt to aggressively cut scope and build a disciplined roadmap.
 
 \`\`\`prompt
-Here are the features I cut from my MVP: [PASTE CUT FEATURES]
+My SaaS product is: [INSERT ELEVATOR PITCH].
+Here is a list of features I want to build: [INSERT ALL FEATURES].
 
-Act as a strategic VP of Product.
-Organize these remaining features into a logical "V2, V3, V4" roadmap. Explain *why* you ordered them this way based on standard SaaS growth trajectories (e.g., building retention features before expansion features).
+Act as a ruthless Lead Engineer and Product Manager.
+1. Force-rank these features. Identify the absolute minimum features required for the MVP to function.
+2. Take all the remaining features and move them to a "Parking Lot".
+3. For each Parking Lot feature, define a specific "Trigger Metric" (e.g., number of user requests, MRR target) that must be hit before I am allowed to build it.
 \`\`\`
 
 ---
 
-## What Good Looks Like
-
-**Strong Future Roadmap:**
-✓ Organized by strategic impact (e.g., "Phase 2: Retention", "Phase 3: Virality").
-✓ Realistic assumptions about technical debt.
-
-**Weak Future Roadmap:**
-✗ A random assortment of shiny objects.
-✗ Features that pivot the company into an entirely different market.
-
----
-
 ## Validation Checklist
-- [ ] Did I remove all of these features from the immediate MVP sprint?
+- [ ] Is your MVP scope as small as physically possible?
+- [ ] Does every future feature have a specific condition or trigger attached to it?
+- [ ] Have you removed all "cool but unnecessary" features from the immediate development plan?
 
 ---
 
 ## Deliverable
-Paste your organized roadmap for post-MVP features.
+List your top 3 Future Features below, and clearly state the specific milestone you must hit before you are allowed to build them.
 
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
 `,
+  'featureprioritization': `# Feature Prioritization (RICE Framework)
 
-  'featureprioritization': `# Feature Prioritization
-
-**🕒 Estimated Time:** 30 min
+**🕒 Estimated Time:** 20-30 min
 
 ---
 
 ## Overview
-You now have your core [MVP Features](#mvpfeatures). But in what exact order should you write the code? Prioritization ensures you build the riskiest, most complex core systems first, rather than wasting time on UI polish.
+Once your app is live, you will be bombarded with feature requests. If you build whatever the loudest customer asks for, your product will turn into a bloated, confusing mess. You need a mathematical framework to evaluate which features actually drive the business forward. The RICE framework (Reach, Impact, Confidence, Effort) is the industry standard for taking the emotion out of product decisions.
 
 ---
 
 ## Think First
-Apply the Action Priority Matrix (Impact vs. Effort).
+Understand the RICE variables.
 
-**High Impact, Low Effort (Quick Wins - Do First)**
+**Reach:** How many users will this feature affect in a given quarter?
+**Impact:** How much will this feature increase your core metric? (3=Massive, 2=High, 1=Medium, 0.5=Low)
+**Confidence:** How sure are you about your Reach and Impact estimates? (100%=High, 80%=Medium, 50%=Low)
+**Effort:** How many weeks of engineering time will this take?
+
+**The RICE Formula:** (Reach × Impact × Confidence) / Effort = RICE Score
+
+List 3 features you are currently debating building:
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-
-**High Impact, High Effort (Major Projects - Do Second)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Reality Check: The Risk Test**
-- [ ] Am I building the easiest thing first, or the riskiest thing first?
-- [ ] If the core engine fails, does the rest of the app matter?
 
 ---
 
 ## Key Decisions
-- **Eat the Frog:** Build the most technically complex, uncertain feature first. If it fails or takes 3x longer than expected, the app fails. Better to know on day 1 than day 30.
+- **Impact vs. Effort:** The Holy Grail is "High Impact, Low Effort" (Quick Wins). The trap is "Low Impact, Low Effort" (Fill-ins). The danger zone is "Low Impact, High Effort" (Time Sinks).
+- **Saying No:** Prioritization is not about deciding what to build first. It is about deciding what to permanently say "No" to. If a feature has a low RICE score, delete it from the backlog.
 
 ---
 
 ## Common Mistakes
-- **Building UI First:** Building beautiful login screens, footers, and dashboards before the core backend logic actually works. Connect the database *before* making it pretty.
+- **The Recency Bias:** 
+  - *Why it happens:* A user churned yesterday because you don't have an Android app. You immediately start building an Android app.
+  - *Consequence:* You ignore the 500 users requesting a better search feature, which has a 10x higher RICE score.
+  - *Prevention:* Always run new requests through the RICE formula before writing code.
+- **Underestimating Effort:** Developers notoriously underestimate how long a feature will take. A "quick weekend project" usually takes 3 weeks. Always double your initial effort estimate.
 
 ---
 
-## AI & Architecture Reality Check
-- **The AI Workflow:** Give the AI your prioritization list and say: "We are on Step 1. Ignore all other steps. Build Step 1." This prevents the AI from jumping ahead and hallucinating code for Step 3.
+## Examples
+- *Good Implementation:* Feature A affects 1,000 users, has an impact of 2, 80% confidence, and takes 2 weeks of effort. RICE = (1000 * 2 * 0.8) / 2 = 800. Feature B affects 100 users, impact 3, 100% confidence, effort 4 weeks. RICE = (100 * 3 * 1.0) / 4 = 75. You build Feature A.
+- *Bad Implementation:* Building Feature B because the CEO really likes it, ignoring the math.
 
 ---
 
 ## AI Prompt
-Use AI to sequence your actual development sprint.
+Use AI to help you score your backlog objectively.
 
 \`\`\`prompt
-Here is my MVP Feature List: [PASTE MVP FEATURES]
+Here are 3 features I am debating building: [INSERT FEATURES].
+My core business goal right now is: [INSERT GOAL, e.g., Increasing free-to-paid conversion].
 
-Act as an Agile Scrum Master. 
-1. Break these features down into a strict, step-by-step development sequence for a solo developer.
-2. Tell me exactly which feature I should code *first* and why it is the most critical foundation.
-3. Identify the biggest technical risk in this list.
+Act as a Senior Product Manager.
+1. Evaluate each feature using the RICE framework (Reach, Impact, Confidence, Effort). Provide estimated numbers for each variable based on standard SaaS benchmarks.
+2. Calculate the final RICE score for each feature.
+3. Recommend exactly which feature I should build next, and explain why the others should be deprioritized.
 \`\`\`
 
 ---
 
-## What Good Looks Like
-
-**Strong Prioritization:**
-✓ Strictly sequenced.
-✓ Tackles technical risk immediately (e.g., "Build the AI generation pipeline first").
-✓ Defers low-risk UI work to the end.
-
-**Weak Prioritization:**
-✗ Starts with "Setup Tailwind config" and "Design the logo".
-✗ Leaves the hardest part of the app for the very last day.
-
----
-
 ## Validation Checklist
-- [ ] Do I know exactly what I am coding the moment I close this document?
+- [ ] Do you have a mathematical RICE score for your top 3 backlog features?
+- [ ] Are you actively ignoring features with high Effort and low Impact?
+- [ ] Have you doubled your engineering Effort estimates to account for edge cases and testing?
 
 ---
 
 ## Deliverable
-Paste your sequenced, step-by-step development plan.
+Write down the feature with the highest RICE score that you are committing to building next.
 
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'businessmodel': `# Business Model
 
 **🕒 Estimated Time:** 30 min
@@ -2074,178 +2045,162 @@ Define the 3 overarching metrics that will define your success this quarter.
 
   'kpis': `# KPIs (Key Performance Indicators)
 
-**🕒 Estimated Time:** 15 min
+**🕒 Estimated Time:** 20-30 min
 
 ---
 
 ## Overview
-While [Success Metrics](#successmetrics) are the categories (e.g., "Retention"), KPIs are the specific, numerical targets you aim to hit within a timeframe (e.g., "40% Day-30 Retention by Q3"). KPIs turn vague strategic goals into mathematical accountability for your team.
+What gets measured gets managed. Key Performance Indicators (KPIs) are the vital signs of your SaaS business. If your MRR (Monthly Recurring Revenue) is dropping, your KPIs will tell you *why*. Are fewer people signing up? Are more people churning? Are they downgrading their plans? Without clear KPIs, you are flying a plane blindfolded.
 
 ---
 
 ## Think First
-Assign rigorous numbers to your goals.
+Identify the metrics that matter.
 
-**The Baseline (Where are you right now? Even if it's 0)**
+**The Acquisition Metric (How many people are finding you? e.g., Website Visitors, Signups)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
 
-**The Target (What specific number must you hit in 90 days?)**
+**The Retention Metric (How many people are staying? e.g., Monthly Churn Rate, Daily Active Users)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-
-**Reality Check: The "Actionable" Test**
-- [ ] If a KPI is red, do I know exactly what feature to build or change to fix it?
-- [ ] Are these targets realistic, or am I hallucinating a hockey stick curve?
 
 ---
 
 ## Key Decisions
-- **The Magic Number:** Often, there is a specific action threshold. E.g., "Users who invite 2 teammates within 24 hours never churn." Your KPI becomes: "Get 30% of new signups to invite 2 teammates within 24 hours." Find your magic number.
+- **Actionable vs. Vanity Metrics:**
+  - *Vanity Metric:* "We have 100,000 registered accounts!" (Sounds great, but 99,000 haven't logged in since 2023. This metric doesn't help you make decisions).
+  - *Actionable Metric:* "Our Week 1 retention rate is 15%." (This tells you exactly where the problem is: your onboarding sucks).
+  - *Decision:* Only track metrics that force you to change your behavior if the number goes down.
+- **Leading vs. Lagging Indicators:** MRR is a lagging indicator (it tells you what happened last month). "Number of users who completed the onboarding tutorial" is a leading indicator (it predicts who will pay next month). Focus on leading indicators.
 
 ---
 
 ## Common Mistakes
-- **Tracking Everything:** If you have 20 KPIs, you have 0 KPIs. Pick 3. The rest is noise.
-- **Ignoring the Denominator:** "We got 100 new active users!" is useless. Did you get 100 out of 110 signups (amazing), or 100 out of 50,000 signups (terrible)? Always use ratios and percentages (e.g., Activation Rate %).
+- **Tracking Everything:**
+  - *Why it happens:* You install Google Analytics and PostHog and set up 45 different dashboards.
+  - *Consequence:* Dashboard fatigue. You look at a wall of numbers and have no idea what to focus on, so you ignore all of them.
+  - *Prevention:* Pick exactly 3 to 5 core KPIs for the entire business. Ignore the rest until you hit \$1M ARR.
+- **Ignoring Churn:** Celebrating 100 new signups while ignoring the 110 users who cancelled their subscription. Your bucket is leaking faster than you can fill it.
 
 ---
 
-## AI & Architecture Reality Check
-- **Dashboarding:** Don't build custom analytics dashboards in your app just for yourself. It is a massive waste of engineering cycles. Query your Postgres database directly using a tool like Metabase, or use PostHog's built-in dashboards.
+## Examples
+- *Good Implementation:* Tracking exactly 4 numbers every Monday: (1) Unique Visitors, (2) Signup Conversion Rate, (3) Free-to-Paid Conversion Rate, (4) Monthly Churn Rate.
+- *Bad Implementation:* Checking Twitter followers and page views every 10 minutes to feel good about the business.
 
 ---
 
 ## AI Prompt
-Use AI to set realistic benchmarks based on industry standards.
+Use AI to build a customized KPI tree for your specific business model.
 
 \`\`\`prompt
 My SaaS product is: [INSERT ELEVATOR PITCH].
+My monetization model is: [INSERT PRICING MODEL, e.g., \$20/mo B2B Subscription].
 
-Act as David Sacks (Craft Ventures) reviewing a seed-stage startup.
-1. What is a realistic "Day 1 Retention" and "Day 30 Retention" percentage for a B2B SaaS tool in this space?
-2. Suggest 3 specific, measurable KPIs I should aim to hit in my first 30 days post-launch to prove I have Product-Market Fit.
+Act as a Fractional CFO and Data Analyst.
+1. Define the 5 most critical, actionable KPIs I must track for this specific business model.
+2. For each KPI, explicitly explain whether it is a "Leading" or "Lagging" indicator.
+3. For each KPI, provide a healthy industry benchmark target I should aim for (e.g., "Good B2B churn is under 5% monthly").
 \`\`\`
 
 ---
 
-## What Good Looks Like
-
-**Strong KPIs:**
-✓ Specific, measurable, and time-bound (SMART).
-✓ Ratios instead of absolute numbers (e.g., Activation Rate % > 40%).
-✓ Tied directly to the core value loop.
-
-**Weak KPIs:**
-✗ "Grow revenue" (Not specific, not time-bound).
-✗ "Get 10,000 users" (Vanity, ignores retention).
-
----
-
 ## Validation Checklist
-- [ ] Have I selected no more than 3 primary KPIs?
-- [ ] Is there a clear deadline to hit these numbers?
+- [ ] Have you identified 3-5 core metrics that are highly actionable (not vanity metrics)?
+- [ ] Do you have a mix of leading indicators (predictive) and lagging indicators (historical)?
+- [ ] Do you know the industry benchmark for a "healthy" version of each of your KPIs?
 
 ---
 
 ## Deliverable
-Write your top 3 specific, numerical KPIs for the next 90 days.
+List your 3 most critical KPIs below, along with the specific tool you will use to track them (e.g., Stripe, PostHog).
 
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
 `,
+  'northstarmetric': `# North Star Metric (NSM)
 
-  'northstarmetric': `# North Star Metric
-
-**🕒 Estimated Time:** 15 min
+**🕒 Estimated Time:** 15-20 min
 
 ---
 
 ## Overview
-Of all your [KPIs](#kpis) and metrics, one rules them all. The North Star Metric (NSM) is the single indicator that best captures the core value your product delivers to your customers. If this number goes up, everything else (revenue, retention, virality) mathematically follows. 
+If [KPIs](#kpis) are the instrument panel on your dashboard, the North Star Metric (NSM) is the steering wheel. It is the single, overarching metric that best captures the core value your product delivers to its customers. When your entire team aligns around optimizing the North Star Metric, everything else (revenue, retention, growth) naturally follows.
 
 ---
 
 ## Think First
-Find the one metric that matters.
+Connect value to measurement.
 
-**The "Aha!" Moment (What action proves they got undeniable value?)**
+**What is the core action a user takes when they get value out of your product? (e.g., Booking a ride on Uber, Sending a message on Slack)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
 
-**The North Star (The single number you will obsess over at the expense of all else)**
+**How can you mathematically measure that action? (e.g., Number of rides completed per week)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-
-**Reality Check: The "Revenue Illusion" Test**
-- [ ] Is my North Star Metric MRR (Monthly Recurring Revenue)? If yes, pick again. MRR is what *you* get. The NSM is the value *they* get.
-- [ ] Does every single feature I build directly move this metric?
 
 ---
 
 ## Key Decisions
-- **Value over Extraction:** Airbnb's NSM is "Nights Booked," not "Host Fees Collected." Zoom's NSM is "Weekly Hosted Meetings." Slack's NSM is "Messages Sent." What is the fundamental unit of value in your app? Optimize for that, and the money will follow.
+- **Value vs. Revenue:** Do NOT make "Revenue" or "MRR" your North Star Metric. Revenue is the *result* of delivering value. If MRR is your North Star, your team will resort to dark patterns and pricing tricks to boost numbers short-term, which destroys trust. 
+- **The 3 Core Models:** Most SaaS North Star Metrics fall into three buckets:
+  1. *Attention (Time/Engagement):* E.g., Netflix (Total hours watched).
+  2. *Transaction (Volume):* E.g., Amazon (Number of purchases completed).
+  3. *Productivity (Efficiency):* E.g., Salesforce (Number of customer records updated).
 
 ---
 
 ## Common Mistakes
-- **Picking a metric you can't measure:** "Customer Happiness" is a great concept, but a terrible NSM because it's subjective. It must be a hard, queryable data point.
-- **Changing it weekly:** The North Star shouldn't change unless your entire business pivots. It is the anchor for your entire engineering and product roadmap.
+- **Picking a metric you can't control:**
+  - *Why it happens:* Choosing a broad macroeconomic metric or something completely detached from the daily product experience.
+  - *Consequence:* Your engineering team ships a massive feature, but the North Star Metric doesn't budge because it's completely disconnected.
+  - *Prevention:* The NSM must be highly responsive to product updates. If you make the UI 10% better, the NSM should go up.
+- **Daily Active Users (DAU):** DAU is almost always a terrible North Star Metric. Just because someone logged in doesn't mean they got value out of the product. Measure the *action*, not the login.
 
 ---
 
-## AI & Architecture Reality Check
-- **The SQL Test:** If you cannot calculate your North Star Metric with a single, highly performant SQL query against an indexed table, it is too complex. 
-*(e.g., \`SELECT COUNT(DISTINCT user_id) FROM core_actions WHERE created_at > NOW() - INTERVAL '7 days'\`)*
+## Examples
+- *Good Implementation:* Zoom's NSM: "Weekly Hosted Meetings." Slack's NSM: "Messages Sent Within a Team." Airbnb's NSM: "Nights Booked."
+- *Bad Implementation:* "Total Registered Users." This number can only go up, making it useless for measuring the daily health of the product.
 
 ---
 
 ## AI Prompt
-Use AI to find your true North Star.
+Use AI to help you identify the perfect North Star Metric.
 
 \`\`\`prompt
 My SaaS product is: [INSERT ELEVATOR PITCH].
+The core value users get from my app is: [INSERT CORE VALUE].
 
-Act as an expert Growth Hacker and Product Strategist from Reforge.
-1. Suggest 3 potential North Star Metrics for this product. 
-2. Remember: it must measure the *value delivered to the user*, not the revenue extracted from them.
-3. Tell me which of the 3 is the strongest and why it correlates with long-term retention.
+Act as a VP of Product at a top-tier tech company.
+1. Based on my core value, propose 3 potential North Star Metrics for my business.
+2. For each proposal, explain why it directly correlates with long-term customer retention and revenue growth.
+3. Recommend the single best NSM out of the three, and explicitly explain why "Daily Active Users" or "MRR" would be inferior choices for my specific product.
 \`\`\`
 
 ---
 
-## What Good Looks Like
-
-**Strong North Star Metric:**
-✓ Measures customer value, not company revenue.
-✓ Easily understood by every developer on the team.
-✓ Highly correlated with long-term retention.
-
-**Weak North Star Metric:**
-✗ Daily Active Users (Just logging in doesn't mean they got value).
-✗ MRR (Lagging indicator).
-
----
-
 ## Validation Checklist
-- [ ] Can I express my North Star Metric in 3 words or less?
-- [ ] Can I query it in SQL right now?
+- [ ] Does your NSM directly measure the moment a user receives value from the product?
+- [ ] If your NSM goes up, does revenue naturally go up as a byproduct?
+- [ ] Is your NSM responsive? (If you ship a great feature today, will you see the metric move next week?)
 
 ---
 
 ## Deliverable
-Define your exact North Star Metric.
+Write your single North Star Metric below. This is the one number your entire company will rally around.
 
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'prd': `# Product Requirements Document (PRD)
 
 **🕒 Estimated Time:** 45 min
