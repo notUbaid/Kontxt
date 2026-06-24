@@ -482,8 +482,8 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
   ]
 };
 
-export const createTopic = (name: string, icon: any, customLinks: QuickLink[] = []): Topic => {
-  const id = generateId(name);
+export const createTopic = (name: string, icon: any, customLinks: QuickLink[] = [], overrideId?: string): Topic => {
+  const id = overrideId || generateId(name);
   return {
     id,
     name,

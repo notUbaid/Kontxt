@@ -161,7 +161,7 @@ export const saasHackathonTaxonomy: Category[] = [
     topics: [
       createTopic('Tech Stack Selection', Settings),
       createTopic('Database Schema', Database),
-      createTopic('Auth (Optional)', Key),
+      createTopic('Auth (Optional)', Key, [], 'auth'),
     ]
   },
   {
@@ -176,8 +176,8 @@ export const saasHackathonTaxonomy: Category[] = [
     ]
   },
   {
-    id: 'phase-5',
-    name: 'PHASE 5',
+    id: 'phase-4',
+    name: 'PHASE 4 — SUBMISSION',
     topics: [
       createTopic('Pitch Deck', Presentation),
       createTopic('Demo Script', FileText),
@@ -193,8 +193,8 @@ export const saasPersonalTaxonomy: Category[] = [
     topics: [
       createTopic('Welcome', HelpCircle),
       createTopic('Personas', Users),
-      createTopic('Idea', Rocket),
-      createTopic('Features', CheckSquare),
+      createTopic('Idea', Rocket, [], 'ideadefinition'),
+      createTopic('Features', CheckSquare, [], 'mvpfeatures'),
     ]
   },
   {
@@ -202,19 +202,19 @@ export const saasPersonalTaxonomy: Category[] = [
     name: 'PHASE 2 — PRODUCT',
     topics: [
       createTopic('PRD', FileText),
-      createTopic('Design', PenTool),
-      createTopic('Flows', Globe),
+      createTopic('Design', PenTool, [], 'designsystem'),
+      createTopic('Flows', Globe, [], 'userflows'),
     ]
   },
   {
     id: 'architecture',
     name: 'PHASE 3 — ARCHITECTURE',
     topics: [
-      createTopic('Tech Stack', Settings),
+      createTopic('Tech Stack', Settings, [], 'techstackselection'),
       createTopic('Auth', Key),
       createTopic('Database', Database),
-      createTopic('APIs', Globe),
-      createTopic('Storage', Cloud),
+      createTopic('APIs', Globe, [], 'apidesign'),
+      createTopic('Storage', Cloud, [], 'filestorage'),
     ]
   },
   {
@@ -232,18 +232,18 @@ export const saasPersonalTaxonomy: Category[] = [
     id: 'production-lite',
     name: 'PHASE 5 — PRODUCTION LITE',
     topics: [
-      createTopic('Performance', Zap),
+      createTopic('Performance', Zap, [], 'performanceoptimization'),
       createTopic('Backups', Database),
-      createTopic('Deployment', Cloud),
-      createTopic('Security Basics', Shield),
+      createTopic('Deployment', Cloud, [], 'infrastructure'),
+      createTopic('Security Basics', Shield, [], 'security'),
     ]
   },
   {
     id: 'growth-lite',
     name: 'PHASE 6 — GROWTH LITE',
     topics: [
-      createTopic('Feedback', MessageSquare),
-      createTopic('Roadmap', Globe),
+      createTopic('Feedback', MessageSquare, [], 'userfeedback'),
+      createTopic('Roadmap', Globe, [], 'featureroadmap'),
       createTopic('SEO', Search),
     ]
   }

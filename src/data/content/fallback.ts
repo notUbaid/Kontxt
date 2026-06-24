@@ -7290,5 +7290,5 @@ Keep the tone energetic and confident.
 
 ## Deliverable
 Take a deep breath. You built an entire application from scratch. You planned the architecture, wrote the code, and prepared the pitch. You are a builder. Hit submit, celebrate your achievement, and get ready for the next one.
-`
+`,
 };
