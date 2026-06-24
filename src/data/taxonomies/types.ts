@@ -394,6 +394,26 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'Supabase Connection Pooling', url: 'https://supabase.com/docs/guides/database/connecting-to-postgres#connection-pooler' },
     { name: 'PostgreSQL Read Replicas', url: 'https://www.postgresql.org/docs/current/warm-standby.html' },
     { name: 'ByteByteGo: System Design', url: 'https://bytebytego.com/' }
+  ],
+  'privacypolicy': [
+    { name: 'Termly (Privacy Policy Generator)', url: 'https://termly.io/' },
+    { name: 'GDPR Checklist', url: 'https://gdpr.eu/checklist/' },
+    { name: 'Iubenda', url: 'https://www.iubenda.com/' }
+  ],
+  'termsofservice': [
+    { name: 'Terms of Service Generator', url: 'https://termly.io/products/terms-and-conditions-generator/' },
+    { name: 'Limitation of Liability Explained', url: 'https://www.nolo.com/legal-encyclopedia/what-is-a-limitation-of-liability-clause.html' },
+    { name: 'Y Combinator Legal Docs', url: 'https://www.ycombinator.com/documents/' }
+  ],
+  'betatesting': [
+    { name: 'The Mom Test Summary', url: 'https://www.momtestbook.com/' },
+    { name: 'TestFlight (iOS)', url: 'https://developer.apple.com/testflight/' },
+    { name: 'How to Run a Beta Test', url: 'https://www.ycombinator.com/library/5x-how-to-launch-again-and-again' }
+  ],
+  'launchchecklist': [
+    { name: 'Product Hunt Launch Guide', url: 'https://www.producthunt.com/launch' },
+    { name: 'Stripe: Testing to Live', url: 'https://docs.stripe.com/testing' },
+    { name: 'Supabase Production Checklist', url: 'https://supabase.com/docs/guides/deployment/going-into-prod' }
   ]
 };
 

@@ -5861,4 +5861,308 @@ Act as a Principal Systems Architect planning for growth.
 **File Name:** \`scale_plan.md\`
 **Purpose:** Grow without breaking.
 **Contents:** A milestone-based plan mapping user counts to specific infrastructure upgrades, with estimated costs and the metrics that trigger each upgrade.`
+,
+  'privacypolicy': `# Privacy Policy
+
+**🕒 Estimated Time:** 60-90 min
+
+---
+
+## Overview
+A Privacy Policy is a legally mandated document explaining what data you collect from users, why you collect it, where it is stored, and who you share it with. In the era of GDPR (Europe) and CCPA (California), this is not optional. If you are collecting emails, names, or tracking cookies, you must have a clear, accessible Privacy Policy.
+
+---
+
+## Think First
+Map your data flow.
+
+**The Data Inventory (Exactly what data do you collect? e.g., Email, Name, IP Address, Payment Info, Uploaded Documents)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Sub-processors (List EVERY third-party service that touches this data. e.g., Stripe, Supabase, Vercel, OpenAI, PostHog)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Lawyer vs. Generator:** 
+  - *Lawyer:* Expensive (\$1k+), but bulletproof and tailored to your specific business model. Highly recommended if you are handling HIPAA (medical) or fintech data.
+  - *Generator (Termly / Iubenda):* Cheap/Free, highly reliable for standard SaaS MVPs. They ask you a series of questions and output a compliant policy.
+  - *Decision:* For a standard SaaS MVP, use a reputable generator like Termly. Never write it yourself from scratch.
+- **Cookie Consent:** If you use analytics (like Google Analytics or PostHog), you generally need a cookie consent banner for European users to comply with GDPR.
+
+---
+
+## Common Mistakes
+- **The Copy-Paste Disaster:**
+  - *Why it happens:* Finding a competitor's site, copying their policy, and doing a "Find and Replace" for the company name.
+  - *Consequence:* You inherit clauses that do not apply to your business, miss critical clauses you actually need, and often leave behind the original company's name. This is a massive legal liability.
+  - *Prevention:* Use a generator that walks you through your specific data practices.
+- **Hiding the Policy:** The link to your Privacy Policy must be clearly visible, typically in your website's footer and on the signup page.
+
+---
+
+## Examples
+- *Good Implementation:* A dedicated \`/privacy\` route generated via Termly. It explicitly lists Stripe for payments, OpenAI for processing text, and Supabase for storage. It includes a contact email for users to request data deletion (a GDPR requirement).
+- *Bad Implementation:* Not having a policy at all, or burying a copied-and-pasted 2005-era policy behind a broken link.
+
+---
+
+## AI Prompt
+Use AI to draft a *starting point*, but verify with a generator.
+
+\`\`\`prompt
+My SaaS collects the following data: [INSERT DATA, e.g., Names, Emails, Uploaded PDFs].
+I share this data with the following third parties: [INSERT LIST, e.g., Stripe, Vercel, OpenAI].
+
+Act as a Legal Tech Assistant.
+1. Draft a standard SaaS Privacy Policy outline based on these specific data flows.
+2. Ensure you include sections for: Data Collection, Third-Party Sharing, Cookies, and User Rights (including the right to deletion).
+3. DISCLAIMER: I understand AI is not a lawyer. I will use this as a structural draft to inform my final generated policy.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Do you explicitly list all third-party sub-processors (Stripe, OpenAI, Analytics) in the policy?
+- [ ] Is there a clear contact email provided for users who wish to request data deletion?
+- [ ] Is the link to the Privacy Policy clearly visible in the footer of your website and on the Signup page?
+
+---
+
+## Deliverable
+**File Name:** \`/app/privacy-policy/page.tsx\`
+**Purpose:** Comply with international law and build trust with users.
+**Contents:** A readable, accurate accounting of your data practices.`,
+  'termsofservice': `# Terms of Service
+
+**🕒 Estimated Time:** 60-90 min
+
+---
+
+## Overview
+The Terms of Service (ToS) is the legal contract between you and your users. It sets the rules of the road. If a user uploads illegal content, abuses your API, or tries to sue you because a bug in your software cost them money, your ToS is your shield. A strong ToS limits your liability and gives you the absolute right to ban bad actors.
+
+---
+
+## Think First
+Protect your downside.
+
+**The Worst-Case User (What is the most damaging thing a malicious user could do with your software? e.g., Upload malware, generate deepfakes, scrape all your data)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Value at Risk (If your software has an outage, could a user lose money? E.g., an automated trading bot failing to execute a trade)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Limitation of Liability:** You MUST cap the amount of money a user can sue you for. The industry standard for SaaS is capping liability to "the amount the user paid you in the 12 months preceding the claim." Without this, a \$10/mo user could sue you for \$1,000,000 in damages.
+- **"AS IS" Clause:** Software has bugs. Your ToS must state that the service is provided "AS IS" and "AS AVAILABLE," explicitly disclaiming any warranties of 100% uptime or fitness for a particular purpose.
+
+---
+
+## Common Mistakes
+- **No "Right to Terminate" Clause:**
+  - *Why it happens:* Overlooking the necessity of moderation.
+  - *Consequence:* You ban a toxic user or a spammer, and they sue you for breach of contract because you didn't legally reserve the right to kick them off the platform.
+  - *Prevention:* Explicitly state that you can terminate or suspend accounts at any time, for any reason, without prior notice.
+- **Assuming ToS applies globally without a checkbox:** In many jurisdictions, a "Browsewrap" agreement (just having a link in the footer) is unenforceable. You need a "Clickwrap" agreement (a checkbox during signup saying "I agree to the Terms of Service").
+
+---
+
+## Examples
+- *Good Implementation:* A signup form that requires checking a box: "I agree to the Terms of Service and Privacy Policy." The ToS includes a robust Limitation of Liability, an Acceptable Use policy prohibiting reverse-engineering, and a clear refund policy.
+- *Bad Implementation:* No ToS, meaning your legal relationship with your users is governed entirely by unpredictable local default laws.
+
+---
+
+## AI Prompt
+Use AI to ensure all standard SaaS clauses are covered.
+
+\`\`\`prompt
+My SaaS does [INSERT ELEVATOR PITCH].
+
+Act as a Legal Tech Assistant.
+1. Draft an outline for a SaaS Terms of Service.
+2. You MUST include a strong "Limitation of Liability" clause capping damages to the amount paid in the last 12 months.
+3. You MUST include an "AS IS" warranty disclaimer.
+4. Include an "Acceptable Use Policy" that prohibits scraping, reverse-engineering, and illegal content.
+5. DISCLAIMER: I understand AI is not a lawyer.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Does your ToS include an "AS IS" disclaimer of warranties?
+- [ ] Does your ToS cap your financial liability (Limitation of Liability)?
+- [ ] Does your ToS explicitly give you the right to terminate accounts for any reason?
+- [ ] Do users have to actively check a box or click a button stating they agree to the ToS during signup?
+
+---
+
+## Deliverable
+**File Name:** \`/app/terms/page.tsx\`
+**Purpose:** Protect your business from lawsuits and bad actors.
+**Contents:** The legal contract governing the use of your software.`,
+  'betatesting': `# Beta Testing
+
+**🕒 Estimated Time:** 3-5 Days
+
+---
+
+## Overview
+You have spent weeks staring at the same screens, meaning you are completely blind to how confusing they actually are. Beta Testing is the humbling process of watching real human beings try (and often fail) to use your software. It catches critical UX flaws, hidden bugs, and edge cases before you launch to the public and permanently burn your first impression.
+
+---
+
+## Think First
+Define the test parameters.
+
+**The Target Tester (Who is the ideal beta tester? A friend who will be nice, or a harsh critic in your target industry?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Core Metric (What specific action MUST a beta tester successfully complete to consider the test a success? e.g., "Successfully connect their calendar and book one meeting")**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **The "Mom Test" vs. Unmoderated Testing:**
+  - *Moderated (The Mom Test):* You sit on a Zoom call, give them a task, and watch them share their screen. You cannot speak or help them. This is painful to watch but yields the highest quality insights.
+  - *Unmoderated:* You give them a link and ask for feedback later. They will likely click around for 2 minutes and say "Looks cool!" which is useless.
+  - *Decision:* Do at least 3 Moderated tests. It will completely change how you view your UI.
+- **Closed vs. Open Beta:** A Closed Beta (invite-only) creates a sense of exclusivity and lowers expectations regarding bugs. An Open Beta is basically just a launch. Choose Closed Beta.
+
+---
+
+## Common Mistakes
+- **Defending the Product:**
+  - *Why it happens:* A tester gets confused by a button you spent 3 days building. Your ego kicks in and you say, "No, you just have to click here..."
+  - *Consequence:* You invalidate the test. Real users won't have you sitting next to them explaining the UI.
+  - *Prevention:* Keep your mouth shut. If they are confused, the UI is wrong. Take notes and fix the UI.
+- **Asking "Would you pay for this?":** People lie. They will say "Yes" to be polite. The only validation is asking them to actually put their credit card in.
+
+---
+
+## Examples
+- *Good Implementation:* You invite 10 people in your target niche. You get on 15-minute Zoom calls with 5 of them. You ask them to "Create a new project and invite a team member." You watch silently as 4 out of 5 fail because the "Invite" button is hidden in a weird menu. You fix the button before launch.
+- *Bad Implementation:* You send the link to a Discord group, 3 people say "Looks nice bro," and you consider the app validated.
+
+---
+
+## AI Prompt
+Use AI to script your beta testing sessions.
+
+\`\`\`prompt
+My SaaS allows users to [INSERT CORE FUNCTION, e.g., Generate invoices using AI].
+
+Act as a UX Researcher.
+1. Write a script for a 15-minute moderated Beta Testing session over Zoom.
+2. Give me 3 specific "Tasks" to ask the user to complete that will test the core workflow of the app.
+3. Provide rules for how I should behave during the call (e.g., when to stay silent, how to probe for why they are confused without leading them).
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Have you watched at least 3 people (who didn't build the app) attempt to use it via screen share?
+- [ ] Did you remain completely silent while they struggled with the UI?
+- [ ] Have you fixed the top 2 points of confusion identified during the tests?
+
+---
+
+## Deliverable
+**File Name:** \`beta_feedback_log.md\`
+**Purpose:** Uncover the blind spots in your UX.
+**Contents:** Notes from testing sessions and a prioritized list of UI tweaks required before launch.`,
+  'launchchecklist': `# Launch Checklist
+
+**🕒 Estimated Time:** 60-120 min
+
+---
+
+## Overview
+Launch day is chaotic. If you rely on your memory to switch API keys from "Test" to "Live", you will forget something, and your launch will fail. A Launch Checklist is an uncompromising, step-by-step pre-flight manual. It ensures you don't accidentally leave Stripe in test mode, leave a rogue \`console.log(process.env)\` in the code, or point the production frontend to the staging database.
+
+---
+
+## Think First
+Identify the catastrophic failure points.
+
+**The Financial Check (Are your payment gateways 100% in Live mode, pointing to Live products/prices?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Environmental Check (Are all 15 of your Vercel/Render Environment Variables verified to be production keys, not development keys?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Soft Launch vs. Hard Launch:**
+  - *Soft Launch:* You silently deploy to production and invite 50 people from your waitlist. You monitor the logs for crashes.
+  - *Hard Launch:* You post on Product Hunt, Hacker News, and Twitter simultaneously.
+  - *Decision:* ALWAYS Soft Launch first. Give it 48 hours to bake in reality before you invite the stampede.
+- **Feature Freezes:** 48 hours before launch, you must implement a strict Feature Freeze. No new code is merged. If you try to sneak in "one quick UI tweak" the night before, you will inevitably break something else.
+
+---
+
+## Common Mistakes
+- **The Stripe Test Mode Disaster:**
+  - *Why it happens:* You built the app using Stripe \`pk_test_...\` keys and forgot to swap them in Vercel.
+  - *Consequence:* You launch on Product Hunt. 500 people sign up and "buy" your Pro plan using the fake \`4242\` test credit card. You make zero dollars.
+  - *Prevention:* Double, triple, and quadruple check your environment variables.
+- **Missing Database Indexes:** Your app worked fine with 10 rows of test data. On launch day, 10,000 rows are added, and because you forgot a database index on the \`user_id\` column, the dashboard takes 15 seconds to load and crashes.
+
+---
+
+## Examples
+- *Good Implementation:* A physical checklist on your desk. You verify Vercel ENV vars. You do one final real-money purchase using your own personal credit card on the production URL. You verify the webhook updates the database. You clear the test data. You launch.
+- *Bad Implementation:* Pushing a massive refactor to \`main\` at 11:45 PM and immediately posting to Product Hunt at midnight.
+
+---
+
+## AI Prompt
+Use AI to build an exhaustive pre-flight checklist.
+
+\`\`\`prompt
+My SaaS uses [INSERT STACK, e.g., Next.js, Supabase, Stripe, Resend].
+
+Act as a strict Release Manager.
+1. Create an exhaustive, step-by-step Launch Checklist categorized by: Environment Variables, Payments, Database, Performance, and Security.
+2. Specifically highlight the most common mistakes developers make with Stripe and Supabase when moving from staging to production.
+3. Give me a strategy for doing a "Soft Launch" validation using my own credit card before the public announcement.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Are Stripe/Payment ENV vars set to LIVE keys?
+- [ ] Have you successfully completed a real-money transaction using your own credit card on the production URL?
+- [ ] Are all database tables protected by RLS (Row Level Security)?
+- [ ] Did you clear out all the dummy/test data from the production database?
+- [ ] Is your error tracking (Sentry) receiving events from the production URL?
+
+---
+
+## Deliverable
+**File Name:** \`LAUNCH_DAY_CHECKLIST.md\`
+**Purpose:** Prevent unforced errors on your biggest day.
+**Contents:** A rigorous, unskippable list of checks.`
 };
