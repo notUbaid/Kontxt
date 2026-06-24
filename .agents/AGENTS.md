@@ -35,7 +35,7 @@ When generating content, structure the page using the following components when 
 9. **Deliverable**: Clearly define the File Name, Purpose, and Contents.
 10. **Next Step**: Explain what comes next and why. (Never simply say "Go to next topic").
 
-## Right Sidebar
+## Right Sidebar & Context Links
 Generate sidebar content. The sidebar should NEVER be empty. Choose the most relevant items for the topic and keep them concise:
 - Quick Definitions
 - Common Terms
@@ -47,6 +47,11 @@ Generate sidebar content. The sidebar should NEVER be empty. Choose the most rel
 - Related Topics
 - Best Practices
 
+**CRITICAL RULE FOR CONTEXT LINKS**: Whenever you create a new topic in any taxonomy, you MUST also add context links for it in `src/data/taxonomies/types.ts` under the `globalTopicLinks` object.
+- Conduct deep research to find the absolute best, highest-quality external resources (official docs, elite blogs like Lenny's Newsletter, specific tools).
+- For very niche topics, provide 1-2 highly specific links.
+- For common/broad topics, provide 4-5 high-quality links.
+
 ## Mode Adaptation
 - **Hackathon Mode**: Shorter content, focus on speed, MVP, judging criteria. Remove unnecessary complexity.
 - **Personal Project Mode**: Focus on learning, maintainability, low-cost tools, realistic solo development.
@@ -54,6 +59,7 @@ Generate sidebar content. The sidebar should NEVER be empty. Choose the most rel
 - **Custom Mode**: Respect enabled modules.
 
 ## Content Quality Rules
+- **Deep Research & Attention**: Take your time and focus intently on *each individual topic*. Do thorough research before generating content. Do not rush or output generic filler text when bulk-generating topics.
 - **Avoid**: Blog-style writing, corporate jargon, long introductions, academic explanations, generic advice.
 - **Prefer**: Decision-making, practical examples, real-world tradeoffs, actionable guidance.
 - *Every section must answer:* "How does this help me build better software?"
