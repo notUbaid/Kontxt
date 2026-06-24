@@ -14,13 +14,13 @@ Implement automated testing to ensure app stability across different device scre
 - Run unit and component tests automatically on every Pull Request.
 - Run heavy E2E tests nightly or before cutting a release branch.
 
-```input
+\`\`\`input
 What testing frameworks have you chosen for unit and E2E testing, and what are the 3 most critical flows that require E2E automation?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Write a Jest and React Native Testing Library test suite for a Login screen component, verifying that error messages appear correctly when an invalid email is submitted.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [React Native Testing Library](https://callstack.github.io/react-native-testing-library/)
@@ -33,7 +33,7 @@ Write a Jest and React Native Testing Library test suite for a Login screen comp
 Implement monetization through In-App Purchases (IAP). **Critical:** Apple and Google guidelines mandate that digital goods/services used within the app MUST be purchased using their native IAP systems (taking a 15-30% cut).
 
 ### Implementation Strategy
-1. **Provider Selection:** Strongly consider using a wrapper like RevenueCat or Adapty rather than raw `react-native-iap`. They handle cross-platform subscription logic, receipt validation, and server-to-server webhooks seamlessly.
+1. **Provider Selection:** Strongly consider using a wrapper like RevenueCat or Adapty rather than raw \`react-native-iap\`. They handle cross-platform subscription logic, receipt validation, and server-to-server webhooks seamlessly.
 2. **Store Configuration:** Set up products and subscription groups in App Store Connect and Google Play Console.
 3. **Paywall UI:** Design a high-converting paywall screen.
 4. **Entitlement Checking:** Lock premium features behind a robust, globally accessible entitlement check hook.
@@ -43,13 +43,13 @@ Implement monetization through In-App Purchases (IAP). **Critical:** Apple and G
 - [ ] Links to Terms of Service and Privacy Policy are on the paywall.
 - [ ] Subscription terms (price, duration, auto-renewal) are explicitly stated.
 
-```input
+\`\`\`input
 What monetization model are you using, and which IAP provider (e.g., RevenueCat) will you integrate?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Generate a React Native paywall screen component that fetches offerings from RevenueCat and displays a "Restore Purchases" button.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [RevenueCat React Native SDK](https://docs.revenuecat.com/docs/react-native)
@@ -63,21 +63,21 @@ Connect your mobile frontend to your backend API services. This phase focuses on
 
 ### Implementation Guide
 1. **API Client Setup:** Configure Axios or Fetch with base URLs, headers, and strict timeout settings (e.g., 10 seconds).
-2. **Environment Variables:** Set up `.env` files for development, staging, and production endpoints using `expo-env` or `react-native-config`.
-3. **Data Fetching Strategy:** Never fetch directly in `useEffect` without a caching layer. Use React Query to handle caching, background refetching, and deduplication.
+2. **Environment Variables:** Set up \`.env\` files for development, staging, and production endpoints using \`expo-env\` or \`react-native-config\`.
+3. **Data Fetching Strategy:** Never fetch directly in \`useEffect\` without a caching layer. Use React Query to handle caching, background refetching, and deduplication.
 4. **Error Handling:** Create a centralized error handler to translate backend HTTP errors into friendly, localized user messages.
 
 ### Best Practices
 - Automatically retry failed idempotent requests (e.g., GET requests).
 - Log network failures to a crash reporting tool with sufficient context to debug backend outages.
 
-```input
+\`\`\`input
 What data fetching library are you using, and how are you managing environment variables for different release channels?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Create a comprehensive Axios client setup for a React Native app that includes an interceptor for logging slow requests and a global error handler that displays toast notifications.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [Axios Documentation](https://axios-http.com/docs/intro)
@@ -97,15 +97,15 @@ Implement the mobile data layer, focusing on efficient data fetching, caching, a
 
 ### Best Practices
 - Always handle edge cases: empty states, loading skeletons, and offline error states.
-- Paginate large lists (e.g., infinite scrolling in a `FlatList`) to preserve memory and battery.
+- Paginate large lists (e.g., infinite scrolling in a \`FlatList\`) to preserve memory and battery.
 
-```input
+\`\`\`input
 List the primary data models you need to implement. Which of these require offline caching or realtime subscriptions?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Generate a React Native custom hook using React Query and Supabase to fetch a paginated list of user posts, including an optimistic UI update for "liking" a post.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [Supabase React Native Guide](https://supabase.com/docs/guides/getting-started/tutorials/with-expo-react-native)
@@ -119,7 +119,7 @@ Implement the authentication flow specifically tailored for a mobile environment
 
 ### Key Workflows
 1. **Splash/Launch Screen:** Determine if the user is authenticated from local secure storage and navigate immediately to the Auth Stack or Main App Stack.
-2. **Token Management:** Securely store JWTs using iOS Keychain and Android Keystore (e.g., `expo-secure-store`). Never store session tokens in plain `AsyncStorage`.
+2. **Token Management:** Securely store JWTs using iOS Keychain and Android Keystore (e.g., \`expo-secure-store\`). Never store session tokens in plain \`AsyncStorage\`.
 3. **Social Logins:** Implement "Sign In with Apple" (mandatory for iOS if you offer any other social login) and Google Sign-In using native SDKs.
 4. **Biometrics:** Offer FaceID/TouchID for returning users to reduce friction.
 
@@ -128,19 +128,19 @@ Implement the authentication flow specifically tailored for a mobile environment
 - [ ] API interceptors successfully handle 401 token refreshes.
 - [ ] Sensitive screens clear their state when the app goes into the background.
 
-```input
+\`\`\`input
 What authentication methods (Email, Google, Apple) are you implementing, and how are you managing secure token storage?
-```
+\`\`\`
 
-```prompt
-Write a secure Axios interceptor for a React Native app that automatically refreshes a JWT token from `expo-secure-store` when a 401 response is received.
-```
+\`\`\`prompt
+Write a secure Axios interceptor for a React Native app that automatically refreshes a JWT token from \`expo-secure-store\` when a 401 response is received.
+\`\`\`
 
 ## 📚 Context Links
 - [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)
 - [Sign In with Apple (Expo)](https://docs.expo.dev/versions/latest/sdk/apple-authentication/)
 - [Expo LocalAuthentication (Biometrics)](https://docs.expo.dev/versions/latest/sdk/local-authentication/)`,
-  'referral-programs': \`# Referral Programs
+  'referral-programs': `# Referral Programs
 
 **🕒 Estimated Time:** Ongoing
 
@@ -148,21 +148,21 @@ Leverage your existing user base to acquire new users organically, dramatically 
 
 ### Program Design
 1. **Incentives:** Offer a compelling two-sided reward (e.g., "Give $10, Get $10", or unlock a premium feature for both parties).
-2. **Frictionless Sharing:** Use the native Share API (`Share` in React Native) to easily send personalized referral links via WhatsApp, SMS, or Twitter.
+2. **Frictionless Sharing:** Use the native Share API (\`Share\` in React Native) to easily send personalized referral links via WhatsApp, SMS, or Twitter.
 3. **Deep Linking:** Ensure the referral link opens the app directly to a welcoming screen that automatically applies the promo code via Branch.io or Firebase Dynamic Links.
 
-```input
+\`\`\`input
 What is the primary incentive for a user to invite a friend, and how does the referred friend benefit?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Design a database schema and API flow for tracking a two-sided referral program where both the inviter and invitee receive a premium account credit upon successful signup.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [Branch.io Deep Linking & Referrals](https://branch.io/)
 - [React Native Share API](https://reactnative.dev/docs/share)`,
-  'reviews-ratings': \`# Reviews & Ratings
+  'reviews-ratings': `# Reviews & Ratings
 
 **🕒 Estimated Time:** Ongoing
 
@@ -171,20 +171,20 @@ Boost your App Store ranking by strategically prompting happy users for reviews.
 ### The Strategy
 1. **Timing is Everything:** Never ask for a review when the app launches or crashes. Ask immediately after a positive moment (e.g., after they complete a task, win a level, or make a purchase).
 2. **The Pre-Prompt:** Show a custom popup: "Are you enjoying the app?". If yes -> trigger native OS review prompt. If no -> redirect to an internal feedback form (intercepting negative reviews).
-3. **Native APIs:** Use `StoreReview` from Expo or `react-native-store-review` to show the native rating dialog without leaving the app.
+3. **Native APIs:** Use \`StoreReview\` from Expo or \`react-native-store-review\` to show the native rating dialog without leaving the app.
 
-```input
+\`\`\`input
 Identify the absolute best "positive moment" in your app's user flow to trigger a review request.
-```
+\`\`\`
 
-```prompt
-Write a React Native hook using `expo-store-review` that implements a two-step review prompt strategy, ensuring the native review dialog is only shown to satisfied users after a specific action is completed.
-```
+\`\`\`prompt
+Write a React Native hook using \`expo-store-review\` that implements a two-step review prompt strategy, ensuring the native review dialog is only shown to satisfied users after a specific action is completed.
+\`\`\`
 
 ## 📚 Context Links
 - [Expo Store Review](https://docs.expo.dev/versions/latest/sdk/store-review/)
 - [App Store Ratings Guide](https://developer.apple.com/app-store/ratings-and-reviews/)`,
-  'user-feedback': \`# User Feedback Loop
+  'user-feedback': `# User Feedback Loop
 
 **🕒 Estimated Time:** Ongoing
 
@@ -195,18 +195,18 @@ Establish channels to actively listen to your users and iterate the product base
 2. **Community:** Build a Discord, Subreddit, or Facebook Group for your most passionate power users.
 3. **Surveys:** Trigger short, one-question NPS (Net Promoter Score) surveys to active users after 30 days.
 
-```input
+\`\`\`input
 How will you categorize and prioritize feature requests vs bug reports coming from users?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Write a standard operating procedure (SOP) for triaging user feedback received through an in-app support channel, including categorization tags and response SLAs.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [Canny (Feature Voting)](https://canny.io/)
 - [Delighted (NPS Surveys)](https://delighted.com/)`,
-  'notifications-strategy': \`# Notifications Strategy
+  'notifications-strategy': `# Notifications Strategy
 
 **🕒 Estimated Time:** Ongoing
 
@@ -218,43 +218,43 @@ Optimize push notifications to drive engagement without causing notification fat
 3. **Actionability:** Deep link directly to the relevant screen; don't dump them on the home screen where they have to hunt for the context.
 4. **Value-Driven:** Ensure every notification provides immediate value to the user, rather than just pulling them back for your own metrics.
 
-```input
+\`\`\`input
 Describe your transactional vs promotional push notification split. How do you ensure you aren't spamming users?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Write a strategy document detailing how to use rich push notifications (with images and action buttons) to increase engagement for a social app, including fallback behavior.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [Airship Good Push Guide](https://www.airship.com/resources/guide/the-good-push-index/)
 - [OneSignal Notification Strategies](https://onesignal.com/blog/push-notification-best-practices/)`,
-  'release-checklist': \`# Release Checklist
+  'release-checklist': `# Release Checklist
 
 **🕒 Estimated Time:** 2 hours
 
 Ensure every detail is perfect before submitting for final App Store and Play Store review to avoid launch day disasters.
 
 ### Pre-Submission Checklist
-- [ ] Test the production build (`Release` variant) on a physical device, not just a simulator.
+- [ ] Test the production build (\`Release\` variant) on a physical device, not just a simulator.
 - [ ] Verify that new user registration and login work against the production database.
 - [ ] Ensure all debug logs and development menus are stripped from the production bundle.
 - [ ] Verify that Push Notification production certificates are active.
 - [ ] Ensure "Sign in with Apple" works flawlessly (common rejection reason if missing when social auth is present).
 - [ ] Provide App Review test account credentials in App Store Connect.
 
-```input
+\`\`\`input
 What is your target launch date, and who is responsible for the final sign-off before hitting "Submit for Review"?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Generate a comprehensive pre-launch QA checklist covering authentication, payments, deep linking, and offline states for a React Native app.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/)
 - [Google Play Launch Checklist](https://developer.android.com/distribute/best-practices/launch/launch-checklist)`,
-  'beta-testing': \`# Beta Testing
+  'beta-testing': `# Beta Testing
 
 **🕒 Estimated Time:** 1-2 weeks
 
@@ -265,18 +265,18 @@ Conduct a structured beta test with external users to catch edge cases and valid
 2. **Feedback Loop:** Provide an easy, in-app way to submit feedback (e.g., shaking the device to open a bug reporter, or a simple form).
 3. **Analytics:** Monitor crash rates, drop-offs, and session lengths closely during the beta period.
 
-```input
+\`\`\`input
 How many beta testers are you aiming for, and what specific flows are you asking them to stress-test?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Write an invitation email to a waitlisted user asking them to join the TestFlight beta, setting clear expectations for bugs and explaining how to submit feedback.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [Managing Beta Testers in TestFlight](https://developer.apple.com/help/app-store-connect/test-a-beta-version/manage-beta-testers-and-builds)
 - [Instabug (In-App Bug Reporting)](https://instabug.com/)`,
-  'test-tracks': \`# Test Tracks
+  'test-tracks': `# Test Tracks
 
 **🕒 Estimated Time:** 2 hours
 
@@ -286,18 +286,18 @@ Set up staging environments in the app stores to distribute builds to internal t
 1. **iOS (TestFlight):** Add internal team members to App Store Connect. Internal builds are available immediately. External testers require a brief Beta App Review from Apple.
 2. **Android (Play Console):** Use the Internal Testing track for immediate distribution to a whitelist of up to 100 emails without going through Google review.
 
-```input
+\`\`\`input
 Who is on your initial internal testing roster, and what is your exact process for collecting bug reports from them?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Outline the differences between Google Play Internal, Closed, and Open testing tracks, and recommend a strategy for a startup launching their first app.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [TestFlight Setup](https://developer.apple.com/testflight/)
 - [Google Play Testing Tracks](https://support.google.com/googleplay/android-developer/answer/9845334)`,
-  'content-rating': \`# Content Rating
+  'content-rating': `# Content Rating
 
 **🕒 Estimated Time:** 1 hour
 
@@ -308,18 +308,18 @@ Accurately declare your app's content to receive appropriate age ratings on both
 2. **App Store:** Complete the Age Rating section in App Store Connect.
 3. **User-Generated Content (UGC):** If your app has social features, you MUST have an EULA, a way to block abusive users, and a mechanism to report objectionable content, or Apple will reject your app instantly.
 
-```input
+\`\`\`input
 Does your app feature User-Generated Content (UGC)? If so, how will you implement the required reporting and blocking features to pass Apple Review?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Generate an implementation checklist for User-Generated Content (UGC) compliance to avoid App Store rejection, including EULA requirements and reporting UI.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [Apple App Store Review Guidelines (UGC)](https://developer.apple.com/app-store/review/guidelines/#user-generated-content)
 - [IARC Content Ratings](https://www.globalratings.com/)`,
-  'store-listing-seo': \`# Store Listing SEO (ASO)
+  'store-listing-seo': `# Store Listing SEO (ASO)
 
 **🕒 Estimated Time:** 4 hours
 
@@ -331,40 +331,40 @@ App Store Optimization (ASO) is critical for organic discovery. Optimize your ti
 3. **Keyword Field (iOS):** Maximize the 100-character limit. Separate words by commas with no spaces. Do not repeat words already used in the Title or Subtitle.
 4. **Long Description (Android):** The Play Store algorithm indexes the entire description. Include target keywords organically throughout the text (3-5 times).
 
-```input
+\`\`\`input
 What are the top 5 high-volume, low-competition keywords you are targeting for organic acquisition?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Write an optimized App Store Subtitle (30 chars max) and a comma-separated keyword list (100 chars max) for a new habit tracking app, focusing on high-intent search terms.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [App Store Optimization Basics](https://developer.apple.com/app-store/search/)
 - [Google Play SEO Guide](https://play.google.com/console/about/store-listing/)
 - [AppTweak ASO Tools](https://www.apptweak.com/)`,
-  'feature-graphics': \`# Feature Graphics
+  'feature-graphics': `# Feature Graphics
 
 **🕒 Estimated Time:** 1 hour
 
 Design the primary promotional graphic for the Google Play Store.
 
 ### Requirements
-- **Dimensions:** `1024x500` pixels.
+- **Dimensions:** \`1024x500\` pixels.
 - **Content:** This is displayed at the top of your Play Store listing. It should be visually striking, feature your logo prominently, and avoid putting critical text near the edges where it might be cropped on different devices.
 - **Video:** If you have a promo video, the feature graphic will act as the video thumbnail with a play button overlaid.
 
-```input
+\`\`\`input
 Describe the visual concept for your Feature Graphic. What branding elements will it include to capture attention in the Play Store?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Generate a design brief for a graphic designer to create a Google Play Feature Graphic (1024x500), detailing safe zones, required branding, and the visual hierarchy.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [Play Store Feature Graphic Guidelines](https://support.google.com/googleplay/android-developer/answer/9866151#feature_graphic)`,
-  'screenshots': \`# Screenshots
+  'screenshots': `# Screenshots
 
 **🕒 Estimated Time:** 3 hours
 
@@ -372,49 +372,49 @@ Create compelling App Store and Play Store screenshots that sell your app's core
 
 ### Guidelines
 1. **Focus on Value:** Don't just show the UI; add large, highly legible captions explaining the benefit of the feature being shown.
-2. **Required Sizes:** 
+2. **Required Sizes:**
    - iOS: 6.5-inch (iPhone Pro Max) and 5.5-inch formats.
    - Android: Smartphone and 7-inch tablet formats.
 3. **Localization:** Translate captions for your primary target markets.
 
-```input
+\`\`\`input
 What are the 3-5 core features or "Aha!" moments you will highlight in your store screenshots?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Provide a copywriting framework for 5 App Store screenshots, including a short headline and sub-headline for each feature, focusing on user benefits over technical features.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [App Store Screenshot Guidelines](https://developer.apple.com/app-store/product-page/)
 - [Google Play Store Assets](https://support.google.com/googleplay/android-developer/answer/9866151)
 - [Previewed.app (Screenshot Generator)](https://previewed.app/)`,
-  'app-icons': \`# App Icons
+  'app-icons': `# App Icons
 
 **🕒 Estimated Time:** 2 hours
 
 Design and generate perfectly sized app icons for all iOS and Android device resolutions.
 
 ### Requirements
-1. **iOS:** Requires a flat, opaque `1024x1024` PNG. No transparency allowed.
+1. **iOS:** Requires a flat, opaque \`1024x1024\` PNG. No transparency allowed.
 2. **Android:** Requires Adaptive Icons (a foreground layer with transparency and a solid background layer) to support varying OEM shapes (circles, squarcles, teardrops).
 
 ### Tools
-- Use Figma templates or an automated generator like `expo-image-cli` to output the required sizes automatically.
+- Use Figma templates or an automated generator like \`expo-image-cli\` to output the required sizes automatically.
 
-```input
+\`\`\`input
 Describe the concept for your app icon. How does it stand out on a crowded home screen while maintaining strict brand identity?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Write a script or list the exact CLI commands needed to generate all required iOS and Android app icon sizes from a single 1024x1024 source image using Expo's asset generation tools.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [Expo App Icon Guide](https://docs.expo.dev/guides/app-icons/)
 - [Apple HIG - App Icons](https://developer.apple.com/design/human-interface-guidelines/app-icons)
 - [Android Adaptive Icons](https://developer.android.com/develop/ui/views/launch/icon_design_adaptive)`,
-  'app-store-setup': \`# App Store Setup
+  'app-store-setup': `# App Store Setup
 
 **🕒 Estimated Time:** 4 hours
 
@@ -428,19 +428,19 @@ Configure App Store Connect and the Apple Developer Portal.
 - [ ] Upload your first build via Xcode or Expo EAS Submit.
 - [ ] Set up TestFlight internal testing groups.
 
-```input
+\`\`\`input
 Who holds the Account Holder role in the Apple Developer Program, and how will you manage provisioning profiles (Manual vs Automatic)?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Outline the complete process for generating an iOS Distribution Certificate, creating a Provisioning Profile, and submitting a build to TestFlight using Expo EAS Submit.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [Apple Developer Program](https://developer.apple.com/programs/)
 - [App Store Connect Guide](https://developer.apple.com/app-store-connect/)
 - [Expo EAS Submit for iOS](https://docs.expo.dev/submit/ios/)`,
-  'play-store-setup': \`# Play Store Setup
+  'play-store-setup': `# Play Store Setup
 
 **🕒 Estimated Time:** 4 hours
 
@@ -449,23 +449,23 @@ Configure your Google Play Console account and prepare your app for distribution
 ### Configuration Checklist
 - [ ] Create a Google Play Developer account and pay the $25 lifetime registration fee.
 - [ ] Generate an Upload Keystore and configure Play App Signing.
-- [ ] Set up the internal testing track and upload your first `.aab` file.
+- [ ] Set up the internal testing track and upload your first \`.aab\` file.
 - [ ] Complete the Data Safety questionnaire accurately based on the data you collect.
 - [ ] Configure pricing and distribution settings (countries/regions).
 
-```input
+\`\`\`input
 Who is managing the Google Play Developer account, and what is your strict security plan for storing the Android Keystore?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Generate a step-by-step checklist for configuring Play App Signing and uploading the first Android App Bundle (.aab) using Expo EAS Build.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [Google Play Console Setup](https://play.google.com/console/about/)
 - [Expo EAS Build for Android](https://docs.expo.dev/build/setup/)
 - [Play Console Data Safety Form](https://support.google.com/googleplay/android-developer/answer/10787469)`,
-  'battery-optimization': \`# Battery Optimization
+  'battery-optimization': `# Battery Optimization
 
 **🕒 Estimated Time:** 3 hours
 
@@ -474,21 +474,21 @@ Ensure your app doesn't drain the user's battery, which is a leading cause of 1-
 ### Optimization Strategies
 1. **Location Services:** Never use high-accuracy GPS unless actively needed. Fall back to cell-tower location for background tasks.
 2. **Background Sync:** Batch network requests. Avoid keeping WebSockets alive indefinitely when the app is backgrounded.
-3. **Animations:** Use native-driven animations (Reanimated or `useNativeDriver`) to offload work from the JavaScript thread.
+3. **Animations:** Use native-driven animations (Reanimated or \`useNativeDriver\`) to offload work from the JavaScript thread.
 4. **Wake Locks:** Ensure your app releases audio/video sessions and wake locks immediately when suspended.
 
-```input
+\`\`\`input
 Does your app use continuous background processes or location tracking? How will you mitigate battery drain?
-```
+\`\`\`
 
-```prompt
-Write a React Native `AppState` listener hook that automatically pauses a WebSocket connection when the app goes into the background and resumes it when active.
-```
+\`\`\`prompt
+Write a React Native \`AppState\` listener hook that automatically pauses a WebSocket connection when the app goes into the background and resumes it when active.
+\`\`\`
 
 ## 📚 Context Links
 - [React Native AppState](https://reactnative.dev/docs/appstate)
 - [Optimizing Battery Life (Android)](https://developer.android.com/topic/performance/power)`,
-  'app-size-optimization': \`# App Size Optimization
+  'app-size-optimization': `# App Size Optimization
 
 **🕒 Estimated Time:** 4 hours
 
@@ -496,23 +496,23 @@ Reduce the download size of your application to improve install rates, especiall
 
 ### Optimization Techniques
 1. **Asset Compression:** Optimize all PNGs, JPGs, and SVGs. Consider converting heavy assets to WebP or Lottie files.
-2. **Bundle Analysis:** Use `react-native-bundle-visualizer` to identify massive third-party dependencies and replace them with lighter alternatives.
+2. **Bundle Analysis:** Use \`react-native-bundle-visualizer\` to identify massive third-party dependencies and replace them with lighter alternatives.
 3. **Hermes Engine:** Enable the Hermes JavaScript engine to pre-compile JS into smaller, faster bytecode.
-4. **App Bundles:** Build Android Apps as `.aab` (Android App Bundles) rather than `.apk` so users only download architecture-specific code.
+4. **App Bundles:** Build Android Apps as \`.aab\` (Android App Bundles) rather than \`.apk\` so users only download architecture-specific code.
 
-```input
-What is your target maximum app size (in MB), and what are the heaviest dependencies in your `package.json` right now?
-```
+\`\`\`input
+What is your target maximum app size (in MB), and what are the heaviest dependencies in your \`package.json\` right now?
+\`\`\`
 
-```prompt
+\`\`\`prompt
 List the steps to analyze a React Native bundle size and configure Hermes for both iOS and Android.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [React Native Bundle Visualizer](https://github.com/mrousavy/react-native-bundle-visualizer)
 - [Using Hermes in React Native](https://reactnative.dev/docs/hermes)
 - [Android App Bundles](https://developer.android.com/guide/app-bundle)`,
-  'crash-reporting': \`# Crash Reporting
+  'crash-reporting': `# Crash Reporting
 
 **🕒 Estimated Time:** 3 hours
 
@@ -522,49 +522,49 @@ Integrate a crash reporting tool to identify and fix fatal errors in production 
 1. **Provider Setup:** Integrate Sentry, Firebase Crashlytics, or Bugsnag.
 2. **Source Maps:** Configure your build process to upload JavaScript source maps to your provider, so production crashes display readable stack traces instead of minified code.
 3. **Breadcrumbs:** Log critical user actions (navigation events, button presses) as breadcrumbs leading up to a crash.
-4. **User Context:** Attach the `userId` to crash reports to understand who was affected without sending PII.
+4. **User Context:** Attach the \`userId\` to crash reports to understand who was affected without sending PII.
 
-```input
+\`\`\`input
 Which crash reporting tool are you using, and how are you handling automatic source map uploads in your CI pipeline?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Write a Sentry initialization script for a React Native/Expo app, including configuration for capturing user IDs and React Navigation breadcrumbs.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [Sentry for React Native](https://docs.sentry.io/platforms/react-native/)
 - [Firebase Crashlytics (React Native)](https://rnfirebase.io/crashlytics/usage)
 - [Expo Sentry Plugin](https://docs.expo.dev/guides/using-sentry/)`,
-  'error-handling': \`# Error Handling
+  'error-handling': `# Error Handling
 
 **🕒 Estimated Time:** 4 hours
 
 Implement a robust error handling architecture to prevent fatal app crashes and provide clear, actionable feedback to the user.
 
 ### Layers of Defense
-1. **Error Boundaries:** Wrap your root component and critical screens in React Error Boundaries (`react-error-boundary`) to catch render errors and show a fallback UI instead of a blank white screen.
+1. **Error Boundaries:** Wrap your root component and critical screens in React Error Boundaries (\`react-error-boundary\`) to catch render errors and show a fallback UI instead of a blank white screen.
 2. **Global Promise Rejections:** Catch unhandled promise rejections globally.
-3. **API Error Translation:** Map obscure backend HTTP errors into friendly UI toast messages (e.g., `429` -> "You're doing that too fast. Please wait a minute.").
+3. **API Error Translation:** Map obscure backend HTTP errors into friendly UI toast messages (e.g., \`429\` -> "You're doing that too fast. Please wait a minute.").
 4. **Form Validation:** Use Zod or Yup with React Hook Form to catch invalid input before it hits your API.
 
 ### Best Practices
 - Never show raw stack traces, SQL errors, or JSON blobs to end-users.
 - Provide a "Restart App" or "Retry" button on fatal error screens.
 
-```input
+\`\`\`input
 How are you currently managing global API errors, and what is your fallback UI strategy for fatal app crashes?
-```
+\`\`\`
 
-```prompt
-Write a global React Error Boundary component using `react-error-boundary` that displays a friendly error screen with a "Restart App" button, and logs the error to an external service.
-```
+\`\`\`prompt
+Write a global React Error Boundary component using \`react-error-boundary\` that displays a friendly error screen with a "Restart App" button, and logs the error to an external service.
+\`\`\`
 
 ## 📚 Context Links
 - [React Error Boundary](https://github.com/bvaughn/react-error-boundary)
 - [Handling API Errors in React Native](https://reactnative.dev/docs/network)
 - [React Hook Form & Zod](https://react-hook-form.com/get-started#SchemaValidation)`,
-  'analytics-events': \`# Analytics Events
+  'analytics-events': `# Analytics Events
 
 **🕒 Estimated Time:** 3 hours
 
@@ -572,47 +572,47 @@ Instrument your app with analytics to track user behavior, feature adoption, and
 
 ### Setup Process
 1. **Provider Integration:** Install PostHog, Mixpanel, Firebase Analytics, or Amplitude.
-2. **Identity Tracking:** Implement `identify` calls during login/signup to tie events to specific users. Call `reset` on logout.
-3. **Core Events:** Track critical business events: `signed_up`, `subscription_started`, `feature_x_used`.
+2. **Identity Tracking:** Implement \`identify\` calls during login/signup to tie events to specific users. Call \`reset\` on logout.
+3. **Core Events:** Track critical business events: \`signed_up\`, \`subscription_started\`, \`feature_x_used\`.
 4. **Screen Tracking:** Automatically track screen views by hooking into React Navigation's global state change listener.
 
 ### Privacy Compliance
 - Ensure analytics respect the user's tracking preferences (App Tracking Transparency on iOS).
 - Do not log PII (Personally Identifiable Information) directly in event properties.
 
-```input
+\`\`\`input
 What are the 5 most critical business events you need to track in your funnel, and what properties will you attach to them?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Create an analytics utility class for PostHog or Mixpanel in React Native that handles user identification, event tracking, and automatically strips PII before sending data.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [PostHog React Native Integration](https://posthog.com/docs/libraries/react-native)
 - [React Navigation Screen Tracking](https://reactnavigation.org/docs/screen-tracking/)
-- [App Tracking Transparency (iOS)](https://developer.apple.com/documentation/apptrackingtransparency)`, `subscription_started`, `feature_x_used`.
+- [App Tracking Transparency (iOS)](https://developer.apple.com/documentation/apptrackingtransparency)\`, \`subscription_started\`, \`feature_x_used\`.
 4. **Screen Tracking:** Automatically track screen views by hooking into React Navigation's state change listener.
 
 ### Privacy Compliance
 - Ensure analytics respect the user's tracking preferences (App Tracking Transparency on iOS).
 - Do not log PII (Personally Identifiable Information) directly in event properties.
 
-```input
+\`\`\`input
 What are the 5 most critical business events you need to track in your funnel?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Create an analytics utility class for Mixpanel that handles user identification, event tracking, and screen view logging securely.
-````,
-  'offline-features': \`# Offline Features
+\`\`\``,
+  'offline-features': `# Offline Features
 
 **🕒 Estimated Time:** 5 hours
 
 Ensure your app remains functional and gracefully handles network loss, a common scenario in mobile environments.
 
 ### Core Strategies
-1. **Network Detection:** Use `@react-native-community/netinfo` to track connection status globally.
+1. **Network Detection:** Use \`@react-native-community/netinfo\` to track connection status globally.
 2. **Local Caching:** Store critical API responses using WatermelonDB, SQLite, or MMKV so the app launches instantly with stale data.
 3. **Optimistic Updates:** Immediately reflect user actions in the UI, queue the network request, and sync when the connection returns.
 4. **Sync Queue:** Implement a background queue to process failed mutations once online.
@@ -621,19 +621,19 @@ Ensure your app remains functional and gracefully handles network loss, a common
 - Show a subtle "Offline Mode" banner at the top of the screen.
 - Disable actions that strictly require a network connection (like checkout) with a clear explanation.
 
-```input
+\`\`\`input
 What specific user data must be available offline, and what critical user actions should be queued for later synchronization when the network returns?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Write a global network listener hook using NetInfo that provides the current connection status, and create a non-intrusive "You are offline" banner component that animates into view.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [React Native NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)
 - [WatermelonDB Offline Sync](https://watermelondb.dev/docs/Sync/Intro)
 - [React Query Offline Mutations](https://tanstack.com/query/latest/docs/react/guides/mutations#network-offline-mutations)`,
-  'device-permissions': \`# Device Permissions
+  'device-permissions': `# Device Permissions
 
 **🕒 Estimated Time:** 3 hours
 
@@ -646,76 +646,76 @@ Never trigger the native OS permission dialog without context. Once a user click
 3. If they deny the OS dialog, show a fallback UI explaining how to enable it in Settings and providing a deep link directly to the app's settings page.
 
 ### Implementation
-- Use `react-native-permissions` or Expo's built-in permission hooks.
-- Create a centralized `PermissionsManager` utility.
+- Use \`react-native-permissions\` or Expo's built-in permission hooks.
+- Create a centralized \`PermissionsManager\` utility.
 
-```input
+\`\`\`input
 List all the sensitive device permissions your app requires and describe the exact user action that will trigger each soft-prompt request.
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Write a reusable React Native hook that implements a soft-prompt pattern for requesting Camera permissions. If the native permission is permanently denied, it should provide a function to open the device settings.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [React Native Permissions](https://github.com/zoontek/react-native-permissions)
 - [Expo AppSettings / IntentLauncher](https://docs.expo.dev/versions/latest/sdk/intent-launcher/)`,
-  'maps-location': \`# Maps & Location
+  'maps-location': `# Maps & Location
 
 **🕒 Estimated Time:** 5 hours
 
 Integrate geolocation services and interactive maps into your application.
 
 ### Implementation Steps
-1. **Library Setup:** Install `react-native-maps` and configure Google Maps API keys (Android) and Apple Maps capabilities (iOS).
-2. **Location Tracking:** Use `expo-location` or `react-native-geolocation-service` to get current coordinates.
+1. **Library Setup:** Install \`react-native-maps\` and configure Google Maps API keys (Android) and Apple Maps capabilities (iOS).
+2. **Location Tracking:** Use \`expo-location\` or \`react-native-geolocation-service\` to get current coordinates.
 3. **Permissions:** Handle the complex flow of Foreground vs Background location permissions securely.
 4. **Map UI:** Implement markers, clustering, and custom map styling.
 
 ### Performance
-- Avoid rendering thousands of individual markers; implement marker clustering for large datasets (e.g., `react-native-map-clustering`).
+- Avoid rendering thousands of individual markers; implement marker clustering for large datasets (e.g., \`react-native-map-clustering\`).
 - Debounce location updates to save battery life.
 
-```input
+\`\`\`input
 How is location data used in your app? Do you require continuous background tracking or just one-off foreground checks?
-```
+\`\`\`
 
-```prompt
-Create a React Native component displaying a map centered on the user's current location using `react-native-maps`, including a custom styled marker and a button to re-center the map.
-```
+\`\`\`prompt
+Create a React Native component displaying a map centered on the user's current location using \`react-native-maps\`, including a custom styled marker and a button to re-center the map.
+\`\`\`
 
 ## 📚 Context Links
 - [React Native Maps Integration](https://github.com/react-native-maps/react-native-maps)
 - [Expo Location](https://docs.expo.dev/versions/latest/sdk/location/)`,
-  'media-uploads': \`# Media Uploads
+  'media-uploads': `# Media Uploads
 
 **🕒 Estimated Time:** 4 hours
 
 Implement robust handling for capturing, selecting, and uploading photos, videos, or documents from the device.
 
 ### Key Workflows
-1. **Media Picker:** Integrate `expo-image-picker` or `react-native-image-crop-picker` to access the camera roll.
+1. **Media Picker:** Integrate \`expo-image-picker\` or \`react-native-image-crop-picker\` to access the camera roll.
 2. **Permissions:** Request Camera and Photo Library permissions gracefully using a soft-prompt.
-3. **Compression:** Compress images client-side before upload to save bandwidth and storage costs (e.g., `expo-image-manipulator`).
+3. **Compression:** Compress images client-side before upload to save bandwidth and storage costs (e.g., \`expo-image-manipulator\`).
 4. **Upload Logic:** Implement multipart/form-data uploads or direct-to-S3 presigned URL uploads with progress indicators.
 
 ### Edge Cases
 - Handle app backgrounding during long uploads.
 - Provide clear UI feedback if an upload fails due to network loss.
 
-```input
+\`\`\`input
 What types of media will users upload, and what is your strategy for client-side compression and backend storage (e.g., AWS S3, Supabase Storage)?
-```
+\`\`\`
 
-```prompt
-Write a React Native function using `expo-image-picker` and `expo-image-manipulator` to pick an image from the gallery, compress it to 80% quality, and upload it to a Supabase Storage bucket.
-```
+\`\`\`prompt
+Write a React Native function using \`expo-image-picker\` and \`expo-image-manipulator\` to pick an image from the gallery, compress it to 80% quality, and upload it to a Supabase Storage bucket.
+\`\`\`
 
 ## 📚 Context Links
 - [Expo Image Picker](https://docs.expo.dev/versions/latest/sdk/imagepicker/)
 - [Expo Image Manipulator](https://docs.expo.dev/versions/latest/sdk/imagemanipulator/)
 - [Supabase Storage Guide](https://supabase.com/docs/guides/storage)`,
-  'apis': \`# APIs & Integrations
+  'apis': `# APIs & Integrations
 
 **🕒 Estimated Time:** 5 hours
 
@@ -725,24 +725,24 @@ Implement connections to third-party APIs and external services beyond your core
 1. **Payment Gateways:** RevenueCat or Adapty for in-app purchases.
 2. **Social APIs:** Graph API for Facebook login, or Apple/Google Sign-In SDKs.
 3. **Utility APIs:** Twilio for SMS verification, SendGrid for emails.
-4. **SDK Initialization:** Initialize SDKs early in the app lifecycle (e.g., in `App.tsx` or a dedicated bootstrap phase).
+4. **SDK Initialization:** Initialize SDKs early in the app lifecycle (e.g., in \`App.tsx\` or a dedicated bootstrap phase).
 
 ### Best Practices
-- Keep API keys out of your source code by using `react-native-dotenv` or Expo Environment variables.
+- Keep API keys out of your source code by using \`react-native-dotenv\` or Expo Environment variables.
 - Wrap third-party SDKs in custom service classes so you can easily swap providers or mock them during testing.
 
-```input
+\`\`\`input
 List the third-party APIs and SDKs you are integrating in this phase, and explain how you will securely store their respective API keys.
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Write a generic wrapper service for a third-party analytics SDK (like Mixpanel) in TypeScript, ensuring it can gracefully fail without crashing the app if the SDK fails to initialize.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [Expo Environment Variables](https://docs.expo.dev/guides/environment-variables/)
 - [React Native Config](https://github.com/lugg/react-native-config)`,
-  'navigation': \`# Navigation Implementation
+  'navigation': `# Navigation Implementation
 
 **🕒 Estimated Time:** 4 hours
 
@@ -757,19 +757,19 @@ Set up the routing structure of your app to manage flow between screens and deep
 ### Deep Linking
 - Configure scheme and universal links to allow external URLs (e.g., password reset emails) to open specific screens within the app.
 
-```input
+\`\`\`input
 Describe your app's navigation hierarchy. What are the main bottom tabs, and what specific screens require deep linking support?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Set up a React Navigation v6 structure containing a Bottom Tab Navigator inside an authenticated Stack, with a separate Auth stack for logged-out users. Include a deep linking configuration object for a "Reset Password" screen.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [React Navigation Fundamentals](https://reactnavigation.org/docs/getting-started)
 - [Expo Router Deep Linking](https://docs.expo.dev/router/introduction/)
 - [Handling Deep Links in React Native](https://reactnative.dev/docs/linking)`,
-  'frontend-ui': \`# Frontend (UI) Implementation
+  'frontend-ui': `# Frontend (UI) Implementation
 
 **🕒 Estimated Time:** 8 hours
 
@@ -778,26 +778,26 @@ Build out the core visual components and screens of your mobile app, adhering to
 ### Component Library
 1. **Core Elements:** Build reusable Buttons, Inputs, Cards, and Typography components.
 2. **Theming:** Implement a robust theming system (Light/Dark mode) using tools like NativeWind, Restyle, or styled-components.
-3. **Responsive Design:** Ensure layouts adapt to different screen sizes using flexbox and safe area contexts (`react-native-safe-area-context`).
+3. **Responsive Design:** Ensure layouts adapt to different screen sizes using flexbox and safe area contexts (\`react-native-safe-area-context\`).
 4. **Animations:** Add micro-interactions using Reanimated or React Native Animated to make the app feel premium.
 
 ### Accessibility (a11y)
-- Add `accessible={true}` and `accessibilityLabel` to all interactive elements.
+- Add \`accessible={true}\` and \`accessibilityLabel\` to all interactive elements.
 - Ensure text scales correctly with the device's accessibility settings.
 
-```input
+\`\`\`input
 What UI framework or styling solution (e.g., NativeWind, Restyle) are you using, and what are the 3 most complex screens you need to build?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Generate a reusable, accessible Button component in React Native using NativeWind that supports variants (primary, secondary, outline), disabled states, loading spinners, and respects the device's dark mode setting.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [NativeWind Documentation](https://www.nativewind.dev/)
 - [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/)
 - [React Native Safe Area Context](https://docs.expo.dev/versions/latest/sdk/safe-area-context/)`,
-  'push-notifications': \`# Push Notifications Setup
+  'push-notifications': `# Push Notifications Setup
 
 **🕒 Estimated Time:** 6 hours
 
@@ -805,7 +805,7 @@ Implement Apple Push Notification service (APNs) and Firebase Cloud Messaging (F
 
 ### Setup Process
 1. **Certificates & Keys:** Generate APNs keys in the Apple Developer Portal and configure Firebase for Android.
-2. **SDK Integration:** Install `expo-notifications` or `@react-native-firebase/messaging`.
+2. **SDK Integration:** Install \`expo-notifications\` or \`@react-native-firebase/messaging\`.
 3. **Permission Flow:** Implement a soft-prompt UI before triggering the native OS permission dialog to maximize opt-in rates.
 4. **Token Registration:** Retrieve the device push token and sync it to your user record in the backend.
 5. **Handling Payloads:** Write listeners for background and foreground notifications to route users to specific screens (deep linking).
@@ -814,19 +814,19 @@ Implement Apple Push Notification service (APNs) and Firebase Cloud Messaging (F
 - Never spam users; allow granular notification preferences in settings.
 - Handle notification badges cleanly (clear them when the app is opened).
 
-```input
+\`\`\`input
 Describe your push notification strategy. What specific events trigger a notification, and how will users manage their preferences in the app?
-```
+\`\`\`
 
-```prompt
+\`\`\`prompt
 Write an Expo Notifications setup script that requests permissions using a soft-prompt pattern, gets the device token, and handles a notification tap event to navigate to a specific screen using React Navigation.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [Expo Notifications Setup](https://docs.expo.dev/versions/latest/sdk/notifications/)
 - [React Native Firebase Messaging](https://rnfirebase.io/messaging/usage)
 - [Apple Push Notification service](https://developer.apple.com/documentation/usernotifications)`,
-  'state-management': \`# State Management Implementation
+  'state-management': `# State Management Implementation
 
 **🕒 Estimated Time:** 4 hours
 
@@ -835,7 +835,7 @@ Implement a robust state management solution based on your Phase 2 architecture 
 ### Core Implementation Steps
 1. **Store Setup:** Initialize the global store.
 2. **Feature Slices:** Break down state into logical domains (user, settings, feed, etc.).
-3. **Persistence:** Implement async storage for offline caching and session persistence using `@react-native-async-storage/async-storage` or `react-native-mmkv`.
+3. **Persistence:** Implement async storage for offline caching and session persistence using \`@react-native-async-storage/async-storage\` or \`react-native-mmkv\`.
 4. **Hooks:** Create custom hooks for accessing and dispatching state safely across components.
 
 ### Best Practices
@@ -843,17 +843,17 @@ Implement a robust state management solution based on your Phase 2 architecture 
 - Normalize complex nested data structures to avoid deep re-renders.
 - Use selectors for derived data to optimize performance.
 
-```input
+\`\`\`input
 Describe your chosen state management library, the core slices of state you need to implement, and your persistence strategy (e.g., MMKV or AsyncStorage).
-```
+\`\`\`
 
 ### Common Challenges
 - **Re-render Optimization:** Unoptimized selectors causing the whole app to re-render.
 - **Async Data:** Managing loading and error states consistently.
 
-```prompt
+\`\`\`prompt
 Generate a boilerplate setup for a React Native app using Zustand, including persistent storage using react-native-mmkv, and a user authentication slice with login/logout actions.
-```
+\`\`\`
 
 ## 📚 Context Links
 - [Zustand Documentation](https://github.com/pmndrs/zustand)
@@ -900,7 +900,6 @@ Whenever you want to build a feature, start a new chat with an AI Developer (lik
 
 Let's begin. Scroll down and click the "Next Step" button to start defining your idea!
 `,
-
   'ideadefinition': `# Idea Definition
 
 **🕒 Estimated Time:** 15-20 min
@@ -955,7 +954,7 @@ Before you ask AI to evaluate your idea, answer these questions honestly. Type y
 ---
 
 ## AI & Architecture Reality Check
-- **Play to AI's Strengths:** AI developers (like Antigravity) are exceptional at building standard SaaS applications using Supabase (for database and Auth) and React. If your idea requires highly custom hardware integrations or obscure 3D rendering, AI will struggle. 
+- **Play to AI's Strengths:** AI developers (like Antigravity) are exceptional at building standard SaaS applications using Supabase (for database and Auth) and React. If your idea requires highly custom hardware integrations or obscure 3D rendering, AI will struggle.
 - **Can I leave out Y?** Absolutely. At this stage, do not assume you need complex machine learning or custom algorithms. Define the simplest possible software that solves the problem.
 
 ---
@@ -1010,7 +1009,6 @@ At the bottom of this page, write a definitive 3-sentence summary of your idea. 
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'problemstatement': `# Problem Statement
 
 **🕒 Estimated Time:** 20-30 min
@@ -1060,7 +1058,7 @@ Before using AI, answer these questions to capture project memory.
 ---
 
 ## Common Mistakes: Symptoms vs Root Cause
-Most founders solve symptoms, not causes. 
+Most founders solve symptoms, not causes.
 - **Symptom:** Students miss deadlines.
 - **Root Cause:** Assignments are spread across 5 different learning platforms.
 
@@ -1124,7 +1122,6 @@ Write a 3-part Problem Statement below:
 
 
 `,
-
   'userpainpoints': `# User Pain Points
 
 **🕒 Estimated Time:** 15-20 min
@@ -1163,7 +1160,7 @@ Before relying on AI, document your actual conversations with real humans (or yo
 ---
 
 ## Key Decisions
-- **Focusing on the Root Cause:** Users often complain about a symptom ("This export takes too long"). The root cause is usually deeper ("We shouldn't need to export this to Excel in the first place"). 
+- **Focusing on the Root Cause:** Users often complain about a symptom ("This export takes too long"). The root cause is usually deeper ("We shouldn't need to export this to Excel in the first place").
 - **Urgency vs. Importance:** A problem can be important but not urgent. Software that solves *urgent* problems sells 10x faster.
 
 ---
@@ -1222,7 +1219,6 @@ Summarize the Top 3 User Pain Points below, ranked by severity. For each, list t
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'targetusers': `# Target Users & Ideal Customer Profile (ICP)
 
 **🕒 Estimated Time:** 20-30 min
@@ -1322,7 +1318,6 @@ Define your 1 Primary ICP below. Delete everything else. When you are tempted to
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'icpidealcustomerprofile': `# ICP (Ideal Customer Profile)
 
 **🕒 Estimated Time:** 20-30 min
@@ -1337,7 +1332,7 @@ While your [Target Users](#targetusers) define the broad market segment you are 
 ## Think First
 Define the exact criteria that disqualifies a lead.
 
-**The "Must-Have" Criteria (e.g., Must use Salesforce, Must have 10-50 employees, Must be generating >\$1M ARR)**
+**The "Must-Have" Criteria (e.g., Must use Salesforce, Must have 10-50 employees, Must be generating >$1M ARR)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
@@ -1356,7 +1351,7 @@ Define the exact criteria that disqualifies a lead.
 ---
 
 ## Common Mistakes
-- **No Disqualifiers:** 
+- **No Disqualifiers:**
   - *Why it happens:* You want as many customers as possible.
   - *Consequence:* You spend 3 months onboarding a massive client who demands 50 custom features, eats up all your support time, and then churns anyway because they weren't your ICP.
   - *Prevention:* Explicitly write down who your software is *not* for.
@@ -1365,7 +1360,7 @@ Define the exact criteria that disqualifies a lead.
 ---
 
 ## Examples
-- *Good Implementation:* "Our ICP is the Director of Customer Success at a B2B SaaS company with 50-200 employees, currently using Zendesk, who has at least \$5,000 in monthly churn."
+- *Good Implementation:* "Our ICP is the Director of Customer Success at a B2B SaaS company with 50-200 employees, currently using Zendesk, who has at least $5,000 in monthly churn."
 - *Bad Implementation:* "Our ICP is anyone who wants to improve customer service."
 
 ---
@@ -1505,7 +1500,6 @@ Define your Primary User Persona and their core "Job to be Done" below.
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'solutionstatement': `# Solution Statement
 
 **🕒 Estimated Time:** 20-30 min
@@ -1611,7 +1605,6 @@ Write your official 1-paragraph Solution Statement (Press Release style) below.
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'valueproposition': `# Value Proposition
 
 **🕒 Estimated Time:** 20-30 min
@@ -1716,7 +1709,6 @@ Write your official 1-2 sentence Value Proposition below.
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'elevatorpitch': `# Elevator Pitch
 
 **🕒 Estimated Time:** 15-20 min
@@ -1780,7 +1772,7 @@ My target customer is: [INSERT ICP].
 My solution is: [INSERT SOLUTION STATEMENT].
 My differentiator is: [INSERT KEY DIFFERENTIATOR].
 
-Generate 3 different variations of a 10-second elevator pitch using the YC framework. 
+Generate 3 different variations of a 10-second elevator pitch using the YC framework.
 They must be written in plain English, completely devoid of buzzwords, and immediately explain exactly what the product actually does.
 \`\`\`
 
@@ -1811,7 +1803,6 @@ They must be written in plain English, completely devoid of buzzwords, and immed
 ## Deliverable Expectations
 Create a checklist below of the 3 to 5 features that constitute your MVP. If there are more than 5, you are probably building too much.
 `,
-
   'marketresearch': `# Market Research
 
 **🕒 Estimated Time:** 45-60 min
@@ -1850,7 +1841,7 @@ Before running to Google or ChatGPT, think about where your specific users congr
 
 ## Key Decisions
 - **Bottom-Up vs. Top-Down Research:** Ignore top-down (TAM/SAM/SOM charts). Focus entirely on bottom-up: Find 100 people complaining about the exact same thing on Reddit. That is your market.
-- **Willingness to Pay:** A large market of people who refuse to pay for software (e.g., college students) is worse than a tiny market of people who happily pay for software (e.g., corporate lawyers). 
+- **Willingness to Pay:** A large market of people who refuse to pay for software (e.g., college students) is worse than a tiny market of people who happily pay for software (e.g., corporate lawyers).
 
 ---
 
@@ -1861,7 +1852,7 @@ Before running to Google or ChatGPT, think about where your specific users congr
 ---
 
 ## AI & Architecture Reality Check
-- **The Knowledge Cutoff:** Do not ask AI "What is the market size of X?" LLMs hallucinate numbers and are frozen in time. 
+- **The Knowledge Cutoff:** Do not ask AI "What is the market size of X?" LLMs hallucinate numbers and are frozen in time.
 - **The Ultimate AI Research Hack:** Instead of asking AI for facts, use AI for **Synthesis**. Go to a Reddit thread where people are complaining, copy the entire thread (all 150 comments), paste it into the AI, and ask it to synthesize the underlying psychological pain points.
 
 ---
@@ -1870,7 +1861,7 @@ Before running to Google or ChatGPT, think about where your specific users congr
 Use this prompt to process raw, unstructured market complaints into actionable insights.
 
 \`\`\`prompt
-Act as a world-class User Researcher. 
+Act as a world-class User Researcher.
 I am going to provide you with raw text scraped from [Reddit / G2 Reviews / Forums] where my target users are discussing their workflows.
 
 [PASTE YOUR SCRAPED RAW TEXT/COMMENTS HERE]
@@ -1908,7 +1899,6 @@ Write a highly specific, 3-4 sentence summary of your Bottom-Up market research.
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'competitoranalysis': `# Competitor Analysis
 
 **🕒 Estimated Time:** 45-60 min
@@ -2004,7 +1994,6 @@ Identify your primary competitor and write exactly how you will position against
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'existingalternatives': `# Existing Alternatives
 
 **🕒 Estimated Time:** 20-30 min
@@ -2098,7 +2087,6 @@ Describe the user's current workaround, its hidden cost, and your exact strategy
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'marketpositioning': `# Market Positioning
 
 **🕒 Estimated Time:** 30 min
@@ -2143,7 +2131,7 @@ Define exactly where you sit in the market ecosystem.
 ---
 
 ## AI & Architecture Reality Check
-- **Architecture follows Positioning:** If you position yourself as "Enterprise-grade," you cannot use a cheap SQLite database. You need robust Role-Based Access Control (RBAC) and Supabase row-level security. 
+- **Architecture follows Positioning:** If you position yourself as "Enterprise-grade," you cannot use a cheap SQLite database. You need robust Role-Based Access Control (RBAC) and Supabase row-level security.
 
 ---
 
@@ -2193,7 +2181,6 @@ Write your final 1-sentence positioning statement.
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'featureplanning': `# Feature Planning
 
 **🕒 Estimated Time:** 20 min
@@ -2286,7 +2273,6 @@ Paste your comprehensive, unfiltered list of features here.
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'mvpfeatures': `# MVP Features (Minimum Viable Product)
 
 **🕒 Estimated Time:** 45 min
@@ -2342,7 +2328,7 @@ Use AI to act as an aggressive editor.
 Here is my massive feature list: [PASTE FEATURE PLANNING LIST]
 My core value proposition is: [PASTE VALUE PROPOSITION]
 
-Act as a ruthless CTO focused on shipping in 2 weeks. 
+Act as a ruthless CTO focused on shipping in 2 weeks.
 1. Categorize these features into "Must Have for MVP" and "Cut for Now".
 2. For the "Must Haves", suggest the absolute simplest, most hard-coded way I can implement them to save time (e.g., instead of a password reset flow, just have them email support).
 \`\`\`
@@ -2380,7 +2366,6 @@ Create a strict checklist of the 3 to 5 features that constitute your MVP.
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'futurefeatures': `# Future Features (The Parking Lot)
 
 **🕒 Estimated Time:** 15-20 min
@@ -2409,7 +2394,7 @@ Be honest about what is *not* essential for Day 1.
 
 ## Key Decisions
 - **The "If-Then" Rule:** Every Future Feature should have an "If-Then" condition. E.g., "IF we get 100 paying users, THEN we will build the Slack integration." This prevents you from building features blindly.
-- **Public vs. Private Roadmap:** 
+- **Public vs. Private Roadmap:**
   - *Public:* Builds trust and allows users to vote on features. Great for early-stage communities.
   - *Private:* Keeps your competitors from seeing your next move. Better if you are in a highly competitive market.
 
@@ -2425,7 +2410,7 @@ Be honest about what is *not* essential for Day 1.
 ---
 
 ## Examples
-- *Good Implementation:* The MVP is just a web app that generates PDFs. The Future Features list contains: "1. Mobile App (Trigger: \$5k MRR). 2. Team Collaboration (Trigger: 20 user requests). 3. Custom CSS (Trigger: Enterprise plan launch)."
+- *Good Implementation:* The MVP is just a web app that generates PDFs. The Future Features list contains: "1. Mobile App (Trigger: $5k MRR). 2. Team Collaboration (Trigger: 20 user requests). 3. Custom CSS (Trigger: Enterprise plan launch)."
 - *Bad Implementation:* Trying to launch the web app, mobile app, iPad app, and Chrome extension all on Day 1.
 
 ---
@@ -2499,7 +2484,7 @@ List 3 features you are currently debating building:
 ---
 
 ## Common Mistakes
-- **The Recency Bias:** 
+- **The Recency Bias:**
   - *Why it happens:* A user churned yesterday because you don't have an Android app. You immediately start building an Android app.
   - *Consequence:* You ignore the 500 users requesting a better search feature, which has a 10x higher RICE score.
   - *Prevention:* Always run new requests through the RICE formula before writing code.
@@ -2641,7 +2626,6 @@ Write your 1-sentence business model summary and your target LTV:CAC ratio.
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'pricing': `# Pricing Strategy
 
 **🕒 Estimated Time:** 25 min
@@ -2736,7 +2720,6 @@ Define your 3 tiers, their exact price points, and the core paywall trigger.
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'subscriptionmodel': `# Subscription Model
 
 **🕒 Estimated Time:** 15 min
@@ -2828,7 +2811,6 @@ Define your monthly vs annual split and how you will drive annual upgrades.
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'revenuestreams': `# Revenue Streams
 
 **🕒 Estimated Time:** 15 min
@@ -2920,7 +2902,6 @@ List your Primary and Secondary revenue streams and how they drive NDR.
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'successmetrics': `# Success Metrics
 
 **🕒 Estimated Time:** 20 min
@@ -3012,7 +2993,6 @@ Define the 3 overarching metrics that will define your success this quarter.
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'kpis': `# KPIs (Key Performance Indicators)
 
 **🕒 Estimated Time:** 20-30 min
@@ -3052,7 +3032,7 @@ Identify the metrics that matter.
 - **Tracking Everything:**
   - *Why it happens:* You install Google Analytics and PostHog and set up 45 different dashboards.
   - *Consequence:* Dashboard fatigue. You look at a wall of numbers and have no idea what to focus on, so you ignore all of them.
-  - *Prevention:* Pick exactly 3 to 5 core KPIs for the entire business. Ignore the rest until you hit \$1M ARR.
+  - *Prevention:* Pick exactly 3 to 5 core KPIs for the entire business. Ignore the rest until you hit $1M ARR.
 - **Ignoring Churn:** Celebrating 100 new signups while ignoring the 110 users who cancelled their subscription. Your bucket is leaking faster than you can fill it.
 
 ---
@@ -3068,7 +3048,7 @@ Use AI to build a customized KPI tree for your specific business model.
 
 \`\`\`prompt
 My SaaS product is: [INSERT ELEVATOR PITCH].
-My monetization model is: [INSERT PRICING MODEL, e.g., \$20/mo B2B Subscription].
+My monetization model is: [INSERT PRICING MODEL, e.g., $20/mo B2B Subscription].
 
 Act as a Fractional CFO and Data Analyst.
 1. Define the 5 most critical, actionable KPIs I must track for this specific business model.
@@ -3124,7 +3104,7 @@ Connect value to measurement.
 ---
 
 ## Key Decisions
-- **Value vs. Revenue:** Do NOT make "Revenue" or "MRR" your North Star Metric. Revenue is the *result* of delivering value. If MRR is your North Star, your team will resort to dark patterns and pricing tricks to boost numbers short-term, which destroys trust. 
+- **Value vs. Revenue:** Do NOT make "Revenue" or "MRR" your North Star Metric. Revenue is the *result* of delivering value. If MRR is your North Star, your team will resort to dark patterns and pricing tricks to boost numbers short-term, which destroys trust.
 - **The 3 Core Models:** Most SaaS North Star Metrics fall into three buckets:
   1. *Attention (Time/Engagement):* E.g., Netflix (Total hours watched).
   2. *Transaction (Volume):* E.g., Amazon (Number of purchases completed).
@@ -3214,7 +3194,7 @@ Strip the idea down to its absolute core.
 
 ## Key Decisions
 - **The JTBD Framework:** Stop writing "As a user, I want..." Instead, write: "When [Situation], I want to [Motivation], so I can [Expected Outcome]." This forces you to focus on the user's context, not your UI.
-- **Explicit Non-Goals:** The most important section of a PRD is what you are NOT building. Explicitly list out the features, edge cases, and platforms (e.g., "No mobile support in v1") that are out of scope. 
+- **Explicit Non-Goals:** The most important section of a PRD is what you are NOT building. Explicitly list out the features, edge cases, and platforms (e.g., "No mobile support in v1") that are out of scope.
 
 ---
 
@@ -3275,7 +3255,6 @@ Write your primary Job to be Done (JTBD) and your top 3 Non-Goals.
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'userflows': `# User Flows
 
 **🕒 Estimated Time:** 45 min
@@ -3369,7 +3348,6 @@ Write out the 3 to 5 exact steps of your "Golden Path" onboarding flow.
 ✍️ Type your answer here...
 \`\`\`
 `,
-
   'informationarchitecture': `# Information Architecture (IA)
 
 **🕒 Estimated Time:** 60 min
@@ -3463,8 +3441,7 @@ Map out your exact URL structure for your core feature (e.g., /org/:orgId/projec
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`
-,
+`,
   'wireframes': `# Wireframes
 
 **🕒 Estimated Time:** 30-45 min
@@ -3853,8 +3830,7 @@ I am building a custom [INSERT COMPONENT, e.g., Combobox Dropdown / Date Picker]
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`
-,
+`,
   'techstackselection': `# Tech Stack Selection
 
 **🕒 Estimated Time:** 45-60 min
@@ -3899,7 +3875,7 @@ Choose tools that accelerate your path to revenue, not your learning curve.
 ---
 
 ## Examples
-- *Strong Stack (SaaS Standard):* Frontend: Next.js (React) + TailwindCSS. Backend: Supabase (PostgreSQL + Auth). Deployment: Vercel. 
+- *Strong Stack (SaaS Standard):* Frontend: Next.js (React) + TailwindCSS. Backend: Supabase (PostgreSQL + Auth). Deployment: Vercel.
 - *Weak Stack (Over-engineered):* Frontend: Custom Webpack + Vue. Backend: 5 Go Microservices communicating via Kafka. DB: MongoDB + Redis cache. Deployment: AWS EKS (Kubernetes).
 
 ---
@@ -3912,7 +3888,7 @@ My SaaS product is: [INSERT PHASE 0 ELEVATOR PITCH].
 The hardest technical challenge will be: [INSERT HARD CONSTRAINT].
 My proposed tech stack is: [INSERT FRONTEND, BACKEND, DB, HOSTING].
 
-Act as a cynical, highly-experienced Staff Engineer. 
+Act as a cynical, highly-experienced Staff Engineer.
 1. Roast this tech stack. What are the 3 biggest risks or bottlenecks I will face using these tools?
 2. Is there a "more boring" alternative that would let me ship 2x faster?
 3. What specific 3rd-party integration (e.g., Auth, Payments) will be the most painful to implement with this stack?
@@ -3964,7 +3940,7 @@ Separate your logic from your UI.
 ---
 
 ## Key Decisions
-- **Global vs. Server vs. Local State:** 
+- **Global vs. Server vs. Local State:**
   - *Local:* Component-specific (e.g., \`isOpen\` for a modal). Use \`useState\`.
   - *Server:* Data fetched from the DB (e.g., User Profile). Use a caching library like React Query or SWR. Do NOT put this in Redux.
   - *Global Client:* App-wide UI state (e.g., Dark Mode, Sidebar collapsed). Use a lightweight library like Zustand or React Context.
@@ -3973,7 +3949,7 @@ Separate your logic from your UI.
 ---
 
 ## Common Mistakes
-- **Putting Everything in Global State (Redux):** 
+- **Putting Everything in Global State (Redux):**
   - *Why it happens:* Following outdated tutorials from 2018.
   - *Consequence:* You write 40 lines of boilerplate just to toggle a checkbox, and your app's performance tanks due to unnecessary re-renders.
   - *Prevention:* Treat the server as the source of truth. Fetch and cache data at the component level using modern fetching hooks.
@@ -3999,7 +3975,7 @@ I am using [INSERT FRONTEND FRAMEWORK, e.g., Next.js / React+Vite].
 
 Act as a Principal Frontend Architect.
 1. Outline a highly scalable, feature-based folder structure for this specific project.
-2. Define the exact rules for what goes into Global State (e.g., Zustand) vs. Server Cache (e.g., React Query). 
+2. Define the exact rules for what goes into Global State (e.g., Zustand) vs. Server Cache (e.g., React Query).
 3. Write a boilerplate example of a custom React Hook that securely fetches data from my backend and handles loading/error states gracefully.
 \`\`\`
 
@@ -4048,7 +4024,7 @@ Model your core entities before writing API routes.
 ---
 
 ## Key Decisions
-- **REST vs. GraphQL vs. RPC:** 
+- **REST vs. GraphQL vs. RPC:**
   - *REST:* Standard, predictable, boring (Good).
   - *GraphQL:* Great for complex data graphs, but easy to introduce performance bottlenecks (N+1 queries).
   - *RPC (e.g., tRPC):* Incredible developer experience and end-to-end type safety, highly recommended if using a full-stack TypeScript environment.
@@ -4104,8 +4080,7 @@ Act as a Senior Database Architect.
 ## Deliverable
 **File Name:** \`schema.sql\` or \`schema.prisma\`
 **Purpose:** The mathematical definition of your application's data.
-**Contents:** The database tables, columns, data types, indexes, and relationship mappings.`
-,
+**Contents:** The database tables, columns, data types, indexes, and relationship mappings.`,
   'apidesign': `# API Design
 
 **🕒 Estimated Time:** 30-45 min
@@ -4221,7 +4196,7 @@ Determine how users want to access your system.
 - **Rolling Your Own Crypto:** Attempting to hash passwords and manually sign JWTs without using an established library.
   - *Consequence:* You will inevitably introduce a vulnerability (like timing attacks or weak salts) that compromises your entire user base.
   - *Prevention:* Always use a managed Auth provider or heavily audited libraries like NextAuth/Auth.js.
-- **Storing JWTs in LocalStorage:** 
+- **Storing JWTs in LocalStorage:**
   - *Consequence:* Cross-Site Scripting (XSS) attacks can easily steal the tokens and hijack user sessions.
   - *Prevention:* Store authentication tokens in \`HttpOnly\` secure cookies.
 
@@ -4308,7 +4283,7 @@ Map out your data boundaries.
 ---
 
 ## Examples
-- *Good AuthZ:* Using Supabase Row Level Security (RLS). An RLS policy is written: \`CREATE POLICY "Users can only view their own workspace data" ...\`. 
+- *Good AuthZ:* Using Supabase Row Level Security (RLS). An RLS policy is written: \`CREATE POLICY "Users can only view their own workspace data" ...\`.
 - *Bad AuthZ:* Trusting the \`workspace_id\` sent in the JSON body of a POST request instead of deriving it securely from the user's JWT server-side.
 
 ---
@@ -4389,7 +4364,7 @@ Draw the relationships before writing SQL.
 ---
 
 ## Examples
-- *Good Schema:* A \`projects\` table with a \`workspace_id\` foreign key. The \`workspace_id\` column has a B-Tree index. 
+- *Good Schema:* A \`projects\` table with a \`workspace_id\` foreign key. The \`workspace_id\` column has a B-Tree index.
 - *Bad Schema:* A \`workspaces\` table with a \`projects\` column that holds a giant comma-separated string of project IDs (\`"1,4,99"\`).
 
 ---
@@ -4454,8 +4429,8 @@ Determine the security requirements of your files.
 ---
 
 ## Key Decisions
-- **Object Storage Provider:** AWS S3 is the industry standard but has a complex API. Supabase Storage provides a massive developer-experience wrapper around S3. Cloudinary is unparalleled for image/video transformations (resizing on the fly). 
-- **Direct Uploads vs. Server Proxies:** 
+- **Object Storage Provider:** AWS S3 is the industry standard but has a complex API. Supabase Storage provides a massive developer-experience wrapper around S3. Cloudinary is unparalleled for image/video transformations (resizing on the fly).
+- **Direct Uploads vs. Server Proxies:**
   - *Server Proxy:* The user uploads the 10MB file to your Node API, which then uploads it to S3. This burns your server's memory and bandwidth.
   - *Direct Upload (Presigned URLs):* The user asks your API for a temporary permission ticket (Presigned URL), and uploads the file *directly* from their browser to S3. This is the only scalable way to handle large files.
 
@@ -4466,7 +4441,7 @@ Determine the security requirements of your files.
   - *Why it happens:* It seems easier to keep everything in one place.
   - *Consequence:* Your database size explodes, backups take hours, and query performance is destroyed.
   - *Prevention:* Store the file in an S3 Bucket, and only save the URL string (e.g., \`https://bucket.com/avatar.png\`) in the database.
-- **Forgetting File Size Limits:** 
+- **Forgetting File Size Limits:**
   - *Consequence:* A malicious user uploads a 50GB file and bankrupts your AWS account.
   - *Prevention:* Always enforce strict size limits and MIME-type validation both on the frontend and the backend/storage rules.
 
@@ -4509,8 +4484,7 @@ Act as a Cloud Infrastructure Architect.
 ## Deliverable
 **File Name:** \`upload_service.ts\`
 **Purpose:** A utility to handle secure file uploads without crashing the server.
-**Contents:** The API route for generating presigned URLs and the frontend helper function for executing the direct bucket upload.`
-,
+**Contents:** The API route for generating presigned URLs and the frontend helper function for executing the direct bucket upload.`,
   'thirdpartyintegrations': `# Third Party Integrations
 
 **🕒 Estimated Time:** 30 min
@@ -4544,7 +4518,7 @@ Identify what you must buy instead of build.
 ---
 
 ## Common Mistakes
-- **Hardcoding API Keys:** 
+- **Hardcoding API Keys:**
   - *Why it happens:* Pasting the secret key directly into the API route to test quickly.
   - *Consequence:* You accidentally push the code to GitHub, and bots scrape your AWS/Stripe keys, racking up a $50,000 bill in 12 hours.
   - *Prevention:* ALWAYS use \`.env\` files. Never commit \`.env\` to Git.
@@ -4714,7 +4688,7 @@ Visualize the flow of a user request.
 ---
 
 ## Examples
-- *Good Architecture (SaaS Standard):* 
+- *Good Architecture (SaaS Standard):*
   - Client: React UI
   - Hosting: Vercel (Serverless Functions)
   - DB/Auth: Supabase (Postgres)
@@ -4785,7 +4759,7 @@ Identify your most expensive resources.
 ---
 
 ## Key Decisions
-- **Fixed vs. Variable Costs:** 
+- **Fixed vs. Variable Costs:**
   - *Fixed (VPS/Containers):* You pay $20/mo for a server on DigitalOcean or Render, whether you have 0 users or 10,000. Costs are predictable.
   - *Variable (Serverless):* You pay per API request or per GB of bandwidth (Vercel/AWS Lambda). It costs $0 at launch, but if a video goes viral, you might wake up to a $5,000 bill.
 - **The "AI Token" Trap:** If you offer "Unlimited AI generations" for $10/mo, but GPT-4o costs you $0.05 per generation, a power user will make you lose money. You must implement strict usage caps or switch to a credit-based system.
@@ -4838,8 +4812,7 @@ Act as a Cloud FinOps Engineer.
 ## Deliverable
 **File Name:** \`cost_estimation.md\`
 **Purpose:** Ensure your business remains profitable.
-**Contents:** A documented breakdown of expected fixed and variable costs for 100 and 1,000 users, and the profit margin based on your pricing model.`
-,
+**Contents:** A documented breakdown of expected fixed and variable costs for 100 and 1,000 users, and the profit margin based on your pricing model.`,
   'auth': `# Auth (Implementation)
 
 **🕒 Estimated Time:** 60-120 min
@@ -4873,7 +4846,7 @@ Map out the exact user flow for logging in.
 ---
 
 ## Common Mistakes
-- **The Infinite Redirect Loop:** 
+- **The Infinite Redirect Loop:**
   - *Why it happens:* Your middleware redirects unauthenticated users to \`/login\`. But you accidentally applied the middleware to the \`/login\` page itself.
   - *Consequence:* The browser crashes with a "Too many redirects" error.
   - *Prevention:* Explicitly exclude public routes (\`/login\`, \`/signup\`, \`/api/webhook\`) from your auth middleware.
@@ -5005,7 +4978,7 @@ Act as a Backend Engineer.
 ---
 
 ## Overview
-Backend implementation is where you write the core business logic of your SaaS. This is where you connect the Authentication middleware to the Database schema via API Endpoints or Server Actions. Your backend must securely validate incoming data from the frontend, execute the required database queries (CRUD), and return clean, predictable responses. 
+Backend implementation is where you write the core business logic of your SaaS. This is where you connect the Authentication middleware to the Database schema via API Endpoints or Server Actions. Your backend must securely validate incoming data from the frontend, execute the required database queries (CRUD), and return clean, predictable responses.
 
 ---
 
@@ -5105,7 +5078,7 @@ Plan your component hierarchy.
 ---
 
 ## Key Decisions
-- **Optimistic UI vs. Pessimistic UI:** 
+- **Optimistic UI vs. Pessimistic UI:**
   - *Pessimistic (Standard):* User clicks "Like". App shows a spinner. API call succeeds. App updates UI to show the Like.
   - *Optimistic (Advanced):* User clicks "Like". App instantly updates UI to show the Like. API call happens in the background. If it fails, the UI reverts. Optimistic UI feels vastly faster but is harder to code.
 - **Data Fetching:** Do not use raw \`useEffect\` and \`fetch()\` to get data. Always use a dedicated data-fetching library like **React Query (TanStack Query)** or **SWR**. They handle caching, loading states, error retries, and background refetching automatically.
@@ -5158,8 +5131,7 @@ Act as a Principal Frontend Engineer.
 ## Deliverable
 **File Name:** \`/components\` and \`/pages\`
 **Purpose:** The visual, interactive layer of your SaaS.
-**Contents:** Reusable UI components, page layouts, data-fetching hooks, and routing logic.`
-,
+**Contents:** Reusable UI components, page layouts, data-fetching hooks, and routing logic.`,
   'payments': `# Payments (Implementation)
 
 **🕒 Estimated Time:** 90-120 min
@@ -5193,11 +5165,11 @@ Map out the exact path to revenue.
 ---
 
 ## Common Mistakes
-- **Failing to handle Idempotency:** 
+- **Failing to handle Idempotency:**
   - *Why it happens:* Stripe accidentally sends the same webhook twice due to a network retry.
   - *Consequence:* Your webhook handler processes it twice, giving the user 2 months of credit instead of 1.
   - *Prevention:* Always record the Stripe \`event_id\` in your database. If you receive a webhook with an \`event_id\` you've already seen, ignore it.
-- **Client-Side Paywalls:** Hiding the "Premium Feature" button in React, but forgetting to check the user's subscription status in the actual backend API route. 
+- **Client-Side Paywalls:** Hiding the "Premium Feature" button in React, but forgetting to check the user's subscription status in the actual backend API route.
 
 ---
 
@@ -5275,7 +5247,7 @@ Define the critical communication touchpoints.
 - **Using a "@gmail.com" Sender Address:**
   - *Consequence:* 100% of your transactional emails will go straight to the user's Spam folder.
   - *Prevention:* You must purchase a custom domain, verify it with your email provider, and set up DKIM/SPF DNS records.
-- **Hardcoding Email Templates in API Routes:** 
+- **Hardcoding Email Templates in API Routes:**
   - *Consequence:* Your backend files become 500 lines long and the emails are impossible to edit or preview.
   - *Prevention:* Keep email templates in a dedicated \`/emails\` directory.
 
@@ -5344,7 +5316,7 @@ Categorize your alerts.
 ---
 
 ## Key Decisions
-- **Real-time vs. Polling:** If User A comments on a doc, how does User B see it instantly? 
+- **Real-time vs. Polling:** If User A comments on a doc, how does User B see it instantly?
   - *WebSockets (Pusher/Supabase Realtime):* Instant, but complex to scale and maintain.
   - *Polling (SWR/React Query):* Fetching the \`/api/notifications\` endpoint every 15 seconds. Much easier to build, and usually "good enough" for an MVP unless you are building a chat app.
 - **Toast Libraries:** Never build your own Toast component. Use a highly polished, accessible library like **Sonner** or **React-Hot-Toast**.
@@ -5425,7 +5397,7 @@ Define the search scope.
 ---
 
 ## Key Decisions
-- **Database Search vs. Dedicated Search Engine:** 
+- **Database Search vs. Dedicated Search Engine:**
   - *PostgreSQL Full-Text Search:* Powerful, built-in, and requires zero extra infrastructure. Perfect for SaaS MVPs.
   - *Algolia / Typesense:* Incredibly fast and handles typos (fuzzy search) beautifully, but requires you to write complex sync logic to keep it updated with your main database.
 - **Client-Side vs. Server-Side:** Never fetch all 10,000 rows to the frontend and use \`Array.filter()\` to search. Always send the search query to the backend and let the database do the heavy lifting.
@@ -5557,8 +5529,7 @@ Act as a Product Data Analyst.
 ## Deliverable
 **File Name:** \`analytics.ts\`
 **Purpose:** Provide visibility into how users interact with your business.
-**Contents:** The initialization code, the \`identify\` logic, and the event tracking wrappers.`
-,
+**Contents:** The initialization code, the \`identify\` logic, and the event tracking wrappers.`,
   'adminpanel': `# Admin Panel (Implementation)
 
 **🕒 Estimated Time:** 60-90 min
@@ -5566,7 +5537,7 @@ Act as a Product Data Analyst.
 ---
 
 ## Overview
-Once your SaaS is live, you need a way to manage it. You will need to refund users, ban spammers, manually trigger syncs, and view high-level metrics. Without an Admin Panel, you will be forced to manually edit raw database tables to resolve customer support tickets—a highly dangerous practice. 
+Once your SaaS is live, you need a way to manage it. You will need to refund users, ban spammers, manually trigger syncs, and view high-level metrics. Without an Admin Panel, you will be forced to manually edit raw database tables to resolve customer support tickets—a highly dangerous practice.
 
 ---
 
@@ -5586,7 +5557,7 @@ Define your operational requirements.
 ---
 
 ## Key Decisions
-- **Build from scratch vs. 3rd Party Tools:** 
+- **Build from scratch vs. 3rd Party Tools:**
   - *No-Code (Retool):* Incredible for building admin panels rapidly by dragging and dropping UI components over your database.
   - *BaaS UI (Supabase Studio):* If you use Supabase, the built-in Studio UI is often enough for an MVP.
   - *Custom Build:* Building a \`/admin\` route in your Next.js app gives you ultimate control but takes time away from building the core product.
@@ -5667,7 +5638,7 @@ Understand the data flow.
 ---
 
 ## Key Decisions
-- **OAuth 2.0 vs. API Keys:** 
+- **OAuth 2.0 vs. API Keys:**
   - *API Keys:* The user copies a key from the external platform and pastes it into your SaaS. Easy to build, but a terrible user experience and highly insecure.
   - *OAuth 2.0:* The user clicks "Connect to Slack", logs in on Slack's website, and Slack securely sends you a token. Much harder to build, but the industry standard for a reason.
 - **Handling Rate Limits:** External APIs will block you if you send too many requests. You must implement **Exponential Backoff** (if a request fails, wait 1 second, then 2, then 4) instead of aggressively retrying and getting your app permanently banned.
@@ -5748,7 +5719,7 @@ Identify the critical paths.
 ---
 
 ## Key Decisions
-- **E2E (End-to-End) vs. Unit Tests:** 
+- **E2E (End-to-End) vs. Unit Tests:**
   - *Unit Tests (Jest):* Tests individual functions (e.g., does \`calculateTax(10)\` return \`1.5\`?). Great for complex logic, but terrible for UI.
   - *E2E Tests (Playwright):* Spins up a real browser, clicks buttons, and verifies the screen. **Always prioritize E2E tests for MVPs.** If the "Login" button works in a real browser, you know the frontend, backend, and DB are all functioning together.
 - **CI/CD Integration:** Tests are useless if you don't run them. Configure GitHub Actions to automatically run your Playwright tests every time you push code to \`main\`. If the tests fail, the deployment is blocked.
@@ -5880,8 +5851,7 @@ Act as an Expert Technical Writer.
 ## Deliverable
 **File Name:** \`README.md\` and \`/docs\` folder
 **Purpose:** Educate users and developers to reduce support burden.
-**Contents:** Markdown files containing tutorials, API references, and architecture notes.`
-,
+**Contents:** Markdown files containing tutorials, API references, and architecture notes.`,
   'demodata': `# Demo Data
 
 **🕒 Estimated Time:** 45-60 min
@@ -5922,7 +5892,7 @@ Define the "Aha!" moment.
   - *Why it happens:* Developers get lazy when testing forms.
   - *Consequence:* An investor or customer looks at a table full of "Test User" and assumes the product is broken, amateurish, or not ready for production.
   - *Prevention:* Always use contextually relevant, realistic dummy data.
-- **Static Timestamps:** Generating 500 rows of data where \`created_at\` is the exact same second. Your analytics charts will show a massive spike on one day and zero activity everywhere else. 
+- **Static Timestamps:** Generating 500 rows of data where \`created_at\` is the exact same second. Your analytics charts will show a massive spike on one day and zero activity everywhere else.
 
 ---
 
@@ -5993,7 +5963,7 @@ Understand your audience.
 ## Key Decisions
 - **Live Demo vs. Pre-Recorded Video:**
   - *Live Demo:* Highly engaging, but risky. Live demos have a mystical ability to crash due to network errors or edge cases.
-  - *Pre-Recorded:* Safe, polished, and allows you to edit out load times. 
+  - *Pre-Recorded:* Safe, polished, and allows you to edit out load times.
   - *Decision:* ALWAYS have a pre-recorded Loom video ready. If doing a live pitch, attempt the live demo, but switch to the video the second something goes wrong.
 - **The Pitch Structure:** Never start by explaining the tech stack or how you built it. Start with the **Problem** (make it hurt), introduce the **Solution** (your app), and end with **Traction** (why you will win).
 
@@ -6045,8 +6015,7 @@ Act as a Y Combinator Pitch Coach.
 ## Deliverable
 **File Name:** \`pitch_script.md\`
 **Purpose:** Convert viewers into users or investors.
-**Contents:** The timed script and the recorded Loom video link.`
-,
+**Contents:** The timed script and the recorded Loom video link.`,
   'security': `# Security
 
 **🕒 Estimated Time:** 60-90 min
@@ -6454,8 +6423,7 @@ Act as a Site Reliability Engineer.
 ## Deliverable
 **File Name:** \`sentry.config.ts\` and CI/CD source map upload step
 **Purpose:** Detect, diagnose, and resolve production errors before users report them.
-**Contents:** The Sentry initialization, the user context attachment, and the CI/CD integration.`
-,
+**Contents:** The Sentry initialization, the user context attachment, and the CI/CD integration.`,
   'ratelimiting': `# Rate Limiting
 
 **🕒 Estimated Time:** 30-45 min
@@ -6777,8 +6745,7 @@ Act as a DevOps Engineer.
 ## Deliverable
 **File Name:** \`.github/workflows/ci.yml\`
 **Purpose:** Automate quality gates and eliminate manual deployments.
-**Contents:** The complete GitHub Actions workflow and the branch protection configuration.`
-,
+**Contents:** The complete GitHub Actions workflow and the branch protection configuration.`,
   'infrastructure': `# Infrastructure
 
 **🕒 Estimated Time:** 45-60 min
@@ -6807,7 +6774,7 @@ Define your operational tolerance.
 
 ## Key Decisions
 - **Serverless vs. Containers vs. VPS:**
-  - *Serverless (Vercel, AWS Lambda):* Zero server management. Scales to zero (costs \$0 when nobody is using it). Perfect for SaaS MVPs. Downside: cold starts, execution time limits, and vendor lock-in.
+  - *Serverless (Vercel, AWS Lambda):* Zero server management. Scales to zero (costs $0 when nobody is using it). Perfect for SaaS MVPs. Downside: cold starts, execution time limits, and vendor lock-in.
   - *Containers (Docker on Render, Railway, Fly.io):* You package your app into a Docker container that runs continuously. Predictable performance, no cold starts, but you pay even when idle.
   - *VPS (DigitalOcean Droplet, Hetzner):* You rent a raw Linux server and manage everything yourself. Maximum control, minimum cost, maximum operational burden.
   - *Decision:* If you have zero DevOps experience, start with Serverless (Vercel). If you need long-running processes (WebSockets, cron jobs), use Containers (Render/Railway).
@@ -6825,7 +6792,7 @@ Define your operational tolerance.
 ---
 
 ## Examples
-- *Good Implementation:* Frontend and API deployed on Vercel (zero config). Database on Supabase (managed Postgres). Background jobs on a single Render worker. Total monthly cost at launch: \$0-\$25.
+- *Good Implementation:* Frontend and API deployed on Vercel (zero config). Database on Supabase (managed Postgres). Background jobs on a single Render worker. Total monthly cost at launch: $0-$25.
 - *Bad Implementation:* Renting 3 bare-metal servers, manually installing Nginx, configuring SSL with Let's Encrypt, writing custom systemd services, and SSHing into production to deploy via \`git pull\`.
 
 ---
@@ -6834,7 +6801,7 @@ Define your operational tolerance.
 \`\`\`prompt
 My SaaS is built with [INSERT STACK, e.g., Next.js, Supabase].
 My expected traffic at launch is [INSERT ESTIMATE, e.g., 100-500 users/day].
-My budget for infrastructure is [INSERT BUDGET, e.g., \$0-\$50/month].
+My budget for infrastructure is [INSERT BUDGET, e.g., $0-$50/month].
 
 Act as a Cloud Infrastructure Architect.
 1. Recommend the exact hosting platform for my frontend, backend, and database.
@@ -6981,7 +6948,7 @@ Identify where you will break.
 ## Common Mistakes
 - **Premature Scaling:**
   - *Why it happens:* Fear of success. "What if we go viral tomorrow?"
-  - *Consequence:* You spend \$500/month on a Kubernetes cluster, a Redis cache, and 3 read replicas for an app with 12 users. Your runway burns 10x faster.
+  - *Consequence:* You spend $500/month on a Kubernetes cluster, a Redis cache, and 3 read replicas for an app with 12 users. Your runway burns 10x faster.
   - *Prevention:* Scale reactively based on metrics, not proactively based on anxiety. Set up monitoring alerts, and only scale when they fire.
 - **Ignoring the Database:** Adding 5 more API servers while the single PostgreSQL instance is at 95% CPU. The API servers just send more traffic to the already-dying database.
 
@@ -7025,8 +6992,7 @@ Act as a Principal Systems Architect planning for growth.
 ## Deliverable
 **File Name:** \`scale_plan.md\`
 **Purpose:** Grow without breaking.
-**Contents:** A milestone-based plan mapping user counts to specific infrastructure upgrades, with estimated costs and the metrics that trigger each upgrade.`
-,
+**Contents:** A milestone-based plan mapping user counts to specific infrastructure upgrades, with estimated costs and the metrics that trigger each upgrade.`,
   'privacypolicy': `# Privacy Policy
 
 **🕒 Estimated Time:** 60-90 min
@@ -7054,8 +7020,8 @@ Map your data flow.
 ---
 
 ## Key Decisions
-- **Lawyer vs. Generator:** 
-  - *Lawyer:* Expensive (\$1k+), but bulletproof and tailored to your specific business model. Highly recommended if you are handling HIPAA (medical) or fintech data.
+- **Lawyer vs. Generator:**
+  - *Lawyer:* Expensive ($1k+), but bulletproof and tailored to your specific business model. Highly recommended if you are handling HIPAA (medical) or fintech data.
   - *Generator (Termly / Iubenda):* Cheap/Free, highly reliable for standard SaaS MVPs. They ask you a series of questions and output a compliant policy.
   - *Decision:* For a standard SaaS MVP, use a reputable generator like Termly. Never write it yourself from scratch.
 - **Cookie Consent:** If you use analytics (like Google Analytics or PostHog), you generally need a cookie consent banner for European users to comply with GDPR.
@@ -7135,7 +7101,7 @@ Protect your downside.
 ---
 
 ## Key Decisions
-- **Limitation of Liability:** You MUST cap the amount of money a user can sue you for. The industry standard for SaaS is capping liability to "the amount the user paid you in the 12 months preceding the claim." Without this, a \$10/mo user could sue you for \$1,000,000 in damages.
+- **Limitation of Liability:** You MUST cap the amount of money a user can sue you for. The industry standard for SaaS is capping liability to "the amount the user paid you in the 12 months preceding the claim." Without this, a $10/mo user could sue you for $1,000,000 in damages.
 - **"AS IS" Clause:** Software has bugs. Your ToS must state that the service is provided "AS IS" and "AS AVAILABLE," explicitly disclaiming any warranties of 100% uptime or fitness for a particular purpose.
 
 ---
@@ -7357,7 +7323,7 @@ Act as a strict Release Manager.
 ---
 
 ## Overview
-SEO is how you acquire customers for free over the long term. While paying for ads works immediately, SEO compounds. For a SaaS, there are two types of SEO: **Technical SEO** (ensuring Google can read your site, your meta tags look good on Twitter, and your sitemaps are submitted) and **Programmatic/Content SEO** (generating hundreds of landing pages targeting specific long-tail keywords your [ICP](#icpidealcustomerprofile) is searching for). 
+SEO is how you acquire customers for free over the long term. While paying for ads works immediately, SEO compounds. For a SaaS, there are two types of SEO: **Technical SEO** (ensuring Google can read your site, your meta tags look good on Twitter, and your sitemaps are submitted) and **Programmatic/Content SEO** (generating hundreds of landing pages targeting specific long-tail keywords your [ICP](#icpidealcustomerprofile) is searching for).
 
 ---
 
@@ -7383,7 +7349,7 @@ Define your entry points.
 ---
 
 ## Common Mistakes
-- **Ignoring OpenGraph Tags:** 
+- **Ignoring OpenGraph Tags:**
   - *Why it happens:* You focus only on Google Search Console.
   - *Consequence:* When a user shares your link in a Slack channel, iMessage, or Twitter, it shows up as a blank gray square with no title. Nobody clicks it.
   - *Prevention:* Always generate \`og:image\`, \`og:title\`, and \`twitter:card\` meta tags.
@@ -7465,7 +7431,7 @@ Identify the 3 critical events you must track on Day 1.
 ---
 
 ## Common Mistakes
-- **Tracking Everything (Event Bloat):** 
+- **Tracking Everything (Event Bloat):**
   - *Why it happens:* You use auto-capture tools and track every single mouse movement.
   - *Consequence:* Your dashboard is filled with 10,000 useless events. You can't find the signal in the noise.
   - *Prevention:* Explicitly manually track only 3-5 core events (Signup, Upgrade, Core Action).
@@ -7518,7 +7484,7 @@ Act as a Head of Data.
 ---
 
 ## Overview
-A SaaS business is a real business. If a user uploads illegal content to your platform, or your software has a bug that costs a B2B client \$10,000, you can be sued. The purpose of legal structure is to build a "firewall" between the business's liabilities and your personal assets (your house, your savings). 
+A SaaS business is a real business. If a user uploads illegal content to your platform, or your software has a bug that costs a B2B client $10,000, you can be sued. The purpose of legal structure is to build a "firewall" between the business's liabilities and your personal assets (your house, your savings).
 
 ---
 
@@ -7546,7 +7512,7 @@ Assess your risk profile.
 ---
 
 ## Common Mistakes
-- **Launching as a Sole Proprietorship:** 
+- **Launching as a Sole Proprietorship:**
   - *Why it happens:* You think your app is just a "side project."
   - *Consequence:* You have zero legal protection. If you get sued, they can take your personal assets.
   - *Prevention:* Incorporate an LLC before accepting a single dollar from a customer.
@@ -7621,7 +7587,7 @@ Understand what you are actually tracking.
 ---
 
 ## Key Decisions
-- **Essential vs. Non-Essential Cookies:** 
+- **Essential vs. Non-Essential Cookies:**
   - *Essential:* Cookies used strictly for authentication (keeping the user logged in) or security. **You do NOT need consent for these.**
   - *Non-Essential:* Analytics, advertising pixels, cross-site trackers. **You MUST get explicit consent before firing these in the EU.**
 - **To Banner or Not to Banner:** The easiest way to avoid writing a complex cookie banner is to simply *not use non-essential cookies*. If you use a privacy-friendly analytics tool (like Plausible) and don't run retargeting ads, you can completely skip the annoying cookie banner.
@@ -7629,7 +7595,7 @@ Understand what you are actually tracking.
 ---
 
 ## Common Mistakes
-- **The "Fake" Cookie Banner:** 
+- **The "Fake" Cookie Banner:**
   - *Why it happens:* You download a UI component that says "We use cookies! [Accept]", but Google Analytics fires in the background before the user even clicks the button.
   - *Consequence:* This is entirely illegal under GDPR. Consent must be *prior* to tracking.
   - *Prevention:* Your code must physically block the execution of tracking scripts until the \`has_consented\` state is true.
@@ -7683,7 +7649,7 @@ Write your Cookie Strategy below. Will you use a CMP, or will you use privacy-fi
 ---
 
 ## Overview
-When you launch, things will break. Users will be confused. Payments will fail. How you handle these first few support tickets determines whether those early adopters become your biggest evangelists or your loudest haters. In the early days, "doing things that don't scale" (like jumping on a 15-minute Zoom call to fix a bug for a \$10/mo user) is your ultimate competitive advantage against massive, slow corporations.
+When you launch, things will break. Users will be confused. Payments will fail. How you handle these first few support tickets determines whether those early adopters become your biggest evangelists or your loudest haters. In the early days, "doing things that don't scale" (like jumping on a 15-minute Zoom call to fix a bug for a $10/mo user) is your ultimate competitive advantage against massive, slow corporations.
 
 ---
 
@@ -7712,7 +7678,7 @@ Establish your support channels.
 ---
 
 ## Common Mistakes
-- **The "Black Hole" Support Form:** 
+- **The "Black Hole" Support Form:**
   - *Why it happens:* You build a simple HTML form that sends an email to your personal inbox, but you forget to set up an auto-responder.
   - *Consequence:* The user submits a bug and has no idea if you received it. They get angry and churn.
   - *Prevention:* Always use a tool (like Zendesk, HelpScout, or simple Resend logic) to send an immediate automated reply: "We received this, we will reply in X hours."
@@ -7768,7 +7734,7 @@ Define your primary support channel and your commitment to reply times below.
 ---
 
 ## Overview
-Acquisition gets users in the door; retention determines if you actually have a business. If it costs you \$50 to acquire a user, but they churn after paying you \$10, your SaaS will bleed to death. High retention proves you have achieved Product-Market Fit. Your goal is to maximize the lifetime value (LTV) of every user by keeping them engaged, successful, and continually paying.
+Acquisition gets users in the door; retention determines if you actually have a business. If it costs you $50 to acquire a user, but they churn after paying you $10, your SaaS will bleed to death. High retention proves you have achieved Product-Market Fit. Your goal is to maximize the lifetime value (LTV) of every user by keeping them engaged, successful, and continually paying.
 
 ---
 
@@ -7789,12 +7755,12 @@ Diagnose your current leaks.
 
 ## Key Decisions
 - **Onboarding vs. Ongoing Value:** The highest ROI you can get on retention is fixing your Day 1 Onboarding. If a user doesn't experience the "Aha!" moment in the first 5 minutes, they will never log in again.
-- **Re-engagement Loops:** SaaS apps naturally fade into the background. You must build systems to pull users back in. This could be a weekly email summary ("Your team saved 4 hours this week!"), push notifications, or Slack bot alerts. 
+- **Re-engagement Loops:** SaaS apps naturally fade into the background. You must build systems to pull users back in. This could be a weekly email summary ("Your team saved 4 hours this week!"), push notifications, or Slack bot alerts.
 
 ---
 
 ## Common Mistakes
-- **Hiding the Cancel Button:** 
+- **Hiding the Cancel Button:**
   - *Why it happens:* You think making it hard to cancel will save revenue.
   - *Consequence:* Angry users issue credit card chargebacks. Your Stripe account gets banned for high fraud rates, instantly killing your entire business.
   - *Prevention:* Make cancellation 1-click. Use the cancellation flow to ask a multiple-choice question on *why* they are leaving.
@@ -7849,7 +7815,7 @@ Define the single biggest bottleneck in your retention funnel right now, and one
 ---
 
 ## Overview
-You are not your user. The features you think are brilliant might be completely ignored, while a tiny bug you deemed "low priority" might be infuriating your paying customers. Establishing a tight feedback loop ensures you are building the right product, not just a cool piece of software. 
+You are not your user. The features you think are brilliant might be completely ignored, while a tiny bug you deemed "low priority" might be infuriating your paying customers. Establishing a tight feedback loop ensures you are building the right product, not just a cool piece of software.
 
 ---
 
@@ -7869,7 +7835,7 @@ Identify who you are listening to.
 ---
 
 ## Key Decisions
-- **Qualitative vs. Quantitative:** 
+- **Qualitative vs. Quantitative:**
   - *Quantitative (Data):* Analytics tools tell you *what* users are doing (e.g., "50% of users drop off on page 2").
   - *Qualitative (Feedback):* Interviews and surveys tell you *why* they are doing it (e.g., "I dropped off because the credit card form looked sketchy"). You need both.
 - **Public Roadmaps vs. Direct Interviews:** Public voting boards (like Canny) are great for volume, but often lead to the "Homer Simpson Car"—a bloated mess of requested features. Direct 1-on-1 Zoom interviews are 10x more valuable for finding the root cause of a problem.
@@ -7877,7 +7843,7 @@ Identify who you are listening to.
 ---
 
 ## Common Mistakes
-- **Building Exactly What They Ask For:** 
+- **Building Exactly What They Ask For:**
   - *Why it happens:* A user says "I need an export to Excel button."
   - *Consequence:* You build the button. But what they actually wanted was a way to share data with their boss, which would have been better solved with a "Share View" link.
   - *Prevention:* When a user asks for a feature, ask "Why?" 3 times until you uncover the actual underlying problem.
@@ -7951,15 +7917,15 @@ Identify your current breaking points.
 ---
 
 ## Key Decisions
-- **Vertical vs. Horizontal Scaling:** 
-  - *Vertical (Scaling Up):* Buying a bigger server with more RAM and CPU. It's the easiest and fastest way to fix performance problems in the early days. Don't over-engineer; just pay \$40/mo for a bigger Postgres instance.
+- **Vertical vs. Horizontal Scaling:**
+  - *Vertical (Scaling Up):* Buying a bigger server with more RAM and CPU. It's the easiest and fastest way to fix performance problems in the early days. Don't over-engineer; just pay $40/mo for a bigger Postgres instance.
   - *Horizontal (Scaling Out):* Adding more servers behind a load balancer, or using read-replicas. This is complex and should be delayed until vertical scaling is no longer economically viable.
 - **Automating the Human Bottlenecks:** Scaling isn't just about servers. If you spend 2 hours a day answering the same support ticket, you are the bottleneck. Build an FAQ, write a script, or automate the flow.
 
 ---
 
 ## Common Mistakes
-- **Premature Optimization:** 
+- **Premature Optimization:**
   - *Why it happens:* You read an article about how Netflix uses Kubernetes and microservices, so you try to rebuild your MVP with a massive distributed architecture.
   - *Consequence:* Your feature velocity drops to zero. You spend 3 weeks configuring Docker instead of building features.
   - *Prevention:* Stick to a majestic monolith (e.g., Next.js + Postgres) until you physically cannot scale it anymore. 99% of startups never reach the scale where microservices are required.
@@ -7968,7 +7934,7 @@ Identify your current breaking points.
 ---
 
 ## Examples
-- *Good Implementation:* Your dashboard is slow. You look at the slow query logs, realize you are missing an index on \`user_id\`, add it, and the query drops from 2000ms to 5ms. 
+- *Good Implementation:* Your dashboard is slow. You look at the slow query logs, realize you are missing an index on \`user_id\`, add it, and the query drops from 2000ms to 5ms.
 - *Bad Implementation:* Your dashboard is slow. You decide to rewrite the entire backend in Rust and migrate from Postgres to MongoDB to "handle web scale."
 
 ---
@@ -8035,7 +8001,7 @@ Identify your channels.
 ---
 
 ## Key Decisions
-- **Inbound vs. Outbound:** 
+- **Inbound vs. Outbound:**
   - *Inbound (Content/SEO/Social):* Creating valuable content that draws people to you. High effort upfront, but compounds massively over time. (Great for low-cost SaaS).
   - *Outbound (Cold Email/Cold DMs):* Reaching out directly to prospects. Uncomfortable, but generates immediate feedback and revenue. (Mandatory for high-ticket B2B SaaS).
 - **The "One Channel" Rule:** The fastest way to fail at marketing is to try doing Twitter, LinkedIn, SEO, TikTok, and Cold Email all at the same time. Pick exactly **one channel** where your audience lives, and master it before moving to the next.
@@ -8043,7 +8009,7 @@ Identify your channels.
 ---
 
 ## Common Mistakes
-- **Selling Features, Not Outcomes:** 
+- **Selling Features, Not Outcomes:**
   - *Why it happens:* You are a developer, so you are proud of your React Server Components and your Redis caching layer.
   - *Consequence:* You write a landing page that says "Built with Edge Compute." The customer doesn't care. They leave.
   - *Prevention:* The customer only cares about what the software does for *them*. Instead of "AI Powered", say "Write your weekly newsletter in 3 minutes."
@@ -8053,7 +8019,7 @@ Identify your channels.
 
 ## Examples
 - *Good Implementation:* Your app helps real estate agents format listings. You use a scraping tool to find the emails of 1,000 real estate agents, and you send a highly personalized cold email offering to format their next listing for free.
-- *Bad Implementation:* Running \$500 of generic Facebook ads pointing to your homepage with no specific call to action.
+- *Bad Implementation:* Running $500 of generic Facebook ads pointing to your homepage with no specific call to action.
 
 ---
 
@@ -8108,7 +8074,7 @@ The holy grail of SaaS growth is "Viral loops." If every user who signs up bring
 ## Think First
 Identify the incentive.
 
-**What can you give the Referrer to make them want to share? (e.g., \$10 credit, 1 month free, premium features unlocked)**
+**What can you give the Referrer to make them want to share? (e.g., $10 credit, 1 month free, premium features unlocked)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
@@ -8121,25 +8087,25 @@ Identify the incentive.
 ---
 
 ## Key Decisions
-- **One-Sided vs. Double-Sided Rewards:** 
+- **One-Sided vs. Double-Sided Rewards:**
   - *One-Sided:* Only the person referring gets a reward. (Often feels spammy, like an MLM).
-  - *Double-Sided:* "Give \$10, Get \$10." The referrer gets a reward, AND the person they invite gets a discount. This is the gold standard because it makes the referrer look generous, removing the social friction of sharing a link.
+  - *Double-Sided:* "Give $10, Get $10." The referrer gets a reward, AND the person they invite gets a discount. This is the gold standard because it makes the referrer look generous, removing the social friction of sharing a link.
 - **Financial vs. Utility Rewards:** You don't always have to give away money. Dropbox famously gave away *storage space* (utility) for referrals. If your app has usage limits (e.g., "5 AI generations per day"), offer "50 extra generations" for every successful referral. Utility rewards are often cheaper for you and more valuable to the user.
 
 ---
 
 ## Common Mistakes
-- **Hiding the Referral Program:** 
+- **Hiding the Referral Program:**
   - *Why it happens:* You build a great referral system but bury it in the settings menu under "Billing."
   - *Consequence:* Nobody uses it because nobody knows it exists.
   - *Prevention:* Trigger a popup offering the referral program *immediately* after the user experiences the "Aha!" moment (e.g., right after they successfully export their first video).
-- **Over-complicating the Payouts:** Forcing users to hit a \$50 minimum threshold before they can withdraw affiliate cash. Just apply it automatically as account credit to their next invoice.
+- **Over-complicating the Payouts:** Forcing users to hit a $50 minimum threshold before they can withdraw affiliate cash. Just apply it automatically as account credit to their next invoice.
 
 ---
 
 ## Examples
 - *Good Implementation:* An AI writing tool limits free users to 10,000 words. After hitting the limit, a modal appears: "Want 10,000 more words for free? Share this link with a friend. You both get 10,000 words when they sign up."
-- *Bad Implementation:* Asking users to share a link to their Twitter feed for a 5% discount on a \$10/mo plan. The reward is not worth the social cost of spamming their friends.
+- *Bad Implementation:* Asking users to share a link to their Twitter feed for a 5% discount on a $10/mo plan. The reward is not worth the social cost of spamming their friends.
 
 ---
 
@@ -8205,7 +8171,7 @@ Categorize your upcoming work.
 ---
 
 ## Key Decisions
-- **Timeline vs. Theme Based:** 
+- **Timeline vs. Theme Based:**
   - *Timeline (Q1, Q2, Q3):* Traditional, but dangerous. If you promise a feature in Q1 and miss the deadline, users get angry.
   - *Theme/Status Based (Now, Next, Later):* The modern SaaS standard. It shows users what you are working on currently ("Now"), what is up next ("Next"), and what is on the horizon ("Later"), without committing to rigid, stressful deadlines.
 - **Public vs. Private:** A public roadmap (using a tool like Linear or Canny) allows users to upvote features, giving you free market research. However, if you are in a highly competitive, easily-cloned market, keep it private to prevent competitors from front-running your ideas.
@@ -8213,7 +8179,7 @@ Categorize your upcoming work.
 ---
 
 ## Common Mistakes
-- **The "Yes" Trap:** 
+- **The "Yes" Trap:**
   - *Why it happens:* A big potential client says, "We will sign the contract if you add this one highly specific integration to the roadmap."
   - *Consequence:* You put it on the roadmap. Then another client asks for something else. Soon, your roadmap is a chaotic list of custom agency work, and the core product suffers.
   - *Prevention:* Only put features on the roadmap that benefit the *majority* of your ICP, using the [RICE Framework](#featureprioritization).
@@ -8222,7 +8188,7 @@ Categorize your upcoming work.
 ---
 
 ## Examples
-- *Good Implementation:* A simple Kanban board embedded in your app. "Now: Stripe Integration, Dark Mode. Next: Team Workspaces. Later: AI Autocomplete." 
+- *Good Implementation:* A simple Kanban board embedded in your app. "Now: Stripe Integration, Dark Mode. Next: Team Workspaces. Later: AI Autocomplete."
 - *Bad Implementation:* A highly detailed Gantt chart predicting exactly what you will be coding on November 14th of next year.
 
 ---
@@ -8289,14 +8255,14 @@ Identify the interest payments.
 
 ## Key Decisions
 - **The 20% Rule:** You cannot pause product development for 3 months to "rewrite the app." Your competitors will crush you. Instead, dedicate a strict 20% of every sprint (or 1 day a week) exclusively to paying down technical debt, upgrading packages, and writing tests.
-- **Refactor vs. Rewrite:** 
+- **Refactor vs. Rewrite:**
   - *Refactor:* Improving the internal structure of the code without changing its external behavior. (Do this constantly).
   - *Rewrite:* Throwing the code away and starting over in a new framework. (Avoid this at all costs. It is almost always a trap that kills startups).
 
 ---
 
 ## Common Mistakes
-- **Ignoring the Boy Scout Rule:** 
+- **Ignoring the Boy Scout Rule:**
   - *Why it happens:* You are in a rush to ship a feature, so you add messy code to an already messy file.
   - *Consequence:* The file becomes a 3,000-line unmaintainable monster.
   - *Prevention:* The Boy Scout Rule: "Always leave the campground cleaner than you found it." If you are adding a feature to a file, take 10 extra minutes to clean up the function you are touching.
@@ -8377,7 +8343,7 @@ Distill your narrative.
 ---
 
 ## Common Mistakes
-- **The "Wall of Text" Slide:** 
+- **The "Wall of Text" Slide:**
   - *Why it happens:* You are nervous you will forget what to say, so you write your entire script on the slide.
   - *Consequence:* The audience reads the slide instead of listening to you. They finish reading before you finish talking, and then they get bored.
   - *Prevention:* Slides should be strictly visual. Use large icons, single metrics (e.g., "40% Time Saved"), and high-contrast imagery. Your voice provides the context.
@@ -8386,7 +8352,7 @@ Distill your narrative.
 ---
 
 ## Examples
-- *Good Implementation:* Slide 1: The Problem (A stark, emotional statistic). Slide 2: The Solution (A 1-sentence value proposition). Slide 3: The Demo (A 60-second video). Slide 4: The Market/Traction. Slide 5: The Team. 
+- *Good Implementation:* Slide 1: The Problem (A stark, emotional statistic). Slide 2: The Solution (A 1-sentence value proposition). Slide 3: The Demo (A 60-second video). Slide 4: The Market/Traction. Slide 5: The Team.
 - *Bad Implementation:* A 25-slide deck where 14 slides are complex UML diagrams of your backend architecture.
 
 ---
@@ -8453,7 +8419,7 @@ Identify the "Aha!" moment.
 ---
 
 ## Key Decisions
-- **Live Demo vs. Recorded Video:** 
+- **Live Demo vs. Recorded Video:**
   - *Live Demo:* Highly authentic, builds massive trust, but carries the risk of a fatal crash or slow Wi-Fi.
   - *Recorded Video:* Zero risk of crashing, allows you to edit out loading times. If you have 3 minutes to pitch on a stage, **always use a pre-recorded video** and talk over it. The risk of the Wi-Fi failing is too high.
 - **Story-Driven vs. Feature-Driven:** Do not say "Here is the login page. Now I will click the dropdown. Here is the settings page." Instead, invent a character: "Meet Sarah. Sarah is a stressed founder. Watch how Sarah uses our app to save 5 hours..."
@@ -8461,7 +8427,7 @@ Identify the "Aha!" moment.
 ---
 
 ## Common Mistakes
-- **Showing the "Boring" Stuff:** 
+- **Showing the "Boring" Stuff:**
   - *Why it happens:* You spent 3 weeks building a robust JWT authentication system and a beautiful settings page, so you want to show it off.
   - *Consequence:* You waste 45 seconds of your 3-minute demo logging in and resetting a password while the judges fall asleep.
   - *Prevention:* Start the demo already logged in. Start directly on the dashboard. Cut straight to the value.
@@ -8470,7 +8436,7 @@ Identify the "Aha!" moment.
 ---
 
 ## Examples
-- *Good Implementation:* "Our app turns text into podcasts. Let's start. I paste an article here. I click 'Generate'. While that runs in the background, let me tell you about our market size... And it's done! Let's listen." 
+- *Good Implementation:* "Our app turns text into podcasts. Let's start. I paste an article here. I click 'Generate'. While that runs in the background, let me tell you about our market size... And it's done! Let's listen."
 - *Bad Implementation:* "Okay, let me type in a dummy email to sign up... oops, password must be 8 characters... let me try again... okay, now I have to check my email for the verification link..."
 
 ---
@@ -8485,7 +8451,7 @@ I have exactly [INSERT TIME, e.g., 90 seconds] to do a live demo.
 
 Act as a Broadway Director.
 Write a strict, second-by-second script for my demo.
-Divide the script into two columns: 
+Divide the script into two columns:
 1. "Action" (Exactly what I should click on screen).
 2. "Voiceover" (Exactly what I should say while clicking it).
 Ensure the demo skips all boring setup steps and gets to the Magic Moment before the 45-second mark.
@@ -8545,7 +8511,7 @@ Review your critical links.
 ---
 
 ## Common Mistakes
-- **Private Repositories / Broken Links:** 
+- **Private Repositories / Broken Links:**
   - *Why it happens:* You are rushing at the 11th hour to submit.
   - *Consequence:* You submit a link to a private GitHub repo, or an unlisted YouTube video that is actually set to "Private". The judges give you a score of 0 because they can't see your work.
   - *Prevention:* Send your submission links to a friend on Discord/Slack and ask them to open it in an Incognito window to verify access.
@@ -8721,7 +8687,7 @@ Analyze the problem you are solving in the context of a mobile user:
 Use AI to sharpen your problem statement and ensure it justifies a mobile application.
 
 \`\`\`prompt
-Act as a strict Mobile App Investor. 
+Act as a strict Mobile App Investor.
 Review my Problem Statement answers above.
 
 1. Rewrite my problem into a single, punchy paragraph that highlights the real-world friction.
@@ -9474,7 +9440,7 @@ Paste your Title, Subtitle, 100-character keyword list, and the key App Review w
 ---
 
 ## Overview
-Feature Planning is where your abstract solution statement turns into a concrete list of screens and buttons. In mobile development, less is more. Every new feature increases your app bundle size, introduces potential crashes, and creates more cognitive load for a user staring at a 6-inch screen. 
+Feature Planning is where your abstract solution statement turns into a concrete list of screens and buttons. In mobile development, less is more. Every new feature increases your app bundle size, introduces potential crashes, and creates more cognitive load for a user staring at a 6-inch screen.
 
 ---
 
@@ -9723,7 +9689,7 @@ Use AI to generate a ruthlessly efficient sprint plan.
 Act as a Technical Project Manager.
 Review my risk/value feature inputs above.
 
-1. Generate a step-by-step Build Order for my mobile app MVP. 
+1. Generate a step-by-step Build Order for my mobile app MVP.
 2. Explicitly tell me what to build in Week 1 to eliminate the most technical risk.
 3. Tell me which features I should push to the very end of the development cycle.
 \`\`\`
@@ -9752,14 +9718,14 @@ Paste your step-by-step Build Order here.
 ---
 
 ## Overview
-How will your app make money? On mobile, this is a much harder question than on desktop. App Store users are notorious for refusing to pay \'mobilemonetization': `# Monetization Strategy
+How will your app make money? On mobile, this is a much harder question than on desktop. App Store users are notorious for refusing to pay 'mobilemonetization': \`# Monetization Strategy
 
 **🕒 Estimated Time:** 15 min
 
 ---
 
 ## Overview
-How will your app make money? On mobile, this is a much harder question than on desktop. App Store users are notorious for refusing to pay \$1.99 for an app, while simultaneously spending \$5.00 on a coffee every morning. Additionally, Apple and Google take a 15-30% cut of all digital transactions processed through their stores. You must choose a model that fits your audience's psychology.
+How will your app make money? On mobile, this is a much harder question than on desktop. App Store users are notorious for refusing to pay $1.99 for an app, while simultaneously spending $5.00 on a coffee every morning. Additionally, Apple and Google take a 15-30% cut of all digital transactions processed through their stores. You must choose a model that fits your audience's psychology.
 
 ---
 
@@ -9776,7 +9742,7 @@ Evaluate your app's core value:
 ✍️ Type your answer here...
 \`\`\`
 
-**The Competition's Model** (How do your competitors make money? Are they all free with ads, or are they all \$9.99/month subscriptions?)
+**The Competition's Model** (How do your competitors make money? Are they all free with ads, or are they all $9.99/month subscriptions?)
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
@@ -9790,8 +9756,8 @@ Evaluate your app's core value:
 ---
 
 ## Common Mistakes
-- **Assuming Ads are Easy:** To make a living wage purely from banner ads, you need hundreds of thousands of daily active users. 
-- **Underpricing:** Selling a highly specialized B2B mobile tool for \$0.99 because you are afraid to ask for \$19.99/month.
+- **Assuming Ads are Easy:** To make a living wage purely from banner ads, you need hundreds of thousands of daily active users.
+- **Underpricing:** Selling a highly specialized B2B mobile tool for $0.99 because you are afraid to ask for $19.99/month.
 
 ---
 
@@ -9820,7 +9786,7 @@ Paste your chosen monetization model and paywall strategy here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-.99 for an app, while simultaneously spending \$5.00 on a coffee every morning. Additionally, Apple and Google take a 15-30% cut of all digital transactions processed through their stores. You must choose a model that fits your audience's psychology.
+.99 for an app, while simultaneously spending $5.00 on a coffee every morning. Additionally, Apple and Google take a 15-30% cut of all digital transactions processed through their stores. You must choose a model that fits your audience's psychology.
 
 ---
 
@@ -9837,7 +9803,7 @@ Evaluate your app's core value:
 ✍️ Type your answer here...
 \`\`\`
 
-**The Competition's Model** (How do your competitors make money? Are they all free with ads, or are they all \$9.99/month subscriptions?)
+**The Competition's Model** (How do your competitors make money? Are they all free with ads, or are they all $9.99/month subscriptions?)
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
@@ -9851,15 +9817,15 @@ Evaluate your app's core value:
 ---
 
 ## Common Mistakes
-- **Assuming Ads are Easy:** To make a living wage purely from banner ads, you need hundreds of thousands of daily active users. 
-- **Underpricing:** Selling a highly specialized B2B mobile tool for \$0.99 because you are afraid to ask for \'mobilemonetization': `# Monetization Strategy
+- **Assuming Ads are Easy:** To make a living wage purely from banner ads, you need hundreds of thousands of daily active users.
+- **Underpricing:** Selling a highly specialized B2B mobile tool for $0.99 because you are afraid to ask for 'mobilemonetization': \`# Monetization Strategy
 
 **🕒 Estimated Time:** 15 min
 
 ---
 
 ## Overview
-How will your app make money? On mobile, this is a much harder question than on desktop. App Store users are notorious for refusing to pay \$1.99 for an app, while simultaneously spending \$5.00 on a coffee every morning. Additionally, Apple and Google take a 15-30% cut of all digital transactions processed through their stores. You must choose a model that fits your audience's psychology.
+How will your app make money? On mobile, this is a much harder question than on desktop. App Store users are notorious for refusing to pay $1.99 for an app, while simultaneously spending $5.00 on a coffee every morning. Additionally, Apple and Google take a 15-30% cut of all digital transactions processed through their stores. You must choose a model that fits your audience's psychology.
 
 ---
 
@@ -9876,7 +9842,7 @@ Evaluate your app's core value:
 ✍️ Type your answer here...
 \`\`\`
 
-**The Competition's Model** (How do your competitors make money? Are they all free with ads, or are they all \$9.99/month subscriptions?)
+**The Competition's Model** (How do your competitors make money? Are they all free with ads, or are they all $9.99/month subscriptions?)
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
@@ -9890,8 +9856,8 @@ Evaluate your app's core value:
 ---
 
 ## Common Mistakes
-- **Assuming Ads are Easy:** To make a living wage purely from banner ads, you need hundreds of thousands of daily active users. 
-- **Underpricing:** Selling a highly specialized B2B mobile tool for \$0.99 because you are afraid to ask for \$19.99/month.
+- **Assuming Ads are Easy:** To make a living wage purely from banner ads, you need hundreds of thousands of daily active users.
+- **Underpricing:** Selling a highly specialized B2B mobile tool for $0.99 because you are afraid to ask for $19.99/month.
 
 ---
 
@@ -9980,13 +9946,13 @@ Can you afford to be free?
 ---
 
 ## Key Decisions
-- **Hard Limits:** Even if the app is free, you must hardcode limits. If a malicious user decides to upload 10,000 photos an hour, they will bankrupt your AWS/Supabase account. 
+- **Hard Limits:** Even if the app is free, you must hardcode limits. If a malicious user decides to upload 10,000 photos an hour, they will bankrupt your AWS/Supabase account.
 - **The "Trojan Horse":** Is this free app just a lead-generation tool for your main, expensive desktop SaaS?
 
 ---
 
 ## Common Mistakes
-- **Accidental Bankrupcy:** Not setting up billing alerts on your backend (Vercel/Supabase). If your free app goes viral on TikTok, your server bill could be \$5,000 the next morning.
+- **Accidental Bankrupcy:** Not setting up billing alerts on your backend (Vercel/Supabase). If your free app goes viral on TikTok, your server bill could be $5,000 the next morning.
 - **Being Afraid to Pivot:** Being so terrified of "betraying" your early free users that you never introduce a way to keep the servers running, causing the app to shut down.
 
 ---
@@ -9996,7 +9962,7 @@ Use AI to calculate your risk and set up defensive limits.
 
 \`\`\`prompt
 Act as a strict Cloud Infrastructure Architect.
-I am launching a completely free mobile app. 
+I am launching a completely free mobile app.
 
 1. Based on my app's core features, what is my biggest financial vulnerability if I suddenly get 10,000 users overnight?
 2. What specific hard-coded limits should I implement in my React Native code and backend to protect myself?
@@ -10094,14 +10060,14 @@ Paste your chosen Free/Premium dividing line here.
 ---
 
 ## Overview
-Subscriptions (\$X per month/year) are the holy grail of mobile development. Apple heavily incentivizes developers to use this model because it generates recurring revenue. However, users are experiencing massive "subscription fatigue." To convince a user to pay you every single month, your app must provide continuous, renewing value, not just a static tool.
+Subscriptions ($X per month/year) are the holy grail of mobile development. Apple heavily incentivizes developers to use this model because it generates recurring revenue. However, users are experiencing massive "subscription fatigue." To convince a user to pay you every single month, your app must provide continuous, renewing value, not just a static tool.
 
 ---
 
 ## Think First
 Justify the recurring cost:
 
-**The Continuous Value** (Why does this app deserve \$5/month? Are you adding new content weekly? Does it use expensive AI processing? Does it save them money every month?)
+**The Continuous Value** (Why does this app deserve $5/month? Are you adding new content weekly? Does it use expensive AI processing? Does it save them money every month?)
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
@@ -10120,7 +10086,7 @@ Justify the recurring cost:
 ---
 
 ## Common Mistakes
-- **Charging a subscription for a static utility:** If your app is just a nice calculator, users will be furious if you ask for \$4.99/month. That is a one-time purchase app.
+- **Charging a subscription for a static utility:** If your app is just a nice calculator, users will be furious if you ask for $4.99/month. That is a one-time purchase app.
 - **Hiding the cancel button:** Apple will reject your app if the user cannot easily manage or cancel their subscription from within the app settings.
 
 ---
@@ -10182,13 +10148,13 @@ Evaluate your volume and user tolerance:
 
 ## Key Decisions
 - **Rewarded Video vs Forced Ads:** "Rewarded Ads" (where the user voluntarily watches a 30-second ad in exchange for an extra life or premium feature) have the highest payout rates and the highest user satisfaction. Forced pop-up ads have terrible payout rates and cause 1-star reviews.
-- **The "Remove Ads" IAP:** Always offer a \$2.99 or \$4.99 In-App Purchase to remove all ads.
+- **The "Remove Ads" IAP:** Always offer a $2.99 or $4.99 In-App Purchase to remove all ads.
 
 ---
 
 ## Common Mistakes
 - **Destroying the UX:** Placing banner ads right next to critical navigation buttons so users accidentally click them. Apple will reject your app for deceptive ad placement.
-- **Expecting to get rich on 1,000 users:** Mobile ad CPMs (cost per 1,000 impressions) can be as low as \$0.50. You need hundreds of thousands of sessions to make a full-time income.
+- **Expecting to get rich on 1,000 users:** Mobile ad CPMs (cost per 1,000 impressions) can be as low as $0.50. You need hundreds of thousands of sessions to make a full-time income.
 
 ---
 
@@ -10228,7 +10194,7 @@ Paste your Ad Format strategy and "Remove Ads" pricing here.
 ---
 
 ## Overview
-The classic software model: The user pays \$4.99 upfront, downloads the app, and owns it forever. In today's App Store, this model is almost dead. Users are incredibly hesitant to pay for an app before they can try it. However, for certain niches (like indie games, specialized professional tools, or privacy-focused utilities), a one-time purchase is highly respected by users tired of subscriptions.
+The classic software model: The user pays $4.99 upfront, downloads the app, and owns it forever. In today's App Store, this model is almost dead. Users are incredibly hesitant to pay for an app before they can try it. However, for certain niches (like indie games, specialized professional tools, or privacy-focused utilities), a one-time purchase is highly respected by users tired of subscriptions.
 
 ---
 
@@ -10240,7 +10206,7 @@ Are you building a utility or an ongoing service?
 ✍️ Type your answer here...
 \`\`\`
 
-**The Upfront Promise** (Why would someone risk \$5 on your app without trying it first? Do you have an amazing promotional video or massive social proof?)
+**The Upfront Promise** (Why would someone risk $5 on your app without trying it first? Do you have an amazing promotional video or massive social proof?)
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
@@ -10248,19 +10214,19 @@ Are you building a utility or an ongoing service?
 ---
 
 ## Key Decisions
-- **Paid Upfront vs "Freemium Unlock":** Instead of charging \$4.99 upfront, it is almost always better to make the app free to download, let them poke around, and charge a \$4.99 "Pro Lifetime Unlock" In-App Purchase. It achieves the exact same revenue model but drastically lowers the barrier to entry.
+- **Paid Upfront vs "Freemium Unlock":** Instead of charging $4.99 upfront, it is almost always better to make the app free to download, let them poke around, and charge a $4.99 "Pro Lifetime Unlock" In-App Purchase. It achieves the exact same revenue model but drastically lowers the barrier to entry.
 
 ---
 
 ## Common Mistakes
-- **High Server Costs:** Selling the app for \'mobileonetimepurchase': `# One-time Purchase (Paid App)
+- **High Server Costs:** Selling the app for 'mobileonetimepurchase': \`# One-time Purchase (Paid App)
 
 **🕒 Estimated Time:** 10 min
 
 ---
 
 ## Overview
-The classic software model: The user pays \$4.99 upfront, downloads the app, and owns it forever. In today's App Store, this model is almost dead. Users are incredibly hesitant to pay for an app before they can try it. However, for certain niches (like indie games, specialized professional tools, or privacy-focused utilities), a one-time purchase is highly respected by users tired of subscriptions.
+The classic software model: The user pays $4.99 upfront, downloads the app, and owns it forever. In today's App Store, this model is almost dead. Users are incredibly hesitant to pay for an app before they can try it. However, for certain niches (like indie games, specialized professional tools, or privacy-focused utilities), a one-time purchase is highly respected by users tired of subscriptions.
 
 ---
 
@@ -10272,7 +10238,7 @@ Are you building a utility or an ongoing service?
 ✍️ Type your answer here...
 \`\`\`
 
-**The Upfront Promise** (Why would someone risk \$5 on your app without trying it first? Do you have an amazing promotional video or massive social proof?)
+**The Upfront Promise** (Why would someone risk $5 on your app without trying it first? Do you have an amazing promotional video or massive social proof?)
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
@@ -10280,12 +10246,12 @@ Are you building a utility or an ongoing service?
 ---
 
 ## Key Decisions
-- **Paid Upfront vs "Freemium Unlock":** Instead of charging \$4.99 upfront, it is almost always better to make the app free to download, let them poke around, and charge a \$4.99 "Pro Lifetime Unlock" In-App Purchase. It achieves the exact same revenue model but drastically lowers the barrier to entry.
+- **Paid Upfront vs "Freemium Unlock":** Instead of charging $4.99 upfront, it is almost always better to make the app free to download, let them poke around, and charge a $4.99 "Pro Lifetime Unlock" In-App Purchase. It achieves the exact same revenue model but drastically lowers the barrier to entry.
 
 ---
 
 ## Common Mistakes
-- **High Server Costs:** Selling the app for \$1.99 upfront, but the app relies on the OpenAI API. If a user uses the app heavily for 2 years, they will cost you \$50 in API fees, bankrupting you. One-time purchase apps must rely entirely on the device's local processing (offline) to be profitable long-term.
+- **High Server Costs:** Selling the app for $1.99 upfront, but the app relies on the OpenAI API. If a user uses the app heavily for 2 years, they will cost you $50 in API fees, bankrupting you. One-time purchase apps must rely entirely on the device's local processing (offline) to be profitable long-term.
 - **No Refund Policy:** Users who buy a paid app and don't like it will instantly leave a 1-star review to warn others.
 
 ---
@@ -10299,7 +10265,7 @@ My app concept is a one-time purchase.
 
 1. Tell me bluntly if this app concept will survive as a "Paid Upfront" app, or if I should switch to a "Free Download with a Lifetime Unlock IAP." Explain why.
 2. If my app requires a server or API, calculate the financial risk of charging a one-time fee.
-3. Suggest the optimal price point (\$0.99, \$4.99, \$9.99, \$19.99) for this specific type of utility.
+3. Suggest the optimal price point ($0.99, $4.99, $9.99, $19.99) for this specific type of utility.
 \`\`\`
 
 ---
@@ -10315,7 +10281,7 @@ Paste your final Pricing strategy (Paid Upfront vs Lifetime IAP) and Price Point
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-.99 upfront, but the app relies on the OpenAI API. If a user uses the app heavily for 2 years, they will cost you \$50 in API fees, bankrupting you. One-time purchase apps must rely entirely on the device's local processing (offline) to be profitable long-term.
+.99 upfront, but the app relies on the OpenAI API. If a user uses the app heavily for 2 years, they will cost you $50 in API fees, bankrupting you. One-time purchase apps must rely entirely on the device's local processing (offline) to be profitable long-term.
 - **No Refund Policy:** Users who buy a paid app and don't like it will instantly leave a 1-star review to warn others.
 
 ---
@@ -10329,14 +10295,14 @@ My app concept is a one-time purchase.
 
 1. Tell me bluntly if this app concept will survive as a "Paid Upfront" app, or if I should switch to a "Free Download with a Lifetime Unlock IAP." Explain why.
 2. If my app requires a server or API, calculate the financial risk of charging a one-time fee.
-3. Suggest the optimal price point (\$0.99, \$4.99, \$9.99, \'mobileonetimepurchase': `# One-time Purchase (Paid App)
+3. Suggest the optimal price point ($0.99, $4.99, $9.99, 'mobileonetimepurchase': \`# One-time Purchase (Paid App)
 
 **🕒 Estimated Time:** 10 min
 
 ---
 
 ## Overview
-The classic software model: The user pays \$4.99 upfront, downloads the app, and owns it forever. In today's App Store, this model is almost dead. Users are incredibly hesitant to pay for an app before they can try it. However, for certain niches (like indie games, specialized professional tools, or privacy-focused utilities), a one-time purchase is highly respected by users tired of subscriptions.
+The classic software model: The user pays $4.99 upfront, downloads the app, and owns it forever. In today's App Store, this model is almost dead. Users are incredibly hesitant to pay for an app before they can try it. However, for certain niches (like indie games, specialized professional tools, or privacy-focused utilities), a one-time purchase is highly respected by users tired of subscriptions.
 
 ---
 
@@ -10348,7 +10314,7 @@ Are you building a utility or an ongoing service?
 ✍️ Type your answer here...
 \`\`\`
 
-**The Upfront Promise** (Why would someone risk \$5 on your app without trying it first? Do you have an amazing promotional video or massive social proof?)
+**The Upfront Promise** (Why would someone risk $5 on your app without trying it first? Do you have an amazing promotional video or massive social proof?)
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
@@ -10356,12 +10322,12 @@ Are you building a utility or an ongoing service?
 ---
 
 ## Key Decisions
-- **Paid Upfront vs "Freemium Unlock":** Instead of charging \$4.99 upfront, it is almost always better to make the app free to download, let them poke around, and charge a \$4.99 "Pro Lifetime Unlock" In-App Purchase. It achieves the exact same revenue model but drastically lowers the barrier to entry.
+- **Paid Upfront vs "Freemium Unlock":** Instead of charging $4.99 upfront, it is almost always better to make the app free to download, let them poke around, and charge a $4.99 "Pro Lifetime Unlock" In-App Purchase. It achieves the exact same revenue model but drastically lowers the barrier to entry.
 
 ---
 
 ## Common Mistakes
-- **High Server Costs:** Selling the app for \$1.99 upfront, but the app relies on the OpenAI API. If a user uses the app heavily for 2 years, they will cost you \$50 in API fees, bankrupting you. One-time purchase apps must rely entirely on the device's local processing (offline) to be profitable long-term.
+- **High Server Costs:** Selling the app for $1.99 upfront, but the app relies on the OpenAI API. If a user uses the app heavily for 2 years, they will cost you $50 in API fees, bankrupting you. One-time purchase apps must rely entirely on the device's local processing (offline) to be profitable long-term.
 - **No Refund Policy:** Users who buy a paid app and don't like it will instantly leave a 1-star review to warn others.
 
 ---
@@ -10375,7 +10341,7 @@ My app concept is a one-time purchase.
 
 1. Tell me bluntly if this app concept will survive as a "Paid Upfront" app, or if I should switch to a "Free Download with a Lifetime Unlock IAP." Explain why.
 2. If my app requires a server or API, calculate the financial risk of charging a one-time fee.
-3. Suggest the optimal price point (\$0.99, \$4.99, \$9.99, \$19.99) for this specific type of utility.
+3. Suggest the optimal price point ($0.99, $4.99, $9.99, $19.99) for this specific type of utility.
 \`\`\`
 
 ---
@@ -10552,7 +10518,7 @@ Paste your Core Loop strategy and Push Notification concepts here.
 ---
 
 ## Overview
-DAU (Daily Active Users) measures the exact number of unique people who open your app on any given day. This is the heartbeat of highly interactive apps (like social media, games, or daily planners). However, not every app is meant to be used daily. 
+DAU (Daily Active Users) measures the exact number of unique people who open your app on any given day. This is the heartbeat of highly interactive apps (like social media, games, or daily planners). However, not every app is meant to be used daily.
 
 ---
 
@@ -10971,7 +10937,7 @@ Use AI to generate text-based layout structures for your core screens.
 Act as a Lead Mobile UI Designer.
 Review my screen concepts above.
 
-For my 3 most critical screens (Home, Detail, and Core Action Form), provide a "Text Wireframe." 
+For my 3 most critical screens (Home, Detail, and Core Action Form), provide a "Text Wireframe."
 Format it strictly top-to-bottom as the user sees it on a phone screen.
 Example:
 [Header: Title + Settings Icon]
@@ -11034,7 +11000,7 @@ Establish your rules:
 - **UI Frameworks:** Will you build all components from scratch using React Native \`StyleSheet\
 
 ## 📚 Context Links
-- [Material 3 Design System](https://m3.material.io/)\n- [Apple HIG: Accessibility Guide](https://developer.apple.com/design/human-interface-guidelines/accessibility)`, or use a pre-built component library like NativeWind (Tailwind for RN), Tamagui, or React Native Paper? (NativeWind is highly recommended for speed).
+- [Material 3 Design System](https://m3.material.io/)\n- [Apple HIG: Accessibility Guide](https://developer.apple.com/design/human-interface-guidelines/accessibility)\`, or use a pre-built component library like NativeWind (Tailwind for RN), Tamagui, or React Native Paper? (NativeWind is highly recommended for speed).
 
 ---
 
@@ -11453,7 +11419,7 @@ Use AI to sanity-check your platform assumptions.
 Act as a Mobile Platform Strategist.
 Review my app concept: [Insert App Concept]
 
-1. Based on my concept, are there any obvious App Store Guidelines (Apple or Google) that might get my app rejected? 
+1. Based on my concept, are there any obvious App Store Guidelines (Apple or Google) that might get my app rejected?
 2. What is the demographic split of iOS vs Android users for my specific target audience?
 3. Would a Progressive Web App (PWA) be a smarter MVP than a native App Store app for this concept?
 \`\`\`
@@ -11751,12 +11717,12 @@ What needs to survive an app restart?
 ---
 
 ## Key Decisions
-- **AsyncStorage vs SecureStore:** 
-  - For non-sensitive data (like theme preferences or cached JSON), use \`AsyncStorage\` (or faster alternatives like \`MMKV\`). 
+- **AsyncStorage vs SecureStore:**
+  - For non-sensitive data (like theme preferences or cached JSON), use \`AsyncStorage\` (or faster alternatives like \`MMKV\`).
   - For sensitive data (like passwords, auth tokens, or API keys), you MUST use \`expo-secure-store\
 
 ## 📚 Context Links
-- [React Query: Data Fetching in React](https://tanstack.com/query/latest)\n- [Supabase: Open Source Firebase Alternative](https://supabase.com/docs)\n- [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)`, which encrypts the data using the device's native Keychain (iOS) or Keystore (Android).
+- [React Query: Data Fetching in React](https://tanstack.com/query/latest)\n- [Supabase: Open Source Firebase Alternative](https://supabase.com/docs)\n- [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)\`, which encrypts the data using the device's native Keychain (iOS) or Keystore (Android).
 - **High-Performance Storage:** If you are building a data-heavy app that needs to search through thousands of records offline, AsyncStorage is too slow. You will need a local SQLite database or a high-performance key-value store like MMKV.
 
 ---
@@ -11798,7 +11764,7 @@ Paste your chosen Local Storage libraries and strategy here.
 ---
 
 ## Overview
-Authentication on mobile is uniquely frustrating. Users hate typing passwords on tiny keyboards. Furthermore, Apple has a strict rule: If your app offers third-party logins (like Google or Facebook), you MUST also offer \"Sign in with Apple.\" If you don't, Apple will reject your app during the review process.
+Authentication on mobile is uniquely frustrating. Users hate typing passwords on tiny keyboards. Furthermore, Apple has a strict rule: If your app offers third-party logins (like Google or Facebook), you MUST also offer "Sign in with Apple." If you don't, Apple will reject your app during the review process.
 
 ---
 
@@ -11813,14 +11779,14 @@ Reduce friction at the front door:
 ---
 
 ## Key Decisions
-- **Social Auth (OAuth):** Adding \"Sign in with Google\" and \"Sign in with Apple\" dramatically increases your signup conversion rate because it's a one-tap process. However, configuring the OAuth certificates in Xcode and Android Studio is notoriously difficult.
+- **Social Auth (OAuth):** Adding "Sign in with Google" and "Sign in with Apple" dramatically increases your signup conversion rate because it's a one-tap process. However, configuring the OAuth certificates in Xcode and Android Studio is notoriously difficult.
 - **Authentication Provider:** Do not build your own authentication system (hashing passwords, managing sessions, sending password reset emails). Use an Auth Provider like **Supabase Auth**, **Firebase Auth**, or **Clerk**. They handle all the heavy lifting and security compliance for you.
 - **Biometrics:** You can use Expo's \`LocalAuthentication\` module to let users unlock the app using FaceID or Fingerprint instead of typing a PIN.
 
 ---
 
 ## Common Mistakes
-- **Forgetting \"Sign in with Apple\":** The #1 reason for app rejection. If you have Google login, you must have Apple login.
+- **Forgetting "Sign in with Apple":** The #1 reason for app rejection. If you have Google login, you must have Apple login.
 - **Forcing Login Too Early:** Showing the login screen before the user has any idea what the app does. Let them see a preview or onboarding carousel first.
 
 ---
@@ -11832,7 +11798,7 @@ Use AI to design a compliant, high-converting Auth flow.
 Act as a Mobile Authentication Architect.
 I am using Expo and [Insert Auth Provider, e.g., Supabase].
 
-1. I want to offer Email/Password and Google OAuth. Explain Apple's mandatory \"Sign in with Apple\" rule and how it applies to me.
+1. I want to offer Email/Password and Google OAuth. Explain Apple's mandatory "Sign in with Apple" rule and how it applies to me.
 2. Walk me through the high-level flow of how a JWT token is received from the Auth Provider and securely stored on the device using expo-secure-store.
 3. How do I design a React Navigation flow that automatically redirects the user to the Login screen if their token expires?
 \`\`\`
@@ -11880,8 +11846,8 @@ What is the shape of your data?
 ---
 
 ## Key Decisions
-- **SQL (PostgreSQL) vs NoSQL (Firebase/MongoDB):** 
-  - **PostgreSQL (via Supabase):** The absolute best choice for 90% of apps. It is highly structured, prevents bad data from being saved, and scales infinitely. 
+- **SQL (PostgreSQL) vs NoSQL (Firebase/MongoDB):**
+  - **PostgreSQL (via Supabase):** The absolute best choice for 90% of apps. It is highly structured, prevents bad data from being saved, and scales infinitely.
   - **NoSQL (via Firebase Firestore):** Great for rapid prototyping and apps that require massive real-time syncing (like a live chat app), but NoSQL data can quickly become a disorganized mess if you aren't careful.
 - **Row Level Security (RLS):** If you use Supabase, your mobile app talks directly to the database. You MUST write strict RLS policies to ensure User A cannot delete User B's data.
 
@@ -11948,7 +11914,7 @@ What must be hidden from the user?
 ---
 
 ## Key Decisions
-- **BaaS vs Custom Server:** 
+- **BaaS vs Custom Server:**
   - **BaaS (Supabase/Firebase):** For MVPs, using a Backend-as-a-Service is highly recommended. They provide "Edge Functions" (Supabase) or "Cloud Functions" (Firebase)—tiny snippets of server code you can write without having to maintain a massive Node.js server.
   - **Custom Server (Node/Express, Python):** Necessary if you have incredibly complex background jobs, websockets, or video processing that requires dedicated hardware.
 
@@ -12071,7 +12037,7 @@ What needs to be shareable?
 ---
 
 ## Key Decisions
-- **Custom Schemes vs Universal Links:** 
+- **Custom Schemes vs Universal Links:**
   - **Custom Schemes (\`myapp://...\`):** Easy to set up, but if the user doesn't have the app installed, clicking the link does nothing (or shows an error).
   - **Universal Links (iOS) / App Links (Android):** Uses a standard web URL (\`https://myapp.com/...\`). If the app is installed, it opens the app. If not, it opens the website or redirects to the App Store. This is much harder to set up (requires hosting specific verification files on your web domain) but provides a vastly superior user experience.
 
@@ -12315,14 +12281,14 @@ Where are your financial vulnerabilities?
 ---
 
 ## Key Decisions
-- **Developer Accounts:** Apple charges \$99/year just to have the privilege of publishing on the App Store. Google charges a one-time \$25 fee.
+- **Developer Accounts:** Apple charges $99/year just to have the privilege of publishing on the App Store. Google charges a one-time $25 fee.
 - **Server & Database:** Supabase and Firebase both offer incredibly generous free tiers that will easily support your MVP up to your first few thousand users.
 - **Third-Party APIs:** If you use OpenAI, Google Maps, or Twilio (for SMS auth), these are pay-as-you-go. A malicious user spamming your SMS login screen can cost you hundreds of dollars in hours.
 
 ---
 
 ## Common Mistakes
-- **No Billing Limits:** Failing to set hard spending limits or alerts on your AWS/Vercel/Supabase accounts. If your app goes viral, you could wake up to a \$5,000 bill.
+- **No Billing Limits:** Failing to set hard spending limits or alerts on your AWS/Vercel/Supabase accounts. If your app goes viral, you could wake up to a $5,000 bill.
 - **Expensive Auth:** Using SMS text messages for authentication. SMS is notoriously expensive and prone to toll-fraud. Use Email/Password or OAuth (Google/Apple) instead; they are free.
 
 ---
@@ -12351,5 +12317,5 @@ Paste your Monthly Cost Estimate and your critical Billing Alerts strategy here.
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`
+`,
 };
