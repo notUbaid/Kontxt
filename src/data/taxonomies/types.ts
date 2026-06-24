@@ -163,19 +163,42 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'Amplitude: North Star Playbook', url: 'https://amplitude.com/north-star' }
   ],
   'prd': [
-    { name: 'Lenny\'s Best PRD Templates', url: 'https://www.lennysnewsletter.com/p/my-favorite-product-management-templates' },
-    { name: 'Intercom: Jobs-to-be-Done (JTBD)', url: 'https://www.intercom.com/blog/jobs-to-be-done/' },
-    { name: 'Kevin Yien: Writing PRDs that don\'t suck', url: 'https://kevinyien.com/prd.html' }
+    { name: "Lenny's Best PRD Templates", url: 'https://www.lennysnewsletter.com/p/my-favorite-product-management-templates' },
+    { name: "Kevin Yien: Writing PRDs that don't suck", url: 'https://kevinyien.com/prd.html' },
+    { name: 'Y Combinator: How to Build a Product', url: 'https://www.ycombinator.com/library/5z-how-to-build-a-product' },
+    { name: 'Figma: Product Requirements Document', url: 'https://www.figma.com/templates/product-requirements-document-prd/' }
   ],
   'userflows': [
     { name: 'Reforge: Product Loops vs. Funnels', url: 'https://www.reforge.com/blog/growth-loops' },
-    { name: 'Tool: Mobbin (Elite UI Patterns)', url: 'https://mobbin.com/' },
-    { name: 'Tool: PageFlows (SaaS flows)', url: 'https://pageflows.com/' }
+    { name: 'Mobbin (Elite UI Patterns)', url: 'https://mobbin.com/' },
+    { name: 'PageFlows (SaaS flows)', url: 'https://pageflows.com/' },
+    { name: 'Growth.Design: UX Case Studies', url: 'https://growth.design/case-studies' }
   ],
   'informationarchitecture': [
     { name: 'NNGroup: Information Architecture', url: 'https://www.nngroup.com/articles/information-architecture-study-guide/' },
     { name: 'Untools: Mental Models', url: 'https://untools.co/' },
-    { name: 'Book: Information Architecture (Polar Bear)', url: 'https://www.oreilly.com/library/view/information-architecture-4th/9781491911679/' }
+    { name: "O'Reilly: Information Architecture", url: 'https://www.oreilly.com/library/view/information-architecture-4th/9781491911679/' },
+    { name: 'Figma: IA Kits & Templates', url: 'https://www.figma.com/community/file/1029193796851214040' }
+  ],
+  'wireframes': [
+    { name: 'Balsamiq: Low-Fidelity Wireframing', url: 'https://balsamiq.com/' },
+    { name: 'Excalidraw: Virtual Whiteboard', url: 'https://excalidraw.com/' },
+    { name: 'NNGroup: Wireframing 101', url: 'https://www.nngroup.com/articles/wireframes/' }
+  ],
+  'designsystem': [
+    { name: 'shadcn/ui (Accessible Components)', url: 'https://ui.shadcn.com/' },
+    { name: 'Tailwind CSS Documentation', url: 'https://tailwindcss.com/' },
+    { name: 'Refactoring UI (Book)', url: 'https://www.refactoringui.com/' }
+  ],
+  'branding': [
+    { name: 'Mailchimp Voice and Tone Guide', url: 'https://styleguide.mailchimp.com/voice-and-tone/' },
+    { name: 'Fontshare (High-Quality Free Fonts)', url: 'https://www.fontshare.com/' },
+    { name: 'Mobbin: SaaS Copywriting Examples', url: 'https://mobbin.com/' }
+  ],
+  'accessibility': [
+    { name: 'WebAIM Contrast Checker', url: 'https://webaim.org/resources/contrastchecker/' },
+    { name: 'W3C ARIA Authoring Practices', url: 'https://www.w3.org/WAI/ARIA/apg/' },
+    { name: 'eslint-plugin-jsx-a11y', url: 'https://github.com/jsx-eslint/eslint-plugin-jsx-a11y' }
   ]
 };
 

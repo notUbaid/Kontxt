@@ -2248,19 +2248,19 @@ Define your exact North Star Metric.
 
   'prd': `# Product Requirements Document (PRD)
 
-**🕒 Estimated Time:** 45 min
+**🕒 Estimated Time:** 60 min
 
 ---
 
 ## Overview
-A PRD is not a 40-page wish list of cool features you hallucinated in the shower. It is a ruthless, living contract between product and engineering. It forces you to define exactly what you are building, who it is for, and why it matters—before you write a single line of code. If your PRD is vague, your developers will build the wrong thing, resent you, and quit.
+Phase 0 proved your idea is worth building. Phase 1 proves you know *how* to build it. A PRD is not a 40-page wish list of cool features you hallucinated in the shower. It is a ruthless, living contract between product and engineering. It takes your validated assumptions from Phase 0 and translates them into rigid specs. If your PRD is vague, your developers will build the wrong thing, resent you, and quit.
 
 ---
 
 ## Think First
-Strip the idea down to its absolute core.
+Strip the idea down to its absolute core and bridge the gap from strategy (Phase 0) to execution.
 
-**The "Job to be Done" (JTBD) (When a user hires this feature, what exact job are they trying to accomplish?)**
+**The "Job to be Done" (JTBD) (When a user hires this feature, what exact job are they trying to accomplish based on your Phase 0 findings?)**
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
@@ -2271,21 +2271,23 @@ Strip the idea down to its absolute core.
 \`\`\`
 
 **Reality Check: The "So What?" Test**
-- [ ] Does this PRD solve a "Hair on Fire" problem, or is it just a "Nice to Have"?
-- [ ] Have I defined the exact technical constraints (e.g., latency limits, API rate limits)?
+- [ ] Does this PRD align perfectly with the "Hair on Fire" problem we validated in Phase 0?
+- [ ] Have I defined the exact technical constraints (e.g., latency limits, API rate limits, database requirements)?
 - [ ] If I hand this to a junior developer, can they start coding immediately without asking me 15 questions?
 
 ---
 
 ## Key Decisions
 - **The JTBD Framework:** Stop writing "As a user, I want..." Instead, write: "When [Situation], I want to [Motivation], so I can [Expected Outcome]." This forces you to focus on the user's context, not your UI.
-- **Explicit Non-Goals:** The most important section of a PRD is what you are NOT building. Explicitly list out the features, edge cases, and platforms (e.g., "No mobile support in v1") that are out of scope. 
+- **Explicit Non-Goals:** The most important section of a PRD is what you are NOT building. Phase 0 taught you what users *say* they want vs. what they *actually need*. Explicitly list out the features, edge cases, and platforms (e.g., "No mobile support in v1") that are out of scope. 
+- **Success Metrics:** Tie the feature release directly back to the KPIs you defined in Phase 0. How will you measure if this shipped feature is actually successful?
 
 ---
 
 ## Common Mistakes
 - **Designing in the PRD:** A PRD should describe the *what* and the *why*, not the *how*. Do not dictate button colors or layout. Leave that to the designer and the engineer.
 - **Ignoring Edge Cases:** "What happens if the user's credit card fails while this job is processing?" If you don't define the error states in the PRD, your app will crash in production.
+- **Forgetting Phase 0 Insights:** Dropping the core value proposition validated in Phase 0 just to add flashy new features in Phase 1. 
 
 ---
 
@@ -2295,11 +2297,12 @@ Strip the idea down to its absolute core.
 ---
 
 ## AI Prompt
-Use AI to pressure-test your PRD and find the massive holes you missed.
+Use AI to pressure-test your PRD and find the massive holes you missed, keeping your Phase 0 validation in mind.
 
 \`\`\`prompt
 My SaaS product is: [INSERT ELEVATOR PITCH].
-I am writing a PRD for this feature: [INSERT FEATURE].
+In Phase 0, we validated that our core user pain point is: [INSERT PAIN POINT].
+I am writing a PRD for this feature to solve it: [INSERT FEATURE].
 
 Act as Kevin Yien (ex-Square/Mutiny Product Leader) doing a ruthless PRD tear-down.
 1. What are the 3 most likely technical edge cases or error states I have completely forgotten to account for?
@@ -2312,19 +2315,21 @@ Act as Kevin Yien (ex-Square/Mutiny Product Leader) doing a ruthless PRD tear-do
 ## What Good Looks Like
 
 **Strong PRD:**
-✓ Obsessively focuses on the user's problem, not the UI.
+✓ Obsessively focuses on the user's problem, aligning perfectly with Phase 0 validation.
 ✓ Contains a massive "Out of Scope / Non-Goals" list.
-✓ Explicitly defines error states and edge cases.
+✓ Explicitly defines error states, edge cases, and metrics for success.
 
 **Weak PRD:**
 ✗ 15 pages long with zero technical constraints.
 ✗ Filled with subjective adjectives like "Make it easy to use."
+✗ Totally disconnected from the business model defined in Phase 0.
 
 ---
 
 ## Validation Checklist
 - [ ] Have I explicitly defined what we are NOT building?
 - [ ] Have I mapped out the error states?
+- [ ] Does this PRD directly reflect the validated learnings from Phase 0?
 
 ---
 
@@ -2338,12 +2343,12 @@ Write your primary Job to be Done (JTBD) and your top 3 Non-Goals.
 
   'userflows': `# User Flows
 
-**🕒 Estimated Time:** 45 min
+**🕒 Estimated Time:** 60 min
 
 ---
 
 ## Overview
-Funnels are for 2012. You need to design Loops. A linear funnel assumes a user signs up, buys, and the journey ends. A Product Loop assumes that a user completing an action naturally creates a trigger for another user to join, or for that same user to return. If your user flow ends with a "Success!" toast message and no clear next step, you are leaking users.
+In Phase 0, you mapped out your buyer journey and value proposition. Now in Phase 1, you must map the actual product experience. Funnels are for 2012. You need to design Loops. A linear funnel assumes a user signs up, buys, and the journey ends. A Product Loop assumes that a user completing an action naturally creates a trigger for another user to join, or for that same user to return. If your user flow ends with a "Success!" toast message and no clear next step, you are leaking users.
 
 ---
 
@@ -2370,30 +2375,33 @@ Map the exact journey from "Anonymous Visitor" to "Retained Power User."
 ## Key Decisions
 - **Time to First Value (TTFV):** How many seconds does it take for a new user to experience the core value of your app? Every required input field cuts your conversion rate by 10%. Delay account creation as long as legally and technically possible.
 - **Empty States:** The most critical screen in your app is the empty dashboard. Do not show them a blank table. Show them a template, a video tutorial, or a giant "Create your first X" button.
+- **Translating Phase 0 to UX:** Ensure the value proposition you validated in Phase 0 is immediately obvious within the first 3 clicks of the user flow. If it's hidden, your retention will drop to zero.
 
 ---
 
 ## Common Mistakes
 - **The "Dead End" Flow:** A user successfully exports a PDF, and the app just says "Exported." What now? Suggest their next action. "Export successful. Want to email this to your boss?"
 - **Ignoring the Unhappy Path:** What happens when they enter a duplicate email? What happens when their password is too weak? Design the error states, not just the happy path.
+- **Friction-Heavy Onboarding:** Asking for 15 data points before showing the dashboard. Every extra step is a drop-off point.
 
 ---
 
 ## AI & Architecture Reality Check
-- **State Machines:** UI flows are essentially State Machines. Do not manage complex multi-step wizards with \`useState\` booleans (\`isStep1\`, \`isStep2\`). Use a proper state machine library (like XState) or define a rigid URL-driven routing structure for your flows.
+- **State Machines:** UI flows are essentially State Machines. Do not manage complex multi-step wizards with `useState` booleans (`isStep1`, `isStep2`). Use a proper state machine library (like XState) or define a rigid URL-driven routing structure for your flows.
 
 ---
 
 ## AI Prompt
-Use AI to optimize your flows for retention.
+Use AI to optimize your flows for retention and bridge the gap from your Phase 0 strategy.
 
 \`\`\`prompt
 My SaaS product is: [INSERT ELEVATOR PITCH].
+In Phase 0, we defined our North Star Metric as: [INSERT METRIC].
 
 Act as an expert Growth Designer from Reforge.
 1. Design a viral "Product Loop" for my app. How does a user successfully completing the core action naturally bring a new user into the app?
 2. Map out the absolute shortest "Time to First Value" (TTFV) onboarding flow. What inputs can I legally delay or remove?
-3. What should the "Empty State" of my dashboard look like to guarantee they take their first action?
+3. What should the "Empty State" of my dashboard look like to guarantee they take their first action and hit our North Star Metric?
 \`\`\`
 
 ---
@@ -2403,17 +2411,20 @@ Act as an expert Growth Designer from Reforge.
 **Strong User Flow:**
 ✓ Delays friction (like email verification or credit cards) until the user has experienced value.
 ✓ Ends every action with a clear, logical next step (No dead ends).
-✓ Employs loops, not just linear funnels.
+✓ Employs compounding loops, not just linear funnels.
+✓ Directly drives the North Star Metric defined in Phase 0.
 
 **Weak User Flow:**
 ✗ Asks for 15 data points before showing the dashboard.
 ✗ Leaves the user staring at a blank screen after a successful action.
+✗ Fails to deliver the core value proposition validated in Phase 0 quickly.
 
 ---
 
 ## Validation Checklist
 - [ ] Have I mapped the "Unhappy Path" (errors, denied permissions)?
 - [ ] Does my flow include a mechanism to naturally re-engage the user later?
+- [ ] Is the Time to First Value (TTFV) as short as humanly possible?
 
 ---
 
@@ -2432,7 +2443,7 @@ Write out the 3 to 5 exact steps of your "Golden Path" onboarding flow.
 ---
 
 ## Overview
-Your database schema and your UI are not the same thing. Information Architecture is the art of hiding your messy backend tables behind a seamless, logical hierarchy that perfectly matches the user's mental model. If users have to click 4 times to find a setting, or if they don't understand the difference between a "Workspace", a "Project", and a "Folder", your app will fail, regardless of how clean the code is.
+Phase 0 defined *what* your product is; Phase 1 defines *how* it's organized. Your database schema and your UI are not the same thing. Information Architecture is the art of hiding your messy backend tables behind a seamless, logical hierarchy that perfectly matches the user's mental model. If users have to click 4 times to find a setting, or if they don't understand the difference between a "Workspace", a "Project", and a "Folder", your app will fail, regardless of how clean the code is.
 
 ---
 
@@ -2459,17 +2470,19 @@ Structure the app how the user thinks, not how the computer stores data.
 ## Key Decisions
 - **Broad and Shallow vs. Narrow and Deep:** Do you have 10 items in your top navigation (Broad/Shallow), or 3 items that you must click deeply into (Narrow/Deep)? SaaS apps usually perform best with a left-sidebar (Broad) so users can jump between contexts without losing their place.
 - **The "Workspace" Problem:** Will you support multiple users collaborating? If yes, you must introduce a "Workspace" or "Organization" at the very top of the hierarchy immediately. Retrofitting workspaces into a single-user architecture later is an engineering nightmare.
+- **Future-Proofing for Phase 2:** Does your IA support the features you plan to build in the future, without needing a complete overhaul?
 
 ---
 
 ## Common Mistakes
-- **Exposing the Relational Database:** Just because \`users\` has a many-to-many relationship with \`tags\` in Postgres doesn't mean the user needs to see a complex mapping matrix. Hide the complexity.
+- **Exposing the Relational Database:** Just because `users` has a many-to-many relationship with `tags` in Postgres doesn't mean the user needs to see a complex mapping matrix. Hide the complexity.
 - **Mystery Meat Navigation:** Using obscure icons without text labels. If your icon looks like a squiggly line and doesn't say "Analytics" next to it, nobody will click it.
+- **Inconsistent Naming:** Calling it a "Project" in the sidebar, a "Board" in the header, and a "Workspace" in the URL. Pick one term and stick to it.
 
 ---
 
 ## AI & Architecture Reality Check
-- **URL Routing reflects IA:** Your Information Architecture dictates your URL structure. A clean IA creates clean URLs: \`/workspace/123/projects/456/settings\`. If your URLs look like \`/app?item=456&mode=edit\`, your IA is broken, and your React Router configuration will be a living hell.
+- **URL Routing reflects IA:** Your Information Architecture dictates your URL structure. A clean IA creates clean URLs: `/workspace/123/projects/456/settings`. If your URLs look like `/app?item=456&mode=edit`, your IA is broken, and your React Router configuration will be a living hell.
 
 ---
 
@@ -2498,12 +2511,14 @@ Act as an expert UX Architect from the Nielsen Norman Group.
 **Weak Information Architecture:**
 ✗ Exposes backend database complexity to the user.
 ✗ Forces the user to dig through 5 layers of menus to perform a daily action.
+✗ Uses inconsistent naming conventions across the app.
 
 ---
 
 ## Validation Checklist
 - [ ] Does my URL structure perfectly mirror my navigation hierarchy?
 - [ ] Have I accounted for multi-tenant "Workspaces" at the top level?
+- [ ] Are all my core nouns clearly represented in the primary navigation?
 
 ---
 
@@ -2514,4 +2529,374 @@ Map out your exact URL structure for your core feature (e.g., /org/:orgId/projec
 ✍️ Type your answer here...
 \`\`\`
 `
+,
+  'wireframes': \`# Wireframes
+
+**🕒 Estimated Time:** 30-45 min
+
+---
+
+## Overview
+Wireframes are the skeleton of your software. In Phase 0, you mapped the user journey; here, you translate that journey into structural layouts without getting distracted by colors, fonts, or aesthetics. Your goal is to validate that the Information Architecture and User Flows physically fit on a screen and make intuitive sense. Think of wireframes as a low-fidelity blueprint that proves your logic before you commit to high-fidelity design or code.
+
+---
+
+## Think First
+Strip away the visual design and focus purely on layout and utility.
+
+**The Hierarchy of Needs (What is the single most important action the user must take on this screen to advance the Phase 0 core loop?)**
+\\\`\\\`\\\`input
+✍️ Type your answer here...
+\\\`\\\`\\\`
+
+**The Content Mapping (List the exact data fields, buttons, and navigation elements required on this screen to fulfill the Phase 0 Job-to-be-Done.)**
+\\\`\\\`\\\`input
+✍️ Type your answer here...
+\\\`\\\`\\\`
+
+---
+
+## Key Decisions
+- **Fidelity Level:** Stick to low-fidelity (gray boxes, standard fonts). High-fidelity wireframes invite premature feedback on aesthetics rather than UX logic. If a stakeholder asks "Can we make it blue?", your wireframe is too detailed.
+- **Mobile vs. Desktop First:** Decide immediately which platform your core users operate on. If it's a B2B SaaS dashboard, wireframe the desktop view first. If it's a consumer utility, start with mobile to force ruthless prioritization of screen real estate.
+- **Tooling vs. Coding:** Use tools like Balsamiq, Excalidraw, or simple pen and paper. Avoid jumping straight into React or Tailwind—writing code is the slowest way to iterate on layout validation.
+
+---
+
+## Common Mistakes
+- **Designing Instead of Wiring:** Getting bogged down in finding the perfect icon or establishing a color palette.
+  - *Consequence:* You waste hours on styling elements whose underlying logic might be entirely scrapped.
+  - *Prevention:* Restrict yourself to grayscale and a single generic font.
+- **Ignoring Empty States:** Drawing wireframes with perfect, uniform placeholder data (e.g., 10 beautifully aligned rows).
+  - *Consequence:* The UI breaks when the user has zero items, or when a user's name is 45 characters long.
+  - *Prevention:* Always wireframe the "First Login / Blank Slate" state and the "Extreme Edge Case" state.
+
+---
+
+## Examples
+- *Good Wireframe:* A rough sketch showing a left sidebar for navigation, a top search bar, and a main content area with three gray boxes representing graphs. Notes explain *what* data populates the graphs.
+- *Bad Wireframe:* A pixel-perfect Figma mockup with exact branding colors, drop shadows, and real profile pictures, but a navigation structure that makes no logical sense.
+
+---
+
+## AI Prompt
+Use AI to pressure-test your wireframe layout against UX best practices.
+
+\\\`\\\`\\\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH].
+I am designing the wireframe for this core screen: [INSERT SCREEN NAME].
+The primary action the user must take here is: [INSERT PRIMARY ACTION].
+
+Act as an expert UX Designer from IDEO.
+1. What are 3 layout conventions or mental models users already expect for this type of screen?
+2. If the user is on a mobile device, which elements of my layout must be hidden, collapsed, or moved to avoid clutter?
+3. Give me 2 extreme edge cases regarding data length or empty states that I must wireframe to ensure the layout doesn't break.
+\\\`\\\`\\\`
+
+---
+
+## What Good Looks Like
+
+**Strong Wireframe:**
+✓ Strictly uses grayscale, with zero branding elements.
+✓ The primary call-to-action (CTA) is the most prominent structural element.
+✓ Explicitly includes empty states for new users.
+
+**Weak Wireframe:**
+✗ Focuses on aesthetic details like precise colors and drop shadows.
+✗ Only depicts the "Happy Path" with perfectly aligned mock data.
+
+---
+
+## Validation Checklist
+- [ ] Are we strictly using grayscale, with zero branding elements?
+- [ ] Is the primary call-to-action (CTA) the most prominent structural element on the screen?
+- [ ] Did we wireframe the empty state for new users?
+
+---
+
+## Deliverable
+**File Name:** \`core_wireframes_v1\`
+**Purpose:** A structural blueprint proving the core user flows fit on a screen.
+**Contents:** Low-fidelity sketches (or digital gray-box layouts) of the 3-5 screens that make up the Golden Path defined in Phase 0.
+
+\\\`\\\`\\\`input
+✍️ Type your answer here...
+\\\`\\\`\\\`
+\`,
+  'designsystem': \`# Design Systems
+
+**🕒 Estimated Time:** 45-60 min
+
+---
+
+## Overview
+A design system is the single source of truth for your application's UI. It prevents you from hardcoding \`#FF0000\` in 50 different files and ensures your interface remains consistent as your SaaS scales. Instead of building buttons from scratch on every page, you establish "Tokens" (variables for color, spacing, typography) and "Components" (reusable UI blocks). A rigid design system dramatically accelerates development time and eliminates visual bugs.
+
+---
+
+## Think First
+Establish the foundational rules before writing CSS.
+
+**The Core Tokens (What are your exact primary, secondary, background, and text colors in hex/rgb?)**
+\\\`\\\`\\\`input
+✍️ Type your answer here...
+\\\`\\\`\\\`
+
+**The UI Framework (Are you using Tailwind, a component library like shadcn/ui or MUI, or writing custom CSS?)**
+\\\`\\\`\\\`input
+✍️ Type your answer here...
+\\\`\\\`\\\`
+
+---
+
+## Key Decisions
+- **Headless UI vs. Styled Components:** Decide whether you want to use a fully styled library (like Material UI) which is fast but hard to customize, or a "headless" library (like Radix UI or shadcn/ui) which provides accessibility and behavior but leaves the styling entirely to your Tailwind config. For modern SaaS, headless UI + Tailwind is the industry standard.
+- **Tokenization:** Never hardcode values. Decide on a spacing and sizing scale (e.g., base-8 scale where spacing is 8px, 16px, 24px). This ensures perfect alignment without guesswork.
+
+---
+
+## Common Mistakes
+- **The "Frankenstein" UI:** Copy-pasting code snippets from 5 different UI libraries.
+  - *Consequence:* Buttons look different on every page, bundle sizes explode, and overriding styles becomes a nightmare.
+  - *Prevention:* Commit to one primary UI ecosystem (e.g., strict Tailwind) and build a single \`<Button />\` component used globally.
+- **Ignoring Dark Mode:** Hardcoding colors like \`bg-white\` and \`text-black\` everywhere.
+  - *Consequence:* When users demand Dark Mode (and they will), you have to rewrite your entire codebase.
+  - *Prevention:* Use semantic variables from day one (e.g., \`bg-background\` and \`text-foreground\`).
+
+---
+
+## Examples
+- *Good System:* A \`tailwind.config.ts\` file extending a strict color palette (\`primary\`, \`muted\`, \`destructive\`) and a shared \`<Card>\` component used consistently across all dashboards.
+- *Bad System:* Inline styles like \`<div style={{ backgroundColor: '#2a9d8f', padding: '14px' }}>\` scattered across 40 different React components.
+
+---
+
+## AI Prompt
+Use AI to generate a scalable foundation for your UI.
+
+\\\`\\\`\\\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH].
+The brand vibe we want to project is: [INSERT VIBE, e.g., Trustworthy & Corporate OR Playful & Modern].
+
+Act as a Senior Frontend Architect.
+1. Generate a foundational Tailwind CSS configuration (\`tailwind.config.js\` theme extension) that includes a primary, secondary, accent, destructive, and background color palette reflecting our brand vibe.
+2. Ensure the palette supports a seamless Dark Mode implementation using semantic CSS variables.
+3. Define a strict typography scale using a modern, readable font pair.
+\\\`\\\`\\\`
+
+---
+
+## What Good Looks Like
+
+**Strong System:**
+✓ All colors are mapped to semantic variables (e.g., \`primary\`, \`background\`).
+✓ Relies on a singular, unified component framework.
+✓ Standardized spacing system based on fixed multiples.
+
+**Weak System:**
+✗ Heavy use of hardcoded hex colors inline or in arbitrary CSS classes.
+✗ Fragmented components pasted from disparate libraries.
+
+---
+
+## Validation Checklist
+- [ ] Are all colors mapped to semantic variables (e.g., \`primary\`, \`background\`) rather than hardcoded hex values?
+- [ ] Have we selected a singular UI component library or framework to prevent fragmentation?
+- [ ] Is our spacing system standardized (e.g., multiples of 4px or 8px)?
+
+---
+
+## Deliverable
+**File Name:** \`tailwind.config.ts\` (or \`theme.css\`)
+**Purpose:** The central configuration file dictating all styling rules.
+**Contents:** Theme extensions for colors, fonts, and spacing that the rest of the application will consume.
+
+\\\`\\\`\\\`input
+✍️ Type your answer here...
+\\\`\\\`\\\`
+\`,
+  'branding': \`# Branding
+
+**🕒 Estimated Time:** 30 min
+
+---
+
+## Overview
+Branding is not just a logo; it is the emotional promise your software makes to the user. In the context of a SaaS application, your brand dictates trust. If your app handles enterprise financial data but looks like a consumer gaming app, users will churn, regardless of how good the backend is. Branding aligns the visual identity (colors, typography) and the voice (copywriting, tone) perfectly with the user persona you defined in Phase 0.
+
+---
+
+## Think First
+Define the emotional resonance before drawing logos.
+
+**The Brand Archetype (If your software was a person, how would they speak and act? e.g., The Expert, The Rebel, The Caregiver)**
+\\\`\\\`\\\`input
+✍️ Type your answer here...
+\\\`\\\`\\\`
+
+**The Vocabulary (List 5 words you will ALWAYS use in your app, and 5 words you will NEVER use. e.g., Always: "Run", Never: "Execute")**
+\\\`\\\`\\\`input
+✍️ Type your answer here...
+\\\`\\\`\\\`
+
+---
+
+## Key Decisions
+- **Tone of Voice:** Does your app say "Whoops, something went wrong 😅" or "Error: Request Failed. Contact Administrator"? The tone of your error messages, empty states, and onboarding flows is your true brand.
+- **Logo vs. Value:** For early-stage SaaS, do not spend 3 weeks designing a logo. A clean, bold font for a wordmark is 100% sufficient. The "brand" is established through consistent UI quality and solving the user's problem.
+
+---
+
+## Common Mistakes
+- **The "Bland Corporate" Trap:** Using generic illustrations of faceless people high-fiving near giant charts.
+  - *Consequence:* Your product looks identical to 10,000 other forgotten B2B tools, completely failing to stand out.
+  - *Prevention:* Inject personality. Use actual screenshots of your software or bold, opinionated typography instead of generic vector art.
+- **Inconsistent Voice:** Marketing pages sound friendly and colloquial, while the in-app tooltips sound like a dense technical manual.
+  - *Consequence:* Breaks user trust and creates cognitive dissonance.
+  - *Prevention:* Write a 1-page "Voice and Tone" guide and enforce it across all copy.
+
+---
+
+## Examples
+- *Good Branding:* Stripe. Their documentation, dashboard, and marketing pages all share an identical, highly technical, precise, and premium tone.
+- *Bad Branding:* A cybersecurity SaaS that uses playful comic-sans-style fonts and bright pink buttons. It inherently projects a lack of security.
+
+---
+
+## AI Prompt
+Use AI to establish a consistent, professional brand voice.
+
+\\\`\\\`\\\`prompt
+My SaaS product is: [INSERT ELEVATOR PITCH].
+Our target users are: [INSERT PHASE 0 PERSONA].
+
+Act as an elite Brand Strategist.
+1. Define the ideal "Brand Archetype" for this product to maximize trust and conversion with our target users.
+2. Provide a Voice and Tone guide containing: 3 personality traits our copy must exhibit, and 3 traits it must strictly avoid.
+3. Rewrite the following generic error message using our new brand voice: "Error 500: Invalid data input. Please try again."
+\\\`\\\`\\\`
+
+---
+
+## What Good Looks Like
+
+**Strong Branding:**
+✓ Colors and typography consistently reflect the established Brand Archetype.
+✓ Focuses on a clean wordmark rather than an over-engineered logo at an early stage.
+✓ Enforces a consistent tone across marketing, onboarding, and error states.
+
+**Weak Branding:**
+✗ Relies on generic "corporate art" vectors.
+✗ Wildly inconsistent tone between public-facing and in-app copy.
+
+---
+
+## Validation Checklist
+- [ ] Do the brand colors and typography selected in the Design System accurately reflect the Brand Archetype?
+- [ ] Do we have a simple, legible wordmark/logo that works well in small UI headers?
+- [ ] Is the copywriting tone consistent across marketing pages and in-app states?
+
+---
+
+## Deliverable
+**File Name:** \`brand_guidelines.md\`
+**Purpose:** A strict rulebook for visual and written communication.
+**Contents:** Tone of voice rules, core vocabulary (Do's and Don'ts), and the approved wordmark/logo assets.
+
+\\\`\\\`\\\`input
+✍️ Type your answer here...
+\\\`\\\`\\\`
+\`,
+  'accessibility': \`# Accessibility
+
+**🕒 Estimated Time:** 30 min
+
+---
+
+## Overview
+Accessibility (a11y) is not an optional "nice-to-have" feature you bolt on right before launch; it is a fundamental requirement of modern software architecture. Ignoring it exposes B2B SaaS companies to massive legal liabilities (ADA lawsuits) and literally blocks millions of users with disabilities from using your product. Building an accessible app from day one using native semantic HTML and ARIA attributes takes zero extra time. Retrofitting accessibility into a complex React app takes months.
+
+---
+
+## Think First
+Ensure your application is navigable without sight or a mouse.
+
+**The Keyboard Navigation Test (Can a user achieve the Phase 0 core Job-to-be-Done using strictly the \`Tab\`, \`Enter\`, and \`Space\` keys?)**
+\\\`\\\`\\\`input
+✍️ Type your answer here...
+\\\`\\\`\\\`
+
+**The Color Contrast Check (Do your primary brand colors meet the WCAG AA minimum contrast ratio of 4.5:1 for text against their background?)**
+\\\`\\\`\\\`input
+✍️ Type your answer here...
+\\\`\\\`\\\`
+
+---
+
+## Key Decisions
+- **Semantic HTML vs. \`<div onClick>\` Soup:** A \`<button>\` natively supports keyboard focus and screen readers. A \`<div onClick={...}>\` does not. Decide strictly to enforce semantic HTML elements across your entire codebase.
+- **Focus Management:** When a user opens a modal, where does the keyboard focus go? When they close it, does focus return to the button that opened it? Proper focus trapping in modals and sidebars is critical for screen reader users.
+
+---
+
+## Common Mistakes
+- **Low Contrast Gray Text:** Designers love light gray text on white backgrounds (\`#999999\` on \`#FFFFFF\`) because it looks sleek.
+  - *Consequence:* Users with imperfect vision or glare on their screens literally cannot read your UI.
+  - *Prevention:* Always run your text colors through a WCAG contrast checker.
+- **Removing Focus Outlines:** Adding \`outline: none;\` in CSS because the blue focus ring "looks ugly."
+  - *Consequence:* Keyboard users have no idea which element is currently selected, rendering the app unusable.
+  - *Prevention:* Instead of removing the outline, style it to match your brand (e.g., \`focus:ring-2 focus:ring-primary\`).
+
+---
+
+## Examples
+- *Good Accessibility:* Using headless UI libraries (like Radix UI) that automatically handle complex ARIA attributes, keyboard navigation, and focus trapping out of the box.
+- *Bad Accessibility:* Forms without \`<label>\` tags, relying solely on placeholder text which disappears when the user starts typing and is ignored by many screen readers.
+
+---
+
+## AI Prompt
+Use AI to audit your complex components for accessibility requirements.
+
+\\\`\\\`\\\`prompt
+Act as an expert Web Accessibility (a11y) Engineer.
+I am building a custom [INSERT COMPONENT, e.g., Combobox Dropdown / Date Picker] in React.
+
+1. List the exact semantic HTML elements I must use.
+2. Provide the mandatory \`aria-*\` attributes required for screen readers to understand the state of this component (e.g., expanded, selected).
+3. Outline the precise keyboard navigation behavior (Tab, Arrows, Enter, Escape) this component must support to be fully WCAG compliant.
+\\\`\\\`\\\`
+
+---
+
+## What Good Looks Like
+
+**Strong Accessibility:**
+✓ Core workflows are 100% keyboard-navigable.
+✓ All form inputs have explicitly associated \`<label>\` tags.
+✓ Strict adherence to WCAG 4.5:1 text contrast ratios.
+
+**Weak Accessibility:**
+✗ Replaces semantic tags with \`<div onClick={...}>\` everywhere.
+✗ Removes focus outlines globally without a replacement visual indicator.
+
+---
+
+## Validation Checklist
+- [ ] Do all form inputs have associated \`<label>\` elements?
+- [ ] Can the entire application be navigated using only the keyboard?
+- [ ] Do all text/background color pairings pass a 4.5:1 contrast ratio?
+
+---
+
+## Deliverable
+**File Name:** \`a11y_audit.md\` (or integrated into your ESLint config)
+**Purpose:** Ensure legal compliance and universal usability.
+**Contents:** Documentation of the automated tooling (e.g., \`eslint-plugin-jsx-a11y\`) and manual contrast checks implemented to enforce accessibility standards.
+
+\\\`\\\`\\\`input
+✍️ Type your answer here...
+\\\`\\\`\\\`
+\`
 };
