@@ -199,6 +199,21 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'WebAIM Contrast Checker', url: 'https://webaim.org/resources/contrastchecker/' },
     { name: 'W3C ARIA Authoring Practices', url: 'https://www.w3.org/WAI/ARIA/apg/' },
     { name: 'eslint-plugin-jsx-a11y', url: 'https://github.com/jsx-eslint/eslint-plugin-jsx-a11y' }
+  ],
+  'techstackselection': [
+    { name: 'Y Combinator: How to Choose a Tech Stack', url: 'https://www.ycombinator.com/library/1M-how-to-choose-a-tech-stack' },
+    { name: 'Boring Technology Club', url: 'https://boringtechnology.club/' },
+    { name: 'Vercel: Tech Stack Guide', url: 'https://vercel.com/docs/concepts/projects/tech-stacks' }
+  ],
+  'frontendarchitecture': [
+    { name: 'Bulletproof React Architecture', url: 'https://github.com/alan2207/bulletproof-react' },
+    { name: 'TanStack Query (React Query) Docs', url: 'https://tanstack.com/query/latest' },
+    { name: 'Zustand: Bear Necessities for State', url: 'https://github.com/pmndrs/zustand' }
+  ],
+  'backendarchitecture': [
+    { name: 'Supabase Architecture Guide', url: 'https://supabase.com/docs/guides/architecture' },
+    { name: 'Prisma: Data Modeling', url: 'https://www.prisma.io/docs/concepts/components/prisma-schema/data-model' },
+    { name: 'Designing Data-Intensive Applications', url: 'https://dataintensive.net/' }
   ]
 };
 

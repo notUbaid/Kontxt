@@ -2884,4 +2884,240 @@ I am building a custom [INSERT COMPONENT, e.g., Combobox Dropdown / Date Picker]
 ✍️ Type your answer here...
 \`\`\`
 `
+,
+  'techstackselection': `# Tech Stack Selection
+
+**🕒 Estimated Time:** 45-60 min
+
+---
+
+## Overview
+Your tech stack is the foundation of your SaaS. It dictates your hiring pool, iteration speed, and long-term maintenance costs. In Phase 2, the goal is not to find the "coolest" technology, but the most pragmatic combination of languages, frameworks, and databases that solve the problem validated in Phase 0. Boring technology rarely fails; resume-driven development almost always does.
+
+---
+
+## Think First
+Choose tools that accelerate your path to revenue, not your learning curve.
+
+**The Competency Check (What languages and frameworks are you or your founding team already deeply proficient in?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Hard Constraints (Does your Phase 1 PRD require specific technical constraints like WebSockets for real-time multiplayer, heavy data scraping, or massive concurrent writes?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Boring Tech vs. Bleeding Edge:** Boring technology (e.g., PostgreSQL, Node.js, Ruby on Rails, React) has millions of StackOverflow answers, mature libraries, and massive hiring pools. Bleeding edge tech requires you to build your own tooling and solve undocumented bugs. Choose boring unless the bleeding edge offers a massive, defensible competitive advantage.
+- **BaaS vs. Custom Backend:** For early-stage SaaS, Backend-as-a-Service (BaaS) platforms like Supabase or Firebase save months of boilerplate auth and database setup. Only build a custom backend from scratch if your core IP requires complex, non-standard server logic.
+
+---
+
+## Common Mistakes
+- **Resume-Driven Development:** Choosing Kubernetes and a 10-service microservice architecture for an MVP with zero users.
+  - *Why it happens:* Developers want to learn new enterprise patterns.
+  - *Consequence:* You spend 3 months configuring DevOps pipelines instead of shipping features to users.
+  - *Prevention:* Start with a majestic monolith deployed on Vercel, Render, or Heroku.
+- **Ignoring the Ecosystem:** Picking a niche language with a small community.
+  - *Why it happens:* Falling in love with elegant syntax.
+  - *Consequence:* When you need to integrate Stripe, AWS, or an AI provider, no official SDK exists.
+
+---
+
+## Examples
+- *Strong Stack (SaaS Standard):* Frontend: Next.js (React) + TailwindCSS. Backend: Supabase (PostgreSQL + Auth). Deployment: Vercel. 
+- *Weak Stack (Over-engineered):* Frontend: Custom Webpack + Vue. Backend: 5 Go Microservices communicating via Kafka. DB: MongoDB + Redis cache. Deployment: AWS EKS (Kubernetes).
+
+---
+
+## AI Prompt
+Use AI to pressure-test your stack against your actual requirements.
+
+\`\`\`prompt
+My SaaS product is: [INSERT PHASE 0 ELEVATOR PITCH].
+The hardest technical challenge will be: [INSERT HARD CONSTRAINT].
+My proposed tech stack is: [INSERT FRONTEND, BACKEND, DB, HOSTING].
+
+Act as a cynical, highly-experienced Staff Engineer. 
+1. Roast this tech stack. What are the 3 biggest risks or bottlenecks I will face using these tools?
+2. Is there a "more boring" alternative that would let me ship 2x faster?
+3. What specific 3rd-party integration (e.g., Auth, Payments) will be the most painful to implement with this stack?
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Is the founding team already proficient in at least 70% of the chosen stack?
+- [ ] Does the chosen database naturally map to the data models defined in the PRD?
+- [ ] Have we selected "Boring Technology" over untested, trendy frameworks?
+- [ ] Does the stack have a mature, officially supported Stripe/Payment SDK?
+
+---
+
+## Deliverable
+**File Name:** \`tech_stack_decisions.md\`
+**Purpose:** Document the chosen stack to ensure AI coding agents (Cursor/Windsurf) and future hires understand the boundaries of the codebase.
+**Contents:** The chosen Frontend, Backend, Database, Hosting, and a 1-sentence justification for *why* each was chosen over the alternative.`,
+  'frontendarchitecture': `# Frontend Architecture
+
+**🕒 Estimated Time:** 45-60 min
+
+---
+
+## Overview
+Frontend architecture is the structural blueprint of your client-side application. A SaaS frontend quickly grows from a few simple pages to hundreds of complex, data-heavy components. Without strict rules for folder structures, state management, and data fetching, your codebase will devolve into unmaintainable spaghetti. Your goal is to establish patterns that make finding, debugging, and reusing code intuitive.
+
+---
+
+## Think First
+Separate your logic from your UI.
+
+**The State Strategy (Which pieces of data truly need to be accessed globally across the whole app, versus just locally within a specific page?)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Data Fetching Pattern (How will you fetch data from the backend, handle loading states, and cache responses? e.g., React Query, SWR, Apollo)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **Global vs. Server vs. Local State:** 
+  - *Local:* Component-specific (e.g., \`isOpen\` for a modal). Use \`useState\`.
+  - *Server:* Data fetched from the DB (e.g., User Profile). Use a caching library like React Query or SWR. Do NOT put this in Redux.
+  - *Global Client:* App-wide UI state (e.g., Dark Mode, Sidebar collapsed). Use a lightweight library like Zustand or React Context.
+- **Folder Structure (Feature vs. Type):** Grouping files by Feature (\`/features/auth/components\`) scales infinitely better than grouping by Type (\`/components\`, \`/hooks\`, \`/api\`) for large SaaS apps.
+
+---
+
+## Common Mistakes
+- **Putting Everything in Global State (Redux):** 
+  - *Why it happens:* Following outdated tutorials from 2018.
+  - *Consequence:* You write 40 lines of boilerplate just to toggle a checkbox, and your app's performance tanks due to unnecessary re-renders.
+  - *Prevention:* Treat the server as the source of truth. Fetch and cache data at the component level using modern fetching hooks.
+- **Prop Drilling:**
+  - *Why it happens:* Passing data down through 6 layers of components because the parent holds the state.
+  - *Consequence:* Components become impossible to reuse or move.
+  - *Prevention:* Use Context or state management libraries for deeply nested data.
+
+---
+
+## Examples
+- *Good Architecture:* A strict \`features/\` directory. Data is fetched via \`useQuery\` directly inside the \`<UserProfile>\` component. Loading states are handled gracefully.
+- *Bad Architecture:* A massive \`App.tsx\` file holding all API calls. Data is passed down via props to 15 child components. Changing one variable breaks the entire routing system.
+
+---
+
+## AI Prompt
+Use AI to scaffold a highly scalable frontend structure.
+
+\`\`\`prompt
+My SaaS product is: [INSERT PHASE 0 ELEVATOR PITCH].
+I am using [INSERT FRONTEND FRAMEWORK, e.g., Next.js / React+Vite].
+
+Act as a Principal Frontend Architect.
+1. Outline a highly scalable, feature-based folder structure for this specific project.
+2. Define the exact rules for what goes into Global State (e.g., Zustand) vs. Server Cache (e.g., React Query). 
+3. Write a boilerplate example of a custom React Hook that securely fetches data from my backend and handles loading/error states gracefully.
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Is server data managed by a caching library (React Query/SWR) rather than a global state store?
+- [ ] Have we established a clear, feature-based folder structure?
+- [ ] Are we strictly separating UI presentation components from heavy business-logic components?
+
+---
+
+## Deliverable
+**File Name:** \`/src\` directory initialized
+**Purpose:** A physical codebase skeleton ready for feature development.
+**Contents:** The initial folder structure containing \`components/\`, \`features/\`, \`hooks/\`, \`lib/\`, and \`utils/\`, with an established state management library installed.`,
+  'backendarchitecture': `# Backend Architecture
+
+**🕒 Estimated Time:** 60-90 min
+
+---
+
+## Overview
+Your backend architecture is the engine of your SaaS. It is responsible for securing user data, enforcing business logic, and scaling reliably under traffic. Whether you are using a BaaS like Supabase or writing a custom Node/Go server, you must define how data is modeled, how endpoints are structured, and how authorization is rigorously enforced. A messy frontend is annoying; a messy backend is a security breach.
+
+---
+
+## Think First
+Model your core entities before writing API routes.
+
+**The Data Schema (What are the 3-5 core tables/collections your app requires? e.g., Users, Workspaces, Projects, Subscriptions)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+**The Authorization Rules (Who is allowed to read, update, or delete data? e.g., Users can only edit resources inside their own Workspace)**
+\`\`\`input
+✍️ Type your answer here...
+\`\`\`
+
+---
+
+## Key Decisions
+- **REST vs. GraphQL vs. RPC:** 
+  - *REST:* Standard, predictable, boring (Good).
+  - *GraphQL:* Great for complex data graphs, but easy to introduce performance bottlenecks (N+1 queries).
+  - *RPC (e.g., tRPC):* Incredible developer experience and end-to-end type safety, highly recommended if using a full-stack TypeScript environment.
+- **Database Paradigm:** SQL (Relational) vs. NoSQL (Document). For 95% of SaaS products, relational data (SQL like Postgres) is vastly superior because SaaS inherently involves relationships (Users belong to Workspaces, Workspaces have Billing records).
+
+---
+
+## Common Mistakes
+- **Client-Side Trust:** Performing calculation or validation exclusively on the frontend.
+  - *Why it happens:* It's easier to write logic in the UI.
+  - *Consequence:* Malicious users can bypass the UI and send crafted API requests, altering billing or deleting other users' data.
+  - *Prevention:* ALWAYS validate payloads and enforce permissions on the backend. Never trust the client.
+- **The N+1 Query Problem:** Fetching a list of 50 projects, and then making a separate database query to fetch the owner for each project (51 total queries).
+  - *Prevention:* Use SQL \`JOIN\`s or an ORM that handles eager loading.
+
+---
+
+## Examples
+- *Good Architecture:* A strict separation of Routes (API endpoints), Controllers (validation/auth), and Services (database interactions). All database queries use an ORM (like Prisma or Drizzle) for type safety.
+- *Bad Architecture:* Raw SQL queries concatenated with user input (SQL Injection risk) directly inside the API route file, with no middleware checking if the user actually owns the resource.
+
+---
+
+## AI Prompt
+Use AI to design a secure, normalized database schema.
+
+\`\`\`prompt
+My SaaS product is: [INSERT PHASE 0 ELEVATOR PITCH].
+Based on my PRD, users will need to: [INSERT CORE ACTIONS, e.g., Invite team members, create projects, view analytics].
+
+Act as a Senior Database Architect.
+1. Design a normalized relational database schema (PostgreSQL) required to support these features.
+2. Output the schema using Prisma \`schema.prisma\` syntax or raw SQL \`CREATE TABLE\` statements.
+3. Explicitly define the Foreign Key relationships and indexes needed for performance.
+4. Detail the Row Level Security (RLS) or authorization rules required to ensure a user in "Workspace A" cannot read data from "Workspace B".
+\`\`\`
+
+---
+
+## Validation Checklist
+- [ ] Is the database schema normalized (avoiding duplicated data across tables)?
+- [ ] Are we enforcing authorization (ownership checks) on every single API endpoint?
+- [ ] Is user input strictly validated and sanitized before touching the database?
+- [ ] Have we implemented a scalable strategy for database migrations?
+
+---
+
+## Deliverable
+**File Name:** \`schema.sql\` or \`schema.prisma\`
+**Purpose:** The mathematical definition of your application's data.
+**Contents:** The database tables, columns, data types, indexes, and relationship mappings.`
 };
