@@ -239,6 +239,26 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'Supabase Storage Docs', url: 'https://supabase.com/docs/guides/storage' },
     { name: 'AWS S3 Presigned URLs', url: 'https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html' },
     { name: 'Cloudinary Image Transformations', url: 'https://cloudinary.com/documentation/image_transformations' }
+  ],
+  'thirdpartyintegrations': [
+    { name: 'Stripe API Docs', url: 'https://docs.stripe.com/' },
+    { name: 'Resend: Transactional Emails', url: 'https://resend.com/docs/introduction' },
+    { name: 'Understanding Webhooks', url: 'https://hookdeck.com/webhooks/guides/what-are-webhooks' }
+  ],
+  'aiarchitectureoptional': [
+    { name: 'Vercel AI SDK', url: 'https://sdk.vercel.ai/docs' },
+    { name: 'Prompt Injection Explained', url: 'https://simonwillison.net/2022/Sep/12/prompt-injection/' },
+    { name: 'LangChain Documentation', url: 'https://js.langchain.com/docs/get_started/introduction' }
+  ],
+  'systemarchitecturediagram': [
+    { name: 'Mermaid.js Live Editor', url: 'https://mermaid.live/' },
+    { name: 'Monolith vs Microservices', url: 'https://aws.amazon.com/microservices/' },
+    { name: 'Serverless Architectures', url: 'https://martinfowler.com/articles/serverless.html' }
+  ],
+  'costestimation': [
+    { name: 'AWS Pricing Calculator', url: 'https://calculator.aws/#/' },
+    { name: 'Vercel Pricing Explained', url: 'https://vercel.com/docs/pricing' },
+    { name: 'Cloudflare (Zero Egress Costs)', url: 'https://www.cloudflare.com/' }
   ]
 };
 
