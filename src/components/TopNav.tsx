@@ -6,6 +6,8 @@ import type { Project } from '../App';
 import { getSupabase } from '../lib/supabase';
 import { fallbackContent } from '../data/content/fallback';
 
+import { filterModeContent } from '../utils/modeFilter';
+
 export type Mode = 'Hackathon' | 'Personal' | 'Production' | 'Custom';
 
 const SettingsModal = lazy(() => import('./SettingsModal').then(({ SettingsModal }) => ({ default: SettingsModal })));
@@ -87,7 +89,8 @@ export const TopNav = ({
       
       combinedMarkdown += `## ${cat.name}\n\n`;
       for (const topic of modeTopics) {
-        const content = docMap.get(topic.id) || fallbackContent[topic.id] || "_No content drafted yet._";
+        const rawFallback = fallbackContent[topic.id] || '';
+        const content = docMap.get(topic.id) || filterModeContent(rawFallback, activeProject.mode) || "_No content drafted yet._";
         combinedMarkdown += `### ${topic.name}\n\n${content}\n\n---\n\n`;
       }
     }

@@ -45,7 +45,7 @@ export const RightSidebar = ({ activeProject, activeType, activePage, activeMode
   const [isTyping, setIsTyping] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
   
-  const { content } = useDocumentStore(activeProject?.id || null, activePage);
+  const { content } = useDocumentStore(activeProject?.id || null, activePage, activeProject?.mode);
 
   const getDomainColor = (url: string) => {
     try {

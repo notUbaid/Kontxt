@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { getSupabase } from '../lib/supabase';
 import { fallbackContent } from '../data/content/fallback';
+import { filterModeContent } from '../utils/modeFilter';
+import type { Mode } from '../components/TopNav';
 
 export interface DocumentData {
   projectId: string;
@@ -11,7 +13,7 @@ export interface DocumentData {
 
 export type SaveStatus = 'saved' | 'saving' | 'error' | 'idle';
 
-export function useDocumentStore(projectId: string | null, topicId: string) {
+export function useDocumentStore(projectId: string | null, topicId: string, activeMode: Mode = 'SaaS' as Mode) {
   const [content, setContent] = useState<string>('');
   const [isLoaded, setIsLoaded] = useState(false);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>('idle');
@@ -31,7 +33,8 @@ export function useDocumentStore(projectId: string | null, topicId: string) {
     const loadDoc = async () => {
       // SWR: Show fallback content immediately so LCP is not blocked by network
       if (isMounted) {
-        setContent(fallbackContent[topicId] || '');
+        const rawFallback = fallbackContent[topicId] || '';
+        setContent(filterModeContent(rawFallback, activeMode));
         setIsLoaded(true);
       }
 
