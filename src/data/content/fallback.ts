@@ -1748,34 +1748,40 @@ Act as a Principal Enterprise Architect. I am building the Database component fo
 `,
 
   'internalreportingarchitecture': `
-# Reporting Architecture
+# Reporting & Audit Logging
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 1-2 Days
 
 ---
+
+## Why this matters
+When an internal tool deletes a critical user account, the first question the executive team will ask is: *"Who did it, and when?"* If your internal tool does not have an immutable audit log, you cannot answer that question. In enterprise environments, audit logs are legally required for compliance frameworks like SOC2, HIPAA, and GDPR.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Reporting Architecture, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Skip this entirely. Audit logs are invisible features that provide zero value in a demo.
 
 ### Personal Project
-If you are building an internal tool for your own use, Reporting Architecture should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+You don't need compliance, but understanding how to track state changes is valuable. Try implementing a simple webhook that posts to a private Discord or Slack channel whenever a destructive action (like deleting a row) occurs. This is a lightweight, free "audit log" that is surprisingly effective for small teams.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Reporting Architecture can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Audit logs are non-negotiable. Every Create, Update, and Delete (CUD) action performed by an internal user must be logged. 
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+An audit log entry must be **immutable** (append-only, never updated or deleted) and must contain:
+1. **Actor**: Who performed the action? (User ID, IP Address)
+2. **Action**: What did they do? (\`update_subscription\`)
+3. **Target**: Who was affected? (Customer ID)
+4. **Timestamp**: When did it happen? (UTC ISO 8601)
+5. **Diff**: What changed? (Old state vs New state)
+
+Do not store massive audit logs in your primary relational database if you have high transaction volume, as they will quickly bloat the storage and degrade performance. Send audit logs asynchronously to a dedicated logging service (like Datadog Audit Trail) or an append-only data warehouse (like BigQuery or AWS Redshift) using a message queue (Kafka/RabbitMQ) or serverless background jobs.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Reporting Architecture?**
+**Which critical entities require strict audit logging?**
 \`\`\`input
 1. 
 2. 
@@ -1783,14 +1789,13 @@ You must prioritize **Security, Auditability, and Access Control**. Do not build
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Reporting Architecture component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Data Architect. I need to design an immutable Audit Log system for my Enterprise internal tool. Write the exact JSON schema for an audit log event payload. Explain how I can asynchronously fire these events from a Node.js API without blocking the main request thread.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Reporting Architecture.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] All destructive actions generate an audit event.
+- [ ] Audit events capture the Actor, Action, Target, Time, and Diff.
+- [ ] Logs are stored in an append-only datastore.
 `,
 
   'internalworkflowengine': `
@@ -1842,47 +1847,48 @@ Act as a Principal Enterprise Architect. I am building the Workflow Engine compo
   'internalauthorizationrbac': `
 # Authorization (RBAC)
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 8-16 Hours
 
 ---
+
+## Why this matters
+In consumer apps, users only see their own data. In internal tools, users have access to *company* data. Without strict authorization, a junior customer support rep could accidentally delete a production database table, or view the CEO's payroll information. Role-Based Access Control (RBAC) is the absolute core of internal tool security.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Authorization (RBAC), do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+If you are building an internal tool for a hackathon, ignore RBAC. Hardcode a single "Admin" password to gate the entire app. Your goal is to show the workflow automation, not the permission matrices.
 
 ### Personal Project
-If you are building an internal tool for your own use, Authorization (RBAC) should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+For a personal project, this is a great time to learn the difference between Authentication (Who are you?) and Authorization (What are you allowed to do?). 
 
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Implement a simple \`role\` column on your user table (e.g., \`user\`, \`admin\`). In your API routes, write a middleware function that checks if \`req.user.role === 'admin'\` before allowing a DELETE request. This simple check forms the foundation of all application security.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Authorization (RBAC) can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Enterprise authorization is complex. A simple \`role\` column is no longer enough. You need true RBAC (Role-Based Access Control), or even ABAC (Attribute-Based Access Control).
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+You must define **Roles** (e.g., \`Support Agent\`, \`Finance Manager\`, \`Super Admin\`) and **Permissions** (e.g., \`read:invoices\`, \`delete:users\`). A Role is simply a collection of Permissions. Users are assigned Roles, not Permissions directly.
+
+Do not build this from scratch. Use an identity provider that supports RBAC natively (like Auth0, Clerk Organizations, or Okta). Furthermore, your internal tool must verify these permissions on the **Backend**. Hiding a "Delete" button on the Frontend is a UX convenience, not a security measure. Any malicious actor can bypass the UI and hit the API directly. **Every single destructive API endpoint must explicitly check the user's permissions.**
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Authorization (RBAC)?**
+**Define the core Roles and their specific Permissions for this tool:**
 \`\`\`input
-1. 
-2. 
-3. 
+1. Role: [Name] | Permissions: [read:x, write:y]
+2. Role: [Name] | Permissions: [read:x]
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Authorization (RBAC) component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Principal Enterprise Architect. I am building a B2B internal tool. I need to design a robust RBAC schema in Postgres. Please write the SQL schema to create Users, Roles, Permissions, and the necessary junction tables (UserRoles, RolePermissions). Provide a query to check if a specific user has the 'delete:invoice' permission.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Authorization (RBAC).
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] Permissions are explicitly defined for all destructive actions.
+- [ ] The backend API enforces RBAC checks before executing logic.
+- [ ] UI components gracefully hide based on lack of permissions.
 `,
 
   'internalinternaltoolfundamentals': `
@@ -6212,47 +6218,48 @@ Act as a Principal API Architect. I am building the API Documentation Strategy c
   'apisdkstrategy': `
 # SDK Strategy
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 1-3 Days
 
 ---
+
+## Why this matters
+Developers are lazy. Even if you have a beautifully designed REST API, developers do not want to write boilerplate \`fetch()\` wrappers and interface types. An SDK (Software Development Kit) provides a native, type-safe library in their language of choice (Python, TypeScript, Go). A great SDK drastically reduces Time-To-First-Hello-World (TTFHW), which is the single most important metric for API adoption.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building SDK Strategy during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
-
-Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+Do not build an SDK. It is a massive waste of time for a 48-hour event. Instead, provide a highly copy-pasteable \`curl\` command or a simple \`fetch()\` snippet in your README. That is your SDK.
 
 ### Personal Project
-For a personal project, SDK Strategy represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+If your API is meant to be consumed by other developers, writing a simple SDK in one language (like TypeScript) is a fantastic learning experience. It forces you to think about how your API is actually used in practice.
 
-While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+However, do not maintain it manually! Learn how to use **OpenAPI / Swagger**. Define your API contract in a \`swagger.yaml\` file, and use a tool like \`openapi-generator\` to automatically output a TypeScript client. This teaches you the power of contract-driven development.
 
 ### Production SaaS
-In a Production SaaS environment, SDK Strategy is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+In Production, SDKs are an absolute necessity. Stripe, Twilio, and Plaid dominate their industries largely because their SDKs are flawless.
 
-You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+But maintaining SDKs in 7 different languages (Python, TS, Go, Java, Ruby, PHP, C#) manually requires an entire engineering team. **You must automate this.** 
+1. Maintain an immaculate OpenAPI 3.0 specification.
+2. Use a modern SDK generation platform like **Speakeasy**, **Stainless**, or **Fern**. These tools ingest your OpenAPI spec and output beautifully idiomatic, type-safe, human-readable SDKs in multiple languages automatically.
+3. Automatically publish these SDKs to npm, PyPI, and Go modules via GitHub Actions every time your API changes.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary endpoints or resources related to SDK Strategy?**
+**Which languages will you prioritize for your initial SDK release?**
 \`\`\`input
 1. 
 2. 
-3. 
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal API Architect. I am building the SDK Strategy component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+Act as a Developer Experience (DX) Expert. I am building a SaaS API and want to automate my SDK generation. Compare the top tools in the market (Speakeasy vs Fern vs OpenAPI Generator) for generating TypeScript and Python SDKs. Which provides the most idiomatic code and best DX?
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for SDK Strategy.
-- [ ] I have tested the edge cases and error states.
+- [ ] I have established an OpenAPI 3.0 specification.
+- [ ] I have selected an automated SDK generation pipeline.
 `,
 
   'apiauthorizationstrategy': `
@@ -6304,93 +6311,98 @@ Act as a Principal API Architect. I am building the Authorization Strategy compo
   'apiauthenticationstrategy': `
 # Authentication Strategy
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 8-16 Hours
 
 ---
+
+## Why this matters
+Authentication is the front door to your API. If you get this wrong, your API is fundamentally compromised. Unlike consumer web apps that can rely on secure HTTP-only cookies, API products are consumed by servers, mobile apps, and CLI tools, meaning you need a fundamentally different approach to identity management.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building Authentication Strategy during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+Do not build your own Auth. Use an off-the-shelf provider like Clerk, Supabase Auth, or Auth0. For an API, the easiest way to authenticate a script is using a simple static API Key passed in the \`Authorization: Bearer <token>\` header. 
 
-Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+Generate a random UUID, save it in your database, and have your middleware check if the incoming header matches. It’s not perfectly secure (keys don't expire, they can't be scoped easily), but it takes 10 minutes to build and perfectly serves a hackathon demo.
 
 ### Personal Project
-For a personal project, Authentication Strategy represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+For a personal project, focus on understanding the mechanics of **JSON Web Tokens (JWTs)**. Why are they stateless? How do you verify the signature? 
 
-While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+Build a flow where a user logs in via a web portal, generates a long-lived API token, and uses that token to access your API. Learn how to store hashed versions of these API keys in your database (never store them in plain text!). When a user generates an API key, show it to them exactly *once*. If they lose it, they must generate a new one. This is the industry standard practice.
 
 ### Production SaaS
-In a Production SaaS environment, Authentication Strategy is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+Production API authentication is incredibly complex and high-risk. You must support sophisticated Identity and Access Management (IAM) patterns. 
 
-You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+Your API keys must be cryptographically secure, fully revokable, and ideally prefixed (e.g., \`sk_live_12345\`) so that secret scanning tools like GitHub Advanced Security can detect if a customer accidentally commits their key to a public repo. 
+
+You must securely hash API keys in your database (using SHA-256 is acceptable for API keys since they are high-entropy, unlike passwords which require bcrypt). Furthermore, you need to support **Scoped Access Tokens** (OAuth 2.0). If a user grants a 3rd party app access to your API on their behalf, that app should receive an Access Token that only grants read-access to specific endpoints, not full admin privileges. 
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary endpoints or resources related to Authentication Strategy?**
+**How will servers and scripts authenticate with your API?**
 \`\`\`input
-1. 
-2. 
-3. 
+Write your strategy here (e.g., Prefixed API Keys, OAuth2 Client Credentials)...
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal API Architect. I am building the Authentication Strategy component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+Act as a Principal Security Engineer. I am designing the API Key architecture for my SaaS. I want keys to be prefixed (like Stripe's 'sk_live_') for secret scanning. Write the exact Node.js logic to securely generate these keys, hash them for database storage, and quickly verify them on incoming requests. Include advice on mitigating timing attacks during verification.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Authentication Strategy.
-- [ ] I have tested the edge cases and error states.
+- [ ] API keys are generated with high entropy and verifiable prefixes.
+- [ ] API keys are hashed in the database.
+- [ ] Timing attacks are mitigated during key verification.
 `,
 
   'apiratelimitingstrategy': `
 # Rate Limiting Strategy
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 4-8 Hours
 
 ---
+
+## Why this matters
+An API without rate limiting is a ticking time bomb. A single user with a poorly written \`while(true)\` loop can unintentionally launch a Denial of Service (DoS) attack, taking down your entire infrastructure and bankrupting your cloud budget. Rate limiting is your primary defense mechanism against abuse, noisy neighbors, and runaway costs.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building Rate Limiting Strategy during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+During a hackathon, don't waste time implementing complex Leaky Bucket or Token Bucket algorithms from scratch. Your goal is simply to prevent the judges or your team from accidentally crashing the server.
 
-Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+Use a simple middleware approach. If you are using Express, drop in \`express-rate-limit\`. If you are using Next.js or Vercel, use \`@upstash/ratelimit\` with a free Redis instance. Set a generous but safe limit (e.g., 100 requests per minute per IP) and move on. Don't worry about sophisticated API Key-based throttling yet; IP-based throttling is perfectly sufficient for a 48-hour prototype.
 
 ### Personal Project
-For a personal project, Rate Limiting Strategy represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+For a personal project, this is a great opportunity to learn *how* rate limiting actually works under the hood. While you can still use a library like Upstash, take the time to understand the differences between the algorithms.
 
-While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+Try implementing a **Fixed Window Counter** using Redis yourself. It's an incredible learning exercise in distributed systems. How do you handle race conditions when two requests hit the Redis server simultaneously? (Hint: Redis \`INCR\` is atomic). Document your approach. Ensure your API returns the standard \`429 Too Many Requests\` HTTP status code, along with standard headers like \`X-RateLimit-Limit\`, \`X-RateLimit-Remaining\`, and \`X-RateLimit-Reset\`.
 
 ### Production SaaS
-In a Production SaaS environment, Rate Limiting Strategy is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+In a production enterprise API, rate limiting is a massive architectural pillar. IP-based rate limiting is no longer enough, as multiple users behind a corporate NAT will share an IP and accidentally throttle each other.
 
-You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+You must implement **API Key-based Rate Limiting**. Furthermore, you need to consider **Tiered Limits** (e.g., Free Tier gets 60 req/min, Pro Tier gets 1000 req/min). You must implement a highly performant algorithm like the **Token Bucket** or **Sliding Window Log** to prevent sudden bursts at the edge of time windows.
+
+Because checking the rate limit requires a database call on *every single incoming request*, you absolutely cannot use your primary Postgres/MySQL database for this. You **must** use an in-memory datastore like Redis or Memcached. In globally distributed architectures, consider Edge Rate Limiting (e.g., Cloudflare Rate Limiting or Fastly) so that malicious requests are blocked before they even reach your servers.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary endpoints or resources related to Rate Limiting Strategy?**
+**What algorithm will you use, and where will the state be stored?**
 \`\`\`input
-1. 
-2. 
-3. 
+1. Algorithm (e.g. Token Bucket, Sliding Window):
+2. Datastore (e.g. Redis, Edge Network):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal API Architect. I am building the Rate Limiting Strategy component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+Act as a Principal API Architect. I am implementing rate limiting for my production SaaS API. I need to support tiered limits based on API Keys (Free: 100/min, Pro: 1000/min). Write the exact Redis/Upstash implementation using a Sliding Window algorithm in Node.js. Ensure you handle race conditions and return the proper X-RateLimit headers.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Rate Limiting Strategy.
-- [ ] I have tested the edge cases and error states.
+- [ ] Rate limiting middleware is active on all public endpoints.
+- [ ] API returns HTTP 429 when limits are exceeded.
+- [ ] X-RateLimit headers are included in responses.
 `,
 
   'apiversioningstrategy': `
