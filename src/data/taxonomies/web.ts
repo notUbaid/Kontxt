@@ -48,19 +48,19 @@ export const webProductionTaxonomy: Category[] = [
     id: 'phase-2',
     name: 'PHASE 2 — TECHNICAL ARCHITECTURE',
     topics: [
-      createTopic('Tech Stack Selection', Settings),
-      createTopic('Frontend Architecture', Monitor),
-      createTopic('Backend Architecture', Server),
-      createTopic('API Design', Globe),
-      createTopic('Authentication', Key),
-      createTopic('Database Schema', Database),
-      createTopic('File Storage', Cloud),
-      createTopic('Cost Estimation', DollarSign),
-      createTopic('Web Fundamentals', BookOpen),
-      createTopic('Authorization', Lock),
-      createTopic('Search System', Search),
-      createTopic('Third-Party Integrations', Link),
-      createTopic('AI Features (Optional)', Cpu),
+      createTopic('Tech Stack Selection', Settings, [], 'webtechstack'),
+      createTopic('Frontend Architecture', Monitor, [], 'webfrontendarchitecture'),
+      createTopic('Backend Architecture', Server, [], 'webbackendarchitecture'),
+      createTopic('API Design', Globe, [], 'webapidesign'),
+      createTopic('Authentication', Key, [], 'webauthentication'),
+      createTopic('Database Schema', Database, [], 'webdatabaseschema'),
+      createTopic('File Storage', Cloud, [], 'webfilestorage'),
+      createTopic('Cost Estimation', DollarSign, [], 'webcostestimation'),
+      createTopic('Web Fundamentals', BookOpen, [], 'webfundamentals'),
+      createTopic('Authorization', Lock, [], 'webauthorization'),
+      createTopic('Search System', Search, [], 'websearchsystem'),
+      createTopic('Third-Party Integrations', Link, [], 'webthirdpartyintegrations'),
+      createTopic('AI Features (Optional)', Cpu, [], 'webaifeatures'),
     ]
   },
   {
@@ -144,14 +144,14 @@ export const webHackathonTaxonomy: Category[] = [
       createTopic('Design System', PenTool, [], 'webdesignsystem'),
     ]
   },
-  {
-    id: 'phase-2',
-    name: 'PHASE 2',
-    topics: [
-      createTopic('Tech Stack', Settings),
-      createTopic('Database Schema', Database),
-    ]
-  },
+      {
+      id: 'phase-2',
+      name: 'PHASE 2 ?" TECHNICAL ARCHITECTURE',
+      topics: [
+        createTopic('Tech Stack Selection', Settings, [], 'webtechstack'),
+        createTopic('Database Schema', Database, [], 'webdatabaseschema'),
+      ]
+    },
   {
     id: 'phase-3',
     name: 'PHASE 3',
@@ -192,17 +192,17 @@ export const webPersonalTaxonomy: Category[] = [
         createTopic('Design System', PenTool, [], 'webdesignsystem'),
       ]
     },
-  {
-    id: 'architecture',
-    name: 'PHASE 2 — ARCHITECTURE',
-    topics: [
-      createTopic('Tech Stack', Settings),
-      createTopic('Auth', Key),
-      createTopic('Database', Database),
-      createTopic('APIs', Globe),
-      createTopic('Search', Search),
-    ]
-  },
+      {
+      id: 'phase-2',
+      name: 'PHASE 2 ?" TECHNICAL ARCHITECTURE',
+      topics: [
+        createTopic('Tech Stack Selection', Settings, [], 'webtechstack'),
+        createTopic('Authentication', Key, [], 'webauthentication'),
+        createTopic('Database Schema', Database, [], 'webdatabaseschema'),
+        createTopic('API Design', Globe, [], 'webapidesign'),
+        createTopic('Search System', Search, [], 'websearchsystem'),
+      ]
+    },
   {
     id: 'production',
     name: 'PHASE 3 — PRODUCTION',
