@@ -5,6 +5,7 @@ import { getSupabase } from './lib/supabase';
 import { useProjectStore } from './hooks/useProjectStore';
 import type { CustomLink } from './data/taxonomies/types';
 import { scheduleIdleTask } from './utils/idle';
+import { syncLocalDataToSupabase } from './lib/sync';
 
 export type AppType = 
   | 'SaaS' 
@@ -57,12 +58,18 @@ function App() {
         const { data: { session } } = await supabase.auth.getSession();
         if (!cancelled) {
           setIsAuthenticated(!!session);
+          if (session?.user) {
+            syncLocalDataToSupabase(session.user.id);
+          }
         }
 
         const {
           data: { subscription },
         } = supabase.auth.onAuthStateChange((_event, session) => {
           setIsAuthenticated(!!session);
+          if (session?.user) {
+            syncLocalDataToSupabase(session.user.id);
+          }
         });
 
         unsubscribe = () => subscription.unsubscribe();

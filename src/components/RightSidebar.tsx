@@ -46,7 +46,7 @@ export const RightSidebar = ({ activeProject, activeType, activePage, activeMode
   const [isChatExpanded, setIsChatExpanded] = useState(true);
   const chatEndRef = useRef<HTMLDivElement>(null);
   
-  const { content } = useDocumentStore(activeProject?.id || null, activePage, activeProject?.mode);
+  const { content } = useDocumentStore(activeProject?.id || null, activePage, activeProject?.mode, isAuthenticated);
 
   const getDomainColor = (url: string) => {
     try {
@@ -143,6 +143,10 @@ export const RightSidebar = ({ activeProject, activeType, activePage, activeMode
   });
 
   const handleSendMessage = async () => {
+    if (!isAuthenticated) {
+      onRequestLogin();
+      return;
+    }
     if (!chatInput.trim() || isTyping) return;
 
     const userMsg: ChatMessage = {

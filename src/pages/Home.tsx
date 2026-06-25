@@ -25,11 +25,7 @@ export default function Home({ projects, addProject, isAuthenticated, setIsAuthe
   };
 
   const handleCreateProject = (name: string, mode: Mode, type?: AppType) => {
-    if (!isAuthenticated) {
-      // Just a safeguard, the UI should encourage them to sign in
-      alert("Please Sign In first to create and save projects.");
-      return;
-    }
+    // Allowed for guests now
     const project: Project = {
       id: crypto.randomUUID(),
       name,

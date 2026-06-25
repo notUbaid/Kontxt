@@ -20,6 +20,8 @@ const defaultSettings: UserSettings = {
   customLinks: {},
 };
 
+const LOCAL_STORAGE_KEY = 'kontxt_local_settings';
+
 export function useSettingsStore(isAuthenticated: boolean) {
   const [settings, setSettings] = useState<UserSettings>(defaultSettings);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -27,7 +29,18 @@ export function useSettingsStore(isAuthenticated: boolean) {
 
   const fetchSettings = useCallback(async () => {
     if (!isAuthenticated) {
-      setSettings(defaultSettings);
+      const localData = localStorage.getItem(LOCAL_STORAGE_KEY);
+      if (localData) {
+        try {
+          const parsed = JSON.parse(localData);
+          setSettings({ ...defaultSettings, ...parsed });
+        } catch (e) {
+          console.error("Error parsing local settings:", e);
+          setSettings(defaultSettings);
+        }
+      } else {
+        setSettings(defaultSettings);
+      }
       setIsLoaded(true);
       return;
     }
@@ -70,7 +83,10 @@ export function useSettingsStore(isAuthenticated: boolean) {
     setSettings(prev => {
       const updated = { ...prev, ...newSettings };
       
-      if (!isAuthenticated) return updated;
+      if (!isAuthenticated) {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updated));
+        return updated;
+      }
 
       if (saveTimeoutRef.current) {
         clearTimeout(saveTimeoutRef.current);

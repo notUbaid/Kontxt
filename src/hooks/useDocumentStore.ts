@@ -13,7 +13,7 @@ export interface DocumentData {
 
 export type SaveStatus = 'saved' | 'saving' | 'error' | 'idle';
 
-export function useDocumentStore(projectId: string | null, topicId: string, activeMode: Mode = 'Production') {
+export function useDocumentStore(projectId: string | null, topicId: string, activeMode: Mode = 'Production', isAuthenticated: boolean = true) {
   const [content, setContent] = useState<string>('');
   const [isLoaded, setIsLoaded] = useState(false);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>('idle');
@@ -36,6 +36,17 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
         const rawFallback = fallbackContent[topicId] || '';
         setContent(filterModeContent(rawFallback, activeMode));
         setIsLoaded(true);
+      }
+
+      if (!isAuthenticated) {
+        // Offline / Guest mode
+        const localKey = `kontxt_doc_${projectId}_${topicId}`;
+        const localData = localStorage.getItem(localKey);
+        if (localData && isMounted) {
+          setContent(localData);
+        }
+        if (isMounted) setSaveStatus('saved');
+        return;
       }
 
       try {
@@ -65,13 +76,20 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
     loadDoc();
 
     return () => { isMounted = false; };
-  }, [projectId, topicId, activeMode]);
+  }, [projectId, topicId, activeMode, isAuthenticated]);
 
   // Save document
   const saveContent = (newContent: string) => {
     setContent(newContent);
     setSaveStatus('saving');
     if (!projectId || !topicId) return;
+
+    if (!isAuthenticated) {
+      const localKey = `kontxt_doc_${projectId}_${topicId}`;
+      localStorage.setItem(localKey, newContent);
+      setSaveStatus('saved');
+      return;
+    }
 
     if (saveTimeoutRef.current) {
       clearTimeout(saveTimeoutRef.current);

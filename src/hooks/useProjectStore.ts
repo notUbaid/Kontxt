@@ -4,19 +4,33 @@ import type { Project } from '../App';
 import type { AppType } from '../App';
 import type { Mode } from '../components/TopNav';
 
+const LOCAL_STORAGE_KEY = 'kontxt_local_projects';
+
 export const useProjectStore = (isAuthenticated: boolean) => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const updateTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const fetchProjects = useCallback(async () => {
+    setLoading(true);
+
     if (!isAuthenticated) {
-      setProjects([]);
+      // Offline/Guest Mode
+      const localData = localStorage.getItem(LOCAL_STORAGE_KEY);
+      if (localData) {
+        try {
+          setProjects(JSON.parse(localData));
+        } catch (e) {
+          console.error('Error parsing local projects:', e);
+          setProjects([]);
+        }
+      } else {
+        setProjects([]);
+      }
       setLoading(false);
       return;
     }
     
-    setLoading(true);
     const supabase = await getSupabase();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
@@ -46,10 +60,10 @@ export const useProjectStore = (isAuthenticated: boolean) => {
           type: p.type as AppType,
           customLinks: p.custom_links,
           hiddenLinks: p.hidden_links,
-        completedTopics: p.completed_topics,
-        customTopics: p.custom_topics,
-        progressEnabled: p.progress_enabled,
-        lastViewedTopic: p.last_viewed_topic
+          completedTopics: p.completed_topics,
+          customTopics: p.custom_topics,
+          progressEnabled: p.progress_enabled,
+          lastViewedTopic: p.last_viewed_topic
         };
       });
       setProjects(mappedProjects);
@@ -62,12 +76,20 @@ export const useProjectStore = (isAuthenticated: boolean) => {
   }, [fetchProjects]);
 
   const addProject = async (project: Project) => {
+    // Optimistic update
+    setProjects(prev => {
+      const newProjects = [...prev, project];
+      if (!isAuthenticated) {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newProjects));
+      }
+      return newProjects;
+    });
+
+    if (!isAuthenticated) return;
+
     const supabase = await getSupabase();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return;
-
-    // Optimistic update
-    setProjects(prev => [...prev, project]);
 
     const { error } = await supabase
       .from('projects')
@@ -88,13 +110,25 @@ export const useProjectStore = (isAuthenticated: boolean) => {
     if (error) {
       console.error('Error adding project:', error);
       // Revert optimistic update on error if needed
-      setProjects(prev => prev.filter(p => p.id !== project.id));
+      setProjects(prev => {
+        const reverted = prev.filter(p => p.id !== project.id);
+        if (!isAuthenticated) localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(reverted));
+        return reverted;
+      });
     }
   };
 
   const updateProject = async (project: Project) => {
     // Optimistic update immediately
-    setProjects(prev => prev.map(p => p.id === project.id ? project : p));
+    setProjects(prev => {
+      const newProjects = prev.map(p => p.id === project.id ? project : p);
+      if (!isAuthenticated) {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newProjects));
+      }
+      return newProjects;
+    });
+
+    if (!isAuthenticated) return;
 
     if (updateTimeoutRef.current) {
       clearTimeout(updateTimeoutRef.current);
@@ -129,12 +163,20 @@ export const useProjectStore = (isAuthenticated: boolean) => {
   };
 
   const deleteProject = async (projectId: string) => {
+    // Optimistic update
+    setProjects(prev => {
+      const newProjects = prev.filter(p => p.id !== projectId);
+      if (!isAuthenticated) {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newProjects));
+      }
+      return newProjects;
+    });
+
+    if (!isAuthenticated) return;
+
     const supabase = await getSupabase();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return;
-
-    // Optimistic update
-    setProjects(prev => prev.filter(p => p.id !== projectId));
 
     const { error } = await supabase
       .from('projects')
@@ -144,7 +186,6 @@ export const useProjectStore = (isAuthenticated: boolean) => {
 
     if (error) {
       console.error('Error deleting project:', error);
-      // Might want to refetch on error to restore the project
       fetchProjects();
     }
   };
