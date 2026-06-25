@@ -173,7 +173,7 @@ export const mobileHackathonTaxonomy: Category[] = [
     id: 'phase-2',
     name: 'PHASE 2',
     topics: [
-      createTopic('Tech Stack', Settings, [], 'mobiletechstack'),
+      createTopic('Tech Stack', Settings, [], 'mobiletechstackselection'),
       createTopic('Database', Database, [], 'mobiledatabase'),
       createTopic('Auth (Optional)', Key, [], 'mobileauth'),
     ]
@@ -213,7 +213,7 @@ export const mobilePersonalTaxonomy: Category[] = [
     id: 'architecture',
     name: 'PHASE 2 — ARCHITECTURE',
     topics: [
-      createTopic('Tech Stack', Settings, [], 'mobiletechstack'),
+      createTopic('Tech Stack', Settings, [], 'mobiletechstackselection'),
       createTopic('Auth', Key, [], 'mobileauth'),
       createTopic('Database', Database, [], 'mobiledatabase'),
     ]
