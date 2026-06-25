@@ -40,54 +40,124 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
   // Mobile App Phase 0
   'mobileideadefinition': [
     { name: 'YC: Evaluate Ideas', url: 'https://www.ycombinator.com/library/6e-how-to-evaluate-startup-ideas' },
-    { name: 'Tool: Google Trends', url: 'https://trends.google.com/' }
+    { name: 'Tool: Google Trends', url: 'https://trends.google.com/' },
+    { name: 'Tool: Exploding Topics', url: 'https://explodingtopics.com/' }
   ],
   'mobileproblemstatement': [
     { name: 'Lean Canvas Guide', url: 'https://leanstack.com/lean-canvas' },
-    { name: 'YC: Get Startup Ideas', url: 'https://www.ycombinator.com/library/8g-how-to-get-startup-ideas' }
+    { name: 'YC: Get Startup Ideas', url: 'https://www.ycombinator.com/library/8g-how-to-get-startup-ideas' },
+    { name: 'The Mom Test', url: 'https://www.momtestbook.com/' }
   ],
   'mobileusecases': [
-    { name: 'Jobs to be Done', url: 'https://www.lennysnewsletter.com/p/jobs-to-be-done' }
+    { name: 'Jobs to be Done', url: 'https://www.lennysnewsletter.com/p/jobs-to-be-done' },
+    { name: 'NNG: Scenario Mapping', url: 'https://www.nngroup.com/articles/scenario-mapping-personas/' }
   ],
   'mobileuserjourney': [
-    { name: 'Nielsen Norman: Journey Mapping', url: 'https://www.nngroup.com/articles/journey-mapping-101/' }
+    { name: 'Nielsen Norman: Journey Mapping', url: 'https://www.nngroup.com/articles/journey-mapping-101/' },
+    { name: 'Miro Journey Template', url: 'https://miro.com/templates/customer-journey-map/' },
+    { name: 'UXPressia (Journey Maps)', url: 'https://uxpressia.com/' }
   ],
   'mobiletargetaudience': [
-    { name: 'Superhuman PMF Engine', url: 'https://firstround.com/review/how-superhuman-built-an-engine-to-find-product-market-fit/' }
+    { name: 'Superhuman PMF Engine', url: 'https://firstround.com/review/how-superhuman-built-an-engine-to-find-product-market-fit/' },
+    { name: 'SparkToro (Audience Research)', url: 'https://sparktoro.com/' }
   ],
   'mobilepersonas': [
-    { name: 'Nielsen Norman: User Personas', url: 'https://www.nngroup.com/articles/persona/' }
+    { name: 'Nielsen Norman: User Personas', url: 'https://www.nngroup.com/articles/persona/' },
+    { name: 'Hubspot Persona Maker', url: 'https://www.hubspot.com/make-my-persona' },
+    { name: 'ADPList (User Interviews)', url: 'https://adplist.org/' }
   ],
   'mobilesolutionstatement': [
-    { name: 'Amazon Working Backwards', url: 'https://www.workingbackwards.com/' }
+    { name: 'Amazon Working Backwards', url: 'https://www.workingbackwards.com/' },
+    { name: 'Coda PR/FAQ Template', url: 'https://coda.io/@coda/amazon-pr-faq' }
   ],
   'mobileelevatorpitch': [
-    { name: 'YC: How to Pitch', url: 'https://www.ycombinator.com/library/6p-how-to-pitch-your-startup' }
+    { name: 'YC: How to Pitch', url: 'https://www.ycombinator.com/library/6p-how-to-pitch-your-startup' },
+    { name: 'Geoffrey Moore Positioning', url: 'https://firstround.com/review/the-positioning-framework-that-has-helped-founders-cut-through-the-noise/' }
   ],
   'mobilecompetitoranalysis': [
-    { name: 'AppTweak (ASO)', url: 'https://www.apptweak.com/' },
-    { name: 'SensorTower', url: 'https://sensortower.com/' }
+    { name: 'AppTweak (ASO & Competitors)', url: 'https://www.apptweak.com/' },
+    { name: 'SensorTower', url: 'https://sensortower.com/' },
+    { name: 'Data.ai (App Annie)', url: 'https://www.data.ai/' }
   ],
   'mobilesimilarapps': [
-    { name: 'Mobbin (App UI Patterns)', url: 'https://mobbin.com/' }
+    { name: 'Mobbin (App UI Patterns)', url: 'https://mobbin.com/' },
+    { name: 'UXArchive', url: 'https://uxarchive.com/' },
+    { name: 'App Store Categories', url: 'https://apps.apple.com/us/genre/ios/id36' }
+  ],
+  'playstoreresearch': [
+    { name: 'Google Play Console Guide', url: 'https://play.google.com/console/about/' },
+    { name: 'AppTweak Play Store ASO', url: 'https://www.apptweak.com/en/aso-blog/google-play-store-optimization' },
+    { name: 'SensorTower Play Store Top Charts', url: 'https://sensortower.com/android/us/overall/top-free' }
+  ],
+  'appstoreresearch': [
+    { name: 'App Store Optimization Basics', url: 'https://developer.apple.com/app-store/search/' },
+    { name: 'SplitMetrics (A/B Testing)', url: 'https://splitmetrics.com/' },
+    { name: 'AppTweak App Store ASO', url: 'https://www.apptweak.com/en/aso-blog/app-store-optimization-ios' }
   ],
   'mobilefeatureplanning': [
-    { name: 'Lenny: Writing PRDs', url: 'https://www.lennysnewsletter.com/p/product-requirements-document-prd' }
+    { name: 'Lenny: Writing PRDs', url: 'https://www.lennysnewsletter.com/p/product-requirements-document-prd' },
+    { name: 'Linear (Issue Tracking)', url: 'https://linear.app/' },
+    { name: 'Notion (Roadmaps)', url: 'https://www.notion.so/' }
   ],
   'mobilemvpfeatures': [
-    { name: 'YC: Plan an MVP', url: 'https://www.ycombinator.com/library/6e-how-to-plan-an-mvp' }
+    { name: 'YC: Plan an MVP', url: 'https://www.ycombinator.com/library/6e-how-to-plan-an-mvp' },
+    { name: 'Minimum Lovable Product', url: 'https://firstround.com/review/dont-serve-burnt-pizza-and-other-lessons-in-building-minimum-lovable-products/' }
   ],
   'mobilefuturefeatures': [
-    { name: 'Lenny: Product Roadmaps', url: 'https://www.lennysnewsletter.com/p/product-roadmaps' }
+    { name: 'Lenny: Product Roadmaps', url: 'https://www.lennysnewsletter.com/p/product-roadmaps' },
+    { name: 'PostHog (Feature Flags)', url: 'https://posthog.com/' }
   ],
   'mobilefeatureprioritization': [
-    { name: 'MoSCoW Prioritization', url: 'https://www.productplan.com/glossary/moscow-prioritization/' }
+    { name: 'MoSCoW Prioritization', url: 'https://www.productplan.com/glossary/moscow-prioritization/' },
+    { name: 'Intercom: RICE Framework', url: 'https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers/' },
+    { name: 'Kano Model', url: 'https://www.productplan.com/glossary/kano-model/' }
   ],
   'mobilemonetization': [
-    { name: 'State of Subscription Apps', url: 'https://www.revenuecat.com/state-of-subscription-apps/' }
+    { name: 'RevenueCat: State of Subscriptions', url: 'https://www.revenuecat.com/state-of-subscription-apps/' },
+    { name: 'Adapty: Monetization Guide', url: 'https://adapty.io/blog/' },
+    { name: 'Apple Monetization Guidelines', url: 'https://developer.apple.com/app-store/business-models/' }
+  ],
+  'mobilefree': [
+    { name: 'Monetizing Free Apps', url: 'https://www.businessofapps.com/guide/how-to-monetize-an-app/' },
+    { name: 'The Danger of Free Apps', url: 'https://andrewchen.com/the-danger-of-free/' }
+  ],
+  'mobilefreemium': [
+    { name: 'Freemium vs Free Trial', url: 'https://www.revenuecat.com/blog/engineering/freemium-vs-free-trial/' },
+    { name: 'Elena Verna: B2B Freemium', url: 'https://www.elenaverna.com/' }
+  ],
+  'mobilesubscription': [
+    { name: 'RevenueCat', url: 'https://www.revenuecat.com/' },
+    { name: 'Superwall (Paywalls)', url: 'https://superwall.com/' },
+    { name: 'Adapty', url: 'https://adapty.io/' }
+  ],
+  'mobileads': [
+    { name: 'Google AdMob', url: 'https://admob.google.com/home/' },
+    { name: 'AppLovin', url: 'https://www.applovin.com/' },
+    { name: 'Unity Ads', url: 'https://unity.com/solutions/unity-ads' }
+  ],
+  'mobileonetimepurchase': [
+    { name: 'Apple In-App Purchases', url: 'https://developer.apple.com/in-app-purchase/' },
+    { name: 'Google Play Billing', url: 'https://developer.android.com/google/play/billing' }
   ],
   'mobilesuccessmetrics': [
-    { name: 'Amplitude: Retention Playbook', url: 'https://amplitude.com/retention' }
+    { name: 'Amplitude: Retention Playbook', url: 'https://amplitude.com/retention' },
+    { name: 'Mixpanel: Mobile Analytics', url: 'https://mixpanel.com/mobile-analytics/' }
+  ],
+  'mobileretention': [
+    { name: 'Sequoia: Measuring Retention', url: 'https://www.sequoiacap.com/article/measuring-retention/' },
+    { name: 'Reforge: Retention Strategies', url: 'https://www.reforge.com/blog/retention' }
+  ],
+  'mobiledau': [
+    { name: 'Andrew Chen: DAU/MAU Ratio', url: 'https://andrewchen.com/dau-mau-is-a-popular-metric-but-heres-why-it-fails-you/' },
+    { name: 'Mixpanel: DAU Guide', url: 'https://mixpanel.com/blog/daily-active-users/' }
+  ],
+  'mobilemau': [
+    { name: 'Amplitude: Measuring MAU', url: 'https://amplitude.com/blog/mau' },
+    { name: 'Sequoia: Active Users', url: 'https://www.sequoiacap.com/article/active-users/' }
+  ],
+  'mobilesessionduration': [
+    { name: 'Adjust: Session Lengths', url: 'https://www.adjust.com/glossary/session-length/' },
+    { name: 'Firebase: Session Metrics', url: 'https://firebase.google.com/docs/analytics/session-metrics' }
   ],
 
   // Mobile specific links
