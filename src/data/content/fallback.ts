@@ -18762,4 +18762,2151 @@ My Chrome extension currently charges $5/month for individuals. I want to add a 
 What features do enterprise teams expect from a browser extension (e.g., centralized billing, admin dashboard, SSO)? Outline a plan to implement B2B billing.
 \`\`\`
 `,
+  'dtideadefinition': `
+
+# Idea Definition (Desktop)
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Focus on an idea that absolutely requires a desktop environment—like accessing the local file system, reading system hardware stats, or a floating widget. If your idea could easily be a website, the judges will ask "Why is this a desktop app?"
+
+### Personal Project
+Build an app that solves a personal productivity issue. Desktop apps are amazing for always-running background utilities, hotkey managers, or local media organizers. Focus on building something you will keep in your own system tray.
+
+### Production SaaS
+A production desktop app must justify the friction of a download. Users hate installing software. Your idea must leverage offline capabilities, massive local performance (like video editing or heavy data processing), deep OS integration, or enhanced privacy (data never leaves the device).
+
+---
+
+## AI Brainstorming Phase
+
+\`\`\`prompt
+Act as a Senior Product Architect. I want to build a Desktop Application in the [INSERT NICHE] space. 
+Generate 3 distinct app concepts that *must* be desktop apps (they would fail or be severely limited as web apps). For each concept, explain the "Desktop Advantage" (e.g., local file access, offline capability, background execution).
+\`\`\`
+
+## The Core Concept
+
+**What is the core idea for your desktop app?**
+\`\`\`input
+Describe your app idea here...
+\`\`\`
+`,
+  'dtproblemstatement': `
+
+# Problem Statement
+
+🕒 **Estimated Time:** 15 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Keep it simple: "Users need to do X on their local machine, but doing it in terminal is too hard. We built a GUI."
+
+### Personal Project
+Define the friction you experience with existing web apps. "Web apps are too slow and I lose my data when my internet drops." Your problem statement should revolve around speed, privacy, or access.
+
+### Production SaaS
+The problem must be severe enough to convince an enterprise IT department to allow your \`.exe\` or \`.dmg\` file through their firewall. Is the problem data sovereignty? Is it latency? A strong problem statement justifies the security risks associated with desktop software.
+
+---
+
+## Refining the Problem
+
+**What exact pain point does your desktop app solve?**
+\`\`\`input
+The main problem is...
+\`\`\`
+
+## AI Problem Refinement
+
+\`\`\`prompt
+I am building a Desktop Application that solves this problem:
+[PASTE YOUR PROBLEM STATEMENT]
+
+Act as a ruthless SaaS investor. Tell me why users would just use a web browser to solve this problem instead of downloading my app. Then, rewrite my problem statement to explicitly highlight the necessity of a local desktop environment.
+\`\`\`
+`,
+  'dttargetusers': `
+
+# Target Users
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Your target users are the judges. Build features they understand immediately.
+
+### Personal Project
+You are the target user. Build exactly what you want. Don't add a settings page if you can just hardcode your own preferences.
+
+### Production SaaS
+Desktop apps often target "Power Users"—developers, video editors, designers, or data analysts. These users have high expectations for keyboard shortcuts, multi-monitor support, and OS-native UI patterns. Alternatively, if targeting enterprise workers, you must consider strict IT environments where users don't have Administrator privileges.
+
+---
+
+## AI Persona Generation
+
+\`\`\`prompt
+I am building a Desktop App for [INSERT IDEA].
+Create 2 detailed user personas for power users who would prefer a desktop app over a web app. Include their specific hardware setup (e.g., Mac vs Windows, dual monitors) and their primary frustrations with existing web-based solutions.
+\`\`\`
+
+## The Target Profile
+- [ ] Power user persona defined
+- [ ] Operating System dominance identified (Mac vs Windows)
+`,
+  'dtcompetitoranalysis': `
+
+# Competitor Analysis
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Find one competitor and copy their best feature, but make it run locally.
+
+### Personal Project
+Look at web-based competitors. Your competitive advantage is that your app runs natively, uses less RAM (hopefully), and works without an internet connection.
+
+### Production SaaS
+Analyze competitor distribution strategies. Do they distribute via the Mac App Store/Microsoft Store, or via direct download? Do they use Electron (heavy) or Native/Tauri (light)? Read Reddit threads complaining about competitor app performance (e.g., "Slack uses too much RAM"). Use their technical debt as your marketing strategy.
+
+---
+
+## AI Competitor Research
+
+\`\`\`prompt
+I am building a Desktop App that does: [INSERT EXTENSION IDEA]
+
+Identify 3 existing competitors. For each competitor, tell me:
+1. Are they a Web App, Electron App, or Native App?
+2. What are the common performance or privacy complaints users have about them?
+3. How can a new desktop app differentiate itself technically?
+\`\`\`
+
+## Your Advantage
+
+**List your top 3 competitors and your technical advantage:**
+\`\`\`input
+1. Competitor A - Advantage:
+2. Competitor B - Advantage:
+3. Competitor C - Advantage:
+\`\`\`
+`,
+  'dtfeatureplanning': `
+
+# Feature Planning
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Plan features that look great on a projector: dark mode, system tray notifications, and drag-and-drop file support.
+
+### Personal Project
+Focus on OS integrations. Can you add global keyboard shortcuts (e.g., Cmd+Shift+Space to open)? Can you read from the local file system?
+
+### Production SaaS
+Feature planning must account for cross-platform differences. A feature that relies on the macOS Menu Bar has no direct equivalent on Windows. If you plan to support both, you must design features that degrade gracefully or map to different OS paradigms (e.g., System Tray vs Menu Bar).
+
+---
+
+## Feature Brainstorming
+
+\`\`\`prompt
+I am building a Desktop App with this core idea: [INSERT IDEA]
+
+Brainstorm 5 "Desktop-Native" features. These should be features that are impossible or very difficult to implement in a standard Web Browser (e.g., global hotkeys, file system watching, background cron jobs, native notifications).
+\`\`\`
+`,
+  'dtmvpfeatures': `
+
+# MVP Features
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Your MVP is a single window that does the one thing you promised.
+
+### Personal Project
+Your MVP should prove the technical risk. If your app relies on reading local SQLite files, build that file reader first before building the beautiful UI.
+
+### Production SaaS
+The MVP must deliver the core value proposition and include an auto-updater. If you launch a desktop app without an auto-updater, your early users will be permanently stuck on a buggy version 1.0, and you will lose them forever.
+
+---
+
+## AI Feature Scoping
+
+\`\`\`prompt
+Here is my massive list of features for my Desktop App:
+[PASTE FEATURE LIST]
+
+Act as a ruthless Product Manager. Cut this list down to the absolute bare minimum required for an MVP. Ensure the MVP retains at least one "Desktop-Native" feature to justify the download.
+\`\`\`
+
+## Your MVP Scope
+
+**List the 3-5 features that make up your MVP:**
+\`\`\`input
+1. 
+2. 
+3.
+\`\`\`
+`,
+  'dtfuturefeatures': `
+
+# Future Features
+
+🕒 **Estimated Time:** 15 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Future features are just bullet points on your pitch deck.
+
+### Personal Project
+Log your ideas for deep OS integration (like Windows Spotlight or macOS Finder extensions) here so they don't distract you from the MVP.
+
+### Production SaaS
+Future features often involve enterprise requirements: Single Sign-On (SSO), proxy support, offline-first sync engines, and advanced local encryption.
+
+---
+
+## Documenting the Roadmap
+
+**What features are you explicitly NOT building right now?**
+\`\`\`input
+- Auto-updates (if skipping for now)
+- Windows support (if launching Mac first)
+- Local AI model execution
+\`\`\`
+`,
+  'dtmonetization': `
+
+# Monetization
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ignore it. Add a fake "Pro" badge.
+
+### Personal Project
+Keep it free, or charge a one-time $10 fee on Gumroad. Desktop users love one-time purchases.
+
+### Production SaaS
+Desktop apps have unique monetization models. Many successful tools use the "Seat License" model (pay per machine) or a standard SaaS subscription. Be aware that enforcing subscriptions in a desktop app requires a constant internet connection, which defeats the purpose of an offline app. Consider the "Pay once, get 1 year of updates" model (like Sketch or JetBrains).
+
+---
+
+## AI Monetization Strategy
+
+\`\`\`prompt
+Act as a Software Pricing Expert. I am building a Desktop App that does [INSERT IDEA].
+Compare the "Standard Monthly SaaS Subscription" model against the "One-Time Purchase with 1-Year of Updates" model. Which is better for my specific niche, and how do I enforce license keys offline?
+\`\`\`
+
+## Your Revenue Model
+
+**How will this app make money?**
+\`\`\`input
+Write your strategy here...
+\`\`\`
+`,
+  'dtsuccessmetrics': `
+
+# Success Metrics
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Success is getting it to compile on the presentation laptop without a missing \`.dll\` error.
+
+### Personal Project
+Success is opening the app natively from your own dock/taskbar instead of a browser tab.
+
+### Production SaaS
+Desktop telemetry is hard. Users block tracking URLs at the network level. Key metrics:
+- **Download to Launch Rate**: How many people downloaded the \`.dmg/\`.exe\` but failed to open it due to OS security warnings (e.g., Windows SmartScreen)?
+- **Weekly Active Machines**: Tracked via an anonymous ping to your server on startup.
+- **Crash Rate**: Monitored via tools like Sentry.
+
+---
+
+## Defining Success
+
+**What 3 numbers will tell you if this app is successful?**
+\`\`\`input
+1. Download to Launch Rate > X%
+2. Crash Free Sessions > 99%
+3. 
+\`\`\`
+`,
+  'dtuserworkflowanalysis': `
+
+# User Workflow Analysis
+
+🕒 **Estimated Time:** 25 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Click icon -> window opens -> do action -> done.
+
+### Personal Project
+How do you invoke the app? Is it always open on a second monitor? Do you use a global hotkey? The invocation method dictates the UI design.
+
+### Production SaaS
+Power users treat their desktop environment as a highly optimized workspace. Does your app steal window focus when it shouldn't? Does it handle multiple monitors correctly? Map out how the user transitions between your app, their IDE/Word Processor, and their browser.
+
+---
+
+## AI Workflow Mapping
+
+\`\`\`prompt
+I am building a Desktop App that [INSERT IDEA].
+
+Act as a UX Researcher. Map out the step-by-step user workflow. Focus heavily on how the user *invokes* the app. Do they use a global keyboard shortcut? Do they click a system tray icon? Do they drag a file onto the app icon? Provide the most frictionless invocation flow for this specific use case.
+\`\`\`
+
+## The Core Flow
+
+**Write down the exact sequence of events for your primary feature:**
+\`\`\`input
+1. User presses [Shortcut].
+2. App appears [Centered/At Mouse Cursor].
+3. User types...
+\`\`\`
+`,
+  'dtprd': `
+
+# Product Requirements Document (PRD)
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Your PRD is your \`README.md\`. List the core framework (Tauri/Electron), the 3 features, and the build commands.
+
+### Personal Project
+Define your target OS explicitly. Are you building for Mac, Windows, or Linux? Define if you need access to the local file system or local network.
+
+### Production SaaS
+A production Desktop PRD must address security, distribution, and updates. It must explicitly state the minimum OS versions supported (e.g., macOS 11+, Windows 10+). It must detail the exact native OS APIs required (e.g., Notifications, File System, Camera, Microphone) and how permissions will be requested.
+
+---
+
+## AI PRD Generator
+
+\`\`\`prompt
+Act as a Senior Technical PM. I am building a Desktop Application.
+Core Concept: [INSERT IDEA]
+Target OS: [macOS / Windows / Cross-platform]
+
+Please generate a concise Technical PRD. Include:
+1. Core Functionality
+2. Required OS Permissions (e.g., File Access, Network, Accessibility)
+3. Distribution Strategy (App Store vs Direct Download)
+4. Out-of-Scope features for V1
+\`\`\`
+
+## The Source of Truth
+
+**Paste the finalized core requirements here:**
+\`\`\`input
+Paste PRD details here...
+\`\`\`
+`,
+  'dtuserflows': `
+
+# User Flows
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Linear flow: Open app -> Do action -> Show success.
+
+### Personal Project
+Map out the flow for when the app is "Backgrounded" vs "Foregrounded". 
+
+### Production SaaS
+Desktop user flows involve OS-level friction. You must map out the "First Run" flow, including the dreaded OS security prompts (e.g., macOS asking for "Accessibility" or "Screen Recording" permissions). If the user denies the permission, your flow must guide them to the System Settings to manually enable it.
+
+---
+
+## AI User Flow Mapping
+
+\`\`\`prompt
+I am building a Desktop App: [INSERT IDEA].
+
+Please map out the step-by-step user flows for:
+1. First-time installation & OS permission granting (Assume macOS and Windows).
+2. The core daily usage loop (Including minimizing to system tray).
+3. The background update flow (How do we notify them of a new version?).
+\`\`\`
+
+## Flow Checklist
+- [ ] First-run permission flow documented
+- [ ] Background/Tray interaction flow documented
+`,
+  'dtinformationarchitecture': `
+
+# Information Architecture
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+One main window. No navigation.
+
+### Personal Project
+A standard sidebar navigation or top tab bar is sufficient. Keep settings in a modal.
+
+### Production SaaS
+Desktop apps often utilize multi-window architectures. You might have a Main Window, a Preferences Window, and a floating quick-action widget. Your IA must define which data lives in which window, and how data stays synchronized between multiple open windows using IPC (Inter-Process Communication).
+
+---
+
+## Window Structure
+
+**How many distinct windows does your app have?**
+\`\`\`input
+- Main Dashboard Window
+- System Tray Menu
+- Preferences Window
+\`\`\`
+`,
+  'dtwireframes': `
+
+# Wireframes
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Sketch it on paper. Use standard web components (shadcn/ui) and just pretend it's a desktop app.
+
+### Personal Project
+Determine if your app uses a native OS title bar, or a custom frameless window. Frameless windows look modern but require you to build custom minimize/maximize/close buttons.
+
+### Production SaaS
+Wireframe the exact drag regions of your custom title bar. Wireframe the empty states for when the user is completely offline. Ensure your typography and spacing respect desktop norms (desktop apps usually have smaller text and tighter density than web apps because the user sits closer to the screen).
+
+---
+
+## AI Wireframe Assistant
+
+\`\`\`prompt
+I am designing the UI for a Desktop App. 
+What are the standard UI differences between a Web App and a Desktop App regarding typography density, hover states, and window controls? Suggest a layout structure for a [INSERT APP TYPE] using a frameless window design.
+\`\`\`
+
+## Design Checklist
+- [ ] Frameless window drag regions defined
+- [ ] Offline empty states designed
+- [ ] Multi-window states (if applicable) designed
+`,
+  'dtdesignsystem': `
+
+# Design System
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Tailwind CSS + shadcn/ui. 
+
+### Personal Project
+If you want your app to feel native to macOS, use a library like \`react-mac-os-ui\`. If building for Windows, use \`fluentui\`.
+
+### Production SaaS
+The best desktop apps (Discord, VS Code, Figma) don't try to mimic the OS perfectly; they have their own strong brand identity that looks great on *both* Mac and Windows. Build a custom design system using Tailwind or CSS Modules, but ensure you hook into the OS-level Dark/Light mode preferences natively.
+
+---
+
+## AI Design System Setup
+
+\`\`\`prompt
+I am building a cross-platform desktop app using React and Tailwind CSS. 
+Provide a Tailwind configuration that automatically switches between light and dark mode based on the user's OS-level preference, and suggest a modern font stack that looks great on both macOS and Windows.
+\`\`\`
+`,
+  'dtaccessibility': `
+
+# Accessibility (a11y)
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it for the demo.
+
+### Personal Project
+Ensure you can navigate the entire app using the \`Tab\` key. Desktop power users expect full keyboard navigation.
+
+### Production SaaS
+Desktop apps must support screen readers (VoiceOver on Mac, Narrator on Windows). If you are using web technologies (Electron/Tauri), you must use semantic HTML and ARIA tags. Ensure custom window controls (close/minimize buttons) have accessible labels. Support OS-level "Reduce Motion" and "High Contrast" settings.
+
+---
+
+## Compliance Checklist
+- [ ] Full keyboard navigation supported
+- [ ] Custom window controls have ARIA labels
+- [ ] OS-level Reduce Motion preference respected
+`,
+  'dterrorstates': `
+
+# Error States
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Console.log.
+
+### Personal Project
+Show a toast notification if a local file read/write fails.
+
+### Production SaaS
+Desktop apps can fail for brutal OS-level reasons: Antivirus software blocking your executable, insufficient disk space, or strict IT firewalls blocking your API. Your error states must be highly descriptive. Give the user a "Copy Error Log" button so they can send you the exact stack trace when they email support.
+
+---
+
+## AI Error Planning
+
+\`\`\`prompt
+I am building a Desktop App that reads local files and syncs them to a cloud server. 
+What are the top 5 OS-level errors or edge cases I need to handle (e.g., EPERM, ENOSPC, offline), and what should the user-facing error message look like for each?
+\`\`\`
+
+## Core Errors to Handle
+- [ ] Offline / Network Failure
+- [ ] File Permission Denied (EPERM)
+- [ ] Disk Full (ENOSPC)
+`,
+  'dtloadingstates': `
+
+# Loading States
+
+🕒 **Estimated Time:** 15 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Standard spinner.
+
+### Personal Project
+Your app should open *instantly*. Load a cached version of the UI from local storage immediately, then fetch new data.
+
+### Production SaaS
+If your app takes more than 2 seconds to launch, users will assume it's broken and click the icon again, launching a second instance. You must implement a "Splash Screen" or ensure your initial HTML/CSS is so lightweight that the window renders a skeleton UI immediately while the main JavaScript bundle parses.
+
+---
+
+## Performance Optimization
+
+**How will you handle the app launch experience?**
+\`\`\`input
+- Skeleton UI
+- Native Splash Screen
+- Cached Local State
+\`\`\`
+`,
+  'dtdesktopux': `
+
+# Desktop UX
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Make it look like a web app in a window.
+
+### Personal Project
+Add right-click context menus. Web apps usually override right-click, but desktop users expect right-click to open a native menu with actions like "Copy", "Delete", or "Properties".
+
+### Production SaaS
+Desktop UX is all about friction reduction. Implement global keyboard shortcuts. Support dragging and dropping files directly into the window. Respect OS conventions (e.g., on Mac, closing the window doesn't quit the app; on Windows, closing the window usually quits the app). 
+
+---
+
+## AI UX Review
+
+\`\`\`prompt
+Act as a Desktop UX Expert. I am porting a Web App to a Desktop App. 
+What are the 5 most important UX differences between a Web App and a Native Desktop App? Include specific advice on context menus, window management, and drag-and-drop interactions.
+\`\`\`
+
+## UX Polish Checklist
+- [ ] Right-click context menus implemented
+- [ ] Drag-and-drop file support
+- [ ] Window close behavior matches OS conventions
+`,
+  'dtplatformstrategy': `
+
+# Platform Strategy
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Build for the machine you are presenting on. Period.
+
+### Personal Project
+If you use a Mac, build for Mac. If you want to share it with your friends on Windows, you must choose a cross-platform framework (like Tauri, Electron, or Flutter) from Day 1, as migrating a native Swift app to Windows later requires a complete rewrite.
+
+### Production SaaS
+Cross-platform is almost always the right business choice initially (Electron or Tauri). However, if your app requires extreme performance (like video rendering or low-level audio processing), you must build natively (Swift for Mac, C#/C++ for Windows). Understand the maintenance burden of native development before committing.
+
+---
+
+## AI Architecture Decision
+
+\`\`\`prompt
+I am deciding on the platform strategy for my Desktop App. The app will [INSERT CORE IDEA].
+Act as a CTO. Compare building Cross-Platform (Tauri/Electron) vs Native (Swift/C#) for this specific use case. What are the engineering trade-offs regarding team size, performance, and OS-specific integrations?
+\`\`\`
+
+## The Verdict
+
+**What is your platform strategy?**
+\`\`\`input
+- Cross-platform (Mac/Windows/Linux)
+- Mac Native (Swift/Objective-C)
+- Windows Native (C#/C++)
+\`\`\`
+`,
+  'dtauthentication': `
+
+# Authentication
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Hardcode a username/password.
+
+### Personal Project
+Use Magic Links or basic email/password via Firebase/Supabase. Desktop OAuth requires spinning up a local server or using deep linking, which is overly complex for a small project.
+
+### Production SaaS
+OAuth (Google/GitHub/Apple) in a desktop app requires opening the user's default system browser, completing the auth flow on your website, and redirecting back to the desktop app using a Custom URI Scheme (e.g., \`myapp://auth?token=...\`). You must securely store the resulting JWT in the OS-level credential manager (Keychain on Mac, Credential Locker on Windows), NOT in plain text local storage.
+
+---
+
+## Auth Strategy
+
+**How will users log in to your app?**
+\`\`\`input
+- Email/Password
+- Magic Links
+- OAuth with Custom URI Scheme
+\`\`\`
+`,
+  'dtcostestimation': `
+
+# Cost Estimation
+
+🕒 **Estimated Time:** 15 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Free tiers.
+
+### Personal Project
+Desktop apps are incredibly cheap to run because the user's computer does all the processing. Your only costs are database hosting (if syncing) and an Apple Developer License ($99/yr) if you want to sign the Mac app so it doesn't show a giant "MALWARE WARNING" when users try to open it.
+
+### Production SaaS
+Your biggest costs will be Apple Developer/Windows Code Signing certificates ($100-$300/yr), bandwidth for downloading auto-updates (an Electron app can be 100MB+, and 100,000 users downloading a 100MB update every week costs real money), and any cloud sync backend.
+
+---
+
+## AI Cost Calculator
+
+\`\`\`prompt
+My Desktop App is built with Electron. The executable size is 120MB. I expect 10,000 active users, and I plan to push an update once a week. 
+Calculate my estimated monthly AWS S3 / CloudFront bandwidth costs just for distributing auto-updates. Suggest ways to reduce this cost (e.g., differential updates).
+\`\`\`
+`,
+  'dtdesktopvswebdecision': `
+
+# Desktop vs Web Decision
+
+🕒 **Estimated Time:** 15 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+If it doesn't need local file access, it should probably be a web app.
+
+### Personal Project
+Building a desktop app is fun and teaches you OS fundamentals. Do it for the learning experience, even if a web app makes more sense.
+
+### Production SaaS
+Desktop apps introduce a massive barrier to entry (the download). You lose 50% of your funnel immediately. However, desktop users have much higher retention rates and are willing to pay more. You should only build a desktop app if the feature set (offline support, local storage, native OS APIs) absolutely demands it.
+
+---
+
+## The Acid Test
+
+**Does this app absolutely need to run on the desktop?**
+\`\`\`input
+Yes, because...
+\`\`\`
+`,
+  'dtdesktopfundamentals': `
+
+# Desktop Fundamentals
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Understand that desktop apps have direct access to the user's file system. Be careful not to delete \`C:\\Windows\`.
+
+### Personal Project
+Understand the IPC (Inter-Process Communication) model. If using Tauri/Electron, you have a Frontend (React/Vue) and a Backend (Rust/Node). They must talk to each other via async messages.
+
+### Production SaaS
+Master the security model. Web browsers heavily sandbox web apps. Desktop apps run with the privileges of the current user. A vulnerability in your desktop app (like an XSS that allows remote code execution) gives the attacker full control over the user's computer.
+
+---
+
+## AI Concept Tutor
+
+\`\`\`prompt
+Explain the Inter-Process Communication (IPC) model in [Electron / Tauri] to a React developer. 
+Why can't I just use Node.js \`fs.readFile\` directly inside my React components? How do I securely pass data between the frontend and the backend?
+\`\`\`
+`,
+  'dtframeworkselection': `
+
+# Framework Selection
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Electron. It's bloated, but it works immediately and you already know Node.js.
+
+### Personal Project
+Tauri. It uses Rust for the backend and the system's native webview for the frontend. The resulting app is tiny (5MB instead of 150MB) and blazing fast. It's a great excuse to learn basic Rust.
+
+### Production SaaS
+- **Electron**: Pros: Massive ecosystem, identical rendering on all OSs, proven (VS Code, Discord). Cons: Huge bundle size, RAM hungry.
+- **Tauri**: Pros: Tiny, fast, secure. Cons: Relies on OS webviews (Safari on Mac, Edge on Windows), meaning rendering bugs can vary by OS.
+- **Native/Flutter/React Native**: Pros: Best performance. Cons: Highest development cost.
+
+---
+
+## AI Framework Review
+
+\`\`\`prompt
+I am choosing a framework for my Desktop App. I know React and Node.js. 
+Compare Electron vs Tauri for a production app. Focus on bundle size, RAM usage, auto-updater complexity, and security. Which should I choose if I want a tiny binary size but don't know Rust?
+\`\`\`
+
+## The Decision
+
+**Which framework are you using?**
+\`\`\`input
+Write framework here...
+\`\`\`
+`,
+  'dtarchitecturedesign': `
+
+# Architecture Design
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Put all your state in React, save it to \`localStorage\`, and call it a day.
+
+### Personal Project
+Separate your UI from your business logic. The UI (React) should only display data and send commands. The Backend (Rust/Node) should handle all file system reads, database writes, and heavy processing.
+
+### Production SaaS
+Adopt an offline-first architecture. All user actions should write to a local database (SQLite) immediately to ensure the app feels blazingly fast. A background sync engine should then replicate those local changes to your cloud database when an internet connection is available.
+
+---
+
+## AI Architecture Review
+
+\`\`\`prompt
+I am building a Desktop App using [Framework]. It needs to work offline but sync to a cloud server when online. 
+Design an Offline-First architecture. What local database should I use? How do I handle conflict resolution when syncing local data with the cloud?
+\`\`\`
+`,
+  'dtuilayer': `
+
+# UI Layer
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Tailwind + shadcn/ui.
+
+### Personal Project
+Hook into the \`window.matchMedia('(prefers-color-scheme: dark)')\` API to automatically switch between Light and Dark mode based on the user's OS preference.
+
+### Production SaaS
+Desktop UI is not Web UI. You must disable text selection (\`user-select: none\`) on all elements except actual inputs, otherwise clicking around the app feels like a webpage. Disable the default browser right-click menu and replace it with custom native context menus. Handle window resizing gracefully.
+
+---
+
+## UI Polish Checklist
+- [ ] Text selection disabled globally
+- [ ] Custom title bar implemented (if frameless)
+- [ ] OS-level dark mode respected
+`,
+  'dtbusinesslogic': `
+
+# Business Logic
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Write it all in your React components.
+
+### Personal Project
+Move business logic out of your UI components into separate utility files or custom hooks.
+
+### Production SaaS
+Business logic MUST live in the Core process (the Rust backend in Tauri, or the Main process in Electron), NOT the Renderer process. If the user hits \`Ctrl+R\` and reloads the UI, any business logic or background tasks running in the Renderer will be killed instantly.
+
+---
+
+## AI Logic Separation
+
+\`\`\`prompt
+I am building an [Electron/Tauri] app. 
+Explain exactly why running long-polling network requests or heavy data processing inside the React Renderer process is a terrible idea. Provide a code example of how to move a heavy task to the Main/Core process and communicate the progress back to the UI.
+\`\`\`
+`,
+  'dtstoragelayer': `
+
+# Storage Layer
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+\`window.localStorage\`.
+
+### Personal Project
+Use the framework's native storage plugin (e.g., \`tauri-plugin-store\` or \`electron-store\`). This saves data to a \`.json\` file in the user's \`AppData\` or \`Application Support\` directory, which persists even if the app is updated.
+
+### Production SaaS
+For complex or relational data, embed a local SQLite database. It is incredibly fast and standard for production desktop apps. Never store sensitive data (like API keys or passwords) in SQLite or JSON files without encryption.
+
+---
+
+## Storage Architecture
+
+**Where will local data be saved?**
+\`\`\`input
+- AppData JSON File
+- Embedded SQLite
+- IndexedDB
+\`\`\`
+`,
+  'dtservices': `
+
+# Background Services
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+If your app needs to run tasks when the window is closed, configure the app to minimize to the System Tray instead of quitting.
+
+### Production SaaS
+Running true background services (daemons on Mac, Windows Services on Windows) that run even when the user hasn't opened the app is highly invasive and often flagged by antivirus software. Stick to running in the System Tray on startup unless you are building enterprise security software.
+
+---
+
+## Checklist
+- [ ] "Launch on Startup" option planned
+- [ ] "Minimize to Tray" option planned
+`,
+  'dtnativeintegrations': `
+
+# Native Integrations
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use the HTML5 Notification API.
+
+### Personal Project
+Learn how to trigger native OS notifications, read the system clipboard, or register global hotkeys. These features make your app feel like a "real" desktop app.
+
+### Production SaaS
+Native integrations often require writing OS-specific code (Rust for Tauri, C++/Objective-C bindings for Electron). If you need deep integrations like Virtual Webcams, Audio Drivers, or deep file system hooks, be prepared to step outside your web development comfort zone.
+
+---
+
+## AI Native Feature Planner
+
+\`\`\`prompt
+I want to implement a Global Keyboard Shortcut (e.g., Cmd+Shift+Space) in my [Tauri/Electron] app that brings the app window to the front, no matter what other app the user is using. 
+Provide the exact code required to register and unregister global hotkeys securely.
+\`\`\`
+`,
+  'dtlocaldatastorage': `
+
+# Local Data Storage
+
+🕒 **Estimated Time:** 15 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Store it anywhere.
+
+### Personal Project
+Understand where your app is *allowed* to save files. You cannot just write to \`C:\` or \`/usr/bin\`. You must use the OS-provided Application Data directories.
+
+### Production SaaS
+If your app saves user-generated files (like an image editor or a markdown editor), do not force them into an obscure AppData folder. Implement a native "Save As..." dialog so the user can choose where their files live.
+
+---
+
+## Data Safety
+- [ ] App uses official OS AppData directories for internal settings
+- [ ] App uses Native File Dialogs for user documents
+`,
+  'dtcloudsync': `
+
+# Cloud Sync
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Force a manual "Upload to Cloud" button.
+
+### Personal Project
+Syncing data perfectly is hard. Use a managed service like Supabase or Firebase, and just push the entire JSON state to the cloud on a debounce (e.g., 2 seconds after the user stops typing).
+
+### Production SaaS
+Building a real-time, offline-capable sync engine (like Notion or Linear) is one of the hardest engineering challenges. You need to handle vector clocks, Conflict-Free Replicated Data Types (CRDTs), or operational transformation. Consider using an existing sync engine like ElectricSQL, PowerSync, or Replicache.
+
+---
+
+## AI Sync Architecture
+
+\`\`\`prompt
+I need to sync a local SQLite database in my desktop app with a central Postgres database in the cloud. The app must work perfectly offline and sync when reconnected. 
+Explain how Conflict-Free Replicated Data Types (CRDTs) work, and recommend a library or architecture (like PowerSync or Replicache) to handle this.
+\`\`\`
+`,
+  'dtupdatestrategy': `
+
+# Update Strategy
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+"Download the new zip from GitHub."
+
+### Personal Project
+Configure GitHub Actions to build your binaries and attach them to a GitHub Release. Use the built-in auto-updaters in Tauri/Electron to ping the GitHub API, check for a new release, and prompt the user to download it.
+
+### Production SaaS
+Mandatory auto-updates are crucial for security, but disruptive to users. Download updates silently in the background, and prompt the user to "Restart to Install" when they next open the app. Provide a changelog in the prompt. Ensure you have a rollback strategy if you ship a broken update that crashes on launch.
+
+---
+
+## AI Auto-Updater Config
+
+\`\`\`prompt
+Provide a comprehensive guide on setting up the built-in auto-updater for a [Tauri/Electron] app. 
+Explain how to host the update server (or use GitHub Releases), how to generate the required update signatures, and the exact code needed to prompt the user to restart and install.
+\`\`\`
+`,
+  'dtaiintegration': `
+
+# AI Integration
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Call the OpenAI API directly from your frontend.
+
+### Personal Project
+Desktop apps can actually run small AI models *locally* on the user's CPU/GPU! Look into libraries like \`Ollama\` or \`transformers.js\`. This means zero API costs for you and total privacy for the user.
+
+### Production SaaS
+Local AI is a massive selling point ("Your data never leaves your device!"), but bundling a 4GB LLM inside your app installer is unacceptable. The app must download the model weights *after* installation, and you must gracefully handle users with old laptops that cannot run the model without melting.
+
+---
+
+## AI Local Execution
+
+\`\`\`prompt
+I want to run a small open-source LLM entirely locally within my Desktop App. 
+What are the best libraries for running local models (e.g., llama.cpp, Ollama, transformers.js) inside a cross-platform desktop app? How do I handle the massive download size of the model weights?
+\`\`\`
+`,
+  'dtstatemanagement': `
+
+# State Management
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use standard React \`useState\` or a simple Zustand store.
+
+### Personal Project
+Desktop apps often stay open for days. Memory leaks in your state management will eventually crash the app. Be careful what you keep in memory. Don't keep a 50,000 row dataset in Zustand; paginate it from your local SQLite database instead.
+
+### Production SaaS
+State in a desktop app is two-tiered: Frontend State (React/Vue) and Backend State (Rust/Node). You must manage how these two states stay synchronized. If the backend finishes processing a video, it must emit an event to the frontend so the frontend can update its loading spinner. Rely heavily on an Event Bus architecture.
+
+---
+
+## AI State Management Guide
+
+\`\`\`prompt
+I am building a Desktop App. My frontend is React and my backend is [Rust (Tauri) / Node.js (Electron)]. 
+Explain how to implement an Event Bus architecture so my backend can push real-time state updates (e.g., a file download progress percentage) to my React frontend, updating a Zustand store automatically.
+\`\`\`
+`,
+  'dtlocalstorage': `
+
+# Local Storage Implementation
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use \`window.localStorage\`.
+
+### Personal Project
+Read and write directly to a JSON file in the OS AppData folder. This is simple and works for 90% of basic apps.
+
+### Production SaaS
+Implement a robust SQLite database using an ORM like Drizzle or Prisma (Note: Prisma in Tauri can be complex, Drizzle/SQLx in Rust is preferred). Ensure all database reads/writes happen asynchronously so they do not block the main UI thread. Implement database migrations from Day 1 so you can safely update the local schema in future versions.
+
+---
+
+## AI SQLite Setup
+
+\`\`\`prompt
+I am building a [Tauri/Electron] desktop app. 
+Provide the setup code to create a local SQLite database in the correct OS Application Data directory. Include a basic migration script to create a 'users' table, and explain how to securely query this database from my React frontend without SQL injection risks.
+\`\`\`
+`,
+  'dtauth': `
+
+# Auth Implementation
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Hardcode it.
+
+### Personal Project
+Open a popup window that loads your Supabase/Firebase login page. When the user logs in, pass the token back to the main window via IPC and close the popup.
+
+### Production SaaS
+Implement Deep Linking. The user clicks "Login" in your app. It opens their default web browser (Chrome/Safari). They log in via Google. The browser redirects to a custom URI (e.g., \`myapp://auth-callback?token=123\`). Your desktop app intercepts this URI, extracts the token, and securely stores it in the OS Keychain. This is the only way to support hardware security keys (YubiKey) properly.
+
+---
+
+## AI Deep Linking Implementation
+
+\`\`\`prompt
+Provide a complete guide on implementing OAuth Deep Linking in a [Tauri/Electron] app. 
+How do I register a custom URI protocol (e.g., \`myapp://\`) on both macOS and Windows? How does my backend process intercept the callback and pass the token securely to the frontend?
+\`\`\`
+`,
+  'dtapis': `
+
+# External APIs
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Call them directly from the frontend using \`fetch\`. Desktop webviews bypass CORS restrictions!
+
+### Personal Project
+Just because you *can* bypass CORS doesn't mean you should put your secret API keys in the frontend bundle. Anyone can unzip your app and steal them.
+
+### Production SaaS
+Never bundle private API keys in a desktop app. If you need to call OpenAI, Stripe, or a proprietary API, your desktop app must send a request to your own proxy server, which authenticates the user, attaches the secret key, and forwards the request. The desktop app should only contain the public API keys (like a Supabase Anon Key).
+
+---
+
+## AI Security Proxy
+
+\`\`\`prompt
+I am building a Desktop App that needs to call the Anthropic Claude API. I know I cannot bundle the secret key in the app. 
+Provide a secure architecture using a Vercel Edge Function proxy. Show the exact code for the proxy and how the desktop app should securely authenticate with the proxy using a user JWT.
+\`\`\`
+`,
+  'dtnotifications': `
+
+# Notifications
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use the HTML5 \`new Notification()\` API. It works natively on macOS and Windows 10+.
+
+### Personal Project
+Customize the notification icon and ensure it clicks through to open the specific window or tab the notification is about.
+
+### Production SaaS
+HTML5 notifications are brittle and often look generic. To trigger complex native notifications (like a macOS notification with a "Reply" text input box, or a Windows Toast with a progress bar), you must use native OS APIs via your backend process. Ensure you handle the case where the user has blocked notifications globally at the OS level.
+
+---
+
+## AI Notification System
+
+\`\`\`prompt
+How do I trigger a native OS notification from the backend process of my [Tauri/Electron] app? I need the notification to have a custom icon and a click handler that brings the app window to the foreground when clicked. Provide the code.
+\`\`\`
+`,
+  'dttesting': `
+
+# Testing
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Click it until it breaks.
+
+### Personal Project
+Write unit tests for your core business logic using Jest or Vitest. Mock the file system calls so you don't actually write junk data to your hard drive during tests.
+
+### Production SaaS
+E2E testing a desktop app is significantly harder than a web app. You must use tools like Playwright or WebdriverIO configured specifically for Electron/Tauri. Your tests must automate launching the compiled binary, clicking around the UI, and verifying local files were created. Run these tests in GitHub Actions across Mac, Windows, and Linux runners.
+
+---
+
+## AI E2E Desktop Testing
+
+\`\`\`prompt
+I need to write End-to-End tests for my [Tauri/Electron] desktop app using Playwright (or WebdriverIO). 
+Provide the configuration required to launch the compiled binary instead of a web browser, and a sample test that clicks a button and verifies a local file was created.
+\`\`\`
+`,
+  'dtdocumentation': `
+
+# Documentation
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Write a good README with the \`npm run dev\` command.
+
+### Personal Project
+Document how to build the app from source. Document any system dependencies required (e.g., "You must install Rust and the MSVC C++ build tools on Windows").
+
+### Production SaaS
+Maintain exhaustive internal documentation on the release process. Code signing on Mac and Windows is a notoriously brittle process involving certificates, provisioning profiles, and notary services. If the person who set it up leaves the company, and the documentation is poor, you won't be able to ship updates.
+
+---
+
+## Documentation Checklist
+- [ ] Local dev setup documented
+- [ ] OS-specific build dependencies listed
+- [ ] Code signing process documented step-by-step
+`,
+  'dtuidevelopment': `
+
+# UI Development
+
+🕒 **Estimated Time:** 1.5 hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Just build a nice React app.
+
+### Personal Project
+Build a frameless window. To do this, you must hide the default OS title bar in your config, and create a custom \`<div>\` in React that has the CSS property \`-webkit-app-region: drag\`. This tells the OS to allow dragging the window by clicking that div.
+
+### Production SaaS
+Your UI must feel native.
+- Prevent zooming (\`Cmd + /\` or \`Ctrl + Scroll\`) so the UI doesn't break.
+- Disable text selection everywhere except inputs.
+- Implement native scrollbars (or style them to look exactly like Mac/Windows scrollbars).
+- Support multi-monitor high-DPI scaling gracefully.
+
+---
+
+## AI UI Polish
+
+\`\`\`prompt
+I am building a Desktop App UI using React and Tailwind CSS. 
+Provide a global CSS reset snippet that makes a webview feel like a native app. It must disable zooming, prevent text selection, disable the default right-click menu, and hide the scrollbars while retaining scrolling functionality.
+\`\`\`
+`,
+  'dtfilesystemoperations': `
+
+# File System Operations
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Read/write files using basic Node \`fs\` modules if using Electron.
+
+### Personal Project
+Use native File Dialogs to let the user select a file or folder. Don't hardcode paths, because \`C:\\Users\\Bob\` doesn't exist on a Mac.
+
+### Production SaaS
+Never trust local files. If your app imports a CSV or an Image, validate its contents rigorously before processing. If you are watching a directory for changes (using a file watcher), ensure you debounce the events, as some OS operations fire multiple events for a single file save, which will crash your app if not handled.
+
+---
+
+## AI File System Operations
+
+\`\`\`prompt
+I need to allow the user to select a folder on their computer, and then my desktop app will scan that folder for all \`.md\` files. 
+Provide the [Tauri/Electron] code to open a native OS Folder Selection dialog, and then asynchronously scan the selected folder without blocking the main UI thread.
+\`\`\`
+`,
+  'dtbackgroundservices': `
+
+# Background Services
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Run a \`setInterval\` in React.
+
+### Personal Project
+Run a \`setInterval\` in your backend process so it continues running even if the user refreshes the frontend webview.
+
+### Production SaaS
+If you need to run a cron job (e.g., "Sync data every hour"), use an OS-level scheduler or a robust background thread in your core process. If your app is minimized to the System Tray, ensure you pause any heavy UI rendering or animations to conserve the user's laptop battery. Desktop apps that drain battery while idle get uninstalled immediately.
+
+---
+
+## Background Architecture
+
+**What needs to happen while the app is in the background?**
+\`\`\`input
+- Syncing database every 10 mins
+- Checking for updates
+- Listening for global hotkeys
+\`\`\`
+`,
+  'dtaifeatures': `
+
+# AI Features
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Proxy the OpenAI API.
+
+### Personal Project
+If you are running a local model, your UI must show incredibly clear progress bars for the model download process. Downloading a 4GB file can take 10 minutes. If the app looks frozen, the user will kill it.
+
+### Production SaaS
+Streaming is non-negotiable for AI features. If you are calling an external API, stream the chunks to the backend, then IPC stream them to the frontend. If running locally, you must utilize the GPU (CoreML on Mac, DirectML on Windows) to get acceptable token-per-second generation speeds. Fallback to CPU only if absolutely necessary, but warn the user it will be slow.
+
+---
+
+## AI Streaming Pipeline
+
+\`\`\`prompt
+Explain how to implement a streaming text response from a local LLM running in the [Rust/Node] backend of a Desktop app, all the way to a React frontend component. Provide the IPC event architecture needed to handle continuous streams of tokens without overwhelming the UI render cycle.
+\`\`\`
+`,
+  'dtsettingssystem': `
+
+# Settings System
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+A simple modal in React.
+
+### Personal Project
+Save settings to the \`AppData\` folder immediately on change. Don't require a "Save" button.
+
+### Production SaaS
+The settings window in a desktop app is traditionally a completely separate Window, not a modal. When the user clicks "Preferences" in the macOS menu bar, spawn a new window pointing to a \`/settings\` route. Ensure that if the user changes "Dark Mode" in the settings window, the Main window updates instantly via IPC broadcasting.
+
+---
+
+## Checklist
+- [ ] Settings persist to disk
+- [ ] Changes broadcast to all open windows
+- [ ] OS "Preferences" menu item wired up
+`,
+  'dtsecurity': `
+
+# Security
+
+🕒 **Estimated Time:** 1.5 hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't ship your AWS keys in your \`package.json\`.
+
+### Personal Project
+If using Electron, ensure \`nodeIntegration: false\` and \`contextIsolation: true\` are set in your BrowserWindow config. Without these, any XSS vulnerability in your React code allows an attacker to execute arbitrary Node.js code on the user's computer.
+
+### Production SaaS
+Desktop apps are high-value targets. You must establish a strict Content Security Policy (CSP) blocking remote scripts. You must validate the integrity of any downloaded files before executing them. Audit your \`npm\` tree for supply chain attacks. If a malicious package makes it into your compiled binary, it has the keys to the kingdom.
+
+---
+
+## AI Security Audit
+
+\`\`\`prompt
+Act as a Security Engineer auditing an [Electron / Tauri] Desktop Application. 
+What are the top 3 most critical security configurations I must enable before shipping to production to prevent Remote Code Execution (RCE) via XSS? Please provide the exact config flags required.
+\`\`\`
+
+## Security Checklist
+- [ ] Context Isolation enabled
+- [ ] Strict CSP implemented
+- [ ] IPC messages rigorously validated
+`,
+  'dtperformanceoptimization': `
+
+# Performance Optimization
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ignore it unless the app takes 10 seconds to open.
+
+### Personal Project
+Lazy load your React components. Do not bundle massive libraries like \`three.js\` or \`moment.js\` into your initial chunk.
+
+### Production SaaS
+Profile your startup time. The OS expects a desktop app to visually appear within 500ms of the user clicking the icon. If you are reading a massive local database on startup, do it asynchronously. Use tools like the Chrome DevTools Performance tab to find long tasks blocking the main thread.
+
+---
+
+## Performance Targets
+- [ ] App window appears in < 1 second
+- [ ] Memory footprint idles below 100MB (Tauri) or 300MB (Electron)
+`,
+  'dtcrashreporting': `
+
+# Crash Reporting
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Catch React Error Boundaries and show a nice "Oops, something broke" screen with a button to reload the window.
+
+### Production SaaS
+When a desktop app crashes, the window just vanishes. The user is confused and angry. You must integrate a native crash reporter (like Sentry's Electron/Tauri SDK). This catches OS-level segmentation faults (C++/Rust panics) as well as JavaScript exceptions, uploading the minidump securely to your dashboard.
+
+---
+
+## AI Crash Reporter Setup
+
+\`\`\`prompt
+Provide a complete guide on integrating Sentry into a production [Tauri / Electron] app. 
+I need to catch errors in both the React frontend (Renderer process) and the Rust/Node backend (Main process). How do I configure Sentry to upload native minidumps when the app hard crashes?
+\`\`\`
+`,
+  'dtmonitoring': `
+
+# Monitoring
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Track basic DAU (Daily Active Users) by sending a ping to your server on startup.
+
+### Production SaaS
+Monitor the health of your auto-updater. If 10,000 users are on Version 1.0, and you release Version 1.1, monitor the migration rate over the next 48 hours. If only 500 users upgrade, your auto-updater is broken and you have a massive problem. Monitor API latency from the client's perspective to detect regional internet issues.
+
+---
+
+## Metrics Checklist
+- [ ] Version adoption rate monitored
+- [ ] Feature usage telemetry active
+`,
+  'dtlogging': `
+
+# Logging
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+\`console.log\`
+
+### Personal Project
+Write logs to a local file (e.g., \`app.log\` in the AppData folder). When a user reports a bug, ask them to email you this file.
+
+### Production SaaS
+Implement a robust logging rotation system (e.g., \`winston\` in Node, or \`log4rs\` in Rust). Keep the last 5 days of logs and delete older ones to save disk space. Add a "Export Diagnostic Logs" button in your app's Help menu that zips up the logs and securely uploads them to your support desk.
+
+---
+
+## AI Logger Setup
+
+\`\`\`prompt
+I need a robust logging system for my Desktop App. 
+Provide the code to implement a rotating file logger that writes to the OS Application Data directory. It should keep a maximum of 5 log files, each capped at 5MB. Include an IPC handler so the React frontend can write to this log file safely.
+\`\`\`
+`,
+  'dtcicd': `
+
+# CI/CD
+
+🕒 **Estimated Time:** 2 hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Build it locally and drag the \`.exe\` to Google Drive.
+
+### Personal Project
+Use GitHub Actions to build the Mac and Windows versions automatically on push. Attach the binaries to a GitHub Release draft.
+
+### Production SaaS
+Your CI/CD pipeline is the most complex part of desktop development. You must configure matrix builds (macOS-latest, windows-latest, ubuntu-latest). You must securely inject your expensive Code Signing Certificates into the CI runner via GitHub Secrets. You must build for multiple architectures (Intel x64 and Apple Silicon ARM64).
+
+---
+
+## AI CI/CD Automation
+
+\`\`\`prompt
+Provide a comprehensive GitHub Actions YAML workflow for a production [Tauri/Electron] app. 
+The workflow should:
+1. Run on Ubuntu, Windows, and macOS runners concurrently.
+2. Build the app for both Intel and Apple Silicon (ARM) architectures.
+3. Inject code signing certificates (via Secrets).
+4. Upload the compiled binaries to a new GitHub Release.
+\`\`\`
+`,
+  'dtscalability': `
+
+# Scalability
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Desktop apps scale infinitely because the user brings their own compute! Your only scalability concern is your API server.
+
+### Production SaaS
+The scaling bottleneck for desktop apps is usually the Database Sync engine and the Auto-Update server. Serving a 100MB update to 1,000,000 users simultaneously on launch day requires a massive CDN (Cloudflare/CloudFront) and a properly configured \`Range\` request setup so downloads can resume if interrupted.
+
+---
+
+## Scaling Checklist
+- [ ] Update binaries hosted on a global CDN
+- [ ] Database sync engine stress-tested
+`,
+  'dtfilesystemsecurity': `
+
+# File System Security
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Read/write anywhere.
+
+### Personal Project
+Restrict file system reads to specific folders using "Scopes". (e.g., Tauri lets you define exactly which folders the frontend is allowed to access).
+
+### Production SaaS
+If your app downloads files from the internet, you must be extremely careful where you put them. Do not execute downloaded files directly. If your app writes sensitive user data (like financial logs) to the local disk, you must encrypt the SQLite database using SQLCipher or a similar technology, tied to a key in the OS Credential Manager.
+
+---
+
+## AI File Security
+
+\`\`\`prompt
+I am storing sensitive user data in a local SQLite database in my [Tauri/Electron] app. 
+Provide a guide on how to encrypt this local database using SQLCipher (or similar), and explain how to securely generate and store the encryption key in the macOS Keychain and Windows Credential Locker.
+\`\`\`
+`,
+  'dtcredentialstorage': `
+
+# Credential Storage
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+\`localStorage.setItem('password', '1234')\`
+
+### Personal Project
+Use a community plugin like \`keytar\` (Node) or \`tauri-plugin-stronghold\` (Tauri) to store JWTs securely.
+
+### Production SaaS
+Never store OAuth refresh tokens or API keys in plain text JSON files or \`localStorage\`. If the user downloads malware, the first thing it does is scrape the AppData folders for plain text tokens. You must use the OS-native secure enclaves (Keychain, Credential Locker, Secret Service).
+
+---
+
+## Checklist
+- [ ] No tokens in localStorage
+- [ ] Native OS Credential Manager utilized
+`,
+  'dtcodesigning': `
+
+# Code Signing
+
+🕒 **Estimated Time:** 1.5 hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it. Users will just bypass the "Unidentified Developer" warning.
+
+### Personal Project
+If you don't sign your Mac app, macOS Gatekeeper will literally tell the user the app is damaged and should be moved to the Trash. You must buy a $99 Apple Developer license to sign and notarize it. For Windows, users get a blue SmartScreen warning unless you buy an EV Certificate ($300/yr).
+
+### Production SaaS
+Code signing is mandatory. For macOS, you must Sign the app, Notarize it (send it to Apple's servers for automated malware scanning), and Staple the notarization ticket to the \`.dmg\`. For Windows, you need a hardware USB token (or a cloud HSM) to sign the executable with an EV certificate to bypass SmartScreen instantly.
+
+---
+
+## AI Code Signing Guide
+
+\`\`\`prompt
+Explain the entire macOS Code Signing and Notarization process for a desktop app. 
+What is the difference between a "Developer ID Application" certificate and an "Installer" certificate? How do I automate the Notarization \`xcrun altool\` / \`notarytool\` step in my GitHub Actions pipeline?
+\`\`\`
+`,
+  'dtmemoryoptimization': `
+
+# Memory Optimization
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Let it leak.
+
+### Personal Project
+Close unused windows. If your app has a hidden background window handling processing, make sure it's not rendering a massive DOM tree.
+
+### Production SaaS
+Memory leaks in desktop apps destroy user trust. An app that starts at 80MB and creeps up to 2GB over 4 days will be uninstalled. Profile the V8 heap. Ensure you are removing event listeners from the IPC bridge when React components unmount, otherwise you will leak whole React components every time the user navigates.
+
+---
+
+## Checklist
+- [ ] IPC event listeners properly cleaned up on unmount
+- [ ] V8 heap profiled for long-running sessions
+`,
+  'dtautoupdates': `
+
+# Auto Updates
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip.
+
+### Personal Project
+Use Electron-Updater or Tauri's built-in updater linked to GitHub Releases.
+
+### Production SaaS
+Implement graceful updates. Download the update in the background. Show a subtle green dot on your settings gear icon indicating an update is ready. DO NOT force restart the app while the user is actively typing. Provide a "What's New" modal on the first launch after a successful update to drive engagement with new features.
+
+---
+
+## AI Auto-Update UX
+
+\`\`\`prompt
+I have implemented the technical side of an auto-updater, but I need a good UX for it. 
+Design a React component logic flow that detects when an update is downloaded in the background, shows a non-intrusive "Update Ready" banner, and provides a "Restart & Install" button that triggers the backend installation process.
+\`\`\`
+`,
+  'dtpackaging': `
+
+# Packaging
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Just share the \`.exe\` or \`.app\` directly.
+
+### Personal Project
+Package your app into a \`.dmg\` for Mac and an \`.msi\` or \`.exe\` installer for Windows.
+
+### Production SaaS
+The installation experience is the user's first impression of your brand. Create a beautiful custom \`.dmg\` background image for Mac (the classic "Drag the icon into the Applications folder" screen). On Windows, ensure your installer creates a desktop shortcut and a start menu entry silently without forcing the user to click "Next" 5 times through a generic wizard.
+
+---
+
+## Checklist
+- [ ] Custom \`.dmg\` background designed (Mac)
+- [ ] Silent, 1-click installer configured (Windows)
+`,
+  'dtbetatesting': `
+
+# Beta Testing
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ask the person sitting next to you to open the \`.exe\`.
+
+### Personal Project
+Share a Google Drive link with your friends. Warn them that their OS might flag it as a virus because it's unsigned.
+
+### Production SaaS
+Do not beta test in production. Set up a separate "Beta" update channel in your auto-updater. Distribute the beta binary via TestFlight (macOS) or a private GitHub Release. Instruct testers on how to find the crash logs in their AppData folder so they can send them to you when the app inevitably fails on their specific hardware configuration.
+
+---
+
+## AI Beta Test Planning
+
+\`\`\`prompt
+I am launching a private beta for my [Mac/Windows] Desktop App. 
+Write a welcome email for my beta testers. Include clear instructions on how to bypass the OS "Unidentified Developer" warning (since the beta isn't signed yet) and exactly where they can find the \`app.log\` file to send me if it crashes.
+\`\`\`
+`,
+  'dtinstallercreation': `
+
+# Installer Creation
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Zip the folder.
+
+### Personal Project
+Use NSIS (Nullsoft Scriptable Install System) for Windows, or a simple \`.dmg\` for Mac. 
+
+### Production SaaS
+Your installer must be completely silent or require a maximum of 1 click. Do not ask the user where they want to install it (default to \`%LocalAppData%\` on Windows so it doesn't require Admin privileges). The installer should automatically launch the app when finished. Ensure the uninstaller completely cleans up the AppData folder and registry keys.
+
+---
+
+## Installation UX
+- [ ] 1-click install (no wizard)
+- [ ] Installs to LocalAppData (no Admin required)
+- [ ] Auto-launches on complete
+`,
+  'dtwindowspackaging': `
+
+# Windows Packaging
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Build the \`.exe\`.
+
+### Personal Project
+Create an \`.msi\` or \`.appx\` if you want to publish to the Microsoft Store.
+
+### Production SaaS
+Windows Defender is extremely aggressive against new, unsigned executables. Even if you sign it with a standard Code Signing Certificate, SmartScreen will still block it until you build up "reputation" (thousands of downloads). To bypass SmartScreen immediately, you MUST purchase an EV (Extended Validation) Code Signing Certificate, which requires a physical USB token or a cloud HSM (Hardware Security Module).
+
+---
+
+## AI Windows Signing Guide
+
+\`\`\`prompt
+I am packaging a production Windows Desktop App and want to avoid the blue "Windows protected your PC" SmartScreen warning. 
+Explain the difference between a Standard Code Signing Certificate and an EV Code Signing Certificate. How do I integrate an EV certificate (which lives on a physical USB token) into my automated GitHub Actions build pipeline?
+\`\`\`
+`,
+  'dtmacospackaging': `
+
+# macOS Packaging
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Build the \`.app\`.
+
+### Personal Project
+Build an Apple Silicon (\`arm64\`) binary and an Intel (\`x64\`) binary, or build a Universal Binary that contains both. 
+
+### Production SaaS
+macOS packaging is a strict three-step process:
+1. **Sign** the \`.app\` with your Developer ID Application certificate.
+2. **Package** the \`.app\` into a \`.dmg\`.
+3. **Notarize** the \`.dmg\` by uploading it to Apple's notary service, waiting for it to be scanned for malware, and then "stapling" the resulting ticket to the \`.dmg\`.
+If you skip step 3, macOS Gatekeeper will block the app from opening entirely on modern macOS versions.
+
+---
+
+## macOS Checklist
+- [ ] Universal Binary compiled
+- [ ] \`.app\` signed with Developer ID
+- [ ] \`.dmg\` Notarized and Stapled
+`,
+  'dtlinuxpackaging': `
+
+# Linux Packaging
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Provide an \`.AppImage\`. It runs on almost any distribution without installation.
+
+### Production SaaS
+Linux desktop users are highly fragmented (Ubuntu/Debian vs Fedora/RedHat vs Arch). The modern standard for distributing proprietary or complex apps is Snap or Flatpak. Alternatively, you can host your own \`apt\` and \`yum\` repositories, which allows users to update your app using their native package manager (\`apt-get update\`).
+
+---
+
+## AI Linux Distribution
+
+\`\`\`prompt
+I am distributing a Desktop App to Linux users. 
+Compare distributing via an \`.AppImage\` vs a \`.deb\` file vs a \`Snap\` package. Which provides the best auto-update experience for the user, and which is easiest to integrate into a standard CI/CD pipeline?
+\`\`\`
+`,
+  'dtreleasestrategy': `
+
+# Release Strategy
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+"Hey judges, look at my screen."
+
+### Personal Project
+Post it on Product Hunt and Hacker News. Warn them it's a desktop app, so friction is high.
+
+### Production SaaS
+Releasing a desktop app is terrifying because you cannot instantly rollback a bad release. Once 10,000 users download a version with a fatal crash loop, they cannot even open the app to receive the auto-update fix. You must use Staged Rollouts. Release the update to 5% of users. Monitor Sentry for 24 hours. If crash rates are stable, roll out to 100%.
+
+---
+
+## Rollout Checklist
+- [ ] Staged rollout infrastructure configured
+- [ ] Kill switch (force downgrade) mechanism tested
+- [ ] Support team briefed on known issues
+`,
+  'dtlaunchchecklist': `
+
+# Launch Checklist
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Make sure it works without Wi-Fi.
+
+### Personal Project
+Make sure the download link on your landing page actually points to the latest GitHub Release.
+
+### Production SaaS
+Verify your Code Signing certificates haven't expired. Verify your auto-updater points to the production server, not the staging server. Prepare a massive FAQ section on your website, because users will encounter hardware-specific bugs (e.g., "It doesn't open on my 2014 ThinkPad").
+
+---
+
+## The Final Countdown
+- [ ] Binaries tested on clean, fresh OS installs
+- [ ] Landing page download buttons verified
+- [ ] Crash reporting dashboard is live
+`,
+  'dtanalytics': `
+
+# Analytics
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+PostHog or Mixpanel.
+
+### Production SaaS
+Desktop analytics are blocked by network firewalls (like Pi-hole or corporate proxies) far more often than web analytics. Never let a failed analytics \`fetch\` request crash your app or slow down the UI. Wrap all analytics calls in a fire-and-forget background queue that retries when the user comes back online.
+
+---
+
+## AI Telemetry Queue
+
+\`\`\`prompt
+Provide a robust offline-capable analytics queue for a Desktop App. 
+When the user clicks a button, the event should be added to a local SQLite database or JSON file. A background thread should periodically attempt to flush this queue to my PostHog API. If the network is offline, it should keep the events stored locally until connectivity returns.
+\`\`\`
+`,
+  'dtuserfeedback': `
+
+# User Feedback
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ask the judges.
+
+### Personal Project
+Put your Twitter handle in the "About" menu.
+
+### Production SaaS
+Embed a feedback widget directly inside the app. When the user clicks "Report Bug", the app should automatically attach their OS version, app version, RAM usage, and the last 50 lines of their local \`app.log\`. This saves you 4 back-and-forth emails asking "Are you on Mac or Windows?".
+
+---
+
+## AI Bug Reporter
+
+\`\`\`prompt
+I am building a native "Report Bug" modal for my Desktop App. 
+Provide the [Tauri/Electron] code to programmatically gather the user's OS version, CPU architecture, total RAM, and App Version, so I can attach it as metadata to their bug report payload.
+\`\`\`
+`,
+  'dtroadmap': `
+
+# Roadmap
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Next step: sleep.
+
+### Personal Project
+Write down what annoyed you most while building this, and fix that first.
+
+### Production SaaS
+Publish a public roadmap (Linear, Canny). Transparency is critical for desktop apps because users are investing space on their hard drive. If they see that "Global Hotkeys" are coming in Q3, they are less likely to uninstall your app today.
+
+---
+
+## Roadmap Planning
+- [ ] Public roadmap created
+- [ ] Next 3 major features defined
+`,
+  'dtfeaturerequests': `
+
+# Feature Requests
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Write them on your phone.
+
+### Personal Project
+Use GitHub Issues.
+
+### Production SaaS
+Users will request features that make sense for the Web but are impossible on Desktop (or vice versa). You will get endless requests for "Mobile Sync". If you are a solo dev, explicitly state what you will NEVER build so users don't wait around for a feature that is fundamentally against your architecture.
+
+---
+
+## Checklist
+- [ ] Voting system for features established
+- [ ] "Won't Do" list explicitly communicated
+`,
+  'dtcommunitybuilding': `
+
+# Community Building
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip.
+
+### Personal Project
+Start a Discord.
+
+### Production SaaS
+A strong community is your best QA team. Desktop apps have millions of hardware permutations (e.g., specific graphics cards crashing specific webview versions). A dedicated Discord or Subreddit allows power users to troubleshoot issues for each other, massively reducing your support ticket volume.
+
+---
+
+## AI Community Guidelines
+
+\`\`\`prompt
+Act as a Developer Advocate. I am launching a Discord community for my Desktop App. 
+Draft the "Welcome" channel message and the "Bug Reporting Guidelines" channel message. The bug guidelines must explicitly tell users how to find their crash logs on both Windows and macOS.
+\`\`\`
+`,
+  'dtpluginecosystem': `
+
+# Plugin Ecosystem
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip.
+
+### Personal Project
+Build a simple way for users to add custom CSS themes to the app by reading a local \`theme.css\` file.
+
+### Production SaaS
+The holy grail of desktop apps (VS Code, Obsidian, Figma) is a plugin ecosystem. Building a secure plugin API is incredibly difficult. You must run third-party plugins in an isolated sandboxed iframe or a separate Web Worker so they cannot steal the user's main auth tokens or execute malicious Node.js code on the host machine.
+
+---
+
+## AI Plugin Architecture
+
+\`\`\`prompt
+I want to build a Plugin Architecture for my Desktop App. 
+How do I securely execute third-party JavaScript plugins so they can interact with my app's UI, but completely sandbox them so they cannot access the \`window.localStorage\` or the Node.js/Rust backend APIs? Explain the iframe sandbox approach.
+\`\`\`
+`,
 };
