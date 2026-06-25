@@ -13,15 +13,15 @@ Testing mobile apps is notoriously difficult because you have to account for tou
 ## Think First
 **Are you writing tests to catch UI regressions, or testing complex business logic?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **How much time are you willing to dedicate to maintaining End-to-End (E2E) tests?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Is your core functionality (like Checkout) critical enough that a bug would cost you money?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -73,7 +73,7 @@ I am using Jest and React Native Testing Library. Generate a component test for 
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -93,15 +93,15 @@ Monetizing a mobile app requires integrating with Apple's App Store and Google P
 ## Think First
 **Are you selling physical goods/services or digital content?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Physical Goods (e.g., Uber, food delivery): Use Stripe or Braintree.**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Digital Goods (e.g., Premium features, ad removal): You MUST use Apple/Google In-App Purchases (IAP).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -152,7 +152,7 @@ I am building a React Native app and need to implement In-App Purchases for a 'P
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -172,15 +172,15 @@ While BaaS (Backend as a Service) platforms like Supabase or Firebase handle dir
 ## Think First
 **Are there operations that require keeping API keys secret (e.g., charging credit cards, sending emails)?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Does the logic require heavy computation that would drain a mobile battery?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Can this be handled by Edge Functions or Serverless functions, or do you need a dedicated server?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -233,7 +233,7 @@ I need a serverless Edge Function written in TypeScript (for Supabase) that hand
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -253,15 +253,15 @@ Your database is the foundation of your app's data. In mobile development, you m
 ## Think First
 **Does this data need to be strictly relational, or is a document model sufficient?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **What are the most common queries the app will run? (Optimize for reads).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are there strict privacy requirements? (Row Level Security).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -314,7 +314,7 @@ I am setting up a PostgreSQL database in Supabase for a social mobile app. I hav
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -334,15 +334,15 @@ Authentication is the gatekeeper of your mobile app. It verifies who the user is
 ## Think First
 **Will users log in with email/password, or social providers (Google, Apple)?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **(iOS Only) Apple strictly requires "Sign in with Apple" if you offer any other social login.**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Do you need OTP (One Time Password) via SMS or email?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -395,7 +395,7 @@ I am building an Expo React Native app using Supabase for authentication. Genera
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -715,15 +715,15 @@ If a user notices their phone is hot and their battery drops 10% after using you
 ## Think First
 **Is your app constantly "phoning home" in the background?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Does your app keep the screen awake unnecessarily?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are you rendering complex animations that push the GPU to 100%?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -775,7 +775,7 @@ I am optimizing a React Native app for battery life. Identify the top 3 causes o
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -795,15 +795,15 @@ Users will not download your app if it is 300MB. In emerging markets with expens
 ## Think First
 **What are the heaviest assets currently bundled inside your app?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are you importing entire massive libraries (like lodash or moment.js) when you only need one function?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Have you actually inspected your JavaScript bundle?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -855,7 +855,7 @@ I am optimizing the bundle size of my Expo React Native app. Provide a checklist
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -875,15 +875,15 @@ No matter how much you test, your app will crash in production. Users have weird
 ## Think First
 **If a user opens the app and it immediately closes, how will you find out?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are you logging React rendering errors (JS crashes) or Native module errors (Java/Swift crashes)?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Does your reporting tool capture the breadcrumbs (the button clicks leading up to the crash)?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -934,7 +934,7 @@ I am setting up Sentry in an Expo React Native app. Generate the initialization 
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -954,15 +954,15 @@ Mobile apps fail constantly. APIs go down, memory runs out, and edge cases are h
 ## Think First
 **What happens if the server returns a 500 error on the home screen?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **How do you catch errors that happen deep inside a component's render cycle?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are you distinguishing between user errors (wrong password) and system errors (database down)?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -1014,7 +1014,7 @@ I am building a React Native app. Generate a robust React Error Boundary compone
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -1034,15 +1034,15 @@ If you don't track user behavior, you are flying blind. You will have no idea wh
 ## Think First
 **What is your North Star Metric? (What single action defines success? e.g., Completing a purchase).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **What are the 5 critical events that lead up to that metric?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are you sending Personally Identifiable Information (PII) to a third party?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -1094,7 +1094,7 @@ I am integrating PostHog into my React Native Expo app. Generate a centralized A
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -1114,15 +1114,15 @@ Mobile apps travel. Users open them on subways, airplanes, and areas with spotty
 ## Think First
 **What must work offline?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Does the app *need* to function fully offline (like a Notes app), or does it just need to show a polite "No Internet" screen (like a Banking app)?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **How will you handle data conflicts when the device comes back online?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -1174,7 +1174,7 @@ I am building a React Native app. Generate a global network listener using '@rea
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -1194,15 +1194,15 @@ Modern mobile operating systems are highly restrictive. You cannot access the ca
 ## Think First
 **Why do you *actually* need this permission?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Will the user understand why you are asking for it at this exact moment?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **What happens to the UI if the user permanently denies the permission?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -1253,7 +1253,7 @@ I am building an Expo app. Generate a reusable hook 'useCameraPermission' that c
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -1273,15 +1273,15 @@ Location-awareness bridges the digital and physical worlds. Whether tracking a d
 ## Think First
 **Do you just need a one-time location ping (e.g., tagging a post), or continuous background tracking (e.g., a running app)?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **How precise does the location need to be? High accuracy drains the battery rapidly.**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are you prepared for the strict app store reviews surrounding location tracking?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -1333,7 +1333,7 @@ I am building an Expo React Native app. Generate a screen that uses 'expo-locati
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -1353,15 +1353,15 @@ Allowing users to upload photos and videos drastically increases engagement, but
 ## Think First
 **Do users need to take a live photo, or just pick from their camera roll?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are you compressing the images before sending them over the network?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Who can view this media once it's uploaded?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -1413,7 +1413,7 @@ I am building an Expo app. Generate a React Native component that allows a user 
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -1433,15 +1433,15 @@ Your app is only a shell until it connects to data. API implementation involves 
 ## Think First
 **How will you handle situations when the user loses cell service mid-request?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **How frequently does this data need to be refreshed?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **What happens if the API returns an error?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -1494,7 +1494,7 @@ I am using React Native with React Query and Axios. Generate a custom hook calle
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -1514,15 +1514,15 @@ Navigation dictates how users move through your app. Unlike web browsers with na
 ## Think First
 **What is the primary way users switch contexts? (Bottom Tabs are standard).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Which screens should slide in from the right (Stack) versus slide up from the bottom (Modal)?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **How will you handle authenticated vs. unauthenticated routes?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -1575,7 +1575,7 @@ I am setting up Expo Router for my React Native app. Generate the file structure
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -1595,15 +1595,15 @@ The Frontend (UI) is where your application comes to life. In mobile development
 ## Think First
 **Are you using a component library or building custom components from scratch?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **How will your app adapt to different screen sizes and dark/light modes?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are your touch targets large enough for human thumbs?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -1656,7 +1656,7 @@ I am building a React Native app. Generate a highly reusable, accessible custom 
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -1676,15 +1676,15 @@ Push Notifications are the strongest tool for mobile user retention, allowing yo
 ## Think First
 **What events truly warrant interrupting the user's day?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **How will you handle the permission prompt? (Timing is critical).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Do notifications need to carry deep-links to specific screens?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -1737,7 +1737,7 @@ I am using Expo and React Native. Generate the complete code to request push not
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -1757,15 +1757,15 @@ State Management is how your app remembers data across different screens. When a
 ## Think First
 **Does this data need to be available globally, or just on this screen?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **How often does this data change?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Does it need to be persisted when the app closes?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -1818,7 +1818,7 @@ I am building a React Native app. I need a robust state management setup using Z
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -1834,10 +1834,10 @@ With state management in place, proceed to implement the **Auth** flows to popul
 Kontxt is a guided software-building platform that teaches you how to think like a software architect and product builder. The goal is to build something that succeeds in the real world.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Speed is everything. Your goal is to survive the weekend, build a flashy demo, and impress the judges. Do not get bogged down in edge cases.
-- 🏗️ **Personal Project:** The goal is learning. Take your time to understand the underlying mechanisms of what you are building. It's okay if you break things.
-- 🏢 **Production SaaS:** Quality is non-negotiable. You have infinite time, but the end product must be scalable, performant, and deeply valuable to paying users.
-- ⚙️ **Custom Mode:** You are building at enterprise scale. Rigorous validation, extreme performance, and massive TAM (Total Addressable Market) are required.
+- **Hackathon Mode:** Speed is everything. Your goal is to survive the weekend, build a flashy demo, and impress the judges. Do not get bogged down in edge cases.
+- **Personal Project:** The goal is learning. Take your time to understand the underlying mechanisms of what you are building. It's okay if you break things.
+- **Production SaaS:** Quality is non-negotiable. You have infinite time, but the end product must be scalable, performant, and deeply valuable to paying users.
+- **Custom Mode:** You are building at enterprise scale. Rigorous validation, extreme performance, and massive TAM (Total Addressable Market) are required.
 
 ## Accountability Check
 - [ ] I understand my target outcome and the philosophy of the mode I am currently in.
@@ -1852,14 +1852,14 @@ Kontxt is a guided software-building platform that teaches you how to think like
 An idea is just a multiplier of execution. Choosing the right idea dictates how hard the execution will be.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Your idea should optimize for "wow factor" and technical complexity. Judges love flashy tech (AI, Web3, 3D). Business viability does not matter; visual impact does.
-- 🏗️ **Personal Project:** Choose an idea that forces you to learn a new stack or tool you want on your resume. Keep the scope small enough that you can actually finish it.
-- 🏢 **Production SaaS:** Your idea must solve a highly painful, monetizable problem. Flashy tech does not matter; solving the pain matters. If people won't pay for it, don't build it.
-- ⚙️ **Custom Mode:** Every aspect of this idea must be validated through rigorous enterprise-grade market analysis. If the Total Addressable Market (TAM) cannot support a $100M+ valuation, discard it immediately.
+- **Hackathon Mode:** Your idea should optimize for "wow factor" and technical complexity. Judges love flashy tech (AI, Web3, 3D). Business viability does not matter; visual impact does.
+- **Personal Project:** Choose an idea that forces you to learn a new stack or tool you want on your resume. Keep the scope small enough that you can actually finish it.
+- **Production SaaS:** Your idea must solve a highly painful, monetizable problem. Flashy tech does not matter; solving the pain matters. If people won't pay for it, don't build it.
+- **Custom Mode:** Every aspect of this idea must be validated through rigorous enterprise-grade market analysis. If the Total Addressable Market (TAM) cannot support a $100M+ valuation, discard it immediately.
 
 ## The Core Concept
 \`\`\`input
-✏️ Paste your core idea here...
+Paste your core idea here...
 \`\`\`
 `,
   'problemstatement': `# Problem Statement
@@ -1872,15 +1872,15 @@ An idea is just a multiplier of execution. Choosing the right idea dictates how 
 If there is no problem, your solution is useless. You must articulate exactly what is broken in the world today.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** The problem just needs to be relatable to the judges. Don't overthink the market dynamics.
-- 🏗️ **Personal Project:** Pick a problem you personally experience. It will keep you motivated when debugging gets hard.
-- 🏢 **Production SaaS:** The problem must be painful enough that people are currently hacking together spreadsheets and Zapier to solve it. 
-- ⚙️ **Custom Mode:** The problem must be a massive, systemic inefficiency costing enterprises millions of dollars annually.
+- **Hackathon Mode:** The problem just needs to be relatable to the judges. Don't overthink the market dynamics.
+- **Personal Project:** Pick a problem you personally experience. It will keep you motivated when debugging gets hard.
+- **Production SaaS:** The problem must be painful enough that people are currently hacking together spreadsheets and Zapier to solve it. 
+- **Custom Mode:** The problem must be a massive, systemic inefficiency costing enterprises millions of dollars annually.
 
 ## Documenting the Pain
 **What is the exact workflow that is currently broken?**
 \`\`\`input
-✏️ 
+
 \`\`\`
 `,
   'userpainpoints': `# User Pain Points
@@ -1893,10 +1893,10 @@ If there is no problem, your solution is useless. You must articulate exactly wh
 You need to understand the emotional state of your user when they encounter the problem. Are they annoyed? Are they losing money? Are they risking their job?
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Skip deep user psychology. Focus on a simple, universal frustration.
-- 🏗️ **Personal Project:** Focus on your own frustration. Why did you decide to build this?
-- 🏢 **Production SaaS:** Map out the exact financial and emotional cost of the pain. If it's not a "hair on fire" problem, SaaS churn will kill your business.
-- ⚙️ **Custom Mode:** Quantify the pain point in exact dollar amounts of lost revenue or wasted employee hours.
+- **Hackathon Mode:** Skip deep user psychology. Focus on a simple, universal frustration.
+- **Personal Project:** Focus on your own frustration. Why did you decide to build this?
+- **Production SaaS:** Map out the exact financial and emotional cost of the pain. If it's not a "hair on fire" problem, SaaS churn will kill your business.
+- **Custom Mode:** Quantify the pain point in exact dollar amounts of lost revenue or wasted employee hours.
 
 ## AI Brainstorming Phase
 \`\`\`prompt
@@ -1916,10 +1916,10 @@ Act as a Product Manager. Based on my problem statement: [PASTE PROBLEM], brains
 "Everyone" is not a target user. If you build for everyone, you build for no one.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Your target user is the judging panel. Tailor the UX to make sense to them immediately.
-- 🏗️ **Personal Project:** You are the target user. Build what you want.
-- 🏢 **Production SaaS:** Niche down until it hurts. Find a highly specific subset of users who desperately need this.
-- ⚙️ **Custom Mode:** Target users must be high-LTV (Life Time Value) enterprise buyers with deep pockets.
+- **Hackathon Mode:** Your target user is the judging panel. Tailor the UX to make sense to them immediately.
+- **Personal Project:** You are the target user. Build what you want.
+- **Production SaaS:** Niche down until it hurts. Find a highly specific subset of users who desperately need this.
+- **Custom Mode:** Target users must be high-LTV (Life Time Value) enterprise buyers with deep pockets.
 
 ## Accountability Check
 - [ ] I have identified a specific, reachable target user.
@@ -1934,10 +1934,10 @@ Act as a Product Manager. Based on my problem statement: [PASTE PROBLEM], brains
 The ICP defines exactly who holds the credit card. It includes their industry, company size, role, and budget.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Skip this. Hackathons don't require paying customers.
-- 🏗️ **Personal Project:** Skip this. You aren't selling this to B2B clients.
-- 🏢 **Production SaaS:** This is mandatory. Define their exact job title (e.g., "VP of Sales at a 50-person agency"). 
-- ⚙️ **Custom Mode:** Your ICP must include procurement workflows, compliance requirements, and average sales cycles.
+- **Hackathon Mode:** Skip this. Hackathons don't require paying customers.
+- **Personal Project:** Skip this. You aren't selling this to B2B clients.
+- **Production SaaS:** This is mandatory. Define their exact job title (e.g., "VP of Sales at a 50-person agency"). 
+- **Custom Mode:** Your ICP must include procurement workflows, compliance requirements, and average sales cycles.
 
 ## AI Brainstorming Phase
 \`\`\`prompt
@@ -1957,10 +1957,10 @@ Act as a B2B Sales Executive. Based on my idea: [PASTE IDEA], define the exact I
 Personas humanize your target users. They help you design the UI. For example, a persona for a 65-year-old accountant needs larger text and higher contrast than a persona for a 20-year-old gamer.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Keep it simple. One user persona.
-- 🏗️ **Personal Project:** Just you.
-- 🏢 **Production SaaS:** Differentiate between the "User" (who clicks the buttons) and the "Buyer" (who signs the check). They often want different things.
-- ⚙️ **Custom Mode:** Map out the entire buying committee (End User, Champion, Economic Buyer, Security Assessor).
+- **Hackathon Mode:** Keep it simple. One user persona.
+- **Personal Project:** Just you.
+- **Production SaaS:** Differentiate between the "User" (who clicks the buttons) and the "Buyer" (who signs the check). They often want different things.
+- **Custom Mode:** Map out the entire buying committee (End User, Champion, Economic Buyer, Security Assessor).
 
 ## Accountability Check
 - [ ] I understand the difference between the user and the buyer.
@@ -1975,15 +1975,15 @@ Personas humanize your target users. They help you design the UI. For example, a
 How does your product actually solve the problem? This is the core mechanic of your application.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** The solution should be entirely focused on the "magic moment" (e.g., clicking a button and AI generates a video).
-- 🏗️ **Personal Project:** The solution should incorporate the tech you want to learn.
-- 🏢 **Production SaaS:** The solution must be a 10x improvement over their current spreadsheet or manual process.
-- ⚙️ **Custom Mode:** The solution must integrate seamlessly into their existing enterprise architecture.
+- **Hackathon Mode:** The solution should be entirely focused on the "magic moment" (e.g., clicking a button and AI generates a video).
+- **Personal Project:** The solution should incorporate the tech you want to learn.
+- **Production SaaS:** The solution must be a 10x improvement over their current spreadsheet or manual process.
+- **Custom Mode:** The solution must integrate seamlessly into their existing enterprise architecture.
 
 ## Documenting the Solution
 **Explain your solution in one clear sentence:**
 \`\`\`input
-✏️ 
+
 \`\`\`
 `,
   'valueproposition': `# Value Proposition
@@ -1996,10 +1996,10 @@ How does your product actually solve the problem? This is the core mechanic of y
 Your value proposition is the promise of value to be delivered. It's the primary reason a prospect should buy from you.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** "We do X using cutting-edge Y."
-- 🏗️ **Personal Project:** "A tool that automates X for me."
-- 🏢 **Production SaaS:** "We help [ICP] achieve [Result] by [Solution]."
-- ⚙️ **Custom Mode:** "We reduce operational costs by [X]% through [Enterprise Solution]."
+- **Hackathon Mode:** "We do X using cutting-edge Y."
+- **Personal Project:** "A tool that automates X for me."
+- **Production SaaS:** "We help [ICP] achieve [Result] by [Solution]."
+- **Custom Mode:** "We reduce operational costs by [X]% through [Enterprise Solution]."
 
 ## AI Brainstorming Phase
 \`\`\`prompt
@@ -2019,10 +2019,10 @@ Act as a Product Marketer. Based on my problem and solution: [PASTE SUMMARY], wr
 If you can't explain your product in 30 seconds, it's too complicated.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Rehearse this for the final presentation. Keep it punchy.
-- 🏗️ **Personal Project:** Useful for explaining what you built to recruiters.
-- 🏢 **Production SaaS:** This goes on the hero section of your landing page. Make it convert.
-- ⚙️ **Custom Mode:** Must include ROI metrics and scalability assurances.
+- **Hackathon Mode:** Rehearse this for the final presentation. Keep it punchy.
+- **Personal Project:** Useful for explaining what you built to recruiters.
+- **Production SaaS:** This goes on the hero section of your landing page. Make it convert.
+- **Custom Mode:** Must include ROI metrics and scalability assurances.
 
 ## Accountability Check
 - [ ] I can explain my product clearly in under 30 seconds.
@@ -2037,10 +2037,10 @@ If you can't explain your product in 30 seconds, it's too complicated.
 Is the market growing or shrinking? Are people actively searching for this solution? 
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Skip this. Just build.
-- 🏗️ **Personal Project:** Skip this. Just code.
-- 🏢 **Production SaaS:** Look at Google Trends, subreddits, and keyword volume. If the market is too small, you won't make money.
-- ⚙️ **Custom Mode:** Commission or purchase Gartner/Forrester reports to validate total TAM and CAGR.
+- **Hackathon Mode:** Skip this. Just build.
+- **Personal Project:** Skip this. Just code.
+- **Production SaaS:** Look at Google Trends, subreddits, and keyword volume. If the market is too small, you won't make money.
+- **Custom Mode:** Commission or purchase Gartner/Forrester reports to validate total TAM and CAGR.
 
 ## AI Brainstorming Phase
 \`\`\`prompt
@@ -2060,10 +2060,10 @@ Act as a Market Analyst. Analyze the market trends for: [PASTE IDEA]. Are there 
 You are never the first person to have this idea. You must know who else is doing this and why they suck.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Only look at competitors for UI/UX inspiration. Don't worry about stealing market share.
-- 🏗️ **Personal Project:** Find open-source alternatives to study their architecture.
-- 🏢 **Production SaaS:** Identify their weak points (pricing, UI, speed) and attack them. Read their 1-star reviews.
-- ⚙️ **Custom Mode:** Map out the exact feature matrix of enterprise competitors and find the compliance gaps.
+- **Hackathon Mode:** Only look at competitors for UI/UX inspiration. Don't worry about stealing market share.
+- **Personal Project:** Find open-source alternatives to study their architecture.
+- **Production SaaS:** Identify their weak points (pricing, UI, speed) and attack them. Read their 1-star reviews.
+- **Custom Mode:** Map out the exact feature matrix of enterprise competitors and find the compliance gaps.
 
 ## AI Brainstorming Phase
 \`\`\`prompt
@@ -2083,10 +2083,10 @@ Act as a Competitive Intelligence Analyst. Identify the top 3 competitors for: [
 Your biggest competitor isn't a startup; it's Microsoft Excel. Or a piece of paper. What are they using right now?
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Skip this. 
-- 🏗️ **Personal Project:** Skip this.
-- 🏢 **Production SaaS:** You must convince them to change their current habits. Changing habits is incredibly hard.
-- ⚙️ **Custom Mode:** Legacy on-premise systems are usually the existing alternative. Prepare a migration strategy.
+- **Hackathon Mode:** Skip this. 
+- **Personal Project:** Skip this.
+- **Production SaaS:** You must convince them to change their current habits. Changing habits is incredibly hard.
+- **Custom Mode:** Legacy on-premise systems are usually the existing alternative. Prepare a migration strategy.
 
 ## Accountability Check
 - [ ] I understand the friction involved in making a user switch from their current solution.
@@ -2101,10 +2101,10 @@ Your biggest competitor isn't a startup; it's Microsoft Excel. Or a piece of pap
 Are you the cheap, fast alternative? Or the expensive, premium, enterprise-grade solution? 
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** You are the "cool, AI-powered" alternative.
-- 🏗️ **Personal Project:** You are the "free, open-source" alternative.
-- 🏢 **Production SaaS:** Never compete on price. Be the "fastest, best UX" or the "most specialized for [niche]" alternative.
-- ⚙️ **Custom Mode:** You are the "most secure, compliant, and scalable" alternative.
+- **Hackathon Mode:** You are the "cool, AI-powered" alternative.
+- **Personal Project:** You are the "free, open-source" alternative.
+- **Production SaaS:** Never compete on price. Be the "fastest, best UX" or the "most specialized for [niche]" alternative.
+- **Custom Mode:** You are the "most secure, compliant, and scalable" alternative.
 
 ## AI Brainstorming Phase
 \`\`\`prompt
@@ -2124,10 +2124,10 @@ Act as a Brand Strategist. Based on my competitors, suggest 3 different ways I c
 Scope creep is the death of all software. If you don't define what you are building, you will build forever.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Only build features that look good in a demo video.
-- 🏗️ **Personal Project:** Build features that require the specific technology you want to learn.
-- 🏢 **Production SaaS:** Build only what is required to solve the core pain point. Ignore "nice to have" features.
-- ⚙️ **Custom Mode:** Map features directly to enterprise compliance and workflow requirements.
+- **Hackathon Mode:** Only build features that look good in a demo video.
+- **Personal Project:** Build features that require the specific technology you want to learn.
+- **Production SaaS:** Build only what is required to solve the core pain point. Ignore "nice to have" features.
+- **Custom Mode:** Map features directly to enterprise compliance and workflow requirements.
 
 ## Accountability Check
 - [ ] I am ready to ruthlessly cut features.
@@ -2142,15 +2142,15 @@ Scope creep is the death of all software. If you don't define what you are build
 The Minimum Viable Product (MVP) is the smallest thing you can build that still delivers value.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** 1 Core AI/Flashy Feature, 1 basic auth flow, 1 result screen.
-- 🏗️ **Personal Project:** Keep the MVP small enough to finish in 2 weekends.
-- 🏢 **Production SaaS:** The MVP must be robust enough that a business will trust it with their data.
-- ⚙️ **Custom Mode:** The "MVP" must include SOC2 compliance groundwork, SSO, and Role-Based Access Control.
+- **Hackathon Mode:** 1 Core AI/Flashy Feature, 1 basic auth flow, 1 result screen.
+- **Personal Project:** Keep the MVP small enough to finish in 2 weekends.
+- **Production SaaS:** The MVP must be robust enough that a business will trust it with their data.
+- **Custom Mode:** The "MVP" must include SOC2 compliance groundwork, SSO, and Role-Based Access Control.
 
 ## The MVP List
 **List the absolute minimum features required for launch:**
 \`\`\`input
-✏️ 
+
 \`\`\`
 `,
   'futurefeatures': `# Future Features
@@ -2163,10 +2163,10 @@ The Minimum Viable Product (MVP) is the smallest thing you can build that still 
 Put your great (but unnecessary) ideas here so they don't distract you today.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Mention these in your pitch to show "future potential".
-- 🏗️ **Personal Project:** Ignore these until the MVP is deployed.
-- 🏢 **Production SaaS:** Do not build these until users are explicitly asking for them.
-- ⚙️ **Custom Mode:** These form your 18-month enterprise roadmap.
+- **Hackathon Mode:** Mention these in your pitch to show "future potential".
+- **Personal Project:** Ignore these until the MVP is deployed.
+- **Production SaaS:** Do not build these until users are explicitly asking for them.
+- **Custom Mode:** These form your 18-month enterprise roadmap.
 
 ## Accountability Check
 - [ ] I will not build these features today.
@@ -2181,10 +2181,10 @@ Put your great (but unnecessary) ideas here so they don't distract you today.
 You have limited time and engineering resources.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Prioritize UI/UX and the core "magic moment".
-- 🏗️ **Personal Project:** Prioritize the hardest technical challenge first to get it out of the way.
-- 🏢 **Production SaaS:** Use the ICE framework (Impact, Confidence, Ease). Prioritize high impact, high ease.
-- ⚙️ **Custom Mode:** Prioritize features that unblock enterprise procurement (e.g., Security, SAML).
+- **Hackathon Mode:** Prioritize UI/UX and the core "magic moment".
+- **Personal Project:** Prioritize the hardest technical challenge first to get it out of the way.
+- **Production SaaS:** Use the ICE framework (Impact, Confidence, Ease). Prioritize high impact, high ease.
+- **Custom Mode:** Prioritize features that unblock enterprise procurement (e.g., Security, SAML).
 
 ## Accountability Check
 - [ ] I know exactly what I am building first.
@@ -2199,10 +2199,10 @@ You have limited time and engineering resources.
 How are you going to capture the value you create?
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Skip this. Just say "B2B SaaS" in your pitch.
-- 🏗️ **Personal Project:** Skip this.
-- 🏢 **Production SaaS:** Subscriptions (SaaS) or Usage-Based (API). Don't rely on ads.
-- ⚙️ **Custom Mode:** Top-down enterprise sales, annual contracts, and seat-based licensing.
+- **Hackathon Mode:** Skip this. Just say "B2B SaaS" in your pitch.
+- **Personal Project:** Skip this.
+- **Production SaaS:** Subscriptions (SaaS) or Usage-Based (API). Don't rely on ads.
+- **Custom Mode:** Top-down enterprise sales, annual contracts, and seat-based licensing.
 
 ## Accountability Check
 - [ ] I know how this product makes money.
@@ -2217,10 +2217,10 @@ How are you going to capture the value you create?
 Pricing is the most under-utilized growth lever.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Skip.
-- 🏗️ **Personal Project:** Free.
-- 🏢 **Production SaaS:** Charge more than you think. If nobody complains about the price, it's too cheap.
-- ⚙️ **Custom Mode:** Minimum contract value of $10,000/year to justify sales overhead.
+- **Hackathon Mode:** Skip.
+- **Personal Project:** Free.
+- **Production SaaS:** Charge more than you think. If nobody complains about the price, it's too cheap.
+- **Custom Mode:** Minimum contract value of $10,000/year to justify sales overhead.
 
 ## Accountability Check
 - [ ] I will not underprice my product.
@@ -2235,10 +2235,10 @@ Pricing is the most under-utilized growth lever.
 Monthly Recurring Revenue (MRR) is the holy grail of software.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Skip.
-- 🏗️ **Personal Project:** Skip.
-- 🏢 **Production SaaS:** Offer annual plans at a 20% discount to lock in cash flow.
-- ⚙️ **Custom Mode:** Multi-year lock-ins with mandatory implementation fees.
+- **Hackathon Mode:** Skip.
+- **Personal Project:** Skip.
+- **Production SaaS:** Offer annual plans at a 20% discount to lock in cash flow.
+- **Custom Mode:** Multi-year lock-ins with mandatory implementation fees.
 
 ## Accountability Check
 - [ ] I understand MRR dynamics.
@@ -2253,10 +2253,10 @@ Monthly Recurring Revenue (MRR) is the holy grail of software.
 Focus on one revenue stream until you hit $1M ARR.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Skip.
-- 🏗️ **Personal Project:** Skip.
-- 🏢 **Production SaaS:** Focus entirely on your core SaaS subscription.
-- ⚙️ **Custom Mode:** Software licensing + Professional Services / Training.
+- **Hackathon Mode:** Skip.
+- **Personal Project:** Skip.
+- **Production SaaS:** Focus entirely on your core SaaS subscription.
+- **Custom Mode:** Software licensing + Professional Services / Training.
 
 ## Accountability Check
 - [ ] I will not distract myself with multiple revenue streams yet.
@@ -2271,10 +2271,10 @@ Focus on one revenue stream until you hit $1M ARR.
 You cannot improve what you do not measure.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Did it crash during the demo? No? Success.
-- 🏗️ **Personal Project:** Did I learn the framework? Yes? Success.
-- 🏢 **Production SaaS:** Track Activation Rate and Month 1 Retention. If they churn immediately, the product is broken.
-- ⚙️ **Custom Mode:** Net Revenue Retention (NRR) must be >110%.
+- **Hackathon Mode:** Did it crash during the demo? No? Success.
+- **Personal Project:** Did I learn the framework? Yes? Success.
+- **Production SaaS:** Track Activation Rate and Month 1 Retention. If they churn immediately, the product is broken.
+- **Custom Mode:** Net Revenue Retention (NRR) must be >110%.
 
 ## Accountability Check
 - [ ] I know what success looks like.
@@ -2289,10 +2289,10 @@ You cannot improve what you do not measure.
 KPIs tell you if the business is healthy.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Skip.
-- 🏗️ **Personal Project:** Skip.
-- 🏢 **Production SaaS:** Customer Acquisition Cost (CAC) and Lifetime Value (LTV).
-- ⚙️ **Custom Mode:** Sales cycle length and Pipeline Velocity.
+- **Hackathon Mode:** Skip.
+- **Personal Project:** Skip.
+- **Production SaaS:** Customer Acquisition Cost (CAC) and Lifetime Value (LTV).
+- **Custom Mode:** Sales cycle length and Pipeline Velocity.
 
 ## Accountability Check
 - [ ] I understand my primary KPIs.
@@ -2307,10 +2307,10 @@ KPIs tell you if the business is healthy.
 The one metric that best captures the core value your product delivers to its customers.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Skip.
-- 🏗️ **Personal Project:** Skip.
-- 🏢 **Production SaaS:** e.g., For Airbnb, it's "Nights Booked". For WhatsApp, it's "Messages Sent".
-- ⚙️ **Custom Mode:** Must tie directly to enterprise cost savings or revenue generation.
+- **Hackathon Mode:** Skip.
+- **Personal Project:** Skip.
+- **Production SaaS:** e.g., For Airbnb, it's "Nights Booked". For WhatsApp, it's "Messages Sent".
+- **Custom Mode:** Must tie directly to enterprise cost savings or revenue generation.
 
 ## Accountability Check
 - [ ] I have identified my North Star Metric.
@@ -2325,10 +2325,10 @@ The one metric that best captures the core value your product delivers to its cu
 The PRD is the master blueprint. When AI generates your code, it needs a PRD to understand what it is building.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Keep it ultra-brief. Bullet points only. Focus on the core user flow.
-- 🏗️ **Personal Project:** Document the technical requirements to ensure you hit your learning goals.
-- 🏢 **Production SaaS:** The PRD must be comprehensive. Missing edge cases here will result in bugs later.
-- ⚙️ **Custom Mode:** Must include strict non-functional requirements (SLAs, uptime, latency, compliance).
+- **Hackathon Mode:** Keep it ultra-brief. Bullet points only. Focus on the core user flow.
+- **Personal Project:** Document the technical requirements to ensure you hit your learning goals.
+- **Production SaaS:** The PRD must be comprehensive. Missing edge cases here will result in bugs later.
+- **Custom Mode:** Must include strict non-functional requirements (SLAs, uptime, latency, compliance).
 
 ## AI Brainstorming Phase
 \`\`\`prompt
@@ -2338,7 +2338,7 @@ Act as a Senior Product Manager. Based on my MVP Features: [PASTE MVP FEATURES],
 ## The Final PRD
 **Paste your finalized PRD here:**
 \`\`\`input
-✏️ 
+
 \`\`\`
 `,
   'userflows': `# User Flows
@@ -2351,10 +2351,10 @@ Act as a Senior Product Manager. Based on my MVP Features: [PASTE MVP FEATURES],
 How does a user get from the landing page to their "Aha!" moment? If the flow is confusing, they will churn.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Optimize the flow for a live demo. Minimize clicks.
-- 🏗️ **Personal Project:** Keep authentication flows simple (e.g., Google OAuth).
-- 🏢 **Production SaaS:** Map out every edge case (forgot password, expired trial, empty states).
-- ⚙️ **Custom Mode:** Map out complex multi-actor flows (Admin invites Manager, Manager creates User).
+- **Hackathon Mode:** Optimize the flow for a live demo. Minimize clicks.
+- **Personal Project:** Keep authentication flows simple (e.g., Google OAuth).
+- **Production SaaS:** Map out every edge case (forgot password, expired trial, empty states).
+- **Custom Mode:** Map out complex multi-actor flows (Admin invites Manager, Manager creates User).
 
 ## AI Diagram Generator
 \`\`\`prompt
@@ -2374,10 +2374,10 @@ Act as a UX Researcher. Based on my PRD, generate a Mermaid.js 'flowchart TD' re
 How is your app structured? Where do the settings live? If users can't find things, they will leave.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** One dashboard page. Put everything there.
-- 🏗️ **Personal Project:** Standard top-nav or sidebar.
-- 🏢 **Production SaaS:** Design a scalable hierarchy. Group related features so the navigation doesn't break when you add 50 new features next year.
-- ⚙️ **Custom Mode:** Deep hierarchical access control mapped to organizational charts.
+- **Hackathon Mode:** One dashboard page. Put everything there.
+- **Personal Project:** Standard top-nav or sidebar.
+- **Production SaaS:** Design a scalable hierarchy. Group related features so the navigation doesn't break when you add 50 new features next year.
+- **Custom Mode:** Deep hierarchical access control mapped to organizational charts.
 
 ## Accountability Check
 - [ ] I know how many main pages my app will have.
@@ -2392,10 +2392,10 @@ How is your app structured? Where do the settings live? If users can't find thin
 Don't write UI code until you know what it looks like.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Sketch it on a napkin or use Vercel v0 to generate it instantly.
-- 🏗️ **Personal Project:** Draw it on paper to save time.
-- 🏢 **Production SaaS:** Use Figma. Plan for mobile responsiveness from day one.
-- ⚙️ **Custom Mode:** High-fidelity Figma prototypes tested with enterprise stakeholders.
+- **Hackathon Mode:** Sketch it on a napkin or use Vercel v0 to generate it instantly.
+- **Personal Project:** Draw it on paper to save time.
+- **Production SaaS:** Use Figma. Plan for mobile responsiveness from day one.
+- **Custom Mode:** High-fidelity Figma prototypes tested with enterprise stakeholders.
 
 ## Accountability Check
 - [ ] I have visual blueprints for my core screens.
@@ -2410,10 +2410,10 @@ Don't write UI code until you know what it looks like.
 A design system ensures your app doesn't look like a Frankenstein monster of random colors and fonts.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Use Shadcn UI or Tailwind UI. Do not write custom CSS.
-- 🏗️ **Personal Project:** Pick 1 primary color and use a standard component library.
-- 🏢 **Production SaaS:** Establish strict design tokens (colors, typography, spacing) to ensure UI consistency as the team grows.
-- ⚙️ **Custom Mode:** Full strict adherence to WCAG accessibility standards and custom brand guidelines.
+- **Hackathon Mode:** Use Shadcn UI or Tailwind UI. Do not write custom CSS.
+- **Personal Project:** Pick 1 primary color and use a standard component library.
+- **Production SaaS:** Establish strict design tokens (colors, typography, spacing) to ensure UI consistency as the team grows.
+- **Custom Mode:** Full strict adherence to WCAG accessibility standards and custom brand guidelines.
 
 ## AI Generator
 \`\`\`prompt
@@ -2433,10 +2433,10 @@ Act as a UI Designer. Suggest a modern, accessible color palette (Primary, Secon
 Your brand is how people feel when they interact with your product.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Skip.
-- 🏗️ **Personal Project:** Keep it clean and professional.
-- 🏢 **Production SaaS:** Does your app sound playful (Discord) or serious (Stripe)? This dictates your copywriting.
-- ⚙️ **Custom Mode:** Corporate, highly-trustworthy, authoritative tone.
+- **Hackathon Mode:** Skip.
+- **Personal Project:** Keep it clean and professional.
+- **Production SaaS:** Does your app sound playful (Discord) or serious (Stripe)? This dictates your copywriting.
+- **Custom Mode:** Corporate, highly-trustworthy, authoritative tone.
 
 ## Accountability Check
 - [ ] I know what tone of voice my app should use.
@@ -2451,10 +2451,10 @@ Your brand is how people feel when they interact with your product.
 If your app isn't accessible, you are locking out 15% of the population (and opening yourself to lawsuits).
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Ignore for now, just build the demo.
-- 🏗️ **Personal Project:** Use semantic HTML (e.g., \`<button>\` instead of \`<div onClick>\`) to learn best practices.
-- 🏢 **Production SaaS:** Ensure high color contrast and keyboard navigability.
-- ⚙️ **Custom Mode:** Mandatory WCAG 2.1 AA compliance required for enterprise procurement.
+- **Hackathon Mode:** Ignore for now, just build the demo.
+- **Personal Project:** Use semantic HTML (e.g., \`<button>\` instead of \`<div onClick>\`) to learn best practices.
+- **Production SaaS:** Ensure high color contrast and keyboard navigability.
+- **Custom Mode:** Mandatory WCAG 2.1 AA compliance required for enterprise procurement.
 
 ## Accountability Check
 - [ ] I will use proper HTML elements and consider contrast ratios.
@@ -2469,24 +2469,24 @@ If your app isn't accessible, you are locking out 15% of the population (and ope
 Your tech stack is the foundation of your house. If you build on sand, your house will collapse when you try to scale.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** React (Vite) + Supabase + Tailwind. Don't waste time debating. Stick to what gets a button on the screen the fastest.
-- 🏗️ **Personal Project:** Choose the specific technology you want to learn, even if it's overly complex.
-- 🏢 **Production SaaS:** Choose the boring technology that your team already knows. Do not pick a stack just because it's trending on Twitter.
-- ⚙️ **Custom Mode:** Use highly scalable, typed, compiled languages and enterprise-supported frameworks (e.g., Java, C#, Go, or strict Next.js).
+- **Hackathon Mode:** React (Vite) + Supabase + Tailwind. Don't waste time debating. Stick to what gets a button on the screen the fastest.
+- **Personal Project:** Choose the specific technology you want to learn, even if it's overly complex.
+- **Production SaaS:** Choose the boring technology that your team already knows. Do not pick a stack just because it's trending on Twitter.
+- **Custom Mode:** Use highly scalable, typed, compiled languages and enterprise-supported frameworks (e.g., Java, C#, Go, or strict Next.js).
 
 ## The Core Stack
 Declare the exact technologies you will use. This context is critical for AI code generation later.
 **Frontend Framework (e.g., React, Next.js, Vue):**
 \`\`\`input
-✏️ 
+
 \`\`\`
 **Backend/Database (e.g., Supabase, Node.js + Postgres, Firebase):**
 \`\`\`input
-✏️ 
+
 \`\`\`
 **Styling Framework (e.g., Tailwind CSS, Chakra UI):**
 \`\`\`input
-✏️ 
+
 \`\`\`
 `,
   'frontendarchitecture': `# Frontend Architecture
@@ -2499,15 +2499,15 @@ Declare the exact technologies you will use. This context is critical for AI cod
 Will your app be a Single Page Application (SPA) where everything loads instantly on the client, or Server-Side Rendered (SSR) where pages are built on the server for better SEO?
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** SPA (Vite). Ignore SEO. Just get the dashboard working.
-- 🏗️ **Personal Project:** SPA is usually easier to host and deploy.
-- 🏢 **Production SaaS:** If your app lives behind a login wall, use a SPA. If you need public marketing pages with perfect SEO, use SSR (Next.js).
-- ⚙️ **Custom Mode:** Micro-frontends or strict SSR for maximum performance and team isolation.
+- **Hackathon Mode:** SPA (Vite). Ignore SEO. Just get the dashboard working.
+- **Personal Project:** SPA is usually easier to host and deploy.
+- **Production SaaS:** If your app lives behind a login wall, use a SPA. If you need public marketing pages with perfect SEO, use SSR (Next.js).
+- **Custom Mode:** Micro-frontends or strict SSR for maximum performance and team isolation.
 
 ## The Strategy
 **What rendering strategy are you choosing and why?**
 \`\`\`input
-✏️ Strategy:
+Strategy:
 Reason:
 \`\`\`
 `,
@@ -2521,15 +2521,15 @@ Reason:
 Do you need to write and deploy a custom server, or can you use a Backend-as-a-Service (BaaS)?
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** BaaS (Supabase/Firebase). Writing custom Express routes during a hackathon is a waste of time.
-- 🏗️ **Personal Project:** BaaS is easiest, but building a custom Node/Python server is great for learning.
-- 🏢 **Production SaaS:** Default to a Monolith or a BaaS. Microservices are for companies with 100+ engineers.
-- ⚙️ **Custom Mode:** Event-driven microservices architecture using Kafka/SQS for extreme scale.
+- **Hackathon Mode:** BaaS (Supabase/Firebase). Writing custom Express routes during a hackathon is a waste of time.
+- **Personal Project:** BaaS is easiest, but building a custom Node/Python server is great for learning.
+- **Production SaaS:** Default to a Monolith or a BaaS. Microservices are for companies with 100+ engineers.
+- **Custom Mode:** Event-driven microservices architecture using Kafka/SQS for extreme scale.
 
 ## The Strategy
 **What backend architecture are you choosing?**
 \`\`\`input
-✏️ Strategy:
+Strategy:
 \`\`\`
 `,
   'apidesign': `# API Design
@@ -2542,10 +2542,10 @@ Do you need to write and deploy a custom server, or can you use a Backend-as-a-S
 A strong API design contract prevents "undefined is not a function" errors.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** If using Supabase, use their auto-generated client SDK. Skip designing custom APIs.
-- 🏗️ **Personal Project:** Use simple REST endpoints.
-- 🏢 **Production SaaS:** Strict RESTful or GraphQL conventions. Use tRPC for end-to-end type safety if using a full TS stack.
-- ⚙️ **Custom Mode:** Formal OpenAPI (Swagger) specifications required before writing any code.
+- **Hackathon Mode:** If using Supabase, use their auto-generated client SDK. Skip designing custom APIs.
+- **Personal Project:** Use simple REST endpoints.
+- **Production SaaS:** Strict RESTful or GraphQL conventions. Use tRPC for end-to-end type safety if using a full TS stack.
+- **Custom Mode:** Formal OpenAPI (Swagger) specifications required before writing any code.
 
 ## AI API Spec Generator
 \`\`\`prompt
@@ -2565,15 +2565,15 @@ Act as a Backend Architect. Based on my PRD: [PASTE PRD SUMMARY], generate a mar
 Never roll your own authentication. Storing passwords safely is incredibly difficult.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Magic Links or Google OAuth only. Don't waste time building password reset flows.
-- 🏗️ **Personal Project:** Supabase Auth or NextAuth.
-- 🏢 **Production SaaS:** Use a dedicated provider (Supabase Auth, Clerk). Plan for multi-tenant B2B architectures.
-- ⚙️ **Custom Mode:** Enterprise SSO (SAML, Okta, Active Directory) is mandatory.
+- **Hackathon Mode:** Magic Links or Google OAuth only. Don't waste time building password reset flows.
+- **Personal Project:** Supabase Auth or NextAuth.
+- **Production SaaS:** Use a dedicated provider (Supabase Auth, Clerk). Plan for multi-tenant B2B architectures.
+- **Custom Mode:** Enterprise SSO (SAML, Okta, Active Directory) is mandatory.
 
 ## Auth Provider
 **Which Authentication Provider are you using?**
 \`\`\`input
-✏️ Provider:
+Provider:
 \`\`\`
 `,
   'authorizationroles': `# Authorization & Roles
@@ -2586,10 +2586,10 @@ Never roll your own authentication. Storing passwords safely is incredibly diffi
 Authentication is *who* you are. Authorization is *what* you are allowed to do. If User A can see User B's invoices, your company is dead.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Everyone is an Admin. Don't bother with roles.
-- 🏗️ **Personal Project:** Simple Admin vs User boolean flag.
-- 🏢 **Production SaaS:** Strict Role-Based Access Control (RBAC). Use Row Level Security (RLS) in the database.
-- ⚙️ **Custom Mode:** Fine-grained Attribute-Based Access Control (ABAC) synced with enterprise directory groups.
+- **Hackathon Mode:** Everyone is an Admin. Don't bother with roles.
+- **Personal Project:** Simple Admin vs User boolean flag.
+- **Production SaaS:** Strict Role-Based Access Control (RBAC). Use Row Level Security (RLS) in the database.
+- **Custom Mode:** Fine-grained Attribute-Based Access Control (ABAC) synced with enterprise directory groups.
 
 ## Accountability Check
 - [ ] I will implement checks to ensure users can only read/write their own data.
@@ -2604,10 +2604,10 @@ Authentication is *who* you are. Authorization is *what* you are allowed to do. 
 The database schema is the skeleton of your application. If designed poorly, every API will have to write ugly code to work around it.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Put everything in 2 tables. Use JSONB columns if you are lazy.
-- 🏗️ **Personal Project:** Use an ORM like Prisma to make database changes easy.
-- 🏢 **Production SaaS:** Strict relational normalization (3NF) for SQL. Add foreign keys and cascading deletes to maintain data integrity.
-- ⚙️ **Custom Mode:** Highly optimized indexing, read-replicas, and partitioning strategies planned from day one.
+- **Hackathon Mode:** Put everything in 2 tables. Use JSONB columns if you are lazy.
+- **Personal Project:** Use an ORM like Prisma to make database changes easy.
+- **Production SaaS:** Strict relational normalization (3NF) for SQL. Add foreign keys and cascading deletes to maintain data integrity.
+- **Custom Mode:** Highly optimized indexing, read-replicas, and partitioning strategies planned from day one.
 
 ## AI Schema Generator
 \`\`\`prompt
@@ -2617,7 +2617,7 @@ Act as a Database Administrator. Based on my PRD: [PASTE PRD SUMMARY], generate 
 ## Finalizing the Schema
 **Paste your finalized Database Schema (SQL or Prisma) here:**
 \`\`\`input
-✏️ 
+
 \`\`\`
 `,
   'filestorage': `# File Storage
@@ -2630,10 +2630,10 @@ Act as a Database Administrator. Based on my PRD: [PASTE PRD SUMMARY], generate 
 You should never store images or PDFs directly in a SQL database. They belong in Object Storage.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Store images as Base64 strings in the DB (terrible idea normally, but fast for demos).
-- 🏗️ **Personal Project:** Supabase Storage (easy API).
-- 🏢 **Production SaaS:** AWS S3 or Cloudflare R2. Use signed, expiring URLs if the files are private.
-- ⚙️ **Custom Mode:** Encrypted at rest (KMS), multi-region replication, and strict retention policies.
+- **Hackathon Mode:** Store images as Base64 strings in the DB (terrible idea normally, but fast for demos).
+- **Personal Project:** Supabase Storage (easy API).
+- **Production SaaS:** AWS S3 or Cloudflare R2. Use signed, expiring URLs if the files are private.
+- **Custom Mode:** Encrypted at rest (KMS), multi-region replication, and strict retention policies.
 
 ## Accountability Check
 - [ ] I will use a dedicated Object Storage service for user uploads.
@@ -2648,15 +2648,15 @@ You should never store images or PDFs directly in a SQL database. They belong in
 Don't reinvent the wheel. If you need emails, use Resend. If you need payments, use Stripe.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Just use the test mode keys. Don't worry about webhooks.
-- 🏗️ **Personal Project:** Great way to learn how external APIs work.
-- 🏢 **Production SaaS:** Isolate all third-party SDKs behind a custom wrapper interface so you can swap them out later if they raise prices.
-- ⚙️ **Custom Mode:** Ensure all third parties have SOC2 Type II reports and SLA guarantees.
+- **Hackathon Mode:** Just use the test mode keys. Don't worry about webhooks.
+- **Personal Project:** Great way to learn how external APIs work.
+- **Production SaaS:** Isolate all third-party SDKs behind a custom wrapper interface so you can swap them out later if they raise prices.
+- **Custom Mode:** Ensure all third parties have SOC2 Type II reports and SLA guarantees.
 
 ## The Dependency List
 **List the 3 main external APIs you depend on:**
 \`\`\`input
-✏️ 1.
+1.
 2.
 3.
 \`\`\`
@@ -2671,10 +2671,10 @@ Don't reinvent the wheel. If you need emails, use Resend. If you need payments, 
 If your app uses LLMs (like OpenAI or Anthropic), you need to decide how to integrate them securely.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Call the OpenAI API directly from the client (insecure, but fast).
-- 🏗️ **Personal Project:** Play with the Vercel AI SDK to learn streaming.
-- 🏢 **Production SaaS:** Never expose API keys to the client. Route all AI calls through a secure backend. Use pgvector for RAG.
-- ⚙️ **Custom Mode:** Must use self-hosted open-source models (Llama 3) or enterprise Azure OpenAI to guarantee data privacy.
+- **Hackathon Mode:** Call the OpenAI API directly from the client (insecure, but fast).
+- **Personal Project:** Play with the Vercel AI SDK to learn streaming.
+- **Production SaaS:** Never expose API keys to the client. Route all AI calls through a secure backend. Use pgvector for RAG.
+- **Custom Mode:** Must use self-hosted open-source models (Llama 3) or enterprise Azure OpenAI to guarantee data privacy.
 
 ## Accountability Check
 - [ ] I will not put my OpenAI API keys in my frontend code.
@@ -2689,10 +2689,10 @@ If your app uses LLMs (like OpenAI or Anthropic), you need to decide how to inte
 A picture is worth a thousand words. A diagram shows exactly how your frontend, backend, and APIs talk to each other.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Skip this.
-- 🏗️ **Personal Project:** Skip this.
-- 🏢 **Production SaaS:** Required for investor due diligence and onboarding new developers.
-- ⚙️ **Custom Mode:** Highly detailed AWS/GCP infrastructure diagrams with VPC boundaries.
+- **Hackathon Mode:** Skip this.
+- **Personal Project:** Skip this.
+- **Production SaaS:** Required for investor due diligence and onboarding new developers.
+- **Custom Mode:** Highly detailed AWS/GCP infrastructure diagrams with VPC boundaries.
 
 ## AI Diagram Generator
 \`\`\`prompt
@@ -2712,10 +2712,10 @@ Act as a Cloud Architect. Based on my Tech Stack: [PASTE TECH STACK] and Integra
 If your server costs scale faster than your revenue, you will go bankrupt.
 
 ## Strategic Guidance
-- ⚡ **Hackathon Mode:** Everything should be on a free tier (Vercel, Supabase).
-- 🏗️ **Personal Project:** Do not put your credit card into AWS without setting up billing alerts.
-- 🏢 **Production SaaS:** Calculate your exact COGS (Cost of Goods Sold) for serving 1,000 active users.
-- ⚙️ **Custom Mode:** Detailed FinOps planning and reserved instance purchasing strategy.
+- **Hackathon Mode:** Everything should be on a free tier (Vercel, Supabase).
+- **Personal Project:** Do not put your credit card into AWS without setting up billing alerts.
+- **Production SaaS:** Calculate your exact COGS (Cost of Goods Sold) for serving 1,000 active users.
+- **Custom Mode:** Detailed FinOps planning and reserved instance purchasing strategy.
 
 ## Accountability Check
 - [ ] I am confident my chosen architecture will not bankrupt me.
@@ -3937,15 +3937,15 @@ Mobile security is unique because the client (the phone) is in the hands of the 
 ## Think First
 **Are you storing sensitive data (passwords, JWTs, PII) in plain text on the device?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Is your API verifying the identity of the user on *every* request?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Have you restricted your API keys to prevent quota theft?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -3997,7 +3997,7 @@ I am preparing my React Native app for production. Generate a comprehensive secu
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -4017,15 +4017,15 @@ Users will tolerate a web page taking 3 seconds to load, but a mobile app that s
 ## Think First
 **Does your app freeze when scrolling through a long list?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are images taking forever to load or consuming massive amounts of memory?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Does the entire app re-render when a single switch is toggled?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -4077,7 +4077,7 @@ I am optimizing a React Native app. Generate a code snippet demonstrating how to
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -4097,15 +4097,15 @@ Crash reporting tells you when the app dies. Monitoring tells you when the app i
 ## Think First
 **How do you know if your backend API goes down at 3 AM?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are you tracking the latency of your most critical endpoints (e.g., Checkout)?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Do you have alerts set up to wake you up if the database CPU hits 100%?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -4157,7 +4157,7 @@ I am preparing a mobile app and Node.js backend for production. Generate a Monit
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -4177,15 +4177,15 @@ When a bug occurs in production that doesn't trigger a hard crash, logs are your
 ## Think First
 **Are your logs easily searchable in a central dashboard?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are you accidentally logging Personally Identifiable Information (PII) like passwords or credit card numbers?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are you logging too much (wasting money) or too little (flying blind)?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -4236,7 +4236,7 @@ I am building a Node.js Edge Function backend for my mobile app. Generate a robu
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -4336,15 +4336,15 @@ If your API is on the internet, someone will try to abuse it. Rate limiting is y
 ## Think First
 **What endpoints are the most expensive to run or most vulnerable to attack? (e.g., /login, /send-sms, /checkout).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **How many requests per minute is reasonable for a normal human user?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **What should the mobile app display when the rate limit is hit?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -4395,7 +4395,7 @@ I am using Next.js/Vercel (or Supabase Edge Functions) as the backend for my mob
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -4494,15 +4494,15 @@ There are two types of developers: those who have accidentally dropped a product
 ## Think First
 **If your database is destroyed right now, how much data are you willing to lose? (1 hour? 24 hours?)**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Do you know *how* to restore the backup, or have you just assumed the automated system works?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are your backups stored in the same region/provider as your primary database?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -4554,7 +4554,7 @@ I am launching a production app using Supabase. Generate a disaster recovery che
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -4574,15 +4574,15 @@ Continuous Integration and Continuous Deployment (CI/CD) automates the boring, e
 ## Think First
 **Are you currently wasting hours staring at Xcode while your app builds?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **How do you guarantee that broken code doesn't accidentally get merged into the main branch?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Do you need to manage different environments (Development, Staging, Production)?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -4633,7 +4633,7 @@ I am setting up CI/CD for my Expo React Native app. Generate an eas.json configu
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -4653,15 +4653,15 @@ Infrastructure is the invisible plumbing that powers your app. Choosing the righ
 ## Think First
 **Are you going to manage servers (EC2/DigitalOcean), or use Serverless platforms (Vercel/Supabase)?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Where are your users geographically located? (Latency matters).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Do you have separate environments for Staging and Production?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -4713,7 +4713,7 @@ I am launching a mobile app using React Native and Supabase. Generate an infrast
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -9981,15 +9981,15 @@ Going viral is the dream, until your database crashes, your users get 500 errors
 ## Think First
 **What breaks first if 10,000 users sign up in the next hour? (Usually the database).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are you serving static assets directly from your server instead of a CDN?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Do you have unindexed database queries that will grind to a halt when the table hits 1 million rows?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 ---
 
@@ -10041,7 +10041,7 @@ I am preparing my Supabase backend and React Native app for a massive launch. Ex
 
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 ---
 
@@ -10062,11 +10062,11 @@ Setting up your Google Play Console developer account is the first step to publi
 ## Think First
 **Do you have a D-U-N-S number if you are registering as a business?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are you aware of Google's new requirement for personal accounts to have 20 testers opt-in for 14 continuous days before you can publish to production?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -10112,7 +10112,7 @@ I am setting up a Google Play Console account as a [Personal/Organization] devel
 **Contents:** Developer Account ID, Keystore alias, and Keystore password (do NOT store the actual key file in plain text, use a secure vault).
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -10134,11 +10134,11 @@ To publish to iOS devices, you must enroll in the Apple Developer Program ($99/y
 ## Think First
 **Are you registering as an Individual or a Company? (Companies require a D-U-N-S number).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Does your app rely heavily on third-party logins? (Apple requires 'Sign in with Apple' if you offer Google/Facebook login).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -10184,7 +10184,7 @@ I am applying for the Apple Developer Program as a [Company/Individual]. Explain
 **Contents:** Team ID, Bundle Identifier, and Apple ID.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -10206,11 +10206,11 @@ Your app icon is the first impression users have of your app. Both Apple and Goo
 ## Think First
 **Does your icon rely on text? (Text usually scales terribly on small screens).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Does your icon stand out against both pure black (dark mode) and pure white backgrounds?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -10256,7 +10256,7 @@ I am designing an app icon for a [describe your app]. Act as a Senior Brand Desi
 **Contents:** Primary Hex colors, Icon metaphor description, and links to the exported PNGs.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -10278,11 +10278,11 @@ App Store and Play Store screenshots aren't just raw screen captures; they are y
 ## Think First
 **What are the top 3 'Aha!' moments in your app that you want users to see first?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are your text callouts large enough to read on a phone without zooming in?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -10329,7 +10329,7 @@ I need to design marketing screenshots for the App Store. My app is a [describe 
 **Contents:** Screenshot 1: [Headline] -> [Screen to show]. Screenshot 2: [Headline] -> [Screen to show].
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -10351,11 +10351,11 @@ The Feature Graphic is an Android-specific promotional banner (1024x500 pixels).
 ## Think First
 **Does this graphic visually match your app icon and screenshots?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Will this graphic look good if Google scales it down on a smaller device?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -10399,7 +10399,7 @@ I am creating a 1024x500 Feature Graphic for the Google Play Store for my app [d
 **Contents:** Visual concept description, color palette, and focal point.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -10421,11 +10421,11 @@ App Store Optimization (ASO) is how your app gets discovered organically. If you
 ## Think First
 **What exact phrases are your target users typing into the App Store search bar?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are your competitors dominating the obvious keywords, forcing you to target long-tail, niche keywords?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -10471,7 +10471,7 @@ I am launching an app that [describe app functionality]. Act as an App Store Opt
 **Contents:** Title, Subtitle, Short Description (Android), Long Description, and iOS Keywords.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -10493,11 +10493,11 @@ Both Apple and Google strictly require a publicly accessible Privacy Policy URL.
 ## Think First
 **What 3rd party SDKs are running in your app? (Supabase, Sentry, PostHog, RevenueCat all collect data).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are you storing user data on servers, and if so, how can a user request their data to be deleted? (Apple strictly requires an account deletion feature).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -10543,7 +10543,7 @@ I am building a mobile app using React Native, Supabase (Auth and Database), Rev
 **Contents:** Full Privacy Policy text.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -10565,11 +10565,11 @@ The Terms of Service (ToS) or End User License Agreement (EULA) is a contract be
 ## Think First
 **Are users generating content? (If so, you need terms allowing you to ban abusive users).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Is your app a paid subscription? (You must outline refund policies).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -10614,7 +10614,7 @@ Generate a standard Terms of Service (EULA) for my mobile app. The app allows us
 **Contents:** Full Terms of Service text.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -10636,11 +10636,11 @@ Both Google and Apple require you to fill out a questionnaire to assign an age r
 ## Think First
 **Does your app have unrestricted internet access (like a web browser)?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Does your app facilitate dating, or meeting people in real life?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -10684,7 +10684,7 @@ I am preparing to fill out the App Store and Google Play Content Rating question
 **Contents:** List of 'Yes' answers you plan to provide on the rating questionnaire.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -10706,11 +10706,11 @@ Before pushing to Production, you should upload your app binary (.aab or .ipa) t
 ## Think First
 **Have you tested your app on a physical device, not just an emulator?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are your environment variables pointing to the Production database, not the Local/Staging database?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -10755,7 +10755,7 @@ I am about to upload my React Native Expo app to TestFlight and Google Play Inte
 **Contents:** List of internal testers, and the environment variable checklist.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -10777,11 +10777,11 @@ Beta testing gets your app into the hands of real users before the official laun
 ## Think First
 **How will testers report bugs? (Email, Discord, in-app feedback button?)**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **If you are on Android, how will you recruit 20 people to keep your app installed for 14 days?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -10827,7 +10827,7 @@ I need to recruit 20 beta testers for my Android app to satisfy Google's 14-day 
 **Contents:** The Reddit/Discord recruitment post.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -10849,11 +10849,11 @@ You are ready to hit the 'Submit for Review' button. Apple and Google will take 
 ## Think First
 **Do you have a demo account ready? (Apple requires you to provide a test username and password so they can log into your app).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Do you want to release manually or automatically?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -10899,7 +10899,7 @@ Act as an App Store Reviewer. Review my app's functionality: [Describe what your
 **Contents:** Marketing steps, Product Hunt link, Social media announcements.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -10921,11 +10921,11 @@ Acquiring users is easy; keeping them is hard. Retention measures how many users
 ## Think First
 **What is the single core action a user must take in their first 5 minutes to experience the 'Aha!' moment?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Why would a user open your app next Tuesday? What is the trigger?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -10970,7 +10970,7 @@ My app is a [describe app]. Act as a Growth Product Manager. Design a 7-day onbo
 **Contents:** The 7-day email/push sequence and defined 'Aha!' moment.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -10992,11 +10992,11 @@ You cannot improve what you do not measure. Product analytics tools (like PostHo
 ## Think First
 **What are the 5 most important buttons in your app that indicate a user is engaged?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are you tracking 'activation' (e.g., user created their first project) instead of just 'signups'?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -11042,7 +11042,7 @@ I am integrating product analytics (like PostHog) into my [describe app] app. Ac
 **Contents:** List of Event Names, Descriptions, and Properties.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -11064,11 +11064,11 @@ Push notifications are a powerful tool to re-engage users, but they are a double
 ## Think First
 **Are your notifications providing immediate value to the user, or just asking them to open the app?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Do users have granular control over what types of notifications they receive?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -11112,7 +11112,7 @@ My app is a [describe app]. Act as a CRM Marketing Expert. Draft a notification 
 **Contents:** Triggers, Channels (Push/Email), and Copy.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -11134,11 +11134,11 @@ Silent users are churning users. Providing a frictionless way for users to repor
 ## Think First
 **If a user encounters a bug right now, how many clicks does it take for them to tell you about it?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are you actively surveying users who churn (cancel their subscription)?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -11183,7 +11183,7 @@ I want to implement a 'Churn Survey' that triggers when a user cancels their sub
 **Contents:** Survey questions and feedback widget placement strategy.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -11205,11 +11205,11 @@ App Store algorithms heavily favor apps with high ratings and recent reviews. Ge
 ## Think First
 **What is the moment of highest joy or relief in your app? (e.g., beating a level, finishing a task).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **How many times has the user opened the app before you ask them for a review?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -11254,7 +11254,7 @@ My app is a [describe app]. Act as a Growth Engineer. Identify the exact 'moment
 **Contents:** Conditional statements for triggering the StoreReview API.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -11276,11 +11276,11 @@ A referral program incentivizes your current users to invite their friends, lowe
 ## Think First
 **What can you give away for free that has high perceived value to the user but low marginal cost to you?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Are you using Deep Links to ensure the invited user is seamlessly credited to the inviter upon app install?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -11326,7 +11326,7 @@ I want to build a referral program for my [describe app] app. Act as a Viral Gro
 **Contents:** Reward structure, tracking mechanism, and marketing copy.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -11348,11 +11348,11 @@ A product roadmap outlines what you are building next. For indie developers and 
 ## Think First
 **Will your roadmap be timeline-based (Q1, Q2) or status-based (Now, Next, Later)?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Do you want users to be able to upvote features on the public roadmap?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -11398,7 +11398,7 @@ I am creating a public-facing 'Now, Next, Later' roadmap for my [describe app] a
 **Contents:** Categorized list of features (Now, Next, Later) with brief justifications.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---
@@ -11420,11 +11420,11 @@ Growth is great until your app goes viral on TikTok and your database crashes, r
 ## Think First
 **What is the single biggest bottleneck in your current architecture? (Hint: It is almost always the database connection limit).**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 **Do you have monitoring alerts set up if CPU usage hits 90%?**
 \`\`\`input
-✏️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -11470,7 +11470,7 @@ My app's backend uses [Node.js/Supabase/Vercel]. We are expecting a massive traf
 **Contents:** List of bottlenecks, caching strategies, and connection pooling configurations.
 
 \`\`\`input
-✏️ Paste your deliverable here...
+Paste your deliverable here...
 \`\`\`
 
 ---

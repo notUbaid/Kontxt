@@ -80,13 +80,13 @@ const InlineTextarea = ({
     }
   };
 
-  const isPlaceholder = value.trim() === '✍️ Type your answer here...';
+  const isPlaceholder = value.trim() === 'Write Here...';
 
   return (
     <textarea
       ref={textareaRef}
       value={isPlaceholder ? '' : value}
-      placeholder="✍️ Type your answer here..."
+      placeholder="Write Here..."
       onChange={e => setValue(e.target.value)}
       onBlur={handleBlur}
       className="w-full bg-background border border-muted/60 rounded-xl p-5 text-foreground placeholder:text-muted-foreground/40 resize-none outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all font-sans text-base leading-relaxed my-4 block shadow-sm hover:border-muted-foreground/30 hover:shadow-md"

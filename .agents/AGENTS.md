@@ -43,7 +43,7 @@ Kontxt parses specific Markdown syntax to render interactive React components.
 1. **Input Fields (The Project Memory)**
 Use these aggressively to extract specific data for the AI's future context.
 \`\`\`input
-✏️ Paste your top 3 competitor URLs here...
+Write Here...
 \`\`\`
 
 2. **AI Prompts (The Execution)**
@@ -86,22 +86,23 @@ Based on my competitors, suggest 5 unique differentiation angles...
 ## The Final Decision
 **Which angle are you choosing and why?**
 \`\`\`input
-✏️ Angle:
-Reason:
+Write Here...
 \`\`\`
 ```
 
 Ensure logical sections are separated by `---` with blank lines before and after.
 
 ## Mode-Specific Guidance (Crucial)
-Kontxt supports different project "Modes". When generating topic content, you MUST include a `## Mode-Specific Guidance` section if the strategic approach or technical implementation changes drastically based on the mode.
+Kontxt supports different project "Modes". When generating topic content, you MUST include a `## Strategic Guidance` section if the strategic approach or technical implementation changes drastically based on the mode.
+
+**CRITICAL RULE - NO EMOJIS ALLOWED**: You are strictly banned from using emojis anywhere in this project. Do not use emojis in headings, bullet points, text, or code. Do not use the pen emoji for inputs. Do not use emojis for the Mode prefixes.
 
 The structure should look like this:
 ```markdown
-## Mode-Specific Guidance
-Depending on what you are building, your approach here should drastically change:
-- ⚡ **Hackathon Mode:** [Advice for speed, avoiding this step, faking the backend, etc.]
-- 🏗️ **Personal Project:** [Advice for solo-devs, learning, zero-cost tools, maintainability.]
-- 🏢 **Production SaaS:** [Advice for scalability, security, rigorous validation, charging money.]
+## Strategic Guidance
+- **Hackathon Mode:** [Advice for speed, avoiding this step, faking the backend, etc.]
+- **Personal Project:** [Advice for solo-devs, learning, zero-cost tools, maintainability.]
+- **Production SaaS:** [Advice for scalability, security, rigorous validation, charging money.]
+- **Custom Mode:** [Advice for enterprise scale, compliance, etc.]
 ```
 Use this to ensure Hackathon users don't get bogged down in rigorous Production-level validation, and Production users don't skip critical security steps.
