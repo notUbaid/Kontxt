@@ -44,7 +44,7 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
     const initialExpanded: Record<string, boolean> = {};
     filteredTaxonomy.forEach(cat => { initialExpanded[cat.id] = true; });
     setExpandedCats(initialExpanded);
-  }, [taxonomy, activeProject.customTopics]);
+  }, [filteredTaxonomy, activeProject.customTopics]);
 
   const toggleCategory = (catId: string) => {
     setExpandedCats(prev => ({ ...prev, [catId]: !prev[catId] }));
@@ -65,13 +65,13 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
     
     // We keep all completed topics, regardless of mode. 
     // They are filtered when calculating progress.
-    onProjectUpdate({ ...activeProject, completedTopics: newCompleted as any });
+    onProjectUpdate({ ...activeProject, completedTopics: newCompleted as string[] });
   };
 
-  const toggleCategoryProgress = (e: React.MouseEvent, modeTopics: any[]) => {
+  const toggleCategoryProgress = (e: React.MouseEvent, modeTopics: { id: string }[]) => {
     e.stopPropagation();
     const completedRaw = activeProject.completedTopics || [];
-    const completed = Array.isArray(completedRaw) ? completedRaw : Object.values(completedRaw).flat();
+    const completed = (Array.isArray(completedRaw) ? completedRaw : Object.values(completedRaw).flat()) as string[];
     
     const topicIds = modeTopics.map(t => t.id);
     const isAllCompleted = topicIds.every(id => completed.includes(id));
@@ -86,7 +86,7 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
       newCompleted = [...completed, ...toAdd];
     }
     
-    onProjectUpdate({ ...activeProject, completedTopics: newCompleted as any });
+    onProjectUpdate({ ...activeProject, completedTopics: newCompleted as string[] });
   };
 
   let totalTopics = 0;

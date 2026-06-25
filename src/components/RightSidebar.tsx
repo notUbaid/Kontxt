@@ -412,7 +412,7 @@ Use this context to answer their questions accurately. Keep your answers concise
                       <ReactMarkdown 
                         remarkPlugins={[remarkGfm]}
                         components={{
-                          a: ({ node, ...props }) => (
+                          a: ({ node: _node, ...props }) => (
                             <a {...props} className="text-primary hover:underline font-medium" target="_blank" rel="noopener noreferrer" />
                           )
                         }}

@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { getSupabase } from '../lib/supabase';
-import type { Project } from '../App';
-import type { AppType } from '../App';
+import type { Project, AppType } from '../App';
 import type { Mode } from '../components/TopNav';
+import { buildSeedDocuments } from '../utils/seedDocuments';
 
 const LOCAL_STORAGE_KEY = 'kontxt_local_projects';
 
@@ -50,7 +50,7 @@ export const useProjectStore = (isAuthenticated: boolean) => {
       // Map database snake_case columns to camelCase Project properties
       const mappedProjects: Project[] = data.map(p => {
         let mode = p.mode as Mode;
-        if (mode === 'Custom' as any) {
+        if ((mode as string) === 'Custom') {
           mode = 'Production';
         }
         return {
@@ -115,6 +115,18 @@ export const useProjectStore = (isAuthenticated: boolean) => {
         if (!isAuthenticated) localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(reverted));
         return reverted;
       });
+      return;
+    }
+
+    const seedDocuments = buildSeedDocuments(project, user.id);
+    if (seedDocuments.length > 0) {
+      const { error: seedError } = await supabase
+        .from('documents')
+        .upsert(seedDocuments, { onConflict: 'project_id, topic_id' });
+
+      if (seedError) {
+        console.error('Error seeding project documents:', seedError);
+      }
     }
   };
 

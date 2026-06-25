@@ -24,6 +24,7 @@ interface SettingsModalProps {
 type Tab = 'project' | 'profile' | 'apikeys' | 'links' | 'tutorial';
 export type Provider = 'OpenAI' | 'Google' | 'Groq' | 'OpenRouter' | 'Together' | 'Mistral' | 'DeepSeek';
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const MODELS: Record<Provider, string[]> = {
   OpenAI: ['gpt-4o', 'gpt-4-turbo', 'gpt-3.5-turbo'],
   Google: ['gemini-1.5-pro', 'gemini-1.5-flash'],
@@ -78,7 +79,9 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
       if (savedKeys) {
         try {
           setApiKeys({ ...apiKeys, ...JSON.parse(savedKeys) });
-        } catch(e) {}
+        } catch {
+          // ignore
+        }
       }
 
       // Fetch user email
@@ -95,6 +98,7 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
         setModel(settings.model);
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, settings.provider, settings.model]);
 
   const handleSaveKey = () => {

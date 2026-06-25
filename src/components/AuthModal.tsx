@@ -44,8 +44,8 @@ export const AuthModal = ({ isOpen, onClose, onLogin }: AuthModalProps) => {
         onLogin();
         onClose();
       }
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : String(err));
     } finally {
       setLoading(false);
     }
@@ -61,8 +61,8 @@ export const AuthModal = ({ isOpen, onClose, onLogin }: AuthModalProps) => {
         }
       });
       if (error) throw error;
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : String(err));
     }
   };
 

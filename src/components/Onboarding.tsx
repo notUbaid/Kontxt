@@ -1,4 +1,4 @@
-import { Suspense, lazy, useState } from 'react';
+import React, { Suspense, lazy, useState } from 'react';
 import { 
   Rocket, User, Building2, FolderOpen, Plus, ArrowRight,
   Cloud, Smartphone, Globe, Brain, Puzzle, Monitor, Server, Wrench,
@@ -18,7 +18,7 @@ interface OnboardingProps {
   setIsAuthenticated: (val: boolean) => void;
 }
 
-const TYPE_META: Record<AppType, { icon: any; description: string }> = {
+const TYPE_META: Record<AppType, { icon: React.ElementType; description: string }> = {
   'SaaS': { icon: Cloud, description: 'Subscription-based web platform' },
   'Mobile App': { icon: Smartphone, description: 'iOS, Android, or cross-platform' },
   'Web App': { icon: Globe, description: 'Interactive web application' },
@@ -91,7 +91,7 @@ const MODE_DESCRIPTIONS: Partial<Record<AppType, Record<Mode, string>>> = {
   },
 };
 
-const HIGH_RISK_WARNINGS: Partial<Record<AppType, { title: string; message: string; icon: any }>> = {
+const HIGH_RISK_WARNINGS: Partial<Record<AppType, { title: string; message: string; icon: React.ElementType }>> = {
   'E-commerce': {
     title: 'Are you sure you need a custom build?',
     message: 'For 80% of online stores, Shopify or WooCommerce is the correct answer. Custom e-commerce requires managing payment gateways, PCI compliance, inventory systems, shipping logic, and tax calculations from scratch. Only proceed if you have a genuine reason that platforms cannot solve.',

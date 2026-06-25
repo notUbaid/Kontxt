@@ -1,7 +1,7 @@
 import { getSupabase } from './supabase';
 import type { Project } from '../App';
 import type { UserSettings } from '../hooks/useSettingsStore';
-
+import { buildSeedDocuments } from '../utils/seedDocuments';
 export async function syncLocalDataToSupabase(userId: string) {
   const supabase = await getSupabase();
   let syncOccurred = false;
@@ -82,6 +82,21 @@ export async function syncLocalDataToSupabase(userId: string) {
           syncOccurred = true;
         }
       }
+    }
+  }
+
+  if (localProjectsStr) {
+    try {
+      const projects: Project[] = JSON.parse(localProjectsStr);
+      for (const project of projects) {
+        const seedDocuments = buildSeedDocuments(project, userId);
+        if (seedDocuments.length > 0) {
+          await supabase.from('documents').upsert(seedDocuments, { onConflict: 'project_id, topic_id' });
+          syncOccurred = true;
+        }
+      }
+    } catch (e) {
+      console.error('Error seeding synced project documents:', e);
     }
   }
   

@@ -33,7 +33,7 @@ interface TopNavProps {
 export const TopNav = ({ 
   activeProject, 
   projects,
-  activePage,
+  activePage: _activePage,
   onModeChange, 
   onProjectUpdate,
   isAuthenticated,
@@ -201,45 +201,10 @@ export const TopNav = ({
 
   let totalTopics = 0;
   
-  let maxPhaseNum = -1;
-  let activePhaseNum = -1;
-  let activeCatIndex = -1;
-  
-  let totalCatsWithTopics = 0;
-  
   taxonomy.forEach((cat) => {
     const modeTopics = cat.topics.filter(t => !t.modes || t.modes.includes(activeProject.mode));
-    if (modeTopics.length > 0) {
-      totalCatsWithTopics++;
-      totalTopics += modeTopics.length;
-      
-      const match = cat.name.match(/PHASE\s+(\d+)/i);
-      let thisCatPhaseNum = -1;
-      if (match) {
-        thisCatPhaseNum = parseInt(match[1], 10);
-        if (thisCatPhaseNum > maxPhaseNum) maxPhaseNum = thisCatPhaseNum;
-      }
-
-      // If the current active page is in this category, set it as the active phase
-      if (modeTopics.some(t => t.id === activePage)) {
-        activeCatIndex = totalCatsWithTopics;
-        activePhaseNum = thisCatPhaseNum;
-      }
-    }
+    totalTopics += modeTopics.length;
   });
-
-  // Fallback if activePage isn't found in taxonomy (e.g. invalid state)
-  if (activePhaseNum === -1 && totalCatsWithTopics > 0) {
-    activeCatIndex = 1;
-    activePhaseNum = taxonomy[0].name.match(/PHASE\s+(\d+)/i) ? parseInt(taxonomy[0].name.match(/PHASE\s+(\d+)/i)![1], 10) : -1;
-  }
-
-  let currentPhaseStr = '';
-  if (maxPhaseNum >= 0 && activePhaseNum >= 0) {
-    currentPhaseStr = `Phase ${activePhaseNum} of ${maxPhaseNum}`;
-  } else {
-    currentPhaseStr = `Phase ${activeCatIndex > 0 ? activeCatIndex : 1} of ${totalCatsWithTopics}`;
-  }
 
   const getCompletedForMode = () => {
     const completed = activeProject.completedTopics || [];
@@ -348,7 +313,6 @@ export const TopNav = ({
                   style={{ width: `${progressPercent}%` }}
                 ></div>
               </div>
-              <span className="text-[11px] font-medium text-muted-foreground whitespace-nowrap">{currentPhaseStr}</span>
             </div>
           </div>
         )}

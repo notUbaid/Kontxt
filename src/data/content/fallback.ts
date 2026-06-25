@@ -16538,4 +16538,2228 @@ Act as an Engineering Manager. My team is moving too slow because the codebase i
 - [ ] Time is actively allocated to refactoring old code.
 - [ ] Dependencies are kept up to date.
 `,
+  'extideadefinition': `
+
+# Idea Definition (Browser Extension)
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+In a hackathon, your extension idea needs to be instantly demonstrable. Don't build a complex background service worker; build something that modifies the active page or offers a highly visual popup. The core value must be obvious the second the user clicks the extension icon.
+
+### Personal Project
+For a personal project, build an extension that solves a daily annoyance you face while browsing. Think about automating repetitive tasks, scraping data for your own use, or modifying the UI of a site you visit frequently (like Twitter, YouTube, or GitHub). Focus on learning the Manifest V3 lifecycle.
+
+### Production SaaS
+Building a production browser extension SaaS (like Grammarly, Honey, or Loom) requires extreme focus on user retention and friction. Your idea must solve a problem so painful that the user is willing to grant your extension high-level browser permissions. You must also consider how your extension will remain useful across thousands of completely different websites without breaking their DOM.
+
+---
+
+## AI Brainstorming Phase
+
+Run this prompt to generate extension-specific ideas:
+
+\`\`\`prompt
+Act as a Senior Product Manager specializing in Chrome Extensions. I want to build a browser extension in the [INSERT INDUSTRY/NICHE] space. 
+
+Generate 5 distinct browser extension concepts. For each concept provide:
+1. The Core Hook (Why would someone install this immediately?)
+2. The Primary Interaction (Does it live in the Popup, Side Panel, Context Menu, or injected directly into the DOM?)
+3. Potential Permissions needed (Keep it minimal for better conversion).
+\`\`\`
+
+## The Final Decision
+
+**What is the core idea for your browser extension?**
+\`\`\`input
+Describe your extension idea here...
+\`\`\`
+`,
+  'extproblemstatement': `
+
+# Problem Statement
+
+🕒 **Estimated Time:** 15 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Keep the problem statement stupidly simple. "Users waste 5 minutes copying data from X to Y. We reduce it to 1 click." That is your entire pitch.
+
+### Personal Project
+Define the exact workflow friction you are experiencing. "I hate having to open a new tab just to check my calendar while reading emails." By strictly defining the problem, you prevent scope creep.
+
+### Production SaaS
+A production extension must solve a "Hair on Fire" problem that interrupts a user's workflow. If the user can easily solve the problem by just opening a new bookmark, your extension will be uninstalled. The problem must require *contextual awareness* of the page the user is currently viewing.
+
+---
+
+## The Data We Need From You
+
+**What specific pain point does your extension solve?**
+\`\`\`input
+The main problem is...
+\`\`\`
+
+## AI Problem Refinement
+
+\`\`\`prompt
+I am building a browser extension that solves this problem:
+[PASTE YOUR PROBLEM STATEMENT]
+
+Act as a ruthless Y Combinator partner. Tear this problem statement apart. Is this an actual problem, or a "vitamin" disguised as a "painkiller"? Why might users just ignore my extension and use a normal web app instead? Give me 3 reasons this problem isn't painful enough, and then rewrite it to be 10x more compelling.
+\`\`\`
+`,
+  'extcompetitoranalysis': `
+
+# Competitor Analysis
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Search the Chrome Web Store for your exact idea. If it exists, don't pivot—just build a cooler looking, faster version for the demo. Execution > Originality.
+
+### Personal Project
+Find 2-3 similar extensions. Install them, look at their permissions, and read their 1-star reviews. What do users hate about them? Use that as your competitive advantage.
+
+### Production SaaS
+The Chrome Web Store is a bloodbath. You are competing against massive players with established SEO. You must deeply analyze competitor permission requests, user reviews, pricing models (freemium vs paid), and cross-browser availability (Chrome vs Edge vs Safari). Pay close attention to extensions that have recently been removed from the store for policy violations—learn from their mistakes.
+
+---
+
+## AI Competitor Research
+
+\`\`\`prompt
+I am building a browser extension that does: [INSERT EXTENSION IDEA]
+
+Please act as a Market Researcher.
+1. Identify 3-5 existing browser extensions that solve a similar problem.
+2. What is their likely monetization strategy?
+3. What are the common complaints users have about extensions in this space (e.g., bloat, privacy concerns, breaking page layouts)?
+4. How can a new entrant differentiate themselves effectively?
+\`\`\`
+
+## The Verdict
+
+**List your top 3 competitors and your distinct advantage:**
+\`\`\`input
+1. Competitor A - Advantage:
+2. Competitor B - Advantage:
+3. Competitor C - Advantage:
+\`\`\`
+`,
+  'extfeatureplanning': `
+
+# Feature Planning
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Plan exactly 2 features. The 'Wow' feature that you will demo on stage, and the 'Authentication' feature (if absolutely necessary). Cut everything else.
+
+### Personal Project
+Focus on features that interact with the browser APIs (Tabs, Bookmarks, Storage, Alarms). Plan features that teach you how Manifest V3 works, rather than just building a React app that happens to live inside a popup.
+
+### Production SaaS
+Feature planning for an extension is an exercise in permission management. Every new feature might require a new permission (e.g., \`tabs\`, \`activeTab\`, \`storage\`, \`host_permissions\`). Requesting broad permissions (like \`*://*/*\`) will trigger manual reviews by Google and scare users away. Plan your features to require the absolute minimum permissions necessary.
+
+---
+
+## Feature Brainstorming
+
+\`\`\`prompt
+I am building a browser extension with this core idea: [INSERT IDEA]
+
+Help me brainstorm features across the different extension UI surfaces. Suggest 2 highly useful features for each of the following:
+1. The Popup (clicking the extension icon)
+2. The Content Script (injected directly into the webpage DOM)
+3. The Context Menu (right-clicking on the page)
+4. The Background Service Worker (running invisibly)
+
+Highlight which of these features would require the scariest permissions.
+\`\`\`
+`,
+  'extmvpfeatures': `
+
+# MVP Features
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Your MVP is a single Content Script or a single Popup. Do not try to build a complex messaging passing architecture between the background script and the UI if you don't have to.
+
+### Personal Project
+Your MVP should focus on local storage (\`chrome.storage.local\`) rather than setting up a complex backend database. Get the core logic working entirely within the browser first.
+
+### Production SaaS
+The MVP must deliver the core value proposition while asking for the absolute minimum permissions (e.g., using \`activeTab\` instead of broad host permissions). The goal is to get users to install the extension without hesitation, experience the "Aha!" moment immediately, and keep it enabled.
+
+---
+
+## AI Feature Scoping
+
+\`\`\`prompt
+Here is my massive list of features for my browser extension:
+[PASTE FEATURE LIST]
+
+Act as a ruthless Product Manager. Cut this list down to the absolute bare minimum required for an MVP (Minimum Viable Product). Keep only the features that directly solve the core problem. Group the remaining features into "V2" and "V3".
+\`\`\`
+
+## Your MVP Scope
+
+**List the 3-5 features that make up your MVP:**
+\`\`\`input
+1. 
+2. 
+3.
+\`\`\`
+`,
+  'extfuturefeatures': `
+
+# Future Features
+
+🕒 **Estimated Time:** 15 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Future features are just bullet points on your final pitch deck slide to show the judges "the vision." Dream big.
+
+### Personal Project
+Log your wild ideas here so they don't distract you from finishing the MVP. Think about cross-browser support (Firefox, Safari) as a future goal, not a Day 1 requirement.
+
+### Production SaaS
+Future features usually involve moving from local browser storage to a cloud-synced backend (Supabase/Firebase), adding team collaboration, implementing Stripe for subscriptions, and expanding from a simple Popup to a rich injected Sidebar.
+
+---
+
+## Documenting the Roadmap
+
+**What features are you explicitly NOT building right now?**
+\`\`\`input
+- Cross-browser support
+- Cloud sync
+- ...
+\`\`\`
+`,
+  'extmonetization': `
+
+# Monetization
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Slap a "Upgrade to Pro" button in the popup that does nothing but show a success toast. Monetization is just for the judges.
+
+### Personal Project
+Keep it 100% free. If you want, add a "Buy me a coffee" link in the extension's options page. Don't waste time on Stripe integration.
+
+### Production SaaS
+Monetizing extensions is notoriously difficult because users expect them to be free. The most successful models are:
+1. **Freemium SaaS**: The extension is a free companion to a paid web app (e.g., Notion Web Clipper).
+2. **Usage Limits**: Free for 10 actions/day, paywall for unlimited.
+3. **B2B**: The extension is useless without a corporate account.
+Avoid relying on the Chrome Web Store Payments system (it was deprecated). You must integrate Stripe or ExtensionPay yourself.
+
+---
+
+## AI Monetization Strategy
+
+\`\`\`prompt
+My browser extension does [INSERT IDEA].
+
+Act as a SaaS Pricing Expert. Suggest 3 different monetization models specifically tailored for a browser extension. How should I gate the features? Should I use a freemium model, a free trial, or a pay-per-usage model? How do I prevent users from just uninstalling and reinstalling to bypass limits?
+\`\`\`
+
+## Your Revenue Model
+
+**How will this extension make money?**
+\`\`\`input
+Write your strategy here...
+\`\`\`
+`,
+  'extsuccessmetrics': `
+
+# Success Metrics
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Your only metric is: "Did the demo crash on stage?"
+
+### Personal Project
+Success is measured by your own daily usage. Do you actually keep the extension enabled, or did you turn it off after 3 days because it was annoying?
+
+### Production SaaS
+Chrome Web Store metrics are notoriously delayed and inaccurate. You must implement your own telemetry (while respecting privacy policies). Key metrics:
+- **Weekly Active Users (WAU)**: The CWS tracks this natively.
+- **Uninstall Rate**: If users install and immediately uninstall, your onboarding is broken or your permissions are too scary.
+- **Feature Engagement**: Which button in the popup is actually getting clicked?
+
+---
+
+## Defining Success
+
+**What 3 numbers will tell you if this extension is successful?**
+\`\`\`input
+1. Weekly Active Users > X
+2. Uninstall Rate < Y%
+3. 
+\`\`\`
+`,
+  'extuserworkflowanalysis': `
+
+# User Workflow Analysis
+
+🕒 **Estimated Time:** 25 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't overthink the workflow. The user clicks the icon, magic happens, the demo is over.
+
+### Personal Project
+Map out the steps you currently take without the extension, and compare it to the steps you will take WITH the extension. If your extension requires more clicks than the manual way, redesign it.
+
+### Production SaaS
+An extension lives on top of other people's websites. You must map out exactly how the user interacts with your tool while in the middle of their primary task (e.g., writing an email, browsing Amazon). Does your UI block their content? Does it break their keyboard shortcuts? The best extensions feel like native browser features.
+
+---
+
+## AI Workflow Mapping
+
+\`\`\`prompt
+I am building a browser extension that [INSERT IDEA].
+
+Act as a UX Researcher. Map out the step-by-step user workflow from the moment they land on a relevant webpage to the moment they get value from my extension. 
+Include edge cases: What happens if they are not logged in? What if the page layout changes? What if they click outside the popup?
+\`\`\`
+
+## The Core Flow
+
+**Write down the exact sequence of events for your primary feature:**
+\`\`\`input
+1. User navigates to [Target Website].
+2. Extension detects [Condition] and highlights [Element].
+3. User clicks...
+\`\`\`
+`,
+  'extprd': `
+
+# Product Requirements Document (PRD)
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Your PRD is just your README.md. Write down the 3 things the extension does, the 2 APIs it uses, and how to install it locally via "Load Unpacked".
+
+### Personal Project
+A PRD for a personal extension should focus heavily on the trigger condition. Does the extension run on every page? Does it only run on \`github.com\`? Does it require the user to click the icon? Define these rules clearly so you don't build a resource hog.
+
+### Production SaaS
+A production extension PRD must explicitly detail the permissions required, the data lifecycle (what is stored locally vs sent to the cloud), and the injection strategy (do you inject an iframe to avoid CSS bleed, or inject Shadow DOM?). Extensions are highly constrained environments; your PRD must reflect that.
+
+---
+
+## AI PRD Generator
+
+\`\`\`prompt
+Act as a Senior Technical PM. I am building a browser extension.
+Core Concept: [INSERT IDEA]
+Target Websites: [All websites OR Specific domains]
+
+Please generate a concise Technical PRD tailored for a browser extension. Include:
+1. Core Functionality
+2. Required Manifest V3 Permissions (Keep them as strict as possible)
+3. UI Surfaces Used (Popup, Options Page, Content Script, Background Worker)
+4. Out-of-Scope features for V1
+\`\`\`
+
+## The Source of Truth
+
+**Paste the finalized core requirements here:**
+\`\`\`input
+Paste PRD details here...
+\`\`\`
+`,
+  'extuserflows': `
+
+# User Flows
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+The flow should be: 1. User clicks the puzzle piece. 2. UI opens. 3. User clicks big green button. 4. Magic happens.
+
+### Personal Project
+Focus on the edge cases of your flow. What happens if they click your extension on a page where it's not supposed to run? Your flow should account for showing an "Unsupported Page" state rather than just failing silently.
+
+### Production SaaS
+Browser extension user flows are extremely fragile. You must map out the "First Run" flow (what happens immediately after installation), the "Authentication" flow (OAuth in extensions is tricky), and the "Revoked Permissions" flow (what happens if the user disables a host permission?).
+
+---
+
+## AI User Flow Mapping
+
+\`\`\`prompt
+I am building a browser extension: [INSERT IDEA].
+
+Please map out the step-by-step user flows for:
+1. First-time installation & onboarding (How do we explain what to do?)
+2. The core daily usage loop
+3. The authentication flow (How do they log in to our SaaS from the popup?)
+\`\`\`
+
+## Flow Checklist
+- [ ] Onboarding flow documented
+- [ ] Core usage flow documented
+- [ ] Error/Empty state flow documented
+`,
+  'extwireframes': `
+
+# Wireframes
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't wireframe. Just use a component library like shadcn/ui or Radix and build the popup directly. Popups are usually just 400x600 rectangles anyway.
+
+### Personal Project
+Sketch out the popup UI on a piece of paper. Remember that Chrome popups have strict size limits (max 800x600 pixels). Keep it simple and vertically stacked.
+
+### Production SaaS
+If you are injecting UI directly into the host page (like a floating sidebar or a button next to Gmail's send button), you MUST wireframe how your UI interacts with the host's existing layout. How does it handle responsive changes? Does it block important native buttons?
+
+---
+
+## AI Wireframe Assistant
+
+\`\`\`prompt
+I am building the UI for my browser extension. It features a Popup window and a floating Action Button injected into the host page.
+
+Suggest a layout structure for both UI elements. What components should be at the top, middle, and bottom of the Popup? How large should the floating button be to avoid obscuring content?
+\`\`\`
+
+## Design Checklist
+- [ ] Popup layout defined
+- [ ] Injected UI layout defined
+- [ ] Options/Settings page layout defined
+`,
+  'extdesignsystem': `
+
+# Design System
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Tailwind CSS + shadcn/ui. Copy, paste, done.
+
+### Personal Project
+Use a minimal CSS setup. Be careful with global CSS if you are injecting UI into a webpage, as your styles will bleed into the host page (or the host page's styles will ruin your extension). Always use scoped CSS modules or Tailwind with a custom prefix.
+
+### Production SaaS
+To prevent CSS conflicts with host websites, production extensions must use **Shadow DOM** for injected content, or inject an **iframe**. Your design system must be fully encapsulated. If building an iframe, ensure your design system handles communicating height changes back to the parent window so it can resize smoothly.
+
+---
+
+## Encapsulation Strategy
+
+**How are you preventing CSS conflicts with the host page?**
+\`\`\`input
+- Shadow DOM
+- Iframe
+- CSS Modules with strict prefixing
+\`\`\`
+`,
+  'extaccessibility': `
+
+# Accessibility (a11y)
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it for the demo, unless your hackathon specifically targets accessibility.
+
+### Personal Project
+Add basic \`aria-labels\` to your popup buttons. Ensure you can navigate your popup entirely using the \`Tab\` key.
+
+### Production SaaS
+If your extension injects UI into a webpage, it must not break the accessibility of the host page. Avoid trapping focus accidentally. Ensure your injected modals can be closed with the \`Escape\` key. Use high contrast colors, as you don't know the background color of the host page.
+
+---
+
+## AI Accessibility Audit
+
+\`\`\`prompt
+My browser extension injects a custom floating sidebar into web pages. What are the top 5 accessibility pitfalls I need to avoid when injecting complex DOM elements into third-party websites?
+\`\`\`
+
+## Compliance Checklist
+- [ ] Popup is keyboard navigable
+- [ ] Injected UI does not trap page focus
+- [ ] Buttons have aria-labels
+`,
+  'exterrorstates': `
+
+# Error States
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Console.log the error and move on.
+
+### Personal Project
+Add a simple generic error message in the popup: "Something went wrong. Please refresh the page."
+
+### Production SaaS
+Extensions fail for bizarre reasons. The host page might have aggressive Content Security Policies (CSP) blocking your API calls. The user might have disabled background permissions. You must build robust error boundaries that explain *why* the extension failed (e.g., "This site's security policy prevents our extension from running. Click here to use our Web App instead.").
+
+---
+
+## Planning Failure
+
+\`\`\`prompt
+I am building an extension that reads page content and makes API calls to my backend. 
+What are the 5 most common reasons a Chrome Extension might fail or throw an error in a production environment? Provide a user-friendly error message for each.
+\`\`\`
+
+## Core Errors to Handle
+- [ ] API Timeout / Offline
+- [ ] Host Page CSP Block
+- [ ] Permission Revoked
+`,
+  'extloadingstates': `
+
+# Loading States
+
+🕒 **Estimated Time:** 15 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+A simple spinning circle in the middle of the popup is fine.
+
+### Personal Project
+Use skeleton loaders to make the popup feel faster. Extensions are expected to be snappy; if the popup takes 2 seconds to render, users will hate it.
+
+### Production SaaS
+Background Service Workers in Manifest V3 go to sleep after 30 seconds of inactivity. When the user clicks your extension icon, the service worker has to wake up, which can cause a noticeable delay (100-500ms). Your popup UI should render an optimistic skeleton state *immediately* before waiting for the background script to respond.
+
+---
+
+## Performance Optimization
+
+**How will you handle the Manifest V3 service worker wake-up delay?**
+\`\`\`input
+- Optimistic UI in popup
+- Caching last known state in local storage
+\`\`\`
+`,
+  'extextensionux': `
+
+# Extension UX
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Focus on the "Aha!" moment. The UX should be completely linear. 
+
+### Personal Project
+Browser extensions should feel like native parts of the browser. Respect the user's OS theme (Dark/Light mode). Use standard system fonts if possible so the popup loads instantly without fetching web fonts.
+
+### Production SaaS
+Respect user intent. Do not auto-inject massive sidebars on every page load unless explicitly requested by the user. If your extension highlights text, ensure the highlighting doesn't interfere with the user trying to copy/paste. The best extension UX is invisible until needed, and frictionless when invoked.
+
+---
+
+## AI UX Review
+
+\`\`\`prompt
+Act as a UX Expert specializing in Browser Extensions. My extension does [INSERT IDEA] and uses a [Popup / Injected Sidebar]. 
+
+What are 3 common UX anti-patterns developers make when building this specific type of extension, and how can I avoid them?
+\`\`\`
+
+## UX Polish Checklist
+- [ ] Respects system Dark/Light mode preference
+- [ ] Does not interrupt normal browsing behavior
+- [ ] Easy to dismiss/close injected UI
+`,
+  'extapidesign': `
+
+# API Design
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't build an API. Use Supabase directly from the extension, or just call public APIs (like OpenAI) directly from your background script.
+
+### Personal Project
+If you need a backend, use serverless functions (Vercel/Cloudflare). Ensure your API handles CORS correctly, as requests coming from \`chrome-extension://[id]\` will be blocked by default unless explicitly allowed.
+
+### Production SaaS
+Your API must be heavily secured. Extensions are essentially public clients; anyone can inspect your source code and extract API keys or endpoints. You must implement robust rate limiting, authentication (JWT), and validate every payload on the server. Never trust data sent from a content script.
+
+---
+
+## AI API Architect
+
+\`\`\`prompt
+I am building a browser extension that needs to communicate with a custom backend.
+What are the best practices for securing API calls originating from a Chrome Extension? How should I handle CORS, and how do I prevent malicious users from spamming my endpoints?
+\`\`\`
+`,
+  'extauthentication': `
+
+# Authentication
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Hardcode a dummy user ID in local storage. 
+
+### Personal Project
+Use Firebase Auth or Supabase Auth. They provide extension-specific guides. You usually need to handle the auth flow in the popup or open a new tab, then save the session token to \`chrome.storage.local\`.
+
+### Production SaaS
+Authentication in extensions is complex. If you have an existing Web App, you want the user to be automatically logged into the extension if they are logged into the web app. This requires reading cookies via the \`chrome.cookies\` API (which requires the \`cookies\` permission and host permissions), or passing a token via \`postMessage\` when the user visits your site.
+
+---
+
+## Auth Strategy
+
+**How will users log in to your extension?**
+\`\`\`input
+- Standalone login in Popup
+- Sync auth from Web App
+- OAuth (Google/GitHub)
+\`\`\`
+`,
+  'extcostestimation': `
+
+# Cost Estimation
+
+🕒 **Estimated Time:** 15 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Free tier everything. Vercel, Supabase, OpenAI (with a $5 limit).
+
+### Personal Project
+Extensions themselves cost $5 (one-time developer fee for Chrome Web Store). Hosting the backend is your only ongoing cost.
+
+### Production SaaS
+If your extension uses AI to analyze pages, your OpenAI/Anthropic costs will explode because users will run it on massive webpages. You must implement strict usage limits and consider caching summarized results on your backend so you don't re-process the exact same Wikipedia article for 100 different users.
+
+---
+
+## AI Cost Calculator
+
+\`\`\`prompt
+My extension uses an LLM to analyze the active webpage. If I have 1,000 DAU, and each user analyzes 10 pages per day, estimating an average page is 2,000 tokens, what will my monthly OpenAI API costs be? How can I reduce this?
+\`\`\`
+`,
+  'extextensionfundamentals': `
+
+# Extension Fundamentals
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skim the Manifest V3 docs. Know the difference between a Popup (dies when closed), a Content Script (lives in the page), and a Background Script (lives invisibly).
+
+### Personal Project
+Understand the lifecycle. Popups cannot run long tasks because they get destroyed the moment the user clicks away. Background service workers go to sleep, so you cannot rely on global variables.
+
+### Production SaaS
+You must master the Manifest V3 architecture. Service worker termination is the #1 cause of production bugs. You must store all state in \`chrome.storage\` and rebuild it when the worker wakes up.
+
+---
+
+## AI Concept Tutor
+
+\`\`\`prompt
+Explain the Chrome Extension Manifest V3 architecture to a React developer. What is the difference between the Popup, Content Script, and Background Service Worker? How do they communicate with each other?
+\`\`\`
+`,
+  'extplatformselection': `
+
+# Platform Selection
+
+🕒 **Estimated Time:** 10 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Chrome only.
+
+### Personal Project
+Chrome only. Edge and Brave support Chrome extensions natively, so you get them for free.
+
+### Production SaaS
+Chrome holds ~65% of the market. Safari requires a completely different build process (using Xcode and wrapping it in a macOS app). Firefox has slight API differences. Build for Chrome first, port to Firefox second, and only port to Safari if your audience heavily indexes on Mac users.
+
+---
+
+## Checklist
+- [ ] Target Chrome Web Store primarily
+`,
+  'extarchitecturedesign': `
+
+# Architecture Design
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+React app in the popup. Fetch calls directly in the components. Done.
+
+### Personal Project
+Use a boilerplate like \`crxjs/vite-plugin\` or \`Plasmo\`. These frameworks handle the brutal webpack/vite configuration required to build multiple entry points (popup, options, content, background) simultaneously.
+
+### Production SaaS
+Use Plasmo or WXT. Your architecture must strictly separate UI (React) from background logic. Use a typed messaging system to send data between the content script, popup, and background worker.
+
+---
+
+## AI Architecture Review
+
+\`\`\`prompt
+I am building a production browser extension using React and Vite. Should I use Plasmo, WXT, or build a custom Vite config with CRXJS? Compare their pros, cons, and long-term maintainability for a complex extension.
+\`\`\`
+`,
+  'extpopupui': `
+
+# Popup UI
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Keep it simple. A button and a loading spinner.
+
+### Personal Project
+Remember the physical constraints: Max width is 800px, max height is 600px. Standard size is usually 350x500.
+
+### Production SaaS
+The popup must load *instantly*. Do not make heavy API calls blocking the initial render. Show cached data from \`chrome.storage.local\` immediately, then fetch fresh data in the background and update the UI.
+
+---
+
+## UI Framework Choice
+**What are you using to build the Popup?**
+\`\`\`input
+- React + Tailwind
+- Vanilla JS
+- Vue
+\`\`\`
+`,
+  'extsidepanel': `
+
+# Side Panel
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't use it unless your demo requires persistent UI while browsing multiple tabs.
+
+### Personal Project
+The \`chrome.sidePanel\` API (Manifest V3) allows your extension to live in the browser's side panel (like bookmarks). It persists across tabs, which is incredible for chat-bots or note-taking tools.
+
+### Production SaaS
+Side Panels are the holy grail of extension retention. If a user keeps your side panel open, they see your brand constantly. However, it requires the \`sidePanel\` permission. Ensure your UI is responsive, as users can resize the panel.
+
+---
+
+## AI Side Panel Implementation
+
+\`\`\`prompt
+How do I implement a global Side Panel in a Manifest V3 Chrome Extension? I want the panel to open automatically when the user clicks the extension icon instead of opening a standard popup. Provide the exact manifest.json configuration and background script logic.
+\`\`\`
+`,
+  'extcontextmenus': `
+
+# Context Menus
+
+🕒 **Estimated Time:** 15 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip.
+
+### Personal Project
+Great for utility extensions. "Right click text -> Translate / Summarize / Add to CRM". Requires the \`contextMenus\` permission.
+
+### Production SaaS
+Context menus must be created in the background service worker during the \`chrome.runtime.onInstalled\` event. Do not try to create them on every script execution, or it will throw errors.
+
+---
+
+## Implementation Details
+- [ ] Context menus created in \`onInstalled\` listener
+- [ ] Icons provided for menu items
+`,
+  'extcontentscripts': `
+
+# Content Scripts
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Inject directly into the body. Use absolute positioning.
+
+### Personal Project
+Content scripts run in an "Isolated World". They share the DOM with the host page, but they DO NOT share JavaScript variables. You cannot access the host page's React/Vue state directly.
+
+### Production SaaS
+Content scripts must be ultra-lightweight to avoid slowing down the host page. If injecting UI, use Shadow DOM to prevent CSS bleed. If you need to access host page JS variables, you must inject a \`<script>\` tag directly into the DOM (Main World injection).
+
+---
+
+## AI Content Script Setup
+
+\`\`\`prompt
+I need to inject a React component (a floating button) into all web pages using a Content Script. How do I mount a React app into a Shadow DOM root within a Content Script to ensure the host page's CSS does not affect my React components?
+\`\`\`
+`,
+  'extbackgroundlogic': `
+
+# Background Logic
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Put everything in one \`background.js\` file.
+
+### Personal Project
+Background scripts (Service Workers) handle browser-level events: tab updates, alarm triggers, and network requests.
+
+### Production SaaS
+Manifest V3 Service Workers sleep after 30s. YOU CANNOT USE GLOBAL VARIABLES. 
+\`\`\`javascript
+// BAD: State is lost when worker sleeps
+let userToken = null; 
+
+// GOOD: State is retrieved from storage
+const { userToken } = await chrome.storage.local.get('userToken');
+\`\`\`
+
+---
+
+## Service Worker Verification
+- [ ] No global state used in background script
+- [ ] All async logic handles worker termination gracefully
+`,
+  'extserviceworkers': `
+
+# Service Workers
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Just make sure it registers without errors.
+
+### Personal Project
+Use Service Workers to fetch data in the background so the Popup doesn't have to do heavy lifting.
+
+### Production SaaS
+Service Workers do not have access to the DOM. You cannot use \`document\` or \`window\`. If you need to parse HTML or use a library that relies on the DOM (like some OAuth libraries), you must use the \`Offscreen API\` or send the data to a Content Script to parse.
+
+---
+
+## AI Service Worker Debugging
+
+\`\`\`prompt
+My Manifest V3 Service Worker is throwing an error: "window is not defined" because I am using an external library. What is the Offscreen API in Chrome Extensions, and how can I use it to parse DOM elements from a Service Worker?
+\`\`\`
+`,
+  'extstoragestrategy': `
+
+# Storage Strategy
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+\`chrome.storage.local\` for everything.
+
+### Personal Project
+Understand the difference: \`localStorage\` (web standard, tied to the domain, cleared easily) vs \`chrome.storage.local\` (extension specific, persists until uninstalled). Always use \`chrome.storage\`.
+
+### Production SaaS
+You have a 10MB limit for \`chrome.storage.local\`. Do not store massive base64 images or gigabytes of cached data. Use IndexedDB for massive data storage.
+
+---
+
+## Storage Architecture
+
+**What data will you store locally on the user's machine?**
+\`\`\`input
+- Auth tokens
+- Cached API responses
+- User settings
+\`\`\`
+`,
+  'extmessagingsystem': `
+
+# Messaging System
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+\`chrome.runtime.sendMessage({ action: "DO_THING" })\`.
+
+### Personal Project
+Messaging is how the Popup talks to the Content Script, and how the Content Script talks to the Background. It's an asynchronous nightmare if not structured well.
+
+### Production SaaS
+Do not use raw strings for messaging. Build a strongly typed messaging wrapper, or use a library like \`@plasmohq/messaging\` or \`webext-bridge\`. If you send a message to a Content Script on a tab that hasn't finished loading, it will fail. Build retry logic.
+
+---
+
+## AI Messaging Architecture
+
+\`\`\`prompt
+Write a strongly-typed TypeScript wrapper around chrome.runtime.sendMessage and chrome.runtime.onMessage. It should enforce specific payload types for specific actions (e.g., 'FETCH_DATA' requires a 'url' string, 'UPDATE_UI' requires a boolean).
+\`\`\`
+`,
+  'extdatastorage': `
+
+# Data Storage
+
+🕒 **Estimated Time:** 15 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Save everything to the cloud instantly.
+
+### Personal Project
+Keep user preferences in \`chrome.storage.local\`. It's fast and synchronous.
+
+### Production SaaS
+If you are processing sensitive user data (like analyzing their emails), do NOT send it to your backend unless absolutely necessary. Process as much as possible locally. If you must store it, encrypt it.
+
+---
+
+## Checklist
+- [ ] PII is not sent to backend unnecessarily
+- [ ] Local storage limits respected
+`,
+  'extsyncstorage': `
+
+# Sync Storage
+
+🕒 **Estimated Time:** 15 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ignore it.
+
+### Personal Project
+\`chrome.storage.sync\` automatically syncs data across all Chrome browsers where the user is logged in. It's magic.
+
+### Production SaaS
+\`sync\` storage has brutal limits: maximum 100KB total, maximum 8KB per item, maximum 120 writes per minute. DO NOT use it for caching data. Use it ONLY for lightweight user settings (e.g., \`darkMode: true\`).
+
+---
+
+## AI Sync Storage Rules
+
+\`\`\`prompt
+I want to store user settings in chrome.storage.sync. What are the strict quota limits I need to be aware of, and how do I gracefully fallback to chrome.storage.local if the user exceeds the sync quota?
+\`\`\`
+`,
+  'extoauth': `
+
+# OAuth
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip OAuth. Use email/password or magic links.
+
+### Personal Project
+Use \`chrome.identity.getAuthToken\` if you only need Google authentication. It's built-in and handles the popup flow automatically.
+
+### Production SaaS
+If using third-party Auth (Supabase, Firebase, Auth0), you must use \`chrome.identity.launchWebAuthFlow\`. This opens a secure browser window for login and redirects back to the extension using a specific redirect URL (\`https://<app-id>.chromiumapp.org/\`).
+
+---
+
+## Auth Implementation
+- [ ] Redirect URL registered with Auth Provider
+- [ ] \`launchWebAuthFlow\` implemented
+`,
+  'extaifeatures': `
+
+# AI Features
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Pass the entire webpage text to OpenAI and ask it to summarize.
+
+### Personal Project
+Extract only the main article content (using something like Readability.js) before sending it to the LLM to save tokens and improve response quality.
+
+### Production SaaS
+The new Chrome built-in AI (Gemini Nano) allows extensions to run AI models *locally* on the user's device without paying API costs. Check the \`window.ai\` API. If using cloud APIs, stream the response to the UI so the user doesn't wait 10 seconds staring at a spinner.
+
+---
+
+## AI Integration Strategy
+
+**Are you using Cloud AI (OpenAI/Anthropic) or Local AI (Chrome Built-in)?**
+\`\`\`input
+- Cloud API
+- Local Device Model
+\`\`\`
+`,
+  'extllmintegration': `
+
+# LLM Integration
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Hardcode your API key in the background script. (WARNING: Do not do this in public repos or production).
+
+### Personal Project
+Never put your API key in the extension code. Build a simple proxy server (Vercel Edge Function) that holds the API key. The extension calls your proxy, the proxy calls OpenAI.
+
+### Production SaaS
+Your proxy server must authenticate the user before forwarding the request to OpenAI. Otherwise, anyone can extract your proxy URL from the extension source code and use your OpenAI credits for free.
+
+---
+
+## AI Security Audit
+
+\`\`\`prompt
+I am building a Chrome extension that uses the OpenAI API. 
+Explain exactly why hardcoding the API key in the extension bundle is a security risk, even if it's minified. Provide the architecture for a secure proxy server using Vercel Edge Functions to protect the key.
+\`\`\`
+`,
+  'extcontextcollection': `
+
+# Context Collection
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+\`document.body.innerText\` - simple and dirty.
+
+### Personal Project
+\`innerText\` includes menus, footers, and garbage text. Use a library like \`@mozilla/readability\` inside your content script to parse just the main article content.
+
+### Production SaaS
+Webpages are dynamic. If it's an SPA (Single Page Application like Twitter or YouTube), the DOM changes without a page reload. You must use a \`MutationObserver\` to track when new content is added to the screen, rather than just reading the DOM once on load.
+
+---
+
+## AI DOM Parsing
+
+\`\`\`prompt
+Write a robust Content Script function that uses Mozilla's Readability.js to extract the main article content from a webpage. It should handle edge cases where the page is a dynamic React SPA.
+\`\`\`
+`,
+  'extpageanalysis': `
+
+# Page Analysis
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Regex search for keywords.
+
+### Personal Project
+Use DOM traversal to find specific elements (e.g., all pricing tables, all image alt tags).
+
+### Production SaaS
+If you inject CSS or HTML based on page analysis, ensure your selectors are incredibly defensive. Websites change their DOM structures daily. If your extension breaks because Twitter changed a \`div\` class name, you will be overwhelmed with support tickets.
+
+---
+
+## Checklist
+- [ ] DOM selectors are robust (not highly specific nested paths)
+- [ ] Fails gracefully if target elements are not found
+`,
+  'extsummarization': `
+
+# Summarization
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Send text to API. Render result.
+
+### Personal Project
+Add Markdown parsing so the LLM output renders nicely with bold text and lists.
+
+### Production SaaS
+If summarizing long PDFs or massive webpages, the text will exceed the LLM context window. You must implement chunking (splitting the text into pieces) or use models with massive context windows (like Claude 3 Haiku/Sonnet). Provide a "Copy to Clipboard" button.
+
+---
+
+## Feature Polish
+- [ ] Markdown rendering implemented
+- [ ] Copy to clipboard button added
+- [ ] Error handling for "Content too long"
+`,
+  'extauth': `
+
+# Authentication Setup
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Mock the authentication state. Create a "Login" button that just sets \`isLoggedIn = true\` in local storage. Focus on the core feature demo instead.
+
+### Personal Project
+If using Firebase Auth, use the \`chrome.identity\` API or Firebase's built-in Chrome Extension auth flows. Ensure your auth token is saved securely in \`chrome.storage.local\` so the user doesn't have to log in every time they open the popup.
+
+### Production SaaS
+Authentication via a popup requires a solid OAuth flow. Use \`chrome.identity.launchWebAuthFlow()\` to securely handle Google/GitHub/Apple login. If syncing auth from a companion Web App, use cookie-sharing or \`postMessage\` handshakes. NEVER store plaintext passwords.
+
+---
+
+## AI Auth Implementation
+
+\`\`\`prompt
+I am building a Manifest V3 browser extension and need to implement authentication using Supabase. 
+Please provide the complete code for using \`chrome.identity.launchWebAuthFlow\` to authenticate a user via Google OAuth, and explain how to securely store the resulting session token in \`chrome.storage.local\`.
+\`\`\`
+
+## Auth Verification
+- [ ] User can log in
+- [ ] Session persists after closing popup
+- [ ] User can log out
+`,
+  'extbackend': `
+
+# Backend Setup
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+No backend. Store everything locally, or use a BaaS like Supabase/Firebase directly from the extension if you must share data between users.
+
+### Personal Project
+Set up a simple Node.js Express server or use Next.js API routes (Vercel). Make sure to configure CORS to allow requests from \`chrome-extension://<your-extension-id>\`.
+
+### Production SaaS
+Your backend must validate that the request is actually coming from your extension (using token verification), but be aware that any API key embedded in the extension can be extracted. Rely on user-level authentication (JWTs) rather than app-level API keys. Implement aggressive rate limiting per user.
+
+---
+
+## AI Backend Configuration
+
+\`\`\`prompt
+I am setting up a Node.js Express backend for my Chrome Extension. 
+Write the exact CORS configuration needed to allow requests from my extension while blocking other origins. My extension ID is 'abcdefghijklmnop'. Also, provide a middleware snippet to verify JWTs sent from the extension.
+\`\`\`
+
+## Deployment Checklist
+- [ ] CORS configured for extension ID
+- [ ] Rate limiting implemented
+`,
+  'extapis': `
+
+# External APIs
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Call APIs directly from your Popup or Background script. Don't worry about proxying them.
+
+### Personal Project
+If an external API doesn't support CORS from a Chrome Extension, you cannot call it from the Popup or Content Script. You MUST call it from the Background Service Worker, which bypasses some CORS restrictions, or proxy it through your own backend.
+
+### Production SaaS
+Do not bundle private API keys (like OpenAI, Stripe, or proprietary third-party keys) in your extension bundle. They will be stolen immediately. You must build a proxy server that authenticates your user and then makes the external API call securely.
+
+---
+
+## AI API Proxy Design
+
+\`\`\`prompt
+I need to call the OpenAI API from my browser extension, but I know I shouldn't expose my API key.
+Provide a complete Cloudflare Worker (or Vercel Edge Function) script that takes an authenticated request from my extension, attaches my secret OpenAI key, and forwards the request to OpenAI.
+\`\`\`
+`,
+  'extanalytics': `
+
+# Analytics Setup
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip analytics.
+
+### Personal Project
+Add simple event tracking using Google Analytics 4 via the Measurement Protocol. You cannot use the standard GA4 web snippet in a Manifest V3 background script because it relies on the DOM.
+
+### Production SaaS
+Implement privacy-respecting telemetry (e.g., PostHog or Mixpanel). Track installation, uninstallation (using \`chrome.runtime.setUninstallURL\`), and core feature usage. Ensure you comply with the Chrome Web Store Developer Program Policies regarding data collection—you must disclose exactly what you track.
+
+---
+
+## AI Analytics Implementation
+
+\`\`\`prompt
+How do I implement PostHog analytics in a Manifest V3 Chrome Extension? I need to track events from both the Popup (React) and the Background Service Worker. Please provide the setup code and explain how to handle user identification.
+\`\`\`
+`,
+  'exttesting': `
+
+# Testing
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Manual testing only. Click all the buttons and make sure it doesn't crash.
+
+### Personal Project
+Write unit tests for your core parsing logic or API wrappers using Jest or Vitest. Mock the \`chrome.*\` APIs using libraries like \`jest-chrome\`.
+
+### Production SaaS
+You must implement end-to-end (E2E) testing using Puppeteer or Playwright. You can configure Playwright to launch Chromium with your unpacked extension loaded, allowing you to test the entire lifecycle (installation, popup interaction, content script injection) automatically in CI.
+
+---
+
+## AI E2E Setup
+
+\`\`\`prompt
+I want to write End-to-End tests for my Chrome Extension using Playwright. 
+Provide a Playwright configuration and a sample test that launches Chromium, loads my unpacked extension from the \`./dist\` folder, and clicks a button inside the extension's popup.
+\`\`\`
+
+## Testing Coverage
+- [ ] Unit tests for data parsing
+- [ ] E2E test for primary user flow
+`,
+  'extmanifestconfiguration': `
+
+# Manifest Configuration
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ask an LLM to generate your \`manifest.json\`. Keep permissions extremely broad (e.g., \`*://*/*\`) just to get it working for the demo.
+
+### Personal Project
+Learn what each field does. Define your \`action\` (popup), \`background\` (service worker), and \`content_scripts\`. Use \`host_permissions\` only for the specific APIs you are calling.
+
+### Production SaaS
+Your \`manifest.json\` must be as locked down as possible. Every extra permission increases the likelihood of a delayed manual review by Google. Use \`activeTab\` instead of broad host permissions wherever possible. Ensure your \`content_security_policy\` is strict.
+
+---
+
+## AI Manifest Generator
+
+\`\`\`prompt
+Act as a Chrome Extension Architect.
+I am building an extension that does the following: [INSERT IDEA]
+It has a React popup, a background service worker, and injects a button into all pages on github.com.
+
+Please generate a secure, minimal \`manifest.json\` (Manifest V3). Explain exactly why you included each permission.
+\`\`\`
+
+## Manifest Verification
+**Paste your finalized manifest.json here for reference:**
+\`\`\`input
+Paste manifest.json...
+\`\`\`
+`,
+  'extbackgroundserviceworker': `
+
+# Background Service Worker Dev
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't use it if you don't have to. If you just need a popup, skip the background script entirely to save time.
+
+### Personal Project
+Use the background script to listen for \`chrome.tabs.onUpdated\` so you know when the user navigates to a new page, or use it to handle \`chrome.alarms\` for scheduled tasks.
+
+### Production SaaS
+The service worker is the brain of your app. It handles OAuth callbacks, manages central state (via storage), and orchestrates messages. Since it terminates after 30 seconds, ensure every listener is registered synchronously at the top level of the file.
+
+---
+
+## AI Background Script Logic
+
+\`\`\`prompt
+Write a robust Manifest V3 Background Service Worker in TypeScript. 
+It should listen for tab updates, check if the URL matches a specific pattern, and if so, send a message to the content script on that tab. Include error handling for cases where the content script hasn't loaded yet.
+\`\`\`
+`,
+  'extstorage': `
+
+# Storage Implementation
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use \`localStorage\` inside the popup if you only need temporary data.
+
+### Personal Project
+Implement a custom React Hook (e.g., \`useChromeStorage\`) that wraps \`chrome.storage.local.get/set\` and listens for \`chrome.storage.onChanged\` so your React components update automatically when background scripts change data.
+
+### Production SaaS
+Data synchronization is critical. If your background script updates a token, your popup must re-render instantly. If a user has 5 tabs open, all 5 content scripts must receive the storage update. Build a robust state management layer that syncs Chrome Storage with React state globally.
+
+---
+
+## AI Storage Hook
+
+\`\`\`prompt
+Write a custom React Hook in TypeScript called \`useChromeStorage\`. 
+It should behave like \`useState\`, but it persists the value to \`chrome.storage.local\` and listens to \`chrome.storage.onChanged\` so that if a background script modifies the storage, the React component automatically re-renders with the new value.
+\`\`\`
+`,
+  'extaiintegration': `
+
+# AI Integration
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Call the OpenAI REST API directly using \`fetch()\` from your background script.
+
+### Personal Project
+Use the official OpenAI Node/Edge SDK in your proxy server, or call the API directly from the background script but ensure you are streaming the response so the user isn't left waiting on a frozen popup.
+
+### Production SaaS
+Implement Server-Sent Events (SSE) or WebSockets to stream AI responses from your proxy backend to your background script, and then relay those chunks to your UI (Popup/Content Script) using \`chrome.runtime.sendMessage\`. This is complex but absolutely necessary for a premium UX.
+
+---
+
+## AI Streaming Implementation
+
+\`\`\`prompt
+How do I stream an AI response from OpenAI, through a Vercel Edge Function proxy, to my Manifest V3 Background Script, and finally render it chunk-by-chunk in a React Popup? 
+Provide the architecture and the exact messaging code needed to relay the stream from the background to the UI.
+\`\`\`
+`,
+  'extsettingspage': `
+
+# Settings / Options Page
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Put settings directly in the Popup. Don't waste time building a separate options page.
+
+### Personal Project
+Configure an \`options_page\` in your manifest. It opens in a full browser tab, giving you plenty of space to build complex UI. Save all preferences to \`chrome.storage.sync\`.
+
+### Production SaaS
+The Options page is where users configure their API keys, manage their subscription, and tweak advanced rules. Treat this as a full Web App experience. Ensure it shares the same design system and state management as your Popup.
+
+---
+
+## Checklist
+- [ ] Options page registered in manifest
+- [ ] Settings sync to \`chrome.storage.sync\`
+- [ ] UI matches the extension's brand
+`,
+  'extsecurity': `
+
+# Security
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't leak your AWS/OpenAI keys in your GitHub repo. That's the only security you need.
+
+### Personal Project
+Be extremely careful with \`innerHTML\`. If your extension reads data from a webpage and injects it back using \`innerHTML\`, you are creating a massive Cross-Site Scripting (XSS) vulnerability. Always use \`textContent\` or React's safe rendering.
+
+### Production SaaS
+Browser extensions have immense power, making them prime targets for supply chain attacks. You must audit your \`npm\` dependencies. Never use \`eval()\` or \`new Function()\`. Ensure your Content Security Policy (CSP) restricts remote code execution (Manifest V3 blocks this by default, but you still need to be vigilant). Validate ALL messages received via \`onMessageExternal\`.
+
+---
+
+## AI Security Audit
+
+\`\`\`prompt
+Act as a Security Engineer. I am building a Chrome Extension that injects a Content Script into user-visited webpages. 
+What are the top 3 XSS and messaging vulnerabilities specific to Chrome Extensions, and how can I mitigate them in my code?
+\`\`\`
+
+## Security Checklist
+- [ ] No API keys bundled in source code
+- [ ] No usage of \`innerHTML\`
+- [ ] Incoming messages validated
+`,
+  'extperformanceoptimization': `
+
+# Performance Optimization
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ignore performance unless it literally crashes the browser.
+
+### Personal Project
+If your extension injects CSS into every webpage, make sure your CSS file is tiny. Do not inject a 3MB Tailwind stylesheet into every page the user visits.
+
+### Production SaaS
+Monitor memory leaks in your Content Scripts. If your extension runs on a single-page app (like Gmail or YouTube) that the user keeps open for 5 days straight, any memory leak in your extension will eventually crash the tab. Ensure event listeners are properly cleaned up when elements are destroyed.
+
+---
+
+## AI Performance Audit
+
+\`\`\`prompt
+My Chrome extension injects a React app into web pages via a Content Script. 
+How do I ensure my injected React app doesn't cause a memory leak when the host page dynamically removes the DOM element my app is mounted to? Provide code for proper cleanup.
+\`\`\`
+`,
+  'extmonitoring': `
+
+# Monitoring
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Skip it, or just use basic Google Analytics.
+
+### Production SaaS
+You need to know if an external website update breaks your extension. If Twitter changes their DOM structure, your extension might fail silently. Implement monitoring that tracks "Feature X Failed to Execute" rates, so you get an alert the moment a host website update breaks your integration, BEFORE users start leaving 1-star reviews.
+
+---
+
+## AI Monitoring Setup
+
+\`\`\`prompt
+How do I set up custom error monitoring in a Chrome Extension Content Script to detect when a host website's DOM structure changes and breaks my CSS selectors? I want it to log an alert to my backend without spamming.
+\`\`\`
+`,
+  'exterrortracking': `
+
+# Error Tracking
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+If you use Sentry, be aware that setting it up in a Manifest V3 extension requires specific configuration because Sentry relies on the DOM (which the Service Worker doesn't have) and the \`fetch\` API.
+
+### Production SaaS
+Use Sentry or Datadog, but configure it properly for Manifest V3. You must catch errors in the Popup, the Background script, AND the Content scripts separately. For Content Scripts, ensure you scrub any PII (Personally Identifiable Information) from the URL or DOM before sending the error to Sentry, otherwise you violate privacy policies.
+
+---
+
+## AI Sentry Setup
+
+\`\`\`prompt
+Provide the exact configuration to set up Sentry error tracking in a Manifest V3 Chrome Extension. Include the setup for the Background Service Worker and explain how to scrub sensitive user data from Content Script errors before sending them.
+\`\`\`
+`,
+  'extratelimiting': `
+
+# Rate Limiting
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+If you have an API, put a basic IP-based rate limiter on it so you don't get a surprise $50 bill from your hosting provider.
+
+### Production SaaS
+Since multiple users behind a corporate firewall might share an IP, you must implement rate limiting based on the authenticated User ID (JWT token), not just the IP address. If an unauthenticated user is spamming your proxy, block the IP, but protect authenticated users.
+
+---
+
+## AI Rate Limiting Implementation
+
+\`\`\`prompt
+Write a strict rate-limiting middleware for a Node.js Express API that serves a Chrome Extension. It should rate-limit based on the decoded User ID in the JWT, allowing 50 requests per minute, and fallback to IP-based limiting for unauthenticated routes.
+\`\`\`
+`,
+  'extcaching': `
+
+# Caching
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+If you fetch user data, save it to \`chrome.storage.local\` so the popup opens instantly the next time they click it.
+
+### Production SaaS
+Implement an aggressive caching layer. If your extension summarizes a public URL, hash the URL and check your backend database to see if you've already summarized it recently. This saves massive LLM API costs. On the client side, use \`chrome.storage.local\` to cache API responses with a TTL (Time To Live).
+
+---
+
+## AI Caching Logic
+
+\`\`\`prompt
+Write a wrapper function around \`fetch\` for a Chrome Extension that checks \`chrome.storage.local\` for a cached response. If the cached response exists and is less than 5 minutes old (TTL), return it. Otherwise, make the network request, save the result to storage with a timestamp, and return it.
+\`\`\`
+`,
+  'extcicd': `
+
+# CI/CD
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Your CI/CD is "Zip the dist folder and upload it manually".
+
+### Personal Project
+Set up a GitHub Action that runs \`npm run build\` and packages your extension into a \`.zip\` file every time you push to the \`main\` branch.
+
+### Production SaaS
+Automate your store deployments. Use the Chrome Web Store API and the Mozilla Add-ons API to automatically upload and publish your zipped extension when you create a GitHub Release. This eliminates human error and guarantees that the source code in your repo exactly matches what is on the store.
+
+---
+
+## AI CI/CD Automation
+
+\`\`\`prompt
+Please provide a complete GitHub Actions YAML workflow that builds a Vite React extension, zips the \`dist\` folder, and uses the \`chrome-webstore-upload-cli\` to automatically publish the extension to the Chrome Web Store when a new release is tagged.
+\`\`\`
+`,
+  'extpermissionauditing': `
+
+# Permission Auditing
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Look at your \`manifest.json\`. If you have \`*://*/*\`, try to replace it with specific URLs if you only operate on a few sites.
+
+### Production SaaS
+Google manually reviews extensions that request broad permissions. To speed up your review time (from weeks to days), you MUST audit your permissions. Remove \`tabs\` if you only need the URL of the active tab (use \`activeTab\` instead). Remove \`storage\` if you don't use it. Every permission is a liability.
+
+---
+
+## AI Permission Auditor
+
+\`\`\`prompt
+Here is my \`manifest.json\`:
+[PASTE MANIFEST HERE]
+
+Act as a Google Chrome Web Store Reviewer. Which of these permissions will trigger a manual review? How can I achieve the same functionality using less intrusive permissions?
+\`\`\`
+`,
+  'extprivacyreview': `
+
+# Privacy Review
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Write a simple privacy policy on a free Notion page and link to it. Just state you don't collect data.
+
+### Production SaaS
+The Chrome Web Store requires you to fill out a "Privacy practices" tab. You must declare exactly what data you collect (PII, Web History, Location). If you collect Web History (because your extension runs on every page), you must explicitly state why it's necessary for the core functionality. Lying here will result in a permanent ban.
+
+---
+
+## AI Privacy Policy Generator
+
+\`\`\`prompt
+Act as a Tech Lawyer. I need to write a simple but legally sound Privacy Policy for my Chrome Extension. 
+My extension collects [Data A] and [Data B], sends it to my backend via [API], but does NOT sell it to third parties. Generate the policy.
+\`\`\`
+`,
+  'extextensionsizeoptimization': `
+
+# Extension Size Optimization
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Don't include huge image assets in your bundle. Host them online and load them via URL.
+
+### Production SaaS
+Large extensions take longer to install and update. Minify your code. Tree-shake your dependencies. If you are using massive libraries (like \`lodash\`), ensure you are only importing the specific functions you need. A production extension zip file should ideally be under 2MB.
+
+---
+
+## AI Size Auditor
+
+\`\`\`prompt
+My Vite-built Chrome Extension is 5MB in size. 
+What are the top 5 largest dependencies typically found in React-based extensions, and how can I configure Vite/Rollup to tree-shake them effectively or split the chunks?
+\`\`\`
+`,
+  'extscreenshots': `
+
+# Screenshots & Assets
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Take a single screenshot of your popup. You don't need a 1280x800 promo image unless you are actually publishing.
+
+### Personal Project
+If you want to publish, the Chrome Web Store strictly requires: 
+- 128x128 Icon
+- 1280x800 Promotional Marquee
+- At least 1 Screenshot (1280x800 or 640x400)
+
+### Production SaaS
+Do not just upload raw screenshots. Use a tool like Studio.design or Figma to put your screenshots inside a nice browser frame with large, readable text explaining the value proposition. Users decide whether to install your extension in about 3 seconds; your screenshots must sell the product immediately.
+
+---
+
+## AI Design Assistant
+
+\`\`\`prompt
+I am preparing assets for the Chrome Web Store. My extension does [INSERT IDEA].
+Suggest the exact copy (headline and subheadline) I should put on my 1280x800 Promotional Image, and suggest the scenes for 3 different screenshots that highlight my core features.
+\`\`\`
+`,
+  'extprivacypolicy': `
+
+# Privacy Policy
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Host a simple text file on GitHub Pages or Notion. It doesn't need to be complex, just honest.
+
+### Production SaaS
+The Privacy Policy must be hosted on your actual domain. The Chrome Web Store reviewers will read it. It must explicitly state what data you collect, why you collect it, how it is stored, and who it is shared with. If you use Google Analytics, you must state that. If you process data via OpenAI, you must state that.
+
+---
+
+## AI Policy Generator
+
+\`\`\`prompt
+Generate a strict Privacy Policy for a Chrome Extension. 
+I collect the user's email via Supabase Auth, and I read the active webpage's text to send to the OpenAI API for summarization. I do NOT store the webpage text in my database. Format it as Markdown.
+\`\`\`
+`,
+  'exttermsofservice': `
+
+# Terms of Service
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Skip it, unless you want to practice setting up legal pages.
+
+### Production SaaS
+You need a TOS to protect yourself from liability, especially if your extension modifies other websites. If your extension accidentally breaks a user's Shopify dashboard, your TOS must state that the extension is provided "as is" and you are not liable for business damages.
+
+---
+
+## AI TOS Generator
+
+\`\`\`prompt
+Generate a standard Terms of Service document for a SaaS Browser Extension. 
+Include a strong limitation of liability clause stating that the developer is not responsible if the extension inadvertently breaks or modifies third-party websites in a way that causes data loss.
+\`\`\`
+`,
+  'extchromewebstoresetup': `
+
+# Chrome Web Store Setup
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+You can't do this during a hackathon (it takes days to get approved). Just demo locally.
+
+### Personal Project
+You must pay a one-time $5 developer registration fee to Google. It's totally worth it to have your own app on the store.
+
+### Production SaaS
+Fill out the store listing completely. The "Single Purpose" description is the most critical field. Google mandates that extensions serve a single, focused purpose. If your extension tries to be a To-Do list AND an Adblocker AND a Crypto Wallet, it will be rejected.
+
+---
+
+## Store Listing Optimization
+
+\`\`\`prompt
+I am submitting my extension to the Chrome Web Store. My extension does [INSERT IDEA].
+Write the "Single Purpose" description (max 1 sentence) that complies with Google's strict Single Purpose Policy. Then write the full detailed description for the store page.
+\`\`\`
+`,
+  'extedgeaddonsstore': `
+
+# Edge Add-ons Store
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Skip it. Users can install Chrome extensions directly into Edge anyway.
+
+### Production SaaS
+Publishing natively to the Microsoft Edge Add-ons store is highly recommended for B2B SaaS. Many enterprise environments block the Chrome Web Store but allow the Edge Add-ons store. The codebase is identical to your Chrome version, you just need a Microsoft Developer account.
+
+---
+
+## Checklist
+- [ ] Microsoft Developer Account created
+- [ ] Chrome zip uploaded to Edge portal
+`,
+  'extfirefoxaddons': `
+
+# Firefox Add-ons (AMO)
+
+🕒 **Estimated Time:** 1 hour
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+If you love open source, publish here! Mozilla's review process is usually faster than Google's.
+
+### Production SaaS
+Firefox uses Manifest V2 (and partially V3), and the \`browser.*\` API namespace instead of \`chrome.*\`. While there is a polyfill available (\`webextension-polyfill\`), porting a complex Manifest V3 Chrome extension to Firefox requires testing. Only do this once you have product-market fit on Chrome.
+
+---
+
+## AI Firefox Porting Guide
+
+\`\`\`prompt
+What are the main differences between a Chrome Manifest V3 extension and a Firefox Manifest V3 extension? What do I need to change in my \`manifest.json\` and my background script to make it compatible with Mozilla's Add-on store?
+\`\`\`
+`,
+  'extlistingoptimization': `
+
+# Listing Optimization
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Use exact match keywords in your title. If you built a "GitHub Dark Mode" extension, name it literally "Dark Mode for GitHub".
+
+### Production SaaS
+Store SEO is critical. Include your primary keywords in the Title and the first paragraph of the description. Localize your store listing into multiple languages (Spanish, German, Japanese) to drastically increase your organic traffic in those regions.
+
+---
+
+## AI Keyword Strategy
+
+\`\`\`prompt
+My Chrome extension is a [INSERT IDEA]. 
+Suggest 10 high-traffic keywords users might search for in the Chrome Web Store, and rewrite my Extension Title and Summary to naturally incorporate the top 3 keywords.
+\`\`\`
+`,
+  'extstoresubmission': `
+
+# Store Submission
+
+🕒 **Estimated Time:** 15 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Zip the \`dist\` folder. Done.
+
+### Personal Project
+Upload the zip. Fill out the privacy tab. Hit submit. Wait 24 hours.
+
+### Production SaaS
+Ensure your version numbers in \`manifest.json\` and \`package.json\` match. Triple-check that you haven't left any \`console.log\` statements containing sensitive data. Remember that once you hit submit, you cannot cancel the review process—if you find a bug 5 minutes later, you have to wait for it to be published before you can submit a fix.
+
+---
+
+## Pre-Flight Checks
+- [ ] Version number incremented
+- [ ] No debug logs in production build
+- [ ] Zip file size optimized
+`,
+  'extreviewprocess': `
+
+# Review Process
+
+🕒 **Estimated Time:** 0 mins (Waiting)
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Not applicable.
+
+### Personal Project
+Google's automated review usually takes 24 hours. If it gets flagged for manual review, it can take 3-5 days.
+
+### Production SaaS
+If your extension requires broad permissions (\`tabs\`, \`*://*/*\`, \`cookies\`), or if it executes remote code, it WILL go through manual review. This can take up to 2 weeks. Plan your marketing launches accordingly. If rejected, Google's emails are notoriously vague. You must guess which policy you violated and resubmit.
+
+---
+
+## AI Rejection Debugging
+
+\`\`\`prompt
+My Chrome extension was rejected for violating the "Use of Permissions" policy. I requested the 'tabs' and 'activeTab' permissions. I only use the URL of the current tab when the user clicks the popup. 
+How do I fix this manifest to comply with the policy and successfully pass the review?
+\`\`\`
+`,
+  'extlaunchchecklist': `
+
+# Launch Checklist
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Deploy to a free Vercel link and test the demo script.
+
+### Personal Project
+Share it on Reddit (r/chrome_extensions) and Twitter.
+
+### Production SaaS
+Prepare your Product Hunt launch, your Hacker News post, and your email blast. Ensure your backend infrastructure can handle a sudden spike of 1,000+ simultaneous users installing and authenticating the extension. Ensure your Sentry error tracking is live so you can catch day-1 bugs instantly.
+
+---
+
+## The Final Countdown
+- [ ] Extension is LIVE on the store
+- [ ] Product Hunt graphics prepared
+- [ ] Support email inbox configured
+- [ ] Backend scaled for launch
+`,
+  'extuserfeedback': `
+
+# User Feedback
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ask the judges what they think.
+
+### Personal Project
+Add a mailto: link in the popup or options page so users can easily email you bugs.
+
+### Production SaaS
+Embed a feedback mechanism directly into the extension UI (e.g., using Canny or a simple Typeform). Do not annoy the user with popups begging for reviews, but do ask for a review if the user has successfully completed the core workflow 5 times.
+
+---
+
+## AI Feedback Loop
+
+\`\`\`prompt
+What is the best, least intrusive way to ask for a Chrome Web Store review inside my extension's React UI? Provide the logic to ensure we only ask users who have actually found value (e.g., used it 3 times), and never ask them again if they dismiss it.
+\`\`\`
+`,
+  'extscalingstrategy': `
+
+# Scaling Strategy
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't scale.
+
+### Personal Project
+If your extension goes viral, your free backend tiers will break. Have a plan to switch to a paid tier or implement rate limiting quickly.
+
+### Production SaaS
+Scaling an extension means scaling your backend. Since extensions can be installed by 100,000 users, and all of them might click the extension exactly at 9:00 AM when they start work, your API must handle massive simultaneous spikes. Cache aggressively at the edge using Cloudflare.
+
+---
+
+## Checklist
+- [ ] Database connection pooling configured
+- [ ] Edge caching implemented for static responses
+`,
+  'extstorereviews': `
+
+# Store Reviews
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip.
+
+### Personal Project
+Reply to every review. If someone leaves a 1-star review because of a bug, fix the bug, reply to them saying it's fixed, and they will often change it to a 5-star review.
+
+### Production SaaS
+Store reviews define your conversion rate. A 3-star average means death. Track your reviews actively. If a Chrome update breaks your extension and you get review-bombed, push a fix immediately and beg the users in the replies to update their rating.
+
+---
+
+## AI Review Responder
+
+\`\`\`prompt
+A user left a 1-star review on my Chrome Extension saying: "It worked yesterday but today it just shows a blank white square." 
+Draft a professional, empathetic response explaining that a recent Chrome update broke our CSS, but a fix is already pending review in the store.
+\`\`\`
+`,
+  'extfeaturerequests': `
+
+# Feature Requests
+
+🕒 **Estimated Time:** 20 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Write them on a napkin.
+
+### Personal Project
+Use GitHub Issues to track what you want to build next.
+
+### Production SaaS
+Use a public roadmap (Canny, Linear, or Trello). Let users vote on features. This keeps them engaged and prevents them from uninstalling while they wait for their requested feature to be built.
+
+---
+
+## Feature Pipeline
+- [ ] Public roadmap created
+- [ ] Voting system established
+`,
+  'extseo': `
+
+# SEO & Discoverability
+
+🕒 **Estimated Time:** 45 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Publish a blog post or a YouTube video showing how you built the extension. The video title will rank on Google, driving traffic to your extension.
+
+### Production SaaS
+The Chrome Web Store SEO is highly dependent on keywords in your Title, Summary, and Description. Off-store SEO is even more important. Build a landing page for your extension on your own domain. If you build "Grammarly", rank your landing page for "Best grammar checker", and link from there to the Chrome store.
+
+---
+
+## AI Landing Page SEO
+
+\`\`\`prompt
+I am building a landing page for my Chrome Extension. It does [INSERT IDEA].
+Suggest 5 high-intent long-tail keywords I should target on my landing page to drive organic traffic to my Chrome Web Store listing.
+\`\`\`
+`,
+  'extmonetizationexpansion': `
+
+# Monetization Expansion
+
+🕒 **Estimated Time:** 30 mins
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Add an affiliate link in your popup if applicable to your niche.
+
+### Production SaaS
+Once you have 10,000 DAUs, look into B2B team licensing. Build a dashboard where a manager can pay $50/month for 10 seats, and the extension authenticates the users based on their corporate email domain. B2B SaaS is where the real money is for extensions.
+
+---
+
+## AI Pricing Expansion
+
+\`\`\`prompt
+My Chrome extension currently charges $5/month for individuals. I want to add a B2B Team Tier. 
+What features do enterprise teams expect from a browser extension (e.g., centralized billing, admin dashboard, SSO)? Outline a plan to implement B2B billing.
+\`\`\`
+`,
 };

@@ -240,7 +240,7 @@ export const DocumentEditor = ({
               <ReactMarkdown 
                 remarkPlugins={[remarkGfm]}
                 components={{
-                  a: ({ node, ...props }) => {
+                  a: ({ node: _node, ...props }) => {
                     if (props.href?.startsWith('#')) {
                       return (
                         <a 
@@ -271,7 +271,7 @@ export const DocumentEditor = ({
                     }
                     return <li className={className} {...props}>{children}</li>;
                   },
-                  input: ({ node, checked, disabled, ...props }) => {
+                  input: ({ node: _node, checked, disabled, ...props }) => {
                     if (props.type === 'checkbox') {
                       return (
                         <input
@@ -300,6 +300,7 @@ export const DocumentEditor = ({
                     }
                     return <input disabled={disabled} {...props} />;
                   },
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   code: ({ node, inline, className, children, ...props }: any) => {
                     const match = /language-(\w+)/.exec(className || '');
                     

@@ -1,9 +1,10 @@
 import type { Mode } from '../../components/TopNav';
+import type React from 'react';
 
 export interface QuickLink {
   name: string;
   url: string;
-  icon?: any;
+  icon?: React.ElementType;
 }
 
 export interface CustomLink extends QuickLink {
@@ -17,7 +18,7 @@ export interface CustomLink extends QuickLink {
 export interface Topic {
   id: string;
   name: string;
-  icon: any;
+  icon: React.ElementType;
   modes: Mode[];
   quickLinks: QuickLink[];
 }
@@ -1046,7 +1047,7 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
 
 };
 
-export const createTopic = (name: string, icon: any, customLinks: QuickLink[] = [], overrideId?: string): Topic => {
+export const createTopic = (name: string, icon: React.ElementType, customLinks: QuickLink[] = [], overrideId?: string): Topic => {
   const id = overrideId || generateId(name);
   return {
     id,

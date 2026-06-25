@@ -43,7 +43,9 @@ export const generateStream = async ({
   if (savedKeys) {
     try {
       apiKeys = JSON.parse(savedKeys);
-    } catch (e) {}
+    } catch {
+      // ignore
+    }
   }
 
   const fallbackKeys: Record<string, string | undefined> = {
@@ -83,8 +85,8 @@ export const generateStream = async ({
       await generateGemini(apiKey, model, systemPrompt, userPrompt, onChunk);
     }
     onComplete();
-  } catch (error: any) {
-    onError(error.message || 'An unknown error occurred during generation.');
+  } catch (error: unknown) {
+    onError(error instanceof Error ? error.message : 'An unknown error occurred during generation.');
   }
 };
 
@@ -163,7 +165,9 @@ const generateOpenAIFormat = async (
           if (content) {
             onChunk(content);
           }
-        } catch (e) {}
+        } catch {
+          // ignore
+        }
       }
     }
   }
@@ -226,7 +230,9 @@ const generateGemini = async (
           if (text) {
             onChunk(text);
           }
-        } catch (e) {}
+        } catch {
+          // ignore
+        }
       }
     }
   }

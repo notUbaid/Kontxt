@@ -255,7 +255,7 @@ export const CustomizeTopicsModal = ({ isOpen, onClose, activeProject, onProject
         const defaultTopics = getTaxonomy(activeProject.type || 'SaaS', 'Production')
           .flatMap(c => c.topics.map(t => t.id));
         
-        let initialSet = new Set(defaultTopics);
+        const initialSet = new Set(defaultTopics);
         
         if (activeProject.type === 'SaaS') {
           const detected = detectSaasModules(activeProject.name);
