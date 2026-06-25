@@ -211,7 +211,81 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'UX Design: Skeleton Screens', url: 'https://uxdesign.cc/what-you-should-know-about-skeleton-screens-a820c45a571a' },
     { name: 'LottieFiles (Loading Animations)', url: 'https://lottiefiles.com/' }
   ],
-
+  // Mobile App Phase 2
+  'mobileplatformstrategy': [
+    { name: 'React Native Docs', url: 'https://reactnative.dev/' },
+    { name: 'Flutter vs React Native', url: 'https://www.freecodecamp.org/news/flutter-vs-react-native/' },
+    { name: 'Expo Documentation', url: 'https://docs.expo.dev/' }
+  ],
+  'mobilefundamentals': [
+    { name: 'Mobile App Architecture', url: 'https://www.altexsoft.com/blog/mobile-app-architecture/' },
+    { name: 'iOS App Architecture', url: 'https://developer.apple.com/documentation/uikit/app_and_environment/' },
+    { name: 'Android Architecture', url: 'https://developer.android.com/topic/architecture' }
+  ],
+  'mobiletechstackselection': [
+    { name: 'Mobile Tech Stacks', url: 'https://www.mindk.com/blog/mobile-app-tech-stack/' },
+    { name: 'Choosing a Tech Stack', url: 'https://www.netguru.com/blog/how-to-choose-tech-stack-for-mobile-app' }
+  ],
+  'mobilestatemanagement': [
+    { name: 'Zustand Docs', url: 'https://docs.pmnd.rs/zustand/getting-started/introduction' },
+    { name: 'Redux Toolkit', url: 'https://redux-toolkit.js.org/' },
+    { name: 'Jotai', url: 'https://jotai.org/' }
+  ],
+  'mobileapistrategy': [
+    { name: 'REST vs GraphQL', url: 'https://www.apollographql.com/blog/graphql/basics/graphql-vs-rest/' },
+    { name: 'React Query (TanStack)', url: 'https://tanstack.com/query/latest' },
+    { name: 'tRPC for React Native', url: 'https://trpc.io/docs/client/react/setup' }
+  ],
+  'mobilelocalstorage': [
+    { name: 'Expo SecureStore', url: 'https://docs.expo.dev/versions/latest/sdk/securestore/' },
+    { name: 'MMKV for React Native', url: 'https://github.com/mrousavy/react-native-mmkv' },
+    { name: 'AsyncStorage', url: 'https://react-native-async-storage.github.io/async-storage/' }
+  ],
+  'mobileauthentication': [
+    { name: 'Supabase Auth', url: 'https://supabase.com/docs/guides/auth' },
+    { name: 'Clerk React Native', url: 'https://clerk.com/docs/quickstarts/react-native' },
+    { name: 'Firebase Auth', url: 'https://firebase.google.com/docs/auth' }
+  ],
+  'mobiledatabase': [
+    { name: 'Supabase Database', url: 'https://supabase.com/docs/guides/database' },
+    { name: 'WatermelonDB', url: 'https://nozbe.github.io/WatermelonDB/' },
+    { name: 'PowerSync', url: 'https://docs.powersync.com/' }
+  ],
+  'mobilebackend': [
+    { name: 'Supabase Edge Functions', url: 'https://supabase.com/docs/guides/functions' },
+    { name: 'Vercel Serverless', url: 'https://vercel.com/docs/functions' },
+    { name: 'AWS Amplify Mobile', url: 'https://aws.amazon.com/amplify/mobile/' }
+  ],
+  'mobilepushnotifications': [
+    { name: 'Expo Push Notifications', url: 'https://docs.expo.dev/push-notifications/overview/' },
+    { name: 'OneSignal', url: 'https://onesignal.com/' },
+    { name: 'Firebase Cloud Messaging', url: 'https://firebase.google.com/docs/cloud-messaging' }
+  ],
+  'mobiledeeplinking': [
+    { name: 'Expo Deep Linking', url: 'https://docs.expo.dev/guides/deep-linking/' },
+    { name: 'React Navigation Deep Linking', url: 'https://reactnavigation.org/docs/deep-linking/' },
+    { name: 'Branch.io', url: 'https://www.branch.io/' }
+  ],
+  'mobilefilestorage': [
+    { name: 'Supabase Storage', url: 'https://supabase.com/docs/guides/storage' },
+    { name: 'AWS S3 Mobile SDK', url: 'https://aws.amazon.com/s3/' },
+    { name: 'Cloudinary', url: 'https://cloudinary.com/' }
+  ],
+  'mobileofflinestrategy': [
+    { name: 'Offline First Apps', url: 'https://rxdb.info/offline-first.html' },
+    { name: 'React Query Offline', url: 'https://tanstack.com/query/v4/docs/framework/react/guides/network-status' },
+    { name: 'WatermelonDB Offline', url: 'https://nozbe.github.io/WatermelonDB/Advanced/Sync.html' }
+  ],
+  'mobileanalyticsstrategy': [
+    { name: 'PostHog React Native', url: 'https://posthog.com/docs/libraries/react-native' },
+    { name: 'Amplitude Mobile', url: 'https://amplitude.com/mobile-analytics' },
+    { name: 'Mixpanel React Native', url: 'https://mixpanel.com/' }
+  ],
+  'mobilecostestimation': [
+    { name: 'AWS Pricing Calculator', url: 'https://calculator.aws/#/' },
+    { name: 'Supabase Pricing', url: 'https://supabase.com/pricing' },
+    { name: 'Vercel Pricing', url: 'https://vercel.com/pricing' }
+  ],
 
   // Mobile specific links
   'crashreporting': [

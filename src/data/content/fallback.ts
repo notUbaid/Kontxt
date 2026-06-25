@@ -6112,891 +6112,595 @@ Please provide a loading state strategy that minimizes perceived latency.
 `,
   'mobileplatformstrategy': `# Platform Strategy
 
-**🕒 Estimated Time:** 15 min
+**Estimated Time:** 20 minutes
 
 ---
 
-## Overview
-Before you choose a coding language, you must decide *where* your app will live. Building for iOS vs Android vs Web involves entirely different ecosystems, review processes, and revenue splits. A bad platform strategy means you spend 6 months building an app only to realize Apple won't approve it, or your target audience doesn't use iPhones.
+## Why this matters
+Choosing your mobile platform strategy is the most consequential technical decision you will make for your application. It dictates your hiring strategy, development speed, and ultimately, the boundaries of what your application can technically achieve. If you choose poorly, you may find yourself maintaining two completely separate codebases for iOS and Android, crippling your iteration speed. If you choose well, you can build once and deploy everywhere while maintaining a premium, native feel.
 
----
+## The Core Approaches
+There are three fundamental ways to build a mobile application today:
 
-## Think First
-Where are your users?
+1. **Native (Swift/Kotlin):** Building directly for the operating system. Maximum performance, full API access, but requires two separate development teams.
+2. **Cross-Platform (React Native/Flutter):** Writing code in one language (JavaScript/Dart) that compiles to native UI components. It offers 95% of the performance of native development with half the engineering cost.
+3. **Progressive Web App (PWA):** A responsive website wrapped in a mobile shell. Extremely cheap to build, but often feels clunky and lacks native integrations.
 
-**The Target OS** (Is your target demographic primarily using high-end iPhones in the US, or budget Android devices globally?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+## Strategic Guidance
 
-**The Web Fallback** (Does this app *have* to be downloaded from an App Store to provide value, or would a mobile-friendly website work just as well?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Hackathon Mode
+In a hackathon, your only goal is a functional prototype. You should absolutely choose a cross-platform framework, specifically the one you are most familiar with. React Native with Expo is the golden standard here, allowing you to deploy to your physical device via a QR code in seconds. Do not waste time writing Swift or Kotlin unless the core value proposition of your hackathon project relies on a deeply native API (like ARKit or low-level Bluetooth).
 
----
+### Personal Project
+For personal learning and zero-cost maintenance, cross-platform is still the ideal choice. It allows you to learn a versatile technology (like React) that translates well to web development. If you are specifically building the project to learn iOS or Android native development for career purposes, then choosing Swift or Kotlin is justified. Otherwise, default to Expo and React Native to maximize your output.
 
-## Key Decisions
-- **iOS First vs Cross-Platform:** Historically, startups built for iOS first because iPhone users spend significantly more money. Today, cross-platform tools (like React Native) allow you to deploy to both iOS and Android from a single codebase, making "iOS First" largely obsolete for most apps.
-- **The App Store Review:** Apple's review process is notoriously strict. If your app relies on highly controversial content, real-money gambling, or scraping third-party APIs without permission, Apple will reject it. You might need to pivot to a Progressive Web App (PWA).
+### Production SaaS
+When building a revenue-generating business, engineering velocity is your competitive advantage. The vast majority of modern startups default to React Native. It allows you to share business logic between your web application and mobile application, and a single developer can push features to both iOS and Android simultaneously. Only pivot to pure Native development if your application is highly graphics-intensive (like a high-fidelity game) or relies on real-time, low-level hardware processing (like advanced video editing).
 
----
+### Custom Mode
+At massive enterprise scale, platform strategy becomes a debate about organizational structure. Giant tech companies often use native development because they have the capital to hire dedicated iOS and Android teams, and they need to squeeze out every millisecond of performance. However, even enterprises like Shopify and Coinbase have fully migrated to React Native. You must evaluate if your organization's hiring pipeline can support finding niche Swift developers versus tapping into the massive global pool of JavaScript and React developers.
 
-## Common Mistakes
-- **Building Native Swift/Kotlin for an MVP:** Hiring two separate teams (one for iOS Swift, one for Android Kotlin) to build a basic MVP. This doubles your cost and doubles your time to market.
-- **Ignoring the Web:** Refusing to build a landing page because "it's a mobile app." You still need a web presence for marketing and SEO.
-
----
-
-## AI Prompt
-Use AI to sanity-check your platform assumptions.
+## AI Brainstorming Phase
+Use this prompt to help evaluate the best platform approach based on your specific feature requirements.
 
 \`\`\`prompt
-Act as a Mobile Platform Strategist.
-Review my app concept: [Insert App Concept]
-
-1. Based on my concept, are there any obvious App Store Guidelines (Apple or Google) that might get my app rejected?
-2. What is the demographic split of iOS vs Android users for my specific target audience?
-3. Would a Progressive Web App (PWA) be a smarter MVP than a native App Store app for this concept?
+Act as a Senior Mobile Architect. My application features include [List your most complex features, e.g., real-time location tracking, heavy 3D rendering, basic CRUD operations]. Based on these requirements, recommend whether I should use Native, React Native, or Flutter. Highlight any technical limitations I might hit with your recommendation.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your Platform Strategy (e.g., Cross-platform React Native, iOS only) here.
-
+## The Final Decision
+**What platform strategy are you choosing, and why?**
 \`\`\`input
-✍️ Type your answer here...
-\`\`\``,
-  'mobilefundamentals': `# Mobile Fundamentals
-
-**🕒 Estimated Time:** 20 min
-
----
-
-## Overview
-If you are coming from Web Development (React, HTML, CSS), mobile development will shock you. Mobile apps do not have URLs you can just refresh. They run in sandboxed environments, they have to be compiled into binary files (.ipa or .apk), and they are subject to the OS killing them if they use too much RAM. You must understand these fundamental constraints.
-
----
-
-## Think First
-Adjust your mental model:
-
-**The Update Cycle** (On the web, you push code and users see it instantly. On mobile, you submit an update, wait 24 hours for Apple to approve it, and then hope the user actually downloads the update. How does this change how you handle bugs?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **App Lifecycle:** You must handle what happens when your app goes into the "Background" (the user minimizes it) and comes back to the "Foreground." If you were playing audio or maintaining an active socket connection, the OS will likely kill it.
-- **Permissions:** Unlike the web where you can just ask for location in the browser, mobile requires explicit, legally binding permission prompts for Camera, Location, Push Notifications, and Photo Library access. If the user hits "Deny", you must handle that gracefully.
-
----
-
-## Common Mistakes
-- **Assuming Instant Updates:** Pushing a breaking API change to your backend, forgetting that 40% of your users are still running a 3-month-old version of your mobile app. Their apps will instantly crash.
-- **Memory Leaks:** Rendering 10,000 images in a list without recycling components. On a desktop browser, it might just stutter. On a mobile phone, the OS will terminate your app for using too much memory.
-
----
-
-## AI Prompt
-Use AI to learn how to defend against mobile constraints.
-
-\`\`\`prompt
-Act as a Senior Mobile Systems Architect.
-I am coming from a Web Development background.
-
-1. Explain the "App Lifecycle" (Foreground, Background, Inactive, Terminated) and how it affects background tasks like downloading a large file.
-2. How do I force users to update my app if I deploy a critical security fix?
-3. What is "Over-the-Air" (OTA) updating in React Native, and how does it bypass the App Store review process?
-\`\`\`
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your notes on App Lifecycle and OTA updating here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\``,
-  'mobiletechstackselection': `# Tech Stack Selection
-
-**🕒 Estimated Time:** 20 min
-
----
-
-## Overview
-Your Tech Stack is the foundation of your app. For modern mobile MVPs, there are really only three viable options: React Native (via Expo), Flutter, or Swift/Kotlin (Native). Making the wrong choice here means entirely rewriting your app in 6 months. For 95% of builders, React Native with Expo is the undisputed winner because it allows web developers to build iOS and Android apps using JavaScript/TypeScript.
-
----
-
-## Think First
-What are your team's skills?
-
-**Your Current Knowledge** (Do you already know React/JavaScript? Do you know Dart? Do you know Swift?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Hardware Limit** (Does your app require extremely low-level hardware access, like custom Bluetooth drivers or ARKit?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Expo vs Bare React Native:** You should almost certainly use **Expo**. Historically, Expo was limiting because it didn't support custom native code. Today, with Expo Prebuild (Continuous Native Generation), Expo supports literally everything Bare React Native does, but handles all the painful Xcode/Android Studio configuration for you.
-- **Flutter vs React Native:** Flutter (by Google) uses Dart and has incredible UI performance. React Native (by Meta) uses JavaScript and has the largest ecosystem of third-party libraries in the world. Choose React Native unless you specifically want to learn Dart.
-
----
-
-## Common Mistakes
-- **Ejecting from Expo:** Hitting a minor native module issue and instantly "ejecting" from Expo to Bare React Native. Once you eject, you are responsible for maintaining complex iOS/Android build configurations forever. Use Expo Development Builds instead.
-- **Choosing Native for a CRUD App:** Building a simple "To-Do List" app using Swift and Kotlin natively. You are wasting massive amounts of time for zero performance gain.
-
----
-
-## AI Prompt
-Use AI to finalize your stack and justify the decision.
-
-\`\`\`prompt
-Act as a Mobile Tech Lead.
-Review my app concept.
-
-1. Confirm if React Native with Expo is sufficient for my app's specific hardware requirements. Are there any known limitations?
-2. What are the specific trade-offs if I chose Flutter instead of React Native for this project?
-3. If I use React Native, should I use TypeScript or stick to plain JavaScript for an MVP? Why?
-\`\`\`
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your finalized Tech Stack (e.g., React Native + Expo + TypeScript) here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\``,
-  'mobilestatemanagement': `# State Management
-
-**🕒 Estimated Time:** 20 min
-
----
-
-## Overview
-State Management is how your app remembers things. When a user logs in on the Profile tab, the Home tab needs to instantly "know" they are logged in and show their username. If your state management is messy, your app will suffer from infinite re-renders, sluggish UI, and phantom bugs where the screen doesn't update when data changes.
-
----
-
-## Think First
-Analyze the data flow:
-
-**Global vs Local** (What data needs to be accessed globally by every screen? e.g., The User Object, The Shopping Cart. What data only matters to one screen? e.g., The text typed in a search bar).
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **The Server State:** Data fetched from your backend (e.g., a list of posts) should NOT be stored in a global Redux store. It should be managed by a data-fetching library like **React Query** or **SWR**, which handles caching, loading states, and automatic refetching for you.
-- **The Client State:** For lightweight global state (e.g., is dark mode on? is the user logged in?), use a modern, boilerplate-free library like **Zustand**. Avoid Redux unless you are building a massive enterprise application.
-- **Local State:** Use standard \`useState\` and \`useReducer\` for things that don't need to leave the current component.
-
----
-
-## Common Mistakes
-- **The React Context Trap:** Using React Context for everything. React Context forces every component that consumes it to re-render whenever *anything* in the context changes. This destroys mobile performance.
-- **Prop Drilling:** Passing a user ID down through 6 layers of nested components instead of just pulling it from global state when needed.
-
----
-
-## AI Prompt
-Use AI to select your specific state libraries.
-
-\`\`\`prompt
-Act as a Senior React Native Architect.
-I need to choose a state management stack.
-
-1. Compare Zustand vs Redux Toolkit for managing "Client State" in a mobile MVP. Which do you recommend and why?
-2. Explain why "Server State" (like fetching data from an API) should be separated from Client State, and recommend a library for handling Server State.
-3. Write a small code example showing how I would structure a Zustand store to hold the user's authentication status.
-\`\`\`
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your chosen State Management stack (e.g., Zustand + React Query) here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\``,
-  'mobileapistrategy': `# API Strategy
-
-**🕒 Estimated Time:** 15 min
-
----
-
-## Overview
-Your mobile app is essentially a highly interactive display for your API. How your app talks to your backend dictates its perceived speed and reliability. Mobile networks drop constantly, so your API strategy must account for retries, caching, and minimizing payload sizes to save the user's cellular data.
-
----
-
-## Think First
-How chatty is your app?
-
-**The Data Volume** (Are you fetching a 5KB JSON object with a user's name, or a 50MB array of high-res images?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Real-time vs Static** (Does a messaging screen need to update instantly via WebSockets, or is it okay if the user pulls-to-refresh to see new data?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **REST vs GraphQL:** REST is the industry standard and easier to cache. GraphQL is incredibly powerful for mobile because it prevents "over-fetching"—you ask the server for exactly the fields you need, saving precious mobile bandwidth.
-- **Backend-as-a-Service (BaaS):** If you use Supabase or Firebase, you don't even need to build a traditional API. You can query the database directly from your React Native code using their SDKs, which handle WebSockets and real-time updates automatically.
-
----
-
-## Common Mistakes
-- **Waterfall Requests:** Fetching the User Object, waiting for it to finish, then using the User ID to fetch their Posts, waiting for it to finish, then fetching the Post Comments. The screen will be loading for 5 seconds. Use \`Promise.all\` to fetch parallel requests simultaneously.
-- **Ignoring Pagination:** Fetching all 10,000 items in a database table at once instead of fetching the first 20 and using an "Infinite Scroll" list.
-
----
-
-## AI Prompt
-Use AI to design an efficient data fetching architecture.
-
-\`\`\`prompt
-Act as a Backend-to-Mobile Integration Expert.
-Review my app concept.
-
-1. For my MVP, should I build a traditional REST API, use GraphQL, or use a BaaS SDK like Supabase/Firebase? Explain the specific bandwidth and speed advantages for mobile.
-2. How do I implement "Infinite Scrolling" (pagination) for my main feed to avoid crashing the app with massive payloads?
-3. Give me an example of how to use React Query to cache my API responses so the app feels instant on the second open.
-\`\`\`
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your API and Data Fetching Strategy here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\``,
-  'mobilelocalstorage': `# Local Storage
-
-**🕒 Estimated Time:** 15 min
-
----
-
-## Overview
-Unlike a web browser that relies entirely on the cloud, a mobile phone has gigabytes of highly secure, blazing-fast local storage. You must use local storage to save user preferences, authentication tokens, and cached data so the app can boot up instantly even when the phone is in airplane mode.
-
----
-
-## Think First
-What needs to survive an app restart?
-
-**Security Requirements** (Are you saving a simple "Dark Mode = True" preference, or a highly sensitive JWT Authentication token?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **AsyncStorage vs SecureStore:**
-  - For non-sensitive data (like theme preferences or cached JSON), use \`AsyncStorage\` (or faster alternatives like \`MMKV\`).
-  - For sensitive data (like passwords, auth tokens, or API keys), you MUST use \`expo-secure-store\`, which encrypts the data using the device's native Keychain (iOS) or Keystore (Android).
-- **High-Performance Storage:** If you are building a data-heavy app that needs to search through thousands of records offline, AsyncStorage is too slow. You will need a local SQLite database or a high-performance key-value store like MMKV.
-
----
-
-## Common Mistakes
-- **Storing Auth Tokens in AsyncStorage:** This is a massive security vulnerability. If the phone is compromised, hackers can extract the raw text token. Always use SecureStore for auth.
-- **Hitting Storage on Every Render:** Local storage is fast, but it is still asynchronous. If you read from AsyncStorage inside a React component's render cycle without caching it in memory (state), your app will stutter violently.
-
----
-
-## AI Prompt
-Use AI to select the right storage mechanisms for your specific data.
-
-\`\`\`prompt
-Act as a React Native Security and Performance Expert.
-
-1. I need to store the following items locally: A user's JWT auth token, their theme preference (dark/light), and a cached list of their 50 most recent messages.
-2. Recommend the exact React Native/Expo libraries I should use for each of those 3 items (e.g., SecureStore, MMKV, SQLite).
-3. Write a code snippet showing the correct way to read from SecureStore when the app boots up, without blocking the UI.
-\`\`\`
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your chosen Local Storage libraries and strategy here.
-
-\`\`\`input
-✍️ Type your answer here...
+Write Here...
 \`\`\`
 `,
-  'mobileauthentication': `# Authentication
+  'mobilefundamentals': `# Mobile Fundamentals
 
-**🕒 Estimated Time:** 20 min
-
----
-
-## Overview
-Authentication on mobile is uniquely frustrating. Users hate typing passwords on tiny keyboards. Furthermore, Apple has a strict rule: If your app offers third-party logins (like Google or Facebook), you MUST also offer "Sign in with Apple." If you don't, Apple will reject your app during the review process.
+**Estimated Time:** 15 minutes
 
 ---
 
-## Think First
-Reduce friction at the front door:
+## Why this matters
+Building for mobile is fundamentally different from building for the web. Web developers often assume constant connectivity, limitless memory, and a persistent execution state. Mobile devices are inherently constrained. Users walk into subways, batteries die, the operating system aggressively kills background applications, and network latency fluctuates wildly. Understanding these fundamentals separates a brittle, frustrating app from a robust, premium experience.
 
-**The Login Methods** (Will you support Email/Password, Magic Links, Google, Apple, or Phone Number/SMS?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+## The Unique Constraints of Mobile
+To build successful mobile architecture, you must design defensively against these core constraints:
+
+1. **The Application Lifecycle:** Your app is never truly "always on." The operating system can background it, suspend it, or outright terminate it without warning to free up memory. You must elegantly save state and resume exactly where the user left off.
+2. **Intermittent Connectivity:** Mobile apps are used on elevators, airplanes, and rural roads. A blank white screen during a network drop is unacceptable. You must design offline-first caching strategies.
+3. **Hardware Limitations:** Memory leaks that cause a slight slowdown on a desktop browser will cause a hard crash on a five-year-old smartphone.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ignore almost all mobile constraints. Assume the user has a perfect 5G connection and the latest flagship phone. Do not waste time implementing offline caching or complex state restoration. If the app is closed, it is perfectly fine for it to restart from scratch. Focus entirely on the "happy path" and making the core feature visually impressive for the judges.
+
+### Personal Project
+This is an excellent opportunity to learn one specific mobile fundamental deeply. Choose one constraint to solve properly—for example, implement robust offline caching for your main data feed, or focus heavily on memory profiling. Do not try to solve every edge case, as it will dramatically inflate the scope of your personal project. 
+
+### Production SaaS
+Your users will aggressively uninstall your application if it loses their data when they switch to answer a text message. You must implement rock-solid lifecycle handling. When the app goes into the background, unsaved forms must be persisted to local storage. You must gracefully handle API timeouts and provide cached data fallbacks when the network is unreachable. Error tracking tools like Sentry are mandatory to catch memory-related crashes in the wild.
+
+### Custom Mode
+At the enterprise tier, mobile fundamentals dictate architectural rigor. You must profile battery consumption, network bandwidth usage, and CPU utilization. If your application constantly wakes the radio antenna for trivial analytics pings, users will notice the battery drain. Architecture must include structured background task schedulers, sophisticated conflict resolution for offline data sync, and rigorous memory leak detection in the CI/CD pipeline.
+
+## Review and Proceed
+- [ ] I understand the core constraints of mobile development and the necessity of lifecycle management.
+`,
+  'mobiletechstackselection': `# Tech Stack Selection
+
+**Estimated Time:** 20 minutes
 
 ---
 
-## Key Decisions
-- **Social Auth (OAuth):** Adding "Sign in with Google" and "Sign in with Apple" dramatically increases your signup conversion rate because it's a one-tap process. However, configuring the OAuth certificates in Xcode and Android Studio is notoriously difficult.
-- **Authentication Provider:** Do not build your own authentication system (hashing passwords, managing sessions, sending password reset emails). Use an Auth Provider like **Supabase Auth**, **Firebase Auth**, or **Clerk**. They handle all the heavy lifting and security compliance for you.
-- **Biometrics:** You can use Expo's \`LocalAuthentication\` module to let users unlock the app using FaceID or Fingerprint instead of typing a PIN.
+## Why this matters
+Selecting your specific tech stack is about choosing your developer experience and ecosystem. If you chose "Cross-Platform" in your platform strategy, you still have to decide *which* cross-platform stack. For React Native, do you use the bare CLI or Expo? For navigation, do you use React Navigation or Expo Router? Choosing standard, widely-adopted tools means you will find immediate solutions on StackOverflow when you encounter obscure bugs.
 
----
+## The React Native Standard (Expo)
+If you are building with React Native, the industry consensus has overwhelmingly shifted toward **Expo**. In the past, Expo was seen as a prototyping tool with limitations. Today, with the introduction of Custom Dev Clients and Expo Application Services (EAS), it is a fully capable, enterprise-grade framework that removes the nightmare of managing Xcode and Android Studio directly.
 
-## Common Mistakes
-- **Forgetting "Sign in with Apple":** The #1 reason for app rejection. If you have Google login, you must have Apple login.
-- **Forcing Login Too Early:** Showing the login screen before the user has any idea what the app does. Let them see a preview or onboarding carousel first.
+## Strategic Guidance
 
----
+### Hackathon Mode
+You must use Expo Go. It allows you to bypass the App Store entirely and test your code on your physical device instantly by scanning a QR code. Use the most standard, out-of-the-box libraries provided by Expo. Avoid any library that requires custom native code linking, as configuring Xcode or Android Studio during a hackathon is a guaranteed way to waste hours of precious time.
 
-## AI Prompt
-Use AI to design a compliant, high-converting Auth flow.
+### Personal Project
+Expo is still the correct choice. It abstracts away the massive complexity of native build tools, allowing you to focus purely on JavaScript and React. It provides incredibly easy-to-use libraries for common device features like the camera, local storage, and haptic feedback. Use React Navigation or Expo Router based on whichever routing paradigm you want to learn.
 
+### Production SaaS
+Production apps should utilize Expo with Custom Development Clients. This gives you the incredible developer experience of Expo while allowing you to install any arbitrary native iOS/Android library you need (such as specialized payment SDKs or advanced video players). Expo Application Services (EAS) should be heavily utilized to automate your cloud builds and handle the complex certificate signing required for App Store and Google Play deployment.
+
+### Custom Mode
+Enterprise applications must heavily scrutinize dependencies. While Expo is excellent, massive organizations often eject to a bare React Native CLI workflow to maintain absolute, granular control over their native iOS and Android build pipelines. This allows dedicated native engineers to write custom Swift/Kotlin modules seamlessly. Security reviews must be conducted on all third-party npm packages to ensure compliance and prevent supply chain attacks.
+
+## AI Brainstorming Phase
 \`\`\`prompt
-Act as a Mobile Authentication Architect.
-I am using Expo and [Insert Auth Provider, e.g., Supabase].
-
-1. I want to offer Email/Password and Google OAuth. Explain Apple's mandatory "Sign in with Apple" rule and how it applies to me.
-2. Walk me through the high-level flow of how a JWT token is received from the Auth Provider and securely stored on the device using expo-secure-store.
-3. How do I design a React Navigation flow that automatically redirects the user to the Login screen if their token expires?
+Act as a Senior Mobile Architect. My application needs to utilize [List hardware features, e.g., Camera, Bluetooth, Push Notifications, In-App Purchases]. Based on these needs, should I use Expo Go, Expo with Custom Dev Clients, or a bare React Native project? Provide the pros and cons.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your chosen Auth Provider and Login Methods here.
-
+## The Final Decision
+**Detail your chosen technical stack (Framework, Build Tool, Navigation library).**
 \`\`\`input
-✍️ Type your answer here...
-\`\`\``,
-  'mobiledatabase': `# Database
-
-**🕒 Estimated Time:** 20 min
-
----
-
-## Overview
-Your database is the brain of your backend. Mobile apps generate massive amounts of unstructured data, relational data, and binary data (images). Selecting the right database architecture ensures your app can scale from 10 users to 100,000 without crashing or costing you a fortune.
-
----
-
-## Think First
-What is the shape of your data?
-
-**Data Relationships** (Do you have highly connected data, like Users who have Posts, and Posts that have Comments, and Comments that have Likes? This is relational data).
-\`\`\`input
-✍️ Type your answer here...
+Write Here...
 \`\`\`
+`,
+  'mobilestatemanagement': `# State Management Architecture
 
-**Offline Sync** (Do you need the database to automatically sync local offline changes to the cloud when the phone reconnects to WiFi?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **SQL (PostgreSQL) vs NoSQL (Firebase/MongoDB):**
-  - **PostgreSQL (via Supabase):** The absolute best choice for 90% of apps. It is highly structured, prevents bad data from being saved, and scales infinitely.
-  - **NoSQL (via Firebase Firestore):** Great for rapid prototyping and apps that require massive real-time syncing (like a live chat app), but NoSQL data can quickly become a disorganized mess if you aren't careful.
-- **Row Level Security (RLS):** If you use Supabase, your mobile app talks directly to the database. You MUST write strict RLS policies to ensure User A cannot delete User B's data.
+**Estimated Time:** 20 minutes
 
 ---
 
-## Common Mistakes
-- **Storing Images in the Database:** Never save a massive Base64 image string inside a database column. Save the image to a Storage Bucket (like AWS S3 or Supabase Storage), and save the *URL string* to the database.
-- **Ignoring Indexes:** Querying a table of 100,000 users by their email address without indexing the email column. The database will search every row one by one, destroying your API response times.
+## Why this matters
+In a mobile application, the user is constantly navigating between screens, opening modals, and backgrounding the app. If your state management is chaotic, you will experience UI desynchronization—where the profile screen says the user is logged out, but the home screen says they are logged in. Choosing the right state management architecture ensures data flows predictably and prevents catastrophic race conditions in your interface.
 
----
+## The Modern State Landscape
+The days of wrapping your entire application in a massive, boilerplate-heavy Redux store are mostly over. Modern state management is divided into two distinct categories:
 
-## AI Prompt
-Use AI to select the right database engine and design the schema.
+1. **Server State (Remote Data):** Data that lives in your database. This should be managed by specialized caching libraries like React Query or SWR, which handle loading states, background fetching, and caching automatically.
+2. **Client State (Local UI Data):** Ephemeral data like "is the dark mode toggle checked?" or "which tab is active?" This should be managed by lightweight, atomic libraries like Zustand or Jotai.
 
+## Strategic Guidance
+
+### Hackathon Mode
+Do not use Redux. It requires too much setup. Use React's built-in \`useState\` and \`useContext\` for everything. If prop-drilling becomes slightly annoying, that is perfectly fine for a weekend project. If you absolutely need a global store for a complex feature, use Zustand—it requires zero boilerplate and works instantly.
+
+### Personal Project
+This is the perfect environment to learn modern standards. Separate your server state from your client state. Use React Query to fetch and cache data from your API. Use Zustand to manage your local UI state. This pattern is currently the industry standard for React and React Native applications, and mastering it will significantly improve your architectural thinking.
+
+### Production SaaS
+Predictability and debugging are your primary concerns. You must use robust server-state caching (React Query) to ensure the UI feels instantaneous even on poor mobile networks. For global client state, Zustand is excellent, but you must implement strict conventions. Ensure that your state slices are modularized and that you are not storing deeply nested, complex objects that cause unnecessary re-renders across the entire application tree.
+
+### Custom Mode
+Enterprise applications often still rely on Redux Toolkit (RTK). While verbose, RTK provides an incredibly strict, unidirectional data flow that is easy to test and trace. When coordinating dozens of engineers across a massive mobile codebase, the rigid structure of Redux prevents developers from writing unpredictable, spaghetti state updates. You must also implement advanced state persistence strategies to ensure the app boots up exactly as the user left it.
+
+## AI Brainstorming Phase
 \`\`\`prompt
-Act as a Lead Database Architect.
-Review my app concept and data relationships.
-
-1. Recommend either PostgreSQL (Supabase) or NoSQL (Firebase) for my specific MVP. Explain why based on my data structure.
-2. Draft the initial Database Schema. List the 3-5 core tables (or collections) I will need, and the exact columns/fields for each.
-3. Identify the primary "Foreign Key" relationships between these tables.
+Act as a Senior Frontend Architect. I am building a mobile app that handles [Describe your data, e.g., high-frequency real-time stock prices, deeply nested e-commerce carts, simple social media feeds]. Recommend a state management architecture utilizing React Query for server state and a local state library. Explain how I should split my data between them.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your chosen Database Engine and Schema Draft here.
-
+## The Final Decision
+**What library will manage your Server State, and what library will manage your Client State?**
 \`\`\`input
-✍️ Type your answer here...
-\`\`\``,
-  'mobilebackend': `# Backend
-
-**🕒 Estimated Time:** 15 min
-
----
-
-## Overview
-The Backend is the server that runs your business logic. If your mobile app needs to process a Stripe payment, generate an AI image using OpenAI, or send an email, it CANNOT do this directly from the phone. The phone must ask the Backend to do it securely. If you put your Stripe Secret Key inside your React Native code, hackers will extract it in 5 minutes.
-
----
-
-## Think First
-What must be hidden from the user?
-
-**The Secrets** (What API keys or sensitive algorithms must be executed securely away from the user's phone?)
-\`\`\`input
-✍️ Type your answer here...
+Write Here...
 \`\`\`
+`,
+  'mobileapistrategy': `# API Strategy
 
-**Heavy Compute** (Are there tasks that take too long or require too much processing power to run on a mobile device?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **BaaS vs Custom Server:**
-  - **BaaS (Supabase/Firebase):** For MVPs, using a Backend-as-a-Service is highly recommended. They provide "Edge Functions" (Supabase) or "Cloud Functions" (Firebase)—tiny snippets of server code you can write without having to maintain a massive Node.js server.
-  - **Custom Server (Node/Express, Python):** Necessary if you have incredibly complex background jobs, websockets, or video processing that requires dedicated hardware.
+**Estimated Time:** 20 minutes
 
 ---
 
-## Common Mistakes
-- **Client-Side Secrets:** Storing an API key (like an OpenAI key) inside your React Native \`.env\` file and calling the API directly from the phone. Anyone can decompile your \`.apk\` and steal your key.
-- **Over-engineering:** Building a massive microservices architecture on AWS Kubernetes for an MVP that currently has 0 users.
+## Why this matters
+Mobile networks are hostile environments. Connections drop, bandwidth fluctuates, and latency spikes unpredictably. Your API strategy determines how your mobile application communicates with your backend under these adverse conditions. A poorly designed API strategy will result in endless loading spinners, massive data consumption, and frustrated users abandoning your app.
 
----
+## The Core Paradigms
+1. **REST:** The traditional approach. Reliable and standard, but often suffers from "over-fetching" (downloading too much data) or "under-fetching" (requiring multiple round-trip requests to load a single screen).
+2. **GraphQL:** Allows the mobile client to request exactly the data it needs and nothing more. This is incredibly powerful for mobile apps where bandwidth is constrained, but adds complexity to the backend.
+3. **tRPC:** If your backend and mobile app are both written in TypeScript, tRPC allows you to share types seamlessly. You get massive productivity boosts and end-to-end type safety without generating GraphQL schemas.
 
-## AI Prompt
-Use AI to define your server strategy.
+## Strategic Guidance
 
+### Hackathon Mode
+Use whatever you already know best, or whatever is easiest to set up. If you are using Firebase or Supabase, simply use their provided client SDKs to query the database directly from the mobile app. Do not waste time building a custom intermediate API layer unless it is strictly necessary to hide a secret API key.
+
+### Personal Project
+If you are using a modern Backend-as-a-Service (like Supabase), stick to their client SDKs. If you are building a custom backend (like a Node/Express server), a standard REST API is the best learning path. If you want to experiment with bleeding-edge developer experience, setting up a tRPC router between a Node backend and a React Native frontend is highly educational.
+
+### Production SaaS
+Bandwidth optimization and perceived performance are critical. If your application requires aggregating data from many different database tables to render the home screen, strongly consider GraphQL to minimize network round-trips. Regardless of the paradigm, you must implement aggressive API caching on the mobile client. Data should be served immediately from the local cache while a background request silently validates the data against the server.
+
+### Custom Mode
+Enterprise APIs require strict versioning. When you deploy a web app, you force all users to the new version instantly. When you deploy a mobile app, users may refuse to update the app for months. Your backend API must be able to gracefully support version 1.0 of the mobile app while simultaneously supporting version 2.5. You must also implement robust rate limiting, payload compression, and strict payload validation to ensure security and stability.
+
+## AI Brainstorming Phase
 \`\`\`prompt
-Act as a Cloud Infrastructure Architect.
-Review my app concept.
-
-1. Based on my concept, do I need to build a custom Node.js/Express server on Render/Heroku, or can I survive purely on Supabase Edge Functions?
-2. List exactly which actions in my app MUST be executed on the backend for security reasons (e.g., Payment processing).
-3. How do I securely pass an authentication token from my mobile app to the backend to verify the user's identity?
+Act as a Senior Backend Architect. I am building a mobile application. The frontend is React Native, and the backend will be [Insert Backend, e.g., Node.js, Python Django, Supabase]. Based on this stack and the need for efficient mobile data transfer, should I use REST, GraphQL, tRPC, or direct SDK calls? Provide a brief architectural justification.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your Backend Strategy (BaaS vs Custom Server) and list of required server functions here.
-
+## The Final Decision
+**What API paradigm will you use to communicate between your mobile app and backend?**
 \`\`\`input
-✍️ Type your answer here...
-\`\`\``,
-  'mobilepushnotifications': `# Push Notifications
-
-**🕒 Estimated Time:** 20 min
-
----
-
-## Overview
-Push Notifications are the most powerful tool for mobile retention. They are also incredibly complex to implement. You cannot just send a notification to a phone. You must ask Apple/Google for a unique "Device Token", save that token to your database, and then use a third-party service to ping Apple/Google's servers to actually deliver the message.
-
----
-
-## Think First
-Define your notification strategy:
-
-**The Trigger** (When exactly should a user receive a notification? e.g., When someone likes their post, or a daily reminder at 9 AM).
-\`\`\`input
-✍️ Type your answer here...
+Write Here...
 \`\`\`
+`,
+  'mobilelocalstorage': `# Local Storage Strategy
+
+**Estimated Time:** 15 minutes
 
 ---
 
-## Key Decisions
-- **The Infrastructure:** Do not attempt to build a direct connection to Apple Push Notification Service (APNs) or Firebase Cloud Messaging (FCM) yourself. Use a wrapper service like **Expo Push Notifications** (easiest for Expo apps) or **OneSignal** (best for advanced marketing campaigns). They abstract away the nightmare of Apple/Google certificates.
-- **The Permission Prompt:** If you ask for Push Notification permission the second the app opens, 80% of users will hit "Deny", and you can NEVER ask them again (they must manually go into iOS Settings to fix it). You must "Warm Up" the user by explaining *why* they need notifications before triggering the native OS prompt.
+## Why this matters
+Unlike web browsers, which have a standardized \`localStorage\` API, mobile devices offer a fragmented landscape of storage solutions ranging from unencrypted key-value stores to fully encrypted SQLite databases. If you store user session tokens in the wrong type of storage, they can be extracted by malicious actors. If you store massive JSON arrays in synchronous storage, you will freeze the UI thread and crash the app.
 
----
+## The Storage Hierarchy
+You must match your data type to the correct storage mechanism:
 
-## Common Mistakes
-- **Spamming:** Sending generic "Come back to the app!" notifications. Users will instantly revoke your notification privileges.
-- **Ignoring Badge Counts:** Failing to clear the little red number on your app icon after the user opens the app.
+1. **Secure Storage (Keychain/Keystore):** Heavily encrypted, hardware-backed storage. Use this EXCLUSIVELY for authentication tokens, API keys, and sensitive PII. It is slow and has tight size limits.
+2. **Key-Value Storage (AsyncStorage/MMKV):** Fast, unencrypted storage for simple user preferences (like "dark mode = true") or small JSON blobs. MMKV is the modern standard, offering synchronous C++ performance.
+3. **Local Database (SQLite/WatermelonDB):** Structured, relational storage for massive offline datasets (like thousands of chat messages or an entire product catalog).
 
----
+## Strategic Guidance
 
-## AI Prompt
-Use AI to design a robust notification architecture.
+### Hackathon Mode
+Do not overthink this. If you are using React Native, use \`AsyncStorage\` for everything that isn't highly sensitive. It is the easiest to implement and perfectly fine for prototyping. If you need to store a simple login token for the demo, throwing it in \`AsyncStorage\` is a perfectly acceptable shortcut to save 30 minutes of configuring native Keystore bindings.
 
+### Personal Project
+Practice proper security hygiene. Use Expo SecureStore (or React Native Keychain) for any authentication tokens. For general user preferences or small cached payloads, try implementing \`react-native-mmkv\` to experience modern, synchronous, high-performance storage. Do not implement a local SQLite database unless offline-first architecture is the primary learning objective of your project.
+
+### Production SaaS
+Security and performance are non-negotiable. All authentication artifacts must be stored in the device's secure enclave (Keychain/Keystore). For general app state and caching, \`MMKV\` is mandatory, as legacy \`AsyncStorage\` is too slow for production rendering cycles and can cause noticeable UI stuttering. If your app requires heavy offline capabilities (like a field-worker app), you must implement a robust local database like WatermelonDB to handle the complex relational queries on the client side.
+
+### Custom Mode
+Enterprise applications face extreme security audits. You must implement jailbreak/root detection, and if the device is compromised, you must immediately wipe all local storage. Even non-sensitive data in MMKV should often be encrypted using an encryption key that is securely fetched from the backend upon login. Data retention policies must be strictly enforced, automatically purging cached data after a defined TTL (Time To Live) to comply with GDPR/CCPA.
+
+## AI Brainstorming Phase
 \`\`\`prompt
-Act as a Mobile Notification Architect.
-I am using React Native with Expo.
-
-1. Walk me through the exact database schema I need to store user "Device Push Tokens". Remember that one user might have multiple devices (an iPhone and an iPad).
-2. Write a "Warm Up" screen copy that convinces the user to click "Allow" when the native OS permission prompt appears.
-3. Should I use Expo's built-in Push Notification service or integrate OneSignal? Compare the two for an MVP.
+Act as a Senior Mobile Security Engineer. My app needs to store [List data types: e.g., JWT Auth tokens, a 5000-item product catalog, user dark mode preference, temporary image caching]. Recommend the specific React Native libraries and storage mechanisms I should use for each data type.
 \`\`\`
+
+## The Final Decision
+**Detail your storage strategy (e.g., SecureStore for Auth, MMKV for preferences).**
+\`\`\`input
+Write Here...
+\`\`\`
+`,
+  'mobileauthentication': `# Authentication Strategy
+
+**Estimated Time:** 20 minutes
 
 ---
 
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+## Why this matters
+Authentication on mobile is fundamentally different from the web. Mobile users expect to log in exactly once when they download the app and never see a login screen again until they explicitly log out. They also expect seamless native integrations, such as "Sign in with Apple" (which is mandatory if you offer social logins on iOS) or biometric authentication (FaceID/TouchID).
 
-## Deliverable
-Paste your Notification Provider choice and your "Warm Up" strategy here.
+## The Core Paradigms
+1. **Session-based (Cookies):** Very common on the web, but highly problematic on mobile. Mobile operating systems often do not persist cookies reliably across background states.
+2. **Token-based (JWT):** The absolute standard for mobile. The backend issues an Access Token and a Refresh Token. The mobile app stores the Refresh Token securely and uses it to constantly fetch new Access Tokens in the background.
+3. **Backend-as-a-Service (BaaS):** Tools like Supabase, Firebase, or Clerk handle the entire nightmare of OAuth, token refreshing, and secure storage for you.
 
+## Strategic Guidance
+
+### Hackathon Mode
+Do not build your own authentication system. Use Supabase Auth or Firebase Auth. They provide out-of-the-box SDKs that handle session persistence instantly. If you want to move even faster, skip social logins entirely and just use simple Email/Password or Magic Links. Configuring Apple/Google OAuth callbacks correctly in native code will drain hours of your hackathon time.
+
+### Personal Project
+Using a BaaS like Supabase is still the best route, as it teaches you the modern standard of JWT-based authentication. If you want to challenge yourself, implement "Sign in with Google" or "Sign in with Apple" using Expo's native auth modules. This is a highly valuable skill that every mobile developer must eventually learn.
+
+### Production SaaS
+You must implement a flawless JWT Refresh Token rotation strategy. If your access token expires while the user is offline, the app must elegantly queue their actions, silently refresh the token when connectivity returns, and execute the queued actions without forcing a redirect to the login screen. Furthermore, Apple strictly mandates that if you offer *any* social login (like Google or Facebook), you **must** also offer "Sign in with Apple", or your app will be rejected during App Store review.
+
+### Custom Mode
+Enterprise authentication often requires integration with legacy identity providers (Okta, Auth0, Active Directory) via SAML or OIDC protocols. You must implement robust biometric session locks (requiring FaceID to open the app if it has been backgrounded for more than 5 minutes, like a banking app). Device fingerprinting and strict token revocation endpoints must be implemented to instantly cut off access if a device is reported stolen.
+
+## AI Brainstorming Phase
+\`\`\`prompt
+Act as a Senior Security Architect. I am building a mobile app that uses [Insert Backend, e.g., Supabase, Custom Node.js]. I need to support [Email/Password, Google OAuth, Apple OAuth]. Provide a step-by-step architecture for securely managing the session lifecycle, including token storage and refresh logic.
+\`\`\`
+
+## The Final Decision
+**What Authentication provider and strategy are you using?**
 \`\`\`input
-✍️ Type your answer here...
-\`\`\``,
+Write Here...
+\`\`\`
+`,
+  'mobiledatabase': `# Database Architecture
+
+**Estimated Time:** 20 minutes
+
+---
+
+## Why this matters
+Your mobile app's database architecture defines the boundary between the client and the server. In a traditional web app, the database lives strictly on the server. In a modern mobile app, the line is blurred. Users expect immediate UI updates regardless of network speed, which often requires maintaining a robust "local replica" of your remote database directly on the device.
+
+## The Architectural Patterns
+1. **Thin Client (Server-Heavy):** The mobile app holds no state. Every action triggers an API call to the remote database. Easy to build, but suffers from loading spinners and zero offline capability.
+2. **Thick Client (Offline-First):** The mobile app uses a powerful local database (like SQLite or WatermelonDB). Changes are written locally immediately, and a background sync engine handles pushing updates to the remote Postgres/Mongo database.
+3. **Real-time Sync (BaaS):** Tools like Supabase or Firebase abstract this entirely, opening a persistent WebSocket connection that instantly streams database changes to the mobile client.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Go with a Thin Client or rely entirely on a BaaS like Supabase or Firebase. Let the BaaS handle the real-time syncing via their SDK. Do not attempt to build a custom offline-first synchronization engine in a weekend. Your database schema should be flat, simple, and optimized for whatever looks best in the demo.
+
+### Personal Project
+Using Supabase (PostgreSQL) is the ideal learning path. It gives you the power of a relational database with the ease of a BaaS. Practice writing secure Row Level Security (RLS) policies, as this is the industry standard for direct client-to-database architectures. If you want a specific challenge, try implementing WatermelonDB to learn how local SQLite databases function.
+
+### Production SaaS
+Production apps usually require a hybrid approach. For critical, rapidly changing data (like a user's bank balance), use a Thin Client approach with aggressive API caching. For large datasets that the user expects to browse smoothly (like a massive list of tasks or contacts), implement an offline-first Thick Client using WatermelonDB. This ensures the app feels instantaneous and 120Hz smooth, while background web workers handle the complex conflict resolution with the remote Postgres database.
+
+### Custom Mode
+At enterprise scale, database architecture is dominated by data sovereignty, multi-region replication, and compliance (HIPAA/SOC2). You cannot simply open a direct connection from a mobile client to a database. All database access must be brokered through a highly secure, audited API gateway. Local mobile databases must utilize hardware-level encryption (e.g., SQLCipher) to ensure that if the device is physically compromised, the cached database file remains impenetrable.
+
+## AI Brainstorming Phase
+\`\`\`prompt
+Act as a Senior Database Administrator. I am building a mobile application where users will [Describe core actions: e.g., read heavy feeds, write complex forms offline, real-time chat]. Recommend the optimal architecture between the local mobile state and the remote database. Include recommendations for specific technologies.
+\`\`\`
+
+## The Final Decision
+**Detail your Database architecture (e.g., Supabase Postgres with React Query caching).**
+\`\`\`input
+Write Here...
+\`\`\`
+`,
+  'mobilebackend': `# Backend Architecture
+
+**Estimated Time:** 20 minutes
+
+---
+
+## Why this matters
+A mobile app is essentially a highly polished shell; the backend is the engine. However, unlike a web frontend which is served fresh on every page load, a mobile frontend is compiled into a static binary. If your backend makes a breaking API change, it will instantly crash every mobile app installed on users' phones worldwide who haven't updated. Your backend architecture must be designed with extreme backward compatibility and resilience.
+
+## The Architectural Options
+1. **Backend-as-a-Service (BaaS):** Platforms like Supabase or Firebase. They automatically generate your APIs based on your database schema. Incredible speed, but requires buying into their ecosystem.
+2. **Serverless Functions:** Small, isolated pieces of backend logic hosted on platforms like Vercel or AWS Lambda. Excellent for handling specific tasks (like processing a payment or sending an email) without managing a full server.
+3. **Custom Monolith/Microservices:** A dedicated server written in Node, Python, or Go. Required for extremely complex, custom business logic, but carries a massive DevOps burden.
+
+## Strategic Guidance
+
+### Hackathon Mode
+BaaS is the only correct answer. Use Supabase. It provides your database, authentication, file storage, and automatically generates the APIs to interact with them. If you need custom logic (like hitting a third-party AI API), use Supabase Edge Functions. Building and deploying a custom Node/Express server during a hackathon is a massive waste of time that should be spent polishing the mobile UI.
+
+### Personal Project
+Supabase remains the gold standard for personal projects due to its generous free tier and PostgreSQL foundation. It allows you to focus on learning mobile development rather than fighting with AWS IAM roles or Docker containers. If your goal is explicitly to learn backend engineering, building a simple Node.js REST API hosted on Render or Fly.io is a great educational exercise.
+
+### Production SaaS
+A hybrid approach is often best. Use Supabase for the heavy lifting (Auth, Database, Storage) to maintain engineering velocity. However, critical business logic (like processing Stripe payments, heavy data aggregation, or complex push notification routing) should be isolated into Serverless Edge Functions or a small, custom microservice. This ensures that your core business rules are safely hidden on the server, not exposed in the mobile client code.
+
+### Custom Mode
+Enterprise backends are heavily decoupled. They utilize API Gateways, load balancers, and containerized microservices (Kubernetes). The most critical constraint for enterprise mobile backends is strict API versioning. The backend must indefinitely support legacy API routes to service users on 3-year-old versions of the mobile app. All endpoints must have rigorous rate limiting, DDoS protection, and extensive logging for audit compliance.
+
+## AI Brainstorming Phase
+\`\`\`prompt
+Act as a Senior Cloud Architect. My mobile app requires [List heavy backend tasks: e.g., processing video uploads, running machine learning models, syncing real-time data, processing secure payments]. Should I use a BaaS (Supabase), Serverless Functions, or a Custom Monolithic Backend? Provide a detailed justification.
+\`\`\`
+
+## The Final Decision
+**What is your chosen Backend Architecture?**
+\`\`\`input
+Write Here...
+\`\`\`
+`,
+  'mobilepushnotifications': `# Push Notification Strategy
+
+**Estimated Time:** 15 minutes
+
+---
+
+## Why this matters
+Push notifications are the lifeblood of mobile engagement. They are the only direct mechanism you have to pull a user back into your application once they have closed it. However, they are also the fastest way to get your app uninstalled. If you spam users, or if your notifications are irrelevant, they will permanently revoke your notification permissions. Furthermore, configuring the Apple Push Notification service (APNs) and Firebase Cloud Messaging (FCM) is notoriously complex.
+
+## The Notification Pipeline
+Sending a push notification requires a complex dance between several services:
+1. **The Mobile Client:** Requests permission from the user, generates a unique "Push Token" for that specific device, and sends it to your backend.
+2. **Your Backend:** Stores the Push Token securely in the database, linked to the user's profile.
+3. **The Delivery Service:** Your backend uses a service like Expo Push or OneSignal to route the message to Apple (APNs) or Google (FCM).
+4. **The OS Level:** Apple or Google physically wake up the device and display the notification payload.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Do not attempt to implement push notifications unless it is the absolute core mechanic of your app (like an alarm clock or emergency alert app). Configuring APNs certificates and FCM keys will consume hours of debugging. If you must have them, use Expo Push Notifications—it is the easiest possible implementation, but still requires significant setup.
+
+### Personal Project
+Implementing push notifications is a rite of passage for mobile developers. Use Expo's Push Notification service. It abstracts away the horrific complexity of talking to Apple and Google directly. You will learn how to request permissions, store device tokens in your backend, and trigger test notifications. Focus on mastering the basic pipeline.
+
+### Production SaaS
+You must treat push notifications as a highly sensitive user resource. Your backend must support granular notification preferences (e.g., allowing the user to turn off "Marketing Updates" but keep "Direct Messages" on). You must handle token expiration gracefully (Apple and Google frequently rotate tokens). For complex routing, analytics, and A/B testing of notification copy, deeply integrate a specialized service like OneSignal or Braze rather than building a custom push engine.
+
+### Custom Mode
+Enterprise notification systems are incredibly complex distributed systems. You must handle "Silent Pushes" (waking the app in the background to sync data without alerting the user). You must implement rigorous delivery guarantees, handling massive spikes in volume (e.g., sending a breaking news alert to 5 million users simultaneously without crashing your backend). Analytics must track not just delivery, but open rates, time-to-interaction, and downstream conversion funnels.
+
+## AI Brainstorming Phase
+\`\`\`prompt
+Act as a Mobile Product Manager. My app is a [Describe your app]. Generate 5 high-value push notification triggers that will re-engage users without feeling like spam. For each trigger, specify the exact event in the backend that should fire it.
+\`\`\`
+
+## The Final Decision
+**What delivery service will you use (e.g., Expo Push, OneSignal), and what is your primary re-engagement trigger?**
+\`\`\`input
+Write Here...
+\`\`\`
+`,
   'mobiledeeplinking': `# Deep Linking
 
-**🕒 Estimated Time:** 15 min
+**Estimated Time:** 20 minutes
 
 ---
 
-## Overview
-Deep Linking allows you to click a URL (like \`myapp://profile/123\` or \`https://myapp.com/profile/123\`) in an email or SMS, and have it instantly open your mobile app directly to that specific screen, instead of opening a web browser. Without deep links, sharing content from your app is impossible.
+## Why this matters
+A mobile app without deep linking is a walled garden. If a user receives a text message with a link to a specific product in your app, clicking that link should open the app directly to that product. If it just opens your homepage, or worse, opens a mobile website instead of the installed app, you severely damage user retention. Deep linking bridges the gap between the open web and your compiled binary.
 
----
+## The Two Types of Links
+1. **Standard Deep Links (Custom URL Schemes):** Links like \`myapp://product/123\`. They are easy to set up, but they fail completely if the user doesn't have the app installed (they just show an error).
+2. **Universal Links (iOS) / App Links (Android):** Standard HTTPS links like \`https://myapp.com/product/123\`. If the app is installed, the OS intercepts the link and opens the app. If the app is *not* installed, it falls back to the website or the App Store. This is the modern standard.
 
-## Think First
-What needs to be shareable?
+## Strategic Guidance
 
-**The Core Entities** (What specific screens will users want to share with their friends? e.g., A specific recipe, a user profile, a product page).
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Hackathon Mode
+Ignore Universal Links; they require hosting verification files on a live HTTPS domain and configuring Apple/Google developer dashboards. Use standard Custom URL schemes (e.g., \`yourapp://\`). Expo makes this incredibly easy with \`expo-linking\`. It is more than enough to demonstrate navigating to a specific screen from a push notification or an external app during a demo.
 
----
+### Personal Project
+Try implementing Universal Links/App Links using Expo Router. It is a fantastic learning experience that connects web domain verification with native mobile routing. You will learn how to host the \`apple-app-site-association\` (AASA) file on your web domain and configure your app's \`app.json\` to prove ownership of the domain.
 
-## Key Decisions
-- **Custom Schemes vs Universal Links:**
-  - **Custom Schemes (\`myapp://...\`):** Easy to set up, but if the user doesn't have the app installed, clicking the link does nothing (or shows an error).
-  - **Universal Links (iOS) / App Links (Android):** Uses a standard web URL (\`https://myapp.com/...\`). If the app is installed, it opens the app. If not, it opens the website or redirects to the App Store. This is much harder to set up (requires hosting specific verification files on your web domain) but provides a vastly superior user experience.
+### Production SaaS
+Universal Links are mandatory. Marketing emails, password reset links, and user-to-user sharing all rely on them. However, you also need "Deferred Deep Linking". If a user clicks a shared link but *doesn't* have the app installed, they are routed to the App Store. After they install and open the app for the first time, the app must "remember" the original link and route them to that specific product. You must use a specialized service like Branch.io or AppsFlyer to handle this complex deferred routing reliably.
 
----
+### Custom Mode
+Enterprise deep linking is deeply intertwined with attribution tracking and marketing analytics. Marketing teams spend millions of dollars on ad campaigns and need precise data on which specific ad click resulted in an app installation and subsequent purchase. Deep linking architecture must heavily integrate with Mobile Measurement Partners (MMPs) to track this attribution securely, ensuring compliance with Apple's App Tracking Transparency (ATT) framework.
 
-## Common Mistakes
-- **Ignoring React Navigation Integration:** Setting up the deep link in the OS, but failing to configure React Navigation to actually parse the URL and route the user to the correct screen.
-- **Blank Screens:** Clicking a deep link, the app opens, but because the user isn't logged in, the app crashes or shows a blank screen instead of routing them to the Login screen first.
-
----
-
-## AI Prompt
-Use AI to configure your deep linking strategy.
-
+## AI Brainstorming Phase
 \`\`\`prompt
-Act as a React Navigation Expert.
-I need to implement Deep Linking for my app.
-
-1. Explain the difference between a Custom URL Scheme and a Universal Link. Which should I prioritize for my MVP?
-2. Write the React Navigation \`linking\` configuration object required to map a URL like \`myapp://post/123\` to my \`PostDetails\` screen, passing the \`123\` ID as a parameter.
-3. How do I handle a deep link if the user is currently logged out?
+Act as a Senior Mobile Architect. I am using [Expo Router / React Navigation]. I need to set up Universal Links so that when a user clicks \`https://myapp.com/profile/user123\`, it opens the app to that specific profile. Provide the necessary configuration for the AASA file, the Android assetlinks.json, and the routing configuration in the app.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your Deep Linking strategy and React Navigation config structure here.
-
+## The Final Decision
+**Detail your deep linking strategy (e.g., Custom Schemes for MVP, Branch.io for Production).**
 \`\`\`input
-✍️ Type your answer here...
-\`\`\``,
-  'mobilefilestorage': `# File Storage
-
-**🕒 Estimated Time:** 15 min
-
----
-
-## Overview
-If your app allows users to upload profile pictures, record audio, or upload documents, you need a File Storage strategy. You cannot store large binary files in a standard SQL database. You must upload the file to a "Storage Bucket" and then save the resulting URL string to your database.
-
----
-
-## Think First
-What are users uploading?
-
-**File Types & Sizes** (Are they uploading 1MB JPEGs, or 500MB 4K Videos?)
-\`\`\`input
-✍️ Type your answer here...
+Write Here...
 \`\`\`
+`,
+  'mobilefilestorage': `# File Storage Strategy
+
+**Estimated Time:** 15 minutes
 
 ---
 
-## Key Decisions
-- **The Storage Provider:** AWS S3 is the industry standard, but it is notoriously complex to configure. If you are using **Supabase** or **Firebase**, use their built-in Storage solutions. They integrate seamlessly with your database and handle permissions automatically.
-- **Image Compression:** You MUST compress images locally on the phone *before* uploading them. Uploading a raw 12MB photo from an iPhone camera will consume massive amounts of cellular data, take forever, and cost you a fortune in cloud storage fees.
+## Why this matters
+Handling files on mobile is significantly more complex than on the web. On the web, users select a file from a clean OS dialogue. On mobile, you have to request camera permissions, access the media library, handle massive 4K video files, compress them before uploading so you don't burn the user's data plan, and upload them reliably even if the user backgrounds the app mid-upload.
 
----
+## The Core Challenges
+1. **Permissions:** You must explicitly request user permission to access their photo library or camera. If you do this aggressively upon app launch, users will deny it. You must ask *in context*.
+2. **Compression:** A modern iPhone photo is often 5MB+. Uploading 10 uncompressed photos will take forever on a 3G connection and cost you a fortune in AWS S3 bandwidth. Client-side compression is mandatory.
+3. **Background Uploads:** If a user starts a video upload and switches to Instagram, the OS will kill your app. You must utilize native background upload tasks to ensure the file finishes uploading.
 
-## Common Mistakes
-- **Direct to Database:** Attempting to convert an image to a Base64 string and saving it in a PostgreSQL text column. This will destroy your database performance.
-- **Public Buckets:** Leaving your storage bucket entirely public, allowing anyone on the internet to upload files and bankrupt your AWS account. You must implement Row Level Security (RLS) on your storage buckets.
+## Strategic Guidance
 
----
+### Hackathon Mode
+Use Expo ImagePicker to select photos, and immediately upload them to Supabase Storage or Firebase Storage using their client SDKs. Do not worry about advanced background uploading or handling 4K video. If the upload fails because the user closed the app, that is acceptable for a hackathon. Keep the scope strictly to single-image uploads (like a user avatar).
 
-## AI Prompt
-Use AI to design a secure, efficient upload pipeline.
+### Personal Project
+Implement client-side compression. Before uploading an image to your storage bucket (like AWS S3 or Supabase), use a library like \`expo-image-manipulator\` to compress the image quality to 0.7 and resize it to a maximum width of 1080px. This teaches you the vital skill of respecting the user's bandwidth and your cloud storage costs.
 
+### Production SaaS
+Production apps require a robust, resumable upload pipeline. You should upload files directly from the mobile client to the storage bucket using Pre-Signed URLs, completely bypassing your backend server so it doesn't get choked by massive file streams. For large videos, you must use chunked, resumable uploads (like TUS protocol) so that if the network drops at 99%, it can resume rather than starting over.
+
+### Custom Mode
+Enterprise file storage often involves strict compliance. Images may contain PII (Personally Identifiable Information) or medical data. You cannot simply dump them into a public S3 bucket. They must be stored in encrypted, private buckets. The mobile app must request temporary, short-lived signed URLs to view the images. Furthermore, you must implement automated backend pipelines to scan uploaded files for malware or inappropriate content before making them available to other users.
+
+## AI Brainstorming Phase
 \`\`\`prompt
-Act as a Cloud Storage Architect.
-My app requires users to upload Profile Pictures and Short Videos.
-
-1. I am using [Insert Backend, e.g., Supabase]. Explain the exact architecture of how I get an image from the user's phone, to my Storage Bucket, and save the URL in my database.
-2. Recommend a React Native library for selecting images from the camera roll and compressing them *before* upload.
-3. How do I write a security rule so that a user can only delete their own profile picture, but everyone can view it?
+Act as a Mobile Storage Architect. My app allows users to upload [Images / Videos / PDFs]. Give me a step-by-step implementation plan for selecting the file, compressing it efficiently on the client side, and uploading it securely to [Supabase / S3] using Pre-Signed URLs.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your Storage Provider choice and Image Compression library here.
-
+## The Final Decision
+**What storage provider are you using, and what client-side compression library will you utilize?**
 \`\`\`input
-✍️ Type your answer here...
-\`\`\``,
+Write Here...
+\`\`\`
+`,
   'mobileofflinestrategy': `# Offline Strategy
 
-**🕒 Estimated Time:** 20 min
+**Estimated Time:** 20 minutes
 
 ---
 
-## Overview
-Mobile apps are fundamentally different from websites because they travel. Users open them on subways, airplanes, and areas with spotty 3G. If your app instantly crashes or shows a giant white screen the moment the internet drops, it is a bad mobile app. A solid offline strategy degrades gracefully.
+## Why this matters
+Mobile devices are inherently nomadic. Users will open your app in subway tunnels, on airplanes, and in rural areas with spotty 3G. If your app displays a blank white screen or a hard crash when the network request fails, it feels broken. A premium mobile application must degrade gracefully when offline and sync seamlessly when the connection returns.
 
----
+## The Levels of Offline Support
+1. **Graceful Failure:** The app detects there is no network, stops trying to load, and shows a friendly "You are offline" screen.
+2. **Read-Only Offline:** The app caches API responses (e.g., using React Query). When offline, the user can still read previously loaded data, but cannot take actions.
+3. **Offline-First (Read/Write):** The holy grail. The app uses a local database. The user can create posts, "like" content, and delete items while entirely offline. The app queues these actions and silently syncs them with the server when connectivity is restored.
 
-## Think First
-What must work offline?
+## Strategic Guidance
 
-**The Offline Requirement** (Does the app *need* to function fully offline like a Notes app, or does it just need to show a polite "No Internet" screen like a Banking app?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Hackathon Mode
+Aim strictly for Level 1 (Graceful Failure). Do not attempt to build a complex offline caching system in a weekend. Simply check the network state using \`expo-network\`. If the user is offline, show a nice UI state. Spend your time building the core features of the app assuming a perfect connection.
 
----
+### Personal Project
+Aim for Level 2 (Read-Only Offline). If you are using React Query or Apollo GraphQL, configuring offline caching is relatively straightforward. Configure the cache to persist to local storage (like MMKV or AsyncStorage) so that when the app boots up without internet, the user immediately sees the stale data from their last session instead of a loading spinner.
 
-## Key Decisions
-- **Caching:** The simplest offline strategy is caching API responses. If a user opens the app offline, show them the data from their last session instead of a blank screen.
-- **Offline Mutations (Advanced):** If you want users to be able to create data (like writing a Tweet) while offline, you must save it to local storage, queue it, and automatically sync it to the server when the connection is restored. This is extremely complex and should generally be avoided for an MVP unless it is the core value proposition of the app.
+### Production SaaS
+Level 2 is the minimum acceptable standard, but Level 3 (Offline-First) is the goal for any app where data entry is critical (like a note-taking app, a field inspection app, or a messaging app). To achieve Level 3 safely, you must implement complex Conflict-Free Replicated Data Types (CRDTs) or rely on a robust synchronization engine like WatermelonDB or PowerSync. You must meticulously handle edge cases: what happens if the user deletes a record offline, but another user updated that same record online?
 
----
+### Custom Mode
+Enterprise offline strategies require massive architectural investment. When syncing a local SQLite database with a central Postgres database across thousands of concurrent users, conflict resolution logic must be incredibly precise. Background sync engines must be ruthlessly optimized to avoid draining the user's battery or consuming their monthly data cap by pulling down the entire database. Sync payloads must be compressed and strictly delta-based (only transferring exactly what changed since the last sync).
 
-## Common Mistakes
-- **Infinite Loading:** A spinner that spins forever because the API call failed due to no internet, and the code never caught the error.
-- **Assuming Fast Networks:** Testing your app on your blazing-fast home WiFi and assuming it will load that fast for a user on a crowded 3G network.
-
----
-
-## AI Prompt
-Use AI to design an achievable offline strategy for your MVP.
-
+## AI Brainstorming Phase
 \`\`\`prompt
-Act as a Mobile Reliability Engineer.
-Review my app concept.
-
-1. Based on my concept, should I build a "Fully Offline" architecture (complex sync), or a "Cache & Error" architecture (show cached data, disable buttons)?
-2. How can I use React Query or AsyncStorage to easily cache my main feed so it loads instantly even in airplane mode?
-3. Provide a React Native code snippet using \`@react-native-community/netinfo\` to detect when the internet drops and show a "You are offline" banner.
+Act as a Senior Mobile Architect. I am building a [Describe your app]. Based on the core user journey, recommend an offline strategy (Graceful Failure, Read-Only Cache, or Offline-First). If you recommend Offline-First, explain how I should handle conflict resolution when the device comes back online.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your chosen Offline Architecture (Caching vs Full Sync) here.
-
+## The Final Decision
+**Detail your offline strategy and the libraries you will use to achieve it.**
 \`\`\`input
-✍️ Type your answer here...
-\`\`\``,
+Write Here...
+\`\`\`
+`,
   'mobileanalyticsstrategy': `# Analytics Strategy
 
-**🕒 Estimated Time:** 15 min
+**Estimated Time:** 15 minutes
 
 ---
 
-## Overview
-If you don't track user behavior, you are flying blind. You will have no idea why users are uninstalling your app. However, mobile analytics are highly regulated. Apple requires you to explicitly declare what you are tracking (Privacy Nutrition Labels) and, under App Tracking Transparency (ATT), you must ask permission to track users across other companies' apps and websites.
+## Why this matters
+If you don't track it, you can't improve it. Unlike the web, where you can easily deploy a Hotjar script to watch users interact with your site, mobile analytics require deliberate, hard-coded instrumentation. You need to know where users drop off in your onboarding funnel, which features they actually use, and critically, *why* your app is crashing in production.
 
----
+## The Triad of Mobile Tracking
+A robust mobile analytics strategy consists of three distinct pillars:
+1. **Crash Reporting (Mandatory):** Capturing fatal crashes and non-fatal exceptions in the wild. You cannot rely on App Store reviews to tell you your app is crashing.
+2. **Product Analytics:** Tracking user behavior (e.g., "User clicked Checkout", "User completed Onboarding").
+3. **Attribution (Marketing):** Tracking where users came from (e.g., "This install came from our Facebook Ad campaign").
 
-## Think First
-What metrics actually matter?
+## Strategic Guidance
 
-**The North Star Metric** (What is the single action that defines success? e.g., Completing a purchase, creating a post).
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Hackathon Mode
+Do not implement Product Analytics or Attribution. It is a waste of time for a prototype. However, you *must* implement basic Crash Reporting if you plan to let judges or friends actually use the app on their devices. Expo's built-in error handling is okay for development, but integrating Sentry (which takes 5 minutes) will give you exact stack traces if the app crashes on a friend's phone.
 
----
+### Personal Project
+Implement Crash Reporting (Sentry) and basic Product Analytics. Use a tool like PostHog or Amplitude to track 3 to 5 core events (e.g., \`app_opened\`, \`account_created\`, \`core_feature_used\`). This will teach you the mechanics of instrumenting events and building basic funnels in an analytics dashboard.
 
-## Key Decisions
-- **The Tool:** **PostHog** is currently the gold standard for mobile product analytics (event tracking, session replay). **Google Analytics / Firebase** is free and ubiquitous but can be complex to query. **Sentry** or **Crashlytics** is absolutely mandatory for tracking app crashes.
-- **First-Party vs Third-Party:** If you only track what users do *inside* your app to improve your app (First-Party), you usually do not need the dreaded Apple ATT popup. If you send data to Facebook Ads to track conversions across the web (Third-Party), you MUST trigger the ATT popup.
+### Production SaaS
+All three pillars are mandatory. 
+- **Crash Reporting:** Sentry or Crashlytics.
+- **Product Analytics:** PostHog, Mixpanel, or Amplitude. You must create a strict Tracking Plan document. Do not just log random events like \`button_clicked\`. Log semantic actions like \`subscription_purchased\`.
+- **Attribution:** AppsFlyer or Branch.io to measure your Customer Acquisition Cost (CAC) across ad networks.
+Crucially, you must respect user privacy. You must prompt for tracking permission (especially on iOS via App Tracking Transparency) before firing these SDKs.
 
----
+### Custom Mode
+Enterprise analytics involve massive data pipelines. Mobile events are not just sent to a dashboard; they are streamed into a central data warehouse (like Snowflake or BigQuery) using tools like Segment. This allows data scientists to cross-reference mobile behavior with web behavior, CRM data, and billing histories. Strict data governance is enforced to ensure no PII (like passwords or social security numbers) is ever accidentally logged to third-party analytics providers.
 
-## Common Mistakes
-- **Tracking Everything:** Firing an event for every single button press. You will max out your analytics provider's free tier in a week and your dashboard will be unreadable.
-- **Ignoring Crash Reporting:** Releasing an app without Sentry or Crashlytics. When a user leaves a 1-star review saying "It crashes on startup," you will have absolutely no idea what line of code caused it.
-
----
-
-## AI Prompt
-Use AI to set up a compliant, focused analytics plan.
-
+## AI Brainstorming Phase
 \`\`\`prompt
-Act as a Mobile Product Data Scientist.
-
-1. Recommend an Analytics stack for my React Native MVP that includes Event Tracking and Crash Reporting. Is PostHog + Sentry a good choice?
-2. Define the exact 5 Custom Events I should track in my app to understand the user journey (e.g., 'signup_completed', 'checkout_started').
-3. Explain Apple's App Tracking Transparency (ATT). Do I need to show the popup if I am only using PostHog to track internal button clicks?
+Act as a Head of Product. My app is a [Describe your app]. Generate a Tracking Plan consisting of the 5 most critical events I should track to measure user retention and feature success. Provide the exact JSON payload structure I should send for each event.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your Analytics Tooling (e.g., PostHog + Sentry) and the 5 Custom Events you will track here.
-
+## The Final Decision
+**List the specific tools you will use for Crash Reporting, Product Analytics, and Attribution.**
 \`\`\`input
-✍️ Type your answer here...
-\`\`\``,
+Write Here...
+\`\`\`
+`,
   'mobilecostestimation': `# Cost Estimation
 
-**🕒 Estimated Time:** 15 min
+**Estimated Time:** 15 minutes
 
 ---
 
-## Overview
-Building an MVP is relatively cheap. *Scaling* an app can bankrupt you if you architect it poorly. You must forecast your monthly costs for hosting, databases, APIs, and developer accounts before you write a line of code.
+## Why this matters
+Building a mobile app MVP is relatively cheap, but scaling it can bankrupt you if you architect it poorly. Mobile apps often have hidden costs that web apps do not. You must forecast your monthly costs for developer accounts, backend hosting, database scaling, third-party APIs, and push notification services before you launch.
 
----
+## The Hidden Costs of Mobile
+- **Developer Accounts:** Apple charges a recurring $99/year fee just to keep your app on the App Store. Google charges a one-time $25 fee.
+- **Push Notifications:** While FCM and APNs are free at the base level, routing massive volumes of pushes through services like OneSignal can quickly become expensive as your user base grows.
+- **Bandwidth:** Mobile apps often require serving massive amounts of data (images, videos). If you are serving unoptimized 4K images directly from an S3 bucket to thousands of mobile users, your bandwidth bill will explode.
 
-## Think First
-Where are your financial vulnerabilities?
+## Strategic Guidance
 
-**The Expensive Feature** (Does your app rely on the OpenAI API, video hosting, or complex map routing? These cost money per usage).
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Hackathon Mode
+Your cost should be exactly $0. Use the free tiers of Expo, Supabase, Vercel, and GitHub. Do not pay for developer accounts; use Expo Go to demo the app on your physical device. If you need a third-party API (like OpenAI), put a strict $5 hard cap on the API key so a bug doesn't drain your bank account overnight.
 
----
+### Personal Project
+You will likely need to spend the $124 for Apple and Google Developer accounts if you want the satisfaction of seeing your app on the real App Stores. Beyond that, keep everything on free tiers. Supabase's free tier is incredibly generous for personal projects. Do not implement complex video hosting or heavy AI generation unless you are prepared to pay for the API usage.
 
-## Key Decisions
-- **Developer Accounts:** Apple charges $99/year just to have the privilege of publishing on the App Store. Google charges a one-time $25 fee.
-- **Server & Database:** Supabase and Firebase both offer incredibly generous free tiers that will easily support your MVP up to your first few thousand users.
-- **Third-Party APIs:** If you use OpenAI, Google Maps, or Twilio (for SMS auth), these are pay-as-you-go. A malicious user spamming your SMS login screen can cost you hundreds of dollars in hours.
+### Production SaaS
+You must model your unit economics. If a user pays you $5/month, but they consume $6/month in OpenAI API calls and AWS bandwidth, your business will fail as it scales. You must set up strict billing alerts on all your infrastructure (AWS, Vercel, Supabase). Implement rate limiting on your API routes so a malicious actor cannot spin up a botnet and rack up a massive server bill by spamming your endpoints.
 
----
+### Custom Mode
+Enterprise cost estimation is about FinOps (Financial Operations). You must implement strict tagging on all cloud resources to track exactly which microservice or mobile feature is driving cloud costs. You will negotiate custom Enterprise contracts with vendors (like Mixpanel or Supabase) for volume discounts. Architecture decisions (like moving from REST to GraphQL) are often driven by the need to reduce payload sizes and slash multi-million dollar AWS bandwidth bills.
 
-## Common Mistakes
-- **No Billing Limits:** Failing to set hard spending limits or alerts on your AWS/Vercel/Supabase accounts. If your app goes viral, you could wake up to a $5,000 bill.
-- **Expensive Auth:** Using SMS text messages for authentication. SMS is notoriously expensive and prone to toll-fraud. Use Email/Password or OAuth (Google/Apple) instead; they are free.
-
----
-
-## AI Prompt
-Use AI to forecast your runway and set up financial defenses.
-
+## AI Brainstorming Phase
 \`\`\`prompt
-Act as a Cloud FinOps Architect.
-Review my tech stack (e.g., React Native, Expo, Supabase) and my app's core features.
-
-1. Provide a rough Monthly Cost Estimate for running this app with 1,000 Daily Active Users. Break down the costs (Developer Accounts, Database, Auth, Third-Party APIs).
-2. What is the single biggest financial vulnerability in my architecture?
-3. Give me step-by-step instructions on what billing alerts or rate limits I MUST set up to prevent accidental bankruptcy.
+Act as a Cloud FinOps Architect. Review my tech stack ([List your stack: e.g., React Native, Supabase, OpenAI API]) and my app's core features. 
+1. Provide a rough Monthly Cost Estimate for running this app with 1,000 Daily Active Users. 
+2. Identify the single biggest financial vulnerability in this architecture.
+3. Provide step-by-step instructions on what billing alerts or rate limits I MUST set up.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your Monthly Cost Estimate and your critical Billing Alerts strategy here.
-
+## The Final Decision
+**What is your estimated monthly cost, and what specific billing alerts have you configured?**
 \`\`\`input
-✍️ Type your answer here...
+Write Here...
 \`\`\`
 `,
   'scalability': `# Scalability
