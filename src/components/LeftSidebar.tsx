@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ChevronDown, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { getTaxonomy } from '../data/taxonomy';
 import type { Mode } from './TopNav';
 import type { Project } from '../App';
@@ -165,12 +166,20 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
                       <li key={topicId} className="relative group/item">
                         <button
                           onClick={() => setActivePage(topic.id)}
-                          className={`w-full flex items-center justify-between py-1.5 pl-3 pr-2 rounded-md text-sm transition-colors ${
+                          className={`w-full flex items-center justify-between py-1.5 pl-3 pr-2 rounded-md text-sm transition-colors z-10 relative ${
                             isActive
-                              ? 'bg-accent text-accent-foreground font-medium shadow-sm'
+                              ? 'text-accent-foreground font-medium shadow-sm'
                               : 'text-foreground hover:bg-muted/60'
                           }`}
                         >
+                          {isActive && (
+                            <motion.div
+                              layoutId="activeTopicBg"
+                              className="absolute inset-0 bg-accent rounded-md -z-10"
+                              initial={false}
+                              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                            />
+                          )}
                           <div className="flex items-center gap-3 w-full pr-2">
                             <topic.icon size={16} className={`shrink-0 ${isActive ? 'text-accent-foreground' : 'text-muted-foreground'}`} />
                             <span className="text-left leading-tight">{topic.name}</span>

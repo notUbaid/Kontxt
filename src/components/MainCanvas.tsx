@@ -3,7 +3,7 @@ import type { Mode } from './TopNav';
 import { getTaxonomy } from '../data/taxonomy';
 import { useDocumentStore } from '../hooks/useDocumentStore';
 import { DocumentEditor } from './DocumentEditor';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { generateStream } from '../utils/llm';
 import { useSettingsStore } from '../hooks/useSettingsStore';
 
@@ -104,12 +104,18 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
   }
 
   return (
-    <motion.main 
-      key={activePage} // Triggers animation on page change
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.3 }}
+    <AnimatePresence mode="wait">
+      <motion.main 
+        key={activePage} // Triggers animation on page change
+        initial={{ opacity: 0, y: -30, scale: 0.98, filter: 'blur(4px)' }}
+        animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+        exit={{ opacity: 0, y: 20, scale: 0.98, filter: 'blur(4px)' }}
+        transition={{ 
+          type: 'spring',
+          stiffness: 110,
+          damping: 15,
+          mass: 0.9
+        }}
       className="flex-1 min-w-0 pt-8 pb-24 px-8 mx-auto max-w-3xl w-full h-[calc(100vh-4rem)] overflow-y-auto scroll-smooth"
     >
       <div className="mb-4 inline-block px-3 py-1 bg-muted rounded-md text-xs font-bold text-muted-foreground uppercase tracking-widest">
@@ -129,5 +135,6 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
         onTopicComplete={handleTopicComplete}
       />
     </motion.main>
+    </AnimatePresence>
   );
 };
