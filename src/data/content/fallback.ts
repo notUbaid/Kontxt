@@ -1,7 +1,7 @@
 export const fallbackContent: Record<string, string> = {
   'mobiletesting': `# Testing
 
-🕒 **Estimated Time:** 4-8 hours
+**Estimated Time:** 4-8 hours
 
 ---
 
@@ -81,7 +81,7 @@ Paste your deliverable here...
 Congratulations, you have completed Phase 3! Move on to Phase 4 to prepare your app for **Production Readiness**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilepayments': `# Payments & Subscriptions
 
-🕒 **Estimated Time:** 4-8 hours
+**Estimated Time:** 4-8 hours
 
 ---
 
@@ -160,7 +160,7 @@ Paste your deliverable here...
 With monetization active, implement **Media Uploads** to allow users to generate robust content.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilebackendimplementation': `# Backend Implementation
 
-🕒 **Estimated Time:** 3-6 hours
+**Estimated Time:** 3-6 hours
 
 ---
 
@@ -241,7 +241,7 @@ Paste your deliverable here...
 With the backend logic solid, configure **Push Notifications** to start engaging users proactively.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobiledatabaseimplementation': `# Database Implementation
 
-🕒 **Estimated Time:** 2-5 hours
+**Estimated Time:** 2-5 hours
 
 ---
 
@@ -322,7 +322,7 @@ Paste your deliverable here...
 Now that the database is structured, build the **Backend APIs** to execute complex logic and interface with this data safely.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileauth': `# Authentication
 
-🕒 **Estimated Time:** 2-4 hours
+**Estimated Time:** 2-4 hours
 
 ---
 
@@ -403,7 +403,7 @@ Paste your deliverable here...
 With users authenticated, move on to connecting the **Database** to store and retrieve their specific data.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'referral-programs': `# Referral Programs
 
-**🕒 Estimated Time:** Ongoing
+**Estimated Time:** Ongoing
 
 Leverage your existing user base to acquire new users organically, dramatically lowering your CAC (Customer Acquisition Cost).
 
@@ -421,7 +421,7 @@ Design a database schema and API flow for tracking a two-sided referral program 
 \`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'reviews-ratings': `# Reviews & Ratings
 
-**🕒 Estimated Time:** Ongoing
+**Estimated Time:** Ongoing
 
 Boost your App Store ranking by strategically prompting happy users for reviews. Organic search ranking is heavily influenced by your average rating and volume.
 
@@ -439,7 +439,7 @@ Write a React Native hook using \`expo-store-review\` that implements a two-step
 \`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'user-feedback': `# User Feedback Loop
 
-**🕒 Estimated Time:** Ongoing
+**Estimated Time:** Ongoing
 
 Establish channels to actively listen to your users and iterate the product based on their needs.
 
@@ -457,7 +457,7 @@ Write a standard operating procedure (SOP) for triaging user feedback received t
 \`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'notifications-strategy': `# Notifications Strategy
 
-**🕒 Estimated Time:** Ongoing
+**Estimated Time:** Ongoing
 
 Optimize push notifications to drive engagement without causing notification fatigue and churn.
 
@@ -476,7 +476,7 @@ Write a strategy document detailing how to use rich push notifications (with ima
 \`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'release-checklist': `# Release Checklist
 
-**🕒 Estimated Time:** 2 hours
+**Estimated Time:** 2 hours
 
 Ensure every detail is perfect before submitting for final App Store and Play Store review to avoid launch day disasters.
 
@@ -497,7 +497,7 @@ Generate a comprehensive pre-launch QA checklist covering authentication, paymen
 \`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'beta-testing': `# Beta Testing
 
-**🕒 Estimated Time:** 1-2 weeks
+**Estimated Time:** 1-2 weeks
 
 Conduct a structured beta test with external users to catch edge cases and validate the UX across different devices.
 
@@ -515,7 +515,7 @@ Write an invitation email to a waitlisted user asking them to join the TestFligh
 \`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'test-tracks': `# Test Tracks
 
-**🕒 Estimated Time:** 2 hours
+**Estimated Time:** 2 hours
 
 Set up staging environments in the app stores to distribute builds to internal testers before public release.
 
@@ -532,7 +532,7 @@ Outline the differences between Google Play Internal, Closed, and Open testing t
 \`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'content-rating': `# Content Rating
 
-**🕒 Estimated Time:** 1 hour
+**Estimated Time:** 1 hour
 
 Accurately declare your app's content to receive appropriate age ratings on both stores. This is a common rejection reason if filled out incorrectly.
 
@@ -550,7 +550,7 @@ Generate an implementation checklist for User-Generated Content (UGC) compliance
 \`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'store-listing-seo': `# Store Listing SEO (ASO)
 
-**🕒 Estimated Time:** 4 hours
+**Estimated Time:** 4 hours
 
 App Store Optimization (ASO) is critical for organic discovery. Optimize your title, subtitle, and keyword fields to rank for high-intent search terms.
 
@@ -569,7 +569,7 @@ Write an optimized App Store Subtitle (30 chars max) and a comma-separated keywo
 \`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'feature-graphics': `# Feature Graphics
 
-**🕒 Estimated Time:** 1 hour
+**Estimated Time:** 1 hour
 
 Design the primary promotional graphic for the Google Play Store.
 
@@ -587,7 +587,7 @@ Generate a design brief for a graphic designer to create a Google Play Feature G
 \`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'app-icons': `# App Icons
 
-**🕒 Estimated Time:** 2 hours
+**Estimated Time:** 2 hours
 
 Design and generate perfectly sized app icons for all iOS and Android device resolutions.
 
@@ -607,7 +607,7 @@ Write a script or list the exact CLI commands needed to generate all required iO
 \`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'app-store-setup': `# App Store Setup
 
-**🕒 Estimated Time:** 4 hours
+**Estimated Time:** 4 hours
 
 Configure App Store Connect and the Apple Developer Portal.
 
@@ -628,7 +628,7 @@ Outline the complete process for generating an iOS Distribution Certificate, cre
 \`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'play-store-setup': `# Play Store Setup
 
-**🕒 Estimated Time:** 4 hours
+**Estimated Time:** 4 hours
 
 Configure your Google Play Console account and prepare your app for distribution.
 
@@ -648,7 +648,7 @@ Generate a step-by-step checklist for configuring Play App Signing and uploading
 \`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'batteryoptimization': `# Battery Optimization
 
-🕒 **Estimated Time:** 1-3 hours
+**Estimated Time:** 1-3 hours
 
 ---
 
@@ -728,7 +728,7 @@ Paste your deliverable here...
 With the app optimized perfectly for a single user, it's time to ensure it can handle millions. Move to **Scalability**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'appsizeoptimization': `# App Size Optimization
 
-🕒 **Estimated Time:** 2-4 hours
+**Estimated Time:** 2-4 hours
 
 ---
 
@@ -808,7 +808,7 @@ Paste your deliverable here...
 A small app is good, but it must also respect the user's phone. Time for **Battery Optimization**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'crashreporting': `# Crash Reporting
 
-🕒 **Estimated Time:** 2-3 hours
+**Estimated Time:** 2-3 hours
 
 ---
 
@@ -887,7 +887,7 @@ Paste your deliverable here...
 Beyond just crashes, you need proactive **Monitoring** to ensure your APIs and services are healthy.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'errorhandling': `# Error Handling
 
-🕒 **Estimated Time:** 2-4 hours
+**Estimated Time:** 2-4 hours
 
 ---
 
@@ -967,7 +967,7 @@ Paste your deliverable here...
 With errors caught, implement **Testing** to prevent them from happening in the first place.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'analyticsevents': `# Analytics Events
 
-🕒 **Estimated Time:** 2-4 hours
+**Estimated Time:** 2-4 hours
 
 ---
 
@@ -1047,7 +1047,7 @@ Paste your deliverable here...
 To ensure those analytics aren't just showing crashes, implement robust **Error Handling**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'offlinefeatures': `# Offline Features
 
-🕒 **Estimated Time:** 3-6 hours
+**Estimated Time:** 3-6 hours
 
 ---
 
@@ -1127,7 +1127,7 @@ Paste your deliverable here...
 With the app functioning in all environments, implement **Analytics Events** to see how users are interacting with it.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'devicepermissions': `# Device Permissions
 
-🕒 **Estimated Time:** 1-2 hours
+**Estimated Time:** 1-2 hours
 
 ---
 
@@ -1206,7 +1206,7 @@ Paste your deliverable here...
 With hardware access secured, build robust **Offline Features** for when the device loses connection.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mapslocation': `# Maps & Location
 
-🕒 **Estimated Time:** 3-5 hours
+**Estimated Time:** 3-5 hours
 
 ---
 
@@ -1286,7 +1286,7 @@ Paste your deliverable here...
 Now ensure your app handles all other **Device Permissions** correctly before launching.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mediauploads': `# Media Uploads
 
-🕒 **Estimated Time:** 3-6 hours
+**Estimated Time:** 3-6 hours
 
 ---
 
@@ -1366,7 +1366,7 @@ Paste your deliverable here...
 With content generation solved, integrate **Maps & Location** for location-aware features.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'apis': `# APIs & Data Fetching
 
-🕒 **Estimated Time:** 3-5 hours
+**Estimated Time:** 3-5 hours
 
 ---
 
@@ -1447,7 +1447,7 @@ Paste your deliverable here...
 With data flowing securely and the app fully functional, proceed to Phase 4 to focus on **Production Readiness**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'navigation': `# Navigation
 
-🕒 **Estimated Time:** 2-4 hours
+**Estimated Time:** 2-4 hours
 
 ---
 
@@ -1528,7 +1528,7 @@ Paste your deliverable here...
 Now that screens are connected, integrate **APIs** to fetch and populate real data into these views.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'frontendui': `# Frontend (UI)
 
-🕒 **Estimated Time:** 4-8 hours
+**Estimated Time:** 4-8 hours
 
 ---
 
@@ -1609,7 +1609,7 @@ Paste your deliverable here...
 With UI blocks built, implement **Navigation** to connect these screens together logically.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'pushnotifications': `# Push Notifications
 
-🕒 **Estimated Time:** 2-4 hours
+**Estimated Time:** 2-4 hours
 
 ---
 
@@ -1690,7 +1690,7 @@ Paste your deliverable here...
 With notifications active, refine your **Frontend (UI)** components to ensure the app looks as good as it functions.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'statemanagement': `# State Management
 
-🕒 **Estimated Time:** 1-2 hours
+**Estimated Time:** 1-2 hours
 
 ---
 
@@ -1771,7 +1771,7 @@ Paste your deliverable here...
 With state management in place, proceed to implement the **Auth** flows to populate that state with real user data.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'welcome': `# Welcome to Kontxt
 
-🕒 **Estimated Time:** 5 min
+**Estimated Time:** 5 min
 
 ---
 
@@ -1801,7 +1801,7 @@ This means you cannot cut corners on security, authentication, or basic architec
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'ideadefinition': `# Idea Definition
 
-🕒 **Estimated Time:** 20 min
+**Estimated Time:** 20 min
 
 ---
 
@@ -1833,7 +1833,7 @@ Write Here...
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'problemstatement': `# Problem Statement
 
-🕒 **Estimated Time:** 20 min
+**Estimated Time:** 20 min
 
 ---
 
@@ -1865,7 +1865,7 @@ Write Here...
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'userpainpoints': `# User Pain Points
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -1895,7 +1895,7 @@ Write Here...
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'targetusers': `# Target Users
 
-🕒 **Estimated Time:** 10 min
+**Estimated Time:** 10 min
 
 ---
 
@@ -1925,7 +1925,7 @@ Write Here...
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'icpidealcustomerprofile': `# Ideal Customer Profile (ICP)
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -1953,7 +1953,7 @@ Write Here...
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'personas': `# Personas
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -1983,7 +1983,7 @@ For example, if you are building HR software, the User (the employee) wants a be
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'solutionstatement': `# Solution Statement
 
-🕒 **Estimated Time:** 10 min
+**Estimated Time:** 10 min
 
 ---
 
@@ -2013,7 +2013,7 @@ Write Here...
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'valueproposition': `# Value Proposition
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -2045,7 +2045,7 @@ Write Here...
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'elevatorpitch': `# Elevator Pitch
 
-🕒 **Estimated Time:** 10 min
+**Estimated Time:** 10 min
 
 ---
 
@@ -2073,7 +2073,7 @@ Write Here...
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'marketresearch': `# Market Research
 
-🕒 **Estimated Time:** 20 min
+**Estimated Time:** 20 min
 
 ---
 
@@ -2099,7 +2099,7 @@ You should research exactly where these people hang out online. If you can't fin
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'competitoranalysis': `# Competitor Analysis
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -2127,7 +2127,7 @@ Write Here...
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'existingalternatives': `# Existing Alternatives
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -2145,7 +2145,7 @@ Your biggest competitor isn't a startup; it's Microsoft Excel. Or a piece of pap
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'marketpositioning': `# Market Positioning
 
-🕒 **Estimated Time:** 20 min
+**Estimated Time:** 20 min
 
 ---
 
@@ -2168,7 +2168,7 @@ Act as a Brand Strategist. Based on my competitors, suggest 3 different ways I c
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'featureplanning': `# Feature Planning
 
-🕒 **Estimated Time:** 20 min
+**Estimated Time:** 20 min
 
 ---
 
@@ -2186,7 +2186,7 @@ Scope creep is the death of all software. If you don't define what you are build
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mvpfeatures': `# MVP Features
 
-🕒 **Estimated Time:** 20 min
+**Estimated Time:** 20 min
 
 ---
 
@@ -2216,7 +2216,7 @@ Write Here...
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'futurefeatures': `# Future Features
 
-🕒 **Estimated Time:** 10 min
+**Estimated Time:** 10 min
 
 ---
 
@@ -2234,7 +2234,7 @@ Put your great (but unnecessary) ideas here so they don't distract you today.
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'featureprioritization': `# Feature Prioritization
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -2252,7 +2252,7 @@ You have limited time and engineering resources.
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'businessmodel': `# Business Model
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -2280,7 +2280,7 @@ Write Here...
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'pricing': `# Pricing Strategy
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -2298,7 +2298,7 @@ Pricing is the most under-utilized growth lever.
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'subscriptionmodel': `# Subscription Model
 
-🕒 **Estimated Time:** 10 min
+**Estimated Time:** 10 min
 
 ---
 
@@ -2316,7 +2316,7 @@ Monthly Recurring Revenue (MRR) is the holy grail of software.
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'revenuestreams': `# Revenue Streams
 
-🕒 **Estimated Time:** 10 min
+**Estimated Time:** 10 min
 
 ---
 
@@ -2334,7 +2334,7 @@ Focus on one revenue stream until you hit $1M ARR.
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'successmetrics': `# Success Metrics
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -2352,7 +2352,7 @@ You cannot improve what you do not measure.
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'kpis': `# KPIs (Key Performance Indicators)
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -2370,7 +2370,7 @@ KPIs tell you if the business is healthy.
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'northstarmetric': `# North Star Metric
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -2388,7 +2388,7 @@ The one metric that best captures the core value your product delivers to its cu
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'prd': `# Product Requirements Document (PRD)
 
-🕒 **Estimated Time:** 30 min
+**Estimated Time:** 30 min
 
 ---
 
@@ -2415,7 +2415,7 @@ Act as a Senior Product Manager. Based on my project so far, draft a comprehensi
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'userflows': `# User Flows
 
-🕒 **Estimated Time:** 20 min
+**Estimated Time:** 20 min
 
 ---
 
@@ -2442,7 +2442,7 @@ Generate a Mermaid.js user flow diagram for the onboarding process of my app.
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'informationarchitecture': `# Information Architecture
 
-🕒 **Estimated Time:** 20 min
+**Estimated Time:** 20 min
 
 ---
 
@@ -2471,7 +2471,7 @@ Act as a UX Architect. Based on my PRD, generate a comprehensive sitemap and Inf
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'wireframes': `# Wireframes
 
-🕒 **Estimated Time:** 45 min
+**Estimated Time:** 45 min
 
 ---
 
@@ -2500,7 +2500,7 @@ Act as a UX Designer. Describe the layout, components, and visual hierarchy for 
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'designsystem': `# Design System
 
-🕒 **Estimated Time:** 30 min
+**Estimated Time:** 30 min
 
 ---
 
@@ -2527,7 +2527,7 @@ Act as a Lead UI/UX Designer. Generate a complete set of Tailwind CSS design tok
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'branding': `# Branding
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -2556,7 +2556,7 @@ Act as a Brand Strategist. Suggest 3 brand names, a color palette, and a tone of
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'accessibility': `# Accessibility (a11y)
 
-🕒 **Estimated Time:** 10 min
+**Estimated Time:** 10 min
 
 ---
 
@@ -2582,7 +2582,7 @@ Your brand colors must pass the WCAG AA contrast ratio (text must be readable ag
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'techstackselection': `# Tech Stack Selection
 
-🕒 **Estimated Time:** 20 min
+**Estimated Time:** 20 min
 
 ---
 
@@ -2614,7 +2614,7 @@ Write Here...
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'frontendarchitecture': `# Frontend Architecture
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -2644,7 +2644,7 @@ Use a feature-based architecture (grouping files by feature rather than by type)
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'backendarchitecture': `# Backend Architecture
 
-🕒 **Estimated Time:** 20 min
+**Estimated Time:** 20 min
 
 ---
 
@@ -2674,7 +2674,7 @@ Do not build microservices on Day 1; they introduce massive operational complexi
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'apidesign': `# API Design
 
-🕒 **Estimated Time:** 25 min
+**Estimated Time:** 25 min
 
 ---
 
@@ -2705,7 +2705,7 @@ Act as a Backend Architect. Based on my PRD, design the core REST API endpoints 
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'authentication': `# Authentication
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -2733,7 +2733,7 @@ Use an established provider like Supabase Auth, Auth0, or Clerk. You must suppor
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'authorizationroles': `# Authorization & Roles
 
-🕒 **Estimated Time:** 20 min
+**Estimated Time:** 20 min
 
 ---
 
@@ -2762,7 +2762,7 @@ Act as a Security Architect. Based on my PRD, define the standard user roles and
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'databaseschema': `# Database Schema
 
-🕒 **Estimated Time:** 30 min
+**Estimated Time:** 30 min
 
 ---
 
@@ -2793,7 +2793,7 @@ Act as a Database Administrator. Based on my PRD, generate a PostgreSQL schema i
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'filestorage': `# File Storage
 
-🕒 **Estimated Time:** 10 min
+**Estimated Time:** 10 min
 
 ---
 
@@ -2819,7 +2819,7 @@ Files should never be completely public unless they are avatars. Generate short-
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'thirdpartyintegrations': `# Third Party Integrations
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -2847,7 +2847,7 @@ A Stripe integration is mandatory. A Slack integration is highly recommended for
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'aiarchitectureoptional': `# AI Architecture
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -2873,7 +2873,7 @@ Never call LLMs directly from the frontend; proxy them through your backend to p
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'systemarchitecturediagram': `# System Architecture Diagram
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -2902,7 +2902,7 @@ Act as a Cloud Architect. Generate a Mermaid.js architecture diagram for my tech
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'costestimation': `# Cost Estimation
 
-🕒 **Estimated Time:** 15 min
+**Estimated Time:** 15 min
 
 ---
 
@@ -2931,7 +2931,7 @@ Act as a FinOps Specialist. Based on my tech stack, generate a monthly cost esti
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'auth': `# Authentication Setup
 
-🕒 **Estimated Time:** 45 min
+**Estimated Time:** 45 min
 
 ---
 
@@ -2962,7 +2962,7 @@ Act as a Security Engineer. Generate the frontend code and backend configuration
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'database': `# Database Setup
 
-🕒 **Estimated Time:** 60 min
+**Estimated Time:** 60 min
 
 ---
 
@@ -2993,7 +2993,7 @@ Act as a Database Administrator. Generate the SQL migration file to create my in
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'backend': `# Backend Development
 
-🕒 **Estimated Time:** 2-4 Hours
+**Estimated Time:** 2-4 Hours
 
 ---
 
@@ -3024,7 +3024,7 @@ Act as a Backend Engineer. Write the server-side code to handle my core applicat
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'frontend': `# Frontend Development
 
-🕒 **Estimated Time:** 3-5 Hours
+**Estimated Time:** 3-5 Hours
 
 ---
 
@@ -3055,7 +3055,7 @@ Act as a Senior Frontend Developer. Write the React components for my main dashb
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'payments': `# Payments Integration
 
-🕒 **Estimated Time:** 2 Hours
+**Estimated Time:** 2 Hours
 
 ---
 
@@ -3086,7 +3086,7 @@ Act as a Stripe Integration Expert. Write the backend webhook handler to process
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'emails': `# Transactional Emails
 
-🕒 **Estimated Time:** 1 Hour
+**Estimated Time:** 1 Hour
 
 ---
 
@@ -3117,7 +3117,7 @@ Act as a Communications Architect. Generate a React Email template for my Welcom
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'notifications': `# Notifications
 
-🕒 **Estimated Time:** 1 Hour
+**Estimated Time:** 1 Hour
 
 ---
 
@@ -3145,7 +3145,7 @@ Use a unified API like Novu or Courier. You must support in-app toasts, in-app i
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'search': `# Search
 
-🕒 **Estimated Time:** 1-2 Hours
+**Estimated Time:** 1-2 Hours
 
 ---
 
@@ -3171,7 +3171,7 @@ You must implement "fuzzy matching" so typos don't return zero results. Implemen
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'analytics': `# Product Analytics
 
-🕒 **Estimated Time:** 45 min
+**Estimated Time:** 45 min
 
 ---
 
@@ -3197,7 +3197,7 @@ Track the "Aha!" moment. Track where users drop off during onboarding. Track fea
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'adminpanel': `# Admin Panel
 
-🕒 **Estimated Time:** 2 Hours
+**Estimated Time:** 2 Hours
 
 ---
 
@@ -3223,7 +3223,7 @@ Use a low-code tool like Retool, ForestAdmin, or Appsmith. Connect it directly t
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'integrations': `# External Integrations
 
-🕒 **Estimated Time:** 3-5 Hours
+**Estimated Time:** 3-5 Hours
 
 ---
 
@@ -3247,7 +3247,7 @@ Start with native Slack or Discord webhooks for notifications. If you need deep 
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'testing': `# Testing
 
-🕒 **Estimated Time:** Ongoing
+**Estimated Time:** Ongoing
 
 ---
 
@@ -3273,7 +3273,7 @@ Instead, focus on End-to-End (E2E) testing with Playwright or Cypress. Write 5-1
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'documentation': `# Documentation
 
-🕒 **Estimated Time:** Ongoing
+**Estimated Time:** Ongoing
 
 ---
 
@@ -3300,7 +3300,7 @@ You must maintain two types of documentation:
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'demodata': `# Demo Data
 
-**🕒 Estimated Time:** 45-60 min
+**Estimated Time:** 45-60 min
 
 ---
 
@@ -3314,12 +3314,12 @@ Define the "Aha!" moment.
 
 **The Golden Scenario (What is the absolute best-case scenario a user can experience in your app? e.g., A dashboard showing $10k in Monthly Recurring Revenue, or a project board fully populated with completed tasks.)**
 \`\`\`input
-✍️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 **The Industry Context (Who is your target persona? If you are building a tool for lawyers, your demo data must look like legal case files, not generic "lorem ipsum" text.)**
 \`\`\`input
-✍️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -3382,7 +3382,7 @@ Act as a Product Marketer and Backend Engineer.
 **Contents:** A dedicated script used exclusively for populating presentation environments.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'presentationprep': `# Presentation Prep
 
-**🕒 Estimated Time:** 60-120 min
+**Estimated Time:** 60-120 min
 
 ---
 
@@ -3396,12 +3396,12 @@ Understand your audience.
 
 **The Audience (Who are you presenting to? Investors care about Market Size and Traction. Users care about "Will this save me time/money?")**
 \`\`\`input
-✍️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 **The Core Metric (What is the single most impressive number you can share? e.g., "We grew 20% this week" or "Our software saves users 5 hours a week")**
 \`\`\`input
-✍️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -4374,7 +4374,7 @@ Act as a VP of Engineering. My team is struggling to ship new features because t
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'pitchdeck': `# Pitch Deck
 
-**🕒 Estimated Time:** 45-60 min
+**Estimated Time:** 45-60 min
 
 ---
 
@@ -4388,12 +4388,12 @@ Distill your narrative.
 
 **What is the single biggest "Villain" (the problem) your pitch is fighting against?**
 \`\`\`input
-✍️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 **Why are *you* (or your team) the exact right people to solve this? (The "Why Us?")**
 \`\`\`input
-✍️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -4451,12 +4451,12 @@ Act as an Expert Presentation Coach (like Steve Jobs).
 Write out the single most important sentence of your pitch—the "Hook" that will open your presentation.
 
 \`\`\`input
-✍️ Type your answer here...
+Type your answer here...
 \`\`\`
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'demoscript': `# Demo Script
 
-**🕒 Estimated Time:** 30-45 min
+**Estimated Time:** 30-45 min
 
 ---
 
@@ -4470,12 +4470,12 @@ Identify the "Aha!" moment.
 
 **What is the single most impressive, "magic" moment in your app? (e.g., The moment the AI generates the final video, the moment the payment clears instantly)**
 \`\`\`input
-✍️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 **What is the "Happy Path" you will take to get to that magic moment as quickly as possible?**
 \`\`\`input
-✍️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -4537,12 +4537,12 @@ Ensure the demo skips all boring setup steps and gets to the Magic Moment before
 Define the exact starting state of your app when the demo begins (e.g., "Logged in, empty dashboard, fake data pre-loaded").
 
 \`\`\`input
-✍️ Type your answer here...
+Type your answer here...
 \`\`\`
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'submissionchecklist': `# Submission Checklist
 
-**🕒 Estimated Time:** 15-20 min
+**Estimated Time:** 15-20 min
 
 ---
 
@@ -4556,12 +4556,12 @@ Review your critical links.
 
 **What is the public URL where judges/users can test your app right now?**
 \`\`\`input
-✍️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 **What is the link to your demo video (e.g., unlisted YouTube link)?**
 \`\`\`input
-✍️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -4952,7 +4952,7 @@ Act as a Senior UX Researcher. I am building an app in the [Insert Category, e.g
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'play-store-research': `# Play Store Research
 
-**🕒 Estimated Time:** 20 min
+**Estimated Time:** 20 min
 
 ---
 
@@ -4966,17 +4966,17 @@ Open the Google Play Store on your Android device (or via the web browser) and s
 
 **Top 3 Search Results** (What apps appear first? Are they massive companies or indie developers?)
 \`\`\`input
-✍️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 **Their Titles & Short Descriptions** (Google Play indexes the Title (30 chars) and Short Description (80 chars) heavily. What exact keywords are they using in these fields?)
 \`\`\`input
-✍️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 **The Negative Reviews** (Filter their reviews by 1-star. What is the most common complaint? "Too many ads"? "Crashes on Samsung"? "Requires too many permissions"?)
 \`\`\`input
-✍️ Type your answer here...
+Type your answer here...
 \`\`\`
 
 ---
@@ -5016,7 +5016,7 @@ Review my research inputs above.
 Paste your suggested Title, Short Description, and the key screenshot concept here.
 
 \`\`\`input
-✍️ Type your answer here...
+Type your answer here...
 \`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'appstoreresearch': `# App Store Research
 
@@ -5533,7 +5533,7 @@ Act as a UX Analyst. My app is a [Describe App]. Is our goal to maximize session
   'mobileprd': `
 # Mobile Product Requirements Document (PRD)
 
-🕒 **Estimated Time:** 1-2 hours
+**Estimated Time:** 1-2 hours
 
 ---
 
@@ -5594,7 +5594,7 @@ Generate a concise, actionable Mobile PRD including:
   'mobileuserflows': `
 # Mobile User Flows
 
-🕒 **Estimated Time:** 2-3 hours
+**Estimated Time:** 2-3 hours
 
 ---
 
@@ -5656,7 +5656,7 @@ Please analyze these flows specifically for mobile friction points.
   'appnavigation': `
 # App Navigation Architecture
 
-🕒 **Estimated Time:** 1-2 hours
+**Estimated Time:** 1-2 hours
 
 ---
 
@@ -5719,7 +5719,7 @@ Please outline the ideal nested navigation architecture.
   'mobilewireframes': `
 # Mobile Wireframes
 
-🕒 **Estimated Time:** 2-4 hours
+**Estimated Time:** 2-4 hours
 
 ---
 
@@ -5776,7 +5776,7 @@ For each screen, provide a structural breakdown of the UI hierarchy from top to 
   'mobiledesignsystem': `
 # Mobile Design System
 
-🕒 **Estimated Time:** 2-4 hours
+**Estimated Time:** 2-4 hours
 
 ---
 
@@ -5837,7 +5837,7 @@ Generate a complete, semantic Design System Token object (in JSON/TypeScript for
   'mobilebranding': `
 # Mobile Branding & Assets
 
-🕒 **Estimated Time:** 1-2 hours
+**Estimated Time:** 1-2 hours
 
 ---
 
@@ -5891,7 +5891,7 @@ Please provide 3 distinct, highly professional concepts for the App Icon. For ea
   'mobileaccessibility': `
 # Mobile Accessibility (a11y)
 
-🕒 **Estimated Time:** 1-2 hours
+**Estimated Time:** 1-2 hours
 
 ---
 
@@ -5946,7 +5946,7 @@ Provide a specific implementation guide to make these components accessible. Inc
   'mobileemptystates': `
 # Mobile Empty States
 
-🕒 **Estimated Time:** 1-2 hours
+**Estimated Time:** 1-2 hours
 
 ---
 
@@ -6001,7 +6001,7 @@ For each screen, provide:
   'mobileerrorstates': `
 # Mobile Error States
 
-🕒 **Estimated Time:** 1-3 hours
+**Estimated Time:** 1-3 hours
 
 ---
 
@@ -6058,7 +6058,7 @@ Please categorize the following failure types and recommend the best UX pattern 
   'mobileloadingstates': `
 # Mobile Loading States
 
-🕒 **Estimated Time:** 1-2 hours
+**Estimated Time:** 1-2 hours
 
 ---
 
@@ -6706,7 +6706,7 @@ Write Here...
 \`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'scalability': `# Scalability
 
-🕒 **Estimated Time:** 3-6 hours
+**Estimated Time:** 3-6 hours
 
 ---
 
@@ -6786,7 +6786,7 @@ Paste your deliverable here...
 Your app is fully production-ready, secure, performant, and scalable! You are ready to move to **Phase 5: Store Deployment**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'playstoresetup': `# Play Store Setup
 
-🕒 **Estimated Time:** 2-3 days (Verification)
+**Estimated Time:** 2-3 days (Verification)
 
 ---
 
@@ -6857,7 +6857,7 @@ Paste your deliverable here...
 Once your Android account is pending verification, move on to setting up your Apple App Store account.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'appstoresetup': `# App Store Setup
 
-🕒 **Estimated Time:** 1-2 weeks (Verification)
+**Estimated Time:** 1-2 weeks (Verification)
 
 ---
 
@@ -6928,7 +6928,7 @@ Paste your deliverable here...
 With the accounts created, it's time to design the visual assets, starting with the App Icon.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'appicons': `# App Icons
 
-🕒 **Estimated Time:** 2-4 hours
+**Estimated Time:** 2-4 hours
 
 ---
 
@@ -6999,7 +6999,7 @@ Paste your deliverable here...
 Now that you have an icon, you need to show users what the app actually does using Screenshots.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'screenshots': `# Screenshots
 
-🕒 **Estimated Time:** 4-6 hours
+**Estimated Time:** 4-6 hours
 
 ---
 
@@ -7071,7 +7071,7 @@ Paste your deliverable here...
 Android requires an additional promotional asset called the Feature Graphic.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'featuregraphics': `# Feature Graphics
 
-🕒 **Estimated Time:** 1-2 hours
+**Estimated Time:** 1-2 hours
 
 ---
 
@@ -7140,7 +7140,7 @@ Paste your deliverable here...
 Visuals are done. Now you need to optimize your text for search algorithms via App Store SEO.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'storelistingseo': `# Store Listing SEO (ASO)
 
-🕒 **Estimated Time:** 2-3 hours
+**Estimated Time:** 2-3 hours
 
 ---
 

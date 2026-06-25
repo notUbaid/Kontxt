@@ -322,7 +322,7 @@ export const DocumentEditor = ({
                             onChange(currentContentLines.join('\n'));
                             
                             // If the user typed something other than the placeholder, mark topic complete
-                            if (newText.trim() !== '' && newText.trim() !== '✍️ Type your answer here...' && onTopicComplete) {
+                            if (newText.trim() !== '' && newText.trim() !== 'Type your answer here...' && onTopicComplete) {
                               onTopicComplete();
                             }
                           }}
