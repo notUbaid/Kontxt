@@ -112,9 +112,6 @@ The structure should look like this:
 
 ### Production SaaS
 [Write a robust paragraph detailing enterprise-grade concerns, performance, and best practices.]
-
-### Custom Mode
-[Write a rigorous paragraph detailing extremely high-scale, compliance, and enterprise procurement considerations.]
 ```
 Use this to ensure Hackathon users don't get bogged down in rigorous Production-level validation, and Production users don't skip critical security steps.
 
@@ -134,13 +131,14 @@ Kontxt organizes content into a strict two-tier hierarchy: **Builds** and **Mode
 A "Build" represents the high-level platform or architecture being developed (e.g., `SaaS Web App`, `Mobile App`). Each Build has its own distinct taxonomy file (e.g., `saas.ts`, `mobile.ts`) which defines the exact phases and topics the user will traverse. Topics between different Builds must never collide (e.g., use `mobile...` prefixes for Mobile topic IDs to isolate them from Web SaaS topics).
 
 **B. Modes (The Strategic Lenses)**
-Every Build is further filtered through one of 4 "Modes". The Mode dictates the *Strategic Guidance* rendered within a single topic string. A topic string (e.g., `mobileauth` in `fallback.ts`) must support all 4 Modes via markdown headers (`### Hackathon Mode`, `### Personal Project`, etc.).
+Every Build is further filtered through one of 3 core "Modes". The Mode dictates the *Strategic Guidance* rendered within a single topic string. A topic string (e.g., `mobileauth` in `fallback.ts`) must support these 3 Modes via markdown headers (`### Hackathon Mode`, `### Personal Project`, `### Production SaaS`).
 
-The 4 Modes are:
+The 3 Core Modes are:
 - **Hackathon Mode**: Optimize strictly for speed, visual "wow factor", and the demo. Cut corners, fake data, ignore scale.
 - **Personal Project**: Optimize for learning, zero-cost maintenance (free tiers), and personal utility.
 - **Production SaaS**: Optimize for revenue, scalability, security, and solving a highly painful "Hair on Fire" problem.
-- **Custom Mode**: Optimize for massive enterprise scale, compliance (SOC2, HIPAA), buying committees, and architectural rigor.
+
+*Note on Custom Mode*: "Custom Mode" is **not** a distinct content mode. It is simply a taxonomy UI feature where the user hand-picks specific topics to see in their sidebar. When reading content in Custom Mode, the user is still reading the content based on their underlying selected base mode (Hackathon, Personal, or SaaS). Do not generate `### Custom Mode` content.
 
 ### 4. Content Generation Rules (CRITICAL)
 When writing content for new topics or phases (like Phase 3, Phase 4, etc.):

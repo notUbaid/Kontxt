@@ -5424,7 +5424,7 @@ Focus on the "Aha! Moment." This is the exact moment a user understands the core
 ### Production SaaS
 You must rigorously track D1, D7, and D30 retention cohorts using tools like Mixpanel or Amplitude. Implement lifecycle marketing to combat churn. If a user drops off at Day 3, send a targeted push notification or email sequence educating them on a feature they haven't tried yet. Do not just send "We miss you!" messages; send value-driven nudges like, "Did you know you can automate your weekly reports?"
 
-### Custom Mode
+### Production SaaS
 Enterprise retention is tied directly to B2B contract renewals (Net Revenue Retention - NRR). You must build specialized dashboards for Customer Success Managers (CSMs) to monitor the "Health Score" of enterprise accounts. If an entire client organization shows a 20% drop in Daily Active Users (DAU), the CSM must be alerted automatically to intervene before the annual contract renewal date.
 
 ## Implementation Steps
@@ -5553,7 +5553,7 @@ Use this phase to define the learning outcomes for your project. Are you buildin
 ### Production SaaS Mode
 Your Mobile PRD must be heavily focused on retention loops and onboarding. Because app uninstalls happen within the first 3 minutes of usage, the PRD must explicitly define the "Aha!" moment and how the user reaches it with minimal friction. Document the core workflows, offline capabilities, and what happens when the network connection drops.
 
-### Custom Mode
+### Production SaaS
 For enterprise mobile applications, the PRD becomes a highly rigorous compliance document. You must define data encryption at rest (on the device), Mobile Device Management (MDM) compatibility, offline syncing conflict resolution algorithms, and rigorous SLA requirements for API response times on cellular networks.
 
 ---
@@ -5614,7 +5614,7 @@ Mapping user flows is a fantastic exercise in logical thinking. Use a free tool 
 ### Production SaaS Mode
 You must map both the "Happy Path" and the critical "Unhappy Paths". What happens if the user denies camera permissions? What happens if the network drops during checkout? Your user flows must account for these friction points to prevent catastrophic drops in conversion rates.
 
-### Custom Mode
+### Production SaaS
 Enterprise applications require highly complex permission-based user flows. Map out Role-Based Access Control (RBAC) flows. How does the experience differ for an Admin versus a Standard User? How do Single Sign-On (SSO) redirects handle returning to deep-linked screens?
 
 ---
@@ -5676,7 +5676,7 @@ Use this opportunity to learn how mobile routing actually works under the hood. 
 ### Production SaaS Mode
 Your navigation hierarchy must be intuitive and follow platform conventions (iOS vs Android). Crucially, you must plan for Deep Linking. How does a user open a push notification or an email link and navigate directly to a deeply nested screen (like a specific invoice)? Your navigation state must be robust enough to handle these external entry points.
 
-### Custom Mode
+### Production SaaS
 Enterprise apps often require dynamic navigation based on user roles or feature flags. The navigation architecture must be completely decoupled and data-driven. Furthermore, you must implement strict route guards to ensure unauthenticated or unauthorized users cannot deep-link into sensitive screens.
 
 ---
@@ -5739,7 +5739,7 @@ Use a free tool like Figma or Excalidraw. Focus heavily on native mobile pattern
 ### Production SaaS Mode
 Wireframes at this stage should be interactive. You need to link them together in a prototype (using Figma) to simulate the flow. You must test this prototype on an actual physical device (using the Figma mobile app) to ensure buttons are large enough for thumbs (minimum 44x44 points) and text is legible.
 
-### Custom Mode
+### Production SaaS
 Enterprise wireframes must undergo rigorous stakeholder review. You will need to wireframe every single permission state (Admin view vs User view) and edge case. Annotate your wireframes heavily with business logic rules (e.g., "This button is disabled until the user signs the EULA").
 
 ---
@@ -5796,7 +5796,7 @@ Create a lightweight foundational theme. Define 3 primary colors, 3 greyscale co
 ### Production SaaS Mode
 Your design system must be robust enough to support Dark Mode from day one. You must use semantic tokens (e.g., \`colors.background.primary\`, \`colors.text.danger\`) instead of absolute values. Ensure your spacing system uses a consistent multiplier (like the 8pt grid system) to maintain visual harmony across varying screen sizes.
 
-### Custom Mode
+### Production SaaS
 Enterprise design systems require dedicated governance. Your design system must be documented in a tool like Storybook (for React Native) or zeroheight. It must include strict accessibility guidelines, contrasting ratios for WCAG compliance, and internationalization (i18n) considerations for right-to-left (RTL) languages.
 
 ---
@@ -5857,7 +5857,7 @@ Take the time to learn how to properly configure your native assets. Generate yo
 ### Production SaaS Mode
 Your branding must be immaculate. The App Icon must stand out against both light and dark device wallpapers. The splash screen should seamlessly transition into the app's first screen without any jarring flashes of white (the dreaded "white flash"). Consider adding a subtle micro-animation to the splash logo.
 
-### Custom Mode
+### Production SaaS
 Enterprise branding often requires strict adherence to corporate brand guidelines. The app icon may need to be dynamic (e.g., changing based on environment: Dev vs Staging vs Prod). Splash screens must account for heavy initial data fetches, requiring sophisticated loading orchestrations.
 
 ---
@@ -5911,7 +5911,7 @@ Use this project to learn the basics of mobile accessibility. Add \`accessibilit
 ### Production SaaS Mode
 You must ensure WCAG 2.1 AA compliance. This means supporting Dynamic Type (text scaling), defining explicit focus orders for screen readers, and ensuring hit areas for buttons are at least 44x44 points. You must manually test your core user flows using VoiceOver (iOS) and TalkBack (Android) with your eyes closed.
 
-### Custom Mode
+### Production SaaS
 Enterprise apps face severe legal liability (e.g., ADA lawsuits in the US) if they are inaccessible. Accessibility must be integrated into the CI/CD pipeline using automated auditing tools. Support for reduced motion, high contrast modes, and color blindness filters must be explicitly tested and signed off by QA.
 
 ---
@@ -5966,7 +5966,7 @@ Use empty states to practice your UI layout skills. Center a nice, free illustra
 ### Production SaaS Mode
 Empty states are critical conversion funnels. If a user lands on the "Analytics" tab and they have no data, the empty state shouldn't just say "No Analytics". It should explain *why* analytics are valuable, and provide a CTA to "Set up Tracking". Empty states must drive the user toward their "Aha!" moment.
 
-### Custom Mode
+### Production SaaS
 Enterprise empty states often need to account for permissions. If a user sees an empty state because they lack the necessary Role-Based Access Control (RBAC) permissions to view the data, the empty state must explicitly explain this and provide a workflow to "Request Access" from their administrator.
 
 ---
@@ -6021,7 +6021,7 @@ Implement a global Toast/Snackbar notification system. Learn how to catch promis
 ### Production SaaS Mode
 You must implement contextual error states. If a specific component fails to load (like a widget on a dashboard), do not crash the whole screen. Show an inline error state with a "Tap to Retry" button. You must also implement offline-first capabilities or aggressive caching so the app remains partially usable without a connection.
 
-### Custom Mode
+### Production SaaS
 Enterprise error handling requires rigorous logging. Every user-facing error must be correlated with a background tracking event sent to a service like Sentry or Datadog. Error states must provide users with tracking IDs so they can easily report the issue to customer support.
 
 ---
@@ -6078,7 +6078,7 @@ Experiment with Skeleton Loaders. Instead of a spinner, show grey, pulsing boxes
 ### Production SaaS Mode
 Loading states must be context-aware. Use Skeleton Loaders for initial page loads. Use inline spinners inside buttons for form submissions (e.g., the "Submit" button turns into a spinner). Never block the entire UI with a full-screen loading overlay unless absolutely necessary (like processing a payment).
 
-### Custom Mode
+### Production SaaS
 Enterprise apps dealing with massive datasets must implement optimistic UI updates. When a user likes a post or deletes a row, update the UI instantly *before* the server responds. If the server request ultimately fails, revert the UI and show an error. This creates a zero-latency experience.
 
 ---
@@ -6138,7 +6138,7 @@ For personal learning and zero-cost maintenance, cross-platform is still the ide
 ### Production SaaS
 When building a revenue-generating business, engineering velocity is your competitive advantage. The vast majority of modern startups default to React Native. It allows you to share business logic between your web application and mobile application, and a single developer can push features to both iOS and Android simultaneously. Only pivot to pure Native development if your application is highly graphics-intensive (like a high-fidelity game) or relies on real-time, low-level hardware processing (like advanced video editing).
 
-### Custom Mode
+### Production SaaS
 At massive enterprise scale, platform strategy becomes a debate about organizational structure. Giant tech companies often use native development because they have the capital to hire dedicated iOS and Android teams, and they need to squeeze out every millisecond of performance. However, even enterprises like Shopify and Coinbase have fully migrated to React Native. You must evaluate if your organization's hiring pipeline can support finding niche Swift developers versus tapping into the massive global pool of JavaScript and React developers.
 
 ## AI Brainstorming Phase
@@ -6181,7 +6181,7 @@ This is an excellent opportunity to learn one specific mobile fundamental deeply
 ### Production SaaS
 Your users will aggressively uninstall your application if it loses their data when they switch to answer a text message. You must implement rock-solid lifecycle handling. When the app goes into the background, unsaved forms must be persisted to local storage. You must gracefully handle API timeouts and provide cached data fallbacks when the network is unreachable. Error tracking tools like Sentry are mandatory to catch memory-related crashes in the wild.
 
-### Custom Mode
+### Production SaaS
 At the enterprise tier, mobile fundamentals dictate architectural rigor. You must profile battery consumption, network bandwidth usage, and CPU utilization. If your application constantly wakes the radio antenna for trivial analytics pings, users will notice the battery drain. Architecture must include structured background task schedulers, sophisticated conflict resolution for offline data sync, and rigorous memory leak detection in the CI/CD pipeline.
 
 ## Review and Proceed
@@ -6210,7 +6210,7 @@ Expo is still the correct choice. It abstracts away the massive complexity of na
 ### Production SaaS
 Production apps should utilize Expo with Custom Development Clients. This gives you the incredible developer experience of Expo while allowing you to install any arbitrary native iOS/Android library you need (such as specialized payment SDKs or advanced video players). Expo Application Services (EAS) should be heavily utilized to automate your cloud builds and handle the complex certificate signing required for App Store and Google Play deployment.
 
-### Custom Mode
+### Production SaaS
 Enterprise applications must heavily scrutinize dependencies. While Expo is excellent, massive organizations often eject to a bare React Native CLI workflow to maintain absolute, granular control over their native iOS and Android build pipelines. This allows dedicated native engineers to write custom Swift/Kotlin modules seamlessly. Security reviews must be conducted on all third-party npm packages to ensure compliance and prevent supply chain attacks.
 
 ## AI Brainstorming Phase
@@ -6250,7 +6250,7 @@ This is the perfect environment to learn modern standards. Separate your server 
 ### Production SaaS
 Predictability and debugging are your primary concerns. You must use robust server-state caching (React Query) to ensure the UI feels instantaneous even on poor mobile networks. For global client state, Zustand is excellent, but you must implement strict conventions. Ensure that your state slices are modularized and that you are not storing deeply nested, complex objects that cause unnecessary re-renders across the entire application tree.
 
-### Custom Mode
+### Production SaaS
 Enterprise applications often still rely on Redux Toolkit (RTK). While verbose, RTK provides an incredibly strict, unidirectional data flow that is easy to test and trace. When coordinating dozens of engineers across a massive mobile codebase, the rigid structure of Redux prevents developers from writing unpredictable, spaghetti state updates. You must also implement advanced state persistence strategies to ensure the app boots up exactly as the user left it.
 
 ## AI Brainstorming Phase
@@ -6289,7 +6289,7 @@ If you are using a modern Backend-as-a-Service (like Supabase), stick to their c
 ### Production SaaS
 Bandwidth optimization and perceived performance are critical. If your application requires aggregating data from many different database tables to render the home screen, strongly consider GraphQL to minimize network round-trips. Regardless of the paradigm, you must implement aggressive API caching on the mobile client. Data should be served immediately from the local cache while a background request silently validates the data against the server.
 
-### Custom Mode
+### Production SaaS
 Enterprise APIs require strict versioning. When you deploy a web app, you force all users to the new version instantly. When you deploy a mobile app, users may refuse to update the app for months. Your backend API must be able to gracefully support version 1.0 of the mobile app while simultaneously supporting version 2.5. You must also implement robust rate limiting, payload compression, and strict payload validation to ensure security and stability.
 
 ## AI Brainstorming Phase
@@ -6330,7 +6330,7 @@ Practice proper security hygiene. Use Expo SecureStore (or React Native Keychain
 ### Production SaaS
 Security and performance are non-negotiable. All authentication artifacts must be stored in the device's secure enclave (Keychain/Keystore). For general app state and caching, \`MMKV\` is mandatory, as legacy \`AsyncStorage\` is too slow for production rendering cycles and can cause noticeable UI stuttering. If your app requires heavy offline capabilities (like a field-worker app), you must implement a robust local database like WatermelonDB to handle the complex relational queries on the client side.
 
-### Custom Mode
+### Production SaaS
 Enterprise applications face extreme security audits. You must implement jailbreak/root detection, and if the device is compromised, you must immediately wipe all local storage. Even non-sensitive data in MMKV should often be encrypted using an encryption key that is securely fetched from the backend upon login. Data retention policies must be strictly enforced, automatically purging cached data after a defined TTL (Time To Live) to comply with GDPR/CCPA.
 
 ## AI Brainstorming Phase
@@ -6369,7 +6369,7 @@ Using a BaaS like Supabase is still the best route, as it teaches you the modern
 ### Production SaaS
 You must implement a flawless JWT Refresh Token rotation strategy. If your access token expires while the user is offline, the app must elegantly queue their actions, silently refresh the token when connectivity returns, and execute the queued actions without forcing a redirect to the login screen. Furthermore, Apple strictly mandates that if you offer *any* social login (like Google or Facebook), you **must** also offer "Sign in with Apple", or your app will be rejected during App Store review.
 
-### Custom Mode
+### Production SaaS
 Enterprise authentication often requires integration with legacy identity providers (Okta, Auth0, Active Directory) via SAML or OIDC protocols. You must implement robust biometric session locks (requiring FaceID to open the app if it has been backgrounded for more than 5 minutes, like a banking app). Device fingerprinting and strict token revocation endpoints must be implemented to instantly cut off access if a device is reported stolen.
 
 ## AI Brainstorming Phase
@@ -6408,7 +6408,7 @@ Using Supabase (PostgreSQL) is the ideal learning path. It gives you the power o
 ### Production SaaS
 Production apps usually require a hybrid approach. For critical, rapidly changing data (like a user's bank balance), use a Thin Client approach with aggressive API caching. For large datasets that the user expects to browse smoothly (like a massive list of tasks or contacts), implement an offline-first Thick Client using WatermelonDB. This ensures the app feels instantaneous and 120Hz smooth, while background web workers handle the complex conflict resolution with the remote Postgres database.
 
-### Custom Mode
+### Production SaaS
 At enterprise scale, database architecture is dominated by data sovereignty, multi-region replication, and compliance (HIPAA/SOC2). You cannot simply open a direct connection from a mobile client to a database. All database access must be brokered through a highly secure, audited API gateway. Local mobile databases must utilize hardware-level encryption (e.g., SQLCipher) to ensure that if the device is physically compromised, the cached database file remains impenetrable.
 
 ## AI Brainstorming Phase
@@ -6447,7 +6447,7 @@ Supabase remains the gold standard for personal projects due to its generous fre
 ### Production SaaS
 A hybrid approach is often best. Use Supabase for the heavy lifting (Auth, Database, Storage) to maintain engineering velocity. However, critical business logic (like processing Stripe payments, heavy data aggregation, or complex push notification routing) should be isolated into Serverless Edge Functions or a small, custom microservice. This ensures that your core business rules are safely hidden on the server, not exposed in the mobile client code.
 
-### Custom Mode
+### Production SaaS
 Enterprise backends are heavily decoupled. They utilize API Gateways, load balancers, and containerized microservices (Kubernetes). The most critical constraint for enterprise mobile backends is strict API versioning. The backend must indefinitely support legacy API routes to service users on 3-year-old versions of the mobile app. All endpoints must have rigorous rate limiting, DDoS protection, and extensive logging for audit compliance.
 
 ## AI Brainstorming Phase
@@ -6488,7 +6488,7 @@ Implementing push notifications is a rite of passage for mobile developers. Use 
 ### Production SaaS
 You must treat push notifications as a highly sensitive user resource. Your backend must support granular notification preferences (e.g., allowing the user to turn off "Marketing Updates" but keep "Direct Messages" on). You must handle token expiration gracefully (Apple and Google frequently rotate tokens). For complex routing, analytics, and A/B testing of notification copy, deeply integrate a specialized service like OneSignal or Braze rather than building a custom push engine.
 
-### Custom Mode
+### Production SaaS
 Enterprise notification systems are incredibly complex distributed systems. You must handle "Silent Pushes" (waking the app in the background to sync data without alerting the user). You must implement rigorous delivery guarantees, handling massive spikes in volume (e.g., sending a breaking news alert to 5 million users simultaneously without crashing your backend). Analytics must track not just delivery, but open rates, time-to-interaction, and downstream conversion funnels.
 
 ## AI Brainstorming Phase
@@ -6526,7 +6526,7 @@ Try implementing Universal Links/App Links using Expo Router. It is a fantastic 
 ### Production SaaS
 Universal Links are mandatory. Marketing emails, password reset links, and user-to-user sharing all rely on them. However, you also need "Deferred Deep Linking". If a user clicks a shared link but *doesn't* have the app installed, they are routed to the App Store. After they install and open the app for the first time, the app must "remember" the original link and route them to that specific product. You must use a specialized service like Branch.io or AppsFlyer to handle this complex deferred routing reliably.
 
-### Custom Mode
+### Production SaaS
 Enterprise deep linking is deeply intertwined with attribution tracking and marketing analytics. Marketing teams spend millions of dollars on ad campaigns and need precise data on which specific ad click resulted in an app installation and subsequent purchase. Deep linking architecture must heavily integrate with Mobile Measurement Partners (MMPs) to track this attribution securely, ensuring compliance with Apple's App Tracking Transparency (ATT) framework.
 
 ## AI Brainstorming Phase
@@ -6565,7 +6565,7 @@ Implement client-side compression. Before uploading an image to your storage buc
 ### Production SaaS
 Production apps require a robust, resumable upload pipeline. You should upload files directly from the mobile client to the storage bucket using Pre-Signed URLs, completely bypassing your backend server so it doesn't get choked by massive file streams. For large videos, you must use chunked, resumable uploads (like TUS protocol) so that if the network drops at 99%, it can resume rather than starting over.
 
-### Custom Mode
+### Production SaaS
 Enterprise file storage often involves strict compliance. Images may contain PII (Personally Identifiable Information) or medical data. You cannot simply dump them into a public S3 bucket. They must be stored in encrypted, private buckets. The mobile app must request temporary, short-lived signed URLs to view the images. Furthermore, you must implement automated backend pipelines to scan uploaded files for malware or inappropriate content before making them available to other users.
 
 ## AI Brainstorming Phase
@@ -6604,7 +6604,7 @@ Aim for Level 2 (Read-Only Offline). If you are using React Query or Apollo Grap
 ### Production SaaS
 Level 2 is the minimum acceptable standard, but Level 3 (Offline-First) is the goal for any app where data entry is critical (like a note-taking app, a field inspection app, or a messaging app). To achieve Level 3 safely, you must implement complex Conflict-Free Replicated Data Types (CRDTs) or rely on a robust synchronization engine like WatermelonDB or PowerSync. You must meticulously handle edge cases: what happens if the user deletes a record offline, but another user updated that same record online?
 
-### Custom Mode
+### Production SaaS
 Enterprise offline strategies require massive architectural investment. When syncing a local SQLite database with a central Postgres database across thousands of concurrent users, conflict resolution logic must be incredibly precise. Background sync engines must be ruthlessly optimized to avoid draining the user's battery or consuming their monthly data cap by pulling down the entire database. Sync payloads must be compressed and strictly delta-based (only transferring exactly what changed since the last sync).
 
 ## AI Brainstorming Phase
@@ -6648,7 +6648,7 @@ All three pillars are mandatory.
 - **Attribution:** AppsFlyer or Branch.io to measure your Customer Acquisition Cost (CAC) across ad networks.
 Crucially, you must respect user privacy. You must prompt for tracking permission (especially on iOS via App Tracking Transparency) before firing these SDKs.
 
-### Custom Mode
+### Production SaaS
 Enterprise analytics involve massive data pipelines. Mobile events are not just sent to a dashboard; they are streamed into a central data warehouse (like Snowflake or BigQuery) using tools like Segment. This allows data scientists to cross-reference mobile behavior with web behavior, CRM data, and billing histories. Strict data governance is enforced to ensure no PII (like passwords or social security numbers) is ever accidentally logged to third-party analytics providers.
 
 ## AI Brainstorming Phase
@@ -6687,7 +6687,7 @@ You will likely need to spend the $124 for Apple and Google Developer accounts i
 ### Production SaaS
 You must model your unit economics. If a user pays you $5/month, but they consume $6/month in OpenAI API calls and AWS bandwidth, your business will fail as it scales. You must set up strict billing alerts on all your infrastructure (AWS, Vercel, Supabase). Implement rate limiting on your API routes so a malicious actor cannot spin up a botnet and rack up a massive server bill by spamming your endpoints.
 
-### Custom Mode
+### Production SaaS
 Enterprise cost estimation is about FinOps (Financial Operations). You must implement strict tagging on all cloud resources to track exactly which microservice or mobile feature is driving cloud costs. You will negotiate custom Enterprise contracts with vendors (like Mixpanel or Supabase) for volume discounts. Architecture decisions (like moving from REST to GraphQL) are often driven by the need to reduce payload sizes and slash multi-million dollar AWS bandwidth bills.
 
 ## AI Brainstorming Phase
@@ -7367,7 +7367,7 @@ Focus on Secure Storage. Never save JWTs or user passwords in plain \`AsyncStora
 ### Production SaaS
 You must implement strict API authorization boundaries. The mobile app should only ever hold short-lived access tokens (expiring in 15 minutes) and long-lived refresh tokens (stored securely). You must implement "App Attestation" (using Google Play Integrity API and Apple DeviceCheck) to ensure your backend API only accepts requests from the official, unmodified version of your app downloaded from the store, blocking automated emulator bots from scraping your API.
 
-### Custom Mode
+### Production SaaS
 Enterprise security requires extreme measures. You must implement SSL/TLS Pinning so the app refuses to connect if a Man-In-The-Middle (MITM) proxies the traffic on public Wi-Fi. You must implement Jailbreak/Root detection to instantly lock the app if the user's OS is compromised. Finally, sensitive data (like financial PII) must be encrypted *at rest* within the local SQLite database using SQLCipher, and the app must enforce a biometric unlock (FaceID) if backgrounded for more than 2 minutes.
 
 ## Implementation Steps
@@ -7403,7 +7403,7 @@ Focus on list rendering. The standard React Native \`FlatList\` is notoriously i
 ### Production SaaS
 You must aggressively eliminate unnecessary re-renders. Use \`React.memo\` for heavy components (like video players or complex charts). Profile your React tree using the React DevTools Profiler to find components that re-render 10 times per second when a user types into an input field. Move heavy computations (like parsing a massive JSON payload) off the main JS thread using tools like \`react-native-reanimated\` (for animations) or executing them on the backend before sending the data.
 
-### Custom Mode
+### Production SaaS
 Enterprise performance requires C++ level optimization. You must migrate away from the old React Native Bridge to the New Architecture (JSI / Fabric), which allows JavaScript to synchronously invoke native C++ functions without serializing data to JSON. You must strictly monitor the JS bundle size; every megabyte of JavaScript adds roughly 100ms to the app's "Time to Interactive" (TTI) during a cold boot on older Android devices.
 
 ## Implementation Steps
@@ -7436,7 +7436,7 @@ Set up Sentry for React Native (or Expo). It captures unhandled JavaScript excep
 ### Production SaaS
 Crash reporting is mandatory. You must configure your CI/CD pipeline to automatically upload "Source Maps" to Sentry every time you build a release APK/IPA. Without source maps, Sentry will report that the crash happened in \`main.js line 1 column 40293\` (the minified bundle), making debugging completely impossible. You must also implement "Breadcrumbs"?"logging user actions like "Tapped Checkout Button", "Navigated to Cart"?"so when a crash happens, Sentry shows you the exact sequence of clicks the user made leading up to the failure.
 
-### Custom Mode
+### Production SaaS
 Enterprise crash reporting involves strict Service Level Agreements (SLAs). If the "Crash-Free Users" metric drops below 99.9%, automated alerts page the on-call engineering team and immediately halt any phased rollouts on the Google Play Console. You must also scrub PII (Personally Identifiable Information). If an API request fails, ensure the crash reporter does not log the user's password or credit card number that was embedded in the failed request payload.
 
 ## Implementation Steps
@@ -7469,7 +7469,7 @@ Use basic analytics (like PostHog or Firebase) to track screen load times. If yo
 ### Production SaaS
 Implement Real User Monitoring (RUM) using tools like Datadog, Sentry Performance, or Firebase Performance Monitoring. You must track "Cold Start Time" (how many milliseconds from tapping the app icon to the first meaningful paint). Apple and Google actively penalize apps in search rankings if their cold start times exceed 2 seconds. You must also monitor "Network Request Success Rates" broken down by geographic region; your app might work perfectly in the US but consistently timeout for users in India due to CDN misconfigurations.
 
-### Custom Mode
+### Production SaaS
 Enterprise monitoring requires distributed tracing. When a user clicks "Buy" in the mobile app, a unique Trace ID is generated. This ID is passed in the HTTP header to your API gateway, which passes it to your microservices, which passes it to your database. If the purchase takes 5 seconds, you can look at the Datadog dashboard and see exactly how many milliseconds were spent on the mobile device, in transit, and inside the specific database query.
 
 ## Implementation Steps
@@ -7502,7 +7502,7 @@ Create a simple utility wrapper for logging (e.g., \`logger.ts\`). Instead of ca
 ### Production SaaS
 Implement a remote logging infrastructure. When non-fatal errors occur (e.g., "Image failed to upload after 3 retries"), use \`logger.warn()\` to send a structured JSON payload to a service like Datadog or Loggly. Do not log everything! If you remote-log every single button click, you will consume massive amounts of the user's cellular data and your logging bill will exceed your database bill. Log only significant state changes and non-fatal errors.
 
-### Custom Mode
+### Production SaaS
 Enterprise logging requires strict compliance. You must implement log rotation (if logging to the local device file system) to ensure the logs don't consume gigabytes of storage. More importantly, you must implement a "Redaction Engine" that actively intercepts log payloads and masks sensitive data (e.g., replacing credit card numbers with \`**** **** **** 1234\` or redacting email addresses) before they ever leave the physical device to ensure GDPR/HIPAA compliance.
 
 ## Implementation Steps
@@ -7538,7 +7538,7 @@ Rate limiting must be enforced at three levels:
 2. **Client API Layer:** Use tools like React Query, which have built-in de-duplication. If 5 components simultaneously request the same user profile, React Query only fires 1 actual network request and shares the result.
 3. **Backend API Gateway:** The mobile app is untrusted. Your backend must enforce IP-based or User-ID-based rate limits (e.g., 100 requests per minute per user) using Redis, returning HTTP \`429 Too Many Requests\`. The mobile app must gracefully catch \`429\` errors and display a message like "Please slow down."
 
-### Custom Mode
+### Production SaaS
 Enterprise rate limiting involves dynamic quotas and circuit breakers. If your backend detects a massive spike in traffic (e.g., a push notification just went out to 5 million users), it might dynamically drop the rate limit threshold. The mobile app must implement a "Circuit Breaker" pattern: if it receives 5 consecutive \`500 Server Error\` or \`429\` responses, it stops sending *any* requests for 60 seconds, allowing your backend infrastructure time to auto-scale and recover without being hammered by retries.
 
 ## Implementation Steps
@@ -7571,7 +7571,7 @@ Focus on Cloud Syncing. Make sure that any critical data saved locally (using MM
 ### Production SaaS
 You must implement Point-in-Time Recovery (PITR) on your backend database. If a rogue API update corrupts all user profiles at 2:14 PM, you need to be able to restore the database to the exact state it was at 2:13 PM. On the mobile side, you must actively integrate with native cloud backups (iCloud Backup for iOS, Google Drive Backup for Android). You must configure your \`AndroidManifest.xml\` and \`Info.plist\` to explicitly define which local SQLite files should be synced to the user's personal cloud, allowing them to buy a new phone, reinstall the app, and instantly resume their session.
 
-### Custom Mode
+### Production SaaS
 Enterprise backup strategies require strict "Data Sovereignty" rules. You cannot backup European user data to an American server. You must implement geo-redundant database replication (e.g., AWS Aurora Global Database). Furthermore, local mobile backups must be encrypted with a key derived from the user's biometric hardware, meaning even if someone extracts the SQLite backup file from their Google Drive, it is cryptographically impossible to read without the original user's fingerprint.
 
 ## Implementation Steps
@@ -7604,7 +7604,7 @@ Use Expo Application Services (EAS) Build. It completely abstracts away the nigh
 ### Production SaaS
 You must implement a fully automated CI/CD pipeline. Every time you merge a Pull Request into the \`main\` branch, GitHub Actions (or Bitrise) should automatically trigger an EAS Build. Once the build succeeds, the pipeline should automatically submit the binaries directly to Apple TestFlight and the Google Play Beta track using \`eas submit\` or Fastlane. Zero human intervention should be required between clicking "Merge" and the app appearing on beta testers' phones.
 
-### Custom Mode
+### Production SaaS
 Enterprise CI/CD involves extreme quality gates. The pipeline must run unit tests, end-to-end (E2E) tests on AWS Device Farm, and static code analysis (SonarQube) to block the build if code coverage drops below 80%. You must implement Over-The-Air (OTA) updates for JavaScript bundles so you can deploy critical UI hotfixes to millions of users in seconds, completely bypassing the grueling 24-hour Apple App Store review process.
 
 ## Implementation Steps
@@ -7641,7 +7641,7 @@ Learn to use edge infrastructure. If you are using Vercel or Cloudflare Workers,
 ### Production SaaS
 You must implement Infrastructure as Code (IaC) using Terraform or Pulumi. You should never manually click through the AWS console to spin up a Postgres database; it is unrepeatable and error-prone. Your mobile app requires a robust CDN (Content Delivery Network) like CloudFront or Cloudflare to serve images and static assets. If your mobile app tries to download 5MB images directly from a single Node.js server, the server will collapse under the bandwidth load.
 
-### Custom Mode
+### Production SaaS
 Enterprise infrastructure requires multi-region redundancy. If the \`us-east-1\` AWS region completely goes down (which happens), your API Gateway must automatically route mobile traffic to the \`us-west-2\` region. You must implement an API Gateway layer (like Kong or AWS API Gateway) to handle rate limiting, SSL termination, and JWT validation before the traffic even reaches your microservices, shielding your core backend from DDoS attacks launched via compromised mobile clients.
 
 ## Implementation Steps
@@ -7674,7 +7674,7 @@ Focus on media assets. You probably dropped a 5MB \`.png\` background image into
 ### Production SaaS
 You must aggressively audit your JavaScript dependencies. Use \`react-native-bundle-visualizer\` to see exactly which NPM packages are bloating your app. Did you import the entire \`lodash\` library just to use \`_.debounce\`? That single mistake adds 1MB of JavaScript to your bundle. You must also implement Android App Bundles (.aab) instead of APKs. App Bundles allow Google Play to generate highly optimized, device-specific binaries, reducing download sizes by up to 30% by stripping out unneeded screen densities and language files.
 
-### Custom Mode
+### Production SaaS
 Enterprise app size optimization requires ruthless native code pruning. If you include an SDK for scanning credit cards, you must strip out the compiled C++ architectures (like \`x86\`) that are only used for simulators, ensuring only \`arm64\` libraries ship to physical devices. You may need to implement "On-Demand Resources" (iOS) or "Play Feature Delivery" (Android), where the core app is only 20MB, and heavy features (like an AR camera filter) are downloaded in the background only when the user explicitly requests them.
 
 ## Implementation Steps
@@ -7707,7 +7707,7 @@ Focus on location services and network polling. If you need the user's location,
 ### Production SaaS
 You must meticulously manage background tasks. When the user swipes your app into the background, all active WebSockets should be gracefully disconnected, and all high-frequency animations must be paused. If you need to run background syncs, use native Background Fetch APIs. These APIs hand off the scheduling to the OS, which brilliantly groups your app's network requests with other apps' requests, waking the cellular radio only once to save power.
 
-### Custom Mode
+### Production SaaS
 Enterprise battery optimization requires hardware-level profiling using Android Studio Energy Profiler and Xcode Instruments. You must optimize your UI rendering loops. If your app renders a custom graph, and the JS thread is desperately recalculating layout coordinates 60 times a second, the CPU will run at 100% and generate physical heat. You must offload heavy calculations to native C++ threads or rewrite the rendering logic using highly efficient native graphics APIs (like Skia).
 
 ## Implementation Steps
@@ -7740,7 +7740,7 @@ Focus on Database Indexes. If you have a query that searches for a user by email
 ### Production SaaS
 You must load test your infrastructure. Use a tool like k6 or Artillery to simulate 1,000 concurrent mobile users logging in and fetching their feed. This will expose bottlenecks instantly. You will likely discover that your Postgres connection pool is exhausted. You must implement a connection pooler (like PgBouncer or Supabase Supavisor) so your database can handle 10,000 incoming mobile connections without crashing.
 
-### Custom Mode
+### Production SaaS
 Enterprise scalability requires extreme caching and asynchronous processing. If a user uploads a video, your backend should not process it synchronously while holding the HTTP connection open. It must instantly return a \`202 Accepted\` and drop the video into a message queue (like AWS SQS or Kafka). Worker nodes then process the queue independently. You must also implement aggressive CDN caching for API GET requests; if a viral post is viewed 1 million times, 999,999 of those requests should hit the Cloudflare Edge cache, never even touching your origin database.
 
 ## Implementation Steps
@@ -7773,7 +7773,7 @@ You must pay a one-time $25 fee to register as a Google Play Developer. Be warne
 ### Production SaaS
 Register as an Organization, not an individual. This requires a D-U-N-S number (which can take a week to acquire) but completely bypasses the 20-tester/14-day requirement. It also displays your official company name under the app title, which significantly boosts user trust. You must also configure your Google Play App Signing key correctly; if you lose the original upload keystore, Google Play App Signing allows you to reset it. Without it, losing your keystore means permanently losing the ability to update your app.
 
-### Custom Mode
+### Production SaaS
 Enterprise setup requires strict IAM (Identity and Access Management) within the Google Play Console. You must never share the root Owner credentials. Engineers should only be granted the "Release Manager" role for specific apps, while the marketing team gets "Store Presence" access, and the finance team gets "Financial Data" access to view in-app purchase revenue.
 
 ## Implementation Steps
@@ -7806,7 +7806,7 @@ You must enroll in the Apple Developer Program as an Individual. You will need t
 ### Production SaaS
 Enroll as a Company/Organization. Like Google, this requires a D-U-N-S number. This ensures your company name (e.g., "Acme Corp") appears as the seller, not your personal name ("John Doe"). You must configure your App Store Connect API keys. Never use personal Apple IDs for CI/CD authentication; generate an App Store Connect API Key (p8 file) with the "App Manager" role to allow automated tools like Fastlane or EAS Build to upload binaries directly to TestFlight without triggering 2FA prompts.
 
-### Custom Mode
+### Production SaaS
 Enterprise setups often require the Apple Developer Enterprise Program ($299/year), which allows you to distribute proprietary apps directly to your employees without ever going through App Store review. However, Apple strictly audits this. For public-facing apps, you must configure strict Role-Based Access Control (RBAC) in App Store Connect, separating the "Developer" roles (who can upload builds) from the "App Manager" roles (who can push the 'Submit for Review' button).
 
 ## Implementation Steps
@@ -7839,7 +7839,7 @@ Ensure you do not include transparent backgrounds for iOS. Apple strictly forbid
 ### Production SaaS
 You must implement Adaptive Icons for Android. Android OEMs (Samsung, Pixel, OnePlus) apply custom masks to icons (circles, squircles, teardrops). If you provide a single flat square image, it will be awkwardly cropped or placed inside an ugly white circle. You must provide a foreground SVG and a background color/image, allowing the OS to render the icon natively and apply smooth parallax animations when the user swipes home.
 
-### Custom Mode
+### Production SaaS
 Enterprise apps should utilize dynamic app icons. If you run a dark-mode focused brand, or have a premium subscription tier, you can allow users to change the app icon directly within the app settings. Apple and Google provide native APIs for this. Furthermore, you must provide explicitly scaled \`.png\` assets for every possible device density (mdpi to xxxhdpi) to ensure perfect pixel alignment without relying on the OS to downscale a massive 1024x1024 image.
 
 ## Implementation Steps
@@ -7872,7 +7872,7 @@ Use a tool like Previewed.app or AppMockUp. Put your raw screenshots inside an i
 ### Production SaaS
 You must treat screenshots as A/B testing assets. Do not just list features; highlight benefits. The first screenshot is the most critical?it must summarize the entire app. For Android, you must upload specific screenshots for 7-inch and 10-inch tablets. If you simply stretch phone screenshots, Google Play will penalize your search ranking for tablet users. Apple requires strict resolutions: you must provide exact 6.5-inch (Pro Max) and 5.5-inch (Plus) dimensions. 
 
-### Custom Mode
+### Production SaaS
 Enterprise store optimization requires deep localization. If your app is available in Japan, your screenshots must feature Japanese UI text, Japanese marketing copy, and culturally relevant device frames/backgrounds. You must continually A/B test your screenshots using the Google Play Store Listing Experiments tool to scientifically determine which design yields the lowest Cost Per Install (CPI).
 
 ## Implementation Steps
@@ -7905,7 +7905,7 @@ Keep it simple but professional. Do not put critical text near the edges; Google
 ### Production SaaS
 The Feature Graphic often serves as the cover image for your promotional video. Therefore, you must ensure you do not place critical visual elements or your logo dead-center, as the massive Play Store "Play Video" button will cover it completely. Update this graphic seasonally. If you run a massive Black Friday sale or release a major V2.0 update, update the feature graphic to reflect this; it signals to users that the app is actively maintained.
 
-### Custom Mode
+### Production SaaS
 Enterprise graphics must be strictly localized. If the graphic contains any text, that text must be translated for every single language your store listing supports. Furthermore, ensure the aesthetic aligns with Google's Material Design guidelines. A/B test the feature graphic vigorously, as it is the single largest visual element driving organic search conversions on Android.
 
 ## Implementation Steps
@@ -7938,7 +7938,7 @@ Focus on your Title and Subtitle. The App Title is the single heaviest ranking f
 ### Production SaaS
 You must understand the algorithmic differences between Apple and Google. Apple completely ignores your Long Description for search rankings; they only index your Title, Subtitle, and Keyword Field. Google, however, indexes your entire Long Description like a webpage. For Google Play, you must write a robust, keyword-dense (but natural-sounding) description, strategically repeating your target keyword 3-5 times. For Apple, focus all your energy on optimizing the exact 30 characters in your Subtitle and the 100-character keyword bank.
 
-### Custom Mode
+### Production SaaS
 Enterprise ASO requires continuous iteration. You must use tools like SensorTower or AppTweak to analyze competitors' keyword rankings, search volume, and difficulty scores. If you try to rank for "Fitness App," you will fail against Nike and Peloton. You must identify "Long-Tail Keywords" (e.g., "Kettlebell workout tracker for men") and dominate those niches first. Additionally, localize your keywords. Translating English keywords directly to Spanish often fails; you must research the actual colloquial terms native users type into the search bar.
 
 ## Implementation Steps
@@ -7971,7 +7971,7 @@ You must explicitly state what third-party SDKs you use. If you use Expo, state 
 ### Production SaaS
 Your Privacy Policy must be a legally binding document hosted on a dedicated route (e.g., \`yourdomain.com/privacy\`). It must clearly outline your Data Retention policy: how long you keep data, and how a user can request account deletion. Apple recently mandated that any app offering account creation *must* offer in-app account deletion. If your privacy policy does not explain the deletion process, Apple will reject the update.
 
-### Custom Mode
+### Production SaaS
 Enterprise compliance (SOC2, HIPAA, GDPR) requires a meticulously drafted Privacy Policy by a specialized legal team. You must explicitly cover cross-border data transfers, the exact encryption standards used at rest and in transit, and the contact information for your designated Data Protection Officer (DPO). You must also implement a mandatory consent flow within the app UI (e.g., a Cookie/Tracking banner) before initializing any analytics SDKs.
 
 ## Implementation Steps
@@ -8004,7 +8004,7 @@ If your app allows users to post content (forums, comments, image uploads), you 
 ### Production SaaS
 If you offer auto-renewing subscriptions, Apple and Google have highly specific requirements for your ToS. You must explicitly state the length of the subscription, the price, the auto-renewal terms, and instructions on how the user can cancel the subscription via their OS settings. Failure to clearly state auto-renewal terms in your ToS (and on the paywall UI itself) will result in an immediate rejection.
 
-### Custom Mode
+### Production SaaS
 Enterprise applications require a bespoke Master Services Agreement (MSA) or highly specific ToS that covers Service Level Agreements (SLAs), indemnification, and binding arbitration clauses. If your app handles financial transactions or medical advice, your ToS must include massive, explicitly styled disclaimers (ALL CAPS) stating that the service does not constitute professional advice and that liability is capped at the amount paid by the user.
 
 ## Implementation Steps
@@ -8037,7 +8037,7 @@ Be honest. If your app is a social network or forum, you must declare that it co
 ### Production SaaS
 If your app deals with medical information, alcohol, dating, or real-money gambling, you must pay extreme attention to the content rating. Certain categories are completely banned in specific countries. For example, apps dealing with cryptocurrency or VPNs face massive regional restrictions. You must ensure your declared rating exactly matches the core functionality of your app to avoid retroactive bans.
 
-### Custom Mode
+### Production SaaS
 Enterprise apps often fall under the "Productivity" or "Business" category and easily achieve an "Everyone" rating. However, if your enterprise app involves unfiltered web access (like a custom browser) or handles highly regulated content (like cannabis delivery logistics), you must provide explicit documentation and legal licenses to the app review teams to justify your presence on the store, regardless of the age rating.
 
 ## Implementation Steps
@@ -8070,7 +8070,7 @@ For iOS, use TestFlight. You can add up to 100 internal testers just by entering
 ### Production SaaS
 You must implement a strict multi-track deployment pipeline. Your CI/CD (like EAS Build) should push every successful merge on the \`main\` branch directly to the Google Play Internal Track and iOS TestFlight. Once QA approves the internal build, you promote that exact same binary to the "Closed Beta" track. Never rebuild the app between testing and production; always promote the identical, tested binary artifact.
 
-### Custom Mode
+### Production SaaS
 Enterprise deployment often bypasses public test tracks entirely. You will use Mobile Device Management (MDM) solutions or Apple Business Manager to distribute the app directly to employee devices. If using public stores, you must utilize "Staged Rollouts" (Phased Releases). You release the app to 1% of users, monitor Crashlytics for 24 hours, then expand to 10%, 50%, and 100%. If a critical memory leak occurs, you halt the rollout immediately.
 
 ## Implementation Steps
@@ -8103,7 +8103,7 @@ Distribute a public TestFlight link and a Google Play Closed Beta invite link on
 ### Production SaaS
 Beta testing must be systematic. Use tools like Instabug or Sentry's user feedback widget to allow beta testers to shake their phone and submit a bug report with logs attached. You must track your "Crash-Free Users" percentage in Crashlytics. Do not promote a beta to production unless you have a 99.5% crash-free session rate over a 7-day period.
 
-### Custom Mode
+### Production SaaS
 Enterprise beta testing involves UAT (User Acceptance Testing) with strict sign-offs from stakeholders. You must provide testers with explicit test scripts ("Log in, navigate to inventory, scan barcode, verify sync"). You must monitor the backend metrics during the beta: Did the mobile app cause a massive spike in database reads? Did the connection pool hold up? Beta is not just for UI bugs; it's a stress test for the entire infrastructure.
 
 ## Implementation Steps
@@ -8143,7 +8143,7 @@ Your release checklist must be institutionalized.
 4. "What's New" release notes are written and translated.
 5. The binary has been tested on both iOS and Android physical devices using cellular data (not just Wi-Fi).
 
-### Custom Mode
+### Production SaaS
 Enterprise releases require a formal "Go/No-Go" meeting. You must verify that the Customer Support team is trained on the new features and equipped with troubleshooting documentation. You must verify that the infrastructure team has scaled the backend to handle the influx of users downloading the update. The rollout must be staged (1%, 10%, 100%) and monitored by SREs (Site Reliability Engineers) watching Datadog dashboards for latency spikes.
 
 ## Implementation Steps
@@ -8176,7 +8176,7 @@ If you are building this for your portfolio, treat the Pitch Deck as a "Case Stu
 ### Production SaaS
 If you are raising venture capital, your deck must follow the classic Sequoia Capital structure. The most critical slides are the "Problem", "Solution", "Market Size", and "Traction". Investors do not care about your code; they care about distribution. How are you going to acquire the first 10,000 users? Your deck must answer that question immediately.
 
-### Custom Mode
+### Production SaaS
 Enterprise pitches (B2B sales) are entirely different from VC pitches. A B2B sales deck must focus intensely on ROI (Return on Investment). You must demonstrate how your mobile app will save the client money, reduce their liability, or increase their throughput. Include case studies, security compliance certifications (SOC2), and integration timelines.
 
 ## Implementation Steps
@@ -8209,7 +8209,7 @@ Write a script for a 60-second YouTube or Twitter demo. Start with the "Hook" in
 ### Production SaaS
 Your demo script is your primary sales tool. It should be highly interactive. Do not just talk *at* the user; ask them questions. "How much time do you currently spend doing X?" Then, show them how your app does it in one click. Tailor the script to the specific buyer persona (e.g., show the reporting dashboard to the CEO, but show the quick-entry form to the field worker).
 
-### Custom Mode
+### Production SaaS
 Enterprise demos often involve integrating with the client's actual data. Your script must include a sandbox environment pre-loaded with highly realistic, industry-specific dummy data. Showing an enterprise client a demo filled with "Test User 1" and "Foo Bar" destroys credibility. Script exactly how you will demonstrate complex security features, like SSO login or offline-sync conflict resolution.
 
 ## Implementation Steps
@@ -8242,7 +8242,7 @@ Treat your GitHub README as your submission page. Ensure you have high-quality G
 ### Production SaaS
 Your submission is your Product Hunt launch. You must prepare a "Maker Comment" explaining why you built it. You must have animated GIFs for your gallery, a catchy tagline, and a coordinated strategy to reply to comments immediately as they come in. Launching is a 24-hour full-time job.
 
-### Custom Mode
+### Production SaaS
 Enterprise deployment is not a "submission" to a public board; it's a handoff. Your checklist must include transferring ownership of all AWS/GCP accounts, rotating all production API keys, providing the final signed MSA (Master Services Agreement), and delivering the complete API documentation to the client's internal IT team.
 
 ## Implementation Steps
@@ -8275,7 +8275,7 @@ Implement a lightweight solution like PostHog. You don't need to track every sin
 ### Production SaaS
 You must implement a strict Tracking Plan. Do not allow developers to randomly name events (\`clicked_button\` vs \`Button Clicked\`). Use a unified nomenclature like \`Object_Action\` (e.g., \`Subscription_Purchased\`, \`Profile_Updated\`). Furthermore, you must separate your tracking environments. Never send development analytics to your production Mixpanel/Amplitude project; it will permanently corrupt your data.
 
-### Custom Mode
+### Production SaaS
 Enterprise analytics requires strict data governance and privacy compliance (GDPR/CCPA/HIPAA). You often cannot use third-party cloud analytics. You must implement self-hosted solutions (like self-hosted PostHog or Snowplow) or stream raw event data directly into your own secure data warehouse (e.g., Google BigQuery or Snowflake). You must also ensure that absolutely zero Personally Identifiable Information (PII), such as email addresses or plain-text names, is passed in the analytics payload.
 
 ## Implementation Steps
@@ -8308,7 +8308,7 @@ Focus on Transactional notifications, not Promotional ones. If your app is a tas
 ### Production SaaS
 You must implement Behavioral Segmentation using tools like OneSignal or Braze. Stop blasting everyone. Create segments: "Active users who haven't logged a meal in 48 hours" or "Users who abandoned the checkout screen." Furthermore, you must respect time zones. If you schedule a global blast at 9:00 AM EST, your users in Tokyo will receive a promotional ping at 10:00 PM, resulting in massive opt-outs.
 
-### Custom Mode
+### Production SaaS
 Enterprise notifications must support deep integrations and complex routing. If a server goes down, an alert must trigger a push notification, an SMS, and an email simultaneously to the on-call engineer via PagerDuty integration. You must also implement strict rate-limiting. A bug in your backend loop should never result in a user receiving 500 identical push notifications in a single minute.
 
 ## Implementation Steps
@@ -8341,7 +8341,7 @@ Add a simple "Send Feedback" button in your settings menu that opens the user's 
 ### Production SaaS
 You must proactively intercept feedback. Implement a tool like Instabug. If the app crashes, or if the user physically shakes their phone in frustration, prompt them with a feedback form. Furthermore, you must categorize feedback rigorously (Bug vs Feature Request). Do not let feedback rot in a generic inbox; pipe it directly into a dedicated Slack channel or a tool like Linear so the engineering team sees the pain points in real-time.
 
-### Custom Mode
+### Production SaaS
 Enterprise feedback loops are highly structured. You must implement NPS (Net Promoter Score) or CSAT (Customer Satisfaction) micro-surveys directly within the app workflow. However, these surveys must be heavily throttled (e.g., never show an NPS survey to a user who has experienced a crash in the last 7 days, and never survey the same user more than once every 90 days). Feedback must be tied directly to the user's CRM profile (Salesforce) so Account Executives are aware of client sentiment before renewal calls.
 
 ## Implementation Steps
@@ -8377,7 +8377,7 @@ You must implement the "Rating Intercept" strategy. Ask the user a qualifying qu
 - If they tap "Yes", immediately trigger the native 5-star review prompt. 
 This guarantees that only happy users are sent to the App Store, artificially inflating your rating to 4.8+.
 
-### Custom Mode
+### Production SaaS
 Enterprise applications distributed privately via MDM (Mobile Device Management) do not use App Store ratings. However, if it is a public-facing enterprise app (like a banking app), ratings are a matter of public relations. You must integrate API listeners that alert the PR and Customer Support teams in real-time if a 1-star review mentioning "security" or "breach" is posted. Apple and Google provide APIs to respond to reviews programmatically; you must have an SLA (Service Level Agreement) to respond to all 1-star and 2-star reviews within 24 hours.
 
 ## Implementation Steps
@@ -8410,7 +8410,7 @@ Focus on simple, non-incentivized sharing. Implement the native Share API (\`Sha
 ### Production SaaS
 You must build a double-sided incentive loop. "Give $10, Get $10" is the industry standard for a reason. You must use Deep Linking tools like Branch.io to track the entire lifecycle: User A sends a link -> User B clicks the link -> User B is routed to the App Store -> User B installs the app -> User B opens the app -> Branch passes the referral ID to your backend -> Both users are credited. This must work flawlessly, even if the user didn't have the app installed when they clicked the link (Deferred Deep Linking).
 
-### Custom Mode
+### Production SaaS
 Enterprise referral programs are often called "Affiliate Programs" or "Partner Networks." You are not offering in-app credits; you are offering cold hard cash. You must integrate with an affiliate tracking system like PartnerStack or Rewardful. You must handle tax implications (e.g., collecting W-9 forms if an affiliate earns more than $600/year). The referral logic must handle complex B2B attribution windows (e.g., the affiliate gets 20% of the referred client's revenue for the first 12 months).
 
 ## Implementation Steps
@@ -8443,7 +8443,7 @@ Create a simple Notion page or a public GitHub Kanban board. Link to it directly
 ### Production SaaS
 You must use a dedicated roadmap tool like Canny or Productboard that allows users to upvote features. Do not build features just because you think they are cool; build the features that have 500 upvotes. This allows you to crowdsource your product management. When you finally release a feature, these tools will automatically email every single user who upvoted it, driving an immediate spike in re-engagement.
 
-### Custom Mode
+### Production SaaS
 Enterprise roadmaps are highly political and strictly confidential. You never publish a public roadmap because your competitors will copy your strategy, and your sales team will make promises you cannot keep. Instead, use tools like Linear or Jira internally. You must categorize feature requests by Revenue Impact (e.g., "Feature X is blocking a $500k contract renewal"). The roadmap is presented directly to key stakeholders during Quarterly Business Reviews (QBRs), not posted on the internet.
 
 ## Implementation Steps
@@ -8476,7 +8476,7 @@ Focus on database indexing and connection pooling. If your app queries a massive
 ### Production SaaS
 You must implement heavy caching. Your mobile app should not hit your primary database for static or semi-static data. Put a CDN (Cloudflare) in front of your API. Implement Redis to cache the results of expensive queries. If a user loads the global leaderboard, that query should be calculated once every 5 minutes and served from Redis to the next 10,000 users. On the mobile client side, implement aggressive local caching (React Query / Apollo) so the app feels instantly fast even on poor cellular connections.
 
-### Custom Mode
+### Production SaaS
 Enterprise scaling requires geographical distribution, read-replicas, and High Availability (HA). If your app serves users in Europe and Asia, you cannot route all API traffic to a single database in Virginia. You must deploy edge functions and read-replicas closer to the user to reduce latency. You must conduct massive, simulated Load Testing using tools like k6 or JMeter to prove to enterprise clients that your infrastructure can handle 10,000 requests per second with 99.99% uptime.
 
 ## Implementation Steps
@@ -8539,7 +8539,7 @@ State management in production must be split into two distinct categories: **Ser
 1. **Server State**: Use React Query (TanStack Query) or Apollo GraphQL. This handles fetching, caching, synchronizing, and updating server data. Do not reinvent the wheel by storing API responses in Redux.
 2. **Client State**: Use Zustand or Redux Toolkit for pure UI state (e.g., "Is the dark mode toggle checked?").
 
-### Custom Mode
+### Production SaaS
 Enterprise applications often have massive localized datasets (e.g., a field technician needing access to 10,000 offline equipment manuals). You must implement an offline-first state synchronization engine like WatermelonDB or Realm. State management must handle complex conflict resolution algorithms when the device comes back online and tries to sync changes with the master database.
 
 ## Implementation Steps
@@ -8572,7 +8572,7 @@ Firebase Cloud Messaging (FCM) is the industry standard and completely free. You
 ### Production SaaS
 You must implement a dedicated CRM tool like OneSignal or Braze. These tools handle complex logic like timezone routing, A/B testing notification copy, and badge-count management. Furthermore, you must handle token invalidation. When a user uninstalls the app or rotates their device, their FCM token becomes invalid. Your backend must listen for these error responses and aggressively prune dead tokens from the database to avoid sending thousands of ghost requests.
 
-### Custom Mode
+### Production SaaS
 Enterprise applications often require HIPAA or SOC2 compliance. You cannot send sensitive information (e.g., "Your HIV test results are ready") in the payload of a push notification, because push notifications are delivered in plain text over Apple/Google servers. Instead, send a "Data-Only" silent notification that wakes up the app in the background, forces the app to establish a secure SSL connection to your proprietary server to download the sensitive data, and then triggers a local notification securely.
 
 ## Implementation Steps
@@ -8605,7 +8605,7 @@ Focus intensely on responsive design and safe areas. Your app might look perfect
 ### Production SaaS
 You must implement a strict Design System. Define your typography, color palettes, and spacing tokens in a central file. Never hardcode a color like \`#FF0000\` in a component; use \`theme.colors.danger\`. Furthermore, you must respect the system-level accessibility settings. If a user has "Larger Text" enabled in their iOS settings, your UI must scale gracefully without breaking the layout or truncating critical buttons.
 
-### Custom Mode
+### Production SaaS
 Enterprise UIs must be highly accessible (WCAG compliance). Every interactive element must have proper accessibility labels for VoiceOver and TalkBack screen readers. The UI must support complex data-density toggles (e.g., allowing field workers to switch between a visual "Card" layout and an information-dense "Table" layout depending on their environment).
 
 ## Implementation Steps
@@ -8638,7 +8638,7 @@ React Navigation is the industry standard. You must understand the difference be
 ### Production SaaS
 You must handle Deep Linking. If a user clicks a link in their email (e.g., \`myapp://reset-password?token=123\`), the app must intercept that URL, parse the token, and automatically push the correct screen onto the navigation stack, regardless of whether the app was running in the background or completely closed.
 
-### Custom Mode
+### Production SaaS
 Enterprise navigation requires strict Role-Based Access Control (RBAC) at the router level. If an employee's permissions are revoked mid-session, the router must immediately eject them from the administrative screens and route them back to a safe zone. You must also implement complex "State Restoration" so if the OS kills the app while the worker is in the background, they are returned to the exact nested screen they were on when they reopen it.
 
 ## Implementation Steps
@@ -8671,7 +8671,7 @@ Implement a robust data-fetching library like React Query or SWR. These librarie
 ### Production SaaS
 You must implement aggressive timeouts and global error handling. If your backend is struggling and takes 30 seconds to respond, your mobile app should abort the request after 10 seconds and show a friendly "Connection Timeout" message. Furthermore, you must handle token refreshing (JWTs) seamlessly. If an API request fails with a 401 Unauthorized, your networking layer (Axios Interceptors) should automatically pause all requests, fetch a new access token using a refresh token, and then replay the queued requests without the user ever noticing.
 
-### Custom Mode
+### Production SaaS
 Enterprise APIs require strict security protocols like Certificate Pinning. This ensures the app will ONLY communicate with your specific server, protecting against Man-in-the-Middle (MITM) attacks on compromised corporate WiFi networks. Furthermore, enterprise apps must support WebSocket connections for real-time telemetry, gracefully handling abrupt disconnects and applying exponential backoff strategies for reconnections.
 
 ## Implementation Steps
@@ -8708,7 +8708,7 @@ Never upload media directly to your own backend API. Always use "Pre-signed URLs
 3. The app uploads the compressed file *directly* to S3, bypassing your backend entirely. 
 This saves massive amounts of server bandwidth. Furthermore, you must implement background uploading. If the user minimizes the app while a 50MB video is uploading, the upload should continue in the background OS process, not instantly terminate.
 
-### Custom Mode
+### Production SaaS
 Enterprise media handling often requires real-time streaming and intense security. If a medical worker is uploading a photo of a patient's chart, that photo must never be saved to the device's public camera roll. It must be captured directly into the app's encrypted sandbox, compressed, and uploaded via secure TLS to a HIPAA-compliant S3 bucket, leaving zero trace on the physical device.
 
 ## Implementation Steps
@@ -8741,7 +8741,7 @@ Focus on "One-Time" location requests. Do not ask for "Always On" background loc
 ### Production SaaS
 You must handle edge cases gracefully. What happens if the user denies location permissions? The app must not crash; it should fall back to asking them to manually type in their zip code. What happens if the GPS signal is weak (e.g., inside a parking garage)? The UI must indicate that the location is an approximation (show a large blue radius circle instead of a precise dot). 
 
-### Custom Mode
+### Production SaaS
 Enterprise applications (like fleet tracking or delivery logistics) require "Always On" background tracking. You must write native Swift/Kotlin code or use robust libraries like \`react-native-background-geolocation\`. You must implement intelligent throttling: track the user every 10 meters when they are driving on a highway, but only track them once every 5 minutes if their accelerometer detects they are sitting completely still in a warehouse, thereby saving battery.
 
 ## Implementation Steps
@@ -8777,7 +8777,7 @@ You must implement a "Pre-Permission" screen (also known as a soft prompt). Beca
 - If they tap "Allow", *then* you trigger the native OS prompt. 
 If they previously denied the native prompt, you must detect the \`blocked\` state and provide a custom UI button that deep-links them directly to the iOS/Android Settings app to manually toggle it back on.
 
-### Custom Mode
+### Production SaaS
 Enterprise apps distributed via MDM (Mobile Device Management) can often bypass permission dialogs because the corporation owns the device and pre-approves the permissions via configuration profiles. However, your code must still gracefully handle the theoretical possibility of a permission denial to prevent fatal crashes during edge cases or audits.
 
 ## Implementation Steps
@@ -8810,7 +8810,7 @@ Implement optimistic UI updates and simple caching. Use React Query or Apollo to
 ### Production SaaS
 You must implement a robust background sync engine. Use WatermelonDB or Realm as your primary data source. The React UI should *only* ever read from the local SQLite database. A background worker process handles pulling changes from your cloud database and pushing local mutations to the cloud. This architectural pattern (Offline-First) guarantees the app is always 60FPS and never blocked by network latency.
 
-### Custom Mode
+### Production SaaS
 Enterprise offline features (e.g., an app for oil rig inspectors) require complex Conflict Resolution. If Inspector A edits a safety report offline, and Inspector B edits the same report online, what happens when Inspector A reconnects? You must implement CRDTs (Conflict-free Replicated Data Types) or strict server-side timestamps to merge changes deterministically without destroying data or prompting the user with confusing "Merge Conflict" modals.
 
 ## Implementation Steps
@@ -8847,7 +8847,7 @@ Do not track arbitrary tab switches or scroll depths.
 ### Production SaaS
 You must implement a strict Noun-Verb nomenclature (e.g., \`Profile_Updated\`, \`Subscription_Purchased\`). Every event must have attached metadata (properties). Tracking \`Subscription_Purchased\` is useless if you don't know *which* tier they bought. The properties should include \`tier: "premium"\`, \`price: 9.99\`, and \`currency: "USD"\`. Furthermore, you must wrap your analytics calls in a centralized service class. Never call \`mixpanel.track()\` directly from 50 different UI components; call \`AnalyticsService.trackPurchase()\`.
 
-### Custom Mode
+### Production SaaS
 Enterprise analytics require strict privacy controls. You must implement a kill-switch to disable all tracking if the user opts out (GDPR/CCPA compliance). You must also ensure that zero PII (Personally Identifiable Information) like emails or social security numbers are accidentally sent in the event properties. Data must often be routed through a Customer Data Platform (CDP) like Segment, which can filter PII before forwarding the data to downstream marketing tools.
 
 ## Implementation Steps
@@ -8880,7 +8880,7 @@ Integrate a free crash reporting tool like Firebase Crashlytics or Sentry. You d
 ### Production SaaS
 You must upload Sourcemaps to Sentry/Crashlytics as part of your CI/CD pipeline. Without sourcemaps, a crash report will just tell you the error happened in \`main.min.js:1:4092\`, which is entirely useless for debugging. You must also track Non-Fatal errors. If an API request fails, don't just show a toast notification; actively log that handled error to Sentry so you can detect if a third-party API is experiencing an outage.
 
-### Custom Mode
+### Production SaaS
 Enterprise error handling requires SLA (Service Level Agreement) alerting. If the crash-free session rate drops below 99.9%, Sentry must automatically page the on-call engineer via PagerDuty. Furthermore, you must implement breadcrumbs (a log of the last 10 things the user clicked before the crash) and attach the user's encrypted UUID to the crash report so Customer Support can proactively email the affected enterprise client apologizing for the outage.
 
 ## Implementation Steps
@@ -8907,7 +8907,7 @@ An app with an empty feed, zero friends, and no history looks broken. If you han
 ### Hackathon Mode
 Hardcode everything. Do not fetch demo data from an API. Create a \`constants/mockData.ts\` file filled with 20 incredibly realistic JSON objects (e.g., real names, high-quality Unsplash profile pictures, realistic text). Your UI components should map directly over this hardcoded array.
 
-### Custom Mode
+### Production SaaS
 Enterprise demos require "Sandboxes." You cannot show Client A the actual production data of Client B. You must write a robust backend seeding script (e.g., \`npm run seed:demo\`) that dynamically populates a dedicated Sandbox database with thousands of rows of industry-specific, anonymized data. If you are pitching to a hospital, the demo data must look exactly like real patient records, not "Test User 1."
 
 ## Implementation Steps
@@ -8934,7 +8934,7 @@ Users do not read descriptions; they look at the first three screenshots. If you
 ### Hackathon Mode
 If your hackathon requires a Devpost submission, take 3 screenshots of your app, throw them into Canva, and add a bold title above them. It takes 10 minutes and makes your submission look 10x more professional than the teams who just uploaded raw simulator captures.
 
-### Custom Mode
+### Production SaaS
 Enterprise apps distributed via Private App Stores or Apple Business Manager still require screenshots, but the focus shifts entirely from "Marketing" to "Utility and Security." Do not use flashy 3D renders. Show clear, annotated screenshots of the dashboard, the security login flow, and the reporting tools.
 
 ## Implementation Steps
@@ -8958,7 +8958,7 @@ The majority of the world does not speak English. If your app is locked to Engli
 
 ## Strategic Guidance
 
-### Custom Mode
+### Production SaaS
 Enterprise applications often require strict localization. Do not attempt to use Google Translate for enterprise software; the terminology is too specific and a bad translation can cause legal liability (e.g., misinterpreting a medical compliance toggle). Use a professional localization platform like Lokalise or Phrase. Furthermore, you must abstract *every single string* in your app into a JSON file. Never hardcode \`<Text>Submit</Text>\`. Always use \`<Text>{t('auth.submit')}</Text>\`.
 
 ## Implementation Steps
@@ -8982,7 +8982,7 @@ Apple and Google take a 15-30% cut of all digital subscriptions, and their APIs 
 
 ## Strategic Guidance
 
-### Custom Mode
+### Production SaaS
 Enterprise apps almost never use Apple/Google In-App Purchases. B2B contracts are negotiated externally (e.g., a $50k/year Master Services Agreement) and paid via ACH or wire transfer. The mobile app itself is simply a free "Client" that employees log into. If you try to charge a $50k enterprise contract through the iOS App Store, Apple will take $15,000. You must implement a "Bypass" architecture: The app is free to download, but requires a pre-existing enterprise account to log in.
 
 ## Implementation Steps
@@ -9006,7 +9006,7 @@ Apple Watch and WearOS devices represent a completely different computing paradi
 
 ## Strategic Guidance
 
-### Custom Mode
+### Production SaaS
 Enterprise wearable apps are highly specialized. A warehouse worker might use a ruggedized Android smartwatch paired to a Bluetooth barcode scanner to keep their hands free. You must build standalone native apps using Swift (WatchKit) or Kotlin (WearOS). React Native is generally not suitable for building robust wearable applications. You must handle extreme battery constraints and aggressive background-execution limits imposed by the OS.
 
 ## Implementation Steps
@@ -9030,7 +9030,7 @@ iOS Home Screen Widgets and Android App Widgets keep your app alive in the user'
 
 ## Strategic Guidance
 
-### Custom Mode
+### Production SaaS
 Enterprise widgets must prioritize data privacy. If an executive puts a "Sales Dashboard" widget on their lock screen, that highly confidential data is visible to anyone who glances at their phone while it's sitting on a table. You must implement native iOS/Android privacy flags to blur or hide the widget data when the device is locked (using \`privacySensitive()\` modifiers in SwiftUI).
 
 ## Implementation Steps
@@ -9054,7 +9054,7 @@ Mobile operating systems aggressively kill apps running in the background to pre
 
 ## Strategic Guidance
 
-### Custom Mode
+### Production SaaS
 Enterprise applications often require persistent background execution (e.g., a delivery driver app that must upload GPS coordinates every 60 seconds even if the phone is locked in their pocket). You must use highly specialized background APIs.
 - **iOS**: You must register for \`UIBackgroundModes\` (e.g., location, audio, or fetch). If you abuse this and the OS detects your app burning battery, Apple will outright ban your app.
 - **Android**: You must implement a "Foreground Service." This requires displaying a persistent, un-dismissible notification in the user's status bar explicitly stating that the app is running in the background.
@@ -9080,7 +9080,7 @@ Bluetooth Low Energy (BLE) is notoriously unstable. Devices disconnect randomly,
 
 ## Strategic Guidance
 
-### Custom Mode
+### Production SaaS
 Enterprise IoT (Internet of Things) applications heavily rely on BLE (e.g., syncing a mobile app with a medical heart monitor or an industrial weight scale). You must use a robust library like \`react-native-ble-plx\`. Do not write raw Bluetooth code unless absolutely necessary. You must handle the "Bluetooth is turned off" state gracefully by prompting the user to enable it via the OS settings. Furthermore, pairing flows must have strict timeouts; if a device doesn't respond within 10 seconds, the app must abort the connection attempt rather than hanging indefinitely.
 
 ## Implementation Steps
@@ -9104,7 +9104,7 @@ NFC is the technology behind Apple Pay and tap-to-pay credit cards. It is fast, 
 
 ## Strategic Guidance
 
-### Custom Mode
+### Production SaaS
 Enterprise applications use NFC for inventory management, security badge scanning, or anti-counterfeiting verification. On iOS, you can only read/write NFC NDEF (NFC Data Exchange Format) tags. You cannot emulate a credit card (Host Card Emulation) without highly restricted, special entitlements from Apple. Use a library like \`react-native-nfc-manager\`. Ensure your UI clearly instructs the user *where* the NFC antenna is located on their specific device (top edge for iPhones, middle back for most Androids).
 
 ## Implementation Steps
@@ -9128,7 +9128,7 @@ If you just need a user to take a profile picture, you should use the native OS 
 
 ## Strategic Guidance
 
-### Custom Mode
+### Production SaaS
 Enterprise apps often require custom cameras for Optical Character Recognition (OCR), barcode scanning, or capturing high-resolution document scans. Use a high-performance library like \`react-native-vision-camera\`. You must handle the camera lifecycle perfectly: if the user minimizes the app, you *must* pause the camera stream. If you leave the camera active in the background, the OS will terminate your app instantly for privacy violations, and the phone will physically overheat.
 
 ## Implementation Steps
@@ -9152,7 +9152,7 @@ Standard GPS drains the battery in a few hours. Advanced location services requi
 
 ## Strategic Guidance
 
-### Custom Mode
+### Production SaaS
 Enterprise applications like logistics or fleet tracking require complex geofencing. You should not wake up the app every 10 seconds to check if a truck has entered a warehouse. Instead, you register a "Geofence" (a radius around a coordinate) with the OS. The OS will monitor this hardware-efficiently in the background and only wake up your app when the device crosses the boundary. This saves massive amounts of battery and ensures reliable trigger execution.
 
 ## Implementation Steps
