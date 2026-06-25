@@ -405,7 +405,14 @@ Use this context to answer their questions accurately. Keep your answers concise
                     msg.content
                   ) : (
                     <div className="prose prose-sm dark:prose-invert max-w-none prose-p:leading-relaxed prose-pre:bg-muted prose-pre:border prose-pre:border-muted/50">
-                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      <ReactMarkdown 
+                        remarkPlugins={[remarkGfm]}
+                        components={{
+                          a: ({ node, ...props }) => (
+                            <a {...props} className="text-primary hover:underline font-medium" target="_blank" rel="noopener noreferrer" />
+                          )
+                        }}
+                      >
                         {msg.content}
                       </ReactMarkdown>
                     </div>

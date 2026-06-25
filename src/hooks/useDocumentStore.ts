@@ -13,7 +13,7 @@ export interface DocumentData {
 
 export type SaveStatus = 'saved' | 'saving' | 'error' | 'idle';
 
-export function useDocumentStore(projectId: string | null, topicId: string, activeMode: Mode = 'SaaS' as Mode) {
+export function useDocumentStore(projectId: string | null, topicId: string, activeMode: Mode = 'Production') {
   const [content, setContent] = useState<string>('');
   const [isLoaded, setIsLoaded] = useState(false);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>('idle');
@@ -65,7 +65,7 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
     loadDoc();
 
     return () => { isMounted = false; };
-  }, [projectId, topicId]);
+  }, [projectId, topicId, activeMode]);
 
   // Save document
   const saveContent = (newContent: string) => {
@@ -80,7 +80,10 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
     saveTimeoutRef.current = setTimeout(async () => {
       const supabase = await getSupabase();
       const { data: { user } } = await supabase.auth.getUser();
-      if (!user) return;
+      if (!user) {
+        setSaveStatus('error');
+        return;
+      }
 
       const { error } = await supabase
         .from('documents')

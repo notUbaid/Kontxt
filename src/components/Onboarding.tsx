@@ -140,6 +140,10 @@ export const Onboarding = ({ projects, onCreateProject, onSelectProject, isAuthe
   };
 
   const handleModeSelect = (mode: Mode) => {
+    if (!isAuthenticated) {
+      setIsAuthModalOpen(true);
+      return;
+    }
     if (selectedType) {
       onCreateProject(projectName, mode, selectedType);
     }

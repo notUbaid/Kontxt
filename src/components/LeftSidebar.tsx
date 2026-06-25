@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ChevronDown, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { getTaxonomy } from '../data/taxonomy';
@@ -32,6 +32,13 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
 
   // Simple state to track which categories are expanded in the accordion
   const [expandedCats, setExpandedCats] = useState<Record<string, boolean>>({});
+  const activeItemRef = useRef<HTMLLIElement>(null);
+
+  useEffect(() => {
+    if (activeItemRef.current) {
+      activeItemRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }, [activePage]);
 
   useEffect(() => {
     const initialExpanded: Record<string, boolean> = {};
@@ -140,17 +147,19 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
                   <span className="truncate">{category.name}</span>
                   {isExpanded ? <ChevronDown size={14} className="ml-1 opacity-50 shrink-0" /> : <ChevronRight size={14} className="ml-1 opacity-50 shrink-0" />}
                 </button>
-                <button
-                  onClick={(e) => toggleCategoryProgress(e, modeTopics)}
-                  className={`ml-2 shrink-0 p-1 rounded-full transition-all ${
-                    isAllCompleted 
-                      ? 'text-primary bg-primary/10' 
-                      : 'text-muted-foreground/30 hover:bg-muted opacity-0 group-hover/cat:opacity-100 hover:text-muted-foreground'
-                  }`}
-                  title={isAllCompleted ? "Mark phase as incomplete" : "Mark phase as complete"}
-                >
-                  <CheckCircle2 size={14} />
-                </button>
+                {activeProject.progressEnabled !== false && (
+                  <button
+                    onClick={(e) => toggleCategoryProgress(e, modeTopics)}
+                    className={`ml-2 shrink-0 p-1 rounded-full transition-all ${
+                      isAllCompleted 
+                        ? 'text-primary bg-primary/10' 
+                        : 'text-muted-foreground/30 hover:bg-muted opacity-0 group-hover/cat:opacity-100 hover:text-muted-foreground'
+                    }`}
+                    title={isAllCompleted ? "Mark phase as incomplete" : "Mark phase as complete"}
+                  >
+                    <CheckCircle2 size={14} />
+                  </button>
+                )}
               </div>
               
               {isExpanded && (
@@ -163,7 +172,7 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
                     const isCompleted = completedArray.includes(topicId);
                     
                     return (
-                      <li key={topicId} className="relative group/item">
+                      <li key={topicId} className="relative group/item" ref={isActive ? activeItemRef : null}>
                         <button
                           onClick={() => setActivePage(topic.id)}
                           className={`w-full flex items-center justify-between py-1.5 pl-3 pr-2 rounded-md text-sm transition-colors z-10 relative ${

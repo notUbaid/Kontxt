@@ -189,7 +189,7 @@ export const saasHackathonTaxonomy: Category[] = [
 export const saasPersonalTaxonomy: Category[] = [
   {
     id: 'discovery',
-    name: 'PHASE 1 — DISCOVERY',
+    name: 'PHASE 0 — DISCOVERY',
     topics: [
       createTopic('Welcome', HelpCircle),
       createTopic('Personas', Users),
@@ -199,7 +199,7 @@ export const saasPersonalTaxonomy: Category[] = [
   },
   {
     id: 'product',
-    name: 'PHASE 2 — PRODUCT',
+    name: 'PHASE 1 — PRODUCT',
     topics: [
       createTopic('PRD', FileText),
       createTopic('Design', PenTool, [], 'designsystem'),
@@ -208,7 +208,7 @@ export const saasPersonalTaxonomy: Category[] = [
   },
   {
     id: 'architecture',
-    name: 'PHASE 3 — ARCHITECTURE',
+    name: 'PHASE 2 — ARCHITECTURE',
     topics: [
       createTopic('Tech Stack', Settings, [], 'techstackselection'),
       createTopic('Auth', Key),
@@ -219,7 +219,7 @@ export const saasPersonalTaxonomy: Category[] = [
   },
   {
     id: 'development',
-    name: 'PHASE 4 — DEVELOPMENT',
+    name: 'PHASE 3 — DEVELOPMENT',
     topics: [
       createTopic('Database', Database),
       createTopic('Backend', Server),
@@ -230,7 +230,7 @@ export const saasPersonalTaxonomy: Category[] = [
   },
   {
     id: 'production-lite',
-    name: 'PHASE 5 — PRODUCTION LITE',
+    name: 'PHASE 4 — PRODUCTION LITE',
     topics: [
       createTopic('Performance', Zap, [], 'performanceoptimization'),
       createTopic('Backups', Database),
@@ -240,7 +240,7 @@ export const saasPersonalTaxonomy: Category[] = [
   },
   {
     id: 'growth-lite',
-    name: 'PHASE 6 — GROWTH LITE',
+    name: 'PHASE 5 — GROWTH LITE',
     topics: [
       createTopic('Feedback', MessageSquare, [], 'userfeedback'),
       createTopic('Roadmap', Globe, [], 'featureroadmap'),

@@ -76,7 +76,7 @@ function App() {
     };
   }, []);
 
-  const { projects, addProject, updateProject, deleteProject } = useProjectStore(!!isAuthenticated);
+  const { projects, loading, addProject, updateProject, deleteProject } = useProjectStore(!!isAuthenticated);
 
   // Removed the blocking auth screen to allow Home to render immediately for better LCP
 
@@ -100,6 +100,21 @@ function App() {
           element={
             <Editor 
               projects={projects}
+              loading={loading}
+              updateProject={updateProject}
+              deleteProject={deleteProject}
+              isAuthenticated={!!isAuthenticated}
+              setIsAuthenticated={setIsAuthenticated}
+            />
+          } 
+        />
+
+        <Route 
+          path="/project/:projectId" 
+          element={
+            <Editor 
+              projects={projects}
+              loading={loading}
               updateProject={updateProject}
               deleteProject={deleteProject}
               isAuthenticated={!!isAuthenticated}

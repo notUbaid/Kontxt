@@ -11,13 +11,14 @@ import { getTaxonomy } from '../data/taxonomy';
 
 interface EditorProps {
   projects: Project[];
+  loading?: boolean;
   updateProject: (p: Project) => void;
   deleteProject: (id: string) => void;
   isAuthenticated: boolean;
   setIsAuthenticated: (val: boolean) => void;
 }
 
-export default function Editor({ projects, updateProject, deleteProject, isAuthenticated, setIsAuthenticated }: EditorProps) {
+export default function Editor({ projects, updateProject, deleteProject, isAuthenticated, setIsAuthenticated, loading }: EditorProps) {
   const { projectId, topicId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
@@ -42,9 +43,18 @@ export default function Editor({ projects, updateProject, deleteProject, isAuthe
     return <Navigate to="/" replace />;
   }
 
-  if (!activeProject) return null; // Wait for projects to load
+  if (!activeProject) {
+    if (!loading) {
+      return <Navigate to="/" replace />;
+    }
+    return null; // Wait for projects to load
+  }
 
   const activePage = topicId || getFirstValidTopic(activeProject);
+
+  if (!topicId) {
+    return <Navigate to={`/project/${activeProject.id}/topic/${activePage}`} replace />;
+  }
 
   function getFirstValidTopic(project: Project): string {
     const taxonomy = getTaxonomy(project.type || 'SaaS', project.mode);

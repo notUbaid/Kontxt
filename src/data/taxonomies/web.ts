@@ -11,13 +11,13 @@ export const webProductionTaxonomy: Category[] = [
     id: 'phase-0',
     name: 'PHASE 0 — DISCOVERY & PLANNING',
     topics: [
-      createTopic('Idea Definition', Rocket, [], 'webideadefinition'),
+      createTopic('Idea Definition', Rocket, [{ name: 'YC RFS', url: 'https://www.ycombinator.com/rfs' }], 'webideadefinition'),
       createTopic('Problem Statement', AlertCircle, [], 'webproblemstatement'),
       createTopic('User Journey', Globe, [], 'webuserjourney'),
       createTopic('Personas', Users, [], 'webpersonas'),
       createTopic('Solution Statement', CheckSquare, [], 'websolutionstatement'),
       createTopic('Elevator Pitch', Presentation, [], 'webelevatorpitch'),
-      createTopic('Competitor Analysis', BarChart, [], 'webcompetitoranalysis'),
+      createTopic('Competitor Analysis', BarChart, [{ name: 'Similarweb', url: 'https://www.similarweb.com/' }], 'webcompetitoranalysis'),
       createTopic('Feature Planning', CheckSquare, [], 'webfeatureplanning'),
       createTopic('MVP Features', Rocket, [], 'webmvpfeatures'),
       createTopic('Future Features', Layers, [], 'webfuturefeatures'),
@@ -34,10 +34,10 @@ export const webProductionTaxonomy: Category[] = [
       createTopic('PRD', FileText, [], 'webprd'),
       createTopic('User Flows', Globe, [], 'webuserflows'),
       createTopic('Information Architecture', Layers, [], 'webinformationarchitecture'),
-      createTopic('Wireframes', Box, [], 'webwireframes'),
-      createTopic('Design System', PenTool, [], 'webdesignsystem'),
+      createTopic('Wireframes', Box, [{ name: 'Figma', url: 'https://www.figma.com/' }, { name: 'Excalidraw', url: 'https://excalidraw.com/' }], 'webwireframes'),
+      createTopic('Design System', PenTool, [{ name: 'Shadcn UI', url: 'https://ui.shadcn.com/' }, { name: 'Tailwind CSS', url: 'https://tailwindcss.com/' }], 'webdesignsystem'),
       createTopic('Branding', Target, [], 'webbranding'),
-      createTopic('Accessibility', Users, [], 'webaccessibility'),
+      createTopic('Accessibility', Users, [{ name: 'WCAG Guidelines', url: 'https://www.w3.org/WAI/standards-guidelines/wcag/' }], 'webaccessibility'),
       createTopic('Empty States', Box, [], 'webemptystates'),
       createTopic('Error States', AlertCircle, [], 'weberrorstates'),
       createTopic('Loading States', Activity, [], 'webloadingstates'),
@@ -48,19 +48,19 @@ export const webProductionTaxonomy: Category[] = [
     id: 'phase-2',
     name: 'PHASE 2 — TECHNICAL ARCHITECTURE',
     topics: [
-      createTopic('Tech Stack Selection', Settings, [], 'webtechstack'),
-      createTopic('Frontend Architecture', Monitor, [], 'webfrontendarchitecture'),
-      createTopic('Backend Architecture', Server, [], 'webbackendarchitecture'),
+      createTopic('Tech Stack Selection', Settings, [{ name: 'Next.js', url: 'https://nextjs.org/' }, { name: 'Vite', url: 'https://vitejs.dev/' }], 'webtechstack'),
+      createTopic('Frontend Architecture', Monitor, [{ name: 'React', url: 'https://react.dev/' }, { name: 'Zustand', url: 'https://zustand-demo.pmnd.rs/' }], 'webfrontendarchitecture'),
+      createTopic('Backend Architecture', Server, [{ name: 'Express', url: 'https://expressjs.com/' }, { name: 'FastAPI', url: 'https://fastapi.tiangolo.com/' }], 'webbackendarchitecture'),
       createTopic('API Design', Globe, [], 'webapidesign'),
-      createTopic('Authentication', Key, [], 'webauthentication'),
-      createTopic('Database Schema', Database, [], 'webdatabaseschema'),
-      createTopic('File Storage', Cloud, [], 'webfilestorage'),
+      createTopic('Authentication', Key, [{ name: 'Clerk', url: 'https://clerk.com/' }, { name: 'Supabase Auth', url: 'https://supabase.com/auth' }], 'webauthentication'),
+      createTopic('Database Schema', Database, [{ name: 'Supabase', url: 'https://supabase.com/' }, { name: 'Prisma', url: 'https://www.prisma.io/' }], 'webdatabaseschema'),
+      createTopic('File Storage', Cloud, [{ name: 'AWS S3', url: 'https://aws.amazon.com/s3/' }, { name: 'Cloudinary', url: 'https://cloudinary.com/' }], 'webfilestorage'),
       createTopic('Cost Estimation', DollarSign, [], 'webcostestimation'),
       createTopic('Web Fundamentals', BookOpen, [], 'webfundamentals'),
       createTopic('Authorization', Lock, [], 'webauthorization'),
       createTopic('Search System', Search, [], 'websearchsystem'),
       createTopic('Third-Party Integrations', Link, [], 'webthirdpartyintegrations'),
-      createTopic('AI Features (Optional)', Cpu, [], 'webaifeatures'),
+      createTopic('AI Features (Optional)', Cpu, [{ name: 'OpenAI', url: 'https://platform.openai.com/' }, { name: 'Vercel AI SDK', url: 'https://sdk.vercel.ai/docs' }], 'webaifeatures'),
     ]
   },
   {
@@ -88,14 +88,14 @@ export const webProductionTaxonomy: Category[] = [
     topics: [
       createTopic('Security', Shield, [], 'websecurityreadiness'),
       createTopic('Performance Optimization', Zap, [], 'webperformanceoptimization'),
-      createTopic('Monitoring', Activity, [], 'webmonitoring'),
+      createTopic('Monitoring', Activity, [{ name: 'Sentry', url: 'https://sentry.io/' }, { name: 'Datadog', url: 'https://www.datadoghq.com/' }], 'webmonitoring'),
       createTopic('Logging', FileText, [], 'weblogging'),
       createTopic('Error Tracking', AlertCircle, [], 'weberrortracking'),
       createTopic('Rate Limiting', Shield, [], 'webratelimiting'),
       createTopic('Caching', Zap, [], 'webcaching'),
       createTopic('Backups', Database, [], 'webbackups'),
-      createTopic('CI/CD', Settings, [], 'webcicd'),
-      createTopic('SEO', Search, [], 'webseoprod'),
+      createTopic('CI/CD', Settings, [{ name: 'GitHub Actions', url: 'https://github.com/features/actions' }], 'webcicd'),
+      createTopic('SEO', Search, [{ name: 'Google Search Console', url: 'https://search.google.com/search-console' }], 'webseoprod'),
       createTopic('Scalability Planning', BarChart, [], 'webscalabilityplanning'),
     ]
   },
@@ -105,9 +105,9 @@ export const webProductionTaxonomy: Category[] = [
     topics: [
       createTopic('Beta Testing', Users, [], 'webbetatesting'),
       createTopic('User Feedback', MessageSquare, [], 'webuserfeedback'),
-      createTopic('Domain Setup', Globe, [], 'webdomainsetup'),
-      createTopic('Hosting', Server, [], 'webhostingdeploy'),
-      createTopic('Analytics Setup', BarChart, [], 'webanalyticssetup'),
+      createTopic('Domain Setup', Globe, [{ name: 'Cloudflare', url: 'https://www.cloudflare.com/' }, { name: 'Namecheap', url: 'https://www.namecheap.com/' }], 'webdomainsetup'),
+      createTopic('Hosting', Server, [{ name: 'Vercel', url: 'https://vercel.com/' }, { name: 'Render', url: 'https://render.com/' }], 'webhostingdeploy'),
+      createTopic('Analytics Setup', BarChart, [{ name: 'PostHog', url: 'https://posthog.com/' }, { name: 'Plausible', url: 'https://plausible.io/' }], 'webanalyticssetup'),
       createTopic('Legal Pages', FileText, [], 'weblegalpages'),
       createTopic('Launch Checklist', CheckSquare, [], 'weblaunchchecklist'),
     ]
@@ -131,7 +131,7 @@ export const webHackathonTaxonomy: Category[] = [
     id: 'phase-0',
     name: 'PHASE 0',
     topics: [
-      createTopic('Idea Definition', Rocket, [], 'webideadefinition'),
+      createTopic('Idea Definition', Rocket, [{ name: 'YC RFS', url: 'https://www.ycombinator.com/rfs' }], 'webideadefinition'),
       createTopic('MVP Features', CheckSquare, [], 'webmvpfeatures'),
     ]
   },
@@ -141,15 +141,15 @@ export const webHackathonTaxonomy: Category[] = [
     topics: [
       createTopic('PRD', FileText, [], 'webprd'),
       createTopic('User Flows', Globe, [], 'webuserflows'),
-      createTopic('Design System', PenTool, [], 'webdesignsystem'),
+      createTopic('Design System', PenTool, [{ name: 'Shadcn UI', url: 'https://ui.shadcn.com/' }, { name: 'Tailwind CSS', url: 'https://tailwindcss.com/' }], 'webdesignsystem'),
     ]
   },
       {
       id: 'phase-2',
       name: 'PHASE 2 ?" TECHNICAL ARCHITECTURE',
       topics: [
-        createTopic('Tech Stack Selection', Settings, [], 'webtechstack'),
-        createTopic('Database Schema', Database, [], 'webdatabaseschema'),
+        createTopic('Tech Stack Selection', Settings, [{ name: 'Next.js', url: 'https://nextjs.org/' }, { name: 'Vite', url: 'https://vitejs.dev/' }], 'webtechstack'),
+        createTopic('Database Schema', Database, [{ name: 'Supabase', url: 'https://supabase.com/' }, { name: 'Prisma', url: 'https://www.prisma.io/' }], 'webdatabaseschema'),
       ]
     },
       {
@@ -179,7 +179,7 @@ export const webPersonalTaxonomy: Category[] = [
     id: 'phase-0',
     name: 'PHASE 0 ?" DISCOVERY & PLANNING',
     topics: [
-      createTopic('Idea Definition', Rocket, [], 'webideadefinition'),
+      createTopic('Idea Definition', Rocket, [{ name: 'YC RFS', url: 'https://www.ycombinator.com/rfs' }], 'webideadefinition'),
       createTopic('MVP Features', CheckSquare, [], 'webmvpfeatures'),
     ]
   },
@@ -189,16 +189,16 @@ export const webPersonalTaxonomy: Category[] = [
       topics: [
         createTopic('PRD', FileText, [], 'webprd'),
         createTopic('User Flows', Globe, [], 'webuserflows'),
-        createTopic('Design System', PenTool, [], 'webdesignsystem'),
+        createTopic('Design System', PenTool, [{ name: 'Shadcn UI', url: 'https://ui.shadcn.com/' }, { name: 'Tailwind CSS', url: 'https://tailwindcss.com/' }], 'webdesignsystem'),
       ]
     },
       {
       id: 'phase-2',
       name: 'PHASE 2 ?" TECHNICAL ARCHITECTURE',
       topics: [
-        createTopic('Tech Stack Selection', Settings, [], 'webtechstack'),
-        createTopic('Authentication', Key, [], 'webauthentication'),
-        createTopic('Database Schema', Database, [], 'webdatabaseschema'),
+        createTopic('Tech Stack Selection', Settings, [{ name: 'Next.js', url: 'https://nextjs.org/' }, { name: 'Vite', url: 'https://vitejs.dev/' }], 'webtechstack'),
+        createTopic('Authentication', Key, [{ name: 'Clerk', url: 'https://clerk.com/' }, { name: 'Supabase Auth', url: 'https://supabase.com/auth' }], 'webauthentication'),
+        createTopic('Database Schema', Database, [{ name: 'Supabase', url: 'https://supabase.com/' }, { name: 'Prisma', url: 'https://www.prisma.io/' }], 'webdatabaseschema'),
         createTopic('API Design', Globe, [], 'webapidesign'),
         createTopic('Search System', Search, [], 'websearchsystem'),
       ]

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import type { Mode } from './TopNav';
 import { getTaxonomy } from '../data/taxonomy';
 import { useDocumentStore } from '../hooks/useDocumentStore';
@@ -48,6 +48,12 @@ export const MainCanvas = ({ activeType, activePage, activeMode, projectId, isAu
   const { settings } = useSettingsStore(isAuthenticated);
   const [isGenerating, setIsGenerating] = useState(false);
 
+  const activePageRef = useRef(activePage);
+  useEffect(() => {
+    activePageRef.current = activePage;
+    setIsGenerating(false);
+  }, [activePage]);
+
   const handleGenerate = async () => {
     setIsGenerating(true);
     setContent('');
@@ -59,6 +65,7 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
     const userPrompt = `Draft the document for: "${activeTopicName}". This should act as the ground-truth technical or product document for this specific section of the playbook.`;
 
     let currentContent = '';
+    const startPage = activePage;
     
     await generateStream({
       systemPrompt,
@@ -68,15 +75,17 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
       providerOverride: settings.provider,
       modelOverride: settings.model,
       onChunk: (chunk) => {
+        if (activePageRef.current !== startPage) return;
         currentContent += chunk;
         setContent(currentContent + '▌');
       },
       onComplete: () => {
+        if (activePageRef.current !== startPage) return;
         setContent(currentContent);
         setIsGenerating(false);
       },
       onError: (err) => {
-        alert('Generation Error: ' + err);
+        if (activePageRef.current !== startPage) return;
         setContent(currentContent + '\n\n> **Error**: Generation halted. ' + err);
         setIsGenerating(false);
       }
