@@ -1,406 +1,149 @@
 export const fallbackContent: Record<string, string> = {
-  'mobiletesting': `# Testing
+  'mobiletesting': `# Testing Strategy
 
-**Estimated Time:** 4-8 hours
-
----
-
-## Overview
-Testing mobile apps is notoriously difficult because you have to account for touch gestures, varying screen sizes, and native device states. However, automated testing is the only way to guarantee that adding a new feature today doesn't break a critical feature from yesterday.
+**Estimated Time:** 3+ Hours
 
 ---
 
-## Think First
-**Are you writing tests to catch UI regressions, or testing complex business logic?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**How much time are you willing to dedicate to maintaining End-to-End (E2E) tests?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Is your core functionality (like Checkout) critical enough that a bug would cost you money?**
-\`\`\`input
-Type your answer here...
-\`\`\`
----
+## Why this matters
+Every time you add a new feature to a mobile app, you risk breaking an old one. Because mobile apps require users to manually download updates from the App Store, pushing a broken update is a catastrophe. Automated testing prevents this.
 
-## Key Decisions
-- **Unit Testing:** Use Jest to test pure business logic (e.g., a function that calculates tax). These are fast, cheap, and highly reliable.
-- **Component Testing:** Use React Native Testing Library to mount components in memory and simulate button presses. Focus on testing *behavior* (e.g., "Does tapping submit call the API?"), not implementation details.
-- **E2E Testing (Advanced):** Use Detox or Maestro. These tools install your app on a real emulator, physically tap the screen, and verify that the app behaves correctly. E2E tests are slow and flaky, but they are the only way to truly guarantee the app works.
+## Strategic Guidance
 
----
+### Hackathon Mode
+Zero automated tests. Your test is "Does it work when I click it right now?"
 
-## Common Mistakes
-- **Testing Implementation:** Writing a test that asserts a button has backgroundColor: 'red'. When the designer changes it to blue, the test fails, even though the app works perfectly.
-- **Mocking Too Much:** Mocking the database, the API, and the navigation until the test is just checking if your mocks talk to each other.
-- **Ignoring CI/CD:** Writing tests but not running them automatically on GitHub Actions before every pull request.
+### Personal Project
+Write a few unit tests for your most complex utility functions (like date formatting or math calculations) using Jest. Don't bother with complex UI testing.
 
----
+### Production SaaS
+You must have a testing pyramid. Write Unit Tests (Jest) for all business logic. Write Component Tests (React Native Testing Library) to ensure buttons render correctly. Crucially, write End-to-End (E2E) tests using Detox or Maestro to physically simulate a user tapping through the core "Happy Path" on a virtual device before every release.
 
-## Examples
-- **Component Test:** Rendering the Login screen, using React Native Testing Library to type "test@example.com" into the email field, pressing "Login", and asserting that the mockLoginFn was called with the correct email.
-
----
-
-## AI Prompt
+## AI Execution Phase
 \`\`\`prompt
-I am using Jest and React Native Testing Library. Generate a component test for a 'LoginForm' component. The test should verify that the submit button is disabled if the email is invalid, and that pressing submit with valid credentials calls the provided 'onSubmit' prop with the correct data.
+Act as a QA Engineer. I am using [Insert Testing Framework]. Write a unit test for a utility function that takes a date string and returns a human-readable format like "2 hours ago". Then, write a basic component test that verifies a 'Submit' button is disabled when the 'isLoading' prop is true.
 \`\`\`
 
----
+## Accountability Check
+- [ ] I have automated tests for my most critical business logic.`,
+  'mobilepayments': `# Payments & In-App Purchases (IAP)
 
-## Validation Checklist
-- [ ] Jest is configured correctly for the React Native environment.
-- [ ] Critical utility functions and data transformations have unit tests.
-- [ ] Key UI flows (like Authentication or Checkout) have component or E2E tests.
-- [ ] Tests run automatically on your CI provider (e.g., GitHub Actions).
+**Estimated Time:** 3-5 Hours
 
 ---
 
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+## Why this matters
+If you want to charge for digital goods (like premium features) in a mobile app, Apple and Google strictly require you to use their native In-App Purchase systems. If you try to bypass them with a Stripe web link, your app will be rejected. They take a 15-30% cut of all revenue.
 
----
+## Strategic Guidance
 
-## Deliverable
-**File Name:** src/components/__tests__/LoginForm.test.tsx
-**Purpose:** Ensures regressions do not break critical UI workflows.
-**Contents:** Automated tests simulating user interactions using Testing Library.
+### Hackathon Mode
+Fake it. Create a button that says "Buy for $5" and just instantly unlock the feature.
 
+### Personal Project
+Skip IAP. It is incredibly tedious to set up sandbox testing accounts for Apple and Google. If you must charge, build a web app instead.
 
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
----
+### Production SaaS
+Do not write native IAP code yourself. Use RevenueCat or Superwall. They wrap the incredibly complex Apple/Google billing APIs and provide a single backend dashboard to manage subscriptions, handle refunds, and validate receipts securely. You must also build a "Restore Purchases" button, which is a strict App Store requirement.
 
-## Next Step
-Congratulations, you have completed Phase 3! Move on to Phase 4 to prepare your app for **Production Readiness**.`,
-  'mobilepayments': `# Payments & Subscriptions
-
-**Estimated Time:** 4-8 hours
-
----
-
-## Overview
-Monetizing a mobile app requires integrating with Apple's App Store and Google Play billing systems. If you try to bypass their 30% cut by exclusively using a third-party gateway (like Stripe) for digital goods, Apple and Google will reject your app during review.
-
----
-
-## Think First
-**Are you selling physical goods/services or digital content?**
+## The Data We Need From You
+**What library will you use to handle In-App Purchases? (e.g., RevenueCat)**
 \`\`\`input
 Type your answer here...
 \`\`\`
-**Physical Goods (e.g., Uber, food delivery): Use Stripe or Braintree.**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Digital Goods (e.g., Premium features, ad removal): You MUST use Apple/Google In-App Purchases (IAP).**
-\`\`\`input
-Type your answer here...
-\`\`\`
----
 
-## Key Decisions
-- **IAP Management:** Integrating native IAP from scratch is notoriously difficult. Use a managed service like RevenueCat. It acts as a single source of truth for user subscriptions across both iOS and Android.
-- **Backend Verification:** Never trust the mobile client to verify a purchase. Always validate receipts on your secure backend to prevent users from spoofing purchases and stealing premium features.
-
----
-
-## Common Mistakes
-- **Bypassing App Store Rules:** Adding a hidden Stripe link to buy a digital subscription to avoid the 30% fee. Your app will be permanently banned.
-- **Ignoring Subscription Lifecycles:** Failing to handle subscription renewals, cancellations, or billing issues (when a user's credit card expires).
-
----
-
-## Examples
-- **Stripe:** A user orders a physical pair of shoes and checks out using Apple Pay via the Stripe React Native SDK.
-- **RevenueCat:** A user taps "Upgrade to Pro" to unlock a digital feature. RevenueCat securely handles the App Store transaction and updates the user's entitlement in your database.
-
----
-
-## AI Prompt
+## AI Execution Phase
 \`\`\`prompt
-I am building a React Native app and need to implement In-App Purchases for a 'Pro' subscription. Generate a complete implementation using RevenueCat (react-native-purchases). Include the initialization logic, a function to fetch available offerings, and a function to trigger the purchase flow. Explain how to securely verify the purchase on a Supabase backend.
+Act as a Mobile Monetization Expert. I am using RevenueCat with [Insert Tech Stack]. Provide the code to fetch the current user's subscription status on app launch, and the code for a function that triggers the native purchase flow when they click 'Upgrade'.
 \`\`\`
 
----
-
-## Validation Checklist
-- [ ] Appropriate payment gateway selected based on digital vs physical goods.
-- [ ] Purchases successfully unlock premium features.
-- [ ] Purchases are validated server-side.
-- [ ] User can restore previous purchases (crucial App Store requirement).
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** src/services/purchases.ts
-**Purpose:** Handles all interactions with the payment gateway (RevenueCat or Stripe).
-**Contents:** Functions for initializing the SDK, fetching products, and processing payments.
-
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
----
-
-## Next Step
-With monetization active, implement **Media Uploads** to allow users to generate robust content.`,
+## Accountability Check
+- [ ] I can successfully process a sandbox payment and unlock premium features.`,
   'mobilebackendimplementation': `# Backend Implementation
 
-**Estimated Time:** 3-6 hours
+**Estimated Time:** Variable
 
 ---
 
-## Overview
-While BaaS (Backend as a Service) platforms like Supabase or Firebase handle direct data access, a custom backend layer is essential for complex business logic, third-party integrations (like Stripe), and secure operations that cannot be trusted to the mobile client.
+## Why this matters
+The backend handles the heavy lifting that the mobile device cannot (or should not) do. This includes complex data processing, calling third-party APIs (to keep API keys secret), and running scheduled cron jobs.
 
----
+## Strategic Guidance
 
-## Think First
-**Are there operations that require keeping API keys secret (e.g., charging credit cards, sending emails)?**
+### Hackathon Mode
+Write serverless Edge Functions (like Supabase Edge Functions) only for the specific parts of your app that require a hidden API key (like calling OpenAI). 
+
+### Personal Project
+Keep your backend logic simple. Validate incoming data, run the database query, and return the result.
+
+### Production SaaS
+Every backend endpoint must validate incoming data aggressively using a library like Zod. Never trust data sent from a mobile client. Ensure your API responses are lean; if the mobile app only needs 3 fields from a user profile, do not send the entire 50-field user object. This saves bandwidth and speeds up the app significantly.
+
+## The Data We Need From You
+**List the 3 most complex backend functions you need to write.**
 \`\`\`input
-Type your answer here...
-\`\`\`
-**Does the logic require heavy computation that would drain a mobile battery?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Can this be handled by Edge Functions or Serverless functions, or do you need a dedicated server?**
-\`\`\`input
-Type your answer here...
-\`\`\`
----
-
-## Key Decisions
-- **Architecture:** Serverless Edge Functions (via Vercel or Supabase) are ideal for mobile backends because they spin up instantly and scale infinitely without server maintenance.
-- **Language Stack:** Using TypeScript (Node.js/Edge) on the backend allows you to share types directly with your React Native frontend, preventing a massive class of bugs.
-- **Validation:** Always validate incoming data from the mobile app using a library like Zod before processing it.
-
----
-
-## Common Mistakes
-- **Fat Clients:** Putting complex business logic (like calculating tax rates or processing image metadata) directly in the mobile app. This forces app store updates for simple logic changes.
-- **Exposing Secrets:** Hardcoding backend API keys (like Stripe Secret Key) in the mobile app bundle. Mobile apps are easily decompiled.
-- **Ignoring Latency:** Mobile connections are often slow. Minimize the number of API calls by aggregating data on the backend before sending it to the client.
-
----
-
-## Examples
-- **Payment Processing:** The mobile app sends a request to an Edge Function, which securely talks to Stripe to create a payment intent, then returns the safe client secret to the app.
-- **Push Notification Trigger:** A backend webhook listens for a database insert and triggers an automated push notification to the relevant user via OneSignal.
-
----
-
-## AI Prompt
-\`\`\`prompt
-I need a serverless Edge Function written in TypeScript (for Supabase) that handles user checkout. It should receive a product ID and user ID, securely query the database for the price, create a Stripe PaymentIntent, and return the client secret to the mobile app. Include Zod validation for the incoming request.
+1. 
+2. 
+3. 
 \`\`\`
 
----
-
-## Validation Checklist
-- [ ] Backend routes are protected and verify the user's authentication token.
-- [ ] Secret API keys are stored as environment variables on the server, not in the app.
-- [ ] Input data is strictly validated.
-- [ ] Responses are structured consistently (e.g., returning { data, error }).
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** supabase/functions/checkout/index.ts (or equivalent backend route)
-**Purpose:** Secure execution of business logic.
-**Contents:** An endpoint that validates input, processes an external API call, and returns formatted data.
-
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
----
-
-## Next Step
-With the backend logic solid, configure **Push Notifications** to start engaging users proactively.`,
+## Accountability Check
+- [ ] My core backend logic is deployed and securely handling requests.`,
   'mobiledatabaseimplementation': `# Database Implementation
 
-**Estimated Time:** 2-5 hours
+**Estimated Time:** Variable
 
 ---
 
-## Overview
-Your database is the foundation of your app's data. In mobile development, you must bridge the gap between the remote cloud database and the local device cache. A robust implementation ensures data is structured efficiently for quick reads and structured securely to prevent unauthorized access.
+## Why this matters
+Translating your ER diagram into actual code requires writing migrations, setting up foreign keys, and ensuring indexing is correct. Mistakes here will permanently corrupt your users' data.
 
----
+## Strategic Guidance
 
-## Think First
-**Does this data need to be strictly relational, or is a document model sufficient?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**What are the most common queries the app will run? (Optimize for reads).**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Are there strict privacy requirements? (Row Level Security).**
-\`\`\`input
-Type your answer here...
-\`\`\`
----
+### Hackathon Mode
+Use the visual dashboard of Supabase or Firebase to create your tables. Skip writing SQL migrations. Add a few rows of dummy data manually so the frontend has something to fetch.
 
-## Key Decisions
-- **Cloud Database:** PostgreSQL (via Supabase) offers strict relational schemas and powerful JSONB capabilities. Firebase Firestore is excellent for real-time document sync.
-- **Local Database (Optional):** If your app requires heavy offline capabilities, consider WatermelonDB or Realm to sync local data with the remote server.
-- **Security:** Use Row Level Security (RLS) policies. Your mobile app acts as an untrusted client; the database must enforce access rules natively.
+### Personal Project
+Use an ORM like Prisma (if using a separate Node backend) to define your schema and push it to the database. It provides excellent type safety.
 
----
+### Production SaaS
+All schema changes must be version-controlled via migrations. If you are using Supabase directly from the mobile app, you MUST implement rigorous Row Level Security (RLS) policies using raw SQL. Ensure that `user_id` is automatically attached to every inserted row to prevent users from modifying data they do not own.
 
-## Common Mistakes
-- **Client-Side Filtering:** Downloading 10,000 rows to the mobile device and filtering them in JavaScript. Always filter and paginate on the database/backend.
-- **Missing Indexes:** Failing to index frequently queried columns (like user_id), causing queries to slow down drastically as data grows.
-- **Trusting the Client:** Allowing the mobile app to blindly update critical fields (like account_balance) without server-side validation.
-
----
-
-## Examples
-- **Relational Data:** A posts table that links to a users table via foreign keys, ensuring data integrity.
-- **Real-time Subscriptions:** Listening to a specific chat room row in Supabase so the UI updates instantly when a new message is inserted.
-
----
-
-## AI Prompt
+## AI Execution Phase
 \`\`\`prompt
-I am setting up a PostgreSQL database in Supabase for a social mobile app. I have users, posts, and comments. Generate the SQL schema for these tables including necessary foreign keys, indexes for performance, and Row Level Security (RLS) policies ensuring users can only edit their own posts.
+Act as a Database Engineer. I am using [Insert Database/ORM]. Provide the migration code or schema definition for my [Insert Entity] table. Include the necessary indexes for fast querying, and the SQL for a Row Level Security policy that ensures only the creator of the row can read or update it.
 \`\`\`
 
----
+## Accountability Check
+- [ ] My database schema is live and secure.`,
+  'mobileauth': `# Authentication Implementation
 
-## Validation Checklist
-- [ ] Schema is defined with appropriate data types and relations.
-- [ ] Row Level Security (RLS) is active to prevent unauthorized reads/writes.
-- [ ] Indexes are created for columns frequently used in WHERE clauses.
-- [ ] Client application successfully performs CRUD operations.
+**Estimated Time:** 2-4 Hours
 
 ---
 
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+## Why this matters
+Implementing auth on mobile requires navigating OAuth redirects, securely storing tokens in the device keychain, and handling token expiration. If implemented poorly, users will have to log in every single time they open the app, which is a guaranteed way to lose them.
 
----
+## Strategic Guidance
 
-## Deliverable
-**File Name:** supabase/migrations/01_initial_schema.sql
-**Purpose:** Defines the foundational database architecture.
-**Contents:** SQL commands defining tables, relations, and security policies.
+### Hackathon Mode
+Use a pre-built UI library like Firebase UI or Supabase Auth UI. It gives you a fully functioning login screen in 10 minutes.
 
+### Personal Project
+Implement a basic Email/Password flow. Use secure storage to save the session token so the user stays logged in.
 
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
----
+### Production SaaS
+You must implement Silent Authentication. When the app opens, it should check the secure storage for a token, validate it with the backend in the background, and seamlessly drop the user into the main app. If the token is expired, use a Refresh Token to get a new one without showing the login screen. Only force a re-login if the refresh token is also expired. You must also implement "Sign in with Apple" if using other OAuth providers on iOS.
 
-## Next Step
-Now that the database is structured, build the **Backend APIs** to execute complex logic and interface with this data safely.`,
-  'mobileauth': `# Authentication
-
-**Estimated Time:** 2-4 hours
-
----
-
-## Overview
-Authentication is the gatekeeper of your mobile app. It verifies who the user is and manages their session. Unlike web apps where cookies handle much of the heavy lifting, mobile apps require securely storing tokens locally and refreshing them seamlessly to keep users logged in indefinitely.
-
----
-
-## Think First
-**Will users log in with email/password, or social providers (Google, Apple)?**
+## The Data We Need From You
+**What auth providers are you actively implementing right now?**
 \`\`\`input
 Type your answer here...
 \`\`\`
-**(iOS Only) Apple strictly requires "Sign in with Apple" if you offer any other social login.**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Do you need OTP (One Time Password) via SMS or email?**
-\`\`\`input
-Type your answer here...
-\`\`\`
----
 
-## Key Decisions
-- **Auth Provider:** Supabase or Firebase Auth handle social logins, secure token storage, and password resets out of the box, saving you weeks of backend work.
-- **Token Storage:** Never store JWTs in plain AsyncStorage. Use expo-secure-store or a keychain equivalent to encrypt sensitive tokens.
-- **Session Restoration:** When the app cold starts, you must immediately check for a stored token and restore the session before rendering the main UI.
-
----
-
-## Common Mistakes
-- **Rolling your own Auth:** Writing custom password hashing and JWT issuance is a security nightmare. Use a managed provider.
-- **Forgetting Token Refresh:** If your token expires after an hour and you don't implement a refresh flow, users will be randomly logged out while using the app.
-- **Blocking Onboarding:** Forcing users to create an account before they even see what the app does. Allow guest access if possible.
-
----
-
-## Examples
-- **Social Login:** A one-tap "Continue with Google" button that securely redirects back to the app using Deep Links.
-- **Magic Links:** Sending an email with a secure link that logs the user in upon clicking, eliminating password fatigue.
-
----
-
-## AI Prompt
-\`\`\`prompt
-I am building an Expo React Native app using Supabase for authentication. Generate a complete authentication flow including: a sign-in screen, a sign-up screen, and an AuthProvider context that automatically checks for a session on app start and securely stores the token.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] User can successfully sign up and log in.
-- [ ] The app remembers the user across app restarts (session restoration).
-- [ ] "Sign in with Apple" is implemented if other social logins are used (iOS requirement).
-- [ ] Tokens are stored securely using SecureStore.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** src/contexts/AuthContext.tsx
-**Purpose:** Manages the authentication state globally.
-**Contents:** Context provider that handles login, logout, and session restoration logic.
-
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
----
-
-## Next Step
-With users authenticated, move on to connecting the **Database** to store and retrieve their specific data.`,
+## Accountability Check
+- [ ] Users can log in, close the app, reopen it, and still be logged in.`,
   'referral-programs': `# Referral Programs
 
 **Estimated Time:** Ongoing
@@ -4429,424 +4172,377 @@ Type your answer here...
 
 ## Accountability Check
 - [ ] I have a plan for managing and paying down technical debt.`,
-  'pitchdeck': `# Pitch Deck
-
-**Estimated Time:** 3 Hours
-
----
-
-## Why this matters
-If you are raising venture capital or competing in a major pitch competition, your deck is your resume. It needs to convey massive ambition, a deep understanding of the market, and a clear path to generating revenue.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Keep it to 5 slides maximum: 1. The Problem, 2. The Solution (Your App), 3. The Tech Stack, 4. The Business Model, 5. The Team. Spend 80% of your time on the actual Live Demo, not the slides.
-
-### Personal Project
-You don't need a pitch deck. You need a landing page.
-
-### Production SaaS
-Follow the standard Sequoia Capital pitch deck template. Investors look at decks for an average of 2 minutes and 42 seconds. Your slides must be highly visual, with massive fonts and very little text. The "Traction" slide (showing your revenue or active users going up and to the right) is the most important slide in the entire deck.
-
-## The Data We Need From You
-**List the 5 core slides you will include in your deck.**
-\`\`\`input
-1. 
-2. 
-3. 
-4. 
-5. 
-\`\`\`
-
-## Accountability Check
-- [ ] I have a concise, visually appealing pitch deck.`,
-  'demoscript': `# Demo Script
+  'pitchdeck': `# Pitch Deck (Review)
 
 **Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Live demos fail. They always fail. The Wi-Fi drops, the API hits a rate limit, or you click the wrong button because you are nervous. A rigid, practiced script ensures you know exactly where to click, and more importantly, where *not* to click.
+A pitch deck tells the story of your product. It translates your code and features into business value. Even if you aren't raising venture capital, creating a deck forces you to clarify your value proposition.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Write down the exact "Happy Path". Click Login -> Click Add Item -> Type "Hello" -> Click Save. Do not deviate from this path during the presentation. If a judge asks "What happens if you click that other button?", honestly tell them "That feature is out of scope for this weekend."
+Focus heavily on the "Problem" and "Demo" slides. The judges want to see the working software, not a 10-minute lecture on market sizing.
 
 ### Personal Project
-Write a script for your launch video. Speak clearly, don't use filler words, and edit out the boring parts where the page is loading.
+Irrelevant.
 
 ### Production SaaS
-For enterprise sales calls, your demo script must be tailored to the specific client. Don't show them 50 features. Ask them what their biggest problem is, and then only demo the 2 features that solve that exact problem. "Show, don't tell."
-
-## The Data We Need From You
-**Write down the exact 5-step "Happy Path" you will click through during the demo.**
-\`\`\`input
-1. 
-2. 
-3. 
-4. 
-5. 
-\`\`\`
+Your deck must be polished. Highlight your traction (revenue, active users). Explain why *now* is the right time for this product, and why *your team* is the right team to execute it. Keep it under 15 slides. Ensure the financial projections are realistic, not just "hockey stick" charts with no basis in reality.
 
 ## Accountability Check
-- [ ] I have a practiced, bulletproof demo script.`,
-  'submissionchecklist': `# Submission Checklist
+- [ ] I have refined my pitch deck to tell a compelling business story.`,
+  'demoscript': `# Demo Script (Review)
 
 **Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-Hackathons have strict deadlines. If the deadline is 12:00 PM, and you submit at 12:01 PM, you are disqualified. Do not lose a weekend of sleep because you forgot to hit "Submit" on Devpost.
+A live demo can make or break a presentation. Relying on improvisation usually leads to rambling, missed features, and awkward silences while waiting for loading screens.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Submit 1 hour early. Devpost servers often crash in the final 10 minutes due to traffic. You can usually update your project details after you submit, but the initial submission MUST be in before the buzzer.
+Rehearse your 3-minute pitch at least 5 times. Memorize the transitions between team members.
 
 ### Personal Project
-Your submission is posting the link to Hacker News, Product Hunt, and Twitter. Make sure your server can handle a sudden spike of 500 concurrent users.
+Irrelevant.
 
 ### Production SaaS
-This is your Product Hunt launch checklist. Ensure you have high-quality screenshots, an engaging maker comment, and that you are launching at 12:01 AM PST to maximize your time on the homepage. Have your team ready to answer comments immediately.
+Ensure your demo highlights the *benefits* of the features, not just the technical implementation. Instead of saying "This uses WebSockets to update the UI," say "This allows your team to collaborate in real-time without refreshing the page." Have a pre-recorded backup video ready.
+
+## Accountability Check
+- [ ] I have rehearsed my demo script and prepared a backup video.`,
+  'submissionchecklist': `# Submission Checklist (Review)
+
+**Estimated Time:** 15 min
+
+---
+
+## Why this matters
+Missing a minor administrative detail can disqualify you from a competition or delay your App Store launch by weeks.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Double-check that your GitHub repo is public and the video link is accessible to anyone.
+
+### Personal Project
+Irrelevant.
+
+### Production SaaS
+Review your App Store Connect or Google Play Console checklist. Verify the Privacy Policy is linked, the age rating is correct, and the staging API keys have been swapped out for production keys before submitting for review.
+
+## Accountability Check
+- [ ] I have double-checked all final submission requirements.`,
+  'mobileideadefinition': `# Idea Definition
+
+**Estimated Time:** 30 min
+
+---
+
+## Why this matters
+Before writing a single line of Swift, Kotlin, or React Native, you need a crystal clear understanding of what your app actually does. Without a focused idea, you will fall into the trap of building a "Swiss Army Knife" app that does 10 things poorly instead of 1 thing brilliantly.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Your idea must be visual, easily explainable in 10 seconds, and technically feasible within 24 hours. Don't build a complex B2B workflow app. Build something that makes the judges smile or say "Wow, that's clever."
+
+### Personal Project
+Build something you genuinely want to use on your own phone every day. If you don't use it, you will abandon the project in two weeks. It doesn't matter if 50 similar apps exist on the App Store; build it your way.
+
+### Production SaaS
+Your idea must solve a painful, expensive problem for a specific group of people who have the money to pay for it. "An app for everyone" is an app for no one. You must be able to articulate exactly how your app is 10x better, faster, or cheaper than the current status quo (which is often just a messy spreadsheet or a clunky web portal).
 
 ## The Data We Need From You
-**What platform are you submitting/launching on, and what is the exact deadline time?**
+**In one sentence, what does your mobile app do and who is it for?**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## AI Refinement Phase
+\`\`\`prompt
+Act as a Y Combinator Partner. My mobile app idea is: [Insert Idea]. Tear this idea apart. Give me 3 reasons why this app will fail to get traction, and suggest 1 specific pivot to make it a more viable business.
+\`\`\`
+
+## Accountability Check
+- [ ] I can explain my app's core value proposition in a single sentence.`,
+  'mobileproblemstatement': `# Problem Statement
+
+**Estimated Time:** 30 min
+
+---
+
+## Why this matters
+Users don't download apps because they want another icon on their home screen; they download apps to solve a problem. If you cannot clearly define the problem, you cannot design the solution. A strong problem statement acts as a filter for every feature request.
+
+## Strategic Guidance
+
+### Hackathon Mode
+The problem should be relatable to the judges. "Finding a parking spot on campus takes 20 minutes" is a great, relatable problem for a university hackathon.
+
+### Personal Project
+The problem should be personal. "I keep forgetting which exercises I did last week at the gym" is a perfect personal problem to solve.
+
+### Production SaaS
+The problem must be severe enough that people are actively looking for a solution and willing to pay for it. It should be a "Hair on Fire" problem. If a user's hair is on fire, they don't care if your app's UI is a bit clunky; they just want the fire put out.
+
+## The Data We Need From You
+**What is the specific, painful problem your target users are currently experiencing?**
 \`\`\`input
 Type your answer here...
 \`\`\`
 
 ## Accountability Check
-- [ ] I have submitted the project before the deadline.`,
-  'mobileideadefinition': `# Idea Definition
-
-**Estimated Time:** 1-2 hours
-
----
-
-## Why this matters
-A mobile app idea is just a multiplier of execution. Choosing the right idea dictates how hard the execution will be and whether a native mobile app is even the correct medium. Mobile apps face a massive friction barrier: users must open an App Store, download a file, and grant permissions before they ever see your UI. If your idea does not justify this friction, it should just be a website.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Your idea should optimize for visual "wow factor" and leverage native device capabilities. Judges love flashy tech like the Camera, ARKit/ARCore, Geolocation, or Bluetooth. Business viability does not matter; visual impact and technical novelty do. 
-
-If your idea is "a better to-do app," you will lose. Your idea must have a demo that makes people say "Whoa" within the first 15 seconds. Think "Real-time object detection" or "Location-based scavenger hunt," not "CRUD dashboard for accountants."
-
-### Personal Project
-Choose an idea that forces you to learn a specific mobile framework or native API you want on your resume. If you want to learn Push Notifications, build a habit tracker. If you want to learn offline storage, build a travel itinerary app.
-
-Keep the scope incredibly small. A finished, polished mobile app that you can actually deploy via TestFlight or an APK is worth 100x more than a half-finished complex clone of Uber. 
-
-### Production SaaS
-Your idea must solve a highly painful, monetizable problem that explicitly requires being a native mobile application. Flashy tech does not matter; solving the pain matters. 
-
-Ask yourself: "Does this need push notifications? Does this need offline support? Does this need camera access?" If the answer to all three is "no," build a web app instead. If people are currently using a messy spreadsheet on their phones and getting frustrated, that is a billion-dollar idea. If they won't pay for it on Day 1, do not write a single line of Swift, Kotlin, or React Native.
-
-## Idea Validation Prompt
-\`\`\`prompt
-Act as a cynical Mobile Product Manager. I am pitching the following mobile app idea: [Insert Idea Here]. Rip it apart. Tell me why this should just be a responsive web app instead of a native mobile app. Point out the biggest friction points for user acquisition.
-\`\`\`
-
-## Validation Checklist
-- [ ] The idea explicitly requires at least one native device capability (Camera, GPS, Push, Offline).
-- [ ] The core value proposition can be explained in less than 10 seconds.
-- [ ] The problem being solved is painful enough to overcome the friction of an App Store download.
-`,
-  'mobileproblemstatement': `# Problem Statement
-
-**Estimated Time:** 1 hour
-
----
-
-## Why this matters
-If you do not clearly define the problem, you will build a solution that no one wants. A strong problem statement acts as a filter for every feature you plan to build. If a feature does not directly address the core problem, it gets cut.
-
-## Strategic Guidance
-
-### Hackathon Mode
-The problem statement is just a storytelling device for your pitch. It does not need to be a real, pervasive global issue. It just needs to be relatable enough that the judges nod their heads during the first 30 seconds of your presentation. Keep it hyper-focused and slightly exaggerated for dramatic effect.
-
-### Personal Project
-The problem statement is primarily a way to give your portfolio project a cohesive theme. It helps reviewers understand *why* you built the app, even if the primary goal was just to learn a new technology. Define a simple, everyday annoyance (e.g., "Keeping track of borrowed books is tedious").
-
-### Production SaaS
-The problem statement is the foundation of your business. It must be specific, measurable, and tied to a quantifiable pain (e.g., lost time, lost money, emotional distress). 
-
-Do not define a problem based on a lack of your solution (e.g., "The problem is there is no AI app for dog walking"). Define the problem based on the user's current reality (e.g., "Dog walkers spend 2 hours a day manually texting clients with updates and photos, leading to high churn and lost revenue"). If the problem is not a "hair on fire" issue, users will not go through the friction of downloading your app.
-
-## Problem Refinement Prompt
-\`\`\`prompt
-Act as a UX Researcher. My current problem statement is: [Insert Problem]. Rewrite this into three different problem statements targeting three distinct user personas. Highlight the emotional and financial cost of this problem for each persona.
-\`\`\`
-
-## Validation Checklist
-- [ ] The problem statement focuses on the user's pain, not the proposed technology.
-- [ ] The problem is significant enough that users are actively looking for workarounds.
-- [ ] The statement avoids vague marketing jargon.
-`,
+- [ ] I have identified a real problem that users actually care about.`,
   'mobileusecases': `# Use Cases
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 45 min
 
 ---
 
 ## Why this matters
-Use cases map the abstract "idea" to concrete actions. They define exactly what the user is trying to accomplish within the app. Defining use cases prevents scope creep and ensures the engineering team is building workflows, not just isolated buttons.
+A use case defines *how* a user will interact with your app in the real world. Mobile apps are used differently than web apps—often with one hand, while walking, or in areas with poor internet connection. Defining use cases ensures you build for the actual environment of the user.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Limit yourself to exactly two use cases. One primary use case that shows off the "wow" factor of the app (e.g., "User points camera at a plant to identify it"), and one secondary use case to show completeness (e.g., "User views their history of identified plants"). Anything more will ruin your sleep schedule.
+Define exactly ONE use case. If your app is a recipe app, the use case is "User searches for a chicken recipe and adds it to favorites." Do not build a "grocery list" use case. You don't have time.
 
 ### Personal Project
-Define 3 to 4 core use cases. This is enough to demonstrate a complete CRUD (Create, Read, Update, Delete) cycle or a complex API integration, which is what hiring managers want to see. Do not add use cases for "Settings" or "Profile Editing" unless they are the entire point of the app.
+List 2-3 primary use cases that you will personally use. Keep them simple and focused on utility.
 
 ### Production SaaS
-Use cases must be exhaustive for the core flows, but ruthlessly prioritized. 
+You must map out the primary, secondary, and edge use cases. For a mobile field-service app, the primary use case might be "Technician uploads a photo of a broken pipe offline." An edge case might be "Technician's battery dies mid-upload." You must design for the edge cases to prevent data loss and customer churn.
 
-You must define the "Happy Path" (when everything works perfectly) and the "Unhappy Paths" (when the network drops, the API fails, or the user enters invalid data). Mobile apps are heavily susceptible to Unhappy Paths because users go into tunnels, lose cell service, or deny camera permissions. Your use cases must account for these scenarios. 
-
-## Use Case Generation Prompt
-\`\`\`prompt
-Act as a Technical Business Analyst. For a mobile app that does [Describe App], list the 3 most critical Use Cases. For each Use Case, define the 'Happy Path' and at least two 'Unhappy Paths' (e.g., network failure, permission denied).
+## The Data We Need From You
+**What are the top 3 scenarios where a user will pull out their phone and open your app?**
+\`\`\`input
+1. 
+2. 
+3. 
 \`\`\`
 
-## Validation Checklist
-- [ ] The primary, high-value user action is clearly defined as a use case.
-- [ ] Edge cases (offline, permissions denied) are accounted for in the core flows.
-- [ ] Use cases are actionable and written from the user's perspective.
-`,
+## AI Execution Phase
+\`\`\`prompt
+Act as a UX Researcher. My primary mobile app use case is: [Insert Use Case]. Please identify 3 environmental or contextual factors (e.g., poor lighting, bad internet, one-handed use) that could negatively impact this use case, and suggest how I should design the app to mitigate them.
+\`\`\`
+
+## Accountability Check
+- [ ] I have clearly defined the primary use cases for my app.`,
   'mobileuserjourney': `# User Journey
 
-**Estimated Time:** 2-3 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-A user journey visualizes the step-by-step experience a user has with your product, from the moment they discover it in the App Store to the moment they become a daily active user. Mapping this out reveals friction points—especially the onboarding drop-off, which kills 80% of mobile apps on Day 1.
+The user journey maps the entire lifecycle of a user, from the moment they discover your app in the App Store, to their first "Aha!" moment, to becoming a daily active user. Mapping this journey highlights friction points (like a tedious sign-up form) that cause users to abandon the app.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your user journey is the literal path you will click through during your live demo. Plan the exact sequence of screens you will show. Do not build screens that are not on this journey. If a screen isn't clicked during the demo, it doesn't exist.
+The journey is: 1. Judge opens app. 2. Judge clicks the big shiny button. 3. Judge sees the cool result. Make this path completely frictionless. No logins required.
 
 ### Personal Project
-Map a simple journey that takes the user from opening the app to achieving the core value proposition. This helps you design your navigation stack (e.g., deciding between a Tab Navigator or a Stack Navigator). Keep the journey linear and avoid complex branching logic.
+Map out the "Happy Path"—the sequence of screens you will tap through to get your task done as fast as possible.
 
 ### Production SaaS
-The mobile user journey is fraught with peril. You must map every micro-interaction. 
+You must optimize the "Time to Value" (TTV). If a user downloads your app, how many seconds does it take for them to experience the core value? If they have to verify their email, fill out a 10-field profile, and watch a tutorial before doing anything, they will uninstall it. Map every single tap required in the onboarding flow and mercilessly cut the unnecessary ones.
 
-Consider the discovery phase: App Store screenshots, download times, and the initial splash screen. Crucially, map out exactly *when* you will ask for permissions (Push, Location, Camera). If you ask for all permissions on the very first screen, 50% of users will deny them and delete the app. You must map out "contextual permission requests"—asking for the Camera only when the user explicitly taps the "Take Photo" button. Map out the "Aha!" moment and ensure the journey gets the user there in under 3 minutes.
-
-## Journey Mapping Prompt
-\`\`\`prompt
-Act as a Mobile UX Designer. Outline a 5-step User Journey for a first-time user downloading my app [Describe App]. Specifically address the onboarding flow and recommend the exact moment we should ask the user for [Insert specific permission, e.g., Push Notifications or Location] to maximize the opt-in rate.
+## The Data We Need From You
+**Describe the sequence of steps a new user takes from opening the app for the first time to achieving their first "win".**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] The journey starts at discovery (App Store) and ends at the core value proposition.
-- [ ] Permission requests (Camera, Location, Push) are mapped contextually, not upfront.
-- [ ] The onboarding flow is minimized to reduce Day 1 churn.
-`,
+## Accountability Check
+- [ ] I have mapped the user journey and identified areas to reduce friction.`,
   'mobiletargetaudience': `# Target Audience
 
-**Estimated Time:** 1 hour
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-"Everyone" is not a target audience. If you build an app for everyone, you build an app for no one. Defining a narrow target audience allows you to tailor your UX, your App Store optimization, and your marketing copy to speak directly to the people who actually need your product.
+If you don't know who you are building for, you won't know where to find them, how to market to them, or what features they actually need. An app for "teenagers" is vastly different in design and monetization than an app for "corporate lawyers."
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your target audience is the judging panel. Tailor the problem and solution to things they care about (e.g., developer productivity, local community issues, trending AI topics). If you make the judges feel the pain, you win.
+Your target audience is the judging panel. Tailor your pitch to their interests. If the sponsor is a fintech company, ensure your app highlights financial utility.
 
 ### Personal Project
-Your target audience is recruiters, hiring managers, or yourself. If it's for yourself, optimize the UX for your own daily habits. If it's for recruiters, focus on clean architecture and best practices rather than solving a real-world market need.
+You are the target audience. Build it for yourself.
 
 ### Production SaaS
-Your initial target audience (your "wedge") must be hyper-specific. 
+You must be hyper-specific. "Fitness enthusiasts" is too broad. "Busy moms who want to do 15-minute home workouts without equipment" is a specific audience you can target with Facebook Ads and specific feature sets. Niche down until it hurts, dominate that niche, and then expand.
 
-Do not target "fitness enthusiasts." Target "competitive powerlifters who train 4 days a week and track RPE (Rate of Perceived Exertion)." A hyper-specific audience has hyper-specific jargon, online communities, and pain points. This makes your marketing incredibly cheap because you know exactly which subreddits or Discord servers they hang out in. You can expand to a broader audience later; start with a niche that is desperate for your solution.
-
-## Audience Profiling Prompt
-\`\`\`prompt
-Act as a Product Marketing Manager. My mobile app does [Describe App]. I want to target a hyper-niche early adopter audience. Give me 3 options for highly specific target audiences. For each, tell me where they congregate online (subreddits, forums) and what specific jargon they use.
+## The Data We Need From You
+**Who exactly is your ideal customer? Be as specific as possible (Age, occupation, interests, pain points).**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] The audience is narrow enough to have specific online gathering places.
-- [ ] The audience has a demonstrated willingness to pay or download apps for this problem.
-- [ ] The audience definition avoids vague demographics (e.g., "Millennials") in favor of behavioral traits.
-`,
+## Accountability Check
+- [ ] I have defined a hyper-specific target audience.`,
   'mobilepersonas': `# Personas
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 45 min
 
 ---
 
 ## Why this matters
-Personas humanize your target audience. Instead of debating whether "users" will like a dark mode toggle, you debate whether "Sarah, a night-shift nurse," needs a dark mode toggle. Personas act as a tie-breaker for product design decisions.
+Personas turn abstract demographic data into a concrete, fictional character. When deciding whether to add a complex new feature, it is much easier to ask "Would *Marketing Manager Sarah* actually use this?" than to ask "Would our target demographic use this?"
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip this. You do not have time to invent fictional characters and their backstories. Build the app.
+Skip it. You don't have time to create fictional characters.
 
 ### Personal Project
-Create one simple persona to guide your design choices. If your persona is an elderly user, you know to use large typography, high contrast, and simple navigation. If your persona is a power user, you can implement complex gestures and dense data screens.
+Skip it. You are the only persona that matters right now.
 
 ### Production SaaS
-Develop 2 to 3 data-driven personas based on actual conversations with your waitlist or potential users. 
+Create 2-3 detailed personas. Give them names, photos, job titles, and specific daily frustrations. Understand their tech literacy. If your persona is a 65-year-old construction manager, your app needs massive buttons, high contrast text, and offline support, not trendy microscopic fonts and complex swipe gestures.
 
-Do not fill personas with useless demographic fluff (e.g., "John likes dogs and long walks"). Focus entirely on their technical proficiency, the devices they use (iOS vs Android, old hardware vs new hardware), the environments they use the app in (e.g., "outdoors with glare," "one-handed while holding a baby"), and their primary motivations. This directly impacts mobile UX design, such as button placement for thumb reachability and offline capabilities for poor network areas.
-
-## Persona Generation Prompt
-\`\`\`prompt
-Act as a UX Researcher. Generate two actionable user personas for a mobile app that [Describe App]. Do not include fluff. Focus on their mobile device habits (iOS vs Android), their technical literacy, the physical environment in which they will use the app, and their primary pain point.
+## The Data We Need From You
+**List the name and role of your primary user persona.**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Personas are based on behavioral traits and mobile habits, not just demographics.
-- [ ] The physical environment of the user (e.g., on the go, low battery, bad signal) is considered.
-- [ ] Design decisions can be directly tied back to the needs of a specific persona.
-`,
+## AI Generation Phase
+\`\`\`prompt
+Act as a UX Researcher. My target audience is [Insert Audience]. Please generate a detailed User Persona for my mobile app. Include their Name, Age, Occupation, Tech Literacy Level, Top 3 Daily Frustrations, and exactly what they are looking for in a mobile solution.
+\`\`\`
+
+## Accountability Check
+- [ ] I have created at least one detailed user persona to guide design decisions.`,
   'mobilesolutionstatement': `# Solution Statement
 
-**Estimated Time:** 1 hour
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-The solution statement bridges the gap between the problem you identified and the app you are building. It clearly articulates *how* your mobile app specifically resolves the user's pain in a way that alternative solutions (like web apps or spreadsheets) cannot.
+If the Problem Statement defines the fire, the Solution Statement defines the fire extinguisher. It clarifies exactly how your mobile app addresses the core pain point in a way that is distinctly better than existing alternatives.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your solution statement is your headline. It needs to be punchy, buzzword-heavy (if applicable to the theme), and immediately understandable. "We use AI to instantly identify..." or "A real-time mesh network for..." Make it sound impressive.
+Keep it simple and direct. "Our app uses the phone's camera to instantly translate menus for travelers." Don't over-complicate it with buzzwords.
 
 ### Personal Project
-Keep it straightforward and technical. "A React Native mobile application that utilizes the device's GPS to track..." This clearly communicates what the project is and what technologies are being demonstrated.
+Define the solution that works best for *you*. If your solution to tracking workouts is "a simple list of text inputs with no charts," that's perfectly valid for a personal tool.
 
 ### Production SaaS
-Your solution statement must focus on the value delivered, not the technology used. 
+Your solution statement must articulate the "Unique Value Proposition" (UVP). Why should someone download your app instead of using a web browser? Does your solution leverage native mobile capabilities (GPS, Camera, Push Notifications) that competitors lack? The solution must be 10x faster or 10x cheaper to convince users to switch.
 
-Users do not care that you use GraphQL or a cutting-edge cross-platform framework. They care that the app "Saves 5 hours a week" or "Eliminates manual data entry." The statement must explicitly justify why this is a *mobile* solution. For example: "A mobile-first inventory tracker that allows warehouse workers to scan barcodes offline, syncing automatically when they reconnect to Wi-Fi, eliminating clipboard data entry."
-
-## Solution Refinement Prompt
-\`\`\`prompt
-Act as a Y Combinator Partner. My current solution statement is: [Insert Statement]. Rewrite this to be aggressively focused on the business value and the specific advantage of it being a native mobile application. Remove all technical jargon.
+## The Data We Need From You
+**In one sentence, how does your app solve the problem you defined earlier?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] The statement clearly explains how the problem is solved.
-- [ ] The statement relies on value metrics (time saved, money earned) rather than technical jargon.
-- [ ] It is obvious why this solution requires a mobile application rather than a website.
-`,
+## Accountability Check
+- [ ] I have clearly articulated my solution and its unique value.`,
   'mobileelevatorpitch': `# Elevator Pitch
 
-**Estimated Time:** 1 hour
+**Estimated Time:** 15 min
 
 ---
 
 ## Why this matters
-Attention spans are near zero. Whether you are pitching an investor, a hackathon judge, or trying to convince a user scrolling through the App Store, you have less than 10 seconds to explain what your app is and why they should care. If you stumble here, you lose them forever.
+You have 30 seconds to explain your app to an investor, a potential co-founder, or a user before they lose interest. An elevator pitch forces you to distill your entire business model, problem, and solution into a digestible, punchy narrative.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your elevator pitch is the opening hook of your demo. It must immediately establish the stakes and the solution. Memorize it perfectly. A confident, 10-second pitch sets the tone for a winning presentation.
+Your elevator pitch is the opening 30 seconds of your demo. Make it energetic. "Have you ever hated doing X? We built an app that does it for you in one tap."
 
 ### Personal Project
-Use the elevator pitch as the first line of your GitHub README and your LinkedIn post when you share the project. It should concisely explain the app's purpose and the tech stack used, grabbing the attention of recruiters scanning dozens of projects a day.
+You only need this if you plan to share your project on Reddit or Twitter. A good pitch gets upvotes.
 
 ### Production SaaS
-Your elevator pitch is the core of your App Store listing, your marketing website header, and your ads. 
+Use the classic format: "For [Target Audience] who have [Problem], our product is a [Category] that provides [Solution]. Unlike [Competitor], we [Unique Value]." Memorize this. Every employee you hire should be able to recite it.
 
-It must clearly define the target audience, the problem, the solution, and the unique differentiator. Use the standard framework: "For [target audience] who have [problem], [App Name] is a [category] that provides [solution]. Unlike [competitor], we [key differentiator]." Refine it until a 10-year-old can understand exactly what your business does.
-
-## Pitch Generation Prompt
-\`\`\`prompt
-Act as a Startup Founder. My app does [Describe App] for [Target Audience]. Write three variations of an elevator pitch. One formatted for an App Store subtitle (under 30 characters), one formatted for a Twitter/X post, and one using the standard 'For [Audience] who [Problem]...' framework.
+## The Data We Need From You
+**Draft your 30-second elevator pitch.**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] The pitch clearly identifies the target audience.
-- [ ] The core value proposition is easily understood without technical context.
-- [ ] The pitch can be spoken aloud in under 15 seconds.
-`,
+## AI Refinement Phase
+\`\`\`prompt
+Act as an expert Copywriter. My current elevator pitch is: [Insert Pitch]. Please rewrite it to be punchier, more engaging, and exactly 3 sentences long. Focus heavily on the emotional benefit to the user.
+\`\`\`
+
+## Accountability Check
+- [ ] I have a memorized, concise elevator pitch.`,
   'mobilecompetitoranalysis': `# Competitor Analysis
 
-**Estimated Time:** 2-4 hours
+**Estimated Time:** 2 Hours
 
 ---
 
 ## Why this matters
-Unless you are inventing a fundamentally new technology, you have competitors. Understanding what they do well—and more importantly, what they do terribly—allows you to position your app as the obvious superior choice. It prevents you from making the exact same UX mistakes they did.
+If you think you have no competitors, you either haven't researched enough, or there is no market for your idea. Studying competitors reveals their weaknesses, their pricing models, and the features users actually care about.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip detailed analysis. Find one major incumbent, identify their biggest flaw (e.g., "It's too slow," "It's not collaborative"), and make that flaw the entire premise of your pitch. "Unlike X, we do Y in real-time."
+Find one big competitor, and build a feature they *don't* have. During your pitch, say "Competitor X is great, but they ignore this specific use case. We built for that."
 
 ### Personal Project
-Pick one or two popular apps in your chosen category. Download them, analyze their navigation structure, and borrow their best UI patterns. If Spotify uses a bottom tab bar for navigation, you should too. Do not reinvent the wheel for a portfolio project; demonstrate that you can implement industry-standard UX patterns.
+Look at paid apps on the App Store that do what you want, and build a free clone for yourself. Use their screenshots as UI inspiration.
 
 ### Production SaaS
-Competitor analysis is a strategic weapon. You must deeply understand the landscape.
+You must conduct a deep dive. Download their apps. Read their 1-star reviews on the App Store—this is a goldmine of features they are failing to deliver. Analyze their onboarding flow, their subscription pricing, and their marketing channels. Build a feature matrix comparing your app to the top 3 competitors.
 
-Do not just look at direct competitors; look at indirect competitors (e.g., the competitor to a budgeting app might just be a Google Sheet). Read their 1-star and 2-star reviews on the App Store and Google Play. These reviews are a goldmine of unresolved user pain points. If every review complains about a lack of offline support, offline support becomes your primary differentiator. Analyze their monetization strategy—are they pushing expensive weekly subscriptions, or upfront payments? Find the gaps in the market and attack them.
-
-## Competitor Analysis Prompt
-\`\`\`prompt
-Act as a Product Strategist. I am building an app to compete with [Insert Competitor Name]. Based on general market knowledge of this competitor, list their 3 biggest strengths and their 3 biggest weaknesses. How can a new, agile startup position themselves against them to steal their most frustrated users?
+## The Data We Need From You
+**List your top 3 direct competitors.**
+\`\`\`input
+1. 
+2. 
+3. 
 \`\`\`
 
-## Validation Checklist
-- [ ] At least 3 direct or indirect competitors have been identified.
-- [ ] 1-star App Store reviews of competitors have been analyzed to find missing features.
-- [ ] A clear differentiator (Price, UX, Speed, Niche Feature) has been established.
-`,
+## Accountability Check
+- [ ] I have analyzed my competitors and found my unique angle.`,
   'mobilesimilarapps': `# Similar Apps
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Finding similar apps is not about stealing ideas; it's about establishing baseline expectations. Users have muscle memory. If every other app in your category uses a bottom navigation bar, and you use a hamburger menu, users will feel friction. Similar apps show you the "rules" of your category before you decide which ones to break.
+Looking at similar apps outside of your direct competitors (e.g., if you are building a fitness app, look at a language learning app) can provide massive inspiration for UX patterns, gamification, and onboarding strategies.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Find the closest similar app, take screenshots of their 3 best screens, and put them in a mood board. Do not overthink this. If their app looks good, let their design choices inspire your prototype. 
+Find the most beautifully designed app on your phone and steal its color palette and button styles. Good artists copy; great artists steal.
 
 ### Personal Project
-Studying similar apps helps you build a professional-looking UI without needing a design background. 
-
-Pick the #1 app in the category you are mimicking (e.g., Duolingo if you are building an educational app). Open it and literally count the taps it takes to perform the core action. Notice the micro-interactions (e.g., how the button pulses, how the screen transitions). Your goal is to replicate that level of polish in your own code.
+Browse Mobbin or UI sources to find UI patterns you want to learn how to code (like a cool swipe-to-delete animation).
 
 ### Production SaaS
-You must conduct a deep forensic analysis of similar apps. 
+Study the "best in class" apps (like Duolingo, Uber, or Airbnb). How does Duolingo handle daily streaks to drive retention? How does Uber handle map loading states? You aren't competing with them, but you are competing for the same standard of user experience that your users expect from those giants.
 
-Download the top 5 similar apps. Pay specifically for their premium tiers and screenshot every step of their onboarding and paywalls. Take note of how they handle edge cases: What happens when you go offline? How aggressively do they ask for push notification permissions? How do they handle account deletion? By studying similar apps, you can fast-track your UX decisions and focus your engineering effort on your unique differentiator.
-
-## UX teardown Prompt
-\`\`\`prompt
-Act as a Senior UX Researcher. I am building an app in the [Insert Category, e.g., Fitness Tracking] space. Identify the 3 market leaders. Provide a breakdown of the standard UX patterns users expect in this category (e.g., standard navigation structures, common onboarding steps, typical paywall placement).
+## The Data We Need From You
+**Name 2 apps outside your industry that have incredible UX you want to emulate.**
+\`\`\`input
+1. 
+2. 
 \`\`\`
 
-## Validation Checklist
-- [ ] At least 3 similar apps have been downloaded and tested.
-- [ ] Standard UX patterns for the category (e.g., navigation style) have been identified.
-- [ ] The onboarding flow of the market leader has been mapped out.
-`,
+## Accountability Check
+- [ ] I have identified non-competitor apps to study for UX inspiration.`,
   'play-store-research': `# Play Store Research
 
 **Estimated Time:** 20 min
@@ -4917,1690 +4613,1136 @@ Type your answer here...
 \`\`\``,
   'appstoreresearch': `# App Store Research
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-The Apple App Store is the most lucrative software marketplace on the planet, but it is heavily curated and strict. iOS users generally have a higher willingness to pay, but they also demand a higher level of design polish (Human Interface Guidelines). Understanding this ecosystem is critical for monetization.
+The Apple App Store is highly lucrative but notoriously strict. Apple users have high design standards, and Apple reviewers will reject your app if it looks like a cheap web wrapper or violates their human interface guidelines.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Ignore this. You will not pass App Store Review during a 48-hour hackathon. Rely on TestFlight, Expo Go, or just a simulator for your demo.
+Skip it. Apple's review process takes days; you won't be submitting a hackathon project to the App Store.
 
 ### Personal Project
-Getting an app into the App Store is a fantastic resume booster. 
-
-However, Apple's review process is notoriously strict. You cannot have placeholder text (\`lorem ipsum\`), broken links, or an app that simply wraps a website. Research the App Store Review Guidelines (specifically sections on Minimum Functionality) before you start coding, or you will waste weeks building something Apple immediately rejects.
+Browse the App Store for UI inspiration. Notice how iOS apps use native components (like Bottom Sheets and Navigation Bars) heavily.
 
 ### Production SaaS
-App Store optimization (ASO) on iOS requires a specific strategy. 
-
-Unlike Google, Apple does not index the long description. They rely on the Title, Subtitle, and a hidden 100-character Keyword field. You must research high-volume, low-competition keywords for these fields. Furthermore, iOS users expect aggressive paywalls (often immediately after onboarding) but demand Apple-level polish. Research how top apps in your category use Promotional Text and In-App Events to drive engagement. Prepare for Apple's strict privacy requirements, specifically the App Tracking Transparency (ATT) prompt.
-
-## iOS ASO Prompt
-\`\`\`prompt
-Act as an iOS App Store Optimization Expert. I am launching an app for [Describe App]. I have 100 characters for the hidden Keyword field. Suggest a strategy for selecting keywords. Also, what are the top 3 reasons Apple rejects apps in this specific category?
-\`\`\`
-
-## Validation Checklist
-- [ ] The App Store Review Guidelines (especially Minimum Functionality) have been reviewed.
-- [ ] A strategy for the Title, Subtitle, and 100-character Keyword field is drafted.
-- [ ] The monetization model complies with Apple's In-App Purchase (IAP) rules (no circumventing the 30% fee).
-`,
-  'mobilefeatureplanning': `# Feature Planning
-
-**Estimated Time:** 2-3 hours
-
----
-
-## Why this matters
-Feature planning transforms your abstract idea into a concrete backlog of work. In mobile development, features are more expensive to build and update than in web development (due to app store review cycles). Therefore, planning *exactly* what goes into the first build is critical to avoid wasting engineering cycles.
-
-## Strategic Guidance
-
-### Hackathon Mode
-List every feature you *want* to build. Now cross off 80% of them. The remaining 20% is your feature plan. If a feature takes more than 3 hours to implement, cut it or fake it. 
-
-### Personal Project
-Plan features that demonstrate a breadth of skills rather than depth. Instead of building 5 different complex data filters, build one filter, add basic Push Notifications, and implement a clean UI state. This proves to reviewers that you understand the full mobile stack.
-
-### Production SaaS
-Feature planning must be driven by your core use cases and user journey, not by what sounds cool to build.
-
-For a mobile app, you must explicitly plan for "invisible" features: offline state handling, token refresh logic, permission request flows, and deep linking. If you only plan user-facing features (like a "Like" button) and ignore the invisible features, your app will feel brittle and crash frequently. Group your planned features into Epics (e.g., "Authentication," "Core Navigation," "Offline Sync").
-
-## Feature Brainstorming Prompt
-\`\`\`prompt
-Act as a Mobile Technical Lead. I am building a mobile app that [Describe App]. List the top 5 'invisible' mobile-specific features (e.g., offline handling, caching, deep linking) that I must include in my feature plan to ensure the app feels native and robust, rather than just a wrapped website.
-\`\`\`
-
-## Validation Checklist
-- [ ] All features are directly tied back to a defined Use Case.
-- [ ] "Invisible" mobile features (offline states, error handling, permissions) are explicitly planned.
-- [ ] Features are grouped into logical Epics for easier estimation.
-`,
-  'mobilemvpfeatures': `# MVP Features
-
-**Estimated Time:** 1-2 hours
-
----
-
-## Why this matters
-The Minimum Viable Product (MVP) is the smallest possible version of your app that still delivers the core value proposition. Every additional feature you add to the MVP delays your launch, increases your bug surface area, and burns cash/time before you have validated that anyone actually wants the app.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Your MVP is the demo. It only needs to work once, on one device, under perfect conditions. Hardcode everything except the specific API or technology you are trying to showcase.
-
-### Personal Project
-Your MVP should focus on completing the "Happy Path" perfectly. If you are building a social app, the MVP is: Auth -> Feed -> Post -> Logout. Do not build profile editing, password resets, or comment threads. A flawless, tiny app is much better than a buggy, massive app.
-
-### Production SaaS
-Defining the MVP is the hardest part of product management because you have to say "no" to good ideas.
-
-Your MVP must solve the core problem 10x better than the alternative, but it does not need to do anything else. If you are building a diet tracker, the MVP must track calories flawlessly. It does *not* need social sharing, barcode scanning, or Apple Health integration. Cut ruthlessly. If a feature does not directly test your riskiest assumption (e.g., "Will users log their food every day?"), it belongs in Phase 2.
-
-## MVP Scoping Prompt
-\`\`\`prompt
-Act as a ruthless Product Manager. Here is my list of planned features for my mobile app MVP: [Insert Feature List]. My core value proposition is [Insert Value Prop]. Tell me which 3 features I should cut immediately to launch 4 weeks faster, and explain why they are not essential for Day 1.
-\`\`\`
-
-## Validation Checklist
-- [ ] The MVP contains only the features required to deliver the core value proposition.
-- [ ] "Nice to have" features (e.g., social sharing, dark mode, complex settings) have been cut.
-- [ ] The MVP can theoretically be built in less than 4-6 weeks.
-`,
-  'mobilefuturefeatures': `# Future Features
-
-**Estimated Time:** 1 hour
-
----
-
-## Why this matters
-Documenting future features (the "Icebox" or "Backlog") serves two purposes: it prevents scope creep by giving you a place to put good ideas that don't belong in the MVP, and it helps you design an architecture that won't require a complete rewrite when you eventually add them.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Future features are what you put on the final "Next Steps" slide of your pitch deck to show the judges you have a grand vision. 
-
-### Personal Project
-List future features in your GitHub README under a "Roadmap" section. This shows employers that you understand the product lifecycle and know how the application *should* evolve, even if you never actually build it.
-
-### Production SaaS
-Future features dictate your early architectural decisions.
-
-If you know you will eventually need real-time chat, you should choose a backend (like Supabase or Firebase) that supports WebSockets out of the box, rather than a rigid REST API. If you know you will eventually add internationalization (i18n), you should extract your strings into a localization file on Day 1, rather than hardcoding English throughout the app. Documenting future features ensures you don't paint yourself into a technical corner.
-
-## Architectural Foresight Prompt
-\`\`\`prompt
-Act as a Principal Mobile Architect. My MVP is [Describe MVP], but my Phase 2 Future Features include [Insert Future Features, e.g., Real-time chat, Offline Sync]. What architectural decisions must I make *today* during the MVP phase to ensure I don't have to rewrite the entire app when I add those features later?
-\`\`\`
-
-## Validation Checklist
-- [ ] All non-critical ideas have been moved out of the MVP and into a documented Backlog.
-- [ ] The current technical stack can support the most complex future features without a total rewrite.
-- [ ] Future features align with the long-term product vision.
-`,
-  'mobilefeatureprioritization': `# Feature Prioritization
-
-**Estimated Time:** 1-2 hours
-
----
-
-## Why this matters
-Once you have a backlog of features, you need a systemic way to decide what to build first. Without a prioritization framework, you will build the easiest features first or the features the loudest customer asked for, rather than the features that actually drive growth.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Prioritize based solely on visual impact vs. time to implement. High visual impact + low implementation time = build it immediately. Everything else is ignored.
-
-### Personal Project
-Prioritize features based on what you want to learn. If your goal is to learn animations, prioritize building complex UI transitions. If your goal is backend architecture, prioritize complex data fetching.
-
-### Production SaaS
-You must use a rigid framework to remove emotion from prioritization.
-
-Use the RICE scoring model: Reach (how many users does this affect?), Impact (how much does this improve the core metric?), Confidence (how sure are we that this will work?), and Effort (how many engineering weeks will this take?). (R * I * C) / E = Score. Build the features with the highest score. For early-stage mobile apps, prioritize features that reduce onboarding friction or improve Day 7 retention over features that only benefit power users.
-
-## RICE Scoring Prompt
-\`\`\`prompt
-Act as a VP of Product. I have three proposed features for my mobile app: 1) [Feature 1], 2) [Feature 2], 3) [Feature 3]. Walk me through a quick RICE (Reach, Impact, Confidence, Effort) scoring exercise for these three features and tell me which one I should build first to maximize user retention.
-\`\`\`
-
-## Validation Checklist
-- [ ] A formal prioritization framework (like RICE or Kano) is used to evaluate features.
-- [ ] Features are prioritized based on their impact on core business metrics (e.g., Retention, Conversion).
-- [ ] High-effort, low-impact features have been explicitly deprioritized.
-`,
-  'mobilemonetization': `# Monetization Strategy
-
-**Estimated Time:** 1-2 hours
-
----
-
-## Why this matters
-How you make money dictates how you build the app. You cannot just build an app and "figure out monetization later." If you choose subscriptions, you need to build complex entitlement logic and paywalls. If you choose ads, you need to maximize session duration. The monetization strategy must be decided before writing code.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Monetization is just a bullet point on your pitch deck. Say you will use a "Freemium B2B SaaS model" because judges like hearing that. Do not actually write any Stripe or RevenueCat code.
-
-### Personal Project
-Do not implement real payments. If you want to demonstrate the skill, use Stripe's test mode or RevenueCat's sandbox environment. Implementing real monetization adds massive legal and security overhead that is completely unnecessary for a portfolio project.
-
-### Production SaaS
-The mobile App Store ecosystem takes a brutal 15-30% cut of digital goods. You must factor this into your unit economics.
-
-If you are selling digital services (e.g., premium features in a fitness app), you *must* use Apple/Google In-App Purchases (IAP). If you are selling physical goods (e.g., clothes, food delivery), you can use Stripe and bypass the 30% fee. Choose your overarching model (Freemium, Subscription, Ads, etc.) based on your user acquisition cost. If it costs $10 to acquire a user, you cannot rely on an ad-supported model that generates $0.05 per user. 
-
-## Monetization Strategy Prompt
-\`\`\`prompt
-Act as a Monetization Strategist. I am building a mobile app that [Describe App]. Should I use an ad-supported model, a freemium subscription model, or a one-time upfront purchase model? Explain the unit economics required to make your recommended strategy profitable.
-\`\`\`
-
-## Validation Checklist
-- [ ] The chosen monetization strategy is compliant with Apple and Google's In-App Purchase rules.
-- [ ] The strategy aligns with the expected Customer Acquisition Cost (CAC).
-- [ ] The core value proposition is strong enough to support the chosen model.
-`,
-  'mobilefree': `# Free (100% Free)
-
-**Estimated Time:** 30 minutes
-
----
-
-## Why this matters
-A 100% free app makes zero direct revenue. This model is only viable if the app serves a different strategic purpose (e.g., lead generation, a companion app for a physical product, or a purely philanthropic endeavor).
-
-## Strategic Guidance
-
-### Hackathon Mode
-All hackathon projects are 100% free by default. 
-
-### Personal Project
-All personal projects should be 100% free. You want zero friction preventing recruiters or other developers from downloading and testing your work.
-
-### Production SaaS
-If you are building a business, a 100% free app is highly dangerous. 
-
-Mobile apps incur ongoing costs: database reads, server hosting, Apple Developer fees ($99/yr), and maintenance for new OS updates. If the app is 100% free, it is a cost center. You only do this if the app is a "loss leader" (e.g., the Tesla mobile app is free because you bought a $50k car) or if the app is designed solely to collect user data to sell (which comes with massive privacy liabilities). If you do not have a way to subsidize the server costs, do not launch a 100% free app.
-
-## Free App Viability Prompt
-\`\`\`prompt
-Act as a Financial Advisor for Startups. I want to release my mobile app 100% for free to maximize user growth, with the plan to 'monetize the data later.' Tell me exactly why this is a terrible idea and outline the hidden ongoing costs of maintaining a mobile app at scale.
-\`\`\`
-
-## Validation Checklist
-- [ ] There is a clear strategic reason for the app to generate zero direct revenue.
-- [ ] A funding source exists to cover ongoing server and developer account costs.
-- [ ] If data is being monetized, the Privacy Policy explicitly states this in compliance with GDPR/CCPA.
-`,
-  'mobilefreemium': `# Freemium Model
-
-**Estimated Time:** 2-4 hours
-
----
-
-## Why this matters
-Freemium is the most popular monetization model on mobile. It dramatically lowers the barrier to entry (acquiring users is easier when the app is free to download), but requires a delicate balance: the free tier must be useful enough to retain users, but restricted enough to force them to eventually pay for the premium tier.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Pretend you have a freemium model by showing a "Pro" badge next to certain features in your demo. Do not build actual feature gating logic. 
-
-### Personal Project
-Implement UI-level feature gating. For example, if the user tries to create a 4th project, show a beautiful "Upgrade to Pro" modal. You do not need to implement backend entitlement checks or real Stripe/Apple billing. Just the UI flow is enough to demonstrate competency.
-
-### Production SaaS
-Freemium requires ruthless metric tracking to find the optimal "paywall trigger."
-
-If your free tier gives away too much, your conversion rate will be 0%. If it gives away too little, users will churn on Day 1 before they experience the core value. You must implement backend entitlement checks (e.g., using RevenueCat) to prevent users from bypassing the UI paywall. A good benchmark for a mobile B2C freemium app is a 2-5% free-to-paid conversion rate. Constantly A/B test your paywall screen (the text, the pricing, the timing) as small tweaks here can double your revenue overnight.
-
-## Freemium Gating Prompt
-\`\`\`prompt
-Act as a Pricing Strategist. I am building a mobile app that [Describe App]. I want to use a freemium model. Give me 3 options for the "Value Metric" I should gate (e.g., usage limits, premium features, speed). Which option creates the most natural friction to upgrade without destroying the Day 1 onboarding experience?
-\`\`\`
-
-## Validation Checklist
-- [ ] The free tier provides enough value to demonstrate the "Aha!" moment.
-- [ ] The trigger for the paywall is based on a clear value metric (e.g., 3 projects maximum).
-- [ ] Backend entitlement checks are planned to prevent unauthorized premium access.
-`,
-  'mobilesubscription': `# Subscription Model
-
-**Estimated Time:** 1-2 hours
-
----
-
-## Why this matters
-Subscriptions create recurring, predictable revenue, which is why investors love them. However, consumer subscription fatigue is at an all-time high. Users will rigorously evaluate whether your app is worth a recurring monthly charge compared to their Netflix or Spotify subscription.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Ignore this. 
-
-### Personal Project
-Do not implement real subscriptions. If you want to show off, integrate RevenueCat's sandbox environment to demonstrate that you understand how subscription webhooks and entitlement lifecycles (renewals, cancellations, grace periods) work conceptually.
-
-### Production SaaS
-Implementing mobile subscriptions requires using Apple and Google's native In-App Purchases (IAP). 
-
-You cannot link out to Stripe to bypass the 30% fee without risking immediate rejection. Use a service like RevenueCat or Qonversion to handle the incredibly complex logic of cross-platform receipt validation, renewals, and cancellations. You must provide clear cancellation instructions in the app. To fight churn, implement a "win-back" campaign (e.g., offering a 50% discount if they try to cancel). Finally, deeply analyze the difference between your Monthly vs Annual subscription retention rates.
-
-## Subscription Economics Prompt
-\`\`\`prompt
-Act as a SaaS Financial Modeler. We are launching a mobile subscription app at $9.99/month. Assume Apple takes a 15% cut (Small Business Program). If our blended Customer Acquisition Cost (CAC) is $15, how many months does a user need to remain subscribed for us to achieve a 3x LTV:CAC ratio?
-\`\`\`
-
-## Validation Checklist
-- [ ] Apple/Google In-App Purchases are used (no external Stripe links for digital goods).
-- [ ] A tool like RevenueCat is planned to handle cross-platform receipt validation.
-- [ ] A clear, easy-to-find cancellation flow is designed to comply with App Store policies.
-`,
-  'mobileads': `# Ad-Supported Model
-
-**Estimated Time:** 1-2 hours
-
----
-
-## Why this matters
-Ad-supported models (using AdMob or similar networks) are common for mobile games and utility apps (like calculators or weather apps). However, unless you have millions of Daily Active Users (DAUs) or extremely long session durations, the revenue generated from ads will be pennies.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Do not put ads in your hackathon project. It ruins the UX and makes the demo look cheap.
-
-### Personal Project
-Do not integrate real ad networks. If you want to demonstrate the skill, put a static banner image that says "Ad Placeholder." Actual ad SDKs bloat your app size and require complex privacy policy configurations.
-
-### Production SaaS
-The unit economics of an ad-supported app are brutal. 
-
-You are paid based on eCPM (Effective Cost Per Mille), which is the revenue per 1,000 impressions. For standard banner ads, eCPM might be $0.50 to $2.00. To make $1,000, you need 500,000 to 2,000,000 ad impressions. If your app only has 1,000 users who use it for 1 minute a day, you will make nothing. If you must use ads, prefer "Rewarded Video Ads" (e.g., "Watch this 30s ad to unlock a premium filter"), as they have significantly higher eCPMs and feel less intrusive to the user than random popups.
-
-## Ad Monetization Prompt
-\`\`\`prompt
-Act as a Mobile Ad Monetization Manager. My app currently has 10,000 Daily Active Users (DAUs) with an average session length of 3 minutes. Calculate my projected monthly revenue if I use standard banner ads with a $1.00 eCPM versus Rewarded Video ads with a $15.00 eCPM. Which format should I prioritize?
-\`\`\`
-
-## Validation Checklist
-- [ ] The app's projected DAU and session length can realistically support an ad-driven revenue model.
-- [ ] Rewarded video or native ads are prioritized over intrusive interstitials.
-- [ ] Privacy policies are updated to reflect third-party ad tracking (e.g., AdMob, ATT prompts).
-`,
-  'mobileonetimepurchase': `# One-Time Purchase
-
-**Estimated Time:** 1 hour
-
----
-
-## Why this matters
-Charging a single upfront fee (or a single lifetime unlock via IAP) is the most honest monetization model, but it is the hardest to build a sustainable business on. You constantly need to acquire new users to survive, and you have no recurring revenue to fund long-term maintenance.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Ignore this.
-
-### Personal Project
-Ignore this. 
-
-### Production SaaS
-A one-time purchase is highly attractive to users suffering from subscription fatigue. 
-
-This model works best for utility apps (e.g., a specific camera filter app, a niche calculator) that do not have ongoing server costs. If your app relies on a heavy backend database, AI API calls, or real-time syncing, a one-time purchase model will eventually bankrupt you because your server costs will scale with usage, but your revenue per user is capped. If you choose this model, your app must function almost entirely offline on the local device.
-
-## Pricing Model Prompt
-\`\`\`prompt
-Act as a Pricing Strategist. I am building a mobile app for [Describe App]. I want to charge a one-time $49 "Lifetime Unlock" fee to avoid subscription fatigue. What are the long-term financial risks of this model, and what specific technical architecture (e.g., local-first storage) is required to make this profitable over 5 years?
-\`\`\`
-
-## Validation Checklist
-- [ ] The app has minimal to zero ongoing server or third-party API costs.
-- [ ] The architecture relies heavily on local device storage (CoreData/SQLite) rather than cloud databases.
-- [ ] The upfront price is high enough to cover Customer Acquisition Cost (CAC) immediately.
-`,
-  'mobilesuccessmetrics': `# Success Metrics
-
-**Estimated Time:** 1 hour
-
----
-
-## Why this matters
-If you don't define what success looks like *before* you launch, you will move the goalposts to make yourself feel better. Defining explicit metrics forces you to face reality: is the app growing, dying, or stagnating?
-
-## Strategic Guidance
-
-### Hackathon Mode
-Success is a working demo that doesn't crash on stage. Metrics do not matter.
-
-### Personal Project
-Success is a clean GitHub repository, a well-written README, and a working demo video. If you deploy it to the App Store, getting even 10 organic downloads is a huge success you can mention in interviews.
-
-### Production SaaS
-Select exactly ONE primary metric that acts as your "North Star." 
-
-For a social app, this might be Daily Active Users (DAU). For a B2B SaaS, it might be Monthly Recurring Revenue (MRR). For a utility app, it might be the number of tasks completed per week. Every feature you build should be judged against whether it moves the North Star metric. Accompany the North Star with 2-3 supporting metrics (like Churn Rate and Customer Acquisition Cost) to ensure you aren't growing one metric at the fatal expense of another.
-
-## North Star Metric Prompt
-\`\`\`prompt
-Act as a Data-Driven CEO. My mobile app is a [Insert Category] app that helps users [Insert Core Value]. Suggest 3 potential 'North Star' metrics for this specific app. Which one is the hardest to manipulate through vanity marketing, and why is it the best indicator of true product-market fit?
-\`\`\`
-
-## Validation Checklist
-- [ ] A single "North Star" metric has been explicitly defined.
-- [ ] A tool (e.g., PostHog, Mixpanel, RevenueCat) is selected to track this metric accurately.
-- [ ] Supporting metrics (Churn, CAC) are defined to provide business context.
-`,
-  'mobileretention': `# Retention
-
-**Estimated Time:** Ongoing
-
----
-
-## Why this matters
-Acquiring a new user costs 5 to 25 times more than retaining an existing one. In the mobile app world, Day 1 (D1) retention averages around 25%, meaning 75% of users who download your app today will never open it again. If you do not have a deliberate retention strategy, your app is a leaky bucket, and any money spent on marketing is entirely wasted.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Retention doesn't matter for a weekend project. Focus purely on the acquisition story for the pitch deck.
-
-### Personal Project
-Focus on the "Aha! Moment." This is the exact moment a user understands the core value of your app. For Facebook, it was "7 friends in 10 days." For a habit tracker, it might be "Logging 3 days in a row." Ensure your onboarding process gets the user to that specific Aha! Moment as fast as humanly possible, removing all unnecessary friction (like forcing them to verify their email before using the app).
-
-### Production SaaS
-You must rigorously track D1, D7, and D30 retention cohorts using tools like Mixpanel or Amplitude. Implement lifecycle marketing to combat churn. If a user drops off at Day 3, send a targeted push notification or email sequence educating them on a feature they haven't tried yet. Do not just send "We miss you!" messages; send value-driven nudges like, "Did you know you can automate your weekly reports?"
-
-### Production SaaS
-Enterprise retention is tied directly to B2B contract renewals (Net Revenue Retention - NRR). You must build specialized dashboards for Customer Success Managers (CSMs) to monitor the "Health Score" of enterprise accounts. If an entire client organization shows a 20% drop in Daily Active Users (DAU), the CSM must be alerted automatically to intervene before the annual contract renewal date.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Product Growth Expert. My mobile app is a [Insert App Type]. Define what my "Aha! Moment" likely is. Then, outline a 7-day lifecycle push notification sequence designed to increase my D7 retention rate by guiding new users toward that specific Aha! Moment.
-\`\`\`
-
-## Validation Checklist
-- [ ] The "Aha! Moment" has been clearly defined.
-- [ ] Onboarding friction preventing users from reaching the Aha! Moment has been minimized.
-- [ ] D1, D7, and D30 retention cohorts are actively being tracked in an analytics tool.
-`,
-  'mobiledau': `# DAU (Daily Active Users)
-
-**Estimated Time:** 30 minutes
-
----
-
-## Why this matters
-Daily Active Users (DAU) measures how many unique people open your app in a 24-hour period. It is the defining metric for apps that require daily habit formation (e.g., social media, fitness trackers, to-do lists).
-
-## Strategic Guidance
-
-### Hackathon Mode
-Ignore this.
-
-### Personal Project
-Ignore this.
-
-### Production SaaS
-Not every app needs to optimize for DAU. 
-
-If you are building a tax preparation app, optimizing for DAU is stupid—users only need it once a year. If you are building a habit tracker, DAU is your lifeblood. Define what "Active" actually means. Is simply opening the app "active," or must the user actually log a habit? (Hint: strictly define "active" as performing the core action). Calculate your DAU/MAU ratio (stickiness). A ratio above 20% is good; above 50% is world-class.
-
-## DAU Definition Prompt
-\`\`\`prompt
-Act as a Data Analyst. My app is a [Describe App]. If we track DAU, should the 'Active' event just be 'App Opened', or should it be a specific core action? Define exactly what the 'Active' event should be to prevent us from tracking vanity metrics.
-\`\`\`
-
-## Validation Checklist
-- [ ] The "Active" event is strictly defined as a core action, not just "App Opened."
-- [ ] The DAU metric aligns with the natural usage frequency of the product.
-`,
-  'mobilemau': `# MAU (Monthly Active Users)
-
-**Estimated Time:** 30 minutes
-
----
-
-## Why this matters
-Monthly Active Users (MAU) measures your broader active user base over a 30-day period. It is a critical metric for B2B tools, utility apps, and reporting overall business scale to investors.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Ignore this.
-
-### Personal Project
-Ignore this.
-
-### Production SaaS
-MAU is a slower-moving metric than DAU, making it better for tracking macro-level growth trends. 
-
-If your MAU is growing but your MRR (Monthly Recurring Revenue) is flat, your monetization funnel is broken. Just like DAU, you must strictly define what an "Active" user is. Investors look heavily at MAU growth month-over-month (MoM). A healthy early-stage SaaS aims for 10-20% MoM MAU growth. Ensure you are removing bots, test accounts, and internal team members from your MAU calculations.
-
-## MAU Growth Prompt
-\`\`\`prompt
-Act as an Investor Relations Manager. Our MAU is growing at 15% month-over-month, but our Paid Subscribers are only growing at 2% month-over-month. What are the top 3 underlying product or marketing issues that cause this discrepancy, and how should we investigate them?
-\`\`\`
-
-## Validation Checklist
-- [ ] Internal team members and test accounts are excluded from the MAU metric.
-- [ ] MAU growth is actively compared against MRR/Revenue growth to ensure quality acquisition.
-`,
-  'mobilesessionduration': `# Session Duration
-
-**Estimated Time:** 30 minutes
-
----
-
-## Why this matters
-Session duration measures how long a user spends in your app during a single sitting. For ad-supported or social apps, higher session duration directly correlates with higher revenue. For utility or productivity apps, a high session duration might actually mean your UX is confusing.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Ignore this.
-
-### Personal Project
-Ignore this.
-
-### Production SaaS
-Context is everything for session duration. 
-
-If you are building TikTok, you want a 45-minute session duration. If you are building an app to quickly log expenses, a 5-minute session duration means your UI is terrible and the user is struggling. Determine what a "successful" session duration looks like for your specific use case. If you need to decrease session duration (improve efficiency), track the time-to-completion for the core task. If you need to increase it (for ad revenue), implement infinite scrolls, algorithmically generated feeds, or push notification re-engagement loops.
-
-## Session Duration Strategy Prompt
-\`\`\`prompt
-Act as a UX Analyst. My app is a [Describe App]. Is our goal to maximize session duration (keep them engaged) or minimize session duration (get them to the result faster)? Based on your answer, suggest 2 UX changes we can implement to achieve that goal.
-\`\`\`
-
-## Validation Checklist
-- [ ] It is explicitly decided whether the product goal is to maximize or minimize session duration.
-- [ ] Analytics (e.g., PostHog/Mixpanel) are configured to accurately track session start and end events.
-`,
-  'mobileprd': `
-# Mobile Product Requirements Document (PRD)
-
-**Estimated Time:** 1-2 hours
-
----
-
-## The Strategic Importance of a Mobile PRD
-Unlike web apps, mobile apps are constrained by screen real estate, battery life, and strict App Store review guidelines. A Mobile PRD forces you to ruthlessly prioritize what actually needs to be on a user's phone versus what belongs on a desktop dashboard.
-
----
-
-## Strategic Guidance
-
-### Hackathon Mode
-Forget the traditional PRD. You only have a weekend. Your "PRD" is a bulleted list of 3 absolute must-have features that can be built using existing mobile SDKs or templates. Cut any feature that requires complex custom UI or background processing. Focus on the 'wow' factor that you can show on a physical device.
-
-### Personal Project Mode
-Use this phase to define the learning outcomes for your project. Are you building this to learn SwiftUI? Flutter? Map out the exact features that will force you to interact with the device's native capabilities (like the Camera, GPS, or Push Notifications), so you actually get the technical experience you desire.
-
-### Production SaaS Mode
-Your Mobile PRD must be heavily focused on retention loops and onboarding. Because app uninstalls happen within the first 3 minutes of usage, the PRD must explicitly define the "Aha!" moment and how the user reaches it with minimal friction. Document the core workflows, offline capabilities, and what happens when the network connection drops.
-
-### Production SaaS
-For enterprise mobile applications, the PRD becomes a highly rigorous compliance document. You must define data encryption at rest (on the device), Mobile Device Management (MDM) compatibility, offline syncing conflict resolution algorithms, and rigorous SLA requirements for API response times on cellular networks.
-
----
+ASO on the App Store is driven heavily by the app Title and the invisible 'Keywords' field. Research which keywords have high volume and low competition using tools like SensorTower or AppFigures. Prepare for Apple's strict In-App Purchase (IAP) rules; they will take 15-30% of your revenue if you sell digital goods.
 
 ## The Data We Need From You
-To generate your PRD, we need to know what you are actually building and who it is for. This data will be used by the AI to architect your application.
-
-**Describe the core problem your mobile app solves in one sentence:**
+**What are the top 3 ranking apps for your primary keyword on the Apple App Store?**
 \`\`\`input
-Write Here...
+1. 
+2. 
+3. 
 \`\`\`
 
-**What is the one primary action the user will take most frequently?**
-\`\`\`input
-Write Here...
-\`\`\`
+## Accountability Check
+- [ ] I understand the landscape of my category on the App Store.`,
+  'mobilefeatureplanning': `# Feature Planning
+
+**Estimated Time:** 1-2 Hours
 
 ---
 
-## AI Brainstorming Phase
-Use this prompt to generate your foundational Mobile PRD. Paste the output directly into your project documentation.
-
-\`\`\`prompt
-Act as a Senior Mobile Product Manager. I am building a mobile app that solves this problem: [Paste Core Problem]. The primary action users will take is: [Paste Primary Action]. 
-
-Generate a concise, actionable Mobile PRD including:
-1. Target Audience & Core Use Case
-2. The "Aha!" Moment (how we get them there in under 3 minutes)
-3. In-Scope Features for v1.0
-4. Out-of-Scope Features (what we are actively choosing NOT to build)
-5. Native Capabilities Required (e.g., Push, Location, Camera)
-\`\`\`
-
-## Validation
-- [ ] I have generated and saved the Mobile PRD.
-- [ ] I have ruthlessly cut at least one feature that isn't strictly necessary for v1.0.
-`,
-  'mobileuserflows': `
-# Mobile User Flows
-
-**Estimated Time:** 2-3 hours
-
----
-
-## Why Mobile User Flows Matter
-Mobile users are easily distracted. If a flow requires too many taps, or if the "Next" button is hidden under the keyboard, they will abandon the app. User flows map the exact step-by-step journey a user takes to accomplish a task, ensuring the logical progression makes sense before you draw a single screen.
-
----
+## Why this matters
+Without a strict feature plan, you will succumb to "Feature Creep." You will keep adding one more button, one more screen, and one more integration until you run out of time or money, and the app never launches.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Don't map every flow. Map the "Happy Path" for your core demo feature. If your app is a photo-sharing tool, map exactly what happens from "Open App" -> "Take Photo" -> "Share". Ignore edge cases, error states, and forgotten passwords for now.
+Plan exactly 3 features: Authentication (maybe), Data Input, and Data Display. That is it. Anything else is a distraction.
 
-### Personal Project Mode
-Mapping user flows is a fantastic exercise in logical thinking. Use a free tool like FigJam or just pen and paper to draw out the screens. Focus on understanding how data moves from one screen to the next. What information needs to be passed forward?
-
-### Production SaaS Mode
-You must map both the "Happy Path" and the critical "Unhappy Paths". What happens if the user denies camera permissions? What happens if the network drops during checkout? Your user flows must account for these friction points to prevent catastrophic drops in conversion rates.
+### Personal Project
+Write down everything you want the app to do eventually, and then violently cross out half of them. Build the core utility first.
 
 ### Production SaaS
-Enterprise applications require highly complex permission-based user flows. Map out Role-Based Access Control (RBAC) flows. How does the experience differ for an Admin versus a Standard User? How do Single Sign-On (SSO) redirects handle returning to deep-linked screens?
+You must separate features into "Must Haves", "Should Haves", and "Nice to Haves" (MoSCoW method). Focus entirely on the "Must Haves" that directly solve the core problem. If a feature does not directly impact user retention or revenue, push it to the backlog.
 
----
-
-## Core Flows to Define
-Identify the three most critical journeys in your app.
-
-**What is the onboarding flow? (e.g., Splash -> Phone Auth -> Profile Setup)**
+## The Data We Need From You
+**Brainstorm your master list of features here.**
 \`\`\`input
-Write Here...
+- Feature 1
+- Feature 2
 \`\`\`
 
-**What is the core engagement flow?**
-\`\`\`input
-Write Here...
-\`\`\`
+## Accountability Check
+- [ ] I have brainstormed and categorized all potential features.`,
+  'mobilemvpfeatures': `# MVP Features
+
+**Estimated Time:** 1 Hour
 
 ---
 
-## AI Execution
-Use this prompt to have the AI analyze and optimize your user flows for mobile patterns.
-
-\`\`\`prompt
-Act as a Principal Mobile UX Architect. I have defined the following core user flows for my app:
-Onboarding: [Paste Onboarding Flow]
-Engagement: [Paste Engagement Flow]
-
-Please analyze these flows specifically for mobile friction points. 
-1. Where are users most likely to drop off?
-2. How can we reduce the number of taps by utilizing native mobile paradigms (e.g., biometric auth, bottom sheets instead of new screens)?
-3. What critical error states are missing from these paths?
-\`\`\`
-
-## Validation
-- [ ] The onboarding flow has been mapped.
-- [ ] The core engagement flow has been mapped.
-- [ ] The flows have been optimized to reduce unnecessary taps.
-`,
-  'appnavigation': `
-# App Navigation Architecture
-
-**Estimated Time:** 1-2 hours
-
----
-
-## Why Navigation is Critical
-Navigation is the skeleton of your mobile app. Unlike the web, where users can rely on the browser's "Back" button or a massive header menu, mobile apps require highly structured, predictable navigation patterns (like Bottom Tabs, Stacks, or Drawers) to keep the user oriented.
-
----
+## Why this matters
+The Minimum Viable Product (MVP) is the absolute bare minimum version of your app that still provides value to the user. Reid Hoffman famously said, "If you are not embarrassed by the first version of your product, you've launched too late."
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Stick to the absolute default navigation paradigm provided by your framework (e.g., a simple Bottom Tab Navigator in React Native/Expo). Do not attempt to build custom animated drawer menus or complex nested routers. Keep it flat, simple, and functional.
+Your entire project is an MVP. Pick the single most impressive feature and build only that. Fake the rest with static UI.
 
-### Personal Project Mode
-Use this opportunity to learn how mobile routing actually works under the hood. Implement a Stack Navigator nested inside a Bottom Tab Navigator. Understand the lifecycle of a mobile screen—what happens when a screen is pushed onto the stack versus popped off?
-
-### Production SaaS Mode
-Your navigation hierarchy must be intuitive and follow platform conventions (iOS vs Android). Crucially, you must plan for Deep Linking. How does a user open a push notification or an email link and navigate directly to a deeply nested screen (like a specific invoice)? Your navigation state must be robust enough to handle these external entry points.
+### Personal Project
+The MVP is the feature that solves your own personal problem. If you need a habit tracker, the MVP is a button that adds +1 to a database. You don't need charts or social sharing yet.
 
 ### Production SaaS
-Enterprise apps often require dynamic navigation based on user roles or feature flags. The navigation architecture must be completely decoupled and data-driven. Furthermore, you must implement strict route guards to ensure unauthenticated or unauthorized users cannot deep-link into sensitive screens.
+Ruthlessly cut scope. Do you really need an in-app chat system for V1? No. Do you need "Sign in with Apple" for V1? Probably not. The goal of the MVP is to test your riskiest assumption in the market as fast as possible. Build it, launch it, and see if anyone actually cares.
 
----
-
-## Choosing Your Primary Navigation
-Select the primary way users will move through your app.
-
-**Primary Navigation Pattern:**
+## The Data We Need From You
+**List the absolute minimum features required for your app to function.**
 \`\`\`input
-(E.g., Bottom Tabs, Hamburger Drawer, Top Tabs, Single Screen Stack)
-Write Here...
+1. 
+2. 
+3. 
 \`\`\`
 
-**List the 3-5 core screens that will be in your primary navigation:**
-\`\`\`input
-1.
-2.
-3.
-\`\`\`
+## Accountability Check
+- [ ] I have defined a lean, testable MVP.`,
+  'mobilefuturefeatures': `# Future Features
+
+**Estimated Time:** 30 min
 
 ---
 
-## AI Execution
-Use this prompt to generate the technical navigation structure for your app.
-
-\`\`\`prompt
-Act as a Senior Mobile Developer. My app will use [Paste Navigation Pattern] for its primary navigation, containing these core screens: [Paste Core Screens].
-
-Please outline the ideal nested navigation architecture. 
-1. Which screens should belong to the root Stack Navigator vs the Tab Navigator?
-2. Where should Modals (like "Add New Item") live in the hierarchy?
-3. What is the recommended strategy for handling deep links for this specific structure?
-\`\`\`
-
-## Validation
-- [ ] A primary navigation pattern has been selected.
-- [ ] The core root screens have been defined.
-- [ ] Deep linking entry points have been considered.
-`,
-  'mobilewireframes': `
-# Mobile Wireframes
-
-**Estimated Time:** 2-4 hours
-
----
-
-## Why Wireframes Matter
-Before committing to high-fidelity colors, typography, and precise padding, you must validate the structural hierarchy of your app. Wireframing is the process of sketching out the skeleton of your application to ensure the user flow actually fits on a mobile screen. 
-
----
+## Why this matters
+Documenting future features gets them out of your head so you can focus on the MVP. It also provides a roadmap you can share with investors or early users to show them where the product is heading.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip digital wireframing entirely. Use a pen and paper. Sketch out the 3 most important screens. Take a photo of them with your phone and use that as your reference. Do not waste precious hours wrestling with Figma when you could be writing code.
+This is your "What's Next" slide in your presentation. Dream big here to impress the judges.
 
-### Personal Project Mode
-Use a free tool like Figma or Excalidraw. Focus heavily on native mobile patterns. If you are building for iOS, use an iOS UI kit so you don't accidentally design a button that feels like Android. Keep it in greyscale. If you use color in a wireframe, you are doing it wrong.
-
-### Production SaaS Mode
-Wireframes at this stage should be interactive. You need to link them together in a prototype (using Figma) to simulate the flow. You must test this prototype on an actual physical device (using the Figma mobile app) to ensure buttons are large enough for thumbs (minimum 44x44 points) and text is legible.
+### Personal Project
+Keep a "Someday" list in a notes app. When you get bored on a weekend, pick one to build.
 
 ### Production SaaS
-Enterprise wireframes must undergo rigorous stakeholder review. You will need to wireframe every single permission state (Admin view vs User view) and edge case. Annotate your wireframes heavily with business logic rules (e.g., "This button is disabled until the user signs the EULA").
+Put these in your product backlog. Crucially, do not build them just because they are on the list. Wait until users actually ask for them. Often, the features you thought would be critical turn out to be completely unnecessary once real users start interacting with the app.
 
----
-
-## The Core Screens
-Identify the essential screens you need to wireframe.
-
-**List the 3-5 screens that represent your app's core value proposition:**
+## The Data We Need From You
+**List 3 ambitious features you want to build 6-12 months from now.**
 \`\`\`input
-1.
-2.
-3.
+1. 
+2. 
+3. 
 \`\`\`
 
----
+## Accountability Check
+- [ ] I have documented my future ambitions without letting them distract my MVP.`,
+  'mobilefeatureprioritization': `# Feature Prioritization
 
-## AI Execution
-Use this prompt to get structural recommendations for your wireframes based on proven mobile UX patterns.
-
-\`\`\`prompt
-Act as a Principal Mobile Product Designer. I am wireframing an app with the following core screens: [Paste Core Screens].
-
-For each screen, provide a structural breakdown of the UI hierarchy from top to bottom.
-1. What should be in the safe area/header?
-2. What is the primary content block?
-3. Where should the primary Call to Action (CTA) be positioned for maximum thumb reachability?
-4. What native UI components (e.g., Segmented Controls, Bottom Sheets, Floating Action Buttons) should I use?
-\`\`\`
-
-## Validation
-- [ ] Wireframes have been created (even if just on paper) in strictly greyscale.
-- [ ] The primary Call to Action on every screen is easily reachable by a user's thumb holding the device with one hand.
-`,
-  'mobiledesignsystem': `
-# Mobile Design System
-
-**Estimated Time:** 2-4 hours
+**Estimated Time:** 1 Hour
 
 ---
 
-## Establishing the Visual Foundation
-A design system in mobile isn't just about making things look pretty; it's about engineering efficiency. Defining your colors, typography, and spacing tokens upfront means you aren't hardcoding hex values into your components. This makes dark mode support and future rebranding exponentially easier.
-
----
+## Why this matters
+Not all features are created equal. A feature that takes 2 weeks to build and increases revenue by 10% is infinitely more valuable than a feature that takes 4 weeks to build and only makes the UI look slightly better. Prioritization frameworks ensure you are working on the highest-leverage tasks.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Do not build a custom design system. Pick a highly opinionated UI library like React Native Paper, NativeBase, or Tamagui. Use their default theme. If you must tweak it, only change the primary brand color to match your logo. 
+Prioritize strictly by "Wow Factor" vs "Time to Build". Build the high-wow, low-time features first.
 
-### Personal Project Mode
-Create a lightweight foundational theme. Define 3 primary colors, 3 greyscale colors, and a simple typography scale (Heading, Subheading, Body, Caption). Build your own fundamental components (Button, Input, Card) to understand how styling works in your chosen framework (e.g., StyleSheet in React Native vs Modifiers in SwiftUI).
-
-### Production SaaS Mode
-Your design system must be robust enough to support Dark Mode from day one. You must use semantic tokens (e.g., \`colors.background.primary \`colors.text.danger\`) instead of absolute values. Ensure your spacing system uses a consistent multiplier (like the 8pt grid system) to maintain visual harmony across varying screen sizes.
+### Personal Project
+Prioritize what sounds fun to build. It's a personal project; keep yourself motivated.
 
 ### Production SaaS
-Enterprise design systems require dedicated governance. Your design system must be documented in a tool like Storybook (for React Native) or zeroheight. It must include strict accessibility guidelines, contrasting ratios for WCAG compliance, and internationalization (i18n) considerations for right-to-left (RTL) languages.
+Use the ICE framework (Impact, Confidence, Ease) or the RICE framework (Reach, Impact, Confidence, Effort). Score every feature on your backlog from 1-10 on these metrics. Sort the list by the highest score. Build that feature. Do not deviate based on "gut feeling."
 
----
-
-## Core Design Decisions
-
-**What is your Primary Brand Color?**
-\`\`\`input
-(e.g., #FF4B4B)
-Write Here...
-\`\`\`
-
-**Which typography scale are you using?**
-\`\`\`input
-(e.g., Inter for UI, Merriweather for long-form reading)
-Write Here...
-\`\`\`
-
----
-
-## AI Execution
-Use this prompt to generate the code for your foundational design tokens.
-
+## AI Refinement Phase
 \`\`\`prompt
-Act as a Senior Mobile Design Engineer. I am building a mobile app. My primary brand color is [Paste Brand Color] and my font family is [Paste Font].
-
-Generate a complete, semantic Design System Token object (in JSON/TypeScript format) that includes:
-1. A semantic color palette (Primary, Secondary, Background, Surface, Text, Error, Success) supporting both Light and Dark modes.
-2. A typography scale (h1, h2, h3, body, caption) with specific font sizes and line heights optimized for mobile readability.
-3. A spacing scale based on the 8pt grid system.
+Act as a Product Manager. I have these 5 features in my backlog: [Insert Features]. Help me prioritize them using the RICE framework. Ask me specific questions about the expected impact and effort of each one so we can calculate a score.
 \`\`\`
 
-## Validation
-- [ ] A semantic color palette has been defined (not just hardcoded hex values).
-- [ ] Dark mode is supported by the color token structure.
-- [ ] Spacing relies on a consistent multiplier (e.g., 4, 8, 16, 24).
-`,
-  'mobilebranding': `
-# Mobile Branding & Assets
+## Accountability Check
+- [ ] I have systematically prioritized my feature backlog.`,
+  'mobilemonetization': `# Monetization Strategy
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 1 Hour
 
 ---
 
-## The First Impression
-Your app icon and splash screen are the very first things a user sees. They set the tone for the entire experience. Poorly cropped icons or unstyled splash screens scream "amateur" and dramatically increase immediate uninstall rates.
-
----
+## Why this matters
+If you don't know how you are going to make money, you don't have a business; you have a charity. Mobile app monetization is notoriously difficult because users are conditioned to expect mobile apps to be free.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Generate an app icon using an AI tool like Midjourney or a free icon generator. Keep it dead simple. For the splash screen, just center your logo on a solid background color that matches your app's primary theme. Don't worry about animated splash screens.
+Pick a massive, unrealistic subscription number ($99/month!) just to show the judges there is a B2B business model here. 
 
-### Personal Project Mode
-Take the time to learn how to properly configure your native assets. Generate your App Icon in all required sizes using a tool like IconSet or MakeAppIcon. Ensure your splash screen handles the transition from the native OS loading state to your framework's initialization state smoothly.
-
-### Production SaaS Mode
-Your branding must be immaculate. The App Icon must stand out against both light and dark device wallpapers. The splash screen should seamlessly transition into the app's first screen without any jarring flashes of white (the dreaded "white flash"). Consider adding a subtle micro-animation to the splash logo.
+### Personal Project
+Keep it free forever. The goodwill and portfolio value of having an open-source or free tool is usually worth more than the $15/month you might make from ads.
 
 ### Production SaaS
-Enterprise branding often requires strict adherence to corporate brand guidelines. The app icon may need to be dynamic (e.g., changing based on environment: Dev vs Staging vs Prod). Splash screens must account for heavy initial data fetches, requiring sophisticated loading orchestrations.
+You must pick a lane. Freemium, Subscriptions, Ads, or Paid Upfront. B2B apps should almost always be Subscriptions. Consumer apps often require Freemium or Ads to get enough scale. Remember that Apple/Google take 15-30% of all digital purchases made inside the app, which drastically affects your margins.
 
----
-
-## Asset Generation
-
-**What is the core visual metaphor for your app icon?**
+## The Data We Need From You
+**What is your primary method of generating revenue?**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
 
----
+## Accountability Check
+- [ ] I have selected a clear monetization strategy.`,
+  'mobilefree': `# Free App Strategy
 
-## AI Execution
-Use this prompt to generate ideas for your app's visual identity.
-
-\`\`\`prompt
-Act as a Creative Director specializing in Mobile Apps. My app solves this problem: [Describe App]. 
-
-Please provide 3 distinct, highly professional concepts for the App Icon. For each concept, describe:
-1. The central visual element or metaphor.
-2. The color palette (background vs foreground).
-3. Why this design will stand out on a crowded iOS home screen.
-\`\`\`
-
-## Validation
-- [ ] An app icon has been generated in all necessary resolutions (1024x1024 master).
-- [ ] A splash screen has been configured.
-- [ ] The app transitions from the native splash screen to the first view without a white flash.
-`,
-  'mobileaccessibility': `
-# Mobile Accessibility (a11y)
-
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 15 min
 
 ---
 
-## Building for Everyone
-Accessibility is not an afterthought; it is a fundamental requirement. Both iOS and Android provide incredibly powerful assistive technologies (like VoiceOver and TalkBack). If your app does not support these native features, you are actively locking out millions of potential users and exposing yourself to compliance risks.
-
----
+## Why this matters
+Releasing a completely free app is the fastest way to get users, but it means you must fund the server and database costs out of your own pocket. 
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-If you are racing a clock, true accessibility might be out of scope. However, at the bare minimum, ensure your primary text color has a sufficient contrast ratio against its background. Do not use light grey text on a white background.
+Perfect. Everything is free.
 
-### Personal Project Mode
-Use this project to learn the basics of mobile accessibility. Add \`accessibilityLabel\` (React Native) or \`accessibilityLabel()\` (SwiftUI) to all your icon-only buttons. Test your app with the system font size cranked up to the maximum setting—does your UI completely break, or does it scroll gracefully?
-
-### Production SaaS Mode
-You must ensure WCAG 2.1 AA compliance. This means supporting Dynamic Type (text scaling), defining explicit focus orders for screen readers, and ensuring hit areas for buttons are at least 44x44 points. You must manually test your core user flows using VoiceOver (iOS) and TalkBack (Android) with your eyes closed.
+### Personal Project
+Perfect. Just make sure you are using generous free tiers (Vercel, Supabase, Firebase) so your app doesn't accidentally cost you $500 if it goes viral on Reddit.
 
 ### Production SaaS
-Enterprise apps face severe legal liability (e.g., ADA lawsuits in the US) if they are inaccessible. Accessibility must be integrated into the CI/CD pipeline using automated auditing tools. Support for reduced motion, high contrast modes, and color blindness filters must be explicitly tested and signed off by QA.
+"Free" is only a valid strategy if you are venture-backed and your only goal is user acquisition, OR if the app is a loss-leader for a more expensive physical product or service. Otherwise, you will go bankrupt. If you offer a free tier, it must be severely restricted (e.g., "Only 5 invoices per month") to force power users to upgrade.
+
+## Accountability Check
+- [ ] I understand the costs and strategic implications of offering a free app.`,
+  'mobilefreemium': `# Freemium Model
+
+**Estimated Time:** 30 min
 
 ---
 
-## Core Accessibility Checks
-
-**List any highly custom UI components you are building that might confuse a screen reader:**
-\`\`\`input
-(e.g., Custom swipeable carousels, complex data charts)
-Write Here...
-\`\`\`
-
----
-
-## AI Execution
-Use this prompt to generate accessibility implementation strategies.
-
-\`\`\`prompt
-Act as a Mobile Accessibility Expert. I am building a mobile app that includes these custom components: [Paste Custom Components].
-
-Provide a specific implementation guide to make these components accessible. Include:
-1. What ARIA roles or native accessibility traits should be applied?
-2. How should the screen reader announce state changes for these components?
-3. How can I ensure they remain usable when the user has Dynamic Type (system text size) set to 200%?
-\`\`\`
-
-## Validation
-- [ ] All icon-only buttons have descriptive accessibility labels.
-- [ ] The app has been tested with system text size increased by 150% without breaking layouts.
-- [ ] Touch targets are a minimum of 44x44 points (iOS) or 48x48 dp (Android).
-`,
-  'mobileemptystates': `
-# Mobile Empty States
-
-**Estimated Time:** 1-2 hours
-
----
-
-## The Opportunity of Nothing
-An empty state occurs when a screen has no data to display (e.g., a brand new account, an empty inbox, or a cleared shopping cart). Instead of a blank white screen that makes the user think the app is broken, an empty state is your best opportunity to onboard, educate, and drive engagement.
-
----
+## Why this matters
+Freemium (Free + Premium) is the dominant model for consumer apps (like Spotify or Duolingo). The free version gets millions of users in the door, and the premium version (removing ads, unlocking features) monetizes the top 5% of "power users".
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Keep it simple. Just put a centered icon and a line of text saying "No data yet." Do not spend time designing custom illustrations or complex onboarding carousels inside your empty states.
+Show a "Pro" badge next to a cool feature during the demo, and explain that it's behind a paywall in the business model.
 
-### Personal Project Mode
-Use empty states to practice your UI layout skills. Center a nice, free illustration (from unDraw or similar), add a clear headline, and most importantly, add a Call to Action (CTA) button that explicitly tells the user how to populate the screen (e.g., "Add your first task").
-
-### Production SaaS Mode
-Empty states are critical conversion funnels. If a user lands on the "Analytics" tab and they have no data, the empty state shouldn't just say "No Analytics". It should explain *why* analytics are valuable, and provide a CTA to "Set up Tracking". Empty states must drive the user toward their "Aha!" moment.
+### Personal Project
+Don't bother. Building paywalls and payment gateways is tedious.
 
 ### Production SaaS
-Enterprise empty states often need to account for permissions. If a user sees an empty state because they lack the necessary Role-Based Access Control (RBAC) permissions to view the data, the empty state must explicitly explain this and provide a workflow to "Request Access" from their administrator.
+The hardest part of Freemium is deciding where to put the paywall. If you give away too much, no one upgrades. If you give away too little, users uninstall the app immediately. A good rule of thumb: give away the core utility for free, but charge for convenience, speed, cosmetics, or team collaboration.
 
----
-
-## Identifying Key Empty States
-
-**Which 3 screens in your app are most likely to be empty when a user first signs up?**
+## The Data We Need From You
+**Exactly what features will be restricted to the Premium tier?**
 \`\`\`input
-1.
-2.
-3.
+Type your answer here...
 \`\`\`
 
----
+## Accountability Check
+- [ ] I have clearly defined the boundary between the free and premium versions.`,
+  'mobilesubscription': `# Subscription Model
 
-## AI Execution
-Use this prompt to generate UX copy and structural ideas for your empty states.
-
-\`\`\`prompt
-Act as a Senior UX Writer. I am designing empty states for these three screens in my mobile app: [Paste Empty Screens].
-
-For each screen, provide:
-1. A concise, engaging Headline (e.g., "It's quiet in here...").
-2. A short body text explaining what will appear here and why it's useful.
-3. The exact text for the primary Call to Action (CTA) button to help them populate the screen.
-\`\`\`
-
-## Validation
-- [ ] Every primary tab/screen has a designed empty state.
-- [ ] Every empty state includes a Call to Action (CTA) button.
-`,
-  'mobileerrorstates': `
-# Mobile Error States
-
-**Estimated Time:** 1-3 hours
+**Estimated Time:** 30 min
 
 ---
 
-## Designing for Failure
-In mobile development, network requests will fail. Users will go into tunnels. APIs will timeout. If you do not explicitly design how your app handles these failures, the framework will default to crashing, freezing, or showing an ugly stack trace. Graceful error handling separates amateur apps from professional ones.
-
----
+## Why this matters
+Recurring revenue is the holy grail of software. Subscriptions make your business predictable and highly valued by investors. However, users suffer from "Subscription Fatigue" and will ruthlessly cancel if they don't get consistent value every month.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use generic alert dialogs. If an API call fails, just trigger a default \`Alert.alert("Error", "Something went wrong.")\`. Do not waste time building custom error screens or toast notification systems.
+Skip the implementation, but mention it in the pitch.
 
-### Personal Project Mode
-Implement a global Toast/Snackbar notification system. Learn how to catch promise rejections or API failures globally and display a non-intrusive banner at the top or bottom of the screen. Practice handling the "No Internet Connection" state explicitly.
-
-### Production SaaS Mode
-You must implement contextual error states. If a specific component fails to load (like a widget on a dashboard), do not crash the whole screen. Show an inline error state with a "Tap to Retry" button. You must also implement offline-first capabilities or aggressive caching so the app remains partially usable without a connection.
+### Personal Project
+Skip it. Building recurring billing (Stripe/RevenueCat) is complex.
 
 ### Production SaaS
-Enterprise error handling requires rigorous logging. Every user-facing error must be correlated with a background tracking event sent to a service like Sentry or Datadog. Error states must provide users with tracking IDs so they can easily report the issue to customer support.
+You must deliver ongoing value. A to-do list app does not deserve $5/month unless it syncs across all devices, uses AI to prioritize tasks, and offers team collaboration. Offer monthly and annual plans. Use a tool like RevenueCat or Superwall to manage the complex logic of iOS/Android receipt validation and paywall A/B testing.
 
----
-
-## Defining Error Handling Strategy
-
-**How will you notify the user of non-blocking errors (e.g., failing to like a post)?**
+## The Data We Need From You
+**What are your monthly and annual price points?**
 \`\`\`input
-(e.g., Bottom Toast, Top Banner, Subtle Haptic Feedback)
-Write Here...
+Monthly: $
+Annual: $
 \`\`\`
 
----
+## Accountability Check
+- [ ] I have set my subscription pricing and justified the recurring value.`,
+  'mobileads': `# Ad Monetization
 
-## AI Execution
-Use this prompt to generate a comprehensive error handling matrix for your app.
-
-\`\`\`prompt
-Act as a Mobile Solutions Architect. I am building a mobile app and need an Error Handling Matrix. 
-
-Please categorize the following failure types and recommend the best UX pattern for handling them (e.g., Full Screen Error, Inline Retry, Global Toast, Silent Failure):
-1. Complete Loss of Network Connection.
-2. Form Validation Error (e.g., invalid email).
-3. Minor Background API Failure (e.g., analytics ping fails).
-4. Critical API Failure (e.g., checkout payment fails).
-5. App Crash / Fatal Exception.
-\`\`\`
-
-## Validation
-- [ ] A global "No Internet Connection" state has been designed.
-- [ ] Non-blocking errors are handled gracefully (e.g., via Toasts) without interrupting the user.
-- [ ] Critical component failures include a "Retry" button.
-`,
-  'mobileloadingstates': `
-# Mobile Loading States
-
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 30 min
 
 ---
 
-## The Perception of Speed
-Mobile users hate waiting. However, you can't always make APIs faster. What you *can* do is manipulate the perception of time. A well-designed loading state (like a skeleton loader) makes an app feel significantly faster than a generic spinning circle, even if the actual network request takes the exact same amount of time.
-
----
+## Why this matters
+If your app has high engagement but users refuse to pay for it (like mobile games or social media), advertising is your only option. However, ads ruin the user experience and require massive scale to generate meaningful revenue.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use the default \`ActivityIndicator\` or \`CircularProgress\` component provided by your OS or framework. Center it on the screen. Do not spend time building custom skeleton screens or animated Lottie loaders.
+Do not put ads in a hackathon project. It looks spammy.
 
-### Personal Project Mode
-Experiment with Skeleton Loaders. Instead of a spinner, show grey, pulsing boxes where the text and images will eventually appear. This prevents jarring layout shifts when the data finally arrives and makes the app feel highly polished.
-
-### Production SaaS Mode
-Loading states must be context-aware. Use Skeleton Loaders for initial page loads. Use inline spinners inside buttons for form submissions (e.g., the "Submit" button turns into a spinner). Never block the entire UI with a full-screen loading overlay unless absolutely necessary (like processing a payment).
+### Personal Project
+Avoid ads. They make your personal project look cheap, and you won't get enough traffic to make more than a few pennies anyway.
 
 ### Production SaaS
-Enterprise apps dealing with massive datasets must implement optimistic UI updates. When a user likes a post or deletes a row, update the UI instantly *before* the server responds. If the server request ultimately fails, revert the UI and show an error. This creates a zero-latency experience.
+Only use ads if you expect millions of daily active users. Use Google AdMob or Facebook Audience Network. Be very careful with interstitial (full-screen) ads; if you show them too often, your retention rate will plummet. Always offer an In-App Purchase (IAP) to "Remove Ads for $2.99".
+
+## Accountability Check
+- [ ] I understand the scale required to make advertising profitable.`,
+  'mobileonetimepurchase': `# One-time Purchase
+
+**Estimated Time:** 15 min
 
 ---
 
-## Loading State Inventory
+## Why this matters
+Before subscriptions took over the App Store, you simply bought an app for $4.99 and owned it forever. Users love this model because they hate subscriptions. Developers hate this model because if you have to pay server costs every month, but the user only pays you once, you will eventually run out of money.
 
-**Which screens in your app will require fetching data from the server before rendering?**
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Skip it.
+
+### Production SaaS
+Only use a One-Time Purchase model if your app works 100% offline and has zero ongoing server costs (e.g., a simple calculator or an offline camera filter app). If your app requires a backend API, database, or LLM calls, you CANNOT offer a one-time lifetime deal unless you price it incredibly high (e.g., $150+).
+
+## Accountability Check
+- [ ] I understand why one-time purchases are dangerous for cloud-based apps.`,
+  'mobilesuccessmetrics': `# Success Metrics
+
+**Estimated Time:** 30 min
+
+---
+
+## Why this matters
+If you don't define what "success" looks like before you launch, you will constantly move the goalposts. Defining metrics (KPIs) ensures you are optimizing for the right things. 10,000 downloads means nothing if 9,900 people uninstall it immediately.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Success is winning the hackathon. Your metric is the judges' scores.
+
+### Personal Project
+Success is solving your own problem and learning a new framework. The metric is 1 Active User (You).
+
+### Production SaaS
+You must define a "North Star Metric". This is the one metric that best captures the core value your product delivers to its customers. For Airbnb, it's "Nights Booked". For a messaging app, it's "Messages Sent". Do not make "Downloads" or "Revenue" your North Star; those are lagging indicators. If you optimize for the North Star, revenue will follow.
+
+## The Data We Need From You
+**What is the North Star Metric for your app?**
 \`\`\`input
-1.
-2.
-3.
+Type your answer here...
 \`\`\`
+
+## Accountability Check
+- [ ] I have defined my core success metrics.`,
+  'mobileretention': `# Retention Metrics
+
+**Estimated Time:** 30 min
 
 ---
 
-## AI Execution
-Use this prompt to get implementation strategies for your loading states.
+## Why this matters
+Retention is the percentage of users who come back to your app after their first visit. It is the ultimate measure of product-market fit. A great marketing campaign can trick someone into downloading an app once, but only a great product gets them to open it a second time.
 
-\`\`\`prompt
-Act as a Mobile Performance Expert. I am building a mobile app that fetches data for these core screens: [Paste Core Screens].
+## Strategic Guidance
 
-Please provide a loading state strategy that minimizes perceived latency.
-1. Where should I use Skeleton Loaders versus traditional spinners?
-2. How should I handle pagination loading (e.g., infinite scrolling)?
-3. What are the best practices for button loading states during form submissions?
+### Hackathon Mode
+Irrelevant.
+
+### Personal Project
+Irrelevant.
+
+### Production SaaS
+You must obsess over Day 1, Day 7, and Day 30 retention. Average apps see a massive drop-off on Day 1 (70% of users never come back). If your Day 30 retention is below 10%, you have a leaky bucket and should stop spending money on marketing until you fix the core product experience.
+
+## The Data We Need From You
+**What action must a user take on Day 1 to make it highly likely they return on Day 7?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation
-- [ ] Initial data fetches use Skeleton Loaders or non-blocking indicators.
-- [ ] Form submission buttons visually indicate a loading state to prevent double-submissions.
-- [ ] The app avoids full-screen blocking overlays unless processing payments.
-`,
+## Accountability Check
+- [ ] I understand that retention is more important than acquisition.`,
+  'mobiledau': `# Daily Active Users (DAU)
+
+**Estimated Time:** 15 min
+
+---
+
+## Why this matters
+DAU is the number of unique users who open your app in a single day. It is the core metric for apps that require daily habits (like social media, games, or fitness trackers). 
+
+## Strategic Guidance
+
+### Hackathon Mode
+Irrelevant.
+
+### Personal Project
+Irrelevant.
+
+### Production SaaS
+Not all apps need a high DAU. If you are building a tax-filing app, your DAU will be near zero for 11 months of the year, and that's fine. Don't force users to open the app daily with spammy push notifications if the core use case is only weekly or monthly. If you *are* building a daily habit app, your DAU/MAU ratio tells you how sticky the product is.
+
+## Accountability Check
+- [ ] I know whether my app is designed for daily or weekly usage.`,
+  'mobilemau': `# Monthly Active Users (MAU)
+
+**Estimated Time:** 15 min
+
+---
+
+## Why this matters
+MAU is the number of unique users who open your app at least once in a 30-day period. This is a much better metric for B2B tools, utility apps, or e-commerce apps where daily usage isn't required for success.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Irrelevant.
+
+### Personal Project
+Irrelevant.
+
+### Production SaaS
+Investors look closely at MAU growth. However, define "Active" carefully. Is a user "active" just because they opened the app by accident and closed it 2 seconds later? No. Define an "Active User" as someone who actually completes a core action (e.g., "Listened to 1 song" or "Sent 1 invoice").
+
+## Accountability Check
+- [ ] I have defined what an 'Active' user actually means for my product.`,
+  'mobilesessionduration': `# Session Duration
+
+**Estimated Time:** 15 min
+
+---
+
+## Why this matters
+Session duration tracks how long a user spends in your app during a single visit. For TikTok, longer is better. For an Uber driver app, shorter might actually be better (it means they found a ride quickly).
+
+## Strategic Guidance
+
+### Hackathon Mode
+Irrelevant.
+
+### Personal Project
+Irrelevant.
+
+### Production SaaS
+Determine if your app is a "Time Sink" (Netflix, Instagram) or a "Utility" (Google Maps, Calculator). If it's a utility, a decreasing session duration might actually mean your UX is improving and users are getting their tasks done faster. Optimize accordingly.
+
+## Accountability Check
+- [ ] I know whether a long session duration is a good or bad signal for my app.`,
+  'mobileprd': `# Product Requirements Document (PRD)
+
+**Estimated Time:** 1-2 Hours
+
+---
+
+## Why this matters
+A PRD is the single source of truth for what you are building. It takes all the messy ideas from your brain and formalizes them into a contract. Without a PRD, you will waste hours arguing with yourself (or your co-founder) about whether a feature was supposed to be included in V1.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Your PRD is a bulleted list on a napkin. Keep it to 5 sentences.
+
+### Personal Project
+Write a 1-page Notion document. List the problem, the solution, the MVP features, and the tech stack. It helps ground you when you lose focus.
+
+### Production SaaS
+You must write a rigorous PRD. It must include the North Star Metric, User Personas, User Stories (e.g., "As a user, I want to X, so that I can Y"), out-of-scope items (what we are *not* building), and the technical constraints. Share this with your designer and engineer before anyone starts working.
+
+## The Data We Need From You
+**Paste your core PRD requirements (or a link to your Google Doc/Notion) here.**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## AI Refinement Phase
+\`\`\`prompt
+Act as a rigorous Product Manager. Here are the raw requirements for my mobile app: [Insert Notes]. Please generate a formal, structured Product Requirements Document (PRD) from this. Include User Stories and explicit Acceptance Criteria for the core features.
+\`\`\`
+
+## Accountability Check
+- [ ] I have a written PRD that clearly outlines the scope of the project.`,
+  'mobileuserflows': `# User Flows
+
+**Estimated Time:** 1 Hour
+
+---
+
+## Why this matters
+A user flow is a flowchart diagram that shows every step a user takes to complete a task. It exposes missing screens (e.g., "Wait, where do they go after they click 'Forgot Password'?") before you waste time designing or coding them.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Draw 3 boxes on a whiteboard: Login -> Main Screen -> Result Screen. You're done.
+
+### Personal Project
+Use a free tool like Excalidraw or FigJam. Map out the happy path.
+
+### Production SaaS
+You must map out every edge case. What happens if the network drops on step 3? What happens if their credit card is declined? What happens if they deny camera permissions? Use standard flowchart shapes (diamonds for decisions, rectangles for screens) so the whole team can read it.
+
+## The Data We Need From You
+**What is the most complex flow in your app? (e.g., Checkout, Onboarding, Creating a Post)**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## Accountability Check
+- [ ] I have mapped out the visual flow for my core user actions.`,
+  'appnavigation': `# App Navigation
+
+**Estimated Time:** 1 Hour
+
+---
+
+## Why this matters
+Navigation is the skeleton of a mobile app. If a user can't figure out how to get back to the home screen, they will uninstall the app. Unlike web apps, mobile apps don't have a built-in browser "Back" button (especially on iOS), so you must design the hierarchy carefully.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use a standard Bottom Tab bar with 3 icons. It's the most common and easily understood pattern.
+
+### Personal Project
+Stick to native patterns. If you're building for iOS, use a Bottom Tab bar. Avoid complex "Hamburger" side-menus unless you have dozens of secondary screens.
+
+### Production SaaS
+You must define your Root Navigation (e.g., Auth Stack vs Main Stack). If you use a Bottom Tab bar, limit it to 3-5 primary destinations. Ensure you support deep linking so clicking a notification opens a specific screen deep inside the app, rather than just the home screen.
+
+## The Data We Need From You
+**What are the 3 to 5 main tabs that will live in your bottom navigation bar?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## Accountability Check
+- [ ] I have finalized the core navigation hierarchy of my app.`,
+  'mobilewireframes': `# Wireframes
+
+**Estimated Time:** 2 Hours
+
+---
+
+## Why this matters
+Wireframes are low-fidelity, black-and-white sketches of your app's screens. They focus entirely on layout and hierarchy, completely ignoring colors, fonts, and images. Skipping wireframes is like trying to build a house without a blueprint.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Sketch the 3 main screens on paper with a sharpie. Do not open Figma. Paper wireframes are faster and perfectly fine for a hackathon.
+
+### Personal Project
+Use a tool like Balsamiq, or just use simple gray boxes in Figma. Focus on where the buttons go and how much space the data needs.
+
+### Production SaaS
+You must create comprehensive digital wireframes for every screen and every edge case (empty states, error states). Link the wireframes together in Figma to create a clickable prototype. Test this prototype with real users to ensure the navigation makes sense before applying high-fidelity branding.
+
+## AI Generation Phase
+\`\`\`prompt
+Act as a UX Designer. I need to wireframe the "Dashboard" screen for my mobile app: [Insert App Info]. Please provide a text-based layout of this screen from top to bottom. Specify what components (e.g., Header, Search Bar, Card List, Floating Action Button) should be on the screen and their hierarchical importance.
+\`\`\`
+
+## Accountability Check
+- [ ] I have sketched the core screens of my application.`,
+  'mobiledesignsystem': `# Design System
+
+**Estimated Time:** 2 Hours
+
+---
+
+## Why this matters
+A design system is a collection of reusable components (buttons, typography, colors) with clear standards. Without a design system, your app will have 14 different shades of blue and 6 different button styles, making it look unprofessional and drastically slowing down development.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Do not build a design system. Use a pre-built UI library like React Native Paper or NativeBase. Just use their default buttons and colors.
+
+### Personal Project
+Define 3 colors (Primary, Background, Text) and 1 font family. Create a single `Button` component in your codebase and reuse it everywhere.
+
+### Production SaaS
+You must establish a rigorous design system in Figma (using auto-layout and components) and mirror it exactly in your codebase. Define your design tokens (e.g., `color-primary-500`, `spacing-md`). This ensures that when the marketing team rebrands the company, you only have to change the color in one place, not 500 places.
+
+## The Data We Need From You
+**What UI library (if any) are you using to speed up development? (e.g., NativeWind, React Native Paper, SwiftUI Native)**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## Accountability Check
+- [ ] I have defined my core design tokens (colors, typography, spacing).`,
+  'mobilebranding': `# Branding
+
+**Estimated Time:** 1 Hour
+
+---
+
+## Why this matters
+Branding is more than just a logo. It is the emotional feeling a user gets when they open your app. A banking app should feel secure and rigid (blues, heavy fonts); a fitness app should feel energetic (neon colors, bold italics).
+
+## Strategic Guidance
+
+### Hackathon Mode
+Pick one bright color. Generate a logo using AI or an icon from NounProject. Done.
+
+### Personal Project
+Pick a color palette from coolors.co. Don't spend more than 30 minutes on the logo.
+
+### Production SaaS
+Your branding must be consistent across your app, your App Store screenshots, your website, and your emails. Establish a Brand Voice (e.g., "We are helpful, but not overly enthusiastic"). Hire a professional designer for the App Icon, because the App Icon is the single most important branding asset for click-through rates on the App Store.
+
+## The Data We Need From You
+**What are the primary hex codes for your brand colors?**
+\`\`\`input
+Primary:
+Secondary:
+Background:
+\`\`\`
+
+## AI Refinement Phase
+\`\`\`prompt
+Act as a Brand Strategist. My app is a [Insert Category]. The target audience is [Insert Audience]. Please suggest 3 distinct color palettes (with hex codes) and 2 Google Fonts that would evoke the right emotional response for this audience.
+\`\`\`
+
+## Accountability Check
+- [ ] I have finalized the color palette, typography, and logo for my app.`,
+  'mobileaccessibility': `# Accessibility (a11y)
+
+**Estimated Time:** 2 Hours
+
+---
+
+## Why this matters
+Over 15% of the global population experiences some form of disability. If your app has low contrast text or buttons that are too small to tap, you are actively preventing millions of people from giving you money. In many jurisdictions, inaccessible apps violate the law (e.g., ADA compliance).
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ignore it completely. You don't have time.
+
+### Personal Project
+Just make sure your text is legible. Don't use light gray text on a white background.
+
+### Production SaaS
+You must adhere to WCAG (Web Content Accessibility Guidelines) standards. Use tools to check color contrast ratios. You must support "Dynamic Type" (so when an elderly user increases their phone's font size in the OS settings, your app's text scales up without breaking the layout). Ensure all images and icons have descriptive `accessibilityLabel` properties for screen readers (like VoiceOver or TalkBack).
+
+## AI Execution Phase
+\`\`\`prompt
+Act as an Accessibility Expert. I am building a mobile app using [Insert Tech Stack]. Provide a checklist of the 5 most critical accessibility features I need to implement (e.g., Dynamic Type, Screen Reader support, Touch Target Sizes) and how to code them in my specific framework.
+\`\`\`
+
+## Accountability Check
+- [ ] I have ensured my app is usable by people with visual or motor impairments.`,
+  'mobileemptystates': `# Empty States
+
+**Estimated Time:** 1 Hour
+
+---
+
+## Why this matters
+The first time a user opens your app, they have no data, no friends, and no history. If you just show them a blank white screen, they will think the app is broken and uninstall it. Empty states are your best opportunity to guide the user to their first action.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Write a text element that says "Nothing here yet! Click the + button." 
+
+### Personal Project
+Add a nice illustration (from unDraw or similar free sites) and a helpful message. 
+
+### Production SaaS
+Treat empty states as a critical part of onboarding. Do not just say "No Invoices Found." Say "You haven't created any invoices yet. Create your first invoice to get paid faster," and include a massive, highly visible "Create Invoice" button right in the middle of the screen. Use empty states to educate and motivate.
+
+## The Data We Need From You
+**List 3 screens in your app that will be empty when a new user signs up.**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## Accountability Check
+- [ ] I have designed helpful, action-oriented empty states for all core screens.`,
+  'mobileerrorstates': `# Error States
+
+**Estimated Time:** 1 Hour
+
+---
+
+## Why this matters
+Mobile apps lose network connection constantly (driving through a tunnel, bad Wi-Fi). APIs go down. If your app just crashes or shows a generic "Error 500" alert box, the user will blame your app. Good error states clearly explain what went wrong and how the user can fix it.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't build error states. Just assume the "Happy Path" will always work during the demo.
+
+### Personal Project
+Add a simple `try/catch` block to your API calls and show an alert box that says "Something went wrong. Please try again." 
+
+### Production SaaS
+You must gracefully handle all error types. If they are offline, show a banner saying "You are offline. Showing cached data." If a form submission fails, highlight the exact text input that caused the error (e.g., "Password must be 8 characters"). Never show a user a raw JSON error string from your backend. Provide a clear "Retry" button for network failures.
+
+## The Data We Need From You
+**What is the most critical failure point in your app (e.g., Payment failed, Upload failed)?**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## Accountability Check
+- [ ] I have designed clear, helpful error states that don't blame the user.`,
+  'mobileloadingstates': `# Loading States
+
+**Estimated Time:** 1 Hour
+
+---
+
+## Why this matters
+If a user clicks a button and nothing happens for 2 seconds, they will click it 5 more times, potentially triggering 5 duplicate API calls and crashing your backend. Loading states communicate to the user that "the app is working, please wait."
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use standard circular activity indicators (spinners) everywhere. Don't waste time on custom skeleton loaders.
+
+### Personal Project
+Experiment with "Skeleton Loaders" (the gray, shimmering shapes that match the content layout). They make the app feel significantly faster because the layout doesn't "jump" when the data finally loads.
+
+### Production SaaS
+You must use Optimistic UI. When a user clicks "Like", the heart icon should turn red *instantly*, before the database confirms it. If the API call fails, silently revert the heart back to gray. This makes your app feel instantly responsive, even on a slow 3G connection. For heavy initial data loads, use custom Lottie animations to keep the user entertained while they wait.
+
+## The Data We Need From You
+**Identify the screen in your app that will take the longest to load data.**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## Accountability Check
+- [ ] I have planned visual feedback for all network requests.`,
   'mobileplatformstrategy': `# Platform Strategy
 
-**Estimated Time:** 20 minutes
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-Choosing your mobile platform strategy is the most consequential technical decision you will make for your application. It dictates your hiring strategy, development speed, and ultimately, the boundaries of what your application can technically achieve. If you choose poorly, you may find yourself maintaining two completely separate codebases for iOS and Android, crippling your iteration speed. If you choose well, you can build once and deploy everywhere while maintaining a premium, native feel.
-
-## The Core Approaches
-There are three fundamental ways to build a mobile application today:
-
-1. **Native (Swift/Kotlin):** Building directly for the operating system. Maximum performance, full API access, but requires two separate development teams.
-2. **Cross-Platform (React Native/Flutter):** Writing code in one language (JavaScript/Dart) that compiles to native UI components. It offers 95% of the performance of native development with half the engineering cost.
-3. **Progressive Web App (PWA):** A responsive website wrapped in a mobile shell. Extremely cheap to build, but often feels clunky and lacks native integrations.
+Should you build for iOS, Android, or both? The answer dictates your entire engineering process. If you choose "both" using a native language (Swift for iOS, Kotlin for Android), you now have two separate codebases, two separate teams, and double the bugs.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-In a hackathon, your only goal is a functional prototype. You should absolutely choose a cross-platform framework, specifically the one you are most familiar with. React Native with Expo is the golden standard here, allowing you to deploy to your physical device via a QR code in seconds. Do not waste time writing Swift or Kotlin unless the core value proposition of your hackathon project relies on a deeply native API (like ARKit or low-level Bluetooth).
+Build for the phone that is currently in your pocket. If you have an iPhone, build for iOS. Don't build for a platform you can't easily test on a physical device.
 
 ### Personal Project
-For personal learning and zero-cost maintenance, cross-platform is still the ideal choice. It allows you to learn a versatile technology (like React) that translates well to web development. If you are specifically building the project to learn iOS or Android native development for career purposes, then choosing Swift or Kotlin is justified. Otherwise, default to Expo and React Native to maximize your output.
+Use a cross-platform framework (React Native or Flutter) so you can deploy to both stores from one codebase. It is the only sane choice for a solo developer.
 
 ### Production SaaS
-When building a revenue-generating business, engineering velocity is your competitive advantage. The vast majority of modern startups default to React Native. It allows you to share business logic between your web application and mobile application, and a single developer can push features to both iOS and Android simultaneously. Only pivot to pure Native development if your application is highly graphics-intensive (like a high-fidelity game) or relies on real-time, low-level hardware processing (like advanced video editing).
+Almost all startups today choose a cross-platform framework (React Native or Flutter) for V1. You only need to build "True Native" (Swift/Kotlin) if your app relies heavily on intense graphics (like a 3D game) or low-level hardware access (like a complex AR/VR app). Maintaining two separate codebases is a massive financial burden that you should delay as long as possible.
 
-### Production SaaS
-At massive enterprise scale, platform strategy becomes a debate about organizational structure. Giant tech companies often use native development because they have the capital to hire dedicated iOS and Android teams, and they need to squeeze out every millisecond of performance. However, even enterprises like Shopify and Coinbase have fully migrated to React Native. You must evaluate if your organization's hiring pipeline can support finding niche Swift developers versus tapping into the massive global pool of JavaScript and React developers.
-
-## AI Brainstorming Phase
-Use this prompt to help evaluate the best platform approach based on your specific feature requirements.
-
-\`\`\`prompt
-Act as a Senior Mobile Architect. My application features include [List your most complex features, e.g., real-time location tracking, heavy 3D rendering, basic CRUD operations]. Based on these requirements, recommend whether I should use Native, React Native, or Flutter. Highlight any technical limitations I might hit with your recommendation.
-\`\`\`
-
-## The Final Decision
-**What platform strategy are you choosing, and why?**
+## The Data We Need From You
+**Will you launch on iOS, Android, or both initially?**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
+
+## Accountability Check
+- [ ] I have selected a clear deployment platform strategy.`,
   'mobilefundamentals': `# Mobile Fundamentals
 
-**Estimated Time:** 15 minutes
+**Estimated Time:** 2 Hours
 
 ---
 
 ## Why this matters
-Building for mobile is fundamentally different from building for the web. Web developers often assume constant connectivity, limitless memory, and a persistent execution state. Mobile devices are inherently constrained. Users walk into subways, batteries die, the operating system aggressively kills background applications, and network latency fluctuates wildly. Understanding these fundamentals separates a brittle, frustrating app from a robust, premium experience.
-
-## The Unique Constraints of Mobile
-To build successful mobile architecture, you must design defensively against these core constraints:
-
-1. **The Application Lifecycle:** Your app is never truly "always on." The operating system can background it, suspend it, or outright terminate it without warning to free up memory. You must elegantly save state and resume exactly where the user left off.
-2. **Intermittent Connectivity:** Mobile apps are used on elevators, airplanes, and rural roads. A blank white screen during a network drop is unacceptable. You must design offline-first caching strategies.
-3. **Hardware Limitations:** Memory leaks that cause a slight slowdown on a desktop browser will cause a hard crash on a five-year-old smartphone.
+Mobile apps are not just small websites. You must manage the app lifecycle (what happens when the app goes to the background?), handle memory constraints (phones have less RAM than laptops), and deal with the OS forcefully killing your app to save battery.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Ignore almost all mobile constraints. Assume the user has a perfect 5G connection and the latest flagship phone. Do not waste time implementing offline caching or complex state restoration. If the app is closed, it is perfectly fine for it to restart from scratch. Focus entirely on the "happy path" and making the core feature visually impressive for the judges.
+Ignore this. Your app only needs to survive being open for 3 minutes.
 
 ### Personal Project
-This is an excellent opportunity to learn one specific mobile fundamental deeply. Choose one constraint to solve properly—for example, implement robust offline caching for your main data feed, or focus heavily on memory profiling. Do not try to solve every edge case, as it will dramatically inflate the scope of your personal project. 
+Learn how to save state when the app goes to the background. If a user is typing a long note, switches to Spotify to change a song, and comes back, that note must not be deleted.
 
 ### Production SaaS
-Your users will aggressively uninstall your application if it loses their data when they switch to answer a text message. You must implement rock-solid lifecycle handling. When the app goes into the background, unsaved forms must be persisted to local storage. You must gracefully handle API timeouts and provide cached data fallbacks when the network is unreachable. Error tracking tools like Sentry are mandatory to catch memory-related crashes in the wild.
+You must master the App Lifecycle (Foreground, Background, Suspended). You must handle deep links correctly regardless of whether the app was completely closed or just backgrounded. You must optimize memory usage; if your app loads 500 high-res images into a list without virtualization, the OS will kill the app silently (OOM - Out of Memory crash).
 
-### Production SaaS
-At the enterprise tier, mobile fundamentals dictate architectural rigor. You must profile battery consumption, network bandwidth usage, and CPU utilization. If your application constantly wakes the radio antenna for trivial analytics pings, users will notice the battery drain. Architecture must include structured background task schedulers, sophisticated conflict resolution for offline data sync, and rigorous memory leak detection in the CI/CD pipeline.
+## AI Refinement Phase
+\`\`\`prompt
+Act as a Senior Mobile Architect. I am building my app in [Insert Tech Stack]. Explain how the OS "App Lifecycle" works in this framework. Specifically, tell me which lifecycle method I should use to save user data before the app is forcefully killed by the OS.
+\`\`\`
 
-## Review and Proceed
-- [ ] I understand the core constraints of mobile development and the necessity of lifecycle management.
-`,
+## Accountability Check
+- [ ] I understand the core differences between web and mobile architecture.`,
   'mobiletechstackselection': `# Tech Stack Selection
 
-**Estimated Time:** 20 minutes
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-Selecting your specific tech stack is about choosing your developer experience and ecosystem. If you chose "Cross-Platform" in your platform strategy, you still have to decide *which* cross-platform stack. For React Native, do you use the bare CLI or Expo? For navigation, do you use React Navigation or Expo Router? Choosing standard, widely-adopted tools means you will find immediate solutions on StackOverflow when you encounter obscure bugs.
-
-## The React Native Standard (Expo)
-If you are building with React Native, the industry consensus has overwhelmingly shifted toward **Expo**. In the past, Expo was seen as a prototyping tool with limitations. Today, with the introduction of Custom Dev Clients and Expo Application Services (EAS), it is a fully capable, enterprise-grade framework that removes the nightmare of managing Xcode and Android Studio directly.
+Choosing a mobile tech stack is a decade-long commitment. If you choose an obscure, dying framework, you won't be able to hire engineers, and third-party SDKs (like Stripe or Firebase) won't support your app.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-You must use Expo Go. It allows you to bypass the App Store entirely and test your code on your physical device instantly by scanning a QR code. Use the most standard, out-of-the-box libraries provided by Expo. Avoid any library that requires custom native code linking, as configuring Xcode or Android Studio during a hackathon is a guaranteed way to waste hours of precious time.
+Use React Native with Expo. It is infinitely faster to set up than dealing with Android Studio or Xcode configurations during a 24-hour sprint.
 
 ### Personal Project
-Expo is still the correct choice. It abstracts away the massive complexity of native build tools, allowing you to focus purely on JavaScript and React. It provides incredibly easy-to-use libraries for common device features like the camera, local storage, and haptic feedback. Use React Navigation or Expo Router based on whichever routing paradigm you want to learn.
+If you know React, use React Native (Expo). If you know Dart or want beautiful animations out-of-the-box, use Flutter. If you only know Apple ecosystem, use SwiftUI.
 
 ### Production SaaS
-Production apps should utilize Expo with Custom Development Clients. This gives you the incredible developer experience of Expo while allowing you to install any arbitrary native iOS/Android library you need (such as specialized payment SDKs or advanced video players). Expo Application Services (EAS) should be heavily utilized to automate your cloud builds and handle the complex certificate signing required for App Store and Google Play deployment.
+React Native (via Expo) or Flutter are the industry standards for cross-platform SaaS. React Native is generally preferred if you already have a React web team, as they can share business logic and TypeScript types between the web and mobile codebases. Do not use Cordova or Ionic/Capacitor (web wrappers) unless your app is extremely simple; the performance difference is noticeable to users.
 
-### Production SaaS
-Enterprise applications must heavily scrutinize dependencies. While Expo is excellent, massive organizations often eject to a bare React Native CLI workflow to maintain absolute, granular control over their native iOS and Android build pipelines. This allows dedicated native engineers to write custom Swift/Kotlin modules seamlessly. Security reviews must be conducted on all third-party npm packages to ensure compliance and prevent supply chain attacks.
-
-## AI Brainstorming Phase
-\`\`\`prompt
-Act as a Senior Mobile Architect. My application needs to utilize [List hardware features, e.g., Camera, Bluetooth, Push Notifications, In-App Purchases]. Based on these needs, should I use Expo Go, Expo with Custom Dev Clients, or a bare React Native project? Provide the pros and cons.
-\`\`\`
-
-## The Final Decision
-**Detail your chosen technical stack (Framework, Build Tool, Navigation library).**
+## The Data We Need From You
+**What mobile framework will you use to build the frontend?**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
+
+## Accountability Check
+- [ ] I have finalized my mobile tech stack.`,
   'mobilestatemanagement': `# State Management Architecture
 
-**Estimated Time:** 20 minutes
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-In a mobile application, the user is constantly navigating between screens, opening modals, and backgrounding the app. If your state management is chaotic, you will experience UI desynchronization—where the profile screen says the user is logged out, but the home screen says they are logged in. Choosing the right state management architecture ensures data flows predictably and prevents catastrophic race conditions in your interface.
-
-## The Modern State Landscape
-The days of wrapping your entire application in a massive, boilerplate-heavy Redux store are mostly over. Modern state management is divided into two distinct categories:
-
-1. **Server State (Remote Data):** Data that lives in your database. This should be managed by specialized caching libraries like React Query or SWR, which handle loading states, background fetching, and caching automatically.
-2. **Client State (Local UI Data):** Ephemeral data like "is the dark mode toggle checked?" or "which tab is active?" This should be managed by lightweight, atomic libraries like Zustand or Jotai.
+State management dictates how data flows through your app. If a user updates their profile picture on the Settings screen, does it instantly update on the Home screen? If you don't have a solid architecture, you will end up passing data through 10 layers of components ("prop drilling"), making the code unreadable.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Do not use Redux. It requires too much setup. Use React's built-in \`useState\` and \`useContext\` for everything. If prop-drilling becomes slightly annoying, that is perfectly fine for a weekend project. If you absolutely need a global store for a complex feature, use Zustand—it requires zero boilerplate and works instantly.
+Keep it simple. Put all your state in the highest possible component and pass it down, or use the basic Context API. Don't waste 3 hours configuring Redux.
 
 ### Personal Project
-This is the perfect environment to learn modern standards. Separate your server state from your client state. Use React Query to fetch and cache data from your API. Use Zustand to manage your local UI state. This pattern is currently the industry standard for React and React Native applications, and mastering it will significantly improve your architectural thinking.
+Try a modern, lightweight state manager like Zustand or Jotai (if using React Native) or Riverpod (if using Flutter). They require very little boilerplate and are incredibly powerful.
 
 ### Production SaaS
-Predictability and debugging are your primary concerns. You must use robust server-state caching (React Query) to ensure the UI feels instantaneous even on poor mobile networks. For global client state, Zustand is excellent, but you must implement strict conventions. Ensure that your state slices are modularized and that you are not storing deeply nested, complex objects that cause unnecessary re-renders across the entire application tree.
+You must separate Server State (data from your API) from Client State (UI toggles). Use a tool like React Query or RTK Query for server state; it handles caching, loading states, and automatic retries for you. Use Zustand/Redux strictly for global client state (like the active theme or the current user's auth token).
 
-### Production SaaS
-Enterprise applications often still rely on Redux Toolkit (RTK). While verbose, RTK provides an incredibly strict, unidirectional data flow that is easy to test and trace. When coordinating dozens of engineers across a massive mobile codebase, the rigid structure of Redux prevents developers from writing unpredictable, spaghetti state updates. You must also implement advanced state persistence strategies to ensure the app boots up exactly as the user left it.
-
-## AI Brainstorming Phase
-\`\`\`prompt
-Act as a Senior Frontend Architect. I am building a mobile app that handles [Describe your data, e.g., high-frequency real-time stock prices, deeply nested e-commerce carts, simple social media feeds]. Recommend a state management architecture utilizing React Query for server state and a local state library. Explain how I should split my data between them.
-\`\`\`
-
-## The Final Decision
-**What library will manage your Server State, and what library will manage your Client State?**
+## The Data We Need From You
+**What libraries will you use to manage Server State and Client State?**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
+
+## Accountability Check
+- [ ] I have a clear plan for managing global and local state.`,
   'mobileapistrategy': `# API Strategy
 
-**Estimated Time:** 20 minutes
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Mobile networks are hostile environments. Connections drop, bandwidth fluctuates, and latency spikes unpredictably. Your API strategy determines how your mobile application communicates with your backend under these adverse conditions. A poorly designed API strategy will result in endless loading spinners, massive data consumption, and frustrated users abandoning your app.
-
-## The Core Paradigms
-1. **REST:** The traditional approach. Reliable and standard, but often suffers from "over-fetching" (downloading too much data) or "under-fetching" (requiring multiple round-trip requests to load a single screen).
-2. **GraphQL:** Allows the mobile client to request exactly the data it needs and nothing more. This is incredibly powerful for mobile apps where bandwidth is constrained, but adds complexity to the backend.
-3. **tRPC:** If your backend and mobile app are both written in TypeScript, tRPC allows you to share types seamlessly. You get massive productivity boosts and end-to-end type safety without generating GraphQL schemas.
+Mobile apps cannot talk directly to a database securely. They must talk to an API. Mobile network connections drop constantly, so your API strategy must account for slow connections, retries, and minimizing payload sizes to save the user's mobile data.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use whatever you already know best, or whatever is easiest to set up. If you are using Firebase or Supabase, simply use their provided client SDKs to query the database directly from the mobile app. Do not waste time building a custom intermediate API layer unless it is strictly necessary to hide a secret API key.
+Just use `fetch()` or `axios` and hit your endpoints. Don't worry about caching or complex error handling.
 
 ### Personal Project
-If you are using a modern Backend-as-a-Service (like Supabase), stick to their client SDKs. If you are building a custom backend (like a Node/Express server), a standard REST API is the best learning path. If you want to experiment with bleeding-edge developer experience, setting up a tRPC router between a Node backend and a React Native frontend is highly educational.
+Use a Backend-as-a-Service (BaaS) like Supabase or Firebase. They provide SDKs that handle all the API calls, WebSocket connections, and real-time updates for you automatically.
 
 ### Production SaaS
-Bandwidth optimization and perceived performance are critical. If your application requires aggregating data from many different database tables to render the home screen, strongly consider GraphQL to minimize network round-trips. Regardless of the paradigm, you must implement aggressive API caching on the mobile client. Data should be served immediately from the local cache while a background request silently validates the data against the server.
+If building a custom backend, use GraphQL or tRPC if you want strict type safety between the mobile app and the server. You must implement robust error handling (e.g., exponential backoff for failed requests). Ensure your API returns paginated data; downloading 10,000 rows of data at once will freeze a mobile device.
 
-### Production SaaS
-Enterprise APIs require strict versioning. When you deploy a web app, you force all users to the new version instantly. When you deploy a mobile app, users may refuse to update the app for months. Your backend API must be able to gracefully support version 1.0 of the mobile app while simultaneously supporting version 2.5. You must also implement robust rate limiting, payload compression, and strict payload validation to ensure security and stability.
-
-## AI Brainstorming Phase
+## AI Refinement Phase
 \`\`\`prompt
-Act as a Senior Backend Architect. I am building a mobile application. The frontend is React Native, and the backend will be [Insert Backend, e.g., Node.js, Python Django, Supabase]. Based on this stack and the need for efficient mobile data transfer, should I use REST, GraphQL, tRPC, or direct SDK calls? Provide a brief architectural justification.
+Act as a Mobile Architect. I am connecting my app to a REST API using [Insert Tech Stack]. Provide an "Axios Interceptor" (or equivalent middleware) script that automatically catches 401 Unauthorized errors, attempts to refresh the auth token, and retries the original request seamlessly without the user noticing.
 \`\`\`
 
-## The Final Decision
-**What API paradigm will you use to communicate between your mobile app and backend?**
-\`\`\`input
-Write Here...
-\`\`\`
-`,
+## Accountability Check
+- [ ] I have defined how my mobile app will communicate with the backend securely.`,
   'mobilelocalstorage': `# Local Storage Strategy
 
-**Estimated Time:** 15 minutes
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Unlike web browsers, which have a standardized \`localStorage\` API, mobile devices offer a fragmented landscape of storage solutions ranging from unencrypted key-value stores to fully encrypted SQLite databases. If you store user session tokens in the wrong type of storage, they can be extracted by malicious actors. If you store massive JSON arrays in synchronous storage, you will freeze the UI thread and crash the app.
-
-## The Storage Hierarchy
-You must match your data type to the correct storage mechanism:
-
-1. **Secure Storage (Keychain/Keystore):** Heavily encrypted, hardware-backed storage. Use this EXCLUSIVELY for authentication tokens, API keys, and sensitive PII. It is slow and has tight size limits.
-2. **Key-Value Storage (AsyncStorage/MMKV):** Fast, unencrypted storage for simple user preferences (like "dark mode = true") or small JSON blobs. MMKV is the modern standard, offering synchronous C++ performance.
-3. **Local Database (SQLite/WatermelonDB):** Structured, relational storage for massive offline datasets (like thousands of chat messages or an entire product catalog).
+Mobile apps need to store small amounts of data locally on the device (like Auth tokens or user preferences) so the user doesn't have to log in every time they open the app. Storing sensitive data insecurely is a massive security risk.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Do not overthink this. If you are using React Native, use \`AsyncStorage\` for everything that isn't highly sensitive. It is the easiest to implement and perfectly fine for prototyping. If you need to store a simple login token for the demo, throwing it in \`AsyncStorage\` is a perfectly acceptable shortcut to save 30 minutes of configuring native Keystore bindings.
+Use `AsyncStorage` (React Native) or `SharedPreferences` (Android). Just dump the data in there. It's not encrypted, but it works for a demo.
 
 ### Personal Project
-Practice proper security hygiene. Use Expo SecureStore (or React Native Keychain) for any authentication tokens. For general user preferences or small cached payloads, try implementing \`react-native-mmkv\` to experience modern, synchronous, high-performance storage. Do not implement a local SQLite database unless offline-first architecture is the primary learning objective of your project.
+Learn to use Secure Storage. If you are storing a JWT token, use `expo-secure-store` or Flutter's `flutter_secure_storage`. This encrypts the data using the device's native Keychain/Keystore.
 
 ### Production SaaS
-Security and performance are non-negotiable. All authentication artifacts must be stored in the device's secure enclave (Keychain/Keystore). For general app state and caching, \`MMKV\` is mandatory, as legacy \`AsyncStorage\` is too slow for production rendering cycles and can cause noticeable UI stuttering. If your app requires heavy offline capabilities (like a field-worker app), you must implement a robust local database like WatermelonDB to handle the complex relational queries on the client side.
+You must use encrypted Secure Storage for any Auth Tokens or PII (Personally Identifiable Information). If you need to store large amounts of structured data locally for offline support, use a local database like SQLite or WatermelonDB. Never store raw passwords locally under any circumstances.
 
-### Production SaaS
-Enterprise applications face extreme security audits. You must implement jailbreak/root detection, and if the device is compromised, you must immediately wipe all local storage. Even non-sensitive data in MMKV should often be encrypted using an encryption key that is securely fetched from the backend upon login. Data retention policies must be strictly enforced, automatically purging cached data after a defined TTL (Time To Live) to comply with GDPR/CCPA.
-
-## AI Brainstorming Phase
-\`\`\`prompt
-Act as a Senior Mobile Security Engineer. My app needs to store [List data types: e.g., JWT Auth tokens, a 5000-item product catalog, user dark mode preference, temporary image caching]. Recommend the specific React Native libraries and storage mechanisms I should use for each data type.
-\`\`\`
-
-## The Final Decision
-**Detail your storage strategy (e.g., SecureStore for Auth, MMKV for preferences).**
+## The Data We Need From You
+**What data absolutely needs to be saved on the user's device between sessions?**
 \`\`\`input
-Write Here...
+1. 
+2. 
 \`\`\`
-`,
+
+## Accountability Check
+- [ ] I understand the difference between standard storage and secure encrypted storage.`,
   'mobileauthentication': `# Authentication Strategy
 
-**Estimated Time:** 20 minutes
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Authentication on mobile is fundamentally different from the web. Mobile users expect to log in exactly once when they download the app and never see a login screen again until they explicitly log out. They also expect seamless native integrations, such as "Sign in with Apple" (which is mandatory if you offer social logins on iOS) or biometric authentication (FaceID/TouchID).
-
-## The Core Paradigms
-1. **Session-based (Cookies):** Very common on the web, but highly problematic on mobile. Mobile operating systems often do not persist cookies reliably across background states.
-2. **Token-based (JWT):** The absolute standard for mobile. The backend issues an Access Token and a Refresh Token. The mobile app stores the Refresh Token securely and uses it to constantly fetch new Access Tokens in the background.
-3. **Backend-as-a-Service (BaaS):** Tools like Supabase, Firebase, or Clerk handle the entire nightmare of OAuth, token refreshing, and secure storage for you.
+Authentication on mobile requires dealing with biometric logins (FaceID/TouchID), OAuth redirects that bounce out to the browser and back into the app via deep links, and securely storing session tokens. It is significantly more complex than web authentication.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Do not build your own authentication system. Use Supabase Auth or Firebase Auth. They provide out-of-the-box SDKs that handle session persistence instantly. If you want to move even faster, skip social logins entirely and just use simple Email/Password or Magic Links. Configuring Apple/Google OAuth callbacks correctly in native code will drain hours of your hackathon time.
+Use Firebase Auth or Supabase Auth. Set up simple Email/Password. Don't waste time configuring Apple or Google Sign-In, as the OAuth credential setup takes hours.
 
 ### Personal Project
-Using a BaaS like Supabase is still the best route, as it teaches you the modern standard of JWT-based authentication. If you want to challenge yourself, implement "Sign in with Google" or "Sign in with Apple" using Expo's native auth modules. This is a highly valuable skill that every mobile developer must eventually learn.
+Try implementing "Sign in with Google" or "Sign in with Apple". It provides a vastly superior UX compared to typing out an email and password on a tiny keyboard.
 
 ### Production SaaS
-You must implement a flawless JWT Refresh Token rotation strategy. If your access token expires while the user is offline, the app must elegantly queue their actions, silently refresh the token when connectivity returns, and execute the queued actions without forcing a redirect to the login screen. Furthermore, Apple strictly mandates that if you offer *any* social login (like Google or Facebook), you **must** also offer "Sign in with Apple", or your app will be rejected during App Store review.
+If you publish an iOS app that uses *any* third-party login (like Google or Facebook), Apple explicitly requires you to *also* offer "Sign in with Apple", or they will reject your app. You should strongly consider implementing biometric authentication (FaceID) for apps containing sensitive data (banking, health) when the app resumes from the background.
 
-### Production SaaS
-Enterprise authentication often requires integration with legacy identity providers (Okta, Auth0, Active Directory) via SAML or OIDC protocols. You must implement robust biometric session locks (requiring FaceID to open the app if it has been backgrounded for more than 5 minutes, like a banking app). Device fingerprinting and strict token revocation endpoints must be implemented to instantly cut off access if a device is reported stolen.
-
-## AI Brainstorming Phase
-\`\`\`prompt
-Act as a Senior Security Architect. I am building a mobile app that uses [Insert Backend, e.g., Supabase, Custom Node.js]. I need to support [Email/Password, Google OAuth, Apple OAuth]. Provide a step-by-step architecture for securely managing the session lifecycle, including token storage and refresh logic.
-\`\`\`
-
-## The Final Decision
-**What Authentication provider and strategy are you using?**
+## The Data We Need From You
+**What authentication providers will you offer to your users?**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
-  'mobiledatabase': `# Database Architecture
 
-**Estimated Time:** 20 minutes
+## Accountability Check
+- [ ] I have an authentication strategy that complies with App Store guidelines.`,
+  'mobiledatabase': `# Database Schema
+
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Your mobile app's database architecture defines the boundary between the client and the server. In a traditional web app, the database lives strictly on the server. In a modern mobile app, the line is blurred. Users expect immediate UI updates regardless of network speed, which often requires maintaining a robust "local replica" of your remote database directly on the device.
-
-## The Architectural Patterns
-1. **Thin Client (Server-Heavy):** The mobile app holds no state. Every action triggers an API call to the remote database. Easy to build, but suffers from loading spinners and zero offline capability.
-2. **Thick Client (Offline-First):** The mobile app uses a powerful local database (like SQLite or WatermelonDB). Changes are written locally immediately, and a background sync engine handles pushing updates to the remote Postgres/Mongo database.
-3. **Real-time Sync (BaaS):** Tools like Supabase or Firebase abstract this entirely, opening a persistent WebSocket connection that instantly streams database changes to the mobile client.
+The database schema defines the structure of your data. If you model it poorly, your app will have to execute complex, slow queries that will drain the user's battery and consume massive amounts of mobile data.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Go with a Thin Client or rely entirely on a BaaS like Supabase or Firebase. Let the BaaS handle the real-time syncing via their SDK. Do not attempt to build a custom offline-first synchronization engine in a weekend. Your database schema should be flat, simple, and optimized for whatever looks best in the demo.
+Use a NoSQL database (like Firebase Firestore) because it requires zero schema setup. You can just throw JSON objects at it and it works instantly.
 
 ### Personal Project
-Using Supabase (PostgreSQL) is the ideal learning path. It gives you the power of a relational database with the ease of a BaaS. Practice writing secure Row Level Security (RLS) policies, as this is the industry standard for direct client-to-database architectures. If you want a specific challenge, try implementing WatermelonDB to learn how local SQLite databases function.
+Use a relational database (PostgreSQL via Supabase). Relational databases force you to think about data structure early on, which prevents messy, orphaned data later.
 
 ### Production SaaS
-Production apps usually require a hybrid approach. For critical, rapidly changing data (like a user's bank balance), use a Thin Client approach with aggressive API caching. For large datasets that the user expects to browse smoothly (like a massive list of tasks or contacts), implement an offline-first Thick Client using WatermelonDB. This ensures the app feels instantaneous and 120Hz smooth, while background web workers handle the complex conflict resolution with the remote Postgres database.
+You must design for efficiency. Use an ORM (like Prisma or Drizzle) on your backend. Your database schema must support soft deletes (never actually delete data, just mark `is_deleted = true`). If you have offline requirements, your schema must include an `updated_at` timestamp on *every* table so the mobile app knows which records to sync when it comes back online.
 
-### Production SaaS
-At enterprise scale, database architecture is dominated by data sovereignty, multi-region replication, and compliance (HIPAA/SOC2). You cannot simply open a direct connection from a mobile client to a database. All database access must be brokered through a highly secure, audited API gateway. Local mobile databases must utilize hardware-level encryption (e.g., SQLCipher) to ensure that if the device is physically compromised, the cached database file remains impenetrable.
-
-## AI Brainstorming Phase
+## AI Execution Phase
 \`\`\`prompt
-Act as a Senior Database Administrator. I am building a mobile application where users will [Describe core actions: e.g., read heavy feeds, write complex forms offline, real-time chat]. Recommend the optimal architecture between the local mobile state and the remote database. Include recommendations for specific technologies.
+Act as a Database Architect. My mobile app does [Insert App Function]. My core entities are [Insert Entities]. Generate a PostgreSQL schema for these entities. Include primary keys, foreign keys, and specific indexes for the columns I will likely filter or search by frequently.
 \`\`\`
 
-## The Final Decision
-**Detail your Database architecture (e.g., Supabase Postgres with React Query caching).**
-\`\`\`input
-Write Here...
-\`\`\`
-`,
+## Accountability Check
+- [ ] I have finalized the data model and schema for my core entities.`,
   'mobilebackend': `# Backend Architecture
 
-**Estimated Time:** 20 minutes
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-A mobile app is essentially a highly polished shell; the backend is the engine. However, unlike a web frontend which is served fresh on every page load, a mobile frontend is compiled into a static binary. If your backend makes a breaking API change, it will instantly crash every mobile app installed on users' phones worldwide who haven't updated. Your backend architecture must be designed with extreme backward compatibility and resilience.
-
-## The Architectural Options
-1. **Backend-as-a-Service (BaaS):** Platforms like Supabase or Firebase. They automatically generate your APIs based on your database schema. Incredible speed, but requires buying into their ecosystem.
-2. **Serverless Functions:** Small, isolated pieces of backend logic hosted on platforms like Vercel or AWS Lambda. Excellent for handling specific tasks (like processing a payment or sending an email) without managing a full server.
-3. **Custom Monolith/Microservices:** A dedicated server written in Node, Python, or Go. Required for extremely complex, custom business logic, but carries a massive DevOps burden.
+The backend is the authoritative source of truth. Mobile apps are fundamentally untrustworthy (users can decompile your code or alter network requests). All business logic, pricing logic, and security checks must happen on the backend.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-BaaS is the only correct answer. Use Supabase. It provides your database, authentication, file storage, and automatically generates the APIs to interact with them. If you need custom logic (like hitting a third-party AI API), use Supabase Edge Functions. Building and deploying a custom Node/Express server during a hackathon is a massive waste of time that should be spent polishing the mobile UI.
+Use a Backend-as-a-Service (BaaS) like Supabase or Firebase. Write zero backend code. Let the app talk directly to the database using the provided client SDKs.
 
 ### Personal Project
-Supabase remains the gold standard for personal projects due to its generous free tier and PostgreSQL foundation. It allows you to focus on learning mobile development rather than fighting with AWS IAM roles or Docker containers. If your goal is explicitly to learn backend engineering, building a simple Node.js REST API hosted on Render or Fly.io is a great educational exercise.
+If you want to learn backend development, build a simple Monolithic Node.js/Express or Python/FastAPI server. Host it cheaply on Render or Railway.
 
 ### Production SaaS
-A hybrid approach is often best. Use Supabase for the heavy lifting (Auth, Database, Storage) to maintain engineering velocity. However, critical business logic (like processing Stripe payments, heavy data aggregation, or complex push notification routing) should be isolated into Serverless Edge Functions or a small, custom microservice. This ensures that your core business rules are safely hidden on the server, not exposed in the mobile client code.
+Do not build Microservices unless you have 10+ backend engineers. Stick to a Modular Monolith. You must secure your API endpoints. If you are using a BaaS like Supabase, you MUST implement rigorous Row Level Security (RLS) policies, otherwise anyone with your public API key can download your entire database.
 
-### Production SaaS
-Enterprise backends are heavily decoupled. They utilize API Gateways, load balancers, and containerized microservices (Kubernetes). The most critical constraint for enterprise mobile backends is strict API versioning. The backend must indefinitely support legacy API routes to service users on 3-year-old versions of the mobile app. All endpoints must have rigorous rate limiting, DDoS protection, and extensive logging for audit compliance.
-
-## AI Brainstorming Phase
-\`\`\`prompt
-Act as a Senior Cloud Architect. My mobile app requires [List heavy backend tasks: e.g., processing video uploads, running machine learning models, syncing real-time data, processing secure payments]. Should I use a BaaS (Supabase), Serverless Functions, or a Custom Monolithic Backend? Provide a detailed justification.
-\`\`\`
-
-## The Final Decision
-**What is your chosen Backend Architecture?**
+## The Data We Need From You
+**Will you build a custom backend (Node/Python/Go) or use a BaaS (Supabase/Firebase)?**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
+
+## Accountability Check
+- [ ] I have decided on my backend architecture approach.`,
   'mobilepushnotifications': `# Push Notification Strategy
 
-**Estimated Time:** 15 minutes
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Push notifications are the lifeblood of mobile engagement. They are the only direct mechanism you have to pull a user back into your application once they have closed it. However, they are also the fastest way to get your app uninstalled. If you spam users, or if your notifications are irrelevant, they will permanently revoke your notification permissions. Furthermore, configuring the Apple Push Notification service (APNs) and Firebase Cloud Messaging (FCM) is notoriously complex.
-
-## The Notification Pipeline
-Sending a push notification requires a complex dance between several services:
-1. **The Mobile Client:** Requests permission from the user, generates a unique "Push Token" for that specific device, and sends it to your backend.
-2. **Your Backend:** Stores the Push Token securely in the database, linked to the user's profile.
-3. **The Delivery Service:** Your backend uses a service like Expo Push or OneSignal to route the message to Apple (APNs) or Google (FCM).
-4. **The OS Level:** Apple or Google physically wake up the device and display the notification payload.
+Push notifications are the single most powerful tool for mobile retention, but they are incredibly difficult to set up. You have to handle APNs (Apple), FCM (Google), request user permissions natively, and manage device tokens that constantly change.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Do not attempt to implement push notifications unless it is the absolute core mechanic of your app (like an alarm clock or emergency alert app). Configuring APNs certificates and FCM keys will consume hours of debugging. If you must have them, use Expo Push Notifications—it is the easiest possible implementation, but still requires significant setup.
+Do not build real push notifications. They require Apple Developer account certificates which take hours to configure. Fake it by using an in-app "Toast" alert that pops up after a timer.
 
 ### Personal Project
-Implementing push notifications is a rite of passage for mobile developers. Use Expo's Push Notification service. It abstracts away the horrific complexity of talking to Apple and Google directly. You will learn how to request permissions, store device tokens in your backend, and trigger test notifications. Focus on mastering the basic pipeline.
+Use Expo Push Notifications or Firebase Cloud Messaging (FCM). They abstract away the nightmare of dealing directly with Apple (APNs).
 
 ### Production SaaS
-You must treat push notifications as a highly sensitive user resource. Your backend must support granular notification preferences (e.g., allowing the user to turn off "Marketing Updates" but keep "Direct Messages" on). You must handle token expiration gracefully (Apple and Google frequently rotate tokens). For complex routing, analytics, and A/B testing of notification copy, deeply integrate a specialized service like OneSignal or Braze rather than building a custom push engine.
+You must ask for notification permissions at the *exact right moment*. If you ask immediately upon app open, 80% of users will click "Deny" and you can never ask again natively. Ask only after the user has experienced value. You must store multiple `push_tokens` per user in your database, as a single user might have your app installed on an iPhone, an iPad, and an Android device.
 
-### Production SaaS
-Enterprise notification systems are incredibly complex distributed systems. You must handle "Silent Pushes" (waking the app in the background to sync data without alerting the user). You must implement rigorous delivery guarantees, handling massive spikes in volume (e.g., sending a breaking news alert to 5 million users simultaneously without crashing your backend). Analytics must track not just delivery, but open rates, time-to-interaction, and downstream conversion funnels.
-
-## AI Brainstorming Phase
-\`\`\`prompt
-Act as a Mobile Product Manager. My app is a [Describe your app]. Generate 5 high-value push notification triggers that will re-engage users without feeling like spam. For each trigger, specify the exact event in the backend that should fire it.
-\`\`\`
-
-## The Final Decision
-**What delivery service will you use (e.g., Expo Push, OneSignal), and what is your primary re-engagement trigger?**
+## The Data We Need From You
+**What specific user action will trigger your most important push notification?**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
+
+## Accountability Check
+- [ ] I have a strategy for requesting notification permissions gracefully.`,
   'mobiledeeplinking': `# Deep Linking
 
-**Estimated Time:** 20 minutes
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-A mobile app without deep linking is a walled garden. If a user receives a text message with a link to a specific product in your app, clicking that link should open the app directly to that product. If it just opens your homepage, or worse, opens a mobile website instead of the installed app, you severely damage user retention. Deep linking bridges the gap between the open web and your compiled binary.
-
-## The Two Types of Links
-1. **Standard Deep Links (Custom URL Schemes):** Links like \`myapp://product/123\`. They are easy to set up, but they fail completely if the user doesn't have the app installed (they just show an error).
-2. **Universal Links (iOS) / App Links (Android):** Standard HTTPS links like \`https://myapp.com/product/123\`. If the app is installed, the OS intercepts the link and opens the app. If the app is *not* installed, it falls back to the website or the App Store. This is the modern standard.
+Deep links allow a user to click a URL in an email or SMS and be taken directly to a specific screen *inside* your app, bypassing the home screen. Without deep linking, sharing content from your app is impossible.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Ignore Universal Links; they require hosting verification files on a live HTTPS domain and configuring Apple/Google developer dashboards. Use standard Custom URL schemes (e.g., \`yourapp://\`). Expo makes this incredibly easy with \`expo-linking\`. It is more than enough to demonstrate navigating to a specific screen from a push notification or an external app during a demo.
+Ignore deep linking. It is completely unnecessary for a demo.
 
 ### Personal Project
-Try implementing Universal Links/App Links using Expo Router. It is a fantastic learning experience that connects web domain verification with native mobile routing. You will learn how to host the \`apple-app-site-association\` (AASA) file on your web domain and configure your app's \`app.json\` to prove ownership of the domain.
+Set up a basic URL scheme (e.g., `myapp://profile`). It's fun to type that into your phone's browser and watch your app magically open.
 
 ### Production SaaS
-Universal Links are mandatory. Marketing emails, password reset links, and user-to-user sharing all rely on them. However, you also need "Deferred Deep Linking". If a user clicks a shared link but *doesn't* have the app installed, they are routed to the App Store. After they install and open the app for the first time, the app must "remember" the original link and route them to that specific product. You must use a specialized service like Branch.io or AppsFlyer to handle this complex deferred routing reliably.
+You must implement Universal Links (iOS) and App Links (Android). This means clicking `https://yourwebsite.com/post/123` will open the app directly to that post if it's installed, or fallback to the App Store (or web browser) if it isn't. This is critical for marketing attribution and viral sharing loops.
 
-### Production SaaS
-Enterprise deep linking is deeply intertwined with attribution tracking and marketing analytics. Marketing teams spend millions of dollars on ad campaigns and need precise data on which specific ad click resulted in an app installation and subsequent purchase. Deep linking architecture must heavily integrate with Mobile Measurement Partners (MMPs) to track this attribution securely, ensuring compliance with Apple's App Tracking Transparency (ATT) framework.
-
-## AI Brainstorming Phase
+## AI Refinement Phase
 \`\`\`prompt
-Act as a Senior Mobile Architect. I am using [Expo Router / React Navigation]. I need to set up Universal Links so that when a user clicks \`https://myapp.com/profile/user123 it opens the app to that specific profile. Provide the necessary configuration for the AASA file, the Android assetlinks.json, and the routing configuration in the app.
+Act as a Mobile Engineer. I am using [Insert Routing Library, e.g., Expo Router]. Explain the exact steps required to configure Universal Links (iOS) and App Links (Android) for my app. Provide the JSON structure for the `apple-app-site-association` (AASA) file I need to host on my website.
 \`\`\`
 
-## The Final Decision
-**Detail your deep linking strategy (e.g., Custom Schemes for MVP, Branch.io for Production).**
-\`\`\`input
-Write Here...
-\`\`\`
-`,
-  'mobilefilestorage': `# File Storage Strategy
+## Accountability Check
+- [ ] I understand how users will link directly to content inside my app.`,
+  'mobilefilestorage': `# File Storage
 
-**Estimated Time:** 15 minutes
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-Handling files on mobile is significantly more complex than on the web. On the web, users select a file from a clean OS dialogue. On mobile, you have to request camera permissions, access the media library, handle massive 4K video files, compress them before uploading so you don't burn the user's data plan, and upload them reliably even if the user backgrounds the app mid-upload.
-
-## The Core Challenges
-1. **Permissions:** You must explicitly request user permission to access their photo library or camera. If you do this aggressively upon app launch, users will deny it. You must ask *in context*.
-2. **Compression:** A modern iPhone photo is often 5MB+. Uploading 10 uncompressed photos will take forever on a 3G connection and cost you a fortune in AWS S3 bandwidth. Client-side compression is mandatory.
-3. **Background Uploads:** If a user starts a video upload and switches to Instagram, the OS will kill your app. You must utilize native background upload tasks to ensure the file finishes uploading.
+Mobile apps frequently need to upload photos (avatars, receipts) or videos. You cannot store these files in a PostgreSQL database; you must store them in a dedicated object storage bucket (like AWS S3) and save the URL in the database.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use Expo ImagePicker to select photos, and immediately upload them to Supabase Storage or Firebase Storage using their client SDKs. Do not worry about advanced background uploading or handling 4K video. If the upload fails because the user closed the app, that is acceptable for a hackathon. Keep the scope strictly to single-image uploads (like a user avatar).
+Use Cloudinary or Supabase Storage. They have simple SDKs that let you upload an image directly from the device in 3 lines of code.
 
 ### Personal Project
-Implement client-side compression. Before uploading an image to your storage bucket (like AWS S3 or Supabase), use a library like \`expo-image-manipulator\` to compress the image quality to 0.7 and resize it to a maximum width of 1080px. This teaches you the vital skill of respecting the user's bandwidth and your cloud storage costs.
+Supabase Storage is the easiest option if you are already using their database. 
 
 ### Production SaaS
-Production apps require a robust, resumable upload pipeline. You should upload files directly from the mobile client to the storage bucket using Pre-Signed URLs, completely bypassing your backend server so it doesn't get choked by massive file streams. For large videos, you must use chunked, resumable uploads (like TUS protocol) so that if the network drops at 99%, it can resume rather than starting over.
+You must not upload files directly from the mobile app to your backend API, as this will crash your servers when 100 people upload 4K video simultaneously. The mobile app must request a "Presigned URL" from your backend, and then upload the file *directly* from the phone to AWS S3 (or equivalent). Optimize images (compress them) natively on the device *before* uploading to save bandwidth.
 
-### Production SaaS
-Enterprise file storage often involves strict compliance. Images may contain PII (Personally Identifiable Information) or medical data. You cannot simply dump them into a public S3 bucket. They must be stored in encrypted, private buckets. The mobile app must request temporary, short-lived signed URLs to view the images. Furthermore, you must implement automated backend pipelines to scan uploaded files for malware or inappropriate content before making them available to other users.
-
-## AI Brainstorming Phase
-\`\`\`prompt
-Act as a Mobile Storage Architect. My app allows users to upload [Images / Videos / PDFs]. Give me a step-by-step implementation plan for selecting the file, compressing it efficiently on the client side, and uploading it securely to [Supabase / S3] using Pre-Signed URLs.
-\`\`\`
-
-## The Final Decision
-**What storage provider are you using, and what client-side compression library will you utilize?**
+## The Data We Need From You
+**What types of files will users upload, and what storage provider will you use?**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
+
+## Accountability Check
+- [ ] I have selected an object storage provider and defined the upload flow.`,
   'mobileofflinestrategy': `# Offline Strategy
 
-**Estimated Time:** 20 minutes
+**Estimated Time:** 1-2 Hours
 
 ---
 
 ## Why this matters
-Mobile devices are inherently nomadic. Users will open your app in subway tunnels, on airplanes, and in rural areas with spotty 3G. If your app displays a blank white screen or a hard crash when the network request fails, it feels broken. A premium mobile application must degrade gracefully when offline and sync seamlessly when the connection returns.
-
-## The Levels of Offline Support
-1. **Graceful Failure:** The app detects there is no network, stops trying to load, and shows a friendly "You are offline" screen.
-2. **Read-Only Offline:** The app caches API responses (e.g., using React Query). When offline, the user can still read previously loaded data, but cannot take actions.
-3. **Offline-First (Read/Write):** The holy grail. The app uses a local database. The user can create posts, "like" content, and delete items while entirely offline. The app queues these actions and silently syncs them with the server when connectivity is restored.
+Mobile devices lose connection on subways, in elevators, and in rural areas. If your app crashes or shows an endless spinner when the network drops, the UX is broken. A true mobile app works (or degrades gracefully) offline.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Aim strictly for Level 1 (Graceful Failure). Do not attempt to build a complex offline caching system in a weekend. Simply check the network state using \`expo-network\`. If the user is offline, show a nice UI state. Spend your time building the core features of the app assuming a perfect connection.
+Assume the user has gigabit fiber internet. Do not build offline support.
 
 ### Personal Project
-Aim for Level 2 (Read-Only Offline). If you are using React Query or Apollo GraphQL, configuring offline caching is relatively straightforward. Configure the cache to persist to local storage (like MMKV or AsyncStorage) so that when the app boots up without internet, the user immediately sees the stale data from their last session instead of a loading spinner.
+Just show a nice "You are offline" banner if the network request fails. Don't attempt to build an offline-first syncing database.
 
 ### Production SaaS
-Level 2 is the minimum acceptable standard, but Level 3 (Offline-First) is the goal for any app where data entry is critical (like a note-taking app, a field inspection app, or a messaging app). To achieve Level 3 safely, you must implement complex Conflict-Free Replicated Data Types (CRDTs) or rely on a robust synchronization engine like WatermelonDB or PowerSync. You must meticulously handle edge cases: what happens if the user deletes a record offline, but another user updated that same record online?
+If your app is a utility (like a note-taking app), it MUST be offline-first. Use a local database (WatermelonDB, SQLite) as the source of truth for the UI. When the user writes a note offline, save it locally and queue a background task. When the network returns, sync the queue with the backend API. This requires complex conflict resolution (e.g., "What if the user edited the note on their iPad while their iPhone was offline?").
 
-### Production SaaS
-Enterprise offline strategies require massive architectural investment. When syncing a local SQLite database with a central Postgres database across thousands of concurrent users, conflict resolution logic must be incredibly precise. Background sync engines must be ruthlessly optimized to avoid draining the user's battery or consuming their monthly data cap by pulling down the entire database. Sync payloads must be compressed and strictly delta-based (only transferring exactly what changed since the last sync).
-
-## AI Brainstorming Phase
-\`\`\`prompt
-Act as a Senior Mobile Architect. I am building a [Describe your app]. Based on the core user journey, recommend an offline strategy (Graceful Failure, Read-Only Cache, or Offline-First). If you recommend Offline-First, explain how I should handle conflict resolution when the device comes back online.
-\`\`\`
-
-## The Final Decision
-**Detail your offline strategy and the libraries you will use to achieve it.**
+## The Data We Need From You
+**Will your app be strictly "Online Only", "Offline Tolerant" (caches data), or "Offline First" (local database)?**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
+
+## Accountability Check
+- [ ] I have defined my application's offline capabilities.`,
   'mobileanalyticsstrategy': `# Analytics Strategy
 
-**Estimated Time:** 15 minutes
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-If you don't track it, you can't improve it. Unlike the web, where you can easily deploy a Hotjar script to watch users interact with your site, mobile analytics require deliberate, hard-coded instrumentation. You need to know where users drop off in your onboarding funnel, which features they actually use, and critically, *why* your app is crashing in production.
-
-## The Triad of Mobile Tracking
-A robust mobile analytics strategy consists of three distinct pillars:
-1. **Crash Reporting (Mandatory):** Capturing fatal crashes and non-fatal exceptions in the wild. You cannot rely on App Store reviews to tell you your app is crashing.
-2. **Product Analytics:** Tracking user behavior (e.g., "User clicked Checkout", "User completed Onboarding").
-3. **Attribution (Marketing):** Tracking where users came from (e.g., "This install came from our Facebook Ad campaign").
+Apple and Google provide basic stats (downloads, crashes), but they don't tell you *how* users are using the app. You need an analytics strategy to track custom events (e.g., `user_completed_onboarding`) so you can identify where users get stuck.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Do not implement Product Analytics or Attribution. It is a waste of time for a prototype. However, you *must* implement basic Crash Reporting if you plan to let judges or friends actually use the app on their devices. Expo's built-in error handling is okay for development, but integrating Sentry (which takes 5 minutes) will give you exact stack traces if the app crashes on a friend's phone.
+Skip it.
 
 ### Personal Project
-Implement Crash Reporting (Sentry) and basic Product Analytics. Use a tool like PostHog or Amplitude to track 3 to 5 core events (e.g., \`app_opened \`account_created \`core_feature_used\`). This will teach you the mechanics of instrumenting events and building basic funnels in an analytics dashboard.
+Install a simple, privacy-friendly tracker like PostHog. Track exactly two events: `app_opened` and `core_action_completed`.
 
 ### Production SaaS
-All three pillars are mandatory. 
-- **Crash Reporting:** Sentry or Crashlytics.
-- **Product Analytics:** PostHog, Mixpanel, or Amplitude. You must create a strict Tracking Plan document. Do not just log random events like \`button_clicked\`. Log semantic actions like \`subscription_purchased\`.
-- **Attribution:** AppsFlyer or Branch.io to measure your Customer Acquisition Cost (CAC) across ad networks.
-Crucially, you must respect user privacy. You must prompt for tracking permission (especially on iOS via App Tracking Transparency) before firing these SDKs.
+You must implement rigorous event tracking. Use PostHog, Mixpanel, or Amplitude. Map out a "Tracking Plan" spreadsheet before writing code. You must track explicit events across the funnel (e.g., `signup_started`, `signup_completed`, `paywall_viewed`, `subscription_started`). Ensure you comply with Apple's App Tracking Transparency (ATT) framework if you are sharing this data with ad networks.
 
-### Production SaaS
-Enterprise analytics involve massive data pipelines. Mobile events are not just sent to a dashboard; they are streamed into a central data warehouse (like Snowflake or BigQuery) using tools like Segment. This allows data scientists to cross-reference mobile behavior with web behavior, CRM data, and billing histories. Strict data governance is enforced to ensure no PII (like passwords or social security numbers) is ever accidentally logged to third-party analytics providers.
-
-## AI Brainstorming Phase
-\`\`\`prompt
-Act as a Head of Product. My app is a [Describe your app]. Generate a Tracking Plan consisting of the 5 most critical events I should track to measure user retention and feature success. Provide the exact JSON payload structure I should send for each event.
-\`\`\`
-
-## The Final Decision
-**List the specific tools you will use for Crash Reporting, Product Analytics, and Attribution.**
+## The Data We Need From You
+**What are the top 3 custom events you need to track to measure success?**
 \`\`\`input
-Write Here...
+1. 
+2. 
+3. 
 \`\`\`
-`,
+
+## Accountability Check
+- [ ] I have chosen an analytics provider and defined my core events.`,
   'mobilecostestimation': `# Cost Estimation
 
-**Estimated Time:** 15 minutes
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-Building a mobile app MVP is relatively cheap, but scaling it can bankrupt you if you architect it poorly. Mobile apps often have hidden costs that web apps do not. You must forecast your monthly costs for developer accounts, backend hosting, database scaling, third-party APIs, and push notification services before you launch.
-
-## The Hidden Costs of Mobile
-- **Developer Accounts:** Apple charges a recurring $99/year fee just to keep your app on the App Store. Google charges a one-time $25 fee.
-- **Push Notifications:** While FCM and APNs are free at the base level, routing massive volumes of pushes through services like OneSignal can quickly become expensive as your user base grows.
-- **Bandwidth:** Mobile apps often require serving massive amounts of data (images, videos). If you are serving unoptimized 4K images directly from an S3 bucket to thousands of mobile users, your bandwidth bill will explode.
+Cloud computing makes it incredibly easy to accidentally spend $5,000 over a weekend if you write an infinite loop that hits a database or external API. Understanding your variable (usage-based) costs ensures your business model is actually profitable.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your cost should be exactly $0. Use the free tiers of Expo, Supabase, Vercel, and GitHub. Do not pay for developer accounts; use Expo Go to demo the app on your physical device. If you need a third-party API (like OpenAI), put a strict $5 hard cap on the API key so a bug doesn't drain your bank account overnight.
+Zero dollars. Use free tiers exclusively (Firebase, Supabase, Vercel). The only thing you might pay for is a few pennies of OpenAI API usage.
 
 ### Personal Project
-You will likely need to spend the $124 for Apple and Google Developer accounts if you want the satisfaction of seeing your app on the real App Stores. Beyond that, keep everything on free tiers. Supabase's free tier is incredibly generous for personal projects. Do not implement complex video hosting or heavy AI generation unless you are prepared to pay for the API usage.
+Also zero dollars, or at most $5/month for a cheap VPS (like DigitalOcean). The goal of a personal project is to cost as close to zero as possible so you can keep it running forever without thinking about the bill.
 
 ### Production SaaS
-You must model your unit economics. If a user pays you $5/month, but they consume $6/month in OpenAI API calls and AWS bandwidth, your business will fail as it scales. You must set up strict billing alerts on all your infrastructure (AWS, Vercel, Supabase). Implement rate limiting on your API routes so a malicious actor cannot spin up a botnet and rack up a massive server bill by spamming your endpoints.
+You must calculate your COGS (Cost of Goods Sold). If you charge a user $5/month, but it costs you $4/month in server, database, and map API costs to support them, your margins are terrible once you factor in the App Store's 30% cut. Estimate your costs at 1,000 users and 10,000 users. Set up billing alerts in AWS/GCP immediately so you get an email before you go bankrupt.
 
-### Production SaaS
-Enterprise cost estimation is about FinOps (Financial Operations). You must implement strict tagging on all cloud resources to track exactly which microservice or mobile feature is driving cloud costs. You will negotiate custom Enterprise contracts with vendors (like Mixpanel or Supabase) for volume discounts. Architecture decisions (like moving from REST to GraphQL) are often driven by the need to reduce payload sizes and slash multi-million dollar AWS bandwidth bills.
-
-## AI Brainstorming Phase
-\`\`\`prompt
-Act as a Cloud FinOps Architect. Review my tech stack ([List your stack: e.g., React Native, Supabase, OpenAI API]) and my app's core features. 
-1. Provide a rough Monthly Cost Estimate for running this app with 1,000 Daily Active Users. 
-2. Identify the single biggest financial vulnerability in this architecture.
-3. Provide step-by-step instructions on what billing alerts or rate limits I MUST set up.
-\`\`\`
-
-## The Final Decision
-**What is your estimated monthly cost, and what specific billing alerts have you configured?**
+## The Data We Need From You
+**What is the most expensive operational cost of running this app? (e.g., Database hosting, Map API calls, Video processing)**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
+
+## Accountability Check
+- [ ] I understand my primary cost drivers and have set up billing alerts.`,
   'scalability': `# Scalability
 
 **Estimated Time:** 3-6 hours
@@ -7207,1878 +6349,1466 @@ Act as a User Research Expert. I am launching a private beta for my app [Insert 
 - [ ] I have recruited a small group of beta testers and watched them use the app.`,
   'playstoreresearch': `# Play Store Research
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-The Google Play Store is a fundamentally different ecosystem than the Apple App Store. Android users behave differently, expect different UI paradigms (Material Design), and generally have a lower willingness to pay upfront. Researching the Play Store specifically ensures your Android strategy is viable.
+The Google Play Store is a distinct ecosystem from the iOS App Store. Android users often have different expectations, and the Play Store's search algorithm heavily favors keyword density in the app description. 
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Ignore this entirely. Unless your hackathon specifically requires an Android deployment, just build for iOS or web first. If you must deploy to Android, just make sure your Expo/React Native build compiles and ignore store optimization.
+Skip it. You will likely just build a web app or an Expo snack anyway.
 
 ### Personal Project
-If you plan to publish your app to the Play Store, understand that Google requires new personal developer accounts to have 20 opt-in testers test the app for 14 continuous days before it can be published to the public. Factor this massive delay into your launch timeline.
+If you plan to release on Android, see what exists. Notice how many apps are free with ads vs paid.
 
 ### Production SaaS
-Play Store research is critical for App Store Optimization (ASO). 
+You must research App Store Optimization (ASO) for Google Play. Read the reviews of top apps in your category. The Play Store allows you to run A/B tests on your app icon and screenshots natively—plan to utilize this. Notice that Android users are historically less likely to pay for subscriptions than iOS users, which may impact your monetization strategy.
 
-Google's search algorithm heavily indexes the app's Long Description, whereas Apple does not. You must optimize your long description with target keywords. Look at the top apps in your category on Android: Do they use freemium models? (Android users strongly prefer freemium/ad-supported over paid-upfront). Analyze the screenshots—Android devices have diverse aspect ratios, so ensure your screenshots look good on long, narrow screens. Read the 1-star reviews to find common device-specific bugs (e.g., "Crashes on Samsung S22") that you must test for.
-
-## Android ASO Prompt
-\`\`\`prompt
-Act as an App Store Optimization (ASO) Expert. I am launching an Android app for [Describe App]. What are the top 5 ranking factors on the Google Play Store? How should I structure my 'Long Description' to maximize keyword indexing without looking like spam?
+## The Data We Need From You
+**What are the top 3 ranking apps for your primary keyword on the Google Play Store?**
+\`\`\`input
+1. 
+2. 
+3. 
 \`\`\`
 
-## Validation Checklist
-- [ ] The top 5 competitors in the Google Play Store have been analyzed.
-- [ ] The monetization strategy aligns with Android user expectations (typically freemium).
-- [ ] Relevant keywords have been identified for the Play Store Long Description.
-`,
-  'mobilesecurity': `# Security Implementation
+## Accountability Check
+- [ ] I understand the landscape of my category on the Play Store.`,
+  'mobilesecurity': `# Security & Privacy
 
-**Estimated Time:** 3-5 hours
+**Estimated Time:** 2 Hours
 
 ---
 
 ## Why this matters
-Mobile apps are fundamentally untrusted environments. Anyone can download your APK or IPA, unpack it, and read every single string inside it. If you hardcode a Stripe Secret Key or AWS Admin credentials into your React Native app, your infrastructure will be compromised within hours of publishing.
+Mobile devices are frequently stolen, lost, or connected to malicious public Wi-Fi networks. If you store sensitive user data insecurely, it will be compromised. Apple and Google strictly enforce privacy policies during app review.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Don't worry about SSL pinning, code obfuscation, or jailbreak detection. The only critical rule is: DO NOT HARDCODE SECRETS. Use an \`.env\` file to store your API keys. If your app connects to Firebase or Supabase, use Row Level Security (RLS) to ensure users can only read their own data, even if they extract the public anon key.
+Ignore it. Use dummy data. Don't collect real passwords.
 
 ### Personal Project
-Focus on Secure Storage. Never save JWTs or user passwords in plain \`AsyncStorage\` (which is just an unencrypted XML file on Android). Use \`expo-secure-store\` or \`react-native-keychain\` to leverage the device's hardware-backed Secure Enclave. This ensures that even if the physical device is stolen and rooted, the tokens cannot be extracted.
+Ensure all API calls use HTTPS. Do not hardcode API keys (like your Supabase or Firebase keys) in plain text if they grant admin access; only use client-safe public keys.
 
 ### Production SaaS
-You must implement strict API authorization boundaries. The mobile app should only ever hold short-lived access tokens (expiring in 15 minutes) and long-lived refresh tokens (stored securely). You must implement "App Attestation" (using Google Play Integrity API and Apple DeviceCheck) to ensure your backend API only accepts requests from the official, unmodified version of your app downloaded from the store, blocking automated emulator bots from scraping your API.
+You must encrypt sensitive data (Auth tokens, PII) in the device's Keychain/Keystore. Implement certificate pinning if you are handling financial data to prevent Man-In-The-Middle (MITM) attacks. Obfuscate your compiled code (using ProGuard on Android) so attackers cannot easily reverse-engineer your app. Never log user passwords or credit card numbers to your crash reporting tools.
 
-### Production SaaS
-Enterprise security requires extreme measures. You must implement SSL/TLS Pinning so the app refuses to connect if a Man-In-The-Middle (MITM) proxies the traffic on public Wi-Fi. You must implement Jailbreak/Root detection to instantly lock the app if the user's OS is compromised. Finally, sensitive data (like financial PII) must be encrypted *at rest* within the local SQLite database using SQLCipher, and the app must enforce a biometric unlock (FaceID) if backgrounded for more than 2 minutes.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Mobile Security Expert. I am building a React Native app. Provide a checklist and code snippets for:
-1. Securely storing a JWT using \`expo-secure-store\`.
-2. Setting up a global Axios interceptor to append this token to requests.
-3. A basic check to prevent the app from running on rooted/jailbroken devices using a standard community library.
+## The Data We Need From You
+**What sensitive data are you storing locally, and how is it encrypted?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] No private API keys or database admin credentials exist in the client source code.
-- [ ] Session tokens are stored in the device's Secure Enclave.
-- [ ] Backend APIs explicitly validate the authorization header for every request.
-`,
+## Accountability Check
+- [ ] I have audited my app for secure storage and network vulnerabilities.`,
   'mobileperformanceoptimization': `# Performance Optimization
 
-**Estimated Time:** 4-6 hours
+**Estimated Time:** 3 Hours
 
 ---
 
 ## Why this matters
-A web page that drops a frame during a scroll is annoying. A mobile app that drops a frame during a screen transition feels broken, cheap, and immediately loses user trust. React Native runs JavaScript on a single thread; if you block that thread, the entire app freezes.
+A slow app feels broken. If scrolling through a list of items is janky and drops frames, users will associate your brand with low quality. Performance optimization ensures smooth 60fps (or 120fps) rendering.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-If it feels slow, it's probably because you are running it in "Development Mode" with the Chrome Debugger attached. Run a proper release build (\`npx expo run:ios --configuration Release\`) on a physical device before panicking. For hackathons, a Release build is almost always fast enough without any manual optimization.
+Don't worry about it. Just render the data. The demo will be fast enough on a modern phone.
 
 ### Personal Project
-Focus on list rendering. The standard React Native \`FlatList\` is notoriously inefficient. If you are rendering a feed of 500 images, your app will consume all available RAM and crash. Learn how to implement \`FlashList\` by Shopify. It recycles views identically to native RecyclerViews, boosting performance by 5x with almost no code changes.
+Learn to use `FlatList` (or equivalent virtualization) for long lists. Never map over 1,000 array items into standard Views, or the phone will freeze.
 
 ### Production SaaS
-You must aggressively eliminate unnecessary re-renders. Use \`React.memo\` for heavy components (like video players or complex charts). Profile your React tree using the React DevTools Profiler to find components that re-render 10 times per second when a user types into an input field. Move heavy computations (like parsing a massive JSON payload) off the main JS thread using tools like \`react-native-reanimated\` (for animations) or executing them on the backend before sending the data.
+You must profile your app using native tools (Xcode Instruments, Android Studio Profiler). Identify memory leaks. Optimize your React renders using `React.memo`, `useMemo`, and `useCallback` to prevent unnecessary re-renders. Use fast image loading libraries (like `expo-image` or `react-native-fast-image`) to heavily cache network images. Keep your JavaScript bundle size small to improve app startup time (TTI).
 
-### Production SaaS
-Enterprise performance requires C++ level optimization. You must migrate away from the old React Native Bridge to the New Architecture (JSI / Fabric), which allows JavaScript to synchronously invoke native C++ functions without serializing data to JSON. You must strictly monitor the JS bundle size; every megabyte of JavaScript adds roughly 100ms to the app's "Time to Interactive" (TTI) during a cold boot on older Android devices.
-
-## Implementation Steps
+## AI Refinement Phase
 \`\`\`prompt
-Act as a React Native Performance Architect. I have a \`FlatList\` rendering 1,000 complex items (images and text), and it stutters significantly when scrolling on Android. Provide the exact code to migrate this to Shopify's \`FlashList including the critical \`estimatedItemSize\` property and a \`React.memo\` wrapper for the list item component.
+Act as a Performance Engineer. I have a screen with a list of 500 items, each containing an image and text. It is scrolling very slowly. Provide a checklist of the 5 most effective ways to optimize list rendering performance in [Insert Framework].
 \`\`\`
 
-## Validation Checklist
-- [ ] Release builds maintain a solid 60 FPS (or 120 FPS on ProMotion devices) during navigation transitions.
-- [ ] Large lists are rendered using \`FlashList\` or heavily optimized \`FlatList\` configurations.
-- [ ] Heavy animations are offloaded to the UI thread using Reanimated.
-`,
+## Accountability Check
+- [ ] My app scrolls smoothly at 60fps even with long lists of data.`,
   'mobilecrashreporting': `# Crash Reporting
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-If your app crashes in development, you see a massive red screen with a stack trace. If it crashes in production, it instantly closes to the home screen without a single error message. If you do not have crash reporting installed, you will only find out your app is broken when angry users leave 1-star reviews saying "Crashes on launch."
+When your app crashes on a user's phone in the real world, you will not know about it unless you have crash reporting installed. Users rarely email you to say "It crashed"; they just leave a 1-star review and uninstall.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Don't bother. If it crashes during the demo, make a joke about live demos, restart the app, and keep going. Setting up native crash reporting takes too long for a 48-hour event.
+Skip it entirely.
 
 ### Personal Project
-Set up Sentry for React Native (or Expo). It captures unhandled JavaScript exceptions and native OS crashes. More importantly, it groups identical crashes together. So if 50 users experience the same bug, your dashboard shows 1 issue with 50 events, rather than spamming you with 50 separate emails.
+Skip it. You can just look at the error logs on your own simulator.
 
 ### Production SaaS
-Crash reporting is mandatory. You must configure your CI/CD pipeline to automatically upload "Source Maps" to Sentry every time you build a release APK/IPA. Without source maps, Sentry will report that the crash happened in \`main.js line 1 column 40293\` (the minified bundle), making debugging completely impossible. You must also implement "Breadcrumbs"?"logging user actions like "Tapped Checkout Button", "Navigated to Cart"?"so when a crash happens, Sentry shows you the exact sequence of clicks the user made leading up to the failure.
+You must integrate a crash reporting tool like Sentry or Crashlytics immediately. Configure source maps so that when a crash occurs in production, the tool can point you to the exact line of TypeScript code that failed, rather than showing you useless minified JavaScript. Set up alerts so your engineering team gets a Slack message if the crash rate spikes above 1%.
 
-### Production SaaS
-Enterprise crash reporting involves strict Service Level Agreements (SLAs). If the "Crash-Free Users" metric drops below 99.9%, automated alerts page the on-call engineering team and immediately halt any phased rollouts on the Google Play Console. You must also scrub PII (Personally Identifiable Information). If an API request fails, ensure the crash reporter does not log the user's password or credit card number that was embedded in the failed request payload.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a DevOps Engineer for Mobile. I am using Expo. Provide the step-by-step instructions and code configuration to initialize \`sentry-expo\`. The code must include a global error boundary that catches React rendering errors and automatically sends the component stack trace to Sentry.
+## The Data We Need From You
+**What crash reporting tool will you integrate before launching to the App Store?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Sentry (or Crashlytics) is initialized correctly in the app entry file.
-- [ ] Source maps are configured to upload automatically on production builds.
-- [ ] A test crash (\`throw new Error('Test Crash')\`) successfully appears in the reporting dashboard.
-`,
-  'mobilemonitoring': `# Monitoring & Telemetry
+## Accountability Check
+- [ ] I have a system in place to automatically capture and alert me of crashes.`,
+  'mobilemonitoring': `# Monitoring & Observability
 
-**Estimated Time:** 2-3 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Crash reporting tells you when the app completely dies. Monitoring tells you when the app is surviving, but suffering. If a backend API suddenly takes 4 seconds to respond, the app won't crash, but users will stare at a spinner and abandon the cart. You need telemetry to detect silent performance degradation.
+Crash reporting tells you when the app completely dies. Monitoring tells you when the app is just acting weird. Are API calls taking 5 seconds instead of 200ms? Are 30% of signups failing silently without crashing? You need observability to see this.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip this entirely. Your monitoring is visually looking at the app during the hackathon.
+Skip it.
 
 ### Personal Project
-Use basic analytics (like PostHog or Firebase) to track screen load times. If you have a critical API call (like fetching a user's feed), wrap it in a simple timer (\`console.time\`) during development to ensure it isn't taking unusually long.
+Skip it.
 
 ### Production SaaS
-Implement Real User Monitoring (RUM) using tools like Datadog, Sentry Performance, or Firebase Performance Monitoring. You must track "Cold Start Time" (how many milliseconds from tapping the app icon to the first meaningful paint). Apple and Google actively penalize apps in search rankings if their cold start times exceed 2 seconds. You must also monitor "Network Request Success Rates" broken down by geographic region; your app might work perfectly in the US but consistently timeout for users in India due to CDN misconfigurations.
+Implement APM (Application Performance Monitoring) using tools like Datadog, Sentry APM, or New Relic. Track the duration of critical network requests from the mobile client's perspective (not just the server's perspective). Monitor the success rate of key flows (like payments). If the payment success rate drops by 20%, you need an alarm to go off immediately.
 
-### Production SaaS
-Enterprise monitoring requires distributed tracing. When a user clicks "Buy" in the mobile app, a unique Trace ID is generated. This ID is passed in the HTTP header to your API gateway, which passes it to your microservices, which passes it to your database. If the purchase takes 5 seconds, you can look at the Datadog dashboard and see exactly how many milliseconds were spent on the mobile device, in transit, and inside the specific database query.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Mobile Observability Expert. I am using Sentry Performance for React Native. Provide the configuration required to enable automatic tracing for React Navigation (tracking how long each screen takes to load) and Axios (tracking how long HTTP requests take).
+## The Data We Need From You
+**What are the 2 most critical flows you need to actively monitor for performance degradation?**
+\`\`\`input
+1. 
+2. 
 \`\`\`
 
-## Validation Checklist
-- [ ] App Cold Start times are being tracked in a dashboard.
-- [ ] HTTP request durations and success/failure rates are monitored.
-- [ ] Custom traces are implemented for critical, complex business flows (e.g., Video Processing).
-`,
-  'mobilelogging': `# Logging
+## Accountability Check
+- [ ] I am tracking the performance and success rates of my critical API calls.`,
+  'mobilelogging': `# Structured Logging
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-\`console.log()\` is a development tool, not a production logging strategy. In production React Native apps, \`console.log\` statements are completely stripped out by the bundler (or worse, they aren't, and they silently drain CPU cycles). When a user reports a weird bug, you need a structured log of what the app was doing to reconstruct the scenario.
+`console.log("here 1")` is not a logging strategy. When trying to debug why a specific user's app is behaving strangely, you need structured logs (JSON format) that you can search and filter in a centralized dashboard.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Leave your \`console.log\` statements in. You will likely be running the app in development mode anyway.
+Use `console.log` heavily. It's all you need for a 24-hour sprint.
 
 ### Personal Project
-Create a simple utility wrapper for logging (e.g., \`logger.ts\`). Instead of calling \`console.log call \`logger.info("User logged in")\`. In development, this just prints to the console. In production, this can do nothing, saving CPU cycles. This single layer of abstraction will save you hours of refactoring later.
+Use a lightweight logger that formats your logs nicely in the terminal during development.
 
 ### Production SaaS
-Implement a remote logging infrastructure. When non-fatal errors occur (e.g., "Image failed to upload after 3 retries"), use \`logger.warn()\` to send a structured JSON payload to a service like Datadog or Loggly. Do not log everything! If you remote-log every single button click, you will consume massive amounts of the user's cellular data and your logging bill will exceed your database bill. Log only significant state changes and non-fatal errors.
+Do not leave `console.log` statements in your production bundle; they degrade performance. Use a logging library (like `roarr` or a custom wrapper) that strips logs in production or securely sends "Warning" and "Error" level logs to your backend or a service like Datadog. Ensure you NEVER log passwords, auth tokens, or PII.
 
-### Production SaaS
-Enterprise logging requires strict compliance. You must implement log rotation (if logging to the local device file system) to ensure the logs don't consume gigabytes of storage. More importantly, you must implement a "Redaction Engine" that actively intercepts log payloads and masks sensitive data (e.g., replacing credit card numbers with \`**** **** **** 1234\` or redacting email addresses) before they ever leave the physical device to ensure GDPR/HIPAA compliance.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Senior Mobile Developer. Provide a TypeScript \`logger.ts\` utility. It should have \`debug \`info \`warn and \`error\` methods. In \`__DEV__ it should use \`console.log\` with color formatting. In production, \`info\` and \`debug\` should be silent, but \`warn\` and \`error\` should push payloads to an array. Include a method to "Dump Logs" that returns this array so users can optionally attach it to support tickets.
-\`\`\`
-
-## Validation Checklist
-- [ ] \`console.log\` is replaced by a centralized logging abstraction.
-- [ ] Production logs do not leak PII (Personally Identifiable Information).
-- [ ] Non-fatal errors are logged remotely for triage.
-`,
+## Accountability Check
+- [ ] I have a logging strategy that aids debugging without leaking sensitive data.`,
   'mobileratelimiting': `# Rate Limiting
 
-**Estimated Time:** 2-4 hours
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-A mobile app in the hands of a frustrated user is a DDoS weapon. If a screen fails to load, a user might furiously tap the "Refresh" button 20 times in 3 seconds. If your app obediently sends 20 heavy API requests to your backend, it will choke your server and spike your cloud bill.
+If a malicious user (or a bug in your own mobile app) spams your backend API with 10,000 requests per second, your server will crash or you will receive a massive cloud billing invoice. Rate limiting protects your infrastructure.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Just disable the button while the request is loading. \`disabled={isLoading}\` is the easiest "rate limit" you can implement on the client side.
+Ignore it. Your API won't receive enough traffic to matter.
 
 ### Personal Project
-Implement "Debouncing" or "Throttling" on your UI inputs. If you have a search bar that fetches results as the user types, do not fire an API request for every single keystroke. Use a debounce hook (e.g., \`useDebounce\`) to wait 300ms after the user stops typing before firing the request. This dramatically reduces unnecessary backend load.
+Ignore it unless you are exposing a public API URL. If using Supabase/Firebase, they handle basic rate limiting for you.
 
 ### Production SaaS
-Rate limiting must be enforced at three levels:
-1. **UI Layer:** Disable buttons and debounce inputs.
-2. **Client API Layer:** Use tools like React Query, which have built-in de-duplication. If 5 components simultaneously request the same user profile, React Query only fires 1 actual network request and shares the result.
-3. **Backend API Gateway:** The mobile app is untrusted. Your backend must enforce IP-based or User-ID-based rate limits (e.g., 100 requests per minute per user) using Redis, returning HTTP \`429 Too Many Requests\`. The mobile app must gracefully catch \`429\` errors and display a message like "Please slow down."
+You must implement rate limiting on your backend API, especially on Auth endpoints (Login, Password Reset) to prevent brute-force attacks. Return a `429 Too Many Requests` HTTP status code. Crucially, your mobile app must anticipate this 429 error and show a polite message to the user ("You're doing that too fast, please wait a minute") instead of crashing.
 
-### Production SaaS
-Enterprise rate limiting involves dynamic quotas and circuit breakers. If your backend detects a massive spike in traffic (e.g., a push notification just went out to 5 million users), it might dynamically drop the rate limit threshold. The mobile app must implement a "Circuit Breaker" pattern: if it receives 5 consecutive \`500 Server Error\` or \`429\` responses, it stops sending *any* requests for 60 seconds, allowing your backend infrastructure time to auto-scale and recover without being hammered by retries.
+## Accountability Check
+- [ ] My backend API is protected from spam and my mobile app handles 429 errors gracefully.`,
+  'mobilebackups': `# Database Backups
 
-## Implementation Steps
-\`\`\`prompt
-Act as a Mobile Architecture Expert. I have a 'Like' button on a post. Users might spam it. Provide a custom React hook using \`lodash/debounce\` or similar logic that visually updates the UI instantly (optimistic update), but only fires the actual backend API request once per second, regardless of how many times the user tapped it.
-\`\`\`
-
-## Validation Checklist
-- [ ] Search inputs use debouncing to prevent excessive API calls.
-- [ ] Submit buttons are disabled while \`isLoading\` is true.
-- [ ] The app handles HTTP \`429 Too Many Requests\` elegantly without crashing.
-`,
-  'mobilebackups': `# Backups & Data Integrity
-
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-On mobile, data exists in two places: your cloud server and the physical device. If a user spends 3 hours offline crafting a massive note in your app, and then accidentally uninstalls the app or drops their phone in a river, that data is permanently destroyed unless you have a robust backup strategy.
+Hardware fails. Databases get corrupted. Most commonly, a tired developer accidentally runs a `DROP TABLE` or an `UPDATE` without a `WHERE` clause in production. If you don't have backups, your startup is dead instantly.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Don't build backups. If the data gets wiped, apologize during the pitch and blame the Wi-Fi. Focus your time on the actual features.
+No backups needed. The data is disposable.
 
 ### Personal Project
-Focus on Cloud Syncing. Make sure that any critical data saved locally (using MMKV or AsyncStorage) is pushed to your backend (like Supabase or Firebase) the moment the device regains internet connectivity. If your backend is Supabase, rely on their automated daily backups for your Postgres database.
+If using a managed service like Supabase or Firebase, automated daily backups are usually included in the free or low-tier plans. Turn them on.
 
 ### Production SaaS
-You must implement Point-in-Time Recovery (PITR) on your backend database. If a rogue API update corrupts all user profiles at 2:14 PM, you need to be able to restore the database to the exact state it was at 2:13 PM. On the mobile side, you must actively integrate with native cloud backups (iCloud Backup for iOS, Google Drive Backup for Android). You must configure your \`AndroidManifest.xml\` and \`Info.plist\` to explicitly define which local SQLite files should be synced to the user's personal cloud, allowing them to buy a new phone, reinstall the app, and instantly resume their session.
+You must have Point-in-Time Recovery (PITR) enabled on your production database. This allows you to restore the database to any specific minute in the last 7 days. You must also regularly *test* restoring a backup to a staging environment; a backup is useless if the restoration process is broken.
 
-### Production SaaS
-Enterprise backup strategies require strict "Data Sovereignty" rules. You cannot backup European user data to an American server. You must implement geo-redundant database replication (e.g., AWS Aurora Global Database). Furthermore, local mobile backups must be encrypted with a key derived from the user's biometric hardware, meaning even if someone extracts the SQLite backup file from their Google Drive, it is cryptographically impossible to read without the original user's fingerprint.
+## Accountability Check
+- [ ] I have verified that automated backups are running and restorable.`,
+  'mobilecicd': `# CI/CD for Mobile
 
-## Implementation Steps
-\`\`\`prompt
-Act as a Mobile Infrastructure Expert. I am building a React Native app. Provide the exact XML configuration required in my \`AndroidManifest.xml\` to enable Android Auto-Backup for my app's specific local SQLite database file, while explicitly excluding temporary cache directories to save the user's Google Drive quota.
-\`\`\`
-
-## Validation Checklist
-- [ ] Backend database has automated daily backups enabled.
-- [ ] Mobile app correctly opts in/out of OS-level cloud backups (iCloud/Google Drive).
-- [ ] A disaster recovery runbook exists outlining the exact steps to restore the database.
-`,
-  'mobilecicd': `# CI/CD Pipeline
-
-**Estimated Time:** 4-8 hours
+**Estimated Time:** 2-4 Hours
 
 ---
 
 ## Why this matters
-Building a mobile app for production takes 15 minutes on a high-end MacBook. If you rely on your personal laptop to build and upload the APK/IPA to the app stores, you will eventually make a mistake: you'll build with the wrong API keys, you'll forget to increment the version number, or you'll spill coffee on your laptop and be physically unable to deploy a critical bug fix.
+Building a mobile app requires compiling Swift/Kotlin code, managing signing certificates, and uploading massive binary files to the App Store. Doing this manually on your laptop takes 45 minutes and is highly prone to human error. CI/CD automates this entire process.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Build it locally. Use \`npx expo build\` or compile it directly from Xcode/Android Studio. Setting up a remote CI/CD pipeline for a weekend project will consume 30% of your total hacking time.
+Skip it. Just build locally and use a simulator for the demo.
 
 ### Personal Project
-Use Expo Application Services (EAS) Build. It completely abstracts away the nightmare of managing Xcode provisioning profiles and Android Keystores. When you run \`eas build your code is shipped to Expo's massive server farm, compiled, and handed back to you as a clean binary. This is the best way to learn the concept of remote compilation without fighting the underlying OS.
+Use Expo EAS (Expo Application Services) Build. It handles the nightmare of iOS certificates and Android Keystores for you in the cloud.
 
 ### Production SaaS
-You must implement a fully automated CI/CD pipeline. Every time you merge a Pull Request into the \`main\` branch, GitHub Actions (or Bitrise) should automatically trigger an EAS Build. Once the build succeeds, the pipeline should automatically submit the binaries directly to Apple TestFlight and the Google Play Beta track using \`eas submit\` or Fastlane. Zero human intervention should be required between clicking "Merge" and the app appearing on beta testers' phones.
+You must automate your deployments. Set up a CI/CD pipeline (using GitHub Actions, Bitrise, or EAS). When you merge code to the `main` branch, the pipeline should automatically run all tests. If they pass, it should build the iOS (`.ipa`) and Android (`.aab`) binaries and automatically upload them to TestFlight and Google Play Console for beta testing. No developer should ever deploy from their local machine.
 
-### Production SaaS
-Enterprise CI/CD involves extreme quality gates. The pipeline must run unit tests, end-to-end (E2E) tests on AWS Device Farm, and static code analysis (SonarQube) to block the build if code coverage drops below 80%. You must implement Over-The-Air (OTA) updates for JavaScript bundles so you can deploy critical UI hotfixes to millions of users in seconds, completely bypassing the grueling 24-hour Apple App Store review process.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Mobile DevOps Engineer. I am using Expo and GitHub Actions. Provide a complete \`.github/workflows/build.yml\` file that:
-1. Triggers whenever code is merged into the \`main\` branch.
-2. Installs dependencies and runs \`npm test\`.
-3. If tests pass, runs \`eas build --platform all --profile production\`.
-4. Automatically submits the successful builds to TestFlight and Google Play.
+## The Data We Need From You
+**What CI/CD platform will you use to automate your app builds?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] The app compiles remotely on a CI server, independent of your personal machine.
-- [ ] Secrets and Keystores are securely managed via CI environment variables, not committed to Git.
-- [ ] Submissions to TestFlight/Play Console are automated.
-`,
-  'mobileinfrastructure': `# Infrastructure Setup
+## Accountability Check
+- [ ] My build and deployment process is fully automated.`,
+  'mobileinfrastructure': `# Infrastructure Architecture
 
-**Estimated Time:** 2-4 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Mobile apps don't exist in a vacuum; they depend entirely on backend infrastructure. If your Node.js server is running on a single $5/month DigitalOcean droplet in New York, users in Tokyo will experience 500ms of latency on every single tap, making the app feel incredibly sluggish and unresponsive.
+Your mobile app is only the tip of the iceberg. The infrastructure (servers, databases, CDNs, load balancers) determines how scalable, reliable, and fast your app will be globally.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use Vercel for your backend APIs and Supabase/Firebase for your database. They require zero configuration, scale instantly for the demo, and abstract away all server management. 
+Host everything on Vercel/Render and Supabase/Firebase. You need zero infrastructure management.
 
 ### Personal Project
-Learn to use edge infrastructure. If you are using Vercel or Cloudflare Workers, deploy your API routes to the "Edge." This means your API code is replicated to hundreds of servers worldwide. A user in London hits a server in London, reducing latency to 20ms. This dramatically improves the "snappiness" of your mobile app without requiring you to write better code.
+Stick to managed Platform-as-a-Service (PaaS) providers. Do not set up raw AWS EC2 instances; configuring Linux servers is a distraction from building your app.
 
 ### Production SaaS
-You must implement Infrastructure as Code (IaC) using Terraform or Pulumi. You should never manually click through the AWS console to spin up a Postgres database; it is unrepeatable and error-prone. Your mobile app requires a robust CDN (Content Delivery Network) like CloudFront or Cloudflare to serve images and static assets. If your mobile app tries to download 5MB images directly from a single Node.js server, the server will collapse under the bandwidth load.
+Use Infrastructure as Code (IaC) like Terraform or Pulumi to define your cloud resources. This ensures your staging and production environments are identical. Use a Content Delivery Network (CDN) like Cloudflare or AWS CloudFront to cache images and static assets globally so users in Europe don't have to wait for data to travel from a server in California.
 
-### Production SaaS
-Enterprise infrastructure requires multi-region redundancy. If the \`us-east-1\` AWS region completely goes down (which happens), your API Gateway must automatically route mobile traffic to the \`us-west-2\` region. You must implement an API Gateway layer (like Kong or AWS API Gateway) to handle rate limiting, SSL termination, and JWT validation before the traffic even reaches your microservices, shielding your core backend from DDoS attacks launched via compromised mobile clients.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Cloud Infrastructure Architect. I am using Vercel for my API and Supabase for my database. My mobile app is incredibly slow for users in Europe because my database is in US-East. Explain how I can implement Redis caching (using Upstash) at the Edge to serve Read-Heavy requests (like feed data) to European users with sub-50ms latency.
-\`\`\`
-
-## Validation Checklist
-- [ ] API routes are deployed to a scalable, serverless environment.
-- [ ] Large static assets (images, videos) are served via a global CDN.
-- [ ] Database regions are selected strategically based on the target user demographic.
-`,
+## Accountability Check
+- [ ] My backend infrastructure is scalable and globally accessible.`,
   'mobileappsizeoptimization': `# App Size Optimization
 
-**Estimated Time:** 2-3 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-The size of your app directly correlates to your conversion rate. If a user clicks your ad on Facebook but sees your app is 250MB, they will likely cancel the download to save data or because their phone is full. Reducing your app size by 50% can increase your install rate by 15%.
+If your app size is over 150MB, iOS will prompt users to wait for Wi-Fi before downloading it over cellular data. Most users will just cancel the download. Large app sizes directly reduce your acquisition conversion rate.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Ignore this. A basic React Native app is around 40-60MB. That is perfectly fine for a demo or a TestFlight distribution.
+Ignore it. A 300MB app is fine for a demo.
 
 ### Personal Project
-Focus on media assets. You probably dropped a 5MB \`.png\` background image into your \`assets/\` folder. Use tools like TinyPNG or ImageOptim to compress all static images in your app before building. If possible, replace heavy image assets with SVG vectors, which look infinitely sharp and consume kilobytes instead of megabytes.
+Don't include massive raw video files or uncompressed 4K images in your app bundle.
 
 ### Production SaaS
-You must aggressively audit your JavaScript dependencies. Use \`react-native-bundle-visualizer\` to see exactly which NPM packages are bloating your app. Did you import the entire \`lodash\` library just to use \`_.debounce\`? That single mistake adds 1MB of JavaScript to your bundle. You must also implement Android App Bundles (.aab) instead of APKs. App Bundles allow Google Play to generate highly optimized, device-specific binaries, reducing download sizes by up to 30% by stripping out unneeded screen densities and language files.
+You must relentlessly optimize your bundle size. Compress all local image assets using WebP or SVG format. Remove unused third-party libraries (e.g., don't import the entire `lodash` library if you only need one function). Use Hermes engine (if using React Native) to pre-compile JavaScript and reduce the binary size. Monitor your `.ipa` and `.aab` sizes on every build.
 
-### Production SaaS
-Enterprise app size optimization requires ruthless native code pruning. If you include an SDK for scanning credit cards, you must strip out the compiled C++ architectures (like \`x86\`) that are only used for simulators, ensuring only \`arm64\` libraries ship to physical devices. You may need to implement "On-Demand Resources" (iOS) or "Play Feature Delivery" (Android), where the core app is only 20MB, and heavy features (like an AR camera filter) are downloaded in the background only when the user explicitly requests them.
-
-## Implementation Steps
+## AI Refinement Phase
 \`\`\`prompt
-Act as a React Native Build Expert. I need to reduce my Android App size. Provide the exact \`android/app/build.gradle\` configuration required to enable ProGuard/R8 (for dead code stripping) and enable separate APK builds per architecture (ABI splitting) to ensure I am not shipping x86 simulator binaries to physical ARM devices.
+Act as a Mobile Build Engineer. I am using [Insert Tech Stack]. My compiled app binary is currently 150MB, which is too large. Provide a checklist of the top 5 techniques to analyze and drastically reduce the final binary size in this specific framework.
 \`\`\`
 
-## Validation Checklist
-- [ ] All static images are compressed or replaced with SVGs.
-- [ ] The app is distributed as an Android App Bundle (.aab) on Google Play.
-- [ ] Unused or massive NPM dependencies have been identified and removed.
-`,
+## Accountability Check
+- [ ] I have analyzed my bundle size and removed unnecessary assets.`,
   'mobilebatteryoptimization': `# Battery Optimization
 
-**Estimated Time:** 2-4 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-If your app drains 15% of a user's battery in 10 minutes, they will uninstall it immediately. Both iOS and Android have deep OS-level monitoring that will actively alert the user if your app is consuming excessive power in the background, forcing them to restrict your app's capabilities.
+If a user notices that your app is draining 20% of their battery in an hour, they will force-quit it and likely uninstall it. Battery drain is usually caused by excessive network requests, continuous GPS tracking, or infinite rendering loops.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Don't worry about it. If the app murders the battery, just make sure your phone is plugged in during the live demo.
+Ignore it.
 
 ### Personal Project
-Focus on location services and network polling. If you need the user's location, ask for it exactly once when the component mounts. Do not accidentally leave a \`setInterval\` running that pings your backend every 5 seconds while the user is on the home screen; this keeps the cellular radio active and shreds battery life.
+Just make sure you aren't leaving timers (`setInterval`) running indefinitely.
 
 ### Production SaaS
-You must meticulously manage background tasks. When the user swipes your app into the background, all active WebSockets should be gracefully disconnected, and all high-frequency animations must be paused. If you need to run background syncs, use native Background Fetch APIs. These APIs hand off the scheduling to the OS, which brilliantly groups your app's network requests with other apps' requests, waking the cellular radio only once to save power.
+You must profile battery usage. If you need location tracking, do not request high-accuracy GPS updates every second unless you are building a driving navigation app; use "significant location changes" instead. Batch your network requests. Stop all heavy animations and polling when the app goes into the background state.
 
-### Production SaaS
-Enterprise battery optimization requires hardware-level profiling using Android Studio Energy Profiler and Xcode Instruments. You must optimize your UI rendering loops. If your app renders a custom graph, and the JS thread is desperately recalculating layout coordinates 60 times a second, the CPU will run at 100% and generate physical heat. You must offload heavy calculations to native C++ threads or rewrite the rendering logic using highly efficient native graphics APIs (like Skia).
+## Accountability Check
+- [ ] I ensure my app does not unnecessarily drain the user's battery.`,
+  'mobilescalability': `# Scalability Strategy
 
-## Implementation Steps
-\`\`\`prompt
-Act as a Mobile Performance Expert. I am building a React Native app that uses a WebSocket for real-time chat. Provide a robust hook (\`useAppState.ts\`) that listens to the native OS App State (Foreground/Background). The hook must explicitly disconnect the WebSocket when the app enters the background to save battery, and automatically reconnect when it enters the foreground.
-\`\`\`
-
-## Validation Checklist
-- [ ] WebSockets and heavy polling are terminated when the app is backgrounded.
-- [ ] Location services use the lowest necessary accuracy (e.g., 'City' vs 'Exact GPS').
-- [ ] The app does not cause the physical device to noticeably heat up during normal use.
-`,
-  'mobilescalability': `# Scalability & Load Testing
-
-**Estimated Time:** 3-5 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-If your app goes viral on TikTok, thousands of users will download it and hit your API simultaneously. If your backend is not scalable, the app will crash, the users will leave 1-star reviews, and the viral momentum will be permanently destroyed. Scalability is about preparing for success.
+If your app goes viral and gets 100,000 downloads in a day, will your servers crash? Scalability is the ability of your system to handle massive spikes in traffic without degrading performance.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Don't scale. Hackathons are about building prototypes for 5 judges, not 50,000 users. Your Vercel hobby tier is more than enough.
+Irrelevant. You have 3 users (the judges).
 
 ### Personal Project
-Focus on Database Indexes. If you have a query that searches for a user by email (\`SELECT * FROM users WHERE email = 'test@test.com'\`), and you do not have an index on the \`email\` column, your database has to scan every single row. If you get 10,000 users, this query will take seconds instead of milliseconds, crashing your app. Add basic indexes to all columns you frequently search or filter by.
+Irrelevant. You have 1 user (you).
 
 ### Production SaaS
-You must load test your infrastructure. Use a tool like k6 or Artillery to simulate 1,000 concurrent mobile users logging in and fetching their feed. This will expose bottlenecks instantly. You will likely discover that your Postgres connection pool is exhausted. You must implement a connection pooler (like PgBouncer or Supabase Supavisor) so your database can handle 10,000 incoming mobile connections without crashing.
+Vertical scaling (buying a bigger server) will only get you so far. You must design for Horizontal scaling (adding more servers). Ensure your backend APIs are stateless so any server can handle any request. Implement database connection pooling (like PgBouncer). Heavily cache read-heavy API endpoints using Redis so the database isn't hit for every single request.
 
-### Production SaaS
-Enterprise scalability requires extreme caching and asynchronous processing. If a user uploads a video, your backend should not process it synchronously while holding the HTTP connection open. It must instantly return a \`202 Accepted\` and drop the video into a message queue (like AWS SQS or Kafka). Worker nodes then process the queue independently. You must also implement aggressive CDN caching for API GET requests; if a viral post is viewed 1 million times, 999,999 of those requests should hit the Cloudflare Edge cache, never even touching your origin database.
+## Accountability Check
+- [ ] My backend architecture is capable of horizontal scaling.`,
+  'mobileplaystoresetup': `# Play Store Setup
 
-## Implementation Steps
-\`\`\`prompt
-Act as a Backend Scalability Expert. I expect a massive spike in mobile traffic. My app makes a heavy API request to \`GET /api/feed\`. Provide a k6 load-testing script that simulates 500 Virtual Users (VUs) constantly hitting this endpoint for 3 minutes, so I can identify if my database connection pool is sufficient.
-\`\`\`
-
-## Validation Checklist
-- [ ] Database tables are properly indexed for high-frequency queries.
-- [ ] Connection pooling is configured to prevent database exhaustion.
-- [ ] Heavy, long-running tasks are offloaded to asynchronous background queues.
-`,
-  'mobileplaystoresetup': `# Google Play Store Setup
-
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 2 Hours
 
 ---
 
 ## Why this matters
-The Google Play Store is the primary distribution channel for 70% of the world's mobile devices. Setting up your developer account correctly is the critical first step. Unlike the web, where you can deploy a URL instantly, publishing to the Play Store involves strict identity verification, tax agreements, and a mandated testing period for new developers.
+Setting up the Google Play Console requires verifying your identity, setting up payment profiles, and configuring the app listing. It is a bureaucratic process that can delay your launch by weeks if you make a mistake.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip this entirely. Do not attempt to create a Google Play Developer account during a hackathon. Use Expo Go or distribute the raw APK via a Google Drive link for the judges. Verification takes days.
+Skip it.
 
 ### Personal Project
-You must pay a one-time $25 fee to register as a Google Play Developer. Be warned: Google recently enacted a policy requiring all *new* personal developer accounts to have 20 independent users opt-in to a closed test of your app for 14 continuous days before you are allowed to publish to production. You must factor this massive two-week delay into your launch timeline.
+Only do this if you really want to share the app with friends who use Android. It costs a one-time fee of $25 to open a developer account.
 
 ### Production SaaS
-Register as an Organization, not an individual. This requires a D-U-N-S number (which can take a week to acquire) but completely bypasses the 20-tester/14-day requirement. It also displays your official company name under the app title, which significantly boosts user trust. You must also configure your Google Play App Signing key correctly; if you lose the original upload keystore, Google Play App Signing allows you to reset it. Without it, losing your keystore means permanently losing the ability to update your app.
+Create a Google Play Developer account under your *Company* name, not your personal name. You must fill out the Data Safety form accurately, detailing exactly what user data you collect and why. If you lie on this form, Google will suspend your app. Generate the Android App Bundle (`.aab`) and upload it to the Internal Testing track first to verify it installs correctly.
 
-### Production SaaS
-Enterprise setup requires strict IAM (Identity and Access Management) within the Google Play Console. You must never share the root Owner credentials. Engineers should only be granted the "Release Manager" role for specific apps, while the marketing team gets "Store Presence" access, and the finance team gets "Financial Data" access to view in-app purchase revenue.
+## Accountability Check
+- [ ] I have created a Google Play Developer account and completed the Data Safety form.`,
+  'mobileappstoresetup': `# App Store Setup
 
-## Implementation Steps
-\`\`\`prompt
-Act as a Google Play Console Expert. Provide a step-by-step checklist on how to configure 'Google Play App Signing' for a new React Native Android app. Explain the difference between the 'Upload Key' and the 'App Signing Key', and outline the exact CLI commands to generate a secure Keystore file.
-\`\`\`
-
-## Validation Checklist
-- [ ] A Google Play Developer account has been created and identity verification is complete.
-- [ ] For individuals, a strategy is in place to recruit 20 testers for the 14-day mandatory period.
-- [ ] Google Play App Signing is enabled and the Upload Keystore is securely backed up.
-`,
-  'mobileappstoresetup': `# Apple App Store Setup
-
-**Estimated Time:** 2-3 hours
+**Estimated Time:** 2 Hours
 
 ---
 
 ## Why this matters
-Apple's ecosystem is highly lucrative but notoriously strict. Before a single line of code can run on a physical iPhone outside of development, you must navigate Apple's complex web of Certificates, Identifiers, and Profiles. App Store Connect is where your app's digital identity is born.
+The Apple App Store Connect portal is complex. You must configure certificates, provisioning profiles, and App ID identifiers before you can even upload a build. Apple's review process is notoriously strict and can reject your app for minor infractions.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Do not attempt this. The Apple Developer Program costs $99/year and enrollment can take days to process. Use Expo Go or a simulator for your pitch.
+Skip it entirely.
 
 ### Personal Project
-You must enroll in the Apple Developer Program as an Individual. You will need to generate a Certificate Signing Request (CSR) from your Mac, create a Distribution Certificate, and register an explicit App ID (e.g., \`com.yourname.app\`). Be extremely careful with your certificates; if you delete them from your Keychain, you cannot build updates for your app.
+It costs $99/year to have an Apple Developer account. If you just want it on your own phone, you don't need a paid account (you can sideload it via Xcode for 7 days at a time).
 
 ### Production SaaS
-Enroll as a Company/Organization. Like Google, this requires a D-U-N-S number. This ensures your company name (e.g., "Acme Corp") appears as the seller, not your personal name ("John Doe"). You must configure your App Store Connect API keys. Never use personal Apple IDs for CI/CD authentication; generate an App Store Connect API Key (p8 file) with the "App Manager" role to allow automated tools like Fastlane or EAS Build to upload binaries directly to TestFlight without triggering 2FA prompts.
+You must enroll in the Apple Developer Program as an Organization (requires a D-U-N-S number, which can take weeks to get). Fill out the App Privacy questionnaire honestly. If your app requires users to create an account, you MUST provide a "Delete Account" button inside the app, or Apple will reject it. Provide a demo account (username/password) in the App Review Information section so the Apple reviewer can actually test the app.
 
-### Production SaaS
-Enterprise setups often require the Apple Developer Enterprise Program ($299/year), which allows you to distribute proprietary apps directly to your employees without ever going through App Store review. However, Apple strictly audits this. For public-facing apps, you must configure strict Role-Based Access Control (RBAC) in App Store Connect, separating the "Developer" roles (who can upload builds) from the "App Manager" roles (who can push the 'Submit for Review' button).
-
-## Implementation Steps
-\`\`\`prompt
-Act as an iOS DevOps Expert. I am using Expo EAS. Provide the exact steps and CLI commands to generate an App Store Connect API Key, download the \`.p8\` file, and securely configure it within the \`eas.json\` and my GitHub Actions pipeline so I can achieve fully automated TestFlight uploads.
-\`\`\`
-
-## Validation Checklist
-- [ ] Apple Developer Program enrollment is active.
-- [ ] An explicit App ID (Bundle Identifier) has been registered.
-- [ ] App Store Connect API Keys have been generated for automated CI/CD deployments.
-`,
+## Accountability Check
+- [ ] I have registered my Apple Developer account and prepared my App Store Connect listing.`,
   'mobileappicons': `# App Icons
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Your app icon is the first visual interaction a user has with your product. A blurry, poorly cropped icon screams "amateur" and destroys trust before the app is even opened. Both iOS and Android have incredibly specific, and constantly changing, requirements for icon sizes, safe zones, and background layers.
+The App Icon is the first (and often only) thing a user sees when browsing the App Store. A cheap, generic icon drastically reduces your click-through rate, making your marketing spend much more expensive.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use a free generator like \`icon.kitchen\` or \`appicon.co\`. Pick a solid color background, drop a white SVG icon in the center, download the zip file, and move on.
+Generate one using an AI image generator or find a free icon. It doesn't matter.
 
 ### Personal Project
-Ensure you do not include transparent backgrounds for iOS. Apple strictly forbids transparency in app icons; any transparent pixels will be filled with a harsh, solid black background, ruining your design. Keep the design simple and recognizable at a 50x50 pixel scale.
+Keep it simple. A solid background color with a white glyph in the center usually looks great.
 
 ### Production SaaS
-You must implement Adaptive Icons for Android. Android OEMs (Samsung, Pixel, OnePlus) apply custom masks to icons (circles, squircles, teardrops). If you provide a single flat square image, it will be awkwardly cropped or placed inside an ugly white circle. You must provide a foreground SVG and a background color/image, allowing the OS to render the icon natively and apply smooth parallax animations when the user swipes home.
+Do not put words in your app icon; it's unreadable on a phone screen. Do not use a transparent background (Apple explicitly forbids it; it will just render as black). Ensure your icon stands out against both Light Mode and Dark Mode wallpapers. You must provide the icon in multiple sizes (1024x1024 for the App Store, and smaller sizes for the device home screen and notifications).
 
-### Production SaaS
-Enterprise apps should utilize dynamic app icons. If you run a dark-mode focused brand, or have a premium subscription tier, you can allow users to change the app icon directly within the app settings. Apple and Google provide native APIs for this. Furthermore, you must provide explicitly scaled \`.png\` assets for every possible device density (mdpi to xxxhdpi) to ensure perfect pixel alignment without relying on the OS to downscale a massive 1024x1024 image.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Mobile UI/UX Designer. I am building a React Native app with Expo. Provide the required dimensions, formats, and \`app.json\` configuration needed to support Android Adaptive Icons. Explain the concept of the 'Safe Zone' and how large my foreground logo should be to avoid getting clipped by circular OEM masks.
+## The Data We Need From You
+**What are the primary visual elements of your App Icon?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] The iOS icon has exactly zero transparent pixels.
-- [ ] Android Adaptive Icons (Foreground and Background) are correctly configured.
-- [ ] The core logo remains legible and un-clipped inside the standard circular safe zone.
-`,
-  'mobilescreenshots': `# Screenshots
+## Accountability Check
+- [ ] I have designed a high-quality App Icon that follows Apple and Google guidelines.`,
+  'mobilescreenshots': `# App Store Screenshots
 
-**Estimated Time:** 2-4 hours
+**Estimated Time:** 2 Hours
 
 ---
 
 ## Why this matters
-Screenshots are not just pictures of your app; they are your primary marketing billboard. 60% of users will not read a single word of your description. They will scroll through your first three screenshots and instantly decide whether to download. Raw, unedited screenshots with a generic status bar showing low battery will fail to convert.
+Users do not read the text description of your app. They look at the screenshots. If the screenshots don't immediately communicate the value of the app within 3 seconds, they will swipe away.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Take raw screenshots on a simulator and upload them. Don't waste time wrapping them in device frames or adding marketing copy.
+Just take 3 raw screenshots of the simulator running the app and use those in your slide deck.
 
 ### Personal Project
-Use a tool like Previewed.app or AppMockUp. Put your raw screenshots inside an iPhone/Pixel device frame, add a solid background color, and place large, bold, highly readable text at the top explaining the core value proposition of that specific screen. Always sanitize the status bar: ensure the time is 9:41 (Apple standard), the battery is full, and there are no distracting notification icons.
+Use a free tool like Shots.so or AppMockUp.com to put your raw screenshots inside a nice device frame (like an iPhone 15 frame) with a title above it.
 
 ### Production SaaS
-You must treat screenshots as A/B testing assets. Do not just list features; highlight benefits. The first screenshot is the most critical?it must summarize the entire app. For Android, you must upload specific screenshots for 7-inch and 10-inch tablets. If you simply stretch phone screenshots, Google Play will penalize your search ranking for tablet users. Apple requires strict resolutions: you must provide exact 6.5-inch (Pro Max) and 5.5-inch (Plus) dimensions. 
+Screenshots are marketing banners. The first two screenshots are the most important because they show up in the search results. Put your core Value Proposition in massive text on the first screenshot. Highlight specific UI elements (like a "Save $100" button). You must provide screenshots for both 6.5" (iPhone Pro Max) and 5.5" screens to Apple.
 
-### Production SaaS
-Enterprise store optimization requires deep localization. If your app is available in Japan, your screenshots must feature Japanese UI text, Japanese marketing copy, and culturally relevant device frames/backgrounds. You must continually A/B test your screenshots using the Google Play Store Listing Experiments tool to scientifically determine which design yields the lowest Cost Per Install (CPI).
-
-## Implementation Steps
+## AI Refinement Phase
 \`\`\`prompt
-Act as an App Store Optimization (ASO) Expert. What are the top 5 psychological principles for designing high-converting App Store screenshots? Provide a structured layout plan for the first 3 screenshots of a [Insert App Type] app, including the marketing copy to place above the device frames.
+Act as an App Store Optimization (ASO) Expert. I need to create 5 screenshots for my mobile app: [Insert App Description]. Suggest the headline text and the visual focus for each of the 5 screenshots to maximize conversion rate.
 \`\`\`
 
-## Validation Checklist
-- [ ] Status bars in screenshots are sanitized (Full battery, standard time, no notifications).
-- [ ] Screenshots are framed with marketing copy explaining the value, not just the feature.
-- [ ] Correct resolutions are generated for iOS (6.5") and Android (Phone + 7" Tablet).
-`,
+## Accountability Check
+- [ ] I have designed high-converting, annotated App Store screenshots.`,
   'mobilefeaturegraphics': `# Feature Graphics
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-The Google Play Store requires a "Feature Graphic" (1024x500). Without it, you physically cannot publish your app. Apple does not require this, but Google uses this massive banner image everywhere: at the top of your store listing, in search ads, and across the "Recommended for You" carousels throughout the Play Store.
+The Google Play Store requires a 1024x500 "Feature Graphic." This banner sits at the very top of your app listing and is often the first thing Android users see, especially if your app is featured by Google.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Open Canva, create a 1024x500 canvas, slap your logo in the middle of a gradient background, download it as a JPEG, and upload it.
+Skip it.
 
 ### Personal Project
-Keep it simple but professional. Do not put critical text near the edges; Google routinely crops the edges of the feature graphic depending on the device layout (tablets vs. phones). Do not pack it with text. Use it to establish brand identity: a clean background, your logo, and maybe a subtle, blurred hint of your app's UI in the background.
+Just resize one of your screenshots or use your app's logo on a colored background.
 
 ### Production SaaS
-The Feature Graphic often serves as the cover image for your promotional video. Therefore, you must ensure you do not place critical visual elements or your logo dead-center, as the massive Play Store "Play Video" button will cover it completely. Update this graphic seasonally. If you run a massive Black Friday sale or release a major V2.0 update, update the feature graphic to reflect this; it signals to users that the app is actively maintained.
+Treat the Feature Graphic like a billboard. Do not put critical text near the edges, as the Play Store UI sometimes crops it depending on the device. Make it visually striking and representative of the app's core brand. If you have an explainer video, the Feature Graphic acts as the thumbnail for that video.
 
-### Production SaaS
-Enterprise graphics must be strictly localized. If the graphic contains any text, that text must be translated for every single language your store listing supports. Furthermore, ensure the aesthetic aligns with Google's Material Design guidelines. A/B test the feature graphic vigorously, as it is the single largest visual element driving organic search conversions on Android.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Graphic Designer. I need to create a Google Play Feature Graphic (1024x500). Give me 3 distinct, high-converting design concepts for a [Insert App Type] app. Explicitly outline the 'Safe Zones' and explain where I should avoid placing text to prevent it from being obscured by the Play Store UI overlay.
-\`\`\`
-
-## Validation Checklist
-- [ ] A 1024x500 PNG/JPEG graphic has been created.
-- [ ] No critical text or logos are placed in the dead-center (to avoid the play button) or the extreme edges.
-- [ ] The design communicates the core brand without looking cluttered.
-`,
+## Accountability Check
+- [ ] I have created a compelling Feature Graphic for the Google Play Store.`,
   'mobilestorelistingseo': `# Store Listing SEO (ASO)
 
-**Estimated Time:** 2-4 hours
+**Estimated Time:** 2 Hours
 
 ---
 
 ## Why this matters
-App Store Optimization (ASO) is the SEO of the mobile world. 65% of all app downloads come directly from organic searches within the App Store and Google Play. If your app is named "Taskify" and your description just says "A cool task app," you will never appear when a user searches for "daily planner and habit tracker."
+App Store Optimization (ASO) is the SEO of the mobile world. If your app is named "Krypton", no one searching for "Habit Tracker" will find it. You must optimize your title, subtitle, and keywords to rank organically.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Don't waste time on ASO. Just write a 2-sentence description so the store lets you publish it.
+Irrelevant.
 
 ### Personal Project
-Focus on your Title and Subtitle. The App Title is the single heaviest ranking factor on both iOS and Android. Do not just use your brand name. If your brand is unknown, append a keyword: "Taskify - Daily Planner". On iOS, you are given a 100-character invisible Keyword Field. Fill it entirely with comma-separated keywords (no spaces after commas) and never repeat words that are already in your title.
+Just name the app exactly what it does (e.g., "Simple Gym Tracker").
 
 ### Production SaaS
-You must understand the algorithmic differences between Apple and Google. Apple completely ignores your Long Description for search rankings; they only index your Title, Subtitle, and Keyword Field. Google, however, indexes your entire Long Description like a webpage. For Google Play, you must write a robust, keyword-dense (but natural-sounding) description, strategically repeating your target keyword 3-5 times. For Apple, focus all your energy on optimizing the exact 30 characters in your Subtitle and the 100-character keyword bank.
+The App Title carries the most weight for search ranking. Use the format `[Brand Name] - [Core Keyword]` (e.g., "Krypton - Daily Habit Tracker"). In the Apple App Store, the invisible "Keywords" field is critical; use comma-separated keywords without spaces (`habit,tracker,daily,routine`). On Google Play, the keywords must be woven naturally into the long description.
 
-### Production SaaS
-Enterprise ASO requires continuous iteration. You must use tools like SensorTower or AppTweak to analyze competitors' keyword rankings, search volume, and difficulty scores. If you try to rank for "Fitness App," you will fail against Nike and Peloton. You must identify "Long-Tail Keywords" (e.g., "Kettlebell workout tracker for men") and dominate those niches first. Additionally, localize your keywords. Translating English keywords directly to Spanish often fails; you must research the actual colloquial terms native users type into the search bar.
-
-## Implementation Steps
-\`\`\`prompt
-Act as an App Store Optimization (ASO) Specialist. My app is called [App Name] and it does [Core Function]. Generate a highly optimized iOS Title (max 30 chars), iOS Subtitle (max 30 chars), and an iOS Keyword Bank (exactly 100 characters, comma-separated, no spaces, excluding words already in the title). Then, generate a Google Play Short Description (max 80 chars) that includes my top keywords.
+## The Data We Need From You
+**What are the top 5 keywords you want your app to rank for?**
+\`\`\`input
+1. 
+2. 
+3. 
+4. 
+5. 
 \`\`\`
 
-## Validation Checklist
-- [ ] The App Title includes the brand name AND a primary descriptive keyword.
-- [ ] The iOS 100-character keyword field is fully utilized with no wasted spaces.
-- [ ] The Google Play Long Description naturally incorporates target keywords 3-5 times.
-`,
+## AI Execution Phase
+\`\`\`prompt
+Act as an App Store Optimization Expert. My app is a [Insert Category]. My target keywords are [Insert Keywords]. Generate an optimized App Title (max 30 chars), Subtitle (max 30 chars), and a comma-separated list of backend keywords (max 100 chars total, no spaces after commas) for the Apple App Store.
+\`\`\`
+
+## Accountability Check
+- [ ] My App Store listing is optimized for search discovery.`,
   'mobileprivacypolicy': `# Privacy Policy
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Both Apple and Google strictly require a Privacy Policy URL before they will let you publish an app, even if your app doesn't explicitly ask the user for data. If you use Firebase, Crashlytics, or Supabase Auth, you are collecting data (IP addresses, device identifiers, email addresses). Failing to disclose this violates international laws (GDPR/CCPA) and will result in an immediate App Store rejection.
+Both Apple and Google strictly require a Privacy Policy URL to be linked in your app store listing. If you do not have one, your app will be rejected. This document legally explains what data you collect and what you do with it.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Generate a free privacy policy using Termly or TermsFeed. Host it on a free Notion page or GitHub Pages, copy the public link, and paste it into the App Store submission form. It doesn't need to be perfect; it just needs to exist.
+Skip it.
 
 ### Personal Project
-You must explicitly state what third-party SDKs you use. If you use Expo, state that you use Expo. If you use PostHog for analytics, state that you collect anonymized usage data. Google Play now has a mandatory "Data Safety" form that you must fill out in the Console. Your answers on that form must match what your Privacy Policy says. If your Data Safety form says "We do not collect any data" but your app includes the Facebook SDK, Google will suspend your app.
+Use a free online generator (like Termly or Iubenda). Host the text on a simple free Notion page and paste the link in the App Store.
 
 ### Production SaaS
-Your Privacy Policy must be a legally binding document hosted on a dedicated route (e.g., \`yourdomain.com/privacy\`). It must clearly outline your Data Retention policy: how long you keep data, and how a user can request account deletion. Apple recently mandated that any app offering account creation *must* offer in-app account deletion. If your privacy policy does not explain the deletion process, Apple will reject the update.
+You must take this seriously, especially if you collect emails, locations, or health data (GDPR / CCPA compliance). If you use third-party tools like Google Analytics or RevenueCat, you must disclose that they also process user data. Host the policy on your official company website domain.
 
-### Production SaaS
-Enterprise compliance (SOC2, HIPAA, GDPR) requires a meticulously drafted Privacy Policy by a specialized legal team. You must explicitly cover cross-border data transfers, the exact encryption standards used at rest and in transit, and the contact information for your designated Data Protection Officer (DPO). You must also implement a mandatory consent flow within the app UI (e.g., a Cookie/Tracking banner) before initializing any analytics SDKs.
+## Accountability Check
+- [ ] I have generated and hosted a compliant Privacy Policy.`,
+  'mobiletermsofservice': `# Terms of Service (EULA)
 
-## Implementation Steps
-\`\`\`prompt
-Act as a Legal Tech Expert. I am building a mobile app that uses Supabase for authentication, PostHog for analytics, and RevenueCat for in-app purchases. Generate a comprehensive Privacy Policy in Markdown format that complies with GDPR and CCPA requirements. Include a specific section on "Data Deletion Requests".
-\`\`\`
-
-## Validation Checklist
-- [ ] A Privacy Policy document is generated and hosted on a publicly accessible URL.
-- [ ] The policy explicitly names all third-party SDKs used in the app.
-- [ ] The policy includes instructions for users to request data deletion.
-`,
-  'mobiletermsofservice': `# Terms of Service
-
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-The Terms of Service (ToS) or End User License Agreement (EULA) is your legal shield. It outlines the rules users must follow to use your app and limits your liability if things go wrong. While Apple provides a standard EULA by default, having your own custom terms is critical if your app involves user-generated content, subscriptions, or physical services.
+The Terms of Service (or End User License Agreement - EULA) protects you legally. It states that users cannot abuse your API, reverse-engineer your app, or sue you if the app crashes and deletes their unsaved work.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip this. Apple's default EULA covers you enough for a weekend hackathon. Do not waste time drafting legal documents when you should be writing code.
+Skip it.
 
 ### Personal Project
-If your app allows users to post content (forums, comments, image uploads), you must have a ToS that strictly prohibits Objectionable Content (hate speech, nudity, illegal acts). Apple requires all User Generated Content (UGC) apps to have a reporting mechanism and a strict ToS. Without these, your app will be rejected under Guideline 1.2.
+Skip it, unless you allow users to post public content (User Generated Content - UGC), in which case Apple requires you to have terms stating you will moderate bad behavior.
 
 ### Production SaaS
-If you offer auto-renewing subscriptions, Apple and Google have highly specific requirements for your ToS. You must explicitly state the length of the subscription, the price, the auto-renewal terms, and instructions on how the user can cancel the subscription via their OS settings. Failure to clearly state auto-renewal terms in your ToS (and on the paywall UI itself) will result in an immediate rejection.
+If your app allows User Generated Content (like a social feed), Apple strictly requires an EULA, a "Report User" button, and a "Block User" feature. If you do not have these three things, your app will be rejected instantly. If you offer subscriptions, your EULA must explicitly state the billing terms.
 
-### Production SaaS
-Enterprise applications require a bespoke Master Services Agreement (MSA) or highly specific ToS that covers Service Level Agreements (SLAs), indemnification, and binding arbitration clauses. If your app handles financial transactions or medical advice, your ToS must include massive, explicitly styled disclaimers (ALL CAPS) stating that the service does not constitute professional advice and that liability is capped at the amount paid by the user.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Tech Lawyer. Generate a Terms of Service for a mobile SaaS app that includes User Generated Content and auto-renewing subscriptions. Ensure it contains the mandatory Apple App Store clauses regarding Objectionable Content, user reporting, and auto-renewal cancellation instructions.
-\`\`\`
-
-## Validation Checklist
-- [ ] The Terms of Service is hosted on a publicly accessible URL.
-- [ ] A clause prohibiting objectionable content is included (if applicable).
-- [ ] Auto-renewing subscription terms are clearly defined (if applicable).
-`,
+## Accountability Check
+- [ ] I have generated Terms of Service that protect my business liability.`,
   'mobilecontentrating': `# Content Rating
 
-**Estimated Time:** 30 minutes
+**Estimated Time:** 15 min
 
 ---
 
 ## Why this matters
-Both Google Play and the App Store require you to complete a Content Rating questionnaire before publishing. This determines the age restriction of your app (e.g., 4+, 12+, 17+). Answering this questionnaire incorrectly is a violation of store policies and can lead to your app being pulled from the store for "misleading metadata."
+You must fill out a questionnaire detailing if your app contains violence, profanity, or gambling. This determines the age rating (e.g., 4+, 12+, 17+) on the App Store.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-You still have to fill this out. Just answer "No" to all questions (assuming your app doesn't have violence, gambling, or explicit content) to get an "Everyone" rating.
+Skip it.
 
 ### Personal Project
-Be honest. If your app is a social network or forum, you must declare that it contains "User Generated Content." This will generally elevate your age rating to 12+ or 17+ automatically, because you cannot control what users post. If you try to claim a 4+ rating for an app with a global chat room, Apple will reject it.
+Just answer the questions honestly in the console.
 
 ### Production SaaS
-If your app deals with medical information, alcohol, dating, or real-money gambling, you must pay extreme attention to the content rating. Certain categories are completely banned in specific countries. For example, apps dealing with cryptocurrency or VPNs face massive regional restrictions. You must ensure your declared rating exactly matches the core functionality of your app to avoid retroactive bans.
+Be completely truthful. If you declare your app is 4+ but it contains unmoderated social feeds where users can post explicit content, Apple will pull your app from the store. If your app offers medical advice or crypto trading, expect heavy scrutiny and long review times.
 
-### Production SaaS
-Enterprise apps often fall under the "Productivity" or "Business" category and easily achieve an "Everyone" rating. However, if your enterprise app involves unfiltered web access (like a custom browser) or handles highly regulated content (like cannabis delivery logistics), you must provide explicit documentation and legal licenses to the app review teams to justify your presence on the store, regardless of the age rating.
+## Accountability Check
+- [ ] I have accurately completed the Content Rating questionnaire.`,
+  'mobiletesttracks': `# Test Tracks (Beta Distribution)
 
-## Implementation Steps
-\`\`\`prompt
-Act as an App Store Reviewer. My app is a [Describe App] that allows users to [Describe Features]. What age rating should I expect on iOS and Android? Are there any specific Content Rating questions I need to be careful with regarding User Generated Content or unfiltered web access?
-\`\`\`
-
-## Validation Checklist
-- [ ] The IARC Content Rating questionnaire is completed in the Google Play Console.
-- [ ] The Apple App Store age rating questionnaire is completed.
-- [ ] Apps with User Generated Content (UGC) have correctly declared this, accepting the higher age rating.
-`,
-  'mobiletesttracks': `# Test Tracks
-
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-You should never deploy a build straight to Production. Both Google and Apple provide dedicated "Test Tracks" (Internal, Closed Beta, Open Beta, TestFlight) that allow you to distribute the app to real devices for QA testing before public release.
+You should never release V1 directly to the public. You need to distribute the app to internal testers and early beta users to catch the crashes that only happen on physical devices, not simulators.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip Test Tracks entirely. Use Expo Go or sideload the app directly. Setting up TestFlight or Google Play Internal Testing takes too long for a 48-hour event.
+Skip it.
 
 ### Personal Project
-For iOS, use TestFlight. You can add up to 100 internal testers just by entering their Apple IDs. For Android, use the "Internal Testing" track. You simply add the Gmail addresses of your friends. This allows them to download the app directly from the Google Play Store app as if it were published, but it remains completely hidden from the public.
+Use Expo Go (if using Expo) to share the app via a QR code with your friends.
 
 ### Production SaaS
-You must implement a strict multi-track deployment pipeline. Your CI/CD (like EAS Build) should push every successful merge on the \`main\` branch directly to the Google Play Internal Track and iOS TestFlight. Once QA approves the internal build, you promote that exact same binary to the "Closed Beta" track. Never rebuild the app between testing and production; always promote the identical, tested binary artifact.
+Use Apple TestFlight for iOS and Google Play Console Internal Testing for Android. You must upload your compiled binary to these platforms. TestFlight requires a brief Apple review before you can invite external users via a public link. This is the safest way to validate that your production API keys, push notifications, and In-App Purchases actually work in a live environment.
 
-### Production SaaS
-Enterprise deployment often bypasses public test tracks entirely. You will use Mobile Device Management (MDM) solutions or Apple Business Manager to distribute the app directly to employee devices. If using public stores, you must utilize "Staged Rollouts" (Phased Releases). You release the app to 1% of users, monitor Crashlytics for 24 hours, then expand to 10%, 50%, and 100%. If a critical memory leak occurs, you halt the rollout immediately.
+## Accountability Check
+- [ ] I have successfully distributed a beta build to a physical device.`,
+  'mobilebetatesting': `# Beta Testing & QA
 
-## Implementation Steps
-\`\`\`prompt
-Act as a Mobile Release Manager. Outline a strict promotion strategy using Google Play Console and App Store Connect. Explain the difference between 'Internal Testing', 'Closed Testing', and 'Open Testing' on Android, and how to use 'Phased Releases' on iOS to minimize the impact of critical bugs.
-\`\`\`
-
-## Validation Checklist
-- [ ] The initial binary has been uploaded to the Internal Testing track / TestFlight.
-- [ ] Test accounts have been added to the internal testers list.
-- [ ] The build installs and launches successfully on a physical test device.
-`,
-  'mobilebetatesting': `# Beta Testing
-
-**Estimated Time:** 1-2 weeks (Active Testing)
+**Estimated Time:** Days/Weeks
 
 ---
 
 ## Why this matters
-Beta testing is the crucible where your app proves it can survive the real world. Simulators do not replicate terrible cellular connections, older hardware, aggressive background task killers, or real user behavior. 
+Developers are blind to their own bugs. You know exactly what buttons to click, so you never encounter the error states. Real users will click things in the wrong order, deny permissions, and lose network connection. Beta testing exposes this.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-You don't have time for beta testing. The judges are your beta testers. Make sure the "Happy Path" works flawlessly.
+Hand your phone to the person sitting next to you for 60 seconds before the demo.
 
 ### Personal Project
-Distribute a public TestFlight link and a Google Play Closed Beta invite link on Reddit, Twitter, or Discord. Your goal here is to find the weird edge cases: Does the UI break on a tiny iPhone SE? Does the app crash on an older Android 10 device? Focus heavily on fixing crashes before the public launch.
+Test the app on your own physical phone for 3 days before launching it.
 
 ### Production SaaS
-Beta testing must be systematic. Use tools like Instabug or Sentry's user feedback widget to allow beta testers to shake their phone and submit a bug report with logs attached. You must track your "Crash-Free Users" percentage in Crashlytics. Do not promote a beta to production unless you have a 99.5% crash-free session rate over a 7-day period.
+Invite 10-50 users to TestFlight. Ask them to complete the core user journey. Do not help them. Watch where they get confused. Monitor your crash reporting dashboard (Sentry/Crashlytics) religiously during this phase. Do not launch to the public App Store until the beta crash rate is zero.
 
-### Production SaaS
-Enterprise beta testing involves UAT (User Acceptance Testing) with strict sign-offs from stakeholders. You must provide testers with explicit test scripts ("Log in, navigate to inventory, scan barcode, verify sync"). You must monitor the backend metrics during the beta: Did the mobile app cause a massive spike in database reads? Did the connection pool hold up? Beta is not just for UI bugs; it's a stress test for the entire infrastructure.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a QA Lead. Create a structured 5-step User Acceptance Testing (UAT) script for my beta testers. The app is a [Insert App Type]. The script should cover Authentication, the Core User Flow, Offline Behavior (Airplane Mode), and Edge Cases.
-\`\`\`
-
-## Validation Checklist
-- [ ] The app has been distributed to at least 10 external beta testers.
-- [ ] Crashlytics (or similar) is actively monitoring beta sessions.
-- [ ] The crash-free session rate is above 99%.
-`,
+## Accountability Check
+- [ ] I have gathered feedback and fixed bugs identified by beta testers.`,
   'mobilereleasechecklist': `# Release Checklist
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Deploying a mobile app is not like deploying a website. You cannot just push a hotfix if you break production. App review takes 24-48 hours. If you push a critical bug, your users are stuck with a broken app for two days while you wait for Apple/Google to approve your patch. The release checklist is your last line of defense.
+Launching an app is stressful. A checklist ensures you don't accidentally ship the app pointing to the `localhost` staging database instead of the production database (which happens more often than you think).
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-- [ ] Does it compile?
-- [ ] Does the core feature work?
-- [ ] Ship it.
+Checklist: Does it crash? No? You're good.
 
 ### Personal Project
-Ensure you have removed all debug code. Did you leave a \`console.log\` printing user passwords? Did you forget to switch your API keys from the Stripe Test Environment to the Live Environment? Do a full walkthrough of the app on a physical device, not a simulator.
+Checklist: Are all API keys set to production? Is the app name correct? Submit for review.
 
 ### Production SaaS
-Your release checklist must be institutionalized. 
-1. Database migrations run successfully on Production.
-2. All environment variables in EAS/Fastlane point to Production.
-3. The app version and build number have been incremented correctly.
-4. "What's New" release notes are written and translated.
-5. The binary has been tested on both iOS and Android physical devices using cellular data (not just Wi-Fi).
+Create a rigorous pre-flight checklist. Verify: Environment variables are set to PROD. Billing is pointing to Stripe/RevenueCat Live Mode (not Sandbox). Sentry/Crashlytics is active. Privacy Policy is linked. Support email is functional. Once checked, hit "Submit for Review". Note that Apple review can take 24-48 hours, so do not plan a massive PR launch campaign for the exact day you hit submit.
 
-### Production SaaS
-Enterprise releases require a formal "Go/No-Go" meeting. You must verify that the Customer Support team is trained on the new features and equipped with troubleshooting documentation. You must verify that the infrastructure team has scaled the backend to handle the influx of users downloading the update. The rollout must be staged (1%, 10%, 100%) and monitored by SREs (Site Reliability Engineers) watching Datadog dashboards for latency spikes.
-
-## Implementation Steps
+## AI Execution Phase
 \`\`\`prompt
-Act as a Mobile Release Manager. Provide an exhaustive, 20-point pre-flight release checklist for pushing a React Native app to production. Include checks for environment variables, API endpoints, performance profiling, and store metadata.
+Act as a QA Manager. Create a comprehensive, 10-point Pre-Launch Checklist for a mobile app deployment. Cover Environment Variables, Analytics, Payment Sandboxes, and App Store Metadata.
 \`\`\`
 
-## Validation Checklist
-- [ ] All API keys and endpoints point to Production.
-- [ ] App version and build number are incremented.
-- [ ] The binary has been tested on a physical device over a cellular network.
-`,
+## Accountability Check
+- [ ] I have completed the final release checklist and submitted the app for review.`,
   'mobilepitchdeck': `# Pitch Deck
 
-**Estimated Time:** 2-3 hours
+**Estimated Time:** 2-4 Hours
 
 ---
 
 ## Why this matters
-In a hackathon, the best code rarely wins. The best *story* wins. Your pitch deck is the vehicle for that story. It must quickly establish the problem, explain why existing solutions fail, and demonstrate how your mobile app uniquely solves it. A clunky app with a brilliant pitch will consistently beat a flawless app with a confusing pitch.
+A pitch deck is the visual narrative of your business. Whether you are pitching to hackathon judges or Silicon Valley venture capitalists, the structure is largely the same: Hook, Problem, Solution, Traction, Market, Team, Ask.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Keep it under 10 slides. You will likely only have 3 to 5 minutes to present. Use a template from Pitch.com or Canva. Do not fill slides with bullet points; use massive font sizes and focus entirely on visuals. The slides should support what you are saying, not replace it.
+Keep it under 10 slides. Spend the majority of your time on the "Problem" and the "Demo". The judges only care about what you actually built.
 
 ### Personal Project
-If you are building this for your portfolio, treat the Pitch Deck as a "Case Study" presentation. Recruiters don't want to see a 5-minute sales pitch; they want to see your design thinking, the architectural challenges you faced, and how you solved them. Include slides on your tech stack choices and database schema.
+Irrelevant.
 
 ### Production SaaS
-If you are raising venture capital, your deck must follow the classic Sequoia Capital structure. The most critical slides are the "Problem", "Solution", "Market Size", and "Traction". Investors do not care about your code; they care about distribution. How are you going to acquire the first 10,000 users? Your deck must answer that question immediately.
+Your deck must be flawless. Use massive fonts; no one wants to read a wall of text on a slide. Your "Traction" slide is the most important; if you have revenue or high daily active users, put it front and center. Keep the deck under 15 slides. The goal of a pitch deck is not to secure a check; the goal is simply to secure the *next meeting*.
 
-### Production SaaS
-Enterprise pitches (B2B sales) are entirely different from VC pitches. A B2B sales deck must focus intensely on ROI (Return on Investment). You must demonstrate how your mobile app will save the client money, reduce their liability, or increase their throughput. Include case studies, security compliance certifications (SOC2), and integration timelines.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Y-Combinator Partner. I am building a [Insert App Type] mobile app. Generate a 10-slide pitch deck outline. For each slide, provide the main headline, the talking points I should memorize, and the visual elements I should put on the screen to keep the audience engaged.
+## The Data We Need From You
+**What is the single most impressive metric or fact you can put on your "Traction" slide?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] The deck is strictly under 10 slides.
-- [ ] There are no paragraphs of text; only short, readable bullet points.
-- [ ] The deck explicitly identifies the target user and the core problem being solved.
-`,
+## Accountability Check
+- [ ] I have a compelling, highly visual pitch deck.`,
   'mobiledemoscript': `# Demo Script
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Live demos are terrifying. Wi-Fi drops, APIs timeout, and simulators crash. A Demo Script ensures you know exactly where to click, what to say, and what to avoid clicking. A well-rehearsed script masks technical flaws and highlights the "Magic Moment" of your application.
+Live demos fail. The Wi-Fi drops, the API crashes, or you forget what button to click. A script ensures you hit your talking points and transition smoothly through the "Happy Path."
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Never do a live demo if you can avoid it. Record your screen using Loom or QuickTime beforehand. Talk over the pre-recorded video during your presentation. This guarantees zero loading screens, zero crashes, and perfect pacing within the strict 3-minute time limit.
+Write down exactly what you will say and exactly what you will click. Time yourself. If the limit is 3 minutes, your script should take 2 minutes and 30 seconds to allow for pauses and nervous stuttering.
 
 ### Personal Project
-Write a script for a 60-second YouTube or Twitter demo. Start with the "Hook" in the first 3 seconds to stop the user from scrolling. Do not start by showing the login screen. Start by showing the absolute most valuable feature of the app, then work backward if necessary.
+If you are recording a Loom video for Twitter, write a quick outline so you don't ramble.
 
 ### Production SaaS
-Your demo script is your primary sales tool. It should be highly interactive. Do not just talk *at* the user; ask them questions. "How much time do you currently spend doing X?" Then, show them how your app does it in one click. Tailor the script to the specific buyer persona (e.g., show the reporting dashboard to the CEO, but show the quick-entry form to the field worker).
+Never do a "live" demo of a risky, complex feature to an investor if you can avoid it. Record a high-quality video of the "Happy Path" and narrate over it. If you must demo live, have a pre-recorded backup video ready to play the second the app crashes.
 
-### Production SaaS
-Enterprise demos often involve integrating with the client's actual data. Your script must include a sandbox environment pre-loaded with highly realistic, industry-specific dummy data. Showing an enterprise client a demo filled with "Test User 1" and "Foo Bar" destroys credibility. Script exactly how you will demonstrate complex security features, like SSO login or offline-sync conflict resolution.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Master Presenter. I need a 3-minute demo script for my mobile app. The "Magic Moment" of my app is [Describe the best feature]. Generate a second-by-second script detailing exactly what I should be clicking on the screen, and exactly what words I should be saying to the audience while I click it.
-\`\`\`
-
-## Validation Checklist
-- [ ] A screen recording of the "Happy Path" has been captured as a backup.
-- [ ] The script skips the login/signup flow and jumps straight to the core value.
-- [ ] The entire demo can be completed in under 3 minutes.
-`,
+## Accountability Check
+- [ ] I have a timed, rehearsed script for demonstrating my app.`,
   'mobilesubmissionchecklist': `# Submission Checklist
 
-**Estimated Time:** 1 hour
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-Hackathons end with a hard deadline. If you miss the Devpost submission cutoff by 10 seconds, your entire weekend of work is disqualified. The submission process involves gathering links, writing descriptions, rendering videos, and adding team members. It always takes longer than you think.
+In a rush to submit, it is incredibly easy to forget a critical requirement (like linking the GitHub repo or filling out the team member names).
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Stop coding 2 hours before the deadline. Seriously. Use those 2 hours to render the demo video, upload it to YouTube, write the Devpost description, take nice screenshots, and ensure all team members are officially added to the project page.
+Verify: Is the video uploaded? Is the GitHub repo public? Is the description filled out? Are all team members added? Submit it 30 minutes before the deadline; the submission portal *will* crash in the last 5 minutes due to traffic.
 
 ### Personal Project
-Treat your GitHub README as your submission page. Ensure you have high-quality GIFs of the app running, a clear explanation of the tech stack, instructions on how to run it locally, and a link to the live App Store / Play Store page if available.
+Irrelevant.
 
 ### Production SaaS
-Your submission is your Product Hunt launch. You must prepare a "Maker Comment" explaining why you built it. You must have animated GIFs for your gallery, a catchy tagline, and a coordinated strategy to reply to comments immediately as they come in. Launching is a 24-hour full-time job.
+Irrelevant (Use the App Store Release Checklist instead).
 
-### Production SaaS
-Enterprise deployment is not a "submission" to a public board; it's a handoff. Your checklist must include transferring ownership of all AWS/GCP accounts, rotating all production API keys, providing the final signed MSA (Master Services Agreement), and delivering the complete API documentation to the client's internal IT team.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Hackathon Veteran. My team is submitting our mobile app to Devpost in 2 hours. Provide a rapid-fire, prioritized checklist of exactly what we need to write, record, and upload to ensure our project page looks incredibly professional to the judges.
-\`\`\`
-
-## Validation Checklist
-- [ ] The Demo Video is uploaded to YouTube/Vimeo and is publicly accessible.
-- [ ] All team members are officially added to the submission platform.
-- [ ] The GitHub repository is set to Public and contains a proper README.
-`,
-  'mobileanalytics': `# Analytics
-
-**Estimated Time:** 2-4 hours
-
----
-
-## Why this matters
-Without analytics, you are flying blind. You might think users love your new "Social Feed" feature, but analytics might reveal that 90% of users click the tab, scroll for 2 seconds, and immediately close the app. Analytics turn subjective assumptions into objective facts, allowing you to iterate on what actually drives revenue and retention.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Don't implement analytics. It takes too much time to set up properly and provides zero value during a 3-minute demo.
-
-### Personal Project
-Implement a lightweight solution like PostHog. You don't need to track every single button click. Focus on the core funnel: App Opened -> Account Created -> Core Action Performed -> Purchase Completed. If you track nothing else, track those 4 events so you can see exactly where users are abandoning your app.
-
-### Production SaaS
-You must implement a strict Tracking Plan. Do not allow developers to randomly name events (\`clicked_button\` vs \`Button Clicked\`). Use a unified nomenclature like \`Object_Action\` (e.g., \`Subscription_Purchased \`Profile_Updated\`). Furthermore, you must separate your tracking environments. Never send development analytics to your production Mixpanel/Amplitude project; it will permanently corrupt your data.
-
-### Production SaaS
-Enterprise analytics requires strict data governance and privacy compliance (GDPR/CCPA/HIPAA). You often cannot use third-party cloud analytics. You must implement self-hosted solutions (like self-hosted PostHog or Snowplow) or stream raw event data directly into your own secure data warehouse (e.g., Google BigQuery or Snowflake). You must also ensure that absolutely zero Personally Identifiable Information (PII), such as email addresses or plain-text names, is passed in the analytics payload.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Data Architect. Create a structured 'Tracking Plan' for a [Insert App Type] mobile app. Define the top 10 most critical custom events I should track, including the exact nomenclature format (e.g., Noun_Verb), and list the specific metadata properties that should be attached to each event.
-\`\`\`
-
-## Validation Checklist
-- [ ] Analytics SDK is installed and successfully capturing events.
-- [ ] Development data is strictly separated from Production data.
-- [ ] The core conversion funnel (Signup -> Activation -> Purchase) is fully instrumented.
-`,
-  'mobilenotificationsstrategy': `# Notifications Strategy
-
-**Estimated Time:** 2-3 hours
-
----
-
-## Why this matters
-Push notifications are the most powerful tool in mobile software. When used correctly, they double user retention. When abused, they cause immediate app deletions. A generic "Check out what's new!" blast to your entire user base is spam. You need a strategy that delivers the right message, to the right user, at the exact right time.
-
-## Strategic Guidance
-
-### Hackathon Mode
-You only need local notifications to prove the concept works. Trigger a hardcoded notification 5 seconds after the user taps a button during the demo.
-
-### Personal Project
-Focus on Transactional notifications, not Promotional ones. If your app is a task manager, send a notification when a deadline is 1 hour away. Do not send notifications asking them to upgrade to Premium. You must also nail the permission request: never ask for push notification permissions immediately on app launch. Wait until the user performs an action where notifications provide obvious value (e.g., after they create their first task, ask: "Want us to remind you when this is due?").
-
-### Production SaaS
-You must implement Behavioral Segmentation using tools like OneSignal or Braze. Stop blasting everyone. Create segments: "Active users who haven't logged a meal in 48 hours" or "Users who abandoned the checkout screen." Furthermore, you must respect time zones. If you schedule a global blast at 9:00 AM EST, your users in Tokyo will receive a promotional ping at 10:00 PM, resulting in massive opt-outs.
-
-### Production SaaS
-Enterprise notifications must support deep integrations and complex routing. If a server goes down, an alert must trigger a push notification, an SMS, and an email simultaneously to the on-call engineer via PagerDuty integration. You must also implement strict rate-limiting. A bug in your backend loop should never result in a user receiving 500 identical push notifications in a single minute.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Mobile CRM Expert. I am building a [Insert App Type]. Design a Push Notification strategy. First, write the exact UI copy I should use to ask for notification permissions at the perfect 'Magic Moment'. Second, outline 3 automated, behavior-triggered push notification campaigns to re-engage churning users.
-\`\`\`
-
-## Validation Checklist
-- [ ] The app requests notification permissions only after demonstrating value, never on initial launch.
-- [ ] Automated campaigns are triggered by user behavior, not just scheduled blasts.
-- [ ] Push notifications respect user time zones to avoid late-night disturbances.
-`,
-  'mobileuserfeedback': `# User Feedback
-
-**Estimated Time:** 1-2 hours
-
----
-
-## Why this matters
-If you don't provide users with an easy way to complain *inside* the app, they will complain *outside* the app?"on the App Store, where the review becomes permanent. Capturing frustration early allows you to fix bugs before they destroy your average rating, and capturing praise allows you to build exactly what your power users want.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Don't build a feedback system. If judges have feedback, they will tell you to your face.
-
-### Personal Project
-Add a simple "Send Feedback" button in your settings menu that opens the user's native email client (using \`mailto:\`) pre-filled with your support email address. Include the device model and OS version in the email body automatically. This takes 5 minutes to implement and provides immense value.
-
-### Production SaaS
-You must proactively intercept feedback. Implement a tool like Instabug. If the app crashes, or if the user physically shakes their phone in frustration, prompt them with a feedback form. Furthermore, you must categorize feedback rigorously (Bug vs Feature Request). Do not let feedback rot in a generic inbox; pipe it directly into a dedicated Slack channel or a tool like Linear so the engineering team sees the pain points in real-time.
-
-### Production SaaS
-Enterprise feedback loops are highly structured. You must implement NPS (Net Promoter Score) or CSAT (Customer Satisfaction) micro-surveys directly within the app workflow. However, these surveys must be heavily throttled (e.g., never show an NPS survey to a user who has experienced a crash in the last 7 days, and never survey the same user more than once every 90 days). Feedback must be tied directly to the user's CRM profile (Salesforce) so Account Executives are aware of client sentiment before renewal calls.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Customer Success Manager. I am adding an in-app feedback form to my mobile app. Write 3 distinct, highly effective micro-survey questions designed to figure out why users are dropping off during the onboarding flow. Keep the questions under 10 words each to maximize response rates.
-\`\`\`
-
-## Validation Checklist
-- [ ] A frictionless method exists for users to submit feedback directly within the app.
-- [ ] Device metadata (OS version, app version, device model) is automatically attached to bug reports.
-- [ ] Feedback is routed directly to a location where the development team actively monitors it.
-`,
-  'mobilereviewsratings': `# Reviews & Ratings
-
-**Estimated Time:** 1-2 hours
-
----
-
-## Why this matters
-App Store ratings are the ultimate social proof. An app with a 4.8-star rating will organically acquire significantly more users at a lower Cost Per Install (CPI) than an identical app with a 3.2-star rating. You must actively engineer your app to farm 5-star reviews while suppressing negative ones.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Completely irrelevant. Do not implement ratings prompts.
-
-### Personal Project
-You must implement the native \`SKStoreReviewController\` (iOS) and Google Play In-App Review API. Never use custom popups that force the user out of the app to the store; the native APIs allow the user to tap 5 stars without ever leaving the screen. The golden rule: Only ask for a review immediately after the user experiences a "Win" (e.g., they just completed a level, finished a workout, or successfully exported a file).
-
-### Production SaaS
-You must implement the "Rating Intercept" strategy. Ask the user a qualifying question first: "Are you enjoying [App Name]?" 
-- If they tap "No", route them to your internal User Feedback form to capture the complaint privately. 
-- If they tap "Yes", immediately trigger the native 5-star review prompt. 
-This guarantees that only happy users are sent to the App Store, artificially inflating your rating to 4.8+.
-
-### Production SaaS
-Enterprise applications distributed privately via MDM (Mobile Device Management) do not use App Store ratings. However, if it is a public-facing enterprise app (like a banking app), ratings are a matter of public relations. You must integrate API listeners that alert the PR and Customer Support teams in real-time if a 1-star review mentioning "security" or "breach" is posted. Apple and Google provide APIs to respond to reviews programmatically; you must have an SLA (Service Level Agreement) to respond to all 1-star and 2-star reviews within 24 hours.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Mobile Growth Hacker. I want to implement the 'Rating Intercept' strategy in my React Native app using Expo's \`StoreReview\` API. Provide the specific logic flow and UI copy to ensure I only ask for App Store reviews when the user is highly satisfied, while routing angry users to a private feedback form.
-\`\`\`
-
-## Validation Checklist
-- [ ] The app uses native in-app review APIs (not external links to the App Store).
-- [ ] Review prompts are only triggered after a specific "Win State" or positive action.
-- [ ] A 'Rating Intercept' pattern is used to route negative sentiment to internal support instead of the public store.
-`,
-  'mobilereferralprograms': `# Referral Programs
-
-**Estimated Time:** 1-2 weeks
-
----
-
-## Why this matters
-Organic growth is the holy grail of mobile apps. If every user invites 1.1 new users, your app will grow exponentially without spending a single dollar on marketing (a Viral Coefficient > 1). However, users will not invite their friends simply because your app is "cool." You must engineer a referral mechanism that offers a mutually beneficial, high-value reward.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Skip this. Building a referral system requires deep linking, authentication state management, and database tracking. It is far too complex for a weekend project.
-
-### Personal Project
-Focus on simple, non-incentivized sharing. Implement the native Share API (\`Share.share()\` in React Native). Pre-populate the share message with a catchy hook and a direct link to your App Store page. For example: "I just beat my high score on [App Name]! Can you beat it? [Link]". This takes 10 minutes to build and leverages the user's existing social networks.
-
-### Production SaaS
-You must build a double-sided incentive loop. "Give $10, Get $10" is the industry standard for a reason. You must use Deep Linking tools like Branch.io to track the entire lifecycle: User A sends a link -> User B clicks the link -> User B is routed to the App Store -> User B installs the app -> User B opens the app -> Branch passes the referral ID to your backend -> Both users are credited. This must work flawlessly, even if the user didn't have the app installed when they clicked the link (Deferred Deep Linking).
-
-### Production SaaS
-Enterprise referral programs are often called "Affiliate Programs" or "Partner Networks." You are not offering in-app credits; you are offering cold hard cash. You must integrate with an affiliate tracking system like PartnerStack or Rewardful. You must handle tax implications (e.g., collecting W-9 forms if an affiliate earns more than $600/year). The referral logic must handle complex B2B attribution windows (e.g., the affiliate gets 20% of the referred client's revenue for the first 12 months).
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Mobile Architect. I want to build a 'Give $10, Get $10' referral loop in my React Native app using Branch.io for deferred deep linking and Supabase for the backend. Outline the exact database schema required to track 'Invites' and 'Rewards', and provide the React Native code snippet to extract the referring user's ID on initial app launch.
-\`\`\`
-
-## Validation Checklist
-- [ ] A deep linking provider (like Branch.io) is integrated to handle Deferred Deep Links.
-- [ ] A double-sided incentive is clearly communicated in the UI.
-- [ ] The backend successfully attributes the installation to the referring user and distributes the reward.
-`,
-  'mobileroadmap': `# Roadmap
-
-**Estimated Time:** 2-4 hours
-
----
-
-## Why this matters
-A public roadmap turns your users into stakeholders. When users see that you are actively building the features they requested, their tolerance for bugs increases, and their churn rate decreases. It proves your app is a living, breathing product, not a stagnant piece of software abandoned by its creator.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Skip this. Your project only exists for the weekend.
-
-### Personal Project
-Create a simple Notion page or a public GitHub Kanban board. Link to it directly from the app's settings menu. Keep it simple: "Working On", "Up Next", and "Completed." When you finish a feature, leave it in the "Completed" column for a few months so new users can see your recent velocity.
-
-### Production SaaS
-You must use a dedicated roadmap tool like Canny or Productboard that allows users to upvote features. Do not build features just because you think they are cool; build the features that have 500 upvotes. This allows you to crowdsource your product management. When you finally release a feature, these tools will automatically email every single user who upvoted it, driving an immediate spike in re-engagement.
-
-### Production SaaS
-Enterprise roadmaps are highly political and strictly confidential. You never publish a public roadmap because your competitors will copy your strategy, and your sales team will make promises you cannot keep. Instead, use tools like Linear or Jira internally. You must categorize feature requests by Revenue Impact (e.g., "Feature X is blocking a $500k contract renewal"). The roadmap is presented directly to key stakeholders during Quarterly Business Reviews (QBRs), not posted on the internet.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Senior Product Manager. I am setting up a public roadmap for my mobile app using Canny.io. Suggest 5 specific 'Feature Categories' I should create to keep the feedback organized. Then, draft a short, welcoming message I can pin to the top of the board explaining how users should submit and upvote ideas.
-\`\`\`
-
-## Validation Checklist
-- [ ] A public roadmap is hosted and accessible via a link inside the app.
-- [ ] Users have a mechanism to submit new ideas and upvote existing ones.
-- [ ] The roadmap is actively categorized into 'Planned', 'In Progress', and 'Completed'.
-`,
-  'mobilescalingstrategy': `# Scaling Strategy
+## Accountability Check
+- [ ] I have verified all requirements and submitted my project.`,
+  'mobileanalytics': `# Analytics Review
 
 **Estimated Time:** Ongoing
 
 ---
 
 ## Why this matters
-Most apps fail because nobody uses them. The second most common reason apps fail is because *everybody* uses them, all at once. If a massive influencer posts a TikTok about your app and you get 50,000 downloads in an hour, your database connection pool will exhaust, your server will crash, and all 50,000 users will be greeted with a blank white screen. You must architect for virality.
+Once the app is live, you must look at the data. If 1,000 people download the app but only 10 people create an account, your onboarding flow is broken. Analytics tell you *where* the leak is.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Don't worry about scaling. The free tier of Supabase or Firebase can handle a hackathon demo easily. 
+Irrelevant.
 
 ### Personal Project
-Focus on database indexing and connection pooling. If your app queries a massive \`users\` table by email, ensure the \`email\` column has a unique index. If you are using a relational database (Postgres), ensure you are using a connection pooler (like Supavisor or PgBouncer). Serverless functions (like Vercel or AWS Lambda) can spin up thousands of instances instantly, and if each instance opens a direct connection to your database, your DB will crash in seconds.
+Check your dashboard occasionally to see if anyone is actually using it.
 
 ### Production SaaS
-You must implement heavy caching. Your mobile app should not hit your primary database for static or semi-static data. Put a CDN (Cloudflare) in front of your API. Implement Redis to cache the results of expensive queries. If a user loads the global leaderboard, that query should be calculated once every 5 minutes and served from Redis to the next 10,000 users. On the mobile client side, implement aggressive local caching (React Query / Apollo) so the app feels instantly fast even on poor cellular connections.
+Review your analytics dashboard daily. Build a "Funnel Report" (e.g., App Open -> Sign Up Clicked -> Sign Up Completed -> Paywall Viewed -> Purchase). Identify the step with the biggest drop-off percentage and dedicate your next engineering sprint entirely to fixing that specific screen.
 
-### Production SaaS
-Enterprise scaling requires geographical distribution, read-replicas, and High Availability (HA). If your app serves users in Europe and Asia, you cannot route all API traffic to a single database in Virginia. You must deploy edge functions and read-replicas closer to the user to reduce latency. You must conduct massive, simulated Load Testing using tools like k6 or JMeter to prove to enterprise clients that your infrastructure can handle 10,000 requests per second with 99.99% uptime.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Senior Cloud Architect. My React Native app uses Supabase (Postgres) and serverless Edge Functions. I expect a spike of 10,000 concurrent users. Provide a strict checklist on how to configure PgBouncer/Supavisor for connection pooling, and how to implement Redis caching to protect my primary database from read-heavy API requests.
+## The Data We Need From You
+**What is the current conversion rate from 'App Download' to 'Core Action Completed'?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Database connection pooling is configured to prevent connection exhaustion.
-- [ ] Expensive, read-heavy queries are cached via Redis or a CDN.
-- [ ] The mobile client utilizes aggressive local caching (e.g., React Query) to reduce unnecessary API calls.
-`,
-  'mobilefeedback': `# Feedback
+## Accountability Check
+- [ ] I actively review my analytics to identify bottlenecks in the user journey.`,
+  'mobilenotificationsstrategy': `# Notifications Strategy
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** Ongoing
 
 ---
 
 ## Why this matters
-When you launch a Personal Project, your friends and early adopters will inevitably find bugs or desire new features. If you don't provide a frictionless way for them to tell you, they simply won't. Capturing this feedback is the only way to know what to build next.
-
-## Strategic Guidance
-
-### Personal Project
-Keep it incredibly simple. Do not integrate complex enterprise tools. Add a "Send Feedback" button in your app's settings menu.
-- **Option A:** Use the \`mailto:\` protocol to open their email app, pre-filling the subject line and automatically appending their device OS and app version in the body.
-- **Option B:** Link directly to a free Google Form or Typeform.
-
-The goal is zero friction. When you receive an email saying "the app crashed when I did X," reply personally within 24 hours. Early users who receive a personal email from the developer turn into lifelong advocates for the app.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a React Native Developer. Provide the exact code snippet to implement a 'Send Feedback' button that uses the native \`Linking.openURL('mailto:...')\` API. The code must dynamically grab the user's OS (iOS/Android) and the current App Version, and inject them into the body of the email so I have debugging context.
-\`\`\`
-
-## Validation Checklist
-- [ ] A 'Feedback' button is clearly visible in the settings or profile menu.
-- [ ] The feedback mechanism requires less than 3 taps to open.
-- [ ] Device context (OS, Version) is automatically included to aid debugging.
-`,
-  'mobilestatemanagementimplementation': `# State Management
-
-**Estimated Time:** 3-5 hours
-
----
-
-## Why this matters
-Mobile apps are fundamentally state machines. At any given moment, the app needs to know: Is the user logged in? Is the data loading? Is the device offline? If you pass state down manually through 15 layers of UI components (prop-drilling), your app will become an unmaintainable nightmare. A global state management system is mandatory for any serious application.
+Push notifications are a double-edged sword. Used correctly, they double your DAU. Used incorrectly, users will revoke notification permissions or uninstall the app completely.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Don't use Redux. It takes 3 hours just to write the boilerplate. Use Zustand (for React Native) or standard Context APIs. You just need a place to store the current user's ID and maybe a global array of items.
+Irrelevant.
 
 ### Personal Project
-Zustand is currently the gold standard for React Native. It has zero boilerplate, does not require wrapping your entire app in a Provider, and handles re-renders intelligently. If you are building with Flutter, use Provider or Riverpod.
+Only send notifications for things that are highly urgent and directly requested by the user.
 
 ### Production SaaS
-State management in production must be split into two distinct categories: **Server State** and **Client State**.
-1. **Server State**: Use React Query (TanStack Query) or Apollo GraphQL. This handles fetching, caching, synchronizing, and updating server data. Do not reinvent the wheel by storing API responses in Redux.
-2. **Client State**: Use Zustand or Redux Toolkit for pure UI state (e.g., "Is the dark mode toggle checked?").
+Notifications must be Timely, Personal, and Actionable. Never send generic "Come back and see what's new!" blasts. Send "Your Uber driver is 2 minutes away." Implement "Quiet Hours" logic on your backend so you don't wake up users in Europe with a notification triggered by an event in California.
 
-### Production SaaS
-Enterprise applications often have massive localized datasets (e.g., a field technician needing access to 10,000 offline equipment manuals). You must implement an offline-first state synchronization engine like WatermelonDB or Realm. State management must handle complex conflict resolution algorithms when the device comes back online and tries to sync changes with the master database.
+## Accountability Check
+- [ ] My push notifications provide immediate value without annoying the user.`,
+  'mobileuserfeedback': `# User Feedback Loop
 
-## Implementation Steps
-\`\`\`prompt
-Act as a Senior React Native Engineer. Provide the code to set up a global Zustand store for a [Insert App Type]. The store needs to hold the authenticated user's profile and a boolean flag for 'isOfflineMode'. Also, provide an example of how to read and write to this store from a deep child component without causing unnecessary re-renders.
-\`\`\`
-
-## Validation Checklist
-- [ ] A dedicated global state management library (Zustand, Riverpod, etc.) is configured.
-- [ ] Server state (API responses) is managed separately from Client state (UI toggles).
-- [ ] Prop-drilling has been eliminated for globally required variables like user sessions.
-`,
-  'mobilepushnotificationsimplementation': `# Push Notifications
-
-**Estimated Time:** 4-6 hours
+**Estimated Time:** Ongoing
 
 ---
 
 ## Why this matters
-Push notifications require a complex dance between Apple's APNs (Apple Push Notification service), Google's FCM (Firebase Cloud Messaging), and your backend server. A single misconfigured certificate or a missing permission check will result in silent failures.
+Analytics tell you *what* users are doing; feedback tells you *why* they are doing it. If you build features in a vacuum without talking to users, you will build the wrong things.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use Expo Push Notifications if you are building with React Native. It completely abstracts away the difference between APNs and FCM, allowing you to trigger notifications with a simple REST API call. Do not attempt to configure raw APNs certificates during a 48-hour event.
+The judges' Q&A session is your feedback loop.
 
 ### Personal Project
-Firebase Cloud Messaging (FCM) is the industry standard and completely free. You can use it for both Android and iOS. Focus on getting a simple device token, storing it in your database (e.g., Supabase) tied to the user's \`user_id and triggering a test notification from your backend.
+Put a Twitter link or an email address in the app settings so people can reach you.
 
 ### Production SaaS
-You must implement a dedicated CRM tool like OneSignal or Braze. These tools handle complex logic like timezone routing, A/B testing notification copy, and badge-count management. Furthermore, you must handle token invalidation. When a user uninstalls the app or rotates their device, their FCM token becomes invalid. Your backend must listen for these error responses and aggressively prune dead tokens from the database to avoid sending thousands of ghost requests.
+Implement an easy way to provide feedback directly inside the app (e.g., a "Send Feedback" button that opens a pre-filled email or an in-app form). When users cancel their subscription, you MUST ask them why (Too expensive? Missing feature? Buggy?). Read every single piece of feedback.
 
-### Production SaaS
-Enterprise applications often require HIPAA or SOC2 compliance. You cannot send sensitive information (e.g., "Your HIV test results are ready") in the payload of a push notification, because push notifications are delivered in plain text over Apple/Google servers. Instead, send a "Data-Only" silent notification that wakes up the app in the background, forces the app to establish a secure SSL connection to your proprietary server to download the sensitive data, and then triggers a local notification securely.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Mobile Architecture Expert. I need to implement Push Notifications using Expo and Firebase Cloud Messaging (FCM). Provide a step-by-step checklist of the exact certificates and keys I need to generate in the Apple Developer Portal and Google Cloud Console. Then, provide the backend Node.js code to send a push notification to a specific user using their stored FCM device token.
+## The Data We Need From You
+**How can a user inside your app easily contact you right now?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Push notification permissions are requested gracefully at the appropriate time.
-- [ ] Device tokens are securely stored in the database and tied to the correct user.
-- [ ] The backend is configured to prune invalid or expired device tokens automatically.
-`,
-  'mobilefrontendui': `# Frontend (UI)
+## Accountability Check
+- [ ] I have a frictionless channel for users to report bugs or request features.`,
+  'mobilereviewsratings': `# App Store Reviews & Ratings
 
-**Estimated Time:** 1-2 weeks
+**Estimated Time:** Ongoing
 
 ---
 
 ## Why this matters
-The UI is the product. A fast backend with a clunky, janky interface will be perceived as a slow, broken app. Mobile UI development is notoriously difficult because you must account for thousands of different screen sizes, safe area insets (notches/dynamic islands), and platform-specific interaction paradigms (iOS swipe-to-go-back vs Android hardware back button).
+Apps with a 3-star rating do not get downloaded. The App Store algorithm heavily favors apps with a high volume of 5-star reviews. You must actively engineer ways to get happy users to leave a review.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use a pre-built component library. NativeBase or Tamagui for React Native, or Cupertino/Material for Flutter. Do not waste 6 hours trying to perfectly center a custom button shadow. 
+Irrelevant.
 
 ### Personal Project
-Focus intensely on responsive design and safe areas. Your app might look perfect on an iPhone 15 Pro simulator, but it will overlap with the camera notch on an iPhone 13 Mini, and stretch horribly on an iPad. Use \`SafeAreaView\` heavily, and rely on Flexbox rather than hardcoded pixel heights.
+Ask your friends to leave a 5-star review so your app doesn't look dead.
 
 ### Production SaaS
-You must implement a strict Design System. Define your typography, color palettes, and spacing tokens in a central file. Never hardcode a color like \`#FF0000\` in a component; use \`theme.colors.danger\`. Furthermore, you must respect the system-level accessibility settings. If a user has "Larger Text" enabled in their iOS settings, your UI must scale gracefully without breaking the layout or truncating critical buttons.
+Use the native Apple/Google "In-App Review" API. Timing is everything. NEVER ask for a review when the app opens or after an error. ONLY ask for a review immediately after the user experiences a "win" (e.g., they just completed a workout, or successfully booked a flight). Reply to all 1-star reviews publicly and professionally; it shows prospective users that you actually care and fix bugs.
 
-### Production SaaS
-Enterprise UIs must be highly accessible (WCAG compliance). Every interactive element must have proper accessibility labels for VoiceOver and TalkBack screen readers. The UI must support complex data-density toggles (e.g., allowing field workers to switch between a visual "Card" layout and an information-dense "Table" layout depending on their environment).
+## Accountability Check
+- [ ] I automatically prompt users for an App Store review after a positive action.`,
+  'mobilereferralprograms': `# Referral Programs
 
-## Implementation Steps
-\`\`\`prompt
-Act as a Principal Frontend Engineer. I am building the UI for a [Insert App Type] using React Native. Provide a boilerplate \`theme.ts\` file that defines a robust color palette (supporting Light and Dark modes), spacing tokens, and typography sizes. Then, provide an example of a custom \`Button\` component that uses these theme tokens.
-\`\`\`
-
-## Validation Checklist
-- [ ] The UI renders correctly across multiple screen sizes (small phones, large phones, tablets).
-- [ ] Safe Area Insets (notches, home indicators) are respected on all screens.
-- [ ] A centralized Design System (tokens for colors, spacing, typography) is actively used.
-`,
-  'mobilenavigation': `# Navigation
-
-**Estimated Time:** 2-3 hours
+**Estimated Time:** 2-4 Hours
 
 ---
 
 ## Why this matters
-Web navigation is linear (URLs). Mobile navigation is a stack of cards. If you configure your navigation incorrectly, users will press the "Back" button and accidentally exit the app, or they will navigate in circles until the app runs out of memory and crashes. 
+Acquiring a new user via Facebook Ads can cost $5 to $15. Acquiring a new user because their friend invited them costs $0. Referral programs turn your existing users into your marketing team.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use the simplest possible router. In React Native, use Expo Router (file-based routing). It requires zero boilerplate. Just create a file named \`profile.tsx\` and it automatically becomes a screen.
+Skip it.
 
 ### Personal Project
-React Navigation is the industry standard. You must understand the difference between a \`Stack Navigator\` (pushing screens on top of each other) and a \`Tab Navigator\` (switching between parallel histories). A common architecture is a root Stack Navigator containing a Tab Navigator for the main app, and a separate Stack Navigator for the authentication flow.
+Skip it.
 
 ### Production SaaS
-You must handle Deep Linking. If a user clicks a link in their email (e.g., \`myapp://reset-password?token=123\`), the app must intercept that URL, parse the token, and automatically push the correct screen onto the navigation stack, regardless of whether the app was running in the background or completely closed.
+Offer a two-sided reward: "Invite a friend, and you both get a free month." Use deep links (Universal Links) so that when the friend clicks the link, downloads the app, and opens it, the backend automatically attributes the signup to the referrer without requiring them to type in a 6-digit promo code (which adds friction and ruins the conversion rate).
 
-### Production SaaS
-Enterprise navigation requires strict Role-Based Access Control (RBAC) at the router level. If an employee's permissions are revoked mid-session, the router must immediately eject them from the administrative screens and route them back to a safe zone. You must also implement complex "State Restoration" so if the OS kills the app while the worker is in the background, they are returned to the exact nested screen they were on when they reopen it.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a React Native Navigation Expert. Provide the code for a robust navigation architecture using React Navigation v6. The structure must include an 'AuthStack' (Login, Signup) and a 'MainTabNavigator' (Home, Settings). Include the logic to automatically switch between these two stacks based on a global \`isAuthenticated\` boolean.
+## The Data We Need From You
+**What is the specific incentive you will offer users to invite their friends?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Navigation flows correctly utilize Stacks (for drill-down) and Tabs (for parallel sections).
-- [ ] Deep linking is configured to allow direct routing via external URLs.
-- [ ] The Android hardware back button behaves as expected (going back a screen, not exiting the app unexpectedly).
-`,
-  'mobileapis': `# APIs & Networking
+## Accountability Check
+- [ ] I have designed a frictionless referral mechanism.`,
+  'mobileroadmap': `# Product Roadmap
 
-**Estimated Time:** 1-2 days
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Mobile devices have terrible internet connections. They transition from 5G to 3G to complete dead zones when the user walks into an elevator. If your app assumes a perfect broadband connection and fails silently when a network request drops, your users will assume your app is broken.
+A public roadmap tells your users that the app is alive and actively improving. It builds trust, which reduces churn (cancellations).
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use the native \`fetch\` API or standard Axios. Don't worry about retry logic or offline states. Just get the data on the screen for the demo.
+Your roadmap is the final slide of your presentation: "If we had another 48 hours, here is what we would build."
 
 ### Personal Project
-Implement a robust data-fetching library like React Query or SWR. These libraries automatically handle loading states, error states, and automatic retries. If the user opens the app, it will instantly show the cached data from their last session while quietly fetching the fresh data in the background.
+Keep a simple Trello or Notion board so you remember what you wanted to build next.
 
 ### Production SaaS
-You must implement aggressive timeouts and global error handling. If your backend is struggling and takes 30 seconds to respond, your mobile app should abort the request after 10 seconds and show a friendly "Connection Timeout" message. Furthermore, you must handle token refreshing (JWTs) seamlessly. If an API request fails with a 401 Unauthorized, your networking layer (Axios Interceptors) should automatically pause all requests, fetch a new access token using a refresh token, and then replay the queued requests without the user ever noticing.
+Publish a public roadmap using a tool like Canny or a Notion page. Let users vote on upcoming features. Crucially, do not put hard dates (like "Launching Oct 15th") on your public roadmap, because in software development, you will inevitably miss the deadline and disappoint users. Use "Now", "Next", and "Later" columns instead.
+
+## Accountability Check
+- [ ] I have a roadmap to communicate future value to my users.`,
+  'mobilescalingstrategy': `# Scaling Strategy
+
+**Estimated Time:** 1 Hour
+
+---
+
+## Why this matters
+If your app successfully finds product-market fit, it will experience rapid growth. A scaling strategy dictates how you will expand your team, your infrastructure, and your marketing channels to handle this growth without the company collapsing.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Irrelevant.
+
+### Personal Project
+Irrelevant.
 
 ### Production SaaS
-Enterprise APIs require strict security protocols like Certificate Pinning. This ensures the app will ONLY communicate with your specific server, protecting against Man-in-the-Middle (MITM) attacks on compromised corporate WiFi networks. Furthermore, enterprise apps must support WebSocket connections for real-time telemetry, gracefully handling abrupt disconnects and applying exponential backoff strategies for reconnections.
+Identify the bottlenecks. If you double your user base tomorrow, what breaks? Does customer support get overwhelmed? Does the database slow down? Your scaling strategy should address hiring (e.g., "We need a dedicated QA engineer"), infrastructure (e.g., "Migrating from Supabase to a managed AWS cluster"), and marketing (e.g., "Expanding from Facebook Ads to influencer partnerships").
 
-## Implementation Steps
+## Accountability Check
+- [ ] I know exactly what systems will break if my app goes viral tomorrow.`,
+  'mobilefeedback': `# User Feedback
+
+**Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+Feedback is the raw data you use to improve the product. If you ignore it, your competitors will listen to it and steal your users.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Listen to the judges' questions. Their questions will reveal what parts of your pitch or app were confusing.
+
+### Personal Project
+If you share it online, read the comments.
+
+### Production SaaS
+Set up a system to aggregate feedback from the App Store, support emails, and in-app surveys into a single dashboard (like a Notion database). Tag the feedback by feature. If 50 people request "Dark Mode", bump it to the top of the feature prioritization list.
+
+## Accountability Check
+- [ ] I have a centralized system for tracking and tagging user feedback.`,
+  'mobilestatemanagementimplementation': `# State Management Implementation
+
+**Estimated Time:** Variable
+
+---
+
+## Why this matters
+This is where you actually write the code for the architecture you planned. Poor state management implementation leads to "Zombie" UI (buttons that don't respond) and memory leaks that crash the app after 10 minutes of use.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Just pass props down. If you need global state, use a simple React Context or a global variable. Don't waste time configuring strict type safety for your state.
+
+### Personal Project
+Set up Zustand or Jotai (for React Native) and define your global store. It's incredibly fast to set up and provides a great developer experience.
+
+### Production SaaS
+You must strictly type your state store using TypeScript. Ensure that you are not storing massive arrays of data (like a 10,000 item list) in your global state manager, as this will destroy performance. Use memoization (`useMemo`, `useCallback`) to prevent unnecessary re-renders when the state changes. Implement persistent state for things like user preferences so they survive app restarts.
+
+## AI Execution Phase
 \`\`\`prompt
-Act as a Senior Network Engineer. I am using Axios in React Native. Provide the code for an Axios Interceptor that handles JWT token expiration. If an API request returns a 401, the interceptor must pause the request, hit the \`/refresh-token\` endpoint, update the global auth state, and seamlessly retry the original request.
+Act as a Senior Mobile Developer. I am using [Insert State Library, e.g., Zustand] in my [Insert Framework] app. Please provide the exact code to create a global store for managing the user's "Theme" (light/dark) and "Auth Token". Include the logic to persist this specific state to local device storage.
 \`\`\`
 
-## Validation Checklist
-- [ ] A dedicated data-fetching library (e.g., React Query) is used to handle caching and loading states.
-- [ ] JWT refresh logic is handled seamlessly via network interceptors.
-- [ ] API requests fail gracefully with user-friendly error messages when the device is offline.
-`,
+## Accountability Check
+- [ ] I have successfully implemented and tested my global state manager.`,
+  'mobilepushnotificationsimplementation': `# Push Notifications Implementation
+
+**Estimated Time:** 2-4 Hours
+
+---
+
+## Why this matters
+Wiring up push notifications requires coordinating the mobile frontend, the device OS (iOS/Android), Apple/Google servers, and your backend database. It is one of the most failure-prone features to build.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Fake it. Trigger a local notification (a notification scheduled entirely on the device without a server) after a 5-second timeout to simulate receiving a message.
+
+### Personal Project
+Use Expo Push Notifications. They provide a unified API so you don't have to write separate Swift and Kotlin code to handle incoming messages.
+
+### Production SaaS
+You must gracefully handle notification permissions. Build a "Pre-permissions" screen that explains *why* the user should allow notifications before triggering the native OS prompt. Your backend must listen for token refresh events and update the database, otherwise you will end up sending notifications to dead devices, which Apple/Google will penalize you for.
+
+## AI Execution Phase
+\`\`\`prompt
+Act as a Mobile Engineer. I am using [Insert Tech Stack, e.g., Expo]. Provide the frontend code required to request push notification permissions gracefully, retrieve the device token, and send that token to my backend API. Include error handling for if the user denies permission.
+\`\`\`
+
+## Accountability Check
+- [ ] I can successfully send a push notification from my backend to a physical device.`,
+  'mobilefrontendui': `# Frontend (UI) Implementation
+
+**Estimated Time:** Variable
+
+---
+
+## Why this matters
+This is where you translate your wireframes into actual code. Mobile UI is unforgiving; if your layout breaks on a smaller screen, the app is unusable. You must handle the "Safe Area" (not drawing underneath the notch or the bottom swipe bar).
+
+## Strategic Guidance
+
+### Hackathon Mode
+Hardcode margins and padding. Use a UI library to slap pre-built cards and buttons onto the screen. Focus strictly on the "Happy Path."
+
+### Personal Project
+Use Flexbox extensively. Do not use absolute positioning unless absolutely necessary. Build reusable functional components for your Typography and Buttons early on.
+
+### Production SaaS
+You must build responsive layouts that adapt to iPhone SEs and iPhone Pro Maxes alike. Use `SafeAreaView` wrappers to avoid OS UI elements. Ensure your components support Dark Mode out of the box by using semantic color variables (e.g., `theme.background`) rather than hardcoded colors (e.g., `white`). Ensure touch targets (buttons) are at least 44x44 points to comply with accessibility standards.
+
+## The Data We Need From You
+**What is the most complex UI screen you need to build right now?**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## Accountability Check
+- [ ] My core UI screens are built, responsive, and respect Safe Areas.`,
+  'mobilenavigation': `# Navigation Implementation
+
+**Estimated Time:** 2 Hours
+
+---
+
+## Why this matters
+Mobile navigation requires managing a "Stack" of screens. If a user clicks "Profile" -> "Settings" -> "Privacy", the app must remember that path so the "Back" button works correctly. Poorly implemented navigation leads to endless loops and memory leaks.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use whatever router is default for your framework (e.g., Expo Router). Set up a basic Bottom Tab navigator and throw all your screens in there.
+
+### Personal Project
+Implement nested navigation. Have a Bottom Tab for the main sections, but use a Stack Navigator inside each tab so users can drill down into details without losing the bottom bar.
+
+### Production SaaS
+You must implement a robust routing architecture. Separate your "Unauthenticated Stack" (Login, Signup) from your "Authenticated Stack" (Main App) using conditional rendering based on the auth state. This prevents users from accidentally hitting the "Back" button and returning to the Login screen after they've already logged in. Handle deep link routing explicitly.
+
+## AI Execution Phase
+\`\`\`prompt
+Act as a Mobile Architect. I am using [Insert Router, e.g., React Navigation v6]. Provide the boilerplate code for a root navigator that conditionally renders an 'AuthStack' (Login/Signup) or an 'AppStack' (Bottom Tabs) based on a boolean `isAuthenticated` variable.
+\`\`\`
+
+## Accountability Check
+- [ ] Users can navigate deep into the app and return safely using the back button.`,
+  'mobileapis': `# API Integration
+
+**Estimated Time:** Variable
+
+---
+
+## Why this matters
+Your beautiful UI is useless without data. Integrating APIs involves fetching data, showing loading spinners, handling network errors, and updating the UI when the data arrives.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use simple `fetch` calls inside `useEffect` hooks. If it errors out, just `console.log` it. You don't have time for robust retry logic.
+
+### Personal Project
+Use a data-fetching library like React Query or SWR. It automatically handles loading states, error states, and caching, drastically reducing the amount of boilerplate code you have to write.
+
+### Production SaaS
+You must use a robust data-fetching layer with strict TypeScript interfaces for the API responses. If the backend changes a field name, your mobile app should throw a TypeScript error at compile time, not crash at runtime. Implement caching, pull-to-refresh functionality, and infinite scrolling (pagination) for any lists longer than 20 items.
+
+## The Data We Need From You
+**List 3 critical API endpoints your mobile app needs to consume.**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## Accountability Check
+- [ ] My app successfully fetches, displays, and mutates data from the backend.`,
   'mobilemediauploads': `# Media Uploads
 
-**Estimated Time:** 1-2 days
+**Estimated Time:** 2 Hours
 
 ---
 
 ## Why this matters
-Handling media (images, videos, audio) on mobile is incredibly error-prone. Modern iPhones shoot 4K HDR video that can easily exceed 2GB per minute. If you attempt to upload a raw 2GB video file directly to your Node.js backend over a flaky cellular connection, the app will crash from OOM (Out of Memory) errors, the user's data cap will be destroyed, and the server will timeout.
+Uploading photos or videos requires requesting camera/gallery permissions, handling large file sizes, and dealing with the app going to the background during a slow upload. A failed upload is incredibly frustrating for users.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Don't build media uploads. Rely on text inputs or hardcode dummy images for the demo. If you absolutely must have an avatar upload, use Firebase Storage, compress the image heavily, and do it strictly over WiFi.
+Use a simple image picker library to get the image URI, and upload it directly to Supabase Storage or Cloudinary. Don't worry about compressing the image.
 
 ### Personal Project
-You must implement local, on-device compression before the upload ever starts. Use libraries like \`react-native-image-crop-picker\` to resize user avatars down to 500x500 pixels. Use Supabase Storage or AWS S3 for the actual hosting.
+Implement basic image compression before uploading. A modern smartphone photo can be 10MB; you do not want to upload that raw file over a cellular network.
 
 ### Production SaaS
-Never upload media directly to your own backend API. Always use "Pre-signed URLs" (or Direct Uploads). 
-1. The mobile app requests a secure, temporary URL from your backend.
-2. The backend generates a signed AWS S3 URL and returns it to the app.
-3. The app uploads the compressed file *directly* to S3, bypassing your backend entirely. 
-This saves massive amounts of server bandwidth. Furthermore, you must implement background uploading. If the user minimizes the app while a 50MB video is uploading, the upload should continue in the background OS process, not instantly terminate.
+You must aggressively compress and resize images natively on the device *before* uploading. Use presigned URLs to upload directly to S3. For video or large files, you must implement background uploading so the upload continues even if the user minimizes the app. Show a clear progress bar (0% to 100%) during the upload.
 
-### Production SaaS
-Enterprise media handling often requires real-time streaming and intense security. If a medical worker is uploading a photo of a patient's chart, that photo must never be saved to the device's public camera roll. It must be captured directly into the app's encrypted sandbox, compressed, and uploaded via secure TLS to a HIPAA-compliant S3 bucket, leaving zero trace on the physical device.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Mobile Storage Expert. I am building a React Native app that allows users to upload profile pictures to an AWS S3 bucket. Provide the code to compress an image locally to under 1MB using \`react-native-image-crop-picker request a pre-signed URL from a Node.js backend, and execute a direct \`PUT\` request to S3 using Axios.
+## The Data We Need From You
+**What library are you using to access the device's camera roll?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Images/Videos are compressed locally on the device before transmission.
-- [ ] Media is uploaded directly to a storage bucket (S3, Cloud Storage) via signed URLs, not passed through the primary backend API.
-- [ ] Sensitive media is not accidentally saved to the user's public camera roll.
-`,
-  'mobilemapslocation': `# Maps & Location
+## Accountability Check
+- [ ] Users can select, compress, and successfully upload media to the cloud.`,
+  'mobilemapslocation': `# Maps & Location Services
 
-**Estimated Time:** 3-5 hours
+**Estimated Time:** 2-4 Hours
 
 ---
 
 ## Why this matters
-Location services drain the battery faster than almost any other hardware component. Furthermore, they are the number one reason users deny permissions. If you build a maps feature poorly, the OS will flag your app for excessive background battery usage, and users will uninstall it out of frustration.
+Location services are powerful but heavily restricted by the OS for privacy reasons. Rendering interactive maps also consumes massive amounts of memory and battery.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use the standard Google Maps SDK or Apple Maps (via \`react-native-maps\`). Hardcode the coordinates for your demo location. Do not attempt to calculate complex routing or distance matrixes during a weekend.
+Use a simple MapView component (like `react-native-maps`). Don't worry about custom markers or complex polygon rendering.
 
 ### Personal Project
-Focus on "One-Time" location requests. Do not ask for "Always On" background location unless absolutely necessary. When the user opens the map, fetch their coordinates once, pan the camera, and stop tracking. Use Mapbox if you want highly customizable, beautiful map styles; otherwise, stick to the default OS maps to save on bundle size.
+Implement basic geolocation to get the user's current coordinates. Be aware that running location services continuously in the background will destroy battery life.
 
 ### Production SaaS
-You must handle edge cases gracefully. What happens if the user denies location permissions? The app must not crash; it should fall back to asking them to manually type in their zip code. What happens if the GPS signal is weak (e.g., inside a parking garage)? The UI must indicate that the location is an approximation (show a large blue radius circle instead of a precise dot). 
+You must handle location permissions perfectly. Explain *why* you need the location before triggering the native OS prompt. If the user denies permission, the app must degrade gracefully (e.g., allow them to type in a zip code instead). Optimize map rendering by clustering markers if there are more than 50 points on the screen, otherwise the map will lag heavily.
 
-### Production SaaS
-Enterprise applications (like fleet tracking or delivery logistics) require "Always On" background tracking. You must write native Swift/Kotlin code or use robust libraries like \`react-native-background-geolocation\`. You must implement intelligent throttling: track the user every 10 meters when they are driving on a highway, but only track them once every 5 minutes if their accelerometer detects they are sitting completely still in a warehouse, thereby saving battery.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a GIS (Geographic Information System) Developer. I am implementing a Map view in React Native using \`react-native-maps\`. Provide the code to prompt the user for 'When In Use' location permissions, fetch their current coordinates precisely, and render a custom Map Marker at that location with a fallback UI if they deny the permission.
+## The Data We Need From You
+**Will you require "While Using" or "Always Allow" (Background) location permissions?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] The app requests 'When In Use' permission rather than 'Always On' (unless strictly required).
-- [ ] The app degrades gracefully if the user explicitly denies location tracking.
-- [ ] Complex maps features are optimized to prevent massive battery drain.
-`,
+## Accountability Check
+- [ ] My app renders maps efficiently and handles location permissions correctly.`,
   'mobiledevicepermissions': `# Device Permissions
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Apple and Google are cracking down on privacy. If your app crashes because you tried to access the camera without asking for permission first, you will fail the App Store review. Worse, if you ask for 5 different permissions immediately when the app launches, 80% of users will deny them all and instantly delete the app.
+Apple and Google are cracking down on privacy. If your app crashes because it tried to access the camera without permission, Apple will reject it. If you ask for contacts permission without a clear reason, the user will uninstall your app.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Don't worry about elegant permission flows. Just trigger the OS prompts whenever needed so the demo works.
+Just trigger the permission prompt immediately when the app opens. The judges will click "Allow".
 
 ### Personal Project
-Implement "Just-in-Time" permissions. Never ask for Camera access on the home screen. Only ask for it the exact millisecond the user taps the "Take Photo" button. This provides obvious context to the user, massively increasing the approval rate. Use a library like \`react-native-permissions\` to normalize the API across iOS and Android.
+Handle the denied state. If the user denies camera access, show a message saying "Camera access is required. Go to Settings to enable it."
 
 ### Production SaaS
-You must implement a "Pre-Permission" screen (also known as a soft prompt). Because you can only trigger the native OS permission dialog *once*, you should show a custom UI modal first: "We need access to your camera to scan this barcode. [Allow] [Not Now]". 
-- If they tap "Not Now", you dismiss your modal and save the native prompt for later.
-- If they tap "Allow", *then* you trigger the native OS prompt. 
-If they previously denied the native prompt, you must detect the \`blocked\` state and provide a custom UI button that deep-links them directly to the iOS/Android Settings app to manually toggle it back on.
+You must use the "Double Prompt" strategy. First, show a beautiful, custom UI screen explaining *why* you need the camera and how it benefits the user. Only when they click "Continue" on *your* screen do you trigger the native OS permission prompt. If they deny the native prompt, you cannot trigger it again; you must provide a button that deep-links them directly to your app's page in the OS Settings.
 
-### Production SaaS
-Enterprise apps distributed via MDM (Mobile Device Management) can often bypass permission dialogs because the corporation owns the device and pre-approves the permissions via configuration profiles. However, your code must still gracefully handle the theoretical possibility of a permission denial to prevent fatal crashes during edge cases or audits.
-
-## Implementation Steps
+## AI Execution Phase
 \`\`\`prompt
-Act as a Mobile Privacy Architect. Provide the React Native code to implement a 'Soft Prompt' strategy for Camera permissions. The code must check the current permission status, show a custom UI modal explaining *why* the camera is needed, trigger the native OS prompt if approved, and handle the \`blocked\` state by linking the user to their device settings.
+Act as a Mobile UX Expert. My app needs access to the user's [Insert Permission, e.g., Contacts]. Write the copy (Headline and short description) for a "Pre-permission" screen that convinces the user why granting this permission is highly beneficial to them, without sounding creepy.
 \`\`\`
 
-## Validation Checklist
-- [ ] Permissions are asked for 'Just-in-Time', tied to specific user actions.
-- [ ] A 'Soft Prompt' strategy is used to prevent burning the one-time native OS dialog.
-- [ ] The app successfully deep-links users to the OS Settings app if permissions are permanently blocked.
-`,
-  'mobileofflinefeatures': `# Offline Features
+## Accountability Check
+- [ ] I handle all device permissions securely and gracefully.`,
+  'mobileofflinefeatures': `# Offline Features Implementation
 
-**Estimated Time:** 2-3 weeks
+**Estimated Time:** 4+ Hours
 
 ---
 
 ## Why this matters
-Mobile apps are not web browsers. If a user opens a mobile app on the subway and sees a blank white screen with a spinning loader that never finishes, the app feels broken. A premium mobile app should render instantly from local cache, allowing the user to interact with the UI even with zero internet connection.
+Implementing true offline support (where users can read, edit, and create data without internet) is one of the hardest engineering challenges in mobile development due to complex state synchronization and conflict resolution.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Ignore offline support entirely. You are building this for a demo on stable WiFi. 
+Skip it. Assume 100% uptime.
 
 ### Personal Project
-Implement optimistic UI updates and simple caching. Use React Query or Apollo to cache the last known state of your API requests to \`AsyncStorage\`. When the app opens, hydrate the cache immediately so the user sees data. If they "Like" a post while offline, immediately toggle the heart to red in the UI, queue the request, and send it when the connection is restored.
+Implement basic caching. If the network request fails, load the last known good data from `AsyncStorage`. Do not allow offline edits.
 
 ### Production SaaS
-You must implement a robust background sync engine. Use WatermelonDB or Realm as your primary data source. The React UI should *only* ever read from the local SQLite database. A background worker process handles pulling changes from your cloud database and pushing local mutations to the cloud. This architectural pattern (Offline-First) guarantees the app is always 60FPS and never blocked by network latency.
+If your app is offline-first, you must use a robust local database (like WatermelonDB). Changes made offline must be saved locally and pushed to an "Action Queue". When the device regains connection, a background worker must process the queue and sync with the backend. You must handle conflicts (e.g., "Server version is newer than local version"). Provide a clear UI indicator (like a cloud icon with a slash) so the user knows they are working offline.
 
-### Production SaaS
-Enterprise offline features (e.g., an app for oil rig inspectors) require complex Conflict Resolution. If Inspector A edits a safety report offline, and Inspector B edits the same report online, what happens when Inspector A reconnects? You must implement CRDTs (Conflict-free Replicated Data Types) or strict server-side timestamps to merge changes deterministically without destroying data or prompting the user with confusing "Merge Conflict" modals.
-
-## Implementation Steps
-\`\`\`prompt
-Act as an Offline-First Architect. I am building a React Native app that needs to work entirely without internet. Explain the architectural difference between 'Caching API responses' vs a true 'Offline-First Database' like WatermelonDB. Then, provide the database schema required to track \`sync_status\` (e.g., pending, synced, error) for local mutations before they are pushed to the backend.
+## The Data We Need From You
+**What specific data must be available to the user when they have no internet connection?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] The app renders meaningful data (from cache) immediately upon opening without an internet connection.
-- [ ] Actions taken while offline (e.g., liking a post, creating a draft) are queued and executed when the connection returns.
-- [ ] The UI clearly communicates the current sync status (e.g., "Offline - Changes saved locally") to the user.
-`,
-  'mobileanalyticsevents': `# Analytics Events
+## Accountability Check
+- [ ] My app behaves predictably when the network connection drops.`,
+  'mobileanalyticsevents': `# Analytics Events Implementation
 
-**Estimated Time:** 1-2 days
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-If you simply install an analytics SDK and let it "auto-track" everything, you will end up with a garbage dump of useless data (e.g., \`button_click_492\`). Good analytics require a deliberate, structured Tracking Plan. You need to track the exact moments of value creation and the exact moments of user friction.
+If you don't track events, you are flying blind. You need to know if users are actually clicking the "Checkout" button or if they are abandoning the cart on the previous screen.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip analytics entirely. They provide zero value during a weekend sprint.
+Skip it entirely.
 
 ### Personal Project
-Focus on the core funnel. Track exactly three things:
-1. **Activation**: Did they finish onboarding? (e.g., \`Account_Created\`)
-2. **Core Action**: Did they use the main feature? (e.g., \`Workout_Logged\`)
-3. **Monetization**: Did they hit the paywall? (e.g., \`Paywall_Viewed\`)
-Do not track arbitrary tab switches or scroll depths. 
+Implement a basic tracker. Fire an event when the app opens, and when the core action is completed. Use `console.log` to verify they are firing.
 
 ### Production SaaS
-You must implement a strict Noun-Verb nomenclature (e.g., \`Profile_Updated \`Subscription_Purchased\`). Every event must have attached metadata (properties). Tracking \`Subscription_Purchased\` is useless if you don't know *which* tier they bought. The properties should include \`tier: "premium" \`price: 9.99 and \`currency: "USD"\`. Furthermore, you must wrap your analytics calls in a centralized service class. Never call \`mixpanel.track()\` directly from 50 different UI components; call \`AnalyticsService.trackPurchase()\`.
+Create a centralized `AnalyticsService` wrapper. Do not scatter third-party tracking code (like `Mixpanel.track()`) directly inside your UI components. Wrap it so you can easily swap analytics providers later. You must track events with rich properties (e.g., `track('purchase_completed', { item_id: 123, price: 9.99 })`). Ensure you handle opt-outs for GDPR/CCPA compliance.
 
-### Production SaaS
-Enterprise analytics require strict privacy controls. You must implement a kill-switch to disable all tracking if the user opts out (GDPR/CCPA compliance). You must also ensure that zero PII (Personally Identifiable Information) like emails or social security numbers are accidentally sent in the event properties. Data must often be routed through a Customer Data Platform (CDP) like Segment, which can filter PII before forwarding the data to downstream marketing tools.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Lead Data Analyst. I am launching a [Insert App Type]. Create a tabular Tracking Plan mapping out the 7 most critical events I should track. For each event, define the strict Event Name (Noun_Verb format), the Trigger Condition (exactly when it fires in the code), and the JSON payload of Metadata Properties I need to attach to it.
+## The Data We Need From You
+**List the exact names of the 3 most critical events you will track.**
+\`\`\`input
+1. 
+2. 
+3. 
 \`\`\`
 
-## Validation Checklist
-- [ ] A central Tracking Plan document exists and dictates all event nomenclature.
-- [ ] Analytics calls are abstracted into a central service, not scattered throughout UI components.
-- [ ] Strict auditing ensures no PII (Personally Identifiable Information) is sent to third-party analytics providers.
-`,
-  'mobileerrorhandling': `# Error Handling & Crash Reporting
+## Accountability Check
+- [ ] Critical user actions are actively tracked and sent to an analytics dashboard.`,
+  'mobileerrorhandling': `# Error Handling
 
-**Estimated Time:** 3-5 hours
+**Estimated Time:** 2 Hours
 
 ---
 
 ## Why this matters
-Mobile apps run on thousands of different devices with varying RAM constraints, custom OS flavors (like Samsung's One UI), and unpredictable network conditions. Crashes are inevitable. If you don't use a crash reporting tool, you will be completely blind when your app starts crashing for 10% of your users immediately after launch.
+An unhandled exception in a web browser just logs a red error to the console. An unhandled exception in a mobile app crashes the entire app instantly, throwing the user back to their home screen. Robust error handling is the difference between a 4-star app and a 1-star app.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Just wrap your API calls in basic \`try/catch\` blocks and \`console.log\` the errors. Don't waste time integrating Sentry for a 48-hour event.
+Wrap everything in `try/catch` and `console.log` the errors. Don't worry about showing nice UI alerts.
 
 ### Personal Project
-Integrate a free crash reporting tool like Firebase Crashlytics or Sentry. You don't need complex sourcemaps immediately, but you must know *if* the app is crashing. More importantly, implement a global Error Boundary in React Native to catch fatal UI errors and display a friendly "Oops, something went wrong" screen instead of freezing the app indefinitely.
+Implement a global error boundary. If the app is going to crash, show a fallback UI screen that says "Oops, something broke. Please restart the app" instead of just instantly disappearing.
 
 ### Production SaaS
-You must upload Sourcemaps to Sentry/Crashlytics as part of your CI/CD pipeline. Without sourcemaps, a crash report will just tell you the error happened in \`main.min.js:1:4092 which is entirely useless for debugging. You must also track Non-Fatal errors. If an API request fails, don't just show a toast notification; actively log that handled error to Sentry so you can detect if a third-party API is experiencing an outage.
+You must use Global Error Boundaries (in React Native) to catch rendering errors. For asynchronous errors (API calls), you must catch them and display actionable Toast messages (e.g., "Network error, please try again"). Never show raw server errors (like "SQL Syntax Error") to the user. Log all caught errors to a crash reporting service immediately.
 
-### Production SaaS
-Enterprise error handling requires SLA (Service Level Agreement) alerting. If the crash-free session rate drops below 99.9%, Sentry must automatically page the on-call engineer via PagerDuty. Furthermore, you must implement breadcrumbs (a log of the last 10 things the user clicked before the crash) and attach the user's encrypted UUID to the crash report so Customer Support can proactively email the affected enterprise client apologizing for the outage.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a DevOps Engineer. I am using Sentry in my React Native application. Provide the code to set up a global React Native Error Boundary that displays a fallback UI when the render tree crashes. Then, explain the exact bash commands I need to add to my CI/CD pipeline (GitHub Actions) to automatically upload the JavaScript sourcemaps to Sentry during the build process.
+## The Data We Need From You
+**What library will you use to show non-intrusive error messages (e.g., Toast, Snackbar)?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Sentry, Crashlytics, or an equivalent crash reporting SDK is installed and active.
-- [ ] A Global Error Boundary is implemented to prevent the app from white-screening.
-- [ ] Sourcemaps are properly uploaded so crash reports point to actual lines of code, not minified bundles.
-`,
+## Accountability Check
+- [ ] I have implemented a global error boundary to prevent hard crashes.`,
   'mobiledemodata': `# Demo Data
 
-**Estimated Time:** 2-3 hours
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-An app with an empty feed, zero friends, and no history looks broken. If you hand your phone to a Hackathon judge or an Enterprise client and they see a blank screen that says "No Data Found", you have lost their attention. The app must look fully alive and actively used the exact second they open it.
+A UI looks terrible when it is empty. During a presentation, you need the app to look vibrant and full of activity to convey its intended value.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Hardcode everything. Do not fetch demo data from an API. Create a \`constants/mockData.ts\` file filled with 20 incredibly realistic JSON objects (e.g., real names, high-quality Unsplash profile pictures, realistic text). Your UI components should map directly over this hardcoded array.
-
-### Production SaaS
-Enterprise demos require "Sandboxes." You cannot show Client A the actual production data of Client B. You must write a robust backend seeding script (e.g., \`npm run seed:demo\`) that dynamically populates a dedicated Sandbox database with thousands of rows of industry-specific, anonymized data. If you are pitching to a hospital, the demo data must look exactly like real patient records, not "Test User 1."
-
-## Implementation Steps
-\`\`\`prompt
-Act as a QA Data Engineer. I am building a [Insert App Type]. Generate a robust TypeScript file containing a mock JSON array of 15 highly realistic objects to populate my main feed. Do not use 'lorem ipsum'; write actual contextual sentences. Provide realistic image URLs from Unsplash.
-\`\`\`
-
-## Validation Checklist
-- [ ] The app never displays an "Empty State" during a demo.
-- [ ] Demo data is contextually accurate (not generic lorem ipsum).
-- [ ] (Custom Mode) A repeatable script exists to nuke and re-seed the sandbox database instantly.
-`,
-  'mobileplaystoremockups': `# Play Store Mockups
-
-**Estimated Time:** 1-2 hours
-
----
-
-## Why this matters
-Users do not read descriptions; they look at the first three screenshots. If your App Store screenshots are just raw, unedited captures of your app from a simulator, you look like an amateur. High-converting screenshots are actually marketing posters: they feature the UI inside a sleek 3D device frame, with a massive, bold headline above it explaining the value proposition.
-
-## Strategic Guidance
-
-### Hackathon Mode
-If your hackathon requires a Devpost submission, take 3 screenshots of your app, throw them into Canva, and add a bold title above them. It takes 10 minutes and makes your submission look 10x more professional than the teams who just uploaded raw simulator captures.
-
-### Production SaaS
-Enterprise apps distributed via Private App Stores or Apple Business Manager still require screenshots, but the focus shifts entirely from "Marketing" to "Utility and Security." Do not use flashy 3D renders. Show clear, annotated screenshots of the dashboard, the security login flow, and the reporting tools.
-
-## Implementation Steps
-\`\`\`prompt
-Act as an App Store Optimization (ASO) Expert. I am building a [Insert App Type]. Write the marketing copy for my 5 App Store screenshots. For each screenshot, provide the 'H1 Headline' (under 5 words) that should sit above the device frame, and describe exactly which screen of the app should be featured inside the frame.
-\`\`\`
-
-## Validation Checklist
-- [ ] Screenshots are wrapped in aesthetic device frames (not raw simulator captures).
-- [ ] Each screenshot features a bold, readable headline explaining the value.
-- [ ] The first screenshot clearly demonstrates the core "Aha! Moment."
-`,
-  'mobilemultilanguage': `# Multi-language (i18n)
-
-**Estimated Time:** 3-5 days
-
----
-
-## Why this matters
-The majority of the world does not speak English. If your app is locked to English, you are cutting off massive markets in Latin America, Europe, and Asia. Internationalization (i18n) is not just translating words; it's handling Right-to-Left (RTL) layouts for Arabic, formatting dates correctly (DD/MM/YYYY vs MM/DD/YYYY), and handling currency conversions.
-
-## Strategic Guidance
-
-### Production SaaS
-Enterprise applications often require strict localization. Do not attempt to use Google Translate for enterprise software; the terminology is too specific and a bad translation can cause legal liability (e.g., misinterpreting a medical compliance toggle). Use a professional localization platform like Lokalise or Phrase. Furthermore, you must abstract *every single string* in your app into a JSON file. Never hardcode \`<Text>Submit</Text>\`. Always use \`<Text>{t('auth.submit')}</Text>\`.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Senior React Native Architect. Provide the code to set up \`react-i18next\`. Demonstrate how to detect the user's native device language automatically, load the correct JSON translation file, and provide a fallback to English if their language is not supported. Also, explain how to handle Right-to-Left (RTL) layout switching using \`I18nManager\`.
-\`\`\`
-
-## Validation Checklist
-- [ ] Zero hardcoded text exists in the UI components.
-- [ ] The app automatically detects and defaults to the user's OS language.
-- [ ] Right-to-Left (RTL) text and layout mirroring are explicitly handled.
-`,
-  'mobilesubscriptionbilling': `# Subscription Billing
-
-**Estimated Time:** 1-2 weeks
-
----
-
-## Why this matters
-Apple and Google take a 15-30% cut of all digital subscriptions, and their APIs for implementing In-App Purchases (IAP) are notoriously complex. If you configure it incorrectly, users will be charged but won't receive premium access, or they will cancel their subscription and still retain premium access forever.
-
-## Strategic Guidance
-
-### Production SaaS
-Enterprise apps almost never use Apple/Google In-App Purchases. B2B contracts are negotiated externally (e.g., a $50k/year Master Services Agreement) and paid via ACH or wire transfer. The mobile app itself is simply a free "Client" that employees log into. If you try to charge a $50k enterprise contract through the iOS App Store, Apple will take $15,000. You must implement a "Bypass" architecture: The app is free to download, but requires a pre-existing enterprise account to log in.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Mobile Monetization Expert. Explain the architecture of bypassing Apple's 30% cut for a B2B Enterprise SaaS app. Specifically, provide the exact wording I must use (and avoid using) on the mobile login screen to ensure Apple App Store reviewers do not reject the app for violating the "Digital Goods" IAP policy.
-\`\`\`
-
-## Validation Checklist
-- [ ] The app does not attempt to sell B2B enterprise seats via native iOS/Android In-App Purchases.
-- [ ] The App Store review team is provided with a valid test account in the review notes to bypass the enterprise login screen.
-- [ ] The UI clearly explains how a user can obtain an enterprise account without providing a direct link to a web checkout page (which violates Apple's guidelines).
-`,
-  'mobilewearables': `# Wearables
-
-**Estimated Time:** 2-4 weeks
-
----
-
-## Why this matters
-Apple Watch and WearOS devices represent a completely different computing paradigm. Users do not "browse" a watch; they glance at it for 2 seconds. Porting your entire mobile app to a watch is a guaranteed failure. You must distill your app down to a single, hyper-specific action (e.g., starting a timer, approving a 2FA prompt, glancing at a glucose level).
-
-## Strategic Guidance
-
-### Production SaaS
-Enterprise wearable apps are highly specialized. A warehouse worker might use a ruggedized Android smartwatch paired to a Bluetooth barcode scanner to keep their hands free. You must build standalone native apps using Swift (WatchKit) or Kotlin (WearOS). React Native is generally not suitable for building robust wearable applications. You must handle extreme battery constraints and aggressive background-execution limits imposed by the OS.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Wearables Product Manager. I am building a companion Apple Watch app for an enterprise inventory management system. Define the single "Micro-Interaction" that should exist on the watch. Then, explain how to establish a secure \`WCSession\` (Watch Connectivity) to sync the JWT auth token from the main iOS app to the Apple Watch so the user doesn't have to log in on a 2-inch screen.
-\`\`\`
-
-## Validation Checklist
-- [ ] The wearable app focuses on a single, 2-second micro-interaction.
-- [ ] Authentication is securely synced from the host phone, not typed manually on the watch.
-- [ ] The app is built using native frameworks (Swift/Kotlin) for maximum performance and battery efficiency.
-`,
-  'mobilewidgets': `# Widgets
-
-**Estimated Time:** 1-2 weeks
-
----
-
-## Why this matters
-iOS Home Screen Widgets and Android App Widgets keep your app alive in the user's peripheral vision. A well-designed widget drastically increases Daily Active Users (DAU) because the user doesn't have to consciously remember to open your app; the app pushes value directly to their home screen.
-
-## Strategic Guidance
-
-### Production SaaS
-Enterprise widgets must prioritize data privacy. If an executive puts a "Sales Dashboard" widget on their lock screen, that highly confidential data is visible to anyone who glances at their phone while it's sitting on a table. You must implement native iOS/Android privacy flags to blur or hide the widget data when the device is locked (using \`privacySensitive()\` modifiers in SwiftUI).
-
-## Implementation Steps
-\`\`\`prompt
-Act as an iOS WidgetKit Expert. I need to build a Home Screen widget for my React Native app. Explain the architectural divide between React Native and WidgetKit (SwiftUI). Provide the code to write a shared JSON payload from React Native into the iOS \`App Group\` UserDefaults, and the Swift code required for the Widget to read that data and render it.
-\`\`\`
-
-## Validation Checklist
-- [ ] Widgets are built natively (SwiftUI/XML) as React Native cannot render widgets directly.
-- [ ] Data is securely shared between the main app and the widget via App Groups or SharedPreferences.
-- [ ] Confidential enterprise data is hidden when the device is locked.
-`,
-  'mobilebackgroundservices': `# Background Services
-
-**Estimated Time:** 2-4 weeks
-
----
-
-## Why this matters
-Mobile operating systems aggressively kill apps running in the background to preserve battery life. If your app relies on a standard \`setInterval\` to fetch data while minimized, the OS will silently terminate it within 3 minutes. Implementing true background execution requires navigating some of the strictest OS-level APIs on both iOS and Android.
-
-## Strategic Guidance
-
-### Production SaaS
-Enterprise applications often require persistent background execution (e.g., a delivery driver app that must upload GPS coordinates every 60 seconds even if the phone is locked in their pocket). You must use highly specialized background APIs.
-- **iOS**: You must register for \`UIBackgroundModes\` (e.g., location, audio, or fetch). If you abuse this and the OS detects your app burning battery, Apple will outright ban your app.
-- **Android**: You must implement a "Foreground Service." This requires displaying a persistent, un-dismissible notification in the user's status bar explicitly stating that the app is running in the background.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Native Mobile Architect. I am building a React Native app for delivery drivers. I need to track their location in the background indefinitely. Explain how to configure an Android Foreground Service and iOS Background Location updates. Provide the specific \`AndroidManifest.xml\` permissions and the \`Info.plist\` keys required, along with the UI text I should use to justify this to the App Review teams.
-\`\`\`
-
-## Validation Checklist
-- [ ] iOS Background Modes are explicitly declared and justified in the App Store review notes.
-- [ ] Android implementations utilize Foreground Services with a mandatory persistent notification.
-- [ ] Background tasks are aggressively throttled to prevent massive battery drain.
-`,
-  'mobilebluetooth': `# Bluetooth (BLE)
-
-**Estimated Time:** 3-5 weeks
-
----
-
-## Why this matters
-Bluetooth Low Energy (BLE) is notoriously unstable. Devices disconnect randomly, interference from microwaves or other WiFi networks corrupts packets, and the APIs to manage connections are highly complex state machines. If you do not handle edge cases perfectly, your app will freeze while trying to pair with external hardware.
-
-## Strategic Guidance
-
-### Production SaaS
-Enterprise IoT (Internet of Things) applications heavily rely on BLE (e.g., syncing a mobile app with a medical heart monitor or an industrial weight scale). You must use a robust library like \`react-native-ble-plx\`. Do not write raw Bluetooth code unless absolutely necessary. You must handle the "Bluetooth is turned off" state gracefully by prompting the user to enable it via the OS settings. Furthermore, pairing flows must have strict timeouts; if a device doesn't respond within 10 seconds, the app must abort the connection attempt rather than hanging indefinitely.
-
-## Implementation Steps
-\`\`\`prompt
-Act as an IoT Software Engineer. I am using \`react-native-ble-plx\` to connect to a custom Bluetooth device. Provide a robust state-machine diagram (or pseudocode) demonstrating how to scan for a specific UUID, connect to it, handle unexpected disconnects with an exponential backoff retry strategy, and gracefully handle the scenario where the user's Bluetooth is turned off.
-\`\`\`
-
-## Validation Checklist
-- [ ] The app handles unexpected disconnects and automatically attempts reconnection.
-- [ ] Timeout logic is implemented for all scanning and pairing attempts to prevent infinite loading spinners.
-- [ ] The app prompts the user natively if their Bluetooth or Location services are disabled (BLE scanning requires Location permissions on Android).
-`,
-  'mobilenfc': `# NFC (Near Field Communication)
-
-**Estimated Time:** 1-2 weeks
-
----
-
-## Why this matters
-NFC is the technology behind Apple Pay and tap-to-pay credit cards. It is fast, secure, and requires zero pairing. However, reading and writing NFC tags requires specific hardware capabilities and strict OS-level entitlements.
-
-## Strategic Guidance
-
-### Production SaaS
-Enterprise applications use NFC for inventory management, security badge scanning, or anti-counterfeiting verification. On iOS, you can only read/write NFC NDEF (NFC Data Exchange Format) tags. You cannot emulate a credit card (Host Card Emulation) without highly restricted, special entitlements from Apple. Use a library like \`react-native-nfc-manager\`. Ensure your UI clearly instructs the user *where* the NFC antenna is located on their specific device (top edge for iPhones, middle back for most Androids).
-
-## Implementation Steps
-\`\`\`prompt
-Act as an NFC Systems Integrator. I need to read NDEF tags in a React Native app using \`react-native-nfc-manager\`. Provide the exact \`Info.plist\` entitlements required for iOS to enable NFC reading. Then, provide the code to initiate an NFC scan session, read the text payload from the tag, and cleanly terminate the session.
-\`\`\`
-
-## Validation Checklist
-- [ ] NFC Entitlements are properly configured in both iOS and Android project files.
-- [ ] The UI provides visual guidance on where to tap the NFC tag against the phone.
-- [ ] The NFC scanning session is properly closed/terminated after a tag is read to prevent locking the hardware.
-`,
-  'mobilecamera': `# Custom Camera
-
-**Estimated Time:** 2-3 weeks
-
----
-
-## Why this matters
-If you just need a user to take a profile picture, you should use the native OS camera via an image picker library. But if you are building Snapchat, a barcode scanner, or an AR app, you must build a *Custom Camera*. This involves tapping directly into the device's hardware streams, managing focus, exposure, and processing raw frames at 60 FPS without overheating the phone.
-
-## Strategic Guidance
-
-### Production SaaS
-Enterprise apps often require custom cameras for Optical Character Recognition (OCR), barcode scanning, or capturing high-resolution document scans. Use a high-performance library like \`react-native-vision-camera\`. You must handle the camera lifecycle perfectly: if the user minimizes the app, you *must* pause the camera stream. If you leave the camera active in the background, the OS will terminate your app instantly for privacy violations, and the phone will physically overheat.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a Native Hardware Engineer. I am using \`react-native-vision-camera\` to build a custom barcode scanner. Provide the code to initialize the camera, handle the scenario where the user denies camera permissions, and implement a Frame Processor that runs a barcode scanning algorithm at 30 frames per second without blocking the JavaScript UI thread.
-\`\`\`
-
-## Validation Checklist
-- [ ] The camera stream is paused immediately when the app goes into the background.
-- [ ] Frame processors (if used) run asynchronously to avoid dropping UI frames (jank).
-- [ ] The app handles permission denials with a clear fallback UI explaining why the camera is required.
-`,
-  'mobilelocationservices': `# Advanced Location Services
-
-**Estimated Time:** 2-4 weeks
-
----
-
-## Why this matters
-Standard GPS drains the battery in a few hours. Advanced location services require a blend of WiFi triangulation, cellular tower data, and GPS hardware. If you are building a ride-sharing app or a fitness tracker, you need absolute precision. If you are building a weather app, you only need approximate location. Using the wrong precision level destroys the user experience.
-
-## Strategic Guidance
-
-### Production SaaS
-Enterprise applications like logistics or fleet tracking require complex geofencing. You should not wake up the app every 10 seconds to check if a truck has entered a warehouse. Instead, you register a "Geofence" (a radius around a coordinate) with the OS. The OS will monitor this hardware-efficiently in the background and only wake up your app when the device crosses the boundary. This saves massive amounts of battery and ensures reliable trigger execution.
-
-## Implementation Steps
-\`\`\`prompt
-Act as a GIS Architect. I am building a fleet management app. Explain the difference between 'High Accuracy' GPS polling vs OS-level 'Geofencing'. Provide the conceptual architecture for registering a 500-meter Geofence around a warehouse coordinate, and outline how the OS will notify the app when the device enters or exits that radius.
-\`\`\`
-
-## Validation Checklist
-- [ ] The app utilizes Geofencing for location-based triggers rather than continuous background polling.
-- [ ] The requested accuracy level (e.g., nearest kilometer vs nearest meter) matches the actual business requirement to preserve battery.
-- [ ] The app degrades gracefully if the device loses GPS signal (e.g., inside a tunnel).
-`,
-  'mobileuserresearch': `# User Research
-
-**Estimated Time:** 1-2 days
-
----
-
-## Why this matters
-Building a mobile app takes months of dedicated effort. If you spend 3 months building a complex AI nutrition tracker, only to find out your target users are completely happy using a $2 paper notebook, you have wasted your time. You must validate the problem before you write a single line of code.
-
-## Strategic Guidance
+Hardcode the data directly into your frontend components or use a simple JSON file. Do not waste time writing complex seed scripts for a database. Your app just needs to look good for a 3-minute video.
 
 ### Personal Project
-You don't need a massive budget for user research. Go to Reddit (e.g., r/nutrition, r/fitness). Sort by 'Top -> This Month'. Look for people complaining about existing apps. Reach out to 5 of them via DM and ask them to jump on a 10-minute Discord call. If you can't find 5 people willing to talk about the problem, the problem isn't painful enough to warrant building a custom app.
+Add 3-5 realistic items manually so you can design the UI around them.
 
-## Implementation Steps
-\`\`\`prompt
-Act as a UX Researcher. I am building a [Insert App Type] for [Insert Target Audience]. Write an outreach script I can use to DM people on Reddit or Twitter to ask for a 10-minute user interview. Then, provide the 5 core open-ended questions I should ask them during the call to validate if my app idea actually solves a painful problem for them.
-\`\`\`
+### Production SaaS
+Write a robust database seed script. When a new developer joins your team, they should be able to run `npm run seed` and instantly populate their local database with 50 users, 200 posts, and realistic relationships so they can start coding immediately without manually creating dummy accounts.
 
-## Validation Checklist
-- [ ] You have spoken to at least 3 people in your target audience directly.
-- [ ] You have confirmed they are currently experiencing the problem.
-- [ ] You have identified how they are currently solving the problem without your app.
-`,
+## Accountability Check
+- [ ] I have realistic demo data populating my app for presentations.`,
+  'mobileplaystoremockups': `# Play Store Mockups
+
+**Estimated Time:** 1 Hour
+
+---
+
+## Why this matters
+If you want to look like a professional business during a pitch or on a landing page, showing your app inside a realistic 3D phone mockup is infinitely better than showing a flat, rectangular screenshot.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Put your screenshots inside an iPhone or Pixel frame. It makes the app look 10x more "real" to the judges.
+
+### Personal Project
+Use a free tool to generate a nice mockup for your personal portfolio.
+
+### Production SaaS
+Use high-quality mockup templates for your marketing website and investor pitch decks. Do not use outdated phone models (like an iPhone 8 with thick bezels) as it makes your software look dated by association. Use the latest flagship devices.
+
+## Accountability Check
+- [ ] I have professional 3D device mockups of my app.`,
+  'mobilemultilanguage': `# Multi-language (i18n)
+
+**Estimated Time:** 2-5 Hours
+
+---
+
+## Why this matters
+If your app is only in English, you are ignoring massive, highly lucrative markets (like Spanish-speaking countries or the EU). Internationalization (i18n) allows your app to scale globally.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it. English only.
+
+### Personal Project
+Skip it unless you are trying to learn how i18n libraries work.
+
+### Production SaaS
+Do not hardcode strings (e.g., `<Text>Submit</Text>`). Use an i18n library (like `i18next`) and reference translation keys (e.g., `<Text>{t('button.submit')}</Text>`). This makes adding a new language as easy as uploading a new JSON file. Be aware that German and French words are often much longer than English words, which will break your UI layouts if you hardcoded strict widths for your buttons.
+
+## Accountability Check
+- [ ] I have abstracted my text strings to support multiple languages.`,
+  'mobilesubscriptionbilling': `# Subscription Billing
+
+**Estimated Time:** 3-5 Hours
+
+---
+
+## Why this matters
+Handling recurring payments on mobile is vastly more complex than on the web because you must go through Apple and Google's proprietary billing systems. You must handle upgrades, downgrades, cancellations, and expired credit cards.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Skip it.
+
+### Production SaaS
+Use a wrapper service like RevenueCat or Superwall. They maintain the source of truth for a user's subscription status. Your app should simply ask RevenueCat: `isUserPro()`. If true, unlock the features. Your backend should listen to webhooks from RevenueCat to update your database when a user cancels so you can trigger a "win-back" email campaign.
+
+## Accountability Check
+- [ ] I have integrated a robust subscription management platform.`,
+  'mobilewearables': `# Wearables & Widgets
+
+**Estimated Time:** Variable
+
+---
+
+## Why this matters
+Apple Watch and Android Wear apps are niche, but Home Screen Widgets are massive drivers of retention. A widget puts your app's core value right on the user's home screen, so they don't even have to open the app to get value.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Building an iOS Widget is a great way to learn Swift and WidgetKit, even if the rest of your app is built in React Native.
+
+### Production SaaS
+If your app displays dynamic data (weather, task lists, calorie counts), you MUST build a Home Screen Widget. Users love widgets. Wearable apps (Apple Watch) should only be built if the use-case is strictly "glanceable" or relies on health sensors (like heart rate). Do not try to port a complex UI to a watch.
+
+## Accountability Check
+- [ ] I have evaluated if a Home Screen Widget adds significant value to my users.`,
+  'mobilewidgets': `# Home Screen Widgets
+
+**Estimated Time:** 3-5 Hours
+
+---
+
+## Why this matters
+Widgets drastically reduce the "Time to Value". A user can see their bank balance or their next calendar meeting instantly. It keeps your brand highly visible on their phone all day long.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Skip it unless you specifically want to learn WidgetKit (iOS) or Glance (Android).
+
+### Production SaaS
+Widgets must be built in the native language (Swift/Kotlin) even if your main app is React Native/Flutter. The widget cannot run complex logic; it just displays a static snapshot of data. Your main app must write data to a shared storage container that the widget can read from. Optimize for "glanceability".
+
+## Accountability Check
+- [ ] I understand the technical requirements for building native widgets.`,
+  'mobilebackgroundservices': `# Background Services
+
+**Estimated Time:** 3-5 Hours
+
+---
+
+## Why this matters
+By default, when a user minimizes your app, the OS pauses your code to save battery. If your app needs to track GPS during a run or download a 1GB podcast while minimized, you must use Background Services to bypass this suspension.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it. It is incredibly difficult to debug background tasks in a 24-hour window.
+
+### Personal Project
+Only use it if absolutely necessary for the core utility (like a music player). Be prepared for the OS to kill your background task unpredictably.
+
+### Production SaaS
+Apple and Google heavily restrict background execution. You must request special permissions (like "Background Fetch" or "Audio"). If your app drains the battery in the background, users will receive a system warning and will likely uninstall it. Use dedicated libraries (like `expo-task-manager` or `react-native-background-timer`) and test extensively on physical devices, as background behavior on simulators is often fake and unreliable.
+
+## Accountability Check
+- [ ] I understand the battery and OS constraints of running code in the background.`,
+  'mobilebluetooth': `# Bluetooth (BLE)
+
+**Estimated Time:** Variable
+
+---
+
+## Why this matters
+Bluetooth Low Energy (BLE) allows your app to communicate with hardware peripherals (heart rate monitors, smart locks, IoT devices). It bridges the gap between software and the physical world.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Hardware integration is the fastest way to win a hackathon, but the fastest way to fail a live demo. Have a pre-recorded video ready.
+
+### Personal Project
+Great for learning IoT. Ensure you buy BLE-compatible hardware, not classic Bluetooth.
+
+### Production SaaS
+BLE is notoriously flaky. Connections drop, devices sleep, and Android/iOS handle the BLE stack completely differently. You must build a robust reconnection strategy. Always show the user exactly what the app is doing ("Scanning...", "Connecting...", "Failed to Connect - Retry"). Requesting Bluetooth permissions requires a clear explanation to the user, as some malicious apps use BLE beacons for tracking.
+
+## Accountability Check
+- [ ] I have planned a robust error-handling strategy for dropped Bluetooth connections.`,
+  'mobilenfc': `# NFC (Near Field Communication)
+
+**Estimated Time:** 1-2 Hours
+
+---
+
+## Why this matters
+NFC enables "tap to interact" experiences (like Apple Pay, Amiibo, or tapping a smart business card). It provides a magical, frictionless user experience compared to scanning a QR code.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Buy a pack of $1 NFC tags from Amazon. Writing to them and reading from them is incredibly easy and looks very impressive in a demo.
+
+### Personal Project
+Automate your life. Tape an NFC tag to your nightstand that triggers your app to set your alarm and turn off your lights.
+
+### Production SaaS
+iOS heavily restricts NFC. You can easily *read* NDEF-formatted tags, but *writing* to them or using the iPhone as a Host Card Emulation (HCE) device is locked down. Android is much more open. Ensure your UI provides clear instructions (e.g., an animation showing exactly where to tap the phone, as the NFC chip location differs between iPhone and Android models).
+
+## Accountability Check
+- [ ] I understand the hardware limitations of NFC on iOS vs Android.`,
+  'mobilecamera': `# Camera & Vision
+
+**Estimated Time:** 2-4 Hours
+
+---
+
+## Why this matters
+The camera is the most powerful sensor on the phone. Whether it's scanning barcodes, taking profile pictures, or using AR/ML to analyze the real world, camera integration is fundamental to mobile.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use a basic image picker to select a photo from the gallery. Building a custom camera UI with a shutter button is a waste of time.
+
+### Personal Project
+Experiment with Vision APIs (like reading text from an image). It's incredibly powerful and easy to integrate.
+
+### Production SaaS
+If the camera is central to your app (like Snapchat or a document scanner), you must build a custom Camera View. Handle permissions gracefully. Be aware of memory constraints; if you keep the camera active in the background, the app will crash. If processing images (ML/AI), resize the image significantly before running the model to prevent freezing the UI thread.
+
+## Accountability Check
+- [ ] I have integrated the camera and requested permissions gracefully.`,
+  'mobilelocationservices': `# Location Services (GPS)
+
+**Estimated Time:** 2-4 Hours
+
+---
+
+## Why this matters
+Location context makes apps infinitely more useful (finding nearby restaurants, tracking a run). However, users are highly suspicious of apps requesting location data.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Hardcode coordinates for the demo. Getting accurate GPS indoors during a hackathon is notoriously difficult and unreliable.
+
+### Personal Project
+Use standard geolocation APIs to get the current lat/long. It's simple and effective.
+
+### Production SaaS
+You must clearly justify *why* you need location data. Never ask for "Always Allow" (Background tracking) unless your app fundamentally requires it (like a fitness tracker or navigation app). Background location tracking must show a persistent blue bar at the top of the screen on iOS, so users will definitely notice it. Always degrade gracefully if the user denies permission.
+
+## Accountability Check
+- [ ] I handle location data responsibly and only request it when necessary.`,
+  'mobileuserresearch': `# User Research
+
+**Estimated Time:** Days
+
+---
+
+## Why this matters
+Building features without talking to users is guessing. User research validates that your assumptions about the "Problem Statement" are actually true.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Irrelevant. You don't have time.
+
+### Personal Project
+Talk to 3 people who have the same problem as you. Ask them how they currently solve it.
+
+### Production SaaS
+Do not ask "Would you use this app?" (Everyone will say "Yes" to be polite). Ask "How do you currently solve this problem?" and "How much did you pay for your current solution?" If they haven't spent time or money trying to fix the problem already, it is not a "Hair on Fire" problem, and they will not download your app. Read "The Mom Test" by Rob Fitzpatrick.
+
+## Accountability Check
+- [ ] I have spoken to real humans about this problem.`,
   'webideadefinition': `# Idea Definition
 
 **Estimated Time:** 1-2 Hours
