@@ -31,17 +31,17 @@ export const webProductionTaxonomy: Category[] = [
     id: 'phase-1',
     name: 'PHASE 1 — UX & PRODUCT DESIGN',
     topics: [
-      createTopic('PRD', FileText),
-      createTopic('User Flows', Globe),
-      createTopic('Information Architecture', Layers),
-      createTopic('Wireframes', Box),
-      createTopic('Design System', PenTool),
-      createTopic('Branding', Target),
-      createTopic('Accessibility', Users),
-      createTopic('Empty States', Box),
-      createTopic('Error States', AlertCircle),
-      createTopic('Loading States', Activity),
-      createTopic('Sitemap', Layers),
+      createTopic('PRD', FileText, [], 'webprd'),
+      createTopic('User Flows', Globe, [], 'webuserflows'),
+      createTopic('Information Architecture', Layers, [], 'webinformationarchitecture'),
+      createTopic('Wireframes', Box, [], 'webwireframes'),
+      createTopic('Design System', PenTool, [], 'webdesignsystem'),
+      createTopic('Branding', Target, [], 'webbranding'),
+      createTopic('Accessibility', Users, [], 'webaccessibility'),
+      createTopic('Empty States', Box, [], 'webemptystates'),
+      createTopic('Error States', AlertCircle, [], 'weberrorstates'),
+      createTopic('Loading States', Activity, [], 'webloadingstates'),
+      createTopic('Sitemap', Layers, [], 'websitemap'),
     ]
   },
   {
@@ -139,9 +139,9 @@ export const webHackathonTaxonomy: Category[] = [
     id: 'phase-1',
     name: 'PHASE 1',
     topics: [
-      createTopic('PRD', FileText),
-      createTopic('User Flows', Globe),
-      createTopic('Design System', PenTool),
+      createTopic('PRD', FileText, [], 'webprd'),
+      createTopic('User Flows', Globe, [], 'webuserflows'),
+      createTopic('Design System', PenTool, [], 'webdesignsystem'),
     ]
   },
   {
@@ -183,15 +183,15 @@ export const webPersonalTaxonomy: Category[] = [
       createTopic('MVP Features', CheckSquare, [], 'webmvpfeatures'),
     ]
   },
-  {
-    id: 'discovery',
-    name: 'PHASE 1 — DISCOVERY',
-    topics: [
-      createTopic('PRD', FileText),
-      createTopic('Discovery', Rocket),
-      createTopic('Design', PenTool),
-    ]
-  },
+      {
+      id: 'phase-1',
+      name: 'PHASE 1 ?" UX & PRODUCT DESIGN',
+      topics: [
+        createTopic('PRD', FileText, [], 'webprd'),
+        createTopic('User Flows', Globe, [], 'webuserflows'),
+        createTopic('Design System', PenTool, [], 'webdesignsystem'),
+      ]
+    },
   {
     id: 'architecture',
     name: 'PHASE 2 — ARCHITECTURE',

@@ -78,7 +78,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Congratulations, you have completed Phase 3! Move on to Phase 4 to prepare your app for **Production Readiness**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+Congratulations, you have completed Phase 3! Move on to Phase 4 to prepare your app for **Production Readiness**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilepayments': `# Payments & Subscriptions
 
 🕒 **Estimated Time:** 4-8 hours
@@ -157,7 +157,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With monetization active, implement **Media Uploads** to allow users to generate robust content.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+With monetization active, implement **Media Uploads** to allow users to generate robust content.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilebackendimplementation': `# Backend Implementation
 
 🕒 **Estimated Time:** 3-6 hours
@@ -238,7 +238,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With the backend logic solid, configure **Push Notifications** to start engaging users proactively.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+With the backend logic solid, configure **Push Notifications** to start engaging users proactively.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobiledatabaseimplementation': `# Database Implementation
 
 🕒 **Estimated Time:** 2-5 hours
@@ -319,7 +319,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Now that the database is structured, build the **Backend APIs** to execute complex logic and interface with this data safely.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+Now that the database is structured, build the **Backend APIs** to execute complex logic and interface with this data safely.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileauth': `# Authentication
 
 🕒 **Estimated Time:** 2-4 hours
@@ -400,7 +400,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With users authenticated, move on to connecting the **Database** to store and retrieve their specific data.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+With users authenticated, move on to connecting the **Database** to store and retrieve their specific data.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'referral-programs': `# Referral Programs
 
 **🕒 Estimated Time:** Ongoing
@@ -418,7 +418,7 @@ What is the primary incentive for a user to invite a friend, and how does the re
 
 \`\`\`prompt
 Design a database schema and API flow for tracking a two-sided referral program where both the inviter and invitee receive a premium account credit upon successful signup.
-\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'reviews-ratings': `# Reviews & Ratings
 
 **🕒 Estimated Time:** Ongoing
@@ -436,7 +436,7 @@ Identify the absolute best "positive moment" in your app's user flow to trigger 
 
 \`\`\`prompt
 Write a React Native hook using \`expo-store-review\` that implements a two-step review prompt strategy, ensuring the native review dialog is only shown to satisfied users after a specific action is completed.
-\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'user-feedback': `# User Feedback Loop
 
 **🕒 Estimated Time:** Ongoing
@@ -454,7 +454,7 @@ How will you categorize and prioritize feature requests vs bug reports coming fr
 
 \`\`\`prompt
 Write a standard operating procedure (SOP) for triaging user feedback received through an in-app support channel, including categorization tags and response SLAs.
-\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'notifications-strategy': `# Notifications Strategy
 
 **🕒 Estimated Time:** Ongoing
@@ -473,7 +473,7 @@ Describe your transactional vs promotional push notification split. How do you e
 
 \`\`\`prompt
 Write a strategy document detailing how to use rich push notifications (with images and action buttons) to increase engagement for a social app, including fallback behavior.
-\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'release-checklist': `# Release Checklist
 
 **🕒 Estimated Time:** 2 hours
@@ -494,7 +494,7 @@ What is your target launch date, and who is responsible for the final sign-off b
 
 \`\`\`prompt
 Generate a comprehensive pre-launch QA checklist covering authentication, payments, deep linking, and offline states for a React Native app.
-\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'beta-testing': `# Beta Testing
 
 **🕒 Estimated Time:** 1-2 weeks
@@ -512,7 +512,7 @@ How many beta testers are you aiming for, and what specific flows are you asking
 
 \`\`\`prompt
 Write an invitation email to a waitlisted user asking them to join the TestFlight beta, setting clear expectations for bugs and explaining how to submit feedback.
-\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'test-tracks': `# Test Tracks
 
 **🕒 Estimated Time:** 2 hours
@@ -529,7 +529,7 @@ Who is on your initial internal testing roster, and what is your exact process f
 
 \`\`\`prompt
 Outline the differences between Google Play Internal, Closed, and Open testing tracks, and recommend a strategy for a startup launching their first app.
-\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'content-rating': `# Content Rating
 
 **🕒 Estimated Time:** 1 hour
@@ -547,7 +547,7 @@ Does your app feature User-Generated Content (UGC)? If so, how will you implemen
 
 \`\`\`prompt
 Generate an implementation checklist for User-Generated Content (UGC) compliance to avoid App Store rejection, including EULA requirements and reporting UI.
-\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'store-listing-seo': `# Store Listing SEO (ASO)
 
 **🕒 Estimated Time:** 4 hours
@@ -566,7 +566,7 @@ What are the top 5 high-volume, low-competition keywords you are targeting for o
 
 \`\`\`prompt
 Write an optimized App Store Subtitle (30 chars max) and a comma-separated keyword list (100 chars max) for a new habit tracking app, focusing on high-intent search terms.
-\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'feature-graphics': `# Feature Graphics
 
 **🕒 Estimated Time:** 1 hour
@@ -584,7 +584,7 @@ Describe the visual concept for your Feature Graphic. What branding elements wil
 
 \`\`\`prompt
 Generate a design brief for a graphic designer to create a Google Play Feature Graphic (1024x500), detailing safe zones, required branding, and the visual hierarchy.
-\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'app-icons': `# App Icons
 
 **🕒 Estimated Time:** 2 hours
@@ -604,7 +604,7 @@ Describe the concept for your app icon. How does it stand out on a crowded home 
 
 \`\`\`prompt
 Write a script or list the exact CLI commands needed to generate all required iOS and Android app icon sizes from a single 1024x1024 source image using Expo's asset generation tools.
-\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'app-store-setup': `# App Store Setup
 
 **🕒 Estimated Time:** 4 hours
@@ -625,7 +625,7 @@ Who holds the Account Holder role in the Apple Developer Program, and how will y
 
 \`\`\`prompt
 Outline the complete process for generating an iOS Distribution Certificate, creating a Provisioning Profile, and submitting a build to TestFlight using Expo EAS Submit.
-\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'play-store-setup': `# Play Store Setup
 
 **🕒 Estimated Time:** 4 hours
@@ -645,7 +645,7 @@ Who is managing the Google Play Developer account, and what is your strict secur
 
 \`\`\`prompt
 Generate a step-by-step checklist for configuring Play App Signing and uploading the first Android App Bundle (.aab) using Expo EAS Build.
-\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'batteryoptimization': `# Battery Optimization
 
 🕒 **Estimated Time:** 1-3 hours
@@ -725,7 +725,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With the app optimized perfectly for a single user, it's time to ensure it can handle millions. Move to **Scalability**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+With the app optimized perfectly for a single user, it's time to ensure it can handle millions. Move to **Scalability**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'appsizeoptimization': `# App Size Optimization
 
 🕒 **Estimated Time:** 2-4 hours
@@ -805,7 +805,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-A small app is good, but it must also respect the user's phone. Time for **Battery Optimization**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+A small app is good, but it must also respect the user's phone. Time for **Battery Optimization**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'crashreporting': `# Crash Reporting
 
 🕒 **Estimated Time:** 2-3 hours
@@ -884,7 +884,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Beyond just crashes, you need proactive **Monitoring** to ensure your APIs and services are healthy.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+Beyond just crashes, you need proactive **Monitoring** to ensure your APIs and services are healthy.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'errorhandling': `# Error Handling
 
 🕒 **Estimated Time:** 2-4 hours
@@ -964,7 +964,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With errors caught, implement **Testing** to prevent them from happening in the first place.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+With errors caught, implement **Testing** to prevent them from happening in the first place.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'analyticsevents': `# Analytics Events
 
 🕒 **Estimated Time:** 2-4 hours
@@ -1044,7 +1044,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-To ensure those analytics aren't just showing crashes, implement robust **Error Handling**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+To ensure those analytics aren't just showing crashes, implement robust **Error Handling**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'offlinefeatures': `# Offline Features
 
 🕒 **Estimated Time:** 3-6 hours
@@ -1124,7 +1124,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With the app functioning in all environments, implement **Analytics Events** to see how users are interacting with it.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+With the app functioning in all environments, implement **Analytics Events** to see how users are interacting with it.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'devicepermissions': `# Device Permissions
 
 🕒 **Estimated Time:** 1-2 hours
@@ -1203,7 +1203,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With hardware access secured, build robust **Offline Features** for when the device loses connection.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+With hardware access secured, build robust **Offline Features** for when the device loses connection.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mapslocation': `# Maps & Location
 
 🕒 **Estimated Time:** 3-5 hours
@@ -1283,7 +1283,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Now ensure your app handles all other **Device Permissions** correctly before launching.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+Now ensure your app handles all other **Device Permissions** correctly before launching.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mediauploads': `# Media Uploads
 
 🕒 **Estimated Time:** 3-6 hours
@@ -1363,7 +1363,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With content generation solved, integrate **Maps & Location** for location-aware features.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+With content generation solved, integrate **Maps & Location** for location-aware features.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'apis': `# APIs & Data Fetching
 
 🕒 **Estimated Time:** 3-5 hours
@@ -1444,7 +1444,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With data flowing securely and the app fully functional, proceed to Phase 4 to focus on **Production Readiness**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+With data flowing securely and the app fully functional, proceed to Phase 4 to focus on **Production Readiness**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'navigation': `# Navigation
 
 🕒 **Estimated Time:** 2-4 hours
@@ -1525,7 +1525,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Now that screens are connected, integrate **APIs** to fetch and populate real data into these views.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+Now that screens are connected, integrate **APIs** to fetch and populate real data into these views.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'frontendui': `# Frontend (UI)
 
 🕒 **Estimated Time:** 4-8 hours
@@ -1606,7 +1606,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With UI blocks built, implement **Navigation** to connect these screens together logically.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+With UI blocks built, implement **Navigation** to connect these screens together logically.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'pushnotifications': `# Push Notifications
 
 🕒 **Estimated Time:** 2-4 hours
@@ -1687,7 +1687,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With notifications active, refine your **Frontend (UI)** components to ensure the app looks as good as it functions.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+With notifications active, refine your **Frontend (UI)** components to ensure the app looks as good as it functions.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'statemanagement': `# State Management
 
 🕒 **Estimated Time:** 1-2 hours
@@ -1768,7 +1768,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With state management in place, proceed to implement the **Auth** flows to populate that state with real user data.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+With state management in place, proceed to implement the **Auth** flows to populate that state with real user data.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'welcome': `# Welcome to Kontxt
 
 🕒 **Estimated Time:** 5 min
@@ -1798,7 +1798,7 @@ This means you cannot cut corners on security, authentication, or basic architec
 
 ## Accountability Check
 - [ ] I understand the philosophy of my chosen mode and I am ready to begin.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'ideadefinition': `# Idea Definition
 
 🕒 **Estimated Time:** 20 min
@@ -1830,7 +1830,7 @@ If people are currently using a messy spreadsheet and duct-taping it to Zapier, 
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'problemstatement': `# Problem Statement
 
 🕒 **Estimated Time:** 20 min
@@ -1862,7 +1862,7 @@ If the user's hair is on fire, and you offer them a brick, they will buy it to p
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'userpainpoints': `# User Pain Points
 
 🕒 **Estimated Time:** 15 min
@@ -1892,7 +1892,7 @@ When you talk to users, listen for emotional words: "I hate", "It's so annoying"
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'targetusers': `# Target Users
 
 🕒 **Estimated Time:** 10 min
@@ -1922,7 +1922,7 @@ If your target users are "Small Business Owners," that is too broad. How do you 
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'icpidealcustomerprofile': `# Ideal Customer Profile (ICP)
 
 🕒 **Estimated Time:** 15 min
@@ -1950,7 +1950,7 @@ For example: "B2B SaaS companies with 50-200 employees, doing $5M-$20M in ARR, s
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'personas': `# Personas
 
 🕒 **Estimated Time:** 15 min
@@ -1980,7 +1980,7 @@ For example, if you are building HR software, the User (the employee) wants a be
 
 ## Accountability Check
 - [ ] I understand the difference between the user and the buyer.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'solutionstatement': `# Solution Statement
 
 🕒 **Estimated Time:** 10 min
@@ -2010,7 +2010,7 @@ Don't force users to change their behavior. If they live in Slack, your solution
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'valueproposition': `# Value Proposition
 
 🕒 **Estimated Time:** 15 min
@@ -2042,7 +2042,7 @@ People don't buy dashboards; they buy lower churn.
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'elevatorpitch': `# Elevator Pitch
 
 🕒 **Estimated Time:** 10 min
@@ -2070,7 +2070,7 @@ Practice this until you can say it smoothly without sounding like a robot.
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'marketresearch': `# Market Research
 
 🕒 **Estimated Time:** 20 min
@@ -2096,7 +2096,7 @@ You should research exactly where these people hang out online. If you can't fin
 
 ## Accountability Check
 - [ ] I have validated my market assumptions.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'competitoranalysis': `# Competitor Analysis
 
 🕒 **Estimated Time:** 15 min
@@ -2124,7 +2124,7 @@ Identify their biggest weakness. Do they have terrible customer support? Is thei
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'existingalternatives': `# Existing Alternatives
 
 🕒 **Estimated Time:** 15 min
@@ -2142,7 +2142,7 @@ Your biggest competitor isn't a startup; it's Microsoft Excel. Or a piece of pap
 
 ## Accountability Check
 - [ ] I understand the friction involved in making a user switch from their current solution.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'marketpositioning': `# Market Positioning
 
 🕒 **Estimated Time:** 20 min
@@ -2165,7 +2165,7 @@ Act as a Brand Strategist. Based on my competitors, suggest 3 different ways I c
 
 ## Accountability Check
 - [ ] I know exactly where my product sits in the market landscape.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'featureplanning': `# Feature Planning
 
 🕒 **Estimated Time:** 20 min
@@ -2183,7 +2183,7 @@ Scope creep is the death of all software. If you don't define what you are build
 
 ## Accountability Check
 - [ ] I am ready to ruthlessly cut features.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mvpfeatures': `# MVP Features
 
 🕒 **Estimated Time:** 20 min
@@ -2213,7 +2213,7 @@ Do not build a "Settings" page with customizable themes. Do not build social log
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'futurefeatures': `# Future Features
 
 🕒 **Estimated Time:** 10 min
@@ -2231,7 +2231,7 @@ Put your great (but unnecessary) ideas here so they don't distract you today.
 
 ## Accountability Check
 - [ ] I will not build these features today.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'featureprioritization': `# Feature Prioritization
 
 🕒 **Estimated Time:** 15 min
@@ -2249,7 +2249,7 @@ You have limited time and engineering resources.
 
 ## Accountability Check
 - [ ] I know exactly what I am building first.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'businessmodel': `# Business Model
 
 🕒 **Estimated Time:** 15 min
@@ -2277,7 +2277,7 @@ However, consider usage-based pricing (like Stripe or OpenAI) if your costs scal
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'pricing': `# Pricing Strategy
 
 🕒 **Estimated Time:** 15 min
@@ -2295,7 +2295,7 @@ Pricing is the most under-utilized growth lever.
 
 ## Accountability Check
 - [ ] I will not underprice my product.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'subscriptionmodel': `# Subscription Model
 
 🕒 **Estimated Time:** 10 min
@@ -2313,7 +2313,7 @@ Monthly Recurring Revenue (MRR) is the holy grail of software.
 
 ## Accountability Check
 - [ ] I understand MRR dynamics.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'revenuestreams': `# Revenue Streams
 
 🕒 **Estimated Time:** 10 min
@@ -2331,7 +2331,7 @@ Focus on one revenue stream until you hit $1M ARR.
 
 ## Accountability Check
 - [ ] I will not distract myself with multiple revenue streams yet.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'successmetrics': `# Success Metrics
 
 🕒 **Estimated Time:** 15 min
@@ -2349,7 +2349,7 @@ You cannot improve what you do not measure.
 
 ## Accountability Check
 - [ ] I know what success looks like.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'kpis': `# KPIs (Key Performance Indicators)
 
 🕒 **Estimated Time:** 15 min
@@ -2367,7 +2367,7 @@ KPIs tell you if the business is healthy.
 
 ## Accountability Check
 - [ ] I understand my primary KPIs.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'northstarmetric': `# North Star Metric
 
 🕒 **Estimated Time:** 15 min
@@ -2385,7 +2385,7 @@ The one metric that best captures the core value your product delivers to its cu
 
 ## Accountability Check
 - [ ] I have identified my North Star Metric.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'prd': `# Product Requirements Document (PRD)
 
 🕒 **Estimated Time:** 30 min
@@ -2412,7 +2412,7 @@ The PRD is mandatory. It must define the core user flows, the acceptance criteri
 Act as a Senior Product Manager. Based on my project so far, draft a comprehensive PRD.
 \`\`\`
 - [ ] I have generated and saved my PRD.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'userflows': `# User Flows
 
 🕒 **Estimated Time:** 20 min
@@ -2439,7 +2439,7 @@ You must map out onboarding, core usage, and retention flows. Where do users dro
 Generate a Mermaid.js user flow diagram for the onboarding process of my app.
 \`\`\`
 - [ ] I have mapped out my core user flows.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'informationarchitecture': `# Information Architecture
 
 🕒 **Estimated Time:** 20 min
@@ -2468,7 +2468,7 @@ If you add 10 new features next year, where will they live in the navigation? Yo
 Act as a UX Architect. Based on my PRD, generate a comprehensive sitemap and Information Architecture hierarchy.
 \`\`\`
 - [ ] I have mapped out my app's navigation structure.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'wireframes': `# Wireframes
 
 🕒 **Estimated Time:** 45 min
@@ -2497,7 +2497,7 @@ You must wireframe every major flow, including empty states (what the app looks 
 Act as a UX Designer. Describe the layout, components, and visual hierarchy for the 3 main screens of my app.
 \`\`\`
 - [ ] I have generated wireframes for my core screens.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'designsystem': `# Design System
 
 🕒 **Estimated Time:** 30 min
@@ -2524,7 +2524,7 @@ You need a robust, scalable design system. You must define your color palette (p
 Act as a Lead UI/UX Designer. Generate a complete set of Tailwind CSS design tokens (colors, fonts, spacing) for my project.
 \`\`\`
 - [ ] I have established my design system.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'branding': `# Branding
 
 🕒 **Estimated Time:** 15 min
@@ -2553,7 +2553,7 @@ If you are selling to banks, use conservative blues and a serious tone. If you a
 Act as a Brand Strategist. Suggest 3 brand names, a color palette, and a tone of voice for my product.
 \`\`\`
 - [ ] I have chosen a name and brand identity.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'accessibility': `# Accessibility (a11y)
 
 🕒 **Estimated Time:** 10 min
@@ -2579,7 +2579,7 @@ Your brand colors must pass the WCAG AA contrast ratio (text must be readable ag
 
 ## Accountability Check
 - [ ] I understand the accessibility requirements for my project mode.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'techstackselection': `# Tech Stack Selection
 
 🕒 **Estimated Time:** 20 min
@@ -2611,7 +2611,7 @@ Use mature, heavily supported frameworks with massive ecosystems (React, Next.js
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'frontendarchitecture': `# Frontend Architecture
 
 🕒 **Estimated Time:** 15 min
@@ -2641,7 +2641,7 @@ Use a feature-based architecture (grouping files by feature rather than by type)
 
 ## Accountability Check
 - [ ] I understand my frontend architecture constraints.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'backendarchitecture': `# Backend Architecture
 
 🕒 **Estimated Time:** 20 min
@@ -2671,7 +2671,7 @@ Do not build microservices on Day 1; they introduce massive operational complexi
 
 ## Accountability Check
 - [ ] I understand my backend architecture constraints.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'apidesign': `# API Design
 
 🕒 **Estimated Time:** 25 min
@@ -2702,7 +2702,7 @@ Use standard HTTP verbs (GET, POST, PUT, DELETE) and standard status codes (200,
 Act as a Backend Architect. Based on my PRD, design the core REST API endpoints I will need.
 \`\`\`
 - [ ] I have generated my core API design.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'authentication': `# Authentication
 
 🕒 **Estimated Time:** 15 min
@@ -2730,7 +2730,7 @@ Use an established provider like Supabase Auth, Auth0, or Clerk. You must suppor
 
 ## Accountability Check
 - [ ] I understand my authentication strategy.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'authorizationroles': `# Authorization & Roles
 
 🕒 **Estimated Time:** 20 min
@@ -2759,7 +2759,7 @@ If using Supabase, use Row Level Security (RLS) to ensure users can only query r
 Act as a Security Architect. Based on my PRD, define the standard user roles and their specific permissions.
 \`\`\`
 - [ ] I have defined my user roles and permissions.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'databaseschema': `# Database Schema
 
 🕒 **Estimated Time:** 30 min
@@ -2790,7 +2790,7 @@ Your schema must be multi-tenant from Day 1. Almost every table should have a \`
 Act as a Database Administrator. Based on my PRD, generate a PostgreSQL schema including multi-tenant architecture and foreign keys.
 \`\`\`
 - [ ] I have finalized my database schema.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'filestorage': `# File Storage
 
 🕒 **Estimated Time:** 10 min
@@ -2816,7 +2816,7 @@ Files should never be completely public unless they are avatars. Generate short-
 
 ## Accountability Check
 - [ ] I understand my file storage strategy.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'thirdpartyintegrations': `# Third Party Integrations
 
 🕒 **Estimated Time:** 15 min
@@ -2844,7 +2844,7 @@ A Stripe integration is mandatory. A Slack integration is highly recommended for
 
 ## Accountability Check
 - [ ] I have identified necessary third-party integrations.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'aiarchitectureoptional': `# AI Architecture
 
 🕒 **Estimated Time:** 15 min
@@ -2870,7 +2870,7 @@ Never call LLMs directly from the frontend; proxy them through your backend to p
 
 ## Accountability Check
 - [ ] I understand my AI architecture constraints.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'systemarchitecturediagram': `# System Architecture Diagram
 
 🕒 **Estimated Time:** 15 min
@@ -2899,7 +2899,7 @@ Use a tool like Mermaid.js (which lives in markdown) or Eraser.io so you can kee
 Act as a Cloud Architect. Generate a Mermaid.js architecture diagram for my tech stack.
 \`\`\`
 - [ ] I have generated my architecture diagram.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'costestimation': `# Cost Estimation
 
 🕒 **Estimated Time:** 15 min
@@ -2928,7 +2928,7 @@ If you charge a user $10/month, but they consume $8/month of OpenAI API credits 
 Act as a FinOps Specialist. Based on my tech stack, generate a monthly cost estimation model for 1,000 active users.
 \`\`\`
 - [ ] I have modeled my infrastructure costs.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'auth': `# Authentication Setup
 
 🕒 **Estimated Time:** 45 min
@@ -2959,7 +2959,7 @@ You must configure strict Redirect URLs to prevent Open Redirect vulnerabilities
 Act as a Security Engineer. Generate the frontend code and backend configuration to integrate Supabase Authentication into my React app.
 \`\`\`
 - [ ] I have successfully implemented Authentication.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'database': `# Database Setup
 
 🕒 **Estimated Time:** 60 min
@@ -2990,7 +2990,7 @@ Never change your production database schema directly in a UI. You must create m
 Act as a Database Administrator. Generate the SQL migration file to create my initial database schema, including Row Level Security (RLS) policies.
 \`\`\`
 - [ ] I have set up my database and migrations.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'backend': `# Backend Development
 
 🕒 **Estimated Time:** 2-4 Hours
@@ -3021,7 +3021,7 @@ Never trust data coming from the frontend. Always re-validate inputs on the back
 Act as a Backend Engineer. Write the server-side code to handle my core application logic, including input validation and error handling.
 \`\`\`
 - [ ] I have implemented my core backend logic.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'frontend': `# Frontend Development
 
 🕒 **Estimated Time:** 3-5 Hours
@@ -3052,7 +3052,7 @@ When a user clicks "Save", the button should instantly show a loading spinner, a
 Act as a Senior Frontend Developer. Write the React components for my main dashboard, utilizing Tailwind CSS and optimistic UI updates.
 \`\`\`
 - [ ] I have built my core frontend views.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'payments': `# Payments Integration
 
 🕒 **Estimated Time:** 2 Hours
@@ -3083,7 +3083,7 @@ You must rely on Webhooks to provision access, not client-side redirects. When a
 Act as a Stripe Integration Expert. Write the backend webhook handler to process subscription lifecycle events (created, updated, canceled).
 \`\`\`
 - [ ] I have integrated my payment gateway.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'emails': `# Transactional Emails
 
 🕒 **Estimated Time:** 1 Hour
@@ -3114,7 +3114,7 @@ You must configure your domain's DKIM, SPF, and DMARC records to ensure your ema
 Act as a Communications Architect. Generate a React Email template for my Welcome Email, including my branding colors and a clear Call to Action.
 \`\`\`
 - [ ] I have configured my transactional emails.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'notifications': `# Notifications
 
 🕒 **Estimated Time:** 1 Hour
@@ -3142,7 +3142,7 @@ Use a unified API like Novu or Courier. You must support in-app toasts, in-app i
 
 ## Accountability Check
 - [ ] I have implemented my notification strategy.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'search': `# Search
 
 🕒 **Estimated Time:** 1-2 Hours
@@ -3168,7 +3168,7 @@ You must implement "fuzzy matching" so typos don't return zero results. Implemen
 
 ## Accountability Check
 - [ ] I have implemented scalable search.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'analytics': `# Product Analytics
 
 🕒 **Estimated Time:** 45 min
@@ -3194,7 +3194,7 @@ Track the "Aha!" moment. Track where users drop off during onboarding. Track fea
 
 ## Accountability Check
 - [ ] I have integrated product analytics.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'adminpanel': `# Admin Panel
 
 🕒 **Estimated Time:** 2 Hours
@@ -3220,7 +3220,7 @@ Use a low-code tool like Retool, ForestAdmin, or Appsmith. Connect it directly t
 
 ## Accountability Check
 - [ ] I have set up an internal admin panel.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'integrations': `# External Integrations
 
 🕒 **Estimated Time:** 3-5 Hours
@@ -3244,7 +3244,7 @@ Start with native Slack or Discord webhooks for notifications. If you need deep 
 
 ## Accountability Check
 - [ ] I have built necessary integrations.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'testing': `# Testing
 
 🕒 **Estimated Time:** Ongoing
@@ -3270,7 +3270,7 @@ Instead, focus on End-to-End (E2E) testing with Playwright or Cypress. Write 5-1
 
 ## Accountability Check
 - [ ] I have implemented my core E2E tests.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'documentation': `# Documentation
 
 🕒 **Estimated Time:** Ongoing
@@ -3297,7 +3297,7 @@ You must maintain two types of documentation:
 
 ## Accountability Check
 - [ ] I have documented my project appropriately.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'demodata': `# Demo Data
 
 **🕒 Estimated Time:** 45-60 min
@@ -3379,7 +3379,7 @@ Act as a Product Marketer and Backend Engineer.
 ## Deliverable
 **File Name:** \`demo_seed.ts\`
 **Purpose:** Make the product instantly impressive.
-**Contents:** A dedicated script used exclusively for populating presentation environments.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+**Contents:** A dedicated script used exclusively for populating presentation environments.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'presentationprep': `# Presentation Prep
 
 **🕒 Estimated Time:** 60-120 min
@@ -3461,7 +3461,7 @@ Act as a Y Combinator Pitch Coach.
 ## Deliverable
 **File Name:** \`pitch_script.md\`
 **Purpose:** Convert viewers into users or investors.
-**Contents:** The timed script and the recorded Loom video link.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+**Contents:** The timed script and the recorded Loom video link.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'security': `# Security
 
 **Estimated Time:** 4-6 hours
@@ -3500,7 +3500,7 @@ Act as a Senior Security Engineer. I am building a SaaS application using [Inser
 - [ ] Secrets have been verified absent from public repositories.
 - [ ] Users can only access their own data (e.g., RLS policies).
 - [ ] Inputs are sanitized and validated on the backend.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'performanceoptimization': `# Performance Optimization
 
 **Estimated Time:** 3-5 hours
@@ -3539,7 +3539,7 @@ Act as a Senior Performance Engineer. I am building a SaaS application using [In
 - [ ] Large lists are paginated or virtualized.
 - [ ] Database queries are indexed and optimized.
 - [ ] Core Web Vitals meet acceptable thresholds.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'monitoring': `# Monitoring
 
 **Estimated Time:** 2-4 hours
@@ -3578,7 +3578,7 @@ Act as a Senior DevOps Engineer. I need to set up comprehensive monitoring for a
 - [ ] Application errors are tracked and aggregated automatically.
 - [ ] Key performance metrics (latency, error rate) are visible on a dashboard.
 - [ ] Critical alerts are routed to the appropriate team members.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'logging': `# Logging
 
 **Estimated Time:** 2-4 hours
@@ -3617,7 +3617,7 @@ Act as a Backend Architect. I am building a production backend in [Insert Langua
 - [ ] Logs include contextual information (User ID, Request ID).
 - [ ] Sensitive data (PII, passwords, tokens) is scrubbed from logs.
 - [ ] Logs are aggregated in a centralized, searchable platform.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'errortracking': `# Error Tracking
 
 **Estimated Time:** 1-3 hours
@@ -3656,7 +3656,7 @@ Act as a Full Stack Developer. Provide a step-by-step guide on how to integrate 
 - [ ] Source maps are uploaded to the error tracking tool for readable stack traces.
 - [ ] User context (ID, email) is attached to error reports.
 - [ ] Alerts are configured for significant spikes in error rates.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'ratelimiting': `# Rate Limiting
 
 **Estimated Time:** 2-4 hours
@@ -3695,7 +3695,7 @@ Act as a Backend Architect. I am building an API with [Insert Tech Stack, e.g., 
 - [ ] Rate limiting is applied to resource-intensive or costly API endpoints.
 - [ ] The API returns a 429 status code and helpful headers when limits are exceeded.
 - [ ] Rate limits are enforced consistently across distributed server instances.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'caching': `# Caching
 
 **Estimated Time:** 2-4 hours
@@ -3734,7 +3734,7 @@ Act as a Senior Backend Engineer. I am building a SaaS app with [Insert Tech Sta
 - [ ] Expensive or frequently accessed database queries are cached in-memory (e.g., Redis).
 - [ ] A clear cache invalidation strategy is implemented (TTL or event-driven).
 - [ ] Cache hit/miss rates are monitored.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'backups': `# Backups
 
 **Estimated Time:** 1-2 hours
@@ -3773,7 +3773,7 @@ Act as a Database Administrator. I am using [Insert Database Provider, e.g., Sup
 - [ ] Point-in-Time Recovery (PITR) is active for production databases.
 - [ ] Backups are securely stored in a geographically separate location.
 - [ ] The database restoration process has been successfully tested.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'cicd': `# CI/CD (Continuous Integration & Deployment)
 
 **Estimated Time:** 2-4 hours
@@ -3812,7 +3812,7 @@ Act as a DevOps Engineer. I have a repository hosted on GitHub with a [Insert Fr
 - [ ] Code cannot be merged into the main branch if tests fail.
 - [ ] Merging to the main branch automatically triggers a deployment to production.
 - [ ] Deployments occur with zero downtime to the end user.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'infrastructure': `# Infrastructure
 
 **Estimated Time:** 3-6 hours
@@ -3851,7 +3851,7 @@ Act as a Cloud Architect. I am planning the production infrastructure for a SaaS
 - [ ] Databases and internal services are not exposed directly to the public internet (e.g., inside a VPC).
 - [ ] Infrastructure components span multiple availability zones for fault tolerance.
 - [ ] Infrastructure changes are managed through code (IaC) and version control, not manual dashboard clicks.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'disasterrecovery': `# Disaster Recovery
 
 **Estimated Time:** 2-4 hours
@@ -3888,7 +3888,7 @@ Act as a Site Reliability Engineer (SRE). I am operating a SaaS application on [
 - [ ] Database backups are securely stored in a secondary geographic region.
 - [ ] Infrastructure can be rapidly recreated using Infrastructure as Code (IaC).
 - [ ] The Disaster Recovery failover process is documented and tested regularly.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'scalabilityplanning': `# Scalability Planning
 
 **Estimated Time:** 2-4 hours
@@ -3927,7 +3927,7 @@ Act as a Software Architect. I am building a backend using [Insert Tech Stack, e
 - [ ] Long-running or resource-intensive tasks are offloaded to background worker queues.
 - [ ] Database connection pooling is configured.
 - [ ] Load testing has been conducted to identify the system's maximum capacity.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'launchchecklist': `# Launch Checklist
 
 **Estimated Time:** 2-4 hours
@@ -3966,7 +3966,7 @@ Act as a Release Manager. I am launching a SaaS app built with [Insert Tech Stac
 - [ ] Automated backups are enabled and verified.
 - [ ] Debug mode is disabled; error tracking (e.g., Sentry) is enabled.
 - [ ] Open Graph (social sharing) tags and SEO metadata are configured.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'seo': `# SEO (Search Engine Optimization)
 
 **Estimated Time:** 3-6 hours
@@ -4003,7 +4003,7 @@ Act as an SEO Specialist. I am building a marketing site for my SaaS using [Inse
 - [ ] Open Graph and Twitter Card tags are configured with a preview image.
 - [ ] A \`sitemap.xml\` and \`robots.txt\` are automatically generated.
 - [ ] The site is indexable (Server-Side Rendered or Statically Generated).
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'analyticssetup': `# Analytics Setup
 
 **Estimated Time:** 1-3 hours
@@ -4040,7 +4040,7 @@ Act as a Product Manager. I am launching a SaaS app for [Describe your app's cor
 - [ ] Core conversion events (Signup, Upgrade) are actively tracked.
 - [ ] Events are tied to unique user IDs for cohort analysis.
 - [ ] A funnel has been created to monitor the onboarding drop-off rate.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'legaldocuments': `# Legal Documents
 
 **Estimated Time:** 1-2 hours
@@ -4072,7 +4072,7 @@ Act as a Startup Advisor. I am launching a B2B SaaS business and plan to charge 
 - [ ] A formal legal entity (LLC, C-Corp, etc.) has been established.
 - [ ] Intellectual Property (IP) has been assigned to the company.
 - [ ] Any required industry-specific compliance documentation is in progress.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'cookiepolicy': `# Cookie Policy
 
 **Estimated Time:** 1 hour
@@ -4107,7 +4107,7 @@ Act as a Compliance Expert. I am building a SaaS using [Insert Tech Stack]. We u
 - [ ] Non-essential tracking scripts are blocked until the user explicitly consents.
 - [ ] Users have an easy way to reject non-essential cookies.
 - [ ] A dedicated Cookie Policy page explains what cookies are used and why.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'customersupport': `# Customer Support
 
 **Estimated Time:** 2-4 hours
@@ -4142,7 +4142,7 @@ Act as a Head of Customer Success. I am launching a new SaaS product. Recommend 
 - [ ] Support tickets automatically capture the user's context (ID, email).
 - [ ] A dedicated support email address is active and monitored.
 - [ ] A basic FAQ or Help Center exists for common issues.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'retention': `# Retention
 
 **Estimated Time:** Ongoing
@@ -4177,7 +4177,7 @@ Act as a Growth Hacker. I am running a SaaS product. Outline a 14-day automated 
 - [ ] An automated welcome email is sent upon signup.
 - [ ] A lifecycle email campaign is configured to re-engage inactive users.
 - [ ] Churn reasons are collected when a user deletes their account or cancels their subscription.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'userfeedback': `# User Feedback
 
 **Estimated Time:** Ongoing
@@ -4209,7 +4209,7 @@ Act as a Product Manager. We have received 50 feature requests this month. Provi
 - [ ] Users can submit feedback or report bugs directly from within the app.
 - [ ] Feedback is actively monitored and categorized (Bug, Feature Request, UX).
 - [ ] A system (like NPS or CSAT) is in place to measure overall user satisfaction.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'scalingstrategy': `# Scaling Strategy
 
 **Estimated Time:** Ongoing
@@ -4242,7 +4242,7 @@ Act as a Principal Engineer. Our monolithic Node.js and PostgreSQL app is starti
 - [ ] Expensive operations are handled asynchronously by background workers.
 - [ ] Database connection limits are monitored and managed (e.g., via pooling).
 - [ ] A plan exists for scaling the database (vertical scaling -> read replicas).
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'marketing': `# Marketing
 
 **Estimated Time:** Ongoing
@@ -4274,7 +4274,7 @@ Act as a Chief Marketing Officer. I am launching a B2B SaaS targeting [Insert Ta
 - [ ] A primary customer acquisition channel has been identified and tested.
 - [ ] Customer Acquisition Cost (CAC) is being tracked and measured against Lifetime Value (LTV).
 - [ ] A launch plan (e.g., Product Hunt, Hacker News, specific subreddits) is prepared.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'referralsystems': `# Referral Systems
 
 **Estimated Time:** 2-4 Days
@@ -4307,7 +4307,7 @@ Act as a Growth Product Manager. I run a SaaS app for [Describe App]. Design a d
 - [ ] A double-sided incentive is established (both parties benefit).
 - [ ] The referral link is easily accessible within the core user dashboard.
 - [ ] Referral attribution and payouts/credits are tracked automatically.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'featureroadmap': `# Feature Roadmap
 
 **Estimated Time:** Ongoing
@@ -4339,7 +4339,7 @@ Act as a VP of Product. We have a backlog of 20 feature requests, 5 critical bug
 - [ ] Engineering bandwidth is allocated intentionally between new features, bug fixes, and tech debt.
 - [ ] Features are prioritized based on business impact and engineering effort.
 - [ ] A high-level public roadmap is available to users (optional but recommended).
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'technicaldebt': `# Technical Debt
 
 **Estimated Time:** Ongoing
@@ -4371,7 +4371,7 @@ Act as a VP of Engineering. My team is struggling to ship new features because t
 - [ ] Known technical debt is documented in the issue tracker, not just hidden in the code.
 - [ ] A consistent portion of engineering time is dedicated to refactoring and paying down debt.
 - [ ] Dependencies (NPM packages, Docker images) are regularly audited and updated.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'pitchdeck': `# Pitch Deck
 
 **🕒 Estimated Time:** 45-60 min
@@ -4453,7 +4453,7 @@ Write out the single most important sentence of your pitch—the "Hook" that wil
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'demoscript': `# Demo Script
 
 **🕒 Estimated Time:** 30-45 min
@@ -4539,7 +4539,7 @@ Define the exact starting state of your app when the demo begins (e.g., "Logged 
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'submissionchecklist': `# Submission Checklist
 
 **🕒 Estimated Time:** 15-20 min
@@ -4623,7 +4623,7 @@ Keep the tone energetic and confident.
 
 ## Deliverable
 Take a deep breath. You built an entire application from scratch. You planned the architecture, wrote the code, and prepared the pitch. You are a builder. Hit submit, celebrate your achievement, and get ready for the next one.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileideadefinition': `# Idea Definition
 
 **Estimated Time:** 1-2 hours
@@ -4659,7 +4659,7 @@ Act as a cynical Mobile Product Manager. I am pitching the following mobile app 
 - [ ] The idea explicitly requires at least one native device capability (Camera, GPS, Push, Offline).
 - [ ] The core value proposition can be explained in less than 10 seconds.
 - [ ] The problem being solved is painful enough to overcome the friction of an App Store download.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileproblemstatement': `# Problem Statement
 
 **Estimated Time:** 1 hour
@@ -4691,7 +4691,7 @@ Act as a UX Researcher. My current problem statement is: [Insert Problem]. Rewri
 - [ ] The problem statement focuses on the user's pain, not the proposed technology.
 - [ ] The problem is significant enough that users are actively looking for workarounds.
 - [ ] The statement avoids vague marketing jargon.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileusecases': `# Use Cases
 
 **Estimated Time:** 1-2 hours
@@ -4723,7 +4723,7 @@ Act as a Technical Business Analyst. For a mobile app that does [Describe App], 
 - [ ] The primary, high-value user action is clearly defined as a use case.
 - [ ] Edge cases (offline, permissions denied) are accounted for in the core flows.
 - [ ] Use cases are actionable and written from the user's perspective.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileuserjourney': `# User Journey
 
 **Estimated Time:** 2-3 hours
@@ -4755,7 +4755,7 @@ Act as a Mobile UX Designer. Outline a 5-step User Journey for a first-time user
 - [ ] The journey starts at discovery (App Store) and ends at the core value proposition.
 - [ ] Permission requests (Camera, Location, Push) are mapped contextually, not upfront.
 - [ ] The onboarding flow is minimized to reduce Day 1 churn.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobiletargetaudience': `# Target Audience
 
 **Estimated Time:** 1 hour
@@ -4787,7 +4787,7 @@ Act as a Product Marketing Manager. My mobile app does [Describe App]. I want to
 - [ ] The audience is narrow enough to have specific online gathering places.
 - [ ] The audience has a demonstrated willingness to pay or download apps for this problem.
 - [ ] The audience definition avoids vague demographics (e.g., "Millennials") in favor of behavioral traits.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilepersonas': `# Personas
 
 **Estimated Time:** 1-2 hours
@@ -4819,7 +4819,7 @@ Act as a UX Researcher. Generate two actionable user personas for a mobile app t
 - [ ] Personas are based on behavioral traits and mobile habits, not just demographics.
 - [ ] The physical environment of the user (e.g., on the go, low battery, bad signal) is considered.
 - [ ] Design decisions can be directly tied back to the needs of a specific persona.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilesolutionstatement': `# Solution Statement
 
 **Estimated Time:** 1 hour
@@ -4851,7 +4851,7 @@ Act as a Y Combinator Partner. My current solution statement is: [Insert Stateme
 - [ ] The statement clearly explains how the problem is solved.
 - [ ] The statement relies on value metrics (time saved, money earned) rather than technical jargon.
 - [ ] It is obvious why this solution requires a mobile application rather than a website.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileelevatorpitch': `# Elevator Pitch
 
 **Estimated Time:** 1 hour
@@ -4883,7 +4883,7 @@ Act as a Startup Founder. My app does [Describe App] for [Target Audience]. Writ
 - [ ] The pitch clearly identifies the target audience.
 - [ ] The core value proposition is easily understood without technical context.
 - [ ] The pitch can be spoken aloud in under 15 seconds.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilecompetitoranalysis': `# Competitor Analysis
 
 **Estimated Time:** 2-4 hours
@@ -4915,7 +4915,7 @@ Act as a Product Strategist. I am building an app to compete with [Insert Compet
 - [ ] At least 3 direct or indirect competitors have been identified.
 - [ ] 1-star App Store reviews of competitors have been analyzed to find missing features.
 - [ ] A clear differentiator (Price, UX, Speed, Niche Feature) has been established.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilesimilarapps': `# Similar Apps
 
 **Estimated Time:** 1-2 hours
@@ -4949,7 +4949,7 @@ Act as a Senior UX Researcher. I am building an app in the [Insert Category, e.g
 - [ ] At least 3 similar apps have been downloaded and tested.
 - [ ] Standard UX patterns for the category (e.g., navigation style) have been identified.
 - [ ] The onboarding flow of the market leader has been mapped out.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'play-store-research': `# Play Store Research
 
 **🕒 Estimated Time:** 20 min
@@ -5017,7 +5017,7 @@ Paste your suggested Title, Short Description, and the key screenshot concept he
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'appstoreresearch': `# App Store Research
 
 **Estimated Time:** 1-2 hours
@@ -5051,7 +5051,7 @@ Act as an iOS App Store Optimization Expert. I am launching an app for [Describe
 - [ ] The App Store Review Guidelines (especially Minimum Functionality) have been reviewed.
 - [ ] A strategy for the Title, Subtitle, and 100-character Keyword field is drafted.
 - [ ] The monetization model complies with Apple's In-App Purchase (IAP) rules (no circumventing the 30% fee).
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilefeatureplanning': `# Feature Planning
 
 **Estimated Time:** 2-3 hours
@@ -5083,7 +5083,7 @@ Act as a Mobile Technical Lead. I am building a mobile app that [Describe App]. 
 - [ ] All features are directly tied back to a defined Use Case.
 - [ ] "Invisible" mobile features (offline states, error handling, permissions) are explicitly planned.
 - [ ] Features are grouped into logical Epics for easier estimation.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilemvpfeatures': `# MVP Features
 
 **Estimated Time:** 1-2 hours
@@ -5115,7 +5115,7 @@ Act as a ruthless Product Manager. Here is my list of planned features for my mo
 - [ ] The MVP contains only the features required to deliver the core value proposition.
 - [ ] "Nice to have" features (e.g., social sharing, dark mode, complex settings) have been cut.
 - [ ] The MVP can theoretically be built in less than 4-6 weeks.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilefuturefeatures': `# Future Features
 
 **Estimated Time:** 1 hour
@@ -5147,7 +5147,7 @@ Act as a Principal Mobile Architect. My MVP is [Describe MVP], but my Phase 2 Fu
 - [ ] All non-critical ideas have been moved out of the MVP and into a documented Backlog.
 - [ ] The current technical stack can support the most complex future features without a total rewrite.
 - [ ] Future features align with the long-term product vision.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilefeatureprioritization': `# Feature Prioritization
 
 **Estimated Time:** 1-2 hours
@@ -5179,7 +5179,7 @@ Act as a VP of Product. I have three proposed features for my mobile app: 1) [Fe
 - [ ] A formal prioritization framework (like RICE or Kano) is used to evaluate features.
 - [ ] Features are prioritized based on their impact on core business metrics (e.g., Retention, Conversion).
 - [ ] High-effort, low-impact features have been explicitly deprioritized.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilemonetization': `# Monetization Strategy
 
 **Estimated Time:** 1-2 hours
@@ -5211,7 +5211,7 @@ Act as a Monetization Strategist. I am building a mobile app that [Describe App]
 - [ ] The chosen monetization strategy is compliant with Apple and Google's In-App Purchase rules.
 - [ ] The strategy aligns with the expected Customer Acquisition Cost (CAC).
 - [ ] The core value proposition is strong enough to support the chosen model.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilefree': `# Free (100% Free)
 
 **Estimated Time:** 30 minutes
@@ -5243,7 +5243,7 @@ Act as a Financial Advisor for Startups. I want to release my mobile app 100% fo
 - [ ] There is a clear strategic reason for the app to generate zero direct revenue.
 - [ ] A funding source exists to cover ongoing server and developer account costs.
 - [ ] If data is being monetized, the Privacy Policy explicitly states this in compliance with GDPR/CCPA.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilefreemium': `# Freemium Model
 
 **Estimated Time:** 2-4 hours
@@ -5275,7 +5275,7 @@ Act as a Pricing Strategist. I am building a mobile app that [Describe App]. I w
 - [ ] The free tier provides enough value to demonstrate the "Aha!" moment.
 - [ ] The trigger for the paywall is based on a clear value metric (e.g., 3 projects maximum).
 - [ ] Backend entitlement checks are planned to prevent unauthorized premium access.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilesubscription': `# Subscription Model
 
 **Estimated Time:** 1-2 hours
@@ -5307,7 +5307,7 @@ Act as a SaaS Financial Modeler. We are launching a mobile subscription app at $
 - [ ] Apple/Google In-App Purchases are used (no external Stripe links for digital goods).
 - [ ] A tool like RevenueCat is planned to handle cross-platform receipt validation.
 - [ ] A clear, easy-to-find cancellation flow is designed to comply with App Store policies.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileads': `# Ad-Supported Model
 
 **Estimated Time:** 1-2 hours
@@ -5339,7 +5339,7 @@ Act as a Mobile Ad Monetization Manager. My app currently has 10,000 Daily Activ
 - [ ] The app's projected DAU and session length can realistically support an ad-driven revenue model.
 - [ ] Rewarded video or native ads are prioritized over intrusive interstitials.
 - [ ] Privacy policies are updated to reflect third-party ad tracking (e.g., AdMob, ATT prompts).
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileonetimepurchase': `# One-Time Purchase
 
 **Estimated Time:** 1 hour
@@ -5371,7 +5371,7 @@ Act as a Pricing Strategist. I am building a mobile app for [Describe App]. I wa
 - [ ] The app has minimal to zero ongoing server or third-party API costs.
 - [ ] The architecture relies heavily on local device storage (CoreData/SQLite) rather than cloud databases.
 - [ ] The upfront price is high enough to cover Customer Acquisition Cost (CAC) immediately.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilesuccessmetrics': `# Success Metrics
 
 **Estimated Time:** 1 hour
@@ -5403,7 +5403,7 @@ Act as a Data-Driven CEO. My mobile app is a [Insert Category] app that helps us
 - [ ] A single "North Star" metric has been explicitly defined.
 - [ ] A tool (e.g., PostHog, Mixpanel, RevenueCat) is selected to track this metric accurately.
 - [ ] Supporting metrics (Churn, CAC) are defined to provide business context.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileretention': `# Retention
 
 **Estimated Time:** Ongoing
@@ -5436,7 +5436,7 @@ Act as a Product Growth Expert. My mobile app is a [Insert App Type]. Define wha
 - [ ] The "Aha! Moment" has been clearly defined.
 - [ ] Onboarding friction preventing users from reaching the Aha! Moment has been minimized.
 - [ ] D1, D7, and D30 retention cohorts are actively being tracked in an analytics tool.
-\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobiledau': `# DAU (Daily Active Users)
 
 **Estimated Time:** 30 minutes
@@ -5467,7 +5467,7 @@ Act as a Data Analyst. My app is a [Describe App]. If we track DAU, should the '
 ## Validation Checklist
 - [ ] The "Active" event is strictly defined as a core action, not just "App Opened."
 - [ ] The DAU metric aligns with the natural usage frequency of the product.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilemau': `# MAU (Monthly Active Users)
 
 **Estimated Time:** 30 minutes
@@ -5498,7 +5498,7 @@ Act as an Investor Relations Manager. Our MAU is growing at 15% month-over-month
 ## Validation Checklist
 - [ ] Internal team members and test accounts are excluded from the MAU metric.
 - [ ] MAU growth is actively compared against MRR/Revenue growth to ensure quality acquisition.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilesessionduration': `# Session Duration
 
 **Estimated Time:** 30 minutes
@@ -5529,7 +5529,7 @@ Act as a UX Analyst. My app is a [Describe App]. Is our goal to maximize session
 ## Validation Checklist
 - [ ] It is explicitly decided whether the product goal is to maximize or minimize session duration.
 - [ ] Analytics (e.g., PostHog/Mixpanel) are configured to accurately track session start and end events.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileprd': `
 # Mobile Product Requirements Document (PRD)
 
@@ -5590,7 +5590,7 @@ Generate a concise, actionable Mobile PRD including:
 ## Validation
 - [ ] I have generated and saved the Mobile PRD.
 - [ ] I have ruthlessly cut at least one feature that isn't strictly necessary for v1.0.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileuserflows': `
 # Mobile User Flows
 
@@ -5652,7 +5652,7 @@ Please analyze these flows specifically for mobile friction points.
 - [ ] The onboarding flow has been mapped.
 - [ ] The core engagement flow has been mapped.
 - [ ] The flows have been optimized to reduce unnecessary taps.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'appnavigation': `
 # App Navigation Architecture
 
@@ -5715,7 +5715,7 @@ Please outline the ideal nested navigation architecture.
 - [ ] A primary navigation pattern has been selected.
 - [ ] The core root screens have been defined.
 - [ ] Deep linking entry points have been considered.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilewireframes': `
 # Mobile Wireframes
 
@@ -5772,7 +5772,7 @@ For each screen, provide a structural breakdown of the UI hierarchy from top to 
 ## Validation
 - [ ] Wireframes have been created (even if just on paper) in strictly greyscale.
 - [ ] The primary Call to Action on every screen is easily reachable by a user's thumb holding the device with one hand.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobiledesignsystem': `
 # Mobile Design System
 
@@ -5833,7 +5833,7 @@ Generate a complete, semantic Design System Token object (in JSON/TypeScript for
 - [ ] A semantic color palette has been defined (not just hardcoded hex values).
 - [ ] Dark mode is supported by the color token structure.
 - [ ] Spacing relies on a consistent multiplier (e.g., 4, 8, 16, 24).
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilebranding': `
 # Mobile Branding & Assets
 
@@ -5887,7 +5887,7 @@ Please provide 3 distinct, highly professional concepts for the App Icon. For ea
 - [ ] An app icon has been generated in all necessary resolutions (1024x1024 master).
 - [ ] A splash screen has been configured.
 - [ ] The app transitions from the native splash screen to the first view without a white flash.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileaccessibility': `
 # Mobile Accessibility (a11y)
 
@@ -5942,7 +5942,7 @@ Provide a specific implementation guide to make these components accessible. Inc
 - [ ] All icon-only buttons have descriptive accessibility labels.
 - [ ] The app has been tested with system text size increased by 150% without breaking layouts.
 - [ ] Touch targets are a minimum of 44x44 points (iOS) or 48x48 dp (Android).
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileemptystates': `
 # Mobile Empty States
 
@@ -5997,7 +5997,7 @@ For each screen, provide:
 ## Validation
 - [ ] Every primary tab/screen has a designed empty state.
 - [ ] Every empty state includes a Call to Action (CTA) button.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileerrorstates': `
 # Mobile Error States
 
@@ -6054,7 +6054,7 @@ Please categorize the following failure types and recommend the best UX pattern 
 - [ ] A global "No Internet Connection" state has been designed.
 - [ ] Non-blocking errors are handled gracefully (e.g., via Toasts) without interrupting the user.
 - [ ] Critical component failures include a "Retry" button.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileloadingstates': `
 # Mobile Loading States
 
@@ -6110,7 +6110,7 @@ Please provide a loading state strategy that minimizes perceived latency.
 - [ ] Initial data fetches use Skeleton Loaders or non-blocking indicators.
 - [ ] Form submission buttons visually indicate a loading state to prevent double-submissions.
 - [ ] The app avoids full-screen blocking overlays unless processing payments.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileplatformstrategy': `# Platform Strategy
 
 **Estimated Time:** 20 minutes
@@ -6153,7 +6153,7 @@ Act as a Senior Mobile Architect. My application features include [List your mos
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilefundamentals': `# Mobile Fundamentals
 
 **Estimated Time:** 15 minutes
@@ -6186,7 +6186,7 @@ At the enterprise tier, mobile fundamentals dictate architectural rigor. You mus
 
 ## Review and Proceed
 - [ ] I understand the core constraints of mobile development and the necessity of lifecycle management.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobiletechstackselection': `# Tech Stack Selection
 
 **Estimated Time:** 20 minutes
@@ -6223,7 +6223,7 @@ Act as a Senior Mobile Architect. My application needs to utilize [List hardware
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilestatemanagement': `# State Management Architecture
 
 **Estimated Time:** 20 minutes
@@ -6263,7 +6263,7 @@ Act as a Senior Frontend Architect. I am building a mobile app that handles [Des
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileapistrategy': `# API Strategy
 
 **Estimated Time:** 20 minutes
@@ -6302,7 +6302,7 @@ Act as a Senior Backend Architect. I am building a mobile application. The front
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilelocalstorage': `# Local Storage Strategy
 
 **Estimated Time:** 15 minutes
@@ -6343,7 +6343,7 @@ Act as a Senior Mobile Security Engineer. My app needs to store [List data types
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileauthentication': `# Authentication Strategy
 
 **Estimated Time:** 20 minutes
@@ -6382,7 +6382,7 @@ Act as a Senior Security Architect. I am building a mobile app that uses [Insert
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobiledatabase': `# Database Architecture
 
 **Estimated Time:** 20 minutes
@@ -6421,7 +6421,7 @@ Act as a Senior Database Administrator. I am building a mobile application where
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilebackend': `# Backend Architecture
 
 **Estimated Time:** 20 minutes
@@ -6460,7 +6460,7 @@ Act as a Senior Cloud Architect. My mobile app requires [List heavy backend task
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilepushnotifications': `# Push Notification Strategy
 
 **Estimated Time:** 15 minutes
@@ -6501,7 +6501,7 @@ Act as a Mobile Product Manager. My app is a [Describe your app]. Generate 5 hig
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobiledeeplinking': `# Deep Linking
 
 **Estimated Time:** 20 minutes
@@ -6539,7 +6539,7 @@ Act as a Senior Mobile Architect. I am using [Expo Router / React Navigation]. I
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilefilestorage': `# File Storage Strategy
 
 **Estimated Time:** 15 minutes
@@ -6578,7 +6578,7 @@ Act as a Mobile Storage Architect. My app allows users to upload [Images / Video
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileofflinestrategy': `# Offline Strategy
 
 **Estimated Time:** 20 minutes
@@ -6617,7 +6617,7 @@ Act as a Senior Mobile Architect. I am building a [Describe your app]. Based on 
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileanalyticsstrategy': `# Analytics Strategy
 
 **Estimated Time:** 15 minutes
@@ -6661,7 +6661,7 @@ Act as a Head of Product. My app is a [Describe your app]. Generate a Tracking P
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilecostestimation': `# Cost Estimation
 
 **Estimated Time:** 15 minutes
@@ -6703,7 +6703,7 @@ Act as a Cloud FinOps Architect. Review my tech stack ([List your stack: e.g., R
 \`\`\`input
 Write Here...
 \`\`\`
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'scalability': `# Scalability
 
 🕒 **Estimated Time:** 3-6 hours
@@ -6783,7 +6783,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Your app is fully production-ready, secure, performant, and scalable! You are ready to move to **Phase 5: Store Deployment**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+Your app is fully production-ready, secure, performant, and scalable! You are ready to move to **Phase 5: Store Deployment**.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'playstoresetup': `# Play Store Setup
 
 🕒 **Estimated Time:** 2-3 days (Verification)
@@ -6854,7 +6854,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Once your Android account is pending verification, move on to setting up your Apple App Store account.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+Once your Android account is pending verification, move on to setting up your Apple App Store account.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'appstoresetup': `# App Store Setup
 
 🕒 **Estimated Time:** 1-2 weeks (Verification)
@@ -6925,7 +6925,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With the accounts created, it's time to design the visual assets, starting with the App Icon.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+With the accounts created, it's time to design the visual assets, starting with the App Icon.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'appicons': `# App Icons
 
 🕒 **Estimated Time:** 2-4 hours
@@ -6996,7 +6996,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Now that you have an icon, you need to show users what the app actually does using Screenshots.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+Now that you have an icon, you need to show users what the app actually does using Screenshots.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'screenshots': `# Screenshots
 
 🕒 **Estimated Time:** 4-6 hours
@@ -7068,7 +7068,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Android requires an additional promotional asset called the Feature Graphic.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+Android requires an additional promotional asset called the Feature Graphic.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'featuregraphics': `# Feature Graphics
 
 🕒 **Estimated Time:** 1-2 hours
@@ -7137,7 +7137,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Visuals are done. Now you need to optimize your text for search algorithms via App Store SEO.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+Visuals are done. Now you need to optimize your text for search algorithms via App Store SEO.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'storelistingseo': `# Store Listing SEO (ASO)
 
 🕒 **Estimated Time:** 2-3 hours
@@ -7208,7 +7208,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-You cannot submit an app without a valid Privacy Policy URL.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+You cannot submit an app without a valid Privacy Policy URL.\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'privacypolicy': `# Privacy Policy
 
 **Estimated Time:** 1-2 hours
@@ -7245,7 +7245,7 @@ Act as a Tech Lawyer. I am building a SaaS application that collects email addre
 - [ ] All third-party data processors are listed.
 - [ ] The policy includes instructions for users to request data deletion.
 - [ ] The policy complies with local regulations (GDPR/CCPA) if applicable.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'termsofservice': `# Terms of Service
 
 **Estimated Time:** 1-2 hours
@@ -7277,7 +7277,7 @@ Act as a Corporate Lawyer. Draft a Terms of Service for a SaaS application. The 
 - [ ] Users must explicitly agree to the Terms of Service during account creation.
 - [ ] The refund and cancellation policies are clearly defined.
 - [ ] Limitation of Liability and account termination clauses are included.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'betatesting': `# Beta Testing
 
 **Estimated Time:** 3-7 Days
@@ -7314,7 +7314,7 @@ Act as a Product Marketer. Write an email to the top 50 users on our waitlist, i
 - [ ] Session recording tools are active to observe user behavior.
 - [ ] A clear channel exists for beta testers to report bugs and feedback.
 - [ ] All critical bugs identified during the beta have been resolved.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'playstoreresearch': `# Play Store Research
 
 **Estimated Time:** 1-2 hours
@@ -7346,7 +7346,7 @@ Act as an App Store Optimization (ASO) Expert. I am launching an Android app for
 - [ ] The top 5 competitors in the Google Play Store have been analyzed.
 - [ ] The monetization strategy aligns with Android user expectations (typically freemium).
 - [ ] Relevant keywords have been identified for the Play Store Long Description.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilesecurity': `# Security Implementation
 
 **Estimated Time:** 3-5 hours
@@ -7382,7 +7382,7 @@ Act as a Mobile Security Expert. I am building a React Native app. Provide a che
 - [ ] No private API keys or database admin credentials exist in the client source code.
 - [ ] Session tokens are stored in the device's Secure Enclave.
 - [ ] Backend APIs explicitly validate the authorization header for every request.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileperformanceoptimization': `# Performance Optimization
 
 **Estimated Time:** 4-6 hours
@@ -7415,7 +7415,7 @@ Act as a React Native Performance Architect. I have a \`FlatList\` rendering 1,0
 - [ ] Release builds maintain a solid 60 FPS (or 120 FPS on ProMotion devices) during navigation transitions.
 - [ ] Large lists are rendered using \`FlashList\` or heavily optimized \`FlatList\` configurations.
 - [ ] Heavy animations are offloaded to the UI thread using Reanimated.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilecrashreporting': `# Crash Reporting
 
 **Estimated Time:** 1-2 hours
@@ -7448,7 +7448,7 @@ Act as a DevOps Engineer for Mobile. I am using Expo. Provide the step-by-step i
 - [ ] Sentry (or Crashlytics) is initialized correctly in the app entry file.
 - [ ] Source maps are configured to upload automatically on production builds.
 - [ ] A test crash (\`throw new Error('Test Crash')\`) successfully appears in the reporting dashboard.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilemonitoring': `# Monitoring & Telemetry
 
 **Estimated Time:** 2-3 hours
@@ -7481,7 +7481,7 @@ Act as a Mobile Observability Expert. I am using Sentry Performance for React Na
 - [ ] App Cold Start times are being tracked in a dashboard.
 - [ ] HTTP request durations and success/failure rates are monitored.
 - [ ] Custom traces are implemented for critical, complex business flows (e.g., Video Processing).
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilelogging': `# Logging
 
 **Estimated Time:** 1-2 hours
@@ -7514,7 +7514,7 @@ Act as a Senior Mobile Developer. Provide a TypeScript \`logger.ts\` utility. It
 - [ ] \`console.log\` is replaced by a centralized logging abstraction.
 - [ ] Production logs do not leak PII (Personally Identifiable Information).
 - [ ] Non-fatal errors are logged remotely for triage.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileratelimiting': `# Rate Limiting
 
 **Estimated Time:** 2-4 hours
@@ -7550,7 +7550,7 @@ Act as a Mobile Architecture Expert. I have a 'Like' button on a post. Users mig
 - [ ] Search inputs use debouncing to prevent excessive API calls.
 - [ ] Submit buttons are disabled while \`isLoading\` is true.
 - [ ] The app handles HTTP \`429 Too Many Requests\` elegantly without crashing.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilebackups': `# Backups & Data Integrity
 
 **Estimated Time:** 1-2 hours
@@ -7583,7 +7583,7 @@ Act as a Mobile Infrastructure Expert. I am building a React Native app. Provide
 - [ ] Backend database has automated daily backups enabled.
 - [ ] Mobile app correctly opts in/out of OS-level cloud backups (iCloud/Google Drive).
 - [ ] A disaster recovery runbook exists outlining the exact steps to restore the database.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilecicd': `# CI/CD Pipeline
 
 **Estimated Time:** 4-8 hours
@@ -7620,7 +7620,7 @@ Act as a Mobile DevOps Engineer. I am using Expo and GitHub Actions. Provide a c
 - [ ] The app compiles remotely on a CI server, independent of your personal machine.
 - [ ] Secrets and Keystores are securely managed via CI environment variables, not committed to Git.
 - [ ] Submissions to TestFlight/Play Console are automated.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileinfrastructure': `# Infrastructure Setup
 
 **Estimated Time:** 2-4 hours
@@ -7653,7 +7653,7 @@ Act as a Cloud Infrastructure Architect. I am using Vercel for my API and Supaba
 - [ ] API routes are deployed to a scalable, serverless environment.
 - [ ] Large static assets (images, videos) are served via a global CDN.
 - [ ] Database regions are selected strategically based on the target user demographic.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileappsizeoptimization': `# App Size Optimization
 
 **Estimated Time:** 2-3 hours
@@ -7686,7 +7686,7 @@ Act as a React Native Build Expert. I need to reduce my Android App size. Provid
 - [ ] All static images are compressed or replaced with SVGs.
 - [ ] The app is distributed as an Android App Bundle (.aab) on Google Play.
 - [ ] Unused or massive NPM dependencies have been identified and removed.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilebatteryoptimization': `# Battery Optimization
 
 **Estimated Time:** 2-4 hours
@@ -7719,7 +7719,7 @@ Act as a Mobile Performance Expert. I am building a React Native app that uses a
 - [ ] WebSockets and heavy polling are terminated when the app is backgrounded.
 - [ ] Location services use the lowest necessary accuracy (e.g., 'City' vs 'Exact GPS').
 - [ ] The app does not cause the physical device to noticeably heat up during normal use.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilescalability': `# Scalability & Load Testing
 
 **Estimated Time:** 3-5 hours
@@ -7752,7 +7752,7 @@ Act as a Backend Scalability Expert. I expect a massive spike in mobile traffic.
 - [ ] Database tables are properly indexed for high-frequency queries.
 - [ ] Connection pooling is configured to prevent database exhaustion.
 - [ ] Heavy, long-running tasks are offloaded to asynchronous background queues.
-\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileplaystoresetup': `# Google Play Store Setup
 
 **Estimated Time:** 1-2 hours
@@ -7785,7 +7785,7 @@ Act as a Google Play Console Expert. Provide a step-by-step checklist on how to 
 - [ ] A Google Play Developer account has been created and identity verification is complete.
 - [ ] For individuals, a strategy is in place to recruit 20 testers for the 14-day mandatory period.
 - [ ] Google Play App Signing is enabled and the Upload Keystore is securely backed up.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileappstoresetup': `# Apple App Store Setup
 
 **Estimated Time:** 2-3 hours
@@ -7818,7 +7818,7 @@ Act as an iOS DevOps Expert. I am using Expo EAS. Provide the exact steps and CL
 - [ ] Apple Developer Program enrollment is active.
 - [ ] An explicit App ID (Bundle Identifier) has been registered.
 - [ ] App Store Connect API Keys have been generated for automated CI/CD deployments.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileappicons': `# App Icons
 
 **Estimated Time:** 1-2 hours
@@ -7851,7 +7851,7 @@ Act as a Mobile UI/UX Designer. I am building a React Native app with Expo. Prov
 - [ ] The iOS icon has exactly zero transparent pixels.
 - [ ] Android Adaptive Icons (Foreground and Background) are correctly configured.
 - [ ] The core logo remains legible and un-clipped inside the standard circular safe zone.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilescreenshots': `# Screenshots
 
 **Estimated Time:** 2-4 hours
@@ -7884,7 +7884,7 @@ Act as an App Store Optimization (ASO) Expert. What are the top 5 psychological 
 - [ ] Status bars in screenshots are sanitized (Full battery, standard time, no notifications).
 - [ ] Screenshots are framed with marketing copy explaining the value, not just the feature.
 - [ ] Correct resolutions are generated for iOS (6.5") and Android (Phone + 7" Tablet).
-\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilefeaturegraphics': `# Feature Graphics
 
 **Estimated Time:** 1-2 hours
@@ -7917,7 +7917,7 @@ Act as a Graphic Designer. I need to create a Google Play Feature Graphic (1024x
 - [ ] A 1024x500 PNG/JPEG graphic has been created.
 - [ ] No critical text or logos are placed in the dead-center (to avoid the play button) or the extreme edges.
 - [ ] The design communicates the core brand without looking cluttered.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilestorelistingseo': `# Store Listing SEO (ASO)
 
 **Estimated Time:** 2-4 hours
@@ -7950,7 +7950,7 @@ Act as an App Store Optimization (ASO) Specialist. My app is called [App Name] a
 - [ ] The App Title includes the brand name AND a primary descriptive keyword.
 - [ ] The iOS 100-character keyword field is fully utilized with no wasted spaces.
 - [ ] The Google Play Long Description naturally incorporates target keywords 3-5 times.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileprivacypolicy': `# Privacy Policy
 
 **Estimated Time:** 1-2 hours
@@ -7983,7 +7983,7 @@ Act as a Legal Tech Expert. I am building a mobile app that uses Supabase for au
 - [ ] A Privacy Policy document is generated and hosted on a publicly accessible URL.
 - [ ] The policy explicitly names all third-party SDKs used in the app.
 - [ ] The policy includes instructions for users to request data deletion.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobiletermsofservice': `# Terms of Service
 
 **Estimated Time:** 1-2 hours
@@ -8016,7 +8016,7 @@ Act as a Tech Lawyer. Generate a Terms of Service for a mobile SaaS app that inc
 - [ ] The Terms of Service is hosted on a publicly accessible URL.
 - [ ] A clause prohibiting objectionable content is included (if applicable).
 - [ ] Auto-renewing subscription terms are clearly defined (if applicable).
-\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilecontentrating': `# Content Rating
 
 **Estimated Time:** 30 minutes
@@ -8049,7 +8049,7 @@ Act as an App Store Reviewer. My app is a [Describe App] that allows users to [D
 - [ ] The IARC Content Rating questionnaire is completed in the Google Play Console.
 - [ ] The Apple App Store age rating questionnaire is completed.
 - [ ] Apps with User Generated Content (UGC) have correctly declared this, accepting the higher age rating.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobiletesttracks': `# Test Tracks
 
 **Estimated Time:** 1-2 hours
@@ -8082,7 +8082,7 @@ Act as a Mobile Release Manager. Outline a strict promotion strategy using Googl
 - [ ] The initial binary has been uploaded to the Internal Testing track / TestFlight.
 - [ ] Test accounts have been added to the internal testers list.
 - [ ] The build installs and launches successfully on a physical test device.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilebetatesting': `# Beta Testing
 
 **Estimated Time:** 1-2 weeks (Active Testing)
@@ -8115,7 +8115,7 @@ Act as a QA Lead. Create a structured 5-step User Acceptance Testing (UAT) scrip
 - [ ] The app has been distributed to at least 10 external beta testers.
 - [ ] Crashlytics (or similar) is actively monitoring beta sessions.
 - [ ] The crash-free session rate is above 99%.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilereleasechecklist': `# Release Checklist
 
 **Estimated Time:** 1-2 hours
@@ -8155,7 +8155,7 @@ Act as a Mobile Release Manager. Provide an exhaustive, 20-point pre-flight rele
 - [ ] All API keys and endpoints point to Production.
 - [ ] App version and build number are incremented.
 - [ ] The binary has been tested on a physical device over a cellular network.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilepitchdeck': `# Pitch Deck
 
 **Estimated Time:** 2-3 hours
@@ -8188,7 +8188,7 @@ Act as a Y-Combinator Partner. I am building a [Insert App Type] mobile app. Gen
 - [ ] The deck is strictly under 10 slides.
 - [ ] There are no paragraphs of text; only short, readable bullet points.
 - [ ] The deck explicitly identifies the target user and the core problem being solved.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobiledemoscript': `# Demo Script
 
 **Estimated Time:** 1-2 hours
@@ -8221,7 +8221,7 @@ Act as a Master Presenter. I need a 3-minute demo script for my mobile app. The 
 - [ ] A screen recording of the "Happy Path" has been captured as a backup.
 - [ ] The script skips the login/signup flow and jumps straight to the core value.
 - [ ] The entire demo can be completed in under 3 minutes.
-\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilesubmissionchecklist': `# Submission Checklist
 
 **Estimated Time:** 1 hour
@@ -8254,7 +8254,7 @@ Act as a Hackathon Veteran. My team is submitting our mobile app to Devpost in 2
 - [ ] The Demo Video is uploaded to YouTube/Vimeo and is publicly accessible.
 - [ ] All team members are officially added to the submission platform.
 - [ ] The GitHub repository is set to Public and contains a proper README.
-\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileanalytics': `# Analytics
 
 **Estimated Time:** 2-4 hours
@@ -8287,7 +8287,7 @@ Act as a Data Architect. Create a structured 'Tracking Plan' for a [Insert App T
 - [ ] Analytics SDK is installed and successfully capturing events.
 - [ ] Development data is strictly separated from Production data.
 - [ ] The core conversion funnel (Signup -> Activation -> Purchase) is fully instrumented.
-\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilenotificationsstrategy': `# Notifications Strategy
 
 **Estimated Time:** 2-3 hours
@@ -8320,7 +8320,7 @@ Act as a Mobile CRM Expert. I am building a [Insert App Type]. Design a Push Not
 - [ ] The app requests notification permissions only after demonstrating value, never on initial launch.
 - [ ] Automated campaigns are triggered by user behavior, not just scheduled blasts.
 - [ ] Push notifications respect user time zones to avoid late-night disturbances.
-\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileuserfeedback': `# User Feedback
 
 **Estimated Time:** 1-2 hours
@@ -8353,7 +8353,7 @@ Act as a Customer Success Manager. I am adding an in-app feedback form to my mob
 - [ ] A frictionless method exists for users to submit feedback directly within the app.
 - [ ] Device metadata (OS version, app version, device model) is automatically attached to bug reports.
 - [ ] Feedback is routed directly to a location where the development team actively monitors it.
-\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilereviewsratings': `# Reviews & Ratings
 
 **Estimated Time:** 1-2 hours
@@ -8389,7 +8389,7 @@ Act as a Mobile Growth Hacker. I want to implement the 'Rating Intercept' strate
 - [ ] The app uses native in-app review APIs (not external links to the App Store).
 - [ ] Review prompts are only triggered after a specific "Win State" or positive action.
 - [ ] A 'Rating Intercept' pattern is used to route negative sentiment to internal support instead of the public store.
-\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilereferralprograms': `# Referral Programs
 
 **Estimated Time:** 1-2 weeks
@@ -8422,7 +8422,7 @@ Act as a Mobile Architect. I want to build a 'Give $10, Get $10' referral loop i
 - [ ] A deep linking provider (like Branch.io) is integrated to handle Deferred Deep Links.
 - [ ] A double-sided incentive is clearly communicated in the UI.
 - [ ] The backend successfully attributes the installation to the referring user and distributes the reward.
-\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileroadmap': `# Roadmap
 
 **Estimated Time:** 2-4 hours
@@ -8455,7 +8455,7 @@ Act as a Senior Product Manager. I am setting up a public roadmap for my mobile 
 - [ ] A public roadmap is hosted and accessible via a link inside the app.
 - [ ] Users have a mechanism to submit new ideas and upvote existing ones.
 - [ ] The roadmap is actively categorized into 'Planned', 'In Progress', and 'Completed'.
-\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilescalingstrategy': `# Scaling Strategy
 
 **Estimated Time:** Ongoing
@@ -8488,7 +8488,7 @@ Act as a Senior Cloud Architect. My React Native app uses Supabase (Postgres) an
 - [ ] Database connection pooling is configured to prevent connection exhaustion.
 - [ ] Expensive, read-heavy queries are cached via Redis or a CDN.
 - [ ] The mobile client utilizes aggressive local caching (e.g., React Query) to reduce unnecessary API calls.
-\`,\`,\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilefeedback': `# Feedback
 
 **Estimated Time:** 1-2 hours
@@ -8516,7 +8516,7 @@ Act as a React Native Developer. Provide the exact code snippet to implement a '
 - [ ] A 'Feedback' button is clearly visible in the settings or profile menu.
 - [ ] The feedback mechanism requires less than 3 taps to open.
 - [ ] Device context (OS, Version) is automatically included to aid debugging.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobilestatemanagementimplementation': `# State Management
 
 **Estimated Time:** 3-5 hours
@@ -8551,7 +8551,7 @@ Act as a Senior React Native Engineer. Provide the code to set up a global Zusta
 - [ ] A dedicated global state management library (Zustand, Riverpod, etc.) is configured.
 - [ ] Server state (API responses) is managed separately from Client state (UI toggles).
 - [ ] Prop-drilling has been eliminated for globally required variables like user sessions.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobilepushnotificationsimplementation': `# Push Notifications
 
 **Estimated Time:** 4-6 hours
@@ -8584,7 +8584,7 @@ Act as a Mobile Architecture Expert. I need to implement Push Notifications usin
 - [ ] Push notification permissions are requested gracefully at the appropriate time.
 - [ ] Device tokens are securely stored in the database and tied to the correct user.
 - [ ] The backend is configured to prune invalid or expired device tokens automatically.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobilefrontendui': `# Frontend (UI)
 
 **Estimated Time:** 1-2 weeks
@@ -8617,7 +8617,7 @@ Act as a Principal Frontend Engineer. I am building the UI for a [Insert App Typ
 - [ ] The UI renders correctly across multiple screen sizes (small phones, large phones, tablets).
 - [ ] Safe Area Insets (notches, home indicators) are respected on all screens.
 - [ ] A centralized Design System (tokens for colors, spacing, typography) is actively used.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobilenavigation': `# Navigation
 
 **Estimated Time:** 2-3 hours
@@ -8650,7 +8650,7 @@ Act as a React Native Navigation Expert. Provide the code for a robust navigatio
 - [ ] Navigation flows correctly utilize Stacks (for drill-down) and Tabs (for parallel sections).
 - [ ] Deep linking is configured to allow direct routing via external URLs.
 - [ ] The Android hardware back button behaves as expected (going back a screen, not exiting the app unexpectedly).
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobileapis': `# APIs & Networking
 
 **Estimated Time:** 1-2 days
@@ -8683,7 +8683,7 @@ Act as a Senior Network Engineer. I am using Axios in React Native. Provide the 
 - [ ] A dedicated data-fetching library (e.g., React Query) is used to handle caching and loading states.
 - [ ] JWT refresh logic is handled seamlessly via network interceptors.
 - [ ] API requests fail gracefully with user-friendly error messages when the device is offline.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobilemediauploads': `# Media Uploads
 
 **Estimated Time:** 1-2 days
@@ -8720,7 +8720,7 @@ Act as a Mobile Storage Expert. I am building a React Native app that allows use
 - [ ] Images/Videos are compressed locally on the device before transmission.
 - [ ] Media is uploaded directly to a storage bucket (S3, Cloud Storage) via signed URLs, not passed through the primary backend API.
 - [ ] Sensitive media is not accidentally saved to the user's public camera roll.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobilemapslocation': `# Maps & Location
 
 **Estimated Time:** 3-5 hours
@@ -8753,7 +8753,7 @@ Act as a GIS (Geographic Information System) Developer. I am implementing a Map 
 - [ ] The app requests 'When In Use' permission rather than 'Always On' (unless strictly required).
 - [ ] The app degrades gracefully if the user explicitly denies location tracking.
 - [ ] Complex maps features are optimized to prevent massive battery drain.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobiledevicepermissions': `# Device Permissions
 
 **Estimated Time:** 1-2 hours
@@ -8789,7 +8789,7 @@ Act as a Mobile Privacy Architect. Provide the React Native code to implement a 
 - [ ] Permissions are asked for 'Just-in-Time', tied to specific user actions.
 - [ ] A 'Soft Prompt' strategy is used to prevent burning the one-time native OS dialog.
 - [ ] The app successfully deep-links users to the OS Settings app if permissions are permanently blocked.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobileofflinefeatures': `# Offline Features
 
 **Estimated Time:** 2-3 weeks
@@ -8822,7 +8822,7 @@ Act as an Offline-First Architect. I am building a React Native app that needs t
 - [ ] The app renders meaningful data (from cache) immediately upon opening without an internet connection.
 - [ ] Actions taken while offline (e.g., liking a post, creating a draft) are queued and executed when the connection returns.
 - [ ] The UI clearly communicates the current sync status (e.g., "Offline - Changes saved locally") to the user.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobileanalyticsevents': `# Analytics Events
 
 **Estimated Time:** 1-2 days
@@ -8859,7 +8859,7 @@ Act as a Lead Data Analyst. I am launching a [Insert App Type]. Create a tabular
 - [ ] A central Tracking Plan document exists and dictates all event nomenclature.
 - [ ] Analytics calls are abstracted into a central service, not scattered throughout UI components.
 - [ ] Strict auditing ensures no PII (Personally Identifiable Information) is sent to third-party analytics providers.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobileerrorhandling': `# Error Handling & Crash Reporting
 
 **Estimated Time:** 3-5 hours
@@ -8892,7 +8892,7 @@ Act as a DevOps Engineer. I am using Sentry in my React Native application. Prov
 - [ ] Sentry, Crashlytics, or an equivalent crash reporting SDK is installed and active.
 - [ ] A Global Error Boundary is implemented to prevent the app from white-screening.
 - [ ] Sourcemaps are properly uploaded so crash reports point to actual lines of code, not minified bundles.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobiledemodata': `# Demo Data
 
 **Estimated Time:** 2-3 hours
@@ -8919,7 +8919,7 @@ Act as a QA Data Engineer. I am building a [Insert App Type]. Generate a robust 
 - [ ] The app never displays an "Empty State" during a demo.
 - [ ] Demo data is contextually accurate (not generic lorem ipsum).
 - [ ] (Custom Mode) A repeatable script exists to nuke and re-seed the sandbox database instantly.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobileplaystoremockups': `# Play Store Mockups
 
 **Estimated Time:** 1-2 hours
@@ -8946,7 +8946,7 @@ Act as an App Store Optimization (ASO) Expert. I am building a [Insert App Type]
 - [ ] Screenshots are wrapped in aesthetic device frames (not raw simulator captures).
 - [ ] Each screenshot features a bold, readable headline explaining the value.
 - [ ] The first screenshot clearly demonstrates the core "Aha! Moment."
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobilemultilanguage': `# Multi-language (i18n)
 
 **Estimated Time:** 3-5 days
@@ -8970,7 +8970,7 @@ Act as a Senior React Native Architect. Provide the code to set up \`react-i18ne
 - [ ] Zero hardcoded text exists in the UI components.
 - [ ] The app automatically detects and defaults to the user's OS language.
 - [ ] Right-to-Left (RTL) text and layout mirroring are explicitly handled.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobilesubscriptionbilling': `# Subscription Billing
 
 **Estimated Time:** 1-2 weeks
@@ -8994,7 +8994,7 @@ Act as a Mobile Monetization Expert. Explain the architecture of bypassing Apple
 - [ ] The app does not attempt to sell B2B enterprise seats via native iOS/Android In-App Purchases.
 - [ ] The App Store review team is provided with a valid test account in the review notes to bypass the enterprise login screen.
 - [ ] The UI clearly explains how a user can obtain an enterprise account without providing a direct link to a web checkout page (which violates Apple's guidelines).
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobilewearables': `# Wearables
 
 **Estimated Time:** 2-4 weeks
@@ -9018,7 +9018,7 @@ Act as a Wearables Product Manager. I am building a companion Apple Watch app fo
 - [ ] The wearable app focuses on a single, 2-second micro-interaction.
 - [ ] Authentication is securely synced from the host phone, not typed manually on the watch.
 - [ ] The app is built using native frameworks (Swift/Kotlin) for maximum performance and battery efficiency.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobilewidgets': `# Widgets
 
 **Estimated Time:** 1-2 weeks
@@ -9042,7 +9042,7 @@ Act as an iOS WidgetKit Expert. I need to build a Home Screen widget for my Reac
 - [ ] Widgets are built natively (SwiftUI/XML) as React Native cannot render widgets directly.
 - [ ] Data is securely shared between the main app and the widget via App Groups or SharedPreferences.
 - [ ] Confidential enterprise data is hidden when the device is locked.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobilebackgroundservices': `# Background Services
 
 **Estimated Time:** 2-4 weeks
@@ -9068,7 +9068,7 @@ Act as a Native Mobile Architect. I am building a React Native app for delivery 
 - [ ] iOS Background Modes are explicitly declared and justified in the App Store review notes.
 - [ ] Android implementations utilize Foreground Services with a mandatory persistent notification.
 - [ ] Background tasks are aggressively throttled to prevent massive battery drain.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobilebluetooth': `# Bluetooth (BLE)
 
 **Estimated Time:** 3-5 weeks
@@ -9092,7 +9092,7 @@ Act as an IoT Software Engineer. I am using \`react-native-ble-plx\` to connect 
 - [ ] The app handles unexpected disconnects and automatically attempts reconnection.
 - [ ] Timeout logic is implemented for all scanning and pairing attempts to prevent infinite loading spinners.
 - [ ] The app prompts the user natively if their Bluetooth or Location services are disabled (BLE scanning requires Location permissions on Android).
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobilenfc': `# NFC (Near Field Communication)
 
 **Estimated Time:** 1-2 weeks
@@ -9116,7 +9116,7 @@ Act as an NFC Systems Integrator. I need to read NDEF tags in a React Native app
 - [ ] NFC Entitlements are properly configured in both iOS and Android project files.
 - [ ] The UI provides visual guidance on where to tap the NFC tag against the phone.
 - [ ] The NFC scanning session is properly closed/terminated after a tag is read to prevent locking the hardware.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobilecamera': `# Custom Camera
 
 **Estimated Time:** 2-3 weeks
@@ -9140,7 +9140,7 @@ Act as a Native Hardware Engineer. I am using \`react-native-vision-camera\` to 
 - [ ] The camera stream is paused immediately when the app goes into the background.
 - [ ] Frame processors (if used) run asynchronously to avoid dropping UI frames (jank).
 - [ ] The app handles permission denials with a clear fallback UI explaining why the camera is required.
-\`,\`,\`,\`,\`,`,
+\`,\`,\`,\`,\`,\`,`,
   'mobilelocationservices': `# Advanced Location Services
 
 **Estimated Time:** 2-4 weeks
@@ -9164,7 +9164,7 @@ Act as a GIS Architect. I am building a fleet management app. Explain the differ
 - [ ] The app utilizes Geofencing for location-based triggers rather than continuous background polling.
 - [ ] The requested accuracy level (e.g., nearest kilometer vs nearest meter) matches the actual business requirement to preserve battery.
 - [ ] The app degrades gracefully if the device loses GPS signal (e.g., inside a tunnel).
-\`,\`,\`,`,
+\`,\`,\`,\`,`,
   'mobileuserresearch': `# User Research
 
 **Estimated Time:** 1-2 days
@@ -9188,7 +9188,7 @@ Act as a UX Researcher. I am building a [Insert App Type] for [Insert Target Aud
 - [ ] You have spoken to at least 3 people in your target audience directly.
 - [ ] You have confirmed they are currently experiencing the problem.
 - [ ] You have identified how they are currently solving the problem without your app.
-\`,`,
+\`,\`,`,
   'webideadefinition': `# Idea Definition
 
 **Estimated Time:** 1-2 Hours
@@ -9218,7 +9218,7 @@ Act as a Product Manager. Help me refine the core idea for my web application. I
 - [ ] You can describe the web app in one simple sentence.
 - [ ] You have identified the primary value it provides.
 - [ ] You are confident the idea is narrow enough to actually execute.
-\`,`,
+\`,\`,`,
   'webproblemstatement': `# Problem Statement
 
 **Estimated Time:** 2 Hours
@@ -9248,7 +9248,7 @@ Write your problem statement here. Who is suffering? What is the pain? Why do th
 - [ ] The problem is clearly defined without mentioning your specific solution.
 - [ ] You can identify exactly who experiences this problem.
 - [ ] You know how they are currently trying (and failing) to solve it.
-\`,`,
+\`,\`,`,
   'webuserjourney': `# User Journey
 
 **Estimated Time:** 2-3 Hours
@@ -9278,7 +9278,7 @@ Act as a UX Designer. My web app does [Insert Core Function]. Map out the primar
 - [ ] The primary goal of the user is clearly defined.
 - [ ] You have mapped out the sequence of steps to achieve that goal.
 - [ ] There are no dead-ends in the core flow.
-\`,`,
+\`,\`,`,
   'webpersonas': `# Personas
 
 **Estimated Time:** 1-2 Hours
@@ -9308,7 +9308,7 @@ Describe your primary persona. Name, role, biggest daily frustration, and what w
 - [ ] You have identified at least one highly specific target user.
 - [ ] You understand their technical proficiency (e.g., power user vs. novice).
 - [ ] You know exactly why they would seek out your solution.
-\`,`,
+\`,\`,`,
   'websolutionstatement': `# Solution Statement
 
 **Estimated Time:** 1 Hour
@@ -9338,7 +9338,7 @@ Act as a Product Strategist. I previously defined my problem as: [Insert Problem
 - [ ] The solution directly addresses the core problem.
 - [ ] It is clear *how* the web app delivers value.
 - [ ] It is concise enough to explain to a non-technical person.
-\`,`,
+\`,\`,`,
   'webelevatorpitch': `# Elevator Pitch
 
 **Estimated Time:** 1 Hour
@@ -9368,7 +9368,7 @@ Write your 30-second elevator pitch here. Make it punchy.
 - [ ] You can read it out loud in under 30 seconds.
 - [ ] It avoids highly technical jargon (unless pitching to developers).
 - [ ] It clearly states what the app is and who it is for.
-\`,`,
+\`,\`,`,
   'webcompetitoranalysis': `# Competitor Analysis
 
 **Estimated Time:** 2-4 Hours
@@ -9398,7 +9398,7 @@ Act as a Market Analyst. My web app is a [Insert App Type] for [Insert Target Au
 - [ ] You have identified at least 3 direct competitors.
 - [ ] You know their primary pricing model.
 - [ ] You have identified a specific weakness or gap you can exploit.
-\`,`,
+\`,\`,`,
   'webfeatureplanning': `# Feature Planning
 
 **Estimated Time:** 2-3 Hours
@@ -9428,7 +9428,7 @@ Act as a Product Manager. Based on my web app idea: [Insert Idea], brainstorm a 
 - [ ] You have a comprehensive master list of potential features.
 - [ ] Features are categorized logically.
 - [ ] You haven't started filtering them yet (that comes next).
-\`,`,
+\`,\`,`,
   'webmvpfeatures': `# MVP Features
 
 **Estimated Time:** 2 Hours
@@ -9458,7 +9458,7 @@ List the 3 to 5 absolute essential features required for your MVP to function. B
 - [ ] The MVP list contains no "nice-to-have" features.
 - [ ] A user can achieve the primary goal using only these features.
 - [ ] You have excluded complex "future" features like advanced analytics or integrations.
-\`,`,
+\`,\`,`,
   'webfuturefeatures': `# Future Features
 
 **Estimated Time:** 1 Hour
@@ -9488,7 +9488,7 @@ Act as a Product Manager. Review my MVP features: [Insert MVP Features]. Now, su
 - [ ] All non-essential ideas from the brainstorming phase are logged here.
 - [ ] You have mentally committed to NOT building these right now.
 - [ ] The roadmap provides a clear path for evolving the product post-launch.
-\`,`,
+\`,\`,`,
   'websuccessmetrics': `# Success Metrics
 
 **Estimated Time:** 1-2 Hours
@@ -9518,7 +9518,7 @@ Act as a Data Analyst. My web app does [Insert Core Function]. I am aiming for a
 - [ ] You have defined what a "successful" user looks like.
 - [ ] You have identified measurable metrics (e.g., signups, daily logins).
 - [ ] You have a basic idea of how you will track these metrics.
-\`,`,
+\`,\`,`,
   'webusersaudience': `# Users & Audience
 
 **Estimated Time:** 1 Hour
@@ -9548,7 +9548,7 @@ Where and how will your users access this web app? (e.g., Desktop in an office, 
 - [ ] You know the primary device (Desktop vs Mobile) your users prefer.
 - [ ] You understand their typical network conditions.
 - [ ] You know their general technical literacy level.
-\`,`,
+\`,\`,`,
   'webusergoals': `# User Goals
 
 **Estimated Time:** 1 Hour
@@ -9578,7 +9578,7 @@ Act as a UX Researcher using the 'Jobs to be Done' framework. My web app is [Ins
 - [ ] Goals are focused on outcomes, not features.
 - [ ] The primary reason a user logs in is clearly defined.
 - [ ] The UI can be designed to prioritize these specific goals.
-\`,`,
+\`,\`,`,
   'webnicetohavefeatures': `# Nice-to-Have Features
 
 **Estimated Time:** 30 Minutes
@@ -9607,5 +9607,335 @@ Act as a Product Designer. Review my core app idea: [Insert Idea]. Suggest 3 'de
 ## Validation Checklist
 - [ ] You have separated core needs from premium wants.
 - [ ] You have explicitly agreed not to build these until the MVP is generating value.
+\`,`,
+  'webprd': `# Product Requirements Document (PRD)
+
+**Estimated Time:** 2-4 Hours
+
+---
+
+## Why this matters
+A Product Requirements Document (PRD) is the single source of truth for your web app. If you skip this, you will constantly change your mind halfway through building a feature, leading to spaghetti code and a bloated UI. A PRD forces you to write down exactly what the app does before you write any code.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Your PRD is basically just a feature list and an API integration plan. "We need to hit the OpenAI API, parse the JSON, and display it in a React table." Keep it purely functional and technical.
+
+### Personal Project
+Write down exactly what the web app must do to be useful to you. For example, "It must scrape X website every morning and email me a summary." Don't write a 10-page document; just a bulleted list of core functionalities.
+
+### Production SaaS
+The PRD must be comprehensive. It needs to cover the core user journey, edge cases, permission levels (Admin vs User), and integration requirements. This document will be used to brief developers, designers, and marketing teams.
+
+## Implementation Steps
+\`\`\`prompt
+Act as an expert Product Manager. I am building a [Insert App Type]. My core MVP features are: [List MVP Features]. Help me draft a concise PRD. It should include: 1. Core Objective, 2. Target Audience, 3. Key User Flows, 4. Out of Scope (What we are NOT building).
+\`\`\`
+
+## Validation Checklist
+- [ ] The PRD clearly defines what is "In Scope" and "Out of Scope".
+- [ ] You have defined the core functionality in plain English.
+- [ ] You have shared this with any collaborators to ensure alignment.
+\`,`,
+  'webuserflows': `# User Flows
+
+**Estimated Time:** 2 Hours
+
+---
+
+## Why this matters
+User flows map out the specific path a user takes to complete a task (e.g., signing up, creating a project, exporting data). If you don't map these out, you will inevitably build dead-end pages or force users to click 7 times to do a simple task.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Focus exclusively on the "Demo Flow". What is the exact sequence of clicks you will perform on stage? Optimize that single path to look incredible and feel instantaneous.
+
+### Personal Project
+Keep flows extremely short. If you are building an internal dashboard, you shouldn't need a multi-step wizard. Put the core actions right on the home page to save yourself clicks.
+
+### Production SaaS
+You must map out complex flows including "Unhappy Paths". What happens if their credit card is declined during onboarding? What happens if they invite a team member who already has an account? You need a visual diagram (like a Mermaid chart or FigJam board) for these flows.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a UX Designer. My web app allows users to [Insert Core Action]. Map out the primary 'Happy Path' user flow from the moment they click 'Sign Up' to the moment they successfully complete the core action. Provide a step-by-step breakdown.
+\`\`\`
+
+## Validation Checklist
+- [ ] The core flow has no unnecessary clicks or dead ends.
+- [ ] You have considered what happens when a user fails a step (error states).
+- [ ] The flow feels intuitive to a brand new user.
+\`,`,
+  'webinformationarchitecture': `# Information Architecture
+
+**Estimated Time:** 2 Hours
+
+---
+
+## Why this matters
+Information Architecture (IA) is how you organize and label content on your web app. If your IA is bad, users will feel lost. Should "Billing" be under "Profile" or under "Workspace Settings"? Good IA prevents users from having to use the search bar for basic navigation.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Your IA should just be a single top-level navigation bar with 2 or 3 links. Don't build deep, nested menus for a hackathon. Keep everything accessible from the homepage.
+
+### Personal Project
+Organize things based on how often you use them. Put your daily actions front and center, and bury the configuration settings in a simple "Settings" dropdown.
+
+### Production SaaS
+You must design a scalable IA. If you plan to add 50 new features over the next 2 years, your sidebar or top-nav needs to accommodate them without breaking. Use standard SaaS conventions (e.g., Avatar top-right for profile/billing, Left sidebar for core app entities).
+
+## Implementation Steps
+\`\`\`prompt
+Act as an Information Architect. My web app is a [Insert App Type] with these core features: [List Features]. Suggest a scalable navigation structure (e.g., Top Nav vs Left Sidebar) and categorize my features into logical groupings.
+\`\`\`
+
+## Validation Checklist
+- [ ] Settings and profile configurations are separated from core workflows.
+- [ ] The primary navigation is limited to 5-7 core items.
+- [ ] The structure can accommodate future features without a complete redesign.
+\`,`,
+  'webwireframes': `# Wireframes
+
+**Estimated Time:** 3-5 Hours
+
+---
+
+## Why this matters
+Wireframing is the process of sketching out the layout of your web app without worrying about colors, fonts, or styling. It forces you to focus entirely on layout, hierarchy, and functionality. Doing this in Figma (or on paper) is 10x faster than trying to design in code.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip high-fidelity wireframes. Sketch the 3 main screens on a piece of paper or an iPad just to agree on where the main buttons go, then immediately jump into a UI component library (like shadcn/ui) to build it.
+
+### Personal Project
+Use a tool like Excalidraw or a notebook. Just map out where the data tables, charts, and input forms will live so you don't have to think about layout while writing React code.
+
+### Production SaaS
+You must build mid-fidelity wireframes in Figma or a similar tool. You need to validate the layout with potential users before you build. Test whether users can intuitively find the "Export" button or understand the data hierarchy before you lock in the design.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a UI Designer. I am building the main dashboard for my web app. The goal of the dashboard is to show [Insert Data/Metrics]. Provide a text-based wireframe layout (Top Nav, Sidebar, Main Content Area) and suggest where the most important elements should be placed for maximum visibility.
+\`\`\`
+
+## Validation Checklist
+- [ ] You have wireframed the core screens (Dashboard, Settings, Core Action).
+- [ ] The layout prioritizes the most important information.
+- [ ] You have not wasted time on colors or fonts yet.
+\`,`,
+  'webdesignsystem': `# Design System
+
+**Estimated Time:** 2-3 Hours
+
+---
+
+## Why this matters
+A design system (or style guide) ensures your web app looks cohesive. Without predefined colors, typography, and spacing variables, your app will end up with 15 different shades of blue and inconsistent padding, making it look cheap and unprofessional.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Pick a pre-built component library like shadcn/ui or Chakra UI. Pick one primary brand color, a dark mode toggle, and rely entirely on the library's default styling to ensure consistency at high speed.
+
+### Personal Project
+Tailwind CSS is your best friend here. Just use the default Tailwind color palette (e.g., Slate for backgrounds, Indigo for primary actions) and Inter for typography. Keep it clean and simple.
+
+### Production SaaS
+You need a strict set of design tokens (CSS variables or Tailwind config). You must define exact hex codes for Primary, Secondary, Destructive, Warning, and Success states. You also need a defined typography scale (H1-H6) and consistent border radiuses.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a UI/UX Designer. I want my web app to feel [Insert Vibe, e.g., Modern, Playful, Enterprise-grade]. Suggest a complete color palette (Primary, Secondary, Background, Text, and Accent colors with Hex codes) and a primary Google Font pairing that matches this vibe.
+\`\`\`
+
+## Validation Checklist
+- [ ] You have defined a primary brand color and a contrasting accent color.
+- [ ] You have selected a readable, modern typeface (e.g., Inter, Roboto, Outfit).
+- [ ] You have established a consistent approach for spacing (e.g., using a 4px/8px grid).
+\`,`,
+  'webbranding': `# Branding
+
+**Estimated Time:** 1-2 Hours
+
+---
+
+## Why this matters
+Branding is more than just a logo; it is the personality and tone of your web app. A strong brand builds trust. If your app is an AI medical tool, the branding should be sterile, blue, and trustworthy. If it's a social app, it should be vibrant and energetic.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use an AI image generator or an icon library (like Lucide or Heroicons) to grab a slick, modern logo in 5 minutes. Pick a catchy, one-word domain name (even if you just use a \`.vercel.app\` subdomain).
+
+### Personal Project
+Branding doesn't matter here unless you plan to open-source it or show it off on Twitter. Pick an emoji as your favicon and move on.
+
+### Production SaaS
+You need a cohesive brand identity. This includes a memorable name, a professional logo (SVG format), a defined tone of voice for all copy (e.g., casual vs formal), and high-quality OpenGraph images for social media sharing. Your landing page must reflect this brand perfectly.
+
+## Define the Vibe
+\`\`\`input
+What is the core personality of your web app? (e.g., "Professional and secure," "Fast and cutting-edge," "Friendly and accessible").
+\`\`\`
+
+## Validation Checklist
+- [ ] You have a name for the product.
+- [ ] You have a simple, scalable logo or icon.
+- [ ] You know the "tone of voice" your UI copy should use.
+\`,`,
+  'webaccessibility': `# Accessibility (a11y)
+
+**Estimated Time:** 1-2 Hours
+
+---
+
+## Why this matters
+Building accessible web apps ensures that users with disabilities (e.g., visual impairments, motor difficulties) can use your product. In many regions, this is also a legal requirement for business software. Good accessibility also improves SEO and overall usability for everyone.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't worry about ARIA labels or screen readers for a 24-hour hackathon, but DO ensure your primary brand colors have enough contrast so the judges can actually read your text on a projector.
+
+### Personal Project
+If you don't have accessibility needs, you can skip deep a11y work. However, using semantic HTML (e.g., \`<button>\` instead of \`<div onClick>\`) is a good habit that takes zero extra effort.
+
+### Production SaaS
+You must aim for WCAG AA compliance. This means strict color contrast ratios, keyboard navigation support (users must be able to use your app without a mouse), focus states on all interactive elements, and proper ARIA labels for screen readers.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Web Accessibility Expert. What are the top 5 most common accessibility mistakes developers make when building React/Tailwind web apps, and how can I avoid them during the initial build phase?
+\`\`\`
+
+## Validation Checklist
+- [ ] Text has sufficient color contrast against its background.
+- [ ] Interactive elements have distinct hover and focus states.
+- [ ] You are using semantic HTML elements correctly.
+\`,`,
+  'webemptystates': `# Empty States
+
+**Estimated Time:** 1 Hour
+
+---
+
+## Why this matters
+An empty state is what a user sees when there is no data to display (e.g., a brand new dashboard, or a search with zero results). If an empty state is just a blank white screen, users will assume the app is broken. Good empty states drive engagement by telling the user exactly what to do next.
+
+## Strategic Guidance
+
+### Hackathon Mode
+You will likely seed your database with fake data before the demo, so you rarely hit empty states. If you do, a simple text message like "No data found." is sufficient.
+
+### Personal Project
+You know how the app works, so a blank table won't confuse you. Just ensure the UI doesn't crash if an array is empty.
+
+### Production SaaS
+Empty states are critical onboarding moments. A new user's dashboard should never be empty. It should have a beautiful illustration, a clear explanation of what goes there, and a massive primary button saying "Create your first X". Treat empty states as a marketing opportunity.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a UX Writer. My web app is a [Insert App Type]. When a user first logs in, their primary dashboard will have zero data. Write the copy (Heading, Subheading, and Call-to-Action button text) for this empty state to encourage them to take their first action.
+\`\`\`
+
+## Validation Checklist
+- [ ] Every major data table or list has a designed empty state.
+- [ ] Empty states explain *why* it is empty.
+- [ ] Empty states provide a clear Call-to-Action (CTA) to create data.
+\`,`,
+  'weberrorstates': `# Error States
+
+**Estimated Time:** 1-2 Hours
+
+---
+
+## Why this matters
+Things will break. APIs will fail, users will lose internet connection, and validation will reject inputs. How you handle these errors determines whether a user tries again or closes the tab forever. A generic "Something went wrong" alert is unacceptable in modern web apps.
+
+## Strategic Guidance
+
+### Hackathon Mode
+If your hackathon demo hits an error state, you have failed the demo. Focus on making sure the "Happy Path" is bulletproof rather than designing beautiful 404 pages.
+
+### Personal Project
+Console logging the error or showing a simple browser \`alert()\` is often enough when you are the only user. Just make sure you know *why* it failed so you can fix it.
+
+### Production SaaS
+You must handle form validation errors (inline, before submission), server errors (toast notifications), and catastrophic crashes (fallback error boundaries). The error copy should never blame the user, and should always offer a path to resolution (e.g., "Please check your connection and try again").
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Frontend Architect. I am building a React web app. What are the best practices for handling and displaying errors to the user? Specifically, how should I handle 1. Inline form validation errors, and 2. Global API failures?
+\`\`\`
+
+## Validation Checklist
+- [ ] Forms have clear, inline validation error messages.
+- [ ] API failures display user-friendly toast notifications, not raw JSON.
+- [ ] You have a custom 404 Not Found page.
+\`,`,
+  'webloadingstates': `# Loading States
+
+**Estimated Time:** 1 Hour
+
+---
+
+## Why this matters
+Web apps pull data from servers, which takes time. If the screen freezes without any visual feedback, users will click buttons multiple times or refresh the page, causing more issues. Loading states manage user expectations and make the app feel faster.
+
+## Strategic Guidance
+
+### Hackathon Mode
+A simple, spinning circle (spinner) in the middle of the screen or inside a button is perfectly fine. It shows the judges the app is processing data.
+
+### Personal Project
+Spinners are great. You don't need complex skeleton loaders for an internal tool. Just prevent button double-clicks while loading.
+
+### Production SaaS
+You should implement Skeleton Loaders for massive data fetching (showing the shape of the content before it loads). For buttons, the text should swap to a spinner and disable the button to prevent duplicate submissions. You must optimize for perceived performance.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a UI Designer. When should I use a full-page spinner, an inline button spinner, and a skeleton loader in a modern web application? Provide specific examples of when each is appropriate.
+\`\`\`
+
+## Validation Checklist
+- [ ] Submit buttons have a loading state and disable themselves while processing.
+- [ ] Large dashboard widgets have skeleton loaders or spinners.
+- [ ] The app never "freezes" without visual feedback.
+\`,`,
+  'websitemap': `# Sitemap
+
+**Estimated Time:** 1 Hour
+
+---
+
+## Why this matters
+A sitemap is a list of all the pages in your web app and how they link together. It acts as the blueprint for your frontend routing (e.g., React Router, Next.js App Router). If you don't list out your routes, you will end up with messy, inconsistent URL structures.
+
+## Strategic Guidance
+
+### Hackathon Mode
+You only need 2 or 3 routes. \`/\` for the landing/auth page, and \`/dashboard\` for the main hack. Keep routing as simple as possible.
+
+### Personal Project
+Keep the URLs functional. You probably don't need dynamic routing (like \`/users/:id\`) unless the tool specifically requires deep linking.
+
+### Production SaaS
+You need a strict, scalable URL schema. Use RESTful conventions (e.g., \`/projects/[projectId]/settings\`). You must also map out public routes (Landing, Pricing, Login) vs protected routes (Dashboard, Settings).
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Frontend Developer. My web app is a [Insert App Type] with features like [Insert Core Features]. Draft a clean, RESTful URL schema/sitemap for my application. Separate the Public Routes from the Protected (Auth-required) Routes.
+\`\`\`
+
+## Validation Checklist
+- [ ] You have a clear list of all necessary pages/routes.
+- [ ] You have identified which routes require authentication.
+- [ ] The URL structure is logical and scalable.
 \`,`
 };
