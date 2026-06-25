@@ -143,10 +143,7 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'Amplitude: Retention Playbook', url: 'https://amplitude.com/retention' },
     { name: 'Mixpanel: Mobile Analytics', url: 'https://mixpanel.com/mobile-analytics/' }
   ],
-  'mobileretention': [
-    { name: 'Sequoia: Measuring Retention', url: 'https://www.sequoiacap.com/article/measuring-retention/' },
-    { name: 'Reforge: Retention Strategies', url: 'https://www.reforge.com/blog/retention' }
-  ],
+
   'mobiledau': [
     { name: 'Andrew Chen: DAU/MAU Ratio', url: 'https://andrewchen.com/dau-mau-is-a-popular-metric-but-heres-why-it-fails-you/' },
     { name: 'Mixpanel: DAU Guide', url: 'https://mixpanel.com/blog/daily-active-users/' }
@@ -345,11 +342,6 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'App Store Review Process', url: 'https://developer.apple.com/app-store/review/' },
     { name: 'Google Play Rollout Guide', url: 'https://support.google.com/googleplay/android-developer/answer/6369910' }
   ],
-
-  'mobilepayments': [
-    { name: 'Stripe React Native SDK', url: 'https://docs.stripe.com/payments/accept-a-payment?platform=react-native' },
-    { name: 'RevenueCat (In-App Purchases)', url: 'https://www.revenuecat.com/docs/getting-started/installation/react-native' }
-  ],
   'mediauploads': [
     { name: 'Expo Image Picker', url: 'https://docs.expo.dev/versions/latest/sdk/imagepicker/' },
     { name: 'Supabase Storage', url: 'https://supabase.com/docs/guides/storage' }
@@ -374,25 +366,9 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'Sentry Crash Reporting', url: 'https://docs.sentry.io/platforms/react-native/' },
     { name: 'React Error Boundaries', url: 'https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary' }
   ],
-  'mobiletesting': [
-    { name: 'Jest React Native', url: 'https://reactnative.dev/docs/testing-overview' },
-    { name: 'Detox (E2E Testing)', url: 'https://wix.github.io/Detox/' }
-  ],
   'statemanagement': [
     { name: 'Zustand Documentation', url: 'https://zustand-demo.pmnd.rs/' },
     { name: 'React Native MMKV', url: 'https://github.com/mrousavy/react-native-mmkv' }
-  ],
-  'mobileauth': [
-    { name: 'Supabase Auth Docs', url: 'https://supabase.com/docs/guides/auth' },
-    { name: 'Expo SecureStore', url: 'https://docs.expo.dev/versions/latest/sdk/securestore/' }
-  ],
-  'mobiledatabaseimplementation': [
-    { name: 'WatermelonDB', url: 'https://nozbe.github.io/WatermelonDB/' },
-    { name: 'Supabase PostgreSQL', url: 'https://supabase.com/docs/guides/database' }
-  ],
-  'mobilebackendimplementation': [
-    { name: 'Supabase Edge Functions', url: 'https://supabase.com/docs/guides/functions' },
-    { name: 'Vercel Serverless Functions', url: 'https://vercel.com/docs/functions' }
   ],
   'pushnotifications': [
     { name: 'Expo Push Notifications', url: 'https://docs.expo.dev/push-notifications/overview/' },
@@ -852,7 +828,222 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
   'submissionchecklist': [
     { name: 'Product Hunt Launch Guide', url: 'https://www.producthunt.com/launch' },
     { name: 'Devpost (Hackathons)', url: 'https://devpost.com/' }
+  ],
+  // Mobile App Phase 3
+  'mobilestatemanagementimplementation': [
+    { name: 'Zustand Docs', url: 'https://zustand-demo.pmnd.rs/' },
+    { name: 'React Query for React Native', url: 'https://tanstack.com/query/latest/docs/react/react-native' }
+  ],
+  'mobileauth': [
+    { name: 'Supabase Auth in Expo', url: 'https://supabase.com/docs/guides/getting-started/tutorials/with-expo' },
+    { name: 'Clerk Expo Quickstart', url: 'https://clerk.com/docs/quickstarts/expo' }
+  ],
+  'mobiledatabaseimplementation': [
+    { name: 'WatermelonDB', url: 'https://nozbe.github.io/WatermelonDB/' },
+    { name: 'Expo SQLite', url: 'https://docs.expo.dev/versions/latest/sdk/sqlite/' }
+  ],
+  'mobilebackendimplementation': [
+    { name: 'tRPC with Expo', url: 'https://trpc.io/docs/client/react' },
+    { name: 'Firebase Functions', url: 'https://firebase.google.com/docs/functions' }
+  ],
+  'mobilepushnotificationsimplementation': [
+    { name: 'Expo Push Notifications', url: 'https://docs.expo.dev/push-notifications/overview/' },
+    { name: 'OneSignal React Native', url: 'https://documentation.onesignal.com/docs/react-native-sdk-setup' }
+  ],
+  'mobilefrontendui': [
+    { name: 'NativeWind (Tailwind for RN)', url: 'https://www.nativewind.dev/' },
+    { name: 'React Native Paper', url: 'https://callstack.github.io/react-native-paper/' }
+  ],
+  'mobilenavigation': [
+    { name: 'Expo Router Docs', url: 'https://docs.expo.dev/router/introduction/' },
+    { name: 'React Navigation', url: 'https://reactnavigation.org/' }
+  ],
+  'mobileapis': [
+    { name: 'React Native Fetch API', url: 'https://reactnative.dev/docs/network' },
+    { name: 'Axios Docs', url: 'https://axios-http.com/docs/intro' }
+  ],
+  'mobilepayments': [
+    { name: 'RevenueCat (In-App Purchases)', url: 'https://www.revenuecat.com/' },
+    { name: 'Stripe React Native', url: 'https://stripe.com/docs/payments/accept-a-payment?platform=react-native' }
+  ],
+  'mobilemediauploads': [
+    { name: 'Expo ImagePicker', url: 'https://docs.expo.dev/versions/latest/sdk/imagepicker/' },
+    { name: 'Supabase Storage in RN', url: 'https://supabase.com/docs/guides/storage' }
+  ],
+  'mobilemapslocation': [
+    { name: 'Expo Location', url: 'https://docs.expo.dev/versions/latest/sdk/location/' },
+    { name: 'React Native Maps', url: 'https://github.com/react-native-maps/react-native-maps' }
+  ],
+  'mobiledevicepermissions': [
+    { name: 'Expo Permissions', url: 'https://docs.expo.dev/versions/latest/sdk/permissions/' },
+    { name: 'Apple App Tracking Transparency', url: 'https://developer.apple.com/documentation/apptrackingtransparency' }
+  ],
+  'mobileofflinefeatures': [
+    { name: 'React Native NetInfo', url: 'https://github.com/react-native-netinfo/react-native-netinfo' },
+    { name: 'PowerSync (Offline First)', url: 'https://www.powersync.com/' }
+  ],
+  'mobileanalyticsevents': [
+    { name: 'PostHog React Native', url: 'https://posthog.com/docs/libraries/react-native' },
+    { name: 'Segment React Native', url: 'https://segment.com/docs/connections/sources/catalog/libraries/mobile/react-native/' }
+  ],
+  'mobileerrorhandling': [
+    { name: 'Sentry for React Native', url: 'https://docs.sentry.io/platforms/react-native/' },
+    { name: 'React Native Error Boundaries', url: 'https://reactnative.dev/docs/error-boundaries' }
+  ],
+  'mobiletesting': [
+    { name: 'Detox (E2E Testing)', url: 'https://wix.github.io/Detox/' },
+    { name: 'React Native Testing Library', url: 'https://callstack.github.io/react-native-testing-library/' }
+  ],
+  // Mobile App Phase 4
+  'mobilesecurity': [
+    { name: 'OWASP Mobile Top 10', url: 'https://owasp.org/www-project-mobile-top-10/' },
+    { name: 'React Native Security Guide', url: 'https://reactnative.dev/docs/security' }
+  ],
+  'mobileperformanceoptimization': [
+    { name: 'React Native Performance', url: 'https://reactnative.dev/docs/performance' },
+    { name: 'FlashList by Shopify', url: 'https://shopify.github.io/flash-list/' }
+  ],
+  'mobilecrashreporting': [
+    { name: 'Sentry for React Native', url: 'https://docs.sentry.io/platforms/react-native/' },
+    { name: 'Firebase Crashlytics', url: 'https://rnfirebase.io/crashlytics/usage' }
+  ],
+  'mobilemonitoring': [
+    { name: 'Datadog RUM for Mobile', url: 'https://docs.datadoghq.com/real_user_monitoring/reactnative/' },
+    { name: 'New Relic Mobile', url: 'https://newrelic.com/products/mobile-monitoring' }
+  ],
+  'mobilelogging': [
+    { name: 'Winston (Node.js)', url: 'https://github.com/winstonjs/winston' },
+    { name: 'Pino Logger', url: 'https://github.com/pinojs/pino' }
+  ],
+  'mobileratelimiting': [
+    { name: 'Express Rate Limit', url: 'https://www.npmjs.com/package/express-rate-limit' },
+    { name: 'Upstash Redis Rate Limiting', url: 'https://upstash.com/blog/upstash-ratelimit' }
+  ],
+  'mobilebackups': [
+    { name: 'Supabase Point in Time Recovery', url: 'https://supabase.com/docs/guides/platform/backups' },
+    { name: 'Postgres pg_dump', url: 'https://www.postgresql.org/docs/current/app-pgdump.html' }
+  ],
+  'mobilecicd': [
+    { name: 'EAS Build (Expo)', url: 'https://docs.expo.dev/build/introduction/' },
+    { name: 'Fastlane', url: 'https://fastlane.tools/' }
+  ],
+  'mobileinfrastructure': [
+    { name: 'Vercel Infrastructure', url: 'https://vercel.com/docs' },
+    { name: 'AWS Mobile Infrastructure', url: 'https://aws.amazon.com/mobile/' }
+  ],
+  'mobileappsizeoptimization': [
+    { name: 'Reducing APK Size', url: 'https://developer.android.com/topic/performance/reduce-apk-size' },
+    { name: 'Expo App Size Guide', url: 'https://docs.expo.dev/distribution/optimizing-updates/' }
+  ],
+  'mobilebatteryoptimization': [
+    { name: 'Android Battery and Memory', url: 'https://developer.android.com/topic/performance/power' },
+    { name: 'iOS Energy Efficiency Guide', url: 'https://developer.apple.com/library/archive/documentation/Performance/Conceptual/EnergyGuide-iOS/index.html' }
+  ],
+  'mobilescalability': [
+    { name: 'Scaling Postgres', url: 'https://supabase.com/docs/guides/database/metrics' },
+    { name: 'Serverless Functions Scaling', url: 'https://vercel.com/docs/functions/serverless-functions' }
   ]
+,
+  // Mobile App Phase 5
+  'mobileplaystoresetup': [
+    { name: 'Play Console Console Help', url: 'https://support.google.com/googleplay/android-developer/answer/113469' },
+    { name: 'Expo Play Store Guide', url: 'https://docs.expo.dev/submit/android/' }
+  ],
+  'mobileappstoresetup': [
+    { name: 'App Store Connect Help', url: 'https://help.apple.com/app-store-connect/' },
+    { name: 'Expo App Store Guide', url: 'https://docs.expo.dev/submit/ios/' }
+  ],
+  'mobileappicons': [
+    { name: 'Expo App Icons', url: 'https://docs.expo.dev/guides/app-icons/' },
+    { name: 'Iconset (Icon Generator)', url: 'https://iconset.io/' }
+  ],
+  'mobilescreenshots': [
+    { name: 'Previewed.app', url: 'https://previewed.app/' },
+    { name: 'App Store Screenshot Guidelines', url: 'https://developer.apple.com/help/app-store-connect/reference/screenshot-specifications' }
+  ],
+  'mobilefeaturegraphics': [
+    { name: 'Google Play Feature Graphic', url: 'https://support.google.com/googleplay/android-developer/answer/9866151' },
+    { name: 'Canva Feature Graphic Templates', url: 'https://www.canva.com/' }
+  ],
+  'mobilestorelistingseo': [
+    { name: 'AppTweak (ASO Tool)', url: 'https://www.apptweak.com/' },
+    { name: 'SensorTower', url: 'https://sensortower.com/' }
+  ],
+  'mobileprivacypolicy': [
+    { name: 'Termly Privacy Policy Generator', url: 'https://termly.io/' },
+    { name: 'Google Play Privacy Policy Requirements', url: 'https://support.google.com/googleplay/android-developer/answer/10144311' }
+  ],
+  'mobiletermsofservice': [
+    { name: 'TermsFeed Generator', url: 'https://www.termsfeed.com/' },
+    { name: 'Apple EULA', url: 'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/' }
+  ],
+  'mobilecontentrating': [
+    { name: 'IARC Rating Guide', url: 'https://www.globalratings.com/' },
+    { name: 'Google Play Content Ratings', url: 'https://support.google.com/googleplay/android-developer/answer/188189' }
+  ],
+  'mobiletesttracks': [
+    { name: 'Google Play Testing Tracks', url: 'https://support.google.com/googleplay/android-developer/answer/9845334' },
+    { name: 'TestFlight Overview', url: 'https://developer.apple.com/testflight/' }
+  ],
+  'mobilebetatesting': [
+    { name: 'TestFlight Setup', url: 'https://developer.apple.com/help/app-store-connect/test-a-beta-version/overview-of-testflight' },
+    { name: 'Expo EAS Submit', url: 'https://docs.expo.dev/submit/introduction/' }
+  ],
+  'mobilereleasechecklist': [
+    { name: 'Apple App Store Review Guidelines', url: 'https://developer.apple.com/app-store/review/guidelines/' },
+    { name: 'Google Play Launch Checklist', url: 'https://developer.android.com/distribute/best-practices/launch/launch-checklist' }
+  ],
+  'mobilepitchdeck': [
+    { name: 'Pitch.com (Presentations)', url: 'https://pitch.com/' },
+    { name: 'Sequoia Capital Pitch Deck Template', url: 'https://www.sequoiacap.com/article/writing-a-business-plan/' }
+  ],
+  'mobiledemoscript': [
+    { name: 'Loom (Screen Recording)', url: 'https://www.loom.com/' },
+    { name: 'OBS Studio (Live Demos)', url: 'https://obsproject.com/' }
+  ],
+  'mobilesubmissionchecklist': [
+    { name: 'Product Hunt Launch Guide', url: 'https://www.producthunt.com/launch' },
+    { name: 'Devpost (Hackathons)', url: 'https://devpost.com/' }
+  ]
+,
+  // Mobile App Phase 6
+  'mobileretention': [
+    { name: 'Mixpanel Mobile Retention Guide', url: 'https://mixpanel.com/topics/mobile-app-retention/' },
+    { name: 'Braze Mobile Marketing', url: 'https://www.braze.com/resources/articles' }
+  ],
+  'mobileanalytics': [
+    { name: 'PostHog React Native', url: 'https://posthog.com/docs/libraries/react-native' },
+    { name: 'Amplitude Mobile SDKs', url: 'https://www.amplitude.com/mobile-analytics' }
+  ],
+  'mobilenotificationsstrategy': [
+    { name: 'OneSignal Best Practices', url: 'https://onesignal.com/blog/push-notification-best-practices/' },
+    { name: 'Firebase In-App Messaging', url: 'https://firebase.google.com/docs/in-app-messaging' }
+  ],
+  'mobileuserfeedback': [
+    { name: 'Instabug (In-App Feedback)', url: 'https://instabug.com/' },
+    { name: 'Sentry User Feedback', url: 'https://docs.sentry.io/product/user-feedback/' }
+  ],
+  'mobilereviewsratings': [
+    { name: 'Expo StoreReview API', url: 'https://docs.expo.dev/versions/latest/sdk/storereview/' },
+    { name: 'Apple SKStoreReviewController Guide', url: 'https://developer.apple.com/documentation/storekit/requesting_app_store_reviews' }
+  ],
+  'mobilereferralprograms': [
+    { name: 'Branch.io (Deep Linking)', url: 'https://www.branch.io/' },
+    { name: 'Firebase Dynamic Links (Deprecated - Use Branch)', url: 'https://firebase.google.com/docs/dynamic-links' }
+  ],
+  'mobileroadmap': [
+    { name: 'Canny (Public Roadmaps)', url: 'https://canny.io/' },
+    { name: 'Linear (Product Planning)', url: 'https://linear.app/' }
+  ],
+  'mobilescalingstrategy': [
+    { name: 'Supabase Scaling Postgres', url: 'https://supabase.com/docs/guides/platform/compute-add-ons' },
+    { name: 'Vercel Edge Functions', url: 'https://vercel.com/docs/functions/edge-functions' }
+  ],
+  'mobilefeedback': [
+    { name: 'Typeform (Surveys)', url: 'https://www.typeform.com/' },
+    { name: 'Google Forms', url: 'https://www.google.com/forms/about/' }
+  ]
+
 };
 
 export const createTopic = (name: string, icon: any, customLinks: QuickLink[] = [], overrideId?: string): Topic => {

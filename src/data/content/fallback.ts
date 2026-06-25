@@ -78,7 +78,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Congratulations, you have completed Phase 3! Move on to Phase 4 to prepare your app for **Production Readiness**.`,
+Congratulations, you have completed Phase 3! Move on to Phase 4 to prepare your app for **Production Readiness**.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilepayments': `# Payments & Subscriptions
 
 🕒 **Estimated Time:** 4-8 hours
@@ -157,7 +157,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With monetization active, implement **Media Uploads** to allow users to generate robust content.`,
+With monetization active, implement **Media Uploads** to allow users to generate robust content.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilebackendimplementation': `# Backend Implementation
 
 🕒 **Estimated Time:** 3-6 hours
@@ -238,7 +238,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With the backend logic solid, configure **Push Notifications** to start engaging users proactively.`,
+With the backend logic solid, configure **Push Notifications** to start engaging users proactively.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobiledatabaseimplementation': `# Database Implementation
 
 🕒 **Estimated Time:** 2-5 hours
@@ -319,7 +319,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Now that the database is structured, build the **Backend APIs** to execute complex logic and interface with this data safely.`,
+Now that the database is structured, build the **Backend APIs** to execute complex logic and interface with this data safely.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileauth': `# Authentication
 
 🕒 **Estimated Time:** 2-4 hours
@@ -400,7 +400,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With users authenticated, move on to connecting the **Database** to store and retrieve their specific data.`,
+With users authenticated, move on to connecting the **Database** to store and retrieve their specific data.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'referral-programs': `# Referral Programs
 
 **🕒 Estimated Time:** Ongoing
@@ -418,7 +418,7 @@ What is the primary incentive for a user to invite a friend, and how does the re
 
 \`\`\`prompt
 Design a database schema and API flow for tracking a two-sided referral program where both the inviter and invitee receive a premium account credit upon successful signup.
-\`\`\``,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,`,
   'reviews-ratings': `# Reviews & Ratings
 
 **🕒 Estimated Time:** Ongoing
@@ -436,7 +436,7 @@ Identify the absolute best "positive moment" in your app's user flow to trigger 
 
 \`\`\`prompt
 Write a React Native hook using \`expo-store-review\` that implements a two-step review prompt strategy, ensuring the native review dialog is only shown to satisfied users after a specific action is completed.
-\`\`\``,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,`,
   'user-feedback': `# User Feedback Loop
 
 **🕒 Estimated Time:** Ongoing
@@ -454,7 +454,7 @@ How will you categorize and prioritize feature requests vs bug reports coming fr
 
 \`\`\`prompt
 Write a standard operating procedure (SOP) for triaging user feedback received through an in-app support channel, including categorization tags and response SLAs.
-\`\`\``,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,`,
   'notifications-strategy': `# Notifications Strategy
 
 **🕒 Estimated Time:** Ongoing
@@ -473,7 +473,7 @@ Describe your transactional vs promotional push notification split. How do you e
 
 \`\`\`prompt
 Write a strategy document detailing how to use rich push notifications (with images and action buttons) to increase engagement for a social app, including fallback behavior.
-\`\`\``,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,`,
   'release-checklist': `# Release Checklist
 
 **🕒 Estimated Time:** 2 hours
@@ -494,7 +494,7 @@ What is your target launch date, and who is responsible for the final sign-off b
 
 \`\`\`prompt
 Generate a comprehensive pre-launch QA checklist covering authentication, payments, deep linking, and offline states for a React Native app.
-\`\`\``,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,`,
   'beta-testing': `# Beta Testing
 
 **🕒 Estimated Time:** 1-2 weeks
@@ -512,7 +512,7 @@ How many beta testers are you aiming for, and what specific flows are you asking
 
 \`\`\`prompt
 Write an invitation email to a waitlisted user asking them to join the TestFlight beta, setting clear expectations for bugs and explaining how to submit feedback.
-\`\`\``,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,`,
   'test-tracks': `# Test Tracks
 
 **🕒 Estimated Time:** 2 hours
@@ -529,7 +529,7 @@ Who is on your initial internal testing roster, and what is your exact process f
 
 \`\`\`prompt
 Outline the differences between Google Play Internal, Closed, and Open testing tracks, and recommend a strategy for a startup launching their first app.
-\`\`\``,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,`,
   'content-rating': `# Content Rating
 
 **🕒 Estimated Time:** 1 hour
@@ -547,7 +547,7 @@ Does your app feature User-Generated Content (UGC)? If so, how will you implemen
 
 \`\`\`prompt
 Generate an implementation checklist for User-Generated Content (UGC) compliance to avoid App Store rejection, including EULA requirements and reporting UI.
-\`\`\``,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,`,
   'store-listing-seo': `# Store Listing SEO (ASO)
 
 **🕒 Estimated Time:** 4 hours
@@ -566,7 +566,7 @@ What are the top 5 high-volume, low-competition keywords you are targeting for o
 
 \`\`\`prompt
 Write an optimized App Store Subtitle (30 chars max) and a comma-separated keyword list (100 chars max) for a new habit tracking app, focusing on high-intent search terms.
-\`\`\``,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,`,
   'feature-graphics': `# Feature Graphics
 
 **🕒 Estimated Time:** 1 hour
@@ -584,7 +584,7 @@ Describe the visual concept for your Feature Graphic. What branding elements wil
 
 \`\`\`prompt
 Generate a design brief for a graphic designer to create a Google Play Feature Graphic (1024x500), detailing safe zones, required branding, and the visual hierarchy.
-\`\`\``,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,`,
   'app-icons': `# App Icons
 
 **🕒 Estimated Time:** 2 hours
@@ -604,7 +604,7 @@ Describe the concept for your app icon. How does it stand out on a crowded home 
 
 \`\`\`prompt
 Write a script or list the exact CLI commands needed to generate all required iOS and Android app icon sizes from a single 1024x1024 source image using Expo's asset generation tools.
-\`\`\``,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,`,
   'app-store-setup': `# App Store Setup
 
 **🕒 Estimated Time:** 4 hours
@@ -625,7 +625,7 @@ Who holds the Account Holder role in the Apple Developer Program, and how will y
 
 \`\`\`prompt
 Outline the complete process for generating an iOS Distribution Certificate, creating a Provisioning Profile, and submitting a build to TestFlight using Expo EAS Submit.
-\`\`\``,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,`,
   'play-store-setup': `# Play Store Setup
 
 **🕒 Estimated Time:** 4 hours
@@ -645,7 +645,7 @@ Who is managing the Google Play Developer account, and what is your strict secur
 
 \`\`\`prompt
 Generate a step-by-step checklist for configuring Play App Signing and uploading the first Android App Bundle (.aab) using Expo EAS Build.
-\`\`\``,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,`,
   'batteryoptimization': `# Battery Optimization
 
 🕒 **Estimated Time:** 1-3 hours
@@ -725,7 +725,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With the app optimized perfectly for a single user, it's time to ensure it can handle millions. Move to **Scalability**.`,
+With the app optimized perfectly for a single user, it's time to ensure it can handle millions. Move to **Scalability**.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'appsizeoptimization': `# App Size Optimization
 
 🕒 **Estimated Time:** 2-4 hours
@@ -805,7 +805,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-A small app is good, but it must also respect the user's phone. Time for **Battery Optimization**.`,
+A small app is good, but it must also respect the user's phone. Time for **Battery Optimization**.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'crashreporting': `# Crash Reporting
 
 🕒 **Estimated Time:** 2-3 hours
@@ -884,7 +884,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Beyond just crashes, you need proactive **Monitoring** to ensure your APIs and services are healthy.`,
+Beyond just crashes, you need proactive **Monitoring** to ensure your APIs and services are healthy.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'errorhandling': `# Error Handling
 
 🕒 **Estimated Time:** 2-4 hours
@@ -964,7 +964,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With errors caught, implement **Testing** to prevent them from happening in the first place.`,
+With errors caught, implement **Testing** to prevent them from happening in the first place.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'analyticsevents': `# Analytics Events
 
 🕒 **Estimated Time:** 2-4 hours
@@ -1044,7 +1044,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-To ensure those analytics aren't just showing crashes, implement robust **Error Handling**.`,
+To ensure those analytics aren't just showing crashes, implement robust **Error Handling**.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'offlinefeatures': `# Offline Features
 
 🕒 **Estimated Time:** 3-6 hours
@@ -1124,7 +1124,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With the app functioning in all environments, implement **Analytics Events** to see how users are interacting with it.`,
+With the app functioning in all environments, implement **Analytics Events** to see how users are interacting with it.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'devicepermissions': `# Device Permissions
 
 🕒 **Estimated Time:** 1-2 hours
@@ -1203,7 +1203,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With hardware access secured, build robust **Offline Features** for when the device loses connection.`,
+With hardware access secured, build robust **Offline Features** for when the device loses connection.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mapslocation': `# Maps & Location
 
 🕒 **Estimated Time:** 3-5 hours
@@ -1283,7 +1283,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Now ensure your app handles all other **Device Permissions** correctly before launching.`,
+Now ensure your app handles all other **Device Permissions** correctly before launching.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mediauploads': `# Media Uploads
 
 🕒 **Estimated Time:** 3-6 hours
@@ -1363,7 +1363,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With content generation solved, integrate **Maps & Location** for location-aware features.`,
+With content generation solved, integrate **Maps & Location** for location-aware features.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'apis': `# APIs & Data Fetching
 
 🕒 **Estimated Time:** 3-5 hours
@@ -1444,7 +1444,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With data flowing securely and the app fully functional, proceed to Phase 4 to focus on **Production Readiness**.`,
+With data flowing securely and the app fully functional, proceed to Phase 4 to focus on **Production Readiness**.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'navigation': `# Navigation
 
 🕒 **Estimated Time:** 2-4 hours
@@ -1525,7 +1525,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Now that screens are connected, integrate **APIs** to fetch and populate real data into these views.`,
+Now that screens are connected, integrate **APIs** to fetch and populate real data into these views.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'frontendui': `# Frontend (UI)
 
 🕒 **Estimated Time:** 4-8 hours
@@ -1606,7 +1606,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With UI blocks built, implement **Navigation** to connect these screens together logically.`,
+With UI blocks built, implement **Navigation** to connect these screens together logically.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'pushnotifications': `# Push Notifications
 
 🕒 **Estimated Time:** 2-4 hours
@@ -1687,7 +1687,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With notifications active, refine your **Frontend (UI)** components to ensure the app looks as good as it functions.`,
+With notifications active, refine your **Frontend (UI)** components to ensure the app looks as good as it functions.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'statemanagement': `# State Management
 
 🕒 **Estimated Time:** 1-2 hours
@@ -1768,7 +1768,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With state management in place, proceed to implement the **Auth** flows to populate that state with real user data.`,
+With state management in place, proceed to implement the **Auth** flows to populate that state with real user data.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'welcome': `# Welcome to Kontxt
 
 🕒 **Estimated Time:** 5 min
@@ -1798,7 +1798,7 @@ This means you cannot cut corners on security, authentication, or basic architec
 
 ## Accountability Check
 - [ ] I understand the philosophy of my chosen mode and I am ready to begin.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'ideadefinition': `# Idea Definition
 
 🕒 **Estimated Time:** 20 min
@@ -1830,7 +1830,7 @@ If people are currently using a messy spreadsheet and duct-taping it to Zapier, 
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'problemstatement': `# Problem Statement
 
 🕒 **Estimated Time:** 20 min
@@ -1862,7 +1862,7 @@ If the user's hair is on fire, and you offer them a brick, they will buy it to p
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'userpainpoints': `# User Pain Points
 
 🕒 **Estimated Time:** 15 min
@@ -1892,7 +1892,7 @@ When you talk to users, listen for emotional words: "I hate", "It's so annoying"
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'targetusers': `# Target Users
 
 🕒 **Estimated Time:** 10 min
@@ -1922,7 +1922,7 @@ If your target users are "Small Business Owners," that is too broad. How do you 
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'icpidealcustomerprofile': `# Ideal Customer Profile (ICP)
 
 🕒 **Estimated Time:** 15 min
@@ -1950,7 +1950,7 @@ For example: "B2B SaaS companies with 50-200 employees, doing $5M-$20M in ARR, s
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'personas': `# Personas
 
 🕒 **Estimated Time:** 15 min
@@ -1980,7 +1980,7 @@ For example, if you are building HR software, the User (the employee) wants a be
 
 ## Accountability Check
 - [ ] I understand the difference between the user and the buyer.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'solutionstatement': `# Solution Statement
 
 🕒 **Estimated Time:** 10 min
@@ -2010,7 +2010,7 @@ Don't force users to change their behavior. If they live in Slack, your solution
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'valueproposition': `# Value Proposition
 
 🕒 **Estimated Time:** 15 min
@@ -2042,7 +2042,7 @@ People don't buy dashboards; they buy lower churn.
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'elevatorpitch': `# Elevator Pitch
 
 🕒 **Estimated Time:** 10 min
@@ -2070,7 +2070,7 @@ Practice this until you can say it smoothly without sounding like a robot.
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'marketresearch': `# Market Research
 
 🕒 **Estimated Time:** 20 min
@@ -2096,7 +2096,7 @@ You should research exactly where these people hang out online. If you can't fin
 
 ## Accountability Check
 - [ ] I have validated my market assumptions.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'competitoranalysis': `# Competitor Analysis
 
 🕒 **Estimated Time:** 15 min
@@ -2124,7 +2124,7 @@ Identify their biggest weakness. Do they have terrible customer support? Is thei
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'existingalternatives': `# Existing Alternatives
 
 🕒 **Estimated Time:** 15 min
@@ -2142,7 +2142,7 @@ Your biggest competitor isn't a startup; it's Microsoft Excel. Or a piece of pap
 
 ## Accountability Check
 - [ ] I understand the friction involved in making a user switch from their current solution.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'marketpositioning': `# Market Positioning
 
 🕒 **Estimated Time:** 20 min
@@ -2165,7 +2165,7 @@ Act as a Brand Strategist. Based on my competitors, suggest 3 different ways I c
 
 ## Accountability Check
 - [ ] I know exactly where my product sits in the market landscape.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'featureplanning': `# Feature Planning
 
 🕒 **Estimated Time:** 20 min
@@ -2183,7 +2183,7 @@ Scope creep is the death of all software. If you don't define what you are build
 
 ## Accountability Check
 - [ ] I am ready to ruthlessly cut features.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mvpfeatures': `# MVP Features
 
 🕒 **Estimated Time:** 20 min
@@ -2213,7 +2213,7 @@ Do not build a "Settings" page with customizable themes. Do not build social log
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'futurefeatures': `# Future Features
 
 🕒 **Estimated Time:** 10 min
@@ -2231,7 +2231,7 @@ Put your great (but unnecessary) ideas here so they don't distract you today.
 
 ## Accountability Check
 - [ ] I will not build these features today.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'featureprioritization': `# Feature Prioritization
 
 🕒 **Estimated Time:** 15 min
@@ -2249,7 +2249,7 @@ You have limited time and engineering resources.
 
 ## Accountability Check
 - [ ] I know exactly what I am building first.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'businessmodel': `# Business Model
 
 🕒 **Estimated Time:** 15 min
@@ -2277,7 +2277,7 @@ However, consider usage-based pricing (like Stripe or OpenAI) if your costs scal
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'pricing': `# Pricing Strategy
 
 🕒 **Estimated Time:** 15 min
@@ -2295,7 +2295,7 @@ Pricing is the most under-utilized growth lever.
 
 ## Accountability Check
 - [ ] I will not underprice my product.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'subscriptionmodel': `# Subscription Model
 
 🕒 **Estimated Time:** 10 min
@@ -2313,7 +2313,7 @@ Monthly Recurring Revenue (MRR) is the holy grail of software.
 
 ## Accountability Check
 - [ ] I understand MRR dynamics.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'revenuestreams': `# Revenue Streams
 
 🕒 **Estimated Time:** 10 min
@@ -2331,7 +2331,7 @@ Focus on one revenue stream until you hit $1M ARR.
 
 ## Accountability Check
 - [ ] I will not distract myself with multiple revenue streams yet.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'successmetrics': `# Success Metrics
 
 🕒 **Estimated Time:** 15 min
@@ -2349,7 +2349,7 @@ You cannot improve what you do not measure.
 
 ## Accountability Check
 - [ ] I know what success looks like.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'kpis': `# KPIs (Key Performance Indicators)
 
 🕒 **Estimated Time:** 15 min
@@ -2367,7 +2367,7 @@ KPIs tell you if the business is healthy.
 
 ## Accountability Check
 - [ ] I understand my primary KPIs.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'northstarmetric': `# North Star Metric
 
 🕒 **Estimated Time:** 15 min
@@ -2385,7 +2385,7 @@ The one metric that best captures the core value your product delivers to its cu
 
 ## Accountability Check
 - [ ] I have identified my North Star Metric.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'prd': `# Product Requirements Document (PRD)
 
 🕒 **Estimated Time:** 30 min
@@ -2412,7 +2412,7 @@ The PRD is mandatory. It must define the core user flows, the acceptance criteri
 Act as a Senior Product Manager. Based on my project so far, draft a comprehensive PRD.
 \`\`\`
 - [ ] I have generated and saved my PRD.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'userflows': `# User Flows
 
 🕒 **Estimated Time:** 20 min
@@ -2439,7 +2439,7 @@ You must map out onboarding, core usage, and retention flows. Where do users dro
 Generate a Mermaid.js user flow diagram for the onboarding process of my app.
 \`\`\`
 - [ ] I have mapped out my core user flows.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'informationarchitecture': `# Information Architecture
 
 🕒 **Estimated Time:** 20 min
@@ -2468,7 +2468,7 @@ If you add 10 new features next year, where will they live in the navigation? Yo
 Act as a UX Architect. Based on my PRD, generate a comprehensive sitemap and Information Architecture hierarchy.
 \`\`\`
 - [ ] I have mapped out my app's navigation structure.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'wireframes': `# Wireframes
 
 🕒 **Estimated Time:** 45 min
@@ -2497,7 +2497,7 @@ You must wireframe every major flow, including empty states (what the app looks 
 Act as a UX Designer. Describe the layout, components, and visual hierarchy for the 3 main screens of my app.
 \`\`\`
 - [ ] I have generated wireframes for my core screens.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'designsystem': `# Design System
 
 🕒 **Estimated Time:** 30 min
@@ -2524,7 +2524,7 @@ You need a robust, scalable design system. You must define your color palette (p
 Act as a Lead UI/UX Designer. Generate a complete set of Tailwind CSS design tokens (colors, fonts, spacing) for my project.
 \`\`\`
 - [ ] I have established my design system.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'branding': `# Branding
 
 🕒 **Estimated Time:** 15 min
@@ -2553,7 +2553,7 @@ If you are selling to banks, use conservative blues and a serious tone. If you a
 Act as a Brand Strategist. Suggest 3 brand names, a color palette, and a tone of voice for my product.
 \`\`\`
 - [ ] I have chosen a name and brand identity.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'accessibility': `# Accessibility (a11y)
 
 🕒 **Estimated Time:** 10 min
@@ -2579,7 +2579,7 @@ Your brand colors must pass the WCAG AA contrast ratio (text must be readable ag
 
 ## Accountability Check
 - [ ] I understand the accessibility requirements for my project mode.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'techstackselection': `# Tech Stack Selection
 
 🕒 **Estimated Time:** 20 min
@@ -2611,7 +2611,7 @@ Use mature, heavily supported frameworks with massive ecosystems (React, Next.js
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'frontendarchitecture': `# Frontend Architecture
 
 🕒 **Estimated Time:** 15 min
@@ -2641,7 +2641,7 @@ Use a feature-based architecture (grouping files by feature rather than by type)
 
 ## Accountability Check
 - [ ] I understand my frontend architecture constraints.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'backendarchitecture': `# Backend Architecture
 
 🕒 **Estimated Time:** 20 min
@@ -2671,7 +2671,7 @@ Do not build microservices on Day 1; they introduce massive operational complexi
 
 ## Accountability Check
 - [ ] I understand my backend architecture constraints.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'apidesign': `# API Design
 
 🕒 **Estimated Time:** 25 min
@@ -2702,7 +2702,7 @@ Use standard HTTP verbs (GET, POST, PUT, DELETE) and standard status codes (200,
 Act as a Backend Architect. Based on my PRD, design the core REST API endpoints I will need.
 \`\`\`
 - [ ] I have generated my core API design.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'authentication': `# Authentication
 
 🕒 **Estimated Time:** 15 min
@@ -2730,7 +2730,7 @@ Use an established provider like Supabase Auth, Auth0, or Clerk. You must suppor
 
 ## Accountability Check
 - [ ] I understand my authentication strategy.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'authorizationroles': `# Authorization & Roles
 
 🕒 **Estimated Time:** 20 min
@@ -2759,7 +2759,7 @@ If using Supabase, use Row Level Security (RLS) to ensure users can only query r
 Act as a Security Architect. Based on my PRD, define the standard user roles and their specific permissions.
 \`\`\`
 - [ ] I have defined my user roles and permissions.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'databaseschema': `# Database Schema
 
 🕒 **Estimated Time:** 30 min
@@ -2790,7 +2790,7 @@ Your schema must be multi-tenant from Day 1. Almost every table should have a \`
 Act as a Database Administrator. Based on my PRD, generate a PostgreSQL schema including multi-tenant architecture and foreign keys.
 \`\`\`
 - [ ] I have finalized my database schema.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'filestorage': `# File Storage
 
 🕒 **Estimated Time:** 10 min
@@ -2816,7 +2816,7 @@ Files should never be completely public unless they are avatars. Generate short-
 
 ## Accountability Check
 - [ ] I understand my file storage strategy.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'thirdpartyintegrations': `# Third Party Integrations
 
 🕒 **Estimated Time:** 15 min
@@ -2844,7 +2844,7 @@ A Stripe integration is mandatory. A Slack integration is highly recommended for
 
 ## Accountability Check
 - [ ] I have identified necessary third-party integrations.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'aiarchitectureoptional': `# AI Architecture
 
 🕒 **Estimated Time:** 15 min
@@ -2870,7 +2870,7 @@ Never call LLMs directly from the frontend; proxy them through your backend to p
 
 ## Accountability Check
 - [ ] I understand my AI architecture constraints.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'systemarchitecturediagram': `# System Architecture Diagram
 
 🕒 **Estimated Time:** 15 min
@@ -2899,7 +2899,7 @@ Use a tool like Mermaid.js (which lives in markdown) or Eraser.io so you can kee
 Act as a Cloud Architect. Generate a Mermaid.js architecture diagram for my tech stack.
 \`\`\`
 - [ ] I have generated my architecture diagram.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'costestimation': `# Cost Estimation
 
 🕒 **Estimated Time:** 15 min
@@ -2928,7 +2928,7 @@ If you charge a user $10/month, but they consume $8/month of OpenAI API credits 
 Act as a FinOps Specialist. Based on my tech stack, generate a monthly cost estimation model for 1,000 active users.
 \`\`\`
 - [ ] I have modeled my infrastructure costs.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'auth': `# Authentication Setup
 
 🕒 **Estimated Time:** 45 min
@@ -2959,7 +2959,7 @@ You must configure strict Redirect URLs to prevent Open Redirect vulnerabilities
 Act as a Security Engineer. Generate the frontend code and backend configuration to integrate Supabase Authentication into my React app.
 \`\`\`
 - [ ] I have successfully implemented Authentication.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'database': `# Database Setup
 
 🕒 **Estimated Time:** 60 min
@@ -2990,7 +2990,7 @@ Never change your production database schema directly in a UI. You must create m
 Act as a Database Administrator. Generate the SQL migration file to create my initial database schema, including Row Level Security (RLS) policies.
 \`\`\`
 - [ ] I have set up my database and migrations.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'backend': `# Backend Development
 
 🕒 **Estimated Time:** 2-4 Hours
@@ -3021,7 +3021,7 @@ Never trust data coming from the frontend. Always re-validate inputs on the back
 Act as a Backend Engineer. Write the server-side code to handle my core application logic, including input validation and error handling.
 \`\`\`
 - [ ] I have implemented my core backend logic.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'frontend': `# Frontend Development
 
 🕒 **Estimated Time:** 3-5 Hours
@@ -3052,7 +3052,7 @@ When a user clicks "Save", the button should instantly show a loading spinner, a
 Act as a Senior Frontend Developer. Write the React components for my main dashboard, utilizing Tailwind CSS and optimistic UI updates.
 \`\`\`
 - [ ] I have built my core frontend views.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'payments': `# Payments Integration
 
 🕒 **Estimated Time:** 2 Hours
@@ -3083,7 +3083,7 @@ You must rely on Webhooks to provision access, not client-side redirects. When a
 Act as a Stripe Integration Expert. Write the backend webhook handler to process subscription lifecycle events (created, updated, canceled).
 \`\`\`
 - [ ] I have integrated my payment gateway.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'emails': `# Transactional Emails
 
 🕒 **Estimated Time:** 1 Hour
@@ -3114,7 +3114,7 @@ You must configure your domain's DKIM, SPF, and DMARC records to ensure your ema
 Act as a Communications Architect. Generate a React Email template for my Welcome Email, including my branding colors and a clear Call to Action.
 \`\`\`
 - [ ] I have configured my transactional emails.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'notifications': `# Notifications
 
 🕒 **Estimated Time:** 1 Hour
@@ -3142,7 +3142,7 @@ Use a unified API like Novu or Courier. You must support in-app toasts, in-app i
 
 ## Accountability Check
 - [ ] I have implemented my notification strategy.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'search': `# Search
 
 🕒 **Estimated Time:** 1-2 Hours
@@ -3168,7 +3168,7 @@ You must implement "fuzzy matching" so typos don't return zero results. Implemen
 
 ## Accountability Check
 - [ ] I have implemented scalable search.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'analytics': `# Product Analytics
 
 🕒 **Estimated Time:** 45 min
@@ -3194,7 +3194,7 @@ Track the "Aha!" moment. Track where users drop off during onboarding. Track fea
 
 ## Accountability Check
 - [ ] I have integrated product analytics.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'adminpanel': `# Admin Panel
 
 🕒 **Estimated Time:** 2 Hours
@@ -3220,7 +3220,7 @@ Use a low-code tool like Retool, ForestAdmin, or Appsmith. Connect it directly t
 
 ## Accountability Check
 - [ ] I have set up an internal admin panel.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'integrations': `# External Integrations
 
 🕒 **Estimated Time:** 3-5 Hours
@@ -3244,7 +3244,7 @@ Start with native Slack or Discord webhooks for notifications. If you need deep 
 
 ## Accountability Check
 - [ ] I have built necessary integrations.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'testing': `# Testing
 
 🕒 **Estimated Time:** Ongoing
@@ -3270,7 +3270,7 @@ Instead, focus on End-to-End (E2E) testing with Playwright or Cypress. Write 5-1
 
 ## Accountability Check
 - [ ] I have implemented my core E2E tests.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'documentation': `# Documentation
 
 🕒 **Estimated Time:** Ongoing
@@ -3297,7 +3297,7 @@ You must maintain two types of documentation:
 
 ## Accountability Check
 - [ ] I have documented my project appropriately.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'demodata': `# Demo Data
 
 **🕒 Estimated Time:** 45-60 min
@@ -3379,7 +3379,7 @@ Act as a Product Marketer and Backend Engineer.
 ## Deliverable
 **File Name:** \`demo_seed.ts\`
 **Purpose:** Make the product instantly impressive.
-**Contents:** A dedicated script used exclusively for populating presentation environments.`,
+**Contents:** A dedicated script used exclusively for populating presentation environments.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'presentationprep': `# Presentation Prep
 
 **🕒 Estimated Time:** 60-120 min
@@ -3461,7 +3461,7 @@ Act as a Y Combinator Pitch Coach.
 ## Deliverable
 **File Name:** \`pitch_script.md\`
 **Purpose:** Convert viewers into users or investors.
-**Contents:** The timed script and the recorded Loom video link.`,
+**Contents:** The timed script and the recorded Loom video link.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'security': `# Security
 
 **Estimated Time:** 4-6 hours
@@ -3500,7 +3500,7 @@ Act as a Senior Security Engineer. I am building a SaaS application using [Inser
 - [ ] Secrets have been verified absent from public repositories.
 - [ ] Users can only access their own data (e.g., RLS policies).
 - [ ] Inputs are sanitized and validated on the backend.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'performanceoptimization': `# Performance Optimization
 
 **Estimated Time:** 3-5 hours
@@ -3539,7 +3539,7 @@ Act as a Senior Performance Engineer. I am building a SaaS application using [In
 - [ ] Large lists are paginated or virtualized.
 - [ ] Database queries are indexed and optimized.
 - [ ] Core Web Vitals meet acceptable thresholds.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'monitoring': `# Monitoring
 
 **Estimated Time:** 2-4 hours
@@ -3578,7 +3578,7 @@ Act as a Senior DevOps Engineer. I need to set up comprehensive monitoring for a
 - [ ] Application errors are tracked and aggregated automatically.
 - [ ] Key performance metrics (latency, error rate) are visible on a dashboard.
 - [ ] Critical alerts are routed to the appropriate team members.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'logging': `# Logging
 
 **Estimated Time:** 2-4 hours
@@ -3617,7 +3617,7 @@ Act as a Backend Architect. I am building a production backend in [Insert Langua
 - [ ] Logs include contextual information (User ID, Request ID).
 - [ ] Sensitive data (PII, passwords, tokens) is scrubbed from logs.
 - [ ] Logs are aggregated in a centralized, searchable platform.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'errortracking': `# Error Tracking
 
 **Estimated Time:** 1-3 hours
@@ -3656,7 +3656,7 @@ Act as a Full Stack Developer. Provide a step-by-step guide on how to integrate 
 - [ ] Source maps are uploaded to the error tracking tool for readable stack traces.
 - [ ] User context (ID, email) is attached to error reports.
 - [ ] Alerts are configured for significant spikes in error rates.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'ratelimiting': `# Rate Limiting
 
 **Estimated Time:** 2-4 hours
@@ -3695,7 +3695,7 @@ Act as a Backend Architect. I am building an API with [Insert Tech Stack, e.g., 
 - [ ] Rate limiting is applied to resource-intensive or costly API endpoints.
 - [ ] The API returns a 429 status code and helpful headers when limits are exceeded.
 - [ ] Rate limits are enforced consistently across distributed server instances.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'caching': `# Caching
 
 **Estimated Time:** 2-4 hours
@@ -3734,7 +3734,7 @@ Act as a Senior Backend Engineer. I am building a SaaS app with [Insert Tech Sta
 - [ ] Expensive or frequently accessed database queries are cached in-memory (e.g., Redis).
 - [ ] A clear cache invalidation strategy is implemented (TTL or event-driven).
 - [ ] Cache hit/miss rates are monitored.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'backups': `# Backups
 
 **Estimated Time:** 1-2 hours
@@ -3773,7 +3773,7 @@ Act as a Database Administrator. I am using [Insert Database Provider, e.g., Sup
 - [ ] Point-in-Time Recovery (PITR) is active for production databases.
 - [ ] Backups are securely stored in a geographically separate location.
 - [ ] The database restoration process has been successfully tested.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'cicd': `# CI/CD (Continuous Integration & Deployment)
 
 **Estimated Time:** 2-4 hours
@@ -3812,7 +3812,7 @@ Act as a DevOps Engineer. I have a repository hosted on GitHub with a [Insert Fr
 - [ ] Code cannot be merged into the main branch if tests fail.
 - [ ] Merging to the main branch automatically triggers a deployment to production.
 - [ ] Deployments occur with zero downtime to the end user.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'infrastructure': `# Infrastructure
 
 **Estimated Time:** 3-6 hours
@@ -3851,7 +3851,7 @@ Act as a Cloud Architect. I am planning the production infrastructure for a SaaS
 - [ ] Databases and internal services are not exposed directly to the public internet (e.g., inside a VPC).
 - [ ] Infrastructure components span multiple availability zones for fault tolerance.
 - [ ] Infrastructure changes are managed through code (IaC) and version control, not manual dashboard clicks.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'disasterrecovery': `# Disaster Recovery
 
 **Estimated Time:** 2-4 hours
@@ -3888,7 +3888,7 @@ Act as a Site Reliability Engineer (SRE). I am operating a SaaS application on [
 - [ ] Database backups are securely stored in a secondary geographic region.
 - [ ] Infrastructure can be rapidly recreated using Infrastructure as Code (IaC).
 - [ ] The Disaster Recovery failover process is documented and tested regularly.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'scalabilityplanning': `# Scalability Planning
 
 **Estimated Time:** 2-4 hours
@@ -3927,7 +3927,7 @@ Act as a Software Architect. I am building a backend using [Insert Tech Stack, e
 - [ ] Long-running or resource-intensive tasks are offloaded to background worker queues.
 - [ ] Database connection pooling is configured.
 - [ ] Load testing has been conducted to identify the system's maximum capacity.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'launchchecklist': `# Launch Checklist
 
 **Estimated Time:** 2-4 hours
@@ -3966,7 +3966,7 @@ Act as a Release Manager. I am launching a SaaS app built with [Insert Tech Stac
 - [ ] Automated backups are enabled and verified.
 - [ ] Debug mode is disabled; error tracking (e.g., Sentry) is enabled.
 - [ ] Open Graph (social sharing) tags and SEO metadata are configured.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'seo': `# SEO (Search Engine Optimization)
 
 **Estimated Time:** 3-6 hours
@@ -4003,7 +4003,7 @@ Act as an SEO Specialist. I am building a marketing site for my SaaS using [Inse
 - [ ] Open Graph and Twitter Card tags are configured with a preview image.
 - [ ] A \`sitemap.xml\` and \`robots.txt\` are automatically generated.
 - [ ] The site is indexable (Server-Side Rendered or Statically Generated).
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'analyticssetup': `# Analytics Setup
 
 **Estimated Time:** 1-3 hours
@@ -4040,7 +4040,7 @@ Act as a Product Manager. I am launching a SaaS app for [Describe your app's cor
 - [ ] Core conversion events (Signup, Upgrade) are actively tracked.
 - [ ] Events are tied to unique user IDs for cohort analysis.
 - [ ] A funnel has been created to monitor the onboarding drop-off rate.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'legaldocuments': `# Legal Documents
 
 **Estimated Time:** 1-2 hours
@@ -4072,7 +4072,7 @@ Act as a Startup Advisor. I am launching a B2B SaaS business and plan to charge 
 - [ ] A formal legal entity (LLC, C-Corp, etc.) has been established.
 - [ ] Intellectual Property (IP) has been assigned to the company.
 - [ ] Any required industry-specific compliance documentation is in progress.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'cookiepolicy': `# Cookie Policy
 
 **Estimated Time:** 1 hour
@@ -4107,7 +4107,7 @@ Act as a Compliance Expert. I am building a SaaS using [Insert Tech Stack]. We u
 - [ ] Non-essential tracking scripts are blocked until the user explicitly consents.
 - [ ] Users have an easy way to reject non-essential cookies.
 - [ ] A dedicated Cookie Policy page explains what cookies are used and why.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'customersupport': `# Customer Support
 
 **Estimated Time:** 2-4 hours
@@ -4142,7 +4142,7 @@ Act as a Head of Customer Success. I am launching a new SaaS product. Recommend 
 - [ ] Support tickets automatically capture the user's context (ID, email).
 - [ ] A dedicated support email address is active and monitored.
 - [ ] A basic FAQ or Help Center exists for common issues.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'retention': `# Retention
 
 **Estimated Time:** Ongoing
@@ -4177,7 +4177,7 @@ Act as a Growth Hacker. I am running a SaaS product. Outline a 14-day automated 
 - [ ] An automated welcome email is sent upon signup.
 - [ ] A lifecycle email campaign is configured to re-engage inactive users.
 - [ ] Churn reasons are collected when a user deletes their account or cancels their subscription.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'userfeedback': `# User Feedback
 
 **Estimated Time:** Ongoing
@@ -4209,7 +4209,7 @@ Act as a Product Manager. We have received 50 feature requests this month. Provi
 - [ ] Users can submit feedback or report bugs directly from within the app.
 - [ ] Feedback is actively monitored and categorized (Bug, Feature Request, UX).
 - [ ] A system (like NPS or CSAT) is in place to measure overall user satisfaction.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'scalingstrategy': `# Scaling Strategy
 
 **Estimated Time:** Ongoing
@@ -4242,7 +4242,7 @@ Act as a Principal Engineer. Our monolithic Node.js and PostgreSQL app is starti
 - [ ] Expensive operations are handled asynchronously by background workers.
 - [ ] Database connection limits are monitored and managed (e.g., via pooling).
 - [ ] A plan exists for scaling the database (vertical scaling -> read replicas).
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'marketing': `# Marketing
 
 **Estimated Time:** Ongoing
@@ -4274,7 +4274,7 @@ Act as a Chief Marketing Officer. I am launching a B2B SaaS targeting [Insert Ta
 - [ ] A primary customer acquisition channel has been identified and tested.
 - [ ] Customer Acquisition Cost (CAC) is being tracked and measured against Lifetime Value (LTV).
 - [ ] A launch plan (e.g., Product Hunt, Hacker News, specific subreddits) is prepared.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'referralsystems': `# Referral Systems
 
 **Estimated Time:** 2-4 Days
@@ -4307,7 +4307,7 @@ Act as a Growth Product Manager. I run a SaaS app for [Describe App]. Design a d
 - [ ] A double-sided incentive is established (both parties benefit).
 - [ ] The referral link is easily accessible within the core user dashboard.
 - [ ] Referral attribution and payouts/credits are tracked automatically.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'featureroadmap': `# Feature Roadmap
 
 **Estimated Time:** Ongoing
@@ -4339,7 +4339,7 @@ Act as a VP of Product. We have a backlog of 20 feature requests, 5 critical bug
 - [ ] Engineering bandwidth is allocated intentionally between new features, bug fixes, and tech debt.
 - [ ] Features are prioritized based on business impact and engineering effort.
 - [ ] A high-level public roadmap is available to users (optional but recommended).
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'technicaldebt': `# Technical Debt
 
 **Estimated Time:** Ongoing
@@ -4371,7 +4371,7 @@ Act as a VP of Engineering. My team is struggling to ship new features because t
 - [ ] Known technical debt is documented in the issue tracker, not just hidden in the code.
 - [ ] A consistent portion of engineering time is dedicated to refactoring and paying down debt.
 - [ ] Dependencies (NPM packages, Docker images) are regularly audited and updated.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'pitchdeck': `# Pitch Deck
 
 **🕒 Estimated Time:** 45-60 min
@@ -4453,7 +4453,7 @@ Write out the single most important sentence of your pitch—the "Hook" that wil
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'demoscript': `# Demo Script
 
 **🕒 Estimated Time:** 30-45 min
@@ -4539,7 +4539,7 @@ Define the exact starting state of your app when the demo begins (e.g., "Logged 
 \`\`\`input
 ✍️ Type your answer here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'submissionchecklist': `# Submission Checklist
 
 **🕒 Estimated Time:** 15-20 min
@@ -4623,7 +4623,7 @@ Keep the tone energetic and confident.
 
 ## Deliverable
 Take a deep breath. You built an entire application from scratch. You planned the architecture, wrote the code, and prepared the pitch. You are a builder. Hit submit, celebrate your achievement, and get ready for the next one.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileideadefinition': `# Idea Definition
 
 **Estimated Time:** 1-2 hours
@@ -4659,7 +4659,7 @@ Act as a cynical Mobile Product Manager. I am pitching the following mobile app 
 - [ ] The idea explicitly requires at least one native device capability (Camera, GPS, Push, Offline).
 - [ ] The core value proposition can be explained in less than 10 seconds.
 - [ ] The problem being solved is painful enough to overcome the friction of an App Store download.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileproblemstatement': `# Problem Statement
 
 **Estimated Time:** 1 hour
@@ -4691,7 +4691,7 @@ Act as a UX Researcher. My current problem statement is: [Insert Problem]. Rewri
 - [ ] The problem statement focuses on the user's pain, not the proposed technology.
 - [ ] The problem is significant enough that users are actively looking for workarounds.
 - [ ] The statement avoids vague marketing jargon.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileusecases': `# Use Cases
 
 **Estimated Time:** 1-2 hours
@@ -4723,7 +4723,7 @@ Act as a Technical Business Analyst. For a mobile app that does [Describe App], 
 - [ ] The primary, high-value user action is clearly defined as a use case.
 - [ ] Edge cases (offline, permissions denied) are accounted for in the core flows.
 - [ ] Use cases are actionable and written from the user's perspective.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileuserjourney': `# User Journey
 
 **Estimated Time:** 2-3 hours
@@ -4755,7 +4755,7 @@ Act as a Mobile UX Designer. Outline a 5-step User Journey for a first-time user
 - [ ] The journey starts at discovery (App Store) and ends at the core value proposition.
 - [ ] Permission requests (Camera, Location, Push) are mapped contextually, not upfront.
 - [ ] The onboarding flow is minimized to reduce Day 1 churn.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobiletargetaudience': `# Target Audience
 
 **Estimated Time:** 1 hour
@@ -4787,7 +4787,7 @@ Act as a Product Marketing Manager. My mobile app does [Describe App]. I want to
 - [ ] The audience is narrow enough to have specific online gathering places.
 - [ ] The audience has a demonstrated willingness to pay or download apps for this problem.
 - [ ] The audience definition avoids vague demographics (e.g., "Millennials") in favor of behavioral traits.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilepersonas': `# Personas
 
 **Estimated Time:** 1-2 hours
@@ -4819,7 +4819,7 @@ Act as a UX Researcher. Generate two actionable user personas for a mobile app t
 - [ ] Personas are based on behavioral traits and mobile habits, not just demographics.
 - [ ] The physical environment of the user (e.g., on the go, low battery, bad signal) is considered.
 - [ ] Design decisions can be directly tied back to the needs of a specific persona.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilesolutionstatement': `# Solution Statement
 
 **Estimated Time:** 1 hour
@@ -4851,7 +4851,7 @@ Act as a Y Combinator Partner. My current solution statement is: [Insert Stateme
 - [ ] The statement clearly explains how the problem is solved.
 - [ ] The statement relies on value metrics (time saved, money earned) rather than technical jargon.
 - [ ] It is obvious why this solution requires a mobile application rather than a website.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileelevatorpitch': `# Elevator Pitch
 
 **Estimated Time:** 1 hour
@@ -4883,7 +4883,7 @@ Act as a Startup Founder. My app does [Describe App] for [Target Audience]. Writ
 - [ ] The pitch clearly identifies the target audience.
 - [ ] The core value proposition is easily understood without technical context.
 - [ ] The pitch can be spoken aloud in under 15 seconds.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilecompetitoranalysis': `# Competitor Analysis
 
 **Estimated Time:** 2-4 hours
@@ -4915,7 +4915,7 @@ Act as a Product Strategist. I am building an app to compete with [Insert Compet
 - [ ] At least 3 direct or indirect competitors have been identified.
 - [ ] 1-star App Store reviews of competitors have been analyzed to find missing features.
 - [ ] A clear differentiator (Price, UX, Speed, Niche Feature) has been established.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilesimilarapps': `# Similar Apps
 
 **Estimated Time:** 1-2 hours
@@ -4949,7 +4949,7 @@ Act as a Senior UX Researcher. I am building an app in the [Insert Category, e.g
 - [ ] At least 3 similar apps have been downloaded and tested.
 - [ ] Standard UX patterns for the category (e.g., navigation style) have been identified.
 - [ ] The onboarding flow of the market leader has been mapped out.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'play-store-research': `# Play Store Research
 
 **🕒 Estimated Time:** 20 min
@@ -5017,7 +5017,7 @@ Paste your suggested Title, Short Description, and the key screenshot concept he
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\``,
+\`\`\`\`,\`,\`,\`,\`,\`,\`,\`,`,
   'appstoreresearch': `# App Store Research
 
 **Estimated Time:** 1-2 hours
@@ -5051,7 +5051,7 @@ Act as an iOS App Store Optimization Expert. I am launching an app for [Describe
 - [ ] The App Store Review Guidelines (especially Minimum Functionality) have been reviewed.
 - [ ] A strategy for the Title, Subtitle, and 100-character Keyword field is drafted.
 - [ ] The monetization model complies with Apple's In-App Purchase (IAP) rules (no circumventing the 30% fee).
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilefeatureplanning': `# Feature Planning
 
 **Estimated Time:** 2-3 hours
@@ -5083,7 +5083,7 @@ Act as a Mobile Technical Lead. I am building a mobile app that [Describe App]. 
 - [ ] All features are directly tied back to a defined Use Case.
 - [ ] "Invisible" mobile features (offline states, error handling, permissions) are explicitly planned.
 - [ ] Features are grouped into logical Epics for easier estimation.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilemvpfeatures': `# MVP Features
 
 **Estimated Time:** 1-2 hours
@@ -5115,7 +5115,7 @@ Act as a ruthless Product Manager. Here is my list of planned features for my mo
 - [ ] The MVP contains only the features required to deliver the core value proposition.
 - [ ] "Nice to have" features (e.g., social sharing, dark mode, complex settings) have been cut.
 - [ ] The MVP can theoretically be built in less than 4-6 weeks.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilefuturefeatures': `# Future Features
 
 **Estimated Time:** 1 hour
@@ -5147,7 +5147,7 @@ Act as a Principal Mobile Architect. My MVP is [Describe MVP], but my Phase 2 Fu
 - [ ] All non-critical ideas have been moved out of the MVP and into a documented Backlog.
 - [ ] The current technical stack can support the most complex future features without a total rewrite.
 - [ ] Future features align with the long-term product vision.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilefeatureprioritization': `# Feature Prioritization
 
 **Estimated Time:** 1-2 hours
@@ -5179,7 +5179,7 @@ Act as a VP of Product. I have three proposed features for my mobile app: 1) [Fe
 - [ ] A formal prioritization framework (like RICE or Kano) is used to evaluate features.
 - [ ] Features are prioritized based on their impact on core business metrics (e.g., Retention, Conversion).
 - [ ] High-effort, low-impact features have been explicitly deprioritized.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilemonetization': `# Monetization Strategy
 
 **Estimated Time:** 1-2 hours
@@ -5211,7 +5211,7 @@ Act as a Monetization Strategist. I am building a mobile app that [Describe App]
 - [ ] The chosen monetization strategy is compliant with Apple and Google's In-App Purchase rules.
 - [ ] The strategy aligns with the expected Customer Acquisition Cost (CAC).
 - [ ] The core value proposition is strong enough to support the chosen model.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilefree': `# Free (100% Free)
 
 **Estimated Time:** 30 minutes
@@ -5243,7 +5243,7 @@ Act as a Financial Advisor for Startups. I want to release my mobile app 100% fo
 - [ ] There is a clear strategic reason for the app to generate zero direct revenue.
 - [ ] A funding source exists to cover ongoing server and developer account costs.
 - [ ] If data is being monetized, the Privacy Policy explicitly states this in compliance with GDPR/CCPA.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilefreemium': `# Freemium Model
 
 **Estimated Time:** 2-4 hours
@@ -5275,7 +5275,7 @@ Act as a Pricing Strategist. I am building a mobile app that [Describe App]. I w
 - [ ] The free tier provides enough value to demonstrate the "Aha!" moment.
 - [ ] The trigger for the paywall is based on a clear value metric (e.g., 3 projects maximum).
 - [ ] Backend entitlement checks are planned to prevent unauthorized premium access.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilesubscription': `# Subscription Model
 
 **Estimated Time:** 1-2 hours
@@ -5307,7 +5307,7 @@ Act as a SaaS Financial Modeler. We are launching a mobile subscription app at $
 - [ ] Apple/Google In-App Purchases are used (no external Stripe links for digital goods).
 - [ ] A tool like RevenueCat is planned to handle cross-platform receipt validation.
 - [ ] A clear, easy-to-find cancellation flow is designed to comply with App Store policies.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileads': `# Ad-Supported Model
 
 **Estimated Time:** 1-2 hours
@@ -5339,7 +5339,7 @@ Act as a Mobile Ad Monetization Manager. My app currently has 10,000 Daily Activ
 - [ ] The app's projected DAU and session length can realistically support an ad-driven revenue model.
 - [ ] Rewarded video or native ads are prioritized over intrusive interstitials.
 - [ ] Privacy policies are updated to reflect third-party ad tracking (e.g., AdMob, ATT prompts).
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileonetimepurchase': `# One-Time Purchase
 
 **Estimated Time:** 1 hour
@@ -5371,7 +5371,7 @@ Act as a Pricing Strategist. I am building a mobile app for [Describe App]. I wa
 - [ ] The app has minimal to zero ongoing server or third-party API costs.
 - [ ] The architecture relies heavily on local device storage (CoreData/SQLite) rather than cloud databases.
 - [ ] The upfront price is high enough to cover Customer Acquisition Cost (CAC) immediately.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilesuccessmetrics': `# Success Metrics
 
 **Estimated Time:** 1 hour
@@ -5403,39 +5403,40 @@ Act as a Data-Driven CEO. My mobile app is a [Insert Category] app that helps us
 - [ ] A single "North Star" metric has been explicitly defined.
 - [ ] A tool (e.g., PostHog, Mixpanel, RevenueCat) is selected to track this metric accurately.
 - [ ] Supporting metrics (Churn, CAC) are defined to provide business context.
-`,
-  'mobileretention': `# Retention Tracking
+\`,\`,\`,\`,\`,\`,\`,\`,`,
+  'mobileretention': `# Retention
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** Ongoing
 
 ---
 
 ## Why this matters
-Retention is the ultimate arbiter of Product-Market Fit. If 1,000 people download your app on Monday, and only 10 open it on Tuesday (1% Day 1 Retention), your product is fundamentally broken. You cannot fix bad retention with more marketing.
+Acquiring a new user costs 5 to 25 times more than retaining an existing one. In the mobile app world, Day 1 (D1) retention averages around 25%, meaning 75% of users who download your app today will never open it again. If you do not have a deliberate retention strategy, your app is a leaky bucket, and any money spent on marketing is entirely wasted.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Ignore this. 
+Retention doesn't matter for a weekend project. Focus purely on the acquisition story for the pitch deck.
 
 ### Personal Project
-Ignore this, you do not have enough users for retention cohorts to be statistically significant.
+Focus on the "Aha! Moment." This is the exact moment a user understands the core value of your app. For Facebook, it was "7 friends in 10 days." For a habit tracker, it might be "Logging 3 days in a row." Ensure your onboarding process gets the user to that specific Aha! Moment as fast as humanly possible, removing all unnecessary friction (like forcing them to verify their email before using the app).
 
 ### Production SaaS
-You must track Day 1, Day 7, and Day 30 retention rigorously.
+You must rigorously track D1, D7, and D30 retention cohorts using tools like Mixpanel or Amplitude. Implement lifecycle marketing to combat churn. If a user drops off at Day 3, send a targeted push notification or email sequence educating them on a feature they haven't tried yet. Do not just send "We miss you!" messages; send value-driven nudges like, "Did you know you can automate your weekly reports?"
 
-On mobile, Day 1 retention (the percentage of users who open the app the day after downloading) averages around 25%. If yours is below 15%, your onboarding flow is failing or your app is crashing. Create a "Cohort Analysis" chart in your analytics tool (PostHog/Amplitude). Look for the "retention plateau"—the point where the curve flattens out. If your curve never flattens and drops to 0%, you have a leaky bucket. Stop all marketing spend immediately until you fix the core product loop.
+### Custom Mode
+Enterprise retention is tied directly to B2B contract renewals (Net Revenue Retention - NRR). You must build specialized dashboards for Customer Success Managers (CSMs) to monitor the "Health Score" of enterprise accounts. If an entire client organization shows a 20% drop in Daily Active Users (DAU), the CSM must be alerted automatically to intervene before the annual contract renewal date.
 
-## Cohort Analysis Prompt
+## Implementation Steps
 \`\`\`prompt
-Act as a Growth Product Manager. My mobile app's Day 1 retention is 40%, but by Day 7 it drops to 5%. Outline a strategy for using qualitative user interviews and quantitative funnel analysis to identify exactly *why* users are abandoning the app between Day 2 and Day 6.
+Act as a Product Growth Expert. My mobile app is a [Insert App Type]. Define what my "Aha! Moment" likely is. Then, outline a 7-day lifecycle push notification sequence designed to increase my D7 retention rate by guiding new users toward that specific Aha! Moment.
 \`\`\`
 
 ## Validation Checklist
-- [ ] Analytics are configured to track Day 1, Day 7, and Day 30 retention cohorts.
-- [ ] The onboarding funnel is tracked step-by-step to find the highest drop-off points.
-- [ ] Marketing spend is tied to retention validation (do not scale marketing on a leaky bucket).
-`,
+- [ ] The "Aha! Moment" has been clearly defined.
+- [ ] Onboarding friction preventing users from reaching the Aha! Moment has been minimized.
+- [ ] D1, D7, and D30 retention cohorts are actively being tracked in an analytics tool.
+\`,\`,\`,\`,`,
   'mobiledau': `# DAU (Daily Active Users)
 
 **Estimated Time:** 30 minutes
@@ -5466,7 +5467,7 @@ Act as a Data Analyst. My app is a [Describe App]. If we track DAU, should the '
 ## Validation Checklist
 - [ ] The "Active" event is strictly defined as a core action, not just "App Opened."
 - [ ] The DAU metric aligns with the natural usage frequency of the product.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilemau': `# MAU (Monthly Active Users)
 
 **Estimated Time:** 30 minutes
@@ -5497,7 +5498,7 @@ Act as an Investor Relations Manager. Our MAU is growing at 15% month-over-month
 ## Validation Checklist
 - [ ] Internal team members and test accounts are excluded from the MAU metric.
 - [ ] MAU growth is actively compared against MRR/Revenue growth to ensure quality acquisition.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilesessionduration': `# Session Duration
 
 **Estimated Time:** 30 minutes
@@ -5528,7 +5529,7 @@ Act as a UX Analyst. My app is a [Describe App]. Is our goal to maximize session
 ## Validation Checklist
 - [ ] It is explicitly decided whether the product goal is to maximize or minimize session duration.
 - [ ] Analytics (e.g., PostHog/Mixpanel) are configured to accurately track session start and end events.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileprd': `
 # Mobile Product Requirements Document (PRD)
 
@@ -5589,7 +5590,7 @@ Generate a concise, actionable Mobile PRD including:
 ## Validation
 - [ ] I have generated and saved the Mobile PRD.
 - [ ] I have ruthlessly cut at least one feature that isn't strictly necessary for v1.0.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileuserflows': `
 # Mobile User Flows
 
@@ -5651,7 +5652,7 @@ Please analyze these flows specifically for mobile friction points.
 - [ ] The onboarding flow has been mapped.
 - [ ] The core engagement flow has been mapped.
 - [ ] The flows have been optimized to reduce unnecessary taps.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'appnavigation': `
 # App Navigation Architecture
 
@@ -5714,7 +5715,7 @@ Please outline the ideal nested navigation architecture.
 - [ ] A primary navigation pattern has been selected.
 - [ ] The core root screens have been defined.
 - [ ] Deep linking entry points have been considered.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilewireframes': `
 # Mobile Wireframes
 
@@ -5771,7 +5772,7 @@ For each screen, provide a structural breakdown of the UI hierarchy from top to 
 ## Validation
 - [ ] Wireframes have been created (even if just on paper) in strictly greyscale.
 - [ ] The primary Call to Action on every screen is easily reachable by a user's thumb holding the device with one hand.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobiledesignsystem': `
 # Mobile Design System
 
@@ -5832,7 +5833,7 @@ Generate a complete, semantic Design System Token object (in JSON/TypeScript for
 - [ ] A semantic color palette has been defined (not just hardcoded hex values).
 - [ ] Dark mode is supported by the color token structure.
 - [ ] Spacing relies on a consistent multiplier (e.g., 4, 8, 16, 24).
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilebranding': `
 # Mobile Branding & Assets
 
@@ -5886,7 +5887,7 @@ Please provide 3 distinct, highly professional concepts for the App Icon. For ea
 - [ ] An app icon has been generated in all necessary resolutions (1024x1024 master).
 - [ ] A splash screen has been configured.
 - [ ] The app transitions from the native splash screen to the first view without a white flash.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileaccessibility': `
 # Mobile Accessibility (a11y)
 
@@ -5941,7 +5942,7 @@ Provide a specific implementation guide to make these components accessible. Inc
 - [ ] All icon-only buttons have descriptive accessibility labels.
 - [ ] The app has been tested with system text size increased by 150% without breaking layouts.
 - [ ] Touch targets are a minimum of 44x44 points (iOS) or 48x48 dp (Android).
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileemptystates': `
 # Mobile Empty States
 
@@ -5996,7 +5997,7 @@ For each screen, provide:
 ## Validation
 - [ ] Every primary tab/screen has a designed empty state.
 - [ ] Every empty state includes a Call to Action (CTA) button.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileerrorstates': `
 # Mobile Error States
 
@@ -6053,7 +6054,7 @@ Please categorize the following failure types and recommend the best UX pattern 
 - [ ] A global "No Internet Connection" state has been designed.
 - [ ] Non-blocking errors are handled gracefully (e.g., via Toasts) without interrupting the user.
 - [ ] Critical component failures include a "Retry" button.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileloadingstates': `
 # Mobile Loading States
 
@@ -6109,7 +6110,7 @@ Please provide a loading state strategy that minimizes perceived latency.
 - [ ] Initial data fetches use Skeleton Loaders or non-blocking indicators.
 - [ ] Form submission buttons visually indicate a loading state to prevent double-submissions.
 - [ ] The app avoids full-screen blocking overlays unless processing payments.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileplatformstrategy': `# Platform Strategy
 
 **Estimated Time:** 20 minutes
@@ -6152,7 +6153,7 @@ Act as a Senior Mobile Architect. My application features include [List your mos
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilefundamentals': `# Mobile Fundamentals
 
 **Estimated Time:** 15 minutes
@@ -6185,7 +6186,7 @@ At the enterprise tier, mobile fundamentals dictate architectural rigor. You mus
 
 ## Review and Proceed
 - [ ] I understand the core constraints of mobile development and the necessity of lifecycle management.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobiletechstackselection': `# Tech Stack Selection
 
 **Estimated Time:** 20 minutes
@@ -6222,7 +6223,7 @@ Act as a Senior Mobile Architect. My application needs to utilize [List hardware
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilestatemanagement': `# State Management Architecture
 
 **Estimated Time:** 20 minutes
@@ -6262,7 +6263,7 @@ Act as a Senior Frontend Architect. I am building a mobile app that handles [Des
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileapistrategy': `# API Strategy
 
 **Estimated Time:** 20 minutes
@@ -6301,7 +6302,7 @@ Act as a Senior Backend Architect. I am building a mobile application. The front
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilelocalstorage': `# Local Storage Strategy
 
 **Estimated Time:** 15 minutes
@@ -6342,7 +6343,7 @@ Act as a Senior Mobile Security Engineer. My app needs to store [List data types
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileauthentication': `# Authentication Strategy
 
 **Estimated Time:** 20 minutes
@@ -6381,7 +6382,7 @@ Act as a Senior Security Architect. I am building a mobile app that uses [Insert
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobiledatabase': `# Database Architecture
 
 **Estimated Time:** 20 minutes
@@ -6420,7 +6421,7 @@ Act as a Senior Database Administrator. I am building a mobile application where
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilebackend': `# Backend Architecture
 
 **Estimated Time:** 20 minutes
@@ -6459,7 +6460,7 @@ Act as a Senior Cloud Architect. My mobile app requires [List heavy backend task
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilepushnotifications': `# Push Notification Strategy
 
 **Estimated Time:** 15 minutes
@@ -6500,7 +6501,7 @@ Act as a Mobile Product Manager. My app is a [Describe your app]. Generate 5 hig
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobiledeeplinking': `# Deep Linking
 
 **Estimated Time:** 20 minutes
@@ -6538,7 +6539,7 @@ Act as a Senior Mobile Architect. I am using [Expo Router / React Navigation]. I
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilefilestorage': `# File Storage Strategy
 
 **Estimated Time:** 15 minutes
@@ -6577,7 +6578,7 @@ Act as a Mobile Storage Architect. My app allows users to upload [Images / Video
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileofflinestrategy': `# Offline Strategy
 
 **Estimated Time:** 20 minutes
@@ -6616,7 +6617,7 @@ Act as a Senior Mobile Architect. I am building a [Describe your app]. Based on 
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobileanalyticsstrategy': `# Analytics Strategy
 
 **Estimated Time:** 15 minutes
@@ -6660,7 +6661,7 @@ Act as a Head of Product. My app is a [Describe your app]. Generate a Tracking P
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'mobilecostestimation': `# Cost Estimation
 
 **Estimated Time:** 15 minutes
@@ -6702,7 +6703,7 @@ Act as a Cloud FinOps Architect. Review my tech stack ([List your stack: e.g., R
 \`\`\`input
 Write Here...
 \`\`\`
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'scalability': `# Scalability
 
 🕒 **Estimated Time:** 3-6 hours
@@ -6782,8 +6783,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Your app is fully production-ready, secure, performant, and scalable! You are ready to move to **Phase 5: Store Deployment**.`,
-
+Your app is fully production-ready, secure, performant, and scalable! You are ready to move to **Phase 5: Store Deployment**.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'playstoresetup': `# Play Store Setup
 
 🕒 **Estimated Time:** 2-3 days (Verification)
@@ -6854,8 +6854,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Once your Android account is pending verification, move on to setting up your Apple App Store account.`,
-
+Once your Android account is pending verification, move on to setting up your Apple App Store account.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'appstoresetup': `# App Store Setup
 
 🕒 **Estimated Time:** 1-2 weeks (Verification)
@@ -6926,8 +6925,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-With the accounts created, it's time to design the visual assets, starting with the App Icon.`,
-
+With the accounts created, it's time to design the visual assets, starting with the App Icon.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'appicons': `# App Icons
 
 🕒 **Estimated Time:** 2-4 hours
@@ -6998,8 +6996,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Now that you have an icon, you need to show users what the app actually does using Screenshots.`,
-
+Now that you have an icon, you need to show users what the app actually does using Screenshots.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'screenshots': `# Screenshots
 
 🕒 **Estimated Time:** 4-6 hours
@@ -7071,8 +7068,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Android requires an additional promotional asset called the Feature Graphic.`,
-
+Android requires an additional promotional asset called the Feature Graphic.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'featuregraphics': `# Feature Graphics
 
 🕒 **Estimated Time:** 1-2 hours
@@ -7141,8 +7137,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-Visuals are done. Now you need to optimize your text for search algorithms via App Store SEO.`,
-
+Visuals are done. Now you need to optimize your text for search algorithms via App Store SEO.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'storelistingseo': `# Store Listing SEO (ASO)
 
 🕒 **Estimated Time:** 2-3 hours
@@ -7213,8 +7208,7 @@ Paste your deliverable here...
 ---
 
 ## Next Step
-You cannot submit an app without a valid Privacy Policy URL.`,
-
+You cannot submit an app without a valid Privacy Policy URL.\`,\`,\`,\`,\`,\`,\`,\`,`,
   'privacypolicy': `# Privacy Policy
 
 **Estimated Time:** 1-2 hours
@@ -7251,8 +7245,7 @@ Act as a Tech Lawyer. I am building a SaaS application that collects email addre
 - [ ] All third-party data processors are listed.
 - [ ] The policy includes instructions for users to request data deletion.
 - [ ] The policy complies with local regulations (GDPR/CCPA) if applicable.
-`,
-
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'termsofservice': `# Terms of Service
 
 **Estimated Time:** 1-2 hours
@@ -7284,8 +7277,7 @@ Act as a Corporate Lawyer. Draft a Terms of Service for a SaaS application. The 
 - [ ] Users must explicitly agree to the Terms of Service during account creation.
 - [ ] The refund and cancellation policies are clearly defined.
 - [ ] Limitation of Liability and account termination clauses are included.
-`,
-
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'betatesting': `# Beta Testing
 
 **Estimated Time:** 3-7 Days
@@ -7322,8 +7314,7 @@ Act as a Product Marketer. Write an email to the top 50 users on our waitlist, i
 - [ ] Session recording tools are active to observe user behavior.
 - [ ] A clear channel exists for beta testers to report bugs and feedback.
 - [ ] All critical bugs identified during the beta have been resolved.
-`,
-
+\`,\`,\`,\`,\`,\`,\`,\`,`,
   'playstoreresearch': `# Play Store Research
 
 **Estimated Time:** 1-2 hours
@@ -7355,5 +7346,1823 @@ Act as an App Store Optimization (ASO) Expert. I am launching an Android app for
 - [ ] The top 5 competitors in the Google Play Store have been analyzed.
 - [ ] The monetization strategy aligns with Android user expectations (typically freemium).
 - [ ] Relevant keywords have been identified for the Play Store Long Description.
-`,
+\`,\`,\`,\`,\`,\`,\`,\`,`,
+  'mobilesecurity': `# Security Implementation
+
+**Estimated Time:** 3-5 hours
+
+---
+
+## Why this matters
+Mobile apps are fundamentally untrusted environments. Anyone can download your APK or IPA, unpack it, and read every single string inside it. If you hardcode a Stripe Secret Key or AWS Admin credentials into your React Native app, your infrastructure will be compromised within hours of publishing.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't worry about SSL pinning, code obfuscation, or jailbreak detection. The only critical rule is: DO NOT HARDCODE SECRETS. Use an \`.env\` file to store your API keys. If your app connects to Firebase or Supabase, use Row Level Security (RLS) to ensure users can only read their own data, even if they extract the public anon key.
+
+### Personal Project
+Focus on Secure Storage. Never save JWTs or user passwords in plain \`AsyncStorage\` (which is just an unencrypted XML file on Android). Use \`expo-secure-store\` or \`react-native-keychain\` to leverage the device's hardware-backed Secure Enclave. This ensures that even if the physical device is stolen and rooted, the tokens cannot be extracted.
+
+### Production SaaS
+You must implement strict API authorization boundaries. The mobile app should only ever hold short-lived access tokens (expiring in 15 minutes) and long-lived refresh tokens (stored securely). You must implement "App Attestation" (using Google Play Integrity API and Apple DeviceCheck) to ensure your backend API only accepts requests from the official, unmodified version of your app downloaded from the store, blocking automated emulator bots from scraping your API.
+
+### Custom Mode
+Enterprise security requires extreme measures. You must implement SSL/TLS Pinning so the app refuses to connect if a Man-In-The-Middle (MITM) proxies the traffic on public Wi-Fi. You must implement Jailbreak/Root detection to instantly lock the app if the user's OS is compromised. Finally, sensitive data (like financial PII) must be encrypted *at rest* within the local SQLite database using SQLCipher, and the app must enforce a biometric unlock (FaceID) if backgrounded for more than 2 minutes.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Mobile Security Expert. I am building a React Native app. Provide a checklist and code snippets for:
+1. Securely storing a JWT using \`expo-secure-store\`.
+2. Setting up a global Axios interceptor to append this token to requests.
+3. A basic check to prevent the app from running on rooted/jailbroken devices using a standard community library.
+\`\`\`
+
+## Validation Checklist
+- [ ] No private API keys or database admin credentials exist in the client source code.
+- [ ] Session tokens are stored in the device's Secure Enclave.
+- [ ] Backend APIs explicitly validate the authorization header for every request.
+\`,\`,\`,\`,\`,\`,\`,\`,`,
+  'mobileperformanceoptimization': `# Performance Optimization
+
+**Estimated Time:** 4-6 hours
+
+---
+
+## Why this matters
+A web page that drops a frame during a scroll is annoying. A mobile app that drops a frame during a screen transition feels broken, cheap, and immediately loses user trust. React Native runs JavaScript on a single thread; if you block that thread, the entire app freezes.
+
+## Strategic Guidance
+
+### Hackathon Mode
+If it feels slow, it's probably because you are running it in "Development Mode" with the Chrome Debugger attached. Run a proper release build (\`npx expo run:ios --configuration Release\`) on a physical device before panicking. For hackathons, a Release build is almost always fast enough without any manual optimization.
+
+### Personal Project
+Focus on list rendering. The standard React Native \`FlatList\` is notoriously inefficient. If you are rendering a feed of 500 images, your app will consume all available RAM and crash. Learn how to implement \`FlashList\` by Shopify. It recycles views identically to native RecyclerViews, boosting performance by 5x with almost no code changes.
+
+### Production SaaS
+You must aggressively eliminate unnecessary re-renders. Use \`React.memo\` for heavy components (like video players or complex charts). Profile your React tree using the React DevTools Profiler to find components that re-render 10 times per second when a user types into an input field. Move heavy computations (like parsing a massive JSON payload) off the main JS thread using tools like \`react-native-reanimated\` (for animations) or executing them on the backend before sending the data.
+
+### Custom Mode
+Enterprise performance requires C++ level optimization. You must migrate away from the old React Native Bridge to the New Architecture (JSI / Fabric), which allows JavaScript to synchronously invoke native C++ functions without serializing data to JSON. You must strictly monitor the JS bundle size; every megabyte of JavaScript adds roughly 100ms to the app's "Time to Interactive" (TTI) during a cold boot on older Android devices.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a React Native Performance Architect. I have a \`FlatList\` rendering 1,000 complex items (images and text), and it stutters significantly when scrolling on Android. Provide the exact code to migrate this to Shopify's \`FlashList\`, including the critical \`estimatedItemSize\` property and a \`React.memo\` wrapper for the list item component.
+\`\`\`
+
+## Validation Checklist
+- [ ] Release builds maintain a solid 60 FPS (or 120 FPS on ProMotion devices) during navigation transitions.
+- [ ] Large lists are rendered using \`FlashList\` or heavily optimized \`FlatList\` configurations.
+- [ ] Heavy animations are offloaded to the UI thread using Reanimated.
+\`,\`,\`,\`,\`,\`,\`,\`,`,
+  'mobilecrashreporting': `# Crash Reporting
+
+**Estimated Time:** 1-2 hours
+
+---
+
+## Why this matters
+If your app crashes in development, you see a massive red screen with a stack trace. If it crashes in production, it instantly closes to the home screen without a single error message. If you do not have crash reporting installed, you will only find out your app is broken when angry users leave 1-star reviews saying "Crashes on launch."
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't bother. If it crashes during the demo, make a joke about live demos, restart the app, and keep going. Setting up native crash reporting takes too long for a 48-hour event.
+
+### Personal Project
+Set up Sentry for React Native (or Expo). It captures unhandled JavaScript exceptions and native OS crashes. More importantly, it groups identical crashes together. So if 50 users experience the same bug, your dashboard shows 1 issue with 50 events, rather than spamming you with 50 separate emails.
+
+### Production SaaS
+Crash reporting is mandatory. You must configure your CI/CD pipeline to automatically upload "Source Maps" to Sentry every time you build a release APK/IPA. Without source maps, Sentry will report that the crash happened in \`main.js line 1 column 40293\` (the minified bundle), making debugging completely impossible. You must also implement "Breadcrumbs"?"logging user actions like "Tapped Checkout Button", "Navigated to Cart"?"so when a crash happens, Sentry shows you the exact sequence of clicks the user made leading up to the failure.
+
+### Custom Mode
+Enterprise crash reporting involves strict Service Level Agreements (SLAs). If the "Crash-Free Users" metric drops below 99.9%, automated alerts page the on-call engineering team and immediately halt any phased rollouts on the Google Play Console. You must also scrub PII (Personally Identifiable Information). If an API request fails, ensure the crash reporter does not log the user's password or credit card number that was embedded in the failed request payload.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a DevOps Engineer for Mobile. I am using Expo. Provide the step-by-step instructions and code configuration to initialize \`sentry-expo\`. The code must include a global error boundary that catches React rendering errors and automatically sends the component stack trace to Sentry.
+\`\`\`
+
+## Validation Checklist
+- [ ] Sentry (or Crashlytics) is initialized correctly in the app entry file.
+- [ ] Source maps are configured to upload automatically on production builds.
+- [ ] A test crash (\`throw new Error('Test Crash')\`) successfully appears in the reporting dashboard.
+\`,\`,\`,\`,\`,\`,\`,\`,`,
+  'mobilemonitoring': `# Monitoring & Telemetry
+
+**Estimated Time:** 2-3 hours
+
+---
+
+## Why this matters
+Crash reporting tells you when the app completely dies. Monitoring tells you when the app is surviving, but suffering. If a backend API suddenly takes 4 seconds to respond, the app won't crash, but users will stare at a spinner and abandon the cart. You need telemetry to detect silent performance degradation.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip this entirely. Your monitoring is visually looking at the app during the hackathon.
+
+### Personal Project
+Use basic analytics (like PostHog or Firebase) to track screen load times. If you have a critical API call (like fetching a user's feed), wrap it in a simple timer (\`console.time\`) during development to ensure it isn't taking unusually long.
+
+### Production SaaS
+Implement Real User Monitoring (RUM) using tools like Datadog, Sentry Performance, or Firebase Performance Monitoring. You must track "Cold Start Time" (how many milliseconds from tapping the app icon to the first meaningful paint). Apple and Google actively penalize apps in search rankings if their cold start times exceed 2 seconds. You must also monitor "Network Request Success Rates" broken down by geographic region; your app might work perfectly in the US but consistently timeout for users in India due to CDN misconfigurations.
+
+### Custom Mode
+Enterprise monitoring requires distributed tracing. When a user clicks "Buy" in the mobile app, a unique Trace ID is generated. This ID is passed in the HTTP header to your API gateway, which passes it to your microservices, which passes it to your database. If the purchase takes 5 seconds, you can look at the Datadog dashboard and see exactly how many milliseconds were spent on the mobile device, in transit, and inside the specific database query.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Mobile Observability Expert. I am using Sentry Performance for React Native. Provide the configuration required to enable automatic tracing for React Navigation (tracking how long each screen takes to load) and Axios (tracking how long HTTP requests take).
+\`\`\`
+
+## Validation Checklist
+- [ ] App Cold Start times are being tracked in a dashboard.
+- [ ] HTTP request durations and success/failure rates are monitored.
+- [ ] Custom traces are implemented for critical, complex business flows (e.g., Video Processing).
+\`,\`,\`,\`,\`,\`,\`,\`,`,
+  'mobilelogging': `# Logging
+
+**Estimated Time:** 1-2 hours
+
+---
+
+## Why this matters
+\`console.log()\` is a development tool, not a production logging strategy. In production React Native apps, \`console.log\` statements are completely stripped out by the bundler (or worse, they aren't, and they silently drain CPU cycles). When a user reports a weird bug, you need a structured log of what the app was doing to reconstruct the scenario.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Leave your \`console.log\` statements in. You will likely be running the app in development mode anyway.
+
+### Personal Project
+Create a simple utility wrapper for logging (e.g., \`logger.ts\`). Instead of calling \`console.log\`, call \`logger.info("User logged in")\`. In development, this just prints to the console. In production, this can do nothing, saving CPU cycles. This single layer of abstraction will save you hours of refactoring later.
+
+### Production SaaS
+Implement a remote logging infrastructure. When non-fatal errors occur (e.g., "Image failed to upload after 3 retries"), use \`logger.warn()\` to send a structured JSON payload to a service like Datadog or Loggly. Do not log everything! If you remote-log every single button click, you will consume massive amounts of the user's cellular data and your logging bill will exceed your database bill. Log only significant state changes and non-fatal errors.
+
+### Custom Mode
+Enterprise logging requires strict compliance. You must implement log rotation (if logging to the local device file system) to ensure the logs don't consume gigabytes of storage. More importantly, you must implement a "Redaction Engine" that actively intercepts log payloads and masks sensitive data (e.g., replacing credit card numbers with \`**** **** **** 1234\` or redacting email addresses) before they ever leave the physical device to ensure GDPR/HIPAA compliance.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Senior Mobile Developer. Provide a TypeScript \`logger.ts\` utility. It should have \`debug\`, \`info\`, \`warn\`, and \`error\` methods. In \`__DEV__\`, it should use \`console.log\` with color formatting. In production, \`info\` and \`debug\` should be silent, but \`warn\` and \`error\` should push payloads to an array. Include a method to "Dump Logs" that returns this array so users can optionally attach it to support tickets.
+\`\`\`
+
+## Validation Checklist
+- [ ] \`console.log\` is replaced by a centralized logging abstraction.
+- [ ] Production logs do not leak PII (Personally Identifiable Information).
+- [ ] Non-fatal errors are logged remotely for triage.
+\`,\`,\`,\`,\`,\`,\`,\`,`,
+  'mobileratelimiting': `# Rate Limiting
+
+**Estimated Time:** 2-4 hours
+
+---
+
+## Why this matters
+A mobile app in the hands of a frustrated user is a DDoS weapon. If a screen fails to load, a user might furiously tap the "Refresh" button 20 times in 3 seconds. If your app obediently sends 20 heavy API requests to your backend, it will choke your server and spike your cloud bill.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Just disable the button while the request is loading. \`disabled={isLoading}\` is the easiest "rate limit" you can implement on the client side.
+
+### Personal Project
+Implement "Debouncing" or "Throttling" on your UI inputs. If you have a search bar that fetches results as the user types, do not fire an API request for every single keystroke. Use a debounce hook (e.g., \`useDebounce\`) to wait 300ms after the user stops typing before firing the request. This dramatically reduces unnecessary backend load.
+
+### Production SaaS
+Rate limiting must be enforced at three levels:
+1. **UI Layer:** Disable buttons and debounce inputs.
+2. **Client API Layer:** Use tools like React Query, which have built-in de-duplication. If 5 components simultaneously request the same user profile, React Query only fires 1 actual network request and shares the result.
+3. **Backend API Gateway:** The mobile app is untrusted. Your backend must enforce IP-based or User-ID-based rate limits (e.g., 100 requests per minute per user) using Redis, returning HTTP \`429 Too Many Requests\`. The mobile app must gracefully catch \`429\` errors and display a message like "Please slow down."
+
+### Custom Mode
+Enterprise rate limiting involves dynamic quotas and circuit breakers. If your backend detects a massive spike in traffic (e.g., a push notification just went out to 5 million users), it might dynamically drop the rate limit threshold. The mobile app must implement a "Circuit Breaker" pattern: if it receives 5 consecutive \`500 Server Error\` or \`429\` responses, it stops sending *any* requests for 60 seconds, allowing your backend infrastructure time to auto-scale and recover without being hammered by retries.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Mobile Architecture Expert. I have a 'Like' button on a post. Users might spam it. Provide a custom React hook using \`lodash/debounce\` or similar logic that visually updates the UI instantly (optimistic update), but only fires the actual backend API request once per second, regardless of how many times the user tapped it.
+\`\`\`
+
+## Validation Checklist
+- [ ] Search inputs use debouncing to prevent excessive API calls.
+- [ ] Submit buttons are disabled while \`isLoading\` is true.
+- [ ] The app handles HTTP \`429 Too Many Requests\` elegantly without crashing.
+\`,\`,\`,\`,\`,\`,\`,\`,`,
+  'mobilebackups': `# Backups & Data Integrity
+
+**Estimated Time:** 1-2 hours
+
+---
+
+## Why this matters
+On mobile, data exists in two places: your cloud server and the physical device. If a user spends 3 hours offline crafting a massive note in your app, and then accidentally uninstalls the app or drops their phone in a river, that data is permanently destroyed unless you have a robust backup strategy.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't build backups. If the data gets wiped, apologize during the pitch and blame the Wi-Fi. Focus your time on the actual features.
+
+### Personal Project
+Focus on Cloud Syncing. Make sure that any critical data saved locally (using MMKV or AsyncStorage) is pushed to your backend (like Supabase or Firebase) the moment the device regains internet connectivity. If your backend is Supabase, rely on their automated daily backups for your Postgres database.
+
+### Production SaaS
+You must implement Point-in-Time Recovery (PITR) on your backend database. If a rogue API update corrupts all user profiles at 2:14 PM, you need to be able to restore the database to the exact state it was at 2:13 PM. On the mobile side, you must actively integrate with native cloud backups (iCloud Backup for iOS, Google Drive Backup for Android). You must configure your \`AndroidManifest.xml\` and \`Info.plist\` to explicitly define which local SQLite files should be synced to the user's personal cloud, allowing them to buy a new phone, reinstall the app, and instantly resume their session.
+
+### Custom Mode
+Enterprise backup strategies require strict "Data Sovereignty" rules. You cannot backup European user data to an American server. You must implement geo-redundant database replication (e.g., AWS Aurora Global Database). Furthermore, local mobile backups must be encrypted with a key derived from the user's biometric hardware, meaning even if someone extracts the SQLite backup file from their Google Drive, it is cryptographically impossible to read without the original user's fingerprint.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Mobile Infrastructure Expert. I am building a React Native app. Provide the exact XML configuration required in my \`AndroidManifest.xml\` to enable Android Auto-Backup for my app's specific local SQLite database file, while explicitly excluding temporary cache directories to save the user's Google Drive quota.
+\`\`\`
+
+## Validation Checklist
+- [ ] Backend database has automated daily backups enabled.
+- [ ] Mobile app correctly opts in/out of OS-level cloud backups (iCloud/Google Drive).
+- [ ] A disaster recovery runbook exists outlining the exact steps to restore the database.
+\`,\`,\`,\`,\`,\`,\`,\`,`,
+  'mobilecicd': `# CI/CD Pipeline
+
+**Estimated Time:** 4-8 hours
+
+---
+
+## Why this matters
+Building a mobile app for production takes 15 minutes on a high-end MacBook. If you rely on your personal laptop to build and upload the APK/IPA to the app stores, you will eventually make a mistake: you'll build with the wrong API keys, you'll forget to increment the version number, or you'll spill coffee on your laptop and be physically unable to deploy a critical bug fix.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Build it locally. Use \`npx expo build\` or compile it directly from Xcode/Android Studio. Setting up a remote CI/CD pipeline for a weekend project will consume 30% of your total hacking time.
+
+### Personal Project
+Use Expo Application Services (EAS) Build. It completely abstracts away the nightmare of managing Xcode provisioning profiles and Android Keystores. When you run \`eas build\`, your code is shipped to Expo's massive server farm, compiled, and handed back to you as a clean binary. This is the best way to learn the concept of remote compilation without fighting the underlying OS.
+
+### Production SaaS
+You must implement a fully automated CI/CD pipeline. Every time you merge a Pull Request into the \`main\` branch, GitHub Actions (or Bitrise) should automatically trigger an EAS Build. Once the build succeeds, the pipeline should automatically submit the binaries directly to Apple TestFlight and the Google Play Beta track using \`eas submit\` or Fastlane. Zero human intervention should be required between clicking "Merge" and the app appearing on beta testers' phones.
+
+### Custom Mode
+Enterprise CI/CD involves extreme quality gates. The pipeline must run unit tests, end-to-end (E2E) tests on AWS Device Farm, and static code analysis (SonarQube) to block the build if code coverage drops below 80%. You must implement Over-The-Air (OTA) updates for JavaScript bundles so you can deploy critical UI hotfixes to millions of users in seconds, completely bypassing the grueling 24-hour Apple App Store review process.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Mobile DevOps Engineer. I am using Expo and GitHub Actions. Provide a complete \`.github/workflows/build.yml\` file that:
+1. Triggers whenever code is merged into the \`main\` branch.
+2. Installs dependencies and runs \`npm test\`.
+3. If tests pass, runs \`eas build --platform all --profile production\`.
+4. Automatically submits the successful builds to TestFlight and Google Play.
+\`\`\`
+
+## Validation Checklist
+- [ ] The app compiles remotely on a CI server, independent of your personal machine.
+- [ ] Secrets and Keystores are securely managed via CI environment variables, not committed to Git.
+- [ ] Submissions to TestFlight/Play Console are automated.
+\`,\`,\`,\`,\`,\`,\`,\`,`,
+  'mobileinfrastructure': `# Infrastructure Setup
+
+**Estimated Time:** 2-4 hours
+
+---
+
+## Why this matters
+Mobile apps don't exist in a vacuum; they depend entirely on backend infrastructure. If your Node.js server is running on a single $5/month DigitalOcean droplet in New York, users in Tokyo will experience 500ms of latency on every single tap, making the app feel incredibly sluggish and unresponsive.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use Vercel for your backend APIs and Supabase/Firebase for your database. They require zero configuration, scale instantly for the demo, and abstract away all server management. 
+
+### Personal Project
+Learn to use edge infrastructure. If you are using Vercel or Cloudflare Workers, deploy your API routes to the "Edge." This means your API code is replicated to hundreds of servers worldwide. A user in London hits a server in London, reducing latency to 20ms. This dramatically improves the "snappiness" of your mobile app without requiring you to write better code.
+
+### Production SaaS
+You must implement Infrastructure as Code (IaC) using Terraform or Pulumi. You should never manually click through the AWS console to spin up a Postgres database; it is unrepeatable and error-prone. Your mobile app requires a robust CDN (Content Delivery Network) like CloudFront or Cloudflare to serve images and static assets. If your mobile app tries to download 5MB images directly from a single Node.js server, the server will collapse under the bandwidth load.
+
+### Custom Mode
+Enterprise infrastructure requires multi-region redundancy. If the \`us-east-1\` AWS region completely goes down (which happens), your API Gateway must automatically route mobile traffic to the \`us-west-2\` region. You must implement an API Gateway layer (like Kong or AWS API Gateway) to handle rate limiting, SSL termination, and JWT validation before the traffic even reaches your microservices, shielding your core backend from DDoS attacks launched via compromised mobile clients.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Cloud Infrastructure Architect. I am using Vercel for my API and Supabase for my database. My mobile app is incredibly slow for users in Europe because my database is in US-East. Explain how I can implement Redis caching (using Upstash) at the Edge to serve Read-Heavy requests (like feed data) to European users with sub-50ms latency.
+\`\`\`
+
+## Validation Checklist
+- [ ] API routes are deployed to a scalable, serverless environment.
+- [ ] Large static assets (images, videos) are served via a global CDN.
+- [ ] Database regions are selected strategically based on the target user demographic.
+\`,\`,\`,\`,\`,\`,\`,\`,`,
+  'mobileappsizeoptimization': `# App Size Optimization
+
+**Estimated Time:** 2-3 hours
+
+---
+
+## Why this matters
+The size of your app directly correlates to your conversion rate. If a user clicks your ad on Facebook but sees your app is 250MB, they will likely cancel the download to save data or because their phone is full. Reducing your app size by 50% can increase your install rate by 15%.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ignore this. A basic React Native app is around 40-60MB. That is perfectly fine for a demo or a TestFlight distribution.
+
+### Personal Project
+Focus on media assets. You probably dropped a 5MB \`.png\` background image into your \`assets/\` folder. Use tools like TinyPNG or ImageOptim to compress all static images in your app before building. If possible, replace heavy image assets with SVG vectors, which look infinitely sharp and consume kilobytes instead of megabytes.
+
+### Production SaaS
+You must aggressively audit your JavaScript dependencies. Use \`react-native-bundle-visualizer\` to see exactly which NPM packages are bloating your app. Did you import the entire \`lodash\` library just to use \`_.debounce\`? That single mistake adds 1MB of JavaScript to your bundle. You must also implement Android App Bundles (.aab) instead of APKs. App Bundles allow Google Play to generate highly optimized, device-specific binaries, reducing download sizes by up to 30% by stripping out unneeded screen densities and language files.
+
+### Custom Mode
+Enterprise app size optimization requires ruthless native code pruning. If you include an SDK for scanning credit cards, you must strip out the compiled C++ architectures (like \`x86\`) that are only used for simulators, ensuring only \`arm64\` libraries ship to physical devices. You may need to implement "On-Demand Resources" (iOS) or "Play Feature Delivery" (Android), where the core app is only 20MB, and heavy features (like an AR camera filter) are downloaded in the background only when the user explicitly requests them.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a React Native Build Expert. I need to reduce my Android App size. Provide the exact \`android/app/build.gradle\` configuration required to enable ProGuard/R8 (for dead code stripping) and enable separate APK builds per architecture (ABI splitting) to ensure I am not shipping x86 simulator binaries to physical ARM devices.
+\`\`\`
+
+## Validation Checklist
+- [ ] All static images are compressed or replaced with SVGs.
+- [ ] The app is distributed as an Android App Bundle (.aab) on Google Play.
+- [ ] Unused or massive NPM dependencies have been identified and removed.
+\`,\`,\`,\`,\`,\`,\`,\`,`,
+  'mobilebatteryoptimization': `# Battery Optimization
+
+**Estimated Time:** 2-4 hours
+
+---
+
+## Why this matters
+If your app drains 15% of a user's battery in 10 minutes, they will uninstall it immediately. Both iOS and Android have deep OS-level monitoring that will actively alert the user if your app is consuming excessive power in the background, forcing them to restrict your app's capabilities.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't worry about it. If the app murders the battery, just make sure your phone is plugged in during the live demo.
+
+### Personal Project
+Focus on location services and network polling. If you need the user's location, ask for it exactly once when the component mounts. Do not accidentally leave a \`setInterval\` running that pings your backend every 5 seconds while the user is on the home screen; this keeps the cellular radio active and shreds battery life.
+
+### Production SaaS
+You must meticulously manage background tasks. When the user swipes your app into the background, all active WebSockets should be gracefully disconnected, and all high-frequency animations must be paused. If you need to run background syncs, use native Background Fetch APIs. These APIs hand off the scheduling to the OS, which brilliantly groups your app's network requests with other apps' requests, waking the cellular radio only once to save power.
+
+### Custom Mode
+Enterprise battery optimization requires hardware-level profiling using Android Studio Energy Profiler and Xcode Instruments. You must optimize your UI rendering loops. If your app renders a custom graph, and the JS thread is desperately recalculating layout coordinates 60 times a second, the CPU will run at 100% and generate physical heat. You must offload heavy calculations to native C++ threads or rewrite the rendering logic using highly efficient native graphics APIs (like Skia).
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Mobile Performance Expert. I am building a React Native app that uses a WebSocket for real-time chat. Provide a robust hook (\`useAppState.ts\`) that listens to the native OS App State (Foreground/Background). The hook must explicitly disconnect the WebSocket when the app enters the background to save battery, and automatically reconnect when it enters the foreground.
+\`\`\`
+
+## Validation Checklist
+- [ ] WebSockets and heavy polling are terminated when the app is backgrounded.
+- [ ] Location services use the lowest necessary accuracy (e.g., 'City' vs 'Exact GPS').
+- [ ] The app does not cause the physical device to noticeably heat up during normal use.
+\`,\`,\`,\`,\`,\`,\`,\`,`,
+  'mobilescalability': `# Scalability & Load Testing
+
+**Estimated Time:** 3-5 hours
+
+---
+
+## Why this matters
+If your app goes viral on TikTok, thousands of users will download it and hit your API simultaneously. If your backend is not scalable, the app will crash, the users will leave 1-star reviews, and the viral momentum will be permanently destroyed. Scalability is about preparing for success.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't scale. Hackathons are about building prototypes for 5 judges, not 50,000 users. Your Vercel hobby tier is more than enough.
+
+### Personal Project
+Focus on Database Indexes. If you have a query that searches for a user by email (\`SELECT * FROM users WHERE email = 'test@test.com'\`), and you do not have an index on the \`email\` column, your database has to scan every single row. If you get 10,000 users, this query will take seconds instead of milliseconds, crashing your app. Add basic indexes to all columns you frequently search or filter by.
+
+### Production SaaS
+You must load test your infrastructure. Use a tool like k6 or Artillery to simulate 1,000 concurrent mobile users logging in and fetching their feed. This will expose bottlenecks instantly. You will likely discover that your Postgres connection pool is exhausted. You must implement a connection pooler (like PgBouncer or Supabase Supavisor) so your database can handle 10,000 incoming mobile connections without crashing.
+
+### Custom Mode
+Enterprise scalability requires extreme caching and asynchronous processing. If a user uploads a video, your backend should not process it synchronously while holding the HTTP connection open. It must instantly return a \`202 Accepted\` and drop the video into a message queue (like AWS SQS or Kafka). Worker nodes then process the queue independently. You must also implement aggressive CDN caching for API GET requests; if a viral post is viewed 1 million times, 999,999 of those requests should hit the Cloudflare Edge cache, never even touching your origin database.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Backend Scalability Expert. I expect a massive spike in mobile traffic. My app makes a heavy API request to \`GET /api/feed\`. Provide a k6 load-testing script that simulates 500 Virtual Users (VUs) constantly hitting this endpoint for 3 minutes, so I can identify if my database connection pool is sufficient.
+\`\`\`
+
+## Validation Checklist
+- [ ] Database tables are properly indexed for high-frequency queries.
+- [ ] Connection pooling is configured to prevent database exhaustion.
+- [ ] Heavy, long-running tasks are offloaded to asynchronous background queues.
+\`,\`,\`,\`,\`,`,
+  'mobileplaystoresetup': `# Google Play Store Setup
+
+**Estimated Time:** 1-2 hours
+
+---
+
+## Why this matters
+The Google Play Store is the primary distribution channel for 70% of the world's mobile devices. Setting up your developer account correctly is the critical first step. Unlike the web, where you can deploy a URL instantly, publishing to the Play Store involves strict identity verification, tax agreements, and a mandated testing period for new developers.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip this entirely. Do not attempt to create a Google Play Developer account during a hackathon. Use Expo Go or distribute the raw APK via a Google Drive link for the judges. Verification takes days.
+
+### Personal Project
+You must pay a one-time $25 fee to register as a Google Play Developer. Be warned: Google recently enacted a policy requiring all *new* personal developer accounts to have 20 independent users opt-in to a closed test of your app for 14 continuous days before you are allowed to publish to production. You must factor this massive two-week delay into your launch timeline.
+
+### Production SaaS
+Register as an Organization, not an individual. This requires a D-U-N-S number (which can take a week to acquire) but completely bypasses the 20-tester/14-day requirement. It also displays your official company name under the app title, which significantly boosts user trust. You must also configure your Google Play App Signing key correctly; if you lose the original upload keystore, Google Play App Signing allows you to reset it. Without it, losing your keystore means permanently losing the ability to update your app.
+
+### Custom Mode
+Enterprise setup requires strict IAM (Identity and Access Management) within the Google Play Console. You must never share the root Owner credentials. Engineers should only be granted the "Release Manager" role for specific apps, while the marketing team gets "Store Presence" access, and the finance team gets "Financial Data" access to view in-app purchase revenue.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Google Play Console Expert. Provide a step-by-step checklist on how to configure 'Google Play App Signing' for a new React Native Android app. Explain the difference between the 'Upload Key' and the 'App Signing Key', and outline the exact CLI commands to generate a secure Keystore file.
+\`\`\`
+
+## Validation Checklist
+- [ ] A Google Play Developer account has been created and identity verification is complete.
+- [ ] For individuals, a strategy is in place to recruit 20 testers for the 14-day mandatory period.
+- [ ] Google Play App Signing is enabled and the Upload Keystore is securely backed up.
+\`,\`,\`,\`,\`,\`,`,
+  'mobileappstoresetup': `# Apple App Store Setup
+
+**Estimated Time:** 2-3 hours
+
+---
+
+## Why this matters
+Apple's ecosystem is highly lucrative but notoriously strict. Before a single line of code can run on a physical iPhone outside of development, you must navigate Apple's complex web of Certificates, Identifiers, and Profiles. App Store Connect is where your app's digital identity is born.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Do not attempt this. The Apple Developer Program costs $99/year and enrollment can take days to process. Use Expo Go or a simulator for your pitch.
+
+### Personal Project
+You must enroll in the Apple Developer Program as an Individual. You will need to generate a Certificate Signing Request (CSR) from your Mac, create a Distribution Certificate, and register an explicit App ID (e.g., \`com.yourname.app\`). Be extremely careful with your certificates; if you delete them from your Keychain, you cannot build updates for your app.
+
+### Production SaaS
+Enroll as a Company/Organization. Like Google, this requires a D-U-N-S number. This ensures your company name (e.g., "Acme Corp") appears as the seller, not your personal name ("John Doe"). You must configure your App Store Connect API keys. Never use personal Apple IDs for CI/CD authentication; generate an App Store Connect API Key (p8 file) with the "App Manager" role to allow automated tools like Fastlane or EAS Build to upload binaries directly to TestFlight without triggering 2FA prompts.
+
+### Custom Mode
+Enterprise setups often require the Apple Developer Enterprise Program ($299/year), which allows you to distribute proprietary apps directly to your employees without ever going through App Store review. However, Apple strictly audits this. For public-facing apps, you must configure strict Role-Based Access Control (RBAC) in App Store Connect, separating the "Developer" roles (who can upload builds) from the "App Manager" roles (who can push the 'Submit for Review' button).
+
+## Implementation Steps
+\`\`\`prompt
+Act as an iOS DevOps Expert. I am using Expo EAS. Provide the exact steps and CLI commands to generate an App Store Connect API Key, download the \`.p8\` file, and securely configure it within the \`eas.json\` and my GitHub Actions pipeline so I can achieve fully automated TestFlight uploads.
+\`\`\`
+
+## Validation Checklist
+- [ ] Apple Developer Program enrollment is active.
+- [ ] An explicit App ID (Bundle Identifier) has been registered.
+- [ ] App Store Connect API Keys have been generated for automated CI/CD deployments.
+\`,\`,\`,\`,\`,\`,`,
+  'mobileappicons': `# App Icons
+
+**Estimated Time:** 1-2 hours
+
+---
+
+## Why this matters
+Your app icon is the first visual interaction a user has with your product. A blurry, poorly cropped icon screams "amateur" and destroys trust before the app is even opened. Both iOS and Android have incredibly specific, and constantly changing, requirements for icon sizes, safe zones, and background layers.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use a free generator like \`icon.kitchen\` or \`appicon.co\`. Pick a solid color background, drop a white SVG icon in the center, download the zip file, and move on.
+
+### Personal Project
+Ensure you do not include transparent backgrounds for iOS. Apple strictly forbids transparency in app icons; any transparent pixels will be filled with a harsh, solid black background, ruining your design. Keep the design simple and recognizable at a 50x50 pixel scale.
+
+### Production SaaS
+You must implement Adaptive Icons for Android. Android OEMs (Samsung, Pixel, OnePlus) apply custom masks to icons (circles, squircles, teardrops). If you provide a single flat square image, it will be awkwardly cropped or placed inside an ugly white circle. You must provide a foreground SVG and a background color/image, allowing the OS to render the icon natively and apply smooth parallax animations when the user swipes home.
+
+### Custom Mode
+Enterprise apps should utilize dynamic app icons. If you run a dark-mode focused brand, or have a premium subscription tier, you can allow users to change the app icon directly within the app settings. Apple and Google provide native APIs for this. Furthermore, you must provide explicitly scaled \`.png\` assets for every possible device density (mdpi to xxxhdpi) to ensure perfect pixel alignment without relying on the OS to downscale a massive 1024x1024 image.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Mobile UI/UX Designer. I am building a React Native app with Expo. Provide the required dimensions, formats, and \`app.json\` configuration needed to support Android Adaptive Icons. Explain the concept of the 'Safe Zone' and how large my foreground logo should be to avoid getting clipped by circular OEM masks.
+\`\`\`
+
+## Validation Checklist
+- [ ] The iOS icon has exactly zero transparent pixels.
+- [ ] Android Adaptive Icons (Foreground and Background) are correctly configured.
+- [ ] The core logo remains legible and un-clipped inside the standard circular safe zone.
+\`,\`,\`,\`,\`,\`,`,
+  'mobilescreenshots': `# Screenshots
+
+**Estimated Time:** 2-4 hours
+
+---
+
+## Why this matters
+Screenshots are not just pictures of your app; they are your primary marketing billboard. 60% of users will not read a single word of your description. They will scroll through your first three screenshots and instantly decide whether to download. Raw, unedited screenshots with a generic status bar showing low battery will fail to convert.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Take raw screenshots on a simulator and upload them. Don't waste time wrapping them in device frames or adding marketing copy.
+
+### Personal Project
+Use a tool like Previewed.app or AppMockUp. Put your raw screenshots inside an iPhone/Pixel device frame, add a solid background color, and place large, bold, highly readable text at the top explaining the core value proposition of that specific screen. Always sanitize the status bar: ensure the time is 9:41 (Apple standard), the battery is full, and there are no distracting notification icons.
+
+### Production SaaS
+You must treat screenshots as A/B testing assets. Do not just list features; highlight benefits. The first screenshot is the most critical?it must summarize the entire app. For Android, you must upload specific screenshots for 7-inch and 10-inch tablets. If you simply stretch phone screenshots, Google Play will penalize your search ranking for tablet users. Apple requires strict resolutions: you must provide exact 6.5-inch (Pro Max) and 5.5-inch (Plus) dimensions. 
+
+### Custom Mode
+Enterprise store optimization requires deep localization. If your app is available in Japan, your screenshots must feature Japanese UI text, Japanese marketing copy, and culturally relevant device frames/backgrounds. You must continually A/B test your screenshots using the Google Play Store Listing Experiments tool to scientifically determine which design yields the lowest Cost Per Install (CPI).
+
+## Implementation Steps
+\`\`\`prompt
+Act as an App Store Optimization (ASO) Expert. What are the top 5 psychological principles for designing high-converting App Store screenshots? Provide a structured layout plan for the first 3 screenshots of a [Insert App Type] app, including the marketing copy to place above the device frames.
+\`\`\`
+
+## Validation Checklist
+- [ ] Status bars in screenshots are sanitized (Full battery, standard time, no notifications).
+- [ ] Screenshots are framed with marketing copy explaining the value, not just the feature.
+- [ ] Correct resolutions are generated for iOS (6.5") and Android (Phone + 7" Tablet).
+\`,\`,\`,\`,\`,\`,`,
+  'mobilefeaturegraphics': `# Feature Graphics
+
+**Estimated Time:** 1-2 hours
+
+---
+
+## Why this matters
+The Google Play Store requires a "Feature Graphic" (1024x500). Without it, you physically cannot publish your app. Apple does not require this, but Google uses this massive banner image everywhere: at the top of your store listing, in search ads, and across the "Recommended for You" carousels throughout the Play Store.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Open Canva, create a 1024x500 canvas, slap your logo in the middle of a gradient background, download it as a JPEG, and upload it.
+
+### Personal Project
+Keep it simple but professional. Do not put critical text near the edges; Google routinely crops the edges of the feature graphic depending on the device layout (tablets vs. phones). Do not pack it with text. Use it to establish brand identity: a clean background, your logo, and maybe a subtle, blurred hint of your app's UI in the background.
+
+### Production SaaS
+The Feature Graphic often serves as the cover image for your promotional video. Therefore, you must ensure you do not place critical visual elements or your logo dead-center, as the massive Play Store "Play Video" button will cover it completely. Update this graphic seasonally. If you run a massive Black Friday sale or release a major V2.0 update, update the feature graphic to reflect this; it signals to users that the app is actively maintained.
+
+### Custom Mode
+Enterprise graphics must be strictly localized. If the graphic contains any text, that text must be translated for every single language your store listing supports. Furthermore, ensure the aesthetic aligns with Google's Material Design guidelines. A/B test the feature graphic vigorously, as it is the single largest visual element driving organic search conversions on Android.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Graphic Designer. I need to create a Google Play Feature Graphic (1024x500). Give me 3 distinct, high-converting design concepts for a [Insert App Type] app. Explicitly outline the 'Safe Zones' and explain where I should avoid placing text to prevent it from being obscured by the Play Store UI overlay.
+\`\`\`
+
+## Validation Checklist
+- [ ] A 1024x500 PNG/JPEG graphic has been created.
+- [ ] No critical text or logos are placed in the dead-center (to avoid the play button) or the extreme edges.
+- [ ] The design communicates the core brand without looking cluttered.
+\`,\`,\`,\`,\`,\`,`,
+  'mobilestorelistingseo': `# Store Listing SEO (ASO)
+
+**Estimated Time:** 2-4 hours
+
+---
+
+## Why this matters
+App Store Optimization (ASO) is the SEO of the mobile world. 65% of all app downloads come directly from organic searches within the App Store and Google Play. If your app is named "Taskify" and your description just says "A cool task app," you will never appear when a user searches for "daily planner and habit tracker."
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't waste time on ASO. Just write a 2-sentence description so the store lets you publish it.
+
+### Personal Project
+Focus on your Title and Subtitle. The App Title is the single heaviest ranking factor on both iOS and Android. Do not just use your brand name. If your brand is unknown, append a keyword: "Taskify - Daily Planner". On iOS, you are given a 100-character invisible Keyword Field. Fill it entirely with comma-separated keywords (no spaces after commas) and never repeat words that are already in your title.
+
+### Production SaaS
+You must understand the algorithmic differences between Apple and Google. Apple completely ignores your Long Description for search rankings; they only index your Title, Subtitle, and Keyword Field. Google, however, indexes your entire Long Description like a webpage. For Google Play, you must write a robust, keyword-dense (but natural-sounding) description, strategically repeating your target keyword 3-5 times. For Apple, focus all your energy on optimizing the exact 30 characters in your Subtitle and the 100-character keyword bank.
+
+### Custom Mode
+Enterprise ASO requires continuous iteration. You must use tools like SensorTower or AppTweak to analyze competitors' keyword rankings, search volume, and difficulty scores. If you try to rank for "Fitness App," you will fail against Nike and Peloton. You must identify "Long-Tail Keywords" (e.g., "Kettlebell workout tracker for men") and dominate those niches first. Additionally, localize your keywords. Translating English keywords directly to Spanish often fails; you must research the actual colloquial terms native users type into the search bar.
+
+## Implementation Steps
+\`\`\`prompt
+Act as an App Store Optimization (ASO) Specialist. My app is called [App Name] and it does [Core Function]. Generate a highly optimized iOS Title (max 30 chars), iOS Subtitle (max 30 chars), and an iOS Keyword Bank (exactly 100 characters, comma-separated, no spaces, excluding words already in the title). Then, generate a Google Play Short Description (max 80 chars) that includes my top keywords.
+\`\`\`
+
+## Validation Checklist
+- [ ] The App Title includes the brand name AND a primary descriptive keyword.
+- [ ] The iOS 100-character keyword field is fully utilized with no wasted spaces.
+- [ ] The Google Play Long Description naturally incorporates target keywords 3-5 times.
+\`,\`,\`,\`,\`,\`,`,
+  'mobileprivacypolicy': `# Privacy Policy
+
+**Estimated Time:** 1-2 hours
+
+---
+
+## Why this matters
+Both Apple and Google strictly require a Privacy Policy URL before they will let you publish an app, even if your app doesn't explicitly ask the user for data. If you use Firebase, Crashlytics, or Supabase Auth, you are collecting data (IP addresses, device identifiers, email addresses). Failing to disclose this violates international laws (GDPR/CCPA) and will result in an immediate App Store rejection.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Generate a free privacy policy using Termly or TermsFeed. Host it on a free Notion page or GitHub Pages, copy the public link, and paste it into the App Store submission form. It doesn't need to be perfect; it just needs to exist.
+
+### Personal Project
+You must explicitly state what third-party SDKs you use. If you use Expo, state that you use Expo. If you use PostHog for analytics, state that you collect anonymized usage data. Google Play now has a mandatory "Data Safety" form that you must fill out in the Console. Your answers on that form must match what your Privacy Policy says. If your Data Safety form says "We do not collect any data" but your app includes the Facebook SDK, Google will suspend your app.
+
+### Production SaaS
+Your Privacy Policy must be a legally binding document hosted on a dedicated route (e.g., \`yourdomain.com/privacy\`). It must clearly outline your Data Retention policy: how long you keep data, and how a user can request account deletion. Apple recently mandated that any app offering account creation *must* offer in-app account deletion. If your privacy policy does not explain the deletion process, Apple will reject the update.
+
+### Custom Mode
+Enterprise compliance (SOC2, HIPAA, GDPR) requires a meticulously drafted Privacy Policy by a specialized legal team. You must explicitly cover cross-border data transfers, the exact encryption standards used at rest and in transit, and the contact information for your designated Data Protection Officer (DPO). You must also implement a mandatory consent flow within the app UI (e.g., a Cookie/Tracking banner) before initializing any analytics SDKs.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Legal Tech Expert. I am building a mobile app that uses Supabase for authentication, PostHog for analytics, and RevenueCat for in-app purchases. Generate a comprehensive Privacy Policy in Markdown format that complies with GDPR and CCPA requirements. Include a specific section on "Data Deletion Requests".
+\`\`\`
+
+## Validation Checklist
+- [ ] A Privacy Policy document is generated and hosted on a publicly accessible URL.
+- [ ] The policy explicitly names all third-party SDKs used in the app.
+- [ ] The policy includes instructions for users to request data deletion.
+\`,\`,\`,\`,\`,\`,`,
+  'mobiletermsofservice': `# Terms of Service
+
+**Estimated Time:** 1-2 hours
+
+---
+
+## Why this matters
+The Terms of Service (ToS) or End User License Agreement (EULA) is your legal shield. It outlines the rules users must follow to use your app and limits your liability if things go wrong. While Apple provides a standard EULA by default, having your own custom terms is critical if your app involves user-generated content, subscriptions, or physical services.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip this. Apple's default EULA covers you enough for a weekend hackathon. Do not waste time drafting legal documents when you should be writing code.
+
+### Personal Project
+If your app allows users to post content (forums, comments, image uploads), you must have a ToS that strictly prohibits Objectionable Content (hate speech, nudity, illegal acts). Apple requires all User Generated Content (UGC) apps to have a reporting mechanism and a strict ToS. Without these, your app will be rejected under Guideline 1.2.
+
+### Production SaaS
+If you offer auto-renewing subscriptions, Apple and Google have highly specific requirements for your ToS. You must explicitly state the length of the subscription, the price, the auto-renewal terms, and instructions on how the user can cancel the subscription via their OS settings. Failure to clearly state auto-renewal terms in your ToS (and on the paywall UI itself) will result in an immediate rejection.
+
+### Custom Mode
+Enterprise applications require a bespoke Master Services Agreement (MSA) or highly specific ToS that covers Service Level Agreements (SLAs), indemnification, and binding arbitration clauses. If your app handles financial transactions or medical advice, your ToS must include massive, explicitly styled disclaimers (ALL CAPS) stating that the service does not constitute professional advice and that liability is capped at the amount paid by the user.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Tech Lawyer. Generate a Terms of Service for a mobile SaaS app that includes User Generated Content and auto-renewing subscriptions. Ensure it contains the mandatory Apple App Store clauses regarding Objectionable Content, user reporting, and auto-renewal cancellation instructions.
+\`\`\`
+
+## Validation Checklist
+- [ ] The Terms of Service is hosted on a publicly accessible URL.
+- [ ] A clause prohibiting objectionable content is included (if applicable).
+- [ ] Auto-renewing subscription terms are clearly defined (if applicable).
+\`,\`,\`,\`,\`,\`,`,
+  'mobilecontentrating': `# Content Rating
+
+**Estimated Time:** 30 minutes
+
+---
+
+## Why this matters
+Both Google Play and the App Store require you to complete a Content Rating questionnaire before publishing. This determines the age restriction of your app (e.g., 4+, 12+, 17+). Answering this questionnaire incorrectly is a violation of store policies and can lead to your app being pulled from the store for "misleading metadata."
+
+## Strategic Guidance
+
+### Hackathon Mode
+You still have to fill this out. Just answer "No" to all questions (assuming your app doesn't have violence, gambling, or explicit content) to get an "Everyone" rating.
+
+### Personal Project
+Be honest. If your app is a social network or forum, you must declare that it contains "User Generated Content." This will generally elevate your age rating to 12+ or 17+ automatically, because you cannot control what users post. If you try to claim a 4+ rating for an app with a global chat room, Apple will reject it.
+
+### Production SaaS
+If your app deals with medical information, alcohol, dating, or real-money gambling, you must pay extreme attention to the content rating. Certain categories are completely banned in specific countries. For example, apps dealing with cryptocurrency or VPNs face massive regional restrictions. You must ensure your declared rating exactly matches the core functionality of your app to avoid retroactive bans.
+
+### Custom Mode
+Enterprise apps often fall under the "Productivity" or "Business" category and easily achieve an "Everyone" rating. However, if your enterprise app involves unfiltered web access (like a custom browser) or handles highly regulated content (like cannabis delivery logistics), you must provide explicit documentation and legal licenses to the app review teams to justify your presence on the store, regardless of the age rating.
+
+## Implementation Steps
+\`\`\`prompt
+Act as an App Store Reviewer. My app is a [Describe App] that allows users to [Describe Features]. What age rating should I expect on iOS and Android? Are there any specific Content Rating questions I need to be careful with regarding User Generated Content or unfiltered web access?
+\`\`\`
+
+## Validation Checklist
+- [ ] The IARC Content Rating questionnaire is completed in the Google Play Console.
+- [ ] The Apple App Store age rating questionnaire is completed.
+- [ ] Apps with User Generated Content (UGC) have correctly declared this, accepting the higher age rating.
+\`,\`,\`,\`,\`,\`,`,
+  'mobiletesttracks': `# Test Tracks
+
+**Estimated Time:** 1-2 hours
+
+---
+
+## Why this matters
+You should never deploy a build straight to Production. Both Google and Apple provide dedicated "Test Tracks" (Internal, Closed Beta, Open Beta, TestFlight) that allow you to distribute the app to real devices for QA testing before public release.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip Test Tracks entirely. Use Expo Go or sideload the app directly. Setting up TestFlight or Google Play Internal Testing takes too long for a 48-hour event.
+
+### Personal Project
+For iOS, use TestFlight. You can add up to 100 internal testers just by entering their Apple IDs. For Android, use the "Internal Testing" track. You simply add the Gmail addresses of your friends. This allows them to download the app directly from the Google Play Store app as if it were published, but it remains completely hidden from the public.
+
+### Production SaaS
+You must implement a strict multi-track deployment pipeline. Your CI/CD (like EAS Build) should push every successful merge on the \`main\` branch directly to the Google Play Internal Track and iOS TestFlight. Once QA approves the internal build, you promote that exact same binary to the "Closed Beta" track. Never rebuild the app between testing and production; always promote the identical, tested binary artifact.
+
+### Custom Mode
+Enterprise deployment often bypasses public test tracks entirely. You will use Mobile Device Management (MDM) solutions or Apple Business Manager to distribute the app directly to employee devices. If using public stores, you must utilize "Staged Rollouts" (Phased Releases). You release the app to 1% of users, monitor Crashlytics for 24 hours, then expand to 10%, 50%, and 100%. If a critical memory leak occurs, you halt the rollout immediately.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Mobile Release Manager. Outline a strict promotion strategy using Google Play Console and App Store Connect. Explain the difference between 'Internal Testing', 'Closed Testing', and 'Open Testing' on Android, and how to use 'Phased Releases' on iOS to minimize the impact of critical bugs.
+\`\`\`
+
+## Validation Checklist
+- [ ] The initial binary has been uploaded to the Internal Testing track / TestFlight.
+- [ ] Test accounts have been added to the internal testers list.
+- [ ] The build installs and launches successfully on a physical test device.
+\`,\`,\`,\`,\`,\`,`,
+  'mobilebetatesting': `# Beta Testing
+
+**Estimated Time:** 1-2 weeks (Active Testing)
+
+---
+
+## Why this matters
+Beta testing is the crucible where your app proves it can survive the real world. Simulators do not replicate terrible cellular connections, older hardware, aggressive background task killers, or real user behavior. 
+
+## Strategic Guidance
+
+### Hackathon Mode
+You don't have time for beta testing. The judges are your beta testers. Make sure the "Happy Path" works flawlessly.
+
+### Personal Project
+Distribute a public TestFlight link and a Google Play Closed Beta invite link on Reddit, Twitter, or Discord. Your goal here is to find the weird edge cases: Does the UI break on a tiny iPhone SE? Does the app crash on an older Android 10 device? Focus heavily on fixing crashes before the public launch.
+
+### Production SaaS
+Beta testing must be systematic. Use tools like Instabug or Sentry's user feedback widget to allow beta testers to shake their phone and submit a bug report with logs attached. You must track your "Crash-Free Users" percentage in Crashlytics. Do not promote a beta to production unless you have a 99.5% crash-free session rate over a 7-day period.
+
+### Custom Mode
+Enterprise beta testing involves UAT (User Acceptance Testing) with strict sign-offs from stakeholders. You must provide testers with explicit test scripts ("Log in, navigate to inventory, scan barcode, verify sync"). You must monitor the backend metrics during the beta: Did the mobile app cause a massive spike in database reads? Did the connection pool hold up? Beta is not just for UI bugs; it's a stress test for the entire infrastructure.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a QA Lead. Create a structured 5-step User Acceptance Testing (UAT) script for my beta testers. The app is a [Insert App Type]. The script should cover Authentication, the Core User Flow, Offline Behavior (Airplane Mode), and Edge Cases.
+\`\`\`
+
+## Validation Checklist
+- [ ] The app has been distributed to at least 10 external beta testers.
+- [ ] Crashlytics (or similar) is actively monitoring beta sessions.
+- [ ] The crash-free session rate is above 99%.
+\`,\`,\`,\`,\`,\`,`,
+  'mobilereleasechecklist': `# Release Checklist
+
+**Estimated Time:** 1-2 hours
+
+---
+
+## Why this matters
+Deploying a mobile app is not like deploying a website. You cannot just push a hotfix if you break production. App review takes 24-48 hours. If you push a critical bug, your users are stuck with a broken app for two days while you wait for Apple/Google to approve your patch. The release checklist is your last line of defense.
+
+## Strategic Guidance
+
+### Hackathon Mode
+- [ ] Does it compile?
+- [ ] Does the core feature work?
+- [ ] Ship it.
+
+### Personal Project
+Ensure you have removed all debug code. Did you leave a \`console.log\` printing user passwords? Did you forget to switch your API keys from the Stripe Test Environment to the Live Environment? Do a full walkthrough of the app on a physical device, not a simulator.
+
+### Production SaaS
+Your release checklist must be institutionalized. 
+1. Database migrations run successfully on Production.
+2. All environment variables in EAS/Fastlane point to Production.
+3. The app version and build number have been incremented correctly.
+4. "What's New" release notes are written and translated.
+5. The binary has been tested on both iOS and Android physical devices using cellular data (not just Wi-Fi).
+
+### Custom Mode
+Enterprise releases require a formal "Go/No-Go" meeting. You must verify that the Customer Support team is trained on the new features and equipped with troubleshooting documentation. You must verify that the infrastructure team has scaled the backend to handle the influx of users downloading the update. The rollout must be staged (1%, 10%, 100%) and monitored by SREs (Site Reliability Engineers) watching Datadog dashboards for latency spikes.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Mobile Release Manager. Provide an exhaustive, 20-point pre-flight release checklist for pushing a React Native app to production. Include checks for environment variables, API endpoints, performance profiling, and store metadata.
+\`\`\`
+
+## Validation Checklist
+- [ ] All API keys and endpoints point to Production.
+- [ ] App version and build number are incremented.
+- [ ] The binary has been tested on a physical device over a cellular network.
+\`,\`,\`,\`,\`,\`,`,
+  'mobilepitchdeck': `# Pitch Deck
+
+**Estimated Time:** 2-3 hours
+
+---
+
+## Why this matters
+In a hackathon, the best code rarely wins. The best *story* wins. Your pitch deck is the vehicle for that story. It must quickly establish the problem, explain why existing solutions fail, and demonstrate how your mobile app uniquely solves it. A clunky app with a brilliant pitch will consistently beat a flawless app with a confusing pitch.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Keep it under 10 slides. You will likely only have 3 to 5 minutes to present. Use a template from Pitch.com or Canva. Do not fill slides with bullet points; use massive font sizes and focus entirely on visuals. The slides should support what you are saying, not replace it.
+
+### Personal Project
+If you are building this for your portfolio, treat the Pitch Deck as a "Case Study" presentation. Recruiters don't want to see a 5-minute sales pitch; they want to see your design thinking, the architectural challenges you faced, and how you solved them. Include slides on your tech stack choices and database schema.
+
+### Production SaaS
+If you are raising venture capital, your deck must follow the classic Sequoia Capital structure. The most critical slides are the "Problem", "Solution", "Market Size", and "Traction". Investors do not care about your code; they care about distribution. How are you going to acquire the first 10,000 users? Your deck must answer that question immediately.
+
+### Custom Mode
+Enterprise pitches (B2B sales) are entirely different from VC pitches. A B2B sales deck must focus intensely on ROI (Return on Investment). You must demonstrate how your mobile app will save the client money, reduce their liability, or increase their throughput. Include case studies, security compliance certifications (SOC2), and integration timelines.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Y-Combinator Partner. I am building a [Insert App Type] mobile app. Generate a 10-slide pitch deck outline. For each slide, provide the main headline, the talking points I should memorize, and the visual elements I should put on the screen to keep the audience engaged.
+\`\`\`
+
+## Validation Checklist
+- [ ] The deck is strictly under 10 slides.
+- [ ] There are no paragraphs of text; only short, readable bullet points.
+- [ ] The deck explicitly identifies the target user and the core problem being solved.
+\`,\`,\`,\`,\`,\`,`,
+  'mobiledemoscript': `# Demo Script
+
+**Estimated Time:** 1-2 hours
+
+---
+
+## Why this matters
+Live demos are terrifying. Wi-Fi drops, APIs timeout, and simulators crash. A Demo Script ensures you know exactly where to click, what to say, and what to avoid clicking. A well-rehearsed script masks technical flaws and highlights the "Magic Moment" of your application.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Never do a live demo if you can avoid it. Record your screen using Loom or QuickTime beforehand. Talk over the pre-recorded video during your presentation. This guarantees zero loading screens, zero crashes, and perfect pacing within the strict 3-minute time limit.
+
+### Personal Project
+Write a script for a 60-second YouTube or Twitter demo. Start with the "Hook" in the first 3 seconds to stop the user from scrolling. Do not start by showing the login screen. Start by showing the absolute most valuable feature of the app, then work backward if necessary.
+
+### Production SaaS
+Your demo script is your primary sales tool. It should be highly interactive. Do not just talk *at* the user; ask them questions. "How much time do you currently spend doing X?" Then, show them how your app does it in one click. Tailor the script to the specific buyer persona (e.g., show the reporting dashboard to the CEO, but show the quick-entry form to the field worker).
+
+### Custom Mode
+Enterprise demos often involve integrating with the client's actual data. Your script must include a sandbox environment pre-loaded with highly realistic, industry-specific dummy data. Showing an enterprise client a demo filled with "Test User 1" and "Foo Bar" destroys credibility. Script exactly how you will demonstrate complex security features, like SSO login or offline-sync conflict resolution.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Master Presenter. I need a 3-minute demo script for my mobile app. The "Magic Moment" of my app is [Describe the best feature]. Generate a second-by-second script detailing exactly what I should be clicking on the screen, and exactly what words I should be saying to the audience while I click it.
+\`\`\`
+
+## Validation Checklist
+- [ ] A screen recording of the "Happy Path" has been captured as a backup.
+- [ ] The script skips the login/signup flow and jumps straight to the core value.
+- [ ] The entire demo can be completed in under 3 minutes.
+\`,\`,\`,\`,\`,\`,`,
+  'mobilesubmissionchecklist': `# Submission Checklist
+
+**Estimated Time:** 1 hour
+
+---
+
+## Why this matters
+Hackathons end with a hard deadline. If you miss the Devpost submission cutoff by 10 seconds, your entire weekend of work is disqualified. The submission process involves gathering links, writing descriptions, rendering videos, and adding team members. It always takes longer than you think.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Stop coding 2 hours before the deadline. Seriously. Use those 2 hours to render the demo video, upload it to YouTube, write the Devpost description, take nice screenshots, and ensure all team members are officially added to the project page.
+
+### Personal Project
+Treat your GitHub README as your submission page. Ensure you have high-quality GIFs of the app running, a clear explanation of the tech stack, instructions on how to run it locally, and a link to the live App Store / Play Store page if available.
+
+### Production SaaS
+Your submission is your Product Hunt launch. You must prepare a "Maker Comment" explaining why you built it. You must have animated GIFs for your gallery, a catchy tagline, and a coordinated strategy to reply to comments immediately as they come in. Launching is a 24-hour full-time job.
+
+### Custom Mode
+Enterprise deployment is not a "submission" to a public board; it's a handoff. Your checklist must include transferring ownership of all AWS/GCP accounts, rotating all production API keys, providing the final signed MSA (Master Services Agreement), and delivering the complete API documentation to the client's internal IT team.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Hackathon Veteran. My team is submitting our mobile app to Devpost in 2 hours. Provide a rapid-fire, prioritized checklist of exactly what we need to write, record, and upload to ensure our project page looks incredibly professional to the judges.
+\`\`\`
+
+## Validation Checklist
+- [ ] The Demo Video is uploaded to YouTube/Vimeo and is publicly accessible.
+- [ ] All team members are officially added to the submission platform.
+- [ ] The GitHub repository is set to Public and contains a proper README.
+\`,\`,\`,\`,`,
+  'mobileanalytics': `# Analytics
+
+**Estimated Time:** 2-4 hours
+
+---
+
+## Why this matters
+Without analytics, you are flying blind. You might think users love your new "Social Feed" feature, but analytics might reveal that 90% of users click the tab, scroll for 2 seconds, and immediately close the app. Analytics turn subjective assumptions into objective facts, allowing you to iterate on what actually drives revenue and retention.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't implement analytics. It takes too much time to set up properly and provides zero value during a 3-minute demo.
+
+### Personal Project
+Implement a lightweight solution like PostHog. You don't need to track every single button click. Focus on the core funnel: App Opened -> Account Created -> Core Action Performed -> Purchase Completed. If you track nothing else, track those 4 events so you can see exactly where users are abandoning your app.
+
+### Production SaaS
+You must implement a strict Tracking Plan. Do not allow developers to randomly name events (\`clicked_button\` vs \`Button Clicked\`). Use a unified nomenclature like \`Object_Action\` (e.g., \`Subscription_Purchased\`, \`Profile_Updated\`). Furthermore, you must separate your tracking environments. Never send development analytics to your production Mixpanel/Amplitude project; it will permanently corrupt your data.
+
+### Custom Mode
+Enterprise analytics requires strict data governance and privacy compliance (GDPR/CCPA/HIPAA). You often cannot use third-party cloud analytics. You must implement self-hosted solutions (like self-hosted PostHog or Snowplow) or stream raw event data directly into your own secure data warehouse (e.g., Google BigQuery or Snowflake). You must also ensure that absolutely zero Personally Identifiable Information (PII), such as email addresses or plain-text names, is passed in the analytics payload.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Data Architect. Create a structured 'Tracking Plan' for a [Insert App Type] mobile app. Define the top 10 most critical custom events I should track, including the exact nomenclature format (e.g., Noun_Verb), and list the specific metadata properties that should be attached to each event.
+\`\`\`
+
+## Validation Checklist
+- [ ] Analytics SDK is installed and successfully capturing events.
+- [ ] Development data is strictly separated from Production data.
+- [ ] The core conversion funnel (Signup -> Activation -> Purchase) is fully instrumented.
+\`,\`,\`,\`,`,
+  'mobilenotificationsstrategy': `# Notifications Strategy
+
+**Estimated Time:** 2-3 hours
+
+---
+
+## Why this matters
+Push notifications are the most powerful tool in mobile software. When used correctly, they double user retention. When abused, they cause immediate app deletions. A generic "Check out what's new!" blast to your entire user base is spam. You need a strategy that delivers the right message, to the right user, at the exact right time.
+
+## Strategic Guidance
+
+### Hackathon Mode
+You only need local notifications to prove the concept works. Trigger a hardcoded notification 5 seconds after the user taps a button during the demo.
+
+### Personal Project
+Focus on Transactional notifications, not Promotional ones. If your app is a task manager, send a notification when a deadline is 1 hour away. Do not send notifications asking them to upgrade to Premium. You must also nail the permission request: never ask for push notification permissions immediately on app launch. Wait until the user performs an action where notifications provide obvious value (e.g., after they create their first task, ask: "Want us to remind you when this is due?").
+
+### Production SaaS
+You must implement Behavioral Segmentation using tools like OneSignal or Braze. Stop blasting everyone. Create segments: "Active users who haven't logged a meal in 48 hours" or "Users who abandoned the checkout screen." Furthermore, you must respect time zones. If you schedule a global blast at 9:00 AM EST, your users in Tokyo will receive a promotional ping at 10:00 PM, resulting in massive opt-outs.
+
+### Custom Mode
+Enterprise notifications must support deep integrations and complex routing. If a server goes down, an alert must trigger a push notification, an SMS, and an email simultaneously to the on-call engineer via PagerDuty integration. You must also implement strict rate-limiting. A bug in your backend loop should never result in a user receiving 500 identical push notifications in a single minute.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Mobile CRM Expert. I am building a [Insert App Type]. Design a Push Notification strategy. First, write the exact UI copy I should use to ask for notification permissions at the perfect 'Magic Moment'. Second, outline 3 automated, behavior-triggered push notification campaigns to re-engage churning users.
+\`\`\`
+
+## Validation Checklist
+- [ ] The app requests notification permissions only after demonstrating value, never on initial launch.
+- [ ] Automated campaigns are triggered by user behavior, not just scheduled blasts.
+- [ ] Push notifications respect user time zones to avoid late-night disturbances.
+\`,\`,\`,\`,`,
+  'mobileuserfeedback': `# User Feedback
+
+**Estimated Time:** 1-2 hours
+
+---
+
+## Why this matters
+If you don't provide users with an easy way to complain *inside* the app, they will complain *outside* the app?"on the App Store, where the review becomes permanent. Capturing frustration early allows you to fix bugs before they destroy your average rating, and capturing praise allows you to build exactly what your power users want.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't build a feedback system. If judges have feedback, they will tell you to your face.
+
+### Personal Project
+Add a simple "Send Feedback" button in your settings menu that opens the user's native email client (using \`mailto:\`) pre-filled with your support email address. Include the device model and OS version in the email body automatically. This takes 5 minutes to implement and provides immense value.
+
+### Production SaaS
+You must proactively intercept feedback. Implement a tool like Instabug. If the app crashes, or if the user physically shakes their phone in frustration, prompt them with a feedback form. Furthermore, you must categorize feedback rigorously (Bug vs Feature Request). Do not let feedback rot in a generic inbox; pipe it directly into a dedicated Slack channel or a tool like Linear so the engineering team sees the pain points in real-time.
+
+### Custom Mode
+Enterprise feedback loops are highly structured. You must implement NPS (Net Promoter Score) or CSAT (Customer Satisfaction) micro-surveys directly within the app workflow. However, these surveys must be heavily throttled (e.g., never show an NPS survey to a user who has experienced a crash in the last 7 days, and never survey the same user more than once every 90 days). Feedback must be tied directly to the user's CRM profile (Salesforce) so Account Executives are aware of client sentiment before renewal calls.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Customer Success Manager. I am adding an in-app feedback form to my mobile app. Write 3 distinct, highly effective micro-survey questions designed to figure out why users are dropping off during the onboarding flow. Keep the questions under 10 words each to maximize response rates.
+\`\`\`
+
+## Validation Checklist
+- [ ] A frictionless method exists for users to submit feedback directly within the app.
+- [ ] Device metadata (OS version, app version, device model) is automatically attached to bug reports.
+- [ ] Feedback is routed directly to a location where the development team actively monitors it.
+\`,\`,\`,\`,`,
+  'mobilereviewsratings': `# Reviews & Ratings
+
+**Estimated Time:** 1-2 hours
+
+---
+
+## Why this matters
+App Store ratings are the ultimate social proof. An app with a 4.8-star rating will organically acquire significantly more users at a lower Cost Per Install (CPI) than an identical app with a 3.2-star rating. You must actively engineer your app to farm 5-star reviews while suppressing negative ones.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Completely irrelevant. Do not implement ratings prompts.
+
+### Personal Project
+You must implement the native \`SKStoreReviewController\` (iOS) and Google Play In-App Review API. Never use custom popups that force the user out of the app to the store; the native APIs allow the user to tap 5 stars without ever leaving the screen. The golden rule: Only ask for a review immediately after the user experiences a "Win" (e.g., they just completed a level, finished a workout, or successfully exported a file).
+
+### Production SaaS
+You must implement the "Rating Intercept" strategy. Ask the user a qualifying question first: "Are you enjoying [App Name]?" 
+- If they tap "No", route them to your internal User Feedback form to capture the complaint privately. 
+- If they tap "Yes", immediately trigger the native 5-star review prompt. 
+This guarantees that only happy users are sent to the App Store, artificially inflating your rating to 4.8+.
+
+### Custom Mode
+Enterprise applications distributed privately via MDM (Mobile Device Management) do not use App Store ratings. However, if it is a public-facing enterprise app (like a banking app), ratings are a matter of public relations. You must integrate API listeners that alert the PR and Customer Support teams in real-time if a 1-star review mentioning "security" or "breach" is posted. Apple and Google provide APIs to respond to reviews programmatically; you must have an SLA (Service Level Agreement) to respond to all 1-star and 2-star reviews within 24 hours.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Mobile Growth Hacker. I want to implement the 'Rating Intercept' strategy in my React Native app using Expo's \`StoreReview\` API. Provide the specific logic flow and UI copy to ensure I only ask for App Store reviews when the user is highly satisfied, while routing angry users to a private feedback form.
+\`\`\`
+
+## Validation Checklist
+- [ ] The app uses native in-app review APIs (not external links to the App Store).
+- [ ] Review prompts are only triggered after a specific "Win State" or positive action.
+- [ ] A 'Rating Intercept' pattern is used to route negative sentiment to internal support instead of the public store.
+\`,\`,\`,\`,`,
+  'mobilereferralprograms': `# Referral Programs
+
+**Estimated Time:** 1-2 weeks
+
+---
+
+## Why this matters
+Organic growth is the holy grail of mobile apps. If every user invites 1.1 new users, your app will grow exponentially without spending a single dollar on marketing (a Viral Coefficient > 1). However, users will not invite their friends simply because your app is "cool." You must engineer a referral mechanism that offers a mutually beneficial, high-value reward.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip this. Building a referral system requires deep linking, authentication state management, and database tracking. It is far too complex for a weekend project.
+
+### Personal Project
+Focus on simple, non-incentivized sharing. Implement the native Share API (\`Share.share()\` in React Native). Pre-populate the share message with a catchy hook and a direct link to your App Store page. For example: "I just beat my high score on [App Name]! Can you beat it? [Link]". This takes 10 minutes to build and leverages the user's existing social networks.
+
+### Production SaaS
+You must build a double-sided incentive loop. "Give $10, Get $10" is the industry standard for a reason. You must use Deep Linking tools like Branch.io to track the entire lifecycle: User A sends a link -> User B clicks the link -> User B is routed to the App Store -> User B installs the app -> User B opens the app -> Branch passes the referral ID to your backend -> Both users are credited. This must work flawlessly, even if the user didn't have the app installed when they clicked the link (Deferred Deep Linking).
+
+### Custom Mode
+Enterprise referral programs are often called "Affiliate Programs" or "Partner Networks." You are not offering in-app credits; you are offering cold hard cash. You must integrate with an affiliate tracking system like PartnerStack or Rewardful. You must handle tax implications (e.g., collecting W-9 forms if an affiliate earns more than $600/year). The referral logic must handle complex B2B attribution windows (e.g., the affiliate gets 20% of the referred client's revenue for the first 12 months).
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Mobile Architect. I want to build a 'Give $10, Get $10' referral loop in my React Native app using Branch.io for deferred deep linking and Supabase for the backend. Outline the exact database schema required to track 'Invites' and 'Rewards', and provide the React Native code snippet to extract the referring user's ID on initial app launch.
+\`\`\`
+
+## Validation Checklist
+- [ ] A deep linking provider (like Branch.io) is integrated to handle Deferred Deep Links.
+- [ ] A double-sided incentive is clearly communicated in the UI.
+- [ ] The backend successfully attributes the installation to the referring user and distributes the reward.
+\`,\`,\`,\`,`,
+  'mobileroadmap': `# Roadmap
+
+**Estimated Time:** 2-4 hours
+
+---
+
+## Why this matters
+A public roadmap turns your users into stakeholders. When users see that you are actively building the features they requested, their tolerance for bugs increases, and their churn rate decreases. It proves your app is a living, breathing product, not a stagnant piece of software abandoned by its creator.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip this. Your project only exists for the weekend.
+
+### Personal Project
+Create a simple Notion page or a public GitHub Kanban board. Link to it directly from the app's settings menu. Keep it simple: "Working On", "Up Next", and "Completed." When you finish a feature, leave it in the "Completed" column for a few months so new users can see your recent velocity.
+
+### Production SaaS
+You must use a dedicated roadmap tool like Canny or Productboard that allows users to upvote features. Do not build features just because you think they are cool; build the features that have 500 upvotes. This allows you to crowdsource your product management. When you finally release a feature, these tools will automatically email every single user who upvoted it, driving an immediate spike in re-engagement.
+
+### Custom Mode
+Enterprise roadmaps are highly political and strictly confidential. You never publish a public roadmap because your competitors will copy your strategy, and your sales team will make promises you cannot keep. Instead, use tools like Linear or Jira internally. You must categorize feature requests by Revenue Impact (e.g., "Feature X is blocking a $500k contract renewal"). The roadmap is presented directly to key stakeholders during Quarterly Business Reviews (QBRs), not posted on the internet.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Senior Product Manager. I am setting up a public roadmap for my mobile app using Canny.io. Suggest 5 specific 'Feature Categories' I should create to keep the feedback organized. Then, draft a short, welcoming message I can pin to the top of the board explaining how users should submit and upvote ideas.
+\`\`\`
+
+## Validation Checklist
+- [ ] A public roadmap is hosted and accessible via a link inside the app.
+- [ ] Users have a mechanism to submit new ideas and upvote existing ones.
+- [ ] The roadmap is actively categorized into 'Planned', 'In Progress', and 'Completed'.
+\`,\`,\`,\`,`,
+  'mobilescalingstrategy': `# Scaling Strategy
+
+**Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+Most apps fail because nobody uses them. The second most common reason apps fail is because *everybody* uses them, all at once. If a massive influencer posts a TikTok about your app and you get 50,000 downloads in an hour, your database connection pool will exhaust, your server will crash, and all 50,000 users will be greeted with a blank white screen. You must architect for virality.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't worry about scaling. The free tier of Supabase or Firebase can handle a hackathon demo easily. 
+
+### Personal Project
+Focus on database indexing and connection pooling. If your app queries a massive \`users\` table by email, ensure the \`email\` column has a unique index. If you are using a relational database (Postgres), ensure you are using a connection pooler (like Supavisor or PgBouncer). Serverless functions (like Vercel or AWS Lambda) can spin up thousands of instances instantly, and if each instance opens a direct connection to your database, your DB will crash in seconds.
+
+### Production SaaS
+You must implement heavy caching. Your mobile app should not hit your primary database for static or semi-static data. Put a CDN (Cloudflare) in front of your API. Implement Redis to cache the results of expensive queries. If a user loads the global leaderboard, that query should be calculated once every 5 minutes and served from Redis to the next 10,000 users. On the mobile client side, implement aggressive local caching (React Query / Apollo) so the app feels instantly fast even on poor cellular connections.
+
+### Custom Mode
+Enterprise scaling requires geographical distribution, read-replicas, and High Availability (HA). If your app serves users in Europe and Asia, you cannot route all API traffic to a single database in Virginia. You must deploy edge functions and read-replicas closer to the user to reduce latency. You must conduct massive, simulated Load Testing using tools like k6 or JMeter to prove to enterprise clients that your infrastructure can handle 10,000 requests per second with 99.99% uptime.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Senior Cloud Architect. My React Native app uses Supabase (Postgres) and serverless Edge Functions. I expect a spike of 10,000 concurrent users. Provide a strict checklist on how to configure PgBouncer/Supavisor for connection pooling, and how to implement Redis caching to protect my primary database from read-heavy API requests.
+\`\`\`
+
+## Validation Checklist
+- [ ] Database connection pooling is configured to prevent connection exhaustion.
+- [ ] Expensive, read-heavy queries are cached via Redis or a CDN.
+- [ ] The mobile client utilizes aggressive local caching (e.g., React Query) to reduce unnecessary API calls.
+\`,\`,\`,\`,`,
+  'mobilefeedback': `# Feedback
+
+**Estimated Time:** 1-2 hours
+
+---
+
+## Why this matters
+When you launch a Personal Project, your friends and early adopters will inevitably find bugs or desire new features. If you don't provide a frictionless way for them to tell you, they simply won't. Capturing this feedback is the only way to know what to build next.
+
+## Strategic Guidance
+
+### Personal Project
+Keep it incredibly simple. Do not integrate complex enterprise tools. Add a "Send Feedback" button in your app's settings menu.
+- **Option A:** Use the \`mailto:\` protocol to open their email app, pre-filling the subject line and automatically appending their device OS and app version in the body.
+- **Option B:** Link directly to a free Google Form or Typeform.
+
+The goal is zero friction. When you receive an email saying "the app crashed when I did X," reply personally within 24 hours. Early users who receive a personal email from the developer turn into lifelong advocates for the app.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a React Native Developer. Provide the exact code snippet to implement a 'Send Feedback' button that uses the native \`Linking.openURL('mailto:...')\` API. The code must dynamically grab the user's OS (iOS/Android) and the current App Version, and inject them into the body of the email so I have debugging context.
+\`\`\`
+
+## Validation Checklist
+- [ ] A 'Feedback' button is clearly visible in the settings or profile menu.
+- [ ] The feedback mechanism requires less than 3 taps to open.
+- [ ] Device context (OS, Version) is automatically included to aid debugging.
+\`,\`,`,
+  'mobilestatemanagementimplementation': `# State Management
+
+**Estimated Time:** 3-5 hours
+
+---
+
+## Why this matters
+Mobile apps are fundamentally state machines. At any given moment, the app needs to know: Is the user logged in? Is the data loading? Is the device offline? If you pass state down manually through 15 layers of UI components (prop-drilling), your app will become an unmaintainable nightmare. A global state management system is mandatory for any serious application.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't use Redux. It takes 3 hours just to write the boilerplate. Use Zustand (for React Native) or standard Context APIs. You just need a place to store the current user's ID and maybe a global array of items.
+
+### Personal Project
+Zustand is currently the gold standard for React Native. It has zero boilerplate, does not require wrapping your entire app in a Provider, and handles re-renders intelligently. If you are building with Flutter, use Provider or Riverpod.
+
+### Production SaaS
+State management in production must be split into two distinct categories: **Server State** and **Client State**.
+1. **Server State**: Use React Query (TanStack Query) or Apollo GraphQL. This handles fetching, caching, synchronizing, and updating server data. Do not reinvent the wheel by storing API responses in Redux.
+2. **Client State**: Use Zustand or Redux Toolkit for pure UI state (e.g., "Is the dark mode toggle checked?").
+
+### Custom Mode
+Enterprise applications often have massive localized datasets (e.g., a field technician needing access to 10,000 offline equipment manuals). You must implement an offline-first state synchronization engine like WatermelonDB or Realm. State management must handle complex conflict resolution algorithms when the device comes back online and tries to sync changes with the master database.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Senior React Native Engineer. Provide the code to set up a global Zustand store for a [Insert App Type]. The store needs to hold the authenticated user's profile and a boolean flag for 'isOfflineMode'. Also, provide an example of how to read and write to this store from a deep child component without causing unnecessary re-renders.
+\`\`\`
+
+## Validation Checklist
+- [ ] A dedicated global state management library (Zustand, Riverpod, etc.) is configured.
+- [ ] Server state (API responses) is managed separately from Client state (UI toggles).
+- [ ] Prop-drilling has been eliminated for globally required variables like user sessions.
+\`,\`,`,
+  'mobilepushnotificationsimplementation': `# Push Notifications
+
+**Estimated Time:** 4-6 hours
+
+---
+
+## Why this matters
+Push notifications require a complex dance between Apple's APNs (Apple Push Notification service), Google's FCM (Firebase Cloud Messaging), and your backend server. A single misconfigured certificate or a missing permission check will result in silent failures.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use Expo Push Notifications if you are building with React Native. It completely abstracts away the difference between APNs and FCM, allowing you to trigger notifications with a simple REST API call. Do not attempt to configure raw APNs certificates during a 48-hour event.
+
+### Personal Project
+Firebase Cloud Messaging (FCM) is the industry standard and completely free. You can use it for both Android and iOS. Focus on getting a simple device token, storing it in your database (e.g., Supabase) tied to the user's \`user_id\`, and triggering a test notification from your backend.
+
+### Production SaaS
+You must implement a dedicated CRM tool like OneSignal or Braze. These tools handle complex logic like timezone routing, A/B testing notification copy, and badge-count management. Furthermore, you must handle token invalidation. When a user uninstalls the app or rotates their device, their FCM token becomes invalid. Your backend must listen for these error responses and aggressively prune dead tokens from the database to avoid sending thousands of ghost requests.
+
+### Custom Mode
+Enterprise applications often require HIPAA or SOC2 compliance. You cannot send sensitive information (e.g., "Your HIV test results are ready") in the payload of a push notification, because push notifications are delivered in plain text over Apple/Google servers. Instead, send a "Data-Only" silent notification that wakes up the app in the background, forces the app to establish a secure SSL connection to your proprietary server to download the sensitive data, and then triggers a local notification securely.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Mobile Architecture Expert. I need to implement Push Notifications using Expo and Firebase Cloud Messaging (FCM). Provide a step-by-step checklist of the exact certificates and keys I need to generate in the Apple Developer Portal and Google Cloud Console. Then, provide the backend Node.js code to send a push notification to a specific user using their stored FCM device token.
+\`\`\`
+
+## Validation Checklist
+- [ ] Push notification permissions are requested gracefully at the appropriate time.
+- [ ] Device tokens are securely stored in the database and tied to the correct user.
+- [ ] The backend is configured to prune invalid or expired device tokens automatically.
+\`,\`,`,
+  'mobilefrontendui': `# Frontend (UI)
+
+**Estimated Time:** 1-2 weeks
+
+---
+
+## Why this matters
+The UI is the product. A fast backend with a clunky, janky interface will be perceived as a slow, broken app. Mobile UI development is notoriously difficult because you must account for thousands of different screen sizes, safe area insets (notches/dynamic islands), and platform-specific interaction paradigms (iOS swipe-to-go-back vs Android hardware back button).
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use a pre-built component library. NativeBase or Tamagui for React Native, or Cupertino/Material for Flutter. Do not waste 6 hours trying to perfectly center a custom button shadow. 
+
+### Personal Project
+Focus intensely on responsive design and safe areas. Your app might look perfect on an iPhone 15 Pro simulator, but it will overlap with the camera notch on an iPhone 13 Mini, and stretch horribly on an iPad. Use \`SafeAreaView\` heavily, and rely on Flexbox rather than hardcoded pixel heights.
+
+### Production SaaS
+You must implement a strict Design System. Define your typography, color palettes, and spacing tokens in a central file. Never hardcode a color like \`#FF0000\` in a component; use \`theme.colors.danger\`. Furthermore, you must respect the system-level accessibility settings. If a user has "Larger Text" enabled in their iOS settings, your UI must scale gracefully without breaking the layout or truncating critical buttons.
+
+### Custom Mode
+Enterprise UIs must be highly accessible (WCAG compliance). Every interactive element must have proper accessibility labels for VoiceOver and TalkBack screen readers. The UI must support complex data-density toggles (e.g., allowing field workers to switch between a visual "Card" layout and an information-dense "Table" layout depending on their environment).
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Principal Frontend Engineer. I am building the UI for a [Insert App Type] using React Native. Provide a boilerplate \`theme.ts\` file that defines a robust color palette (supporting Light and Dark modes), spacing tokens, and typography sizes. Then, provide an example of a custom \`Button\` component that uses these theme tokens.
+\`\`\`
+
+## Validation Checklist
+- [ ] The UI renders correctly across multiple screen sizes (small phones, large phones, tablets).
+- [ ] Safe Area Insets (notches, home indicators) are respected on all screens.
+- [ ] A centralized Design System (tokens for colors, spacing, typography) is actively used.
+\`,\`,`,
+  'mobilenavigation': `# Navigation
+
+**Estimated Time:** 2-3 hours
+
+---
+
+## Why this matters
+Web navigation is linear (URLs). Mobile navigation is a stack of cards. If you configure your navigation incorrectly, users will press the "Back" button and accidentally exit the app, or they will navigate in circles until the app runs out of memory and crashes. 
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use the simplest possible router. In React Native, use Expo Router (file-based routing). It requires zero boilerplate. Just create a file named \`profile.tsx\` and it automatically becomes a screen.
+
+### Personal Project
+React Navigation is the industry standard. You must understand the difference between a \`Stack Navigator\` (pushing screens on top of each other) and a \`Tab Navigator\` (switching between parallel histories). A common architecture is a root Stack Navigator containing a Tab Navigator for the main app, and a separate Stack Navigator for the authentication flow.
+
+### Production SaaS
+You must handle Deep Linking. If a user clicks a link in their email (e.g., \`myapp://reset-password?token=123\`), the app must intercept that URL, parse the token, and automatically push the correct screen onto the navigation stack, regardless of whether the app was running in the background or completely closed.
+
+### Custom Mode
+Enterprise navigation requires strict Role-Based Access Control (RBAC) at the router level. If an employee's permissions are revoked mid-session, the router must immediately eject them from the administrative screens and route them back to a safe zone. You must also implement complex "State Restoration" so if the OS kills the app while the worker is in the background, they are returned to the exact nested screen they were on when they reopen it.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a React Native Navigation Expert. Provide the code for a robust navigation architecture using React Navigation v6. The structure must include an 'AuthStack' (Login, Signup) and a 'MainTabNavigator' (Home, Settings). Include the logic to automatically switch between these two stacks based on a global \`isAuthenticated\` boolean.
+\`\`\`
+
+## Validation Checklist
+- [ ] Navigation flows correctly utilize Stacks (for drill-down) and Tabs (for parallel sections).
+- [ ] Deep linking is configured to allow direct routing via external URLs.
+- [ ] The Android hardware back button behaves as expected (going back a screen, not exiting the app unexpectedly).
+\`,\`,`,
+  'mobileapis': `# APIs & Networking
+
+**Estimated Time:** 1-2 days
+
+---
+
+## Why this matters
+Mobile devices have terrible internet connections. They transition from 5G to 3G to complete dead zones when the user walks into an elevator. If your app assumes a perfect broadband connection and fails silently when a network request drops, your users will assume your app is broken.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use the native \`fetch\` API or standard Axios. Don't worry about retry logic or offline states. Just get the data on the screen for the demo.
+
+### Personal Project
+Implement a robust data-fetching library like React Query or SWR. These libraries automatically handle loading states, error states, and automatic retries. If the user opens the app, it will instantly show the cached data from their last session while quietly fetching the fresh data in the background.
+
+### Production SaaS
+You must implement aggressive timeouts and global error handling. If your backend is struggling and takes 30 seconds to respond, your mobile app should abort the request after 10 seconds and show a friendly "Connection Timeout" message. Furthermore, you must handle token refreshing (JWTs) seamlessly. If an API request fails with a 401 Unauthorized, your networking layer (Axios Interceptors) should automatically pause all requests, fetch a new access token using a refresh token, and then replay the queued requests without the user ever noticing.
+
+### Custom Mode
+Enterprise APIs require strict security protocols like Certificate Pinning. This ensures the app will ONLY communicate with your specific server, protecting against Man-in-the-Middle (MITM) attacks on compromised corporate WiFi networks. Furthermore, enterprise apps must support WebSocket connections for real-time telemetry, gracefully handling abrupt disconnects and applying exponential backoff strategies for reconnections.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Senior Network Engineer. I am using Axios in React Native. Provide the code for an Axios Interceptor that handles JWT token expiration. If an API request returns a 401, the interceptor must pause the request, hit the \`/refresh-token\` endpoint, update the global auth state, and seamlessly retry the original request.
+\`\`\`
+
+## Validation Checklist
+- [ ] A dedicated data-fetching library (e.g., React Query) is used to handle caching and loading states.
+- [ ] JWT refresh logic is handled seamlessly via network interceptors.
+- [ ] API requests fail gracefully with user-friendly error messages when the device is offline.
+\`,\`,`,
+  'mobilemediauploads': `# Media Uploads
+
+**Estimated Time:** 1-2 days
+
+---
+
+## Why this matters
+Handling media (images, videos, audio) on mobile is incredibly error-prone. Modern iPhones shoot 4K HDR video that can easily exceed 2GB per minute. If you attempt to upload a raw 2GB video file directly to your Node.js backend over a flaky cellular connection, the app will crash from OOM (Out of Memory) errors, the user's data cap will be destroyed, and the server will timeout.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't build media uploads. Rely on text inputs or hardcode dummy images for the demo. If you absolutely must have an avatar upload, use Firebase Storage, compress the image heavily, and do it strictly over WiFi.
+
+### Personal Project
+You must implement local, on-device compression before the upload ever starts. Use libraries like \`react-native-image-crop-picker\` to resize user avatars down to 500x500 pixels. Use Supabase Storage or AWS S3 for the actual hosting.
+
+### Production SaaS
+Never upload media directly to your own backend API. Always use "Pre-signed URLs" (or Direct Uploads). 
+1. The mobile app requests a secure, temporary URL from your backend.
+2. The backend generates a signed AWS S3 URL and returns it to the app.
+3. The app uploads the compressed file *directly* to S3, bypassing your backend entirely. 
+This saves massive amounts of server bandwidth. Furthermore, you must implement background uploading. If the user minimizes the app while a 50MB video is uploading, the upload should continue in the background OS process, not instantly terminate.
+
+### Custom Mode
+Enterprise media handling often requires real-time streaming and intense security. If a medical worker is uploading a photo of a patient's chart, that photo must never be saved to the device's public camera roll. It must be captured directly into the app's encrypted sandbox, compressed, and uploaded via secure TLS to a HIPAA-compliant S3 bucket, leaving zero trace on the physical device.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Mobile Storage Expert. I am building a React Native app that allows users to upload profile pictures to an AWS S3 bucket. Provide the code to compress an image locally to under 1MB using \`react-native-image-crop-picker\`, request a pre-signed URL from a Node.js backend, and execute a direct \`PUT\` request to S3 using Axios.
+\`\`\`
+
+## Validation Checklist
+- [ ] Images/Videos are compressed locally on the device before transmission.
+- [ ] Media is uploaded directly to a storage bucket (S3, Cloud Storage) via signed URLs, not passed through the primary backend API.
+- [ ] Sensitive media is not accidentally saved to the user's public camera roll.
+\`,\`,`,
+  'mobilemapslocation': `# Maps & Location
+
+**Estimated Time:** 3-5 hours
+
+---
+
+## Why this matters
+Location services drain the battery faster than almost any other hardware component. Furthermore, they are the number one reason users deny permissions. If you build a maps feature poorly, the OS will flag your app for excessive background battery usage, and users will uninstall it out of frustration.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use the standard Google Maps SDK or Apple Maps (via \`react-native-maps\`). Hardcode the coordinates for your demo location. Do not attempt to calculate complex routing or distance matrixes during a weekend.
+
+### Personal Project
+Focus on "One-Time" location requests. Do not ask for "Always On" background location unless absolutely necessary. When the user opens the map, fetch their coordinates once, pan the camera, and stop tracking. Use Mapbox if you want highly customizable, beautiful map styles; otherwise, stick to the default OS maps to save on bundle size.
+
+### Production SaaS
+You must handle edge cases gracefully. What happens if the user denies location permissions? The app must not crash; it should fall back to asking them to manually type in their zip code. What happens if the GPS signal is weak (e.g., inside a parking garage)? The UI must indicate that the location is an approximation (show a large blue radius circle instead of a precise dot). 
+
+### Custom Mode
+Enterprise applications (like fleet tracking or delivery logistics) require "Always On" background tracking. You must write native Swift/Kotlin code or use robust libraries like \`react-native-background-geolocation\`. You must implement intelligent throttling: track the user every 10 meters when they are driving on a highway, but only track them once every 5 minutes if their accelerometer detects they are sitting completely still in a warehouse, thereby saving battery.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a GIS (Geographic Information System) Developer. I am implementing a Map view in React Native using \`react-native-maps\`. Provide the code to prompt the user for 'When In Use' location permissions, fetch their current coordinates precisely, and render a custom Map Marker at that location with a fallback UI if they deny the permission.
+\`\`\`
+
+## Validation Checklist
+- [ ] The app requests 'When In Use' permission rather than 'Always On' (unless strictly required).
+- [ ] The app degrades gracefully if the user explicitly denies location tracking.
+- [ ] Complex maps features are optimized to prevent massive battery drain.
+\`,\`,`,
+  'mobiledevicepermissions': `# Device Permissions
+
+**Estimated Time:** 1-2 hours
+
+---
+
+## Why this matters
+Apple and Google are cracking down on privacy. If your app crashes because you tried to access the camera without asking for permission first, you will fail the App Store review. Worse, if you ask for 5 different permissions immediately when the app launches, 80% of users will deny them all and instantly delete the app.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't worry about elegant permission flows. Just trigger the OS prompts whenever needed so the demo works.
+
+### Personal Project
+Implement "Just-in-Time" permissions. Never ask for Camera access on the home screen. Only ask for it the exact millisecond the user taps the "Take Photo" button. This provides obvious context to the user, massively increasing the approval rate. Use a library like \`react-native-permissions\` to normalize the API across iOS and Android.
+
+### Production SaaS
+You must implement a "Pre-Permission" screen (also known as a soft prompt). Because you can only trigger the native OS permission dialog *once*, you should show a custom UI modal first: "We need access to your camera to scan this barcode. [Allow] [Not Now]". 
+- If they tap "Not Now", you dismiss your modal and save the native prompt for later.
+- If they tap "Allow", *then* you trigger the native OS prompt. 
+If they previously denied the native prompt, you must detect the \`blocked\` state and provide a custom UI button that deep-links them directly to the iOS/Android Settings app to manually toggle it back on.
+
+### Custom Mode
+Enterprise apps distributed via MDM (Mobile Device Management) can often bypass permission dialogs because the corporation owns the device and pre-approves the permissions via configuration profiles. However, your code must still gracefully handle the theoretical possibility of a permission denial to prevent fatal crashes during edge cases or audits.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Mobile Privacy Architect. Provide the React Native code to implement a 'Soft Prompt' strategy for Camera permissions. The code must check the current permission status, show a custom UI modal explaining *why* the camera is needed, trigger the native OS prompt if approved, and handle the \`blocked\` state by linking the user to their device settings.
+\`\`\`
+
+## Validation Checklist
+- [ ] Permissions are asked for 'Just-in-Time', tied to specific user actions.
+- [ ] A 'Soft Prompt' strategy is used to prevent burning the one-time native OS dialog.
+- [ ] The app successfully deep-links users to the OS Settings app if permissions are permanently blocked.
+\`,\`,`,
+  'mobileofflinefeatures': `# Offline Features
+
+**Estimated Time:** 2-3 weeks
+
+---
+
+## Why this matters
+Mobile apps are not web browsers. If a user opens a mobile app on the subway and sees a blank white screen with a spinning loader that never finishes, the app feels broken. A premium mobile app should render instantly from local cache, allowing the user to interact with the UI even with zero internet connection.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ignore offline support entirely. You are building this for a demo on stable WiFi. 
+
+### Personal Project
+Implement optimistic UI updates and simple caching. Use React Query or Apollo to cache the last known state of your API requests to \`AsyncStorage\`. When the app opens, hydrate the cache immediately so the user sees data. If they "Like" a post while offline, immediately toggle the heart to red in the UI, queue the request, and send it when the connection is restored.
+
+### Production SaaS
+You must implement a robust background sync engine. Use WatermelonDB or Realm as your primary data source. The React UI should *only* ever read from the local SQLite database. A background worker process handles pulling changes from your cloud database and pushing local mutations to the cloud. This architectural pattern (Offline-First) guarantees the app is always 60FPS and never blocked by network latency.
+
+### Custom Mode
+Enterprise offline features (e.g., an app for oil rig inspectors) require complex Conflict Resolution. If Inspector A edits a safety report offline, and Inspector B edits the same report online, what happens when Inspector A reconnects? You must implement CRDTs (Conflict-free Replicated Data Types) or strict server-side timestamps to merge changes deterministically without destroying data or prompting the user with confusing "Merge Conflict" modals.
+
+## Implementation Steps
+\`\`\`prompt
+Act as an Offline-First Architect. I am building a React Native app that needs to work entirely without internet. Explain the architectural difference between 'Caching API responses' vs a true 'Offline-First Database' like WatermelonDB. Then, provide the database schema required to track \`sync_status\` (e.g., pending, synced, error) for local mutations before they are pushed to the backend.
+\`\`\`
+
+## Validation Checklist
+- [ ] The app renders meaningful data (from cache) immediately upon opening without an internet connection.
+- [ ] Actions taken while offline (e.g., liking a post, creating a draft) are queued and executed when the connection returns.
+- [ ] The UI clearly communicates the current sync status (e.g., "Offline - Changes saved locally") to the user.
+\`,\`,`,
+  'mobileanalyticsevents': `# Analytics Events
+
+**Estimated Time:** 1-2 days
+
+---
+
+## Why this matters
+If you simply install an analytics SDK and let it "auto-track" everything, you will end up with a garbage dump of useless data (e.g., \`button_click_492\`). Good analytics require a deliberate, structured Tracking Plan. You need to track the exact moments of value creation and the exact moments of user friction.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip analytics entirely. They provide zero value during a weekend sprint.
+
+### Personal Project
+Focus on the core funnel. Track exactly three things:
+1. **Activation**: Did they finish onboarding? (e.g., \`Account_Created\`)
+2. **Core Action**: Did they use the main feature? (e.g., \`Workout_Logged\`)
+3. **Monetization**: Did they hit the paywall? (e.g., \`Paywall_Viewed\`)
+Do not track arbitrary tab switches or scroll depths. 
+
+### Production SaaS
+You must implement a strict Noun-Verb nomenclature (e.g., \`Profile_Updated\`, \`Subscription_Purchased\`). Every event must have attached metadata (properties). Tracking \`Subscription_Purchased\` is useless if you don't know *which* tier they bought. The properties should include \`tier: "premium"\`, \`price: 9.99\`, and \`currency: "USD"\`. Furthermore, you must wrap your analytics calls in a centralized service class. Never call \`mixpanel.track()\` directly from 50 different UI components; call \`AnalyticsService.trackPurchase()\`.
+
+### Custom Mode
+Enterprise analytics require strict privacy controls. You must implement a kill-switch to disable all tracking if the user opts out (GDPR/CCPA compliance). You must also ensure that zero PII (Personally Identifiable Information) like emails or social security numbers are accidentally sent in the event properties. Data must often be routed through a Customer Data Platform (CDP) like Segment, which can filter PII before forwarding the data to downstream marketing tools.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Lead Data Analyst. I am launching a [Insert App Type]. Create a tabular Tracking Plan mapping out the 7 most critical events I should track. For each event, define the strict Event Name (Noun_Verb format), the Trigger Condition (exactly when it fires in the code), and the JSON payload of Metadata Properties I need to attach to it.
+\`\`\`
+
+## Validation Checklist
+- [ ] A central Tracking Plan document exists and dictates all event nomenclature.
+- [ ] Analytics calls are abstracted into a central service, not scattered throughout UI components.
+- [ ] Strict auditing ensures no PII (Personally Identifiable Information) is sent to third-party analytics providers.
+\`,\`,`,
+  'mobileerrorhandling': `# Error Handling & Crash Reporting
+
+**Estimated Time:** 3-5 hours
+
+---
+
+## Why this matters
+Mobile apps run on thousands of different devices with varying RAM constraints, custom OS flavors (like Samsung's One UI), and unpredictable network conditions. Crashes are inevitable. If you don't use a crash reporting tool, you will be completely blind when your app starts crashing for 10% of your users immediately after launch.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Just wrap your API calls in basic \`try/catch\` blocks and \`console.log\` the errors. Don't waste time integrating Sentry for a 48-hour event.
+
+### Personal Project
+Integrate a free crash reporting tool like Firebase Crashlytics or Sentry. You don't need complex sourcemaps immediately, but you must know *if* the app is crashing. More importantly, implement a global Error Boundary in React Native to catch fatal UI errors and display a friendly "Oops, something went wrong" screen instead of freezing the app indefinitely.
+
+### Production SaaS
+You must upload Sourcemaps to Sentry/Crashlytics as part of your CI/CD pipeline. Without sourcemaps, a crash report will just tell you the error happened in \`main.min.js:1:4092\`, which is entirely useless for debugging. You must also track Non-Fatal errors. If an API request fails, don't just show a toast notification; actively log that handled error to Sentry so you can detect if a third-party API is experiencing an outage.
+
+### Custom Mode
+Enterprise error handling requires SLA (Service Level Agreement) alerting. If the crash-free session rate drops below 99.9%, Sentry must automatically page the on-call engineer via PagerDuty. Furthermore, you must implement breadcrumbs (a log of the last 10 things the user clicked before the crash) and attach the user's encrypted UUID to the crash report so Customer Support can proactively email the affected enterprise client apologizing for the outage.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a DevOps Engineer. I am using Sentry in my React Native application. Provide the code to set up a global React Native Error Boundary that displays a fallback UI when the render tree crashes. Then, explain the exact bash commands I need to add to my CI/CD pipeline (GitHub Actions) to automatically upload the JavaScript sourcemaps to Sentry during the build process.
+\`\`\`
+
+## Validation Checklist
+- [ ] Sentry, Crashlytics, or an equivalent crash reporting SDK is installed and active.
+- [ ] A Global Error Boundary is implemented to prevent the app from white-screening.
+- [ ] Sourcemaps are properly uploaded so crash reports point to actual lines of code, not minified bundles.
+\`,\`,`,
+  'mobiledemodata': `# Demo Data
+
+**Estimated Time:** 2-3 hours
+
+---
+
+## Why this matters
+An app with an empty feed, zero friends, and no history looks broken. If you hand your phone to a Hackathon judge or an Enterprise client and they see a blank screen that says "No Data Found", you have lost their attention. The app must look fully alive and actively used the exact second they open it.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Hardcode everything. Do not fetch demo data from an API. Create a \`constants/mockData.ts\` file filled with 20 incredibly realistic JSON objects (e.g., real names, high-quality Unsplash profile pictures, realistic text). Your UI components should map directly over this hardcoded array.
+
+### Custom Mode
+Enterprise demos require "Sandboxes." You cannot show Client A the actual production data of Client B. You must write a robust backend seeding script (e.g., \`npm run seed:demo\`) that dynamically populates a dedicated Sandbox database with thousands of rows of industry-specific, anonymized data. If you are pitching to a hospital, the demo data must look exactly like real patient records, not "Test User 1."
+
+## Implementation Steps
+\`\`\`prompt
+Act as a QA Data Engineer. I am building a [Insert App Type]. Generate a robust TypeScript file containing a mock JSON array of 15 highly realistic objects to populate my main feed. Do not use 'lorem ipsum'; write actual contextual sentences. Provide realistic image URLs from Unsplash.
+\`\`\`
+
+## Validation Checklist
+- [ ] The app never displays an "Empty State" during a demo.
+- [ ] Demo data is contextually accurate (not generic lorem ipsum).
+- [ ] (Custom Mode) A repeatable script exists to nuke and re-seed the sandbox database instantly.
+\`,\`,`,
+  'mobileplaystoremockups': `# Play Store Mockups
+
+**Estimated Time:** 1-2 hours
+
+---
+
+## Why this matters
+Users do not read descriptions; they look at the first three screenshots. If your App Store screenshots are just raw, unedited captures of your app from a simulator, you look like an amateur. High-converting screenshots are actually marketing posters: they feature the UI inside a sleek 3D device frame, with a massive, bold headline above it explaining the value proposition.
+
+## Strategic Guidance
+
+### Hackathon Mode
+If your hackathon requires a Devpost submission, take 3 screenshots of your app, throw them into Canva, and add a bold title above them. It takes 10 minutes and makes your submission look 10x more professional than the teams who just uploaded raw simulator captures.
+
+### Custom Mode
+Enterprise apps distributed via Private App Stores or Apple Business Manager still require screenshots, but the focus shifts entirely from "Marketing" to "Utility and Security." Do not use flashy 3D renders. Show clear, annotated screenshots of the dashboard, the security login flow, and the reporting tools.
+
+## Implementation Steps
+\`\`\`prompt
+Act as an App Store Optimization (ASO) Expert. I am building a [Insert App Type]. Write the marketing copy for my 5 App Store screenshots. For each screenshot, provide the 'H1 Headline' (under 5 words) that should sit above the device frame, and describe exactly which screen of the app should be featured inside the frame.
+\`\`\`
+
+## Validation Checklist
+- [ ] Screenshots are wrapped in aesthetic device frames (not raw simulator captures).
+- [ ] Each screenshot features a bold, readable headline explaining the value.
+- [ ] The first screenshot clearly demonstrates the core "Aha! Moment."
+\`,\`,`,
+  'mobilemultilanguage': `# Multi-language (i18n)
+
+**Estimated Time:** 3-5 days
+
+---
+
+## Why this matters
+The majority of the world does not speak English. If your app is locked to English, you are cutting off massive markets in Latin America, Europe, and Asia. Internationalization (i18n) is not just translating words; it's handling Right-to-Left (RTL) layouts for Arabic, formatting dates correctly (DD/MM/YYYY vs MM/DD/YYYY), and handling currency conversions.
+
+## Strategic Guidance
+
+### Custom Mode
+Enterprise applications often require strict localization. Do not attempt to use Google Translate for enterprise software; the terminology is too specific and a bad translation can cause legal liability (e.g., misinterpreting a medical compliance toggle). Use a professional localization platform like Lokalise or Phrase. Furthermore, you must abstract *every single string* in your app into a JSON file. Never hardcode \`<Text>Submit</Text>\`. Always use \`<Text>{t('auth.submit')}</Text>\`.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Senior React Native Architect. Provide the code to set up \`react-i18next\`. Demonstrate how to detect the user's native device language automatically, load the correct JSON translation file, and provide a fallback to English if their language is not supported. Also, explain how to handle Right-to-Left (RTL) layout switching using \`I18nManager\`.
+\`\`\`
+
+## Validation Checklist
+- [ ] Zero hardcoded text exists in the UI components.
+- [ ] The app automatically detects and defaults to the user's OS language.
+- [ ] Right-to-Left (RTL) text and layout mirroring are explicitly handled.
+\`,\`,`,
+  'mobilesubscriptionbilling': `# Subscription Billing
+
+**Estimated Time:** 1-2 weeks
+
+---
+
+## Why this matters
+Apple and Google take a 15-30% cut of all digital subscriptions, and their APIs for implementing In-App Purchases (IAP) are notoriously complex. If you configure it incorrectly, users will be charged but won't receive premium access, or they will cancel their subscription and still retain premium access forever.
+
+## Strategic Guidance
+
+### Custom Mode
+Enterprise apps almost never use Apple/Google In-App Purchases. B2B contracts are negotiated externally (e.g., a $50k/year Master Services Agreement) and paid via ACH or wire transfer. The mobile app itself is simply a free "Client" that employees log into. If you try to charge a $50k enterprise contract through the iOS App Store, Apple will take $15,000. You must implement a "Bypass" architecture: The app is free to download, but requires a pre-existing enterprise account to log in.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Mobile Monetization Expert. Explain the architecture of bypassing Apple's 30% cut for a B2B Enterprise SaaS app. Specifically, provide the exact wording I must use (and avoid using) on the mobile login screen to ensure Apple App Store reviewers do not reject the app for violating the "Digital Goods" IAP policy.
+\`\`\`
+
+## Validation Checklist
+- [ ] The app does not attempt to sell B2B enterprise seats via native iOS/Android In-App Purchases.
+- [ ] The App Store review team is provided with a valid test account in the review notes to bypass the enterprise login screen.
+- [ ] The UI clearly explains how a user can obtain an enterprise account without providing a direct link to a web checkout page (which violates Apple's guidelines).
+\`,\`,`,
+  'mobilewearables': `# Wearables
+
+**Estimated Time:** 2-4 weeks
+
+---
+
+## Why this matters
+Apple Watch and WearOS devices represent a completely different computing paradigm. Users do not "browse" a watch; they glance at it for 2 seconds. Porting your entire mobile app to a watch is a guaranteed failure. You must distill your app down to a single, hyper-specific action (e.g., starting a timer, approving a 2FA prompt, glancing at a glucose level).
+
+## Strategic Guidance
+
+### Custom Mode
+Enterprise wearable apps are highly specialized. A warehouse worker might use a ruggedized Android smartwatch paired to a Bluetooth barcode scanner to keep their hands free. You must build standalone native apps using Swift (WatchKit) or Kotlin (WearOS). React Native is generally not suitable for building robust wearable applications. You must handle extreme battery constraints and aggressive background-execution limits imposed by the OS.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Wearables Product Manager. I am building a companion Apple Watch app for an enterprise inventory management system. Define the single "Micro-Interaction" that should exist on the watch. Then, explain how to establish a secure \`WCSession\` (Watch Connectivity) to sync the JWT auth token from the main iOS app to the Apple Watch so the user doesn't have to log in on a 2-inch screen.
+\`\`\`
+
+## Validation Checklist
+- [ ] The wearable app focuses on a single, 2-second micro-interaction.
+- [ ] Authentication is securely synced from the host phone, not typed manually on the watch.
+- [ ] The app is built using native frameworks (Swift/Kotlin) for maximum performance and battery efficiency.
+\`,\`,`,
+  'mobilewidgets': `# Widgets
+
+**Estimated Time:** 1-2 weeks
+
+---
+
+## Why this matters
+iOS Home Screen Widgets and Android App Widgets keep your app alive in the user's peripheral vision. A well-designed widget drastically increases Daily Active Users (DAU) because the user doesn't have to consciously remember to open your app; the app pushes value directly to their home screen.
+
+## Strategic Guidance
+
+### Custom Mode
+Enterprise widgets must prioritize data privacy. If an executive puts a "Sales Dashboard" widget on their lock screen, that highly confidential data is visible to anyone who glances at their phone while it's sitting on a table. You must implement native iOS/Android privacy flags to blur or hide the widget data when the device is locked (using \`privacySensitive()\` modifiers in SwiftUI).
+
+## Implementation Steps
+\`\`\`prompt
+Act as an iOS WidgetKit Expert. I need to build a Home Screen widget for my React Native app. Explain the architectural divide between React Native and WidgetKit (SwiftUI). Provide the code to write a shared JSON payload from React Native into the iOS \`App Group\` UserDefaults, and the Swift code required for the Widget to read that data and render it.
+\`\`\`
+
+## Validation Checklist
+- [ ] Widgets are built natively (SwiftUI/XML) as React Native cannot render widgets directly.
+- [ ] Data is securely shared between the main app and the widget via App Groups or SharedPreferences.
+- [ ] Confidential enterprise data is hidden when the device is locked.
+\`,\`,`,
+  'mobilebackgroundservices': `# Background Services
+
+**Estimated Time:** 2-4 weeks
+
+---
+
+## Why this matters
+Mobile operating systems aggressively kill apps running in the background to preserve battery life. If your app relies on a standard \`setInterval\` to fetch data while minimized, the OS will silently terminate it within 3 minutes. Implementing true background execution requires navigating some of the strictest OS-level APIs on both iOS and Android.
+
+## Strategic Guidance
+
+### Custom Mode
+Enterprise applications often require persistent background execution (e.g., a delivery driver app that must upload GPS coordinates every 60 seconds even if the phone is locked in their pocket). You must use highly specialized background APIs.
+- **iOS**: You must register for \`UIBackgroundModes\` (e.g., location, audio, or fetch). If you abuse this and the OS detects your app burning battery, Apple will outright ban your app.
+- **Android**: You must implement a "Foreground Service." This requires displaying a persistent, un-dismissible notification in the user's status bar explicitly stating that the app is running in the background.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Native Mobile Architect. I am building a React Native app for delivery drivers. I need to track their location in the background indefinitely. Explain how to configure an Android Foreground Service and iOS Background Location updates. Provide the specific \`AndroidManifest.xml\` permissions and the \`Info.plist\` keys required, along with the UI text I should use to justify this to the App Review teams.
+\`\`\`
+
+## Validation Checklist
+- [ ] iOS Background Modes are explicitly declared and justified in the App Store review notes.
+- [ ] Android implementations utilize Foreground Services with a mandatory persistent notification.
+- [ ] Background tasks are aggressively throttled to prevent massive battery drain.
+\`,\`,`,
+  'mobilebluetooth': `# Bluetooth (BLE)
+
+**Estimated Time:** 3-5 weeks
+
+---
+
+## Why this matters
+Bluetooth Low Energy (BLE) is notoriously unstable. Devices disconnect randomly, interference from microwaves or other WiFi networks corrupts packets, and the APIs to manage connections are highly complex state machines. If you do not handle edge cases perfectly, your app will freeze while trying to pair with external hardware.
+
+## Strategic Guidance
+
+### Custom Mode
+Enterprise IoT (Internet of Things) applications heavily rely on BLE (e.g., syncing a mobile app with a medical heart monitor or an industrial weight scale). You must use a robust library like \`react-native-ble-plx\`. Do not write raw Bluetooth code unless absolutely necessary. You must handle the "Bluetooth is turned off" state gracefully by prompting the user to enable it via the OS settings. Furthermore, pairing flows must have strict timeouts; if a device doesn't respond within 10 seconds, the app must abort the connection attempt rather than hanging indefinitely.
+
+## Implementation Steps
+\`\`\`prompt
+Act as an IoT Software Engineer. I am using \`react-native-ble-plx\` to connect to a custom Bluetooth device. Provide a robust state-machine diagram (or pseudocode) demonstrating how to scan for a specific UUID, connect to it, handle unexpected disconnects with an exponential backoff retry strategy, and gracefully handle the scenario where the user's Bluetooth is turned off.
+\`\`\`
+
+## Validation Checklist
+- [ ] The app handles unexpected disconnects and automatically attempts reconnection.
+- [ ] Timeout logic is implemented for all scanning and pairing attempts to prevent infinite loading spinners.
+- [ ] The app prompts the user natively if their Bluetooth or Location services are disabled (BLE scanning requires Location permissions on Android).
+\`,\`,`,
+  'mobilenfc': `# NFC (Near Field Communication)
+
+**Estimated Time:** 1-2 weeks
+
+---
+
+## Why this matters
+NFC is the technology behind Apple Pay and tap-to-pay credit cards. It is fast, secure, and requires zero pairing. However, reading and writing NFC tags requires specific hardware capabilities and strict OS-level entitlements.
+
+## Strategic Guidance
+
+### Custom Mode
+Enterprise applications use NFC for inventory management, security badge scanning, or anti-counterfeiting verification. On iOS, you can only read/write NFC NDEF (NFC Data Exchange Format) tags. You cannot emulate a credit card (Host Card Emulation) without highly restricted, special entitlements from Apple. Use a library like \`react-native-nfc-manager\`. Ensure your UI clearly instructs the user *where* the NFC antenna is located on their specific device (top edge for iPhones, middle back for most Androids).
+
+## Implementation Steps
+\`\`\`prompt
+Act as an NFC Systems Integrator. I need to read NDEF tags in a React Native app using \`react-native-nfc-manager\`. Provide the exact \`Info.plist\` entitlements required for iOS to enable NFC reading. Then, provide the code to initiate an NFC scan session, read the text payload from the tag, and cleanly terminate the session.
+\`\`\`
+
+## Validation Checklist
+- [ ] NFC Entitlements are properly configured in both iOS and Android project files.
+- [ ] The UI provides visual guidance on where to tap the NFC tag against the phone.
+- [ ] The NFC scanning session is properly closed/terminated after a tag is read to prevent locking the hardware.
+\`,\`,`,
+  'mobilecamera': `# Custom Camera
+
+**Estimated Time:** 2-3 weeks
+
+---
+
+## Why this matters
+If you just need a user to take a profile picture, you should use the native OS camera via an image picker library. But if you are building Snapchat, a barcode scanner, or an AR app, you must build a *Custom Camera*. This involves tapping directly into the device's hardware streams, managing focus, exposure, and processing raw frames at 60 FPS without overheating the phone.
+
+## Strategic Guidance
+
+### Custom Mode
+Enterprise apps often require custom cameras for Optical Character Recognition (OCR), barcode scanning, or capturing high-resolution document scans. Use a high-performance library like \`react-native-vision-camera\`. You must handle the camera lifecycle perfectly: if the user minimizes the app, you *must* pause the camera stream. If you leave the camera active in the background, the OS will terminate your app instantly for privacy violations, and the phone will physically overheat.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a Native Hardware Engineer. I am using \`react-native-vision-camera\` to build a custom barcode scanner. Provide the code to initialize the camera, handle the scenario where the user denies camera permissions, and implement a Frame Processor that runs a barcode scanning algorithm at 30 frames per second without blocking the JavaScript UI thread.
+\`\`\`
+
+## Validation Checklist
+- [ ] The camera stream is paused immediately when the app goes into the background.
+- [ ] Frame processors (if used) run asynchronously to avoid dropping UI frames (jank).
+- [ ] The app handles permission denials with a clear fallback UI explaining why the camera is required.
+\`,\`,`,
+  'mobilelocationservices': `# Advanced Location Services
+
+**Estimated Time:** 2-4 weeks
+
+---
+
+## Why this matters
+Standard GPS drains the battery in a few hours. Advanced location services require a blend of WiFi triangulation, cellular tower data, and GPS hardware. If you are building a ride-sharing app or a fitness tracker, you need absolute precision. If you are building a weather app, you only need approximate location. Using the wrong precision level destroys the user experience.
+
+## Strategic Guidance
+
+### Custom Mode
+Enterprise applications like logistics or fleet tracking require complex geofencing. You should not wake up the app every 10 seconds to check if a truck has entered a warehouse. Instead, you register a "Geofence" (a radius around a coordinate) with the OS. The OS will monitor this hardware-efficiently in the background and only wake up your app when the device crosses the boundary. This saves massive amounts of battery and ensures reliable trigger execution.
+
+## Implementation Steps
+\`\`\`prompt
+Act as a GIS Architect. I am building a fleet management app. Explain the difference between 'High Accuracy' GPS polling vs OS-level 'Geofencing'. Provide the conceptual architecture for registering a 500-meter Geofence around a warehouse coordinate, and outline how the OS will notify the app when the device enters or exits that radius.
+\`\`\`
+
+## Validation Checklist
+- [ ] The app utilizes Geofencing for location-based triggers rather than continuous background polling.
+- [ ] The requested accuracy level (e.g., nearest kilometer vs nearest meter) matches the actual business requirement to preserve battery.
+- [ ] The app degrades gracefully if the device loses GPS signal (e.g., inside a tunnel).
+\`,`
 };

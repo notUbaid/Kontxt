@@ -79,23 +79,23 @@ export const mobileProductionTaxonomy: Category[] = [
   },
   {
     id: 'phase-3',
-    name: 'PHASE 3 — DEVELOPMENT',
+    name: 'PHASE 3 – DEVELOPMENT',
     topics: [
-      createTopic('State Management', Layers),
+      createTopic('State Management', Layers, [], 'mobilestatemanagementimplementation'),
       createTopic('Auth', Key, [], 'mobileauth'),
       createTopic('Database', Database, [], 'mobiledatabaseimplementation'),
       createTopic('Backend', Server, [], 'mobilebackendimplementation'),
-      createTopic('Push Notifications', Bell),
-      createTopic('Frontend (UI)', Box),
-      createTopic('Navigation', Smartphone),
-      createTopic('APIs', Globe),
+      createTopic('Push Notifications', Bell, [], 'mobilepushnotificationsimplementation'),
+      createTopic('Frontend (UI)', Box, [], 'mobilefrontendui'),
+      createTopic('Navigation', Smartphone, [], 'mobilenavigation'),
+      createTopic('APIs', Globe, [], 'mobileapis'),
       createTopic('Payments', CreditCard, [], 'mobilepayments'),
-      createTopic('Media Uploads', Cloud),
-      createTopic('Maps & Location', Map),
-      createTopic('Device Permissions', Lock),
-      createTopic('Offline Features', Cloud),
-      createTopic('Analytics Events', BarChart),
-      createTopic('Error Handling', AlertCircle),
+      createTopic('Media Uploads', Cloud, [], 'mobilemediauploads'),
+      createTopic('Maps & Location', Map, [], 'mobilemapslocation'),
+      createTopic('Device Permissions', Lock, [], 'mobiledevicepermissions'),
+      createTopic('Offline Features', Cloud, [], 'mobileofflinefeatures'),
+      createTopic('Analytics Events', BarChart, [], 'mobileanalyticsevents'),
+      createTopic('Error Handling', AlertCircle, [], 'mobileerrorhandling'),
       createTopic('Testing', CheckSquare, [], 'mobiletesting'),
     ]
   },
@@ -103,50 +103,50 @@ export const mobileProductionTaxonomy: Category[] = [
     id: 'phase-4',
     name: 'PHASE 4 — PRODUCTION READINESS',
     topics: [
-      createTopic('Security', Shield),
-      createTopic('Performance Optimization', Zap),
-      createTopic('Crash Reporting', AlertCircle),
-      createTopic('Monitoring', Activity),
-      createTopic('Logging', FileText),
-      createTopic('Rate Limiting', Shield),
-      createTopic('Backups', Database),
-      createTopic('CI/CD', Settings),
-      createTopic('Infrastructure', Server),
-      createTopic('App Size Optimization', Smartphone),
-      createTopic('Battery Optimization', Battery),
-      createTopic('Scalability', BarChart),
+      createTopic('Security', Shield, [], 'mobilesecurity'),
+      createTopic('Performance Optimization', Zap, [], 'mobileperformanceoptimization'),
+      createTopic('Crash Reporting', AlertCircle, [], 'mobilecrashreporting'),
+      createTopic('Monitoring', Activity, [], 'mobilemonitoring'),
+      createTopic('Logging', FileText, [], 'mobilelogging'),
+      createTopic('Rate Limiting', Shield, [], 'mobileratelimiting'),
+      createTopic('Backups', Database, [], 'mobilebackups'),
+      createTopic('CI/CD', Settings, [], 'mobilecicd'),
+      createTopic('Infrastructure', Server, [], 'mobileinfrastructure'),
+      createTopic('App Size Optimization', Smartphone, [], 'mobileappsizeoptimization'),
+      createTopic('Battery Optimization', Battery, [], 'mobilebatteryoptimization'),
+      createTopic('Scalability', BarChart, [], 'mobilescalability'),
     ]
   },
   {
     id: 'phase-5',
     name: 'PHASE 5 — STORE DEPLOYMENT',
     topics: [
-      createTopic('Play Store Setup', Smartphone),
-      createTopic('App Store Setup', Smartphone),
-      createTopic('App Icons', Box),
-      createTopic('Screenshots', Smartphone),
-      createTopic('Feature Graphics', PenTool),
-      createTopic('Store Listing SEO', Search),
-      createTopic('Privacy Policy', FileText),
-      createTopic('Terms of Service', FileText),
-      createTopic('Content Rating', Shield),
-      createTopic('Test Tracks', Settings),
-      createTopic('Beta Testing', Users),
-      createTopic('Release Checklist', CheckSquare),
+      createTopic('Play Store Setup', Smartphone, [], 'mobileplaystoresetup'),
+      createTopic('App Store Setup', Smartphone, [], 'mobileappstoresetup'),
+      createTopic('App Icons', Box, [], 'mobileappicons'),
+      createTopic('Screenshots', Smartphone, [], 'mobilescreenshots'),
+      createTopic('Feature Graphics', PenTool, [], 'mobilefeaturegraphics'),
+      createTopic('Store Listing SEO', Search, [], 'mobilestorelistingseo'),
+      createTopic('Privacy Policy', FileText, [], 'mobileprivacypolicy'),
+      createTopic('Terms of Service', FileText, [], 'mobiletermsofservice'),
+      createTopic('Content Rating', Shield, [], 'mobilecontentrating'),
+      createTopic('Test Tracks', Settings, [], 'mobiletesttracks'),
+      createTopic('Beta Testing', Users, [], 'mobilebetatesting'),
+      createTopic('Release Checklist', CheckSquare, [], 'mobilereleasechecklist'),
     ]
   },
   {
     id: 'phase-6',
     name: 'PHASE 6 — GROWTH',
     topics: [
-      createTopic('Retention', Users, [], 'mobile-retention'),
-      createTopic('Analytics', BarChart, [], 'mobile-analytics'),
-      createTopic('Notifications Strategy', Bell, [], 'mobile-notificationsstrategy'),
-      createTopic('User Feedback', MessageSquare, [], 'mobile-userfeedback'),
-      createTopic('Reviews & Ratings', Target, [], 'mobile-reviewsratings'),
-      createTopic('Referral Programs', Users, [], 'mobile-referralprograms'),
-      createTopic('Roadmap', Globe, [], 'mobile-roadmap'),
-      createTopic('Scaling Strategy', BarChart, [], 'mobile-scalingstrategy'),
+      createTopic('Retention', Users, [], 'mobileretention'),
+      createTopic('Analytics', BarChart, [], 'mobileanalytics'),
+      createTopic('Notifications Strategy', Bell, [], 'mobilenotificationsstrategy'),
+      createTopic('User Feedback', MessageSquare, [], 'mobileuserfeedback'),
+      createTopic('Reviews & Ratings', Target, [], 'mobilereviewsratings'),
+      createTopic('Referral Programs', Users, [], 'mobilereferralprograms'),
+      createTopic('Roadmap', Globe, [], 'mobileroadmap'),
+      createTopic('Scaling Strategy', BarChart, [], 'mobilescalingstrategy'),
     ]
   }
 ];
@@ -156,45 +156,45 @@ export const mobileHackathonTaxonomy: Category[] = [
     id: 'phase-0',
     name: 'PHASE 0',
     topics: [
-      createTopic('Idea Definition', Rocket),
-      createTopic('MVP Features', CheckSquare),
+      createTopic('Idea Definition', Rocket, [], 'mobileideadefinition'),
+      createTopic('MVP Features', CheckSquare, [], 'mobilemvpfeatures'),
     ]
   },
   {
     id: 'phase-1',
     name: 'PHASE 1',
     topics: [
-      createTopic('PRD', FileText),
-      createTopic('User Flows', Globe),
-      createTopic('Design System', PenTool),
+      createTopic('PRD', FileText, [], 'mobileprd'),
+      createTopic('User Flows', Globe, [], 'mobileuserflows'),
+      createTopic('Design System', PenTool, [], 'mobiledesignsystem'),
     ]
   },
   {
     id: 'phase-2',
     name: 'PHASE 2',
     topics: [
-      createTopic('Tech Stack', Settings),
-      createTopic('Database', Database),
-      createTopic('Auth (Optional)', Key),
+      createTopic('Tech Stack', Settings, [], 'mobiletechstack'),
+      createTopic('Database', Database, [], 'mobiledatabase'),
+      createTopic('Auth (Optional)', Key, [], 'mobileauth'),
     ]
   },
   {
     id: 'phase-3',
     name: 'PHASE 3',
     topics: [
-      createTopic('Backend', Server),
-      createTopic('Frontend', Box),
-      createTopic('Demo Data', Database),
-      createTopic('Play Store Mockups', Smartphone),
+      createTopic('Backend', Server, [], 'mobilebackend'),
+      createTopic('Frontend', Box, [], 'mobilefrontendui'),
+      createTopic('Demo Data', Database, [], 'mobiledemodata'),
+      createTopic('Play Store Mockups', Smartphone, [], 'mobileplaystoremockups'),
     ]
   },
   {
     id: 'phase-5',
     name: 'PHASE 5',
     topics: [
-      createTopic('Pitch Deck', Presentation),
-      createTopic('Demo Script', FileText),
-      createTopic('Submission Checklist', CheckSquare),
+      createTopic('Pitch Deck', Presentation, [], 'mobilepitchdeck'),
+      createTopic('Demo Script', FileText, [], 'mobiledemoscript'),
+      createTopic('Submission Checklist', CheckSquare, [], 'mobilesubmissionchecklist'),
     ]
   }
 ];
@@ -204,46 +204,46 @@ export const mobilePersonalTaxonomy: Category[] = [
     id: 'discovery',
     name: 'PHASE 1 — DISCOVERY',
     topics: [
-      createTopic('PRD', FileText),
-      createTopic('Discovery', Rocket),
-      createTopic('Design', PenTool),
+      createTopic('PRD', FileText, [], 'mobileprd'),
+      createTopic('User Research', Rocket, [], 'mobileuserresearch'),
+      createTopic('Design System', PenTool, [], 'mobiledesignsystem'),
     ]
   },
   {
     id: 'architecture',
     name: 'PHASE 2 — ARCHITECTURE',
     topics: [
-      createTopic('Tech Stack', Settings),
-      createTopic('Auth', Key),
-      createTopic('Database', Database),
+      createTopic('Tech Stack', Settings, [], 'mobiletechstack'),
+      createTopic('Auth', Key, [], 'mobileauth'),
+      createTopic('Database', Database, [], 'mobiledatabase'),
     ]
   },
   {
     id: 'development',
     name: 'PHASE 3 — DEVELOPMENT',
     topics: [
-      createTopic('Backend', Server),
-      createTopic('Push Notifications', Bell),
-      createTopic('Analytics', BarChart),
+      createTopic('Backend', Server, [], 'mobilebackend'),
+      createTopic('Push Notifications', Bell, [], 'mobilepushnotificationsimplementation'),
+      createTopic('Analytics', BarChart, [], 'mobileanalyticsevents'),
     ]
   },
   {
     id: 'production',
     name: 'PHASE 4 — PRODUCTION',
     topics: [
-      createTopic('Basic Security', Shield),
-      createTopic('Performance', Zap),
-      createTopic('Deployment', Cloud),
-      createTopic('Play Store Setup', Smartphone),
-      createTopic('Privacy Policy', FileText),
+      createTopic('Security', Shield, [], 'mobilesecurity'),
+      createTopic('Performance', Zap, [], 'mobileperformanceoptimization'),
+      createTopic('Infrastructure', Cloud, [], 'mobileinfrastructure'),
+      createTopic('Play Store Setup', Smartphone, [], 'mobileplaystoresetup'),
+      createTopic('Privacy Policy', FileText, [], 'mobileprivacypolicy'),
     ]
   },
   {
     id: 'growth',
     name: 'PHASE 5 — GROWTH',
     topics: [
-      createTopic('Feedback', MessageSquare),
-      createTopic('Roadmap', Globe),
+      createTopic('Feedback', MessageSquare, [], 'mobilefeedback'),
+      createTopic('Roadmap', Globe, [], 'mobileroadmap'),
     ]
   }
 ];
@@ -256,20 +256,20 @@ export const mobileCustomTaxonomy: Category[] = [
         ...cat,
         topics: [
           ...cat.topics,
-          createTopic('Ads', DollarSign),
-          createTopic('Demo Data', Database),
-          createTopic('Play Store Mockups', Smartphone),
-          createTopic('Multi-language', Globe),
-          createTopic('Subscription Billing', DollarSign),
-          createTopic('Referral System', Users),
-          createTopic('Wearables', Watch),
-          createTopic('Widgets', Box),
-          createTopic('Background Services', Settings),
-          createTopic('Bluetooth', Bluetooth),
-          createTopic('NFC', Smartphone),
-          createTopic('Camera', Smartphone),
-          createTopic('Location Services', Map),
-          createTopic('Social Login', Users)
+          createTopic('Ads', DollarSign, [], 'mobileads'),
+          createTopic('Demo Data', Database, [], 'mobiledemodata'),
+          createTopic('Play Store Mockups', Smartphone, [], 'mobileplaystoremockups'),
+          createTopic('Multi-language', Globe, [], 'mobilemultilanguage'),
+          createTopic('Subscription Billing', DollarSign, [], 'mobilesubscriptionbilling'),
+          createTopic('Referral Programs', Users, [], 'mobilereferralprograms'),
+          createTopic('Wearables', Watch, [], 'mobilewearables'),
+          createTopic('Widgets', Box, [], 'mobilewidgets'),
+          createTopic('Background Services', Settings, [], 'mobilebackgroundservices'),
+          createTopic('Bluetooth', Bluetooth, [], 'mobilebluetooth'),
+          createTopic('NFC', Smartphone, [], 'mobilenfc'),
+          createTopic('Camera', Smartphone, [], 'mobilecamera'),
+          createTopic('Location Services', Map, [], 'mobilelocationservices'),
+          createTopic('Auth', Key, [], 'mobileauth')
     ]
       };
     }
