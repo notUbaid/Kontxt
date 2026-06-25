@@ -4,68 +4,57 @@ import type { Category } from './taxonomies/types';
 import { 
   saasProductionTaxonomy, 
   saasHackathonTaxonomy, 
-  saasPersonalTaxonomy,
-  saasCustomTaxonomy
+  saasPersonalTaxonomy
 } from './taxonomies/saas';
 import {
   mobileProductionTaxonomy,
   mobileHackathonTaxonomy,
-  mobilePersonalTaxonomy,
-  mobileCustomTaxonomy
+  mobilePersonalTaxonomy
 } from './taxonomies/mobile';
 import {
   aiProductionTaxonomy,
   aiHackathonTaxonomy,
-  aiPersonalTaxonomy,
-  aiCustomTaxonomy
+  aiPersonalTaxonomy
 } from './taxonomies/ai';
 import {
   extensionProductionTaxonomy,
   extensionHackathonTaxonomy,
-  extensionPersonalTaxonomy,
-  extensionCustomTaxonomy
+  extensionPersonalTaxonomy
 } from './taxonomies/browser-extension';
 import {
   desktopProductionTaxonomy,
   desktopHackathonTaxonomy,
-  desktopPersonalTaxonomy,
-  desktopCustomTaxonomy
+  desktopPersonalTaxonomy
 } from './taxonomies/desktop';
 import {
   apiProductionTaxonomy,
   apiHackathonTaxonomy,
-  apiPersonalTaxonomy,
-  apiCustomTaxonomy
+  apiPersonalTaxonomy
 } from './taxonomies/api';
 import {
   internalToolProductionTaxonomy,
   internalToolHackathonTaxonomy,
-  internalToolPersonalTaxonomy,
-  internalToolCustomTaxonomy
+  internalToolPersonalTaxonomy
 } from './taxonomies/internal-tool';
 import {
   marketplaceProductionTaxonomy,
   marketplaceHackathonTaxonomy,
-  marketplacePersonalTaxonomy,
-  marketplaceCustomTaxonomy
+  marketplacePersonalTaxonomy
 } from './taxonomies/marketplace';
 import {
   ecommerceProductionTaxonomy,
   ecommerceHackathonTaxonomy,
-  ecommercePersonalTaxonomy,
-  ecommerceCustomTaxonomy
+  ecommercePersonalTaxonomy
 } from './taxonomies/ecommerce';
 import {
   gameProductionTaxonomy,
   gameHackathonTaxonomy,
-  gamePersonalTaxonomy,
-  gameCustomTaxonomy
+  gamePersonalTaxonomy
 } from './taxonomies/game';
 import {
   webProductionTaxonomy,
   webHackathonTaxonomy,
-  webPersonalTaxonomy,
-  webCustomTaxonomy
+  webPersonalTaxonomy
 } from './taxonomies/web';
 
 export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] => {

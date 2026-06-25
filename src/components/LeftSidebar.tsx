@@ -16,9 +16,9 @@ interface LeftSidebarProps {
 export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage, setActivePage, onProjectUpdate }: LeftSidebarProps) => {
   const taxonomy = getTaxonomy(activeType, activeMode);
   
-  // In custom mode, filter out topics the user didn't select
+  // If the user selected custom topics, filter the taxonomy down to just those
   let filteredTaxonomy = taxonomy;
-  if (activeMode === 'Custom' && activeProject.customTopics && activeProject.customTopics.length > 0) {
+  if (activeProject.customTopics && activeProject.customTopics.length > 0) {
     const customFiltered = taxonomy.map(cat => ({
       ...cat,
       topics: cat.topics.filter(t => activeProject.customTopics!.includes(t.id))

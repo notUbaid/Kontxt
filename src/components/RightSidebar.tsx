@@ -269,56 +269,76 @@ Use this context to answer their questions accurately. Keep your answers concise
             <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
               Context Links
             </h3>
-            <span className="text-[10px] bg-muted text-muted-foreground px-1.5 py-0.5 rounded max-w-[120px] truncate" title={activeTopicName}>
-              {activeTopicName}
-            </span>
+            <AnimatePresence mode="wait">
+              <motion.span 
+                key={activeTopicName}
+                initial={{ opacity: 0, x: 5 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -5 }}
+                transition={{ duration: 0.2 }}
+                className="text-[10px] bg-muted text-muted-foreground px-1.5 py-0.5 rounded max-w-[120px] truncate" 
+                title={activeTopicName}
+              >
+                {activeTopicName}
+              </motion.span>
+            </AnimatePresence>
           </div>
           
-          {(activeTopicLinks.length > 0 || topicCustomLinks.length > 0) ? (
-            <div className="grid grid-cols-2 gap-2">
-              {[...topicCustomLinks, ...activeTopicLinks].map((link) => {
-                const actualUrl = customLinks[link.name] || link.url;
-                const bgColor = getDomainColor(actualUrl);
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activePage}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              transition={{ duration: 0.2 }}
+            >
+              {(activeTopicLinks.length > 0 || topicCustomLinks.length > 0) ? (
+                <div className="grid grid-cols-2 gap-2">
+                  {[...topicCustomLinks, ...activeTopicLinks].map((link) => {
+                    const actualUrl = customLinks[link.name] || link.url;
+                    const bgColor = getDomainColor(actualUrl);
 
-                return (
-                  <a
-                    key={link.name}
-                    href={actualUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{ backgroundColor: bgColor }}
-                    className="flex flex-col items-center justify-center gap-2 p-3 rounded-xl border border-border/50 hover:brightness-95 dark:hover:brightness-125 transition-all group relative overflow-hidden"
-                  >
-                    <img 
-                      src={`https://www.google.com/s2/favicons?domain=${new URL(actualUrl).hostname}&sz=32`} 
-                      alt="" 
-                      className="w-5 h-5 rounded-sm opacity-80 group-hover:opacity-100 transition-opacity object-contain drop-shadow-sm"
-                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                    />
-                    <span className="text-[11px] font-semibold text-foreground text-center leading-tight line-clamp-2 px-1">
-                      {link.name}
-                    </span>
-                    <div className="absolute top-1 right-1 flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity bg-background/50 backdrop-blur-md rounded p-0.5 border border-border/50">
-                      <button 
-                        onClick={(e) => handleEditLink(link.name, actualUrl, e)}
-                        className="p-1 hover:scale-110 transition-transform"
-                        title="Edit Link"
+                    return (
+                      <a
+                        key={link.name}
+                        href={actualUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{ backgroundColor: bgColor }}
+                        className="flex flex-col items-center justify-center gap-2 p-3 rounded-xl border border-border/50 hover:brightness-95 dark:hover:brightness-125 transition-all group relative overflow-hidden"
                       >
-                        <Edit2 size={10} className="text-foreground" />
-                      </button>
-                      <div className="p-1">
-                        <ExternalLink size={10} className="text-foreground" />
-                      </div>
-                    </div>
-                  </a>
-                );
-              })}
-            </div>
-          ) : (
-            <div className="text-[11px] text-muted-foreground text-center p-3 border border-dashed border-muted rounded-lg">
-              No specific links for this topic.
-            </div>
-          )}
+                        <img 
+                          src={`https://www.google.com/s2/favicons?domain=${new URL(actualUrl).hostname}&sz=32`} 
+                          alt="" 
+                          className="w-5 h-5 rounded-sm opacity-80 group-hover:opacity-100 transition-opacity object-contain drop-shadow-sm"
+                          onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                        />
+                        <span className="text-[11px] font-semibold text-foreground text-center leading-tight line-clamp-2 px-1">
+                          {link.name}
+                        </span>
+                        <div className="absolute top-1 right-1 flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity bg-background/50 backdrop-blur-md rounded p-0.5 border border-border/50">
+                          <button 
+                            onClick={(e) => handleEditLink(link.name, actualUrl, e)}
+                            className="p-1 hover:scale-110 transition-transform"
+                            title="Edit Link"
+                          >
+                            <Edit2 size={10} className="text-foreground" />
+                          </button>
+                          <div className="p-1">
+                            <ExternalLink size={10} className="text-foreground" />
+                          </div>
+                        </div>
+                      </a>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="text-[11px] text-muted-foreground text-center p-3 border border-dashed border-muted rounded-lg">
+                  No specific links for this topic.
+                </div>
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
 

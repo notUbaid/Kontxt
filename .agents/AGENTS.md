@@ -141,6 +141,7 @@ When writing content for new topics or phases (like Phase 3, Phase 4, etc.):
 3. **NO HOMEWORK**: Do not force the user to type in an input box unless that data is absolutely critical for future context. If it is just for execution, give them a `prompt` block to copy-paste.
 4. **INTERNAL LINKS**: When referencing other topics, ALWAYS create a markdown anchor link to it (e.g., `[MVP Features](#mvpfeatures)`). The anchor is the lowercase, space-stripped name of the topic.
 5. **ESCAPE BACKTICKS**: When writing markdown inside the TypeScript generation scripts (`fallback.ts`), you must escape code block backticks as `\\\`\\\`\\\``.
+6. **NO INLINE CONTEXT LINKS**: Do not inject 'Context Links' or 'External Links' directly into the markdown content of a topic. All context links must be managed strictly via the `quickLinks` array in the respective taxonomy file (e.g. `src/data/taxonomies/saas.ts`). The Right Sidebar UI is responsible for rendering these links.
 
 ### 5. Workflow Execution
 Whenever a large-scale structural change is requested (like rewriting 40+ topics with Deep Content), the AI agent MUST batch the work sequentially (e.g., Batch 1, Batch 2...) to avoid token truncation and ensure maximum quality per mode.

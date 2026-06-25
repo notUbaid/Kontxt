@@ -418,11 +418,7 @@ What is the primary incentive for a user to invite a friend, and how does the re
 
 \`\`\`prompt
 Design a database schema and API flow for tracking a two-sided referral program where both the inviter and invitee receive a premium account credit upon successful signup.
-\`\`\`
-
-## 📚 Context Links
-- [Branch.io Deep Linking & Referrals](https://branch.io/)
-- [React Native Share API](https://reactnative.dev/docs/share)`,
+\`\`\``,
   'reviews-ratings': `# Reviews & Ratings
 
 **🕒 Estimated Time:** Ongoing
@@ -440,11 +436,7 @@ Identify the absolute best "positive moment" in your app's user flow to trigger 
 
 \`\`\`prompt
 Write a React Native hook using \`expo-store-review\` that implements a two-step review prompt strategy, ensuring the native review dialog is only shown to satisfied users after a specific action is completed.
-\`\`\`
-
-## 📚 Context Links
-- [Expo Store Review](https://docs.expo.dev/versions/latest/sdk/store-review/)
-- [App Store Ratings Guide](https://developer.apple.com/app-store/ratings-and-reviews/)`,
+\`\`\``,
   'user-feedback': `# User Feedback Loop
 
 **🕒 Estimated Time:** Ongoing
@@ -462,11 +454,7 @@ How will you categorize and prioritize feature requests vs bug reports coming fr
 
 \`\`\`prompt
 Write a standard operating procedure (SOP) for triaging user feedback received through an in-app support channel, including categorization tags and response SLAs.
-\`\`\`
-
-## 📚 Context Links
-- [Canny (Feature Voting)](https://canny.io/)
-- [Delighted (NPS Surveys)](https://delighted.com/)`,
+\`\`\``,
   'notifications-strategy': `# Notifications Strategy
 
 **🕒 Estimated Time:** Ongoing
@@ -485,11 +473,7 @@ Describe your transactional vs promotional push notification split. How do you e
 
 \`\`\`prompt
 Write a strategy document detailing how to use rich push notifications (with images and action buttons) to increase engagement for a social app, including fallback behavior.
-\`\`\`
-
-## 📚 Context Links
-- [Airship Good Push Guide](https://www.airship.com/resources/guide/the-good-push-index/)
-- [OneSignal Notification Strategies](https://onesignal.com/blog/push-notification-best-practices/)`,
+\`\`\``,
   'release-checklist': `# Release Checklist
 
 **🕒 Estimated Time:** 2 hours
@@ -510,11 +494,7 @@ What is your target launch date, and who is responsible for the final sign-off b
 
 \`\`\`prompt
 Generate a comprehensive pre-launch QA checklist covering authentication, payments, deep linking, and offline states for a React Native app.
-\`\`\`
-
-## 📚 Context Links
-- [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/)
-- [Google Play Launch Checklist](https://developer.android.com/distribute/best-practices/launch/launch-checklist)`,
+\`\`\``,
   'beta-testing': `# Beta Testing
 
 **🕒 Estimated Time:** 1-2 weeks
@@ -532,11 +512,7 @@ How many beta testers are you aiming for, and what specific flows are you asking
 
 \`\`\`prompt
 Write an invitation email to a waitlisted user asking them to join the TestFlight beta, setting clear expectations for bugs and explaining how to submit feedback.
-\`\`\`
-
-## 📚 Context Links
-- [Managing Beta Testers in TestFlight](https://developer.apple.com/help/app-store-connect/test-a-beta-version/manage-beta-testers-and-builds)
-- [Instabug (In-App Bug Reporting)](https://instabug.com/)`,
+\`\`\``,
   'test-tracks': `# Test Tracks
 
 **🕒 Estimated Time:** 2 hours
@@ -553,11 +529,7 @@ Who is on your initial internal testing roster, and what is your exact process f
 
 \`\`\`prompt
 Outline the differences between Google Play Internal, Closed, and Open testing tracks, and recommend a strategy for a startup launching their first app.
-\`\`\`
-
-## 📚 Context Links
-- [TestFlight Setup](https://developer.apple.com/testflight/)
-- [Google Play Testing Tracks](https://support.google.com/googleplay/android-developer/answer/9845334)`,
+\`\`\``,
   'content-rating': `# Content Rating
 
 **🕒 Estimated Time:** 1 hour
@@ -575,11 +547,7 @@ Does your app feature User-Generated Content (UGC)? If so, how will you implemen
 
 \`\`\`prompt
 Generate an implementation checklist for User-Generated Content (UGC) compliance to avoid App Store rejection, including EULA requirements and reporting UI.
-\`\`\`
-
-## 📚 Context Links
-- [Apple App Store Review Guidelines (UGC)](https://developer.apple.com/app-store/review/guidelines/#user-generated-content)
-- [IARC Content Ratings](https://www.globalratings.com/)`,
+\`\`\``,
   'store-listing-seo': `# Store Listing SEO (ASO)
 
 **🕒 Estimated Time:** 4 hours
@@ -598,12 +566,7 @@ What are the top 5 high-volume, low-competition keywords you are targeting for o
 
 \`\`\`prompt
 Write an optimized App Store Subtitle (30 chars max) and a comma-separated keyword list (100 chars max) for a new habit tracking app, focusing on high-intent search terms.
-\`\`\`
-
-## 📚 Context Links
-- [App Store Optimization Basics](https://developer.apple.com/app-store/search/)
-- [Google Play SEO Guide](https://play.google.com/console/about/store-listing/)
-- [AppTweak ASO Tools](https://www.apptweak.com/)`,
+\`\`\``,
   'feature-graphics': `# Feature Graphics
 
 **🕒 Estimated Time:** 1 hour
@@ -621,10 +584,7 @@ Describe the visual concept for your Feature Graphic. What branding elements wil
 
 \`\`\`prompt
 Generate a design brief for a graphic designer to create a Google Play Feature Graphic (1024x500), detailing safe zones, required branding, and the visual hierarchy.
-\`\`\`
-
-## 📚 Context Links
-- [Play Store Feature Graphic Guidelines](https://support.google.com/googleplay/android-developer/answer/9866151#feature_graphic)`,
+\`\`\``,
   'app-icons': `# App Icons
 
 **🕒 Estimated Time:** 2 hours
@@ -644,12 +604,7 @@ Describe the concept for your app icon. How does it stand out on a crowded home 
 
 \`\`\`prompt
 Write a script or list the exact CLI commands needed to generate all required iOS and Android app icon sizes from a single 1024x1024 source image using Expo's asset generation tools.
-\`\`\`
-
-## 📚 Context Links
-- [Expo App Icon Guide](https://docs.expo.dev/guides/app-icons/)
-- [Apple HIG - App Icons](https://developer.apple.com/design/human-interface-guidelines/app-icons)
-- [Android Adaptive Icons](https://developer.android.com/develop/ui/views/launch/icon_design_adaptive)`,
+\`\`\``,
   'app-store-setup': `# App Store Setup
 
 **🕒 Estimated Time:** 4 hours
@@ -670,12 +625,7 @@ Who holds the Account Holder role in the Apple Developer Program, and how will y
 
 \`\`\`prompt
 Outline the complete process for generating an iOS Distribution Certificate, creating a Provisioning Profile, and submitting a build to TestFlight using Expo EAS Submit.
-\`\`\`
-
-## 📚 Context Links
-- [Apple Developer Program](https://developer.apple.com/programs/)
-- [App Store Connect Guide](https://developer.apple.com/app-store-connect/)
-- [Expo EAS Submit for iOS](https://docs.expo.dev/submit/ios/)`,
+\`\`\``,
   'play-store-setup': `# Play Store Setup
 
 **🕒 Estimated Time:** 4 hours
@@ -695,12 +645,7 @@ Who is managing the Google Play Developer account, and what is your strict secur
 
 \`\`\`prompt
 Generate a step-by-step checklist for configuring Play App Signing and uploading the first Android App Bundle (.aab) using Expo EAS Build.
-\`\`\`
-
-## 📚 Context Links
-- [Google Play Console Setup](https://play.google.com/console/about/)
-- [Expo EAS Build for Android](https://docs.expo.dev/build/setup/)
-- [Play Console Data Safety Form](https://support.google.com/googleplay/android-developer/answer/10787469)`,
+\`\`\``,
   'batteryoptimization': `# Battery Optimization
 
 🕒 **Estimated Time:** 1-3 hours
@@ -5072,11 +5017,7 @@ Paste your suggested Title, Short Description, and the key screenshot concept he
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [AppTweak: App Store Optimization (ASO)](https://www.apptweak.com/)\n- [SensorTower: App Market Intelligence](https://sensortower.com/)`,
+\`\`\``,
   'appstoreresearch': `# App Store Research
 
 **Estimated Time:** 1-2 hours
@@ -5658,11 +5599,7 @@ Paste your finalized Mobile MVP PRD here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Y Combinator: How to Evaluate Startup Ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas)\n- [The Lean Canvas Guide](https://leanstack.com/lean-canvas)`,
+\`\`\``,
   'mobileuserflows': `# User Flows
 
 **🕒 Estimated Time:** 30 min
@@ -5724,11 +5661,7 @@ Paste your optimized User Flows here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Mobbin: Mobile UI/UX Patterns](https://mobbin.com/)\n- [Apple HIG: Navigation Interfaces](https://developer.apple.com/design/human-interface-guidelines/navigation)`,
+\`\`\``,
   'appnavigation': `# App Navigation
 
 **🕒 Estimated Time:** 20 min
@@ -5790,11 +5723,7 @@ Paste your exact Navigation Hierarchy (Tabs, Stacks, Modals) here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Mobbin: Mobile UI/UX Patterns](https://mobbin.com/)\n- [Apple HIG: Navigation Interfaces](https://developer.apple.com/design/human-interface-guidelines/navigation)`,
+\`\`\``,
   'mobilewireframes': `# Wireframes
 
 **🕒 Estimated Time:** 45 min
@@ -5862,11 +5791,7 @@ Paste your 3 Text Wireframes here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Nielsen Norman: Empty States in UI Design](https://www.nngroup.com/articles/empty-states/)\n- [Material Design: Communication & Error States](https://m3.material.io/components)`,
+\`\`\``,
   'mobiledesignsystem': `# Design System
 
 **🕒 Estimated Time:** 30 min
@@ -5900,10 +5825,7 @@ Establish your rules:
 
 ## Key Decisions
 - **Dark Mode Support:** Mobile users *expect* dark mode. Your design system must define a "Light" semantic palette and a "Dark" semantic palette from Day 1. If you try to hack dark mode in later, it will take weeks.
-- **UI Frameworks:** Will you build all components from scratch using React Native \`StyleSheet\
-
-## 📚 Context Links
-- [Material 3 Design System](https://m3.material.io/)\n- [Apple HIG: Accessibility Guide](https://developer.apple.com/design/human-interface-guidelines/accessibility)\`, or use a pre-built component library like NativeWind (Tailwind for RN), Tamagui, or React Native Paper? (NativeWind is highly recommended for speed).
+- **UI Frameworks:** Will you build all components from scratch using React Native \`StyleSheet\`, or use a pre-built component library like NativeWind (Tailwind for RN), Tamagui, or React Native Paper? (NativeWind is highly recommended for speed).
 
 ---
 
@@ -6004,11 +5926,7 @@ Paste your finalized App Name, Icon Concept, and Tone of Voice example here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Material 3 Design System](https://m3.material.io/)\n- [Apple HIG: Accessibility Guide](https://developer.apple.com/design/human-interface-guidelines/accessibility)`,
+\`\`\``,
   'mobileaccessibility': `# Accessibility
 
 **🕒 Estimated Time:** 15 min
@@ -6070,11 +5988,7 @@ Paste your React Native Accessibility Checklist here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Material 3 Design System](https://m3.material.io/)\n- [Apple HIG: Accessibility Guide](https://developer.apple.com/design/human-interface-guidelines/accessibility)`,
+\`\`\``,
   'mobileemptystates': `# Empty States
 
 **🕒 Estimated Time:** 15 min
@@ -6135,11 +6049,7 @@ Paste your Empty State copy and CTA strategies here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Nielsen Norman: Empty States in UI Design](https://www.nngroup.com/articles/empty-states/)\n- [Material Design: Communication & Error States](https://m3.material.io/components)`,
+\`\`\``,
   'mobileerrorstates': `# Error States
 
 **🕒 Estimated Time:** 15 min
@@ -6206,11 +6116,7 @@ Paste your Error State copy and UI rules (Toasts vs Modals) here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Nielsen Norman: Empty States in UI Design](https://www.nngroup.com/articles/empty-states/)\n- [Material Design: Communication & Error States](https://m3.material.io/components)`,
+\`\`\``,
   'mobileloadingstates': `# Loading States
 
 **🕒 Estimated Time:** 15 min
@@ -6272,11 +6178,7 @@ Paste your Loading State strategies (Skeletons, Optimistic UI, Button states) he
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Nielsen Norman: Empty States in UI Design](https://www.nngroup.com/articles/empty-states/)\n- [Material Design: Communication & Error States](https://m3.material.io/components)`,
+\`\`\``,
   'mobileplatformstrategy': `# Platform Strategy
 
 **🕒 Estimated Time:** 15 min
@@ -6338,11 +6240,7 @@ Paste your Platform Strategy (e.g., Cross-platform React Native, iOS only) here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Expo Documentation](https://docs.expo.dev/)\n- [React Native vs Flutter Comparison](https://www.appcues.com/blog/react-native-vs-flutter)`,
+\`\`\``,
   'mobilefundamentals': `# Mobile Fundamentals
 
 **🕒 Estimated Time:** 20 min
@@ -6399,11 +6297,7 @@ Paste your notes on App Lifecycle and OTA updating here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Expo Documentation](https://docs.expo.dev/)\n- [React Native vs Flutter Comparison](https://www.appcues.com/blog/react-native-vs-flutter)`,
+\`\`\``,
   'mobiletechstackselection': `# Tech Stack Selection
 
 **🕒 Estimated Time:** 20 min
@@ -6465,11 +6359,7 @@ Paste your finalized Tech Stack (e.g., React Native + Expo + TypeScript) here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Expo Documentation](https://docs.expo.dev/)\n- [React Native vs Flutter Comparison](https://www.appcues.com/blog/react-native-vs-flutter)`,
+\`\`\``,
   'mobilestatemanagement': `# State Management
 
 **🕒 Estimated Time:** 20 min
@@ -6527,11 +6417,7 @@ Paste your chosen State Management stack (e.g., Zustand + React Query) here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [React Query: Data Fetching in React](https://tanstack.com/query/latest)\n- [Supabase: Open Source Firebase Alternative](https://supabase.com/docs)\n- [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)`,
+\`\`\``,
   'mobileapistrategy': `# API Strategy
 
 **🕒 Estimated Time:** 15 min
@@ -6593,11 +6479,7 @@ Paste your API and Data Fetching Strategy here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [React Query: Data Fetching in React](https://tanstack.com/query/latest)\n- [Supabase: Open Source Firebase Alternative](https://supabase.com/docs)\n- [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)`,
+\`\`\``,
   'mobilelocalstorage': `# Local Storage
 
 **🕒 Estimated Time:** 15 min
@@ -6622,10 +6504,7 @@ What needs to survive an app restart?
 ## Key Decisions
 - **AsyncStorage vs SecureStore:**
   - For non-sensitive data (like theme preferences or cached JSON), use \`AsyncStorage\` (or faster alternatives like \`MMKV\`).
-  - For sensitive data (like passwords, auth tokens, or API keys), you MUST use \`expo-secure-store\
-
-## 📚 Context Links
-- [React Query: Data Fetching in React](https://tanstack.com/query/latest)\n- [Supabase: Open Source Firebase Alternative](https://supabase.com/docs)\n- [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)\`, which encrypts the data using the device's native Keychain (iOS) or Keystore (Android).
+  - For sensitive data (like passwords, auth tokens, or API keys), you MUST use \`expo-secure-store\`, which encrypts the data using the device's native Keychain (iOS) or Keystore (Android).
 - **High-Performance Storage:** If you are building a data-heavy app that needs to search through thousands of records offline, AsyncStorage is too slow. You will need a local SQLite database or a high-performance key-value store like MMKV.
 
 ---
@@ -6717,11 +6596,7 @@ Paste your chosen Auth Provider and Login Methods here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [React Query: Data Fetching in React](https://tanstack.com/query/latest)\n- [Supabase: Open Source Firebase Alternative](https://supabase.com/docs)\n- [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)`,
+\`\`\``,
   'mobiledatabase': `# Database
 
 **🕒 Estimated Time:** 20 min
@@ -6785,11 +6660,7 @@ Paste your chosen Database Engine and Schema Draft here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [React Query: Data Fetching in React](https://tanstack.com/query/latest)\n- [Supabase: Open Source Firebase Alternative](https://supabase.com/docs)\n- [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)`,
+\`\`\``,
   'mobilebackend': `# Backend
 
 **🕒 Estimated Time:** 15 min
@@ -6852,11 +6723,7 @@ Paste your Backend Strategy (BaaS vs Custom Server) and list of required server 
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [React Query: Data Fetching in React](https://tanstack.com/query/latest)\n- [Supabase: Open Source Firebase Alternative](https://supabase.com/docs)\n- [Expo SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)`,
+\`\`\``,
   'mobilepushnotifications': `# Push Notifications
 
 **🕒 Estimated Time:** 20 min
@@ -6913,11 +6780,7 @@ Paste your Notification Provider choice and your "Warm Up" strategy here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Expo Push Notifications](https://docs.expo.dev/push-notifications/overview/)\n- [Branch.io: Deep Linking for Mobile](https://branch.io/)`,
+\`\`\``,
   'mobiledeeplinking': `# Deep Linking
 
 **🕒 Estimated Time:** 15 min
@@ -6975,11 +6838,7 @@ Paste your Deep Linking strategy and React Navigation config structure here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Expo Push Notifications](https://docs.expo.dev/push-notifications/overview/)\n- [Branch.io: Deep Linking for Mobile](https://branch.io/)`,
+\`\`\``,
   'mobilefilestorage': `# File Storage
 
 **🕒 Estimated Time:** 15 min
@@ -7036,11 +6895,7 @@ Paste your Storage Provider choice and Image Compression library here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [WatermelonDB: Offline-first React Native Database](https://watermelondb.dev/)\n- [React Native NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)`,
+\`\`\``,
   'mobileofflinestrategy': `# Offline Strategy
 
 **🕒 Estimated Time:** 20 min
@@ -7097,11 +6952,7 @@ Paste your chosen Offline Architecture (Caching vs Full Sync) here.
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [WatermelonDB: Offline-first React Native Database](https://watermelondb.dev/)\n- [React Native NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)`,
+\`\`\``,
   'mobileanalyticsstrategy': `# Analytics Strategy
 
 **🕒 Estimated Time:** 15 min
@@ -7157,11 +7008,7 @@ Paste your Analytics Tooling (e.g., PostHog + Sentry) and the 5 Custom Events yo
 
 \`\`\`input
 ✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [PostHog: Open Source Product Analytics](https://posthog.com/)\n- [AWS Pricing Calculator](https://calculator.aws/)`,
+\`\`\``,
   'mobilecostestimation': `# Cost Estimation
 
 **🕒 Estimated Time:** 15 min

@@ -1,6 +1,6 @@
 import { Suspense, lazy, useState } from 'react';
 import { 
-  Rocket, User, Building2, Sliders, FolderOpen, Plus, ArrowRight,
+  Rocket, User, Building2, FolderOpen, Plus, ArrowRight,
   Cloud, Smartphone, Globe, Brain, Puzzle, Monitor, Server, Wrench,
   Store, ShoppingCart, Gamepad2, AlertTriangle
 } from 'lucide-react';
@@ -88,7 +88,6 @@ const MODE_DESCRIPTIONS: Partial<Record<AppType, Record<Mode, string>>> = {
     'Hackathon': 'Playable demo. Core loop, basic art, skip multiplayer.',
     'Personal': 'Polished game with save system, audio, and store-ready.',
     'Production': 'Live ops, multiplayer, anti-cheat, analytics, seasonal content.',
-    'Custom': 'Choose your game architecture modules à la carte.',
   },
 };
 
