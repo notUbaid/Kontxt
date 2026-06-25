@@ -127,8 +127,16 @@ Kontxt is a highly dynamic, guided playbook platform. It does not write the code
 ### 2. Who We Are Building For
 The users of Kontxt are developers, founders, and product managers. They already have access to powerful AI coding assistants (like Cursor or Windsurf). Kontxt is not trying to compete with those tools. Kontxt exists to tell the user *what* to ask those tools, *how* to architect the system, and *when* to move to the next step.
 
-### 3. The 4 Modes Philosophy
-Every piece of advice in the platform must be filtered through one of 4 modes:
+### 3. The "Builds vs. Modes" Architecture
+Kontxt organizes content into a strict two-tier hierarchy: **Builds** and **Modes**.
+
+**A. Builds (The Taxonomy Tracks)**
+A "Build" represents the high-level platform or architecture being developed (e.g., `SaaS Web App`, `Mobile App`). Each Build has its own distinct taxonomy file (e.g., `saas.ts`, `mobile.ts`) which defines the exact phases and topics the user will traverse. Topics between different Builds must never collide (e.g., use `mobile...` prefixes for Mobile topic IDs to isolate them from Web SaaS topics).
+
+**B. Modes (The Strategic Lenses)**
+Every Build is further filtered through one of 4 "Modes". The Mode dictates the *Strategic Guidance* rendered within a single topic string. A topic string (e.g., `mobileauth` in `fallback.ts`) must support all 4 Modes via markdown headers (`### Hackathon Mode`, `### Personal Project`, etc.).
+
+The 4 Modes are:
 - **Hackathon Mode**: Optimize strictly for speed, visual "wow factor", and the demo. Cut corners, fake data, ignore scale.
 - **Personal Project**: Optimize for learning, zero-cost maintenance (free tiers), and personal utility.
 - **Production SaaS**: Optimize for revenue, scalability, security, and solving a highly painful "Hair on Fire" problem.
