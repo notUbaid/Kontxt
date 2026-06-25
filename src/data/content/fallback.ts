@@ -1852,14 +1852,30 @@ Kontxt is a guided software-building platform that teaches you how to think like
 An idea is just a multiplier of execution. Choosing the right idea dictates how hard the execution will be.
 
 ## Strategic Guidance
-- **Hackathon Mode:** Your idea should optimize for "wow factor" and technical complexity. Judges love flashy tech (AI, Web3, 3D). Business viability does not matter; visual impact does.
-- **Personal Project:** Choose an idea that forces you to learn a new stack or tool you want on your resume. Keep the scope small enough that you can actually finish it.
-- **Production SaaS:** Your idea must solve a highly painful, monetizable problem. Flashy tech does not matter; solving the pain matters. If people won't pay for it, don't build it.
-- **Custom Mode:** Every aspect of this idea must be validated through rigorous enterprise-grade market analysis. If the Total Addressable Market (TAM) cannot support a $100M+ valuation, discard it immediately.
+
+### Hackathon Mode
+Your idea should optimize for "wow factor" and technical complexity. Judges love flashy tech (Generative AI, WebGL, Real-time collaboration). Business viability does not matter; visual impact does. 
+
+If your idea is "a better to-do app," you will lose, no matter how clean the code is. Your idea must have a demo that makes people say "Whoa" within the first 15 seconds.
+
+### Personal Project
+Choose an idea that forces you to learn a new stack or tool you want on your resume. If you want to learn WebSockets, build a chat app. If you want to learn AI, build a RAG application.
+
+Keep the scope small enough that you can actually finish it. A finished simple project is worth 100x more than an unfinished complex project.
+
+### Production SaaS
+Your idea must solve a highly painful, monetizable problem. Flashy tech does not matter; solving the pain matters. 
+
+If people are currently using a messy spreadsheet and duct-taping it to Zapier, that is a billion-dollar idea. If they are just mildly annoyed but not losing money, discard the idea. If people won't pay for it on Day 1, do not write a single line of code.
+
+### Custom Mode
+Every aspect of this idea must be validated through rigorous enterprise-grade market analysis. 
+
+If the Total Addressable Market (TAM) cannot support a $100M+ valuation, it is not worth your time. You must validate the idea with at least 10 enterprise buyers before writing code. Your idea must eventually become a "platform," not just a "tool."
 
 ## The Core Concept
 \`\`\`input
-Paste your core idea here...
+Write Here...
 \`\`\`
 `,
   'problemstatement': `# Problem Statement
@@ -1954,13 +1970,34 @@ Act as a B2B Sales Executive. Based on my idea: [PASTE IDEA], define the exact I
 ---
 
 ## Why this matters
-Personas humanize your target users. They help you design the UI. For example, a persona for a 65-year-old accountant needs larger text and higher contrast than a persona for a 20-year-old gamer.
+Personas humanize your target users. They help you design the UI and dictate your copywriting. If you don't know exactly who is sitting on the other side of the screen, you will build generic software that nobody loves.
 
 ## Strategic Guidance
-- **Hackathon Mode:** Keep it simple. One user persona.
-- **Personal Project:** Just you.
-- **Production SaaS:** Differentiate between the "User" (who clicks the buttons) and the "Buyer" (who signs the check). They often want different things.
-- **Custom Mode:** Map out the entire buying committee (End User, Champion, Economic Buyer, Security Assessor).
+
+### Hackathon Mode
+When building for a hackathon, personas are less about deep psychological profiling and more about identifying the "wow factor" for the judges. 
+
+Don't waste time interviewing users. Pick one extreme persona that makes your demo look incredible. For example, if you are building an AI email writer, your persona isn't "a business owner"—it's "a dyslexic teenager trying to write college applications." The extreme persona makes the demo shine.
+
+### Personal Project
+For a personal project, the persona is usually you. You are scratching your own itch.
+
+However, it's still worth documenting *why* you are frustrated. What workflow is currently breaking for you? By writing this down, you ensure you don't lose sight of the original problem when you start getting distracted by shiny new frameworks.
+
+### Production SaaS
+In a Production SaaS, you must differentiate between the "User" (who clicks the buttons) and the "Buyer" (who signs the check). They often want completely different things.
+
+For example, if you are building HR software, the User (the employee) wants a beautiful, fast UI. The Buyer (the HR Director) wants deep analytics and compliance tracking. If you only build for the User, you will never get paid. If you only build for the Buyer, the Users will hate your software.
+
+### Custom Mode
+In an enterprise environment, the End User is rarely the person who signs the check. You must map out the entire buying committee. A standard B2B enterprise deal involves at least 4 personas:
+
+1. **The Champion**: The person who loves your product and fights for it internally.
+2. **The Economic Buyer**: The VP who controls the budget and signs the contract.
+3. **The Security Assessor**: The IT admin who will block the deal entirely if you aren't SOC2 compliant.
+4. **The End User**: The employee forced to use your tool every day.
+
+You must design features and marketing materials tailored to *every single one* of these personas.
 
 ## Accountability Check
 - [ ] I understand the difference between the user and the buyer.

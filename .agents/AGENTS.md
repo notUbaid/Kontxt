@@ -96,13 +96,24 @@ Ensure logical sections are separated by `---` with blank lines before and after
 Kontxt supports different project "Modes". When generating topic content, you MUST include a `## Strategic Guidance` section if the strategic approach or technical implementation changes drastically based on the mode.
 
 **CRITICAL RULE - NO EMOJIS ALLOWED**: You are strictly banned from using emojis anywhere in this project. Do not use emojis in headings, bullet points, text, or code. Do not use the pen emoji for inputs. Do not use emojis for the Mode prefixes.
+**CRITICAL RULE - DEEP CONTENT REQUIRED**: Single sentence advice is useless. You MUST write rich, robust, multi-paragraph educational content for each mode.
 
 The structure should look like this:
 ```markdown
 ## Strategic Guidance
-- **Hackathon Mode:** [Advice for speed, avoiding this step, faking the backend, etc.]
-- **Personal Project:** [Advice for solo-devs, learning, zero-cost tools, maintainability.]
-- **Production SaaS:** [Advice for scalability, security, rigorous validation, charging money.]
-- **Custom Mode:** [Advice for enterprise scale, compliance, etc.]
+
+### Hackathon Mode
+[Write a robust paragraph explaining the Hackathon philosophy for this specific topic.]
+- Focus on speed.
+- Build for the demo.
+
+### Personal Project
+[Write a robust paragraph explaining the Personal Project philosophy.]
+
+### Production SaaS
+[Write a robust paragraph detailing enterprise-grade concerns, performance, and best practices.]
+
+### Custom Mode
+[Write a rigorous paragraph detailing extremely high-scale, compliance, and enterprise procurement considerations.]
 ```
 Use this to ensure Hackathon users don't get bogged down in rigorous Production-level validation, and Production users don't skip critical security steps.
