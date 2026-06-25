@@ -37,6 +37,58 @@ export const universalLinks: QuickLink[] = [
 export const generateId = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '');
 
 export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
+  // SaaS & General Discovery Links
+  'ideadefinition': [
+    { name: 'Y Combinator: How to Evaluate Startup Ideas', url: 'https://www.ycombinator.com/library/8g-how-to-get-startup-ideas' },
+    { name: 'The Lean Canvas Guide', url: 'https://leanstack.com/lean-canvas' }
+  ],
+  'problemstatement': [
+    { name: 'YC: How to get Startup Ideas', url: 'https://www.ycombinator.com/library/8g-how-to-get-startup-ideas' },
+    { name: 'Lean Canvas', url: 'https://leanstack.com/lean-canvas' }
+  ],
+  'targetusers': [
+    { name: 'Nielsen Norman: User Personas', url: 'https://www.nngroup.com/articles/persona/' },
+    { name: 'HubSpot: Buyer Personas', url: 'https://blog.hubspot.com/marketing/buyer-persona-research' }
+  ],
+  'icpidealcustomerprofile': [
+    { name: 'How to build an ICP', url: 'https://blog.hubspot.com/marketing/buyer-persona-research' }
+  ],
+  'personas': [
+    { name: 'Nielsen Norman: User Personas', url: 'https://www.nngroup.com/articles/persona/' }
+  ],
+  'solutionstatement': [
+    { name: 'YC: How to Pitch', url: 'https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising' }
+  ],
+  'elevatorpitch': [
+    { name: 'YC: How to Pitch', url: 'https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising' }
+  ],
+  'competitoranalysis': [
+    { name: 'AppTweak (ASO)', url: 'https://www.apptweak.com/' },
+    { name: 'SensorTower', url: 'https://sensortower.com/' },
+    { name: 'G2 Software Reviews', url: 'https://www.g2.com/' }
+  ],
+  'mvpfeatures': [
+    { name: 'MoSCoW Prioritization Method', url: 'https://www.productplan.com/glossary/moscow-prioritization/' },
+    { name: 'YC: How to Plan an MVP', url: 'https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising' }
+  ],
+  'futurefeatures': [
+    { name: 'MoSCoW Prioritization Method', url: 'https://www.productplan.com/glossary/moscow-prioritization/' }
+  ],
+  'featureprioritization': [
+    { name: 'MoSCoW Prioritization', url: 'https://www.productplan.com/glossary/moscow-prioritization/' }
+  ],
+  'businessmodel': [
+    { name: 'State of Subscription Apps', url: 'https://www.revenuecat.com/state-of-subscription-apps/' },
+    { name: 'Apple Monetization Guidelines', url: 'https://developer.apple.com/app-store/business-models/' }
+  ],
+  'pricing': [
+    { name: 'State of Subscription Apps', url: 'https://www.revenuecat.com/state-of-subscription-apps/' }
+  ],
+  'subscriptionmodel': [
+    { name: 'RevenueCat State of Subscriptions', url: 'https://www.revenuecat.com/state-of-subscription-apps/' }
+  ],
+
+  // Mobile specific links
   'crashreporting': [
     { name: 'Sentry Crash Reporting', url: 'https://docs.sentry.io/platforms/react-native/' },
     { name: 'Crashlytics for React Native', url: 'https://rnfirebase.io/crashlytics/usage' }
