@@ -1,4 +1,4144 @@
 export const fallbackContent: Record<string, string> = {
+  'apifeaturerequests': `
+# Feature Requests
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Feature Requests during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Feature Requests represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Feature Requests is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Feature Requests?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Feature Requests component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Feature Requests.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apipricingevolution': `
+# Pricing Evolution
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Pricing Evolution during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Pricing Evolution represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Pricing Evolution is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Pricing Evolution?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Pricing Evolution component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Pricing Evolution.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apicustomerfeedback': `
+# Customer Feedback
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Customer Feedback during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Customer Feedback represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Customer Feedback is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Customer Feedback?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Customer Feedback component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Customer Feedback.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiusagemonitoring': `
+# Usage Monitoring
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Usage Monitoring during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Usage Monitoring represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Usage Monitoring is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Usage Monitoring?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Usage Monitoring component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Usage Monitoring.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apibetaprogram': `
+# Beta Program
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Beta Program during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Beta Program represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Beta Program is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Beta Program?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Beta Program component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Beta Program.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiroadmap': `
+# Roadmap
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Roadmap during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Roadmap represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Roadmap is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Roadmap?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Roadmap component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Roadmap.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apianalytics': `
+# Analytics
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Analytics during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Analytics represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Analytics is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Analytics?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Analytics component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Analytics.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apistatuspage': `
+# Status Page
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Status Page during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Status Page represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Status Page is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Status Page?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Status Page component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Status Page.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apichangelog': `
+# Changelog
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Changelog during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Changelog represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Changelog is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Changelog?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Changelog component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Changelog.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiquickstartguide': `
+# Quick Start Guide
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Quick Start Guide during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Quick Start Guide represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Quick Start Guide is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Quick Start Guide?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Quick Start Guide component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Quick Start Guide.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiexampleresponses': `
+# Example Responses
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Example Responses during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Example Responses represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Example Responses is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Example Responses?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Example Responses component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Example Responses.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiexamplerequests': `
+# Example Requests
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Example Requests during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Example Requests represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Example Requests is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Example Requests?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Example Requests component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Example Requests.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiinteractiveplayground': `
+# Interactive Playground
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Interactive Playground during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Interactive Playground represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Interactive Playground is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Interactive Playground?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Interactive Playground component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Interactive Playground.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiopenapispec': `
+# OpenAPI Spec
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building OpenAPI Spec during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, OpenAPI Spec represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, OpenAPI Spec is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to OpenAPI Spec?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the OpenAPI Spec component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for OpenAPI Spec.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apipostmancollection': `
+# Postman Collection
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Postman Collection during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Postman Collection represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Postman Collection is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Postman Collection?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Postman Collection component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Postman Collection.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apisdks': `
+# SDKs
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building SDKs during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, SDKs represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, SDKs is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to SDKs?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the SDKs component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for SDKs.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiapidocumentation': `
+# API Documentation
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building API Documentation during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, API Documentation represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, API Documentation is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to API Documentation?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the API Documentation component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for API Documentation.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiscalabilityplanning': `
+# Scalability Planning
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Scalability Planning during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Scalability Planning represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Scalability Planning is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Scalability Planning?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Scalability Planning component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Scalability Planning.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apidisasterrecovery': `
+# Disaster Recovery
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Disaster Recovery during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Disaster Recovery represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Disaster Recovery is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Disaster Recovery?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Disaster Recovery component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Disaster Recovery.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apibackupstrategy': `
+# Backup Strategy
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Backup Strategy during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Backup Strategy represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Backup Strategy is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Backup Strategy?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Backup Strategy component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Backup Strategy.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiloadtesting': `
+# Load Testing
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Load Testing during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Load Testing represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Load Testing is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Load Testing?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Load Testing component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Load Testing.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiddosprotection': `
+# DDoS Protection
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building DDoS Protection during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, DDoS Protection represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, DDoS Protection is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to DDoS Protection?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the DDoS Protection component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for DDoS Protection.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiabuseprevention': `
+# Abuse Prevention
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Abuse Prevention during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Abuse Prevention represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Abuse Prevention is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Abuse Prevention?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Abuse Prevention component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Abuse Prevention.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apicicd': `
+# CI/CD
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building CI/CD during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, CI/CD represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, CI/CD is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to CI/CD?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the CI/CD component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for CI/CD.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apicaching': `
+# Caching
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Caching during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Caching represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Caching is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Caching?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Caching component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Caching.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apierrortracking': `
+# Error Tracking
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Error Tracking during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Error Tracking represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Error Tracking is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Error Tracking?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Error Tracking component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Error Tracking.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apilogging': `
+# Logging
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Logging during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Logging represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Logging is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Logging?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Logging component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Logging.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apimonitoring': `
+# Monitoring
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Monitoring during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Monitoring represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Monitoring is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Monitoring?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Monitoring component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Monitoring.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiperformanceoptimization': `
+# Performance Optimization
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Performance Optimization during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Performance Optimization represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Performance Optimization is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Performance Optimization?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Performance Optimization component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Performance Optimization.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apisecurity': `
+# Security
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Security during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Security represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Security is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Security?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Security component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Security.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apisdkdevelopment': `
+# SDK Development
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building SDK Development during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, SDK Development represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, SDK Development is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to SDK Development?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the SDK Development component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for SDK Development.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiqueues': `
+# Queues
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Queues during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Queues represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Queues is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Queues?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Queues component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Queues.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apibackgroundjobs': `
+# Background Jobs
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Background Jobs during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Background Jobs represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Background Jobs is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Background Jobs?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Background Jobs component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Background Jobs.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiwebhooks': `
+# Webhooks
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Webhooks during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Webhooks represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Webhooks is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Webhooks?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Webhooks component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Webhooks.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apibilling': `
+# Billing
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Billing during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Billing represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Billing is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Billing?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Billing component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Billing.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiauthorization': `
+# Authorization
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Authorization during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Authorization represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Authorization is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Authorization?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Authorization component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Authorization.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiapiimplementation': `
+# API Implementation
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building API Implementation during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, API Implementation represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, API Implementation is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to API Implementation?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the API Implementation component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for API Implementation.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiratelimiting': `
+# Rate Limiting
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Rate Limiting during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Rate Limiting represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Rate Limiting is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Rate Limiting?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Rate Limiting component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Rate Limiting.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apidocumentation': `
+# Documentation
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Documentation during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Documentation represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Documentation is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Documentation?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Documentation component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Documentation.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apitesting': `
+# Testing
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Testing during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Testing represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Testing is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Testing?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Testing component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Testing.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apidatabase': `
+# Database
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Database during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Database represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Database is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Database?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Database component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Database.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apitracing': `
+# Tracing
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Tracing during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Tracing represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Tracing is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Tracing?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Tracing component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Tracing.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apimetrics': `
+# Metrics
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Metrics during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Metrics represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Metrics is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Metrics?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Metrics component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Metrics.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apilogs': `
+# Logs
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Logs during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Logs represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Logs is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Logs?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Logs component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Logs.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apimonitoringarchitecture': `
+# Monitoring Architecture
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Monitoring Architecture during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Monitoring Architecture represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Monitoring Architecture is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Monitoring Architecture?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Monitoring Architecture component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Monitoring Architecture.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apisubscriptions': `
+# Subscriptions
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Subscriptions during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Subscriptions represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Subscriptions is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Subscriptions?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Subscriptions component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Subscriptions.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiquotas': `
+# Quotas
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Quotas during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Quotas represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Quotas is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Quotas?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Quotas component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Quotas.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apimetering': `
+# Metering
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Metering during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Metering represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Metering is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Metering?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Metering component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Metering.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiusagetracking': `
+# Usage Tracking
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Usage Tracking during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Usage Tracking represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Usage Tracking is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Usage Tracking?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Usage Tracking component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Usage Tracking.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apibillingarchitecture': `
+# Billing Architecture
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Billing Architecture during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Billing Architecture represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Billing Architecture is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Billing Architecture?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Billing Architecture component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Billing Architecture.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiserviceaccounts': `
+# Service Accounts
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Service Accounts during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Service Accounts represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Service Accounts is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Service Accounts?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Service Accounts component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Service Accounts.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apijwt': `
+# JWT
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building JWT during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, JWT represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, JWT is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to JWT?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the JWT component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for JWT.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apioauth': `
+# OAuth
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building OAuth during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, OAuth represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, OAuth is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to OAuth?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the OAuth component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for OAuth.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiapikeys': `
+# API Keys
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building API Keys during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, API Keys represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, API Keys is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to API Keys?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the API Keys component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for API Keys.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiratelimits': `
+# Rate Limits
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Rate Limits during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Rate Limits represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Rate Limits is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Rate Limits?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Rate Limits component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Rate Limits.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apirouting': `
+# Routing
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Routing during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Routing represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Routing is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Routing?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Routing component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Routing.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiapigateway': `
+# API Gateway
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building API Gateway during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, API Gateway represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, API Gateway is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to API Gateway?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the API Gateway component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for API Gateway.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apidatabasearchitecture': `
+# Database Architecture
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Database Architecture during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Database Architecture represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Database Architecture is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Database Architecture?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Database Architecture component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Database Architecture.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiapifundamentals': `
+# API Fundamentals
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building API Fundamentals during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, API Fundamentals represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, API Fundamentals is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to API Fundamentals?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the API Fundamentals component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for API Fundamentals.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apicostestimation': `
+# Cost Estimation
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Cost Estimation during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Cost Estimation represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Cost Estimation is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Cost Estimation?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Cost Estimation component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Cost Estimation.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiauthentication': `
+# Authentication
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Authentication during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Authentication represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Authentication is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Authentication?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Authentication component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Authentication.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apitechstackselection': `
+# Tech Stack Selection
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Tech Stack Selection during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Tech Stack Selection represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Tech Stack Selection is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Tech Stack Selection?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Tech Stack Selection component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Tech Stack Selection.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apisupport': `
+# Support
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Support during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Support represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Support is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Support?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Support component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Support.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiissuereporting': `
+# Issue Reporting
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Issue Reporting during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Issue Reporting represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Issue Reporting is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Issue Reporting?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Issue Reporting component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Issue Reporting.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiupgrading': `
+# Upgrading
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Upgrading during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Upgrading represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Upgrading is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Upgrading?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Upgrading component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Upgrading.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apidebugging': `
+# Debugging
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Debugging during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Debugging represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Debugging is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Debugging?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Debugging component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Debugging.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiintegration': `
+# Integration
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Integration during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Integration represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Integration is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Integration?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Integration component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Integration.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apidiscovery': `
+# Discovery
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Discovery during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Discovery represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Discovery is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Discovery?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Discovery component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Discovery.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiapidocumentationstrategy': `
+# API Documentation Strategy
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building API Documentation Strategy during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, API Documentation Strategy represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, API Documentation Strategy is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to API Documentation Strategy?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the API Documentation Strategy component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for API Documentation Strategy.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apisdkstrategy': `
+# SDK Strategy
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building SDK Strategy during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, SDK Strategy represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, SDK Strategy is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to SDK Strategy?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the SDK Strategy component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for SDK Strategy.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiauthorizationstrategy': `
+# Authorization Strategy
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Authorization Strategy during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Authorization Strategy represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Authorization Strategy is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Authorization Strategy?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Authorization Strategy component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Authorization Strategy.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiauthenticationstrategy': `
+# Authentication Strategy
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Authentication Strategy during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Authentication Strategy represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Authentication Strategy is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Authentication Strategy?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Authentication Strategy component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Authentication Strategy.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiratelimitingstrategy': `
+# Rate Limiting Strategy
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Rate Limiting Strategy during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Rate Limiting Strategy represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Rate Limiting Strategy is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Rate Limiting Strategy?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Rate Limiting Strategy component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Rate Limiting Strategy.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiversioningstrategy': `
+# Versioning Strategy
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Versioning Strategy during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Versioning Strategy represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Versioning Strategy is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Versioning Strategy?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Versioning Strategy component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Versioning Strategy.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiapistandards': `
+# API Standards
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building API Standards during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, API Standards represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, API Standards is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to API Standards?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the API Standards component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for API Standards.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apierrordesign': `
+# Error Design
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Error Design during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Error Design represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Error Design is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Error Design?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Error Design component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Error Design.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiresponsedesign': `
+# Response Design
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Response Design during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Response Design represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Response Design is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Response Design?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Response Design component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Response Design.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apirequestdesign': `
+# Request Design
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Request Design during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Request Design represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Request Design is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Request Design?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Request Design component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Request Design.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiendpointplanning': `
+# Endpoint Planning
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Endpoint Planning during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Endpoint Planning represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Endpoint Planning is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Endpoint Planning?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Endpoint Planning component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Endpoint Planning.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiapiresources': `
+# API Resources
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building API Resources during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, API Resources represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, API Resources is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to API Resources?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the API Resources component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for API Resources.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiprd': `
+# PRD
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building PRD during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, PRD represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, PRD is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to PRD?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the PRD component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for PRD.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiusecases': `
+# Use Cases
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Use Cases during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Use Cases represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Use Cases is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Use Cases?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Use Cases component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Use Cases.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apimonetizationmodel': `
+# Monetization Model
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Monetization Model during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Monetization Model represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Monetization Model is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Monetization Model?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Monetization Model component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Monetization Model.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apitargetdevelopers': `
+# Target Developers
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Target Developers during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Target Developers represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Target Developers is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Target Developers?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Target Developers component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Target Developers.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiapiusecase': `
+# API Use Case
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building API Use Case during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, API Use Case represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, API Use Case is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to API Use Case?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the API Use Case component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for API Use Case.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiproblemdefinition': `
+# Problem Definition
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Problem Definition during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Problem Definition represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Problem Definition is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Problem Definition?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Problem Definition component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Problem Definition.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apisuccessmetrics': `
+# Success Metrics
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Success Metrics during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Success Metrics represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Success Metrics is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Success Metrics?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Success Metrics component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Success Metrics.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apifeatureplanning': `
+# Feature Planning
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Feature Planning during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Feature Planning represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Feature Planning is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Feature Planning?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Feature Planning component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Feature Planning.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apicompetitoranalysis': `
+# Competitor Analysis
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building Competitor Analysis during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, Competitor Analysis represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, Competitor Analysis is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to Competitor Analysis?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the Competitor Analysis component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Competitor Analysis.
+- [ ] I have tested the edge cases and error states.
+`,
+
+  'apiicpidealcustomerprofile': `
+# ICP (Ideal Customer Profile)
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building ICP (Ideal Customer Profile) during a hackathon, speed is the only metric that matters. Your goal is not to build a robust, scalable system that can handle millions of requests, but rather to prove that the core functionality works. In the context of an API product, this means hardcoding configuration values, skipping comprehensive error handling, and relying heavily on generic templates or managed services. 
+
+Don't spend hours agonizing over the perfect RESTful namespace or GraphQL schema. If a flat JSON structure gets the job done for your demo, use it. Your API consumers for a hackathon are usually just your frontend developers or the judges. Optimize for the "happy path" and mock any external dependencies that take too long to integrate. 
+
+### Personal Project
+For a personal project, ICP (Ideal Customer Profile) represents an incredible learning opportunity. This is where you should experiment with modern standards and best practices without the looming pressure of enterprise scale. Take the time to read the documentation for the tools you are integrating, and try to build a clean, modular architecture.
+
+While you don't need to implement military-grade rate limiting or multi-region failovers, you should strive for a system that you would be proud to showcase in your portfolio. Use this phase to document your decisions—why did you choose this specific approach? Writing clear inline comments and maintaining a solid README will set a fantastic foundation for any future developers (or future you) who might explore this codebase.
+
+### Production SaaS
+In a Production SaaS environment, ICP (Ideal Customer Profile) is mission-critical. API products are judged by their reliability, security, and developer experience (DX). A failure here doesn't just mean a broken UI; it means breaking the businesses of every customer who relies on your infrastructure. 
+
+You must implement robust logging, comprehensive monitoring, and strict SLA guarantees. Consider how this system will handle dramatic spikes in traffic (the "Thundering Herd" problem). Security must be a primary focus: implement strict rate limiting, robust authentication/authorization checks (like OAuth 2.0 or JWT), and payload validation to prevent injection attacks. Furthermore, your documentation must be pristine—your API is only as good as the developers' ability to understand and consume it. Treat your API as a first-class product interface.
+
+---
+
+## Actionable Execution
+
+**What are the primary endpoints or resources related to ICP (Ideal Customer Profile)?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal API Architect. I am building the ICP (Ideal Customer Profile) component for a new API-first product. Based on best practices for performance, security, and DX, how should I design the schema and endpoints for this feature? Provide a concrete example using OpenAPI/Swagger syntax.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for ICP (Ideal Customer Profile).
+- [ ] I have tested the edge cases and error states.
+`,
+
   'mobiletesting': `# Testing
 
 ≡ƒòÆ **Estimated Time:** 4-8 hours
