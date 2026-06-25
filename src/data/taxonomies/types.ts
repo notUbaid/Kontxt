@@ -159,6 +159,59 @@ export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
     { name: 'Adjust: Session Lengths', url: 'https://www.adjust.com/glossary/session-length/' },
     { name: 'Firebase: Session Metrics', url: 'https://firebase.google.com/docs/analytics/session-metrics' }
   ],
+  
+  // Mobile App Phase 1
+  'mobileprd': [
+    { name: 'Lenny: Writing PRDs', url: 'https://www.lennysnewsletter.com/p/product-requirements-document-prd' },
+    { name: 'Linear (Issue Tracking)', url: 'https://linear.app/' },
+    { name: 'Notion (Roadmaps)', url: 'https://www.notion.so/' }
+  ],
+  'mobileuserflows': [
+    { name: 'FigJam User Flows', url: 'https://www.figma.com/figjam/user-flows/' },
+    { name: 'Mobbin (App UX Flows)', url: 'https://mobbin.com/' },
+    { name: 'NNGroup: User Journeys', url: 'https://www.nngroup.com/articles/journey-mapping-101/' }
+  ],
+  'appnavigation': [
+    { name: 'Apple HIG: Navigation', url: 'https://developer.apple.com/design/human-interface-guidelines/navigation' },
+    { name: 'Material Design: Navigation', url: 'https://m3.material.io/components/navigation-bar/overview' },
+    { name: 'React Navigation', url: 'https://reactnavigation.org/' }
+  ],
+  'mobilewireframes': [
+    { name: 'Figma for Mobile UI', url: 'https://www.figma.com/' },
+    { name: 'Balsamiq Wireframes', url: 'https://balsamiq.com/' },
+    { name: 'Apple UI Design Resources', url: 'https://developer.apple.com/design/resources/' }
+  ],
+  'mobiledesignsystem': [
+    { name: 'Material Design 3', url: 'https://m3.material.io/' },
+    { name: 'Apple Human Interface Guidelines', url: 'https://developer.apple.com/design/human-interface-guidelines/' },
+    { name: 'Zeroheight (Design System Docs)', url: 'https://zeroheight.com/' }
+  ],
+  'mobilebranding': [
+    { name: 'Apple HIG: App Icons', url: 'https://developer.apple.com/design/human-interface-guidelines/app-icons' },
+    { name: 'Android Adaptive Icons', url: 'https://developer.android.com/develop/ui/views/launch/icon_design_adaptive' },
+    { name: 'Midjourney', url: 'https://www.midjourney.com/' }
+  ],
+  'mobileaccessibility': [
+    { name: 'Apple HIG: Accessibility', url: 'https://developer.apple.com/design/human-interface-guidelines/accessibility' },
+    { name: 'Android Accessibility Overview', url: 'https://developer.android.com/guide/topics/ui/accessibility' },
+    { name: 'WCAG 2.1 Guidelines', url: 'https://www.w3.org/TR/WCAG21/' }
+  ],
+  'mobileemptystates': [
+    { name: 'Material Design: Empty States', url: 'https://m2.material.io/design/communication/empty-states.html' },
+    { name: 'unDraw (Free Illustrations)', url: 'https://undraw.co/' },
+    { name: 'UX Archive: Empty States', url: 'https://uxarchive.com/tasks/view-empty-states' }
+  ],
+  'mobileerrorstates': [
+    { name: 'NNGroup: Error Messages', url: 'https://www.nngroup.com/articles/error-message-guidelines/' },
+    { name: 'Material Design: Snackbars', url: 'https://m3.material.io/components/snackbar/overview' },
+    { name: 'Sentry (Error Tracking)', url: 'https://sentry.io/' }
+  ],
+  'mobileloadingstates': [
+    { name: 'Material Design: Progress Indicators', url: 'https://m3.material.io/components/progress-indicators/overview' },
+    { name: 'UX Design: Skeleton Screens', url: 'https://uxdesign.cc/what-you-should-know-about-skeleton-screens-a820c45a571a' },
+    { name: 'LottieFiles (Loading Animations)', url: 'https://lottiefiles.com/' }
+  ],
+
 
   // Mobile specific links
   'crashreporting': [

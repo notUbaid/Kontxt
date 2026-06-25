@@ -111,26 +111,26 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
     );
   }
 
-  const pageVariants = {
-    initial: (dir: number) => ({
-      opacity: 0,
-      y: dir > 0 ? 40 : -40,
-      scale: 0.98,
-      filter: 'blur(4px)'
-    }),
-    animate: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      filter: 'blur(0px)'
-    },
-    exit: (dir: number) => ({
-      opacity: 0,
-      y: dir > 0 ? -40 : 40,
-      scale: 0.98,
-      filter: 'blur(4px)'
-    })
-  };
+    const pageVariants = {
+      initial: (dir: number) => ({
+        opacity: 0,
+        y: dir > 0 ? 20 : -20,
+        scale: 0.99,
+        filter: 'blur(2px)'
+      }),
+      animate: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        filter: 'blur(0px)'
+      },
+      exit: (dir: number) => ({
+        opacity: 0,
+        y: dir > 0 ? -20 : 20,
+        scale: 0.99,
+        filter: 'blur(2px)'
+      })
+    };
 
   return (
     <AnimatePresence mode="wait" custom={direction}>
@@ -141,12 +141,12 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
         initial="initial"
         animate="animate"
         exit="exit"
-        transition={{ 
-          type: 'spring',
-          stiffness: 250,
-          damping: 20,
-          mass: 0.5
-        }}
+          transition={{ 
+            type: 'spring',
+            stiffness: 450,
+            damping: 35,
+            mass: 0.6
+          }}
       className="flex-1 min-w-0 pt-8 pb-24 px-8 mx-auto max-w-3xl w-full h-[calc(100vh-4rem)] overflow-y-auto scroll-smooth"
     >
       <div className="mb-4 inline-block px-3 py-1 bg-muted rounded-md text-xs font-bold text-muted-foreground uppercase tracking-widest">

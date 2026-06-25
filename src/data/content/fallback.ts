@@ -5529,656 +5529,587 @@ Act as a UX Analyst. My app is a [Describe App]. Is our goal to maximize session
 - [ ] It is explicitly decided whether the product goal is to maximize or minimize session duration.
 - [ ] Analytics (e.g., PostHog/Mixpanel) are configured to accurately track session start and end events.
 `,
-  'mobileprd': `# Product Requirements Document (PRD)
+  'mobileprd': `
+# Mobile Product Requirements Document (PRD)
 
-**🕒 Estimated Time:** 30 min
-
----
-
-## Overview
-A PRD (Product Requirements Document) is the master blueprint for your mobile app. Without a PRD, you will start coding in React Native, get lost in UI details, and realize 3 weeks later that you forgot to build a password reset flow. In the mobile world, the PRD also dictates which native device features (Camera, GPS, Push Notifications) you absolutely need.
+🕒 **Estimated Time:** 1-2 hours
 
 ---
 
-## Think First
-Consolidate everything from Phase 0:
+## The Strategic Importance of a Mobile PRD
+Unlike web apps, mobile apps are constrained by screen real estate, battery life, and strict App Store review guidelines. A Mobile PRD forces you to ruthlessly prioritize what actually needs to be on a user's phone versus what belongs on a desktop dashboard.
 
-**The One-Sentence Summary** (What is this app, who is it for, and why do they care?)
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Forget the traditional PRD. You only have a weekend. Your "PRD" is a bulleted list of 3 absolute must-have features that can be built using existing mobile SDKs or templates. Cut any feature that requires complex custom UI or background processing. Focus on the 'wow' factor that you can show on a physical device.
+
+### Personal Project Mode
+Use this phase to define the learning outcomes for your project. Are you building this to learn SwiftUI? Flutter? Map out the exact features that will force you to interact with the device's native capabilities (like the Camera, GPS, or Push Notifications), so you actually get the technical experience you desire.
+
+### Production SaaS Mode
+Your Mobile PRD must be heavily focused on retention loops and onboarding. Because app uninstalls happen within the first 3 minutes of usage, the PRD must explicitly define the "Aha!" moment and how the user reaches it with minimal friction. Document the core workflows, offline capabilities, and what happens when the network connection drops.
+
+### Custom Mode
+For enterprise mobile applications, the PRD becomes a highly rigorous compliance document. You must define data encryption at rest (on the device), Mobile Device Management (MDM) compatibility, offline syncing conflict resolution algorithms, and rigorous SLA requirements for API response times on cellular networks.
+
+---
+
+## The Data We Need From You
+To generate your PRD, we need to know what you are actually building and who it is for. This data will be used by the AI to architect your application.
+
+**Describe the core problem your mobile app solves in one sentence:**
 \`\`\`input
-✍️ Type your answer here...
+Write Here...
 \`\`\`
 
-**The Native Requirements** (List every hardware feature this app requires: e.g., Camera, Microphone, GPS, Push Notifications, Local Storage, Biometrics).
+**What is the one primary action the user will take most frequently?**
 \`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The "Out of Scope" List** (What are 3 things you explicitly promise NOT to build in V1 to ensure you launch on time?)
-\`\`\`input
-✍️ Type your answer here...
+Write Here...
 \`\`\`
 
 ---
 
-## Key Decisions
-- **Offline First vs Cloud First:** Does the app need to function if the user is on an airplane without WiFi? If yes, your PRD must explicitly state that "Local Data Caching" is a core requirement, which drastically changes your architecture.
-- **Cross-Platform Parity:** Will iOS and Android have the exact same features at launch? (Using React Native/Expo usually guarantees this, but native module bridging can sometimes cause discrepancies).
-
----
-
-## Common Mistakes
-- **Writing a 50-page essay:** A good MVP PRD is 2 pages long. It should be bullet points, not paragraphs.
-- **Ignoring Edge Cases:** Failing to specify what happens when the user denies the camera permission prompt.
-
----
-
-## AI Prompt
-Use AI to generate a highly structured, technical PRD.
+## AI Brainstorming Phase
+Use this prompt to generate your foundational Mobile PRD. Paste the output directly into your project documentation.
 
 \`\`\`prompt
-Act as a Senior Mobile Product Manager.
-Review my inputs above and the decisions I made in Phase 0.
+Act as a Senior Mobile Product Manager. I am building a mobile app that solves this problem: [Paste Core Problem]. The primary action users will take is: [Paste Primary Action]. 
 
-Generate a concise, bulleted Mobile MVP PRD containing:
-1. Executive Summary
-2. Core User Flows (Step-by-step from App Launch to Goal Achieved)
-3. Native Device Requirements & Required Permissions
-4. Non-Functional Requirements (e.g., Target load times, offline behavior)
-5. Out of Scope (V2) Features
+Generate a concise, actionable Mobile PRD including:
+1. Target Audience & Core Use Case
+2. The "Aha!" Moment (how we get them there in under 3 minutes)
+3. In-Scope Features for v1.0
+4. Out-of-Scope Features (what we are actively choosing NOT to build)
+5. Native Capabilities Required (e.g., Push, Location, Camera)
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your finalized Mobile MVP PRD here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\``,
-  'mobileuserflows': `# User Flows
-
-**🕒 Estimated Time:** 30 min
-
----
-
-## Overview
-A User Flow maps out the exact sequence of screens a user taps through to accomplish a goal. On a desktop website, users tolerate clicking through multiple pages. On mobile, every single tap causes a micro-drop in conversion. If it takes 7 taps to send a message, users will uninstall. You must map the shortest possible path to the "Aha!" moment.
-
----
-
-## Think First
-Map the journey tap-by-tap:
-
-**The Onboarding Flow** (From tapping the app icon on the home screen -> Splash Screen -> Welcome -> Permissions -> Main Feed. How many screens is that?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Core Action Flow** (From the Main Feed -> Tapping the '+' button -> Filling out a form -> Success Screen. Map every single tap).
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Login Walls:** Will you force the user to create an account immediately upon opening the app (High Friction), or let them explore the app as a "Guest" and only ask for an account when they try to save data (Low Friction)?
-- **Permission Timing:** Map exactly *when* the OS dialogue box for "Allow Notifications?" appears. It should never be on the first screen.
-
----
-
-## Common Mistakes
-- **The Dead End:** Designing a flow where a user completes a task (e.g., "Payment Successful") but there is no button to return to the home screen.
-- **The Infinite Form:** Putting 15 text input fields on a single mobile screen. Split long forms into multiple "Wizard" steps (e.g., Step 1 of 3).
-
----
-
-## AI Prompt
-Use AI to ruthlessly optimize your screen sequences.
-
-\`\`\`prompt
-Act as a Lead Mobile UX Architect.
-Review my User Flows above.
-
-1. Rewrite my Core Action flow to reduce the number of required taps by at least 20%. Where can I use defaults, swipes, or auto-advancing to speed it up?
-2. Design a "Deferred Registration" onboarding flow for my app. Tell me exactly what the user can do *before* being forced to create an account.
-3. Identify the most likely "Drop-off Point" in these flows where a user might get frustrated and close the app.
-\`\`\`
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your optimized User Flows here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\``,
-  'appnavigation': `# App Navigation
-
-**🕒 Estimated Time:** 20 min
-
----
-
-## Overview
-App Navigation is the skeleton of your mobile app. Unlike web browsers, mobile apps do not have a universal "Back" button or a URL bar. The navigation hierarchy you choose (Tabs, Drawers, Stacks) defines the mental model of the entire application. Getting this wrong makes the app feel like a maze.
-
----
-
-## Think First
-How will users move around?
-
-**The Primary Destinations** (What are the 3 to 5 main areas of your app? e.g., Home, Search, Messages, Profile).
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Core Action** (Is there one action the user does constantly? e.g., posting a photo on Instagram, requesting a ride on Uber).
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Bottom Tab Bar vs Hamburger Menu:** The Bottom Tab Bar is the undisputed king of mobile navigation because it is reachable by the user's thumb. Hamburger Menus (side drawers) hide features and should only be used for secondary settings (like "Privacy Policy" or "Log Out").
-- **The Floating Action Button (FAB):** If your app has one primary action (like composing a tweet), placing a giant button hovering over the bottom right of the screen is highly effective.
-
----
-
-## Common Mistakes
-- **Too Many Tabs:** Having 6 or 7 icons crammed into a bottom tab bar. Apple's HIG (Human Interface Guidelines) recommends a maximum of 5.
-- **Deep Nesting:** Forcing the user to tap into a category, then a sub-category, then a sub-sub-category. By the time they get there, they have forgotten how to get back to the home screen.
-
----
-
-## AI Prompt
-Use AI to select the optimal React Navigation structure.
-
-\`\`\`prompt
-Act as a Mobile UX Architect specializing in React Navigation.
-Review my Primary Destinations and Core Action above.
-
-1. Recommend the optimal Navigation Structure for my app (e.g., A Bottom Tab Navigator containing 4 tabs, with a Stack Navigator inside each tab).
-2. What should the exact 4 or 5 icons in my Bottom Tab Bar be?
-3. Should I use a Floating Action Button (FAB) or a prominent central tab for my Core Action?
-\`\`\`
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your exact Navigation Hierarchy (Tabs, Stacks, Modals) here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\``,
-  'mobilewireframes': `# Wireframes
-
-**🕒 Estimated Time:** 45 min
-
----
-
-## Overview
-Wireframes are the raw blueprints of your screens. They strip away colors, logos, and fonts, forcing you to focus entirely on layout, button placement, and hierarchy. On a mobile screen, real estate is extremely limited. If you jump straight into designing a beautiful UI without wireframing, you will likely create something pretty but unusable.
-
----
-
-## Think First
-Visualize the skeleton of your most important screens:
-
-**The "Home/Feed" Screen** (What is at the very top? What is in the middle? Where is the main call to action?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The "Detail/Action" Screen** (When they tap an item on the home screen, what does the detail view look like? Where is the "Back" button? Where is the "Submit/Buy" button?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **The Thumb Zone:** 75% of mobile users rely entirely on their thumb to navigate. Critical actions (like "Buy" or "Next") must be placed in the bottom half of the screen. The top left corner is the hardest place to reach.
-- **Scroll vs Pagination:** Will your lists scroll infinitely vertically (like TikTok/Twitter), or require swiping horizontally through a carousel?
-
----
-
-## Common Mistakes
-- **Tiny Tap Targets:** Designing buttons that look great on a 27-inch monitor but are impossible to tap with a thumb on a physical phone. Apple recommends a minimum tap target of 44x44 points.
-- **Ignoring the Keyboard:** Forgetting that when a user taps a text input, the native keyboard pops up and covers the bottom 50% of the screen. You must ensure the "Submit" button isn't hidden behind the keyboard.
-
----
-
-## AI Prompt
-Use AI to generate text-based layout structures for your core screens.
-
-\`\`\`prompt
-Act as a Lead Mobile UI Designer.
-Review my screen concepts above.
-
-For my 3 most critical screens (Home, Detail, and Core Action Form), provide a "Text Wireframe."
-Format it strictly top-to-bottom as the user sees it on a phone screen.
-Example:
-[Header: Title + Settings Icon]
-[Horizontal Scroll Carousel: Featured Items]
-[List View: Recent Activity]
-[Sticky Bottom Button: "Create New"]
-
-Ensure all critical actions are placed in the ergonomic "Thumb Zone."
-\`\`\`
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your 3 Text Wireframes here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\``,
-  'mobiledesignsystem': `# Design System
-
-**🕒 Estimated Time:** 30 min
-
----
-
-## Overview
-A Design System is a collection of reusable components (buttons, text inputs, cards) and rules (colors, spacing, typography). In mobile development (React Native), a design system is what separates a premium app from a cheap prototype. If you hardcode a different shade of blue on every screen, your app will feel chaotic.
-
----
-
-## Think First
-Establish your rules:
-
-**The Primary Action Color** (What is the exact hex code of your main "Submit/Buy/Next" buttons? It should stand out from everything else).
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Typography Strategy** (Are you using the system default fonts—San Francisco for iOS, Roboto for Android—or a custom Google font like Inter or Poppins?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Corner Radius** (Are your buttons and cards sharp and serious (0px radius), slightly rounded and modern (8px radius), or fully pill-shaped and playful (99px radius)?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Dark Mode Support:** Mobile users *expect* dark mode. Your design system must define a "Light" semantic palette and a "Dark" semantic palette from Day 1. If you try to hack dark mode in later, it will take weeks.
-- **UI Frameworks:** Will you build all components from scratch using React Native \`StyleSheet\`, or use a pre-built component library like NativeWind (Tailwind for RN), Tamagui, or React Native Paper? (NativeWind is highly recommended for speed).
-
----
-
-## Common Mistakes
-- **Too Many Font Sizes:** Using 15 different font sizes across the app. You only need 5: H1, H2, H3, Body, and Caption.
-- **Low Contrast:** Using light gray text on a white background. Users will literally not be able to read it if they are outside in the sun.
-
----
-
-## AI Prompt
-Use AI to generate a complete React Native design token system.
-
-\`\`\`prompt
-Act as a Design Systems Engineer for a React Native app.
-Review my style preferences above.
-
-1. Generate a standardized Color Palette including Primary, Secondary, Background (Light/Dark), Surface (Light/Dark), Error, and Text colors. Provide exact Hex codes.
-2. Define a standard spacing/padding scale (e.g., xs: 4px, sm: 8px, md: 16px, lg: 24px).
-3. Recommend a UI Component Library (e.g., NativeWind, Tamagui, Gluestack) that best fits a fast MVP workflow, and explain why.
-\`\`\`
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your Color Palette, Spacing Scale, and UI Framework decision here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+## Validation
+- [ ] I have generated and saved the Mobile PRD.
+- [ ] I have ruthlessly cut at least one feature that isn't strictly necessary for v1.0.
 `,
-  'mobilebranding': `# Branding
+  'mobileuserflows': `
+# Mobile User Flows
 
-**🕒 Estimated Time:** 20 min
-
----
-
-## Overview
-In the App Store, branding is everything. You have roughly 3 seconds to convince a user scrolling past your app icon to stop and click. Your app's name, icon, and tone of voice must instantly communicate trust and purpose. A poorly designed app icon is the #1 reason for low download conversion rates.
+🕒 **Estimated Time:** 2-3 hours
 
 ---
 
-## Think First
-Define your identity:
+## Why Mobile User Flows Matter
+Mobile users are easily distracted. If a flow requires too many taps, or if the "Next" button is hidden under the keyboard, they will abandon the app. User flows map the exact step-by-step journey a user takes to accomplish a task, ensuring the logical progression makes sense before you draw a single screen.
 
-**The App Name** (Is it literal like "Sleep Tracker", or abstract like "Aura"? Literal names rank better for ASO, abstract names build stronger long-term brands).
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't map every flow. Map the "Happy Path" for your core demo feature. If your app is a photo-sharing tool, map exactly what happens from "Open App" -> "Take Photo" -> "Share". Ignore edge cases, error states, and forgotten passwords for now.
+
+### Personal Project Mode
+Mapping user flows is a fantastic exercise in logical thinking. Use a free tool like FigJam or just pen and paper to draw out the screens. Focus on understanding how data moves from one screen to the next. What information needs to be passed forward?
+
+### Production SaaS Mode
+You must map both the "Happy Path" and the critical "Unhappy Paths". What happens if the user denies camera permissions? What happens if the network drops during checkout? Your user flows must account for these friction points to prevent catastrophic drops in conversion rates.
+
+### Custom Mode
+Enterprise applications require highly complex permission-based user flows. Map out Role-Based Access Control (RBAC) flows. How does the experience differ for an Admin versus a Standard User? How do Single Sign-On (SSO) redirects handle returning to deep-linked screens?
+
+---
+
+## Core Flows to Define
+Identify the three most critical journeys in your app.
+
+**What is the onboarding flow? (e.g., Splash -> Phone Auth -> Profile Setup)**
 \`\`\`input
-✍️ Type your answer here...
+Write Here...
 \`\`\`
 
-**The App Icon Concept** (What is the single, central glyph or symbol on your app icon? Keep it incredibly simple. Don't put text in the icon).
+**What is the core engagement flow?**
 \`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Tone of Voice** (How does the app speak to the user in popups and alerts? Formal and secure? Playful and encouraging? Snarky?)
-\`\`\`input
-✍️ Type your answer here...
+Write Here...
 \`\`\`
 
 ---
 
-## Key Decisions
-- **App Icon Contrast:** Your app icon will sit on user's home screens against thousands of different wallpapers. It must have high contrast and stand out against both light and dark backgrounds.
-- **The "Splash Screen":** When the app launches, it takes 1-2 seconds to load. The Splash screen should feature your brand logo seamlessly transitioning into the main app UI.
-
----
-
-## Common Mistakes
-- **Words in the App Icon:** Putting your app's name inside the 1024x1024 app icon. When scaled down to a 40x40 pixel square on a phone screen, text becomes illegible smudge.
-- **Inconsistent Voice:** Having playful, fun marketing copy on the App Store, but robotic, technical error messages ("Error 404: Null pointer exception") inside the app.
-
----
-
-## AI Prompt
-Use AI to refine your brand identity and App Store presence.
+## AI Execution
+Use this prompt to have the AI analyze and optimize your user flows for mobile patterns.
 
 \`\`\`prompt
-Act as a Mobile Brand Strategist.
-Review my App Name, Icon Concept, and Tone of Voice above.
+Act as a Principal Mobile UX Architect. I have defined the following core user flows for my app:
+Onboarding: [Paste Onboarding Flow]
+Engagement: [Paste Engagement Flow]
 
-1. Evaluate my App Name for App Store Optimization (ASO). Does it need a subtitle modifier? (e.g., "Aura: Sleep Tracker").
-2. Give me 3 highly visual, simple concepts for my App Icon that will stand out against a dark wallpaper.
-3. Write an example of a "Welcome" push notification using my app's specific Tone of Voice.
+Please analyze these flows specifically for mobile friction points. 
+1. Where are users most likely to drop off?
+2. How can we reduce the number of taps by utilizing native mobile paradigms (e.g., biometric auth, bottom sheets instead of new screens)?
+3. What critical error states are missing from these paths?
+\`\`\`
+
+## Validation
+- [ ] The onboarding flow has been mapped.
+- [ ] The core engagement flow has been mapped.
+- [ ] The flows have been optimized to reduce unnecessary taps.
+`,
+  'appnavigation': `
+# App Navigation Architecture
+
+🕒 **Estimated Time:** 1-2 hours
+
+---
+
+## Why Navigation is Critical
+Navigation is the skeleton of your mobile app. Unlike the web, where users can rely on the browser's "Back" button or a massive header menu, mobile apps require highly structured, predictable navigation patterns (like Bottom Tabs, Stacks, or Drawers) to keep the user oriented.
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Stick to the absolute default navigation paradigm provided by your framework (e.g., a simple Bottom Tab Navigator in React Native/Expo). Do not attempt to build custom animated drawer menus or complex nested routers. Keep it flat, simple, and functional.
+
+### Personal Project Mode
+Use this opportunity to learn how mobile routing actually works under the hood. Implement a Stack Navigator nested inside a Bottom Tab Navigator. Understand the lifecycle of a mobile screen—what happens when a screen is pushed onto the stack versus popped off?
+
+### Production SaaS Mode
+Your navigation hierarchy must be intuitive and follow platform conventions (iOS vs Android). Crucially, you must plan for Deep Linking. How does a user open a push notification or an email link and navigate directly to a deeply nested screen (like a specific invoice)? Your navigation state must be robust enough to handle these external entry points.
+
+### Custom Mode
+Enterprise apps often require dynamic navigation based on user roles or feature flags. The navigation architecture must be completely decoupled and data-driven. Furthermore, you must implement strict route guards to ensure unauthenticated or unauthorized users cannot deep-link into sensitive screens.
+
+---
+
+## Choosing Your Primary Navigation
+Select the primary way users will move through your app.
+
+**Primary Navigation Pattern:**
+\`\`\`input
+(E.g., Bottom Tabs, Hamburger Drawer, Top Tabs, Single Screen Stack)
+Write Here...
+\`\`\`
+
+**List the 3-5 core screens that will be in your primary navigation:**
+\`\`\`input
+1.
+2.
+3.
 \`\`\`
 
 ---
 
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your finalized App Name, Icon Concept, and Tone of Voice example here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\``,
-  'mobileaccessibility': `# Accessibility
-
-**🕒 Estimated Time:** 15 min
-
----
-
-## Overview
-Accessibility (a11y) ensures your mobile app is usable by everyone, including people with visual, motor, or auditory impairments. Beyond being an ethical obligation (and in many countries, a legal one), iOS and Android have powerful built-in accessibility features like VoiceOver and TalkBack. If your app doesn't support them, a massive segment of users cannot use your product.
-
----
-
-## Think First
-Evaluate your UI for common barriers:
-
-**Color Reliance** (Are there places where color is the *only* way information is conveyed? e.g., A red outline on an invalid text box without an error message below it).
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Dynamic Type** (If a user has their phone's system font size set to "Huge" because of poor vision, will your app's UI completely break and overlap?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Touch Targets:** Are all interactive buttons at least 44x44 points (iOS) or 48x48 dp (Android)? Small buttons are impossible for users with motor tremors to tap.
-- **Contrast Ratios:** Do your text and background colors meet the WCAG AA standard of 4.5:1 contrast?
-
----
-
-## Common Mistakes
-- **Ignoring Screen Readers:** Using a custom-built, animated "Checkbox" component in React Native but forgetting to add \`accessible={true}\` and an \`accessibilityLabel\`. VoiceOver will just read it as "Button," leaving blind users completely lost.
-- **Disabling System Scaling:** Hardcoding font sizes with \`allowFontScaling={false}\` in React Native because you want to "preserve your design." This infuriates users who need larger text.
-
----
-
-## AI Prompt
-Use AI to audit your app for critical accessibility failures.
+## AI Execution
+Use this prompt to generate the technical navigation structure for your app.
 
 \`\`\`prompt
-Act as a Mobile Accessibility (a11y) Expert.
-I am building a React Native mobile app.
+Act as a Senior Mobile Developer. My app will use [Paste Navigation Pattern] for its primary navigation, containing these core screens: [Paste Core Screens].
 
-1. Provide a checklist of the 5 absolute most important accessibility props I must include on my React Native components (e.g., TextInput, TouchableOpacity, Image).
-2. Explain how I should handle "Dynamic Type" (user-enlarged font sizes) so my layout doesn't break, without hard-locking the font size.
-3. How do I test VoiceOver/TalkBack on my physical device during development?
+Please outline the ideal nested navigation architecture. 
+1. Which screens should belong to the root Stack Navigator vs the Tab Navigator?
+2. Where should Modals (like "Add New Item") live in the hierarchy?
+3. What is the recommended strategy for handling deep links for this specific structure?
+\`\`\`
+
+## Validation
+- [ ] A primary navigation pattern has been selected.
+- [ ] The core root screens have been defined.
+- [ ] Deep linking entry points have been considered.
+`,
+  'mobilewireframes': `
+# Mobile Wireframes
+
+🕒 **Estimated Time:** 2-4 hours
+
+---
+
+## Why Wireframes Matter
+Before committing to high-fidelity colors, typography, and precise padding, you must validate the structural hierarchy of your app. Wireframing is the process of sketching out the skeleton of your application to ensure the user flow actually fits on a mobile screen. 
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip digital wireframing entirely. Use a pen and paper. Sketch out the 3 most important screens. Take a photo of them with your phone and use that as your reference. Do not waste precious hours wrestling with Figma when you could be writing code.
+
+### Personal Project Mode
+Use a free tool like Figma or Excalidraw. Focus heavily on native mobile patterns. If you are building for iOS, use an iOS UI kit so you don't accidentally design a button that feels like Android. Keep it in greyscale. If you use color in a wireframe, you are doing it wrong.
+
+### Production SaaS Mode
+Wireframes at this stage should be interactive. You need to link them together in a prototype (using Figma) to simulate the flow. You must test this prototype on an actual physical device (using the Figma mobile app) to ensure buttons are large enough for thumbs (minimum 44x44 points) and text is legible.
+
+### Custom Mode
+Enterprise wireframes must undergo rigorous stakeholder review. You will need to wireframe every single permission state (Admin view vs User view) and edge case. Annotate your wireframes heavily with business logic rules (e.g., "This button is disabled until the user signs the EULA").
+
+---
+
+## The Core Screens
+Identify the essential screens you need to wireframe.
+
+**List the 3-5 screens that represent your app's core value proposition:**
+\`\`\`input
+1.
+2.
+3.
 \`\`\`
 
 ---
 
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your React Native Accessibility Checklist here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\``,
-  'mobileemptystates': `# Empty States
-
-**🕒 Estimated Time:** 15 min
-
----
-
-## Overview
-An Empty State occurs when a screen has no data to display. This happens to every single user on Day 1 (e.g., zero messages, zero saved items, zero completed workouts). If your app just shows a blank white screen, users will assume the app is broken or frozen. Empty States are your most powerful opportunity to drive user action.
-
----
-
-## Think First
-Identify the dead zones in your app:
-
-**The Primary Feed/Dashboard** (What does the main screen look like the very first time they log in?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Search/Filter Results** (What happens when they search for something that doesn't exist?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **The Call to Action (CTA):** Every single empty state MUST have a button telling the user exactly what to do next. An empty "Saved Items" screen shouldn't just say "No items saved." It should say "No items saved" with a large button that says "Browse Items."
-- **Educational Illustrations:** Mobile empty states are the perfect place for a beautiful, simple illustration that explains the feature's value.
-
----
-
-## Common Mistakes
-- **The "No Data Found" text:** Showing a raw database response string like \`[]\` or a tiny, unstyled "No Data Found" in the top left corner.
-- **Dead Ends:** Showing a nice illustration, but providing no button or link to actually generate data. The user is stuck.
-
----
-
-## AI Prompt
-Use AI to design high-converting empty states.
+## AI Execution
+Use this prompt to get structural recommendations for your wireframes based on proven mobile UX patterns.
 
 \`\`\`prompt
-Act as a Mobile Product Designer.
-Review my Primary Feed and Search functions.
+Act as a Principal Mobile Product Designer. I am wireframing an app with the following core screens: [Paste Core Screens].
 
-1. Write the Headline, Body Copy, and Call-to-Action (CTA) button text for the "Day 1 Empty State" of my main feed. It should be highly encouraging and tell them exactly how to get started.
-2. Write the copy for my "Zero Search Results" empty state. How can I help them recover from a bad search instead of just saying "Not found"?
+For each screen, provide a structural breakdown of the UI hierarchy from top to bottom.
+1. What should be in the safe area/header?
+2. What is the primary content block?
+3. Where should the primary Call to Action (CTA) be positioned for maximum thumb reachability?
+4. What native UI components (e.g., Segmented Controls, Bottom Sheets, Floating Action Buttons) should I use?
+\`\`\`
+
+## Validation
+- [ ] Wireframes have been created (even if just on paper) in strictly greyscale.
+- [ ] The primary Call to Action on every screen is easily reachable by a user's thumb holding the device with one hand.
+`,
+  'mobiledesignsystem': `
+# Mobile Design System
+
+🕒 **Estimated Time:** 2-4 hours
+
+---
+
+## Establishing the Visual Foundation
+A design system in mobile isn't just about making things look pretty; it's about engineering efficiency. Defining your colors, typography, and spacing tokens upfront means you aren't hardcoding hex values into your components. This makes dark mode support and future rebranding exponentially easier.
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Do not build a custom design system. Pick a highly opinionated UI library like React Native Paper, NativeBase, or Tamagui. Use their default theme. If you must tweak it, only change the primary brand color to match your logo. 
+
+### Personal Project Mode
+Create a lightweight foundational theme. Define 3 primary colors, 3 greyscale colors, and a simple typography scale (Heading, Subheading, Body, Caption). Build your own fundamental components (Button, Input, Card) to understand how styling works in your chosen framework (e.g., StyleSheet in React Native vs Modifiers in SwiftUI).
+
+### Production SaaS Mode
+Your design system must be robust enough to support Dark Mode from day one. You must use semantic tokens (e.g., \`colors.background.primary\`, \`colors.text.danger\`) instead of absolute values. Ensure your spacing system uses a consistent multiplier (like the 8pt grid system) to maintain visual harmony across varying screen sizes.
+
+### Custom Mode
+Enterprise design systems require dedicated governance. Your design system must be documented in a tool like Storybook (for React Native) or zeroheight. It must include strict accessibility guidelines, contrasting ratios for WCAG compliance, and internationalization (i18n) considerations for right-to-left (RTL) languages.
+
+---
+
+## Core Design Decisions
+
+**What is your Primary Brand Color?**
+\`\`\`input
+(e.g., #FF4B4B)
+Write Here...
+\`\`\`
+
+**Which typography scale are you using?**
+\`\`\`input
+(e.g., Inter for UI, Merriweather for long-form reading)
+Write Here...
 \`\`\`
 
 ---
 
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your Empty State copy and CTA strategies here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\``,
-  'mobileerrorstates': `# Error States
-
-**🕒 Estimated Time:** 15 min
-
----
-
-## Overview
-Mobile devices lose internet connection constantly. They switch from WiFi to 5G, they go through tunnels, and their batteries die. If your app doesn't handle these network failures gracefully, the app will crash, and the user will delete it. Error states must be designed as carefully as your "happy path."
-
----
-
-## Think First
-Plan for disaster:
-
-**The Offline Scenario** (What happens if the user opens your app while on Airplane mode?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The API Timeout** (What happens if your backend database is slow and takes 15 seconds to respond? Does the app freeze?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Form Error** (What happens if they type an invalid email address and hit submit?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Toast Notifications vs Modals:** Will you show non-critical errors as a temporary pop-up at the bottom of the screen (a Toast), or a blocking alert box (a Modal) that forces them to tap "OK"? (Toasts are far superior for minor network glitches).
-- **Graceful Degradation:** Can you show cached data from their last session instead of a giant "No Internet" screen?
-
----
-
-## Common Mistakes
-- **Raw API Errors:** Showing the user an alert box that says \`[AxiosError: Network Error 500]\`. Users don't know what Axios is. Say "We couldn't connect to our servers. Please try again."
-- **Blaming the User:** Writing aggressive copy like "You entered the wrong password." Use passive, helpful copy like "That password didn't match our records."
-
----
-
-## AI Prompt
-Use AI to design resilient error handling for mobile environments.
+## AI Execution
+Use this prompt to generate the code for your foundational design tokens.
 
 \`\`\`prompt
-Act as a Senior React Native Engineer.
-I am designing my app's error states.
+Act as a Senior Mobile Design Engineer. I am building a mobile app. My primary brand color is [Paste Brand Color] and my font family is [Paste Font].
 
-1. Write the exact user-facing copy for a "No Internet Connection" error state. Include a CTA button.
-2. Explain the difference between a "Toast", a "Modal Alert", and an "Inline Error". Give me a strict rule on when to use each in my mobile app.
-3. How should I handle an API timeout so the app doesn't appear frozen?
+Generate a complete, semantic Design System Token object (in JSON/TypeScript format) that includes:
+1. A semantic color palette (Primary, Secondary, Background, Surface, Text, Error, Success) supporting both Light and Dark modes.
+2. A typography scale (h1, h2, h3, body, caption) with specific font sizes and line heights optimized for mobile readability.
+3. A spacing scale based on the 8pt grid system.
+\`\`\`
+
+## Validation
+- [ ] A semantic color palette has been defined (not just hardcoded hex values).
+- [ ] Dark mode is supported by the color token structure.
+- [ ] Spacing relies on a consistent multiplier (e.g., 4, 8, 16, 24).
+`,
+  'mobilebranding': `
+# Mobile Branding & Assets
+
+🕒 **Estimated Time:** 1-2 hours
+
+---
+
+## The First Impression
+Your app icon and splash screen are the very first things a user sees. They set the tone for the entire experience. Poorly cropped icons or unstyled splash screens scream "amateur" and dramatically increase immediate uninstall rates.
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Generate an app icon using an AI tool like Midjourney or a free icon generator. Keep it dead simple. For the splash screen, just center your logo on a solid background color that matches your app's primary theme. Don't worry about animated splash screens.
+
+### Personal Project Mode
+Take the time to learn how to properly configure your native assets. Generate your App Icon in all required sizes using a tool like IconSet or MakeAppIcon. Ensure your splash screen handles the transition from the native OS loading state to your framework's initialization state smoothly.
+
+### Production SaaS Mode
+Your branding must be immaculate. The App Icon must stand out against both light and dark device wallpapers. The splash screen should seamlessly transition into the app's first screen without any jarring flashes of white (the dreaded "white flash"). Consider adding a subtle micro-animation to the splash logo.
+
+### Custom Mode
+Enterprise branding often requires strict adherence to corporate brand guidelines. The app icon may need to be dynamic (e.g., changing based on environment: Dev vs Staging vs Prod). Splash screens must account for heavy initial data fetches, requiring sophisticated loading orchestrations.
+
+---
+
+## Asset Generation
+
+**What is the core visual metaphor for your app icon?**
+\`\`\`input
+Write Here...
 \`\`\`
 
 ---
 
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your Error State copy and UI rules (Toasts vs Modals) here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\``,
-  'mobileloadingstates': `# Loading States
-
-**🕒 Estimated Time:** 15 min
-
----
-
-## Overview
-Nobody likes waiting. On mobile, if a screen is blank for more than 2 seconds, the user assumes the app has crashed and will force-quit it. Loading states (spinners, progress bars, skeletons) are psychological tools used to make the app *feel* faster than it actually is by providing immediate visual feedback.
-
----
-
-## Think First
-Identify your slowest actions:
-
-**The Initial App Load** (What does the user see during the 1-3 seconds it takes for React Native to boot up and fetch the initial database payload?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Action Load** (When they hit "Submit" on a heavy API call like uploading an image, what visual feedback do they get so they don't hit the button 5 times in a row?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Skeleton Screens vs Spinners:** A "Skeleton" (gray blocks flashing where text and images *will* be) is the modern standard for loading entire screens. A spinner (activity indicator) should only be used for small, localized actions like submitting a button.
-- **Optimistic UI:** Can you fake the speed? (e.g., When a user "Likes" a post, instantly turn the heart red on the UI, and do the actual database update silently in the background).
-
----
-
-## Common Mistakes
-- **Blocking the UI:** Using a giant, full-screen transparent gray overlay with a spinner every time an API call happens, preventing the user from scrolling or doing anything else.
-- **Button Double-Taps:** Failing to disable a "Submit" button while it is loading, causing the user to accidentally create 4 identical accounts because they tapped the button 4 times.
-
----
-
-## AI Prompt
-Use AI to design psychological speed optimizations.
+## AI Execution
+Use this prompt to generate ideas for your app's visual identity.
 
 \`\`\`prompt
-Act as a Mobile UX Performance Specialist.
-Review my loading scenarios.
+Act as a Creative Director specializing in Mobile Apps. My app solves this problem: [Describe App]. 
 
-1. Explain exactly how I should design a "Skeleton Loader" for my main feed to make the app feel 2x faster.
-2. What is "Optimistic UI Updates" in React Native? Give me one example of how I can use it in my app to completely hide a loading state from the user.
-3. How should I handle the loading state on my primary "Submit" button to prevent double-submissions?
+Please provide 3 distinct, highly professional concepts for the App Icon. For each concept, describe:
+1. The central visual element or metaphor.
+2. The color palette (background vs foreground).
+3. Why this design will stand out on a crowded iOS home screen.
+\`\`\`
+
+## Validation
+- [ ] An app icon has been generated in all necessary resolutions (1024x1024 master).
+- [ ] A splash screen has been configured.
+- [ ] The app transitions from the native splash screen to the first view without a white flash.
+`,
+  'mobileaccessibility': `
+# Mobile Accessibility (a11y)
+
+🕒 **Estimated Time:** 1-2 hours
+
+---
+
+## Building for Everyone
+Accessibility is not an afterthought; it is a fundamental requirement. Both iOS and Android provide incredibly powerful assistive technologies (like VoiceOver and TalkBack). If your app does not support these native features, you are actively locking out millions of potential users and exposing yourself to compliance risks.
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+If you are racing a clock, true accessibility might be out of scope. However, at the bare minimum, ensure your primary text color has a sufficient contrast ratio against its background. Do not use light grey text on a white background.
+
+### Personal Project Mode
+Use this project to learn the basics of mobile accessibility. Add \`accessibilityLabel\` (React Native) or \`accessibilityLabel()\` (SwiftUI) to all your icon-only buttons. Test your app with the system font size cranked up to the maximum setting—does your UI completely break, or does it scroll gracefully?
+
+### Production SaaS Mode
+You must ensure WCAG 2.1 AA compliance. This means supporting Dynamic Type (text scaling), defining explicit focus orders for screen readers, and ensuring hit areas for buttons are at least 44x44 points. You must manually test your core user flows using VoiceOver (iOS) and TalkBack (Android) with your eyes closed.
+
+### Custom Mode
+Enterprise apps face severe legal liability (e.g., ADA lawsuits in the US) if they are inaccessible. Accessibility must be integrated into the CI/CD pipeline using automated auditing tools. Support for reduced motion, high contrast modes, and color blindness filters must be explicitly tested and signed off by QA.
+
+---
+
+## Core Accessibility Checks
+
+**List any highly custom UI components you are building that might confuse a screen reader:**
+\`\`\`input
+(e.g., Custom swipeable carousels, complex data charts)
+Write Here...
 \`\`\`
 
 ---
 
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+## AI Execution
+Use this prompt to generate accessibility implementation strategies.
 
-## Deliverable
-Paste your Loading State strategies (Skeletons, Optimistic UI, Button states) here.
+\`\`\`prompt
+Act as a Mobile Accessibility Expert. I am building a mobile app that includes these custom components: [Paste Custom Components].
 
+Provide a specific implementation guide to make these components accessible. Include:
+1. What ARIA roles or native accessibility traits should be applied?
+2. How should the screen reader announce state changes for these components?
+3. How can I ensure they remain usable when the user has Dynamic Type (system text size) set to 200%?
+\`\`\`
+
+## Validation
+- [ ] All icon-only buttons have descriptive accessibility labels.
+- [ ] The app has been tested with system text size increased by 150% without breaking layouts.
+- [ ] Touch targets are a minimum of 44x44 points (iOS) or 48x48 dp (Android).
+`,
+  'mobileemptystates': `
+# Mobile Empty States
+
+🕒 **Estimated Time:** 1-2 hours
+
+---
+
+## The Opportunity of Nothing
+An empty state occurs when a screen has no data to display (e.g., a brand new account, an empty inbox, or a cleared shopping cart). Instead of a blank white screen that makes the user think the app is broken, an empty state is your best opportunity to onboard, educate, and drive engagement.
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Keep it simple. Just put a centered icon and a line of text saying "No data yet." Do not spend time designing custom illustrations or complex onboarding carousels inside your empty states.
+
+### Personal Project Mode
+Use empty states to practice your UI layout skills. Center a nice, free illustration (from unDraw or similar), add a clear headline, and most importantly, add a Call to Action (CTA) button that explicitly tells the user how to populate the screen (e.g., "Add your first task").
+
+### Production SaaS Mode
+Empty states are critical conversion funnels. If a user lands on the "Analytics" tab and they have no data, the empty state shouldn't just say "No Analytics". It should explain *why* analytics are valuable, and provide a CTA to "Set up Tracking". Empty states must drive the user toward their "Aha!" moment.
+
+### Custom Mode
+Enterprise empty states often need to account for permissions. If a user sees an empty state because they lack the necessary Role-Based Access Control (RBAC) permissions to view the data, the empty state must explicitly explain this and provide a workflow to "Request Access" from their administrator.
+
+---
+
+## Identifying Key Empty States
+
+**Which 3 screens in your app are most likely to be empty when a user first signs up?**
 \`\`\`input
-✍️ Type your answer here...
-\`\`\``,
+1.
+2.
+3.
+\`\`\`
+
+---
+
+## AI Execution
+Use this prompt to generate UX copy and structural ideas for your empty states.
+
+\`\`\`prompt
+Act as a Senior UX Writer. I am designing empty states for these three screens in my mobile app: [Paste Empty Screens].
+
+For each screen, provide:
+1. A concise, engaging Headline (e.g., "It's quiet in here...").
+2. A short body text explaining what will appear here and why it's useful.
+3. The exact text for the primary Call to Action (CTA) button to help them populate the screen.
+\`\`\`
+
+## Validation
+- [ ] Every primary tab/screen has a designed empty state.
+- [ ] Every empty state includes a Call to Action (CTA) button.
+`,
+  'mobileerrorstates': `
+# Mobile Error States
+
+🕒 **Estimated Time:** 1-3 hours
+
+---
+
+## Designing for Failure
+In mobile development, network requests will fail. Users will go into tunnels. APIs will timeout. If you do not explicitly design how your app handles these failures, the framework will default to crashing, freezing, or showing an ugly stack trace. Graceful error handling separates amateur apps from professional ones.
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use generic alert dialogs. If an API call fails, just trigger a default \`Alert.alert("Error", "Something went wrong.")\`. Do not waste time building custom error screens or toast notification systems.
+
+### Personal Project Mode
+Implement a global Toast/Snackbar notification system. Learn how to catch promise rejections or API failures globally and display a non-intrusive banner at the top or bottom of the screen. Practice handling the "No Internet Connection" state explicitly.
+
+### Production SaaS Mode
+You must implement contextual error states. If a specific component fails to load (like a widget on a dashboard), do not crash the whole screen. Show an inline error state with a "Tap to Retry" button. You must also implement offline-first capabilities or aggressive caching so the app remains partially usable without a connection.
+
+### Custom Mode
+Enterprise error handling requires rigorous logging. Every user-facing error must be correlated with a background tracking event sent to a service like Sentry or Datadog. Error states must provide users with tracking IDs so they can easily report the issue to customer support.
+
+---
+
+## Defining Error Handling Strategy
+
+**How will you notify the user of non-blocking errors (e.g., failing to like a post)?**
+\`\`\`input
+(e.g., Bottom Toast, Top Banner, Subtle Haptic Feedback)
+Write Here...
+\`\`\`
+
+---
+
+## AI Execution
+Use this prompt to generate a comprehensive error handling matrix for your app.
+
+\`\`\`prompt
+Act as a Mobile Solutions Architect. I am building a mobile app and need an Error Handling Matrix. 
+
+Please categorize the following failure types and recommend the best UX pattern for handling them (e.g., Full Screen Error, Inline Retry, Global Toast, Silent Failure):
+1. Complete Loss of Network Connection.
+2. Form Validation Error (e.g., invalid email).
+3. Minor Background API Failure (e.g., analytics ping fails).
+4. Critical API Failure (e.g., checkout payment fails).
+5. App Crash / Fatal Exception.
+\`\`\`
+
+## Validation
+- [ ] A global "No Internet Connection" state has been designed.
+- [ ] Non-blocking errors are handled gracefully (e.g., via Toasts) without interrupting the user.
+- [ ] Critical component failures include a "Retry" button.
+`,
+  'mobileloadingstates': `
+# Mobile Loading States
+
+🕒 **Estimated Time:** 1-2 hours
+
+---
+
+## The Perception of Speed
+Mobile users hate waiting. However, you can't always make APIs faster. What you *can* do is manipulate the perception of time. A well-designed loading state (like a skeleton loader) makes an app feel significantly faster than a generic spinning circle, even if the actual network request takes the exact same amount of time.
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use the default \`ActivityIndicator\` or \`CircularProgress\` component provided by your OS or framework. Center it on the screen. Do not spend time building custom skeleton screens or animated Lottie loaders.
+
+### Personal Project Mode
+Experiment with Skeleton Loaders. Instead of a spinner, show grey, pulsing boxes where the text and images will eventually appear. This prevents jarring layout shifts when the data finally arrives and makes the app feel highly polished.
+
+### Production SaaS Mode
+Loading states must be context-aware. Use Skeleton Loaders for initial page loads. Use inline spinners inside buttons for form submissions (e.g., the "Submit" button turns into a spinner). Never block the entire UI with a full-screen loading overlay unless absolutely necessary (like processing a payment).
+
+### Custom Mode
+Enterprise apps dealing with massive datasets must implement optimistic UI updates. When a user likes a post or deletes a row, update the UI instantly *before* the server responds. If the server request ultimately fails, revert the UI and show an error. This creates a zero-latency experience.
+
+---
+
+## Loading State Inventory
+
+**Which screens in your app will require fetching data from the server before rendering?**
+\`\`\`input
+1.
+2.
+3.
+\`\`\`
+
+---
+
+## AI Execution
+Use this prompt to get implementation strategies for your loading states.
+
+\`\`\`prompt
+Act as a Mobile Performance Expert. I am building a mobile app that fetches data for these core screens: [Paste Core Screens].
+
+Please provide a loading state strategy that minimizes perceived latency.
+1. Where should I use Skeleton Loaders versus traditional spinners?
+2. How should I handle pagination loading (e.g., infinite scrolling)?
+3. What are the best practices for button loading states during form submissions?
+\`\`\`
+
+## Validation
+- [ ] Initial data fetches use Skeleton Loaders or non-blocking indicators.
+- [ ] Form submission buttons visually indicate a loading state to prevent double-submissions.
+- [ ] The app avoids full-screen blocking overlays unless processing payments.
+`,
   'mobileplatformstrategy': `# Platform Strategy
 
 **🕒 Estimated Time:** 15 min

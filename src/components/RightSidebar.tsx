@@ -200,10 +200,13 @@ Use this context to answer their questions accurately. Keep your answers concise
   };
 
   return (
-    <aside className="w-80 shrink-0 h-[calc(100vh-4rem)] border-l border-muted bg-background/95 backdrop-blur-md flex flex-col">
+    <aside 
+      className="w-80 shrink-0 h-[calc(100vh-4rem)] border-l border-muted bg-background/95 backdrop-blur-md grid transition-[grid-template-rows] duration-300 ease-in-out"
+      style={{ gridTemplateRows: isChatExpanded ? '1fr 1fr' : '1fr 40px' }}
+    >
       
       {/* Top Half: Links Section */}
-      <div className="flex-1 overflow-y-auto border-b border-muted/50 flex flex-col">
+      <div className="overflow-y-auto border-b border-muted/50 flex flex-col min-h-0">
         <div className="p-4 border-b border-muted/20">
           <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">
             Universal Links
@@ -344,11 +347,8 @@ Use this context to answer their questions accurately. Keep your answers concise
       </div>
 
       {/* Bottom Half: RAG Chatbot */}
-      <motion.div 
-        initial={false}
-        animate={{ height: isChatExpanded ? '50%' : '40px' }}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className="flex flex-col bg-background/80 overflow-hidden shrink-0 border-t border-muted"
+      <div 
+        className="flex flex-col bg-background/80 overflow-hidden border-t border-muted min-h-0"
       >
         <div 
           className="h-[40px] px-4 border-b border-muted flex items-center justify-between bg-muted/20 shrink-0 cursor-pointer hover:bg-muted/30 transition-colors group"
@@ -447,7 +447,7 @@ Use this context to answer their questions accurately. Keep your answers concise
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.div>
+      </div>
     </aside>
   );
 };
