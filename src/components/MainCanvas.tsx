@@ -28,6 +28,14 @@ export const MainCanvas = ({ activeType, activePage, activeMode, projectId, isAu
   const currentIndex = allTopics.findIndex(t => t.id === activePage);
   const nextTopic = currentIndex !== -1 && currentIndex < allTopics.length - 1 ? allTopics[currentIndex + 1] : null;
 
+  const [prevIndex, setPrevIndex] = useState(currentIndex);
+  const [direction, setDirection] = useState(1);
+
+  if (currentIndex !== prevIndex) {
+    setDirection(currentIndex > prevIndex ? 1 : -1);
+    setPrevIndex(currentIndex);
+  }
+
   for (const cat of taxonomy) {
     const topic = cat.topics.find(t => t.id === activePage);
     if (topic) {
@@ -103,13 +111,36 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
     );
   }
 
+  const pageVariants = {
+    initial: (dir: number) => ({
+      opacity: 0,
+      y: dir > 0 ? 40 : -40,
+      scale: 0.98,
+      filter: 'blur(4px)'
+    }),
+    animate: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      filter: 'blur(0px)'
+    },
+    exit: (dir: number) => ({
+      opacity: 0,
+      y: dir > 0 ? -40 : 40,
+      scale: 0.98,
+      filter: 'blur(4px)'
+    })
+  };
+
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait" custom={direction}>
       <motion.main 
         key={activePage} // Triggers animation on page change
-        initial={{ opacity: 0, y: -30, scale: 0.98, filter: 'blur(4px)' }}
-        animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-        exit={{ opacity: 0, y: 20, scale: 0.98, filter: 'blur(4px)' }}
+        custom={direction}
+        variants={pageVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
         transition={{ 
           type: 'spring',
           stiffness: 110,
