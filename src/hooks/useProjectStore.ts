@@ -34,18 +34,24 @@ export const useProjectStore = (isAuthenticated: boolean) => {
       console.error('Error fetching projects:', error);
     } else if (data) {
       // Map database snake_case columns to camelCase Project properties
-      const mappedProjects: Project[] = data.map(p => ({
-        id: p.id,
-        name: p.name,
-        mode: p.mode as Mode,
-        type: p.type as AppType,
-        customLinks: p.custom_links,
-        hiddenLinks: p.hidden_links,
+      const mappedProjects: Project[] = data.map(p => {
+        let mode = p.mode as Mode;
+        if (mode === 'Custom' as any) {
+          mode = 'Production';
+        }
+        return {
+          id: p.id,
+          name: p.name,
+          mode,
+          type: p.type as AppType,
+          customLinks: p.custom_links,
+          hiddenLinks: p.hidden_links,
         completedTopics: p.completed_topics,
         customTopics: p.custom_topics,
         progressEnabled: p.progress_enabled,
         lastViewedTopic: p.last_viewed_topic
-      }));
+        };
+      });
       setProjects(mappedProjects);
     }
     setLoading(false);
