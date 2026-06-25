@@ -60,37 +60,40 @@ const InlineTextarea = ({
   endLine: number, 
   onSave: (newText: string, startL: number, endL: number) => void 
 }) => {
-  const [value, setValue] = useState(initialValue);
+  const isUntouched = initialValue.includes('Write Here...');
+  const [value, setValue] = useState(isUntouched ? '' : initialValue);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    setValue(initialValue);
+    const untouched = initialValue.includes('Write Here...');
+    setValue(untouched ? '' : initialValue);
   }, [initialValue]);
 
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto';
-      textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px';
+      if (value) {
+        textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px';
+      }
     }
   }, [value]);
 
   const handleBlur = () => {
+    if (isUntouched && value === '') return;
     if (value !== initialValue) {
       onSave(value, startLine, endLine);
     }
   };
 
-  const isPlaceholder = value.trim() === 'Write Here...';
-
   return (
     <textarea
       ref={textareaRef}
-      value={isPlaceholder ? '' : value}
-      placeholder="Write Here..."
+      value={value}
+      placeholder={isUntouched ? initialValue : "Write Here..."}
+      rows={(isUntouched && value === '') ? initialValue.split('\n').length : 1}
       onChange={e => setValue(e.target.value)}
       onBlur={handleBlur}
       className="w-full bg-background border border-muted/60 rounded-xl p-5 text-foreground placeholder:text-muted-foreground/40 resize-none outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary/50 transition-all font-sans text-base leading-relaxed my-4 block shadow-sm hover:border-muted-foreground/30 hover:shadow-md"
-      style={{ minHeight: '100px' }}
     />
   );
 };
