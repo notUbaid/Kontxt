@@ -2116,26 +2116,21 @@ Act as a Brand Strategist. Based on my competitors, suggest 3 different ways I c
 `,
   'featureplanning': `# Feature Planning
 
-🕒 **Estimated Time:** 15 min
+🕒 **Estimated Time:** 20 min
 
 ---
 
 ## Why this matters
-You have a problem and a solution. Now, what does the software actually *do*? Feature planning is the process of translating your Solution Statement into actionable engineering tasks. 
+Scope creep is the death of all software. If you don't define what you are building, you will build forever.
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** If a feature takes more than 4 hours to build, cut it immediately.
-- 🏢 **Production SaaS:** Features must tie directly back to solving the core user pain point.
-
-## AI CTO Review
-Developers love to build. That is our weakness. Write down your top 5 features and have the AI cut them.
-
-\`\`\`prompt
-Act as a ruthless, pragmatic CTO who hates writing unnecessary code. Review my 5 core features: [PASTE 5 FEATURES]. Explain why at least 2 of these features are "Nice-to-Haves" and should be immediately cut from the initial build.
-\`\`\`
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Only build features that look good in a demo video.
+- 🏗️ **Personal Project:** Build features that require the specific technology you want to learn.
+- 🏢 **Production SaaS:** Build only what is required to solve the core pain point. Ignore "nice to have" features.
+- ⚙️ **Custom Mode:** Map features directly to enterprise compliance and workflow requirements.
 
 ## Accountability Check
-- [ ] I have emotionally detached from the features that the AI cut.
+- [ ] I am ready to ruthlessly cut features.
 `,
   'mvpfeatures': `# MVP Features
 
@@ -2144,40 +2139,37 @@ Act as a ruthless, pragmatic CTO who hates writing unnecessary code. Review my 5
 ---
 
 ## Why this matters
-An MVP (Minimum Viable Product) is not a "crappy version of your app". It is the absolute smallest thing you can build to prove your core hypothesis. If you spend 3 months building a login system and a settings page before users can experience the core value, you have failed the MVP test.
+The Minimum Viable Product (MVP) is the smallest thing you can build that still delivers value.
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Hardcode everything that isn't the primary 'Aha!' moment. Fake the backend if you have to.
-- 🏢 **Production SaaS:** The MVP must actually work reliably, even if it only does one thing.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** 1 Core AI/Flashy Feature, 1 basic auth flow, 1 result screen.
+- 🏗️ **Personal Project:** Keep the MVP small enough to finish in 2 weekends.
+- 🏢 **Production SaaS:** The MVP must be robust enough that a business will trust it with their data.
+- ⚙️ **Custom Mode:** The "MVP" must include SOC2 compliance groundwork, SSO, and Role-Based Access Control.
 
-## The 'Aha!' Moment
-What is the exact second the user realizes your product is valuable? (e.g., "When they see their first invoice generated in 3 seconds").
-**Define the Aha! Moment:**
-\`\`\`input
-✏️ 
-\`\`\`
-
-## The Critical Path
-**What are the ONLY features required to get the user to that Aha! Moment?**
+## The MVP List
+**List the absolute minimum features required for launch:**
 \`\`\`input
 ✏️ 
 \`\`\`
 `,
-  'futurefeatures': `# Future Features (The Parking Lot)
+  'futurefeatures': `# Future Features
 
-🕒 **Estimated Time:** 5 min
+🕒 **Estimated Time:** 10 min
 
 ---
 
 ## Why this matters
-As you build the MVP, you will have brilliant ideas for new features. If you act on them, you will suffer from "Feature Creep" and never launch. You must rigorously write them down somewhere else, get them out of your head, and ignore them.
+Put your great (but unnecessary) ideas here so they don't distract you today.
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Tell the judges about these in the "What's Next" slide.
-- 🏢 **Production SaaS:** Do not build these until users are begging for them.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Mention these in your pitch to show "future potential".
+- 🏗️ **Personal Project:** Ignore these until the MVP is deployed.
+- 🏢 **Production SaaS:** Do not build these until users are explicitly asking for them.
+- ⚙️ **Custom Mode:** These form your 18-month enterprise roadmap.
 
 ## Accountability Check
-- [ ] I have created a "Parking Lot" document for my wild ideas and will not code them today.
+- [ ] I will not build these features today.
 `,
   'featureprioritization': `# Feature Prioritization
 
@@ -2186,78 +2178,52 @@ As you build the MVP, you will have brilliant ideas for new features. If you act
 ---
 
 ## Why this matters
-Once you launch, users will ask for 100 different things. How do you decide what to build next? The RICE framework (Reach, Impact, Confidence, Effort) removes emotion from the roadmap.
+You have limited time and engineering resources.
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Prioritize features that look best in a 3-minute video demo.
-- 🏢 **Production SaaS:** Prioritize features that prevent users from churning.
-
-## AI RICE Analysis
-\`\`\`prompt
-Act as a Senior Product Manager. I have these 3 features requested by users: [PASTE 3 FEATURES]. Walk me through a RICE scoring matrix for each of them to determine which one I should build first.
-\`\`\`
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Prioritize UI/UX and the core "magic moment".
+- 🏗️ **Personal Project:** Prioritize the hardest technical challenge first to get it out of the way.
+- 🏢 **Production SaaS:** Use the ICE framework (Impact, Confidence, Ease). Prioritize high impact, high ease.
+- ⚙️ **Custom Mode:** Prioritize features that unblock enterprise procurement (e.g., Security, SAML).
 
 ## Accountability Check
-- [ ] I know exactly what the #1 most important feature is.
+- [ ] I know exactly what I am building first.
 `,
   'businessmodel': `# Business Model
 
-🕒 **Estimated Time:** 30 min
+🕒 **Estimated Time:** 15 min
 
 ---
 
 ## Why this matters
-How does this actually make money? Are you a B2B SaaS charging per seat? A B2C app using freemium? A marketplace taking a 10% cut? Your business model dictates your entire software architecture (e.g., if you are seat-based, you need an organization/team database schema).
+How are you going to capture the value you create?
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Pick a standard SaaS model just for the pitch. Don't actually implement Stripe.
-- 🏗️ **Personal Project:** Assume it will be completely free forever.
-- 🏢 **Production SaaS:** How exactly does money enter your bank account?
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Skip this. Just say "B2B SaaS" in your pitch.
+- 🏗️ **Personal Project:** Skip this.
+- 🏢 **Production SaaS:** Subscriptions (SaaS) or Usage-Based (API). Don't rely on ads.
+- ⚙️ **Custom Mode:** Top-down enterprise sales, annual contracts, and seat-based licensing.
 
-## The Flow of Money
-**Who specifically pays you, and what exactly are they paying for?**
-\`\`\`input
-✏️ 
-\`\`\`
-
-## AI Business Model Stress Test
-\`\`\`prompt
-Act as a SaaS CFO. My business model is: [PASTE MODEL]. My target ICP is: [PASTE ICP]. Identify the top 2 cash-flow or scaling risks with this specific model, and suggest a way to mitigate them.
-\`\`\`
+## Accountability Check
+- [ ] I know how this product makes money.
 `,
   'pricing': `# Pricing Strategy
 
-🕒 **Estimated Time:** 1 hour
+🕒 **Estimated Time:** 15 min
 
 ---
 
 ## Why this matters
-Pricing is a marketing tool. If you price too low, users will assume your product is cheap/low-quality. If you price based on "what it cost me to build", you are leaving money on the table. You must use Value-Based Pricing.
+Pricing is the most under-utilized growth lever.
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Skip this.
-- 🏢 **Production SaaS:** Charge more than you think you should. It filters out bad customers.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Skip.
+- 🏗️ **Personal Project:** Free.
+- 🏢 **Production SaaS:** Charge more than you think. If nobody complains about the price, it's too cheap.
+- ⚙️ **Custom Mode:** Minimum contract value of $10,000/year to justify sales overhead.
 
-## The Competitive Landscape
-**How much are your top 3 competitors charging per month?**
-\`\`\`input
-✏️ 1.
-2.
-3.
-\`\`\`
-
-## AI Pricing Tiers Generator
-\`\`\`prompt
-Act as a SaaS Pricing Expert. My competitors charge [PASTE COMPETITOR PRICING]. My Value Proposition is [PASTE VALUE PROP]. Generate 3 pricing tiers (Hobby, Pro, Enterprise) using Value-Based Pricing principles. Tell me exactly what features should be gated behind the 'Pro' tier to force upgrades.
-\`\`\`
-
-## The Final Tiers
-**Define your 3 Pricing Tiers and their prices:**
-\`\`\`input
-✏️ Tier 1:
-Tier 2:
-Tier 3:
-\`\`\`
+## Accountability Check
+- [ ] I will not underprice my product.
 `,
   'subscriptionmodel': `# Subscription Model
 
@@ -2266,47 +2232,52 @@ Tier 3:
 ---
 
 ## Why this matters
-Will you offer a 14-day free trial? A freemium tier? A reverse trial? Freemium is incredibly expensive to maintain (you pay server costs for free users). Free trials force a buying decision after 14 days. 
+Monthly Recurring Revenue (MRR) is the holy grail of software.
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Skip this.
-- 🏢 **Production SaaS:** Freemium is a marketing expense, not a business model. Default to a 14-day Free Trial.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Skip.
+- 🏗️ **Personal Project:** Skip.
+- 🏢 **Production SaaS:** Offer annual plans at a 20% discount to lock in cash flow.
+- ⚙️ **Custom Mode:** Multi-year lock-ins with mandatory implementation fees.
 
 ## Accountability Check
-- [ ] If choosing Freemium, I understand I need a massive top-of-funnel (SEO/Ads) to convert the 3% who actually pay.
-- [ ] If choosing a Free Trial, I know exactly what sequence of emails I will send on Day 1, Day 7, and Day 14.
+- [ ] I understand MRR dynamics.
 `,
   'revenuestreams': `# Revenue Streams
-
-🕒 **Estimated Time:** 5 min
-
----
-
-## Why this matters
-Subscriptions are the holy grail of SaaS, but there are often secondary revenue streams that can cover your server costs early on. (e.g., charging a one-time $500 "White-glove setup fee" for Enterprise clients, or charging for API access).
-
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Skip this.
-- 🏢 **Production SaaS:** Don't get distracted by secondary streams until the primary subscription model is working.
-
-## Accountability Check
-- [ ] I will not overcomplicate my billing system on Day 1.
-`,
-  'successmetrics': `# Success Metrics
 
 🕒 **Estimated Time:** 10 min
 
 ---
 
 ## Why this matters
-You cannot improve what you do not measure. But if you measure everything, you understand nothing. Success metrics define the health of your product at a high level. Is the patient breathing? Is the heart rate normal?
+Focus on one revenue stream until you hit $1M ARR.
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Success is finishing the project and presenting it.
-- 🏢 **Production SaaS:** Success is reaching ramen profitability.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Skip.
+- 🏗️ **Personal Project:** Skip.
+- 🏢 **Production SaaS:** Focus entirely on your core SaaS subscription.
+- ⚙️ **Custom Mode:** Software licensing + Professional Services / Training.
 
 ## Accountability Check
-- [ ] My success definition is tied to user value, not just my own ego (e.g., "10 users completing a workflow daily" vs "Being featured on TechCrunch").
+- [ ] I will not distract myself with multiple revenue streams yet.
+`,
+  'successmetrics': `# Success Metrics
+
+🕒 **Estimated Time:** 15 min
+
+---
+
+## Why this matters
+You cannot improve what you do not measure.
+
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Did it crash during the demo? No? Success.
+- 🏗️ **Personal Project:** Did I learn the framework? Yes? Success.
+- 🏢 **Production SaaS:** Track Activation Rate and Month 1 Retention. If they churn immediately, the product is broken.
+- ⚙️ **Custom Mode:** Net Revenue Retention (NRR) must be >110%.
+
+## Accountability Check
+- [ ] I know what success looks like.
 `,
   'kpis': `# KPIs (Key Performance Indicators)
 
@@ -2315,199 +2286,142 @@ You cannot improve what you do not measure. But if you measure everything, you u
 ---
 
 ## Why this matters
-Vanity metrics (e.g., "Total Registered Users") make you feel good but don't help you make decisions. Actionable KPIs (e.g., "Daily Active Users", "Churn Rate") tell you exactly when the house is on fire.
+KPIs tell you if the business is healthy.
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Skip this.
-- 🏢 **Production SaaS:** If your daily active users (DAU) aren't growing, your product is dying.
-
-## AI KPI Auditor
-\`\`\`prompt
-Act as a Data Scientist. I am tracking [DAU] and [MRR]. Tell me exactly how I can manipulate or misinterpret these numbers, and suggest a 'Counter-Metric' for each to keep me honest.
-\`\`\`
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Skip.
+- 🏗️ **Personal Project:** Skip.
+- 🏢 **Production SaaS:** Customer Acquisition Cost (CAC) and Lifetime Value (LTV).
+- ⚙️ **Custom Mode:** Sales cycle length and Pipeline Velocity.
 
 ## Accountability Check
-- [ ] I will actively ignore Vanity Metrics.
+- [ ] I understand my primary KPIs.
 `,
   'northstarmetric': `# North Star Metric
 
-🕒 **Estimated Time:** 20 min
+🕒 **Estimated Time:** 15 min
 
 ---
 
 ## Why this matters
-When your team grows, developers will want to refactor, marketing will want to run ads, and sales will want new features. How do you align them? The North Star Metric is the single measurement that best captures the core value your product delivers to its customers. If the North Star goes up, the business grows.
+The one metric that best captures the core value your product delivers to its customers.
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Skip this.
-- 🏢 **Production SaaS:** This should be the singular number your entire team obsesses over.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Skip.
+- 🏗️ **Personal Project:** Skip.
+- 🏢 **Production SaaS:** e.g., For Airbnb, it's "Nights Booked". For WhatsApp, it's "Messages Sent".
+- ⚙️ **Custom Mode:** Must tie directly to enterprise cost savings or revenue generation.
 
-## AI North Star Generator
-\`\`\`prompt
-Act as a VP of Product. My business model is [PASTE BUSINESS MODEL]. My core KPIs are [PASTE KPIs]. Generate 3 potential North Star Metrics. Explain why each one perfectly aligns customer value with our company revenue.
-\`\`\`
-
-## The Final Decision
-**What is your North Star Metric?**
-\`\`\`input
-✏️ Our North Star Metric is:
-\`\`\`
+## Accountability Check
+- [ ] I have identified my North Star Metric.
 `,
   'prd': `# Product Requirements Document (PRD)
-
-🕒 **Estimated Time:** 1-2 hours
-
----
-
-## Why this matters
-A PRD is the single source of truth for what you are building. If you start coding without a PRD, you will get lost in edge cases, scope creep, and architecture debates. The PRD acts as your contract with yourself.
-
-## Mode-Specific Guidance
-Depending on what you are building, your approach here should drastically change:
-- ⚡ **Hackathon Mode:** Your PRD is just a bulleted list of 3 API endpoints and 2 screens.
-- 🏗️ **Personal Project:** A short, 1-page document outlining the specific technologies you want to learn.
-- 🏢 **Production SaaS:** A strict, rigorous document outlining constraints, non-goals, security requirements, and core functionality.
-
-## The Non-Goals
-Defining what you are NOT building is often more important than defining what you are building.
-**What is explicitly OUT of scope for this initial build?**
-\`\`\`input
-✏️ 1. 
-2. 
-3. 
-\`\`\`
-
-## AI PRD Generator
-Let's use AI to synthesize all the context from Phase 0 into a structured technical document.
-
-\`\`\`prompt
-Act as a rigorous Technical Product Manager. Based on my Phase 0 Context (Value Proposition, Target Audience, MVP Features), generate a 1-page Product Requirements Document. It MUST include:
-1. Core Objective
-2. Strict Non-Goals (What we will NOT build)
-3. User Stories (As a [User], I want to [Action], so that [Benefit])
-4. Technical Constraints
-\`\`\`
-
-## The Final Document
-Review the generated PRD. Cut anything that feels bloated.
-**Paste your finalized PRD here to save it to your Master Context:**
-\`\`\`input
-✏️ 
-\`\`\`
-- [ ] I have verified that this PRD can actually be built within my time constraints.
-`,
-  'userflows': `# User Flows
-
-🕒 **Estimated Time:** 45 min
-
----
-
-## Why this matters
-How does a user actually achieve the value you promised them? If the path from "Sign Up" to the "Aha! Moment" requires 14 clicks, you will lose 90% of your users. 
-
-## Mode-Specific Guidance
-Depending on what you are building, your approach here should drastically change:
-- ⚡ **Hackathon Mode:** Assume the happy path. Ignore edge cases like forgotten passwords or failed payments.
-- 🏗️ **Personal Project:** Map out the core CRUD (Create, Read, Update, Delete) flows.
-- 🏢 **Production SaaS:** You must map out edge cases (forgot password, expired credit card, network failure, empty states).
-
-## The Golden Path
-What are the exact steps a user must take to achieve the core value of the app?
-**List the consecutive steps of the Golden Path:**
-\`\`\`input
-✏️ Step 1: User lands on marketing page.
-Step 2: 
-Step 3: 
-Step 4: User achieves the 'Aha!' moment.
-\`\`\`
-
-## AI Flow Visualizer
-Let's turn your text into a visual diagram so you can easily spot friction points.
-
-\`\`\`prompt
-Act as a UX Architect. Based on my Golden Path steps: [PASTE GOLDEN PATH], generate a Mermaid.js diagram code block that visualizes this user flow. Include decision points (e.g., 'Is user logged in?') and error states.
-\`\`\`
-`,
-  'informationarchitecture': `# Information Architecture
 
 🕒 **Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-Information Architecture (IA) is how you organize the screens and data in your app. Before you draw a single wireframe, you need to know what pages exist and how they link together. 
+The PRD is the master blueprint. When AI generates your code, it needs a PRD to understand what it is building.
 
-## Mode-Specific Guidance
-Depending on what you are building, your approach here should drastically change:
-- ⚡ **Hackathon Mode:** 1 Dashboard page, 1 Settings page. Keep it flat.
-- 🏗️ **Personal Project:** A standard top-nav or sidebar structure.
-- 🏢 **Production SaaS:** Map out nested routes, admin panels, role-based access areas, and scalable navigation structures.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Keep it ultra-brief. Bullet points only. Focus on the core user flow.
+- 🏗️ **Personal Project:** Document the technical requirements to ensure you hit your learning goals.
+- 🏢 **Production SaaS:** The PRD must be comprehensive. Missing edge cases here will result in bugs later.
+- ⚙️ **Custom Mode:** Must include strict non-functional requirements (SLAs, uptime, latency, compliance).
 
-## The Hierarchy
-What are the primary tabs/links that will exist in your main navigation menu?
-**List the primary navigation items:**
-\`\`\`input
-✏️ 1. Dashboard
-2. 
-3. 
+## AI Brainstorming Phase
+\`\`\`prompt
+Act as a Senior Product Manager. Based on my MVP Features: [PASTE MVP FEATURES], write a concise, highly-structured Product Requirements Document (PRD). Include user stories and acceptance criteria.
 \`\`\`
 
-## AI Sitemap Generator
+## The Final PRD
+**Paste your finalized PRD here:**
+\`\`\`input
+✏️ 
+\`\`\`
+`,
+  'userflows': `# User Flows
+
+🕒 **Estimated Time:** 20 min
+
+---
+
+## Why this matters
+How does a user get from the landing page to their "Aha!" moment? If the flow is confusing, they will churn.
+
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Optimize the flow for a live demo. Minimize clicks.
+- 🏗️ **Personal Project:** Keep authentication flows simple (e.g., Google OAuth).
+- 🏢 **Production SaaS:** Map out every edge case (forgot password, expired trial, empty states).
+- ⚙️ **Custom Mode:** Map out complex multi-actor flows (Admin invites Manager, Manager creates User).
+
+## AI Diagram Generator
 \`\`\`prompt
-Act as an Information Architect. Based on my PRD and User Flows, generate a hierarchical Sitemap for my application. Show which pages are public, which are authenticated, and which are nested under parent directories.
+Act as a UX Researcher. Based on my PRD, generate a Mermaid.js 'flowchart TD' representing the primary user flow from sign-up to completing their first core action.
 \`\`\`
 
 ## Accountability Check
-- [ ] My navigation menu has no more than 5-7 top-level items (Miller's Law of short-term memory).
+- [ ] I have visualized the core user journey.
+`,
+  'informationarchitecture': `# Information Architecture
+
+🕒 **Estimated Time:** 15 min
+
+---
+
+## Why this matters
+How is your app structured? Where do the settings live? If users can't find things, they will leave.
+
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** One dashboard page. Put everything there.
+- 🏗️ **Personal Project:** Standard top-nav or sidebar.
+- 🏢 **Production SaaS:** Design a scalable hierarchy. Group related features so the navigation doesn't break when you add 50 new features next year.
+- ⚙️ **Custom Mode:** Deep hierarchical access control mapped to organizational charts.
+
+## Accountability Check
+- [ ] I know how many main pages my app will have.
 `,
   'wireframes': `# Wireframes
 
-🕒 **Estimated Time:** 45 min
+🕒 **Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-Designing with boxes (wireframes) is 100x faster than designing with colors and code. Wireframes allow you to argue about *layout* and *functionality* without getting distracted by whether the button should be blue or green.
+Don't write UI code until you know what it looks like.
 
-## Mode-Specific Guidance
-Depending on what you are building, your approach here should drastically change:
-- ⚡ **Hackathon Mode:** Draw it on a napkin. Use AI tools like v0.dev to skip wireframing entirely.
-- 🏗️ **Personal Project:** Use Balsamiq or Excalidraw to block out the layout.
-- 🏢 **Production SaaS:** Use Figma to create click-through low-fidelity prototypes to align stakeholders before coding.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Sketch it on a napkin or use Vercel v0 to generate it instantly.
+- 🏗️ **Personal Project:** Draw it on paper to save time.
+- 🏢 **Production SaaS:** Use Figma. Plan for mobile responsiveness from day one.
+- ⚙️ **Custom Mode:** High-fidelity Figma prototypes tested with enterprise stakeholders.
 
 ## Accountability Check
-- [ ] I have created a wireframe for the mobile view first, forcing me to prioritize content.
-- [ ] I have mapped out what the screen looks like when there is NO data (The Empty State).
+- [ ] I have visual blueprints for my core screens.
 `,
   'designsystem': `# Design System
 
-🕒 **Estimated Time:** 1 hour
+🕒 **Estimated Time:** 20 min
 
 ---
 
 ## Why this matters
-A design system ensures consistency. If you pick colors randomly as you code, your app will look like a ransom note. You need a centralized set of design tokens (Colors, Typography, Spacing).
+A design system ensures your app doesn't look like a Frankenstein monster of random colors and fonts.
 
-## Mode-Specific Guidance
-Depending on what you are building, your approach here should drastically change:
-- ⚡ **Hackathon Mode:** Just use Shadcn/ui or Tailwind UI default. Do not waste time customizing.
-- 🏗️ **Personal Project:** Pick 1 primary color and let a tool generate the shades.
-- 🏢 **Production SaaS:** Define strict design tokens (Primary, Secondary, Destructive, Muted, Background, Foreground) that support Light and Dark mode from Day 1.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Use Shadcn UI or Tailwind UI. Do not write custom CSS.
+- 🏗️ **Personal Project:** Pick 1 primary color and use a standard component library.
+- 🏢 **Production SaaS:** Establish strict design tokens (colors, typography, spacing) to ensure UI consistency as the team grows.
+- ⚙️ **Custom Mode:** Full strict adherence to WCAG accessibility standards and custom brand guidelines.
 
-## The Core Identity
-What is the primary color of your brand? (e.g., Stripe Blurple, Spotify Green).
-**Paste your primary brand hex code:**
-\`\`\`input
-✏️ #
-\`\`\`
-
-## AI Tailwind Theme Generator
+## AI Generator
 \`\`\`prompt
-Act as a UI/UX Designer. My primary brand hex code is [PASTE HEX]. Generate a complete Tailwind CSS \`theme.extend.colors\` configuration object. It must include:
-1. A 50-900 scale for my primary color.
-2. Semantic colors (success, warning, error, info) that look harmonious with the primary color.
-3. Background and surface colors for both Light and Dark mode.
+Act as a UI Designer. Suggest a modern, accessible color palette (Primary, Secondary, Accent, Background) and 2 Google Fonts for a [YOUR APP TYPE]. Provide the exact hex codes.
 \`\`\`
+
+## Accountability Check
+- [ ] I have selected my component library and color palette.
 `,
   'branding': `# Branding & Voice
 
@@ -2516,42 +2430,34 @@ Act as a UI/UX Designer. My primary brand hex code is [PASTE HEX]. Generate a co
 ---
 
 ## Why this matters
-Your app is not just buttons and inputs; it is a conversation with the user. The words you use (copywriting) and the tone you project (branding) are often the only things separating you from a competitor with the exact same features.
+Your brand is how people feel when they interact with your product.
 
-## Mode-Specific Guidance
-Depending on what you are building, your approach here should drastically change:
-- ⚡ **Hackathon Mode:** Skip this. Just use default placeholder text.
-- 🏗️ **Personal Project:** Write copy that reflects your personal personality.
-- 🏢 **Production SaaS:** Define a strict brand voice that resonates perfectly with the Persona you defined in Phase 0.
-
-## AI Copywriter
-\`\`\`prompt
-Act as a World-Class Conversion Copywriter. My product is [PASTE SOLUTION STATEMENT]. My brand voice is [PROFESSIONAL / WITTY / AGGRESSIVE]. 
-Write 3 variations of the H1 Headline and Sub-headline for my landing page. The H1 must be under 8 words, and the sub-headline must handle objections.
-\`\`\`
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Skip.
+- 🏗️ **Personal Project:** Keep it clean and professional.
+- 🏢 **Production SaaS:** Does your app sound playful (Discord) or serious (Stripe)? This dictates your copywriting.
+- ⚙️ **Custom Mode:** Corporate, highly-trustworthy, authoritative tone.
 
 ## Accountability Check
-- [ ] I have chosen a consistent tone of voice for the app.
+- [ ] I know what tone of voice my app should use.
 `,
   'accessibility': `# Accessibility (a11y)
 
-🕒 **Estimated Time:** 20 min
+🕒 **Estimated Time:** 10 min
 
 ---
 
 ## Why this matters
-Accessibility is not an afterthought; it is a requirement. Building an inaccessible app means you are locking out 15% of the global population, and in many jurisdictions, exposing yourself to massive lawsuits.
+If your app isn't accessible, you are locking out 15% of the population (and opening yourself to lawsuits).
 
-## Mode-Specific Guidance
-Depending on what you are building, your approach here should drastically change:
-- ⚡ **Hackathon Mode:** You can skip ARIA audits, but you must still use semantic HTML tags (\`<button>\`, \`<nav>\`) to get baseline accessibility for free.
-- 🏗️ **Personal Project:** Ensure your color contrast ratio passes WCAG AA standards.
-- 🏢 **Production SaaS:** Strict WCAG AA compliance, proper ARIA labels for dynamic content, full keyboard navigation support, and screen reader testing.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Ignore for now, just build the demo.
+- 🏗️ **Personal Project:** Use semantic HTML (e.g., \`<button>\` instead of \`<div onClick>\`) to learn best practices.
+- 🏢 **Production SaaS:** Ensure high color contrast and keyboard navigability.
+- ⚙️ **Custom Mode:** Mandatory WCAG 2.1 AA compliance required for enterprise procurement.
 
 ## Accountability Check
-- [ ] I will use actual \`<button>\` tags for clickable actions, NEVER a \`<div>\` with an onClick handler.
-- [ ] I have verified that my primary brand colors have a contrast ratio of at least 4.5:1 against the background color.
-- [ ] I will ensure all \`<input>\` fields have an associated \`<label>\`.
+- [ ] I will use proper HTML elements and consider contrast ratios.
 `,
   'techstackselection': `# Tech Stack Selection
 
@@ -2560,11 +2466,13 @@ Depending on what you are building, your approach here should drastically change
 ---
 
 ## Why this matters
-Your tech stack is the foundation of your house. If you build on sand (a stack you don't know well, or a trendy experimental framework), your house will collapse when you try to scale. Boring technology is often the best technology.
+Your tech stack is the foundation of your house. If you build on sand, your house will collapse when you try to scale.
 
-## Mode-Specific Guidance
+## Strategic Guidance
 - ⚡ **Hackathon Mode:** React (Vite) + Supabase + Tailwind. Don't waste time debating. Stick to what gets a button on the screen the fastest.
+- 🏗️ **Personal Project:** Choose the specific technology you want to learn, even if it's overly complex.
 - 🏢 **Production SaaS:** Choose the boring technology that your team already knows. Do not pick a stack just because it's trending on Twitter.
+- ⚙️ **Custom Mode:** Use highly scalable, typed, compiled languages and enterprise-supported frameworks (e.g., Java, C#, Go, or strict Next.js).
 
 ## The Core Stack
 Declare the exact technologies you will use. This context is critical for AI code generation later.
@@ -2580,9 +2488,6 @@ Declare the exact technologies you will use. This context is critical for AI cod
 \`\`\`input
 ✏️ 
 \`\`\`
-
-## Accountability Check
-- [ ] I am choosing a stack because it solves my problem, not because I want to learn it (unless this is a Personal Project).
 `,
   'frontendarchitecture': `# Frontend Architecture
 
@@ -2591,11 +2496,13 @@ Declare the exact technologies you will use. This context is critical for AI cod
 ---
 
 ## Why this matters
-Will your app be a Single Page Application (SPA) where everything loads instantly on the client, or Server-Side Rendered (SSR) where pages are built on the server for better SEO? 
+Will your app be a Single Page Application (SPA) where everything loads instantly on the client, or Server-Side Rendered (SSR) where pages are built on the server for better SEO?
 
-## Mode-Specific Guidance
+## Strategic Guidance
 - ⚡ **Hackathon Mode:** SPA (Vite). Ignore SEO. Just get the dashboard working.
-- 🏢 **Production SaaS:** If your app lives behind a login wall (like most SaaS dashboards), use a SPA. If you need public marketing pages with perfect SEO, use SSR (Next.js).
+- 🏗️ **Personal Project:** SPA is usually easier to host and deploy.
+- 🏢 **Production SaaS:** If your app lives behind a login wall, use a SPA. If you need public marketing pages with perfect SEO, use SSR (Next.js).
+- ⚙️ **Custom Mode:** Micro-frontends or strict SSR for maximum performance and team isolation.
 
 ## The Strategy
 **What rendering strategy are you choosing and why?**
@@ -2611,14 +2518,16 @@ Reason:
 ---
 
 ## Why this matters
-Do you need to write and deploy a custom Node.js server, or can you use a Backend-as-a-Service (BaaS) like Supabase to handle the database and APIs for you?
+Do you need to write and deploy a custom server, or can you use a Backend-as-a-Service (BaaS)?
 
-## Mode-Specific Guidance
+## Strategic Guidance
 - ⚡ **Hackathon Mode:** BaaS (Supabase/Firebase). Writing custom Express routes during a hackathon is a waste of time.
-- 🏢 **Production SaaS:** Microservices are for companies with 100+ engineers. Default to a Monolith or a BaaS.
+- 🏗️ **Personal Project:** BaaS is easiest, but building a custom Node/Python server is great for learning.
+- 🏢 **Production SaaS:** Default to a Monolith or a BaaS. Microservices are for companies with 100+ engineers.
+- ⚙️ **Custom Mode:** Event-driven microservices architecture using Kafka/SQS for extreme scale.
 
 ## The Strategy
-**What backend architecture are you choosing? (e.g., BaaS, Monolith, Serverless Functions):**
+**What backend architecture are you choosing?**
 \`\`\`input
 ✏️ Strategy:
 \`\`\`
@@ -2630,15 +2539,17 @@ Do you need to write and deploy a custom Node.js server, or can you use a Backen
 ---
 
 ## Why this matters
-If your frontend and backend don't agree on how to communicate, your app will crash constantly. A strong API design contract (like OpenAPI or tRPC) prevents "undefined is not a function" errors.
+A strong API design contract prevents "undefined is not a function" errors.
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** If using Supabase, use their auto-generated client SDK. Skip designing custom APIs entirely.
-- 🏢 **Production SaaS:** Strict RESTful or GraphQL conventions. Document your API *before* you write the code.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** If using Supabase, use their auto-generated client SDK. Skip designing custom APIs.
+- 🏗️ **Personal Project:** Use simple REST endpoints.
+- 🏢 **Production SaaS:** Strict RESTful or GraphQL conventions. Use tRPC for end-to-end type safety if using a full TS stack.
+- ⚙️ **Custom Mode:** Formal OpenAPI (Swagger) specifications required before writing any code.
 
 ## AI API Spec Generator
 \`\`\`prompt
-Act as a Backend Architect. Based on my PRD: [PASTE PRD SUMMARY], generate a markdown-formatted OpenAPI (Swagger) specification for the 3 core endpoints my application needs to function. Include the request body and expected JSON responses.
+Act as a Backend Architect. Based on my PRD: [PASTE PRD SUMMARY], generate a markdown-formatted OpenAPI (Swagger) specification for the 3 core endpoints my application needs.
 \`\`\`
 
 ## Accountability Check
@@ -2651,20 +2562,19 @@ Act as a Backend Architect. Based on my PRD: [PASTE PRD SUMMARY], generate a mar
 ---
 
 ## Why this matters
-Never roll your own authentication. Storing passwords safely is incredibly difficult. You should always use a managed auth provider (Supabase Auth, Clerk, Auth0).
+Never roll your own authentication. Storing passwords safely is incredibly difficult.
 
-## Mode-Specific Guidance
+## Strategic Guidance
 - ⚡ **Hackathon Mode:** Magic Links or Google OAuth only. Don't waste time building password reset flows.
-- 🏢 **Production SaaS:** Use a dedicated provider. Enterprise SSO (SAML) might be required if selling to large companies.
+- 🏗️ **Personal Project:** Supabase Auth or NextAuth.
+- 🏢 **Production SaaS:** Use a dedicated provider (Supabase Auth, Clerk). Plan for multi-tenant B2B architectures.
+- ⚙️ **Custom Mode:** Enterprise SSO (SAML, Okta, Active Directory) is mandatory.
 
 ## Auth Provider
 **Which Authentication Provider are you using?**
 \`\`\`input
 ✏️ Provider:
 \`\`\`
-
-## Accountability Check
-- [ ] I swear I will not write my own custom JWT generation and password hashing logic.
 `,
   'authorizationroles': `# Authorization & Roles
 
@@ -2673,14 +2583,15 @@ Never roll your own authentication. Storing passwords safely is incredibly diffi
 ---
 
 ## Why this matters
-Authentication is verifying *who* you are. Authorization is verifying *what* you are allowed to do. If User A can change the URL ID and see User B's invoices, your company will be destroyed.
+Authentication is *who* you are. Authorization is *what* you are allowed to do. If User A can see User B's invoices, your company is dead.
 
-## Mode-Specific Guidance
+## Strategic Guidance
 - ⚡ **Hackathon Mode:** Everyone is an Admin. Don't bother with roles.
-- 🏢 **Production SaaS:** Strict Role-Based Access Control (RBAC). Use Row Level Security (RLS) if your database supports it (e.g., Postgres).
+- 🏗️ **Personal Project:** Simple Admin vs User boolean flag.
+- 🏢 **Production SaaS:** Strict Role-Based Access Control (RBAC). Use Row Level Security (RLS) in the database.
+- ⚙️ **Custom Mode:** Fine-grained Attribute-Based Access Control (ABAC) synced with enterprise directory groups.
 
 ## Accountability Check
-- [ ] I understand the difference between Authentication and Authorization.
 - [ ] I will implement checks to ensure users can only read/write their own data.
 `,
   'databaseschema': `# Database Schema
@@ -2690,19 +2601,20 @@ Authentication is verifying *who* you are. Authorization is verifying *what* you
 ---
 
 ## Why this matters
-The database schema is the skeleton of your application. If your tables are designed poorly, every single API and frontend component will have to write ugly, complicated code to work around it.
+The database schema is the skeleton of your application. If designed poorly, every API will have to write ugly code to work around it.
 
-## Mode-Specific Guidance
+## Strategic Guidance
 - ⚡ **Hackathon Mode:** Put everything in 2 tables. Use JSONB columns if you are lazy.
-- 🏢 **Production SaaS:** Strict relational normalization (3NF) for SQL, or careful document design for NoSQL.
+- 🏗️ **Personal Project:** Use an ORM like Prisma to make database changes easy.
+- 🏢 **Production SaaS:** Strict relational normalization (3NF) for SQL. Add foreign keys and cascading deletes to maintain data integrity.
+- ⚙️ **Custom Mode:** Highly optimized indexing, read-replicas, and partitioning strategies planned from day one.
 
 ## AI Schema Generator
 \`\`\`prompt
-Act as a Database Administrator. Based on my PRD: [PASTE PRD SUMMARY], generate a robust SQL (Postgres) schema. Include exact \`CREATE TABLE\` statements with foreign keys, cascading deletes, and timestamps. Optimize for read performance.
+Act as a Database Administrator. Based on my PRD: [PASTE PRD SUMMARY], generate a robust SQL (Postgres) schema. Include exact \`CREATE TABLE\` statements with foreign keys, cascading deletes, and timestamps.
 \`\`\`
 
 ## Finalizing the Schema
-Review the generated schema. This is the most important data for the AI to understand your app.
 **Paste your finalized Database Schema (SQL or Prisma) here:**
 \`\`\`input
 ✏️ 
@@ -2715,11 +2627,13 @@ Review the generated schema. This is the most important data for the AI to under
 ---
 
 ## Why this matters
-You should never store images or PDFs directly in a SQL database. They belong in a dedicated Object Storage bucket (like AWS S3).
+You should never store images or PDFs directly in a SQL database. They belong in Object Storage.
 
-## Mode-Specific Guidance
+## Strategic Guidance
 - ⚡ **Hackathon Mode:** Store images as Base64 strings in the DB (terrible idea normally, but fast for demos).
-- 🏢 **Production SaaS:** Use AWS S3 or Supabase Storage. Use signed, expiring URLs if the files are private.
+- 🏗️ **Personal Project:** Supabase Storage (easy API).
+- 🏢 **Production SaaS:** AWS S3 or Cloudflare R2. Use signed, expiring URLs if the files are private.
+- ⚙️ **Custom Mode:** Encrypted at rest (KMS), multi-region replication, and strict retention policies.
 
 ## Accountability Check
 - [ ] I will use a dedicated Object Storage service for user uploads.
@@ -2731,14 +2645,16 @@ You should never store images or PDFs directly in a SQL database. They belong in
 ---
 
 ## Why this matters
-Don't reinvent the wheel. If you need emails, use Resend. If you need payments, use Stripe. However, every 3rd party integration introduces a point of failure if their servers go down.
+Don't reinvent the wheel. If you need emails, use Resend. If you need payments, use Stripe.
 
-## Mode-Specific Guidance
+## Strategic Guidance
 - ⚡ **Hackathon Mode:** Just use the test mode keys. Don't worry about webhooks.
-- 🏢 **Production SaaS:** Isolate all third-party SDKs behind a custom wrapper interface so you can swap them out later if they raise prices. Handle webhooks securely.
+- 🏗️ **Personal Project:** Great way to learn how external APIs work.
+- 🏢 **Production SaaS:** Isolate all third-party SDKs behind a custom wrapper interface so you can swap them out later if they raise prices.
+- ⚙️ **Custom Mode:** Ensure all third parties have SOC2 Type II reports and SLA guarantees.
 
 ## The Dependency List
-**List the 3 main external APIs you depend on (e.g., Stripe, SendGrid, OpenAI):**
+**List the 3 main external APIs you depend on:**
 \`\`\`input
 ✏️ 1.
 2.
@@ -2752,16 +2668,13 @@ Don't reinvent the wheel. If you need emails, use Resend. If you need payments, 
 ---
 
 ## Why this matters
-If your app uses LLMs (like OpenAI or Anthropic), you need to decide how to integrate them. 
+If your app uses LLMs (like OpenAI or Anthropic), you need to decide how to integrate them securely.
 
-## Mode-Specific Guidance
+## Strategic Guidance
 - ⚡ **Hackathon Mode:** Call the OpenAI API directly from the client (insecure, but fast).
-- 🏢 **Production SaaS:** Never expose your API keys to the client. Route all AI calls through a secure backend using tools like the Vercel AI SDK. Use pgvector if doing RAG (Retrieval-Augmented Generation).
-
-## AI Implementation Strategy
-\`\`\`prompt
-Act as an AI Engineer. My app needs to do [PASTE AI GOAL]. Should I use a simple prompt chain, RAG (Retrieval-Augmented Generation), or Fine-Tuning? Explain the cheapest and most reliable architecture to achieve this.
-\`\`\`
+- 🏗️ **Personal Project:** Play with the Vercel AI SDK to learn streaming.
+- 🏢 **Production SaaS:** Never expose API keys to the client. Route all AI calls through a secure backend. Use pgvector for RAG.
+- ⚙️ **Custom Mode:** Must use self-hosted open-source models (Llama 3) or enterprise Azure OpenAI to guarantee data privacy.
 
 ## Accountability Check
 - [ ] I will not put my OpenAI API keys in my frontend code.
@@ -2773,15 +2686,17 @@ Act as an AI Engineer. My app needs to do [PASTE AI GOAL]. Should I use a simple
 ---
 
 ## Why this matters
-A picture is worth a thousand words. A system architecture diagram shows exactly how your frontend, backend, database, and 3rd party APIs talk to each other.
+A picture is worth a thousand words. A diagram shows exactly how your frontend, backend, and APIs talk to each other.
 
-## Mode-Specific Guidance
+## Strategic Guidance
 - ⚡ **Hackathon Mode:** Skip this.
-- 🏢 **Production SaaS:** Required for investor due diligence, security audits, and onboarding new developers.
+- 🏗️ **Personal Project:** Skip this.
+- 🏢 **Production SaaS:** Required for investor due diligence and onboarding new developers.
+- ⚙️ **Custom Mode:** Highly detailed AWS/GCP infrastructure diagrams with VPC boundaries.
 
 ## AI Diagram Generator
 \`\`\`prompt
-Act as a Cloud Architect. Based on my Tech Stack: [PASTE TECH STACK] and Integrations: [PASTE INTEGRATIONS], generate a Mermaid.js 'graph TD' diagram showing the flow of data between my client, server, database, and external APIs.
+Act as a Cloud Architect. Based on my Tech Stack: [PASTE TECH STACK] and Integrations: [PASTE INTEGRATIONS], generate a Mermaid.js 'graph TD' diagram showing the flow of data.
 \`\`\`
 
 ## Accountability Check
@@ -2794,14 +2709,16 @@ Act as a Cloud Architect. Based on my Tech Stack: [PASTE TECH STACK] and Integra
 ---
 
 ## Why this matters
-If your server costs scale faster than your revenue, you will go bankrupt. You need to know exactly how much it costs to serve 1,000 active users.
+If your server costs scale faster than your revenue, you will go bankrupt.
 
-## Mode-Specific Guidance
+## Strategic Guidance
 - ⚡ **Hackathon Mode:** Everything should be on a free tier (Vercel, Supabase).
-- 🏢 **Production SaaS:** Calculate your exact COGS (Cost of Goods Sold).
+- 🏗️ **Personal Project:** Do not put your credit card into AWS without setting up billing alerts.
+- 🏢 **Production SaaS:** Calculate your exact COGS (Cost of Goods Sold) for serving 1,000 active users.
+- ⚙️ **Custom Mode:** Detailed FinOps planning and reserved instance purchasing strategy.
 
 ## Accountability Check
-- [ ] I am confident my chosen architecture will not bankrupt me when I get my first 1,000 users.
+- [ ] I am confident my chosen architecture will not bankrupt me.
 `,
   'auth': `# Auth (Implementation)
 
