@@ -37,55 +37,57 @@ export const universalLinks: QuickLink[] = [
 export const generateId = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '');
 
 export const globalTopicLinks: Record<string, {name: string, url: string}[]> = {
-  // SaaS & General Discovery Links
-  'ideadefinition': [
-    { name: 'Y Combinator: How to Evaluate Startup Ideas', url: 'https://www.ycombinator.com/library/8g-how-to-get-startup-ideas' },
-    { name: 'The Lean Canvas Guide', url: 'https://leanstack.com/lean-canvas' }
+  // Mobile App Phase 0
+  'mobileideadefinition': [
+    { name: 'YC: Evaluate Ideas', url: 'https://www.ycombinator.com/library/6e-how-to-evaluate-startup-ideas' },
+    { name: 'Tool: Google Trends', url: 'https://trends.google.com/' }
   ],
-  'problemstatement': [
-    { name: 'YC: How to get Startup Ideas', url: 'https://www.ycombinator.com/library/8g-how-to-get-startup-ideas' },
-    { name: 'Lean Canvas', url: 'https://leanstack.com/lean-canvas' }
+  'mobileproblemstatement': [
+    { name: 'Lean Canvas Guide', url: 'https://leanstack.com/lean-canvas' },
+    { name: 'YC: Get Startup Ideas', url: 'https://www.ycombinator.com/library/8g-how-to-get-startup-ideas' }
   ],
-  'targetusers': [
-    { name: 'Nielsen Norman: User Personas', url: 'https://www.nngroup.com/articles/persona/' },
-    { name: 'HubSpot: Buyer Personas', url: 'https://blog.hubspot.com/marketing/buyer-persona-research' }
+  'mobileusecases': [
+    { name: 'Jobs to be Done', url: 'https://www.lennysnewsletter.com/p/jobs-to-be-done' }
   ],
-  'icpidealcustomerprofile': [
-    { name: 'How to build an ICP', url: 'https://blog.hubspot.com/marketing/buyer-persona-research' }
+  'mobileuserjourney': [
+    { name: 'Nielsen Norman: Journey Mapping', url: 'https://www.nngroup.com/articles/journey-mapping-101/' }
   ],
-  'personas': [
+  'mobiletargetaudience': [
+    { name: 'Superhuman PMF Engine', url: 'https://firstround.com/review/how-superhuman-built-an-engine-to-find-product-market-fit/' }
+  ],
+  'mobilepersonas': [
     { name: 'Nielsen Norman: User Personas', url: 'https://www.nngroup.com/articles/persona/' }
   ],
-  'solutionstatement': [
-    { name: 'YC: How to Pitch', url: 'https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising' }
+  'mobilesolutionstatement': [
+    { name: 'Amazon Working Backwards', url: 'https://www.workingbackwards.com/' }
   ],
-  'elevatorpitch': [
-    { name: 'YC: How to Pitch', url: 'https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising' }
+  'mobileelevatorpitch': [
+    { name: 'YC: How to Pitch', url: 'https://www.ycombinator.com/library/6p-how-to-pitch-your-startup' }
   ],
-  'competitoranalysis': [
+  'mobilecompetitoranalysis': [
     { name: 'AppTweak (ASO)', url: 'https://www.apptweak.com/' },
-    { name: 'SensorTower', url: 'https://sensortower.com/' },
-    { name: 'G2 Software Reviews', url: 'https://www.g2.com/' }
+    { name: 'SensorTower', url: 'https://sensortower.com/' }
   ],
-  'mvpfeatures': [
-    { name: 'MoSCoW Prioritization Method', url: 'https://www.productplan.com/glossary/moscow-prioritization/' },
-    { name: 'YC: How to Plan an MVP', url: 'https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising' }
+  'mobilesimilarapps': [
+    { name: 'Mobbin (App UI Patterns)', url: 'https://mobbin.com/' }
   ],
-  'futurefeatures': [
-    { name: 'MoSCoW Prioritization Method', url: 'https://www.productplan.com/glossary/moscow-prioritization/' }
+  'mobilefeatureplanning': [
+    { name: 'Lenny: Writing PRDs', url: 'https://www.lennysnewsletter.com/p/product-requirements-document-prd' }
   ],
-  'featureprioritization': [
+  'mobilemvpfeatures': [
+    { name: 'YC: Plan an MVP', url: 'https://www.ycombinator.com/library/6e-how-to-plan-an-mvp' }
+  ],
+  'mobilefuturefeatures': [
+    { name: 'Lenny: Product Roadmaps', url: 'https://www.lennysnewsletter.com/p/product-roadmaps' }
+  ],
+  'mobilefeatureprioritization': [
     { name: 'MoSCoW Prioritization', url: 'https://www.productplan.com/glossary/moscow-prioritization/' }
   ],
-  'businessmodel': [
-    { name: 'State of Subscription Apps', url: 'https://www.revenuecat.com/state-of-subscription-apps/' },
-    { name: 'Apple Monetization Guidelines', url: 'https://developer.apple.com/app-store/business-models/' }
-  ],
-  'pricing': [
+  'mobilemonetization': [
     { name: 'State of Subscription Apps', url: 'https://www.revenuecat.com/state-of-subscription-apps/' }
   ],
-  'subscriptionmodel': [
-    { name: 'RevenueCat State of Subscriptions', url: 'https://www.revenuecat.com/state-of-subscription-apps/' }
+  'mobilesuccessmetrics': [
+    { name: 'Amplitude: Retention Playbook', url: 'https://amplitude.com/retention' }
   ],
 
   // Mobile specific links
