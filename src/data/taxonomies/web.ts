@@ -2,7 +2,7 @@ import {
   FileText, Database, Settings, Globe, Box, CheckSquare, Shield, Rocket, 
   Layers, Server, Activity, Zap, Search, Key, Target, Users, BarChart, 
   DollarSign, PenTool, MessageSquare, Presentation, AlertCircle, Map,
-  CreditCard, Bell, Cloud, Monitor, BookOpen, Lock, Link, Calendar, Cpu, LayoutDashboard
+  CreditCard, Bell, Cloud, Monitor, BookOpen, Lock, Link, Calendar, Cpu, LayoutDashboard, TrendingUp
 } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
@@ -86,42 +86,42 @@ export const webProductionTaxonomy: Category[] = [
     id: 'phase-4',
     name: 'PHASE 4 — PRODUCTION READINESS',
     topics: [
-      createTopic('Security', Shield),
-      createTopic('Performance Optimization', Zap),
-      createTopic('Monitoring', Activity),
-      createTopic('Logging', FileText),
-      createTopic('Error Tracking', AlertCircle),
-      createTopic('Rate Limiting', Shield),
-      createTopic('Caching', Zap),
-      createTopic('Backups', Database),
-      createTopic('CI/CD', Settings),
-      createTopic('SEO', Search),
-      createTopic('Scalability Planning', BarChart),
+      createTopic('Security', Shield, [], 'websecurityreadiness'),
+      createTopic('Performance Optimization', Zap, [], 'webperformanceoptimization'),
+      createTopic('Monitoring', Activity, [], 'webmonitoring'),
+      createTopic('Logging', FileText, [], 'weblogging'),
+      createTopic('Error Tracking', AlertCircle, [], 'weberrortracking'),
+      createTopic('Rate Limiting', Shield, [], 'webratelimiting'),
+      createTopic('Caching', Zap, [], 'webcaching'),
+      createTopic('Backups', Database, [], 'webbackups'),
+      createTopic('CI/CD', Settings, [], 'webcicd'),
+      createTopic('SEO', Search, [], 'webseoprod'),
+      createTopic('Scalability Planning', BarChart, [], 'webscalabilityplanning'),
     ]
   },
   {
     id: 'phase-5',
     name: 'PHASE 5 — DEPLOYMENT',
     topics: [
-      createTopic('Beta Testing', Users),
-      createTopic('User Feedback', MessageSquare),
-      createTopic('Domain Setup', Globe),
-      createTopic('Hosting', Server),
-      createTopic('Analytics Setup', BarChart),
-      createTopic('Legal Pages', FileText),
-      createTopic('Launch Checklist', CheckSquare),
+      createTopic('Beta Testing', Users, [], 'webbetatesting'),
+      createTopic('User Feedback', MessageSquare, [], 'webuserfeedback'),
+      createTopic('Domain Setup', Globe, [], 'webdomainsetup'),
+      createTopic('Hosting', Server, [], 'webhostingdeploy'),
+      createTopic('Analytics Setup', BarChart, [], 'webanalyticssetup'),
+      createTopic('Legal Pages', FileText, [], 'weblegalpages'),
+      createTopic('Launch Checklist', CheckSquare, [], 'weblaunchchecklist'),
     ]
   },
   {
     id: 'phase-6',
     name: 'PHASE 6 — GROWTH',
     topics: [
-      createTopic('Analytics', BarChart),
-      createTopic('Scaling Strategy', BarChart),
-      createTopic('SEO Optimization', Search),
-      createTopic('User Retention', Users),
-      createTopic('Feature Roadmap', Globe),
-      createTopic('Technical Debt', Settings),
+      createTopic('Analytics', BarChart, [], 'webanalytics'),
+      createTopic('Scaling Strategy', TrendingUp, [], 'webscalingstrategy'),
+      createTopic('SEO Optimization', Search, [], 'webseooptimization'),
+      createTopic('User Retention', Users, [], 'webuserretention'),
+      createTopic('Feature Roadmap', Map, [], 'webfeatureroadmap'),
+      createTopic('Technical Debt', AlertCircle, [], 'webtechnicaldebt'),
     ]
   }
 ];
@@ -162,16 +162,16 @@ export const webHackathonTaxonomy: Category[] = [
         createTopic('Auth (Optional)', Key, [], 'webauthoptionaldev'),
       ]
     },
-  {
-    id: 'phase-5',
-    name: 'PHASE 5',
-    topics: [
-      createTopic('Pitch Deck', Presentation),
-      createTopic('Demo Script', FileText),
-      createTopic('Submission Checklist', CheckSquare),
-      createTopic('Hosting', Server),
-    ]
-  }
+    {
+      id: 'phase-4',
+      name: 'PHASE 4 — SUBMISSION',
+      topics: [
+        createTopic('Pitch Deck', Presentation, [], 'webpitchdeck'),
+        createTopic('Demo Script', FileText, [], 'webdemoscript'),
+        createTopic('Submission Checklist', CheckSquare, [], 'websubmissionchecklist'),
+        createTopic('Hosting', Server, [], 'webhostinghackathon'),
+      ]
+    }
 ];
 
 export const webPersonalTaxonomy: Category[] = [
@@ -217,8 +217,8 @@ export const webPersonalTaxonomy: Category[] = [
     id: 'growth',
     name: 'PHASE 4 — GROWTH',
     topics: [
-      createTopic('Feedback', MessageSquare),
-      createTopic('Roadmap', Globe),
+      createTopic('Feedback', MessageSquare, [], 'webfeedback'),
+      createTopic('Roadmap', Globe, [], 'webroadmap'),
     ]
   }
 ];
