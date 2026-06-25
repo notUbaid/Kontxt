@@ -108,7 +108,7 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
   const progressPercentage = totalTopics > 0 ? Math.round((completedTopicsCount / totalTopics) * 100) : 0;
 
   return (
-    <aside className="w-72 shrink-0 h-[calc(100vh-4rem)] overflow-y-auto border-r border-muted bg-background/95 backdrop-blur-sm pb-10 flex flex-col">
+    <aside className="w-72 shrink-0 h-[calc(100vh-4rem)] overflow-x-hidden overflow-y-auto border-r border-muted bg-background/95 backdrop-blur-sm pb-10 flex flex-col">
       {activeProject.progressEnabled !== false && totalTopics > 0 && (
         <div className="p-5 pb-2 border-b border-muted/50 bg-muted/10 shrink-0">
           <div className="flex items-center justify-between mb-2">
@@ -123,7 +123,7 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
           </div>
         </div>
       )}
-      <nav className="p-4 space-y-6 flex-1 overflow-y-auto">
+      <nav className="p-4 space-y-6 flex-1 overflow-x-hidden overflow-y-auto">
         {filteredTaxonomy.map((category) => {
           // Filter topics for the active mode
           const modeTopics = category.topics.filter(t => !t.modes || t.modes.includes(activeMode));
