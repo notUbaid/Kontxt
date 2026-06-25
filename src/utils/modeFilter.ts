@@ -3,8 +3,8 @@ import type { Mode } from '../components/TopNav';
 export function filterModeContent(markdown: string, activeMode: Mode): string {
   if (!markdown) return markdown;
 
-  // Find the Mode-Specific Guidance block up to the next heading or end of string
-  const modeRegex = /## Mode-Specific Guidance[\s\S]*?(?=\n## |\n*$)/;
+  // Find the Strategic Guidance or Mode-Specific Guidance block up to the next heading or end of string
+  const modeRegex = /## (Mode-Specific Guidance|Strategic Guidance)[\s\S]*?(?=\n## |\n*$)/;
   
   return markdown.replace(modeRegex, (match) => {
     const lines = match.split('\n');
