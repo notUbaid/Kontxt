@@ -2,400 +2,413 @@ export const fallbackContent: Record<string, string> = {
   'internaltechnicaldebt': `
 # Technical Debt
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 1-3 Hours
 
 ---
+
+## Why this matters
+Internal tools suffer from "Good Enough" syndrome. Because the tool isn't public, Engineering is pressured to ship features quickly and ignore refactoring. Over 3 years, the codebase becomes a tangled mess of tech debt. Eventually, adding a single button takes 2 weeks because the frontend architecture is so fragile.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Technical Debt, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+The entire project is technical debt. 
 
 ### Personal Project
-If you are building an internal tool for your own use, Technical Debt should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Refactor when you get annoyed.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Technical Debt can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Technical Debt must be managed like a financial budget. You cannot ignore it, and you cannot spend 100% of your time paying it off.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **The 20% Rule**:
+   Allocate exactly 20% of every Engineering Sprint to paying down technical debt. This means upgrading dependencies (e.g., migrating from React 17 to 18), refactoring massive files, and improving test coverage. Do not ask management for permission to do this; bake it into your velocity estimates.
+2. **Dependency Management**:
+   Do not let your 'package.json' rot. Use tools like **Dependabot** or **Renovate** to automatically open Pull Requests for minor package updates every week. An internal tool running on a 4-year-old version of Node.js is a massive security liability.
+3. **The "Boy Scout" Rule**:
+   Always leave the code better than you found it. If you are adding a feature to a file and you notice an unused variable or a poorly named function, fix it in that same Pull Request.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Technical Debt?**
+**How will you ensure dependencies stay up to date and secure?**
 \`\`\`input
-1. 
-2. 
-3. 
+Dependency Strategy (e.g., Dependabot, Weekly manual updates):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Technical Debt component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Staff Engineer. Our internal tool is 2 years old and the Tech Debt is slowing down feature delivery. Management wants us to spend 100% of our time on new features. Write a persuasive argument for the VP of Engineering explaining why enforcing a strict "20% Tech Debt Allocation" per sprint will actually *increase* feature delivery speed over the next 12 months.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Technical Debt.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] 20% of engineering capacity is dedicated to refactoring and maintenance.
+- [ ] Automated dependency updates (Dependabot) are enabled.
+- [ ] Security vulnerabilities in third-party packages are patched immediately.
 `,
 
   'internalusagetracking': `
 # Usage Tracking
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 1-2 Hours
 
 ---
+
+## Why this matters
+If you are building an internal tool to replace a legacy system, you need concrete proof that employees are actually migrating to the new tool. If login counts are dropping on the new tool, it means employees have found a workaround (or went back to their spreadsheets). 
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Usage Tracking, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Check the database to see if anyone created an account.
 
 ### Personal Project
-If you are building an internal tool for your own use, Usage Tracking should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Skip this.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Usage Tracking can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Usage tracking proves the ROI of the Engineering team to the Executive board.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **Daily Active Users (DAU)**:
+   Track how many unique employees log in each day. If the department has 500 people, and your DAU peaks at 150, you have an adoption crisis.
+2. **Session Depth**:
+   Are users logging in, staring at the dashboard for 10 seconds, and leaving? Or are they completing full workflows (e.g., Login -> Search -> Edit -> Save)? Track "Workflow Completion Rate", not just page views.
+3. **The Executive Dashboard**:
+   Do not force the CEO to log into PostHog to see if the tool is successful. Build a weekly automated email (or Slack message) that sends the Top 3 usage metrics directly to the executive team. "This week: 450 DAU, 12,000 invoices processed, $5M in revenue routed."
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Usage Tracking?**
+**How will you report the success of this tool to the Executive team?**
 \`\`\`input
-1. 
-2. 
-3. 
+Reporting Method (e.g., Automated Slack weekly summary, Monthly live demo):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Usage Tracking component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Data Engineer. I need to generate a weekly summary of our internal tool's usage to send to the CEO. Write a Postgres SQL query that calculates the Daily Active Users (DAU) over the last 7 days, and calculates the total number of 'Invoices' that successfully reached the 'PAID' state in that same window.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Usage Tracking.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] DAU and Workflow Completion Rates are actively monitored.
+- [ ] Low adoption triggers immediate UX investigation, not just more feature development.
+- [ ] Executives receive automated summaries proving the tool's ROI.
 `,
 
   'internalprocessimprovements': `
 # Process Improvements
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 1-2 Hours
 
 ---
+
+## Why this matters
+Internal tools do not just digitize existing workflows; they present an opportunity to *delete* workflows. If you build software to automate a business process that shouldn't exist in the first place, you are wasting money. Continuous improvement requires analyzing the data the tool generates to find operational bottlenecks.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Process Improvements, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Skip this.
 
 ### Personal Project
-If you are building an internal tool for your own use, Process Improvements should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Look at the tool once a month and see if you can make it faster.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Process Improvements can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Engineering and Operations must hold a monthly "Process Review" meeting.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **Identify the Bottlenecks**:
+   Look at your Time-to-Resolution (TTR) metrics. If every stage of an invoice approval takes 2 hours, except "Manager Review" which averages 4 days, you have found the bottleneck.
+2. **Software vs Policy**:
+   If the Manager Review takes 4 days, Engineering might suggest building an "Automated Slack Reminder" system. But the real fix might be a Policy change: "Managers are no longer required to review invoices under $500. They are auto-approved." Always look for Policy solutions before writing code.
+3. **Delete Features**:
+   If your analytics show a feature hasn't been clicked in 6 months, delete the code. Less code means fewer bugs, faster build times, and a simpler UI.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Process Improvements?**
+**Who is responsible for the monthly review of operational bottlenecks?**
 \`\`\`input
-1. 
-2. 
-3. 
+Owner (e.g., Product Manager, Head of Ops):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Process Improvements component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as an Operations Consultant. We built an internal tool that tracks our supply chain. Our analytics show that the "Vendor QA" step takes an average of 6 days, delaying all shipments. Provide a framework for a meeting between Engineering and Operations to determine whether this delay requires a Software fix (e.g., better vendor portals) or a Policy fix (e.g., changing QA requirements).
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Process Improvements.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] A recurring meeting exists to review tool metrics and identify bottlenecks.
+- [ ] Policy changes are prioritized over writing new code to solve human delays.
+- [ ] Unused features are aggressively deprecated and deleted from the codebase.
 `,
 
   'internalfeaturerequests': `
 # Feature Requests
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 1-2 Hours
 
 ---
+
+## Why this matters
+If you say "Yes" to every feature request from every department, your internal tool will become a bloated, incomprehensible Frankenstein monster of a UI. You must protect the simplicity of the tool with aggressive pushback.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Feature Requests, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Build whatever sounds cool.
 
 ### Personal Project
-If you are building an internal tool for your own use, Feature Requests should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Build it if you think you'll use it more than once.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Feature Requests can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Feature requests are usually solutions disguised as problems. Your job is to extract the problem.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **The "5 Whys" Triage**:
+   If Operations says "Add a button to export all users to a PDF," do NOT just build the PDF export. Ask Why. "Why do you need a PDF?" -> "Because I need to email the list to the vendor." -> "Why?" -> "Because the vendor needs to verify active users." -> **Actual Solution**: Build an automated weekly email report sent directly to the vendor, skipping the PDF export entirely.
+2. **Saying No**:
+   You must be comfortable saying No to the CEO. If a feature only benefits 1 person but adds a confusing new dropdown menu for 500 people, the answer is No. 
+3. **The "No-Code" Relief Valve**:
+   If a department demands a highly specific, custom report that changes every week, do not build it in React. Expose the raw data to them via a Metabase or Retool dashboard, and let them build their own reports.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Feature Requests?**
+**How will you handle highly specific, one-off reporting requests?**
 \`\`\`input
-1. 
-2. 
-3. 
+Relief Valve Strategy (e.g., Give them Metabase access, Export to CSV):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Feature Requests component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Senior Product Manager. A Department Head has requested a highly complex, custom React dashboard view that only their 3-person team will ever use. It will take Engineering 3 weeks to build. Write an email to the Department Head declining the request, but offering a compromise using our existing Metabase BI integration.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Feature Requests.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] A formal process exists for triaging feature requests (e.g., The 5 Whys).
+- [ ] Engineering aggressively pushes back on UI bloat.
+- [ ] "Relief Valves" (BI tools, CSV exports) are used to satisfy one-off reporting needs.
 `,
 
   'internalroadmap': `
 # Roadmap
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 1-2 Hours
 
 ---
+
+## Why this matters
+An internal tool is never "finished". Because it is built for the exact workflows of the company, as the company evolves, the tool must evolve. If Engineering does not publish a clear roadmap, the Operations team will assume the tool is abandoned, and they will start buying off-the-shelf SaaS products to solve their new problems.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Roadmap, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+The roadmap is whatever you build next weekend.
 
 ### Personal Project
-If you are building an internal tool for your own use, Roadmap should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Keep a To-Do list in Notion.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Roadmap can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+An internal roadmap is a political document. It aligns Engineering resources with Business goals.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **Now, Next, Later**:
+   Do not publish a roadmap with exact dates (e.g., "Feature X launches on November 14th"). Software estimation is impossible. Use the "Now, Next, Later" format. It communicates priority without making impossible promises.
+2. **Public Visibility**:
+   The roadmap must be visible to the entire company. Pin a link to the Notion/Jira roadmap in the main Slack channel. When Operations requests a massive new feature, you can point to the roadmap and say, "We can build that, but it will push 'Automated Payroll' into the Later column. Do you agree with that trade-off?"
+3. **Sunset Legacy Systems**:
+   Your roadmap MUST include the timeline for turning off the old systems. Maintaining two systems indefinitely will drain your Engineering budget.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Roadmap?**
+**Define one major initiative for each phase of your roadmap:**
 \`\`\`input
-1. 
-2. 
-3. 
+Now (Currently Building):
+Next (Coming Soon):
+Later (Future Vision):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Roadmap component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a VP of Engineering. We just launched V1 of our internal logistics tool. The Operations team is thrilled, but they are already submitting 50 new feature requests. Write a memo to the company explaining our "Now, Next, Later" roadmap philosophy, and explain how new feature requests will be prioritized against our primary goal of sunsetting the legacy MySQL database.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Roadmap.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] A roadmap exists in a "Now, Next, Later" format.
+- [ ] The roadmap is publicly accessible to the entire company.
+- [ ] Sunsetting legacy systems is explicitly tracked on the roadmap.
 `,
 
   'internaluserfeedback': `
 # User Feedback
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 1-2 Hours
 
 ---
+
+## Why this matters
+Employees will not open Jira, find the correct project, select the "Bug" issue type, and fill out a 15-field form just to tell you the padding on a button is weird. They will simply suffer in silence, or they will Slack you directly. You need a frictionless way to collect feedback exactly when the user experiences frustration.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For User Feedback, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Put your email address in the footer.
 
 ### Personal Project
-If you are building an internal tool for your own use, User Feedback should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Add a simple "Contact" form that sends you an email via Resend.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for User Feedback can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Feedback collection must be **In-Context** and **Automated**.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **The In-App Widget**:
+   Embed a widget (like Sentry User Feedback, or a custom floating button) on every page. When the user clicks it, it should automatically capture their 'user_id', the current URL, and (if possible) a screenshot of the DOM.
+2. **Routing Feedback**:
+   Do not send feedback to a generic "support@company.com" email where it goes to die. Route all feedback submitted through the internal tool directly into a dedicated Slack channel (e.g., '#internal-tool-feedback'). Engineering must monitor this channel.
+3. **Closing the Loop**:
+   When an employee submits a good idea, and you build it, you MUST notify them. "Hey Sarah, thanks for suggesting the Bulk Approve feature. It's live now!" This builds immense goodwill and encourages future feedback.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for User Feedback?**
+**Where will in-app feedback be routed?**
 \`\`\`input
-1. 
-2. 
-3. 
+Feedback Destination (e.g., Jira Triage Board, specific Slack channel):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the User Feedback component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Product Manager. We want to implement a frictionless feedback loop in our internal React tool. Write a React component for a floating 'Feedback' button. When clicked, it opens a modal. When submitted, the Node.js backend should take the user's text, append their current browser URL and User ID, and send it as a formatted message to a Slack Webhook.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for User Feedback.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] A frictionless, in-app feedback widget is implemented.
+- [ ] Feedback is routed directly to Engineering via Slack or a Triage board.
+- [ ] System automatically captures contextual metadata (URL, User ID).
 `,
 
   'internalanalytics': `
 # Analytics
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 1-3 Hours
 
 ---
+
+## Why this matters
+In consumer apps, analytics are used to optimize advertising spend. In internal tools, analytics are used to measure ROI (Return on Investment). If the company spent $100,000 building this tool to "save the Operations team time," but the analytics show that the average time to process an invoice actually *increased* from 4 minutes to 6 minutes, the project is a failure.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Analytics, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Don't install analytics. Ask the judges if they liked it.
 
 ### Personal Project
-If you are building an internal tool for your own use, Analytics should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Install Google Analytics (GA4) or Plausible to see if anyone visits the page.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Analytics can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
-
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **Time-to-Resolution (TTR) Metrics**:
+   The most important metric for an internal tool is TTR. Track exactly when a user opens an Invoice, and when they click "Approve". Send that duration to your analytics provider. If a specific UI update causes TTR to spike, you need to revert the design.
+2. **Feature Adoption Rates**:
+   If Engineering spent 3 weeks building a "Bulk Export" feature, but analytics show that 0% of users clicked it this month, you have a product management problem. You must instrument every major feature with a "Feature Used" event.
+3. **Data Privacy**:
+   Do not send Personally Identifiable Information (PII) to PostHog or Google Analytics. If a user searches for "John Doe SSN", do not log the search query text in the analytics payload. Log the event as "Search Performed".
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Analytics?**
+**What is the single most important metric that determines the success of this tool?**
 \`\`\`input
-1. 
-2. 
-3. 
+North Star Metric (e.g., Average Time to Process Invoice):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Analytics component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Product Analyst. We are launching an internal tool for our Customer Support team. We use PostHog for event tracking. Write the React code required to track the "Time-to-Resolution" of a support ticket. The timer should start when the React component mounts, and the 'capture' event should fire when the user clicks the 'Resolve Ticket' button, passing the duration (in seconds) as a custom property.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Analytics.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] A product analytics tool (PostHog, Mixpanel) is installed.
+- [ ] Time-to-Resolution (TTR) is tracked for critical workflows.
+- [ ] PII is strictly excluded from analytics payloads.
 `,
 
   'internallaunchchecklist': `
 # Launch Checklist
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 2-4 Hours
 
 ---
+
+## Why this matters
+A "Big Bang" release (turning off the old system on Friday, and forcing everyone onto the new system on Monday) is the most dangerous maneuver in software engineering. If the new system fails on Monday, the entire company grinds to a halt.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Launch Checklist, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Deploy it and tweet the link.
 
 ### Personal Project
-If you are building an internal tool for your own use, Launch Checklist should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Start using it immediately.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Launch Checklist can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+You must de-risk the launch using a **Phased Rollout**.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **The Parallel Run**:
+   For critical financial or logistical systems, run both systems simultaneously. The Operations team enters data into the Old System AND the New System for two weeks. At the end of the week, compare the reports generated by both systems. If they match perfectly, the New System is validated.
+2. **Department-by-Department**:
+   Do not launch to everyone. Launch to the "Marketing" team on Week 1. Fix the bugs. Launch to the "Sales" team on Week 2. Fix the bugs. Launch to the core "Operations" team on Week 4.
+3. **Feature Flags**:
+   The code for the new tool should be deployed in Production weeks before the actual launch, hidden behind a Feature Flag. On launch day, you do not run a risky deployment pipeline; you simply flip a switch in your database or LaunchDarkly to enable the UI.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Launch Checklist?**
+**What is the sequence of your Phased Rollout?**
 \`\`\`input
-1. 
-2. 
-3. 
+Phase 1 (Which department/team?):
+Phase 2 (Which department/team?):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Launch Checklist component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Release Manager. We are launching a new internal tool that replaces the legacy 'Billing Portal'. Write a Phased Rollout schedule that spans 4 weeks. Include a 'Parallel Run' phase, a 'Department Beta' phase, and the final 'Hard Cutover' phase. Detail the specific success metrics that must be met before advancing from one phase to the next.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Launch Checklist.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] "Big Bang" cutovers are strictly avoided.
+- [ ] A Phased Rollout (by department or geography) is planned.
+- [ ] The code is deployed and dormant (hidden via Feature Flags) well before launch day.
 `,
 
   'internalbetarollout': `
 # Beta Rollout
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 2-4 Hours
 
 ---
+
+## Why this matters
+If you launch a new internal tool to the entire 500-person Operations department on Monday morning, and it has a critical bug, you just cost the company $50,000 in lost productivity. You must validate the tool with a small, contained group of power users first.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Beta Rollout, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Send the localhost URL via ngrok to your buddy.
 
 ### Personal Project
-If you are building an internal tool for your own use, Beta Rollout should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Deploy to Vercel and text the link to 3 friends.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Beta Rollout can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+The Beta Environment (often called Staging or UAT - User Acceptance Testing) must be an exact clone of Production.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **Anonymized Production Data**:
+   Testing a beta tool with "Test User 1" and "Fake Invoice A" is useless. The beta users need real data to test real workflows. However, for security compliance, you must run a script that sanitizes the production database (e.g., scrambling Social Security Numbers, randomizing email addresses) before loading it into the Beta Environment.
+2. **The "Pilot Group"**:
+   Select 5 to 10 "Power Users" in the company. These should be the people who complain the loudest about the old system. If you can make them happy in the Beta phase, they will champion the tool to the rest of the company during the full rollout.
+3. **Explicit Feedback Loops**:
+   Do not ask "How is it?" on Slack. Embed a "Report Bug" button directly into the Beta UI that automatically captures their screen, browser version, and current URL, and creates a Jira ticket.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Beta Rollout?**
+**Who are the 3 "Power Users" you will select for the Pilot Group?**
 \`\`\`input
 1. 
 2. 
@@ -403,106 +416,108 @@ You must prioritize **Security, Auditability, and Access Control**. Do not build
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Beta Rollout component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a QA Manager. We are deploying the Beta environment for our internal tool. Write a structured "User Acceptance Testing (UAT)" script. This script should not be technical; it should be a step-by-step checklist written for a non-technical Operations employee to follow, ensuring they test the 'Create Invoice', 'Approve Invoice', and 'Generate Report' workflows using real-world scenarios.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Beta Rollout.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] The Beta environment runs on anonymized production data.
+- [ ] A specific Pilot Group of power users has been identified.
+- [ ] An explicit, frictionless bug reporting mechanism is built into the UI.
 `,
 
   'internaltrainingmaterials': `
 # Training Materials
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 1-3 Hours
 
 ---
+
+## Why this matters
+Internal tools force behavioral change. The Operations team has used the same Excel spreadsheet for 8 years. You are now taking away their spreadsheet. If you do not actively manage this transition through training, they will sabotage the new tool and secretly keep using the spreadsheet.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Training Materials, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Skip training.
 
 ### Personal Project
-If you are building an internal tool for your own use, Training Materials should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Skip training, you are the only user.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Training Materials can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Training is an exercise in Change Management, not just feature explanation.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **"Train the Trainer" Model**:
+   If the company has 500 employees, the Engineering team cannot train everyone. Train the 10 Department Managers (the "Champions"). Provide them with the slide decks and Loom videos. They will then train their respective teams.
+2. **Focus on "Why", Not Just "How"**:
+   Do not just show them how to click the "Submit" button. Explain *why* the new tool exists. ("This new tool automatically calculates the tax rate so you don't have to do it manually anymore.") If they understand how it benefits *them*, they will adopt it.
+3. **The 'Office Hours' Phase**:
+   For the first two weeks after launch, hold a daily 30-minute open Zoom call called "Office Hours". Anyone in the company can drop in, share their screen, and ask how to perform a specific workflow. This drastically reduces support tickets and builds trust.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Training Materials?**
+**Who are the "Trainers" (Department Champions) that you will personally train?**
 \`\`\`input
 1. 
 2. 
-3. 
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Training Materials component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Change Management Consultant. We are replacing a 10-year-old legacy internal tool with a modern React app. Write an email template to be sent to all employees. The email should NOT focus on technical features; it should focus on empathy, acknowledging the friction of learning a new system, explicitly stating the top 2 benefits to the employees' daily lives, and inviting them to the upcoming "Office Hours".
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Training Materials.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] A "Train the Trainer" model is established.
+- [ ] Training materials focus on the employee benefits, not just feature documentation.
+- [ ] Engineering has scheduled post-launch "Office Hours" for direct support.
 `,
 
   'internalemployeeonboarding': `
 # Employee Onboarding
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 2-4 Hours
 
 ---
+
+## Why this matters
+In consumer software, if a user can't figure out the UI, they leave. In enterprise software, if an employee can't figure out the UI, they file a support ticket, complain to their manager, and refuse to do their work. You cannot just email a link and say "Good luck."
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Employee Onboarding, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Explain it to the judges in person.
 
 ### Personal Project
-If you are building an internal tool for your own use, Employee Onboarding should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Write a quick Markdown guide.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Employee Onboarding can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Onboarding must be integrated directly into the product.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **Contextual Help, Not Manuals**:
+   Nobody reads the PDF manual. Use tools like **Intro.js** or **Shepherd.js** to build an interactive product tour that highlights the exact buttons they need to click the first time they log in.
+2. **Empty States**:
+   If a user logs in and the dashboard is completely blank because they haven't created any records yet, they will think it's broken. Design your empty states to be highly actionable. Instead of "No Data", it should say "You have no active projects. Click here to import your first project from Salesforce."
+3. **The "Sandbox" Mode**:
+   New employees are terrified of clicking the wrong button and breaking the company database. Provide a "Sandbox Mode" or a dedicated training environment where they can safely create fake invoices to learn the system without fear of repercussions.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Employee Onboarding?**
+**What is the very first action a user should take when they log in to an empty account?**
 \`\`\`input
-1. 
-2. 
-3. 
+Primary Call to Action:
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Employee Onboarding component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a UX Designer. I am building the "Empty State" for the primary dashboard of our internal tool. The user has no data yet. Write the React component structure for an empty state that avoids the generic "No Data Found" message, and instead provides a friendly onboarding checklist with direct links to initiate their first 3 core tasks.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Employee Onboarding.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] Contextual product tours (Intro.js) are used instead of static PDFs.
+- [ ] Empty states are actionable and guide the user to their first success.
+- [ ] Employees have a safe way to test the system without breaking production data.
 `,
 
   'internaldomainsetup': `
@@ -554,737 +569,799 @@ Act as a Principal Enterprise Architect. I am building the Domain Setup componen
   'internalhosting': `
 # Hosting
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 1-3 Hours
 
 ---
+
+## Why this matters
+Internal tools have vastly different hosting requirements than B2C apps. A B2C app needs a global CDN so a user in Tokyo gets the site in 50ms. An internal tool is likely used by 500 employees sitting in an office in Chicago. Hosting should optimize for security and database latency, not global edge caching.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Hosting, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Deploy the frontend on Vercel and the database on Supabase.
 
 ### Personal Project
-If you are building an internal tool for your own use, Hosting should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Deploy a single Docker container on a cheap DigitalOcean droplet.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Hosting can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
-
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **Colocation with the Database**:
+   Do not host your React frontend in Vercel (AWS us-east-1) and your database in Google Cloud (us-central1). The latency between the two will cause your tool to feel sluggish. Host your Node.js backend in the exact same data center region as your database.
+2. **Private Network Routing**:
+   If your company already uses AWS, host the internal tool on AWS ECS/EKS. This allows you to use VPC Peering to connect directly to the existing corporate database without exposing it to the internet.
+3. **Internal Subdomains**:
+   Do not use \`my-internal-tool.com\`. Use \`tool.internal.mycompany.com\` and configure the DNS so it only resolves if the user is connected to the corporate VPN.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Hosting?**
+**Where will the application be physically hosted?**
 \`\`\`input
-1. 
-2. 
-3. 
+Region/Provider (e.g., AWS us-east-1, GCP us-central1):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Hosting component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Cloud Architect. We are deploying an internal tool. The primary legacy database is hosted on an on-premise server in Chicago. Explain the latency tradeoffs between hosting the Node.js backend on Vercel (Edge Functions) versus hosting it on an AWS EC2 instance located in us-east-2 (Ohio), and recommend the best approach for an internal tool.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Hosting.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] Backend is physically colocated with the database.
+- [ ] Application is hosted on an internal, VPN-restricted subdomain.
 `,
 
   'internaldisasterrecovery': `
 # Disaster Recovery
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 2-4 Hours
 
 ---
+
+## Why this matters
+Disaster Recovery (DR) is the process of bringing your internal tool back to life after a catastrophic event (e.g., AWS goes down, a disgruntled employee deletes the database, a ransomware attack encrypts your servers). If your internal tool manages logistics for a physical warehouse, every hour the tool is down costs the company millions of dollars in halted shipments.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Disaster Recovery, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+If it breaks, you give up and go home.
 
 ### Personal Project
-If you are building an internal tool for your own use, Disaster Recovery should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Keep a copy of the source code on your laptop. If the server dies, push it to a new server.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Disaster Recovery can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Disaster Recovery is measured in two metrics: **RTO** and **RPO**.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **RTO (Recovery Time Objective)**: 
+   "How long will it take us to get the system back online?" If your infrastructure is defined as Terraform code, your RTO might be 30 minutes (the time it takes to spin up a new cluster in a different region). If your infrastructure was manually configured over 3 years by clicking around the AWS console, your RTO might be 2 weeks.
+
+2. **RPO (Recovery Point Objective)**: 
+   "How much data are we willing to lose?" If you do nightly backups, your RPO is 24 hours. If you use continuous replication (PITR), your RPO is 5 minutes. 
+
+3. **The 'Cold Standby'**:
+   For critical internal tools, you must maintain a "Cold Standby" environment in a different geographic region. The infrastructure code is ready to deploy, and the database is continuously replicating. If Region A goes offline, you run one script to boot up the servers in Region B, and update the DNS records.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Disaster Recovery?**
+**Define your acceptable limits for downtime and data loss:**
 \`\`\`input
-1. 
-2. 
-3. 
+RTO (e.g., 4 Hours):
+RPO (e.g., 15 Minutes):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Disaster Recovery component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Business Continuity Manager. We are hosting a critical internal logistics tool on AWS (us-east-1). Our SLA requires an RTO of 2 hours and an RPO of 15 minutes. Design a Disaster Recovery architecture that allows us to rapidly failover to AWS (us-west-2) in the event of a total region outage, ensuring we meet our RTO and RPO targets.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Disaster Recovery.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] RTO and RPO targets are explicitly defined and agreed upon by management.
+- [ ] Infrastructure as Code (IaC) is fully utilized to guarantee rapid redeployment.
+- [ ] Database replication or cross-region backups support the RPO target.
 `,
 
   'internalrbacvalidation': `
 # RBAC Validation
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 2-4 Hours
 
 ---
+
+## Why this matters
+Role-Based Access Control (RBAC) is useless if it is not enforced at the lowest possible level. If you only hide the "Delete" button on the React frontend, but you forget to add the permission check to the \`DELETE /api/invoice\` backend route, any malicious employee can use Postman to bypass the UI and delete the invoice.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For RBAC Validation, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Check if \`user.role === 'admin'\` in your Express routes.
 
 ### Personal Project
-If you are building an internal tool for your own use, RBAC Validation should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Create a simple middleware that checks an array of allowed roles.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for RBAC Validation can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Enterprise RBAC must be **Centralized, Granular, and Fail-Closed**.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **Fail-Closed Architecture**:
+   By default, every single API route should reject all requests with a '403 Forbidden'. You must explicitly opt-in to allow access. If a developer creates a new route and forgets to add the RBAC middleware, the route should be inaccessible, not public.
+
+2. **Attribute-Based Access Control (ABAC)**:
+   Roles like "Manager" are often not enough. What if a Manager is only allowed to edit Invoices that belong to *their specific Region*? This requires ABAC. The backend must query the database to verify that 'invoice.region_id === user.region_id' before allowing the update.
+
+3. **Automated RBAC Auditing**:
+   Write a script that parses all your backend routes and generates a CSV matrix of [Route] vs [Allowed Roles]. The Security team must review this matrix before every major release to ensure no endpoints were accidentally exposed.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for RBAC Validation?**
+**List one complex Attribute-Based (ABAC) rule your system requires:**
 \`\`\`input
-1. 
-2. 
-3. 
+Complex Rule (e.g., Regional Managers can only edit their region's users):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the RBAC Validation component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as an Application Security Engineer. I am building a Node.js backend. I need to enforce an ABAC rule: "A Sales Rep can view an Order, but they can only UPDATE the Order if they are the original creator of that Order". Write the Express middleware and the Prisma query required to securely enforce this ownership check before the update operation is performed.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for RBAC Validation.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] The backend API is "Fail-Closed" by default.
+- [ ] Permissions are checked at the data-ownership level (ABAC), not just the global role level.
+- [ ] The UI securely reflects the backend permissions (hiding unauthorized buttons).
 `,
 
   'internalscalability': `
 # Scalability
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 3-5 Hours
 
 ---
+
+## Why this matters
+In consumer apps, "Scalability" means handling 100,000 concurrent users. In internal tools, "Scalability" means handling 10 concurrent users who are each trying to run a 5-gigabyte export report at the exact same time. If your system is not designed to scale horizontally, a single user running a heavy report will crash the server for everyone else.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Scalability, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Don't worry about it. One server is fine.
 
 ### Personal Project
-If you are building an internal tool for your own use, Scalability should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Increase the RAM on your single server if it gets slow.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Scalability can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Enterprise scalability is about **Resource Isolation** and **Horizontal Scaling**.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **Stateless APIs**:
+   To scale horizontally (adding more servers behind a load balancer), your API must be perfectly stateless. You cannot store user sessions in local server memory; you must store them in Redis. You cannot upload files to the local disk; you must upload them to S3. If Server A crashes, the load balancer routes the user to Server B, and the user shouldn't even notice.
+
+2. **The "Heavy Lifting" Worker Pool**:
+   As mentioned in the Backend section, heavy tasks (like generating a 5GB CSV export) must be pushed to a background queue. You should have a completely separate Auto-Scaling Group of "Worker" servers that only process queue jobs. This ensures the primary API servers remain fast and responsive, no matter how many heavy reports are running.
+
+3. **Database Read Replicas**:
+   The primary database (Writer) is the hardest thing to scale. Offload all read-heavy traffic (dashboards, search, reporting) to horizontally scaled Read Replicas.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Scalability?**
+**Are there any stateful components in your current architecture that will prevent horizontal scaling? (e.g., Local file uploads, Memory caching)**
 \`\`\`input
-1. 
-2. 
-3. 
+Stateful Components to Remove:
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Scalability component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Systems Architect. We have a Node.js API that currently stores JWT refresh tokens in an in-memory 'Map', and uses Multer to save uploaded CSVs to './uploads'. We are migrating from a single DigitalOcean Droplet to a horizontally scaled AWS ECS cluster with 5 instances. Explain why our current architecture will immediately break, and provide the exact steps to make the API completely stateless using Redis and S3.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Scalability.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] The API tier is 100% stateless and stores no local data.
+- [ ] Heavy processing is isolated to a separate pool of worker servers.
+- [ ] Database read load is distributed across replicas if necessary.
 `,
 
   'internalinfrastructure': `
 # Infrastructure
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 2-4 Hours
 
 ---
+
+## Why this matters
+Internal tools do not need to scale to millions of concurrent users like TikTok, but they DO need to be highly available, secure, and integrated with the corporate network. If you host your internal tool on a cheap $5 shared server, and it goes down, the entire Operations department stops working. 
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Infrastructure, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Use a fully managed Platform-as-a-Service (PaaS) like Vercel, Railway, or Heroku. 
 
 ### Personal Project
-If you are building an internal tool for your own use, Infrastructure should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Host it on a single DigitalOcean Droplet or an AWS EC2 instance.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Infrastructure can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Enterprise infrastructure must balance **Security (VPC)** and **Maintainability**.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **Infrastructure as Code (IaC)**:
+   Never click around the AWS Console to provision servers. Use **Terraform** or **AWS CDK** to define your infrastructure in code. This allows you to version-control your infrastructure and instantly duplicate your "Production" environment to create a perfect "Staging" environment.
+
+2. **The Virtual Private Cloud (VPC)**:
+   Your database must NEVER have a public IP address. It must sit in private subnets inside a VPC. The only things that can talk to the database are the Node.js servers (which are also inside the VPC). 
+
+3. **Zero Trust Access**:
+   If an engineer needs to access the production database to debug an issue, they should not use a shared password. They should use a tool like AWS Systems Manager (SSM) or HashiCorp Boundary to temporarily tunnel into the VPC using their SSO credentials, which is fully audit-logged.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Infrastructure?**
+**What is your primary hosting strategy?**
 \`\`\`input
-1. 
-2. 
-3. 
+Hosting Strategy (e.g., Fully Managed PaaS, AWS ECS, Kubernetes):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Infrastructure component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Cloud Infrastructure Architect. We need to deploy a Node.js backend and a Postgres database for an internal tool on AWS. Write a brief Terraform architecture plan that places the Postgres RDS instance in a Private Subnet (no internet access), and places the Node.js ECS containers in a Public Subnet behind an Application Load Balancer.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Infrastructure.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] Infrastructure is defined as code (Terraform/CDK) where possible.
+- [ ] Databases are strictly isolated in private networks without public IPs.
+- [ ] Developer access to production infrastructure is brokered via Zero-Trust tunnels.
 `,
 
   'internalcicd': `
 # CI/CD
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 2-4 Hours
 
 ---
+
+## Why this matters
+"It works on my machine" is an unacceptable excuse in an enterprise environment. If an engineer manually drags and drops a folder onto a server to deploy the internal tool, you have no deployment history, no automated rollback mechanism, and no guarantee that the code actually passed the tests. Continuous Integration and Continuous Deployment (CI/CD) is the automated nervous system of software delivery.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For CI/CD, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Connect your GitHub repo to Vercel or Render. Click "Deploy". It will auto-build on every commit.
 
 ### Personal Project
-If you are building an internal tool for your own use, CI/CD should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Add a simple GitHub Actions workflow to run 'npm test' before Vercel deploys.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for CI/CD can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Enterprise CI/CD must be **Strict, Automated, and Reversible**.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **The Protected Main Branch**:
+   No engineer (not even the CTO) is allowed to push code directly to the \`main\` branch. All changes must go through a Pull Request.
+
+2. **The "Continuous Integration" Pipeline**:
+   When a Pull Request is opened, the CI pipeline (e.g., GitHub Actions) must automatically run:
+   - Type Checking ('tsc --noEmit')
+   - Linting ('eslint')
+   - Security Scanning (e.g., 'npm audit', Snyk)
+   - Unit & Integration Tests
+   If *any* of these steps fail, the Pull Request is automatically blocked from being merged.
+
+3. **Database Migration Automation**:
+   Deploying the frontend is easy. Deploying the database is hard. Your CD pipeline must automatically execute Prisma/SQL migrations *before* the new Node.js server starts taking traffic. If the migration fails, the pipeline must halt and alert the team.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for CI/CD?**
+**Which CI/CD platform will you use to automate your testing and deployment?**
 \`\`\`input
-1. 
-2. 
-3. 
+CI/CD Platform (e.g., GitHub Actions, GitLab CI, CircleCI):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the CI/CD component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a DevSecOps Engineer. We are deploying a Next.js/Prisma internal tool. Write a complete GitHub Actions 'deploy.yml' workflow that triggers on a push to 'main'. The workflow must run 'npm ci', run the Jest tests, execute 'npx prisma migrate deploy' against the production database, and finally trigger a Vercel production deployment. Include a step to ping a Slack channel if the deployment fails.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for CI/CD.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] Direct pushes to the production branch are blocked.
+- [ ] Automated tests and linting run on every Pull Request.
+- [ ] Database migrations are fully integrated into the deployment pipeline.
 `,
 
   'internalbackups': `
 # Backups
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 2-3 Hours
 
 ---
+
+## Why this matters
+There are two types of companies: those who have lost their production database, and those who haven't lost it *yet*. When an engineer accidentally runs a \`DROP TABLE\` command against the production database instead of the staging database, your backups are the only thing standing between you and bankruptcy.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Backups, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+No backups. YOLO.
 
 ### Personal Project
-If you are building an internal tool for your own use, Backups should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Write a cron job that runs \`pg_dump\` once a day and saves the SQL file to an S3 bucket.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Backups can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Enterprise backups must be **Automated, Encrypted, and Tested**.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **Point-in-Time Recovery (PITR)**:
+   Daily backups are not enough. If your database is corrupted at 4:00 PM, and your last backup was at 2:00 AM, you lose 14 hours of company data. Use a managed database provider (AWS RDS, Supabase, Vercel Postgres) that supports PITR. This allows you to restore the database to the exact millisecond before the catastrophic error occurred.
+
+2. **Cross-Region Redundancy**:
+   If the entire AWS us-east-1 region goes down, your database and your backups in us-east-1 are inaccessible. Replicate your automated backups to a completely different geographic region (e.g., us-west-2).
+
+3. **The "Restore Drill"**:
+   A backup is completely worthless if you don't know how to restore it. Once a quarter, you must run a "Restore Drill". Take the production backup, spin up a temporary staging server, and verify that the data successfully restores within your RTO (Recovery Time Objective).
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Backups?**
+**How will you achieve Point-in-Time Recovery (PITR) for your database?**
 \`\`\`input
-1. 
-2. 
-3. 
+Backup Strategy (e.g., AWS RDS Automated Backups, Supabase PITR):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Backups component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Database Administrator. We are using PostgreSQL on AWS RDS. Explain the difference between standard automated snapshots and Point-in-Time Recovery (PITR) using Write-Ahead Logs (WAL). Write the exact AWS CLI commands I would need to run during an emergency to restore our production database to its exact state 15 minutes ago.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Backups.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] Point-in-Time Recovery (PITR) is enabled on the primary database.
+- [ ] Backups are replicated to a separate geographic region.
+- [ ] A documented "Restore Drill" process exists and is tested quarterly.
 `,
 
   'internalerrortracking': `
 # Error Tracking
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 2-3 Hours
 
 ---
+
+## Why this matters
+Logs tell you *what* happened. Error tracking tells you *where* it happened and *how many times*. If a React component throws a TypeError in the user's browser, your backend logs will never see it. You need dedicated error tracking to capture stack traces from both the frontend and backend.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Error Tracking, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Rely on users telling you when the screen goes white.
 
 ### Personal Project
-If you are building an internal tool for your own use, Error Tracking should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Wrap your main React app in an Error Boundary so it shows a friendly "Something went wrong" message instead of a blank screen.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Error Tracking can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+You must capture unhandled exceptions automatically.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **Sentry Integration**:
+   Install Sentry (or LogRocket/Bugsnag) on both the frontend and backend. When a user clicks a button and the React app crashes, Sentry captures the exact file, line number, and stack trace, and sends it to the engineering team.
+
+2. **Source Maps**:
+   If you minify your production React code, the stack trace will say the error happened on \`line 1, column 4059\` of \`chunk-XYZ.js\`. This is useless. You must configure your CI/CD pipeline to upload your Source Maps to Sentry during the build process, so Sentry can un-minify the stack trace and point to the exact TypeScript line.
+
+3. **Alert Grouping**:
+   If an API goes down and causes 10,000 React errors in 5 minutes, you do not want 10,000 Slack messages. Error trackers automatically group identical stack traces into a single "Issue" and send one alert.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Error Tracking?**
+**Which error tracking platform will you install on the frontend and backend?**
 \`\`\`input
-1. 
-2. 
-3. 
+Error Tracker (e.g., Sentry, Bugsnag, LogRocket):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Error Tracking component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Frontend Reliability Engineer. I am using Vite and React for my internal tool. Provide the exact Vite configuration required to generate Source Maps during the production build, and the GitHub Actions script required to securely upload those Source Maps to Sentry without exposing them to the public internet.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Error Tracking.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] Dedicated Error Tracking (e.g., Sentry) is installed on the frontend and backend.
+- [ ] Source Maps are securely uploaded to the tracker during CI/CD.
+- [ ] React Error Boundaries are implemented to prevent the entire app from unmounting.
 `,
 
   'internallogging': `
 # Logging
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 2-3 Hours
 
 ---
+
+## Why this matters
+When a critical background job fails silently at 3:00 AM, logs are the only evidence left behind. If you are using standard \`console.log('Error happened')\` scattered throughout your codebase, you will never be able to reconstruct the sequence of events. Structured logging is mandatory for debugging complex distributed systems.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Logging, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Use \`console.log\` and scroll through the terminal output.
 
 ### Personal Project
-If you are building an internal tool for your own use, Logging should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Write logs to a local file using a library like Winston or Pino.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Logging can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Logs must be **Structured, Centralized, and Searchable**.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **Structured JSON Logs**:
+   Never log plaintext strings: \`console.log("User 123 failed to update invoice 456")\`. 
+   Always log structured JSON using a logger like **Pino**.
+   \`logger.error({ userId: '123', invoiceId: '456', action: 'update', message: 'Failed to update' })\`.
+   This allows you to query your log provider for "Show me all errors where invoiceId = 456".
+
+2. **Correlation IDs**:
+   If an API request triggers 5 different microservices, you must pass a \`X-Correlation-ID\` header between them. Every log emitted by any service during that request must include this ID. When a failure occurs, you search the Correlation ID and see the exact waterfall of logs across all services.
+
+3. **Log Aggregation**:
+   Stream all logs to a centralized provider (Datadog, AWS CloudWatch, Logflare). Never SSH into a production server to run \`tail -f var/log/app.log\`.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Logging?**
+**What logging library and aggregation platform will you use?**
 \`\`\`input
-1. 
-2. 
-3. 
+Logger (e.g., Pino, Winston):
+Aggregation Platform (e.g., Datadog, CloudWatch):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Logging component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Backend Architect. I am standardizing the logging in my Node.js application. Write a Pino logger configuration that outputs strictly formatted JSON. Then, implement an Express middleware that generates a UUID \`X-Correlation-ID\` for every incoming request, and ensures that ID is automatically attached to every Pino log emitted during the lifecycle of that request.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Logging.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] All logs are output as structured JSON.
+- [ ] A Correlation ID is implemented for tracing requests across functions.
+- [ ] Logs are streamed to a centralized, searchable aggregation platform.
 `,
 
   'internalmonitoring': `
 # Monitoring
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 2-4 Hours
 
 ---
+
+## Why this matters
+"I think the tool is down." If you hear this from an Operations Manager on Slack, your monitoring has failed. Engineering should know the system is degraded *before* the users report it. Blindly deploying an internal tool without APM (Application Performance Monitoring) is like driving a car without a dashboard.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Monitoring, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+If it crashes, restart the server manually.
 
 ### Personal Project
-If you are building an internal tool for your own use, Monitoring should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Use a free Uptime Robot ping to check if the URL returns a 200 OK every 5 minutes.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Monitoring can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+You need deep visibility into CPU, Memory, and Database connections.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **APM Integration**:
+   Install Datadog, New Relic, or Sentry APM. You must be able to see the P99 latency of your API routes. If the \`/api/reports\` endpoint normally takes 200ms, but suddenly spikes to 4,000ms, APM will alert you before the server crashes.
+
+2. **Database Connection Pooling**:
+   Internal tools are notorious for exhausting database connections. If you have 50 serverless functions all trying to open a direct connection to Postgres, the database will lock up. Monitor your active connections and implement a connection pooler (like PgBouncer or Supabase Supavisor).
+
+3. **Custom Business Metrics**:
+   Don't just monitor CPU. Monitor business logic. Emit a metric every time a "Payment Fails". If the baseline is 5 failures an hour, and it suddenly spikes to 500, your third-party API integration is probably broken.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Monitoring?**
+**Which APM tool will you use to monitor latency and server health?**
 \`\`\`input
-1. 
-2. 
-3. 
+APM Tool (e.g., Datadog, Sentry, New Relic):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Monitoring component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a DevOps Engineer. We are deploying our Node.js internal tool to production. Write the code required to instrument our Express app with Sentry APM. Explain how we can configure a custom alert that triggers a PagerDuty incident if the P99 latency of our primary database queries exceeds 2 seconds.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Monitoring.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] An APM tool is installed and monitoring API latency.
+- [ ] Database connection limits are monitored and pooled.
+- [ ] Alerts are configured for abnormal spikes in error rates.
 `,
 
   'internalperformanceoptimization': `
 # Performance Optimization
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 3-5 Hours
 
 ---
+
+## Why this matters
+An internal tool that takes 10 seconds to load a page costs the company thousands of dollars in wasted productivity. If a clerk has to wait 10 seconds to process a single invoice, and they process 500 invoices a day, you have destroyed their throughput. Internal tool performance is directly tied to operational profitability.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Performance Optimization, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Don't worry about it. As long as it doesn't crash during the 3-minute demo, it's fine.
 
 ### Personal Project
-If you are building an internal tool for your own use, Performance Optimization should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Add some basic pagination to your database queries so you don't fetch the entire table at once.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Performance Optimization can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Performance issues in internal tools usually stem from the Database, not the Frontend.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **N+1 Query Elimination**:
+   The most common backend bottleneck. If you fetch 50 Invoices, and for *each* invoice you run a separate SQL query to fetch the associated Customer, you are running 51 queries instead of 1. Use SQL \`JOIN\`s or a DataLoader to batch these queries.
+
+2. **Database Indexing**:
+   If a search query on the \`email\` column takes 5 seconds, it's because Postgres is scanning every row in the table. Add a B-Tree Index to any column that is frequently used in \`WHERE\` clauses or \`ORDER BY\` statements.
+
+3. **Frontend Bundle Size**:
+   Do not import the entire \`lodash\` library if you only need \`lodash/debounce\`. Large JavaScript bundles will freeze older corporate laptops. Use Vite or Webpack chunking to lazy-load routes that are rarely used (like the Admin Settings page).
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Performance Optimization?**
+**Which tables are growing the fastest and require careful Indexing?**
 \`\`\`input
 1. 
 2. 
-3. 
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Performance Optimization component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Database Optimization Expert. Our internal tool has an endpoint that fetches a list of 1,000 Orders. Currently, it uses Prisma to fetch the Orders, and then loops through them to fetch the User associated with each Order. Explain why this N+1 query is destroying our performance, and rewrite the Prisma query to include the User data in a single, optimized SQL call.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Performance Optimization.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] N+1 query bottlenecks are eliminated.
+- [ ] High-traffic database columns are properly Indexed.
+- [ ] Frontend routes are lazy-loaded to reduce initial bundle size.
 `,
 
   'internalsecurity': `
 # Security
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 4-8 Hours
 
 ---
+
+## Why this matters
+Internal tools are the soft underbelly of corporate security. Attackers rarely try to breach the heavily-fortified public website; they phish an employee's credentials and use the poorly-secured internal dashboard to export the entire customer database. If your internal tool is breached, the company is breached.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Security, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Don't leak your .env file to public GitHub. 
 
 ### Personal Project
-If you are building an internal tool for your own use, Security should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Add standard JWT authentication. Do not use default passwords like admin/admin.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Security can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Security must follow the principle of **Zero Trust**.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **Multi-Factor Authentication (MFA)**:
+   Every single account with access to the internal tool MUST require MFA (SMS, Authenticator App, or Hardware Key). No exceptions. If an employee's password is stolen, MFA is the only thing preventing a data breach.
+
+2. **Network Isolation (VPN/VPC)**:
+   The internal tool should not be accessible to the public internet. It should sit behind a Corporate VPN (like Tailscale or ZeroTier), or require strict IP whitelisting.
+
+3. **Data Masking**:
+   If a Customer Service rep needs to verify a user's account, they should never see the user's plaintext Social Security Number or full credit card. The backend API must mask the data *before* it sends it to the React frontend (e.g., \`***-**-1234\`).
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Security?**
+**How will you enforce Multi-Factor Authentication for employees?**
 \`\`\`input
-1. 
-2. 
-3. 
+MFA Strategy (e.g., Auth0, Okta, Custom TOTP):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Security component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Cybersecurity Engineer. I am building an internal tool dashboard that accesses highly sensitive PII (Personally Identifiable Information). Provide a 5-point security checklist covering Network Isolation, Database Encryption at Rest, and API Data Masking. Write the Node.js middleware required to automatically mask sensitive fields before the JSON response is sent to the client.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Security.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] MFA is strictly enforced for all users.
+- [ ] The dashboard is isolated from the public internet (VPN/IP Whitelist).
+- [ ] PII is masked at the API layer.
 `,
 
   'internalauditlogs': `
 # Audit Logs
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 2-4 Hours
 
 ---
+
+## Why this matters
+In an enterprise environment, if you cannot prove exactly *who* changed a record and *when* they changed it, your tool will fail compliance audits (SOC2, HIPAA). When an employee makes a catastrophic mistake in the internal tool, you must be able to trace the exact sequence of events to debug the human error. Audit logs are not a feature; they are a fundamental structural requirement.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Audit Logs, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Ignore audit logs completely.
 
 ### Personal Project
-If you are building an internal tool for your own use, Audit Logs should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Add an \`updated_by\` column to your tables.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Audit Logs can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+True enterprise audit logs must be **Immutable** and **Comprehensive**.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **The Event Schema**:
+   Every audit log entry must capture:
+   - **Actor**: Who did it? (User ID, IP Address)
+   - **Action**: What did they do? (e.g., \`UPDATE_INVOICE_STATUS\`)
+   - **Target**: What was affected? (Invoice ID)
+   - **Diff**: What exactly changed? (e.g., \`{ previous_status: 'DRAFT', new_status: 'APPROVED' }\`)
+   - **Timestamp**: Exact UTC time.
+
+2. **Storage Strategy**:
+   Do not store massive audit logs in your primary Postgres database if you have high transaction volume. It will bloat your database and slow down queries. Send audit logs asynchronously to an external system (like Datadog, Elasticsearch, or a dedicated append-only AWS DynamoDB table).
+
+3. **Immutability**:
+   The system must be designed so that even a Super Admin cannot delete or modify an audit log entry once it is written. 
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Audit Logs?**
+**Where will your immutable audit logs be stored?**
 \`\`\`input
-1. 
-2. 
-3. 
+Storage Location (e.g., Dedicated Postgres Table, Datadog, Elasticsearch):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Audit Logs component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Compliance Engineer. I need to implement SOC2-compliant audit logging in my Node.js backend. Provide a structured JSON schema for an Audit Event. Then, explain how I can use Node.js \`AsyncLocalStorage\` to automatically attach the current User ID to the audit log deep within my service layer, without having to manually pass the \`req.user\` object through 15 different function calls.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Audit Logs.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] Every destructive action (Create, Update, Delete) triggers an audit event.
+- [ ] Audit logs capture the specific "Diff" of what data was changed.
+- [ ] Audit logs are stored in an append-only, immutable format.
 `,
 
   'internalfileuploads': `
 # File Uploads
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 2-4 Hours
 
 ---
+
+## Why this matters
+Handling file uploads (CSVs, PDFs, Images) in an internal tool is a massive security and performance liability. If you allow users to upload files directly to your Node.js server, a 500MB video file will crash your server's memory, and a malicious shell script file could compromise your infrastructure.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For File Uploads, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Upload the file as a base64 string directly into a Postgres text column. (Warning: This will destroy your database performance, but it's fast to build).
 
 ### Personal Project
-If you are building an internal tool for your own use, File Uploads should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Upload files to a local \`/uploads\` directory on the server using Multer.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for File Uploads can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Enterprise file uploads must completely bypass your backend API server.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+**The Pre-Signed URL Architecture:**
+1. The React frontend asks your Node.js backend: "I want to upload a file named \`invoice.pdf\`."
+2. The Node.js backend authenticates the user, generates a temporary, cryptographically signed URL from AWS S3 (or Google Cloud Storage), and returns it to the frontend.
+3. The React frontend uploads the file **directly to S3** using that URL. Your backend server never touches the file bytes, saving massive CPU/Memory load.
+4. S3 fires a webhook back to your Node.js server confirming the upload is complete, and you save the S3 URL to the database.
+
+**Security Constraints:**
+Always validate MIME types on the frontend *and* enforce strict file extension/size limits on the S3 bucket policies. Never serve user-uploaded HTML or SVG files directly from your domain to prevent Cross-Site Scripting (XSS) attacks.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for File Uploads?**
+**Which cloud storage provider will you use for secure file storage?**
 \`\`\`input
-1. 
-2. 
-3. 
+Storage Provider (e.g., AWS S3, Cloudflare R2, Supabase Storage):
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the File Uploads component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Cloud Security Architect. I am building an internal tool where employees upload sensitive tax documents (PDFs). Write the exact Node.js logic to generate an AWS S3 Pre-Signed Upload URL. Furthermore, explain how to configure the S3 bucket so that the uploaded files are strictly private and can only be downloaded by users who have the correct RBAC permissions in my application.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for File Uploads.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] Direct file uploads to the Node.js server memory are strictly forbidden.
+- [ ] Pre-Signed URLs (or equivalent direct-to-cloud strategies) are used.
+- [ ] Uploaded files are stored privately and cannot be accessed via public URLs.
 `,
 
   'internalreporting': `
 # Reporting
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 3-5 Hours
 
 ---
+
+## Why this matters
+Once your internal tool is running, management will ask: "Can you build a report that shows me how many invoices were approved by John last week?" If you haven't architected for reporting, you will be forced to run complex \`JOIN\` queries on your live production database, which will cause the tool to crash for the end-users while the report generates.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Reporting, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Write a raw SQL query and output it to an HTML table.
 
 ### Personal Project
-If you are building an internal tool for your own use, Reporting should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Build a simple dashboard view using Recharts or Chart.js.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Reporting can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Isolate your analytical queries (OLAP) from your transactional queries (OLTP).
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **Read Replicas**:
+   If a manager runs a report that takes 15 seconds to execute, it will lock database resources. Always route heavy reporting queries to a **Postgres Read Replica**, never the primary write database.
+
+2. **BI Tool Integration**:
+   Do not build custom charts in React unless absolutely necessary. Building custom reporting UI is a massive time sink. Instead, connect a Business Intelligence (BI) tool like **Metabase**, **Looker**, or **Tableau** directly to your Read Replica. Give the managers access to the BI tool so they can build their own reports without bothering Engineering.
+
+3. **Materialized Views**:
+   If you must build in-app dashboards, use Postgres Materialized Views to pre-calculate the data. Instead of aggregating 1,000,000 rows on every page load, the database aggregates them once a night and the UI queries the pre-calculated view.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Reporting?**
+**Will you build custom charts in React, or use a BI tool (e.g., Metabase)?**
 \`\`\`input
-1. 
-2. 
-3. 
+Reporting Strategy:
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Reporting component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Data Engineer. Management wants a real-time dashboard showing aggregate statistics across 10 million rows of historical internal tool data. Writing a complex SQL \`GROUP BY\` query causes the API to timeout. Explain how we can use Postgres Materialized Views combined with a pg_cron scheduled refresh to serve this data to the React frontend in under 50ms.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Reporting.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] Heavy analytical queries are routed to a Read Replica or handled via Materialized Views.
+- [ ] Custom reporting UI is avoided in favor of dedicated BI tools (Metabase) where possible.
+- [ ] Management has self-serve access to basic reporting.
 `,
 
   'internalworkflowautomation': `
 # Workflow Automation
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 4-8 Hours
 
 ---
+
+## Why this matters
+The true ROI of an internal tool is unlocked when humans are removed from the loop entirely. If your tool just replaces an Excel sheet with a web form, you've improved data integrity, but you haven't saved much time. Workflow automation involves background jobs, scheduled tasks, and reactive event triggers that do the work while the operations team is asleep.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Workflow Automation, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Use a simple \`setInterval\` in your Node.js server.
 
 ### Personal Project
-If you are building an internal tool for your own use, Workflow Automation should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Write a Python script and schedule it using a standard Linux \`cron\` job.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Workflow Automation can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Enterprise automation must be **Fault Tolerant** and **Observable**.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **The Cron Job Problem**:
+   If you have 3 instances of your Node.js backend running behind a load balancer, and you use \`node-cron\` inside the app, the scheduled job will execute 3 times simultaneously. You must use a distributed task scheduler (like **BullMQ repeatable jobs**, **EventBridge**, or **Temporal Cron**) to ensure exactly-once execution.
+
+2. **Event-Driven vs Scheduled**:
+   - *Scheduled (Batch)*: "Generate a weekly financial report every Friday at 5 PM."
+   - *Event-Driven (Reactive)*: "When a customer signs a contract, immediately provision their server."
+   Prefer Event-Driven architecture whenever possible. It reduces system load and provides a better user experience.
+
+3. **Idempotent Automation**:
+   If an automated job crashes at 99%, and runs again the next day, it should not duplicate the first 99% of the work. Every automated step must check if the work was already completed before executing.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Workflow Automation?**
+**List one critical Scheduled job and one critical Event-Driven job:**
 \`\`\`input
-1. 
-2. 
-3. 
+Scheduled Job:
+Event-Driven Job:
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Workflow Automation component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Cloud Architect. We need to run a heavy data-processing script every night at midnight that aggregates 500,000 rows in Postgres. Explain the architectural tradeoffs between running this as a scheduled Serverless Function (AWS Lambda / Vercel Edge) versus running it on a dedicated long-running worker container (ECS / Fargate), specifically focusing on maximum timeout limits and memory constraints.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Workflow Automation.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] Distributed scheduling is used to prevent duplicate cron executions across load-balanced servers.
+- [ ] Heavy batch jobs are offloaded to dedicated workers, not the primary API server.
+- [ ] All automated scripts are strictly idempotent.
 `,
 
   'internalcrudoperations': `
@@ -1382,93 +1459,107 @@ Act as a Principal Enterprise Architect. I am building the Authorization compone
   'internaldocumentation': `
 # Documentation
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 2-4 Hours
 
 ---
+
+## Why this matters
+The biggest risk to an internal tool is the "Bus Factor of 1". If you are the only person who knows how the tool is deployed, and you leave the company, the tool becomes a ticking time bomb. Enterprise documentation is not just about how to *use* the tool, it's about how to *rescue* the tool when it inevitably breaks at 2:00 AM on a Saturday.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Documentation, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Add a \`README.md\` with \`npm run dev\`.
 
 ### Personal Project
-If you are building an internal tool for your own use, Documentation should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Document any API keys or environment variables required to run the project.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Documentation can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Enterprise documentation requires 3 distinct artifacts:
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **The Runbook (For Engineering)**:
+   This is an emergency manual. It must contain:
+   - How to restart the server/database.
+   - Where the environment variables are stored.
+   - How to replay failed Webhooks from third-party APIs.
+   - An architecture diagram showing all external dependencies.
+
+2. **The User Manual (For Operations)**:
+   Do not write a 50-page PDF. No one will read it. Use tools like **Scribe** or **Loom** to record 30-second video walkthroughs of the core workflows. Embed these videos directly into the UI of the internal tool (e.g., a "Help" icon next to complex forms).
+
+3. **Code Comments (For Future You)**:
+   Do not comment *what* the code does (the code itself should be readable). Comment *why* the code does it. 
+   *(e.g., \`// We are manually overriding the date here because the legacy Salesforce API hardcodes everything to EST\`)*.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Documentation?**
+**Where will the Engineering Runbook live? (e.g., Notion, GitHub Wiki)**
 \`\`\`input
-1. 
-2. 
-3. 
+Runbook Location:
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Documentation component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a Technical Writer. I am handing off a custom React/Node internal tool to an IT department that did not build it. Write a template for an "Emergency Runbook" that includes sections for Architecture, Environment Variables, Deployment Pipeline, and a Troubleshooting matrix for common failures (e.g., Database Connection Refused, External API Rate Limited).
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Documentation.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] An Emergency Runbook exists and is shared with the IT team.
+- [ ] User documentation consists of short videos/screencasts rather than dense text.
+- [ ] Code comments explain "Why", not "What".
 `,
 
   'internaltesting': `
 # Testing
 
-🕒 **Estimated Time:** 2-6 Hours
+🕒 **Estimated Time:** 4-8 Hours
 
 ---
+
+## Why this matters
+Testing internal tools requires a different mindset than testing consumer apps. You do not need 100% unit test coverage on your UI components. You *do* need 100% integration test coverage on your critical path workflows (e.g., "Can a user bypass RBAC?", "Does the invoice state machine transition correctly?"). A bug in a consumer app causes a bad review; a bug in an internal tool causes a miscalculated payroll.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Testing, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
-
-Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+Manually click through the app once before the demo. 
 
 ### Personal Project
-If you are building an internal tool for your own use, Testing should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
-
-Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+Write one or two Playwright End-to-End (E2E) tests for the happy path.
 
 ### Production SaaS / Enterprise
-In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Testing can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+Focus your testing budget where it actually matters: **Data Integrity and Security**.
 
-You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+1. **RBAC Integration Tests**:
+   Write automated tests for your backend API that explicitly attempt to violate permissions. (e.g., \`test("Employee cannot edit Manager salary")\`).
+
+2. **Database Constraint Tests**:
+   Write tests that intentionally try to insert malformed data or violate foreign keys. Ensure the database correctly rejects the payload.
+
+3. **End-to-End (E2E) Smoke Tests**:
+   Use **Playwright** or **Cypress** to test the "Happy Path" of the primary workflow. You do not need to test every edge case in E2E (it's too slow and brittle). Just test: *Login -> Create Record -> Approve Record*. 
+
+4. **Snapshot Testing**: Avoid it. Internal tool UIs change rapidly. Snapshot testing will just create annoying pipeline failures every time you add a new column to a table.
 
 ---
 
-## Actionable Execution
+## The Data We Need From You
 
-**What are the primary business requirements or data models for Testing?**
+**What are the 2 most critical workflows that require automated E2E testing?**
 \`\`\`input
 1. 
 2. 
-3. 
 \`\`\`
 
 ## AI Architecture Prompt
-Use this prompt to generate the optimal architecture for this component:
 \`\`\`prompt
-Act as a Principal Enterprise Architect. I am building the Testing component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+Act as a QA Automation Engineer. We are building a Next.js internal tool with a complex RBAC system. Write a suite of Jest/Supertest integration tests that specifically target the \`PUT /api/invoices/:id\` endpoint. Ensure the tests cover: an Admin successfully updating, an Employee failing to update, and a malformed payload being rejected by Zod validation.
 \`\`\`
 
-- [ ] I have reviewed the architectural recommendations.
-- [ ] I have implemented the core logic for Testing.
-- [ ] I have verified that access controls and audit logs are functioning correctly.
+- [ ] Critical path APIs have automated RBAC violation tests.
+- [ ] Playwright/Cypress is configured for a Happy Path smoke test.
+- [ ] Low-value UI unit tests (e.g., testing if a button is blue) are avoided.
 `,
 
   'internaladminpanel': `
