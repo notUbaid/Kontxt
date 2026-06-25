@@ -1850,10 +1850,6 @@ In Production SaaS mode, you are building a real business that will accept credi
 
 This means you cannot cut corners on security, authentication, or basic architecture. You must build a robust foundation that won't collapse when you get your first 100 paying customers. You need proper testing, staging environments, and database migrations.
 
-### Custom Mode
-Custom Mode is for enterprise-grade, massive scale applications. 
-
-Before you write code, you must pass rigorous compliance checks (SOC2, HIPAA). You need to define your buying committee, design highly resilient microservices (or modular monoliths), and plan for strict Service Level Agreements (SLAs). Every decision must be vetted.
 
 ## Accountability Check
 - [ ] I understand the philosophy of my chosen mode and I am ready to begin.
@@ -1884,10 +1880,6 @@ Your idea must solve a highly painful, monetizable problem. Flashy tech does not
 
 If people are currently using a messy spreadsheet and duct-taping it to Zapier, that is a billion-dollar idea. If they are just mildly annoyed but not losing money, discard the idea. If people won't pay for it on Day 1, do not write a single line of code.
 
-### Custom Mode
-Every aspect of this idea must be validated through rigorous enterprise-grade market analysis. 
-
-If the Total Addressable Market (TAM) cannot support a $100M+ valuation, it is not worth your time. You must validate the idea with at least 10 enterprise buyers before writing code. Your idea must eventually become a "platform," not just a "tool."
 
 ## The Core Concept
 \`\`\`input
@@ -1920,10 +1912,6 @@ In a Production SaaS, the problem must be monetizable. It must be a "Hair on Fir
 
 If the user's hair is on fire, and you offer them a brick, they will buy it to put the fire out. That is how painful the problem needs to be. If the problem is just "it would be nice if this was 10% faster," it will be incredibly difficult to get people to pay for it.
 
-### Custom Mode
-In enterprise, the problem statement must be tied directly to a massive financial metric: either it makes the company millions of dollars, or it saves the company millions of dollars.
-
-Furthermore, the problem must be felt by someone with budget authority. If you solve a problem for junior developers, but the CTO doesn't care about it, you will never pass procurement.
 
 ## Define the Problem
 \`\`\`input
@@ -1954,10 +1942,6 @@ Rank pain points by how much money or time they waste.
 
 When you talk to users, listen for emotional words: "I hate", "It's so annoying", "I lose hours doing this." If a pain point doesn't evoke a strong emotional response, it's not painful enough to build a SaaS around.
 
-### Custom Mode
-Enterprise pain points usually revolve around compliance, siloed data, and lack of visibility. 
-
-The VP of Sales doesn't care that the UI requires 3 clicks instead of 2. They care that the CRM data isn't syncing with the ERP, causing a 5% loss in revenue attribution. Focus on systemic, organizational pain points.
 
 ## The Pain Points
 \`\`\`input
@@ -1988,10 +1972,6 @@ Your target users must be "desperate" and "reachable."
 
 If your target users are "Small Business Owners," that is too broad. How do you reach them? Instead, target "Independent Dental Practices in the US who struggle with scheduling." Now you know exactly who to cold-email and what their specific needs are.
 
-### Custom Mode
-Your target users are massive corporations in highly regulated industries (Finance, Healthcare, Government). 
-
-These users have extremely high expectations for security, audit logs, and uptime. You are not selling to a person; you are selling to a procurement department.
 
 ## Your Specific Audience
 \`\`\`input
@@ -2020,10 +2000,6 @@ You must define the company size, revenue, and industry.
 
 For example: "B2B SaaS companies with 50-200 employees, doing $5M-$20M in ARR, struggling with churn." If a company with 5 employees tries to buy your product, they are NOT your ICP, and you should not build custom features for them, even if they complain.
 
-### Custom Mode
-Your ICP is the Fortune 500. 
-
-You must define the exact technographic profile of the company. Do they use Salesforce? Do they use AWS or Azure? You need to know exactly what existing infrastructure they have so you can build enterprise integrations that fit seamlessly into their stack.
 
 ## Define the ICP
 \`\`\`input
@@ -2056,15 +2032,6 @@ In a Production SaaS, you must differentiate between the "User" (who clicks the 
 
 For example, if you are building HR software, the User (the employee) wants a beautiful, fast UI. The Buyer (the HR Director) wants deep analytics and compliance tracking. If you only build for the User, you will never get paid. If you only build for the Buyer, the Users will hate your software.
 
-### Custom Mode
-In an enterprise environment, the End User is rarely the person who signs the check. You must map out the entire buying committee. A standard B2B enterprise deal involves at least 4 personas:
-
-1. **The Champion**: The person who loves your product and fights for it internally.
-2. **The Economic Buyer**: The VP who controls the budget and signs the contract.
-3. **The Security Assessor**: The IT admin who will block the deal entirely if you aren't SOC2 compliant.
-4. **The End User**: The employee forced to use your tool every day.
-
-You must design features and marketing materials tailored to *every single one* of these personas.
 
 ## Accountability Check
 - [ ] I understand the difference between the user and the buyer.
@@ -2093,10 +2060,6 @@ The solution must be a scalable software product that integrates into the user's
 
 Don't force users to change their behavior. If they live in Slack, your solution should be a Slack bot. If they live in their inbox, your solution should integrate with Gmail.
 
-### Custom Mode
-The solution must be an extensible platform. 
-
-Enterprises don't buy point solutions; they buy platforms that can replace 3 other tools. Your solution must include robust APIs, webhooks, and single sign-on (SSO) to integrate with their massive IT ecosystems.
 
 ## Describe the Solution
 \`\`\`input
@@ -2129,10 +2092,6 @@ Bad: "We have an AI-powered dashboard with real-time analytics."
 Good: "Cut your customer churn in half without hiring more support agents."
 People don't buy dashboards; they buy lower churn.
 
-### Custom Mode
-Your value proposition must align with boardroom-level strategic initiatives. 
-
-"Ensure global GDPR compliance and prevent multi-million dollar data breaches." You are selling risk mitigation and massive operational efficiency at a global scale.
 
 ## The Core Value Prop
 \`\`\`input
@@ -2161,8 +2120,6 @@ Use the standard format: "For [Target User] who [Problem], our product is a [Cat
 
 Practice this until you can say it smoothly without sounding like a robot.
 
-### Custom Mode
-Your pitch must immediately establish authority and scale. "We provide the infrastructure for Fortune 500 companies to securely manage X." Drop names if you have them.
 
 ## Your Pitch
 \`\`\`input
@@ -2191,10 +2148,6 @@ Do not write code until you have spoken to at least 5 people in your target mark
 
 You should research exactly where these people hang out online. If you can't find a place where 10,000 of your potential customers congregate (a subreddit, a Facebook group, a LinkedIn niche), your market might be too hard to reach.
 
-### Custom Mode
-Enterprise market research is about identifying macroeconomic trends and regulatory shifts. 
-
-Are new data privacy laws passing in Europe that force companies to adopt new compliance tools? Is a legacy competitor being acquired, leaving their customers angry and looking for alternatives? You need a "Why Now?" slide in your pitch deck that proves the market is ripe for disruption *today*.
 
 ## Accountability Check
 - [ ] I have validated my market assumptions.
@@ -2221,10 +2174,6 @@ Find 3 direct competitors. Sign up for their free trials.
 
 Identify their biggest weakness. Do they have terrible customer support? Is their UI from 2010? Are they too expensive for small businesses? Your product must be 10x better on that *one specific axis*. Don't try to beat them on features; they have 100 engineers and you have 1. Beat them on user experience or niche focus.
 
-### Custom Mode
-Enterprise competitors are entrenched. Ripping out a legacy system takes 6-12 months of change management. 
-
-Your analysis must focus on switching costs. How hard is it for a Fortune 500 company to export their data from Competitor A and import it into your system? Your product must have an automated migration tool built-in on Day 1, or nobody will switch.
 
 ## List Your Top 3 Competitors
 \`\`\`input
@@ -2314,10 +2263,6 @@ Your MVP must be robust enough to charge money for, but small enough to launch i
 
 Do not build a "Settings" page with customizable themes. Do not build social login (just use email/password or magic links). Build the one core mechanic that solves the hair-on-fire problem. Everything else is a distraction.
 
-### Custom Mode
-In enterprise software, the "Minimum" part of MVP is much larger. 
-
-You cannot sell a barebones prototype to a bank. Your MVP *must* include Single Sign-On (SAML/SSO), Role-Based Access Control (RBAC), and Audit Logs. Without these features, the security team will not allow the purchase.
 
 ## Define the MVP Features
 \`\`\`input
@@ -2382,10 +2327,6 @@ The standard SaaS model is a monthly recurring subscription (MRR).
 
 However, consider usage-based pricing (like Stripe or OpenAI) if your costs scale directly with user activity. Do not offer a "freemium" tier unless you have millions of dollars in VC funding to subsidize free users. Instead, offer a 14-day free trial requiring a credit card upfront.
 
-### Custom Mode
-Enterprise business models are driven by Annual Contract Value (ACV). 
-
-You will not have a self-serve checkout page. You will have a "Book a Demo" button. Contracts will be negotiated annually or multi-yearly, starting at $50k+ per year. You must factor in the cost of a dedicated sales team and customer success managers.
 
 ## Choose Your Model
 \`\`\`input
@@ -2520,8 +2461,6 @@ A lightweight PRD is highly recommended. Write down exactly what you are buildin
 ### Production SaaS
 The PRD is mandatory. It must define the core user flows, the acceptance criteria for every feature, and the exact metrics for success. If a feature is not in the PRD, it does not get built. The PRD is the contract between the founder and the engineering team.
 
-### Custom Mode
-In enterprise, the PRD is a massive legal and technical document. It must include security requirements, SLA definitions, data retention policies, and compliance checklists. Every single stakeholder (Legal, Security, Engineering, Product) must sign off on the PRD before a single line of code is written.
 
 ## PRD Generation
 \`\`\`prompt
@@ -2549,8 +2488,6 @@ Map out the core flow on a piece of paper. You don't need fancy software. Just e
 ### Production SaaS
 You must map out onboarding, core usage, and retention flows. Where do users drop off? How many clicks does it take to get to the "Aha!" moment? Your user flow should aggressively minimize friction during onboarding.
 
-### Custom Mode
-You must map out complex, multi-role workflows. How does an Employee request a tool, a Manager approve it, and an Admin provision it? You need to document the state machine for every complex interaction, including all edge cases and error handling.
 
 ## Flow Diagram Generation
 \`\`\`prompt
@@ -2580,10 +2517,6 @@ Your IA must support future scalability.
 
 If you add 10 new features next year, where will they live in the navigation? You need a robust hierarchy. Differentiate between global navigation (Billing, Settings, Profile) and workspace navigation (Dashboards, Projects, Reports). Use breadcrumbs to keep users oriented.
 
-### Custom Mode
-In enterprise software, IA is heavily dependent on Role-Based Access Control (RBAC). 
-
-An Admin sees a completely different sitemap than a standard Employee. Your IA documentation must map out the navigation tree *per user role*, ensuring that restricted pages are completely hidden from unauthorized users' navigation menus.
 
 ## IA Generation
 \`\`\`prompt
@@ -2613,10 +2546,6 @@ Wireframes are a critical step before handing off to high-fidelity UI design.
 
 You must wireframe every major flow, including empty states (what the app looks like before they add data) and error states. Use Figma. Validate these wireframes with potential users to ensure the layout makes logical sense before investing in high-fidelity design.
 
-### Custom Mode
-Wireframes must be annotated with specific technical and business logic requirements. 
-
-For example, if a table is wireframed, the annotation must specify if the table requires server-side pagination, sorting, or complex filtering. The wireframe acts as a visual contract for the engineering team.
 
 ## Wireframe Generation
 \`\`\`prompt
@@ -2644,8 +2573,6 @@ Use a component library, but take 10 minutes to customize the primary colors and
 ### Production SaaS
 You need a robust, scalable design system. You must define your color palette (primary, secondary, semantic success/error colors), typography scales, spacing tokens, and dark mode variants. Use Figma variables to sync your design tokens directly with your CSS or Tailwind config.
 
-### Custom Mode
-Enterprise design systems require rigorous accessibility standards (WCAG 2.1 AA compliance). Your color contrast ratios must be perfect. You must support internationalization (RTL text), high-contrast modes, and extensive keyboard navigation. The design system is a standalone product maintained by a dedicated team.
 
 ## Design Token Generation
 \`\`\`prompt
@@ -2675,10 +2602,6 @@ Your branding must evoke trust and professionalism, tailored specifically to you
 
 If you are selling to banks, use conservative blues and a serious tone. If you are selling to Gen-Z creators, use vibrant gradients and a casual tone. Your branding must be perfectly consistent across your landing page, your app UI, and your transactional emails.
 
-### Custom Mode
-Enterprise branding requires a comprehensive Brand Guidelines document. 
-
-This dictates exactly how the logo can be used, the minimum clear space around it, the exact Pantone colors for print vs digital, and the strict tone of voice for all external communications. It ensures that 50 different employees all represent the company identically.
 
 ## Brand Identity
 \`\`\`prompt
@@ -2708,10 +2631,6 @@ You must hit baseline accessibility standards.
 
 Your brand colors must pass the WCAG AA contrast ratio (text must be readable against the background). Your core workflows must be navigable via keyboard (Tab and Enter). If a user relies on a screen reader, they should be able to sign up and pay you.
 
-### Custom Mode
-Accessibility is a strict legal requirement. 
-
-Enterprise and Government contracts explicitly require full WCAG 2.1 AA (and sometimes AAA) compliance. You must build extensive ARIA attributes, support high-contrast modes, provide transcripts for media, and undergo regular third-party accessibility audits. If you fail an audit, you lose the contract.
 
 ## Accountability Check
 - [ ] I understand the accessibility requirements for my project mode.
@@ -2742,10 +2661,6 @@ Boring technology is good technology.
 
 Use mature, heavily supported frameworks with massive ecosystems (React, Next.js, Node.js, PostgreSQL). When you hit a bug at 2 AM, you want to be able to find a StackOverflow answer from 3 years ago. Avoid bleeding-edge tech that might be abandoned in a year.
 
-### Custom Mode
-Enterprise tech stacks are often dictated by existing infrastructure and compliance. 
-
-If the client is a Microsoft shop, you are building in C#/.NET and deploying to Azure. If they are an AWS shop, you are using Java or Go. Your stack must be perfectly aligned with their internal security protocols and CI/CD pipelines.
 
 ## The Decision
 \`\`\`input
@@ -2778,10 +2693,6 @@ You must establish a strict folder structure and component hierarchy.
 
 Use a feature-based architecture (grouping files by feature rather than by type). Enforce strict linting rules. Decide upfront how you will handle data fetching (e.g., TanStack Query) and global state. Your goal is that a new engineer can join the team and know exactly where a specific file lives within 10 minutes.
 
-### Custom Mode
-Enterprise frontends are often Micro-Frontends. 
-
-You might have 5 different engineering teams working on 5 different sections of the app simultaneously. The architecture must allow these teams to deploy their specific sections independently without breaking the global application shell.
 
 ## Accountability Check
 - [ ] I understand my frontend architecture constraints.
@@ -2812,10 +2723,6 @@ A majestic monolith or a modular monolith is usually the best choice for a new S
 
 Do not build microservices on Day 1; they introduce massive operational complexity (network latency, distributed tracing, complex CI/CD). Build a highly structured monolith that can scale to millions of users on a decent-sized server.
 
-### Custom Mode
-Enterprise backends are heavily distributed, highly available microservices. 
-
-You must design for fault tolerance. If the payment microservice goes down, the rest of the application must stay up. You will use Kafka or RabbitMQ for asynchronous event-driven communication between services. Every service will have its own database.
 
 ## Accountability Check
 - [ ] I understand my backend architecture constraints.
@@ -2844,10 +2751,6 @@ Design a clean, versioned RESTful API.
 
 Use standard HTTP verbs (GET, POST, PUT, DELETE) and standard status codes (200, 400, 404, 500). Prefix your routes with \`/api/v1/\`. You *must* implement rate limiting and pagination from the very beginning.
 
-### Custom Mode
-Your API is a standalone product. 
-
-It must be documented with an OpenAPI (Swagger) specification before a single line of code is written. It must support complex filtering, webhooks, and granular API keys (e.g., an API key that only has read access to a specific table). Breaking changes are strictly forbidden without a 1-year deprecation notice.
 
 ## API Generation
 \`\`\`prompt
@@ -2879,10 +2782,6 @@ Do not build your own auth.
 
 Use an established provider like Supabase Auth, Auth0, or Clerk. You must support social logins (Google, GitHub) to reduce onboarding friction. You must implement password resets and email verification perfectly.
 
-### Custom Mode
-Enterprise authentication is entirely about SAML and SSO. 
-
-Enterprise users do not want to create a new password for your app. They want to log in using their Okta or Microsoft Entra ID. If you do not support SAML/SSO, you cannot sell to the Fortune 500. Period.
 
 ## Accountability Check
 - [ ] I understand my authentication strategy.
@@ -2909,10 +2808,6 @@ You must implement a robust authorization system.
 
 If using Supabase, use Row Level Security (RLS) to ensure users can only query rows that belong to their tenant/workspace ID. Do not rely solely on frontend authorization (hiding buttons); the backend API must explicitly reject unauthorized requests.
 
-### Custom Mode
-Enterprise requires extremely granular Role-Based Access Control (RBAC). 
-
-You cannot just have "Admin" and "User." You need custom roles where a client can specify that "Role A can view Reports, edit Users, but cannot delete Projects." You must build a UI that allows Enterprise IT admins to configure these custom roles themselves.
 
 ## Authorization Generation
 \`\`\`prompt
@@ -2944,10 +2839,6 @@ Use a mature relational database like PostgreSQL.
 
 Your schema must be multi-tenant from Day 1. Almost every table should have a \`workspace_id\` or \`tenant_id\` column. You must plan for indexing on columns you will query frequently. Never use hard deletes; use soft deletes (\`deleted_at\` timestamps) so you can recover data if a user accidentally clicks delete.
 
-### Custom Mode
-Enterprise schemas must be designed for extreme scale and auditability. 
-
-You might need to physically separate tenant data into different databases or schemas (Database-per-tenant) to satisfy strict data isolation compliance laws. Every single mutation must be logged in an immutable audit trail table.
 
 ## Schema Generation
 \`\`\`prompt
@@ -2977,10 +2868,6 @@ You must use secure Object Storage (AWS S3, Cloudflare R2).
 
 Files should never be completely public unless they are avatars. Generate short-lived Signed URLs for users to download their files. You must implement file size limits and scan uploads for malware to prevent malicious actors from abusing your storage.
 
-### Custom Mode
-Enterprise storage requires compliance and redundancy. 
-
-You must guarantee that data is replicated across multiple geographic regions (Multi-Region S3). You must support Data Loss Prevention (DLP) to ensure employees aren't uploading files containing Social Security Numbers.
 
 ## Accountability Check
 - [ ] I understand my file storage strategy.
@@ -3009,10 +2896,6 @@ Only build integrations that directly drive revenue or retention.
 
 A Stripe integration is mandatory. A Slack integration is highly recommended for B2B. Don't build a massive integrations catalog on Day 1. Wait until users explicitly ask for them.
 
-### Custom Mode
-Enterprise software must integrate with massive legacy systems. 
-
-You will need to support Salesforce, Workday, or SAP. These integrations are notoriously difficult and often require custom professional services work. You might need to use an embedded integration platform (like Merge.dev or Paragon) to handle the complexity.
 
 ## Accountability Check
 - [ ] I have identified necessary third-party integrations.
@@ -3039,10 +2922,6 @@ You must build a robust AI backend.
 
 Never call LLMs directly from the frontend; proxy them through your backend to protect your API keys and implement rate limiting. You must handle streaming responses (Server-Sent Events) so the user doesn't stare at a loading spinner for 10 seconds. Implement caching (like Redis) for identical queries to save money.
 
-### Custom Mode
-Enterprises will not allow you to send their proprietary data to OpenAI's public endpoints. 
-
-You must use provisioned, private models (like Azure OpenAI) where data is explicitly NOT used for training. You may need to self-host open-source models (Llama 3) entirely within their Virtual Private Cloud (VPC) to meet strict privacy laws.
 
 ## Accountability Check
 - [ ] I understand my AI architecture constraints.
@@ -3069,10 +2948,6 @@ You must maintain an up-to-date architecture diagram.
 
 Use a tool like Mermaid.js (which lives in markdown) or Eraser.io so you can keep the diagram in version control alongside your code. When a service goes down, this diagram is the first thing incident responders look at.
 
-### Custom Mode
-Enterprise architecture diagrams are incredibly complex and follow strict UML or C4 Model standards. 
-
-They must document network boundaries, VPCs, subnets, load balancers, and firewall rules. A security auditor will require this diagram to verify that sensitive databases are not exposed to the public internet.
 
 ## Diagram Generation
 \`\`\`prompt
@@ -3102,10 +2977,6 @@ You must calculate your Unit Economics.
 
 If you charge a user $10/month, but they consume $8/month of OpenAI API credits and $1/month of database bandwidth, your gross margin is terrible. You must model your costs at 100 users, 1,000 users, and 10,000 users to ensure the business model actually scales.
 
-### Custom Mode
-Enterprise cost estimation is about Reserved Instances and bulk discounts. 
-
-You will spend hundreds of thousands of dollars on AWS. You need a dedicated FinOps team to negotiate enterprise discounts, purchase compute commitments, and ensure idle resources are aggressively terminated.
 
 ## Cost Estimation Generation
 \`\`\`prompt
@@ -3137,10 +3008,6 @@ Use a managed Auth provider (Supabase Auth, Auth0, Clerk).
 
 You must configure strict Redirect URLs to prevent Open Redirect vulnerabilities. You must implement robust error handling (e.g., "Email already in use"). You should strongly consider implementing Social Login (Google, GitHub) to drastically increase your signup conversion rate.
 
-### Custom Mode
-Enterprise Auth requires SSO/SAML integration. 
-
-You must integrate with an enterprise identity provider like Okta or Microsoft Entra ID. Your auth flow must support Just-In-Time (JIT) provisioning so when an employee clicks the app in their Okta dashboard, an account is automatically created for them without requiring a signup form.
 
 ## Auth Prompt
 \`\`\`prompt
@@ -3172,10 +3039,6 @@ You must use an ORM (like Prisma, Drizzle, or Supabase clients) and implement da
 
 Never change your production database schema directly in a UI. You must create migration files (e.g., \`001_create_users_table.sql\`) and commit them to version control. This ensures your staging database and production database are always perfectly in sync.
 
-### Custom Mode
-Enterprise databases require strict Row Level Security (RLS) and Audit Logging. 
-
-Every single table must have policies dictating exactly which roles can read, insert, update, or delete rows. You must configure connection pooling (PgBouncer) to ensure the database doesn't crash when 5,000 employees log in at 9:00 AM.
 
 ## Database Prompt
 \`\`\`prompt
@@ -3207,10 +3070,6 @@ You must implement robust error handling, input validation (using Zod or Joi), a
 
 Never trust data coming from the frontend. Always re-validate inputs on the backend. Structure your backend into logical layers: Routes (handling HTTP), Controllers (business logic), and Services/Repositories (database interactions). This keeps your code testable and clean.
 
-### Custom Mode
-Enterprise backends must be observable. 
-
-You must implement structured logging (JSON logs), distributed tracing (OpenTelemetry), and health check endpoints. Your APIs must be versioned (\`/api/v1/\`) so you don't break existing enterprise clients when you update the code.
 
 ## Backend Prompt
 \`\`\`prompt
@@ -3242,10 +3101,6 @@ You must implement optimistic UI updates, loading skeletons, and robust error bo
 
 When a user clicks "Save", the button should instantly show a loading spinner, and the UI should optimistically update before the server responds. If the server throws an error, gracefully revert the UI and show a toast notification. Never let the app crash to a white screen.
 
-### Custom Mode
-Enterprise frontends require massive data tables and complex forms. 
-
-You must implement server-side pagination, virtualization for rendering thousands of rows (e.g., TanStack Virtual), and highly complex form validation schemas. You must ensure the UI is fully accessible (WCAG 2.1 AA) and supports internationalization (i18n) if the enterprise has global offices.
 
 ## Frontend Prompt
 \`\`\`prompt
@@ -3277,10 +3132,6 @@ Use Stripe Checkout or Lemon Squeezy (if you need a Merchant of Record to handle
 
 You must rely on Webhooks to provision access, not client-side redirects. When a user pays, Stripe sends a webhook to your server; your server verifies the webhook signature, updates the user's \`subscription_status\` in the database, and only *then* does the user get access.
 
-### Custom Mode
-Enterprise payments are rarely self-serve via credit card. 
-
-You will need to support custom invoicing (Net-30, Net-60 terms), ACH transfers, and Wire Transfers. You will use Stripe Billing to generate invoices, but the actual payment might happen via a bank transfer 45 days later. Your system must handle "Pending" and "Overdue" account states gracefully.
 
 ## Payments Prompt
 \`\`\`prompt
@@ -3312,10 +3163,6 @@ You must use a dedicated transactional email provider (Resend, Postmark).
 
 You must configure your domain's DKIM, SPF, and DMARC records to ensure your emails actually land in the Inbox, not the Spam folder. Use a tool like React Email to build beautiful, responsive HTML templates instead of writing raw HTML strings.
 
-### Custom Mode
-Enterprise emails often require strict compliance. 
-
-You must ensure that PII (Personally Identifiable Information) is never transmitted in plain text via email. You must provide a highly granular "Notification Preferences" center so enterprise users can opt-out of specific email categories to comply with strict internal corporate policies.
 
 ## Email Prompt
 \`\`\`prompt
@@ -3347,10 +3194,6 @@ You must build a robust notification center.
 
 Use a unified API like Novu or Courier. You must support in-app toasts, in-app inbox (the bell icon), and email fallbacks. Crucially, you must allow users to mute specific types of notifications, otherwise they will mark your emails as Spam and destroy your domain reputation.
 
-### Custom Mode
-Enterprise notifications require strict auditability and delivery guarantees. 
-
-If a critical alert is triggered, you must guarantee delivery via SMS, Email, and PagerDuty. You must implement robust retry logic and Dead Letter Queues (DLQs) in case the notification provider goes down.
 
 ## Accountability Check
 - [ ] I have implemented my notification strategy.
@@ -3377,10 +3220,6 @@ For a production app, Postgres full-text search is usually sufficient until you 
 
 You must implement "fuzzy matching" so typos don't return zero results. Implement debouncing on your frontend search input (wait 300ms after the user stops typing before hitting the API) to save database compute costs.
 
-### Custom Mode
-At enterprise scale, Postgres full-text search will buckle. 
-
-You must implement a dedicated search index like Elasticsearch, Algolia, or Meilisearch. Your search results must respect Role-Based Access Control (RBAC)—a user should never see search results for documents they do not have permission to view.
 
 ## Accountability Check
 - [ ] I have implemented scalable search.
@@ -3407,10 +3246,6 @@ You must implement PostHog, Mixpanel, or Amplitude from Day 1.
 
 Track the "Aha!" moment. Track where users drop off during onboarding. Track feature usage. Connect your frontend SDK to capture pageviews, and send backend events for critical actions (like \`User Upgraded\` or \`Invoice Paid\`) to ensure the data is perfectly accurate.
 
-### Custom Mode
-Enterprises will not allow you to use third-party tracking scripts (like Google Analytics) due to strict privacy laws (GDPR, CCPA). 
-
-You must implement a self-hosted analytics solution, or ensure your vendor is strictly HIPAA/SOC2 compliant and acts only as a Data Processor. You must respect "Do Not Track" headers and provide robust Cookie Consent banners.
 
 ## Accountability Check
 - [ ] I have integrated product analytics.
@@ -3437,10 +3272,6 @@ Do not build an admin panel from scratch.
 
 Use a low-code tool like Retool, ForestAdmin, or Appsmith. Connect it directly to your production database. Build simple dashboards to view User details, refund Stripe charges, and ban malicious accounts. This will save you hundreds of hours of customer support time.
 
-### Custom Mode
-An enterprise admin panel must have strict access controls. 
-
-A Level 1 Support Agent should be able to reset a password, but they should NOT be able to view sensitive user data or grant admin rights. Every action taken in the admin panel must be logged in an immutable audit trail for compliance purposes.
 
 ## Accountability Check
 - [ ] I have set up an internal admin panel.
@@ -3465,10 +3296,6 @@ Build 1 integration (like a Discord bot or Slack webhook) to learn how OAuth2 wo
 ### Production SaaS
 Start with native Slack or Discord webhooks for notifications. If you need deep integrations (Salesforce, HubSpot), strongly consider using an embedded integration platform like Paragon or Merge.dev. Building and maintaining 10 different OAuth integrations from scratch will drain all your engineering resources.
 
-### Custom Mode
-Enterprises will demand highly specific, custom integrations with their on-premise legacy systems. 
-
-You must expose a robust, rate-limited, and perfectly documented REST or GraphQL API so the enterprise's internal IT team can build the integration themselves. Provide SDKs in Java, Python, and C# to accelerate their work.
 
 ## Accountability Check
 - [ ] I have built necessary integrations.
@@ -3495,10 +3322,6 @@ Do not aim for 100% unit test coverage; it is a waste of time.
 
 Instead, focus on End-to-End (E2E) testing with Playwright or Cypress. Write 5-10 tests that cover your most critical workflows (Signup, Checkout, Core Feature). If those tests pass, you know the app makes money. Let your users find the minor UI bugs.
 
-### Custom Mode
-Enterprise code requires rigorous testing. 
-
-You must have high Unit Test coverage, comprehensive Integration Tests, and full E2E coverage. Furthermore, you must run automated Security Scans (SAST/DAST) and Dependency Audits on every PR. If the tests fail, the deployment is blocked.
 
 ## Accountability Check
 - [ ] I have implemented my core E2E tests.
@@ -3526,10 +3349,6 @@ You must maintain two types of documentation:
 1. **Internal:** Architecture decisions (ADRs), onboarding guides for new engineers, and environment variable requirements.
 2. **External:** A beautiful, searchable Help Center for your users (using Mintlify or Docusaurus) so they stop emailing customer support with basic questions.
 
-### Custom Mode
-Enterprise documentation must be exhaustive. 
-
-You must provide comprehensive API documentation (Swagger/OpenAPI), deployment runbooks, disaster recovery procedures, and security compliance whitepapers. The enterprise IT team will review this documentation before they approve the purchase.
 
 ## Accountability Check
 - [ ] I have documented my project appropriately.
@@ -3700,2039 +3519,913 @@ Act as a Y Combinator Pitch Coach.
 **Contents:** The timed script and the recorded Loom video link.`,
   'security': `# Security
 
-🕒 **Estimated Time:** 4-6 hours
+**Estimated Time:** 4-6 hours
 
 ---
 
-## Overview
-Mobile security is unique because the client (the phone) is in the hands of the attacker. You cannot trust anything coming from the mobile app. A compromised app can be reverse-engineered, its API keys extracted, and its network traffic intercepted. Security must be enforced on the server, not just hidden in the client.
+## Why this matters
+Security is not an afterthought; it is the foundation of trust. A single vulnerability can lead to data breaches, reputational damage, and severe financial consequences. Implementing security correctly from day one is exponentially easier than trying to patch a fundamentally insecure architecture later.
 
----
+## Strategic Guidance
 
-## Think First
-**Are you storing sensitive data (passwords, JWTs, PII) in plain text on the device?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Is your API verifying the identity of the user on *every* request?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Have you restricted your API keys to prevent quota theft?**
-\`\`\`input
-Type your answer here...
-\`\`\`
----
+### Hackathon Mode
+For a hackathon, speed is everything and the data is fake. You do not need enterprise-grade security. Do not spend hours configuring strict Row Level Security (RLS) policies or complex OAuth flows unless they are the core mechanic of your demonstration. 
 
-## Key Decisions
-- **Token Storage:** Never use AsyncStorage for session tokens. Always use expo-secure-store or the native Keychain/Keystore.
-- **Row Level Security (RLS):** If using Supabase or Firebase, your database *must* have RLS policies active. The mobile app connects directly to the database; without RLS, any user can download your entire user table.
-- **Certificate Pinning (Advanced):** For highly sensitive apps (banking), use SSL pinning to ensure the app only communicates with your specific server, preventing Man-in-the-Middle (MITM) attacks on public WiFi.
+Your goal is to show a working prototype. Hardcode demo user credentials if it saves time. If you use a database like Supabase or Firebase, use the most permissive rules possible to ensure you don't get blocked during your demo. The only security that matters is ensuring your API keys are not accidentally pushed to a public GitHub repository where bots can scrape them. Use environment variables for all secrets.
 
----
+### Personal Project
+When building a personal project, you want to demonstrate competence and learn best practices without over-engineering. This is the perfect time to learn how to properly secure an application. 
 
-## Common Mistakes
-- **Hardcoded Secrets:** Putting AWS Secret Keys or Stripe Secret Keys in your React Native .env file. These are bundled into the JavaScript and can be extracted in 5 seconds.
-- **Client-Side Validation Only:** Validating an email address format in the app, but failing to validate it on the backend.
-- **Over-Permissioning:** Requesting access to the user's Camera when the app only needs to upload screenshots from the gallery.
+You should implement basic authentication and authorization. Ensure that users can only access their own data. If using Supabase, write foundational RLS policies (e.g., \`user_id = auth.uid()\`). Secure your API routes so that unauthenticated users are rejected. Store sensitive configuration in environment variables and use a \`.env\` file locally. Do not deploy with default passwords or open databases. This level of security shows future employers that you understand the fundamentals of secure software development.
 
----
+### Production SaaS
+In a production environment, security is paramount. You are responsible for your users' sensitive data, and a breach could end your business. You must implement Defense in Depth. 
 
-## Examples
-- **Secure Architecture:** The mobile app stores the JWT in the Secure Enclave. When calling the backend to DELETE /user/123, the backend ignores the 123 in the URL and instead reads the user_id securely from the JWT.
+Start with strict Authentication and Role-Based Access Control (RBAC). Every endpoint and database query must verify the user's identity and permissions. Implement robust Row Level Security (RLS) on your database. Enforce HTTPS everywhere and ensure secure transmission of data. Use secure, HttpOnly cookies for session management to mitigate XSS attacks. 
 
----
+Furthermore, you must sanitize all user inputs to prevent SQL injection and XSS. Set up automated security scanning in your CI/CD pipeline to catch vulnerable dependencies. Implement rate limiting to prevent brute-force attacks and abuse. Regularly audit your infrastructure and consider a third-party penetration test before a major public launch.
 
-## AI Prompt
+## Security Audit Prompt
 \`\`\`prompt
-I am preparing my React Native app for production. Generate a comprehensive security checklist covering token storage (SecureStore vs AsyncStorage), API key restrictions (Google Maps, Firebase), and how to prevent reverse engineering of my JavaScript bundle. Explain the concept of Row Level Security (RLS) assuming I am using Supabase.
+Act as a Senior Security Engineer. I am building a SaaS application using [Insert your Tech Stack here, e.g., React, Node.js, PostgreSQL]. Provide a comprehensive security checklist covering authentication, database security, API protection, and common vulnerabilities (OWASP Top 10). What specific security measures must I implement before launching to production?
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] No secret API keys (Stripe Secret, AWS Secret) are present in the frontend codebase.
-- [ ] Session tokens are stored using expo-secure-store.
-- [ ] Database queries are protected by Row Level Security.
-- [ ] Public API keys (Google Maps, Sentry) are restricted by bundle identifier/package name.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** security_audit.md
-**Purpose:** Documents that all major attack vectors have been mitigated.
-**Contents:** A signed-off checklist confirming token security and key restrictions.
-
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
----
-
-## Next Step
-With the app secured against attackers, move on to **Performance Optimization** to ensure it runs smoothly for users.`,
+- [ ] Environment variables are used for all secrets and API keys.
+- [ ] Secrets have been verified absent from public repositories.
+- [ ] Users can only access their own data (e.g., RLS policies).
+- [ ] Inputs are sanitized and validated on the backend.
+`,
   'performanceoptimization': `# Performance Optimization
 
-🕒 **Estimated Time:** 4-8 hours
+**Estimated Time:** 3-5 hours
 
 ---
 
-## Overview
-Users will tolerate a web page taking 3 seconds to load, but a mobile app that stutters or hangs feels instantly broken. Performance optimization in React Native revolves around keeping the JavaScript thread clear so the UI thread can maintain a buttery-smooth 60 frames per second (fps).
+## Why this matters
+Performance is a feature. Users have zero tolerance for slow applications. A fast, snappy interface builds trust and engagement, while a sluggish app leads to high bounce rates and churn. Optimizing performance ensures your application scales efficiently and provides a world-class user experience.
 
----
+## Strategic Guidance
 
-## Think First
-**Does your app freeze when scrolling through a long list?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Are images taking forever to load or consuming massive amounts of memory?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Does the entire app re-render when a single switch is toggled?**
-\`\`\`input
-Type your answer here...
-\`\`\`
----
+### Hackathon Mode
+Performance does not matter in a hackathon unless the app is so slow that it ruins the live demo. Do not spend time optimizing bundle sizes, implementing complex caching layers, or writing highly optimized database queries.
 
-## Key Decisions
-- **List Rendering:** Never use ScrollView for long lists. Use FlatList, or better yet, Shopify's @shopify/flash-list. FlashList recycles components natively, completely eliminating scroll stutter on complex feeds.
-- **Image Caching:** Do not use the default <Image> component for remote images. Use expo-image. It leverages native caching so images load instantly the second time they are seen.
-- **Animation Execution:** Use react-native-reanimated. Standard animations run on the JS thread, meaning if you fetch data, the animation stutters. Reanimated runs entirely on the native UI thread.
+If the app feels a bit sluggish, ignore it. Focus entirely on feature completeness and the visual wow factor. The judges will not look at your Lighthouse score or your database query execution times. If a query takes 2 seconds to load, just add a loading spinner and move on.
 
----
+### Personal Project
+For a personal project, you want to demonstrate that you understand how to build a responsive web application. You do not need to over-optimize, but you should adhere to basic performance best practices.
 
-## Common Mistakes
-- **Inline Functions:** Writing onPress={() => doSomething()} inside a list item. This creates a new function reference every time the list scrolls, forcing React to re-render every item continuously.
-- **Over-fetching Data:** Downloading a 5MB JSON payload to display a 10-item list. Always paginate API responses.
-- **Console.log in Production:** Leaving heavy console.log() statements in the code. In React Native, console logging across the JS bridge significantly degrades performance.
+Ensure your images are compressed and properly sized. Avoid unnecessary re-renders in your frontend framework by using proper state management. Implement basic pagination for long lists of data to avoid overwhelming the browser. This demonstrates a solid understanding of frontend fundamentals and provides a good experience for anyone reviewing your portfolio.
 
----
+### Production SaaS
+In a production SaaS, performance directly impacts your bottom line. You must treat performance as a critical metric. A fast application reduces server costs and increases user retention.
 
-## Examples
-- **The FlashList Upgrade:** Converting a laggy Instagram-style feed from FlatList to FlashList, instantly moving the frame rate from 25fps back up to 60fps.
+You need to optimize across the entire stack. On the frontend, implement code splitting, lazy loading, and aggressive asset optimization. Aim for excellent Core Web Vitals scores. On the backend, identify and optimize slow database queries by adding indexes and using explain plans. Implement comprehensive caching strategies using Redis or a CDN for static assets.
 
----
+Continuously monitor performance using tools like New Relic, Datadog, or Sentry. Set up alerts for degraded performance and treat performance regressions as critical bugs. Users expect a seamless, instant experience, and delivering that requires rigorous, ongoing optimization.
 
-## AI Prompt
+## Performance Optimization Prompt
 \`\`\`prompt
-I am optimizing a React Native app. Generate a code snippet demonstrating how to replace a standard React Native FlatList with Shopify's FlashList. Include an 'estimatedItemSize', an optimized renderItem function using 'React.memo', and explain why 'expo-image' is necessary inside the list items.
+Act as a Senior Performance Engineer. I am building a SaaS application using [Insert Tech Stack]. Suggest the top 5 most impactful performance optimizations I should implement on the frontend and backend. Include specific techniques for asset optimization, React rendering improvements, and database query optimization.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Long lists use FlashList or highly optimized FlatList components.
-- [ ] Remote images use expo-image for aggressive caching.
-- [ ] The app maintains 60fps during rapid scrolling and navigation.
-- [ ] Console logs are stripped out of the production build.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** src/components/OptimizedFeed.tsx
-**Purpose:** Demonstrates high-performance rendering techniques.
-**Contents:** A list component utilizing FlashList and memoization.
-
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
----
-
-## Next Step
-To know if the app fails in the wild, implement **Crash Reporting**.`,
+- [ ] Images and assets are compressed and served efficiently.
+- [ ] Large lists are paginated or virtualized.
+- [ ] Database queries are indexed and optimized.
+- [ ] Core Web Vitals meet acceptable thresholds.
+`,
   'monitoring': `# Monitoring
 
-🕒 **Estimated Time:** 3-5 hours
+**Estimated Time:** 2-4 hours
 
 ---
 
-## Overview
-Crash reporting tells you when the app dies. Monitoring tells you when the app is suffering. If your API suddenly takes 4 seconds to respond instead of 200ms, the app won't crash, but users will leave. Monitoring provides a heartbeat for your entire architecture.
+## Why this matters
+You cannot fix what you cannot see. Monitoring provides visibility into the health, usage, and performance of your application. Without it, you are flying blind, and your users will be the first to tell you when something breaks—usually by leaving angry reviews or churn.
 
----
+## Strategic Guidance
 
-## Think First
-**How do you know if your backend API goes down at 3 AM?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Are you tracking the latency of your most critical endpoints (e.g., Checkout)?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Do you have alerts set up to wake you up if the database CPU hits 100%?**
-\`\`\`input
-Type your answer here...
-\`\`\`
----
+### Hackathon Mode
+Do not implement monitoring for a hackathon. It is a complete waste of time. You will be sitting next to the computer running the code during the demo. 
 
-## Key Decisions
-- **Uptime Monitoring:** Use a simple service like UptimeRobot or BetterStack to ping your critical backend endpoints every minute. If they fail, it texts you immediately.
-- **Application Performance Monitoring (APM):** Use tools like Datadog, New Relic, or Sentry Performance to trace requests from the mobile app, through the network, into the database.
-- **Real User Monitoring (RUM):** Track how long the app takes to start up (Cold Start Time) and how long critical screens take to render on actual user devices.
+If something breaks, you will see it immediately. Do not install Sentry, Datadog, or any other monitoring tool. Spend that time polishing the UI or adding one more killer feature to your demo.
 
----
+### Personal Project
+For a personal project, basic monitoring is a good learning experience but not strictly necessary for survival. You want to know if the app goes down while someone is reviewing your portfolio.
 
-## Common Mistakes
-- **No Alerts:** Setting up beautiful Grafana dashboards but failing to configure Slack/SMS alerts. Dashboards are useless if no one is looking at them.
-- **Alert Fatigue:** Setting alerts too aggressively (e.g., alerting every time a single user has a slow connection). Only alert on system-wide degradation.
-- **Ignoring Database Metrics:** Focusing entirely on API latency but failing to monitor Supabase/PostgreSQL connection limits or storage space.
+Set up a simple uptime monitor using a free service like UptimeRobot. This will ping your app every few minutes and email you if it goes down. You might also want to set up basic error tracking (like a free Sentry tier) just to see what errors occur, but do not spend hours configuring complex dashboards.
 
----
+### Production SaaS
+Production SaaS requires comprehensive, real-time observability. You need to know there is a problem before your users do. This requires a robust monitoring stack.
 
-## Examples
-- **The Slow Query:** Sentry Performance shows that POST /checkout usually takes 300ms, but suddenly spiked to 5 seconds. You trace it down to a missing database index on the orders table.
+Implement Application Performance Monitoring (APM) using tools like Datadog, New Relic, or Sentry. You must track uptime, API response times, error rates, and infrastructure metrics (CPU, memory). Create detailed dashboards that visualize the health of your system at a glance.
 
----
+Furthermore, set up proactive alerting. Route critical alerts to PagerDuty or a dedicated Slack channel so your engineering team can respond immediately. Establish clear Service Level Objectives (SLOs) and monitor your adherence to them. Monitoring is the pulse of a production system.
 
-## AI Prompt
+## Monitoring Strategy Prompt
 \`\`\`prompt
-I am preparing a mobile app and Node.js backend for production. Generate a Monitoring and Alerting strategy. Recommend free or low-cost tools for Uptime Monitoring (pinging the API), and explain what 3 specific metrics I should set SMS alerts for to ensure I am not caught off-guard by an outage.
+Act as a Senior DevOps Engineer. I need to set up comprehensive monitoring for a production SaaS application built with [Insert Tech Stack]. Recommend a tech stack for observability (APM, error tracking, uptime) and list the 5 most critical metrics I should build alerts for immediately.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Critical backend APIs are monitored by an external ping service.
-- [ ] Slack or SMS alerts are configured for downtime or severe latency spikes.
-- [ ] Database health metrics (CPU, Memory, Connections) are visible.
-- [ ] App startup time is tracked via Sentry Performance or equivalent.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** monitoring_plan.md
-**Purpose:** Defines how the system is observed in production.
-**Contents:** Links to uptime dashboards and the exact thresholds for triggering alerts.
-
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
----
-
-## Next Step
-When an alert fires, you need **Logging** to dig in and find out exactly what happened.`,
+- [ ] An uptime monitor is configured to alert on downtime.
+- [ ] Application errors are tracked and aggregated automatically.
+- [ ] Key performance metrics (latency, error rate) are visible on a dashboard.
+- [ ] Critical alerts are routed to the appropriate team members.
+`,
   'logging': `# Logging
 
-🕒 **Estimated Time:** 2-4 hours
+**Estimated Time:** 2-4 hours
 
 ---
 
-## Overview
-When a bug occurs in production that doesn't trigger a hard crash, logs are your only breadcrumbs. Proper logging allows you to reconstruct the exact sequence of events that a user took, both on their device and on your servers.
+## Why this matters
+When things go wrong in production, logs are your only source of truth. They provide the context needed to debug complex issues, trace user journeys, and understand the sequence of events that led to a failure. Good logging is the difference between fixing a bug in 10 minutes and spending 3 days guessing.
 
----
+## Strategic Guidance
 
-## Think First
-**Are your logs easily searchable in a central dashboard?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Are you accidentally logging Personally Identifiable Information (PII) like passwords or credit card numbers?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Are you logging too much (wasting money) or too little (flying blind)?**
-\`\`\`input
-Type your answer here...
-\`\`\`
----
+### Hackathon Mode
+Do not build a logging infrastructure. \`console.log()\` is your best friend. 
 
-## Key Decisions
-- **Structured Logging:** Never use console.log("User logged in"). Use structured JSON logging: logger.info({ event: "user_login", userId: 123, status: "success" }). This allows you to filter and query logs in tools like Datadog or AWS CloudWatch.
-- **Log Levels:** Use strict levels. ERROR (wakes someone up), WARN (needs investigation tomorrow), INFO (normal business events), DEBUG (only active in development).
-- **Backend vs Frontend:** Mobile apps should generally *not* send raw logs to a server (it drains battery and data). Rely on Analytics for user behavior, Crashlytics for errors, and reserve heavy logging for your Backend APIs.
+You only need logs to debug issues during the 48-hour development window. Do not integrate external logging services like Logtail or Datadog. Keep your terminal open and read the standard output. Speed is the only priority.
 
----
+### Personal Project
+For a personal project, standard output logging is generally sufficient. You want to ensure your logs are readable and helpful for debugging, but you don't need a centralized logging pipeline.
 
-## Common Mistakes
-- **Logging PII:** The single biggest mistake. Accidentally writing logger.info({ requestBody: req.body }) on a login route, resulting in plaintext user passwords being stored in your logging provider forever.
-- **Silent Swallows:** Catching an error and logging it, but failing to alert anyone. try { doSomething() } catch(e) { console.error(e) }.
+Use a simple structured logger (like Pino or Winston in Node.js) instead of raw \`console.log()\`. This teaches you the value of structured data. If you deploy to a platform like Vercel, Heroku, or Render, rely on their built-in log viewers. Focus on logging significant events, such as user logins, database errors, and third-party API failures.
 
----
+### Production SaaS
+In a production SaaS, logs must be centralized, searchable, and structured. You will have multiple servers or serverless functions running simultaneously; you cannot SSH into machines to read text files.
 
-## Examples
-- **The Audit Trail:** A user claims their account was deleted maliciously. Because you implemented structured backend logging, you query userId: 456 AND action: "delete_account" and see exactly which IP address initiated the request at what time.
+Implement structured JSON logging across your entire stack. Every log entry must include contextual metadata: timestamp, log level, user ID, request ID, and service name. Use a centralized logging platform like Datadog, New Relic, or ELK (Elasticsearch, Logstash, Kibana) to aggregate all logs in one place.
 
----
+Ensure you are not logging Sensitive Personal Information (PII) or passwords. Establish a log retention policy to manage costs and comply with data privacy regulations. Robust logging is essential for diagnosing distributed system failures and responding to customer support tickets efficiently.
 
-## AI Prompt
+## Logging Implementation Prompt
 \`\`\`prompt
-I am building a Node.js Edge Function backend for my mobile app. Generate a robust, structured logging utility using Pino. Show how to log an incoming API request, how to redact sensitive fields (like 'password' and 'token'), and how to differentiate between INFO, WARN, and ERROR levels.
+Act as a Backend Architect. I am building a production backend in [Insert Language/Framework]. Generate a configuration for a structured logger (e.g., Winston or Pino for Node). Explain how to ensure a unique 'request ID' is attached to every log generated during a single HTTP request lifecycle.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Backend uses structured JSON logging (e.g., Pino or Winston).
-- [ ] PII, passwords, and API keys are strictly redacted from all log outputs.
-- [ ] Logs are centralized in a searchable platform (CloudWatch, Datadog, Supabase Logs).
-- [ ] Production environments only log INFO level and above (no DEBUG spam).
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** src/utils/logger.ts
-**Purpose:** Standardizes how the application records events.
-**Contents:** A structured logging wrapper with built-in redaction for sensitive data.
-
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
----
-
-## Next Step
-To protect your freshly monitored APIs from abuse, implement **Rate Limiting**.`,
+- [ ] Logs are output in a structured format (e.g., JSON).
+- [ ] Logs include contextual information (User ID, Request ID).
+- [ ] Sensitive data (PII, passwords, tokens) is scrubbed from logs.
+- [ ] Logs are aggregated in a centralized, searchable platform.
+`,
   'errortracking': `# Error Tracking
 
-**🕒 Estimated Time:** 30 min
+**Estimated Time:** 1-3 hours
 
 ---
 
-## Overview
-Errors will happen in production. The question is: will you know about them before your users complain, or after? Error Tracking tools like **Sentry** automatically capture every unhandled exception, group duplicates, attach the full stack trace, and alert you on Slack. They are the single most impactful DevOps tool you can add to a SaaS in under 15 minutes.
+## Why this matters
+Users rarely report bugs; they just leave. Error tracking tools automatically catch exceptions, unhandled promises, and crashes in your application, providing you with the stack traces and context needed to fix them before more users are impacted.
 
----
+## Strategic Guidance
 
-## Think First
-Classify your error severity.
+### Hackathon Mode
+Skip error tracking completely. You will be presenting the app yourself, so you will control the exact flow. If an error happens, you will see it on the screen. 
 
-**The Critical Errors (What errors would you classify as "drop everything and fix"? e.g., Payment processing failure, Auth system crash, Database connection lost)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+Do not waste time setting up Sentry or LogRocket. If a bug occurs during development, look at your browser console or terminal. Keep moving forward.
 
-**The Ignorable Errors (What errors are expected and can be safely suppressed? e.g., 404 Not Found for a missing page, cancelled network requests)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Adding basic error tracking to a personal project is a great way to learn production practices. It shows that you care about the resilience of your code.
 
----
+Integrate a free tier of a tool like Sentry. It takes 5 minutes to install and will automatically capture unhandled exceptions in your frontend and backend. You do not need to configure complex alerting or release tracking. Just having the tool catch errors and show you the stack trace is a massive step up from relying on user reports.
 
-## Key Decisions
-- **Sentry vs. LogRocket vs. BugSnag:** Sentry is the industry standard for error tracking. It's free for small teams, integrates with every framework, and provides source-mapped stack traces. LogRocket adds session replay (watching the user's screen when the error happened), which is extremely powerful but more expensive.
-- **Source Maps:** In production, your JavaScript is minified and unreadable. Without uploading Source Maps to Sentry, your stack traces will say \`Error at chunk-abc123.js:1:45678\` — completely useless. With Source Maps, it says \`Error at Dashboard.tsx:42\`.
+### Production SaaS
+Error tracking is non-negotiable for a production SaaS. You must have deep visibility into every crash and exception experienced by your users.
 
----
+Integrate a robust error tracking platform (like Sentry, Rollbar, or Bugsnag) across your frontend, backend, and mobile apps. Configure the tool to capture source maps so you can read minified stack traces. Attach user context (User ID, email) to errors so you know exactly who was affected.
 
-## Common Mistakes
-- **Not Filtering Noise:**
-  - *Why it happens:* Connecting Sentry and immediately getting 500 alerts for benign errors like \`ResizeObserver loop limit exceeded\`.
-  - *Consequence:* You mute Sentry notifications entirely, and when a real critical error happens, nobody sees it.
-  - *Prevention:* Configure \`ignoreErrors\` in Sentry's initialization to suppress known, harmless browser errors.
-- **Missing User Context:** Sentry captures the error, but doesn't know *who* experienced it. You can't contact the affected user.
+Set up alerting rules to notify your team when there is a spike in errors or when a new, critical exception is introduced in a recent deployment. Treat unhandled exceptions as high-priority debt that must be paid down immediately to maintain a high-quality user experience.
 
----
-
-## Examples
-- *Good Implementation:* Sentry is initialized in the app entry point. \`Sentry.setUser({ id: user.id, email: user.email })\` is called after login. Source Maps are uploaded during the CI/CD build step. Alerts are sent to a dedicated #errors Slack channel only for new, unresolved issues.
-- *Bad Implementation:* \`try { ... } catch(e) { /* TODO: handle this later */ }\` — swallowing the error entirely so nobody ever knows it happened.
-
----
-
-## AI Prompt
-Use AI to set up comprehensive error tracking.
-
+## Error Tracking Setup Prompt
 \`\`\`prompt
-My SaaS is built with [INSERT FRAMEWORK, e.g., Next.js].
-I want to use [INSERT TOOL, e.g., Sentry] for error tracking.
-
-Act as a Site Reliability Engineer.
-1. Write the exact initialization code required to set up this error tracking tool in both the client-side and server-side of my application.
-2. Show how to attach user context (userId, email) after login so errors are linked to specific users.
-3. Provide the exact CI/CD step (e.g., GitHub Actions) required to upload Source Maps during the build process.
-4. List 5 common browser errors I should add to the ignoreErrors configuration to reduce noise.
+Act as a Full Stack Developer. Provide a step-by-step guide on how to integrate Sentry into a [Insert Tech Stack, e.g., React and Express] application. Include how to configure source maps for the frontend and how to globally catch and report unhandled promise rejections on the backend.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Is Sentry (or equivalent) initialized on both the client and server?
-- [ ] Are Source Maps uploaded to Sentry during the build step so stack traces show original file names and line numbers?
-- [ ] Is user context (userId, email) attached to error reports after login?
-- [ ] Are common noise errors (like ResizeObserver) filtered out?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-**File Name:** \`sentry.config.ts\` and CI/CD source map upload step
-**Purpose:** Detect, diagnose, and resolve production errors before users report them.
-**Contents:** The Sentry initialization, the user context attachment, and the CI/CD integration.`,
+- [ ] An error tracking tool (e.g., Sentry) is integrated into the frontend and backend.
+- [ ] Source maps are uploaded to the error tracking tool for readable stack traces.
+- [ ] User context (ID, email) is attached to error reports.
+- [ ] Alerts are configured for significant spikes in error rates.
+`,
   'ratelimiting': `# Rate Limiting
 
-🕒 **Estimated Time:** 2-3 hours
+**Estimated Time:** 2-4 hours
 
 ---
 
-## Overview
-If your API is on the internet, someone will try to abuse it. Rate limiting is your shield against brute-force password attacks, malicious scraping, and accidental Denial of Service (DoS) caused by a bug in your own mobile app stuck in an infinite retry loop.
+## Why this matters
+Rate limiting protects your application from abuse, brute-force attacks, and accidental Denial of Service (DoS) caused by runaway scripts. It ensures fair usage of your resources and keeps your infrastructure costs predictable by preventing a single user from overwhelming your system.
 
----
+## Strategic Guidance
 
-## Think First
-**What endpoints are the most expensive to run or most vulnerable to attack? (e.g., /login, /send-sms, /checkout).**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**How many requests per minute is reasonable for a normal human user?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**What should the mobile app display when the rate limit is hit?**
-\`\`\`input
-Type your answer here...
-\`\`\`
----
+### Hackathon Mode
+Do not implement rate limiting. Your app will only be used by you and maybe a few judges for a few minutes. 
 
-## Key Decisions
-- **The Infrastructure:** Implement rate limiting at the Edge (Cloudflare, Vercel Edge, Upstash Redis). Do not let malicious requests reach your main database.
-- **Tiered Limits:** Apply different limits to different routes. A user might fetch their feed 50 times a minute, but they should only be allowed to request an SMS OTP 3 times an hour.
-- **Client Handling:** When the server returns a 429 Too Many Requests status code, the mobile app must catch it gracefully and show a friendly message ("You're doing that too fast, please wait a minute"), rather than crashing or showing a blank screen.
+No one is going to DDOS your hackathon project. Implementing rate limiting will only slow you down and potentially block you during your own demo if you refresh too many times. Ignore it completely.
 
----
+### Personal Project
+For a personal project, basic rate limiting is a good defensive measure, especially if you have public-facing APIs or are paying for third-party API calls (like OpenAI).
 
-## Common Mistakes
-- **IP-Based Limiting on Mobile:** Mobile devices frequently change IP addresses (moving from WiFi to 5G), and many users on a corporate network share the same IP. Rate limit based on user_id or an API token whenever possible, falling back to IP only for unauthenticated routes.
-- **Missing Auth Limits:** Failing to strictly rate-limit the /login or /reset-password routes, allowing attackers to brute-force passwords indefinitely.
+Implement a simple, in-memory rate limiter or a basic Redis-backed limiter using standard middleware (like \`express-rate-limit\` for Node.js). Apply it primarily to sensitive routes like login (to prevent brute-force password guessing) and any endpoints that cost you money. This shows a solid understanding of basic security and cost-control principles.
 
----
+### Production SaaS
+In production, rate limiting is a critical infrastructure component. You must protect your database and third-party API quotas from malicious actors and poorly written client integrations.
 
-## Examples
-- **The Infinite Loop Bug:** You accidentally ship a useEffect missing a dependency array. The app starts calling GET /profile 100 times a second. Because you have Upstash Rate Limiting configured to 60 req/min, your database survives the onslaught.
+Implement distributed rate limiting using Redis to ensure limits are enforced consistently across all your backend servers. Create tiered rate limits based on pricing plans (e.g., Free tier gets 100 requests/min, Pro gets 1000 requests/min). 
 
----
+Apply strict rate limits to authentication routes, password resets, and any resource-intensive endpoints. Return clear \`429 Too Many Requests\` HTTP status codes with \`Retry-After\` headers so clients can handle the limits gracefully. Monitor rate limit hits to identify potential attacks or users who need to upgrade their plans.
 
-## AI Prompt
+## Rate Limiting Prompt
 \`\`\`prompt
-I am using Next.js/Vercel (or Supabase Edge Functions) as the backend for my mobile app. Generate a rate limiting middleware using Upstash Redis. It should limit the '/send-sms' route to 3 requests per hour per IP address, and return a clean 429 JSON response. Also, provide the React Query code for the mobile app to handle this 429 gracefully.
+Act as a Backend Architect. I am building an API with [Insert Tech Stack, e.g., Node.js, Express, Redis]. Provide code examples and a strategy for implementing tiered rate limiting based on a user's subscription plan. Include strict limits for authentication routes to prevent brute-force attacks.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Authentication and OTP routes are strictly rate-limited to prevent brute-forcing.
-- [ ] Global rate limiting protects the database from runaway client loops.
-- [ ] Mobile app intercepts HTTP 429 errors and displays a user-friendly message.
-- [ ] Rate limit headers (X-RateLimit-Remaining) are returned to the client.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** supabase/functions/_shared/rateLimiter.ts
-**Purpose:** Protects backend infrastructure from abuse and bugs.
-**Contents:** Edge middleware utilizing Redis to track and block excessive requests.
-
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
----
-
-## Next Step
-With the infrastructure protected, secure your data against catastrophic loss via **Backups**.`,
+- [ ] Rate limiting is applied to all authentication and password reset routes.
+- [ ] Rate limiting is applied to resource-intensive or costly API endpoints.
+- [ ] The API returns a 429 status code and helpful headers when limits are exceeded.
+- [ ] Rate limits are enforced consistently across distributed server instances.
+`,
   'caching': `# Caching
 
-**🕒 Estimated Time:** 30-45 min
+**Estimated Time:** 2-4 hours
 
 ---
 
-## Overview
-Caching is the art of not doing the same work twice. If 1,000 users visit your landing page in a minute, your server should NOT render that page 1,000 times. It should render it once, cache the result, and serve the cached version 999 times. Proper caching can reduce your server load by 90%, your database costs by 80%, and your page load times from 3 seconds to 50 milliseconds.
+## Why this matters
+Caching is the ultimate performance cheat code. By storing frequently accessed, computationally expensive data in a fast, in-memory store (like Redis) or at the edge (CDN), you drastically reduce database load, decrease response times, and lower infrastructure costs.
 
----
+## Strategic Guidance
 
-## Think First
-Identify what can be cached.
+### Hackathon Mode
+Do not implement caching. Period. 
 
-**The Static Content (What content on your app rarely changes? e.g., Landing page, Blog posts, Pricing page, Public API responses)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+Caching introduces state synchronization problems (cache invalidation) that are notoriously difficult to debug. For a hackathon, your database can handle the 10 requests your app will receive during the demo. Query the database directly every single time. Keep it simple.
 
-**The Dynamic Content (What content is unique per user and must NEVER be cached publicly? e.g., Dashboard data, user settings, billing info)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+For a personal project, implementing a basic cache is a great way to show you understand system design. 
 
----
+If you have a dashboard that aggregates data or an endpoint that fetches a long list of static items, add a simple Redis cache. Cache the response for 5 minutes. This demonstrates that you know how to reduce database strain, which is a highly valued skill for junior/mid-level engineering roles. Do not over-engineer cache invalidation; simple Time-To-Live (TTL) expiration is sufficient.
 
-## Key Decisions
-- **CDN Edge Caching vs. Application Caching:**
-  - *CDN (Cloudflare, Vercel Edge):* Caches the HTTP response at edge servers worldwide. The fastest possible caching. Best for static pages and public API responses.
-  - *Application (Redis, in-memory):* Caches the result of expensive computations inside your application code. Best for authenticated, personalized data.
-- **Cache Invalidation:** The hardest problem in computer science. When you update a blog post, how do you tell Cloudflare's 300 edge servers to stop serving the old version? Use time-based expiration, manual purging, or "stale-while-revalidate" strategies.
+### Production SaaS
+In production, a robust caching strategy is mandatory for scalability and cost control. 
 
----
+Implement caching at multiple layers. Use a CDN (Content Delivery Network) to cache static assets and even static HTML pages (Edge Caching) globally. Use an in-memory datastore like Redis or Memcached for database query caching and session management. 
 
-## Common Mistakes
-- **Caching Authenticated Data on the CDN:**
-  - *Why it happens:* Setting \`Cache-Control: public, max-age=3600\` on an API endpoint that returns user-specific billing data.
-  - *Consequence:* User A's billing page gets cached. User B visits the same URL and sees User A's invoices. Catastrophic privacy breach.
-  - *Prevention:* NEVER set \`Cache-Control: public\` on any endpoint that returns personalized data.
-- **Never Invalidating the Cache:** Updating a product's price in the database, but the CDN serves the old price for 24 hours.
+The hardest part of caching is invalidation. You must have a clear strategy for evicting stale data when the underlying database is updated. Use pattern-matching eviction or write-through caching mechanisms. Monitor your cache hit rates; a low hit rate means your cache is useless and just adding latency.
 
----
-
-## Examples
-- *Good Implementation:* The landing page uses ISR (Incremental Static Regeneration) with a 60-second revalidation window. Static assets are served with \`Cache-Control: public, max-age=31536000, immutable\`. Dashboard API routes use \`Cache-Control: private, no-store\`.
-- *Bad Implementation:* Setting \`Cache-Control: no-cache\` on every single response, forcing your server to re-render everything on every request.
-
----
-
-## AI Prompt
+## Caching Strategy Prompt
 \`\`\`prompt
-My SaaS is deployed on [INSERT PLATFORM, e.g., Vercel] and uses [INSERT DB, e.g., Supabase].
-
-Act as a Performance & Caching Expert.
-1. Write the exact Cache-Control headers I should set for: Static assets, Public pages, and Authenticated API responses.
-2. Explain how to implement ISR or stale-while-revalidate for my landing page.
-3. Should I introduce Redis for application-level caching? If yes, write the code for a simple cache wrapper.
-4. How do I manually invalidate the cache when I update content?
+Act as a Senior Backend Engineer. I am building a SaaS app with [Insert Tech Stack]. Provide a strategy for implementing a Redis caching layer for my most expensive database queries. Explain how to handle cache invalidation when the underlying data is updated, and provide code examples for a write-through cache approach.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Are static assets (JS, CSS, fonts) served with long-lived, immutable \`Cache-Control\` headers?
-- [ ] Are authenticated API responses explicitly set to \`Cache-Control: private, no-store\`?
-- [ ] Is the landing page cached at the CDN edge?
-- [ ] Do you have a cache invalidation strategy for when content is updated?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-**File Name:** \`cache_strategy.md\`
-**Purpose:** Document what is cached, where, and for how long.
-**Contents:** A table mapping each route/asset type to its caching strategy and TTL.`,
+- [ ] Static assets are cached at the edge via a CDN.
+- [ ] Expensive or frequently accessed database queries are cached in-memory (e.g., Redis).
+- [ ] A clear cache invalidation strategy is implemented (TTL or event-driven).
+- [ ] Cache hit/miss rates are monitored.
+`,
   'backups': `# Backups
 
-🕒 **Estimated Time:** 1-2 hours
+**Estimated Time:** 1-2 hours
 
 ---
 
-## Overview
-There are two types of developers: those who have accidentally dropped a production database, and those who will. If a rogue script deletes all your users, or a cloud provider region goes offline, your backup strategy is the only thing standing between a minor inconvenience and the death of your company.
+## Why this matters
+Hardware fails. Humans make mistakes. Malicious actors delete data. Without reliable backups, a single DROP TABLE command or a corrupted database volume can instantly destroy your entire business and everything your users have built. 
 
----
+## Strategic Guidance
 
-## Think First
-**If your database is destroyed right now, how much data are you willing to lose? (1 hour? 24 hours?)**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Do you know *how* to restore the backup, or have you just assumed the automated system works?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Are your backups stored in the same region/provider as your primary database?**
-\`\`\`input
-Type your answer here...
-\`\`\`
----
+### Hackathon Mode
+You do not need backups. If your database crashes during the 48-hour hackathon, you just re-seed it with your fake data script. 
 
-## Key Decisions
-- **Point-in-Time Recovery (PITR):** Modern databases (Supabase, AWS RDS) offer PITR. This is essential. It allows you to restore the database to the exact millisecond before a catastrophic deletion occurred, rather than relying on a 24-hour old snapshot.
-- **Geographic Redundancy:** Storing your database in AWS us-east-1, and your backups in AWS us-east-1, is a bad idea. Replicate or copy backups to a different geographic region.
-- **Routine Testing:** A backup doesn't exist until you have successfully restored it. You must practice restoring the database to a staging environment to prove the backups are valid.
+Do not spend time configuring automated snapshots or point-in-time recovery. If you are extremely paranoid, just export your database to a SQL file manually before you go to sleep.
 
----
+### Personal Project
+For a personal project, basic automated backups are highly recommended, especially if you have real users or data you care about.
 
-## Common Mistakes
-- **Relying Solely on Snapshots:** Daily snapshots mean if the database dies at 11:59 PM, you lose an entire day's worth of user data and transactions. Use continuous archiving (PITR).
-- **Forgetting File Storage:** Backing up the PostgreSQL database but forgetting to back up the S3/Supabase Storage buckets containing user profile pictures and uploaded documents.
-- **Hardcoding IDs:** Writing code that relies on a specific row having id: 1. When you restore a backup, sequence IDs might shift, breaking your app.
+Most managed database providers (Supabase, Firebase, Heroku Postgres, PlanetScale) offer automated daily backups by default. Verify that this feature is turned on. You do not need complex multi-region replication, but you should know how to restore your database from a snapshot if you accidentally delete something while tinkering.
 
----
+### Production SaaS
+In production, backups are a critical component of your Disaster Recovery plan. You are legally and ethically obligated to protect your users' data.
 
-## Examples
-- **The "Oops" Moment:** An engineer runs DELETE FROM users instead of DELETE FROM users WHERE test = true. Because PITR is enabled, you simply rewind the database 5 minutes and the company is saved.
+Enable Point-in-Time Recovery (PITR) so you can restore your database to any specific second in the past (e.g., right before a developer accidentally dropped a critical table). Ensure you have daily automated snapshots. 
 
----
+Crucially, you must securely store your backups off-site (in a different physical region or cloud provider) to protect against region-wide outages. Most importantly, you must regularly test your restoration process. A backup that you cannot successfully restore is worthless.
 
-## AI Prompt
+## Backup Strategy Prompt
 \`\`\`prompt
-I am launching a production app using Supabase. Generate a disaster recovery checklist. Explain exactly how to enable Point-in-Time Recovery (PITR), how to routinely test a restore operation without impacting the production database, and how to ensure my Supabase Storage buckets are also backed up.
+Act as a Database Administrator. I am using [Insert Database Provider, e.g., Supabase, AWS RDS, MongoDB Atlas]. Outline the exact steps required to enable Point-in-Time Recovery (PITR) and automated daily snapshots. Furthermore, provide a standard operating procedure (SOP) for testing a database restoration in a staging environment.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Point-in-Time Recovery (PITR) is enabled on the primary database.
-- [ ] Daily or weekly snapshots are configured and retained for at least 30 days.
-- [ ] Media/File storage buckets are included in the backup strategy.
-- [ ] A test restoration has been successfully performed.
+- [ ] Automated daily database backups are enabled.
+- [ ] Point-in-Time Recovery (PITR) is active for production databases.
+- [ ] Backups are securely stored in a geographically separate location.
+- [ ] The database restoration process has been successfully tested.
+`,
+  'cicd': `# CI/CD (Continuous Integration & Deployment)
+
+**Estimated Time:** 2-4 hours
 
 ---
 
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+## Why this matters
+Manual deployments are error-prone, slow, and stressful. CI/CD (Continuous Integration / Continuous Deployment) automates the process of testing, building, and deploying your code. It ensures that every change is verified before it reaches users, allowing you to ship features faster and with confidence.
 
----
+## Strategic Guidance
 
-## Deliverable
-**File Name:** disaster_recovery.md
-**Purpose:** A playbook for worst-case scenarios.
-**Contents:** Step-by-step instructions on how to restore the database from a backup during an emergency.
+### Hackathon Mode
+Skip formal CI/CD pipelines. You do not have time to configure GitHub Actions or debug failing build scripts.
 
+Use platforms like Vercel, Netlify, or Render that offer push-to-deploy out of the box. Connect your GitHub repository, push to the \`main\` branch, and let the platform handle the rest. If it fails, check the logs on the platform, fix the code, and push again. Speed is all that matters.
 
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
----
+### Personal Project
+Setting up a basic CI/CD pipeline is an excellent resume booster. It shows you understand modern engineering workflows.
 
-## Next Step
-With data secured, automate your deployment pipelines using **CI/CD**.`,
-  'cicd': `# CI/CD
+Configure a simple GitHub Action to run your linter and unit tests on every pull request. Require these checks to pass before merging into the main branch. Use Vercel, Railway, or Heroku for automated deployments upon merging. This prevents you from accidentally deploying broken code and breaking your portfolio project.
 
-🕒 **Estimated Time:** 4-8 hours
+### Production SaaS
+A robust CI/CD pipeline is the backbone of a high-performing engineering team. You must automate everything to prevent human error and ensure reliable releases.
 
----
+Your CI pipeline must run linting, type checking, unit tests, and integration tests on every commit. Enforce strict branch protection rules: no one can merge code without passing tests and peer review. 
 
-## Overview
-Continuous Integration and Continuous Deployment (CI/CD) automates the boring, error-prone tasks of mobile development. Instead of manually building an APK/IPA on your laptop and uploading it to the stores, you push code to GitHub, and the robots take over—running tests, building the app in the cloud, and submitting it to TestFlight or the Play Store.
+Your CD pipeline should automate deployments to multiple environments (Staging, Production). Implement zero-downtime deployments (e.g., blue-green deployments or rolling updates). Run end-to-end (E2E) tests against your staging environment before promoting code to production. If a deployment fails, the system should automatically rollback to the previous stable version.
 
----
-
-## Think First
-**Are you currently wasting hours staring at Xcode while your app builds?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**How do you guarantee that broken code doesn't accidentally get merged into the main branch?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Do you need to manage different environments (Development, Staging, Production)?**
-\`\`\`input
-Type your answer here...
-\`\`\`
----
-
-## Key Decisions
-- **The Build Platform:** Expo Application Services (EAS) is the undisputed king for React Native CI/CD. It handles the nightmare of iOS certificates and Android Keystores automatically. Do not try to build iOS apps on GitHub Actions manually; use EAS Build.
-- **Over-The-Air (OTA) Updates:** Use Expo Updates to push JavaScript changes directly to users' phones instantly, completely bypassing the grueling 2-day App Store review process for minor bug fixes.
-- **Pull Request Checks:** Configure GitHub Actions to automatically run Prettier, ESLint, and Jest on every Pull Request. Block merging unless all tests pass.
-
----
-
-## Common Mistakes
-- **Building Locally for Prod:** Building the production release on a developer's laptop. It guarantees that "it works on my machine" bugs will make it to production. Always build in a pristine cloud environment.
-- **Losing the Keystore:** For Android, if you lose the .jks Keystore file and its password, you can *never* update your app on the Play Store again. Let EAS manage your credentials securely.
-
----
-
-## Examples
-- **The Automated Pipeline:** You push to main. GitHub Actions runs tests. It triggers EAS Build. EAS provisions a Mac, builds the iOS .ipa, signs it with Apple, and automatically submits it to TestFlight. You do nothing but write code.
-
----
-
-## AI Prompt
+## CI/CD Pipeline Prompt
 \`\`\`prompt
-I am setting up CI/CD for my Expo React Native app. Generate an eas.json configuration file with three profiles: 'development', 'preview', and 'production'. Also, generate a GitHub Actions workflow (.github/workflows/build.yml) that runs type-checking and tests on every PR, and triggers an EAS Build when code is merged to main.
+Act as a DevOps Engineer. I have a repository hosted on GitHub with a [Insert Frontend Tech] frontend and a [Insert Backend Tech] backend. Generate a GitHub Actions YAML file that runs npm install, linting, and unit tests on every pull request to the 'main' branch.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Code is formatted and linted automatically via Git Hooks (Husky) or CI.
-- [ ] Automated tests run and must pass before code can be merged to main.
-- [ ] Production builds are executed on cloud infrastructure (EAS), not local laptops.
-- [ ] Over-The-Air (OTA) updates are configured for rapid hotfixes.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** eas.json & .github/workflows/main.yml
-**Purpose:** Automates testing and deployment.
-**Contents:** Configuration files for Expo Application Services and GitHub Actions.
-
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
----
-
-## Next Step
-Review your backend **Infrastructure** to ensure it's ready for the public.`,
+- [ ] Automated tests (unit, integration) run on every Pull Request.
+- [ ] Code cannot be merged into the main branch if tests fail.
+- [ ] Merging to the main branch automatically triggers a deployment to production.
+- [ ] Deployments occur with zero downtime to the end user.
+`,
   'infrastructure': `# Infrastructure
 
-🕒 **Estimated Time:** 2-4 hours
+**Estimated Time:** 3-6 hours
 
 ---
 
-## Overview
-Infrastructure is the invisible plumbing that powers your app. Choosing the right infrastructure determines whether your app can handle going viral, how much it costs to run, and how much time you spend doing DevOps instead of building features.
+## Why this matters
+Infrastructure is the foundation your application runs on. Choosing the right infrastructure dictates your deployment speed, maintenance overhead, and scaling limits. Over-engineering your infrastructure early on will slow you down, while under-engineering it later will cause outages.
 
----
+## Strategic Guidance
 
-## Think First
-**Are you going to manage servers (EC2/DigitalOcean), or use Serverless platforms (Vercel/Supabase)?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Where are your users geographically located? (Latency matters).**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Do you have separate environments for Staging and Production?**
-\`\`\`input
-Type your answer here...
-\`\`\`
----
+### Hackathon Mode
+Serverless and Platform-as-a-Service (PaaS) are your best friends. Do not touch AWS, Docker, or Kubernetes. 
 
-## Key Decisions
-- **Serverless First:** Unless you have a massive, sustained workload or strict compliance requirements, use Serverless architectures (Supabase Edge Functions, Vercel, AWS Lambda). You pay zero when traffic is zero, and it scales infinitely when you go viral. No Linux patching required.
-- **Environment Isolation:** Never use your production database for testing. You MUST have separate Supabase projects for Development (local), Staging (testing with stakeholders), and Production (real users).
-- **Infrastructure as Code (IaC):** While not strictly required for an MVP, defining your infrastructure in code (e.g., Supabase Migrations, Terraform) ensures that your Staging environment is an exact replica of Production.
+Host your frontend on Vercel or Netlify. Host your backend on Render, Railway, or use Supabase/Firebase Serverless Functions. The goal is to deploy your code in under 5 minutes without writing a single configuration file. You want infrastructure that manages itself so you can focus on writing application code.
 
----
+### Personal Project
+For a personal project, you want low-maintenance, zero-cost infrastructure. 
 
-## Common Mistakes
-- **Single Point of Failure:** Hosting your database, backend, and file storage on a single $5/month DigitalOcean droplet. When that droplet restarts, the entire business goes offline.
-- **Cross-Region Latency:** Putting your database in Frankfurt and your Edge Functions in Virginia. The mobile app will feel incredibly slow as data travels across the Atlantic on every API call. Keep compute and databases in the same region.
-- **Missing Staging Environment:** Pushing code directly to Production because "it worked on my localhost," only to realize the production database has a different schema.
+Stick to the free tiers of PaaS providers like Vercel (Frontend), Render/Railway (Backend), and Supabase/Neon (Database). This setup is robust enough to handle moderate traffic, requires zero server maintenance, and is completely free. Do not waste time managing Linux servers on DigitalOcean or EC2 unless learning DevOps is the explicit goal of the project.
 
----
+### Production SaaS
+In a production SaaS, you need infrastructure that is highly available, scalable, and secure. This is where Infrastructure as Code (IaC) becomes necessary.
 
-## Examples
-- **The Modern Stack:** The React Native app talks to Supabase Edge Functions (deployed globally via Deno). The functions query a PostgreSQL database hosted securely in AWS us-east-1. Media is stored in S3-compatible Supabase Storage.
+Move away from manual click-ops in web dashboards. Define your infrastructure using Terraform or AWS CDK. This ensures your staging and production environments are identical and reproducible. 
 
----
+Depending on your team's expertise, choose between a managed PaaS (easier maintenance, higher cost) or containerized orchestration like Kubernetes/ECS (complex, but highly scalable and customizable). Ensure your infrastructure spans multiple availability zones to tolerate hardware failures. Use a Virtual Private Cloud (VPC) to isolate your databases and internal services from the public internet.
 
-## AI Prompt
+## Infrastructure as Code Prompt
 \`\`\`prompt
-I am launching a mobile app using React Native and Supabase. Generate an infrastructure overview outlining how to structure my environments (Local, Staging, Production). Explain how to use Supabase CLI migrations to ensure schema changes made in Local are safely promoted to Staging and Production without manual clicking in the dashboard.
+Act as a Cloud Architect. I am planning the production infrastructure for a SaaS application using [Insert Tech Stack]. We expect moderate but steady traffic. Compare the pros, cons, and maintenance overhead of using a PaaS (like Heroku/Render) versus containerized orchestration (like AWS ECS or Kubernetes). Which do you recommend for a small team?
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Staging and Production environments are completely isolated (different databases, different API keys).
-- [ ] Compute (Backend) and Storage (Database) are located in the same geographic region to minimize latency.
-- [ ] Database schemas are managed via code/migrations, not manual UI clicks.
-- [ ] Serverless architectures are utilized to minimize DevOps overhead.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** supabase/migrations/
-**Purpose:** Defines your infrastructure and schema as version-controlled code.
-**Contents:** SQL files representing the exact state of the production database.
-
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
----
-
-## Next Step
-With the backend solid, focus on the mobile client by performing **App Size Optimization**.`,
+- [ ] Production infrastructure is isolated from staging and development environments.
+- [ ] Databases and internal services are not exposed directly to the public internet (e.g., inside a VPC).
+- [ ] Infrastructure components span multiple availability zones for fault tolerance.
+- [ ] Infrastructure changes are managed through code (IaC) and version control, not manual dashboard clicks.
+`,
   'disasterrecovery': `# Disaster Recovery
 
-**🕒 Estimated Time:** 45 min
+**Estimated Time:** 2-4 hours
 
 ---
 
-## Overview
-Disaster Recovery (DR) is the plan you execute when everything has already gone catastrophically wrong. Your database is corrupted. Your hosting provider has a regional outage. A developer force-pushed to \`main\` and wiped out 2 weeks of work. DR is not about preventing disasters — that's what Backups, Monitoring, and Security are for. DR is about how fast and how completely you can restore normal operations after the worst has already happened.
+## Why this matters
+Disasters happen. Cloud providers have regional outages, disgruntled employees delete databases, and ransomware attacks occur. Disaster Recovery (DR) is the process of getting your business back online when the worst-case scenario becomes a reality. 
 
----
+## Strategic Guidance
 
-## Think First
-Define the worst-case scenarios.
+### Hackathon Mode
+Ignore this completely. If the cloud provider goes down during the hackathon, everyone else using that provider is also down. The judges will understand. Do not spend a single minute worrying about disaster recovery.
 
-**The Nightmare Scenario (What is the single worst thing that could happen to your application right now? e.g., Complete database deletion, Hosting provider goes offline for 24 hours)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+For a personal project, disaster recovery just means having a backup of your code and a backup of your database. 
 
-**The Communication Plan (When your app goes down, how do you notify your paying customers? Do you have a status page? A support email? A Twitter account?)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+Your code should be hosted on GitHub, which acts as your DR plan for your source code. If your database provider deletes your account, you should theoretically be able to restore from a recent SQL dump. That is all the DR planning you need.
 
----
+### Production SaaS
+A production SaaS requires a formal, tested Disaster Recovery plan. You need to define your Recovery Time Objective (RTO - how fast you need to be back online) and Recovery Point Objective (RPO - how much data you can afford to lose).
 
-## Key Decisions
-- **Active-Passive vs. Active-Active:**
-  - *Active-Passive:* You have a primary server. If it dies, you manually switch to a standby server. Simpler, cheaper, slower recovery.
-  - *Active-Active:* Traffic is load-balanced across multiple servers simultaneously. If one dies, the others absorb the load automatically. Complex, expensive, instant recovery.
-  - *Decision:* For an MVP, Active-Passive (or relying on your managed platform's built-in redundancy) is perfectly sufficient.
-- **Runbook vs. Improvisation:** When your database goes down at 2 AM and your heart is racing, you will not think clearly. A **Runbook** is a step-by-step checklist written in advance that tells you exactly what to do, in what order, with the exact commands to run. Never improvise disaster recovery.
+Your infrastructure should be defined as code (Terraform/CDK) so you can spin up a replica of your entire environment in a different cloud region within minutes. Your database backups must be continuously replicated to this secondary region.
 
----
+You must document the exact, step-by-step Standard Operating Procedure (SOP) for declaring a disaster and executing the failover. Most critically, you must run "fire drills" to test this process. A DR plan that has never been tested is just a theoretical document that will fail when you actually need it.
 
-## Common Mistakes
-- **No Written Runbook:**
-  - *Why it happens:* "I'll remember what to do." No you won't. Not at 2 AM. Not when your biggest customer is threatening to churn.
-  - *Consequence:* You panic, make the situation worse by running the wrong restore command, and turn a 1-hour outage into a 12-hour data loss event.
-  - *Prevention:* Write the Runbook now, while you are calm and thinking clearly. Include exact commands, not vague instructions.
-- **Single Points of Failure:** Your entire business runs on one Supabase project with no backup database, no redundant hosting, and no way to migrate if Supabase has a multi-hour outage.
-
----
-
-## Examples
-- *Good Implementation:* A documented Runbook stored in the team's Notion that covers 3 scenarios: (1) Database corruption -> Restore from latest PITR backup, (2) Vercel outage -> Deploy to Render using the Docker backup, (3) Compromised API keys -> Rotate all secrets via the emergency rotation script. Each scenario has exact commands and an estimated recovery time.
-- *Bad Implementation:* The founder is the only person who knows the database password, which is stored in a Slack DM from 6 months ago.
-
----
-
-## AI Prompt
+## Disaster Recovery Plan Prompt
 \`\`\`prompt
-My SaaS runs on [INSERT STACK, e.g., Vercel + Supabase].
-My backups are [INSERT BACKUP STRATEGY, e.g., Daily Supabase snapshots + 6-hourly pg_dump to S3].
-
-Act as a Disaster Recovery Specialist.
-1. Identify the top 3 disaster scenarios most likely to affect this specific stack.
-2. For each scenario, write a step-by-step Runbook with the exact terminal commands required to restore service.
-3. For each scenario, estimate the Recovery Time Objective (RTO) and Recovery Point Objective (RPO).
-4. Recommend a free status page tool I can use to communicate outages to my users.
+Act as a Site Reliability Engineer (SRE). I am operating a SaaS application on [Insert Cloud Provider, e.g., AWS, GCP]. Draft a standard operating procedure (SOP) for a Disaster Recovery scenario where our primary region goes completely offline. Include steps for DNS failover, infrastructure recreation via Terraform, and database restoration from a cross-region backup.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Do you have a written, step-by-step Runbook for at least 3 disaster scenarios?
-- [ ] Does your Runbook include the exact terminal commands (not vague instructions)?
-- [ ] Is there a public Status Page where customers can check if your service is down?
-- [ ] Does more than one person on your team know how to execute the recovery plan?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-**File Name:** \`disaster_recovery_runbook.md\`
-**Purpose:** Survive the worst day of your business.
-**Contents:** Step-by-step recovery procedures for database corruption, hosting outages, and security breaches, with exact commands and estimated recovery times.`,
+- [ ] Recovery Time Objective (RTO) and Recovery Point Objective (RPO) are defined.
+- [ ] Database backups are securely stored in a secondary geographic region.
+- [ ] Infrastructure can be rapidly recreated using Infrastructure as Code (IaC).
+- [ ] The Disaster Recovery failover process is documented and tested regularly.
+`,
   'scalabilityplanning': `# Scalability Planning
 
-**🕒 Estimated Time:** 30-45 min
+**Estimated Time:** 2-4 hours
 
 ---
 
-## Overview
-Scalability Planning is the art of building for today while anticipating tomorrow. It is NOT about handling 10 million users on day one. It IS about identifying the 2-3 architectural bottlenecks that will break first as you grow, and having a documented plan for when to address them. The best time to think about scaling is before you need it — but the best time to implement scaling is the moment you actually need it, and not a second earlier.
+## Why this matters
+Scalability is the ability of your system to handle increased load gracefully without catastrophic failure or astronomical costs. Designing for scale too early is a waste of time (premature optimization), but ignoring it entirely will result in your application collapsing just when it starts to get popular.
 
----
+## Strategic Guidance
 
-## Think First
-Identify where you will break.
+### Hackathon Mode
+Do not plan for scale. Your goal is to support exactly one user: you, during the demo. 
 
-**The First Bottleneck (Based on your architecture, what will break first when you go from 100 to 10,000 users? The database? The API? The AI token budget?)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+Write the most inefficient code possible if it saves you time. Run expensive computations on the main thread. Query the database inside a loop. None of it matters if you only have 3 rows in your database. 
 
-**The Scale Trigger (At what specific metric will you know it's time to scale? e.g., "Database CPU consistently above 70%", "API P95 latency exceeds 2 seconds")**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+For a personal project, scalability planning is mostly an academic exercise. 
 
----
+You should understand the *concepts* of scalability—like the difference between vertical scaling (getting a bigger server) and horizontal scaling (adding more servers). Ensure your backend is stateless so that, theoretically, you could run multiple instances of it. However, do not actually configure load balancers or read replicas. 
 
-## Key Decisions
-- **Vertical Scaling vs. Horizontal Scaling:**
-  - *Vertical (Scale Up):* Give your existing server more RAM and CPU. Simple but has a hard ceiling.
-  - *Horizontal (Scale Out):* Add more servers and distribute traffic between them using a load balancer. Complex but theoretically unlimited.
-  - *Decision:* Always start with Vertical scaling. It requires zero code changes. Switch to Horizontal only when you physically max out the biggest available server.
-- **Database Scaling:** The database is almost always the first bottleneck. Before doing anything complex, try these in order: (1) Add indexes, (2) Optimize slow queries, (3) Add read replicas, (4) Implement connection pooling. Only after exhausting all of these should you consider sharding or switching databases.
+### Production SaaS
+In a production SaaS, scalability must be planned and tested. You need to know your system's breaking points *before* a marketing spike hits them.
 
----
+Design a stateless backend architecture so you can scale horizontally behind a load balancer. Offload heavy, long-running tasks (like image processing or report generation) to background worker queues (e.g., BullMQ, Celery) to keep your API responsive. 
 
-## Common Mistakes
-- **Premature Scaling:**
-  - *Why it happens:* Fear of success. "What if we go viral tomorrow?"
-  - *Consequence:* You spend $500/month on a Kubernetes cluster, a Redis cache, and 3 read replicas for an app with 12 users. Your runway burns 10x faster.
-  - *Prevention:* Scale reactively based on metrics, not proactively based on anxiety. Set up monitoring alerts, and only scale when they fire.
-- **Ignoring the Database:** Adding 5 more API servers while the single PostgreSQL instance is at 95% CPU. The API servers just send more traffic to the already-dying database.
+Plan for database scaling. Start by vertically scaling your primary database, but know when and how you will introduce read replicas to offload read-heavy queries. Implement connection pooling (e.g., PgBouncer) to prevent your application servers from exhausting database connections. Conduct load testing (using tools like k6 or Artillery) to simulate high traffic and identify bottlenecks before they impact real users.
 
----
-
-## Examples
-- *Good Implementation:* A documented "Scale Plan" that says: "At 1,000 users, upgrade Supabase to Pro for connection pooling. At 5,000 users, add a read replica. At 10,000 users, implement Redis caching for the dashboard. At 50,000 users, evaluate horizontal API scaling."
-- *Bad Implementation:* Deploying a Kubernetes cluster with auto-scaling policies for an app that currently has 3 beta testers.
-
----
-
-## AI Prompt
+## Scalability Architecture Prompt
 \`\`\`prompt
-My SaaS architecture is:
-- Frontend: [INSERT, e.g., Next.js on Vercel]
-- Backend: [INSERT, e.g., Next.js API Routes]
-- Database: [INSERT, e.g., Supabase Postgres]
-
-Act as a Principal Systems Architect planning for growth.
-1. Based on this architecture, what will be the FIRST component to fail as I scale from 100 to 10,000 users?
-2. Create a "Scale Plan" document with specific milestones: What should I do at 1,000 users? 5,000? 10,000? 50,000?
-3. For each milestone, estimate the monthly infrastructure cost increase.
-4. What are the 3 cheapest optimizations I can make RIGHT NOW that will delay the need for complex scaling the longest?
+Act as a Software Architect. I am building a backend using [Insert Tech Stack, e.g., Node.js and PostgreSQL]. I expect a sudden surge in traffic due to a major marketing launch. Outline a plan to horizontally scale the backend application servers and implement connection pooling for the database to ensure it doesn't crash under load.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Have you identified the single component most likely to become the bottleneck first?
-- [ ] Do you have a written "Scale Plan" with specific user-count milestones and corresponding actions?
-- [ ] Are you monitoring the metrics (DB CPU, API latency, memory) that will tell you when it's time to scale?
-- [ ] Have you exhausted simple optimizations (indexes, caching, query optimization) before considering complex infrastructure changes?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-**File Name:** \`scale_plan.md\`
-**Purpose:** Grow without breaking.
-**Contents:** A milestone-based plan mapping user counts to specific infrastructure upgrades, with estimated costs and the metrics that trigger each upgrade.`,
+- [ ] The backend API is stateless, allowing for horizontal scaling.
+- [ ] Long-running or resource-intensive tasks are offloaded to background worker queues.
+- [ ] Database connection pooling is configured.
+- [ ] Load testing has been conducted to identify the system's maximum capacity.
+`,
   'launchchecklist': `# Launch Checklist
 
-**🕒 Estimated Time:** 60-120 min
+**Estimated Time:** 2-4 hours
 
 ---
 
-## Overview
-Launch day is chaotic. If you rely on your memory to switch API keys from "Test" to "Live", you will forget something, and your launch will fail. A Launch Checklist is an uncompromising, step-by-step pre-flight manual. It ensures you don't accidentally leave Stripe in test mode, leave a rogue \`console.log(process.env)\` in the code, or point the production frontend to the staging database.
+## Why this matters
+Launch day is chaotic. A checklist ensures you do not forget a critical step (like turning off debug mode or switching API keys from test to live) in the heat of the moment. A botched launch is incredibly difficult to recover from.
 
----
+## Strategic Guidance
 
-## Think First
-Identify the catastrophic failure points.
+### Hackathon Mode
+Your launch checklist is three items: 
+1. Is the app deployed?
+2. Does the primary flow work?
+3. Is the demo script ready? 
+If yes, you are done. Go practice your pitch.
 
-**The Financial Check (Are your payment gateways 100% in Live mode, pointing to Live products/prices?)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+For a personal project, ensure your portfolio links are working, the app doesn't crash on load, and you have a solid README in your GitHub repository. Your "launch" is likely just a post on LinkedIn or X (Twitter). Ensure you have a nice preview image (Open Graph tag) configured.
 
-**The Environmental Check (Are all 15 of your Vercel/Render Environment Variables verified to be production keys, not development keys?)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+A production launch requires military precision. You are coordinating infrastructure, marketing, and support simultaneously.
 
----
+You must verify that all environment variables are set to production values (Stripe Live Keys, Production DB URLs). Ensure debug logging is disabled to prevent leaking secrets. Verify that automated backups are running. Check that your marketing site has proper SEO tags and analytics tracking. 
 
-## Key Decisions
-- **Soft Launch vs. Hard Launch:**
-  - *Soft Launch:* You silently deploy to production and invite 50 people from your waitlist. You monitor the logs for crashes.
-  - *Hard Launch:* You post on Product Hunt, Hacker News, and Twitter simultaneously.
-  - *Decision:* ALWAYS Soft Launch first. Give it 48 hours to bake in reality before you invite the stampede.
-- **Feature Freezes:** 48 hours before launch, you must implement a strict Feature Freeze. No new code is merged. If you try to sneak in "one quick UI tweak" the night before, you will inevitably break something else.
+Prepare your customer support channels. Draft your launch announcements for Product Hunt, Hacker News, X, and your email list. Finally, have a rollback plan ready in case the deployment causes a catastrophic failure under load.
 
----
-
-## Common Mistakes
-- **The Stripe Test Mode Disaster:**
-  - *Why it happens:* You built the app using Stripe \`pk_test_...\` keys and forgot to swap them in Vercel.
-  - *Consequence:* You launch on Product Hunt. 500 people sign up and "buy" your Pro plan using the fake \`4242\` test credit card. You make zero dollars.
-  - *Prevention:* Double, triple, and quadruple check your environment variables.
-- **Missing Database Indexes:** Your app worked fine with 10 rows of test data. On launch day, 10,000 rows are added, and because you forgot a database index on the \`user_id\` column, the dashboard takes 15 seconds to load and crashes.
-
----
-
-## Examples
-- *Good Implementation:* A physical checklist on your desk. You verify Vercel ENV vars. You do one final real-money purchase using your own personal credit card on the production URL. You verify the webhook updates the database. You clear the test data. You launch.
-- *Bad Implementation:* Pushing a massive refactor to \`main\` at 11:45 PM and immediately posting to Product Hunt at midnight.
-
----
-
-## AI Prompt
-Use AI to build an exhaustive pre-flight checklist.
-
+## Pre-Flight Check Prompt
 \`\`\`prompt
-My SaaS uses [INSERT STACK, e.g., Next.js, Supabase, Stripe, Resend].
-
-Act as a strict Release Manager.
-1. Create an exhaustive, step-by-step Launch Checklist categorized by: Environment Variables, Payments, Database, Performance, and Security.
-2. Specifically highlight the most common mistakes developers make with Stripe and Supabase when moving from staging to production.
-3. Give me a strategy for doing a "Soft Launch" validation using my own credit card before the public announcement.
+Act as a Release Manager. I am launching a SaaS app built with [Insert Tech Stack] tomorrow. Provide a comprehensive pre-launch checklist covering infrastructure, security (API keys/environment variables), marketing assets, and fallback plans.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Are Stripe/Payment ENV vars set to LIVE keys?
-- [ ] Have you successfully completed a real-money transaction using your own credit card on the production URL?
-- [ ] Are all database tables protected by RLS (Row Level Security)?
-- [ ] Did you clear out all the dummy/test data from the production database?
-- [ ] Is your error tracking (Sentry) receiving events from the production URL?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-**File Name:** \`LAUNCH_DAY_CHECKLIST.md\`
-**Purpose:** Prevent unforced errors on your biggest day.
-**Contents:** A rigorous, unskippable list of checks.`,
+- [ ] All environment variables are using production (live) keys.
+- [ ] Automated backups are enabled and verified.
+- [ ] Debug mode is disabled; error tracking (e.g., Sentry) is enabled.
+- [ ] Open Graph (social sharing) tags and SEO metadata are configured.
+`,
   'seo': `# SEO (Search Engine Optimization)
 
-**🕒 Estimated Time:** 30-45 min
+**Estimated Time:** 3-6 hours
 
 ---
 
-## Overview
-SEO is how you acquire customers for free over the long term. While paying for ads works immediately, SEO compounds. For a SaaS, there are two types of SEO: **Technical SEO** (ensuring Google can read your site, your meta tags look good on Twitter, and your sitemaps are submitted) and **Programmatic/Content SEO** (generating hundreds of landing pages targeting specific long-tail keywords your [ICP](#icpidealcustomerprofile) is searching for).
+## Why this matters
+SEO is how you acquire users for free. If Google cannot index your site, or if you rank poorly for your target keywords, you will be forced to rely entirely on paid ads or viral marketing. Solid technical SEO ensures your product can be found by people actively searching for the problem you solve.
 
----
+## Strategic Guidance
 
-## Think First
-Define your entry points.
+### Hackathon Mode
+Ignore SEO entirely. Google will not index your site before the hackathon ends. Do not spend time writing meta descriptions or optimizing sitemaps. Focus on the demo.
 
-**The Primary Keyword (If someone types exactly this into Google, your app should be the #1 result. e.g., "AI invoice generator for freelancers")**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+For a personal project, basic technical SEO is a great way to show attention to detail. 
 
-**The "Versus" Pages (Who are your top 3 competitors? People often search "Alternative to X" or "X vs Y")**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+Ensure you have a \`<title>\` and \`<meta name="description">\` tag. Add Open Graph tags so your project looks good when you share the link on LinkedIn or Discord. You don't need a blog or a complex keyword strategy, just ensure the site is indexable and looks professional when shared.
 
----
+### Production SaaS
+SEO is a critical, long-term acquisition channel for a production SaaS. You must implement robust technical SEO from day one.
 
-## Key Decisions
-- **Blog vs. Programmatic SEO:** Writing a weekly blog post takes massive effort. Programmatic SEO uses code to generate hundreds of pages based on a template and a database (e.g., "Plumbers in [City]", "Accountants in [City]"). Programmatic SEO is vastly superior for developers building SaaS.
-- **Subdomain vs. Subdirectory:** Should your blog live at \`blog.yoursite.com\` or \`yoursite.com/blog\`? **Always use a subdirectory (\`/blog\`).** Google treats subdomains as entirely different websites, meaning your blog's SEO juice won't pass to your main marketing site.
+Your marketing pages must be server-side rendered (SSR) or statically generated (SSG) so search engine crawlers can read the content immediately. Ensure a dynamic \`sitemap.xml\` and \`robots.txt\` are generated. Use semantic HTML (proper use of \`<h1>\`, \`<h2>\`, etc.). 
 
----
+Optimize your Core Web Vitals, as site speed directly impacts rankings. Finally, establish a programmatic SEO strategy or a content marketing blog to target long-tail keywords related to the pain points your SaaS solves.
 
-## Common Mistakes
-- **Ignoring OpenGraph Tags:**
-  - *Why it happens:* You focus only on Google Search Console.
-  - *Consequence:* When a user shares your link in a Slack channel, iMessage, or Twitter, it shows up as a blank gray square with no title. Nobody clicks it.
-  - *Prevention:* Always generate \`og:image\`, \`og:title\`, and \`twitter:card\` meta tags.
-- **Single Page Applications (SPAs):** If your entire app is a React SPA (Create React App/Vite) without Server-Side Rendering (SSR), Google's crawlers will struggle to index your dynamic pages. Use Next.js, Remix, or Astro for marketing pages.
-
----
-
-## Examples
-- *Good Implementation:* Your marketing site is built with Next.js App Router. You use the \`generateMetadata\` function to dynamically create titles and OpenGraph images for every single generated page. You submit your \`sitemap.xml\` to Google Search Console on launch day.
-- *Bad Implementation:* No \`robots.txt\`, no \`sitemap.xml\`, and the title of your website is just "React App" because you forgot to change the default \`index.html\`.
-
----
-
-## AI Prompt
-Use this prompt to generate your technical SEO configuration.
-
+## Technical SEO Prompt
 \`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-My primary framework is: [INSERT FRAMEWORK, e.g., Next.js 14].
-
-Act as a Technical SEO Expert.
-1. Provide the exact code required to set up dynamic \`robots.txt\` and \`sitemap.xml\` in my framework.
-2. Provide the code for a reusable \`<SEO />\` component (or metadata layout) that injects the required Title, Description, \`og:image\`, \`og:url\`, and Twitter Card tags.
-3. List 5 programmatic SEO page templates I should generate based on my niche (e.g., "Alternative to X").
+Act as an SEO Specialist. I am building a marketing site for my SaaS using [Insert Framework, e.g., Next.js, Nuxt]. Provide a checklist for technical SEO best practices, including metadata, Open Graph tags, canonical URLs, and sitemap generation.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Have you set up Google Search Console and submitted your \`sitemap.xml\`?
-- [ ] Have you verified your OpenGraph tags using a tool like MetaTags.io?
-- [ ] Are your marketing pages server-side rendered (SSR) or statically generated (SSG) for fast crawler access?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-**File Name:** \`sitemap.xml\` & Metadata config
-**Purpose:** Ensure humans and robots can discover your app.
-**Contents:** Code ensuring your link looks beautiful when shared, and structured data for Google.
+- [ ] Title and meta description tags are unique and descriptive for every page.
+- [ ] Open Graph and Twitter Card tags are configured with a preview image.
+- [ ] A \`sitemap.xml\` and \`robots.txt\` are automatically generated.
+- [ ] The site is indexable (Server-Side Rendered or Statically Generated).
 `,
   'analyticssetup': `# Analytics Setup
 
-**🕒 Estimated Time:** 20-30 min
+**Estimated Time:** 1-3 hours
 
 ---
 
-## Overview
-Launching without analytics is like driving with your eyes closed. You might get 1,000 visitors on launch day, but if you don't track them, you won't know if they dropped off at the pricing page, the signup form, or immediately after logging in. Proper analytics setup allows you to measure your [KPIs](#kpis) and [North Star Metric](#northstarmetric) mathematically.
+## Why this matters
+Without analytics, you are guessing. Analytics tell you where users come from, where they drop off, and which features they actually use. It is the compass that guides your product decisions after launch.
 
----
+## Strategic Guidance
 
-## Think First
-Identify the 3 critical events you must track on Day 1.
+### Hackathon Mode
+Do not install analytics. You do not have users. If you need to track clicks for a specific technical challenge, just \`console.log()\` it. Save your time for building features.
 
-**Event 1: The "Aha!" Moment (What action proves the user got value? e.g., "Generated first report")**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Adding basic analytics is helpful to see if recruiters or developers are actually visiting your portfolio project.
 
-**Event 2: The Conversion (e.g., "Viewed Pricing Page", "Clicked Upgrade")**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+Install a privacy-friendly, lightweight tracker like Plausible or Fathom. You do not need to track complex custom events; just track page views to see if anyone is looking at your work. Avoid heavy tools like Google Analytics unless you specifically want to learn how to use it.
 
----
+### Production SaaS
+Production SaaS requires deep, event-driven analytics. Page views are not enough; you need to track user behavior.
 
-## Key Decisions
-- **Privacy-Friendly vs. Heavy Analytics:**
-  - *Google Analytics (GA4):* Standard, free, but heavily blocks by ad-blockers and requires massive, ugly GDPR cookie banners.
-  - *PostHog / Mixpanel:* Product analytics. Better for tracking specific user actions (e.g., "User clicked button X").
-  - *Plausible / Fathom:* Privacy-friendly, lightweight, bypasses ad-blockers, no cookie banner required. Great for simple traffic counting.
-- **Client-Side vs. Server-Side Tracking:** Client-side tracking (putting a script in your HTML) is easy but blocked by ad-blockers. Server-side tracking (triggering the event from your Node/Python backend) is 100% accurate because the user cannot block it. Track critical events (like "Payment Success") on the server.
+Integrate a robust product analytics tool like PostHog, Mixpanel, or Amplitude. You must track critical conversion events: \`Signed Up\`, \`Completed Onboarding\`, \`Subscribed\`, and \`Used Core Feature\`. 
 
----
+Establish a funnel analysis to identify exactly where users abandon the onboarding process. Ensure you are tying events to a specific \`user_id\` so you can track cohorts over time. Always respect user privacy and ensure your analytics setup complies with GDPR (e.g., offering cookie consent if required).
 
-## Common Mistakes
-- **Tracking Everything (Event Bloat):**
-  - *Why it happens:* You use auto-capture tools and track every single mouse movement.
-  - *Consequence:* Your dashboard is filled with 10,000 useless events. You can't find the signal in the noise.
-  - *Prevention:* Explicitly manually track only 3-5 core events (Signup, Upgrade, Core Action).
-- **Not Tracking Errors:** Analytics isn't just for marketing. If your frontend crashes, you need an error tracking tool (like Sentry) to log it, or you'll never know your users are experiencing blank white screens.
-
----
-
-## Examples
-- *Good Implementation:* Using Plausible for simple marketing site traffic. Using PostHog to track the specific event: \`posthog.capture('user_generated_invoice', { invoiceValue: 500 })\`. Tracking Stripe webhooks on the server.
-- *Bad Implementation:* Installing 5 different tracking pixels (Facebook, Google, TikTok, Hotjar, Mixpanel) causing your app to take 8 seconds to load.
-
----
-
-## AI Prompt
-Use this prompt to generate your analytics tracking plan.
-
+## Analytics Event Strategy Prompt
 \`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-My chosen analytics tool is: [INSERT TOOL, e.g., PostHog or Plausible].
-
-Act as a Head of Data.
-1. Define the 5 exact custom events I need to track to monitor my funnel from Visitor -> Free User -> Paid User.
-2. For each event, provide the exact JavaScript/TypeScript snippet to trigger it using my chosen tool's SDK.
-3. Identify which of these events MUST be tracked server-side to prevent ad-blocker data loss.
+Act as a Product Manager. I am launching a SaaS app for [Describe your app's core function]. List the top 5 critical custom events I must track in my analytics tool (e.g., PostHog/Mixpanel) to understand if users are experiencing the core value of the product.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Do you have a tool installed to track basic marketing site traffic?
-- [ ] Are you tracking your "Aha!" moment core action?
-- [ ] Are you tracking conversion events (Signup, Upgrade)?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-**File Name:** \`analytics.ts\`
-**Purpose:** To mathematically prove if your product is growing or dying.
-**Contents:** Wrapper functions for tracking events (e.g., \`trackEvent('signup')\`) that can be called anywhere in your app.
+- [ ] A product analytics tool is installed and tracking page views.
+- [ ] Core conversion events (Signup, Upgrade) are actively tracked.
+- [ ] Events are tied to unique user IDs for cohort analysis.
+- [ ] A funnel has been created to monitor the onboarding drop-off rate.
 `,
-  'legaldocuments': `# Legal Documents & Structure
+  'legaldocuments': `# Legal Documents
 
-**🕒 Estimated Time:** 45-60 min
-
----
-
-## Overview
-A SaaS business is a real business. If a user uploads illegal content to your platform, or your software has a bug that costs a B2B client $10,000, you can be sued. The purpose of legal structure is to build a "firewall" between the business's liabilities and your personal assets (your house, your savings).
+**Estimated Time:** 1-2 hours
 
 ---
 
-## Think First
-Assess your risk profile.
+## Why this matters
+Beyond standard Privacy Policies, businesses often need specific legal structures depending on their industry. Operating without the correct legal documentation exposes the founders to personal liability and can result in the business being shut down by regulators.
 
-**What is the absolute worst-case scenario if your software fails or is hacked? (e.g., "Users lose their photos", "Users lose their medical data")**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+## Strategic Guidance
 
-**Will you be taking outside investment (Venture Capital)? (Yes/No)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Hackathon Mode
+Completely ignore this. You are building a prototype, not a corporation. Do not waste a single second on legal documents.
 
----
+### Personal Project
+Ignore this. As long as you are not stealing copyrighted material or processing highly sensitive data (like healthcare records), you do not need formal legal documents for a portfolio project.
 
-## Key Decisions
-- **LLC vs. C-Corp (US Context):**
-  - *LLC (Limited Liability Company):* Cheap, easy to run, pass-through taxation. Perfect for bootstrapped founders and solo developers. (Use Stripe Atlas to set this up in a few days).
-  - *C-Corp:* Complex, double taxation. Mandatory if you plan to raise Venture Capital and issue stock options to employees.
-- **Personal vs. Business Bank Accounts:** The absolute biggest mistake you can make is "Piercing the Corporate Veil." If you buy groceries using your business bank account, or accept Stripe payouts into your personal checking account, a judge can rule that your LLC is fake, and you will be held personally liable in a lawsuit.
+### Production SaaS
+If you are charging money, you are a business. You need a legal entity (like an LLC or C-Corp in the US) to protect your personal assets from business liabilities. 
 
----
+Use services like Stripe Atlas or Clerky to incorporate quickly and generate standard founder agreements, IP assignments, and bylaws. If you operate in a regulated industry (Healthcare/HIPAA, Finance/Fintech), you *must* consult specialized legal counsel. Do not rely on AI or free templates for industry-specific compliance documents. Ensure you have proper contracts in place if you are hiring contractors or freelancers.
 
-## Common Mistakes
-- **Launching as a Sole Proprietorship:**
-  - *Why it happens:* You think your app is just a "side project."
-  - *Consequence:* You have zero legal protection. If you get sued, they can take your personal assets.
-  - *Prevention:* Incorporate an LLC before accepting a single dollar from a customer.
-- **Copying Another Company's Documents:** Copying Apple's Terms of Service for your 2-person SaaS. Apple's TOS is designed for hardware returns and media licenses. It provides zero protection for your specific software use case.
-
----
-
-## Examples
-- *Good Implementation:* You use Stripe Atlas to form a Delaware LLC. You open a Mercury business bank account. You use a platform like Termly.io or a startup lawyer to generate a Terms of Service explicitly stating you offer no warranties for software downtime.
-- *Bad Implementation:* Charging users via your personal PayPal account and operating without a Terms of Service.
-
----
-
-## AI Prompt
-Use this prompt to identify your specific legal blind spots.
-
+## Incorporation Strategy Prompt
 \`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-My users will be uploading/processing this type of data: [INSERT DATA TYPE, e.g., basic text, financial records, PII].
-
-Act as a SaaS Startup Lawyer.
-1. What are the 3 biggest legal liabilities specific to my business model?
-2. What specific clauses MUST I include in my Terms of Service to protect myself from these liabilities?
-3. Do I need any special compliance certifications (e.g., HIPAA, SOC2, GDPR) to operate this legally?
+Act as a Startup Advisor. I am launching a B2B SaaS business and plan to charge customers. Compare the pros and cons of forming an LLC versus a Delaware C-Corp. What are the immediate legal documents (e.g., IP assignment) I need in place between my co-founder and me?
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Have you incorporated a legal entity (e.g., LLC) to protect your personal assets?
-- [ ] Do you have a dedicated Business Bank Account completely separate from your personal finances?
-- [ ] Are your Stripe payouts flowing directly into the business bank account?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Identify your incorporation strategy and your banking setup below.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+- [ ] A formal legal entity (LLC, C-Corp, etc.) has been established.
+- [ ] Intellectual Property (IP) has been assigned to the company.
+- [ ] Any required industry-specific compliance documentation is in progress.
 `,
-  'cookiepolicy': `# Cookie Policy (GDPR / CCPA)
+  'cookiepolicy': `# Cookie Policy
 
-**🕒 Estimated Time:** 15-20 min
-
----
-
-## Overview
-The internet is heavily regulated. If your SaaS operates globally, you are subject to the European Union's GDPR and California's CCPA laws. These laws require you to inform users if you are tracking them, and in many cases, force you to get explicit consent *before* you place a tracking cookie on their browser. Fines for non-compliance can be devastating.
+**Estimated Time:** 1 hour
 
 ---
 
-## Think First
-Understand what you are actually tracking.
+## Why this matters
+Regulations like the ePrivacy Directive (Cookie Law) require websites to get consent from users before storing non-essential cookies on their devices. Failing to do so can result in hefty fines, especially if you have users in Europe.
 
-**Are you using any third-party marketing trackers? (e.g., Facebook Pixel, Google Analytics, TikTok Pixel)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+## Strategic Guidance
 
-**Are you setting cookies required for the app to function? (e.g., Session tokens, CSRF tokens)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Hackathon Mode
+Ignore it. You are not processing EU data for a real business. Skip the cookie banner entirely; it just clutters your demo.
 
----
+### Personal Project
+Ignore it, unless you want to practice implementing a cookie consent banner. If you use local storage for app state (like dark mode), you generally don't need a cookie banner. Only bother if you are integrating heavy third-party trackers, but for a personal project, you shouldn't be.
 
-## Key Decisions
-- **Essential vs. Non-Essential Cookies:**
-  - *Essential:* Cookies used strictly for authentication (keeping the user logged in) or security. **You do NOT need consent for these.**
-  - *Non-Essential:* Analytics, advertising pixels, cross-site trackers. **You MUST get explicit consent before firing these in the EU.**
-- **To Banner or Not to Banner:** The easiest way to avoid writing a complex cookie banner is to simply *not use non-essential cookies*. If you use a privacy-friendly analytics tool (like Plausible) and don't run retargeting ads, you can completely skip the annoying cookie banner.
+### Production SaaS
+If you have users in Europe, a Cookie Policy and a Consent Banner are legally required. 
 
----
+You must explicitly ask for consent *before* firing non-essential trackers like Google Analytics, Facebook Pixels, or Mixpanel. (Essential cookies, like session tokens for logging in, do not require consent). 
 
-## Common Mistakes
-- **The "Fake" Cookie Banner:**
-  - *Why it happens:* You download a UI component that says "We use cookies! [Accept]", but Google Analytics fires in the background before the user even clicks the button.
-  - *Consequence:* This is entirely illegal under GDPR. Consent must be *prior* to tracking.
-  - *Prevention:* Your code must physically block the execution of tracking scripts until the \`has_consented\` state is true.
-- **Dark Patterns:** Making the "Accept All" button massive and green, while hiding the "Decline" button under 3 layers of menus. EU regulators are actively fining companies for this.
+Use a Consent Management Platform (CMP) like Cookiebot, Termly, or OneTrust to automate this. The banner must allow users to accept all, reject all, or customize their preferences. It is illegal to use "dark patterns" to make rejecting cookies significantly harder than accepting them.
 
----
-
-## Examples
-- *Good Implementation:* Using a dedicated Consent Management Platform (CMP) like Cookiebot or Termly that automatically scans your site and blocks third-party scripts until consent is given.
-- *Bad Implementation:* A custom React state \`<CookieBanner />\` that just hides the UI but doesn't actually stop Stripe or Google from setting cookies.
-
----
-
-## AI Prompt
-Use this prompt to figure out exactly what your compliance burden is.
-
+## Cookie Consent Prompt
 \`\`\`prompt
-My SaaS product uses the following tools: [INSERT TOOLS, e.g., Next.js, Supabase Auth, Stripe, Google Analytics].
-
-Act as a GDPR Compliance Officer.
-1. Categorize these tools into "Essential" and "Non-Essential" cookies.
-2. Based on this list, do I legally require a Cookie Consent Banner for EU users?
-3. If yes, explain exactly how I must conditionally render my scripts in my \`&lt;head&gt;\` tag to ensure I do not violate the "prior consent" rule.
+Act as a Compliance Expert. I am building a SaaS using [Insert Tech Stack]. We use HttpOnly cookies for authentication, and we use PostHog for product analytics. Explain which of these require user consent under GDPR, and provide a strategy for implementing a compliant cookie banner that blocks PostHog until consent is given.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Have you categorized all your cookies as Essential or Non-Essential?
-- [ ] If using Non-Essential cookies, does your banner actually block scripts from loading prior to consent?
-- [ ] Do you have a dedicated \`/cookie-policy\` page explaining what data you collect?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Write your Cookie Strategy below. Will you use a CMP, or will you use privacy-first tools to avoid the banner entirely?
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+- [ ] A cookie consent banner is visible to users (specifically in the EU).
+- [ ] Non-essential tracking scripts are blocked until the user explicitly consents.
+- [ ] Users have an easy way to reject non-essential cookies.
+- [ ] A dedicated Cookie Policy page explains what cookies are used and why.
 `,
   'customersupport': `# Customer Support
 
-**🕒 Estimated Time:** 15-20 min
+**Estimated Time:** 2-4 hours
 
 ---
 
-## Overview
-When you launch, things will break. Users will be confused. Payments will fail. How you handle these first few support tickets determines whether those early adopters become your biggest evangelists or your loudest haters. In the early days, "doing things that don't scale" (like jumping on a 15-minute Zoom call to fix a bug for a $10/mo user) is your ultimate competitive advantage against massive, slow corporations.
+## Why this matters
+Your first users are taking a risk on a new product. They will encounter bugs and get confused. If they cannot reach you easily, they will churn. Excellent customer support can turn a frustrated user into a lifelong evangelist for your product.
 
----
+## Strategic Guidance
 
-## Think First
-Establish your support channels.
+### Hackathon Mode
+There are no customers, only judges. Do not build a contact form or integrate a support widget. If you need a placeholder, put your Twitter handle or a fake \`support@example.com\` email in the footer.
 
-**Where will users go when they are angry or confused? (e.g., A chat widget, a support email, a Discord server?)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Include a simple \`mailto:\` link in the footer or a basic contact form so recruiters or other developers can reach out to you if they have questions about your project. No support infrastructure is needed.
 
-**What is your SLA (Service Level Agreement) for yourself? (e.g., I will reply to all bugs within 4 hours)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+Customer support is a critical feature of your MVP. Do not launch without a way for users to contact you from inside the application.
 
----
+Integrate a support widget or shared inbox (like Crisp, Intercom, or HelpScout). When a user submits a ticket, ensure it captures their user ID and metadata so you don't have to ask them for their email. 
 
-## Key Decisions
-- **Email vs. Live Chat vs. Community:**
-  - *Email (\`support@yoursite.com\`):* Standard, asynchronous. You control the pace.
-  - *Live Chat (Intercom, Crisp):* Extremely high conversion rate for sales, but users expect a reply in 30 seconds. If you are a solo dev, a chat widget will ruin your life.
-  - *Community (Discord/Slack):* Great for technical products where users can help each other. Terrible for B2B enterprise products where privacy matters.
-- **Self-Serve vs. Manual:** The best support ticket is the one that is never submitted. Spend time building robust [Documentation](#documentation) and an FAQ page so users can unblock themselves.
+Set up a dedicated support email (e.g., \`help@yourdomain.com\`). Consider building a very basic FAQ or Knowledge Base for the top 5 questions you expect to receive. In the early days, the founders should do all customer support; it is the fastest way to learn exactly where your product is failing.
 
----
-
-## Common Mistakes
-- **The "Black Hole" Support Form:**
-  - *Why it happens:* You build a simple HTML form that sends an email to your personal inbox, but you forget to set up an auto-responder.
-  - *Consequence:* The user submits a bug and has no idea if you received it. They get angry and churn.
-  - *Prevention:* Always use a tool (like Zendesk, HelpScout, or simple Resend logic) to send an immediate automated reply: "We received this, we will reply in X hours."
-- **Arguing with the User:** If a user says your UX is confusing, it is confusing. Do not tell them they are clicking the wrong button. Fix the button.
-
----
-
-## Examples
-- *Good Implementation:* A clear "Help" button in the app that opens a modal. The modal searches the Docs first. If they still need help, it creates a ticket in Linear/HelpScout, and the user gets an email receipt.
-- *Bad Implementation:* Hiding your support email at the bottom of the Terms of Service page so nobody can contact you.
-
----
-
-## AI Prompt
-Use AI to draft your macro templates to save you hours of typing.
-
+## Customer Support Setup Prompt
 \`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-
-Act as a Head of Customer Experience.
-Write 3 reusable email templates for me to use in my support desk:
-1. "The Angry User" (They experienced a critical bug that deleted their data).
-2. "The Feature Request" (They asked for a feature I have zero intention of ever building).
-3. "The Refund Request" (They forgot to cancel their trial and want their money back).
-Keep the tone empathetic, professional, and concise.
+Act as a Head of Customer Success. I am launching a new SaaS product. Recommend a lightweight, cost-effective tech stack for managing customer support tickets and building a basic knowledge base. What are the top 3 best practices for handling bug reports from angry early adopters?
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Is there a highly visible "Support" or "Help" link inside the logged-in dashboard?
-- [ ] Do users receive an immediate automated confirmation when they submit a ticket?
-- [ ] Have you set up an actual \`support@domain.com\` email address?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Define your primary support channel and your commitment to reply times below.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+- [ ] Users can easily contact support from within the application.
+- [ ] Support tickets automatically capture the user's context (ID, email).
+- [ ] A dedicated support email address is active and monitored.
+- [ ] A basic FAQ or Help Center exists for common issues.
 `,
   'retention': `# Retention
 
-**🕒 Estimated Time:** 30-45 min
+**Estimated Time:** Ongoing
 
 ---
 
-## Overview
-Acquisition gets users in the door; retention determines if you actually have a business. If it costs you $50 to acquire a user, but they churn after paying you $10, your SaaS will bleed to death. High retention proves you have achieved Product-Market Fit. Your goal is to maximize the lifetime value (LTV) of every user by keeping them engaged, successful, and continually paying.
+## Why this matters
+Acquiring a new user is 5 to 25 times more expensive than retaining an existing one. If your app is a leaky bucket, no amount of marketing will save it. High retention proves that you have built something people actually want and are willing to integrate into their lives or workflows.
 
----
+## Strategic Guidance
 
-## Think First
-Diagnose your current leaks.
+### Hackathon Mode
+Ignore this. Your retention period is exactly the 48 hours of the hackathon. Once the demo is over, the product is functionally dead. Do not waste a single second thinking about how to keep users coming back on day 30.
 
-**Where is the biggest drop-off in your funnel? (e.g., "50% of users sign up but never complete onboarding", or "Users churn after month 3")**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+For a portfolio piece, you do not need to worry about long-term retention. However, you should demonstrate that you understand the *concept* of engagement. 
 
-**What is the core reason users cancel? (e.g., Too expensive, too hard to use, they finished the project they needed it for)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+Implement basic transactional emails (e.g., a welcome email when they sign up). This shows recruiters that you know how to build complete user flows, even if you are not running complex lifecycle marketing campaigns.
 
----
+### Production SaaS
+Retention is the lifeblood of a SaaS business. A 5% increase in customer retention can increase profits by 25% to 95%. You must actively monitor and improve it.
 
-## Key Decisions
-- **Onboarding vs. Ongoing Value:** The highest ROI you can get on retention is fixing your Day 1 Onboarding. If a user doesn't experience the "Aha!" moment in the first 5 minutes, they will never log in again.
-- **Re-engagement Loops:** SaaS apps naturally fade into the background. You must build systems to pull users back in. This could be a weekly email summary ("Your team saved 4 hours this week!"), push notifications, or Slack bot alerts.
+Track your Day 1, Day 7, and Day 30 retention rates in your analytics platform (PostHog/Mixpanel). Identify the 'Aha!' moment—the specific action a user takes that correlates heavily with long-term retention (e.g., for Slack, it was sending 2,000 messages). Optimize your onboarding to get users to that moment as fast as possible. Set up automated lifecycle emails (e.g., an email sent on Day 3 if the user hasn't completed onboarding) to re-engage churning users. Talk to users who churn and ask them exactly why they left.
 
----
-
-## Common Mistakes
-- **Hiding the Cancel Button:**
-  - *Why it happens:* You think making it hard to cancel will save revenue.
-  - *Consequence:* Angry users issue credit card chargebacks. Your Stripe account gets banned for high fraud rates, instantly killing your entire business.
-  - *Prevention:* Make cancellation 1-click. Use the cancellation flow to ask a multiple-choice question on *why* they are leaving.
-- **Ignoring Churned Users:** A user who churned is a goldmine of data. They liked your pitch enough to sign up, but the product failed them. Reach out to them personally.
-
----
-
-## Examples
-- *Good Implementation:* An automated email triggers 3 days after signup if the user hasn't completed their profile, offering a 1-on-1 setup call. When users click cancel, they are offered a 1-month pause or a 50% discount to stay.
-- *Bad Implementation:* Sending a generic "We miss you!" email 6 months after someone churns, with zero context.
-
----
-
-## AI Prompt
-Use AI to design a re-engagement loop for your specific product.
-
+## Retention Strategy Prompt
 \`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-The core action I want users to take weekly is: [INSERT ACTION].
-
-Act as a Head of Growth.
-1. Design a weekly "Summary Email" that provides immense value to the user and psychologically pulls them back into the app.
-2. Outline the specific data points I should include in this email.
-3. Write the exact subject line and body copy for this email.
+Act as a Growth Hacker. I am running a SaaS product. Outline a 14-day automated lifecycle email sequence designed to onboard new users, get them to the 'Aha!' moment, and prevent Day 7 churn. Include specific triggers for when these emails should be sent based on user behavior.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Is your Day 1 onboarding flow removing all friction to the "Aha!" moment?
-- [ ] Do you have an automated re-engagement system (like weekly emails) running?
-- [ ] Is your cancellation process easy, but actively capturing the *reason* for churn?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Define the single biggest bottleneck in your retention funnel right now, and one experiment you will run this week to fix it.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+- [ ] Day 1, Day 7, and Day 30 retention metrics are being actively tracked.
+- [ ] An automated welcome email is sent upon signup.
+- [ ] A lifecycle email campaign is configured to re-engage inactive users.
+- [ ] Churn reasons are collected when a user deletes their account or cancels their subscription.
 `,
   'userfeedback': `# User Feedback
 
-**🕒 Estimated Time:** 20-30 min
+**Estimated Time:** Ongoing
 
 ---
 
-## Overview
-You are not your user. The features you think are brilliant might be completely ignored, while a tiny bug you deemed "low priority" might be infuriating your paying customers. Establishing a tight feedback loop ensures you are building the right product, not just a cool piece of software.
+## Why this matters
+You are not your user. The features you think are brilliant might be completely ignored, and the bugs you think are minor might be driving users insane. Systematically collecting and acting on user feedback is the only way to ensure product-market fit.
 
----
+## Strategic Guidance
 
-## Think First
-Identify who you are listening to.
+### Hackathon Mode
+The judges' feedback is the only feedback that matters. Take notes during their Q&A, but you do not need a systemic feedback collection mechanism inside the app.
 
-**Who are your "Power Users"? (Identify 3 specific users who use your app the most)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Include a simple "Feedback" or "Contact Me" button in the footer. If a recruiter or another developer finds a bug, give them an easy way to tell you. No need for complex voting boards or survey tools.
 
-**What is the single most common complaint you hear in support tickets?**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+Feedback must be operationalized. If it takes more than two clicks for a user to report a bug or request a feature, they simply will not do it, and you will lose valuable insights.
 
----
+Integrate an in-app feedback widget (like Canny, Featurebase, or a simple Intercom chat). Categorize feedback into bugs, UX issues, and feature requests. Do not blindly build every requested feature. Instead, look for the underlying problem the user is trying to solve. Send Net Promoter Score (NPS) surveys to gauge overall satisfaction, but pay closer attention to the written qualitative feedback than the numerical score.
 
-## Key Decisions
-- **Qualitative vs. Quantitative:**
-  - *Quantitative (Data):* Analytics tools tell you *what* users are doing (e.g., "50% of users drop off on page 2").
-  - *Qualitative (Feedback):* Interviews and surveys tell you *why* they are doing it (e.g., "I dropped off because the credit card form looked sketchy"). You need both.
-- **Public Roadmaps vs. Direct Interviews:** Public voting boards (like Canny) are great for volume, but often lead to the "Homer Simpson Car"—a bloated mess of requested features. Direct 1-on-1 Zoom interviews are 10x more valuable for finding the root cause of a problem.
-
----
-
-## Common Mistakes
-- **Building Exactly What They Ask For:**
-  - *Why it happens:* A user says "I need an export to Excel button."
-  - *Consequence:* You build the button. But what they actually wanted was a way to share data with their boss, which would have been better solved with a "Share View" link.
-  - *Prevention:* When a user asks for a feature, ask "Why?" 3 times until you uncover the actual underlying problem.
-- **Listening to Free Users Over Paid Users:** Free users will demand massive features and then never upgrade. Heavily weight feedback from users who actually have a credit card on file.
-
----
-
-## Examples
-- *Good Implementation:* Sending a simple Net Promoter Score (NPS) survey inside the app after a user successfully completes a core task. Reaching out to anyone who scores a 6 or lower for a 10-minute feedback call.
-- *Bad Implementation:* Sending a 40-question Google Form to your entire email list and offering no incentive for completing it.
-
----
-
-## AI Prompt
-Use AI to analyze a massive dump of raw user feedback and find the signal in the noise.
-
+## Feedback Analysis Prompt
 \`\`\`prompt
-Here is a dump of raw feedback from my users: [PASTE RECENT SUPPORT TICKETS / SURVEY RESULTS].
-
-Act as a Senior Product Manager.
-1. Categorize this feedback into 3 buckets: UX Friction, Bug Reports, and Feature Requests.
-2. Identify the single underlying "Root Problem" that is driving the majority of these complaints.
-3. Propose a lightweight, high-ROI solution that addresses the root problem without over-engineering.
+Act as a Product Manager. We have received 50 feature requests this month. Provide a framework (e.g., RICE scoring or Kano model) for evaluating and prioritizing these requests based on engineering effort, potential revenue impact, and strategic alignment.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Do you have a system in place to capture qualitative feedback (e.g., an in-app widget or automated emails)?
-- [ ] Are you prioritizing feedback from paying users over free users?
-- [ ] Are you digging into the *root cause* of feature requests, rather than blindly building what users ask for?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Write down the single most impactful piece of feedback you've received recently, and the root problem it represents.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+- [ ] Users can submit feedback or report bugs directly from within the app.
+- [ ] Feedback is actively monitored and categorized (Bug, Feature Request, UX).
+- [ ] A system (like NPS or CSAT) is in place to measure overall user satisfaction.
 `,
   'scalingstrategy': `# Scaling Strategy
 
-**🕒 Estimated Time:** 30-45 min
+**Estimated Time:** Ongoing
 
 ---
 
-## Overview
-Scaling is a fantastic problem to have—it means your app is growing! But growth breaks things. The systems, database queries, and manual customer support processes that worked for 100 users will violently collapse when you hit 10,000 users. A scaling strategy is about identifying your exact bottlenecks *before* they take your app offline, and methodically upgrading your architecture to handle the next order of magnitude.
+## Why this matters
+Success can kill you. If your app goes viral or you close a massive enterprise deal, a lack of scaling strategy will cause your servers to crash, resulting in massive downtime and lost revenue. Scaling is about preparing your architecture and your team for the next order of magnitude of growth.
 
----
+## Strategic Guidance
 
-## Think First
-Identify your current breaking points.
+### Hackathon Mode
+Irrelevant. Do not plan for scale.
 
-**What is the slowest part of your application right now? (e.g., A specific database query, image rendering, third-party API latency)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Understand the difference between vertical scaling (upgrading to a bigger server) and horizontal scaling (adding more servers). You do not need to implement this for a personal project, but knowing the concepts is essential for interviews.
 
-**What manual process takes up the most of your time? (e.g., Onboarding new clients, replying to password resets)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+Scaling is a continuous process of identifying bottlenecks. You must monitor your infrastructure to see what breaks first under load—is it CPU, Memory, or Database Connections?
 
----
+Initially, rely on vertical scaling (paying for a larger database instance) as it is cheap and requires zero architectural changes. As you approach the limits of vertical scaling, implement read replicas to offload database read queries. Move expensive, synchronous operations (like generating PDFs or sending bulk emails) into asynchronous background workers (e.g., Redis + BullMQ). Ensure your API servers are entirely stateless so you can spin up 10 or 100 of them behind a load balancer during traffic spikes.
 
-## Key Decisions
-- **Vertical vs. Horizontal Scaling:**
-  - *Vertical (Scaling Up):* Buying a bigger server with more RAM and CPU. It's the easiest and fastest way to fix performance problems in the early days. Don't over-engineer; just pay $40/mo for a bigger Postgres instance.
-  - *Horizontal (Scaling Out):* Adding more servers behind a load balancer, or using read-replicas. This is complex and should be delayed until vertical scaling is no longer economically viable.
-- **Automating the Human Bottlenecks:** Scaling isn't just about servers. If you spend 2 hours a day answering the same support ticket, you are the bottleneck. Build an FAQ, write a script, or automate the flow.
-
----
-
-## Common Mistakes
-- **Premature Optimization:**
-  - *Why it happens:* You read an article about how Netflix uses Kubernetes and microservices, so you try to rebuild your MVP with a massive distributed architecture.
-  - *Consequence:* Your feature velocity drops to zero. You spend 3 weeks configuring Docker instead of building features.
-  - *Prevention:* Stick to a majestic monolith (e.g., Next.js + Postgres) until you physically cannot scale it anymore. 99% of startups never reach the scale where microservices are required.
-- **Ignoring Database Indexes:** 90% of scaling issues in early SaaS are caused by missing database indexes. A table scan that takes 2ms on 100 rows will take 5 seconds on 1,000,000 rows.
-
----
-
-## Examples
-- *Good Implementation:* Your dashboard is slow. You look at the slow query logs, realize you are missing an index on \`user_id\`, add it, and the query drops from 2000ms to 5ms.
-- *Bad Implementation:* Your dashboard is slow. You decide to rewrite the entire backend in Rust and migrate from Postgres to MongoDB to "handle web scale."
-
----
-
-## AI Prompt
-Use AI to diagnose and optimize a specific performance bottleneck.
-
+## Architecture Scaling Prompt
 \`\`\`prompt
-My SaaS stack is: [INSERT STACK, e.g., Next.js App Router, Prisma, PostgreSQL].
-I am experiencing a severe bottleneck when users perform this action: [DESCRIBE ACTION, e.g., Loading the main analytics dashboard].
-Here is the code/query involved: [PASTE SLOW CODE OR QUERY].
-
-Act as a Principal Infrastructure Engineer.
-1. Identify the likely cause of the bottleneck in this specific code/query.
-2. Propose 3 solutions ranked from easiest (e.g., adding an index, basic caching) to hardest (e.g., architectural rewrite).
-3. Provide the exact code or SQL required to implement the easiest solution.
+Act as a Principal Engineer. Our monolithic Node.js and PostgreSQL app is starting to experience database connection limits during peak traffic hours. Outline a technical roadmap for introducing database connection pooling (e.g., PgBouncer) and asynchronous background workers to stabilize the system.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Have you audited your database for missing indexes on heavily queried columns?
-- [ ] Have you implemented basic caching (Redis or CDN) for heavily accessed, rarely changing data?
-- [ ] Are you intentionally delaying complex architectures (Kubernetes/Microservices) until absolutely necessary?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Define the single biggest technical or human bottleneck in your app right now, and the simplest possible fix for it.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+- [ ] The API is completely stateless (sessions are stored in a DB or Redis, not in memory).
+- [ ] Expensive operations are handled asynchronously by background workers.
+- [ ] Database connection limits are monitored and managed (e.g., via pooling).
+- [ ] A plan exists for scaling the database (vertical scaling -> read replicas).
 `,
   'marketing': `# Marketing
 
-**🕒 Estimated Time:** 30-45 min
+**Estimated Time:** Ongoing
 
 ---
 
-## Overview
-"If you build it, they will come" is the biggest lie in software. If you build it, absolutely no one will care unless you put it directly in front of them. Marketing is the engine of acquisition. It is about deeply understanding where your [ICP](#icpidealcustomerprofile) hangs out, and crafting a message that compels them to click, read, and sign up.
+## Why this matters
+If you build it, they will *not* come. Distribution is often more important than the product itself. Marketing is how you get your product in front of the people who desperately need it.
 
----
+## Strategic Guidance
 
-## Think First
-Identify your channels.
+### Hackathon Mode
+Your "marketing" is the 3-minute pitch you give to the judges. Focus on storytelling. Make the judges understand the pain point in the first 30 seconds before you even show the app. 
 
-**Where does your specific ICP spend their time online? (e.g., LinkedIn, specific Subreddits, HackerNews, TikTok)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Market yourself, not the app. Write a high-quality README on GitHub. Record a 2-minute Loom video walking through the architecture and the hardest technical challenges you overcame. Share the project on LinkedIn, Twitter, or Dev.to to attract recruiters and engineering managers.
 
-**What is the "Hook"? (A 1-sentence provocative statement that makes your ICP stop scrolling)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+Marketing must be systematic and measurable. Do not try every channel at once. 
 
----
+Pick one acquisition channel that aligns with your product (e.g., SEO for evergreen problems, Cold Email for high-ticket B2B, or Social Content for consumer apps) and master it. Track your Customer Acquisition Cost (CAC) rigorously. If it costs you $50 to acquire a user who only pays you $10 before churning, your business is failing regardless of how good the code is. Build a launch plan for Product Hunt and Hacker News, but remember that launches only provide a temporary spike; sustainable growth requires a repeatable acquisition engine.
 
-## Key Decisions
-- **Inbound vs. Outbound:**
-  - *Inbound (Content/SEO/Social):* Creating valuable content that draws people to you. High effort upfront, but compounds massively over time. (Great for low-cost SaaS).
-  - *Outbound (Cold Email/Cold DMs):* Reaching out directly to prospects. Uncomfortable, but generates immediate feedback and revenue. (Mandatory for high-ticket B2B SaaS).
-- **The "One Channel" Rule:** The fastest way to fail at marketing is to try doing Twitter, LinkedIn, SEO, TikTok, and Cold Email all at the same time. Pick exactly **one channel** where your audience lives, and master it before moving to the next.
-
----
-
-## Common Mistakes
-- **Selling Features, Not Outcomes:**
-  - *Why it happens:* You are a developer, so you are proud of your React Server Components and your Redis caching layer.
-  - *Consequence:* You write a landing page that says "Built with Edge Compute." The customer doesn't care. They leave.
-  - *Prevention:* The customer only cares about what the software does for *them*. Instead of "AI Powered", say "Write your weekly newsletter in 3 minutes."
-- **Giving Up Too Early:** Posting on Twitter twice, getting zero likes, and deciding "Social media marketing doesn't work for my app." Marketing requires relentless consistency over months.
-
----
-
-## Examples
-- *Good Implementation:* Your app helps real estate agents format listings. You use a scraping tool to find the emails of 1,000 real estate agents, and you send a highly personalized cold email offering to format their next listing for free.
-- *Bad Implementation:* Running $500 of generic Facebook ads pointing to your homepage with no specific call to action.
-
----
-
-## AI Prompt
-Use AI to generate a highly targeted Outbound Marketing sequence.
-
+## GTM Strategy Prompt
 \`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-My Ideal Customer Profile is: [INSERT ICP].
-I want to acquire them using [INSERT CHANNEL, e.g., Cold Email or LinkedIn DMs].
-
-Act as a world-class Copywriter and Growth Hacker.
-1. Write a 3-step cold outreach sequence.
-2. Step 1 should be a short, punchy hook that offers immediate value (no generic "Hope you are doing well" intros).
-3. Step 2 should be a follow-up sharing a micro-case study.
-4. Step 3 should be a final "breakup" message.
-Ensure the tone is human, casual, and completely devoid of corporate buzzwords.
+Act as a Chief Marketing Officer. I am launching a B2B SaaS targeting [Insert Target Audience, e.g., HR Managers]. Suggest 3 distinct go-to-market (GTM) channels (e.g., Outbound Sales, Content SEO, Partnerships). For each channel, provide the first 3 actionable steps I need to take this week.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Have you chosen exactly ONE primary marketing channel to focus on for the next 30 days?
-- [ ] Is your messaging focused entirely on the outcome/benefit to the user, rather than the technical features?
-- [ ] Do you have a quantifiable daily goal? (e.g., "Send 20 cold DMs every day" or "Publish 2 blog posts per week").
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Define your single marketing channel and the daily action you will take to drive traffic.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+- [ ] A primary customer acquisition channel has been identified and tested.
+- [ ] Customer Acquisition Cost (CAC) is being tracked and measured against Lifetime Value (LTV).
+- [ ] A launch plan (e.g., Product Hunt, Hacker News, specific subreddits) is prepared.
 `,
   'referralsystems': `# Referral Systems
 
-**🕒 Estimated Time:** 20-30 min
+**Estimated Time:** 2-4 Days
 
 ---
 
-## Overview
-The holy grail of SaaS growth is "Viral loops." If every user who signs up brings in 1.2 new users, your app will grow exponentially with zero marketing spend. Referral systems incentivize your existing, happy users to do your marketing for you. However, a referral system only works if the core product is already phenomenal—you cannot incentivize people to share a bad product.
+## Why this matters
+Your best marketers are your happy customers. A well-designed referral system turns your user base into a viral growth engine, significantly lowering your Customer Acquisition Cost (CAC).
 
----
+## Strategic Guidance
 
-## Think First
-Identify the incentive.
+### Hackathon Mode
+Skip it completely. There is no time to build double-sided incentive loops.
 
-**What can you give the Referrer to make them want to share? (e.g., $10 credit, 1 month free, premium features unlocked)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Skip it. You do not have an active user base to refer other users.
 
-**What can you give the Invited User to make them want to sign up? (e.g., 20% off their first month)**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+Implement a referral system only *after* you have proven retention. If users are churning, they will not refer their friends.
 
----
+Design a double-sided incentive: reward both the referrer and the referee (e.g., "Give $10, Get $10"). The reward must be highly desirable to your specific audience (e.g., free credits, extended trials, or actual cash via an affiliate program). Make the referral link extremely easy to find in the app UI. Track the virality coefficient (K-factor) to see if the referral loop is actually driving exponential growth. Consider using third-party tools like Rewardful or PartnerStack if you don't want to build the tracking logic from scratch.
 
-## Key Decisions
-- **One-Sided vs. Double-Sided Rewards:**
-  - *One-Sided:* Only the person referring gets a reward. (Often feels spammy, like an MLM).
-  - *Double-Sided:* "Give $10, Get $10." The referrer gets a reward, AND the person they invite gets a discount. This is the gold standard because it makes the referrer look generous, removing the social friction of sharing a link.
-- **Financial vs. Utility Rewards:** You don't always have to give away money. Dropbox famously gave away *storage space* (utility) for referrals. If your app has usage limits (e.g., "5 AI generations per day"), offer "50 extra generations" for every successful referral. Utility rewards are often cheaper for you and more valuable to the user.
-
----
-
-## Common Mistakes
-- **Hiding the Referral Program:**
-  - *Why it happens:* You build a great referral system but bury it in the settings menu under "Billing."
-  - *Consequence:* Nobody uses it because nobody knows it exists.
-  - *Prevention:* Trigger a popup offering the referral program *immediately* after the user experiences the "Aha!" moment (e.g., right after they successfully export their first video).
-- **Over-complicating the Payouts:** Forcing users to hit a $50 minimum threshold before they can withdraw affiliate cash. Just apply it automatically as account credit to their next invoice.
-
----
-
-## Examples
-- *Good Implementation:* An AI writing tool limits free users to 10,000 words. After hitting the limit, a modal appears: "Want 10,000 more words for free? Share this link with a friend. You both get 10,000 words when they sign up."
-- *Bad Implementation:* Asking users to share a link to their Twitter feed for a 5% discount on a $10/mo plan. The reward is not worth the social cost of spamming their friends.
-
----
-
-## AI Prompt
-Use AI to design a mathematically sound, double-sided referral loop.
-
+## Viral Loop Prompt
 \`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-My pricing model is: [INSERT PRICING].
-My app has the following usage limits/features: [INSERT LIMITS, e.g., 5 projects max on the free tier].
-
-Act as a Head of Growth.
-1. Design a "Double-Sided" referral program that leverages Utility Rewards (not just cash/discounts) based on my app's specific features.
-2. Outline the exact user journey: When and where in the UI should I prompt the user to share their link for maximum conversion?
-3. Draft the short, punchy UI copy for the referral modal.
+Act as a Growth Product Manager. I run a SaaS app for [Describe App]. Design a double-sided referral incentive program that aligns with our business model. Should we offer account credits, premium features, or cash payouts? Explain the rationale.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Does your referral program offer a "Double-Sided" reward?
-- [ ] Is the reward highly desirable to your specific ICP?
-- [ ] Are you prompting users to refer others at the exact moment they experience joy/success in the app?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Define your exact Double-Sided reward structure below.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+- [ ] Core retention metrics are stable before launching the referral program.
+- [ ] A double-sided incentive is established (both parties benefit).
+- [ ] The referral link is easily accessible within the core user dashboard.
+- [ ] Referral attribution and payouts/credits are tracked automatically.
 `,
   'featureroadmap': `# Feature Roadmap
 
-**🕒 Estimated Time:** 15-20 min
+**Estimated Time:** Ongoing
 
 ---
 
-## Overview
-A roadmap is how you communicate the future of your product to your users, your team, and yourself. It prevents you from waking up and randomly coding whatever feels fun that day. A well-maintained roadmap builds trust with your enterprise clients (showing them you are actively investing in the platform) and keeps your development efforts fiercely aligned with your [North Star Metric](#northstarmetric).
+## Why this matters
+A roadmap aligns your engineering efforts with your business goals and customer needs. Without a roadmap, you will succumb to "feature factory" syndrome—blindly building things because they sound cool or because one loud customer asked for it, rather than building what moves the needle.
 
----
+## Strategic Guidance
 
-## Think First
-Categorize your upcoming work.
+### Hackathon Mode
+Your roadmap is the next 12 hours. Write down the 3 things that absolutely must work for the demo, and cross them off as you finish. Ignore everything else.
 
-**What is the biggest feature you are committing to for the next 30 days? (The "Now")**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Use a simple Kanban board (Trello or GitHub Projects) to track what you are building. Once you finish the core MVP, your roadmap should consist of features that allow you to learn a new skill (e.g., "Add WebSockets for real-time notifications to learn Socket.io").
 
-**What is a massive, structural feature you want to build in the next 3-6 months? (The "Later")**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+A production roadmap must balance technical debt, bug fixes, customer requests, and strategic vision.
 
----
+Do not make your roadmap a rigid list of features with exact release dates; this sets you up for failure. Instead, organize your roadmap by "Now, Next, and Later" or by the specific problems you are trying to solve (e.g., "Q3 Goal: Reduce onboarding drop-off"). Make a public-facing version of your roadmap to build trust with users and show that the product is actively maintained. Always tie feature development back to your core KPIs (Revenue, Retention, Acquisition).
 
-## Key Decisions
-- **Timeline vs. Theme Based:**
-  - *Timeline (Q1, Q2, Q3):* Traditional, but dangerous. If you promise a feature in Q1 and miss the deadline, users get angry.
-  - *Theme/Status Based (Now, Next, Later):* The modern SaaS standard. It shows users what you are working on currently ("Now"), what is up next ("Next"), and what is on the horizon ("Later"), without committing to rigid, stressful deadlines.
-- **Public vs. Private:** A public roadmap (using a tool like Linear or Canny) allows users to upvote features, giving you free market research. However, if you are in a highly competitive, easily-cloned market, keep it private to prevent competitors from front-running your ideas.
-
----
-
-## Common Mistakes
-- **The "Yes" Trap:**
-  - *Why it happens:* A big potential client says, "We will sign the contract if you add this one highly specific integration to the roadmap."
-  - *Consequence:* You put it on the roadmap. Then another client asks for something else. Soon, your roadmap is a chaotic list of custom agency work, and the core product suffers.
-  - *Prevention:* Only put features on the roadmap that benefit the *majority* of your ICP, using the [RICE Framework](#featureprioritization).
-- **Never Updating It:** A public roadmap that hasn't been updated in 8 months is worse than no roadmap at all. It signals to users that the product is dead.
-
----
-
-## Examples
-- *Good Implementation:* A simple Kanban board embedded in your app. "Now: Stripe Integration, Dark Mode. Next: Team Workspaces. Later: AI Autocomplete."
-- *Bad Implementation:* A highly detailed Gantt chart predicting exactly what you will be coding on November 14th of next year.
-
----
-
-## AI Prompt
-Use AI to organize your chaotic backlog into a clean Now/Next/Later roadmap.
-
+## Roadmap Planning Prompt
 \`\`\`prompt
-Here is my messy list of features I want to build: [PASTE BACKLOG].
-My core business goal right now is: [INSERT GOAL, e.g., improving retention].
-
-Act as a Lead Product Manager.
-1. Organize these features into a strict "Now, Next, Later" format.
-2. Ensure the "Now" column only contains features that directly contribute to my current core business goal.
-3. Move any highly complex, low-impact features into a "Won't Do" or "Parking Lot" section and explain why they were cut.
+Act as a VP of Product. We have a backlog of 20 feature requests, 5 critical bugs, and a need to refactor our database schema. Provide a framework for how we should allocate our engineering bandwidth across these three categories for the next quarter.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Is your roadmap organized by Status (Now/Next/Later) rather than rigid dates?
-- [ ] Does every item in the "Now" column directly impact your KPIs or North Star Metric?
-- [ ] Do you have a scheduled cadence (e.g., every 1st of the month) to update the roadmap?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Write down the 1-3 features that are strictly in your "Now" column.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+- [ ] Engineering bandwidth is allocated intentionally between new features, bug fixes, and tech debt.
+- [ ] Features are prioritized based on business impact and engineering effort.
+- [ ] A high-level public roadmap is available to users (optional but recommended).
 `,
   'technicaldebt': `# Technical Debt
 
-**🕒 Estimated Time:** 15-20 min
+**Estimated Time:** Ongoing
 
 ---
 
-## Overview
-Technical debt is the cost of choosing an easy, fast solution now instead of a better, slower approach. **Tech debt is not inherently bad.** In Phase 1, you *should* take on tech debt to launch your MVP quickly. But in Phase 6, accumulated tech debt acts like high-interest credit card debt: eventually, the "interest payments" (bugs, slow deployment times, confusing spaghetti code) become so high that feature velocity grinds to an absolute halt.
+## Why this matters
+Technical debt is the cost of choosing a fast, easy solution now instead of a better, longer-term approach. Like financial debt, it isn't inherently bad—it allows you to ship faster—but if you don't pay it down, the "interest" will eventually paralyze your ability to ship new features.
 
----
+## Strategic Guidance
 
-## Think First
-Identify the interest payments.
+### Hackathon Mode
+Your entire project is technical debt. Embrace it. Hardcode values, duplicate code, skip tests. The goal is a working demo, not a maintainable codebase. You will likely throw the code away anyway.
 
-**What part of your codebase are you genuinely afraid to touch because it breaks easily?**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Use personal projects to practice writing clean, maintainable code. Try to avoid technical debt. If you realize you wrote a messy component, take the time to refactor it. This is a safe environment to learn design patterns and clean architecture without the pressure of a production deadline.
 
-**What manual workaround are you doing repeatedly because "the code isn't ready yet"?**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+In production, you must manage technical debt intentionally. 
 
----
+It is acceptable to take on technical debt to hit a critical launch deadline, but you must document it (e.g., add \`// TODO: Tech Debt - Refactor this O(N^2) loop before we hit 10k users\`). Dedicate a fixed percentage of your engineering capacity (e.g., 20% of every sprint) strictly to paying down debt, upgrading dependencies, and refactoring fragile code. If you ignore technical debt, your developers will become miserable, deployment times will skyrocket, and the system will become dangerously unstable.
 
-## Key Decisions
-- **The 20% Rule:** You cannot pause product development for 3 months to "rewrite the app." Your competitors will crush you. Instead, dedicate a strict 20% of every sprint (or 1 day a week) exclusively to paying down technical debt, upgrading packages, and writing tests.
-- **Refactor vs. Rewrite:**
-  - *Refactor:* Improving the internal structure of the code without changing its external behavior. (Do this constantly).
-  - *Rewrite:* Throwing the code away and starting over in a new framework. (Avoid this at all costs. It is almost always a trap that kills startups).
-
----
-
-## Common Mistakes
-- **Ignoring the Boy Scout Rule:**
-  - *Why it happens:* You are in a rush to ship a feature, so you add messy code to an already messy file.
-  - *Consequence:* The file becomes a 3,000-line unmaintainable monster.
-  - *Prevention:* The Boy Scout Rule: "Always leave the campground cleaner than you found it." If you are adding a feature to a file, take 10 extra minutes to clean up the function you are touching.
-- **Zero Automated Tests:** If you don't have basic Unit or E2E tests, you cannot refactor code confidently, because you won't know if you broke something until a user complains.
-
----
-
-## Examples
-- *Good Implementation:* You realize your payment webhook logic is scattered across 5 different files. During a quiet week, you extract it all into a single, heavily-tested \`billingService.ts\` file.
-- *Bad Implementation:* Pausing all feature work for 6 months to rewrite your perfectly functional React app into Svelte because you saw a cool YouTube video about it.
-
----
-
-## AI Prompt
-Use AI to safely plan a refactor for a terrifying piece of legacy code.
-
+## Tech Debt Management Prompt
 \`\`\`prompt
-I have a piece of "spaghetti code" in my app that handles [INSERT FUNCTIONALITY, e.g., User Permissions]. It works, but it is deeply fragile.
-Here is the code: [PASTE CODE].
-
-Act as a Principal Software Engineer.
-1. Analyze the code and identify the biggest "code smells" and risks.
-2. Outline a step-by-step plan to refactor this code into a clean, modular structure *without* breaking its current functionality.
-3. Write 3 specific unit tests I should implement *before* I begin the refactor to ensure I don't introduce regressions.
+Act as a VP of Engineering. My team is struggling to ship new features because the codebase is bogged down by technical debt. Outline a strategy for identifying the most critical areas of technical debt and convincing the CEO that we need to dedicate 20% of our next sprint to refactoring rather than building new features.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Have you implemented the 20% rule (dedicating a fraction of all dev time to tech debt)?
-- [ ] Are you actively following the Boy Scout Rule when touching old files?
-- [ ] Have you sworn a blood oath to avoid a complete "from scratch" rewrite unless absolutely necessary for survival?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Identify the single piece of technical debt that is slowing you down the most right now, and schedule exactly when you will fix it.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+- [ ] Known technical debt is documented in the issue tracker, not just hidden in the code.
+- [ ] A consistent portion of engineering time is dedicated to refactoring and paying down debt.
+- [ ] Dependencies (NPM packages, Docker images) are regularly audited and updated.
 `,
   'pitchdeck': `# Pitch Deck
 
@@ -5988,734 +4681,330 @@ Take a deep breath. You built an entire application from scratch. You planned th
 `,
   'mobileideadefinition': `# Idea Definition
 
-**🕒 Estimated Time:** 15-20 min
+**Estimated Time:** 1-2 hours
 
 ---
 
-## Overview
-Welcome to Phase 0 of your Mobile App journey. Before writing any code in React Native or opening Xcode, we must clearly define what you are building. The mobile app market is brutal—users will delete an app within 10 seconds if it doesn't immediately solve a problem or provide entertainment. This document serves as the foundational anchor for your project. A blurry idea leads to a deleted app.
+## Why this matters
+A mobile app idea is just a multiplier of execution. Choosing the right idea dictates how hard the execution will be and whether a native mobile app is even the correct medium. Mobile apps face a massive friction barrier: users must open an App Store, download a file, and grant permissions before they ever see your UI. If your idea does not justify this friction, it should just be a website.
 
----
+## Strategic Guidance
 
-## Think First
-Before you ask AI to evaluate your idea, answer these questions honestly. Type your answers right here:
+### Hackathon Mode
+Your idea should optimize for visual "wow factor" and leverage native device capabilities. Judges love flashy tech like the Camera, ARKit/ARCore, Geolocation, or Bluetooth. Business viability does not matter; visual impact and technical novelty do. 
 
-**Core Value Proposition** (If the user opens your app for exactly 5 seconds, what value do they get?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+If your idea is "a better to-do app," you will lose. Your idea must have a demo that makes people say "Whoa" within the first 15 seconds. Think "Real-time object detection" or "Location-based scavenger hunt," not "CRUD dashboard for accountants."
 
-**Target Audience** (Who exactly needs this on their phone right now?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Choose an idea that forces you to learn a specific mobile framework or native API you want on your resume. If you want to learn Push Notifications, build a habit tracker. If you want to learn offline storage, build a travel itinerary app.
 
-**Existing Solution** (What app do they use today, or how do they solve it without an app?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+Keep the scope incredibly small. A finished, polished mobile app that you can actually deploy via TestFlight or an APK is worth 100x more than a half-finished complex clone of Uber. 
 
-**Why a Native App?** (Why does this need to be an app installed from the App Store, and not just a mobile website?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+Your idea must solve a highly painful, monetizable problem that explicitly requires being a native mobile application. Flashy tech does not matter; solving the pain matters. 
 
----
+Ask yourself: "Does this need push notifications? Does this need offline support? Does this need camera access?" If the answer to all three is "no," build a web app instead. If people are currently using a messy spreadsheet on their phones and getting frustrated, that is a billion-dollar idea. If they won't pay for it on Day 1, do not write a single line of Swift, Kotlin, or React Native.
 
-## Key Decisions
-- **Does it need to be an app?** If your idea doesn't require push notifications, offline access, camera, GPS, or deep OS integration, it should probably be a responsive web app.
-- **Platform Focus:** Will you target iOS first, Android first, or both simultaneously using React Native/Expo? (Hint: Use React Native/Expo to target both).
-
----
-
-## Common Mistakes
-- **Building a Website Wrapped in an App:** Apple will reject your app if it just feels like a website loaded in a web view. It must have native mobile interactions.
-- **Overestimating the Unfair Advantage:** Thinking "better UI" is an unfair advantage. It's not. Distribution and retention are unfair advantages.
-
----
-
-## AI Prompt
-Use this prompt to stress-test your mobile app idea. It will automatically read the answers you typed above.
-
+## Idea Validation Prompt
 \`\`\`prompt
-Act as a brutally honest Senior Mobile Product Manager and App Store Editor.
-Read my Idea Definition above.
-
-Challenge my assumptions. Do not validate my idea automatically.
-1. What is the biggest, most fatal flaw in this idea for a mobile environment?
-2. Does this actually need to be an App Store app, or is it better as a mobile website? Why?
-3. What 3 difficult questions do I need to answer before writing any React Native code?
+Act as a cynical Mobile Product Manager. I am pitching the following mobile app idea: [Insert Idea Here]. Rip it apart. Tell me why this should just be a responsive web app instead of a native mobile app. Point out the biggest friction points for user acquisition.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Apple Developer Program, Google Play Console, or Supabase) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-At the bottom of this page, write a definitive 3-sentence summary of your idea. This will be referenced by Kontxt AI for all future phases.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Y Combinator: How to Evaluate Startup Ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas)\n- [The Lean Canvas Guide](https://leanstack.com/lean-canvas)`,
+## Validation Checklist
+- [ ] The idea explicitly requires at least one native device capability (Camera, GPS, Push, Offline).
+- [ ] The core value proposition can be explained in less than 10 seconds.
+- [ ] The problem being solved is painful enough to overcome the friction of an App Store download.
+`,
   'mobileproblemstatement': `# Problem Statement
 
-**🕒 Estimated Time:** 15 min
+**Estimated Time:** 1 hour
 
 ---
 
-## Overview
-A mobile app is essentially a tool that lives in someone's pocket. If that tool doesn't solve a highly specific, painful problem, the user will uninstall it to save storage space. The Problem Statement defines the exact friction your user experiences in the real world before they discover your app.
+## Why this matters
+If you do not clearly define the problem, you will build a solution that no one wants. A strong problem statement acts as a filter for every feature you plan to build. If a feature does not directly address the core problem, it gets cut.
 
----
+## Strategic Guidance
 
-## Think First
-Analyze the problem you are solving in the context of a mobile user:
+### Hackathon Mode
+The problem statement is just a storytelling device for your pitch. It does not need to be a real, pervasive global issue. It just needs to be relatable enough that the judges nod their heads during the first 30 seconds of your presentation. Keep it hyper-focused and slightly exaggerated for dramatic effect.
 
-**The Trigger** (In what exact real-world scenario does the user pull out their phone and say, "I need to solve this right now"?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+The problem statement is primarily a way to give your portfolio project a cohesive theme. It helps reviewers understand *why* you built the app, even if the primary goal was just to learn a new technology. Define a simple, everyday annoyance (e.g., "Keeping track of borrowed books is tedious").
 
-**The Pain Point** (What makes the current way of doing things frustrating, slow, or expensive?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+The problem statement is the foundation of your business. It must be specific, measurable, and tied to a quantifiable pain (e.g., lost time, lost money, emotional distress). 
 
-**The Consequence** (What happens if they don't solve this problem? Do they lose money? Time? Social status?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+Do not define a problem based on a lack of your solution (e.g., "The problem is there is no AI app for dog walking"). Define the problem based on the user's current reality (e.g., "Dog walkers spend 2 hours a day manually texting clients with updates and photos, leading to high churn and lost revenue"). If the problem is not a "hair on fire" issue, users will not go through the friction of downloading your app.
 
----
-
-## Key Decisions
-- **Urgency:** Is this a "hair on fire" problem that requires an immediate mobile solution (e.g., calling an Uber), or a casual problem (e.g., tracking water intake)?
-- **Frequency:** Do users face this problem daily, weekly, or once a year? (High frequency = high mobile retention).
-
----
-
-## Common Mistakes
-- **Inventing a problem:** Assuming people care about something just because the technology to build it is cool.
-- **Being too vague:** "People want to be healthier" is not a problem statement. "People forget to take their daily medication and feel anxious about it" is a problem statement.
-
----
-
-## AI Prompt
-Use AI to sharpen your problem statement and ensure it justifies a mobile application.
-
+## Problem Refinement Prompt
 \`\`\`prompt
-Act as a strict Mobile App Investor.
-Review my Problem Statement answers above.
-
-1. Rewrite my problem into a single, punchy paragraph that highlights the real-world friction.
-2. Tell me if this problem is urgent and frequent enough to justify installing a dedicated mobile app, or if users would rather just Google a solution when they need it.
-3. What is the emotional core of this problem? (e.g., Anxiety? Boredom? Greed?)
+Act as a UX Researcher. My current problem statement is: [Insert Problem]. Rewrite this into three different problem statements targeting three distinct user personas. Highlight the emotional and financial cost of this problem for each persona.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste the AI-refined, punchy Problem Statement here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Y Combinator: How to Evaluate Startup Ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas)\n- [The Lean Canvas Guide](https://leanstack.com/lean-canvas)`,
+## Validation Checklist
+- [ ] The problem statement focuses on the user's pain, not the proposed technology.
+- [ ] The problem is significant enough that users are actively looking for workarounds.
+- [ ] The statement avoids vague marketing jargon.
+`,
   'mobileusecases': `# Use Cases
 
-**🕒 Estimated Time:** 20 min
+**Estimated Time:** 1-2 hours
 
 ---
 
-## Overview
-Use Cases define exactly *how* and *when* someone will interact with your mobile app. Unlike a desktop website where a user might sit down for an hour to work, mobile use cases are often characterized by short, distracted bursts of activity (micro-sessions). Understanding the context in which your app is used dictates your entire UI/UX strategy.
+## Why this matters
+Use cases map the abstract "idea" to concrete actions. They define exactly what the user is trying to accomplish within the app. Defining use cases prevents scope creep and ensures the engineering team is building workflows, not just isolated buttons.
 
----
+## Strategic Guidance
 
-## Think First
-Imagine the user in the real world:
+### Hackathon Mode
+Limit yourself to exactly two use cases. One primary use case that shows off the "wow" factor of the app (e.g., "User points camera at a plant to identify it"), and one secondary use case to show completeness (e.g., "User views their history of identified plants"). Anything more will ruin your sleep schedule.
 
-**The "On-the-Go" Scenario** (Describe a situation where the user has only 15 seconds to use your app while walking or commuting.)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Define 3 to 4 core use cases. This is enough to demonstrate a complete CRUD (Create, Read, Update, Delete) cycle or a complex API integration, which is what hiring managers want to see. Do not add use cases for "Settings" or "Profile Editing" unless they are the entire point of the app.
 
-**The "Deep Dive" Scenario** (Describe a situation where the user is sitting on their couch using your app for 5+ minutes.)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+Use cases must be exhaustive for the core flows, but ruthlessly prioritized. 
 
-**Offline Constraints** (What happens if they try to use this specific feature while on a subway with zero internet connection?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+You must define the "Happy Path" (when everything works perfectly) and the "Unhappy Paths" (when the network drops, the API fails, or the user enters invalid data). Mobile apps are heavily susceptible to Unhappy Paths because users go into tunnels, lose cell service, or deny camera permissions. Your use cases must account for these scenarios. 
 
----
-
-## Key Decisions
-- **Primary vs Secondary Use Cases:** What is the ONE thing the user opens the app to do 90% of the time? That feature must be accessible with a single tap from the home screen.
-- **Offline Capabilities:** Will your app cache data locally (using SQLite or AsyncStorage) so it remains functional without Wi-Fi?
-
----
-
-## Common Mistakes
-- **Designing for perfect conditions:** Assuming the user has two free hands, 100% battery, and perfect 5G connection.
-- **Burying the core action:** Making the user tap through 3 menus just to reach the primary use case.
-
----
-
-## AI Prompt
-Let AI help you generate and stress-test your mobile use cases based on real-world constraints.
-
+## Use Case Generation Prompt
 \`\`\`prompt
-Act as a Mobile UX Researcher.
-Read my Use Case scenarios above and the core concept of my app.
-
-1. Generate a list of 3-5 hyper-specific Mobile Use Cases. Format them as: "When [Context], the user wants to [Action] so they can [Outcome]."
-2. For the Primary Use Case, how can I reduce the friction to less than 3 taps?
-3. What edge cases (e.g., poor network, low battery, distracted user) could break these use cases?
+Act as a Technical Business Analyst. For a mobile app that does [Describe App], list the 3 most critical Use Cases. For each Use Case, define the 'Happy Path' and at least two 'Unhappy Paths' (e.g., network failure, permission denied).
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your finalized list of 3-5 Mobile Use Cases here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Y Combinator: How to Evaluate Startup Ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas)\n- [The Lean Canvas Guide](https://leanstack.com/lean-canvas)`,
+## Validation Checklist
+- [ ] The primary, high-value user action is clearly defined as a use case.
+- [ ] Edge cases (offline, permissions denied) are accounted for in the core flows.
+- [ ] Use cases are actionable and written from the user's perspective.
+`,
   'mobileuserjourney': `# User Journey
 
-**🕒 Estimated Time:** 25 min
+**Estimated Time:** 2-3 hours
 
 ---
 
-## Overview
-A Mobile User Journey maps the entire lifecycle of your user, from the moment they discover your app in the App Store, through the onboarding process, to the moment they become a daily active user. In mobile, the onboarding journey is the deadliest phase—if it's too long or asks for too many permissions upfront, you will lose 80% of your users immediately.
+## Why this matters
+A user journey visualizes the step-by-step experience a user has with your product, from the moment they discover it in the App Store to the moment they become a daily active user. Mapping this out reveals friction points—especially the onboarding drop-off, which kills 80% of mobile apps on Day 1.
 
----
+## Strategic Guidance
 
-## Think First
-Map out the high-level steps of your user's experience:
+### Hackathon Mode
+Your user journey is the literal path you will click through during your live demo. Plan the exact sequence of screens you will show. Do not build screens that are not on this journey. If a screen isn't clicked during the demo, it doesn't exist.
 
-**Discovery & Installation** (How do they find your app, and what makes them click "Download"?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Map a simple journey that takes the user from opening the app to achieving the core value proposition. This helps you design your navigation stack (e.g., deciding between a Tab Navigator or a Stack Navigator). Keep the journey linear and avoid complex branching logic.
 
-**The First 60 Seconds (Onboarding)** (What do they see immediately after opening the app? Do you force them to create an account immediately, or let them explore first?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+The mobile user journey is fraught with peril. You must map every micro-interaction. 
 
-**The "Aha!" Moment** (At what exact moment do they realize your app is incredibly valuable to them?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+Consider the discovery phase: App Store screenshots, download times, and the initial splash screen. Crucially, map out exactly *when* you will ask for permissions (Push, Location, Camera). If you ask for all permissions on the very first screen, 50% of users will deny them and delete the app. You must map out "contextual permission requests"—asking for the Camera only when the user explicitly taps the "Take Photo" button. Map out the "Aha!" moment and ensure the journey gets the user there in under 3 minutes.
 
----
-
-## Key Decisions
-- **Deferred Registration:** Can you delay asking for an email/password until the user actually needs to save data or make a purchase? (Highly recommended for mobile).
-- **Permission Requests:** Never ask for Push Notifications, Location, or Camera access on the very first screen. Wait until the user performs an action that requires that permission (e.g., tapping a "Find Near Me" button).
-
----
-
-## Common Mistakes
-- **The "Tutorial Carousel":** Forcing users to swipe through 5 screens of text explaining how the app works before they can use it. Nobody reads them.
-- **Immediate Login Walls:** Showing a blank login screen the millisecond the app launches without explaining the value first.
-
----
-
-## AI Prompt
-Use AI to design a high-conversion mobile user journey.
-
+## Journey Mapping Prompt
 \`\`\`prompt
-Act as a Mobile Growth Hacker and UX Expert.
-Based on my app concept and the answers above, design a detailed 4-stage User Journey map:
-1. Discovery
-2. First-Time Onboarding (Focus on maximizing completion rate and getting to the "Aha!" moment as fast as possible)
-3. Core Habit Formation (How do we get them to open the app on Day 2 and Day 7?)
-4. The Trigger for monetization or sharing.
-
-Please explicitly state *when* I should ask for push notification/location permissions to avoid being denied.
+Act as a Mobile UX Designer. Outline a 5-step User Journey for a first-time user downloading my app [Describe App]. Specifically address the onboarding flow and recommend the exact moment we should ask the user for [Insert specific permission, e.g., Push Notifications or Location] to maximize the opt-in rate.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste the finalized 4-stage User Journey Map here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Y Combinator: How to Evaluate Startup Ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas)\n- [The Lean Canvas Guide](https://leanstack.com/lean-canvas)`,
+## Validation Checklist
+- [ ] The journey starts at discovery (App Store) and ends at the core value proposition.
+- [ ] Permission requests (Camera, Location, Push) are mapped contextually, not upfront.
+- [ ] The onboarding flow is minimized to reduce Day 1 churn.
+`,
   'mobiletargetaudience': `# Target Audience
 
-**🕒 Estimated Time:** 15 min
+**Estimated Time:** 1 hour
 
 ---
 
-## Overview
-Your Target Audience defines the specific group of people who are most likely to download and use your mobile app. In the App Store, trying to appeal to "everyone" means you will appeal to no one, and your app will be buried under millions of others. A hyper-niche audience allows you to optimize your App Store Optimization (ASO) and marketing spend.
+## Why this matters
+"Everyone" is not a target audience. If you build an app for everyone, you build an app for no one. Defining a narrow target audience allows you to tailor your UX, your App Store optimization, and your marketing copy to speak directly to the people who actually need your product.
 
----
+## Strategic Guidance
 
-## Think First
-Narrow down exactly who you are building for:
+### Hackathon Mode
+Your target audience is the judging panel. Tailor the problem and solution to things they care about (e.g., developer productivity, local community issues, trending AI topics). If you make the judges feel the pain, you win.
 
-**Demographics** (Age, location, profession, income level)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Your target audience is recruiters, hiring managers, or yourself. If it's for yourself, optimize the UX for your own daily habits. If it's for recruiters, focus on clean architecture and best practices rather than solving a real-world market need.
 
-**Psychographics** (What are their interests, values, and daily habits?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+Your initial target audience (your "wedge") must be hyper-specific. 
 
-**Mobile Behavior** (Are they power users who live on their phones, or older users who prefer larger text and simple interfaces?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+Do not target "fitness enthusiasts." Target "competitive powerlifters who train 4 days a week and track RPE (Rate of Perceived Exertion)." A hyper-specific audience has hyper-specific jargon, online communities, and pain points. This makes your marketing incredibly cheap because you know exactly which subreddits or Discord servers they hang out in. You can expand to a broader audience later; start with a niche that is desperate for your solution.
 
----
-
-## Key Decisions
-- **Niche Down:** Instead of targeting "Fitness Enthusiasts", target "Busy single parents who only have 15 minutes to work out at home".
-- **Early Adopters:** Who are the first 100 people who will forgive the bugs in your V1 because they need the solution so badly?
-
----
-
-## Common Mistakes
-- **Broad Targeting:** Thinking your audience is "anyone with a smartphone."
-- **Ignoring the Device:** Designing an app for teenagers but ignoring the fact that they heavily skew towards iOS (in the US) and expect heavily animated, TikTok-style vertical scrolling.
-
----
-
-## AI Prompt
-Let AI refine and define your core audience.
-
+## Audience Profiling Prompt
 \`\`\`prompt
-Act as a Mobile Marketing Director.
-Analyze my target audience inputs above.
-
-1. Refine my audience into a highly specific, niche "Beachhead Market" (the first group of users I should target to get my first 1,000 downloads).
-2. What specific App Store search terms (keywords) is this audience likely typing into the search bar right now?
-3. Where does this audience hang out online (e.g., specific Reddit communities, TikTok hashtags, Facebook groups)?
+Act as a Product Marketing Manager. My mobile app does [Describe App]. I want to target a hyper-niche early adopter audience. Give me 3 options for highly specific target audiences. For each, tell me where they congregate online (subreddits, forums) and what specific jargon they use.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste the refined Beachhead Market and the list of keywords here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Nielsen Norman Group: User Personas](https://www.nngroup.com/articles/persona/)\n- [HubSpot: How to Create Detailed Buyer Personas](https://blog.hubspot.com/marketing/buyer-persona-research)`,
+## Validation Checklist
+- [ ] The audience is narrow enough to have specific online gathering places.
+- [ ] The audience has a demonstrated willingness to pay or download apps for this problem.
+- [ ] The audience definition avoids vague demographics (e.g., "Millennials") in favor of behavioral traits.
+`,
   'mobilepersonas': `# Personas
 
-**🕒 Estimated Time:** 15 min
+**Estimated Time:** 1-2 hours
 
 ---
 
-## Overview
-While a Target Audience is a broad demographic, a Persona is a fictional character representing your ideal user. Giving your user a name, face, and specific set of frustrations helps you make empathetic design decisions. When deciding whether to add a complex new feature, you won't ask "Would users like this?", you will ask "Would Sarah have time to figure this out during her morning commute?"
+## Why this matters
+Personas humanize your target audience. Instead of debating whether "users" will like a dark mode toggle, you debate whether "Sarah, a night-shift nurse," needs a dark mode toggle. Personas act as a tie-breaker for product design decisions.
 
----
+## Strategic Guidance
 
-## Think First
-Create the profile of your most desperate user:
+### Hackathon Mode
+Skip this. You do not have time to invent fictional characters and their backstories. Build the app.
 
-**Name & Basic Info** (e.g., "Commuter Craig", 34, takes the train 1 hour each way)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Create one simple persona to guide your design choices. If your persona is an elderly user, you know to use large typography, high contrast, and simple navigation. If your persona is a power user, you can implement complex gestures and dense data screens.
 
-**Their Main Goal in Your App** (What constitutes a "win" for them?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+Develop 2 to 3 data-driven personas based on actual conversations with your waitlist or potential users. 
 
-**Their Biggest Frustration with Mobile Apps** (e.g., hates typing long paragraphs on a phone keyboard, hates apps that drain battery)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+Do not fill personas with useless demographic fluff (e.g., "John likes dogs and long walks"). Focus entirely on their technical proficiency, the devices they use (iOS vs Android, old hardware vs new hardware), the environments they use the app in (e.g., "outdoors with glare," "one-handed while holding a baby"), and their primary motivations. This directly impacts mobile UX design, such as button placement for thumb reachability and offline capabilities for poor network areas.
 
----
-
-## Key Decisions
-- **Primary Persona:** Focus 90% of your MVP design on pleasing this single persona.
-- **Anti-Persona:** Define who you are explicitly *not* building for, so you can comfortably say "no" to feature requests that don't fit.
-
----
-
-## Common Mistakes
-- **Too many personas:** Trying to design an MVP for 5 different personas at once. Stick to ONE for V1.
-- **Superficial details:** Writing that your persona "likes the color blue" instead of focusing on their software behavior (e.g., "never turns on push notifications").
-
----
-
-## AI Prompt
-Use AI to flesh out a deep, behavioral persona.
-
+## Persona Generation Prompt
 \`\`\`prompt
-Act as a UX Researcher.
-Using my inputs above, generate a comprehensive "Primary User Persona" for my mobile app.
-
-Include:
-- Name and brief background
-- Behavioral Traits (How do they use their phone? Are they a scroller, a searcher, a multitasker?)
-- Key Motivations (Why do they open the app?)
-- Key Friction Points (What will make them instantly uninstall the app?)
-- "The 10-Second Test" (What must this persona see in the first 10 seconds to stick around?)
+Act as a UX Researcher. Generate two actionable user personas for a mobile app that [Describe App]. Do not include fluff. Focus on their mobile device habits (iOS vs Android), their technical literacy, the physical environment in which they will use the app, and their primary pain point.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your comprehensive Primary Persona here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Nielsen Norman Group: User Personas](https://www.nngroup.com/articles/persona/)\n- [HubSpot: How to Create Detailed Buyer Personas](https://blog.hubspot.com/marketing/buyer-persona-research)`,
+## Validation Checklist
+- [ ] Personas are based on behavioral traits and mobile habits, not just demographics.
+- [ ] The physical environment of the user (e.g., on the go, low battery, bad signal) is considered.
+- [ ] Design decisions can be directly tied back to the needs of a specific persona.
+`,
   'mobilesolutionstatement': `# Solution Statement
 
-**🕒 Estimated Time:** 15 min
+**Estimated Time:** 1 hour
 
 ---
 
-## Overview
-You've defined the problem and the audience. The Solution Statement clearly articulates exactly *how* your mobile app bridges the gap. It translates the abstract idea into concrete mobile features. This is the foundation of your App Store description.
+## Why this matters
+The solution statement bridges the gap between the problem you identified and the app you are building. It clearly articulates *how* your mobile app specifically resolves the user's pain in a way that alternative solutions (like web apps or spreadsheets) cannot.
 
----
+## Strategic Guidance
 
-## Think First
-Describe your mechanical solution:
+### Hackathon Mode
+Your solution statement is your headline. It needs to be punchy, buzzword-heavy (if applicable to the theme), and immediately understandable. "We use AI to instantly identify..." or "A real-time mesh network for..." Make it sound impressive.
 
-**The Core Mechanism** (How does the app actually solve the problem? Does it connect two people? Does it use the camera to scan something? Does it organize data?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Keep it straightforward and technical. "A React Native mobile application that utilizes the device's GPS to track..." This clearly communicates what the project is and what technologies are being demonstrated.
 
-**The "Magic" Moment** (What is the specific action where the user feels relief or joy? e.g., "The moment the background is instantly removed from their photo")
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+Your solution statement must focus on the value delivered, not the technology used. 
 
----
+Users do not care that you use GraphQL or a cutting-edge cross-platform framework. They care that the app "Saves 5 hours a week" or "Eliminates manual data entry." The statement must explicitly justify why this is a *mobile* solution. For example: "A mobile-first inventory tracker that allows warehouse workers to scan barcodes offline, syncing automatically when they reconnect to Wi-Fi, eliminating clipboard data entry."
 
-## Key Decisions
-- **Native Advantage:** Ensure your solution leverages the fact that it is a mobile app. If your solution is just "a database of articles", it might not be a compelling app. If your solution is "a database of articles that sends you one push notification summary per day", that's an app.
-
----
-
-## Common Mistakes
-- **Focusing on tech instead of outcomes:** "It uses a React Native bridging module to communicate with a vector database" (Tech) vs. "It instantly finds the exact song you are humming" (Outcome).
-- **Overcomplicating the solution:** Your solution statement should not require a flowchart to understand.
-
----
-
-## AI Prompt
-Let AI refine your mechanical description into a compelling Solution Statement.
-
+## Solution Refinement Prompt
 \`\`\`prompt
-Act as an elite Product Marketer.
-Read my inputs above.
-
-1. Write a 2-paragraph Solution Statement that clearly explains exactly what my mobile app does and how it solves the user's problem.
-2. Highlight the "Native Advantage" (Why this solution works perfectly on a mobile phone compared to a desktop computer).
-3. Provide a 1-sentence "Hook" that I can use as the subtitle in the App Store.
+Act as a Y Combinator Partner. My current solution statement is: [Insert Statement]. Rewrite this to be aggressively focused on the business value and the specific advantage of it being a native mobile application. Remove all technical jargon.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your 2-paragraph Solution Statement and 1-sentence Hook here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Y Combinator: How to Evaluate Startup Ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas)\n- [The Lean Canvas Guide](https://leanstack.com/lean-canvas)`,
+## Validation Checklist
+- [ ] The statement clearly explains how the problem is solved.
+- [ ] The statement relies on value metrics (time saved, money earned) rather than technical jargon.
+- [ ] It is obvious why this solution requires a mobile application rather than a website.
+`,
   'mobileelevatorpitch': `# Elevator Pitch
 
-**🕒 Estimated Time:** 10 min
+**Estimated Time:** 1 hour
 
 ---
 
-## Overview
-You have 30 seconds to explain your app to an investor, a potential co-founder, or a user at a coffee shop. If they don't understand it immediately, you've lost them. The Elevator Pitch distills the Problem, the Audience, and the Solution into a single, punchy formula.
+## Why this matters
+Attention spans are near zero. Whether you are pitching an investor, a hackathon judge, or trying to convince a user scrolling through the App Store, you have less than 10 seconds to explain what your app is and why they should care. If you stumble here, you lose them forever.
 
----
+## Strategic Guidance
 
-## Think First
-Fill in the blanks for the standard pitch formula:
+### Hackathon Mode
+Your elevator pitch is the opening hook of your demo. It must immediately establish the stakes and the solution. Memorize it perfectly. A confident, 10-second pitch sets the tone for a winning presentation.
 
-**"My app is a [Category/Type of App]..."** (e.g., social network, utility tool, fitness tracker)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Use the elevator pitch as the first line of your GitHub README and your LinkedIn post when you share the project. It should concisely explain the app's purpose and the tech stack used, grabbing the attention of recruiters scanning dozens of projects a day.
 
-**"...that helps [Target Audience]..."**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+Your elevator pitch is the core of your App Store listing, your marketing website header, and your ads. 
 
-**"...solve [Specific Problem]..."**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+It must clearly define the target audience, the problem, the solution, and the unique differentiator. Use the standard framework: "For [target audience] who have [problem], [App Name] is a [category] that provides [solution]. Unlike [competitor], we [key differentiator]." Refine it until a 10-year-old can understand exactly what your business does.
 
-**"...by [The Core Mechanism/Secret Sauce]."**
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **The Analogy (The "X for Y"):** Is your app the "Tinder for Dog Owners"? Or the "Uber for Lawn Care"? Using a known framework helps people grasp the UX immediately, but use it cautiously—don't force a bad analogy.
-
----
-
-## Common Mistakes
-- **Jargon:** Using words like "synergistic paradigm shift" or "blockchain-enabled." Speak like a normal human.
-- **Rambling:** A true elevator pitch is 1 to 2 sentences. Max.
-
----
-
-## AI Prompt
-Use AI to polish your pitch and make it memorable.
-
+## Pitch Generation Prompt
 \`\`\`prompt
-Act as an Angel Investor and Y Combinator Partner.
-Take my pitch components above and generate 3 variations of an Elevator Pitch:
-
-1. The "X for Y" Pitch (e.g., "We are the Uber for X")
-2. The Problem/Solution Pitch (Focus heavily on the pain point)
-3. The Visionary Pitch (Focus on how this changes the user's life)
-
-Keep each variation under 2 sentences. Tell me which one you think is the strongest and why.
+Act as a Startup Founder. My app does [Describe App] for [Target Audience]. Write three variations of an elevator pitch. One formatted for an App Store subtitle (under 30 characters), one formatted for a Twitter/X post, and one using the standard 'For [Audience] who [Problem]...' framework.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your favorite of the 3 Elevator Pitches here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Y Combinator: How to Evaluate Startup Ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas)\n- [The Lean Canvas Guide](https://leanstack.com/lean-canvas)`,
+## Validation Checklist
+- [ ] The pitch clearly identifies the target audience.
+- [ ] The core value proposition is easily understood without technical context.
+- [ ] The pitch can be spoken aloud in under 15 seconds.
+`,
   'mobilecompetitoranalysis': `# Competitor Analysis
 
-**🕒 Estimated Time:** 20 min
+**Estimated Time:** 2-4 hours
 
 ---
 
-## Overview
-Unless you are inventing a fundamentally new category of technology, you have competitors. Even if there is no app that does exactly what yours does, your user is currently solving their problem *somehow* (even if it's just using a spreadsheet or the Notes app). Understanding the competitive landscape in the App Store is crucial for positioning.
+## Why this matters
+Unless you are inventing a fundamentally new technology, you have competitors. Understanding what they do well—and more importantly, what they do terribly—allows you to position your app as the obvious superior choice. It prevents you from making the exact same UX mistakes they did.
 
----
+## Strategic Guidance
 
-## Think First
-Identify the giants and the alternatives:
+### Hackathon Mode
+Skip detailed analysis. Find one major incumbent, identify their biggest flaw (e.g., "It's too slow," "It's not collaborative"), and make that flaw the entire premise of your pitch. "Unlike X, we do Y in real-time."
 
-**Direct Competitors** (Name 2-3 apps that do exactly what you want to do. If you say "there are none", look harder.)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Pick one or two popular apps in your chosen category. Download them, analyze their navigation structure, and borrow their best UI patterns. If Spotify uses a bottom tab bar for navigation, you should too. Do not reinvent the wheel for a portfolio project; demonstrate that you can implement industry-standard UX patterns.
 
-**Indirect Competitors** (How are people solving this problem without a dedicated app? e.g., WhatsApp groups, Excel, paper notebooks)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+Competitor analysis is a strategic weapon. You must deeply understand the landscape.
 
-**Their Weakness** (Read the 1-star and 2-star reviews of your direct competitors on the App Store. What are users constantly complaining about?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+Do not just look at direct competitors; look at indirect competitors (e.g., the competitor to a budgeting app might just be a Google Sheet). Read their 1-star and 2-star reviews on the App Store and Google Play. These reviews are a goldmine of unresolved user pain points. If every review complains about a lack of offline support, offline support becomes your primary differentiator. Analyze their monetization strategy—are they pushing expensive weekly subscriptions, or upfront payments? Find the gaps in the market and attack them.
 
----
-
-## Key Decisions
-- **Your Differentiator:** You cannot beat a massive incumbent by building a clone. You must be significantly better at ONE specific thing (e.g., 10x faster, cheaper, vastly superior design, or hyper-niche).
-
----
-
-## Common Mistakes
-- **Ignoring "Non-App" Competitors:** Forgetting that "doing nothing" or "using Google Sheets" is often your biggest competitor.
-- **Copying their bloated features:** Established apps have years of feature bloat. Your V1 should only copy their core value, not their 50 settings menus.
-
----
-
-## AI Prompt
-Let AI synthesize your competitive landscape and identify your opening.
-
+## Competitor Analysis Prompt
 \`\`\`prompt
-Act as a Product Strategist.
-Review my direct and indirect competitors, and their weaknesses, listed above.
-
-1. Create a positioning strategy: How can my app stand out in the crowded App Store against these specific competitors?
-2. Based on the weaknesses I identified, what is the ONE feature I must absolutely nail in my MVP to win over their frustrated users?
-3. What is a strategic trap I should avoid when competing with these specific entities?
+Act as a Product Strategist. I am building an app to compete with [Insert Competitor Name]. Based on general market knowledge of this competitor, list their 3 biggest strengths and their 3 biggest weaknesses. How can a new, agile startup position themselves against them to steal their most frustrated users?
 \`\`\`
 
----
+## Validation Checklist
+- [ ] At least 3 direct or indirect competitors have been identified.
+- [ ] 1-star App Store reviews of competitors have been analyzed to find missing features.
+- [ ] A clear differentiator (Price, UX, Speed, Niche Feature) has been established.
+`,
+  'mobilesimilarapps': `# Similar Apps
 
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your Positioning Strategy and your Key MVP Feature here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [AppTweak: App Store Optimization (ASO)](https://www.apptweak.com/)\n- [SensorTower: App Market Intelligence](https://sensortower.com/)`,
-  'mobilesimilarapps': `# Similar Apps (UI/UX Inspiration)
-
-**🕒 Estimated Time:** 15-20 min
+**Estimated Time:** 1-2 hours
 
 ---
 
-## Overview
-Good artists copy, great artists steal. When designing a mobile app, you should not reinvent the wheel for standard interactions (like navigation bars, settings screens, or login flows). Users have established mental models based on the apps they already use daily (Instagram, Uber, Spotify). Identifying "Similar Apps" helps you borrow proven UI/UX patterns so your app feels instantly familiar.
+## Why this matters
+Finding similar apps is not about stealing ideas; it's about establishing baseline expectations. Users have muscle memory. If every other app in your category uses a bottom navigation bar, and you use a hamburger menu, users will feel friction. Similar apps show you the "rules" of your category before you decide which ones to break.
 
----
+## Strategic Guidance
 
-## Think First
-Look outside your direct competitors for inspiration:
+### Hackathon Mode
+Find the closest similar app, take screenshots of their 3 best screens, and put them in a mood board. Do not overthink this. If their app looks good, let their design choices inspire your prototype. 
 
-**Best-in-Class UI** (Which app in a COMPLETELY DIFFERENT industry has a design or "vibe" you want to emulate?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Studying similar apps helps you build a professional-looking UI without needing a design background. 
 
-**Specific Interactions** (Are there specific animations or gestures you love? e.g., "The swipe-to-archive in Gmail", "The pull-down search in iOS")
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+Pick the #1 app in the category you are mimicking (e.g., Duolingo if you are building an educational app). Open it and literally count the taps it takes to perform the core action. Notice the micro-interactions (e.g., how the button pulses, how the screen transitions). Your goal is to replicate that level of polish in your own code.
 
-**Onboarding Inspiration** (Which app had an onboarding experience that you actually enjoyed instead of skipping?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+You must conduct a deep forensic analysis of similar apps. 
 
----
+Download the top 5 similar apps. Pay specifically for their premium tiers and screenshot every step of their onboarding and paywalls. Take note of how they handle edge cases: What happens when you go offline? How aggressively do they ask for push notification permissions? How do they handle account deletion? By studying similar apps, you can fast-track your UX decisions and focus your engineering effort on your unique differentiator.
 
-## Key Decisions
-- **Platform Conventions:** If you are building for iOS, study Apple's Human Interface Guidelines. If Android, study Material Design. Do not force an Android-style bottom sheet navigation on iOS users if it feels alien.
-- **The "Familiarity" Baseline:** Borrow 80% of your UX from standard apps so you can spend your innovation budget on the 20% that makes your app unique.
-
----
-
-## Common Mistakes
-- **Reinventing Navigation:** Creating a weird hidden gesture menu just to be "different." Stick to standard bottom tab bars or hamburger menus unless you have a genius reason not to.
-- **Copying bad design:** Just because a big app does it, doesn't mean it's good UX. Make sure the pattern actually serves your use case.
-
----
-
-## AI Prompt
-Use AI to extract actionable design patterns from the apps you admire.
-
+## UX teardown Prompt
 \`\`\`prompt
-Act as a Lead UI/UX Mobile Designer.
-I want to borrow UX patterns from the following apps: [Insert the apps you listed above].
-
-1. Break down the core navigation structure of these apps (e.g., Bottom Tab Bar, Floating Action Button, Swipeable Pages). Which structure is best for my app concept?
-2. What specific micro-interactions or standard mobile conventions should I "steal" from these apps to make my UI feel premium and familiar?
-3. Are there any UX dark patterns or frustrating elements in these apps that I should avoid?
+Act as a Senior UX Researcher. I am building an app in the [Insert Category, e.g., Fitness Tracking] space. Identify the 3 market leaders. Provide a breakdown of the standard UX patterns users expect in this category (e.g., standard navigation structures, common onboarding steps, typical paywall placement).
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste the recommended Navigation Structure and the list of UI patterns you plan to borrow here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [AppTweak: App Store Optimization (ASO)](https://www.apptweak.com/)\n- [SensorTower: App Market Intelligence](https://sensortower.com/)`,
+## Validation Checklist
+- [ ] At least 3 similar apps have been downloaded and tested.
+- [ ] Standard UX patterns for the category (e.g., navigation style) have been identified.
+- [ ] The onboarding flow of the market leader has been mapped out.
+`,
   'play-store-research': `# Play Store Research
 
 **🕒 Estimated Time:** 20 min
@@ -6790,1325 +5079,515 @@ Paste your suggested Title, Short Description, and the key screenshot concept he
 - [AppTweak: App Store Optimization (ASO)](https://www.apptweak.com/)\n- [SensorTower: App Market Intelligence](https://sensortower.com/)`,
   'appstoreresearch': `# App Store Research
 
-**🕒 Estimated Time:** 20 min
+**Estimated Time:** 1-2 hours
 
 ---
 
-## Overview
-If you are launching on iOS, Apple's App Store is a totally different ecosystem than Google Play. Apple prioritizes high-quality design, strict privacy compliance, and human curation. App Store Optimization (ASO) on iOS relies on a hidden 100-character keyword field rather than scraping your long description. Understanding how apps succeed here is vital for your iOS launch.
+## Why this matters
+The Apple App Store is the most lucrative software marketplace on the planet, but it is heavily curated and strict. iOS users generally have a higher willingness to pay, but they also demand a higher level of design polish (Human Interface Guidelines). Understanding this ecosystem is critical for monetization.
 
----
+## Strategic Guidance
 
-## Think First
-Open the Apple App Store and search for your app's core concept.
+### Hackathon Mode
+Ignore this. You will not pass App Store Review during a 48-hour hackathon. Rely on TestFlight, Expo Go, or just a simulator for your demo.
 
-**The Top Performers** (Who ranks #1 for your main search term? Are they running Apple Search Ads?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Getting an app into the App Store is a fantastic resume booster. 
 
-**Visual Identity** (Look at their icons and screenshots. What color palettes and typography do the top iOS apps in your category use?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+However, Apple's review process is notoriously strict. You cannot have placeholder text (\`lorem ipsum\`), broken links, or an app that simply wraps a website. Research the App Store Review Guidelines (specifically sections on Minimum Functionality) before you start coding, or you will waste weeks building something Apple immediately rejects.
 
-**The Subtitles** (Apple gives you a 30-character subtitle. What are your competitors using it for? Explaining the app, or listing keywords?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+App Store optimization (ASO) on iOS requires a specific strategy. 
 
----
+Unlike Google, Apple does not index the long description. They rely on the Title, Subtitle, and a hidden 100-character Keyword field. You must research high-volume, low-competition keywords for these fields. Furthermore, iOS users expect aggressive paywalls (often immediately after onboarding) but demand Apple-level polish. Research how top apps in your category use Promotional Text and In-App Events to drive engagement. Prepare for Apple's strict privacy requirements, specifically the App Tracking Transparency (ATT) prompt.
 
-## Key Decisions
-- **Privacy Nutrition Labels:** Apple forces you to declare exactly what data you collect. If you collect location, contacts, and browsing history for a simple calculator app, users won't download it. Can you build your app while collecting the absolute minimum data?
-- **Sign in with Apple:** If you offer Google or Facebook login, Apple *requires* you to offer "Sign in with Apple." You must plan for this in your authentication architecture.
-
----
-
-## Common Mistakes
-- **Treating the App Store like the Play Store:** Writing a 4,000-character SEO description for Apple. Apple's algorithm doesn't index the long description for search rankings; it only indexes your Title, Subtitle, and the hidden Keyword field.
-- **Ignoring App Review Guidelines:** Apple's human reviewers will reject your app for minor UX infractions, like not providing a "Delete Account" button or hiding features behind a forced login without letting users browse first.
-
----
-
-## AI Prompt
-Use AI to navigate Apple's strict ecosystem and optimize your iOS listing.
-
+## iOS ASO Prompt
 \`\`\`prompt
-Act as an Apple App Store ASO Specialist and App Review Consultant.
-Review my App Store research inputs above.
-
-1. Provide an optimized 30-character App Title and 30-character Subtitle.
-2. Provide a comma-separated list of keywords exactly totaling 100 characters for the hidden iOS keyword field. Do not repeat words used in the Title or Subtitle.
-3. What is the most likely reason Apple's human reviewers would reject my app concept, and how can I design around it to ensure approval?
+Act as an iOS App Store Optimization Expert. I am launching an app for [Describe App]. I have 100 characters for the hidden Keyword field. Suggest a strategy for selecting keywords. Also, what are the top 3 reasons Apple rejects apps in this specific category?
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like App Store Connect, Supabase, Vercel) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your Title, Subtitle, 100-character keyword list, and the key App Review warning here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+## Validation Checklist
+- [ ] The App Store Review Guidelines (especially Minimum Functionality) have been reviewed.
+- [ ] A strategy for the Title, Subtitle, and 100-character Keyword field is drafted.
+- [ ] The monetization model complies with Apple's In-App Purchase (IAP) rules (no circumventing the 30% fee).
 `,
   'mobilefeatureplanning': `# Feature Planning
 
-**🕒 Estimated Time:** 20 min
+**Estimated Time:** 2-3 hours
 
 ---
 
-## Overview
-Feature Planning is where your abstract solution statement turns into a concrete list of screens and buttons. In mobile development, less is more. Every new feature increases your app bundle size, introduces potential crashes, and creates more cognitive load for a user staring at a 6-inch screen.
+## Why this matters
+Feature planning transforms your abstract idea into a concrete backlog of work. In mobile development, features are more expensive to build and update than in web development (due to app store review cycles). Therefore, planning *exactly* what goes into the first build is critical to avoid wasting engineering cycles.
 
----
+## Strategic Guidance
 
-## Think First
-Brainstorm all the features you *want* to build. Don't filter yourself yet.
+### Hackathon Mode
+List every feature you *want* to build. Now cross off 80% of them. The remaining 20% is your feature plan. If a feature takes more than 3 hours to implement, cut it or fake it. 
 
-**Core Mobile Features** (What features require native mobile capabilities? e.g., Camera scanner, Push Notifications, GPS tracking, Biometric Login)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Plan features that demonstrate a breadth of skills rather than depth. Instead of building 5 different complex data filters, build one filter, add basic Push Notifications, and implement a clean UI state. This proves to reviewers that you understand the full mobile stack.
 
-**Standard Features** (What basic features do users expect? e.g., User Profile, Settings, Search, Payment processing)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+Feature planning must be driven by your core use cases and user journey, not by what sounds cool to build.
 
-**"Nice to Have" Features** (What features would be really cool, but aren't strictly necessary for the app to function? e.g., Dark Mode, Social Sharing, AI Chatbot)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+For a mobile app, you must explicitly plan for "invisible" features: offline state handling, token refresh logic, permission request flows, and deep linking. If you only plan user-facing features (like a "Like" button) and ignore the invisible features, your app will feel brittle and crash frequently. Group your planned features into Epics (e.g., "Authentication," "Core Navigation," "Offline Sync").
 
----
-
-## Key Decisions
-- **Native vs Web-views:** Will every screen be built with native components (React Native), or will you use a WebView to load a web page for things like the Privacy Policy or Help Center? (Using WebViews for non-core pages saves immense development time).
-- **The "One Thing":** If a user can only do ONE thing in your app, what is it? Everything else is secondary.
-
----
-
-## Common Mistakes
-- **Building a Swiss Army Knife:** Trying to make a social network, a fitness tracker, and a diet planner all in one app. The user will be overwhelmed and delete it.
-- **Underestimating "Boring" Features:** Forgetting that building a robust password reset flow, a profile editing screen, and an onboarding flow will take 40% of your development time.
-
----
-
-## AI Prompt
-Use AI to organize your raw brainstorm into a structured list of mobile epics.
-
+## Feature Brainstorming Prompt
 \`\`\`prompt
-Act as a strict Mobile Product Manager.
-Review my brainstormed list of features above.
-
-1. Group these features into 3-5 high-level "Epics" (e.g., Authentication, Core Workflow, Social, Settings).
-2. Flag any feature that relies heavily on native device capabilities (Camera, GPS, Bluetooth) and warn me about the complexity it will add to my React Native/Expo codebase.
-3. Identify at least 3 features in my list that I should completely delete or move to a web-view to save time.
+Act as a Mobile Technical Lead. I am building a mobile app that [Describe App]. List the top 5 'invisible' mobile-specific features (e.g., offline handling, caching, deep linking) that I must include in my feature plan to ensure the app feels native and robust, rather than just a wrapped website.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your organized list of Feature Epics and the list of features you are deleting/delaying here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [MoSCoW Prioritization Method](https://www.productplan.com/glossary/moscow-prioritization/)\n- [Y Combinator: How to Plan an MVP](https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising)`,
+## Validation Checklist
+- [ ] All features are directly tied back to a defined Use Case.
+- [ ] "Invisible" mobile features (offline states, error handling, permissions) are explicitly planned.
+- [ ] Features are grouped into logical Epics for easier estimation.
+`,
   'mobilemvpfeatures': `# MVP Features
 
-**🕒 Estimated Time:** 15 min
+**Estimated Time:** 1-2 hours
 
 ---
 
-## Overview
-MVP stands for Minimum Viable Product. In mobile, getting your app into the hands of real users as fast as possible is critical. The App Store approval process can take days, and debugging React Native builds can be painful. Your MVP must be the absolute bare minimum set of features required to prove your core value proposition. If you aren't embarrassed by your V1, you launched too late.
+## Why this matters
+The Minimum Viable Product (MVP) is the smallest possible version of your app that still delivers the core value proposition. Every additional feature you add to the MVP delays your launch, increases your bug surface area, and burns cash/time before you have validated that anyone actually wants the app.
 
----
+## Strategic Guidance
 
-## Think First
-Be brutal. Cut the fat.
+### Hackathon Mode
+Your MVP is the demo. It only needs to work once, on one device, under perfect conditions. Hardcode everything except the specific API or technology you are trying to showcase.
 
-**The "Must-Haves"** (If you remove this feature, the app literally does not work and the user cannot achieve their goal).
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Your MVP should focus on completing the "Happy Path" perfectly. If you are building a social app, the MVP is: Auth -> Feed -> Post -> Logout. Do not build profile editing, password resets, or comment threads. A flawless, tiny app is much better than a buggy, massive app.
 
-**The "Friction Reducers"** (Features that make the MVP usable. e.g., "Apple/Google Sign In" because nobody wants to type a long password on a mobile keyboard).
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+Defining the MVP is the hardest part of product management because you have to say "no" to good ideas.
 
----
+Your MVP must solve the core problem 10x better than the alternative, but it does not need to do anything else. If you are building a diet tracker, the MVP must track calories flawlessly. It does *not* need social sharing, barcode scanning, or Apple Health integration. Cut ruthlessly. If a feature does not directly test your riskiest assumption (e.g., "Will users log their food every day?"), it belongs in Phase 2.
 
-## Key Decisions
-- **Cutting Corners Safely:** Can you manually do things behind the scenes instead of building a feature? (e.g., Instead of building an automated in-app reporting dashboard for vendors, can you just email them a PDF once a week?)
-- **Hardcoded Data:** Do you really need a fully dynamic backend for the settings menu, or can you just hardcode the options for V1?
-
----
-
-## Common Mistakes
-- **The "Just One More Feature" Trap:** Delaying your App Store launch by a month because you decided you *really* needed a dark mode toggle.
-- **Ignoring Onboarding in the MVP:** Thinking onboarding is a "V2" feature. Onboarding is the only way a user understands your MVP. It is a Must-Have.
-
----
-
-## AI Prompt
-Use AI to mercilessly trim your feature list down to a true MVP.
-
+## MVP Scoping Prompt
 \`\`\`prompt
-Act as a ruthless Startup Advisor.
-I need to launch my mobile app in the App Store in 4 weeks.
-Review my "Must-Haves" list above.
-
-1. Challenge my list: Which of these "Must-Haves" is actually a "Nice-to-Have" in disguise? Tell me exactly why I should cut it from V1.
-2. Define the absolute minimum user flow from App Launch -> "Aha Moment" -> Goal Achieved.
-3. What manual workaround can I use to avoid building a complex backend feature for V1?
+Act as a ruthless Product Manager. Here is my list of planned features for my mobile app MVP: [Insert Feature List]. My core value proposition is [Insert Value Prop]. Tell me which 3 features I should cut immediately to launch 4 weeks faster, and explain why they are not essential for Day 1.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your finalized, trimmed-down list of MVP Features here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [MoSCoW Prioritization Method](https://www.productplan.com/glossary/moscow-prioritization/)\n- [Y Combinator: How to Plan an MVP](https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising)`,
+## Validation Checklist
+- [ ] The MVP contains only the features required to deliver the core value proposition.
+- [ ] "Nice to have" features (e.g., social sharing, dark mode, complex settings) have been cut.
+- [ ] The MVP can theoretically be built in less than 4-6 weeks.
+`,
   'mobilefuturefeatures': `# Future Features
 
-**🕒 Estimated Time:** 10 min
+**Estimated Time:** 1 hour
 
 ---
 
-## Overview
-It hurts to cut features from your MVP. The "Future Features" list is your mental parking lot. Writing these ideas down allows you to stay focused on the MVP without feeling like you are abandoning your grand vision. Plus, keeping a roadmap helps you write a scalable database schema in Phase 2.
+## Why this matters
+Documenting future features (the "Icebox" or "Backlog") serves two purposes: it prevents scope creep by giving you a place to put good ideas that don't belong in the MVP, and it helps you design an architecture that won't require a complete rewrite when you eventually add them.
 
----
+## Strategic Guidance
 
-## Think First
-Dump all the grand ideas you just cut from the MVP here:
+### Hackathon Mode
+Future features are what you put on the final "Next Steps" slide of your pitch deck to show the judges you have a grand vision. 
 
-**V2 Features** (Features you will build immediately after launching the MVP and fixing the initial bugs. e.g., Push Notifications, Social Sharing)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+List future features in your GitHub README under a "Roadmap" section. This shows employers that you understand the product lifecycle and know how the application *should* evolve, even if you never actually build it.
 
-**The "Dream" Features** (Features that require massive scale, AI, or tons of money. e.g., "An AI that automatically books your flights")
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+Future features dictate your early architectural decisions.
 
----
+If you know you will eventually need real-time chat, you should choose a backend (like Supabase or Firebase) that supports WebSockets out of the box, rather than a rigid REST API. If you know you will eventually add internationalization (i18n), you should extract your strings into a localization file on Day 1, rather than hardcoding English throughout the app. Documenting future features ensures you don't paint yourself into a technical corner.
 
-## Key Decisions
-- **Schema Preparation:** Even if you aren't building "Teams" or "Workspaces" for V1, you might want to design your database schema to support them later so you don't have to do a massive data migration in 6 months.
-
----
-
-## Common Mistakes
-- **Promising them too early:** Putting "Coming Soon" buttons all over your MVP. It makes the app look unfinished. Just leave the buttons out completely.
-- **Building architecture for the dream:** Spending 3 weeks setting up a Kubernetes cluster because your "Dream Feature" requires it, even though your MVP only needs a simple Supabase instance.
-
----
-
-## AI Prompt
-Use AI to ensure your future vision doesn't accidentally ruin your MVP architecture.
-
+## Architectural Foresight Prompt
 \`\`\`prompt
-Act as a Lead Mobile Architect.
-Review my Future Features list above.
-
-1. Which of these future features will require the most significant architectural change to my database or backend if I don't plan for them now?
-2. Provide 1 piece of advice on how I should structure my initial database schema to make adding these features easier later.
-3. Which of these "Dream" features is actually a distraction that I should completely forget about for the next 12 months?
+Act as a Principal Mobile Architect. My MVP is [Describe MVP], but my Phase 2 Future Features include [Insert Future Features, e.g., Real-time chat, Offline Sync]. What architectural decisions must I make *today* during the MVP phase to ensure I don't have to rewrite the entire app when I add those features later?
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your Future Features list and the architectural advice here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [MoSCoW Prioritization Method](https://www.productplan.com/glossary/moscow-prioritization/)\n- [Y Combinator: How to Plan an MVP](https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising)`,
+## Validation Checklist
+- [ ] All non-critical ideas have been moved out of the MVP and into a documented Backlog.
+- [ ] The current technical stack can support the most complex future features without a total rewrite.
+- [ ] Future features align with the long-term product vision.
+`,
   'mobilefeatureprioritization': `# Feature Prioritization
 
-**🕒 Estimated Time:** 15 min
+**Estimated Time:** 1-2 hours
 
 ---
 
-## Overview
-You have a list of MVP features. Now you need to decide the exact order in which you will build them. If you build the easy UI stuff first, you might hit a massive technical roadblock on the core feature 3 weeks into development and have to abandon the project. In mobile, you must tackle the highest-risk features first.
+## Why this matters
+Once you have a backlog of features, you need a systemic way to decide what to build first. Without a prioritization framework, you will build the easiest features first or the features the loudest customer asked for, rather than the features that actually drive growth.
 
----
+## Strategic Guidance
 
-## Think First
-Evaluate your MVP list based on risk and value:
+### Hackathon Mode
+Prioritize based solely on visual impact vs. time to implement. High visual impact + low implementation time = build it immediately. Everything else is ignored.
 
-**High Risk / High Value** (Which feature is absolutely critical, but you have no idea how to code it yet? e.g., "Real-time location tracking")
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Prioritize features based on what you want to learn. If your goal is to learn animations, prioritize building complex UI transitions. If your goal is backend architecture, prioritize complex data fetching.
 
-**Low Risk / High Value** (Which feature is easy to build but provides massive value to the user? e.g., "A clean, native Apple Sign-In flow")
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+You must use a rigid framework to remove emotion from prioritization.
 
-**Low Risk / Low Value** (What are the easiest things to build that don't really matter right now? e.g., "An 'About Us' screen")
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+Use the RICE scoring model: Reach (how many users does this affect?), Impact (how much does this improve the core metric?), Confidence (how sure are we that this will work?), and Effort (how many engineering weeks will this take?). (R * I * C) / E = Score. Build the features with the highest score. For early-stage mobile apps, prioritize features that reduce onboarding friction or improve Day 7 retention over features that only benefit power users.
 
----
-
-## Key Decisions
-- **The "Spike":** A "spike" is a small, throwaway prototype you build just to prove you can do the hard part. Always do a spike on your High Risk features before building the rest of the app.
-- **The Build Order:** Build the High Risk/High Value core first. Build the Auth and Onboarding last. (You can test the core app without Auth during development).
-
----
-
-## Common Mistakes
-- **Building the Login Screen First:** It feels productive, but you spend a week tweaking the UI of a login screen while ignoring the fact that you don't know how to build the actual app yet.
-- **Building chronologically:** Just because a user sees the Welcome screen first doesn't mean you should build it first.
-
----
-
-## AI Prompt
-Use AI to generate a ruthlessly efficient sprint plan.
-
+## RICE Scoring Prompt
 \`\`\`prompt
-Act as a Technical Project Manager.
-Review my risk/value feature inputs above.
-
-1. Generate a step-by-step Build Order for my mobile app MVP.
-2. Explicitly tell me what to build in Week 1 to eliminate the most technical risk.
-3. Tell me which features I should push to the very end of the development cycle.
+Act as a VP of Product. I have three proposed features for my mobile app: 1) [Feature 1], 2) [Feature 2], 3) [Feature 3]. Walk me through a quick RICE (Reach, Impact, Confidence, Effort) scoring exercise for these three features and tell me which one I should build first to maximize user retention.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your step-by-step Build Order here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [MoSCoW Prioritization Method](https://www.productplan.com/glossary/moscow-prioritization/)\n- [Y Combinator: How to Plan an MVP](https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising)`,
+## Validation Checklist
+- [ ] A formal prioritization framework (like RICE or Kano) is used to evaluate features.
+- [ ] Features are prioritized based on their impact on core business metrics (e.g., Retention, Conversion).
+- [ ] High-effort, low-impact features have been explicitly deprioritized.
+`,
   'mobilemonetization': `# Monetization Strategy
 
-**🕒 Estimated Time:** 15 min
+**Estimated Time:** 1-2 hours
 
 ---
 
-## Overview
-How will your app make money? On mobile, this is a much harder question than on desktop. App Store users are notorious for refusing to pay 'mobilemonetization': \`# Monetization Strategy
+## Why this matters
+How you make money dictates how you build the app. You cannot just build an app and "figure out monetization later." If you choose subscriptions, you need to build complex entitlement logic and paywalls. If you choose ads, you need to maximize session duration. The monetization strategy must be decided before writing code.
 
-**🕒 Estimated Time:** 15 min
+## Strategic Guidance
 
----
+### Hackathon Mode
+Monetization is just a bullet point on your pitch deck. Say you will use a "Freemium B2B SaaS model" because judges like hearing that. Do not actually write any Stripe or RevenueCat code.
 
-## Overview
-How will your app make money? On mobile, this is a much harder question than on desktop. App Store users are notorious for refusing to pay $1.99 for an app, while simultaneously spending $5.00 on a coffee every morning. Additionally, Apple and Google take a 15-30% cut of all digital transactions processed through their stores. You must choose a model that fits your audience's psychology.
+### Personal Project
+Do not implement real payments. If you want to demonstrate the skill, use Stripe's test mode or RevenueCat's sandbox environment. Implementing real monetization adds massive legal and security overhead that is completely unnecessary for a portfolio project.
 
----
+### Production SaaS
+The mobile App Store ecosystem takes a brutal 15-30% cut of digital goods. You must factor this into your unit economics.
 
-## Think First
-Evaluate your app's core value:
+If you are selling digital services (e.g., premium features in a fitness app), you *must* use Apple/Google In-App Purchases (IAP). If you are selling physical goods (e.g., clothes, food delivery), you can use Stripe and bypass the 30% fee. Choose your overarching model (Freemium, Subscription, Ads, etc.) based on your user acquisition cost. If it costs $10 to acquire a user, you cannot rely on an ad-supported model that generates $0.05 per user. 
 
-**The Value Equation** (Is your app a "painkiller" that solves an urgent problem, or a "vitamin" that is nice to have?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Frequency of Use** (Will they open this once a year, or 5 times a day?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Competition's Model** (How do your competitors make money? Are they all free with ads, or are they all $9.99/month subscriptions?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **The "Apple Tax":** If you sell a digital good or service (like a premium subscription or virtual coins), you MUST use Apple/Google's In-App Purchases (IAP) and give them 30%. If you sell physical goods (like ordering a pizza) or services rendered outside the app (like an Uber ride), you can use Stripe and avoid the 30% cut.
-- **The Initial Hook:** Will you force users to pay before they can even see the main screen, or let them fall in love with the app first?
-
----
-
-## Common Mistakes
-- **Assuming Ads are Easy:** To make a living wage purely from banner ads, you need hundreds of thousands of daily active users.
-- **Underpricing:** Selling a highly specialized B2B mobile tool for $0.99 because you are afraid to ask for $19.99/month.
-
----
-
-## AI Prompt
-Use AI to match your app with the most profitable, user-friendly model.
-
+## Monetization Strategy Prompt
 \`\`\`prompt
-Act as a Mobile App Monetization Expert.
-Review my app concept and the answers above.
-
-1. Which monetization model (Free, Freemium, Subscription, Ads, One-time) is statistically the most successful for my specific app category?
-2. If I use this model, how do I structure the "Paywall" so users don't instantly uninstall the app when they see it?
-3. Does my app concept require me to pay the 30% App Store fee, or can I use Stripe?
+Act as a Monetization Strategist. I am building a mobile app that [Describe App]. Should I use an ad-supported model, a freemium subscription model, or a one-time upfront purchase model? Explain the unit economics required to make your recommended strategy profitable.
 \`\`\`
 
----
+## Validation Checklist
+- [ ] The chosen monetization strategy is compliant with Apple and Google's In-App Purchase rules.
+- [ ] The strategy aligns with the expected Customer Acquisition Cost (CAC).
+- [ ] The core value proposition is strong enough to support the chosen model.
+`,
+  'mobilefree': `# Free (100% Free)
 
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like RevenueCat, Stripe, App Store Connect) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your chosen monetization model and paywall strategy here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-.99 for an app, while simultaneously spending $5.00 on a coffee every morning. Additionally, Apple and Google take a 15-30% cut of all digital transactions processed through their stores. You must choose a model that fits your audience's psychology.
+**Estimated Time:** 30 minutes
 
 ---
 
-## Think First
-Evaluate your app's core value:
+## Why this matters
+A 100% free app makes zero direct revenue. This model is only viable if the app serves a different strategic purpose (e.g., lead generation, a companion app for a physical product, or a purely philanthropic endeavor).
 
-**The Value Equation** (Is your app a "painkiller" that solves an urgent problem, or a "vitamin" that is nice to have?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+## Strategic Guidance
 
-**Frequency of Use** (Will they open this once a year, or 5 times a day?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Hackathon Mode
+All hackathon projects are 100% free by default. 
 
-**The Competition's Model** (How do your competitors make money? Are they all free with ads, or are they all $9.99/month subscriptions?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+All personal projects should be 100% free. You want zero friction preventing recruiters or other developers from downloading and testing your work.
 
----
+### Production SaaS
+If you are building a business, a 100% free app is highly dangerous. 
 
-## Key Decisions
-- **The "Apple Tax":** If you sell a digital good or service (like a premium subscription or virtual coins), you MUST use Apple/Google's In-App Purchases (IAP) and give them 30%. If you sell physical goods (like ordering a pizza) or services rendered outside the app (like an Uber ride), you can use Stripe and avoid the 30% cut.
-- **The Initial Hook:** Will you force users to pay before they can even see the main screen, or let them fall in love with the app first?
+Mobile apps incur ongoing costs: database reads, server hosting, Apple Developer fees ($99/yr), and maintenance for new OS updates. If the app is 100% free, it is a cost center. You only do this if the app is a "loss leader" (e.g., the Tesla mobile app is free because you bought a $50k car) or if the app is designed solely to collect user data to sell (which comes with massive privacy liabilities). If you do not have a way to subsidize the server costs, do not launch a 100% free app.
 
----
-
-## Common Mistakes
-- **Assuming Ads are Easy:** To make a living wage purely from banner ads, you need hundreds of thousands of daily active users.
-- **Underpricing:** Selling a highly specialized B2B mobile tool for $0.99 because you are afraid to ask for 'mobilemonetization': \`# Monetization Strategy
-
-**🕒 Estimated Time:** 15 min
-
----
-
-## Overview
-How will your app make money? On mobile, this is a much harder question than on desktop. App Store users are notorious for refusing to pay $1.99 for an app, while simultaneously spending $5.00 on a coffee every morning. Additionally, Apple and Google take a 15-30% cut of all digital transactions processed through their stores. You must choose a model that fits your audience's psychology.
-
----
-
-## Think First
-Evaluate your app's core value:
-
-**The Value Equation** (Is your app a "painkiller" that solves an urgent problem, or a "vitamin" that is nice to have?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**Frequency of Use** (Will they open this once a year, or 5 times a day?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Competition's Model** (How do your competitors make money? Are they all free with ads, or are they all $9.99/month subscriptions?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **The "Apple Tax":** If you sell a digital good or service (like a premium subscription or virtual coins), you MUST use Apple/Google's In-App Purchases (IAP) and give them 30%. If you sell physical goods (like ordering a pizza) or services rendered outside the app (like an Uber ride), you can use Stripe and avoid the 30% cut.
-- **The Initial Hook:** Will you force users to pay before they can even see the main screen, or let them fall in love with the app first?
-
----
-
-## Common Mistakes
-- **Assuming Ads are Easy:** To make a living wage purely from banner ads, you need hundreds of thousands of daily active users.
-- **Underpricing:** Selling a highly specialized B2B mobile tool for $0.99 because you are afraid to ask for $19.99/month.
-
----
-
-## AI Prompt
-Use AI to match your app with the most profitable, user-friendly model.
-
+## Free App Viability Prompt
 \`\`\`prompt
-Act as a Mobile App Monetization Expert.
-Review my app concept and the answers above.
-
-1. Which monetization model (Free, Freemium, Subscription, Ads, One-time) is statistically the most successful for my specific app category?
-2. If I use this model, how do I structure the "Paywall" so users don't instantly uninstall the app when they see it?
-3. Does my app concept require me to pay the 30% App Store fee, or can I use Stripe?
+Act as a Financial Advisor for Startups. I want to release my mobile app 100% for free to maximize user growth, with the plan to 'monetize the data later.' Tell me exactly why this is a terrible idea and outline the hidden ongoing costs of maintaining a mobile app at scale.
 \`\`\`
+
+## Validation Checklist
+- [ ] There is a clear strategic reason for the app to generate zero direct revenue.
+- [ ] A funding source exists to cover ongoing server and developer account costs.
+- [ ] If data is being monetized, the Privacy Policy explicitly states this in compliance with GDPR/CCPA.
+`,
+  'mobilefreemium': `# Freemium Model
+
+**Estimated Time:** 2-4 hours
 
 ---
 
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like RevenueCat, Stripe, App Store Connect) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+## Why this matters
+Freemium is the most popular monetization model on mobile. It dramatically lowers the barrier to entry (acquiring users is easier when the app is free to download), but requires a delicate balance: the free tier must be useful enough to retain users, but restricted enough to force them to eventually pay for the premium tier.
 
-## Deliverable
-Paste your chosen monetization model and paywall strategy here.
+## Strategic Guidance
 
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-9.99/month.
+### Hackathon Mode
+Pretend you have a freemium model by showing a "Pro" badge next to certain features in your demo. Do not build actual feature gating logic. 
 
----
+### Personal Project
+Implement UI-level feature gating. For example, if the user tries to create a 4th project, show a beautiful "Upgrade to Pro" modal. You do not need to implement backend entitlement checks or real Stripe/Apple billing. Just the UI flow is enough to demonstrate competency.
 
-## AI Prompt
-Use AI to match your app with the most profitable, user-friendly model.
+### Production SaaS
+Freemium requires ruthless metric tracking to find the optimal "paywall trigger."
 
+If your free tier gives away too much, your conversion rate will be 0%. If it gives away too little, users will churn on Day 1 before they experience the core value. You must implement backend entitlement checks (e.g., using RevenueCat) to prevent users from bypassing the UI paywall. A good benchmark for a mobile B2C freemium app is a 2-5% free-to-paid conversion rate. Constantly A/B test your paywall screen (the text, the pricing, the timing) as small tweaks here can double your revenue overnight.
+
+## Freemium Gating Prompt
 \`\`\`prompt
-Act as a Mobile App Monetization Expert.
-Review my app concept and the answers above.
-
-1. Which monetization model (Free, Freemium, Subscription, Ads, One-time) is statistically the most successful for my specific app category?
-2. If I use this model, how do I structure the "Paywall" so users don't instantly uninstall the app when they see it?
-3. Does my app concept require me to pay the 30% App Store fee, or can I use Stripe?
+Act as a Pricing Strategist. I am building a mobile app that [Describe App]. I want to use a freemium model. Give me 3 options for the "Value Metric" I should gate (e.g., usage limits, premium features, speed). Which option creates the most natural friction to upgrade without destroying the Day 1 onboarding experience?
 \`\`\`
 
----
+## Validation Checklist
+- [ ] The free tier provides enough value to demonstrate the "Aha!" moment.
+- [ ] The trigger for the paywall is based on a clear value metric (e.g., 3 projects maximum).
+- [ ] Backend entitlement checks are planned to prevent unauthorized premium access.
+`,
+  'mobilesubscription': `# Subscription Model
 
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like RevenueCat, Stripe, App Store Connect) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your chosen monetization model and paywall strategy here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [RevenueCat: State of Subscription Apps](https://www.revenuecat.com/state-of-subscription-apps/)\n- [Apple App Store: Monetization Guidelines](https://developer.apple.com/app-store/business-models/)`,
-  'mobilefree': `# Completely Free
-
-**🕒 Estimated Time:** 10 min
+**Estimated Time:** 1-2 hours
 
 ---
 
-## Overview
-A completely free app has no paywalls, no ads, and no premium tiers. This model is incredibly rare for indie developers because server costs (like Supabase, Firebase, or OpenAI API calls) add up quickly. However, it is the absolute best way to maximize growth, acquire users rapidly, and establish a dominant market position before introducing monetization later.
+## Why this matters
+Subscriptions create recurring, predictable revenue, which is why investors love them. However, consumer subscription fatigue is at an all-time high. Users will rigorously evaluate whether your app is worth a recurring monthly charge compared to their Netflix or Spotify subscription.
 
----
+## Strategic Guidance
 
-## Think First
-Can you afford to be free?
+### Hackathon Mode
+Ignore this. 
 
-**The Core Cost** (What is the most expensive API or server action in your app? E.g., uploading 4K video, hitting the GPT-4 API).
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Do not implement real subscriptions. If you want to show off, integrate RevenueCat's sandbox environment to demonstrate that you understand how subscription webhooks and entitlement lifecycles (renewals, cancellations, grace periods) work conceptually.
 
-**The Long Game** (How do you eventually plan to survive? E.g., selling the company, introducing a premium tier in V2, selling aggregated data?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+Implementing mobile subscriptions requires using Apple and Google's native In-App Purchases (IAP). 
 
----
+You cannot link out to Stripe to bypass the 30% fee without risking immediate rejection. Use a service like RevenueCat or Qonversion to handle the incredibly complex logic of cross-platform receipt validation, renewals, and cancellations. You must provide clear cancellation instructions in the app. To fight churn, implement a "win-back" campaign (e.g., offering a 50% discount if they try to cancel). Finally, deeply analyze the difference between your Monthly vs Annual subscription retention rates.
 
-## Key Decisions
-- **Hard Limits:** Even if the app is free, you must hardcode limits. If a malicious user decides to upload 10,000 photos an hour, they will bankrupt your AWS/Supabase account.
-- **The "Trojan Horse":** Is this free app just a lead-generation tool for your main, expensive desktop SaaS?
-
----
-
-## Common Mistakes
-- **Accidental Bankrupcy:** Not setting up billing alerts on your backend (Vercel/Supabase). If your free app goes viral on TikTok, your server bill could be $5,000 the next morning.
-- **Being Afraid to Pivot:** Being so terrified of "betraying" your early free users that you never introduce a way to keep the servers running, causing the app to shut down.
-
----
-
-## AI Prompt
-Use AI to calculate your risk and set up defensive limits.
-
+## Subscription Economics Prompt
 \`\`\`prompt
-Act as a strict Cloud Infrastructure Architect.
-I am launching a completely free mobile app.
-
-1. Based on my app's core features, what is my biggest financial vulnerability if I suddenly get 10,000 users overnight?
-2. What specific hard-coded limits should I implement in my React Native code and backend to protect myself?
-3. Write a polite, transparent sentence I can put in the app to explain these limits to my users.
+Act as a SaaS Financial Modeler. We are launching a mobile subscription app at $9.99/month. Assume Apple takes a 15% cut (Small Business Program). If our blended Customer Acquisition Cost (CAC) is $15, how many months does a user need to remain subscribed for us to achieve a 3x LTV:CAC ratio?
 \`\`\`
 
----
+## Validation Checklist
+- [ ] Apple/Google In-App Purchases are used (no external Stripe links for digital goods).
+- [ ] A tool like RevenueCat is planned to handle cross-platform receipt validation.
+- [ ] A clear, easy-to-find cancellation flow is designed to comply with App Store policies.
+`,
+  'mobileads': `# Ad-Supported Model
 
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your specific usage limits and financial safety strategy here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [RevenueCat: State of Subscription Apps](https://www.revenuecat.com/state-of-subscription-apps/)\n- [Apple App Store: Monetization Guidelines](https://developer.apple.com/app-store/business-models/)`,
-  'mobilefreemium': `# Freemium
-
-**🕒 Estimated Time:** 15 min
+**Estimated Time:** 1-2 hours
 
 ---
 
-## Overview
-Freemium is the dominant model in the App Store. The app is free to download and use, but "Premium" features or capacities are locked behind a paywall. The goal is to cast a wide net with the free version, letting users build a habit around your app, and then converting a small percentage (usually 2-5%) of them to paid users.
+## Why this matters
+Ad-supported models (using AdMob or similar networks) are common for mobile games and utility apps (like calculators or weather apps). However, unless you have millions of Daily Active Users (DAUs) or extremely long session durations, the revenue generated from ads will be pennies.
 
----
+## Strategic Guidance
 
-## Think First
-Where do you draw the line?
+### Hackathon Mode
+Do not put ads in your hackathon project. It ruins the UX and makes the demo look cheap.
 
-**The Free Hook** (What core feature is so good that users will download it and use it daily, without paying?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Do not integrate real ad networks. If you want to demonstrate the skill, put a static banner image that says "Ad Placeholder." Actual ad SDKs bloat your app size and require complex privacy policy configurations.
 
-**The Premium Pain Point** (At what exact moment will the user hit the limit and feel the urge to pull out their credit card?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+The unit economics of an ad-supported app are brutal. 
 
----
+You are paid based on eCPM (Effective Cost Per Mille), which is the revenue per 1,000 impressions. For standard banner ads, eCPM might be $0.50 to $2.00. To make $1,000, you need 500,000 to 2,000,000 ad impressions. If your app only has 1,000 users who use it for 1 minute a day, you will make nothing. If you must use ads, prefer "Rewarded Video Ads" (e.g., "Watch this 30s ad to unlock a premium filter"), as they have significantly higher eCPMs and feel less intrusive to the user than random popups.
 
-## Key Decisions
-- **Feature vs Capacity Limits:** Will you lock entire features (e.g., "Export to PDF is premium") or capacities (e.g., "Save 10 notes for free, unlimited notes is premium")? Capacity limits often convert better because the user has already proven they love the core feature.
-- **RevenueCat:** You should absolutely use a tool like RevenueCat or Glassfy to handle the complex nightmare of Apple/Google in-app purchase receipts, rather than building it yourself.
-
----
-
-## Common Mistakes
-- **The Useless Free Version:** Making the free tier so restricted that users can't actually accomplish anything, leading to immediate uninstalls.
-- **The Generous Free Version:** Giving away so much value for free that literally nobody feels the need to upgrade.
-
----
-
-## AI Prompt
-Use AI to find the perfect balance between free value and paid friction.
-
+## Ad Monetization Prompt
 \`\`\`prompt
-Act as a Mobile App Monetization Specialist.
-Review my app concept.
-
-1. Suggest a "Capacity Limit" Freemium structure (what do they get for free, and when do they hit the limit?).
-2. Suggest a "Feature Limit" Freemium structure (which specific feature should be locked?).
-3. Between those two options, which will convert better for my specific target audience, and why?
+Act as a Mobile Ad Monetization Manager. My app currently has 10,000 Daily Active Users (DAUs) with an average session length of 3 minutes. Calculate my projected monthly revenue if I use standard banner ads with a $1.00 eCPM versus Rewarded Video ads with a $15.00 eCPM. Which format should I prioritize?
 \`\`\`
 
----
+## Validation Checklist
+- [ ] The app's projected DAU and session length can realistically support an ad-driven revenue model.
+- [ ] Rewarded video or native ads are prioritized over intrusive interstitials.
+- [ ] Privacy policies are updated to reflect third-party ad tracking (e.g., AdMob, ATT prompts).
+`,
+  'mobileonetimepurchase': `# One-Time Purchase
 
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like RevenueCat) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your chosen Free/Premium dividing line here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [RevenueCat: State of Subscription Apps](https://www.revenuecat.com/state-of-subscription-apps/)\n- [Apple App Store: Monetization Guidelines](https://developer.apple.com/app-store/business-models/)`,
-  'mobilesubscription': `# Subscription
-
-**🕒 Estimated Time:** 15 min
+**Estimated Time:** 1 hour
 
 ---
 
-## Overview
-Subscriptions ($X per month/year) are the holy grail of mobile development. Apple heavily incentivizes developers to use this model because it generates recurring revenue. However, users are experiencing massive "subscription fatigue." To convince a user to pay you every single month, your app must provide continuous, renewing value, not just a static tool.
+## Why this matters
+Charging a single upfront fee (or a single lifetime unlock via IAP) is the most honest monetization model, but it is the hardest to build a sustainable business on. You constantly need to acquire new users to survive, and you have no recurring revenue to fund long-term maintenance.
 
----
+## Strategic Guidance
 
-## Think First
-Justify the recurring cost:
+### Hackathon Mode
+Ignore this.
 
-**The Continuous Value** (Why does this app deserve $5/month? Are you adding new content weekly? Does it use expensive AI processing? Does it save them money every month?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Ignore this. 
 
-**The Trial Strategy** (Will you offer a 7-day free trial? A 3-day trial? No trial?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+A one-time purchase is highly attractive to users suffering from subscription fatigue. 
 
----
+This model works best for utility apps (e.g., a specific camera filter app, a niche calculator) that do not have ongoing server costs. If your app relies on a heavy backend database, AI API calls, or real-time syncing, a one-time purchase model will eventually bankrupt you because your server costs will scale with usage, but your revenue per user is capped. If you choose this model, your app must function almost entirely offline on the local device.
 
-## Key Decisions
-- **Annual vs Monthly:** Always offer an Annual plan at a massive discount compared to the Monthly plan. Users who subscribe annually are significantly more likely to forget to cancel, and you get the cash upfront to reinvest in marketing.
-- **The Onboarding Paywall:** Many top grossing apps show the subscription paywall *immediately* during the onboarding flow, before the user even sees the home screen. It feels aggressive, but it mathematically converts higher.
-
----
-
-## Common Mistakes
-- **Charging a subscription for a static utility:** If your app is just a nice calculator, users will be furious if you ask for $4.99/month. That is a one-time purchase app.
-- **Hiding the cancel button:** Apple will reject your app if the user cannot easily manage or cancel their subscription from within the app settings.
-
----
-
-## AI Prompt
-Use AI to design a high-converting, ethical subscription strategy.
-
+## Pricing Model Prompt
 \`\`\`prompt
-Act as an iOS Subscription Revenue Optimizer.
-Review my app concept.
-
-1. Provide a compelling argument for *why* a user would pay for my app every single month. If my app doesn't fit a subscription model, tell me directly.
-2. Suggest 3 pricing tiers (Monthly, Annual, and a "Lifetime" decoy price).
-3. Draft the exact copy (headline and bullet points) for my Paywall screen to maximize conversion during the onboarding flow.
+Act as a Pricing Strategist. I am building a mobile app for [Describe App]. I want to charge a one-time $49 "Lifetime Unlock" fee to avoid subscription fatigue. What are the long-term financial risks of this model, and what specific technical architecture (e.g., local-first storage) is required to make this profitable over 5 years?
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like RevenueCat) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your Pricing Tiers and Paywall copy here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [RevenueCat: State of Subscription Apps](https://www.revenuecat.com/state-of-subscription-apps/)\n- [Apple App Store: Monetization Guidelines](https://developer.apple.com/app-store/business-models/)`,
-  'mobileads': `# Ad-Supported
-
-**🕒 Estimated Time:** 15 min
-
----
-
-## Overview
-The ad-supported model (using AdMob, AppLovin, or Unity Ads) allows your app to remain completely free while generating revenue from banner, interstitial, or rewarded video ads. While this sounds like a great compromise, the reality is that ad revenue requires massive scale. You are trading user experience for pennies per view.
-
----
-
-## Think First
-Evaluate your volume and user tolerance:
-
-**The Session Length** (How long does a user stare at the screen per session? Long sessions = more ad impressions).
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Ad Format** (Will you use annoying pop-up Interstitials, subtle bottom Banners, or "Watch this video to unlock" Rewarded Ads?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Rewarded Video vs Forced Ads:** "Rewarded Ads" (where the user voluntarily watches a 30-second ad in exchange for an extra life or premium feature) have the highest payout rates and the highest user satisfaction. Forced pop-up ads have terrible payout rates and cause 1-star reviews.
-- **The "Remove Ads" IAP:** Always offer a $2.99 or $4.99 In-App Purchase to remove all ads.
-
----
-
-## Common Mistakes
-- **Destroying the UX:** Placing banner ads right next to critical navigation buttons so users accidentally click them. Apple will reject your app for deceptive ad placement.
-- **Expecting to get rich on 1,000 users:** Mobile ad CPMs (cost per 1,000 impressions) can be as low as $0.50. You need hundreds of thousands of sessions to make a full-time income.
-
----
-
-## AI Prompt
-Use AI to place ads ethically while maximizing revenue.
-
-\`\`\`prompt
-Act as a Mobile Ad Monetization Strategist.
-Review my app concept.
-
-1. Recommend the exact ad format (Banner, Interstitial, or Rewarded Video) that fits my app without destroying the user experience.
-2. Where is the absolute best screen/moment in my app to show a "Rewarded Video" ad?
-3. How much should I charge for the "Remove Ads" in-app purchase based on current App Store averages?
-\`\`\`
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Google AdMob) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your Ad Format strategy and "Remove Ads" pricing here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [RevenueCat: State of Subscription Apps](https://www.revenuecat.com/state-of-subscription-apps/)\n- [Apple App Store: Monetization Guidelines](https://developer.apple.com/app-store/business-models/)`,
-  'mobileonetimepurchase': `# One-time Purchase (Paid App)
-
-**🕒 Estimated Time:** 10 min
-
----
-
-## Overview
-The classic software model: The user pays $4.99 upfront, downloads the app, and owns it forever. In today's App Store, this model is almost dead. Users are incredibly hesitant to pay for an app before they can try it. However, for certain niches (like indie games, specialized professional tools, or privacy-focused utilities), a one-time purchase is highly respected by users tired of subscriptions.
-
----
-
-## Think First
-Are you building a utility or an ongoing service?
-
-**The "Done" State** (Is your app a complete, finished tool that won't require massive server costs or daily updates to function?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Upfront Promise** (Why would someone risk $5 on your app without trying it first? Do you have an amazing promotional video or massive social proof?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Paid Upfront vs "Freemium Unlock":** Instead of charging $4.99 upfront, it is almost always better to make the app free to download, let them poke around, and charge a $4.99 "Pro Lifetime Unlock" In-App Purchase. It achieves the exact same revenue model but drastically lowers the barrier to entry.
-
----
-
-## Common Mistakes
-- **High Server Costs:** Selling the app for 'mobileonetimepurchase': \`# One-time Purchase (Paid App)
-
-**🕒 Estimated Time:** 10 min
-
----
-
-## Overview
-The classic software model: The user pays $4.99 upfront, downloads the app, and owns it forever. In today's App Store, this model is almost dead. Users are incredibly hesitant to pay for an app before they can try it. However, for certain niches (like indie games, specialized professional tools, or privacy-focused utilities), a one-time purchase is highly respected by users tired of subscriptions.
-
----
-
-## Think First
-Are you building a utility or an ongoing service?
-
-**The "Done" State** (Is your app a complete, finished tool that won't require massive server costs or daily updates to function?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Upfront Promise** (Why would someone risk $5 on your app without trying it first? Do you have an amazing promotional video or massive social proof?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Paid Upfront vs "Freemium Unlock":** Instead of charging $4.99 upfront, it is almost always better to make the app free to download, let them poke around, and charge a $4.99 "Pro Lifetime Unlock" In-App Purchase. It achieves the exact same revenue model but drastically lowers the barrier to entry.
-
----
-
-## Common Mistakes
-- **High Server Costs:** Selling the app for $1.99 upfront, but the app relies on the OpenAI API. If a user uses the app heavily for 2 years, they will cost you $50 in API fees, bankrupting you. One-time purchase apps must rely entirely on the device's local processing (offline) to be profitable long-term.
-- **No Refund Policy:** Users who buy a paid app and don't like it will instantly leave a 1-star review to warn others.
-
----
-
-## AI Prompt
-Use AI to decide if the upfront model will destroy your download metrics.
-
-\`\`\`prompt
-Act as an App Store Analytics Expert.
-My app concept is a one-time purchase.
-
-1. Tell me bluntly if this app concept will survive as a "Paid Upfront" app, or if I should switch to a "Free Download with a Lifetime Unlock IAP." Explain why.
-2. If my app requires a server or API, calculate the financial risk of charging a one-time fee.
-3. Suggest the optimal price point ($0.99, $4.99, $9.99, $19.99) for this specific type of utility.
-\`\`\`
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like App Store Connect) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your final Pricing strategy (Paid Upfront vs Lifetime IAP) and Price Point here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-.99 upfront, but the app relies on the OpenAI API. If a user uses the app heavily for 2 years, they will cost you $50 in API fees, bankrupting you. One-time purchase apps must rely entirely on the device's local processing (offline) to be profitable long-term.
-- **No Refund Policy:** Users who buy a paid app and don't like it will instantly leave a 1-star review to warn others.
-
----
-
-## AI Prompt
-Use AI to decide if the upfront model will destroy your download metrics.
-
-\`\`\`prompt
-Act as an App Store Analytics Expert.
-My app concept is a one-time purchase.
-
-1. Tell me bluntly if this app concept will survive as a "Paid Upfront" app, or if I should switch to a "Free Download with a Lifetime Unlock IAP." Explain why.
-2. If my app requires a server or API, calculate the financial risk of charging a one-time fee.
-3. Suggest the optimal price point ($0.99, $4.99, $9.99, 'mobileonetimepurchase': \`# One-time Purchase (Paid App)
-
-**🕒 Estimated Time:** 10 min
-
----
-
-## Overview
-The classic software model: The user pays $4.99 upfront, downloads the app, and owns it forever. In today's App Store, this model is almost dead. Users are incredibly hesitant to pay for an app before they can try it. However, for certain niches (like indie games, specialized professional tools, or privacy-focused utilities), a one-time purchase is highly respected by users tired of subscriptions.
-
----
-
-## Think First
-Are you building a utility or an ongoing service?
-
-**The "Done" State** (Is your app a complete, finished tool that won't require massive server costs or daily updates to function?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-**The Upfront Promise** (Why would someone risk $5 on your app without trying it first? Do you have an amazing promotional video or massive social proof?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Paid Upfront vs "Freemium Unlock":** Instead of charging $4.99 upfront, it is almost always better to make the app free to download, let them poke around, and charge a $4.99 "Pro Lifetime Unlock" In-App Purchase. It achieves the exact same revenue model but drastically lowers the barrier to entry.
-
----
-
-## Common Mistakes
-- **High Server Costs:** Selling the app for $1.99 upfront, but the app relies on the OpenAI API. If a user uses the app heavily for 2 years, they will cost you $50 in API fees, bankrupting you. One-time purchase apps must rely entirely on the device's local processing (offline) to be profitable long-term.
-- **No Refund Policy:** Users who buy a paid app and don't like it will instantly leave a 1-star review to warn others.
-
----
-
-## AI Prompt
-Use AI to decide if the upfront model will destroy your download metrics.
-
-\`\`\`prompt
-Act as an App Store Analytics Expert.
-My app concept is a one-time purchase.
-
-1. Tell me bluntly if this app concept will survive as a "Paid Upfront" app, or if I should switch to a "Free Download with a Lifetime Unlock IAP." Explain why.
-2. If my app requires a server or API, calculate the financial risk of charging a one-time fee.
-3. Suggest the optimal price point ($0.99, $4.99, $9.99, $19.99) for this specific type of utility.
-\`\`\`
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like App Store Connect) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your final Pricing strategy (Paid Upfront vs Lifetime IAP) and Price Point here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-9.99) for this specific type of utility.
-\`\`\`
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like App Store Connect) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your final Pricing strategy (Paid Upfront vs Lifetime IAP) and Price Point here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [RevenueCat: State of Subscription Apps](https://www.revenuecat.com/state-of-subscription-apps/)\n- [Apple App Store: Monetization Guidelines](https://developer.apple.com/app-store/business-models/)`,
+## Validation Checklist
+- [ ] The app has minimal to zero ongoing server or third-party API costs.
+- [ ] The architecture relies heavily on local device storage (CoreData/SQLite) rather than cloud databases.
+- [ ] The upfront price is high enough to cover Customer Acquisition Cost (CAC) immediately.
+`,
   'mobilesuccessmetrics': `# Success Metrics
 
-**🕒 Estimated Time:** 15 min
+**Estimated Time:** 1 hour
 
 ---
 
-## Overview
-How do you know if your MVP is actually good? In mobile, "Downloads" is a vanity metric. You can buy 10,000 downloads with ads, but if 9,900 people delete the app within 5 minutes, your app is a failure. Success metrics define the exact numbers you need to hit to prove your app has Product-Market Fit.
+## Why this matters
+If you don't define what success looks like *before* you launch, you will move the goalposts to make yourself feel better. Defining explicit metrics forces you to face reality: is the app growing, dying, or stagnating?
 
----
+## Strategic Guidance
 
-## Think First
-Define what a "Win" looks like.
+### Hackathon Mode
+Success is a working demo that doesn't crash on stage. Metrics do not matter.
 
-**The Primary Action** (What is the ONE action a user takes that proves they got value? E.g., Completing a workout, sending a message, saving a photo).
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Success is a clean GitHub repository, a well-written README, and a working demo video. If you deploy it to the App Store, getting even 10 organic downloads is a huge success you can mention in interviews.
 
-**The Aha Timeline** (How fast should a user achieve that Primary Action after opening the app for the first time? 30 seconds? 5 minutes?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+Select exactly ONE primary metric that acts as your "North Star." 
 
----
+For a social app, this might be Daily Active Users (DAU). For a B2B SaaS, it might be Monthly Recurring Revenue (MRR). For a utility app, it might be the number of tasks completed per week. Every feature you build should be judged against whether it moves the North Star metric. Accompany the North Star with 2-3 supporting metrics (like Churn Rate and Customer Acquisition Cost) to ensure you aren't growing one metric at the fatal expense of another.
 
-## Key Decisions
-- **Analytics Provider:** You cannot track these metrics by guessing. You must integrate an analytics SDK. For mobile MVPs, **PostHog**, **Amplitude**, or **Firebase Analytics** are the industry standards.
-- **Privacy Tradeoffs:** If you use strict privacy policies (e.g., Apple's App Tracking Transparency), many users will opt out of tracking, meaning your metrics will be partially blind.
-
----
-
-## Common Mistakes
-- **Tracking Everything:** Firing an analytics event every time the user scrolls or clicks a minor button. Your dashboard will be a chaotic mess. Only track the 3-5 actions that actually matter.
-- **Ignoring the Funnel:** Knowing that 100 people downloaded the app and 10 created an account is useless unless you know *exactly which screen* the other 90 people closed the app on.
-
----
-
-## AI Prompt
-Use AI to set realistic, actionable goals for your launch.
-
+## North Star Metric Prompt
 \`\`\`prompt
-Act as a Mobile Data Scientist.
-Review my app concept and the Primary Action defined above.
-
-1. Define the 3 most critical custom analytics "Events" I need to track in my React Native code (e.g., 'signup_completed', 'photo_uploaded').
-2. Set a realistic benchmark for my "Onboarding Completion Rate" (What percentage of downloads should successfully finish the initial setup?).
-3. What is the most dangerous "Vanity Metric" I should ignore?
+Act as a Data-Driven CEO. My mobile app is a [Insert Category] app that helps users [Insert Core Value]. Suggest 3 potential 'North Star' metrics for this specific app. Which one is the hardest to manipulate through vanity marketing, and why is it the best indicator of true product-market fit?
 \`\`\`
 
----
+## Validation Checklist
+- [ ] A single "North Star" metric has been explicitly defined.
+- [ ] A tool (e.g., PostHog, Mixpanel, RevenueCat) is selected to track this metric accurately.
+- [ ] Supporting metrics (Churn, CAC) are defined to provide business context.
+`,
+  'mobileretention': `# Retention Tracking
 
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like PostHog, Firebase) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your 3 Critical Analytics Events and your Onboarding Benchmark here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Mixpanel: Guide to Product Metrics](https://mixpanel.com/topics/product-metrics/)\n- [Amplitude: The Retention Playbook](https://amplitude.com/retention-playbook)`,
-  'mobileretention': `# Retention
-
-**🕒 Estimated Time:** 15 min
+**Estimated Time:** 1-2 hours
 
 ---
 
-## Overview
-Retention is the ultimate arbiter of truth in the App Store. Retention measures the percentage of users who return to your app on Day 1, Day 7, and Day 30 after installing it. If your Day 30 retention is near 0%, your app is a leaky bucket—spending money on marketing is entirely pointless until you fix the core experience.
+## Why this matters
+Retention is the ultimate arbiter of Product-Market Fit. If 1,000 people download your app on Monday, and only 10 open it on Tuesday (1% Day 1 Retention), your product is fundamentally broken. You cannot fix bad retention with more marketing.
 
----
+## Strategic Guidance
 
-## Think First
-Why would they come back?
+### Hackathon Mode
+Ignore this. 
 
-**The Core Loop** (What triggers the user to open the app again tomorrow? Is it a notification? A daily habit? A social obligation?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Ignore this, you do not have enough users for retention cohorts to be statistically significant.
 
-**The D1 Drop-off** (If a user opens your app today, but deletes it tomorrow, what is the most likely reason why?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Production SaaS
+You must track Day 1, Day 7, and Day 30 retention rigorously.
 
----
+On mobile, Day 1 retention (the percentage of users who open the app the day after downloading) averages around 25%. If yours is below 15%, your onboarding flow is failing or your app is crashing. Create a "Cohort Analysis" chart in your analytics tool (PostHog/Amplitude). Look for the "retention plateau"—the point where the curve flattens out. If your curve never flattens and drops to 0%, you have a leaky bucket. Stop all marketing spend immediately until you fix the core product loop.
 
-## Key Decisions
-- **Push Notification Strategy:** Push notifications are the strongest tool for retention, but abusing them causes users to instantly uninstall. You must design notifications that are *valuable*, not just promotional.
-- **Gamification vs Utility:** Will you use streaks, badges, or daily rewards to force retention, or will the raw utility of the app naturally bring them back?
-
----
-
-## Common Mistakes
-- **Focusing on Acquisition over Retention:** Spending thousands on ads while your Day 1 retention is 10%. You are literally burning money.
-- **"We miss you" notifications:** Sending generic, desperate push notifications that say "Come back to the app!" Provide actual value (e.g., "Your daily report is ready").
-
----
-
-## AI Prompt
-Use AI to design a retention loop that keeps users hooked.
-
+## Cohort Analysis Prompt
 \`\`\`prompt
-Act as a Mobile Growth & Retention Specialist.
-Review my app concept.
-
-1. Design a "Core Loop" that naturally brings the user back on Day 2 and Day 7.
-2. Suggest 2 high-value Push Notifications I can send that the user will actually appreciate, rather than find annoying.
-3. What is a realistic Day 1 and Day 30 retention benchmark for my specific category of app?
+Act as a Growth Product Manager. My mobile app's Day 1 retention is 40%, but by Day 7 it drops to 5%. Outline a strategy for using qualitative user interviews and quantitative funnel analysis to identify exactly *why* users are abandoning the app between Day 2 and Day 6.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like OneSignal or Supabase Edge Functions) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your Core Loop strategy and Push Notification concepts here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Mixpanel: Guide to Product Metrics](https://mixpanel.com/topics/product-metrics/)\n- [Amplitude: The Retention Playbook](https://amplitude.com/retention-playbook)`,
+## Validation Checklist
+- [ ] Analytics are configured to track Day 1, Day 7, and Day 30 retention cohorts.
+- [ ] The onboarding funnel is tracked step-by-step to find the highest drop-off points.
+- [ ] Marketing spend is tied to retention validation (do not scale marketing on a leaky bucket).
+`,
   'mobiledau': `# DAU (Daily Active Users)
 
-**🕒 Estimated Time:** 10 min
+**Estimated Time:** 30 minutes
 
 ---
 
-## Overview
-DAU (Daily Active Users) measures the exact number of unique people who open your app on any given day. This is the heartbeat of highly interactive apps (like social media, games, or daily planners). However, not every app is meant to be used daily.
+## Why this matters
+Daily Active Users (DAU) measures how many unique people open your app in a 24-hour period. It is the defining metric for apps that require daily habit formation (e.g., social media, fitness trackers, to-do lists).
 
----
+## Strategic Guidance
 
-## Think First
-Does your app demand daily attention?
+### Hackathon Mode
+Ignore this.
 
-**Daily Expectation** (Honestly, does your user *need* to use this app every single day? Why?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Ignore this.
 
----
+### Production SaaS
+Not every app needs to optimize for DAU. 
 
-## Key Decisions
-- **Is DAU the right metric?** If you are building an app to help people file their quarterly taxes, a low DAU is totally fine. Do not force daily mechanics (like arbitrary daily streaks) into an app that is fundamentally a weekly or monthly utility.
+If you are building a tax preparation app, optimizing for DAU is stupid—users only need it once a year. If you are building a habit tracker, DAU is your lifeblood. Define what "Active" actually means. Is simply opening the app "active," or must the user actually log a habit? (Hint: strictly define "active" as performing the core action). Calculate your DAU/MAU ratio (stickiness). A ratio above 20% is good; above 50% is world-class.
 
----
-
-## Common Mistakes
-- **Confusing DAU with Sessions:** If one person opens the app 50 times in one day, that is 50 Sessions, but only 1 DAU. DAU measures *people*, not clicks.
-
----
-
-## AI Prompt
-Use AI to evaluate if Daily Active Users is a metric you should obsess over.
-
+## DAU Definition Prompt
 \`\`\`prompt
-Act as a Mobile Data Analyst.
-Review my app concept.
-
-1. Should DAU be my primary health metric, or is my app better measured by Weekly or Monthly activity? Explain why.
-2. If DAU is important for my app, what specific feature can I add to the MVP to encourage a daily check-in habit?
+Act as a Data Analyst. My app is a [Describe App]. If we track DAU, should the 'Active' event just be 'App Opened', or should it be a specific core action? Define exactly what the 'Active' event should be to prevent us from tracking vanity metrics.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your decision on whether DAU is your primary metric here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Mixpanel: Guide to Product Metrics](https://mixpanel.com/topics/product-metrics/)\n- [Amplitude: The Retention Playbook](https://amplitude.com/retention-playbook)`,
+## Validation Checklist
+- [ ] The "Active" event is strictly defined as a core action, not just "App Opened."
+- [ ] The DAU metric aligns with the natural usage frequency of the product.
+`,
   'mobilemau': `# MAU (Monthly Active Users)
 
-**🕒 Estimated Time:** 10 min
+**Estimated Time:** 30 minutes
 
 ---
 
-## Overview
-MAU (Monthly Active Users) measures the number of unique people who open your app at least once in a 30-day period. Investors and App Store algorithms love MAU because it demonstrates the true, long-term footprint of your app. For many utilities (like travel booking, budgeting, or smart home management), MAU is the ultimate health indicator.
+## Why this matters
+Monthly Active Users (MAU) measures your broader active user base over a 30-day period. It is a critical metric for B2B tools, utility apps, and reporting overall business scale to investors.
 
----
+## Strategic Guidance
 
-## Think First
-How do you survive a 30-day gap?
+### Hackathon Mode
+Ignore this.
 
-**The Monthly Trigger** (What event happens in your user's life once a month that forces them to remember your app exists?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Ignore this.
 
----
+### Production SaaS
+MAU is a slower-moving metric than DAU, making it better for tracking macro-level growth trends. 
 
-## Key Decisions
-- **The DAU/MAU Ratio:** Dividing your DAU by your MAU gives you a percentage representing user "stickiness." (e.g., If DAU is 1,000 and MAU is 10,000, your stickiness is 10%). A ratio over 20% is considered excellent.
+If your MAU is growing but your MRR (Monthly Recurring Revenue) is flat, your monetization funnel is broken. Just like DAU, you must strictly define what an "Active" user is. Investors look heavily at MAU growth month-over-month (MoM). A healthy early-stage SaaS aims for 10-20% MoM MAU growth. Ensure you are removing bots, test accounts, and internal team members from your MAU calculations.
 
----
-
-## Common Mistakes
-- **Focusing only on downloads:** Bragging about "100,000 downloads" while your MAU is 500. This means your app is heavily marketed but fundamentally broken.
-
----
-
-## AI Prompt
-Use AI to design long-term engagement strategies.
-
+## MAU Growth Prompt
 \`\`\`prompt
-Act as a Mobile Growth Hacker.
-Review my app concept.
-
-1. How can I increase my MAU by creating a monthly "trigger" or summary report (like Spotify Wrapped or a Monthly Budget Summary) that brings users back?
-2. What is a healthy DAU/MAU ratio for my specific app category?
+Act as an Investor Relations Manager. Our MAU is growing at 15% month-over-month, but our Paid Subscribers are only growing at 2% month-over-month. What are the top 3 underlying product or marketing issues that cause this discrepancy, and how should we investigate them?
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your Monthly Trigger strategy and target DAU/MAU ratio here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Mixpanel: Guide to Product Metrics](https://mixpanel.com/topics/product-metrics/)\n- [Amplitude: The Retention Playbook](https://amplitude.com/retention-playbook)`,
+## Validation Checklist
+- [ ] Internal team members and test accounts are excluded from the MAU metric.
+- [ ] MAU growth is actively compared against MRR/Revenue growth to ensure quality acquisition.
+`,
   'mobilesessionduration': `# Session Duration
 
-**🕒 Estimated Time:** 10 min
+**Estimated Time:** 30 minutes
 
 ---
 
-## Overview
-Session Duration measures how long a user stares at your app from the moment they open it to the moment they background it. In the mobile world, longer is NOT always better. For a game or a social feed (TikTok), you want 30-minute sessions. For a utility app (Uber, Weather), a 30-minute session means your UI is incredibly confusing and broken.
+## Why this matters
+Session duration measures how long a user spends in your app during a single sitting. For ad-supported or social apps, higher session duration directly correlates with higher revenue. For utility or productivity apps, a high session duration might actually mean your UX is confusing.
 
----
+## Strategic Guidance
 
-## Think First
-What is your ideal session length?
+### Hackathon Mode
+Ignore this.
 
-**The Quick Task** (If your app is a utility, how quickly should a power user be able to get in, accomplish their goal, and get out?)
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
+### Personal Project
+Ignore this.
 
----
+### Production SaaS
+Context is everything for session duration. 
 
-## Key Decisions
-- **The Friction Goal:** If you are building a utility app, your goal is to *decrease* session duration in every update by removing clicks and speeding up API calls.
+If you are building TikTok, you want a 45-minute session duration. If you are building an app to quickly log expenses, a 5-minute session duration means your UI is terrible and the user is struggling. Determine what a "successful" session duration looks like for your specific use case. If you need to decrease session duration (improve efficiency), track the time-to-completion for the core task. If you need to increase it (for ad revenue), implement infinite scrolls, algorithmically generated feeds, or push notification re-engagement loops.
 
----
-
-## Common Mistakes
-- **Optimizing for the wrong metric:** Adding a mandatory 5-second intro animation to a calculator app just to keep users on the screen longer. You will be uninstalled immediately.
-
----
-
-## AI Prompt
-Use AI to optimize your app's intended session flow.
-
+## Session Duration Strategy Prompt
 \`\`\`prompt
-Act as a UX Performance Analyst.
-Review my app concept.
-
-1. What is the ideal Session Duration for my specific app? (e.g., 30 seconds? 5 minutes?)
-2. If my sessions are currently running twice as long as the ideal, what are the top 3 UI bottlenecks I should investigate?
+Act as a UX Analyst. My app is a [Describe App]. Is our goal to maximize session duration (keep them engaged) or minimize session duration (get them to the result faster)? Based on your answer, suggest 2 UX changes we can implement to achieve that goal.
 \`\`\`
 
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Paste your Ideal Session Duration and UX philosophy here.
-
-\`\`\`input
-✍️ Type your answer here...
-\`\`\`
-
-
-## 📚 Context Links
-- [Mixpanel: Guide to Product Metrics](https://mixpanel.com/topics/product-metrics/)\n- [Amplitude: The Retention Playbook](https://amplitude.com/retention-playbook)`,
+## Validation Checklist
+- [ ] It is explicitly decided whether the product goal is to maximize or minimize session duration.
+- [ ] Analytics (e.g., PostHog/Mixpanel) are configured to accurately track session start and end events.
+`,
   'mobileprd': `# Product Requirements Document (PRD)
 
 **🕒 Estimated Time:** 30 min
@@ -10256,1000 +7735,143 @@ You cannot submit an app without a valid Privacy Policy URL.`,
 
   'privacypolicy': `# Privacy Policy
 
-🕒 **Estimated Time:** 1-2 hours
+**Estimated Time:** 1-2 hours
 
 ---
 
-## Overview
-Both Apple and Google strictly require a publicly accessible Privacy Policy URL. If you collect emails, use analytics (like PostHog), or serve ads, you are legally required to disclose exactly what data you collect and how you use it.
+## Why this matters
+A Privacy Policy is a legally mandated document that explains how you collect, use, and protect user data. Failing to have one violates international laws (like GDPR or CCPA) and will get your app rejected from the Apple App Store, Google Play Store, and third-party API providers like Google OAuth.
 
----
+## Strategic Guidance
 
-## Think First
-**What 3rd party SDKs are running in your app? (Supabase, Sentry, PostHog, RevenueCat all collect data).**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Are you storing user data on servers, and if so, how can a user request their data to be deleted? (Apple strictly requires an account deletion feature).**
-\`\`\`input
-Type your answer here...
-\`\`\`
+### Hackathon Mode
+You technically need a privacy policy if you are using Google OAuth or deploying to an App Store, but you have zero time to write one.
 
----
+Generate a generic privacy policy using a free online generator (e.g., Termly or Firebase's default generator). Host it on a free Notion page or a simple GitHub Pages site. Paste the URL into whatever submission form is blocking you and move on. No one is going to sue you over a hackathon project.
 
-## Key Decisions
-- **Hosting Location:** Decide where the policy will live. You can host it on your landing page (e.g., \`yourapp.com/privacy\`), or use a free hosting tool like Termly, Iubenda, or a Notion public page.
-- **Generators vs Lawyers:** For a simple indie app, an online generator is usually sufficient. If you are handling medical data (HIPAA) or financial data, you need a lawyer.
+### Personal Project
+For a personal project, a basic privacy policy is required if you are collecting emails or using analytics.
 
----
+Use a free template. Clearly state that this is a portfolio project, but accurately list the third-party services you use (e.g., "We use Supabase for authentication"). This shows attention to detail and professionalism. Ensure the link is visible in your footer.
 
-## Common Mistakes
-- **Failing Apple's Account Deletion Rule:** Apple will reject your app if you require users to email you to delete their account. The deletion must be initiated inside the app UI.
-- **Not Disclosing SDKs:** Failing to mention that you use tools like Google Analytics or Sentry, which can result in App Store rejection during review.
+### Production SaaS
+In a production environment, your Privacy Policy is a serious legal document. Misrepresenting how you handle data can lead to massive fines.
 
----
+You must explicitly list every piece of Personally Identifiable Information (PII) you collect and every third-party subprocessor you use (Stripe, PostHog, OpenAI, AWS). You must define your data retention periods and provide a mechanism for users to request data deletion (Right to be Forgotten). If you are operating in Europe or California, you must comply with GDPR and CCPA strictly. Consider consulting a lawyer or using a premium compliance service like Termly or Iubenda to ensure your policy is watertight.
 
-## AI Prompt
-Use this prompt to generate your output.
+## Legal Generation Prompt
 \`\`\`prompt
-I am building a mobile app using React Native, Supabase (Auth and Database), RevenueCat (Payments), and Sentry (Crash Reporting). Act as a legal expert and generate a standard, compliant Privacy Policy. Ensure you explicitly mention the third-party services I just listed, how data is handled, and outline a user's right to delete their account.
+Act as a Tech Lawyer. I am building a SaaS application that collects email addresses for authentication, uses Stripe for payments, and OpenAI for generating text. Draft a comprehensive Privacy Policy that complies with GDPR and CCPA. Include a section explicitly detailing how users can request the deletion of their data.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Generate a Privacy Policy outlining all data collected.
-- [ ] Explicitly list all third-party SDKs (Analytics, Crash Reporting).
-- [ ] Host the Privacy Policy on a public URL.
-- [ ] Ensure the app has a working 'Delete Account' button.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** privacy_policy.md
-**Purpose:** The legal text to host on your website.
-**Contents:** Full Privacy Policy text.
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
-
----
-
-## Next Step
-Generate the Terms of Service to protect your intellectual property.`,
+- [ ] A Privacy Policy is accessible from the main website footer.
+- [ ] All third-party data processors are listed.
+- [ ] The policy includes instructions for users to request data deletion.
+- [ ] The policy complies with local regulations (GDPR/CCPA) if applicable.
+`,
 
   'termsofservice': `# Terms of Service
 
-🕒 **Estimated Time:** 1 hour
+**Estimated Time:** 1-2 hours
 
 ---
 
-## Overview
-The Terms of Service (ToS) or End User License Agreement (EULA) is a contract between you and the user. It dictates the rules of using your app and protects you from liability if your app crashes or causes a user to lose data.
+## Why this matters
+Your Terms of Service (ToS) is the legal contract between you and your users. It protects your business from liability, outlines acceptable use, and gives you the legal right to terminate abusive accounts or refuse refunds.
 
----
+## Strategic Guidance
 
-## Think First
-**Are users generating content? (If so, you need terms allowing you to ban abusive users).**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Is your app a paid subscription? (You must outline refund policies).**
-\`\`\`input
-Type your answer here...
-\`\`\`
+### Hackathon Mode
+Skip it completely unless a platform specifically requires a URL to allow you to use their API. If forced, generate a boilerplate template online, host it on a free Notion page, and forget about it. Your focus must remain entirely on shipping the product.
 
----
+### Personal Project
+A basic Terms of Service is good practice if you allow user-generated content (UGC). You need a clause that allows you to delete inappropriate content. Use a free template to establish basic ground rules, but do not spend more than 15 minutes on it. 
 
-## Key Decisions
-- **Apple's Standard EULA vs Custom ToS:** Apple allows you to fall back on their standard EULA by default. However, having a custom ToS on your website is recommended for stronger liability protection.
+### Production SaaS
+For a production SaaS, the ToS is your primary defense against lawsuits and abusive users. It must be robust.
 
----
+You must clearly define your refund policy, limitation of liability, and account termination rights. If users generate content, you need a DMCA takedown policy. If you process payments, outline what happens during chargebacks. Force users to explicitly agree to the ToS during signup (a required checkbox, not just a link in the footer). For a serious business, this document should eventually be reviewed by legal counsel.
 
-## Common Mistakes
-- **No User Generated Content (UGC) Policy:** If your app allows users to post content (like a social network), Apple requires a strict ToS that states there is zero tolerance for objectionable content, AND you must have a way for users to flag/block bad actors.
-- **Copy-Pasting Blindly:** Using a competitor's ToS without replacing their company name or adjusting it to fit your specific feature set.
-
----
-
-## AI Prompt
-Use this prompt to generate your output.
+## Terms Generation Prompt
 \`\`\`prompt
-Generate a standard Terms of Service (EULA) for my mobile app. The app allows users to create accounts and post text content. Include a strict 'User Generated Content' policy stating that abusive users will be banned, a 'Limitation of Liability' clause, and state that subscriptions are handled by the respective App Stores.
+Act as a Corporate Lawyer. Draft a Terms of Service for a SaaS application. The application allows users to upload content, charges a monthly subscription via Stripe, and has a strict no-refund policy after 14 days. Include a robust Limitation of Liability clause and a clause granting us the right to terminate accounts for abusive behavior.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Generate the Terms of Service.
-- [ ] Include a Limitation of Liability clause.
-- [ ] Include a User Generated Content (UGC) moderation clause (if applicable).
-- [ ] Host the ToS on a public URL.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** terms_of_service.md
-**Purpose:** Protects you legally from misuse of your app.
-**Contents:** Full Terms of Service text.
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
-
----
-
-## Next Step
-Fill out the content rating questionnaires to get your age rating.`,
-
-  'contentrating': `# Content Rating
-
-🕒 **Estimated Time:** 30 minutes
-
----
-
-## Overview
-Both Google and Apple require you to fill out a questionnaire to assign an age rating to your app (e.g., 4+, 12+, 17+). This ensures parents can restrict apps that contain violence, profanity, or gambling.
-
----
-
-## Think First
-**Does your app have unrestricted internet access (like a web browser)?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Does your app facilitate dating, or meeting people in real life?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Honesty is Key:** You must accurately declare if your app contains simulated gambling, frequent intense profanity, or medical advice. Attempting to hide this to get a '4+' rating will result in an immediate rejection and potential account ban.
-
----
-
-## Common Mistakes
-- **Medical Advice:** If you claim your app provides medical advice, Apple requires you to be a recognized institution (hospital/insurance). Always state your app is for 'informational/fitness purposes only' if you are an indie dev.
-- **Unmoderated UGC:** If you have user-generated content, you must check 'Yes' to 'Does the app allow users to interact?'. If you lack a blocking/reporting feature, you will be rejected.
-
----
-
-## AI Prompt
-Use this prompt to generate your output.
-\`\`\`prompt
-I am preparing to fill out the App Store and Google Play Content Rating questionnaires. My app is a [describe app]. Are there any specific features in my app that might trigger a 17+ rating or cause a rejection regarding medical claims, dating, or user interactions?
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Complete the IARC questionnaire in Google Play Console.
-- [ ] Complete the Age Rating questionnaire in App Store Connect.
-- [ ] Ensure your UGC blocking/reporting UI is functional before submitting.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** content_rating_notes.txt
-**Purpose:** A record of potential flags for the reviewers.
-**Contents:** List of 'Yes' answers you plan to provide on the rating questionnaire.
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
-
----
-
-## Next Step
-Upload your binary to the Test Tracks to ensure it installs correctly.`,
-
-  'testtracks': `# Test Tracks
-
-🕒 **Estimated Time:** 1-2 hours
-
----
-
-## Overview
-Before pushing to Production, you should upload your app binary (.aab or .ipa) to an Internal Test Track. This allows you and your team to download the app directly from the real App Store/Play Store to verify push notifications and in-app purchases work in a production environment.
-
----
-
-## Think First
-**Have you tested your app on a physical device, not just an emulator?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Are your environment variables pointing to the Production database, not the Local/Staging database?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Internal vs Closed Beta:** Internal tracks are for your immediate team (instant updates, no review required). Closed Beta is for external testers (requires a basic store review before testers can see it).
-
----
-
-## Common Mistakes
-- **Testing with Staging APIs:** Uploading an app to TestFlight that is hardcoded to talk to \`localhost:3000\` or a Staging database, causing it to instantly crash for real users.
-- **Forgetting Sandbox Accounts:** When testing In-App Purchases on TestFlight, you must use an Apple Sandbox Account, otherwise your real credit card will be charged.
-
----
-
-## AI Prompt
-Use this prompt to generate your output.
-\`\`\`prompt
-I am about to upload my React Native Expo app to TestFlight and Google Play Internal Testing. Provide a checklist of environment variables and configuration files (like app.json) that I MUST verify are set to 'production' before I trigger the EAS Build.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Verify all API endpoints point to Production.
-- [ ] Build the \`.aab\` (Android) and \`.ipa\` (iOS) binaries.
-- [ ] Upload to App Store Connect and Google Play Console.
-- [ ] Add your email to the Internal Testers list and download the app.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** test_track_strategy.md
-**Purpose:** Defines how builds move from staging to production.
-**Contents:** List of internal testers, and the environment variable checklist.
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
-
----
-
-## Next Step
-Expand your testing pool to real users via Beta Testing.`,
+- [ ] Users must explicitly agree to the Terms of Service during account creation.
+- [ ] The refund and cancellation policies are clearly defined.
+- [ ] Limitation of Liability and account termination clauses are included.
+`,
 
   'betatesting': `# Beta Testing
 
-🕒 **Estimated Time:** 14+ days
+**Estimated Time:** 3-7 Days
 
 ---
 
-## Overview
-Beta testing gets your app into the hands of real users before the official launch. This uncovers edge-case bugs and UI confusion. For new Google Play Personal Accounts, a 14-day Closed Beta with 20 testers is legally required before you can launch.
+## Why this matters
+You have lost objectivity. After staring at your app for weeks, you know exactly where to click, but your users will inevitably click the wrong things. Beta testing exposes critical UX flaws, edge-case bugs, and confusing onboarding flows before a public launch ruins your reputation.
 
----
+## Strategic Guidance
 
-## Think First
-**How will testers report bugs? (Email, Discord, in-app feedback button?)**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**If you are on Android, how will you recruit 20 people to keep your app installed for 14 days?**
-\`\`\`input
-Type your answer here...
-\`\`\`
+### Hackathon Mode
+There is no time for beta testing. The judges are your beta testers. Your "testing" consists of you running through the demo script exactly three times to ensure it doesn't crash. If it works on your machine, ship it.
 
----
+### Personal Project
+For a personal project, beta testing means sending the link to 3-5 friends or posting it in a developer Discord. 
 
-## Key Decisions
-- **Public Link vs Email Invites:** TestFlight allows you to generate a public link to share on Twitter/Reddit to quickly get testers. Email invites are better for a highly controlled, private group.
-- **In-App Analytics:** You must rely heavily on tools like Sentry and PostHog during the beta, as users rarely report bugs manually. Let the crash reports guide you.
+Ask them to try a specific workflow (e.g., "Try creating an account and posting a comment"). Watch them do it live over a screen share if possible. You will immediately see where they get confused. Fix the glaring issues, but do not get bogged down in minor UI tweaks.
 
----
+### Production SaaS
+A production SaaS launch must be preceded by a structured, closed beta. Launching a broken product to a large audience will permanently burn leads.
 
-## Common Mistakes
-- **Launching the Beta with Critical Blockers:** If the sign-up screen is broken, all 20 of your testers will churn on Day 1, wasting the entire beta period.
-- **Ignoring Tester Feedback:** If 5 testers tell you a button is confusing, don't argue with them. Fix the button.
+Invite a small cohort (10-50 users) of your most engaged waitlist subscribers. Use tools like PostHog or FullStory to record their sessions and see exactly where they drop off. Create a dedicated feedback channel (a private Slack/Discord group or an in-app feedback widget). 
 
----
+Your goal is to validate the "Aha!" moment. If beta testers don't experience the core value quickly, your onboarding is broken. Do not transition to a public launch until the beta cohort is successfully using the product and reporting no critical blockers.
 
-## AI Prompt
-Use this prompt to generate your output.
+## Beta Tester Outreach Prompt
 \`\`\`prompt
-I need to recruit 20 beta testers for my Android app to satisfy Google's 14-day requirement. Generate a polite, engaging message I can post on Reddit and Discord to ask for testers. Include instructions on how they should report bugs.
+Act as a Product Marketer. Write an email to the top 50 users on our waitlist, inviting them to an exclusive closed beta. The tone should be appreciative and emphasize that their feedback will directly shape the product. Include instructions on how to report bugs or provide feedback.
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Submit the app for Beta Review (required for external TestFlight).
-- [ ] Generate a public beta link.
-- [ ] Distribute the link to your community/waitlist.
-- [ ] Monitor Sentry for crashes daily.
+- [ ] A small cohort of users has successfully completed the core workflow.
+- [ ] Session recording tools are active to observe user behavior.
+- [ ] A clear channel exists for beta testers to report bugs and feedback.
+- [ ] All critical bugs identified during the beta have been resolved.
+`,
+
+  'playstoreresearch': `# Play Store Research
+
+**Estimated Time:** 1-2 hours
 
 ---
 
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
+## Why this matters
+The Google Play Store is a fundamentally different ecosystem than the Apple App Store. Android users behave differently, expect different UI paradigms (Material Design), and generally have a lower willingness to pay upfront. Researching the Play Store specifically ensures your Android strategy is viable.
 
----
+## Strategic Guidance
 
-## Deliverable
-**File Name:** beta_recruitment_post.txt
-**Purpose:** The copy you will use to acquire beta testers.
-**Contents:** The Reddit/Discord recruitment post.
+### Hackathon Mode
+Ignore this entirely. Unless your hackathon specifically requires an Android deployment, just build for iOS or web first. If you must deploy to Android, just make sure your Expo/React Native build compiles and ignore store optimization.
 
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
+### Personal Project
+If you plan to publish your app to the Play Store, understand that Google requires new personal developer accounts to have 20 opt-in testers test the app for 14 continuous days before it can be published to the public. Factor this massive delay into your launch timeline.
 
----
+### Production SaaS
+Play Store research is critical for App Store Optimization (ASO). 
 
-## Next Step
-Complete the final Release Checklist to go live.`,
+Google's search algorithm heavily indexes the app's Long Description, whereas Apple does not. You must optimize your long description with target keywords. Look at the top apps in your category on Android: Do they use freemium models? (Android users strongly prefer freemium/ad-supported over paid-upfront). Analyze the screenshots—Android devices have diverse aspect ratios, so ensure your screenshots look good on long, narrow screens. Read the 1-star reviews to find common device-specific bugs (e.g., "Crashes on Samsung S22") that you must test for.
 
-  'releasechecklist': `# Release Checklist
-
-🕒 **Estimated Time:** 1 hour
-
----
-
-## Overview
-You are ready to hit the 'Submit for Review' button. Apple and Google will take anywhere from 24 hours to 7 days to manually review your app. Once approved, your app will be live and searchable by millions of users.
-
----
-
-## Think First
-**Do you have a demo account ready? (Apple requires you to provide a test username and password so they can log into your app).**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Do you want to release manually or automatically?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Manual Release vs Automatic:** ALWAYS choose 'Manually release this version'. If you choose automatic, Apple might approve your app at 3 AM on a Sunday, ruining your coordinated Product Hunt launch.
-- **Phased Release:** For updates, choose a 7-day Phased Release. This sends the update to 1% of users, then 10%, etc. If a critical bug is found, you can halt the rollout before it impacts everyone.
-
----
-
-## Common Mistakes
-- **Missing Demo Credentials:** Forgetting to provide a working test username/password in the App Store Connect 'Review Notes'. Apple will instantly reject the app.
-- **No Content:** Submitting an app that is entirely blank because your production database has no seed data. The reviewer must see a functioning app.
-
----
-
-## AI Prompt
-Use this prompt to generate your output.
+## Android ASO Prompt
 \`\`\`prompt
-Act as an App Store Reviewer. Review my app's functionality: [Describe what your app does]. What are the top 3 obscure App Store Guidelines that I might be violating without realizing it, which could cause my submission to be rejected?
+Act as an App Store Optimization (ASO) Expert. I am launching an Android app for [Describe App]. What are the top 5 ranking factors on the Google Play Store? How should I structure my 'Long Description' to maximize keyword indexing without looking like spam?
 \`\`\`
-
----
 
 ## Validation Checklist
-- [ ] Provide working Demo Credentials for the App Store reviewer.
-- [ ] Ensure 'Manually release this version' is checked.
-- [ ] Verify all Screenshots and Metadata are perfect.
-- [ ] Click 'Submit for Review'.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** launch_plan.md
-**Purpose:** Coordinates your exact steps once the app is approved.
-**Contents:** Marketing steps, Product Hunt link, Social media announcements.
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
-
----
-
-## Next Step
-Congratulations! Your app is in review. Once live, proceed to Phase 6 to focus on Growth and Analytics.`,
-
-  'mobile-retention': `# Retention
-
-🕒 **Estimated Time:** Ongoing
-
----
-
-## Overview
-Acquiring users is easy; keeping them is hard. Retention measures how many users return to your app on Day 1, Day 7, and Day 30. A poor Day 1 retention means your onboarding is confusing. A poor Day 30 retention means your app lacks long-term value.
-
----
-
-## Think First
-**What is the single core action a user must take in their first 5 minutes to experience the 'Aha!' moment?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Why would a user open your app next Tuesday? What is the trigger?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Hook vs Habit:** You must design a 'hook' to get users to return initially (e.g., a push notification), but eventually, the app must become an internal habit.
-- **Active vs Passive Retention:** Passive retention relies on external triggers (emails). Active retention relies on intrinsic motivation (the user wants to check their stats).
-
----
-
-## Common Mistakes
-- **Focusing Only on Acquisition:** Spending money on ads when your Day 7 retention is 2%. You are pouring water into a leaky bucket.
-- **Overwhelming Onboarding:** Asking users to create an account, verify their email, and allow 3 permissions before they even see what the app does.
-
----
-
-## AI Prompt
-Use this prompt to generate your output.
-\`\`\`prompt
-My app is a [describe app]. Act as a Growth Product Manager. Design a 7-day onboarding sequence (including push notifications and emails) designed specifically to increase Day 7 retention. Identify the exact 'Aha!' moment my users need to reach, and tell me how to get them there faster.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Define your 'Aha!' moment.
-- [ ] Track Day 1, Day 7, and Day 30 retention in your analytics tool.
-- [ ] Implement an email or push sequence for the first 7 days.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** retention_strategy.md
-**Purpose:** A blueprint for bringing users back.
-**Contents:** The 7-day email/push sequence and defined 'Aha!' moment.
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
-
----
-
-## Next Step
-To measure retention, you need proper Analytics tracking.`,
-
-  'mobile-analytics': `# Analytics
-
-🕒 **Estimated Time:** 2-3 hours
-
----
-
-## Overview
-You cannot improve what you do not measure. Product analytics tools (like PostHog or Amplitude) allow you to track specific user events, build conversion funnels, and perform cohort analysis to understand exactly where users are dropping off.
-
----
-
-## Think First
-**What are the 5 most important buttons in your app that indicate a user is engaged?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Are you tracking 'activation' (e.g., user created their first project) instead of just 'signups'?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Event Tracking vs Page Views:** Page views are a vanity metric. You must track specific user actions (e.g., 'Clicked Upgrade Button', 'Completed Workout').
-- **Server-Side vs Client-Side Tracking:** Client-side tracking can be blocked by ad-blockers. Critical events (like payments) should always be tracked server-side.
-
----
-
-## Common Mistakes
-- **Tracking Everything:** Logging every single click and scroll. Your analytics dashboard will become useless noise. Only track events tied to your core KPIs.
-- **Vague Event Naming:** Naming an event \`Button_Click_2\`. Always use a clear Object-Action framework, like \`Project_Created\` or \`Subscription_Upgraded\`.
-
----
-
-## AI Prompt
-Use this prompt to generate your output.
-\`\`\`prompt
-I am integrating product analytics (like PostHog) into my [describe app] app. Act as a Data Scientist. Provide me with a strict 'Tracking Plan' containing the top 10 most critical events I should track. Use an 'Object_Action' naming convention and define what properties (metadata) I should send with each event.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Install a product analytics SDK (PostHog, Amplitude).
-- [ ] Create a standardized Tracking Plan spreadsheet.
-- [ ] Implement tracking for your core 'Activation' event.
-- [ ] Build a funnel dashboard (Signup -> Activation -> Retention).
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** tracking_plan.csv
-**Purpose:** Maintains consistency in your analytics data.
-**Contents:** List of Event Names, Descriptions, and Properties.
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
-
----
-
-## Next Step
-Use the data from your analytics to trigger your Notifications Strategy.`,
-
-  'mobile-notificationsstrategy': `# Notifications Strategy
-
-🕒 **Estimated Time:** 1-2 hours
-
----
-
-## Overview
-Push notifications are a powerful tool to re-engage users, but they are a double-edged sword. If used incorrectly, they are the fastest way to get your app uninstalled. A good strategy balances transactional, educational, and promotional notifications.
-
----
-
-## Think First
-**Are your notifications providing immediate value to the user, or just asking them to open the app?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Do users have granular control over what types of notifications they receive?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Push vs Email vs In-App:** Use Push for urgent/time-sensitive alerts. Use Email for long-form summaries or re-engaging inactive users. Use In-App messages for feature announcements while they are actively using the app.
-
----
-
-## Common Mistakes
-- **The 'We Miss You' Push:** Sending generic, guilt-tripping notifications ('It has been a while, come back!'). Provide value instead ('Here is your weekly summary!').
-- **Asking for Permission Immediately:** Prompting the iOS 'Allow Notifications' dialog on the very first screen. Users will click 'Deny'. Ask for permission only after explaining *why* they need it.
-
----
-
-## AI Prompt
-Use this prompt to generate your output.
-\`\`\`prompt
-My app is a [describe app]. Act as a CRM Marketing Expert. Draft a notification strategy that includes 2 Push Notifications, 2 Transactional Emails, and 1 In-App message. For the Push Notifications, explain the exact 'trigger' (when it sends) and write the 50-character copy. Ensure the copy focuses on user value, not app usage.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Implement a pre-permission 'soft prompt' before triggering the OS permission dialog.
-- [ ] Build a settings screen allowing users to toggle specific notification categories.
-- [ ] Draft copy for 3 high-value push notifications.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** notification_matrix.md
-**Purpose:** Maps out exactly what notifications send and when.
-**Contents:** Triggers, Channels (Push/Email), and Copy.
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
-
----
-
-## Next Step
-Now that you are communicating with users, you need a way to receive User Feedback.`,
-
-  'mobile-userfeedback': `# User Feedback
-
-🕒 **Estimated Time:** 1-2 hours
-
----
-
-## Overview
-Silent users are churning users. Providing a frictionless way for users to report bugs, suggest features, or rate their experience is crucial for product growth. Do not rely entirely on App Store reviews for your feedback loop.
-
----
-
-## Think First
-**If a user encounters a bug right now, how many clicks does it take for them to tell you about it?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Are you actively surveying users who churn (cancel their subscription)?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **In-App vs External:** An in-app widget (like Crisp or Intercom) gets 10x more feedback than a 'Contact Us' button that opens their email client.
-- **Passive vs Active:** Passive feedback is a 'Report Bug' button. Active feedback is triggering an NPS (Net Promoter Score) survey after they successfully complete a core task.
-
----
-
-## Common Mistakes
-- **Ignoring the Silent Majority:** Only listening to the 1% of extremely vocal, angry users. You must proactively survey the quiet, happy users to understand what is actually working.
-- **Long Surveys:** Sending a 20-question Typeform. Keep it to 1-2 questions maximum if you want a decent response rate.
-
----
-
-## AI Prompt
-Use this prompt to generate your output.
-\`\`\`prompt
-I want to implement a 'Churn Survey' that triggers when a user cancels their subscription to my [describe app] app. Act as a User Researcher. Draft a short, multi-choice survey with 4 options and 1 optional text field. Ensure the questions help me identify if the issue is pricing, missing features, or bugs.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Add an easily accessible 'Provide Feedback' button in the app settings.
-- [ ] Implement a short churn survey for cancelled subscriptions.
-- [ ] Set up an NPS (Net Promoter Score) survey to trigger after a positive app experience.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** feedback_loops.md
-**Purpose:** Defines how you listen to your users.
-**Contents:** Survey questions and feedback widget placement strategy.
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
-
----
-
-## Next Step
-Leverage happy users by asking for App Store Reviews & Ratings.`,
-
-  'mobile-reviewsratings': `# Reviews & Ratings
-
-🕒 **Estimated Time:** 2-3 hours
-
----
-
-## Overview
-App Store algorithms heavily favor apps with high ratings and recent reviews. Getting a 4.5+ star average is non-negotiable for organic growth. The secret is knowing exactly *when* to ask the user for a review.
-
----
-
-## Think First
-**What is the moment of highest joy or relief in your app? (e.g., beating a level, finishing a task).**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**How many times has the user opened the app before you ask them for a review?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Native Prompts vs Custom:** Both Apple and Google provide a native API (\`StoreReview\`) that allows users to rate the app without leaving it. You should always use this API, as it converts significantly higher than linking them to the App Store.
-- **The Pre-Prompt Strategy:** A common tactic is to ask an internal question first: 'Are you enjoying the app?'. If Yes -> Trigger Native Review API. If No -> Trigger internal feedback form. (Note: Apple strictly forbids incentivizing reviews).
-
----
-
-## Common Mistakes
-- **Asking on Launch:** Triggering the review prompt the second the app opens. The user hasn't done anything yet; they will dismiss it.
-- **Spamming the API:** Apple restricts the native review prompt to showing a maximum of 3 times per 365 days. If you waste it, you can't ask again for months.
-
----
-
-## AI Prompt
-Use this prompt to generate your output.
-\`\`\`prompt
-My app is a [describe app]. Act as a Growth Engineer. Identify the exact 'moment of highest joy' in my user journey where I should trigger the native iOS/Android App Store Review prompt. Write the logic rules for this trigger (e.g., 'User has opened app 3 times AND completed X action').
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Implement the native \`StoreReview\` API using React Native or Expo.
-- [ ] Write conditional logic to ensure the prompt only fires after a 'win'.
-- [ ] Ensure the prompt does not fire in the middle of a critical task.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** review_prompt_logic.js
-**Purpose:** The code logic determining when to ask for a rating.
-**Contents:** Conditional statements for triggering the StoreReview API.
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
-
----
-
-## Next Step
-Turn your highly-rated app into a viral loop with Referral Programs.`,
-
-  'mobile-referralprograms': `# Referral Programs
-
-🕒 **Estimated Time:** 1-2 days
-
----
-
-## Overview
-A referral program incentivizes your current users to invite their friends, lowering your Customer Acquisition Cost (CAC). The most successful programs offer a 'double-sided reward' where both the inviter and the invitee get something of value.
-
----
-
-## Think First
-**What can you give away for free that has high perceived value to the user but low marginal cost to you?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Are you using Deep Links to ensure the invited user is seamlessly credited to the inviter upon app install?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Financial vs Feature Rewards:** Giving away $5 account credit (Financial) vs giving away a 'Pro feature' or 'Premium Avatar' (Feature). Feature rewards are often cheaper and build deeper product engagement.
-- **Single vs Double-Sided:** Double-sided ('Give $10, Get $10') vastly outperforms single-sided because the inviter feels like they are giving a gift rather than spamming their friends.
-
----
-
-## Common Mistakes
-- **Friction in the Invite Process:** Forcing the user to copy-paste a complex code instead of just sharing a direct, dynamic deep-link.
-- **Lack of Fraud Prevention:** Users will try to refer themselves using multiple emails to get free credits. You must tie referrals to unique device IDs or require the new user to complete an action (like making a purchase) before the reward is granted.
-
----
-
-## AI Prompt
-Use this prompt to generate your output.
-\`\`\`prompt
-I want to build a referral program for my [describe app] app. Act as a Viral Growth Expert. Design a 'Double-Sided Reward' system. Detail exactly what the reward should be, what action the new user must take to unlock the reward to prevent fraud, and write the 1-sentence marketing copy explaining the offer.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Decide on a high-value, low-cost double-sided reward.
-- [ ] Implement dynamic deep-linking (e.g., via Firebase Dynamic Links or Branch.io).
-- [ ] Add fraud prevention (e.g., reward only unlocks after the invitee completes a specific action).
-- [ ] Design a beautiful 'Invite Friends' screen in the app.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** referral_mechanics.md
-**Purpose:** Outlines the viral loop and fraud prevention.
-**Contents:** Reward structure, tracking mechanism, and marketing copy.
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
-
----
-
-## Next Step
-Share your future plans with your community via a Public Roadmap.`,
-
-  'mobile-roadmap': `# Roadmap
-
-🕒 **Estimated Time:** 2-3 hours
-
----
-
-## Overview
-A product roadmap outlines what you are building next. For indie developers and startups, maintaining a 'Public Roadmap' builds immense trust with early adopters. It shows the app is actively maintained and gives users a voice in the product's direction.
-
----
-
-## Think First
-**Will your roadmap be timeline-based (Q1, Q2) or status-based (Now, Next, Later)?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Do you want users to be able to upvote features on the public roadmap?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Internal vs Public:** Internal roadmaps are strict and tied to business goals. Public roadmaps are marketing tools; they build hype and community engagement.
-- **Timeline vs Now/Next/Later:** Timeline roadmaps are dangerous because software is notoriously hard to estimate. Missing a public deadline frustrates users. 'Now, Next, Later' provides direction without strict commitments.
-
----
-
-## Common Mistakes
-- **Promising Features You Can't Deliver:** Putting 'AI Integration' on the roadmap to generate hype, without knowing how much it will cost or if it's technically feasible.
-- **Letting Users Dictate the Product:** If you blindly build whatever gets the most upvotes on a public board, you will end up with a bloated, confused 'Frankenstein' app. You must curate the roadmap.
-
----
-
-## AI Prompt
-Use this prompt to generate your output.
-\`\`\`prompt
-I am creating a public-facing 'Now, Next, Later' roadmap for my [describe app] app. Act as a Lead Product Manager. Given that my app is in its early growth stage, suggest 2 features for 'Now' (quick wins/retention), 2 features for 'Next' (growth/referrals), and 1 ambitious feature for 'Later'. Briefly explain why this prioritization makes strategic sense.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Choose a roadmap tool (Notion, Canny, Linear, or GitHub Projects).
-- [ ] Populate the board using the 'Now, Next, Later' framework.
-- [ ] Add a link to the public roadmap in your app's settings or footer.
-- [ ] Regularly move completed items to a 'Shipped' column to show momentum.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** product_roadmap.md
-**Purpose:** A structured plan for the next 6 months of development.
-**Contents:** Categorized list of features (Now, Next, Later) with brief justifications.
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
-
----
-
-## Next Step
-As your user base grows, you must finalize your Scaling Strategy to ensure the servers don't melt.`,
-
-  'mobile-scalingstrategy': `# Scaling Strategy
-
-🕒 **Estimated Time:** Ongoing
-
----
-
-## Overview
-Growth is great until your app goes viral on TikTok and your database crashes, resulting in 10,000 angry 1-star reviews. A scaling strategy ensures your architecture can handle a 10x or 100x sudden spike in traffic without breaking a sweat.
-
----
-
-## Think First
-**What is the single biggest bottleneck in your current architecture? (Hint: It is almost always the database connection limit).**
-\`\`\`input
-Type your answer here...
-\`\`\`
-**Do you have monitoring alerts set up if CPU usage hits 90%?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Vertical vs Horizontal Scaling:** Vertical scaling means upgrading to a bigger, more expensive server (easy, but has a limit). Horizontal scaling means adding more servers to distribute the load (harder, but scales infinitely).
-- **Edge Caching vs Database Queries:** The cheapest and most scalable query is the one that never hits your database. Utilize Redis or Vercel Edge Cache for data that is read frequently but updated rarely.
-
----
-
-## Common Mistakes
-- **Ignoring Connection Pooling:** If you use Serverless functions (which scale instantly) hitting a traditional PostgreSQL database without a connection pooler (like Supavisor or PgBouncer), the database will immediately run out of connections and crash.
-- **Premature Optimization:** Spending 3 months building a complex Kubernetes microservices architecture for an app with 50 users. Start with a majestic monolith or serverless functions, and scale only when the metrics demand it.
-
----
-
-## AI Prompt
-Use this prompt to generate your output.
-\`\`\`prompt
-My app's backend uses [Node.js/Supabase/Vercel]. We are expecting a massive traffic spike tomorrow due to a marketing push. Act as a Site Reliability Engineer (SRE). Provide a 5-point emergency checklist to ensure our infrastructure doesn't crash, specifically addressing database connection limits, caching strategies, and CDN configuration.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Ensure a Connection Pooler is active for your SQL database.
-- [ ] Cache heavily accessed, static data at the Edge/CDN.
-- [ ] Add database indexes to your most frequent queries.
-- [ ] Set up an automated billing alert in AWS/Vercel to prevent a massive surprise bill.
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
----
-
-## Deliverable
-**File Name:** scaling_playbook.md
-**Purpose:** Emergency protocols and architectural improvements for handling scale.
-**Contents:** List of bottlenecks, caching strategies, and connection pooling configurations.
-
-\`\`\`input
-Paste your deliverable here...
-\`\`\`
-
----
-
-## Next Step
-Congratulations! You have completed Phase 6. Your app is now an optimized, growing, and scalable product. Continue iterating on feedback and executing your roadmap!`,
+- [ ] The top 5 competitors in the Google Play Store have been analyzed.
+- [ ] The monetization strategy aligns with Android user expectations (typically freemium).
+- [ ] Relevant keywords have been identified for the Play Store Long Description.
+`,
 };

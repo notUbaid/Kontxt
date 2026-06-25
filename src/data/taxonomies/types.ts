@@ -610,7 +610,7 @@ export const createTopic = (name: string, icon: any, customLinks: QuickLink[] = 
     id,
     name,
     icon,
-    modes: ['Hackathon', 'Personal', 'Production', 'Custom'],
+    modes: ['Hackathon', 'Personal', 'Production'],
     quickLinks: [...(globalTopicLinks[id] || []), ...customLinks]
   };
 };

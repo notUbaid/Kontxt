@@ -4,7 +4,7 @@ import { TopNav, type Mode } from '../components/TopNav';
 import { LeftSidebar } from '../components/LeftSidebar';
 import { MainCanvas } from '../components/MainCanvas';
 import { RightSidebar } from '../components/RightSidebar';
-import { CustomModeModal } from '../components/CustomModeModal';
+import { CustomizeTopicsModal } from '../components/CustomizeTopicsModal';
 import { AuthModal } from '../components/AuthModal';
 import type { Project } from '../App';
 import { getTaxonomy } from '../data/taxonomy';
@@ -50,7 +50,7 @@ export default function Editor({ projects, updateProject, deleteProject, isAuthe
     const taxonomy = getTaxonomy(project.type || 'SaaS', project.mode);
     for (const cat of taxonomy) {
       const validTopics = cat.topics.filter(t => !t.modes || t.modes.includes(project.mode));
-      if (project.mode === 'Custom' && project.customTopics && project.customTopics.length > 0) {
+      if (project.customTopics && project.customTopics.length > 0) {
         const selected = validTopics.filter(t => project.customTopics!.includes(t.id));
         if (selected.length > 0) return selected[0].id;
       } else if (validTopics.length > 0) {
@@ -80,7 +80,6 @@ export default function Editor({ projects, updateProject, deleteProject, isAuthe
 
   const handleModeChange = (mode: Mode) => {
     updateProject({ ...activeProject, mode });
-    if (mode === 'Custom') setIsCustomModeModalOpen(true);
   };
 
   const handleProjectDelete = (id: string) => {
@@ -105,6 +104,7 @@ export default function Editor({ projects, updateProject, deleteProject, isAuthe
         onRequestLogin={() => setIsAuthModalOpen(true)}
         toggleLeftSidebar={() => setIsLeftSidebarOpen(!isLeftSidebarOpen)}
         toggleRightSidebar={() => setIsRightSidebarOpen(!isRightSidebarOpen)}
+        onOpenCustomize={() => setIsCustomModeModalOpen(true)}
       />
       <div className="flex-1 flex max-w-[1536px] mx-auto w-full relative overflow-hidden">
         
@@ -159,7 +159,7 @@ export default function Editor({ projects, updateProject, deleteProject, isAuthe
         </div>
       </div>
 
-      <CustomModeModal
+      <CustomizeTopicsModal
         isOpen={isCustomModeModalOpen}
         onClose={() => setIsCustomModeModalOpen(false)}
         activeProject={activeProject}

@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 import type { Project } from '../App';
 import { getTaxonomy } from '../data/taxonomy';
 
-interface CustomModeModalProps {
+interface CustomizeTopicsModalProps {
   isOpen: boolean;
   onClose: () => void;
   activeProject: Project;
@@ -238,12 +238,12 @@ const detectGameModules = (projectName: string): { type: string; topics: string[
   return null;
 };
 
-export const CustomModeModal = ({ isOpen, onClose, activeProject, onProjectUpdate }: CustomModeModalProps) => {
+export const CustomizeTopicsModal = ({ isOpen, onClose, activeProject, onProjectUpdate }: CustomizeTopicsModalProps) => {
   const [selectedTopicIds, setSelectedTopicIds] = useState<Set<string>>(new Set());
   const [detectedType, setDetectedType] = useState<string | null>(null);
   
-  // Always use the master custom taxonomy for selecting topics
-  const taxonomy = getTaxonomy(activeProject.type || 'SaaS', 'Custom');
+  // Always use the taxonomy for the current mode
+  const taxonomy = getTaxonomy(activeProject.type || 'SaaS', activeProject.mode);
 
   useEffect(() => {
     if (isOpen) {

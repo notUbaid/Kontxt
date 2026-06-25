@@ -8,7 +8,7 @@ import { fallbackContent } from '../data/content/fallback';
 
 import { filterModeContent } from '../utils/modeFilter';
 
-export type Mode = 'Hackathon' | 'Personal' | 'Production' | 'Custom';
+export type Mode = 'Hackathon' | 'Personal' | 'Production';
 
 const SettingsModal = lazy(() => import('./SettingsModal').then(({ SettingsModal }) => ({ default: SettingsModal })));
 
@@ -27,6 +27,7 @@ interface TopNavProps {
   onRequestLogin: () => void;
   toggleLeftSidebar?: () => void;
   toggleRightSidebar?: () => void;
+  onOpenCustomize?: () => void;
 }
 
 export const TopNav = ({ 
@@ -43,7 +44,8 @@ export const TopNav = ({
   onRequestLogin,
   toggleLeftSidebar,
   toggleRightSidebar,
-  onProjectDelete
+  onProjectDelete,
+  onOpenCustomize
 }: TopNavProps) => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -189,8 +191,8 @@ export const TopNav = ({
   
   const baseTaxonomy = getTaxonomy(activeProject.type || 'SaaS', activeProject.mode);
   
-  // In custom mode, filter out topics the user didn't select
-  const taxonomy = activeProject.mode === 'Custom' && activeProject.customTopics
+  // Apply custom topic selections if any
+  const taxonomy = activeProject.customTopics && activeProject.customTopics.length > 0
     ? baseTaxonomy.map(cat => ({
         ...cat,
         topics: cat.topics.filter(t => activeProject.customTopics!.includes(t.id))
@@ -384,10 +386,18 @@ export const TopNav = ({
           </button>
         </div>
 
-        <div className="hidden lg:block w-px h-8 bg-muted/80"></div>
-
         {/* Global Utilities */}
-        <div className="flex items-center gap-1 md:gap-3">
+        <div className="flex items-center gap-1 md:gap-3 ml-2">
+          {onOpenCustomize && (
+            <button 
+              onClick={onOpenCustomize}
+              className="hidden md:flex text-muted-foreground hover:text-foreground transition-colors items-center gap-1.5 text-xs font-semibold bg-background px-3 py-1.5 rounded-full border border-muted hover:border-primary/30 hover:bg-muted/20"
+              title="Customize Topics"
+            >
+              <Settings size={14} />
+              <span>Customize Topics</span>
+            </button>
+          )}
           <button 
             onClick={toggleDarkMode}
             className="text-muted-foreground hover:text-foreground transition-colors p-1.5 rounded-full hover:bg-muted/30"

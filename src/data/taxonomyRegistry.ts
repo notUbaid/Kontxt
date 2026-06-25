@@ -77,7 +77,7 @@ export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] =
         case 'Hackathon': return saasHackathonTaxonomy;
         case 'Personal': return saasPersonalTaxonomy;
         case 'Production': return saasProductionTaxonomy;
-        case 'Custom': return saasCustomTaxonomy;
+
         default: return saasProductionTaxonomy;
       }
     
@@ -86,7 +86,7 @@ export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] =
       switch (mode) {
         case 'Hackathon': return mobileHackathonTaxonomy;
         case 'Personal': return mobilePersonalTaxonomy;
-        case 'Custom': return mobileCustomTaxonomy;
+
         case 'Production':
         default: return mobileProductionTaxonomy;
       }
@@ -94,7 +94,7 @@ export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] =
       switch (mode) {
         case 'Hackathon': return aiHackathonTaxonomy;
         case 'Personal': return aiPersonalTaxonomy;
-        case 'Custom': return aiCustomTaxonomy;
+
         case 'Production':
         default: return aiProductionTaxonomy;
       }
@@ -102,7 +102,7 @@ export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] =
       switch (mode) {
         case 'Hackathon': return extensionHackathonTaxonomy;
         case 'Personal': return extensionPersonalTaxonomy;
-        case 'Custom': return extensionCustomTaxonomy;
+
         case 'Production':
         default: return extensionProductionTaxonomy;
       }
@@ -110,7 +110,7 @@ export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] =
       switch (mode) {
         case 'Hackathon': return desktopHackathonTaxonomy;
         case 'Personal': return desktopPersonalTaxonomy;
-        case 'Custom': return desktopCustomTaxonomy;
+
         case 'Production':
         default: return desktopProductionTaxonomy;
       }
@@ -118,7 +118,7 @@ export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] =
       switch (mode) {
         case 'Hackathon': return apiHackathonTaxonomy;
         case 'Personal': return apiPersonalTaxonomy;
-        case 'Custom': return apiCustomTaxonomy;
+
         case 'Production':
         default: return apiProductionTaxonomy;
       }
@@ -126,7 +126,7 @@ export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] =
       switch (mode) {
         case 'Hackathon': return internalToolHackathonTaxonomy;
         case 'Personal': return internalToolPersonalTaxonomy;
-        case 'Custom': return internalToolCustomTaxonomy;
+
         case 'Production':
         default: return internalToolProductionTaxonomy;
       }
@@ -134,7 +134,7 @@ export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] =
       switch (mode) {
         case 'Hackathon': return marketplaceHackathonTaxonomy;
         case 'Personal': return marketplacePersonalTaxonomy;
-        case 'Custom': return marketplaceCustomTaxonomy;
+
         case 'Production':
         default: return marketplaceProductionTaxonomy;
       }
@@ -142,7 +142,7 @@ export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] =
       switch (mode) {
         case 'Hackathon': return ecommerceHackathonTaxonomy;
         case 'Personal': return ecommercePersonalTaxonomy;
-        case 'Custom': return ecommerceCustomTaxonomy;
+
         case 'Production':
         default: return ecommerceProductionTaxonomy;
       }
@@ -150,7 +150,7 @@ export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] =
       switch (mode) {
         case 'Hackathon': return gameHackathonTaxonomy;
         case 'Personal': return gamePersonalTaxonomy;
-        case 'Custom': return gameCustomTaxonomy;
+
         case 'Production':
         default: return gameProductionTaxonomy;
       }
@@ -159,7 +159,7 @@ export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] =
         case 'Hackathon': return webHackathonTaxonomy;
         case 'Personal': return webPersonalTaxonomy;
         case 'Production': return webProductionTaxonomy;
-        case 'Custom': return webCustomTaxonomy;
+
         default: return webProductionTaxonomy;
       }
     default:

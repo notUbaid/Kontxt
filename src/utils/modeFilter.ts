@@ -25,12 +25,10 @@ export function filterModeContent(markdown: string, activeMode: Mode): string {
         const isHackathon = section.includes('Hackathon');
         const isPersonal = section.includes('Personal');
         const isProduction = section.includes('Production');
-        const isCustom = section.includes('Custom');
         
         if (activeMode === 'Hackathon' && isHackathon) activeSection += section;
         if (activeMode === 'Personal' && isPersonal) activeSection += section;
         if (activeMode === 'Production' && isProduction) activeSection += section;
-        if (activeMode === 'Custom' && isCustom) activeSection += section;
       }
       
       // Clean up the output. Remove the H3 tag of the active section to make it look native.
@@ -48,12 +46,10 @@ export function filterModeContent(markdown: string, activeMode: Mode): string {
           const isHackathon = trimmed.includes('Hackathon');
           const isPersonal = trimmed.includes('Personal');
           const isProduction = trimmed.includes('Production');
-          const isCustom = trimmed.includes('Custom');
           
           if (isHackathon && activeMode !== 'Hackathon') return false;
           if (isPersonal && activeMode !== 'Personal') return false;
           if (isProduction && activeMode !== 'Production') return false;
-          if (isCustom && activeMode !== 'Custom') return false;
         }
         return true;
       });

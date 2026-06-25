@@ -37,62 +37,52 @@ const MODE_DESCRIPTIONS: Partial<Record<AppType, Record<Mode, string>>> = {
   'SaaS': {
     'Hackathon': 'Ship in 48 hours. BaaS auth, skip CI/CD, demo-ready.',
     'Personal': 'Portfolio-ready. Relational DB, basic auth, clean architecture.',
-    'Production': 'The full stack. Multi-tenancy, rate limiting, E2E tests, CI/CD.',
-    'Custom': 'Cherry-pick the exact modules you need.',
+    'Production': 'The full stack. Multi-tenancy, rate limiting, E2E tests, CI/CD.'
   },
   'Mobile App': {
     'Hackathon': 'Expo + Firebase. Fast prototype, skip native modules.',
     'Personal': 'Clean architecture, offline storage, push notifications.',
-    'Production': 'App Store ready. Crash reporting, deep linking, analytics, CI/CD.',
-    'Custom': 'Choose your own modules — navigation, state, storage, etc.',
+    'Production': 'App Store ready. Crash reporting, deep linking, analytics, CI/CD.'
   },
   'Web App': {
     'Hackathon': 'Vercel + Supabase. Ship fast, skip infra.',
     'Personal': 'SEO-ready, responsive, basic auth, clean deployment.',
-    'Production': 'SSR/SSG, CDN, monitoring, security headers, load testing.',
-    'Custom': 'Pick exactly what you need for your web architecture.',
+    'Production': 'SSR/SSG, CDN, monitoring, security headers, load testing.'
   },
   'AI Tool': {
     'Hackathon': 'Single LLM call, basic UI, skip guardrails. Demo-ready.',
     'Personal': 'RAG pipeline, prompt engineering, cost controls.',
-    'Production': 'Multi-model, guardrails, eval pipelines, observability, failover.',
-    'Custom': 'Select your AI architecture modules à la carte.',
+    'Production': 'Multi-model, guardrails, eval pipelines, observability, failover.'
   },
   'Browser Extension': {
     'Hackathon': 'Manifest V3 popup, basic content script. Ship in hours.',
     'Personal': 'Side panel UI, storage sync, polished permissions.',
-    'Production': 'Cross-browser, auto-updates, analytics, Chrome Web Store listing.',
-    'Custom': 'Choose between popup, side panel, content scripts, and more.',
+    'Production': 'Cross-browser, auto-updates, analytics, Chrome Web Store listing.'
   },
   'Desktop App': {
     'Hackathon': 'Electron quick-start. Basic window, skip native APIs.',
     'Personal': 'File system access, local storage, auto-updates.',
-    'Production': 'Code signing, crash reporting, native integrations, CI/CD.',
-    'Custom': 'Pick your desktop modules — offline, plugins, native APIs.',
+    'Production': 'Code signing, crash reporting, native integrations, CI/CD.'
   },
   'API Product': {
     'Hackathon': 'Single endpoint, basic auth. Ship a working demo.',
     'Personal': 'RESTful design, API docs, basic rate limiting.',
-    'Production': 'Versioning, SDKs, usage-based billing, SLAs, monitoring.',
-    'Custom': 'Select specific API architecture modules.',
+    'Production': 'Versioning, SDKs, usage-based billing, SLAs, monitoring.'
   },
   'Internal Tool': {
     'Hackathon': 'CRUD dashboard. Admin panel in a weekend.',
     'Personal': 'Role-based access, basic workflows, clean UI.',
-    'Production': 'Audit logs, SSO, approval workflows, reporting, compliance.',
-    'Custom': 'Choose exactly which internal tool modules to include.',
+    'Production': 'Audit logs, SSO, approval workflows, reporting, compliance.'
   },
   'Marketplace': {
     'Hackathon': 'Basic listing + search. Two-sided MVP in 48 hours.',
     'Personal': 'Buyer/seller flows, reviews, basic payments.',
-    'Production': 'Escrow, dispute resolution, trust & safety, analytics, SEO.',
-    'Custom': 'Pick your marketplace modules — payments, search, matching, etc.',
+    'Production': 'Escrow, dispute resolution, trust & safety, analytics, SEO.'
   },
   'E-commerce': {
     'Hackathon': 'Product list + Stripe checkout. Ship a working store fast.',
     'Personal': 'Cart, orders, basic inventory. Clean storefront.',
-    'Production': 'PCI compliance, tax engine, shipping integrations, analytics.',
-    'Custom': 'Select specific e-commerce modules for your store.',
+    'Production': 'PCI compliance, tax engine, shipping integrations, analytics.'
   },
   'Game': {
     'Hackathon': 'Playable demo. Core loop, basic art, skip multiplayer.',
@@ -182,13 +172,6 @@ export const Onboarding = ({ projects, onCreateProject, onSelectProject, isAuthe
         icon: Building2,
         desc: descriptions['Production'],
         color: 'border-primary/20 text-primary hover:border-primary hover:bg-primary/5',
-      },
-      {
-        id: 'Custom' as Mode,
-        title: 'Custom Mode',
-        icon: Sliders,
-        desc: descriptions['Custom'],
-        color: 'border-accent/40 text-accent hover:border-accent hover:bg-accent/5',
       },
     ];
   };
