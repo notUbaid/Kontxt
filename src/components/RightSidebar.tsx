@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ExternalLink, MessageSquare, Send, Star, Bot, User, Edit2, Trash2 } from 'lucide-react';
+import { ExternalLink, MessageSquare, Send, Star, Bot, User, Edit2, Trash2, ChevronDown } from 'lucide-react';
 import type { Mode } from './TopNav';
 import { getTaxonomy } from '../data/taxonomy';
 import { universalLinks, type QuickLink } from '../data/taxonomies/types';
@@ -43,6 +43,7 @@ export const RightSidebar = ({ activeProject, activeType, activePage, activeMode
     }
   ]);
   const [isTyping, setIsTyping] = useState(false);
+  const [isChatExpanded, setIsChatExpanded] = useState(true);
   const chatEndRef = useRef<HTMLDivElement>(null);
   
   const { content } = useDocumentStore(activeProject?.id || null, activePage, activeProject?.mode);
@@ -202,7 +203,7 @@ Use this context to answer their questions accurately. Keep your answers concise
     <aside className="w-80 shrink-0 h-[calc(100vh-4rem)] border-l border-muted bg-background/95 backdrop-blur-md flex flex-col">
       
       {/* Top Half: Links Section */}
-      <div className="h-1/2 overflow-y-auto border-b border-muted/50 flex flex-col shrink-0">
+      <div className="flex-1 overflow-y-auto border-b border-muted/50 flex flex-col transition-all duration-300">
         <div className="p-4 border-b border-muted/20">
           <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">
             Universal Links
@@ -343,15 +344,20 @@ Use this context to answer their questions accurately. Keep your answers concise
       </div>
 
       {/* Bottom Half: RAG Chatbot */}
-      <div className="h-1/2 flex flex-col bg-background/80">
-        <div className="px-4 py-2 border-b border-muted flex items-center justify-between bg-muted/20 shrink-0">
+      <div className={`flex flex-col bg-background/80 transition-all duration-300 ${isChatExpanded ? 'flex-1 overflow-hidden' : 'shrink-0'}`}>
+        <div 
+          className="px-4 py-2 border-b border-muted flex items-center justify-between bg-muted/20 shrink-0 cursor-pointer hover:bg-muted/30 transition-colors group"
+          onClick={() => setIsChatExpanded(!isChatExpanded)}
+        >
           <div className="flex items-center gap-2 text-sm font-bold text-primary">
             <MessageSquare size={16} />
             <span>Kontxt AI</span>
+            <ChevronDown size={14} className={`text-muted-foreground transition-transform duration-300 group-hover:text-foreground ${isChatExpanded ? '' : 'rotate-180'}`} />
           </div>
           <div className="flex items-center gap-2">
             <button 
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 setMessages([{ id: 'init', role: 'ai', content: `Hi! I'm Kontxt AI. I have full context of your current playbook. Ask me anything about ${activeTopicName}!` }]);
               }}
               className="p-1 text-muted-foreground hover:text-foreground hover:bg-muted rounded transition-colors"
@@ -363,8 +369,17 @@ Use this context to answer their questions accurately. Keep your answers concise
           </div>
         </div>
         
-        {/* Chat History */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {/* Chat History & Input */}
+        <AnimatePresence initial={false}>
+          {isChatExpanded && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: '100%', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="flex flex-col flex-1 overflow-hidden"
+            >
+              <div className="flex-1 overflow-y-auto p-4 space-y-4">
           <AnimatePresence initial={false}>
             {messages.map((msg) => (
               <motion.div
@@ -424,6 +439,9 @@ Use this context to answer their questions accurately. Keep your answers concise
             </button>
           </div>
         </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </aside>
   );
