@@ -67,19 +67,19 @@ export const webProductionTaxonomy: Category[] = [
     id: 'phase-3',
     name: 'PHASE 3 — DEVELOPMENT',
     topics: [
-      createTopic('Auth', Key),
-      createTopic('Database', Database),
-      createTopic('Backend', Server),
-      createTopic('Frontend', Monitor),
-      createTopic('APIs', Globe),
-      createTopic('Notifications', Bell),
-      createTopic('Search', Search),
-      createTopic('Admin Panel', LayoutDashboard),
-      createTopic('Integrations', Link),
-      createTopic('Testing', CheckSquare),
-      createTopic('Documentation', FileText),
-      createTopic('Email Notifications', MessageSquare),
-      createTopic('File Uploads', Cloud),
+      createTopic('Auth', Key, [], 'webauthdev'),
+      createTopic('Database', Database, [], 'webdatabasedev'),
+      createTopic('Backend', Server, [], 'webbackenddev'),
+      createTopic('Frontend', Monitor, [], 'webfrontenddev'),
+      createTopic('APIs', Globe, [], 'webapisdev'),
+      createTopic('Notifications', Bell, [], 'webnotificationsdev'),
+      createTopic('Search', Search, [], 'websearchdev'),
+      createTopic('Admin Panel', LayoutDashboard, [], 'webadminpaneldev'),
+      createTopic('Integrations', Link, [], 'webintegrationsdev'),
+      createTopic('Testing', CheckSquare, [], 'webtestingdev'),
+      createTopic('Documentation', FileText, [], 'webdocumentationdev'),
+      createTopic('Email Notifications', MessageSquare, [], 'webemailnotificationsdev'),
+      createTopic('File Uploads', Cloud, [], 'webfileuploadsdev'),
     ]
   },
   {
@@ -152,16 +152,16 @@ export const webHackathonTaxonomy: Category[] = [
         createTopic('Database Schema', Database, [], 'webdatabaseschema'),
       ]
     },
-  {
-    id: 'phase-3',
-    name: 'PHASE 3',
-    topics: [
-      createTopic('Backend', Server),
-      createTopic('Frontend', Monitor),
-      createTopic('Demo Data', Database),
-      createTopic('Auth (Optional)', Key),
-    ]
-  },
+      {
+      id: 'phase-3',
+      name: 'PHASE 3 ?" DEVELOPMENT',
+      topics: [
+        createTopic('Backend', Server, [], 'webbackenddev'),
+        createTopic('Frontend', Monitor, [], 'webfrontenddev'),
+        createTopic('Demo Data', Database, [], 'webdemodatadev'),
+        createTopic('Auth (Optional)', Key, [], 'webauthoptionaldev'),
+      ]
+    },
   {
     id: 'phase-5',
     name: 'PHASE 5',
@@ -203,16 +203,16 @@ export const webPersonalTaxonomy: Category[] = [
         createTopic('Search System', Search, [], 'websearchsystem'),
       ]
     },
-  {
-    id: 'production',
-    name: 'PHASE 3 — PRODUCTION',
-    topics: [
-      createTopic('Analytics', BarChart),
-      createTopic('Hosting', Server),
-      createTopic('Security Basics', Shield),
-      createTopic('SEO Basics', Search),
-    ]
-  },
+      {
+      id: 'production',
+      name: 'PHASE 3 ?" PRODUCTION',
+      topics: [
+        createTopic('Analytics', BarChart, [], 'webanalyticsdev'),
+        createTopic('Hosting', Server, [], 'webhostingdev'),
+        createTopic('Security Basics', Shield, [], 'websecuritybasicsdev'),
+        createTopic('SEO Basics', Search, [], 'webseobasicsdev'),
+      ]
+    },
   {
     id: 'growth',
     name: 'PHASE 4 — GROWTH',
