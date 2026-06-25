@@ -12,14 +12,14 @@ export const webProductionTaxonomy: Category[] = [
     name: 'PHASE 0 — DISCOVERY & PLANNING',
     topics: [
       createTopic('Idea Definition', Rocket, [{ name: 'YC RFS', url: 'https://www.ycombinator.com/rfs' }], 'webideadefinition'),
-      createTopic('Problem Statement', AlertCircle, [], 'webproblemstatement'),
+      createTopic('Problem Statement', AlertCircle, [{name:'Mom Test Guide',url:'https://www.momtestbook.com/'}], 'webproblemstatement'),
       createTopic('User Journey', Globe, [], 'webuserjourney'),
       createTopic('Personas', Users, [], 'webpersonas'),
       createTopic('Solution Statement', CheckSquare, [], 'websolutionstatement'),
-      createTopic('Elevator Pitch', Presentation, [], 'webelevatorpitch'),
+      createTopic('Elevator Pitch', Presentation, [{name:'Y Combinator Pitch Advice',url:'https://www.ycombinator.com/library/4O-how-to-pitch-your-company'}], 'webelevatorpitch'),
       createTopic('Competitor Analysis', BarChart, [{ name: 'Similarweb', url: 'https://www.similarweb.com/' }], 'webcompetitoranalysis'),
-      createTopic('Feature Planning', CheckSquare, [], 'webfeatureplanning'),
-      createTopic('MVP Features', Rocket, [], 'webmvpfeatures'),
+      createTopic('Feature Planning', CheckSquare, [{name:'Linear',url:'https://linear.app/'}], 'webfeatureplanning'),
+      createTopic('MVP Features', Rocket, [{name:'How to build an MVP',url:'https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising'}], 'webmvpfeatures'),
       createTopic('Future Features', Layers, [], 'webfuturefeatures'),
       createTopic('Success Metrics', Activity, [], 'websuccessmetrics'),
       createTopic('Users & Audience', Users, [], 'webusersaudience'),
@@ -31,11 +31,11 @@ export const webProductionTaxonomy: Category[] = [
     id: 'phase-1',
     name: 'PHASE 1 — UX & PRODUCT DESIGN',
     topics: [
-      createTopic('PRD', FileText, [], 'webprd'),
-      createTopic('User Flows', Globe, [], 'webuserflows'),
+      createTopic('PRD', FileText, [{name:'Notion PRD Templates',url:'https://www.notion.so/templates/prd'}], 'webprd'),
+      createTopic('User Flows', Globe, [{name:'Whimsical',url:'https://whimsical.com/'},{name:'FigJam',url:'https://www.figma.com/figjam/'}], 'webuserflows'),
       createTopic('Information Architecture', Layers, [], 'webinformationarchitecture'),
-      createTopic('Wireframes', Box, [{ name: 'Figma', url: 'https://www.figma.com/' }, { name: 'Excalidraw', url: 'https://excalidraw.com/' }], 'webwireframes'),
-      createTopic('Design System', PenTool, [{ name: 'Shadcn UI', url: 'https://ui.shadcn.com/' }, { name: 'Tailwind CSS', url: 'https://tailwindcss.com/' }], 'webdesignsystem'),
+      createTopic('Wireframes', Box, [{name:'Figma',url:'https://www.figma.com/'},{name:'Balsamiq',url:'https://balsamiq.com/'}], 'webwireframes'),
+      createTopic('Design System', PenTool, [{name:'Tailwind CSS',url:'https://tailwindcss.com/'},{name:'Shadcn UI',url:'https://ui.shadcn.com/'}], 'webdesignsystem'),
       createTopic('Branding', Target, [], 'webbranding'),
       createTopic('Accessibility', Users, [{ name: 'WCAG Guidelines', url: 'https://www.w3.org/WAI/standards-guidelines/wcag/' }], 'webaccessibility'),
       createTopic('Empty States', Box, [], 'webemptystates'),
@@ -94,7 +94,7 @@ export const webProductionTaxonomy: Category[] = [
       createTopic('Rate Limiting', Shield, [], 'webratelimiting'),
       createTopic('Caching', Zap, [], 'webcaching'),
       createTopic('Backups', Database, [], 'webbackups'),
-      createTopic('CI/CD', Settings, [{ name: 'GitHub Actions', url: 'https://github.com/features/actions' }], 'webcicd'),
+      createTopic('CI/CD', Settings, [{name:'GitHub Actions',url:'https://github.com/features/actions'}], 'webcicd'),
       createTopic('SEO', Search, [{ name: 'Google Search Console', url: 'https://search.google.com/search-console' }], 'webseoprod'),
       createTopic('Scalability Planning', BarChart, [], 'webscalabilityplanning'),
     ]
@@ -116,7 +116,7 @@ export const webProductionTaxonomy: Category[] = [
     id: 'phase-6',
     name: 'PHASE 6 — GROWTH',
     topics: [
-      createTopic('Analytics', BarChart, [], 'webanalytics'),
+      createTopic('Analytics', BarChart, [{name:'PostHog',url:'https://posthog.com/'},{name:'Plausible',url:'https://plausible.io/'}], 'webanalytics'),
       createTopic('Scaling Strategy', TrendingUp, [], 'webscalingstrategy'),
       createTopic('SEO Optimization', Search, [], 'webseooptimization'),
       createTopic('User Retention', Users, [], 'webuserretention'),
@@ -132,16 +132,16 @@ export const webHackathonTaxonomy: Category[] = [
     name: 'PHASE 0',
     topics: [
       createTopic('Idea Definition', Rocket, [{ name: 'YC RFS', url: 'https://www.ycombinator.com/rfs' }], 'webideadefinition'),
-      createTopic('MVP Features', CheckSquare, [], 'webmvpfeatures'),
+      createTopic('MVP Features', CheckSquare, [{name:'How to build an MVP',url:'https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising'}], 'webmvpfeatures'),
     ]
   },
   {
     id: 'phase-1',
     name: 'PHASE 1',
     topics: [
-      createTopic('PRD', FileText, [], 'webprd'),
-      createTopic('User Flows', Globe, [], 'webuserflows'),
-      createTopic('Design System', PenTool, [{ name: 'Shadcn UI', url: 'https://ui.shadcn.com/' }, { name: 'Tailwind CSS', url: 'https://tailwindcss.com/' }], 'webdesignsystem'),
+      createTopic('PRD', FileText, [{name:'Notion PRD Templates',url:'https://www.notion.so/templates/prd'}], 'webprd'),
+      createTopic('User Flows', Globe, [{name:'Whimsical',url:'https://whimsical.com/'},{name:'FigJam',url:'https://www.figma.com/figjam/'}], 'webuserflows'),
+      createTopic('Design System', PenTool, [{name:'Tailwind CSS',url:'https://tailwindcss.com/'},{name:'Shadcn UI',url:'https://ui.shadcn.com/'}], 'webdesignsystem'),
     ]
   },
       {
@@ -180,16 +180,16 @@ export const webPersonalTaxonomy: Category[] = [
     name: 'PHASE 0 ?" DISCOVERY & PLANNING',
     topics: [
       createTopic('Idea Definition', Rocket, [{ name: 'YC RFS', url: 'https://www.ycombinator.com/rfs' }], 'webideadefinition'),
-      createTopic('MVP Features', CheckSquare, [], 'webmvpfeatures'),
+      createTopic('MVP Features', CheckSquare, [{name:'How to build an MVP',url:'https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising'}], 'webmvpfeatures'),
     ]
   },
       {
       id: 'phase-1',
       name: 'PHASE 1 ?" UX & PRODUCT DESIGN',
       topics: [
-        createTopic('PRD', FileText, [], 'webprd'),
-        createTopic('User Flows', Globe, [], 'webuserflows'),
-        createTopic('Design System', PenTool, [{ name: 'Shadcn UI', url: 'https://ui.shadcn.com/' }, { name: 'Tailwind CSS', url: 'https://tailwindcss.com/' }], 'webdesignsystem'),
+        createTopic('PRD', FileText, [{name:'Notion PRD Templates',url:'https://www.notion.so/templates/prd'}], 'webprd'),
+        createTopic('User Flows', Globe, [{name:'Whimsical',url:'https://whimsical.com/'},{name:'FigJam',url:'https://www.figma.com/figjam/'}], 'webuserflows'),
+        createTopic('Design System', PenTool, [{name:'Tailwind CSS',url:'https://tailwindcss.com/'},{name:'Shadcn UI',url:'https://ui.shadcn.com/'}], 'webdesignsystem'),
       ]
     },
       {
