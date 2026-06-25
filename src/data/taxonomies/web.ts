@@ -11,20 +11,20 @@ export const webProductionTaxonomy: Category[] = [
     id: 'phase-0',
     name: 'PHASE 0 — DISCOVERY & PLANNING',
     topics: [
-      createTopic('Idea Definition', Rocket),
-      createTopic('Problem Statement', AlertCircle),
-      createTopic('User Journey', Globe),
-      createTopic('Personas', Users),
-      createTopic('Solution Statement', CheckSquare),
-      createTopic('Elevator Pitch', Presentation),
-      createTopic('Competitor Analysis', BarChart),
-      createTopic('Feature Planning', CheckSquare),
-      createTopic('MVP Features', Rocket),
-      createTopic('Future Features', Layers),
-      createTopic('Success Metrics', Activity),
-      createTopic('Users & Audience', Users),
-      createTopic('User Goals', Target),
-      createTopic('Nice-to-Have Features', Layers),
+      createTopic('Idea Definition', Rocket, [], 'webideadefinition'),
+      createTopic('Problem Statement', AlertCircle, [], 'webproblemstatement'),
+      createTopic('User Journey', Globe, [], 'webuserjourney'),
+      createTopic('Personas', Users, [], 'webpersonas'),
+      createTopic('Solution Statement', CheckSquare, [], 'websolutionstatement'),
+      createTopic('Elevator Pitch', Presentation, [], 'webelevatorpitch'),
+      createTopic('Competitor Analysis', BarChart, [], 'webcompetitoranalysis'),
+      createTopic('Feature Planning', CheckSquare, [], 'webfeatureplanning'),
+      createTopic('MVP Features', Rocket, [], 'webmvpfeatures'),
+      createTopic('Future Features', Layers, [], 'webfuturefeatures'),
+      createTopic('Success Metrics', Activity, [], 'websuccessmetrics'),
+      createTopic('Users & Audience', Users, [], 'webusersaudience'),
+      createTopic('User Goals', Target, [], 'webusergoals'),
+      createTopic('Nice-to-Have Features', Layers, [], 'webnicetohavefeatures'),
     ]
   },
   {
@@ -131,8 +131,8 @@ export const webHackathonTaxonomy: Category[] = [
     id: 'phase-0',
     name: 'PHASE 0',
     topics: [
-      createTopic('Idea Definition', Rocket),
-      createTopic('MVP Features', CheckSquare),
+      createTopic('Idea Definition', Rocket, [], 'webideadefinition'),
+      createTopic('MVP Features', CheckSquare, [], 'webmvpfeatures'),
     ]
   },
   {
@@ -175,6 +175,14 @@ export const webHackathonTaxonomy: Category[] = [
 ];
 
 export const webPersonalTaxonomy: Category[] = [
+  {
+    id: 'phase-0',
+    name: 'PHASE 0 ?" DISCOVERY & PLANNING',
+    topics: [
+      createTopic('Idea Definition', Rocket, [], 'webideadefinition'),
+      createTopic('MVP Features', CheckSquare, [], 'webmvpfeatures'),
+    ]
+  },
   {
     id: 'discovery',
     name: 'PHASE 1 — DISCOVERY',
