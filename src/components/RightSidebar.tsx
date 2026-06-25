@@ -203,7 +203,7 @@ Use this context to answer their questions accurately. Keep your answers concise
     <aside className="w-80 shrink-0 h-[calc(100vh-4rem)] border-l border-muted bg-background/95 backdrop-blur-md flex flex-col">
       
       {/* Top Half: Links Section */}
-      <motion.div layout className="flex-1 overflow-y-auto border-b border-muted/50 flex flex-col">
+      <div className="flex-1 overflow-y-auto border-b border-muted/50 flex flex-col">
         <div className="p-4 border-b border-muted/20">
           <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">
             Universal Links
@@ -341,13 +341,17 @@ Use this context to answer their questions accurately. Keep your answers concise
             </motion.div>
           </AnimatePresence>
         </div>
-      </motion.div>
+      </div>
 
       {/* Bottom Half: RAG Chatbot */}
-      <motion.div layout className={`flex flex-col bg-background/80 overflow-hidden ${isChatExpanded ? 'flex-1' : 'shrink-0'}`}>
-        <motion.div 
-          layout="position"
-          className="px-4 py-2 border-b border-muted flex items-center justify-between bg-muted/20 shrink-0 cursor-pointer hover:bg-muted/30 transition-colors group"
+      <motion.div 
+        initial={false}
+        animate={{ height: isChatExpanded ? '50%' : '40px' }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        className="flex flex-col bg-background/80 overflow-hidden shrink-0 border-t border-muted"
+      >
+        <div 
+          className="h-[40px] px-4 border-b border-muted flex items-center justify-between bg-muted/20 shrink-0 cursor-pointer hover:bg-muted/30 transition-colors group"
           onClick={() => setIsChatExpanded(!isChatExpanded)}
         >
           <div className="flex items-center gap-2 text-sm font-bold text-primary">
@@ -368,7 +372,7 @@ Use this context to answer their questions accurately. Keep your answers concise
             </button>
             <span className="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
           </div>
-        </motion.div>
+        </div>
         
         {/* Chat History & Input */}
         <AnimatePresence initial={false}>
