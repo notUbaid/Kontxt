@@ -1,4 +1,3040 @@
 export const fallbackContent: Record<string, string> = {
+  'internaltechnicaldebt': `
+# Technical Debt
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Technical Debt, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Technical Debt should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Technical Debt can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Technical Debt?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Technical Debt component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Technical Debt.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalusagetracking': `
+# Usage Tracking
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Usage Tracking, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Usage Tracking should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Usage Tracking can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Usage Tracking?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Usage Tracking component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Usage Tracking.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalprocessimprovements': `
+# Process Improvements
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Process Improvements, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Process Improvements should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Process Improvements can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Process Improvements?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Process Improvements component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Process Improvements.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalfeaturerequests': `
+# Feature Requests
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Feature Requests, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Feature Requests should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Feature Requests can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Feature Requests?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Feature Requests component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Feature Requests.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalroadmap': `
+# Roadmap
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Roadmap, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Roadmap should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Roadmap can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Roadmap?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Roadmap component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Roadmap.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internaluserfeedback': `
+# User Feedback
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For User Feedback, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, User Feedback should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for User Feedback can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for User Feedback?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the User Feedback component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for User Feedback.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalanalytics': `
+# Analytics
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Analytics, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Analytics should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Analytics can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Analytics?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Analytics component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Analytics.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internallaunchchecklist': `
+# Launch Checklist
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Launch Checklist, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Launch Checklist should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Launch Checklist can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Launch Checklist?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Launch Checklist component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Launch Checklist.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalbetarollout': `
+# Beta Rollout
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Beta Rollout, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Beta Rollout should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Beta Rollout can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Beta Rollout?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Beta Rollout component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Beta Rollout.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internaltrainingmaterials': `
+# Training Materials
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Training Materials, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Training Materials should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Training Materials can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Training Materials?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Training Materials component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Training Materials.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalemployeeonboarding': `
+# Employee Onboarding
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Employee Onboarding, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Employee Onboarding should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Employee Onboarding can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Employee Onboarding?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Employee Onboarding component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Employee Onboarding.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internaldomainsetup': `
+# Domain Setup
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Domain Setup, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Domain Setup should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Domain Setup can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Domain Setup?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Domain Setup component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Domain Setup.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalhosting': `
+# Hosting
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Hosting, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Hosting should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Hosting can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Hosting?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Hosting component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Hosting.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internaldisasterrecovery': `
+# Disaster Recovery
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Disaster Recovery, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Disaster Recovery should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Disaster Recovery can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Disaster Recovery?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Disaster Recovery component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Disaster Recovery.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalrbacvalidation': `
+# RBAC Validation
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For RBAC Validation, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, RBAC Validation should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for RBAC Validation can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for RBAC Validation?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the RBAC Validation component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for RBAC Validation.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalscalability': `
+# Scalability
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Scalability, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Scalability should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Scalability can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Scalability?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Scalability component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Scalability.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalinfrastructure': `
+# Infrastructure
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Infrastructure, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Infrastructure should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Infrastructure can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Infrastructure?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Infrastructure component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Infrastructure.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalcicd': `
+# CI/CD
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For CI/CD, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, CI/CD should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for CI/CD can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for CI/CD?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the CI/CD component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for CI/CD.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalbackups': `
+# Backups
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Backups, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Backups should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Backups can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Backups?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Backups component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Backups.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalerrortracking': `
+# Error Tracking
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Error Tracking, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Error Tracking should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Error Tracking can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Error Tracking?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Error Tracking component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Error Tracking.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internallogging': `
+# Logging
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Logging, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Logging should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Logging can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Logging?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Logging component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Logging.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalmonitoring': `
+# Monitoring
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Monitoring, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Monitoring should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Monitoring can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Monitoring?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Monitoring component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Monitoring.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalperformanceoptimization': `
+# Performance Optimization
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Performance Optimization, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Performance Optimization should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Performance Optimization can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Performance Optimization?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Performance Optimization component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Performance Optimization.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalsecurity': `
+# Security
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Security, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Security should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Security can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Security?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Security component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Security.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalauditlogs': `
+# Audit Logs
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Audit Logs, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Audit Logs should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Audit Logs can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Audit Logs?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Audit Logs component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Audit Logs.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalfileuploads': `
+# File Uploads
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For File Uploads, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, File Uploads should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for File Uploads can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for File Uploads?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the File Uploads component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for File Uploads.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalreporting': `
+# Reporting
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Reporting, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Reporting should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Reporting can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Reporting?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Reporting component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Reporting.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalworkflowautomation': `
+# Workflow Automation
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Workflow Automation, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Workflow Automation should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Workflow Automation can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Workflow Automation?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Workflow Automation component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Workflow Automation.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalcrudoperations': `
+# CRUD Operations
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For CRUD Operations, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, CRUD Operations should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for CRUD Operations can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for CRUD Operations?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the CRUD Operations component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for CRUD Operations.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalauthorization': `
+# Authorization
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Authorization, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Authorization should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Authorization can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Authorization?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Authorization component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Authorization.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internaldocumentation': `
+# Documentation
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Documentation, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Documentation should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Documentation can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Documentation?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Documentation component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Documentation.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internaltesting': `
+# Testing
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Testing, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Testing should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Testing can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Testing?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Testing component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Testing.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internaladminpanel': `
+# Admin Panel
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Admin Panel, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Admin Panel should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Admin Panel can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Admin Panel?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Admin Panel component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Admin Panel.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalsearch': `
+# Search
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Search, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Search should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Search can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Search?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Search component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Search.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalnotifications': `
+# Notifications
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Notifications, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Notifications should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Notifications can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Notifications?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Notifications component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Notifications.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalfrontend': `
+# Frontend
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Frontend, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Frontend should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Frontend can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Frontend?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Frontend component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Frontend.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalbackend': `
+# Backend
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Backend, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Backend should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Backend can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Backend?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Backend component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Backend.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internaldatabase': `
+# Database
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Database, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Database should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Database can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Database?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Database component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Database.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalreportingarchitecture': `
+# Reporting Architecture
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Reporting Architecture, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Reporting Architecture should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Reporting Architecture can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Reporting Architecture?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Reporting Architecture component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Reporting Architecture.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalworkflowengine': `
+# Workflow Engine
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Workflow Engine, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Workflow Engine should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Workflow Engine can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Workflow Engine?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Workflow Engine component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Workflow Engine.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalauthorizationrbac': `
+# Authorization (RBAC)
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Authorization (RBAC), do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Authorization (RBAC) should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Authorization (RBAC) can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Authorization (RBAC)?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Authorization (RBAC) component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Authorization (RBAC).
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalinternaltoolfundamentals': `
+# Internal Tool Fundamentals
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Internal Tool Fundamentals, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Internal Tool Fundamentals should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Internal Tool Fundamentals can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Internal Tool Fundamentals?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Internal Tool Fundamentals component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Internal Tool Fundamentals.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalintegrations': `
+# Integrations
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Integrations, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Integrations should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Integrations can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Integrations?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Integrations component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Integrations.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalcostestimation': `
+# Cost Estimation
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Cost Estimation, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Cost Estimation should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Cost Estimation can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Cost Estimation?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Cost Estimation component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Cost Estimation.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internaldatabaseschema': `
+# Database Schema
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Database Schema, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Database Schema should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Database Schema can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Database Schema?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Database Schema component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Database Schema.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalauthentication': `
+# Authentication
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Authentication, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Authentication should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Authentication can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Authentication?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Authentication component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Authentication.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internaltechstackselection': `
+# Tech Stack Selection
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Tech Stack Selection, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Tech Stack Selection should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Tech Stack Selection can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Tech Stack Selection?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Tech Stack Selection component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Tech Stack Selection.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internaldataflowdesign': `
+# Data Flow Design
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Data Flow Design, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Data Flow Design should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Data Flow Design can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Data Flow Design?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Data Flow Design component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Data Flow Design.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internaldashboarddesign': `
+# Dashboard Design
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Dashboard Design, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Dashboard Design should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Dashboard Design can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Dashboard Design?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Dashboard Design component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Dashboard Design.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internaluserroles': `
+# User Roles
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For User Roles, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, User Roles should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for User Roles can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for User Roles?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the User Roles component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for User Roles.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalbusinessprocessmapping': `
+# Business Process Mapping
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Business Process Mapping, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Business Process Mapping should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Business Process Mapping can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Business Process Mapping?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Business Process Mapping component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Business Process Mapping.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalloadingstates': `
+# Loading States
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Loading States, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Loading States should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Loading States can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Loading States?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Loading States component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Loading States.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalerrorstates': `
+# Error States
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Error States, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Error States should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Error States can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Error States?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Error States component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Error States.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalaccessibility': `
+# Accessibility
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Accessibility, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Accessibility should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Accessibility can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Accessibility?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Accessibility component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Accessibility.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internaldesignsystem': `
+# Design System
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Design System, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Design System should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Design System can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Design System?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Design System component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Design System.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalwireframes': `
+# Wireframes
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Wireframes, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Wireframes should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Wireframes can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Wireframes?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Wireframes component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Wireframes.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internaluserflows': `
+# User Flows
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For User Flows, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, User Flows should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for User Flows can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for User Flows?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the User Flows component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for User Flows.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalprd': `
+# PRD
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For PRD, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, PRD should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for PRD can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for PRD?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the PRD component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for PRD.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalmvpscope': `
+# MVP Scope
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For MVP Scope, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, MVP Scope should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for MVP Scope can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for MVP Scope?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the MVP Scope component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for MVP Scope.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalrequirementsgathering': `
+# Requirements Gathering
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Requirements Gathering, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Requirements Gathering should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Requirements Gathering can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Requirements Gathering?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Requirements Gathering component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Requirements Gathering.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalstakeholdermapping': `
+# Stakeholder Mapping
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Stakeholder Mapping, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Stakeholder Mapping should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Stakeholder Mapping can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Stakeholder Mapping?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Stakeholder Mapping component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Stakeholder Mapping.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalexistingpainpoints': `
+# Existing Pain Points
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Existing Pain Points, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Existing Pain Points should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Existing Pain Points can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Existing Pain Points?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Existing Pain Points component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Existing Pain Points.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalcurrentworkflowanalysis': `
+# Current Workflow Analysis
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Current Workflow Analysis, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Current Workflow Analysis should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Current Workflow Analysis can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Current Workflow Analysis?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Current Workflow Analysis component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Current Workflow Analysis.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalproblemdefinition': `
+# Problem Definition
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Problem Definition, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Problem Definition should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Problem Definition can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Problem Definition?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Problem Definition component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Problem Definition.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalsuccessmetrics': `
+# Success Metrics
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Success Metrics, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Success Metrics should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Success Metrics can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Success Metrics?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Success Metrics component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Success Metrics.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
+  'internalfeatureprioritization': `
+# Feature Prioritization
+
+🕒 **Estimated Time:** 2-6 Hours
+
+---
+
+## Strategic Guidance
+
+### Hackathon Mode
+When building an internal tool during a hackathon, aesthetics and rigorous access controls do not matter. Your entire goal is to build a functional prototype that automates a painful manual process or displays critical data. For Feature Prioritization, do not over-engineer a custom solution if an off-the-shelf low-code builder (like Retool, Appsmith, or Glide) can do it in 5 minutes. 
+
+Mock the data if the real database is too hard to connect to, or hardcode the API keys if you must (just don't commit them to a public repo!). If your hackathon project requires an admin panel, just build a single page with a generic password rather than implementing full Role-Based Access Control (RBAC). Optimize strictly for the "wow" factor of a working automation workflow.
+
+### Personal Project
+If you are building an internal tool for your own use, Feature Prioritization should be optimized for zero maintenance and maximum utility. Use serverless databases (like Supabase or Firebase) and free-tier hosting (Vercel or Cloudflare Pages) so that your tool runs forever without costing you a dime.
+
+Take this opportunity to learn modern dashboard frameworks (like Tremor or Shadcn UI) to make the data look beautiful, even if you are the only user. Document your API connections and database schemas so that if you abandon the project for 6 months, you can easily pick it back up. Focus on building an architecture that scales with your own personal data needs.
+
+### Production SaaS / Enterprise
+In a Production enterprise environment, internal tools are the backbone of the company's operations. A poorly built internal tool for Feature Prioritization can lead to catastrophic data leaks, compliance violations, or massive operational inefficiencies. 
+
+You must prioritize **Security, Auditability, and Access Control**. Do not build custom UI components if a robust component library exists; your engineers' time is better spent on core product features. Ensure strict Role-Based Access Control (RBAC) so that customer support reps cannot accidentally delete production database records. Furthermore, every critical action taken within this tool must be logged in an immutable audit trail. Treat this internal tool with the same architectural rigor as your public-facing SaaS application, because the risks of failure are often much higher.
+
+---
+
+## Actionable Execution
+
+**What are the primary business requirements or data models for Feature Prioritization?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Architecture Prompt
+Use this prompt to generate the optimal architecture for this component:
+\`\`\`prompt
+Act as a Principal Enterprise Architect. I am building the Feature Prioritization component for a new internal company tool. Based on best practices for enterprise security, RBAC, and data integrity, how should I design the schema, UI flow, and integration points for this feature? Provide a concrete example.
+\`\`\`
+
+- [ ] I have reviewed the architectural recommendations.
+- [ ] I have implemented the core logic for Feature Prioritization.
+- [ ] I have verified that access controls and audit logs are functioning correctly.
+`,
+
   'apifeaturerequests': `
 # Feature Requests
 
