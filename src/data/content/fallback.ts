@@ -1776,29 +1776,21 @@ With state management in place, proceed to implement the **Auth** flows to popul
 ---
 
 ## Why this matters
-Before you write a single line of code, you must align on your philosophy. The way you build changes drastically depending on your end goal. Kontxt dynamically adjusts its playbook based on the mode you select.
+You are about to embark on building a new software project. Whether you are hacking together a weekend prototype, learning a new technology, or building a highly scalable enterprise SaaS, the decisions you make in the next few hours will dictate your trajectory for the next few months. Kontxt is designed to act as your Senior Architect, guiding you through those critical decisions.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-In Hackathon Mode, speed is everything. Your only goal is to build a visually impressive demo before the clock runs out. 
-
-You will ignore scalable architecture, skip rigorous testing, and fake backend data if necessary. Technical debt is not a concern; the only thing that matters is the final presentation to the judges. Stay ruthless with your scope.
+In a hackathon, speed is your only currency. You have 24 to 48 hours to build something that wows the judges. The philosophy here is to cut every corner that does not directly contribute to the visual demo or the core 'Aha!' moment. You will use mock data, ignore scalability, and hardcode values where necessary. Your only goal is to cross the finish line with a working prototype.
 
 ### Personal Project
-In Personal Project mode, your goal is learning and zero-cost maintenance. 
-
-You are building this to scratch an itch or bolster your resume. You should optimize for using free tiers (Vercel, Supabase, Render) and experimenting with new, exciting tech stacks that you want to master. Don't over-engineer it for scale you don't have.
+Personal projects are about learning and utility. You have no strict deadline, but you also have no budget. The philosophy here is to optimize for zero-cost maintenance by relying heavily on generous free tiers (like Vercel and Supabase) and exploring modern, elegant architectures. It is okay to over-engineer slightly if it helps you learn a new pattern, but avoid enterprise bloat.
 
 ### Production SaaS
-In Production SaaS mode, you are building a real business that will accept credit cards. 
-
-This means you cannot cut corners on security, authentication, or basic architecture. You must build a robust foundation that won't collapse when you get your first 100 paying customers. You need proper testing, staging environments, and database migrations.
-
+Building a Production SaaS means you are building for paying customers. The philosophy here is uncompromising robustness. You cannot cut corners on security, authentication, or basic architecture. You must build a foundation that will not collapse when you get your first 100 paying customers. You need proper testing, staging environments, and database migrations. It will take longer, but it will survive contact with the real world.
 
 ## Accountability Check
-- [ ] I understand the philosophy of my chosen mode and I am ready to begin.
-`,
+- [ ] I understand the philosophy of my chosen mode and I am ready to begin.`,
   'ideadefinition': `# Idea Definition
 
 **Estimated Time:** 20 min
@@ -1806,63 +1798,67 @@ This means you cannot cut corners on security, authentication, or basic architec
 ---
 
 ## Why this matters
-An idea is just a multiplier of execution. Choosing the right idea dictates how hard the execution will be.
+A brilliant technical execution of a terrible idea is a waste of your time. Before writing a single line of code, you must be able to clearly articulate what you are building and why it needs to exist. Clarity at this stage prevents endless pivoting later.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your idea should optimize for "wow factor" and technical complexity. Judges love flashy tech (Generative AI, WebGL, Real-time collaboration). Business viability does not matter; visual impact does. 
-
-If your idea is "a better to-do app," you will lose, no matter how clean the code is. Your idea must have a demo that makes people say "Whoa" within the first 15 seconds.
+Hackathon ideas need to be visually impressive, easily understood in under 60 seconds, and slightly unconventional. Do not build another generic to-do list. Build something that leverages a cool new API, integrates hardware, or solves a hyper-niche, amusing problem. If the idea cannot be demonstrated in a 2-minute pitch, simplify it.
 
 ### Personal Project
-Choose an idea that forces you to learn a new stack or tool you want on your resume. If you want to learn WebSockets, build a chat app. If you want to learn AI, build a RAG application.
-
-Keep the scope small enough that you can actually finish it. A finished simple project is worth 100x more than an unfinished complex project.
+For a personal project, the idea only needs to solve your own problem or scratch your own itch. It does not need a massive total addressable market. Build a tool that automates your own workflow, tracks your own data, or helps you learn a specific framework. The best personal projects are the ones you will actually use every single day.
 
 ### Production SaaS
-Your idea must solve a highly painful, monetizable problem. Flashy tech does not matter; solving the pain matters. 
+A Production SaaS idea must solve a 'Hair on Fire' problem for a specific group of people who have money to pay for a solution. It should ideally be something you have personal experience with, giving you founder-market fit. You need to validate that the problem is painful enough that people are actively seeking workarounds right now.
 
-If people are currently using a messy spreadsheet and duct-taping it to Zapier, that is a billion-dollar idea. If they are just mildly annoyed but not losing money, discard the idea. If people won't pay for it on Day 1, do not write a single line of code.
-
-
-## The Core Concept
+## The Data We Need From You
+**What is the core idea you want to build? Describe it in 2-3 sentences.**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
+
+## AI Brainstorming Phase
+If you are struggling to refine your idea, run this prompt through your AI assistant to stress-test it.
+
+\`\`\`prompt
+Act as a Y Combinator partner. I am pitching the following software idea: [Insert Idea]. Critically evaluate this idea. Point out the two biggest weaknesses or assumptions I am making, and suggest one specific pivot or refinement that would make the idea 10x more compelling.
+\`\`\`
+
+## Accountability Check
+- [ ] My idea is clearly defined and I am ready to move forward.`,
   'problemstatement': `# Problem Statement
 
-**Estimated Time:** 20 min
+**Estimated Time:** 15 min
 
 ---
 
 ## Why this matters
-If you don't clearly define the problem, you will build a solution looking for a use case. The best software eliminates a specific, acute pain point.
+If you do not clearly define the problem, you will build a solution looking for a problem. A strong problem statement acts as a filter for every feature you plan to build: if a feature does not directly address the problem statement, it gets cut.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Hackathons are often themed (e.g., "AI for Good", "Future of Finance"). Your problem statement should directly align with the hackathon's core theme to maximize your chances of winning.
-
-Don't worry if the problem is slightly contrived; as long as the judges resonate with it emotionally, it serves its purpose for the pitch.
+The problem statement for a hackathon is the narrative hook for your demo. It needs to be relatable to the judges. Pick a problem that everyone in the room has experienced, or something highly topical and trending. The emotional resonance of the problem is more important than the market size.
 
 ### Personal Project
-For a personal project, the best problem statement is one you personally experience every day.
-
-"I hate having to manually format my resume every time I apply for a job." This is a fantastic problem statement because you are the user. You don't need market research to validate it.
+Your problem statement is simply your personal pain point. Why are you annoyed? What manual task is taking up too much of your time? Documenting this helps keep the project scoped tightly around solving that specific annoyance rather than turning into a sprawling, unfinished experiment.
 
 ### Production SaaS
-In a Production SaaS, the problem must be monetizable. It must be a "Hair on Fire" problem.
+The problem statement must highlight an acute, expensive, or highly inefficient pain point experienced by a specific business or demographic. It must quantify the pain (e.g., 'Teams lose 10 hours a week doing X' rather than 'Doing X is hard'). A weak problem statement leads to a 'nice to have' product, which nobody pays for.
 
-If the user's hair is on fire, and you offer them a brick, they will buy it to put the fire out. That is how painful the problem needs to be. If the problem is just "it would be nice if this was 10% faster," it will be incredibly difficult to get people to pay for it.
-
-
-## Define the Problem
+## The Data We Need From You
+**Describe the specific problem your software will solve.**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
+
+## AI Refinement Phase
+\`\`\`prompt
+Act as a seasoned Product Manager. I have defined the following problem statement for my software: [Insert Problem Statement]. Please rewrite this into three distinct, punchy problem statements using the 'Job to be Done' framework. Make them concise and highly focused on the user's struggle.
+\`\`\`
+
+## Accountability Check
+- [ ] I have narrowed down a single, clear problem statement.`,
   'userpainpoints': `# User Pain Points
 
 **Estimated Time:** 15 min
@@ -1870,29 +1866,34 @@ Write Here...
 ---
 
 ## Why this matters
-Pain points are the granular symptoms of your Problem Statement. Identifying the exact friction points allows you to design features that directly neutralize them.
+A problem statement is high-level; user pain points are the specific, frustrating details. Understanding exactly where and how the user hurts allows you to design features that feel like magic. When you solve specific pain points, users feel deeply understood.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Focus on visual pain points. What current process looks the ugliest or takes the most manual clicks? 
-
-If you can show a "Before" video of a user struggling with 10 clunky steps, and an "After" video of your app doing it in 1 click, the judges will love it.
+Focus on one singular, highly visual pain point. If the pain point is 'filling out long forms is tedious', your hackathon solution should be a magical one-click AI generation button. You do not need to solve every pain point, just the one that makes for the best demo.
 
 ### Personal Project
-Map out your exact workflow. Where do you sigh in frustration? Where do you resort to using a messy Excel sheet? Those are your pain points.
+List the specific steps in your current workflow that make you want to pull your hair out. Is it copying data between two apps? Is it formatting a CSV? Those highly specific, localized pain points will directly translate into the core features of your utility app.
 
 ### Production SaaS
-Rank pain points by how much money or time they waste. 
+You must map the entire user journey and identify the highest-friction bottlenecks. Which pain points cost the user the most money, time, or emotional energy? You must prioritize solving the pain points that are acute enough to trigger a purchasing decision. 'Minor inconveniences' do not support a SaaS business model.
 
-When you talk to users, listen for emotional words: "I hate", "It's so annoying", "I lose hours doing this." If a pain point doesn't evoke a strong emotional response, it's not painful enough to build a SaaS around.
-
-
-## The Pain Points
+## The Data We Need From You
+**List the top 3 specific pain points your user experiences.**
 \`\`\`input
-Write Here...
+1. 
+2. 
+3. 
 \`\`\`
-`,
+
+## AI Expansion Phase
+\`\`\`prompt
+Act as a User Researcher. I am building a product to solve these pain points: [Insert Pain Points]. Based on your knowledge of human psychology and software, what are 3 secondary or hidden pain points this user is likely experiencing but might not explicitly state? Help me uncover the deeper frustrations.
+\`\`\`
+
+## Accountability Check
+- [ ] I have identified and documented the most critical pain points.`,
   'targetusers': `# Target Users
 
 **Estimated Time:** 10 min
@@ -1900,29 +1901,32 @@ Write Here...
 ---
 
 ## Why this matters
-"Everyone" is not a target audience. If you build for everyone, you build for no one. You need a highly specific niche to gain initial traction.
+'Everyone' is not a target audience. If you build for everyone, you build for no one. Defining your target user dictates your marketing strategy, your UI/UX design, and your tone of voice. A tool for enterprise compliance officers looks and feels fundamentally different than a tool for Gen Z creators.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your target user is the judging panel. 
-
-If the judges are mostly engineers, build a dev-tool. If the judges are business executives, build a dashboard. Tailor the entire experience to the people grading you.
+Your target user is the judge panel. Period. Frame your product, your pitch, and your use cases in a way that resonates with the specific people evaluating your project. If the judges are technical, build for developers. If the hackathon is sponsored by a healthcare company, build for clinicians.
 
 ### Personal Project
-Your target user is you, and perhaps a small community you are a part of (e.g., a specific Discord server or a niche subreddit).
+You are the target user. Do not worry about making the UI accessible for non-technical users if you are the only one who will ever use it. Build the interface that makes sense to your brain, using the shortcuts and workflows you personally prefer.
 
 ### Production SaaS
-Your target users must be "desperate" and "reachable." 
+You must aggressively niche down. Do not target 'Small Businesses'. Target 'Boutique Coffee Shop Owners with 2-5 locations'. The narrower your initial target user, the easier it is to find them, market to them, and build a product that fits their exact needs perfectly. You can expand later.
 
-If your target users are "Small Business Owners," that is too broad. How do you reach them? Instead, target "Independent Dental Practices in the US who struggle with scheduling." Now you know exactly who to cold-email and what their specific needs are.
-
-
-## Your Specific Audience
+## The Data We Need From You
+**Who is the primary target user for this application? Be as specific as possible.**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
+
+## AI Persona Generation
+\`\`\`prompt
+Act as a Go-to-Market Strategist. My target user is: [Insert Target User]. Give me a detailed breakdown of where these users hang out online (specific subreddits, forums, social platforms), what their primary professional motivations are, and the exact vocabulary or jargon they use to describe their problems.
+\`\`\`
+
+## Accountability Check
+- [ ] I have defined a highly specific target user demographic.`,
   'icpidealcustomerprofile': `# Ideal Customer Profile (ICP)
 
 **Estimated Time:** 15 min
@@ -1930,87 +1934,99 @@ Write Here...
 ---
 
 ## Why this matters
-While a Target User is a *person*, an ICP is the *company* or *entity* that employs them. Knowing your ICP tells you who has the budget to pay for your product.
+An ICP is a highly specific description of the *company* or *buyer* that gets the most value out of your product and is easiest to sell to. Without an ICP, your marketing will be too generic, your outbound emails will be ignored, and your product roadmap will be pulled in a dozen conflicting directions.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip this entirely. You don't need a corporate ICP for a weekend project.
+Your ICP is the hackathon sponsor. If Twilio sponsored the hackathon, your ICP is 'A developer who desperately needs to send an SMS notification'. Tailor your entire presentation around why your product makes the sponsor's technology look incredibly valuable.
 
 ### Personal Project
-Skip this. You are building for individuals, not B2B companies.
+Your ICP is you, or a very close friend. If you are building a tool for your personal fitness tracking, do not build features for 'gym owners'. Build features for 'a 20-something software engineer who lifts weights 3x a week'.
 
 ### Production SaaS
-You must define the company size, revenue, and industry. 
+A Production ICP must be ruthlessly specific. It is not 'Small Businesses'. It is 'B2B SaaS companies in North America with 10-50 employees, using Stripe, who struggle with high churn'. You must define their industry, company size, budget, and the specific technology stack they currently use. If they don't meet these criteria, you disqualify them.
 
-For example: "B2B SaaS companies with 50-200 employees, doing $5M-$20M in ARR, struggling with churn." If a company with 5 employees tries to buy your product, they are NOT your ICP, and you should not build custom features for them, even if they complain.
-
-
-## Define the ICP
+## The Data We Need From You
+**Describe your Ideal Customer Profile. Include industry, size, and existing tools they use.**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
-  'personas': `# Personas
+
+## AI Refinement Phase
+\`\`\`prompt
+Act as a B2B SaaS Sales Director. My current ICP is: [Insert ICP]. Please tighten this ICP by suggesting 3 specific 'disqualifiers'—characteristics that would immediately indicate a company is a BAD fit for my product. Then, suggest one specific sub-niche I should target first to get my first 10 customers.
+\`\`\`
+
+## Accountability Check
+- [ ] I have defined a narrow, highly targeted ICP.`,
+  'personas': `# User Personas
 
 **Estimated Time:** 15 min
 
 ---
 
 ## Why this matters
-Personas humanize your target users. They help you design the UI and dictate your copywriting. If you don't know exactly who is sitting on the other side of the screen, you will build generic software that nobody loves.
+While an ICP defines the *company* you are targeting, User Personas define the actual *human beings* logging into your software. An Enterprise SaaS might be sold to the CFO (Buyer Persona), but it is used daily by a junior accountant (User Persona). You must understand both to build a successful product.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-When building for a hackathon, personas are less about deep psychological profiling and more about identifying the "wow factor" for the judges. 
-
-Don't waste time interviewing users. Pick one extreme persona that makes your demo look incredible. For example, if you are building an AI email writer, your persona isn't "a business owner"—it's "a dyslexic teenager trying to write college applications." The extreme persona makes the demo shine.
+Keep it to a single persona. You do not have time to build different dashboards for 'Admins', 'Managers', and 'Employees'. Build a single, unified view for the 'Primary Actor' and assume they have god-mode permissions. The demo should focus entirely on their happy path.
 
 ### Personal Project
-For a personal project, the persona is usually you. You are scratching your own itch.
-
-However, it's still worth documenting *why* you are frustrated. What workflow is currently breaking for you? By writing this down, you ensure you don't lose sight of the original problem when you start getting distracted by shiny new frameworks.
+You are the primary persona. However, if you plan to share this with others, consider the 'Casual Observer' persona. How does your app look when someone who hasn't read your source code tries to use it? Keep the UX intuitive enough that you don't need a manual.
 
 ### Production SaaS
-In a Production SaaS, you must differentiate between the "User" (who clicks the buttons) and the "Buyer" (who signs the check). They often want completely different things.
+You must clearly separate your Buyer Persona from your User Persona. The Buyer cares about ROI, compliance, and reporting. The User cares about speed, UI, and reducing manual data entry. Your landing page must sell to the Buyer, while your actual product must delight the User.
 
-For example, if you are building HR software, the User (the employee) wants a beautiful, fast UI. The Buyer (the HR Director) wants deep analytics and compliance tracking. If you only build for the User, you will never get paid. If you only build for the Buyer, the Users will hate your software.
+## The Data We Need From You
+**Who is the primary person using this software, and who is the person paying for it? (If B2C, these are the same).**
+\`\`\`input
+Buyer: 
+User: 
+\`\`\`
 
+## AI Expansion Phase
+\`\`\`prompt
+Act as a UX Researcher. My primary user persona is [Insert User Persona] and my buyer persona is [Insert Buyer Persona]. Give me a 3-point breakdown of the psychological motivations for EACH persona. What keeps the Buyer awake at night? What does the User find most tedious about their daily job?
+\`\`\`
 
 ## Accountability Check
-- [ ] I understand the difference between the user and the buyer.
-`,
+- [ ] I clearly understand the difference between my buyer and my user.`,
   'solutionstatement': `# Solution Statement
 
-**Estimated Time:** 10 min
+**Estimated Time:** 15 min
 
 ---
 
 ## Why this matters
-This is the core mechanic of your product. How exactly does your software eliminate the pain point?
+If your problem statement defines the disease, your solution statement is the cure. It forces you to articulate *how* your software actually fixes the user's pain point without getting bogged down in technical jargon. A clear solution statement keeps the engineering team focused on the outcome, not just building features.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your solution must sound like magic. "We use AI to instantly..." or "A real-time Web3 protocol that..." 
-
-The technical "how" is less important than the impressiveness of the "what."
+Your solution statement should sound like magic. 'We use AI to instantly convert X into Y.' It doesn't matter if there's a human in the loop behind the scenes during the demo. The solution statement is the narrative promise you make to the judges.
 
 ### Personal Project
-The solution should be an elegant, lightweight script or app that automates the boring part of your workflow.
+Your solution statement is your personal goal. 'A python script that automatically categorizes my bank transactions so I don't have to do it manually every Sunday.' Keep it pragmatic and focused entirely on the utility it provides you.
 
 ### Production SaaS
-The solution must be a scalable software product that integrates into the user's existing habits. 
+The solution statement must bridge the gap between the pain point and the ROI. It should explicitly state the mechanism of action. 'We provide an automated CI/CD pipeline that catches security vulnerabilities before they are merged, saving enterprise teams $100k+ in compliance fines.'
 
-Don't force users to change their behavior. If they live in Slack, your solution should be a Slack bot. If they live in their inbox, your solution should integrate with Gmail.
-
-
-## Describe the Solution
+## The Data We Need From You
+**In one sentence, how does your product solve the user's problem?**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
+
+## AI Brainstorming Phase
+\`\`\`prompt
+Act as a Y Combinator partner. My solution statement is: [Insert Solution]. This sounds a bit generic. Please rewrite this into 3 distinct, highly compelling solution statements. Focus one on saving time, one on making money, and one on reducing risk/anxiety.
+\`\`\`
+
+## Accountability Check
+- [ ] My solution statement is clear, actionable, and free of jargon.`,
   'valueproposition': `# Value Proposition
 
 **Estimated Time:** 15 min
@@ -2018,31 +2034,32 @@ Write Here...
 ---
 
 ## Why this matters
-A value proposition is a concise promise of value to be delivered. It is the #1 reason a prospect should buy from you instead of your competitors. It's the headline of your landing page.
+Your value proposition is the number one reason a visitor should buy your product over the competition. It is the big, bold text on your landing page. If your value proposition is weak ('We help you do things better'), users will bounce in under 3 seconds.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your value proposition is the hook for your presentation. 
-
-"We built Tinder for X" or "We make X 100x faster using LLMs." It needs to be catchy, memorable, and instantly understood by a tired judge at 2 AM.
+Your value prop is shock value. 'The world's first AI that does X.' You want the judges to raise their eyebrows. It doesn't need to be a sustainable business model; it just needs to be an undeniable technical feat or a hilarious novelty.
 
 ### Personal Project
-Your value proposition is simply the time or mental energy you are saving yourself.
+Your value prop is 'Free, open-source, and exactly what I need.' If you open-source it, your value prop to other developers is that they can self-host it without paying a $30/month subscription to a corporate SaaS.
 
 ### Production SaaS
-Your value proposition must focus on outcomes, not features. 
+Your value prop must be quantitative. 'Reduce your AWS bill by 30% with zero code changes.' A strong Production value prop makes the decision to buy a no-brainer. If the software costs $100/mo but explicitly saves the user $1,000/mo in labor, it sells itself.
 
-Bad: "We have an AI-powered dashboard with real-time analytics."
-Good: "Cut your customer churn in half without hiring more support agents."
-People don't buy dashboards; they buy lower churn.
-
-
-## The Core Value Prop
+## The Data We Need From You
+**What is the primary quantitative or emotional value your product delivers?**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
+
+## AI Refinement Phase
+\`\`\`prompt
+Act as an elite Copywriter. My raw value proposition is: [Insert Value Prop]. Turn this into a high-converting Landing Page Hero Section. Provide 1 main H1 Headline (under 7 words, punchy), 1 subheadline (under 15 words, explanatory), and the text for the primary Call to Action (CTA) button.
+\`\`\`
+
+## Accountability Check
+- [ ] I have a compelling value proposition ready for my landing page.`,
   'elevatorpitch': `# Elevator Pitch
 
 **Estimated Time:** 10 min
@@ -2050,81 +2067,103 @@ Write Here...
 ---
 
 ## Why this matters
-You have 30 seconds to explain what you do before the person stops listening. The elevator pitch is your standard answer to "So, what are you working on?"
+You have 30 seconds to explain what you are building to an investor, a potential co-founder, or a customer. If you stumble, ramble about tech stacks, or use confusing jargon, you lose them. An elevator pitch forces you to distill your entire business into a single, undeniable hook.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your pitch must be high-energy and focus on the impressive technology you managed to stitch together in 48 hours.
+The elevator pitch is your actual presentation intro. 'Have you ever noticed how annoying X is? What if you could just do Y? Meet [Project Name].' It needs to be punchy, relatable, and instantly transition into the live demo.
 
 ### Personal Project
-Keep it casual. "I got annoyed by X, so I built a little app that does Y."
+'I got tired of doing X manually, so I built a small script to automate it.' That is your entire pitch. It is humble, clear, and perfectly sets expectations if you share it on Reddit or GitHub.
 
 ### Production SaaS
-Use the standard format: "For [Target User] who [Problem], our product is a [Category] that provides [Value Proposition]. Unlike [Competitor], we [Key Differentiator]."
+Use the standard 'X for Y' or the 'We help [Target] do [Action] so they can [Result]' framework. Do not mention your tech stack. Do not mention your database. Focus entirely on the massive market opportunity and the unique insight your team has to capture it.
 
-Practice this until you can say it smoothly without sounding like a robot.
-
-
-## Your Pitch
+## The Data We Need From You
+**Draft your 30-second elevator pitch.**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
-  'marketresearch': `# Market Research
 
-**Estimated Time:** 20 min
-
----
-
-## Why this matters
-If you build something nobody wants to buy, you are just doing expensive charity work. Market research validates that there is actually money to be made.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Market research doesn't matter for a hackathon. Make up a plausible-sounding Total Addressable Market (TAM) statistic for your pitch deck (e.g., "This is a $50 Billion industry"). The judges won't verify it; they just want to see that you understand the format of a pitch.
-
-### Personal Project
-You are your own market. Research is unnecessary unless you are trying to learn a specific industry's domain knowledge.
-
-### Production SaaS
-Do not write code until you have spoken to at least 5 people in your target market who have explicitly stated they would pay for a solution to their problem. 
-
-You should research exactly where these people hang out online. If you can't find a place where 10,000 of your potential customers congregate (a subreddit, a Facebook group, a LinkedIn niche), your market might be too hard to reach.
-
+## AI Expansion Phase
+\`\`\`prompt
+Act as a Startup Coach. My current elevator pitch is: [Insert Pitch]. Please critique this pitch. Then, provide 3 alternative versions: 
+1. The 'X for Y' analogy (e.g., The Uber for Dog Walking).
+2. The 'Villain' approach (Focus heavily on the pain point).
+3. The 'Visionary' approach (Focus on how the world looks in 5 years because of this product).
+\`\`\`
 
 ## Accountability Check
-- [ ] I have validated my market assumptions.
-`,
-  'competitoranalysis': `# Competitor Analysis
+- [ ] I can clearly pitch my product in under 30 seconds.`,
+  'marketresearch': `# Market Research
 
-**Estimated Time:** 15 min
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-If you have no competitors, you either have a brilliant blue-ocean idea, or (more likely) you are building something useless. Competitors prove the market exists. Analyzing them shows you how to beat them.
+Writing code is the most expensive way to figure out if people want your product. Market research validates that a market actually exists, that people are currently spending money to solve the problem, and that there is room for a new entrant. Skipping this step leads to launching a brilliant product to absolute crickets.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Find the biggest, slowest, most hated competitor in the space (like Oracle or Jira) and position your hackathon project as the "AI-native, lightning-fast alternative." It makes for a great David vs. Goliath story during the pitch.
+Do not do formal market research. You do not have the time. Instead, find one mind-blowing statistic that validates the scale of your problem and put it on your opening slide. 'Every year, $10B is lost to X. We fix X.' That is the only research you need for a hackathon.
 
 ### Personal Project
-Look at competitors to steal their UI/UX patterns. You don't need to reinvent the wheel for a weekend project.
+Market research here means 'Has someone already built this for free?' Search GitHub and Product Hunt. If an open-source tool already exists that does exactly what you want, use it! Only build the project if you want to learn, or if the existing tools are too complex/expensive for your specific needs.
 
 ### Production SaaS
-Find 3 direct competitors. Sign up for their free trials. 
+You must conduct rigorous top-down and bottom-up market sizing (TAM, SAM, SOM). You need to look at industry reports, search volume trends (Google Keyword Planner), and macro tailwinds. If the market is shrinking, or if it is completely dominated by legacy monopolies with unbreachable distribution moats, pick a different market.
 
-Identify their biggest weakness. Do they have terrible customer support? Is their UI from 2010? Are they too expensive for small businesses? Your product must be 10x better on that *one specific axis*. Don't try to beat them on features; they have 100 engineers and you have 1. Beat them on user experience or niche focus.
-
-
-## List Your Top 3 Competitors
+## The Data We Need From You
+**What is one quantifiable metric that proves this is a real problem? (e.g., Search volume, industry reports, hours wasted)**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
+
+## AI Research Phase
+\`\`\`prompt
+Act as a Market Research Analyst. My product idea is [Insert Idea]. Please identify the Top 3 macro trends that are acting as tailwinds for this industry over the next 5 years. Also, provide a rough estimate of the Total Addressable Market (TAM) based on publicly available industry data.
+\`\`\`
+
+## Accountability Check
+- [ ] I have validated that there is a demand for this solution.`,
+  'competitoranalysis': `# Competitor Analysis
+
+**Estimated Time:** 30 min
+
+---
+
+## Why this matters
+If you have no competitors, you either have a completely novel, world-changing idea, or (much more likely) there is no money in this market. Competitors validate the market. Analyzing them helps you identify their weak points, their pricing strategies, and their core features so you can differentiate yourself.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Find the biggest, most boring legacy competitor in the space and make them your villain. 'Salesforce takes 3 weeks to set up. Our app does it in 3 seconds.' Use competitors purely as a contrasting baseline to make your demo look incredibly fast and innovative.
+
+### Personal Project
+Look at the paid competitors and find the exact features they put behind their $50/month paywall. Build those specific features for yourself for free. You don't need to build their entire platform, just the 10% you actually care about.
+
+### Production SaaS
+You need a comprehensive feature matrix. Document their pricing, their G2/Capterra reviews, and their onboarding flows. Most importantly, read their 1-star reviews. What do their users hate about them? That 1-star review is the exact wedge you use to enter the market and steal their customers.
+
+## The Data We Need From You
+**List your top 3 direct competitors.**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Analysis Phase
+\`\`\`prompt
+Act as a Competitive Intelligence Expert. I have identified the following competitors for my SaaS: [Insert Competitors]. Please provide a strategic breakdown of each. Specifically, identify their biggest perceived weakness in the market, and suggest one specific 'Wedge Strategy' I can use to steal their most frustrated customers.
+\`\`\`
+
+## Accountability Check
+- [ ] I have identified my competitors and read their negative reviews.`,
   'existingalternatives': `# Existing Alternatives
 
 **Estimated Time:** 15 min
@@ -2132,17 +2171,32 @@ Write Here...
 ---
 
 ## Why this matters
-Your biggest competitor isn't a startup; it's Microsoft Excel. Or a piece of paper. What are they using right now?
+Competitors are companies that build similar software. *Alternatives* are the workarounds people use right now because your software doesn't exist. Often, your biggest competitor is not another startup; it is a messy Excel spreadsheet, a chaotic Slack channel, or a pen and paper. If the workaround is 'good enough', they will not buy your software.
 
 ## Strategic Guidance
-- **Hackathon Mode:** Skip this. 
-- **Personal Project:** Skip this.
-- **Production SaaS:** You must convince them to change their current habits. Changing habits is incredibly hard.
-- **Custom Mode:** Legacy on-premise systems are usually the existing alternative. Prepare a migration strategy.
+
+### Hackathon Mode
+Your pitch should explicitly call out the manual alternative. 'Right now, doctors spend 20 minutes writing these notes by hand. Watch me do it in 2 seconds.' The contrast between the manual alternative and your automated solution is what wins hackathons.
+
+### Personal Project
+Your current alternative is probably what motivated you to start this project. Document exactly what you are doing right now (e.g., 'I currently copy-paste this data every morning'). Your project is considered a success the day you stop using the alternative and start using your app.
+
+### Production SaaS
+You must calculate the 'Switching Cost'. Even if your software is 10x better than their messy Excel spreadsheet, the effort required to migrate their data and train their team might be too high. You have to ensure that the pain of the alternative is significantly higher than the friction of switching to your app.
+
+## The Data We Need From You
+**How are people solving this problem right now without your software?**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## AI Strategy Phase
+\`\`\`prompt
+Act as a Behavioral Economist. My target users are currently solving their problem by doing the following: [Insert Alternative]. My software automates this process. Give me a 3-step strategy to overcome the 'Status Quo Bias' and convince these users that the pain of switching to my software is worth the effort.
+\`\`\`
 
 ## Accountability Check
-- [ ] I understand the friction involved in making a user switch from their current solution.
-`,
+- [ ] I understand the current workarounds my users rely on.`,
   'marketpositioning': `# Market Positioning
 
 **Estimated Time:** 20 min
@@ -2150,40 +2204,73 @@ Your biggest competitor isn't a startup; it's Microsoft Excel. Or a piece of pap
 ---
 
 ## Why this matters
-Are you the cheap, fast alternative? Or the expensive, premium, enterprise-grade solution? 
+Positioning is how you want your target audience to perceive you in relation to your competitors. Are you the premium, enterprise-grade option? Are you the cheap, bare-bones utility? Are you the AI-powered disruptor? Strong positioning makes marketing easier because you know exactly what to emphasize and what to ignore.
 
 ## Strategic Guidance
-- **Hackathon Mode:** You are the "cool, AI-powered" alternative.
-- **Personal Project:** You are the "free, open-source" alternative.
-- **Production SaaS:** Never compete on price. Be the "fastest, best UX" or the "most specialized for [niche]" alternative.
-- **Custom Mode:** You are the "most secure, compliant, and scalable" alternative.
 
-## AI Brainstorming Phase
+### Hackathon Mode
+Position yourself as the 'Future'. Everything else is the 'Past'. Use words like 'Instant', 'Autonomous', and 'AI-Native'. You do not need nuanced positioning in a hackathon; you need extreme, polarizing contrast against the status quo.
+
+### Personal Project
+Positioning doesn't really matter for personal projects unless you are building an open-source library. If you are, position it based on developer ergonomics (e.g., 'The zero-dependency alternative to X' or 'The fastest way to do Y').
+
+### Production SaaS
+You must carve out a specific quadrant in the market map. If the market leader is complex and expensive, position yourself as simple and affordable. If the leader is generic, position yourself as hyper-specialized for a specific industry. Do not try to be better at everything; be exceptionally better at one specific dimension that your target user cares about.
+
+## The Data We Need From You
+**How are you positioning your product relative to the market leader? (e.g., We are the cheaper, faster, or more specialized alternative)**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## AI Refinement Phase
 \`\`\`prompt
-Act as a Brand Strategist. Based on my competitors, suggest 3 different ways I can position my product in the market to stand out.
+Act as a Brand Strategist. The current market leader in my space is [Insert Market Leader] and my product idea is [Insert Idea]. I want to position my product as [Insert Positioning]. Help me write a 2-sentence Positioning Statement using the standard format: 'For [target customer] who [statement of need], our product is a [category] that [key benefit].'
 \`\`\`
 
 ## Accountability Check
-- [ ] I know exactly where my product sits in the market landscape.
-`,
+- [ ] I have a clear positioning strategy against my competitors.`,
   'featureplanning': `# Feature Planning
 
-**Estimated Time:** 20 min
+**Estimated Time:** 25 min
 
 ---
 
 ## Why this matters
-Scope creep is the death of all software. If you don't define what you are building, you will build forever.
+Feature bloat kills startups. Feature planning is the discipline of ruthlessly translating your solution statement into actionable software capabilities, and then aggressively cutting 80% of them. If you build every feature you can think of, you will run out of time, money, and motivation before you ever launch.
 
 ## Strategic Guidance
-- **Hackathon Mode:** Only build features that look good in a demo video.
-- **Personal Project:** Build features that require the specific technology you want to learn.
-- **Production SaaS:** Build only what is required to solve the core pain point. Ignore "nice to have" features.
-- **Custom Mode:** Map features directly to enterprise compliance and workflow requirements.
+
+### Hackathon Mode
+Plan exactly 3 features. 
+1. A dead-simple login/auth flow (or skip it entirely).
+2. The 'Magic' feature that does the core AI/data processing.
+3. A beautiful results dashboard to show the judges.
+Anything else is a distraction that will break during the live demo.
+
+### Personal Project
+List the features you need to solve your problem. Then, circle the ONE feature that is the actual bottleneck. Build that first as a CLI script or a single-page app. You do not need user profiles, settings pages, or dark mode toggles until the core feature works perfectly.
+
+### Production SaaS
+Map features directly to user pain points. If a feature does not alleviate a specific, documented pain point, it goes into the backlog. You must categorize features into 'Table Stakes' (things users expect, like password reset), 'Core Value' (the thing they pay for), and 'Delighters' (nice-to-haves that improve retention).
+
+## The Data We Need From You
+**List 5-10 features you believe your product needs to be successful.**
+\`\`\`input
+1. 
+2. 
+3. 
+4. 
+5. 
+\`\`\`
+
+## AI Expansion Phase
+\`\`\`prompt
+Act as a strict Product Manager. I have brainstormed the following features for my software: [Insert Features]. Be ruthless. Tell me which 2 features are likely 'shiny object distractions' that I should cut immediately, and explain why they do not belong in an early-stage product.
+\`\`\`
 
 ## Accountability Check
-- [ ] I am ready to ruthlessly cut features.
-`,
+- [ ] I have brainstormed features and began cutting the unnecessary ones.`,
   'mvpfeatures': `# MVP Features
 
 **Estimated Time:** 20 min
@@ -2191,29 +2278,34 @@ Scope creep is the death of all software. If you don't define what you are build
 ---
 
 ## Why this matters
-The Minimum Viable Product (MVP) is the absolute bare minimum you can build to solve the core problem. Every extra feature delays your launch and increases your risk of failure.
+The Minimum Viable Product (MVP) is the absolute smallest thing you can build that still delivers the core value proposition. Every additional feature you add to your MVP delays your launch, burns your runway, and distracts from validating your core assumption. If your MVP isn't slightly embarrassing, you launched too late.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your MVP is just whatever you can finish before 8:00 AM on Sunday. 
-
-Focus entirely on the "happy path." If a user clicks the wrong button, let the app crash. You will only be clicking the right buttons during the demo anyway.
+Your MVP is your entire project. If a feature takes more than 2 hours to build, it does not belong in the MVP. Hardcode the login, mock the database responses if the API is slow, and focus 90% of your engineering effort on the one 'wow' feature that you will show the judges.
 
 ### Personal Project
-Your MVP should consist of 1 to 3 core features. If it takes you longer than 2 weekends to build your MVP, your scope is too large. Cut features mercilessly.
+Your MVP is a single script or a basic React component. Don't add a database if a local JSON file works. Don't add a UI if a CLI command works. Build the absolute minimum required to solve your problem *today*, and you can add the fancy bells and whistles next weekend.
 
 ### Production SaaS
-Your MVP must be robust enough to charge money for, but small enough to launch in 4-6 weeks. 
+Your MVP must be commercially viable. It still needs to be minimal, but it cannot be broken or insecure. You must include a payment gateway (like Stripe Checkout), secure authentication, and the core utility. Cut all administrative dashboards, advanced reporting, and user role management until users actually ask for them.
 
-Do not build a "Settings" page with customizable themes. Do not build social login (just use email/password or magic links). Build the one core mechanic that solves the hair-on-fire problem. Everything else is a distraction.
-
-
-## Define the MVP Features
+## The Data We Need From You
+**From your feature list, what are the absolute minimum 2-3 features required to make the product usable?**
 \`\`\`input
-Write Here...
+1. 
+2. 
+3. 
 \`\`\`
-`,
+
+## AI Refinement Phase
+\`\`\`prompt
+Act as an aggressive Startup Advisor. My proposed MVP features are: [Insert MVP Features]. Your goal is to force me to launch faster. Tell me how I can 'fake' or manually handle at least one of these features behind the scenes so I don't have to write code for it yet.
+\`\`\`
+
+## Accountability Check
+- [ ] I have defined an embarrassingly simple MVP.`,
   'futurefeatures': `# Future Features
 
 **Estimated Time:** 10 min
@@ -2221,117 +2313,186 @@ Write Here...
 ---
 
 ## Why this matters
-Put your great (but unnecessary) ideas here so they don't distract you today.
-
-## Strategic Guidance
-- **Hackathon Mode:** Mention these in your pitch to show "future potential".
-- **Personal Project:** Ignore these until the MVP is deployed.
-- **Production SaaS:** Do not build these until users are explicitly asking for them.
-- **Custom Mode:** These form your 18-month enterprise roadmap.
-
-## Accountability Check
-- [ ] I will not build these features today.
-`,
-  'featureprioritization': `# Feature Prioritization
-
-**Estimated Time:** 15 min
-
----
-
-## Why this matters
-You have limited time and engineering resources.
-
-## Strategic Guidance
-- **Hackathon Mode:** Prioritize UI/UX and the core "magic moment".
-- **Personal Project:** Prioritize the hardest technical challenge first to get it out of the way.
-- **Production SaaS:** Use the ICE framework (Impact, Confidence, Ease). Prioritize high impact, high ease.
-- **Custom Mode:** Prioritize features that unblock enterprise procurement (e.g., Security, SAML).
-
-## Accountability Check
-- [ ] I know exactly what I am building first.
-`,
-  'businessmodel': `# Business Model
-
-**Estimated Time:** 15 min
-
----
-
-## Why this matters
-How are you going to make money? A great product with a broken business model is a charity. A mediocre product with a brilliant business model is a billion-dollar company.
+You will have dozens of brilliant ideas while building your MVP. If you try to build them immediately, you will derail the project. The 'Future Features' backlog is a psychological safety valve: it gives you a place to write down your great ideas so you don't forget them, allowing you to get back to work on the MVP.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Completely ignore this. You are not building a business; you are building a demo.
+Future features are what you put on the 'What's Next' slide at the end of your presentation. It shows the judges that you have a vision beyond the 24-hour sprint. List 3 massive, ambitious features (like 'Full AI Autonomy' or 'Enterprise SSO') to show you are thinking big.
 
 ### Personal Project
-Ignore this. Your goal is learning, not revenue.
+Your future features are just your weekend wishlist. Whenever you get frustrated using your own MVP, add a note here. 'It would be cool if it could automatically send me a Slack message when it finishes.' Keep the list casual and low-pressure.
 
 ### Production SaaS
-The standard SaaS model is a monthly recurring subscription (MRR). 
+Future features are the foundation of your product roadmap. However, do not promise them to users yet. Write them down internally. When a user requests a feature, tally it against this list. When a feature gets enough tallies, move it from 'Future' to 'Active Development'.
 
-However, consider usage-based pricing (like Stripe or OpenAI) if your costs scale directly with user activity. Do not offer a "freemium" tier unless you have millions of dollars in VC funding to subsidize free users. Instead, offer a 14-day free trial requiring a credit card upfront.
-
-
-## Choose Your Model
+## The Data We Need From You
+**What are some 'nice-to-have' features that you are explicitly NOT building right now?**
 \`\`\`input
-Write Here...
+Type your answer here...
 \`\`\`
-`,
+
+## Accountability Check
+- [ ] I have offloaded my distracting ideas into a future backlog.`,
+  'featureprioritization': `# Feature Prioritization
+
+**Estimated Time:** 20 min
+
+---
+
+## Why this matters
+Once you have a list of MVP features and Future Features, you need an objective way to decide what gets built first. Intuition is a terrible prioritization framework. If you build the easy things first, you might delay the riskiest, most important feature until it's too late.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Prioritize based on 'Demo Impact' versus 'Implementation Time'. If a feature looks incredibly cool on screen and takes 30 minutes to build (e.g., adding a sleek chart library), build it immediately. If it takes 4 hours and happens entirely in the backend with no visual output, cut it or fake it.
+
+### Personal Project
+Prioritize based on personal annoyance. Which missing feature is causing you the most friction right now? Build that one. The goal is to maximize your own utility as quickly as possible.
+
+### Production SaaS
+Use a formal matrix like the Eisenhower Matrix (Urgent/Important) or RICE (Reach, Impact, Confidence, Effort). You must prioritize the features that either directly drive revenue (e.g., upgrading payment tiers) or directly reduce churn (e.g., fixing a critical bug). Everything else is secondary.
+
+## AI Execution Phase
+\`\`\`prompt
+Act as a Technical Product Manager. I have the following features I want to build: [Insert Features]. I need to prioritize them. Please place them into an 'Impact vs. Effort' matrix. Format the output as a clean table, categorizing them into: Quick Wins (High Impact, Low Effort), Major Projects (High Impact, High Effort), Fill-ins (Low Impact, Low Effort), and Time Wasters (Low Impact, High Effort).
+\`\`\`
+
+## Accountability Check
+- [ ] I know exactly which single feature I am building next.`,
+  'businessmodel': `# Business Model
+
+**Estimated Time:** 20 min
+
+---
+
+## Why this matters
+A product is not a business. A business requires a mechanism to capture value (make money) from the value it creates. If you do not define your business model early, you might build an architecture that cannot support it (e.g., building a single-tenant app when you need a multi-tenant subscription SaaS).
+
+## Strategic Guidance
+
+### Hackathon Mode
+Pick a business model that sounds plausible and throw it on a slide. B2B SaaS subscriptions or taking a 2% cut of transactions (Marketplace model) are usually the easiest to defend in a Q&A session. You don't need to actually implement Stripe.
+
+### Personal Project
+Your business model is 'Free forever.' You are not trying to monetize this. However, if hosting costs become an issue, you might eventually consider a 'Pay what you want' or GitHub Sponsors model. For now, ignore monetization entirely.
+
+### Production SaaS
+You must choose your model carefully. B2B SaaS (recurring subscriptions) is the gold standard for predictable revenue, but requires a high-value product. Usage-based pricing (pay-per-API-call) is great for developer tools but leads to unpredictable revenue. Freemium is a marketing strategy, not a business model, and will bankrupt you if your server costs are high.
+
+## The Data We Need From You
+**How exactly will this software make money?**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## AI Strategy Phase
+\`\`\`prompt
+Act as a SaaS Financial Analyst. My proposed business model is: [Insert Business Model]. Critique this model based on industry standards. Then, suggest one alternative business model I might not have considered (e.g., usage-based, tiered subscription, one-time lifetime deal) and explain why it might work better for my specific product.
+\`\`\`
+
+## Accountability Check
+- [ ] I have a clear plan for how this product captures value.`,
   'pricing': `# Pricing Strategy
+
+**Estimated Time:** 20 min
+
+---
+
+## Why this matters
+Pricing is the most neglected growth lever. Most founders guess a number (usually $9/mo) and never change it. Pricing dictates your marketing channels: you cannot afford to run Facebook Ads or hire a sales team if your product only costs $5/month. Pricing determines the survival of your business.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Make up three tiers: Free, Pro ($29/mo), and Enterprise (Contact Us). Put a shiny 'Most Popular' badge on the Pro tier. It shows the judges you understand basic SaaS economics. 
+
+### Personal Project
+If you ever decide to sell your personal project, sell it as a one-time purchase (e.g., a $50 lifetime license). Managing recurring subscriptions, dealing with failed credit cards, and handling customer support for a $5/mo product is a nightmare for a solo developer doing this for fun.
+
+### Production SaaS
+Charge more. Start by identifying the quantifiable value your product provides (e.g., saves 10 hours a month = $500 value). Charge 10-20% of that value ($50-$100/mo). Do not compete on price; compete on value. If you are cheaper than the competition, enterprise customers will assume your product is worse.
+
+## The Data We Need From You
+**What are your initial pricing tiers and price points?**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## AI Strategy Phase
+\`\`\`prompt
+Act as a Pricing Strategy Consultant. My SaaS product does [Insert Core Function] and my target audience is [Insert Audience]. My current idea for pricing is [Insert Pricing Idea]. Please analyze this pricing. Suggest a 3-tier pricing structure (Basic, Pro, Business) and explicitly define the 'Value Metric' (e.g., number of seats, amount of storage) that should separate the tiers.
+\`\`\`
+
+## Accountability Check
+- [ ] I have established my initial pricing tiers.`,
+  'subscriptionmodel': `# Subscription Model
 
 **Estimated Time:** 15 min
 
 ---
 
 ## Why this matters
-Pricing is the most under-utilized growth lever.
+The subscription model is the holy grail of SaaS because it provides predictable, recurring revenue. However, deciding exactly *what* the user is subscribing to—seats, usage, or features—can make or break your growth. If your subscription model introduces too much friction, users will churn before they form a habit.
 
 ## Strategic Guidance
-- **Hackathon Mode:** Skip.
-- **Personal Project:** Free.
-- **Production SaaS:** Charge more than you think. If nobody complains about the price, it's too cheap.
-- **Custom Mode:** Minimum contract value of $10,000/year to justify sales overhead.
+
+### Hackathon Mode
+Don't implement a subscription model. Just assume it exists. If you must show it, hardcode a 'Pro Plan - Active' badge in the UI. Judges want to see the core technology working, not a Stripe integration.
+
+### Personal Project
+Again, avoid subscriptions entirely. If you want to accept donations for an open-source project, use GitHub Sponsors or Buy Me a Coffee. Managing subscriptions for a hobby project will burn you out.
+
+### Production SaaS
+You must carefully select your 'Value Metric'. If you charge per user (seat-based), you penalize companies for sharing your tool. If you charge by usage (e.g., API calls), your revenue might be volatile. The best model usually combines a base platform fee with a usage-based element (e.g., $99/mo + $0.01 per transaction).
+
+## The Data We Need From You
+**What is the core metric you are charging for? (e.g., Per user, per 1,000 emails, per gigabyte)**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## AI Strategy Phase
+\`\`\`prompt
+Act as a SaaS Pricing Expert. I want to charge for my product based on [Insert Metric]. Evaluate this value metric. Is it easily understandable to the user? Does it scale linearly with the value they receive? Suggest one alternative value metric that might align better with the user's success.
+\`\`\`
 
 ## Accountability Check
-- [ ] I will not underprice my product.
-`,
-  'subscriptionmodel': `# Subscription Model
-
-**Estimated Time:** 10 min
-
----
-
-## Why this matters
-Monthly Recurring Revenue (MRR) is the holy grail of software.
-
-## Strategic Guidance
-- **Hackathon Mode:** Skip.
-- **Personal Project:** Skip.
-- **Production SaaS:** Offer annual plans at a 20% discount to lock in cash flow.
-- **Custom Mode:** Multi-year lock-ins with mandatory implementation fees.
-
-## Accountability Check
-- [ ] I understand MRR dynamics.
-`,
+- [ ] I have selected a logical value metric for my subscriptions.`,
   'revenuestreams': `# Revenue Streams
 
-**Estimated Time:** 10 min
+**Estimated Time:** 15 min
 
 ---
 
 ## Why this matters
-Focus on one revenue stream until you hit $1M ARR.
+While your core SaaS subscription will likely be your primary revenue driver, successful companies often layer multiple revenue streams to increase Average Revenue Per User (ARPU). Offering priority support, one-time setup fees, or white-labeling can significantly boost your cash flow in the early days.
 
 ## Strategic Guidance
-- **Hackathon Mode:** Skip.
-- **Personal Project:** Skip.
-- **Production SaaS:** Focus entirely on your core SaaS subscription.
-- **Custom Mode:** Software licensing + Professional Services / Training.
+
+### Hackathon Mode
+Ignore this entirely. Your sole focus is the core product. One hypothetical revenue stream is plenty for a 3-minute pitch.
+
+### Personal Project
+If you want to monetize a personal project without subscriptions, consider a 'One-Time Payment for Lifetime Access' (like a desktop app) or selling a template/course alongside the free open-source tool.
+
+### Production SaaS
+Do not rely on just a $20/month subscription if you are selling B2B. Enterprise companies have budgets for 'Implementation' and 'Training'. Offer a $2,000 'Done-For-You Setup' package. It gives you immediate cash flow and drastically reduces the chance that the enterprise customer will churn in the first month.
+
+## The Data We Need From You
+**Aside from the core subscription, what is one additional way you could monetize your users?**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## AI Brainstorming Phase
+\`\`\`prompt
+Act as a Startup Consultant. My core SaaS product does [Insert Core Function]. My primary revenue stream is a monthly subscription. Give me 3 creative, high-margin, secondary revenue streams I could offer to my most engaged users to increase Average Revenue Per User (ARPU) without significantly increasing my engineering workload.
+\`\`\`
 
 ## Accountability Check
-- [ ] I will not distract myself with multiple revenue streams yet.
-`,
+- [ ] I have brainstormed at least one secondary revenue stream.`,
   'successmetrics': `# Success Metrics
 
 **Estimated Time:** 15 min
@@ -2339,165 +2500,225 @@ Focus on one revenue stream until you hit $1M ARR.
 ---
 
 ## Why this matters
-You cannot improve what you do not measure.
+If you don't know what success looks like, you won't know if your software is actually working. Success metrics help you move away from 'vanity metrics' (like page views or Twitter followers) and focus on the numbers that actually dictate the health of your business.
 
 ## Strategic Guidance
-- **Hackathon Mode:** Did it crash during the demo? No? Success.
-- **Personal Project:** Did I learn the framework? Yes? Success.
-- **Production SaaS:** Track Activation Rate and Month 1 Retention. If they churn immediately, the product is broken.
-- **Custom Mode:** Net Revenue Retention (NRR) must be >110%.
+
+### Hackathon Mode
+Your success metric is 'Did the demo work without crashing?' and 'Did we get the project submitted on time?' That's it.
+
+### Personal Project
+Your success metric is personal utility. 'Does this tool save me 2 hours a week?' or 'Did I successfully learn how to use GraphQL by building this?' If yes, the project is a resounding success.
+
+### Production SaaS
+Your success metrics must be actionable. You need to track Activation Rate (what percentage of signups actually use the core feature), Retention Rate (what percentage stick around after 30 days), and Customer Acquisition Cost (CAC). If these numbers are bad, no amount of marketing will save you.
+
+## The Data We Need From You
+**What are the 3 most important metrics you need to track to know if your business is healthy?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
 
 ## Accountability Check
-- [ ] I know what success looks like.
-`,
+- [ ] I have defined clear success metrics.`,
   'kpis': `# KPIs (Key Performance Indicators)
 
-**Estimated Time:** 15 min
+**Estimated Time:** 20 min
 
 ---
 
 ## Why this matters
-KPIs tell you if the business is healthy.
+While 'Success Metrics' are broad goals, KPIs are specific, time-bound targets that hold your team accountable. 'Improve retention' is a goal. 'Increase Day-30 retention from 15% to 25% by Q3' is a KPI. KPIs turn vague ambitions into engineering tickets.
 
 ## Strategic Guidance
-- **Hackathon Mode:** Skip.
-- **Personal Project:** Skip.
-- **Production SaaS:** Customer Acquisition Cost (CAC) and Lifetime Value (LTV).
-- **Custom Mode:** Sales cycle length and Pipeline Velocity.
+
+### Hackathon Mode
+You don't need KPIs for a 24-hour sprint. Your only KPI is time remaining before the submission deadline.
+
+### Personal Project
+Set a KPI for consistency rather than outcome. For example, 'Commit code 3 times a week' or 'Launch V1 by the end of the month'. Do not set user growth KPIs for personal projects; it ruins the fun.
+
+### Production SaaS
+You must implement a tight feedback loop. Every feature you build should be explicitly tied to a KPI. If you are building a new email notification system, the KPI is 'Increase Weekly Active Users by 10%'. If you launch the feature and the KPI doesn't move, you must iterate or remove the feature.
+
+## The Data We Need From You
+**Write down one specific, time-bound KPI for your product launch.**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## AI Strategy Phase
+\`\`\`prompt
+Act as a Data-Driven CEO. My broad goal for my SaaS is [Insert Broad Goal]. Please break this down into 3 specific, measurable, achievable, relevant, and time-bound (SMART) KPIs. Explain exactly what analytics events I need to track in my codebase to measure these KPIs accurately.
+\`\`\`
 
 ## Accountability Check
-- [ ] I understand my primary KPIs.
-`,
+- [ ] I have translated my broad goals into specific KPIs.`,
   'northstarmetric': `# North Star Metric
 
-**Estimated Time:** 15 min
+**Estimated Time:** 10 min
 
 ---
 
 ## Why this matters
-The one metric that best captures the core value your product delivers to its customers.
+The North Star Metric is the single most important number your entire company aligns around. It is the metric that best captures the core value your product delivers to its customers. When the North Star Metric grows, the business grows. For Airbnb, it's 'Nights Booked'. For WhatsApp, it's 'Messages Sent'.
 
 ## Strategic Guidance
-- **Hackathon Mode:** Skip.
-- **Personal Project:** Skip.
-- **Production SaaS:** e.g., For Airbnb, it's "Nights Booked". For WhatsApp, it's "Messages Sent".
-- **Custom Mode:** Must tie directly to enterprise cost savings or revenue generation.
+
+### Hackathon Mode
+Your North Star Metric is 'Wow factor during the demo'. Everything you build over the weekend must maximize this metric.
+
+### Personal Project
+Your North Star Metric is 'Personal usage'. Are you actually using your own tool every day? If that number drops to zero, the project is dead.
+
+### Production SaaS
+Do not pick a vanity metric like 'Daily Active Users' (DAU) as your North Star unless you are building a social network. Pick a metric that reflects actual value delivered. If you are building an invoice tool, your North Star is 'Total Dollar Value of Invoices Paid'. If you are building a CI/CD tool, it's 'Number of Successful Builds'.
+
+## The Data We Need From You
+**What is the single North Star Metric for your product?**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## AI Refinement Phase
+\`\`\`prompt
+Act as a Growth Hacker. My product is [Insert Product Description]. I am considering [Insert Metric] as my North Star Metric. Evaluate this metric. Does it accurately reflect the value the user receives? Can it be easily manipulated? Suggest two better alternatives if this one is weak.
+\`\`\`
 
 ## Accountability Check
-- [ ] I have identified my North Star Metric.
-`,
-  'prd': `# Product Requirements Document (PRD)
+- [ ] I have defined a single North Star Metric for my product.`,
+  'prd': `# PRD (Product Requirements Document)
 
 **Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-The PRD is the ultimate source of truth for your product. It bridges the gap between "what we want to build" (business) and "how we will build it" (engineering). Without a PRD, scope creep will kill your project.
+A Product Requirements Document (PRD) is the single source of truth for what you are building. It translates your abstract ideas, problem statements, and feature lists into a concrete blueprint. If you start coding without a PRD, you will get lost in the weeds, build the wrong things, and lose track of the core user journey.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip the formal PRD. Your PRD is just a bulleted list of the 3 features you need to build before the presentation. Do not waste time formatting a document that no one will read.
+Your PRD is literally a single bulleted list of the 3 features you agreed on in the Idea phase. Do not write a formal document. Write it on a physical whiteboard or a sticky note on your monitor so you don't get distracted by scope creep at 3:00 AM.
 
 ### Personal Project
-A lightweight PRD is highly recommended. Write down exactly what you are building and, more importantly, what you are NOT building. When you get distracted by a shiny new feature on Sunday afternoon, look at the PRD to re-focus.
+A simple markdown file in your repository named `README.md` or `REQUIREMENTS.md` is sufficient. Document exactly what the MVP must do before you consider it "done". This prevents the project from becoming a never-ending sandbox where you constantly add new libraries but never finish the core utility.
 
 ### Production SaaS
-The PRD is mandatory. It must define the core user flows, the acceptance criteria for every feature, and the exact metrics for success. If a feature is not in the PRD, it does not get built. The PRD is the contract between the founder and the engineering team.
+A Production PRD must be rigorous. It should include the Problem Statement, Target Personas, User Stories (e.g., 'As a user, I want to X so that Y'), Acceptance Criteria, Out-of-Scope items, and technical constraints. This document is handed to engineers and designers, so ambiguity is your enemy.
 
-
-## PRD Generation
-\`\`\`prompt
-Act as a Senior Product Manager. Based on my project so far, draft a comprehensive PRD.
+## The Data We Need From You
+**Write one critical User Story for your MVP. Format: As a [User], I want to [Action], so that [Benefit].**
+\`\`\`input
+Type your answer here...
 \`\`\`
-- [ ] I have generated and saved my PRD.
-`,
+
+## AI Execution Phase
+\`\`\`prompt
+Act as a Senior Product Manager. Based on my project idea [Insert Idea] and my core features [Insert Features], generate a comprehensive but concise Product Requirements Document (PRD). Include User Stories, Acceptance Criteria for the MVP, and explicitly list 3 things that are OUT OF SCOPE for V1.
+\`\`\`
+
+## Accountability Check
+- [ ] I have generated a PRD and documented my out-of-scope items.`,
   'userflows': `# User Flows
-
-**Estimated Time:** 20 min
-
----
-
-## Why this matters
-User flows map out the exact path a user takes to accomplish a goal. If the flow is confusing, the user will abandon your app. It dictates your UI layout.
-
-## Strategic Guidance
-
-### Hackathon Mode
-You only need one user flow: The "Happy Path" that you will click through during your demo. Map it out so you know exactly which screens to build. Ignore edge cases and error states.
-
-### Personal Project
-Map out the core flow on a piece of paper. You don't need fancy software. Just ensure you know how to get from the landing page to the core value proposition.
-
-### Production SaaS
-You must map out onboarding, core usage, and retention flows. Where do users drop off? How many clicks does it take to get to the "Aha!" moment? Your user flow should aggressively minimize friction during onboarding.
-
-
-## Flow Diagram Generation
-\`\`\`prompt
-Generate a Mermaid.js user flow diagram for the onboarding process of my app.
-\`\`\`
-- [ ] I have mapped out my core user flows.
-`,
-  'informationarchitecture': `# Information Architecture
-
-**Estimated Time:** 20 min
-
----
-
-## Why this matters
-Information Architecture (IA) is the skeleton of your app. It dictates how pages are organized and how users navigate between them. If your IA is confusing, users will get lost and abandon your app.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Keep it flat. You don't have time to build nested navigation or complex routing. Your entire app should ideally be a single dashboard or a 3-step linear flow (Home -> Action -> Result).
-
-### Personal Project
-Map out a simple sitemap. A Top Nav for global pages, and a Sidebar for nested settings, is usually sufficient. Stick to standard, recognizable patterns.
-
-### Production SaaS
-Your IA must support future scalability. 
-
-If you add 10 new features next year, where will they live in the navigation? You need a robust hierarchy. Differentiate between global navigation (Billing, Settings, Profile) and workspace navigation (Dashboards, Projects, Reports). Use breadcrumbs to keep users oriented.
-
-
-## IA Generation
-\`\`\`prompt
-Act as a UX Architect. Based on my PRD, generate a comprehensive sitemap and Information Architecture hierarchy.
-\`\`\`
-- [ ] I have mapped out my app's navigation structure.
-`,
-  'wireframes': `# Wireframes
 
 **Estimated Time:** 45 min
 
 ---
 
 ## Why this matters
-Wireframes are low-fidelity blueprints. They allow you to rapidly iterate on layout and hierarchy without getting bogged down by colors, fonts, or padding. Moving a box in a wireframe takes 2 seconds; rewriting a React component takes 2 hours.
+A User Flow is the path a user takes through your app to complete a specific task. If you don't map this out, you will accidentally build "dead ends" where the user gets stuck, or you will create a 10-step process for something that should take 2 steps. Visualizing the flow forces you to simplify the UX before you write code.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip traditional wireframes. You don't have time. Draw the 3 main screens on a piece of paper or a whiteboard in 5 minutes, agree on the layout with your team, and start coding immediately.
+Map out the "Happy Path"—the exact sequence of clicks you will perform during your live demo. You do not need to map out error states, password resets, or edge cases. Just make sure the demo flow is seamless from start to finish.
 
 ### Personal Project
-Use a tool like Excalidraw or Balsamiq to quickly map out the core screens. Keep it low-fidelity (black and white). Do not spend time perfecting alignment.
+Map the flow for your primary use case. How many clicks does it take from opening the app to getting the result you want? If it takes more than 3 clicks, the flow is too complex for a utility app. Optimize it.
 
 ### Production SaaS
-Wireframes are a critical step before handing off to high-fidelity UI design. 
+You must map every possible state. What happens if a user clicks "Checkout" but their credit card fails? What happens if they invite a team member who already has an account? You need flowchart diagrams (using tools like FigJam, Whimsical, or Mermaid.js) that account for onboarding, core loops, edge cases, and empty states.
 
-You must wireframe every major flow, including empty states (what the app looks like before they add data) and error states. Use Figma. Validate these wireframes with potential users to ensure the layout makes logical sense before investing in high-fidelity design.
-
-
-## Wireframe Generation
-\`\`\`prompt
-Act as a UX Designer. Describe the layout, components, and visual hierarchy for the 3 main screens of my app.
+## The Data We Need From You
+**What are the exact steps a new user takes from Landing Page to their first "Aha!" moment?**
+\`\`\`input
+1. User lands on homepage.
+2. 
+3. 
 \`\`\`
-- [ ] I have generated wireframes for my core screens.
-`,
+
+## AI Brainstorming Phase
+\`\`\`prompt
+Act as a UX Architect. I am designing a user flow for [Insert Core Task]. The user starts at [Starting Point] and needs to reach [Ending Point]. Provide a step-by-step user flow. Then, identify the step with the highest "friction" and suggest a UX pattern to reduce that friction.
+\`\`\`
+
+## Accountability Check
+- [ ] I have mapped the critical user flows for my application.`,
+  'informationarchitecture': `# Information Architecture
+
+**Estimated Time:** 30 min
+
+---
+
+## Why this matters
+Information Architecture (IA) is how you organize and label content in your app. It dictates your navigation menus, your URL structure, and your database hierarchy. If your IA is confusing, users won't be able to find their own data, and engineers will struggle to build a logical routing system.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it. Put everything on a single scrolling dashboard. Navigation menus are a waste of time when you only have 24 hours.
+
+### Personal Project
+Keep it incredibly flat. You likely only need two routes: `/` (the main tool) and `/settings`. Don't overcomplicate your routing or folder structure for a simple project.
+
+### Production SaaS
+You need a formal sitemap. Will you use a left sidebar, a top navigation bar, or a multi-level drill-down menu? You must logically group features (e.g., putting 'Billing', 'Team Members', and 'API Keys' under a unified '/settings' route). The IA must scale so that when you add 50 new features next year, the navigation doesn't break.
+
+## The Data We Need From You
+**List the top-level navigation items that will appear in your app's main menu.**
+\`\`\`input
+1. Dashboard
+2. 
+3. 
+\`\`\`
+
+## AI Refinement Phase
+\`\`\`prompt
+Act as a UX/UI Specialist. Here are all the pages and features my app will have: [Insert Features/Pages]. Please organize them into a logical Information Architecture (Sitemap). Group related items together under top-level navigation categories, and suggest intuitive labels for the navigation menu.
+\`\`\`
+
+## Accountability Check
+- [ ] I have a logical site map and navigation structure.`,
+  'wireframes': `# Wireframes
+
+**Estimated Time:** 60 min
+
+---
+
+## Why this matters
+Wireframes are low-fidelity, black-and-white sketches of your UI. They allow you to rapidly iterate on layout, content hierarchy, and user flows without getting distracted by colors, fonts, or CSS. It is 100x faster to erase a bad idea on a whiteboard than it is to refactor a React component.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Sketch the 3 main screens on a piece of physical paper. Do not use Figma; it is too slow for a 24-hour sprint. The sketches exist solely to give your frontend developer a rough idea of where to place the `<divs>` while the backend developer works on the API.
+
+### Personal Project
+Use a digital whiteboarding tool like Excalidraw to block out the layout. You don't need pixel perfection, just a spatial understanding of where the inputs, outputs, and buttons will go.
+
+### Production SaaS
+You must create comprehensive wireframes in Figma or Balsamiq for every major screen, including mobile, tablet, and desktop breakpoints. These wireframes must be reviewed against the PRD to ensure no features were missed before any high-fidelity design or coding begins.
+
+## AI Brainstorming Phase
+\`\`\`prompt
+Act as a UI Designer. I am building a screen for [Insert Screen Purpose, e.g., A Dashboard showing analytics]. Provide a text-based wireframe layout. Describe what should go in the Header, the Left Sidebar, the Main Content Area (top, middle, bottom), and explicitly mention what the primary Call-to-Action (CTA) button should say and where it should be placed.
+\`\`\`
+
+## Accountability Check
+- [ ] I have sketched the primary screens of my application.`,
   'designsystem': `# Design System
 
 **Estimated Time:** 30 min
@@ -2505,81 +2726,95 @@ Act as a UX Designer. Describe the layout, components, and visual hierarchy for 
 ---
 
 ## Why this matters
-A design system ensures visual consistency across your app and radically speeds up development. If you don't define your colors and typography upfront, your CSS will become a chaotic mess of hardcoded hex values.
+A design system is a collection of reusable components, guided by clear standards, that can be assembled together to build any number of applications. Without it, you will have 15 different shades of blue, buttons with slightly different border radii, and a codebase that is a nightmare to maintain. A good design system speeds up development by 10x.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Do not build a design system from scratch. Use an off-the-shelf component library like shadcn/ui, Chakra UI, or Tailwind UI. Pick one primary brand color, one font, and stick to the library's defaults for everything else.
+Your design system is Tailwind CSS or a pre-built component library like shadcn/ui or Chakra UI. Do not build custom components. Do not spend time configuring complex color palettes. Pick a single primary color that matches the hackathon theme, apply it globally, and use default components for everything else.
 
 ### Personal Project
-Use a component library, but take 10 minutes to customize the primary colors and border radiuses to make it feel unique. Don't spend hours tweaking button padding.
+Pick a component library that you want to learn. If you've never used Radix UI, use this project to learn it. Define a few CSS variables for your primary and background colors in `index.css`, but don't spend days building a Storybook library for a solo project.
 
 ### Production SaaS
-You need a robust, scalable design system. You must define your color palette (primary, secondary, semantic success/error colors), typography scales, spacing tokens, and dark mode variants. Use Figma variables to sync your design tokens directly with your CSS or Tailwind config.
+You must establish a strict foundation before coding. Define your Design Tokens (colors, typography, spacing, shadows). You should strongly consider using an established framework like Tailwind paired with headless UI components (like shadcn/ui), but you must strictly enforce the usage of these components. If an engineer writes custom CSS instead of using the design system, it should fail code review.
 
-
-## Design Token Generation
-\`\`\`prompt
-Act as a Lead UI/UX Designer. Generate a complete set of Tailwind CSS design tokens (colors, fonts, spacing) for my project.
+## The Data We Need From You
+**What component library or styling framework will you use as your foundation?**
+\`\`\`input
+Type your answer here...
 \`\`\`
-- [ ] I have established my design system.
-`,
+
+## AI Generation Phase
+\`\`\`prompt
+Act as a UI Engineer. I am using Tailwind CSS to build my app. My primary brand color is [Insert Color Hex]. Please generate the `tailwind.config.js` theme configuration that extends the default theme. Include a 50-900 color scale for my primary color, and define standard semantic colors for 'success', 'warning', and 'error' states.
+\`\`\`
+
+## Accountability Check
+- [ ] I have chosen a styling framework and defined my primary colors.`,
   'branding': `# Branding
+
+**Estimated Time:** 20 min
+
+---
+
+## Why this matters
+Branding is more than a logo; it is the emotional response a user has when interacting with your product. A strong brand builds trust, justifies premium pricing, and differentiates you from generic competitors. A poorly branded SaaS looks like a scam or an abandoned student project.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Your brand is your project name and a single emoji. That is all you have time for. Do not spend 4 hours designing a logo in Illustrator. Pick a clever name, use a bold font, and get back to coding.
+
+### Personal Project
+Keep it minimal. If you want a logo, use a free icon from Lucide or Heroicons and put your project name next to it in a clean sans-serif font like Inter or Roboto. Your brand is "Clean and Functional."
+
+### Production SaaS
+You need a cohesive brand identity. This includes a memorable name, a professional logo, a defined tone of voice (e.g., formal vs. playful), and a primary typography scale. Your brand must appeal directly to your Buyer Persona. If you are selling to banks, use deep blues, serif fonts, and a serious tone. If you are selling to Gen-Z creators, use vibrant gradients and casual language.
+
+## The Data We Need From You
+**What are the 3 adjectives that describe the "vibe" or tone of your brand?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Brainstorming Phase
+\`\`\`prompt
+Act as a Brand Agency Director. My SaaS product does [Insert Core Function]. I want the brand to feel [Insert Adjectives]. Please generate 10 creative, available, and short name ideas (under 10 characters if possible). Then, suggest two contrasting Google Fonts (one for headings, one for body) that perfectly capture this vibe.
+\`\`\`
+
+## Accountability Check
+- [ ] I have established the core visual identity and tone of my product.`,
+  'accessibility': `# Accessibility (a11y)
 
 **Estimated Time:** 15 min
 
 ---
 
 ## Why this matters
-Branding is how your product makes the user *feel*. It encompasses your logo, color palette, tone of voice, and overall aesthetic. Good branding builds trust.
+Accessibility ensures that users with disabilities (vision, motor, auditory) can actually use your software. Ignoring accessibility is not just bad UX; in many jurisdictions (like the EU or for US Government contracts), it is illegal. Furthermore, accessible HTML (like semantic tags) naturally improves your SEO.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your brand is your project name and a single primary color. Go to a free logo generator, pick a modern-looking icon, and move on. Do not spend more than 5 minutes on this.
+Ignore it. You do not have time to worry about ARIA labels or color contrast ratios. If it works for the judge looking at the screen, it ships.
 
 ### Personal Project
-Pick a name you like and a color palette that feels right to you. You can use tools like Coolors or Tailwind's default palette to find something aesthetically pleasing quickly.
+Practice good habits. Use semantic HTML (`<nav>`, `<main>`, `<button>` instead of `<div onClick>`). It doesn't take extra time to write semantic HTML, and it makes your code cleaner and easier to read.
 
 ### Production SaaS
-Your branding must evoke trust and professionalism, tailored specifically to your [ICP](#icpidealcustomerprofile). 
+You must meet WCAG 2.1 AA standards. This is non-negotiable if you plan to sell to enterprise or government clients. You must ensure sufficient color contrast, full keyboard navigation (users must be able to use your app without a mouse), screen-reader support (ARIA labels), and focus states for all interactive elements. Build this into your Design System from day one; retrofitting accessibility is a nightmare.
 
-If you are selling to banks, use conservative blues and a serious tone. If you are selling to Gen-Z creators, use vibrant gradients and a casual tone. Your branding must be perfectly consistent across your landing page, your app UI, and your transactional emails.
-
-
-## Brand Identity
-\`\`\`prompt
-Act as a Brand Strategist. Suggest 3 brand names, a color palette, and a tone of voice for my product.
+## The Data We Need From You
+**Will you be using a headless UI library (like Radix or Headless UI) that handles accessibility out of the box?**
+\`\`\`input
+Type your answer here...
 \`\`\`
-- [ ] I have chosen a name and brand identity.
-`,
-  'accessibility': `# Accessibility (a11y)
-
-**Estimated Time:** 10 min
-
----
-
-## Why this matters
-Accessibility ensures your software can be used by people with disabilities (visual, auditory, motor, or cognitive). Building inaccessible software is not only unethical, it also drastically shrinks your addressable market.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Ignore it. In a 48-hour sprint where you are just trying to get a demo working for able-bodied judges, accessibility is a luxury you cannot afford. Use \`div\` tags for buttons if you have to.
-
-### Personal Project
-Try to use semantic HTML (use \`<button>\` instead of \`<div onClick={}>\`). It's a good habit to build and takes zero extra time, but don't obsess over perfect ARIA labels.
-
-### Production SaaS
-You must hit baseline accessibility standards. 
-
-Your brand colors must pass the WCAG AA contrast ratio (text must be readable against the background). Your core workflows must be navigable via keyboard (Tab and Enter). If a user relies on a screen reader, they should be able to sign up and pay you.
-
 
 ## Accountability Check
-- [ ] I understand the accessibility requirements for my project mode.
-`,
+- [ ] I have considered accessibility and semantic HTML for my project.`,
   'techstackselection': `# Tech Stack Selection
 
 **Estimated Time:** 20 min
@@ -2587,122 +2822,128 @@ Your brand colors must pass the WCAG AA contrast ratio (text must be readable ag
 ---
 
 ## Why this matters
-Your tech stack dictates your hiring pool, your hosting costs, and your development speed. Changing your stack later is painful and expensive.
+Your tech stack is the foundation of your entire product. Choosing the wrong stack can lead to massive technical debt, slow development speed, or inability to hire engineers later. However, obsessing over the "perfect" stack is a form of procrastination. The best stack is usually the one you already know.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use whatever you are already fastest at. 
-
-If you know Python, use Python. If you know React, use React. Do not try to learn a brand new framework during a 48-hour hackathon unless learning is your primary goal. Speed is your only metric.
+Use the stack you are fastest in. If you are a Python wizard, use Flask/FastAPI. If you know React, use Next.js or Vite. Do not learn a new framework at a hackathon unless the specific goal of the hackathon is to learn that framework. Use a Backend-as-a-Service (BaaS) like Supabase or Firebase to skip database configuration.
 
 ### Personal Project
-This is the perfect time to experiment. 
-
-If you've always used Node.js, try Go or Rust. If you always use React, try Svelte or Vue. Use modern, bleeding-edge frameworks (like Next.js 15 or Nuxt) to see what the hype is about. You don't have to worry about legacy support.
+This is the perfect time to experiment! If you've always wanted to try SvelteKit, Rust, or Go, use this project as your sandbox. You aren't tied to a deadline, so the learning curve is part of the fun.
 
 ### Production SaaS
-Boring technology is good technology. 
+Boring technology is good technology. Choose a stack with a massive ecosystem, excellent documentation, and a large hiring pool. React/Next.js for the frontend, Node/Python/Go for the backend, and PostgreSQL for the database is the gold standard for a reason. Avoid ultra-bleeding-edge frameworks that might be abandoned next year.
 
-Use mature, heavily supported frameworks with massive ecosystems (React, Next.js, Node.js, PostgreSQL). When you hit a bug at 2 AM, you want to be able to find a StackOverflow answer from 3 years ago. Avoid bleeding-edge tech that might be abandoned in a year.
-
-
-## The Decision
+## The Data We Need From You
+**What are your primary choices for Frontend, Backend, and Database?**
 \`\`\`input
-Write Here...
+Frontend: 
+Backend: 
+Database: 
 \`\`\`
-`,
-  'frontendarchitecture': `# Frontend Architecture
 
-**Estimated Time:** 15 min
-
----
-
-## Why this matters
-A poorly architected frontend quickly becomes a "big ball of mud." State management gets tangled, components become massive, and every new feature breaks an old one.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Put everything in one massive \`App.tsx\` file if you have to. 
-
-Don't waste time meticulously organizing your components into folders. Use global state (or just prop drill) without guilt. The codebase will be abandoned on Monday anyway.
-
-### Personal Project
-Practice clean architecture. 
-
-Separate your UI components (dumb components) from your business logic (smart components). Try implementing a modern state management library like Zustand or Jotai just to see how it feels.
-
-### Production SaaS
-You must establish a strict folder structure and component hierarchy. 
-
-Use a feature-based architecture (grouping files by feature rather than by type). Enforce strict linting rules. Decide upfront how you will handle data fetching (e.g., TanStack Query) and global state. Your goal is that a new engineer can join the team and know exactly where a specific file lives within 10 minutes.
-
+## AI Refinement Phase
+\`\`\`prompt
+Act as a Principal Engineer. My proposed tech stack is: [Insert Stack]. My product is: [Insert Product]. Critique this stack. Tell me 2 potential scaling bottlenecks I might hit with this stack, and suggest 1 alternative tool that might be a better fit for my specific product use case.
+\`\`\`
 
 ## Accountability Check
-- [ ] I understand my frontend architecture constraints.
-`,
-  'backendarchitecture': `# Backend Architecture
+- [ ] I have finalized my tech stack and I am ready to stick with it.`,
+  'frontendarchitecture': `# Frontend Architecture
 
 **Estimated Time:** 20 min
 
 ---
 
 ## Why this matters
-Your backend is the brain of your application. If it is slow, insecure, or brittle, your entire product fails.
+Frontend code rots faster than backend code. If you do not plan your component hierarchy, state management, and routing strategy, your frontend will become an unmaintainable "spaghetti" of props drilling and conflicting state within a few months.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use a Backend-as-a-Service (BaaS) like Supabase or Firebase. 
-
-Do not write your own backend from scratch. You don't have time to configure Express, set up a Postgres connection pool, and handle JWT authentication. Let the BaaS do 90% of the work so you can focus on the UI.
+Put all your state in the top-level component and pass it down as props, or just use React Context if it gets too deep. Do not bother setting up Redux, Zustand, or complex server-state caching layers like React Query. Keep it flat, keep it simple.
 
 ### Personal Project
-If you want to learn backend engineering, build a monolithic server in Node, Go, or Python. 
-
-Deploy it on a free tier like Render or Railway. Keep it simple: one server, one database.
+Pick an architecture pattern and stick to it. If you want to learn atomic design, structure your folders into `atoms`, `molecules`, and `organisms`. Try out a modern state manager like Zustand or Jotai just to see how it feels.
 
 ### Production SaaS
-A majestic monolith or a modular monolith is usually the best choice for a new SaaS. 
+You must separate Server State (data from the database) from Client State (UI toggles, active tabs). Use a tool like React Query, SWR, or Apollo for server state caching and deduplication. Enforce a strict folder structure (e.g., Feature-Sliced Design or Next.js App Router conventions). Decide on your data-fetching strategy (SSR vs. CSR vs. SSG) based on your SEO requirements.
 
-Do not build microservices on Day 1; they introduce massive operational complexity (network latency, distributed tracing, complex CI/CD). Build a highly structured monolith that can scale to millions of users on a decent-sized server.
-
+## The Data We Need From You
+**How will you manage data fetching and state? (e.g., React Query, Redux, Context API)**
+\`\`\`input
+Type your answer here...
+\`\`\`
 
 ## Accountability Check
-- [ ] I understand my backend architecture constraints.
-`,
-  'apidesign': `# API Design
+- [ ] I have decided on a folder structure and state management strategy.`,
+  'backendarchitecture': `# Backend Architecture
 
-**Estimated Time:** 25 min
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-APIs are how your frontend talks to your backend (and how third parties integrate with your software). A messy API leads to brittle integrations and constant breakages.
+The backend is the brain of your application. It handles business logic, security, and data integrity. A monolithic architecture is great for speed, while microservices are great for scaling independent teams. Choosing the right pattern dictates how you deploy, monitor, and debug your application.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-If you are using a BaaS like Supabase, you don't even need to design an API; just use their auto-generated client SDKs. 
-
-If you must build an API, make it a simple RPC (Remote Procedure Call) style. Don't worry about perfect REST semantics.
+Use a Backend-as-a-Service (BaaS) like Supabase, Firebase, or Convex. Let them handle the database, authentication, and API endpoints. Write serverless edge functions only for the specific "magic" parts of your app. Do not write a custom Express or Django backend from scratch.
 
 ### Personal Project
-Try building a GraphQL API or a tRPC API to learn the benefits of end-to-end type safety. It's a great skill to add to your toolkit.
+If you want to learn backend engineering, build a simple Monolith. Put your API, your database connection, and your business logic in a single deployable service. It's cheap to host on Render, Railway, or Heroku, and easy to reason about.
 
 ### Production SaaS
-Design a clean, versioned RESTful API. 
+Start with a Majestic Monolith. Do not start with Microservices unless you have a team of 10+ engineers. Build a modular monolith where domains (e.g., `Users`, `Billing`, `Products`) are separated by folders, not network requests. Use an ORM (like Prisma or Drizzle) for type safety, and ensure you have a robust dependency injection or service-layer pattern to keep your controllers thin.
 
-Use standard HTTP verbs (GET, POST, PUT, DELETE) and standard status codes (200, 400, 404, 500). Prefix your routes with \`/api/v1/\`. You *must* implement rate limiting and pagination from the very beginning.
-
-
-## API Generation
-\`\`\`prompt
-Act as a Backend Architect. Based on my PRD, design the core REST API endpoints I will need.
+## The Data We Need From You
+**Are you using a BaaS (like Supabase), Serverless Functions (like Vercel), or a dedicated Server (like Node/Express)?**
+\`\`\`input
+Type your answer here...
 \`\`\`
-- [ ] I have generated my core API design.
-`,
+
+## AI Refinement Phase
+\`\`\`prompt
+Act as a Backend Architect. I am building [Insert App] using [Insert Backend Strategy]. Give me a high-level folder structure for my backend code. Explain where I should put my routing, my business logic, and my database queries so they remain separated and testable.
+\`\`\`
+
+## Accountability Check
+- [ ] I have determined my backend architecture pattern.`,
+  'apidesign': `# API Design
+
+**Estimated Time:** 30 min
+
+---
+
+## Why this matters
+Your API is the contract between your frontend and your backend. If the contract is poorly designed, both sides of your stack will break constantly. A well-designed API (whether REST, GraphQL, or tRPC) is predictable, versionable, and secure.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use whatever is fastest. If you are using Next.js, just use Server Actions or basic API routes. Do not worry about strict REST conventions (like returning a `201 Created` vs a `200 OK`). If the data gets to the frontend, the API is successful.
+
+### Personal Project
+Try using a modern type-safe API layer like tRPC if you are in a TypeScript monorepo. It will save you from having to write duplicate types for your frontend and backend. It's an incredible developer experience for solo projects.
+
+### Production SaaS
+You must adhere to strict standards. If using REST, use proper HTTP verbs (`GET`, `POST`, `PUT`, `PATCH`, `DELETE`) and standard status codes. You must implement pagination for list endpoints, rate limiting to prevent abuse, and clear error schemas so the frontend knows exactly why a request failed. Document your API using OpenAPI/Swagger.
+
+## The Data We Need From You
+**What API paradigm will you use? (e.g., REST, GraphQL, tRPC, Server Actions)**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## AI Execution Phase
+\`\`\`prompt
+Act as an API Designer. I need an API endpoint to [Insert Core Action, e.g., Create a new User Profile]. Provide the JSON schema for the Request Body, and the JSON schema for a successful Response. Also, list 3 potential HTTP Error Codes this endpoint might return and explain why.
+\`\`\`
+
+## Accountability Check
+- [ ] I have decided on an API paradigm and understand how data will flow.`,
   'authentication': `# Authentication
 
 **Estimated Time:** 15 min
@@ -2738,168 +2979,187 @@ Use an established provider like Supabase Auth, Auth0, or Clerk. You must suppor
 ---
 
 ## Why this matters
-While Authentication is *who* you are, Authorization is *what you are allowed to do*. Without strict authorization, any user can delete any other user's data.
+While Authentication verifies *who* you are, Authorization verifies *what you are allowed to do*. If a user can access another user's invoice by simply changing an ID in the URL, your authorization is broken (Insecure Direct Object Reference). Role-Based Access Control (RBAC) prevents this.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Ignore it. Assume the single user you are demoing has admin access to everything.
+Hardcode it. If `user.email === 'admin@demo.com'`, show the admin panel. Otherwise, show the normal view. Do not build a complex permissions matrix for a 24-hour project.
 
 ### Personal Project
-Hardcode a simple \`isAdmin\` boolean on your user table. That is usually enough for a small app.
+If it's just a tool for yourself, you don't need roles. Just require authentication. If it's a multi-user tool, a simple `isAdmin` boolean column on the user table is usually sufficient.
 
 ### Production SaaS
-You must implement a robust authorization system. 
+You must implement robust Role-Based Access Control (RBAC) or Attribute-Based Access Control (ABAC). Define roles like `Owner`, `Admin`, `Editor`, and `Viewer`. Enforce authorization at the *backend API level* (e.g., using Row Level Security in Supabase or middleware guards in your API), not just by hiding UI buttons on the frontend.
 
-If using Supabase, use Row Level Security (RLS) to ensure users can only query rows that belong to their tenant/workspace ID. Do not rely solely on frontend authorization (hiding buttons); the backend API must explicitly reject unauthorized requests.
-
-
-## Authorization Generation
-\`\`\`prompt
-Act as a Security Architect. Based on my PRD, define the standard user roles and their specific permissions.
+## The Data We Need From You
+**What are the primary user roles in your application?**
+\`\`\`input
+1. Admin
+2. 
+3. 
 \`\`\`
-- [ ] I have defined my user roles and permissions.
-`,
+
+## AI Strategy Phase
+\`\`\`prompt
+Act as a Security Architect. My application has the following user roles: [Insert Roles]. Please generate a clear Permissions Matrix (as a markdown table) mapping these roles to the core CRUD actions (Create, Read, Update, Delete) for my main data models. Highlight any security risks where a lower-tier role might have too much power.
+\`\`\`
+
+## Accountability Check
+- [ ] I have defined the roles and permissions for my application.`,
   'databaseschema': `# Database Schema
+
+**Estimated Time:** 45 min
+
+---
+
+## Why this matters
+Your database schema is the skeleton of your application. If you get the schema right, everything else is just writing simple queries. If you get it wrong, you will spend months writing complex, slow, unmaintainable joins and workarounds to fix bad data structures.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Keep it flat. Do not worry about Third Normal Form (3NF) or complex relationships. If you need to store a user's address, just put it directly in the `users` table as a JSON column or flat text fields. The goal is to get data in and out as fast as possible for the demo.
+
+### Personal Project
+Take the time to model it correctly. Use a tool like Prisma to define your schema, which gives you type safety for free. Avoid NoSQL (like MongoDB) unless your data is genuinely unstructured; a relational database (PostgreSQL) is almost always the better choice for 99% of projects.
+
+### Production SaaS
+You must design for scale and data integrity. Use foreign keys, strict constraints, and proper indexes. Never delete data; use soft deletes (`deleted_at` timestamp) for critical records. Map out your entity-relationship (ER) diagram in a tool like dbdiagram.io before creating any tables. Ensure your schema supports multi-tenancy (e.g., every table needs a `tenant_id` or `workspace_id`).
+
+## The Data We Need From You
+**What are the 3-5 core tables (entities) your application requires? (e.g., Users, Workspaces, Invoices)**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Execution Phase
+\`\`\`prompt
+Act as a Database Architect. I am building [Insert App]. My core entities are [Insert Entities]. Please generate a PostgreSQL schema (or Prisma schema) for these entities. Include primary keys, foreign keys for relationships, indexes on frequently queried columns, and basic timestamp columns (created_at, updated_at).
+\`\`\`
+
+## Accountability Check
+- [ ] I have defined the core database tables and their relationships.`,
+  'filestorage': `# File Storage
+
+**Estimated Time:** 15 min
+
+---
+
+## Why this matters
+Storing files (images, PDFs, videos) directly in your database is a terrible idea that will bloat your database, slow down queries, and drastically increase your hosting costs. You must use a dedicated object storage service and save only the file URL in your database.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Do not build file uploads if you can avoid it. Just let the user paste an image URL from Google Images. If you absolutely must have uploads, use an external service like UploadThing or Cloudinary that handles the hosting and provides a pre-built React component. Do not try to configure AWS S3 in 24 hours.
+
+### Personal Project
+Supabase Storage or Firebase Storage are perfect here. They integrate seamlessly with the database and authentication, allowing you to easily write rules like 'Only the user who uploaded this file can view it'.
+
+### Production SaaS
+AWS S3 (or an S3-compatible service like Cloudflare R2) is the industry standard. You must implement secure upload patterns: the frontend should request a 'presigned URL' from your backend, and then upload the file directly to S3. This prevents large files from passing through and crashing your backend servers.
+
+## The Data We Need From You
+**What kind of files will users upload, and what storage provider will you use?**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## Accountability Check
+- [ ] I have selected an object storage provider and understand the upload flow.`,
+  'thirdpartyintegrations': `# Third Party Integrations
+
+**Estimated Time:** 20 min
+
+---
+
+## Why this matters
+You do not have time to build a payment processor, an email sender, and a CRM from scratch. Third-party integrations (APIs) allow you to stand on the shoulders of giants. However, every integration introduces a new point of failure, a new security risk, and a new dependency you cannot control.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Integrations are the lifeblood of a hackathon. Use as many "wow-factor" APIs as you can (e.g., Twilio for SMS, OpenAI for AI, Stripe for fake checkouts). Do not worry about API rate limits or error handling. If the API goes down during your demo, pivot and explain what *would* have happened.
+
+### Personal Project
+Only integrate what is absolutely necessary. Try to use free tiers heavily. If you just need to send a transactional email, use Resend. If you need a database, use Supabase. Avoid complex integrations that require massive OAuth setups unless learning that OAuth flow is the goal of the project.
+
+### Production SaaS
+Treat every integration as a liability. Wrap third-party calls in your own internal services so if you ever need to swap them out (e.g., moving from SendGrid to Postmark), you only change code in one place. You must implement robust error handling, exponential backoff for failed requests, and webhook signature verification for incoming events.
+
+## The Data We Need From You
+**List the top 3 external APIs or services your app absolutely requires to function.**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## Accountability Check
+- [ ] I have identified my critical third-party dependencies.`,
+  'aiarchitectureoptional': `# AI Architecture (Optional)
 
 **Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-The database schema is the foundation of your backend. A bad schema requires complex, slow SQL queries to extract simple data, and migrating a bad schema in production is terrifying.
+Adding "AI" is easy. Building a robust AI architecture is incredibly hard. If you are just making simple API calls to OpenAI, you will quickly hit rate limits, context window limits, and cost overruns. If your product relies heavily on AI, you must architect the pipeline correctly.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use a schema-less NoSQL database (like Firebase Firestore) or just throw everything into a single massive Postgres table. 
-
-Data normalization does not matter. If you have duplicate data, who cares? The database will be deleted on Monday.
+Just make the direct API call to OpenAI/Anthropic from your backend. Do not worry about streaming responses, vector databases, or complex prompt chains. Hardcode a massive system prompt and just get the "magic" output working for the demo.
 
 ### Personal Project
-Design a clean, normalized relational schema. Practice drawing Entity-Relationship (ER) diagrams and writing clean foreign key relationships.
+This is a great time to experiment with the Vercel AI SDK or LangChain. Try implementing streaming responses so the UI doesn't freeze while waiting for the LLM. If you want to try RAG (Retrieval-Augmented Generation), use a simple vector store like Pinecone or Supabase pgvector.
 
 ### Production SaaS
-Use a mature relational database like PostgreSQL. 
+You must treat AI calls like slow, expensive, unreliable database queries. Implement aggressive caching for identical prompts. Use queues (like Redis/BullMQ) for long-running AI tasks so you don't block the main thread. You must also implement "Guardrails" to prevent prompt injection and ensure the AI doesn't output offensive or wildly hallucinated content to your paying users.
 
-Your schema must be multi-tenant from Day 1. Almost every table should have a \`workspace_id\` or \`tenant_id\` column. You must plan for indexing on columns you will query frequently. Never use hard deletes; use soft deletes (\`deleted_at\` timestamps) so you can recover data if a user accidentally clicks delete.
-
-
-## Schema Generation
-\`\`\`prompt
-Act as a Database Administrator. Based on my PRD, generate a PostgreSQL schema including multi-tenant architecture and foreign keys.
+## The Data We Need From You
+**If using AI, what is your primary model provider and how will you manage long-running tasks?**
+\`\`\`input
+Type your answer here...
 \`\`\`
-- [ ] I have finalized my database schema.
-`,
-  'filestorage': `# File Storage
 
-**Estimated Time:** 10 min
-
----
-
-## Why this matters
-If your users upload images, PDFs, or videos, you cannot store them in your database. You need a dedicated object storage solution.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Don't support file uploads if you can avoid it. If you must, just upload files directly to the public folder of your host or use a free Supabase Storage bucket with public access. Don't worry about resizing or security.
-
-### Personal Project
-Use Supabase Storage or AWS S3. It's a great opportunity to learn how to handle multipart form data and signed URLs.
-
-### Production SaaS
-You must use secure Object Storage (AWS S3, Cloudflare R2). 
-
-Files should never be completely public unless they are avatars. Generate short-lived Signed URLs for users to download their files. You must implement file size limits and scan uploads for malware to prevent malicious actors from abusing your storage.
-
+## AI Refinement Phase
+\`\`\`prompt
+Act as an AI Systems Architect. I am integrating an LLM into my app to do [Insert Task]. My current plan is [Insert Plan]. Please critique this architecture. Specifically, warn me about edge cases regarding context limits, hallucination mitigation, and API rate limiting, and suggest how to handle them.
+\`\`\`
 
 ## Accountability Check
-- [ ] I understand my file storage strategy.
-`,
-  'thirdpartyintegrations': `# Third Party Integrations
-
-**Estimated Time:** 15 min
-
----
-
-## Why this matters
-Modern software doesn't live in a vacuum. Integrating with tools your users already use (Slack, Salesforce, Stripe) increases your product's stickiness.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Integrations are the easiest way to add "wow factor." 
-
-Integrating a Twilio SMS or a Stripe checkout looks incredibly impressive and only takes 10 lines of code. Use them aggressively to make your app look more feature-rich than it actually is.
-
-### Personal Project
-Integrate with 1 or 2 APIs just to learn how to handle Webhooks and OAuth flows.
-
-### Production SaaS
-Only build integrations that directly drive revenue or retention. 
-
-A Stripe integration is mandatory. A Slack integration is highly recommended for B2B. Don't build a massive integrations catalog on Day 1. Wait until users explicitly ask for them.
-
-
-## Accountability Check
-- [ ] I have identified necessary third-party integrations.
-`,
-  'aiarchitectureoptional': `# AI Architecture
-
-**Estimated Time:** 15 min
-
----
-
-## Why this matters
-If you are building an AI product, the way you architect your LLM calls dictates your speed, cost, and output quality.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Just hit the OpenAI API directly from your frontend (but be careful not to leak your key in a public repo). Use the biggest, smartest model available (GPT-4o or Claude 3.5 Sonnet) because cost doesn't matter for a weekend demo.
-
-### Personal Project
-Experiment with open-source models using Ollama, or try using cheaper, faster models like GPT-4o-mini to see how much you can optimize performance.
-
-### Production SaaS
-You must build a robust AI backend. 
-
-Never call LLMs directly from the frontend; proxy them through your backend to protect your API keys and implement rate limiting. You must handle streaming responses (Server-Sent Events) so the user doesn't stare at a loading spinner for 10 seconds. Implement caching (like Redis) for identical queries to save money.
-
-
-## Accountability Check
-- [ ] I understand my AI architecture constraints.
-`,
+- [ ] I have a plan for handling the unreliability and latency of AI models.`,
   'systemarchitecturediagram': `# System Architecture Diagram
 
-**Estimated Time:** 15 min
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-A visual diagram of your system explains how all the pieces (Frontend, Backend, Database, Third-Party APIs) fit together. It is the easiest way to onboard a new developer or explain your tech to an investor.
+If you cannot draw your architecture on a whiteboard, it is too complicated. A visual diagram forces you to see how all the pieces (Frontend, Backend, Database, Storage, Third-Party APIs) connect. It reveals single points of failure and clarifies the "mental model" of the application.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip it. You don't have time to draw boxes and arrows.
+Skip the diagram. You don't have time. If a judge asks about architecture, just list the logos of the tools you used.
 
 ### Personal Project
-Draw a quick sketch in Excalidraw. It helps cement your understanding of how the client communicates with the server.
+Draw a quick sketch on a piece of paper or use Excalidraw. It doesn't need to follow strict UML standards. Just map out how data flows from the user's browser, through your API, into the database, and back again.
 
 ### Production SaaS
-You must maintain an up-to-date architecture diagram. 
+You need a formal architecture diagram. Tools like Draw.io, Lucidchart, or cloud-provider specific diagramming tools are essential. You must map out VPCs, load balancers, caching layers (Redis), worker queues, and read-replicas. This diagram will be required for any SOC2 compliance audits or serious investor due diligence.
 
-Use a tool like Mermaid.js (which lives in markdown) or Eraser.io so you can keep the diagram in version control alongside your code. When a service goes down, this diagram is the first thing incident responders look at.
-
-
-## Diagram Generation
+## AI Generation Phase
 \`\`\`prompt
-Act as a Cloud Architect. Generate a Mermaid.js architecture diagram for my tech stack.
+Act as a Cloud Architect. Based on my tech stack [Insert Stack] and my third-party integrations [Insert Integrations], generate Mermaid.js code that visually maps out my system architecture. Include the User Browser, Frontend Server, Backend Server, Database, Cache (if any), and external APIs.
 \`\`\`
-- [ ] I have generated my architecture diagram.
-`,
+
+## Accountability Check
+- [ ] I have a clear mental model (or visual diagram) of how my system connects.`,
   'costestimation': `# Cost Estimation
 
 **Estimated Time:** 15 min
@@ -2907,1723 +3167,1360 @@ Act as a Cloud Architect. Generate a Mermaid.js architecture diagram for my tech
 ---
 
 ## Why this matters
-Cloud computing is not free. If you don't estimate your costs upfront, you might accidentally build an architecture that costs more to run than your customers pay you.
+Cloud computing makes it incredibly easy to accidentally spend $5,000 over a weekend if you write an infinite loop that calls an external API. Understanding your baseline fixed costs and your variable (usage-based) costs ensures your business model is actually profitable.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use only free tiers. Vercel for frontend, Supabase for backend. Do not put a credit card into AWS during a hackathon; you will forget to turn it off and get a $500 bill on Monday.
+Zero dollars. Use free tiers exclusively. Vercel, Supabase, Clerk, and GitHub all have incredibly generous free tiers. The only thing you might pay for is a few pennies of OpenAI API usage.
 
 ### Personal Project
-Stick strictly to free tiers. Your budget is $0.
+Also zero dollars, or at most $5/month for a cheap VPS (like DigitalOcean or Hetzner). The goal of a personal project is to cost as close to zero as possible so you can keep it running forever without thinking about the bill.
 
 ### Production SaaS
-You must calculate your Unit Economics. 
+You must calculate your COGS (Cost of Goods Sold). If you charge a user $20/month, but it costs you $15/month in server, database, and API costs to support them, your margins are terrible. Estimate your costs at 100 users, 1,000 users, and 10,000 users. Set up billing alerts in AWS/GCP/Vercel immediately so you get an email before you go bankrupt.
 
-If you charge a user $10/month, but they consume $8/month of OpenAI API credits and $1/month of database bandwidth, your gross margin is terrible. You must model your costs at 100 users, 1,000 users, and 10,000 users to ensure the business model actually scales.
-
-
-## Cost Estimation Generation
-\`\`\`prompt
-Act as a FinOps Specialist. Based on my tech stack, generate a monthly cost estimation model for 1,000 active users.
+## The Data We Need From You
+**What is the most expensive operational cost of running this software? (e.g., Database hosting, LLM API calls, Video processing)**
+\`\`\`input
+Type your answer here...
 \`\`\`
-- [ ] I have modeled my infrastructure costs.
-`,
-  'auth': `# Authentication Setup
 
-**Estimated Time:** 45 min
+## AI Strategy Phase
+\`\`\`prompt
+Act as a FinOps (Financial Operations) Engineer. My tech stack is [Insert Stack]. My business model charges [Insert Price]. Please break down the potential hidden costs I might encounter as I scale from 100 to 10,000 users. Highlight the specific service that will likely become my biggest expense.
+\`\`\`
+
+## Accountability Check
+- [ ] I understand my primary cost drivers and have set up billing alerts.`,
+  'auth': `# Authentication
+
+**Estimated Time:** 20 min
 
 ---
 
 ## Why this matters
-Authentication is usually the very first code you write. Without it, you have no users. Getting it wrong leads to security vulnerabilities.
+Authentication verifies *who* the user is. Rolling your own authentication (hashing passwords, managing session cookies, handling JWT rotation) is the fastest way to introduce a catastrophic security vulnerability into your app. Never write your own crypto.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-If you don't actually need user-specific data, skip Auth entirely. 
-
-If you do, use Clerk or Supabase Auth. Do not waste time building custom UI for the login screen. Use the pre-built, drop-in React components (like \`<SignIn />\`) that take 5 minutes to install.
+Use a drop-in provider like Clerk, Supabase Auth, or NextAuth (Auth.js) with a simple "Sign in with Google" button. Skip email/password entirely. Magic links are also great for hackathons. It should take you less than 15 minutes to set up.
 
 ### Personal Project
-Use Supabase Auth. It is free, robust, and connects directly to your Postgres database. Build your own custom login UI if you want to practice form handling and state management.
+Use NextAuth/Auth.js if you are in the React ecosystem, or just use Supabase. Setting up OAuth providers (GitHub, Google) is fun and teaches you how OAuth handshakes work without the security risk of storing passwords.
 
 ### Production SaaS
-Use a managed Auth provider (Supabase Auth, Auth0, Clerk). 
+You must use an enterprise-grade Identity Provider (IdP) like Auth0, Clerk, or AWS Cognito. You need to support features like Multi-Factor Authentication (MFA), password resets, account lockouts after failed attempts, and eventually SAML/SSO if you plan to sell to enterprise customers. Do not store passwords in your own database.
 
-You must configure strict Redirect URLs to prevent Open Redirect vulnerabilities. You must implement robust error handling (e.g., "Email already in use"). You should strongly consider implementing Social Login (Google, GitHub) to drastically increase your signup conversion rate.
-
-
-## Auth Prompt
-\`\`\`prompt
-Act as a Security Engineer. Generate the frontend code and backend configuration to integrate Supabase Authentication into my React app.
+## The Data We Need From You
+**What Authentication provider will you use? (e.g., Clerk, Supabase, Auth0, Custom)**
+\`\`\`input
+Type your answer here...
 \`\`\`
-- [ ] I have successfully implemented Authentication.
-`,
-  'database': `# Database Setup
 
-**Estimated Time:** 60 min
+## Accountability Check
+- [ ] I have selected a secure third-party authentication provider.`,
+  'database': `# Database Development
+
+**Estimated Time:** Variable
 
 ---
 
 ## Why this matters
-Your database is the heart of your application. You must initialize your schema, set up migrations, and write your first queries.
+The database development phase is where your abstract ER diagrams become actual code. Writing robust migrations and defining clear access patterns ensures that as your data grows, your app doesn't slow down to a crawl.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use the Supabase SQL Editor and execute your schema creation script directly in the browser. 
-
-Do not bother setting up local development databases, Docker containers, or migration files. You don't have time. Just spin up the cloud database and start querying it.
+Do not write SQL migrations. Do not set up Prisma. Just use the Supabase Dashboard (or Firebase Console) to visually click and create your tables. Add some dummy data manually. You just need the endpoint to return a JSON array so you can start building the UI.
 
 ### Personal Project
-Set up a local PostgreSQL instance (using Docker or Postgres.app). Write your schema in an \`init.sql\` file. Practice writing raw SQL queries before you abstract them away with an ORM.
+Use an ORM like Prisma or Drizzle. It is the best developer experience for a single developer. You get type safety across your entire stack, and the migration system prevents you from accidentally destroying your data when you decide to rename a column at 2 AM.
 
 ### Production SaaS
-You must use an ORM (like Prisma, Drizzle, or Supabase clients) and implement database migrations. 
+You must treat your database as the most critical component. All schema changes must be version-controlled via migrations. You must set up Row Level Security (RLS) if using Supabase, ensuring that a bug in your backend code cannot accidentally leak user data. Write seed scripts to populate staging environments with anonymized realistic data for testing.
 
-Never change your production database schema directly in a UI. You must create migration files (e.g., \`001_create_users_table.sql\`) and commit them to version control. This ensures your staging database and production database are always perfectly in sync.
-
-
-## Database Prompt
-\`\`\`prompt
-Act as a Database Administrator. Generate the SQL migration file to create my initial database schema, including Row Level Security (RLS) policies.
+## The Data We Need From You
+**What ORM or Database tool are you using to manage your schema?**
+\`\`\`input
+Type your answer here...
 \`\`\`
-- [ ] I have set up my database and migrations.
-`,
+
+## AI Execution Phase
+\`\`\`prompt
+Act as a Database Engineer. I am using [Insert Tool/ORM] for my database. My primary entities are [Insert Entities]. Please generate the raw schema code (e.g., Prisma Schema or raw SQL CREATE TABLE statements) for V1. Include standard created_at timestamps and ensure foreign keys are correctly linked.
+\`\`\`
+
+## Accountability Check
+- [ ] My database schema is successfully deployed and I can insert records.`,
   'backend': `# Backend Development
+
+**Estimated Time:** Variable
+
+---
+
+## Why this matters
+The backend development phase is where business logic lives. If you put too much logic in the frontend, malicious users can bypass it. A strong backend validates every input, enforces permissions, and talks to the database securely.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Keep it "serverless" and "thin." Most of your API routes should simply be `SELECT * FROM table` or `INSERT INTO table`. Skip complex input validation unless it crashes the app. Your backend exists solely to feed the frontend.
+
+### Personal Project
+Write clean, modular code. Use a validation library like Zod to ensure incoming data is exactly what you expect. If you are using Next.js Server Actions, make sure you still authenticate the user *inside* the action, not just on the page that calls it.
+
+### Production SaaS
+Every single endpoint must follow the pattern: 1. Authenticate user. 2. Authorize action. 3. Validate input (using Zod/Joi). 4. Execute business logic. 5. Return standardized response. You must also write unit tests for your most critical business logic (e.g., calculating pricing or processing refunds).
+
+## The Data We Need From You
+**List the 3 most complex backend endpoints/functions you need to write.**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## AI Execution Phase
+\`\`\`prompt
+Act as a Senior Backend Developer. I need to write an endpoint/function that does [Insert Complex Function]. My stack is [Insert Stack]. Provide the code for this endpoint. Include robust input validation using Zod, proper error handling (try/catch), and clear comments explaining the logic.
+\`\`\`
+
+## Accountability Check
+- [ ] My core API endpoints are written and successfully tested via Postman/cURL.`,
+  'frontend': `# Frontend Development
+
+**Estimated Time:** Variable
+
+---
+
+## Why this matters
+The frontend is what your users actually pay for. If the backend is brilliant but the frontend is clunky, slow, or ugly, users will assume the whole product is garbage. This is where you bring your wireframes to life with real data.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Hardcode everything that isn't essential. If a profile dropdown takes 2 hours to build, just put a static image there instead. Focus exclusively on the "Hero Flow"—the one sequence of screens you will show during the demo. Use a UI library (like shadcn/ui) to make it look professional instantly.
+
+### Personal Project
+Focus on Developer Experience (DX). Use TypeScript to catch errors early. Build reusable components for your buttons, inputs, and cards so you aren't copying and pasting Tailwind classes 50 times. Make it look nice, but prioritize finishing the functionality.
+
+### Production SaaS
+You must build for performance and accessibility. Ensure your forms have proper error states and loading spinners. Implement optimistic UI updates (where the UI updates instantly before the database confirms the change) to make the app feel incredibly fast. Enforce strict linting rules (ESLint/Prettier) so your team writes consistent code.
+
+## The Data We Need From You
+**What is the single most complex UI component you need to build? (e.g., A drag-and-drop kanban board, a complex data table)**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## AI Execution Phase
+\`\`\`prompt
+Act as an Expert Frontend Developer. I am building a [Insert Complex Component] using React and Tailwind CSS. Provide the complete code for this component. Ensure it manages its own loading/error states, is fully responsive, and uses accessible HTML tags. If it requires mock data for a preview, include a small mock array.
+\`\`\`
+
+## Accountability Check
+- [ ] My core frontend components are built and connected to the backend.`,
+  'payments': `# Payments Integration
 
 **Estimated Time:** 2-4 Hours
 
 ---
 
 ## Why this matters
-The backend handles your business logic, talks to the database, and secures your data. This is where the heavy lifting happens.
+If you cannot process payments, you do not have a business; you have an expensive hobby. Payment integration is notoriously tricky because it involves asynchronous webhooks, strict security regulations (PCI compliance), and edge cases like failed credit cards and prorated upgrades.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-If you are using Supabase, you can often skip writing a custom backend entirely by querying the database directly from the frontend (using Row Level Security for safety). 
-
-If you need custom logic (like calling the OpenAI API), write a simple Serverless Edge Function. Keep it as lightweight as possible.
+Fake it. Create a button that says "Pay $10", and when clicked, just show a success toast and update the database to `isPaid: true`. Do not waste hackathon hours setting up Stripe API keys.
 
 ### Personal Project
-Build a standard Node.js/Express server or use Next.js API routes. Focus on learning how to handle requests, parse JSON bodies, and return proper HTTP status codes.
+If you want to charge for your app, use Stripe Checkout or Lemon Squeezy. They host the payment page for you, so you don't have to build complex checkout forms. Lemon Squeezy is especially good if you want them to handle global taxes (Merchant of Record).
 
 ### Production SaaS
-You must implement robust error handling, input validation (using Zod or Joi), and rate limiting. 
+You must implement a robust billing portal (Stripe Customer Portal is excellent for this) so users can manage their own subscriptions, update credit cards, and download invoices. Your webhook handler must be bulletproof: it must verify the Stripe signature, be idempotent (so if Stripe sends the event twice, you don't double-upgrade the user), and gracefully handle `invoice.payment_failed` events by restricting access.
 
-Never trust data coming from the frontend. Always re-validate inputs on the backend. Structure your backend into logical layers: Routes (handling HTTP), Controllers (business logic), and Services/Repositories (database interactions). This keeps your code testable and clean.
-
-
-## Backend Prompt
-\`\`\`prompt
-Act as a Backend Engineer. Write the server-side code to handle my core application logic, including input validation and error handling.
+## The Data We Need From You
+**What payment provider are you using, and what are you selling? (e.g., Stripe, Lemon Squeezy, Braintree)**
+\`\`\`input
+Type your answer here...
 \`\`\`
-- [ ] I have implemented my core backend logic.
-`,
-  'frontend': `# Frontend Development
 
-**Estimated Time:** 3-5 Hours
-
----
-
-## Why this matters
-The frontend is what your users actually touch. If it is laggy, ugly, or confusing, they will assume the entire product is broken.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Use pre-built component libraries (shadcn/ui, Tailwind UI, MUI). 
-
-Do not spend 20 minutes writing custom CSS for a button hover effect. Copy-paste components. Focus all your energy on the single core user flow that you will demonstrate during the pitch.
-
-### Personal Project
-Build components from scratch to understand how React state, props, and hooks work. Focus on clean, readable code rather than rushing to the finish line.
-
-### Production SaaS
-You must implement optimistic UI updates, loading skeletons, and robust error boundaries. 
-
-When a user clicks "Save", the button should instantly show a loading spinner, and the UI should optimistically update before the server responds. If the server throws an error, gracefully revert the UI and show a toast notification. Never let the app crash to a white screen.
-
-
-## Frontend Prompt
+## AI Execution Phase
 \`\`\`prompt
-Act as a Senior Frontend Developer. Write the React components for my main dashboard, utilizing Tailwind CSS and optimistic UI updates.
+Act as a Stripe Integration Expert. I am implementing a recurring subscription using Node.js/Next.js. Provide the code for a secure Stripe Webhook handler. Specifically, I need it to handle the `checkout.session.completed` event to upgrade the user in my database. Include the webhook signature verification logic.
 \`\`\`
-- [ ] I have built my core frontend views.
-`,
-  'payments': `# Payments Integration
+
+## Accountability Check
+- [ ] I can successfully process a test payment and update the user's status.`,
+  'emails': `# Transactional Emails
 
 **Estimated Time:** 2 Hours
 
 ---
 
 ## Why this matters
-If you can't collect money, you don't have a business. Payment integration is notoriously tricky because you are dealing with real money and webhooks.
+Transactional emails are the automated emails triggered by user actions: password resets, welcome emails, invoice receipts. Without them, users cannot recover accounts, and they won't know if their payments went through. They are critical for trust and security.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Do not integrate real payments. 
-
-If you want to show a checkout flow for the demo, just build a fake UI screen that says "Payment Successful." The judges do not care if your Stripe integration actually works.
+Skip them. If a user needs to "verify their email" in your demo, you've built a terrible demo. If you must send an email, just `console.log` the "email sent" message in your backend.
 
 ### Personal Project
-Integrate Stripe Checkout in "Test Mode." It's a fantastic learning experience to understand how webhooks confirm payment status.
+Use Resend or Postmark. They have incredible developer APIs. Build a single `sendEmail` utility function and use it everywhere. You don't need fancy HTML templates; simple text emails often perform better and feel more personal.
 
 ### Production SaaS
-Use Stripe Checkout or Lemon Squeezy (if you need a Merchant of Record to handle global taxes). 
+You must use a dedicated transactional email provider (like Postmark, Resend, or SendGrid) and you MUST authenticate your domain (SPF, DKIM, DMARC) or your emails will go straight to spam. Use a template engine (like React Email) so your transactional emails look professional and are easy to maintain across the team.
 
-You must rely on Webhooks to provision access, not client-side redirects. When a user pays, Stripe sends a webhook to your server; your server verifies the webhook signature, updates the user's \`subscription_status\` in the database, and only *then* does the user get access.
-
-
-## Payments Prompt
-\`\`\`prompt
-Act as a Stripe Integration Expert. Write the backend webhook handler to process subscription lifecycle events (created, updated, canceled).
+## The Data We Need From You
+**List the 3 critical transactional emails your app must send.**
+\`\`\`input
+1. Welcome Email
+2. 
+3. 
 \`\`\`
-- [ ] I have integrated my payment gateway.
-`,
-  'emails': `# Transactional Emails
 
-**Estimated Time:** 1 Hour
-
----
-
-## Why this matters
-Users need to receive Welcome emails, Password Resets, and Receipts. If these emails go to spam, your users will get locked out or confused.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Skip transactional emails. 
-
-If you need to show an email feature during the demo, just \`console.log\` the email content to the terminal or show a fake "Email Sent!" toast notification.
-
-### Personal Project
-Use Resend or SendGrid. They have great developer APIs and free tiers. It's a great skill to learn.
-
-### Production SaaS
-You must use a dedicated transactional email provider (Resend, Postmark). 
-
-You must configure your domain's DKIM, SPF, and DMARC records to ensure your emails actually land in the Inbox, not the Spam folder. Use a tool like React Email to build beautiful, responsive HTML templates instead of writing raw HTML strings.
-
-
-## Email Prompt
+## AI Execution Phase
 \`\`\`prompt
-Act as a Communications Architect. Generate a React Email template for my Welcome Email, including my branding colors and a clear Call to Action.
+Act as a Technical Copywriter. I need to write the "Welcome Email" for my SaaS: [Insert SaaS Name]. Our brand tone is [Insert Tone]. Write a short, text-based email that welcomes the user, tells them the ONE immediate action they should take next, and provides a clear link. Do not make it sound like a corporate robot.
 \`\`\`
-- [ ] I have configured my transactional emails.
-`,
-  'notifications': `# Notifications
-
-**Estimated Time:** 1 Hour
-
----
-
-## Why this matters
-Notifications pull users back into your app. Without them, users forget your app exists.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Fake it. 
-
-Show a static bell icon with a red "1" on it. When clicked, show a hardcoded message. Do not spend time implementing WebSockets or Push Notifications.
-
-### Personal Project
-Implement a simple polling mechanism or basic WebSockets just to learn how real-time data works.
-
-### Production SaaS
-You must build a robust notification center. 
-
-Use a unified API like Novu or Courier. You must support in-app toasts, in-app inbox (the bell icon), and email fallbacks. Crucially, you must allow users to mute specific types of notifications, otherwise they will mark your emails as Spam and destroy your domain reputation.
-
 
 ## Accountability Check
-- [ ] I have implemented my notification strategy.
-`,
-  'search': `# Search
+- [ ] My app successfully sends transactional emails without hitting the spam folder.`,
+  'notifications': `# Notifications
+
+**Estimated Time:** 2-4 Hours
+
+---
+
+## Why this matters
+Notifications drive engagement and retention. If a user closes your app, notifications (In-app, Push, or Email) are how you bring them back. However, if you send too many, users will disable them or uninstall your app entirely.
+
+## Strategic Guidance
+
+### Hackathon Mode
+If notifications are core to your app (like a messaging app), use a real-time database listener (like Supabase Realtime) to pop up a toast notification. Do not attempt to build Apple/Google Push Notifications in 24 hours.
+
+### Personal Project
+Stick to simple in-app notifications. Create a `notifications` table in your database with `user_id`, `message`, and `is_read`. Query this table when the user logs in and show a little red dot on a bell icon.
+
+### Production SaaS
+You need a robust notification system. Use a tool like Novu, Knock, or Courier to manage multi-channel notifications (In-App + Email + SMS). You MUST provide a "Notification Preferences" page where users can opt-out of specific types of alerts. Do not build this complex routing logic yourself.
+
+## The Data We Need From You
+**What triggers a notification in your app, and what channels will you use? (e.g., In-app bell, SMS, Email)**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## Accountability Check
+- [ ] Users receive timely notifications and have the ability to mute them.`,
+  'search': `# Search Functionality
+
+**Estimated Time:** 2-4 Hours
+
+---
+
+## Why this matters
+As your app grows, users will refuse to paginate through 50 pages of data. They expect a Google-like search bar that returns instant results. A slow or inaccurate search feature frustrates users immediately.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Do a simple client-side `.filter()` on an array of data. If you only have 100 records in your demo, loading them all into the frontend and filtering them in React is completely fine and lightning fast.
+
+### Personal Project
+Use standard SQL `LIKE` or `ILIKE` queries in your database. E.g., `SELECT * FROM users WHERE name ILIKE '%john%'`. It's easy to set up and perfectly fine for small datasets.
+
+### Production SaaS
+You must implement a robust search infrastructure. Standard SQL `LIKE` queries will crash your database when you have millions of rows. Use PostgreSQL Full-Text Search, or integrate a dedicated search engine like Algolia, Meilisearch, or ElasticSearch. Implement debounce on the frontend so you don't hammer your API on every keystroke.
+
+## The Data We Need From You
+**What data entities do users need to search for? (e.g., Users, Invoices, Documents)**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## AI Execution Phase
+\`\`\`prompt
+Act as a Database Engineer. I need to implement a fast search feature for my [Insert Entity] table using PostgreSQL. Provide the SQL commands to add a Full-Text Search index (GIN index) to the relevant columns, and provide an example query of how to search against it efficiently.
+\`\`\`
+
+## Accountability Check
+- [ ] Users can quickly and accurately search for records in the app.`,
+  'analytics': `# Product Analytics
 
 **Estimated Time:** 1-2 Hours
 
 ---
 
 ## Why this matters
-As your users generate more data, they will expect to find it instantly. A bad search experience is incredibly frustrating.
+If you don't track how users are using your app, you are flying blind. You won't know if they are stuck on the onboarding screen, or if no one has ever clicked the "Upgrade" button. Analytics tell you the truth, not what users say they do.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Just use a standard SQL \`ILIKE\` query or a simple Array \`.filter()\` on the frontend if the dataset is small. Do not set up a dedicated search engine.
+Skip it completely. You do not need analytics for a 24-hour project. 
 
 ### Personal Project
-Implement basic full-text search directly in Postgres. It's a great feature to learn and requires no extra infrastructure.
+Add a lightweight, privacy-friendly analytics script like Plausible or Fathom to your `<head>`. It takes 2 minutes and gives you basic pageview data without requiring annoying Cookie Banners.
 
 ### Production SaaS
-For a production app, Postgres full-text search is usually sufficient until you hit massive scale. 
+You need robust event tracking. Use a tool like PostHog or Mixpanel. You must track explicit events (e.g., `user_signed_up`, `invoice_created`, `upgrade_clicked`) and attach properties to them. This allows you to build funnels and see exactly where users drop off. Ensure you configure your ad-blocker proxies (like PostHog's reverse proxy) so you don't lose 30% of your data.
 
-You must implement "fuzzy matching" so typos don't return zero results. Implement debouncing on your frontend search input (wait 300ms after the user stops typing before hitting the API) to save database compute costs.
-
+## The Data We Need From You
+**What are the 3 most important user actions you need to track?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
 
 ## Accountability Check
-- [ ] I have implemented scalable search.
-`,
-  'analytics': `# Product Analytics
+- [ ] I have integrated an analytics tool to track user behavior.`,
+  'adminpanel': `# Admin Panel
 
-**Estimated Time:** 45 min
+**Estimated Time:** 4 Hours
 
 ---
 
 ## Why this matters
-If you aren't measuring user behavior, you are flying blind. You won't know where users drop off in your funnel or which features they actually use.
+An admin panel allows you (the founder) to view user data, manage subscriptions, ban abusive users, and impersonate accounts for debugging without writing raw SQL queries. Without an admin panel, customer support is impossible.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip it. Analytics will not help you win the pitch.
+Your database GUI (like the Supabase dashboard) is your admin panel. Do not build a custom one. 
 
 ### Personal Project
-Skip it, unless you specifically want to learn how to implement an analytics SDK.
+Same as Hackathon. Just edit the database directly if you need to fix something.
 
 ### Production SaaS
-You must implement PostHog, Mixpanel, or Amplitude from Day 1. 
+Do not build an admin panel from scratch. It is a massive waste of engineering resources. Use a low-code tool like Retool, Appsmith, or a framework like Refine. Connect it directly to your database or API. Ensure the admin panel is locked behind strict authentication and IP whitelisting. 
 
-Track the "Aha!" moment. Track where users drop off during onboarding. Track feature usage. Connect your frontend SDK to capture pageviews, and send backend events for critical actions (like \`User Upgraded\` or \`Invoice Paid\`) to ensure the data is perfectly accurate.
+## The Data We Need From You
+**What tool will you use to manage your internal admin workflows?**
+\`\`\`input
+Type your answer here...
+\`\`\`
 
+## AI Refinement Phase
+\`\`\`prompt
+Act as a Customer Support Manager for a SaaS. List the top 5 most common support requests I will likely receive from users (e.g., password reset, refund request). For each request, tell me exactly what capabilities my internal Admin Panel needs to have so I can resolve the issue in under 2 minutes.
+\`\`\`
 
 ## Accountability Check
-- [ ] I have integrated product analytics.
-`,
-  'adminpanel': `# Admin Panel
+- [ ] I have a secure way to manage user data and handle support tickets.`,
+  'integrations': `# Building Integrations
+
+**Estimated Time:** Variable
+
+---
+
+## Why this matters
+Your SaaS does not live in a vacuum. Users want your app to talk to the tools they already use (Slack, Salesforce, HubSpot). If you don't offer integrations, enterprise teams will refuse to buy your software because it breaks their existing workflows.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Build one highly visual "inbound" integration. For example, have your app post a celebratory message to a Slack channel when a task is completed. It looks great in a demo.
+
+### Personal Project
+Integrate with your own tools. If you use Notion, use the Notion API to sync data from your app into your personal workspace. It's a great way to learn OAuth flows.
+
+### Production SaaS
+Building native integrations is exhausting because third-party APIs constantly change. Consider using an embedded integration platform (like Merge.dev or Paragon) that provides a unified API for hundreds of tools. If you build them natively, ensure you handle token refreshes securely and monitor API rate limits carefully.
+
+## The Data We Need From You
+**What is the #1 integration your users will demand?**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## Accountability Check
+- [ ] I have a plan for integrating with my users' existing tech stack.`,
+  'testing': `# Testing Strategy
+
+**Estimated Time:** Continuous
+
+---
+
+## Why this matters
+Untested code is broken code that hasn't crashed yet. Testing gives you the confidence to deploy on a Friday afternoon. Without tests, every new feature you add risks breaking an old feature, leading to a paralyzed engineering team.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Do not write tests. Testing is for code that needs to survive longer than the weekend. Manually click through the app before you present.
+
+### Personal Project
+Write tests only for the most complex, algorithmic parts of your code. If you have a function that calculates taxes, write a unit test (Vitest/Jest) for it. Don't bother writing UI tests for a solo project.
+
+### Production SaaS
+You must adopt a testing pyramid. Write Unit Tests for business logic. Write Integration Tests for your database endpoints. Write End-to-End (E2E) tests using Playwright or Cypress for your critical user flows (Sign Up, Checkout, Core Action). If the E2E tests fail, the deployment to Production must be blocked automatically by your CI/CD pipeline.
+
+## The Data We Need From You
+**What testing frameworks will you use? (e.g., Vitest, Playwright)**
+\`\`\`input
+Type your answer here...
+\`\`\`
+
+## AI Execution Phase
+\`\`\`prompt
+Act as a QA Engineer. I am using Playwright for End-to-End testing. My core user flow is: [Insert Core Flow]. Provide the Playwright test script (TypeScript) that automates navigating to the page, filling out the necessary forms, clicking the submit button, and verifying the success state.
+\`\`\`
+
+## Accountability Check
+- [ ] My critical business logic and user flows are covered by automated tests.`,
+  'documentation': `# Documentation
 
 **Estimated Time:** 2 Hours
 
 ---
 
 ## Why this matters
-When a user inevitably breaks their account, or requests a refund, you need an interface to fix it. If you have to write raw SQL to fix customer issues, you will hate your life.
+If your API or app requires documentation, and you don't provide it, your users will overwhelm your support inbox. For developers, poor documentation means they won't adopt your tool. Good documentation is the cheapest form of customer support.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip it. You are the only admin and you can just use the Supabase/Firebase dashboard to manually edit rows if needed.
+Your `README.md` is your documentation. Include a screenshot, a 1-sentence description, and the command to run it locally (`npm run dev`).
 
 ### Personal Project
-Skip it. Just use your database GUI (like DBeaver or TablePlus).
+Document the "Gotchas". Write down the weird environment variables you need, or why you chose a specific library. When you return to this project in 6 months, your past self's documentation will save you hours of debugging.
 
 ### Production SaaS
-Do not build an admin panel from scratch. 
+If you have a public API, use a tool like Mintlify or ReadMe to generate beautiful API docs from your OpenAPI spec. If it's a consumer app, use a Help Center tool (like Intercom Articles or Notion) to write step-by-step guides with screenshots. Keep documentation updated as part of your "Definition of Done" for new features.
 
-Use a low-code tool like Retool, ForestAdmin, or Appsmith. Connect it directly to your production database. Build simple dashboards to view User details, refund Stripe charges, and ban malicious accounts. This will save you hundreds of hours of customer support time.
-
-
-## Accountability Check
-- [ ] I have set up an internal admin panel.
-`,
-  'integrations': `# External Integrations
-
-**Estimated Time:** 3-5 Hours
-
----
-
-## Why this matters
-Users want your product to talk to the tools they already use. 
-
-## Strategic Guidance
-
-### Hackathon Mode
-Fake them if they are too hard, or use Zapier to quickly stitch things together for the demo.
-
-### Personal Project
-Build 1 integration (like a Discord bot or Slack webhook) to learn how OAuth2 works.
-
-### Production SaaS
-Start with native Slack or Discord webhooks for notifications. If you need deep integrations (Salesforce, HubSpot), strongly consider using an embedded integration platform like Paragon or Merge.dev. Building and maintaining 10 different OAuth integrations from scratch will drain all your engineering resources.
-
+## The Data We Need From You
+**Where will your user-facing documentation live? (e.g., Mintlify, Notion, HelpScout)**
+\`\`\`input
+Type your answer here...
+\`\`\`
 
 ## Accountability Check
-- [ ] I have built necessary integrations.
-`,
-  'testing': `# Testing
-
-**Estimated Time:** Ongoing
-
----
-
-## Why this matters
-Without tests, every time you add a new feature, you will be terrified of breaking an old one.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Zero tests. Absolutely none. You are writing throwaway code.
-
-### Personal Project
-Write a few unit tests for your most complex business logic functions just to learn Jest or Vitest. Don't aim for 100% coverage.
-
-### Production SaaS
-Do not aim for 100% unit test coverage; it is a waste of time. 
-
-Instead, focus on End-to-End (E2E) testing with Playwright or Cypress. Write 5-10 tests that cover your most critical workflows (Signup, Checkout, Core Feature). If those tests pass, you know the app makes money. Let your users find the minor UI bugs.
-
-
-## Accountability Check
-- [ ] I have implemented my core E2E tests.
-`,
-  'documentation': `# Documentation
-
-**Estimated Time:** Ongoing
-
----
-
-## Why this matters
-Code is read 10x more than it is written. If you don't document your architecture, you (or your future hires) will be hopelessly lost in 6 months.
-
-## Strategic Guidance
-
-### Hackathon Mode
-A single \`README.md\` explaining how to run \`npm install\` and \`npm run dev\` is all you need.
-
-### Personal Project
-Write a good README so when you look at the repo in 2 years, you remember what it does.
-
-### Production SaaS
-You must maintain two types of documentation: 
-
-1. **Internal:** Architecture decisions (ADRs), onboarding guides for new engineers, and environment variable requirements.
-2. **External:** A beautiful, searchable Help Center for your users (using Mintlify or Docusaurus) so they stop emailing customer support with basic questions.
-
-
-## Accountability Check
-- [ ] I have documented my project appropriately.
-`,
+- [ ] I have created basic documentation or a Help Center for my users.`,
   'demodata': `# Demo Data
 
-**Estimated Time:** 45-60 min
+**Estimated Time:** 2 Hours
 
 ---
 
-## Overview
-You cannot launch on Product Hunt, record a promotional video, or do a live sales pitch with an empty dashboard. An empty app forces the user to use their imagination. Your application needs to look lived-in, active, and valuable from the very first second. Generating high-quality "Demo Data" is the bridge between a functional codebase and a sellable product.
+## Why this matters
+An empty dashboard looks terrible. If you are demoing your app, or if a user just signed up for a trial, seeing a blank screen with "0 Invoices" does not inspire confidence. You need rich, realistic data to show off what the app looks like when it's being used by a power user.
 
----
+## Strategic Guidance
 
-## Think First
-Define the "Aha!" moment.
+### Hackathon Mode
+Spend significant time on this. Ask ChatGPT to generate 20 realistic user profiles, 50 transactions, and funny, engaging descriptions. Do not use "Test User 1" and "asdfasdf" for your demo data. The judges are looking at the UI, and the UI is defined by the data inside it.
 
-**The Golden Scenario (What is the absolute best-case scenario a user can experience in your app? e.g., A dashboard showing $10k in Monthly Recurring Revenue, or a project board fully populated with completed tasks.)**
+### Personal Project
+Just insert enough data so you can test your pagination and search functions. "Test User 1" is fine here.
+
+### Production SaaS
+Build a robust database seeding script. When a new developer joins the team, they should be able to run `npm run seed` and instantly have a local database filled with thousands of rows of realistic (but anonymized) data. Furthermore, when a new user signs up for your app, consider automatically injecting "Template Data" into their workspace so they aren't staring at a blank screen.
+
+## The Data We Need From You
+**What specific entities need realistic mock data before you can properly demo the app?**
 \`\`\`input
 Type your answer here...
 \`\`\`
 
-**The Industry Context (Who is your target persona? If you are building a tool for lawyers, your demo data must look like legal case files, not generic "lorem ipsum" text.)**
-\`\`\`input
-Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Automated Seeding vs. Manual Curation:**
-  - *Automated:* Using a script (like Faker.js) to generate 1,000 rows of data so your pagination and analytics charts look impressive.
-  - *Manual:* Hand-crafting 3 to 5 highly specific "Hero" items that tell a compelling story when clicked.
-  - *Decision:* Do both. Automate the volume, manually curate the Hero items.
-- **Wiping vs. Sandboxing:** When a user signs up for a free trial, do you inject demo data directly into their account to help them learn, or do you leave it empty? Injecting 3 realistic "example" items into a new user's workspace drastically improves onboarding conversion.
-
----
-
-## Common Mistakes
-- **Using "Test 123" and "asdfasdf":**
-  - *Why it happens:* Developers get lazy when testing forms.
-  - *Consequence:* An investor or customer looks at a table full of "Test User" and assumes the product is broken, amateurish, or not ready for production.
-  - *Prevention:* Always use contextually relevant, realistic dummy data.
-- **Static Timestamps:** Generating 500 rows of data where \`created_at\` is the exact same second. Your analytics charts will show a massive spike on one day and zero activity everywhere else.
-
----
-
-## Examples
-- *Good Implementation:* A CRM demo environment populated with 50 realistic leads (e.g., "Acme Corp", "Globex"). The \`created_at\` dates are mathematically distributed over the last 6 months so the "Revenue over Time" line chart curves upwards beautifully.
-- *Bad Implementation:* A completely blank dashboard that says "You have no projects. Click here to create one."
-
----
-
-## AI Prompt
-Use AI to write a hyper-realistic data generation script.
-
+## AI Execution Phase
 \`\`\`prompt
-My SaaS is a [INSERT NICHE, e.g., CRM for Dental Clinics].
-My database uses [INSERT ORM, e.g., Prisma].
-
-Act as a Product Marketer and Backend Engineer.
-1. Write a TypeScript seeding script using \`@faker-js/faker\`.
-2. Generate highly realistic, industry-specific data (Do NOT use generic 'Lorem Ipsum'. Use realistic dental terminology, patient names, and procedure codes).
-3. Generate exactly 100 records.
-4. Ensure the \`created_at\` timestamps are distributed randomly over the past 90 days so my analytics charts will look active and realistic.
+Act as a Data Generator. I need mock data for my [Insert Entity] table. Please provide a JSON array of 10 highly realistic, diverse, and professional records. The fields I need are: [Insert Fields]. Do not use generic names like 'John Doe'.
 \`\`\`
 
----
-
-## Validation Checklist
-- [ ] Does your application look like a real, active company is currently using it?
-- [ ] Are all graphs, charts, and metrics fully populated and showing positive trends?
-- [ ] Have you completely eliminated any "test", "asdf", or "lorem ipsum" strings from the UI?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-**File Name:** \`demo_seed.ts\`
-**Purpose:** Make the product instantly impressive.
-**Contents:** A dedicated script used exclusively for populating presentation environments.`,
+## Accountability Check
+- [ ] My application is populated with rich, realistic demo data.`,
   'presentationprep': `# Presentation Prep
 
-**Estimated Time:** 60-120 min
+**Estimated Time:** 2 Hours
 
 ---
 
-## Overview
-Building the software is only 50% of the battle; the other 50% is convincing people to care. Presentation Prep is about translating your technical architecture into a compelling narrative. Whether you are pitching to Y Combinator, launching on Product Hunt, or doing a 1-on-1 sales call, a confused audience will never buy.
+## Why this matters
+A great presentation can save a mediocre hackathon project. A terrible presentation will ruin an incredible project. You have exactly 3 minutes to explain the problem, show the solution, and convince the judges that what you built actually works.
 
----
+## Strategic Guidance
 
-## Think First
-Understand your audience.
+### Hackathon Mode
+Do not code during the last 2 hours. Stop. Close the IDE. You must practice the presentation. Decide exactly who is talking, who is driving the mouse, and what happens if the Wi-Fi drops. 
 
-**The Audience (Who are you presenting to? Investors care about Market Size and Traction. Users care about "Will this save me time/money?")**
+### Personal Project
+Your presentation is the README on GitHub and the Loom video you post on Twitter. Keep it under 2 minutes. Start with the final result immediately.
+
+### Production SaaS
+If you are pitching to investors, your presentation is your Pitch Deck. You must nail the narrative: Why now? Why this team? How big is the market? Investors invest in the story and the founders, not the raw codebase.
+
+## The Data We Need From You
+**What is the single "Wow" moment of your presentation?**
 \`\`\`input
 Type your answer here...
 \`\`\`
 
-**The Core Metric (What is the single most impressive number you can share? e.g., "We grew 20% this week" or "Our software saves users 5 hours a week")**
-\`\`\`input
-Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Live Demo vs. Pre-Recorded Video:**
-  - *Live Demo:* Highly engaging, but risky. Live demos have a mystical ability to crash due to network errors or edge cases.
-  - *Pre-Recorded:* Safe, polished, and allows you to edit out load times.
-  - *Decision:* ALWAYS have a pre-recorded Loom video ready. If doing a live pitch, attempt the live demo, but switch to the video the second something goes wrong.
-- **The Pitch Structure:** Never start by explaining the tech stack or how you built it. Start with the **Problem** (make it hurt), introduce the **Solution** (your app), and end with **Traction** (why you will win).
-
----
-
-## Common Mistakes
-- **The Feature Dump:**
-  - *Why it happens:* You spent 3 weeks building a complex settings page, so you want to show it off.
-  - *Consequence:* You spend 2 minutes of a 3-minute pitch clicking through menus, boring the audience to death before showing the actual value.
-  - *Prevention:* Only show the "Golden Flow". Ignore the settings, the login screen, and the edge cases.
-- **"We have no competitors":** Saying this to an investor instantly proves you haven't researched your market. Excel/Spreadsheets is almost always your biggest competitor.
-
----
-
-## Examples
-- *Good Implementation:* A 90-second Loom video. First 10 seconds: "Lawyers waste 5 hours a week summarizing cases." Next 60 seconds: Showing a document being uploaded and perfectly summarized by AI in 5 seconds. Final 20 seconds: "We have 5 law firms paying us $100/mo."
-- *Bad Implementation:* A 10-minute video where the founder talks over a slide deck, spends 3 minutes showing how the login page works, and the demo crashes halfway through.
-
----
-
-## AI Prompt
-Use AI to write a high-converting pitch script.
-
-\`\`\`prompt
-My SaaS is: [INSERT ELEVATOR PITCH].
-My target audience for this presentation is: [INSERT AUDIENCE, e.g., Seed Investors / Product Hunt Users].
-
-Act as a Y Combinator Pitch Coach.
-1. Write a strict 2-minute pitch script for me to read over a demo video.
-2. Structure it as: The Problem, The Solution (The Demo), The Business Model, and The Ask.
-3. Keep the sentences short, punchy, and jargon-free.
-4. Tell me exactly what actions I should be performing on-screen during each sentence of the script.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Have you written out a literal script for your presentation rather than winging it?
-- [ ] Have you recorded a high-quality backup video (e.g., using Loom) in case the live demo fails?
-- [ ] Does your pitch get to the core value proposition (the "Aha!" moment) in the first 30 seconds?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-**File Name:** \`pitch_script.md\`
-**Purpose:** Convert viewers into users or investors.
-**Contents:** The timed script and the recorded Loom video link.`,
+## Accountability Check
+- [ ] I have rehearsed my presentation multiple times.`,
   'security': `# Security
 
-**Estimated Time:** 4-6 hours
+**Estimated Time:** 1-2 Hours
 
 ---
 
 ## Why this matters
-Security is not an afterthought; it is the foundation of trust. A single vulnerability can lead to data breaches, reputational damage, and severe financial consequences. Implementing security correctly from day one is exponentially easier than trying to patch a fundamentally insecure architecture later.
+Security is not a feature; it is an existential requirement. A single data breach can destroy your company's reputation overnight. Security is about defense in depth: assuming that an attacker will breach one layer, and ensuring another layer catches them.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-For a hackathon, speed is everything and the data is fake. You do not need enterprise-grade security. Do not spend hours configuring strict Row Level Security (RLS) policies or complex OAuth flows unless they are the core mechanic of your demonstration. 
-
-Your goal is to show a working prototype. Hardcode demo user credentials if it saves time. If you use a database like Supabase or Firebase, use the most permissive rules possible to ensure you don't get blocked during your demo. The only security that matters is ensuring your API keys are not accidentally pushed to a public GitHub repository where bots can scrape them. Use environment variables for all secrets.
+Do not waste time on complex security. Your app will likely be taken offline after the weekend anyway. Use `.env` files correctly so you don't commit your API keys to GitHub, and that is all the security you need.
 
 ### Personal Project
-When building a personal project, you want to demonstrate competence and learn best practices without over-engineering. This is the perfect time to learn how to properly secure an application. 
-
-You should implement basic authentication and authorization. Ensure that users can only access their own data. If using Supabase, write foundational RLS policies (e.g., \`user_id = auth.uid()\`). Secure your API routes so that unauthenticated users are rejected. Store sensitive configuration in environment variables and use a \`.env\` file locally. Do not deploy with default passwords or open databases. This level of security shows future employers that you understand the fundamentals of secure software development.
+Practice good habits. Set up Row Level Security (RLS) in your database so you can't accidentally fetch another user's data. Don't write raw SQL queries to avoid SQL injection. Use standard CORS headers.
 
 ### Production SaaS
-In a production environment, security is paramount. You are responsible for your users' sensitive data, and a breach could end your business. You must implement Defense in Depth. 
+You must treat security as your highest priority. Implement Content Security Policies (CSP) to prevent XSS attacks. Use CSRF tokens on all mutating endpoints. Enforce HTTPS everywhere. Regularly audit your npm dependencies for vulnerabilities (`npm audit`). Set up automated secrets scanning in your CI/CD pipeline so keys are never leaked.
 
-Start with strict Authentication and Role-Based Access Control (RBAC). Every endpoint and database query must verify the user's identity and permissions. Implement robust Row Level Security (RLS) on your database. Enforce HTTPS everywhere and ensure secure transmission of data. Use secure, HttpOnly cookies for session management to mitigate XSS attacks. 
-
-Furthermore, you must sanitize all user inputs to prevent SQL injection and XSS. Set up automated security scanning in your CI/CD pipeline to catch vulnerable dependencies. Implement rate limiting to prevent brute-force attacks and abuse. Regularly audit your infrastructure and consider a third-party penetration test before a major public launch.
-
-## Security Audit Prompt
-\`\`\`prompt
-Act as a Senior Security Engineer. I am building a SaaS application using [Insert your Tech Stack here, e.g., React, Node.js, PostgreSQL]. Provide a comprehensive security checklist covering authentication, database security, API protection, and common vulnerabilities (OWASP Top 10). What specific security measures must I implement before launching to production?
+## The Data We Need From You
+**What is the single biggest security risk your app faces? (e.g., Leaking user emails, storing API keys, processing credit cards)**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Environment variables are used for all secrets and API keys.
-- [ ] Secrets have been verified absent from public repositories.
-- [ ] Users can only access their own data (e.g., RLS policies).
-- [ ] Inputs are sanitized and validated on the backend.
-`,
+## AI Execution Phase
+\`\`\`prompt
+Act as an Application Security Engineer. My tech stack is [Insert Stack]. Provide a checklist of the top 5 most critical security headers I need to implement, and explain how to configure Row Level Security (RLS) or similar database-level protections for my specific framework.
+\`\`\`
+
+## Accountability Check
+- [ ] My application is secure against common OWASP vulnerabilities.`,
   'performanceoptimization': `# Performance Optimization
 
-**Estimated Time:** 3-5 hours
+**Estimated Time:** 1-2 Hours
 
 ---
 
 ## Why this matters
-Performance is a feature. Users have zero tolerance for slow applications. A fast, snappy interface builds trust and engagement, while a sluggish app leads to high bounce rates and churn. Optimizing performance ensures your application scales efficiently and provides a world-class user experience.
+Speed is a feature. If your app takes 5 seconds to load, users will leave. Performance impacts everything from SEO rankings to conversion rates. However, premature optimization is the root of all evil; only optimize the parts of your app that are actually slow.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Performance does not matter in a hackathon unless the app is so slow that it ruins the live demo. Do not spend time optimizing bundle sizes, implementing complex caching layers, or writing highly optimized database queries.
-
-If the app feels a bit sluggish, ignore it. Focus entirely on feature completeness and the visual wow factor. The judges will not look at your Lighthouse score or your database query execution times. If a query takes 2 seconds to load, just add a loading spinner and move on.
+Do not optimize. If a query is slow, just put a loading spinner over it. The judges won't care if your TTFB (Time to First Byte) is 800ms.
 
 ### Personal Project
-For a personal project, you want to demonstrate that you understand how to build a responsive web application. You do not need to over-optimize, but you should adhere to basic performance best practices.
-
-Ensure your images are compressed and properly sized. Avoid unnecessary re-renders in your frontend framework by using proper state management. Implement basic pagination for long lists of data to avoid overwhelming the browser. This demonstrates a solid understanding of frontend fundamentals and provides a good experience for anyone reviewing your portfolio.
+Run Lighthouse in Chrome DevTools to check your scores. Optimize your images (use WebP format, implement lazy loading). Don't spend days trying to shave 10ms off a database query unless it's a fun learning exercise.
 
 ### Production SaaS
-In a production SaaS, performance directly impacts your bottom line. You must treat performance as a critical metric. A fast application reduces server costs and increases user retention.
+You must measure performance objectively using Core Web Vitals. You need to implement database indexing for your most queried columns. Bundle split your JavaScript so users only download the code they need for the current page. If you are serving global users, ensure your static assets and edge functions are distributed via a CDN.
 
-You need to optimize across the entire stack. On the frontend, implement code splitting, lazy loading, and aggressive asset optimization. Aim for excellent Core Web Vitals scores. On the backend, identify and optimize slow database queries by adding indexes and using explain plans. Implement comprehensive caching strategies using Redis or a CDN for static assets.
-
-Continuously monitor performance using tools like New Relic, Datadog, or Sentry. Set up alerts for degraded performance and treat performance regressions as critical bugs. Users expect a seamless, instant experience, and delivering that requires rigorous, ongoing optimization.
-
-## Performance Optimization Prompt
-\`\`\`prompt
-Act as a Senior Performance Engineer. I am building a SaaS application using [Insert Tech Stack]. Suggest the top 5 most impactful performance optimizations I should implement on the frontend and backend. Include specific techniques for asset optimization, React rendering improvements, and database query optimization.
+## The Data We Need From You
+**What is the slowest part of your application right now?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Images and assets are compressed and served efficiently.
-- [ ] Large lists are paginated or virtualized.
-- [ ] Database queries are indexed and optimized.
-- [ ] Core Web Vitals meet acceptable thresholds.
-`,
-  'monitoring': `# Monitoring
+## Accountability Check
+- [ ] I have identified and resolved the major performance bottlenecks in my app.`,
+  'monitoring': `# System Monitoring
 
-**Estimated Time:** 2-4 hours
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-You cannot fix what you cannot see. Monitoring provides visibility into the health, usage, and performance of your application. Without it, you are flying blind, and your users will be the first to tell you when something breaks—usually by leaving angry reviews or churn.
+If your app goes down at 3 AM, who knows about it? If the answer is "angry users on Twitter," your monitoring is broken. Monitoring provides visibility into the health of your servers, database connections, and API latencies so you can fix issues before users notice them.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Do not implement monitoring for a hackathon. It is a complete waste of time. You will be sitting next to the computer running the code during the demo. 
-
-If something breaks, you will see it immediately. Do not install Sentry, Datadog, or any other monitoring tool. Spend that time polishing the UI or adding one more killer feature to your demo.
+Skip it. If it crashes during the demo, refresh the page.
 
 ### Personal Project
-For a personal project, basic monitoring is a good learning experience but not strictly necessary for survival. You want to know if the app goes down while someone is reviewing your portfolio.
-
-Set up a simple uptime monitor using a free service like UptimeRobot. This will ping your app every few minutes and email you if it goes down. You might also want to set up basic error tracking (like a free Sentry tier) just to see what errors occur, but do not spend hours configuring complex dashboards.
+Set up a free UptimeRobot ping that checks your homepage every 5 minutes and sends you an email if it goes down. It takes 2 minutes and gives you peace of mind.
 
 ### Production SaaS
-Production SaaS requires comprehensive, real-time observability. You need to know there is a problem before your users do. This requires a robust monitoring stack.
+You need robust APM (Application Performance Monitoring). Use a tool like Datadog, New Relic, or Sentry Performance. You must set up alerts for high CPU usage, database connection pool exhaustion, and elevated 5xx error rates. These alerts should page the on-call engineer via PagerDuty or an urgent Slack ping.
 
-Implement Application Performance Monitoring (APM) using tools like Datadog, New Relic, or Sentry. You must track uptime, API response times, error rates, and infrastructure metrics (CPU, memory). Create detailed dashboards that visualize the health of your system at a glance.
-
-Furthermore, set up proactive alerting. Route critical alerts to PagerDuty or a dedicated Slack channel so your engineering team can respond immediately. Establish clear Service Level Objectives (SLOs) and monitor your adherence to them. Monitoring is the pulse of a production system.
-
-## Monitoring Strategy Prompt
-\`\`\`prompt
-Act as a Senior DevOps Engineer. I need to set up comprehensive monitoring for a production SaaS application built with [Insert Tech Stack]. Recommend a tech stack for observability (APM, error tracking, uptime) and list the 5 most critical metrics I should build alerts for immediately.
+## The Data We Need From You
+**What tool will you use to monitor your application's uptime and health?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] An uptime monitor is configured to alert on downtime.
-- [ ] Application errors are tracked and aggregated automatically.
-- [ ] Key performance metrics (latency, error rate) are visible on a dashboard.
-- [ ] Critical alerts are routed to the appropriate team members.
-`,
+## Accountability Check
+- [ ] I have basic uptime monitoring and alerting configured.`,
   'logging': `# Logging
 
-**Estimated Time:** 2-4 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-When things go wrong in production, logs are your only source of truth. They provide the context needed to debug complex issues, trace user journeys, and understand the sequence of events that led to a failure. Good logging is the difference between fixing a bug in 10 minutes and spending 3 days guessing.
+When a user reports a bug, logs are your only window into what actually happened. Without structured logs, you are guessing. Good logs tell you who did what, when, and exactly what the server was thinking at the time.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Do not build a logging infrastructure. \`console.log()\` is your best friend. 
-
-You only need logs to debug issues during the 48-hour development window. Do not integrate external logging services like Logtail or Datadog. Keep your terminal open and read the standard output. Speed is the only priority.
+`console.log()` is all you need.
 
 ### Personal Project
-For a personal project, standard output logging is generally sufficient. You want to ensure your logs are readable and helpful for debugging, but you don't need a centralized logging pipeline.
-
-Use a simple structured logger (like Pino or Winston in Node.js) instead of raw \`console.log()\`. This teaches you the value of structured data. If you deploy to a platform like Vercel, Heroku, or Render, rely on their built-in log viewers. Focus on logging significant events, such as user logins, database errors, and third-party API failures.
+Use a basic logging library like Pino or Winston. Write logs to `stdout` so your hosting provider (like Vercel or Render) can capture them in their dashboard.
 
 ### Production SaaS
-In a production SaaS, logs must be centralized, searchable, and structured. You will have multiple servers or serverless functions running simultaneously; you cannot SSH into machines to read text files.
+You must use structured JSON logging. This allows you to search your logs efficiently (e.g., `user_id=123 AND level=error`). You must aggregate your logs into a centralized system like Datadog, Logtail, or AWS CloudWatch. Crucially, you must sanitize your logs to ensure you never accidentally log raw passwords, credit cards, or Personally Identifiable Information (PII).
 
-Implement structured JSON logging across your entire stack. Every log entry must include contextual metadata: timestamp, log level, user ID, request ID, and service name. Use a centralized logging platform like Datadog, New Relic, or ELK (Elasticsearch, Logstash, Kibana) to aggregate all logs in one place.
-
-Ensure you are not logging Sensitive Personal Information (PII) or passwords. Establish a log retention policy to manage costs and comply with data privacy regulations. Robust logging is essential for diagnosing distributed system failures and responding to customer support tickets efficiently.
-
-## Logging Implementation Prompt
-\`\`\`prompt
-Act as a Backend Architect. I am building a production backend in [Insert Language/Framework]. Generate a configuration for a structured logger (e.g., Winston or Pino for Node). Explain how to ensure a unique 'request ID' is attached to every log generated during a single HTTP request lifecycle.
+## The Data We Need From You
+**Where are your server logs currently being stored?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Logs are output in a structured format (e.g., JSON).
-- [ ] Logs include contextual information (User ID, Request ID).
-- [ ] Sensitive data (PII, passwords, tokens) is scrubbed from logs.
-- [ ] Logs are aggregated in a centralized, searchable platform.
-`,
+## AI Execution Phase
+\`\`\`prompt
+Act as a DevOps Engineer. I am using [Insert Backend Tech]. Provide a wrapper function for my logger that enforces structured JSON logging and automatically redacts sensitive fields like 'password' or 'token' from the output.
+\`\`\`
+
+## Accountability Check
+- [ ] My application securely logs important events in a structured format.`,
   'errortracking': `# Error Tracking
 
-**Estimated Time:** 1-3 hours
+**Estimated Time:** 15 min
 
 ---
 
 ## Why this matters
-Users rarely report bugs; they just leave. Error tracking tools automatically catch exceptions, unhandled promises, and crashes in your application, providing you with the stack traces and context needed to fix them before more users are impacted.
+Users rarely report bugs; they just leave. Error tracking tools catch exceptions in both the frontend and backend, capturing the stack trace, the user's browser details, and the steps leading up to the crash. This allows you to fix bugs you didn't even know existed.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip error tracking completely. You will be presenting the app yourself, so you will control the exact flow. If an error happens, you will see it on the screen. 
-
-Do not waste time setting up Sentry or LogRocket. If a bug occurs during development, look at your browser console or terminal. Keep moving forward.
+Skip it. Just look at the Chrome console if something breaks.
 
 ### Personal Project
-Adding basic error tracking to a personal project is a great way to learn production practices. It shows that you care about the resilience of your code.
-
-Integrate a free tier of a tool like Sentry. It takes 5 minutes to install and will automatically capture unhandled exceptions in your frontend and backend. You do not need to configure complex alerting or release tracking. Just having the tool catch errors and show you the stack trace is a massive step up from relying on user reports.
+Install Sentry. It has a great free tier. The first time Sentry catches a bug in production and tells you exactly which line of code caused it, you will never build an app without it again.
 
 ### Production SaaS
-Error tracking is non-negotiable for a production SaaS. You must have deep visibility into every crash and exception experienced by your users.
+Sentry (or Bugsnag) is mandatory. You must upload your source maps so you can see the un-minified code in the error trace. You must also tie error tracking to your authentication system so you know exactly *which* user experienced the crash, allowing your customer support team to proactively reach out to them with a fix.
 
-Integrate a robust error tracking platform (like Sentry, Rollbar, or Bugsnag) across your frontend, backend, and mobile apps. Configure the tool to capture source maps so you can read minified stack traces. Attach user context (User ID, email) to errors so you know exactly who was affected.
-
-Set up alerting rules to notify your team when there is a spike in errors or when a new, critical exception is introduced in a recent deployment. Treat unhandled exceptions as high-priority debt that must be paid down immediately to maintain a high-quality user experience.
-
-## Error Tracking Setup Prompt
-\`\`\`prompt
-Act as a Full Stack Developer. Provide a step-by-step guide on how to integrate Sentry into a [Insert Tech Stack, e.g., React and Express] application. Include how to configure source maps for the frontend and how to globally catch and report unhandled promise rejections on the backend.
+## The Data We Need From You
+**What error tracking tool are you integrating? (e.g., Sentry, Bugsnag)**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] An error tracking tool (e.g., Sentry) is integrated into the frontend and backend.
-- [ ] Source maps are uploaded to the error tracking tool for readable stack traces.
-- [ ] User context (ID, email) is attached to error reports.
-- [ ] Alerts are configured for significant spikes in error rates.
-`,
+## Accountability Check
+- [ ] I have an error tracking tool installed and capturing exceptions.`,
   'ratelimiting': `# Rate Limiting
 
-**Estimated Time:** 2-4 hours
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-Rate limiting protects your application from abuse, brute-force attacks, and accidental Denial of Service (DoS) caused by runaway scripts. It ensures fair usage of your resources and keeps your infrastructure costs predictable by preventing a single user from overwhelming your system.
+If you don't limit how often a user can call your API, a single malicious script (or a poorly written `useEffect` loop) can crash your database or run up a $10,000 bill on third-party APIs. Rate limiting protects your infrastructure and your wallet.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Do not implement rate limiting. Your app will only be used by you and maybe a few judges for a few minutes. 
-
-No one is going to DDOS your hackathon project. Implementing rate limiting will only slow you down and potentially block you during your own demo if you refresh too many times. Ignore it completely.
+Skip it entirely. You won't have enough traffic for it to matter.
 
 ### Personal Project
-For a personal project, basic rate limiting is a good defensive measure, especially if you have public-facing APIs or are paying for third-party API calls (like OpenAI).
-
-Implement a simple, in-memory rate limiter or a basic Redis-backed limiter using standard middleware (like \`express-rate-limit\` for Node.js). Apply it primarily to sensitive routes like login (to prevent brute-force password guessing) and any endpoints that cost you money. This shows a solid understanding of basic security and cost-control principles.
+Implement basic rate limiting on your most expensive routes (like AI generation or email sending). A simple Redis-based sliding window or a library like `express-rate-limit` is plenty.
 
 ### Production SaaS
-In production, rate limiting is a critical infrastructure component. You must protect your database and third-party API quotas from malicious actors and poorly written client integrations.
+You must implement rate limiting globally. Unauthenticated routes (like Login) should have aggressive limits to prevent brute-force attacks. Authenticated routes should be limited based on the user's pricing tier. Use Redis to track request counts across multiple server instances. If a user hits the limit, return a `429 Too Many Requests` status code with a `Retry-After` header.
 
-Implement distributed rate limiting using Redis to ensure limits are enforced consistently across all your backend servers. Create tiered rate limits based on pricing plans (e.g., Free tier gets 100 requests/min, Pro gets 1000 requests/min). 
-
-Apply strict rate limits to authentication routes, password resets, and any resource-intensive endpoints. Return clear \`429 Too Many Requests\` HTTP status codes with \`Retry-After\` headers so clients can handle the limits gracefully. Monitor rate limit hits to identify potential attacks or users who need to upgrade their plans.
-
-## Rate Limiting Prompt
-\`\`\`prompt
-Act as a Backend Architect. I am building an API with [Insert Tech Stack, e.g., Node.js, Express, Redis]. Provide code examples and a strategy for implementing tiered rate limiting based on a user's subscription plan. Include strict limits for authentication routes to prevent brute-force attacks.
+## The Data We Need From You
+**Which specific API route is the most vulnerable to abuse or high costs?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Rate limiting is applied to all authentication and password reset routes.
-- [ ] Rate limiting is applied to resource-intensive or costly API endpoints.
-- [ ] The API returns a 429 status code and helpful headers when limits are exceeded.
-- [ ] Rate limits are enforced consistently across distributed server instances.
-`,
+## AI Execution Phase
+\`\`\`prompt
+Act as a Backend Security Expert. I am using [Insert Framework]. Provide the code to implement a robust Redis-based rate limiter for my `/api/generate` endpoint. It should limit users to 10 requests per minute and return a proper 429 response when exceeded.
+\`\`\`
+
+## Accountability Check
+- [ ] My expensive and sensitive API routes are protected by rate limits.`,
   'caching': `# Caching
 
-**Estimated Time:** 2-4 hours
+**Estimated Time:** 1-2 Hours
 
 ---
 
 ## Why this matters
-Caching is the ultimate performance cheat code. By storing frequently accessed, computationally expensive data in a fast, in-memory store (like Redis) or at the edge (CDN), you drastically reduce database load, decrease response times, and lower infrastructure costs.
+Caching saves money and dramatically increases speed. Instead of querying your database for the same data 10,000 times a second, you query it once, store the result in memory, and serve the memory. However, "cache invalidation" (knowing when to delete the stale data) is notoriously one of the hardest problems in computer science.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Do not implement caching. Period. 
-
-Caching introduces state synchronization problems (cache invalidation) that are notoriously difficult to debug. For a hackathon, your database can handle the 10 requests your app will receive during the demo. Query the database directly every single time. Keep it simple.
+Do not build a cache. A cache introduces "stale data" bugs that are impossible to debug during a live demo. If your app is slow, it's fine. The judges only care about functionality.
 
 ### Personal Project
-For a personal project, implementing a basic cache is a great way to show you understand system design. 
-
-If you have a dashboard that aggregates data or an endpoint that fetches a long list of static items, add a simple Redis cache. Cache the response for 5 minutes. This demonstrates that you know how to reduce database strain, which is a highly valued skill for junior/mid-level engineering roles. Do not over-engineer cache invalidation; simple Time-To-Live (TTL) expiration is sufficient.
+Use React Query or SWR on the frontend to cache API responses. It makes your app feel instant when navigating between pages. For the backend, don't bother setting up Redis unless you specifically want to learn it.
 
 ### Production SaaS
-In production, a robust caching strategy is mandatory for scalability and cost control. 
+You must implement multi-layered caching. Use a CDN (like Cloudflare or Vercel Edge Network) to cache static assets and SSG pages. Use an in-memory datastore (like Redis) for expensive database queries and rate-limiting. You must have a strict Cache Invalidation Strategy: when a user updates their profile, the backend must explicitly invalidate the Redis key storing their old profile.
 
-Implement caching at multiple layers. Use a CDN (Content Delivery Network) to cache static assets and even static HTML pages (Edge Caching) globally. Use an in-memory datastore like Redis or Memcached for database query caching and session management. 
-
-The hardest part of caching is invalidation. You must have a clear strategy for evicting stale data when the underlying database is updated. Use pattern-matching eviction or write-through caching mechanisms. Monitor your cache hit rates; a low hit rate means your cache is useless and just adding latency.
-
-## Caching Strategy Prompt
-\`\`\`prompt
-Act as a Senior Backend Engineer. I am building a SaaS app with [Insert Tech Stack]. Provide a strategy for implementing a Redis caching layer for my most expensive database queries. Explain how to handle cache invalidation when the underlying data is updated, and provide code examples for a write-through cache approach.
+## The Data We Need From You
+**What layer of your application will benefit the most from caching?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Static assets are cached at the edge via a CDN.
-- [ ] Expensive or frequently accessed database queries are cached in-memory (e.g., Redis).
-- [ ] A clear cache invalidation strategy is implemented (TTL or event-driven).
-- [ ] Cache hit/miss rates are monitored.
-`,
-  'backups': `# Backups
+## AI Execution Phase
+\`\`\`prompt
+Act as a Backend Performance Engineer. I am using [Insert Backend/DB]. My most expensive query is [Insert Query]. Provide the code to implement a Redis-based cache "read-through" pattern for this query. Include the logic for how and when to invalidate this cache key when the underlying data changes.
+\`\`\`
 
-**Estimated Time:** 1-2 hours
+## Accountability Check
+- [ ] I have implemented caching for my most expensive operations.`,
+  'backups': `# Database Backups
+
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-Hardware fails. Humans make mistakes. Malicious actors delete data. Without reliable backups, a single DROP TABLE command or a corrupted database volume can instantly destroy your entire business and everything your users have built. 
+If you accidentally drop a production table, or if a disgruntled employee deletes your database, your company is dead unless you have backups. Backups are your ultimate insurance policy.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-You do not need backups. If your database crashes during the 48-hour hackathon, you just re-seed it with your fake data script. 
-
-Do not spend time configuring automated snapshots or point-in-time recovery. If you are extremely paranoid, just export your database to a SQL file manually before you go to sleep.
+Skip it. The data is fake anyway.
 
 ### Personal Project
-For a personal project, basic automated backups are highly recommended, especially if you have real users or data you care about.
-
-Most managed database providers (Supabase, Firebase, Heroku Postgres, PlanetScale) offer automated daily backups by default. Verify that this feature is turned on. You do not need complex multi-region replication, but you should know how to restore your database from a snapshot if you accidentally delete something while tinkering.
+If you use a managed database provider like Supabase, PlanetScale, or Vercel Postgres, automated daily backups are usually enabled by default on paid tiers. If you are on a free tier, you might have to export it manually once a month. Don't stress too much.
 
 ### Production SaaS
-In production, backups are a critical component of your Disaster Recovery plan. You are legally and ethically obligated to protect your users' data.
+You must have Point-in-Time Recovery (PITR) enabled. This allows you to restore your database to the exact minute before a catastrophic error occurred. You must also implement "Offsite Backups"—if your database is hosted on AWS US-East-1, your backups must be automatically replicated to a different region (like US-West) or a different cloud provider entirely, in case the entire datacenter goes offline.
 
-Enable Point-in-Time Recovery (PITR) so you can restore your database to any specific second in the past (e.g., right before a developer accidentally dropped a critical table). Ensure you have daily automated snapshots. 
-
-Crucially, you must securely store your backups off-site (in a different physical region or cloud provider) to protect against region-wide outages. Most importantly, you must regularly test your restoration process. A backup that you cannot successfully restore is worthless.
-
-## Backup Strategy Prompt
-\`\`\`prompt
-Act as a Database Administrator. I am using [Insert Database Provider, e.g., Supabase, AWS RDS, MongoDB Atlas]. Outline the exact steps required to enable Point-in-Time Recovery (PITR) and automated daily snapshots. Furthermore, provide a standard operating procedure (SOP) for testing a database restoration in a staging environment.
+## The Data We Need From You
+**How often does your database automatically back up, and how long is it retained?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Automated daily database backups are enabled.
-- [ ] Point-in-Time Recovery (PITR) is active for production databases.
-- [ ] Backups are securely stored in a geographically separate location.
-- [ ] The database restoration process has been successfully tested.
-`,
+## Accountability Check
+- [ ] I have verified that automated backups are enabled and running.`,
   'cicd': `# CI/CD (Continuous Integration & Deployment)
 
-**Estimated Time:** 2-4 hours
+**Estimated Time:** 2 Hours
 
 ---
 
 ## Why this matters
-Manual deployments are error-prone, slow, and stressful. CI/CD (Continuous Integration / Continuous Deployment) automates the process of testing, building, and deploying your code. It ensures that every change is verified before it reaches users, allowing you to ship features faster and with confidence.
+Manual deployments lead to human error. CI/CD (Continuous Integration / Continuous Deployment) automates the process of testing, building, and deploying your code. Every time you push to the `main` branch, the pipeline ensures the code isn't broken before automatically pushing it to production.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip formal CI/CD pipelines. You do not have time to configure GitHub Actions or debug failing build scripts.
-
-Use platforms like Vercel, Netlify, or Render that offer push-to-deploy out of the box. Connect your GitHub repository, push to the \`main\` branch, and let the platform handle the rest. If it fails, check the logs on the platform, fix the code, and push again. Speed is all that matters.
+Connect your GitHub repository to Vercel or Netlify. They offer zero-configuration automatic deployments. Do not write GitHub Actions or configure Jenkins. If you push code, it should be live in 60 seconds.
 
 ### Personal Project
-Setting up a basic CI/CD pipeline is an excellent resume booster. It shows you understand modern engineering workflows.
-
-Configure a simple GitHub Action to run your linter and unit tests on every pull request. Require these checks to pass before merging into the main branch. Use Vercel, Railway, or Heroku for automated deployments upon merging. This prevents you from accidentally deploying broken code and breaking your portfolio project.
+Vercel/Netlify is perfect here too. If you are building a backend API, use Render or Railway, which also auto-deploy on push. You don't need a complex staging environment.
 
 ### Production SaaS
-A robust CI/CD pipeline is the backbone of a high-performing engineering team. You must automate everything to prevent human error and ensure reliable releases.
+You must have a multi-stage CI/CD pipeline. 1. Code is pushed to a PR. 2. GitHub Actions runs a linter, unit tests, and security scans. 3. If they pass, a Preview URL is generated. 4. Code is merged to `main`, deploying to a Staging environment. 5. E2E tests run against Staging. 6. If passed, it is deployed to Production. Never deploy directly to production without tests passing.
 
-Your CI pipeline must run linting, type checking, unit tests, and integration tests on every commit. Enforce strict branch protection rules: no one can merge code without passing tests and peer review. 
-
-Your CD pipeline should automate deployments to multiple environments (Staging, Production). Implement zero-downtime deployments (e.g., blue-green deployments or rolling updates). Run end-to-end (E2E) tests against your staging environment before promoting code to production. If a deployment fails, the system should automatically rollback to the previous stable version.
-
-## CI/CD Pipeline Prompt
-\`\`\`prompt
-Act as a DevOps Engineer. I have a repository hosted on GitHub with a [Insert Frontend Tech] frontend and a [Insert Backend Tech] backend. Generate a GitHub Actions YAML file that runs npm install, linting, and unit tests on every pull request to the 'main' branch.
+## The Data We Need From You
+**What hosting provider are you using for automated deployments? (e.g., Vercel, AWS CodePipeline, GitHub Actions)**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Automated tests (unit, integration) run on every Pull Request.
-- [ ] Code cannot be merged into the main branch if tests fail.
-- [ ] Merging to the main branch automatically triggers a deployment to production.
-- [ ] Deployments occur with zero downtime to the end user.
-`,
-  'infrastructure': `# Infrastructure
+## AI Execution Phase
+\`\`\`prompt
+Act as a DevOps Engineer. I need a GitHub Actions workflow `.yml` file for my [Insert Tech Stack] project. The workflow should trigger on Push to the `main` branch. It should install dependencies, run `npm run test`, and if successful, deploy the project to [Insert Hosting Provider].
+\`\`\`
 
-**Estimated Time:** 3-6 hours
+## Accountability Check
+- [ ] My application automatically deploys when I push to the main branch.`,
+  'infrastructure': `# Cloud Infrastructure
+
+**Estimated Time:** 1-3 Hours
 
 ---
 
 ## Why this matters
-Infrastructure is the foundation your application runs on. Choosing the right infrastructure dictates your deployment speed, maintenance overhead, and scaling limits. Over-engineering your infrastructure early on will slow you down, while under-engineering it later will cause outages.
+Your infrastructure is where your code physically runs. In the past, this meant buying servers. Today, it means navigating the complexity of AWS, GCP, or Vercel. Choosing the right infrastructure dictates your deployment speed, scalability, and monthly hosting bill.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Serverless and Platform-as-a-Service (PaaS) are your best friends. Do not touch AWS, Docker, or Kubernetes. 
-
-Host your frontend on Vercel or Netlify. Host your backend on Render, Railway, or use Supabase/Firebase Serverless Functions. The goal is to deploy your code in under 5 minutes without writing a single configuration file. You want infrastructure that manages itself so you can focus on writing application code.
+Use Platform-as-a-Service (PaaS). Vercel for the frontend, Supabase for the backend/database. It requires zero configuration and scales instantly for a demo. Do not open the AWS console.
 
 ### Personal Project
-For a personal project, you want low-maintenance, zero-cost infrastructure. 
-
-Stick to the free tiers of PaaS providers like Vercel (Frontend), Render/Railway (Backend), and Supabase/Neon (Database). This setup is robust enough to handle moderate traffic, requires zero server maintenance, and is completely free. Do not waste time managing Linux servers on DigitalOcean or EC2 unless learning DevOps is the explicit goal of the project.
+Stick to PaaS (Vercel, Render, Railway, Fly.io). The "Developer Experience" is worth infinitely more than the $5 you might save by managing your own Linux VPS on DigitalOcean. You want to spend your weekends coding, not configuring Nginx.
 
 ### Production SaaS
-In a production SaaS, you need infrastructure that is highly available, scalable, and secure. This is where Infrastructure as Code (IaC) becomes necessary.
+You must balance Developer Experience with Cost and Control. Vercel is amazing, but can become incredibly expensive at enterprise scale. If you are handling sensitive healthcare data (HIPAA), you might be forced to build custom infrastructure on AWS using Terraform or AWS CDK. Infrastructure as Code (IaC) ensures your staging environment is an exact replica of your production environment.
 
-Move away from manual click-ops in web dashboards. Define your infrastructure using Terraform or AWS CDK. This ensures your staging and production environments are identical and reproducible. 
-
-Depending on your team's expertise, choose between a managed PaaS (easier maintenance, higher cost) or containerized orchestration like Kubernetes/ECS (complex, but highly scalable and customizable). Ensure your infrastructure spans multiple availability zones to tolerate hardware failures. Use a Virtual Private Cloud (VPC) to isolate your databases and internal services from the public internet.
-
-## Infrastructure as Code Prompt
-\`\`\`prompt
-Act as a Cloud Architect. I am planning the production infrastructure for a SaaS application using [Insert Tech Stack]. We expect moderate but steady traffic. Compare the pros, cons, and maintenance overhead of using a PaaS (like Heroku/Render) versus containerized orchestration (like AWS ECS or Kubernetes). Which do you recommend for a small team?
+## The Data We Need From You
+**Where is your primary application hosted?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Production infrastructure is isolated from staging and development environments.
-- [ ] Databases and internal services are not exposed directly to the public internet (e.g., inside a VPC).
-- [ ] Infrastructure components span multiple availability zones for fault tolerance.
-- [ ] Infrastructure changes are managed through code (IaC) and version control, not manual dashboard clicks.
-`,
+## Accountability Check
+- [ ] My hosting infrastructure is set up and configured securely.`,
   'disasterrecovery': `# Disaster Recovery
 
-**Estimated Time:** 2-4 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Disasters happen. Cloud providers have regional outages, disgruntled employees delete databases, and ransomware attacks occur. Disaster Recovery (DR) is the process of getting your business back online when the worst-case scenario becomes a reality. 
+Disaster Recovery (DR) is the plan for when everything goes wrong. What happens if your cloud provider deletes your account? What happens if a massive region-wide outage takes down AWS US-East-1? If you don't have a plan, your business could be offline for days, leading to massive churn and lawsuits.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Ignore this completely. If the cloud provider goes down during the hackathon, everyone else using that provider is also down. The judges will understand. Do not spend a single minute worrying about disaster recovery.
+Your disaster recovery plan is "cry, then rewrite the code from memory". Do not spend a single minute on this.
 
 ### Personal Project
-For a personal project, disaster recovery just means having a backup of your code and a backup of your database. 
-
-Your code should be hosted on GitHub, which acts as your DR plan for your source code. If your database provider deletes your account, you should theoretically be able to restore from a recent SQL dump. That is all the DR planning you need.
+Your disaster recovery plan is having your code pushed to GitHub. If your hosting provider dies, you just redeploy it somewhere else. Since you don't have paying users, downtime doesn't matter.
 
 ### Production SaaS
-A production SaaS requires a formal, tested Disaster Recovery plan. You need to define your Recovery Time Objective (RTO - how fast you need to be back online) and Recovery Point Objective (RPO - how much data you can afford to lose).
+You need a formal Disaster Recovery Plan (DRP). You must define your RTO (Recovery Time Objective: how fast must we be back online?) and RPO (Recovery Point Objective: how much data are we willing to lose?). You need a documented "Runbook" that tells an engineer exactly what CLI commands to run to spin up the infrastructure in a brand new region if the primary region dies.
 
-Your infrastructure should be defined as code (Terraform/CDK) so you can spin up a replica of your entire environment in a different cloud region within minutes. Your database backups must be continuously replicated to this secondary region.
-
-You must document the exact, step-by-step Standard Operating Procedure (SOP) for declaring a disaster and executing the failover. Most critically, you must run "fire drills" to test this process. A DR plan that has never been tested is just a theoretical document that will fail when you actually need it.
-
-## Disaster Recovery Plan Prompt
-\`\`\`prompt
-Act as a Site Reliability Engineer (SRE). I am operating a SaaS application on [Insert Cloud Provider, e.g., AWS, GCP]. Draft a standard operating procedure (SOP) for a Disaster Recovery scenario where our primary region goes completely offline. Include steps for DNS failover, infrastructure recreation via Terraform, and database restoration from a cross-region backup.
+## The Data We Need From You
+**If your primary hosting provider went completely offline right now, how long would it take you to get the app running somewhere else?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Recovery Time Objective (RTO) and Recovery Point Objective (RPO) are defined.
-- [ ] Database backups are securely stored in a secondary geographic region.
-- [ ] Infrastructure can be rapidly recreated using Infrastructure as Code (IaC).
-- [ ] The Disaster Recovery failover process is documented and tested regularly.
-`,
+## Accountability Check
+- [ ] I have a basic plan for recovering my application in a worst-case scenario.`,
   'scalabilityplanning': `# Scalability Planning
 
-**Estimated Time:** 2-4 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Scalability is the ability of your system to handle increased load gracefully without catastrophic failure or astronomical costs. Designing for scale too early is a waste of time (premature optimization), but ignoring it entirely will result in your application collapsing just when it starts to get popular.
+Most startups die from a lack of users, not from having too many. However, if your app suddenly goes viral on HackerNews or TikTok, and your server crashes under the load, you miss out on your biggest growth opportunity. Scalability planning ensures you can handle the "Hug of Death."
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Do not plan for scale. Your goal is to support exactly one user: you, during the demo. 
-
-Write the most inefficient code possible if it saves you time. Run expensive computations on the main thread. Query the database inside a loop. None of it matters if you only have 3 rows in your database. 
+Do not build for scale. Build for the demo. Hardcode things. Use an SQLite database file. If the app can handle 5 concurrent users (the judges), it is perfectly scaled.
 
 ### Personal Project
-For a personal project, scalability planning is mostly an academic exercise. 
-
-You should understand the *concepts* of scalability—like the difference between vertical scaling (getting a bigger server) and horizontal scaling (adding more servers). Ensure your backend is stateless so that, theoretically, you could run multiple instances of it. However, do not actually configure load balancers or read replicas. 
+Again, do not over-engineer. An un-optimized Node.js server connected to a Postgres database can easily handle hundreds of requests per second. You will never hit that limit on a personal project. Focus on features, not microservices.
 
 ### Production SaaS
-In a production SaaS, scalability must be planned and tested. You need to know your system's breaking points *before* a marketing spike hits them.
+You must identify your bottlenecks early. "Vertical scaling" (buying a bigger server) is the easiest first step, but eventually, you must "Horizontally scale" (adding more servers). Ensure your backend is "Stateless" (it doesn't store user sessions in local memory) so any load balancer can route traffic to any server. Implement connection pooling (like PgBouncer) so thousands of incoming requests don't exhaust your database connections.
 
-Design a stateless backend architecture so you can scale horizontally behind a load balancer. Offload heavy, long-running tasks (like image processing or report generation) to background worker queues (e.g., BullMQ, Celery) to keep your API responsive. 
-
-Plan for database scaling. Start by vertically scaling your primary database, but know when and how you will introduce read replicas to offload read-heavy queries. Implement connection pooling (e.g., PgBouncer) to prevent your application servers from exhausting database connections. Conduct load testing (using tools like k6 or Artillery) to simulate high traffic and identify bottlenecks before they impact real users.
-
-## Scalability Architecture Prompt
+## AI Refinement Phase
 \`\`\`prompt
-Act as a Software Architect. I am building a backend using [Insert Tech Stack, e.g., Node.js and PostgreSQL]. I expect a sudden surge in traffic due to a major marketing launch. Outline a plan to horizontally scale the backend application servers and implement connection pooling for the database to ensure it doesn't crash under load.
+Act as a Site Reliability Engineer (SRE). My app uses [Insert Tech Stack]. Assuming my code is functional, tell me the absolute first component in this stack that will crash or bottleneck if traffic suddenly spikes by 100x. Provide 2 actionable strategies to prevent that specific bottleneck.
 \`\`\`
 
-## Validation Checklist
-- [ ] The backend API is stateless, allowing for horizontal scaling.
-- [ ] Long-running or resource-intensive tasks are offloaded to background worker queues.
-- [ ] Database connection pooling is configured.
-- [ ] Load testing has been conducted to identify the system's maximum capacity.
-`,
+## Accountability Check
+- [ ] I understand how my app will scale and where the first bottleneck will be.`,
   'launchchecklist': `# Launch Checklist
 
-**Estimated Time:** 2-4 hours
+**Estimated Time:** 2 Hours
 
 ---
 
 ## Why this matters
-Launch day is chaotic. A checklist ensures you do not forget a critical step (like turning off debug mode or switching API keys from test to live) in the heat of the moment. A botched launch is incredibly difficult to recover from.
+Launch day is chaotic. If you rely on your memory, you will forget to switch your Stripe API keys from "Test" to "Live", and you will lose out on thousands of dollars in revenue while users get error messages. A checklist prevents catastrophic unforced errors.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your launch checklist is three items: 
-1. Is the app deployed?
-2. Does the primary flow work?
-3. Is the demo script ready? 
-If yes, you are done. Go practice your pitch.
+1. Is the GitHub repo public? 
+2. Is the Vercel link working? 
+3. Is the demo video recorded? 
+If yes, submit the project.
 
 ### Personal Project
-For a personal project, ensure your portfolio links are working, the app doesn't crash on load, and you have a solid README in your GitHub repository. Your "launch" is likely just a post on LinkedIn or X (Twitter). Ensure you have a nice preview image (Open Graph tag) configured.
+1. Ensure the database isn't pointing to `localhost`. 
+2. Add a `README.md` with a screenshot. 
+3. Post it on Reddit/Twitter. 
+Don't overthink it. A personal project launch is a rolling release.
 
 ### Production SaaS
-A production launch requires military precision. You are coordinating infrastructure, marketing, and support simultaneously.
+You must execute a strict, 20-point checklist. Verify production API keys (Stripe, Resend, OpenAI). Ensure your domain DNS has fully propagated. Test the "Forgot Password" flow. Ensure your analytics tracking is firing in production. Verify that the "Upgrade" checkout flow actually charges a credit card and grants premium access. Check your database indexes.
 
-You must verify that all environment variables are set to production values (Stripe Live Keys, Production DB URLs). Ensure debug logging is disabled to prevent leaking secrets. Verify that automated backups are running. Check that your marketing site has proper SEO tags and analytics tracking. 
-
-Prepare your customer support channels. Draft your launch announcements for Product Hunt, Hacker News, X, and your email list. Finally, have a rollback plan ready in case the deployment causes a catastrophic failure under load.
-
-## Pre-Flight Check Prompt
+## AI Generation Phase
 \`\`\`prompt
-Act as a Release Manager. I am launching a SaaS app built with [Insert Tech Stack] tomorrow. Provide a comprehensive pre-launch checklist covering infrastructure, security (API keys/environment variables), marketing assets, and fallback plans.
+Act as a Technical Launch Manager. I am launching a [Insert Tech Stack] SaaS tomorrow. Provide a rigorous, 15-point "Day Before Launch" technical checklist. Include specific checks for database connections, environment variables, authentication flows, and payment gateways.
 \`\`\`
 
-## Validation Checklist
-- [ ] All environment variables are using production (live) keys.
-- [ ] Automated backups are enabled and verified.
-- [ ] Debug mode is disabled; error tracking (e.g., Sentry) is enabled.
-- [ ] Open Graph (social sharing) tags and SEO metadata are configured.
-`,
+## Accountability Check
+- [ ] I have completed every item on my pre-flight launch checklist.`,
   'seo': `# SEO (Search Engine Optimization)
 
-**Estimated Time:** 3-6 hours
+**Estimated Time:** 2 Hours
 
 ---
 
 ## Why this matters
-SEO is how you acquire users for free. If Google cannot index your site, or if you rank poorly for your target keywords, you will be forced to rely entirely on paid ads or viral marketing. Solid technical SEO ensures your product can be found by people actively searching for the problem you solve.
+Paid ads are expensive, and social media goes viral for a day. SEO provides free, compounding, long-term traffic. If your landing page is not optimized for the exact keywords your target users are Googling, your competitors will get all the inbound traffic.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Ignore SEO entirely. Google will not index your site before the hackathon ends. Do not spend time writing meta descriptions or optimizing sitemaps. Focus on the demo.
+Ignore SEO entirely. Google won't index your site before the hackathon ends anyway.
 
 ### Personal Project
-For a personal project, basic technical SEO is a great way to show attention to detail. 
-
-Ensure you have a \`<title>\` and \`<meta name="description">\` tag. Add Open Graph tags so your project looks good when you share the link on LinkedIn or Discord. You don't need a blog or a complex keyword strategy, just ensure the site is indexable and looks professional when shared.
+Set up basic meta tags (`<title>` and `<meta name="description">`) so that when you paste the link in a Discord or Slack channel, it unfurls with a nice image and description (OpenGraph tags). That's enough.
 
 ### Production SaaS
-SEO is a critical, long-term acquisition channel for a production SaaS. You must implement robust technical SEO from day one.
+You must nail Technical SEO. Ensure your site is Server-Side Rendered (SSR) or statically generated (SSG) so Googlebot can read the HTML. Generate a `sitemap.xml` and `robots.txt`. Research "Long-Tail Keywords" (e.g., "Best automated invoice software for freelance designers" rather than just "Invoice software") and ensure those exact phrases appear in your H1, H2, and title tags.
 
-Your marketing pages must be server-side rendered (SSR) or statically generated (SSG) so search engine crawlers can read the content immediately. Ensure a dynamic \`sitemap.xml\` and \`robots.txt\` are generated. Use semantic HTML (proper use of \`<h1> \`<h2> etc.). 
-
-Optimize your Core Web Vitals, as site speed directly impacts rankings. Finally, establish a programmatic SEO strategy or a content marketing blog to target long-tail keywords related to the pain points your SaaS solves.
-
-## Technical SEO Prompt
-\`\`\`prompt
-Act as an SEO Specialist. I am building a marketing site for my SaaS using [Insert Framework, e.g., Next.js, Nuxt]. Provide a checklist for technical SEO best practices, including metadata, Open Graph tags, canonical URLs, and sitemap generation.
+## The Data We Need From You
+**What are the top 3 keyword phrases someone would type into Google to find your product?**
+\`\`\`input
+1. 
+2. 
+3. 
 \`\`\`
 
-## Validation Checklist
-- [ ] Title and meta description tags are unique and descriptive for every page.
-- [ ] Open Graph and Twitter Card tags are configured with a preview image.
-- [ ] A \`sitemap.xml\` and \`robots.txt\` are automatically generated.
-- [ ] The site is indexable (Server-Side Rendered or Statically Generated).
-`,
+## AI Execution Phase
+\`\`\`prompt
+Act as an SEO Expert. My target keywords are [Insert Keywords]. Please generate the exact HTML code for the `<title>`, `<meta name="description">`, and OpenGraph (`og:title`, `og:description`) tags for my landing page. Ensure the title is under 60 characters and the description is compelling enough to click.
+\`\`\`
+
+## Accountability Check
+- [ ] I have implemented technical SEO tags and optimized my landing page copy.`,
   'analyticssetup': `# Analytics Setup
 
-**Estimated Time:** 1-3 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Without analytics, you are guessing. Analytics tell you where users come from, where they drop off, and which features they actually use. It is the compass that guides your product decisions after launch.
+Writing the code for analytics is one thing; setting it up so the data is actually usable is another. If your analytics dashboard is just a sea of unstructured data, you will never look at it. You need to configure funnels, dashboards, and retention cohorts so the data tells a story.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Do not install analytics. You do not have users. If you need to track clicks for a specific technical challenge, just \`console.log()\` it. Save your time for building features.
+Skip it entirely.
 
 ### Personal Project
-Adding basic analytics is helpful to see if recruiters or developers are actually visiting your portfolio project.
-
-Install a privacy-friendly, lightweight tracker like Plausible or Fathom. You do not need to track complex custom events; just track page views to see if anyone is looking at your work. Avoid heavy tools like Google Analytics unless you specifically want to learn how to use it.
+If you installed Plausible or Fathom, just bookmark the dashboard. You don't need to configure anything else.
 
 ### Production SaaS
-Production SaaS requires deep, event-driven analytics. Page views are not enough; you need to track user behavior.
+You must set up a "Core Conversion Funnel" in your analytics tool (e.g., PostHog/Mixpanel). The funnel should track: 1. Landed on Homepage -> 2. Clicked Sign Up -> 3. Completed Registration -> 4. Used Core Feature -> 5. Upgraded to Paid. This funnel will explicitly tell you exactly where users are abandoning your product. You should also set up an "Active Users" dashboard that your team reviews every Monday morning.
 
-Integrate a robust product analytics tool like PostHog, Mixpanel, or Amplitude. You must track critical conversion events: \`Signed Up \`Completed Onboarding \`Subscribed and \`Used Core Feature\`. 
-
-Establish a funnel analysis to identify exactly where users abandon the onboarding process. Ensure you are tying events to a specific \`user_id\` so you can track cohorts over time. Always respect user privacy and ensure your analytics setup complies with GDPR (e.g., offering cookie consent if required).
-
-## Analytics Event Strategy Prompt
-\`\`\`prompt
-Act as a Product Manager. I am launching a SaaS app for [Describe your app's core function]. List the top 5 critical custom events I must track in my analytics tool (e.g., PostHog/Mixpanel) to understand if users are experiencing the core value of the product.
+## The Data We Need From You
+**What are the specific steps in your user's conversion funnel?**
+\`\`\`input
+1. 
+2. 
+3. 
 \`\`\`
 
-## Validation Checklist
-- [ ] A product analytics tool is installed and tracking page views.
-- [ ] Core conversion events (Signup, Upgrade) are actively tracked.
-- [ ] Events are tied to unique user IDs for cohort analysis.
-- [ ] A funnel has been created to monitor the onboarding drop-off rate.
-`,
+## AI Execution Phase
+\`\`\`prompt
+Act as a Data Analyst. My SaaS conversion funnel is: [Insert Funnel Steps]. Based on industry benchmarks for B2B SaaS, what conversion rate should I expect at each stage? If the conversion rate between Step 2 and Step 3 is abnormally low, what are 3 UX experiments I can run to improve it?
+\`\`\`
+
+## Accountability Check
+- [ ] I have configured my analytics dashboards to track core funnels.`,
   'legaldocuments': `# Legal Documents
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Beyond standard Privacy Policies, businesses often need specific legal structures depending on their industry. Operating without the correct legal documentation exposes the founders to personal liability and can result in the business being shut down by regulators.
+Beyond the Terms of Service and Privacy Policy, running a real business requires contracts. If you hire freelancers, partner with agencies, or sell to enterprise clients, you need NDAs, DPAs, and MSAs. Using random templates from Google can leave dangerous loopholes.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Completely ignore this. You are building a prototype, not a corporation. Do not waste a single second on legal documents.
+Absolutely ignore this. You do not need an NDA for a hackathon.
 
 ### Personal Project
-Ignore this. As long as you are not stealing copyrighted material or processing highly sensitive data (like healthcare records), you do not need formal legal documents for a portfolio project.
+Ignore this unless you are forming an LLC for liability protection, in which case you need basic incorporation documents. Usually, Stripe Atlas handles all of this automatically.
 
 ### Production SaaS
-If you are charging money, you are a business. You need a legal entity (like an LLC or C-Corp in the US) to protect your personal assets from business liabilities. 
+You need a Data Processing Agreement (DPA) if you are processing data for EU citizens. You need a Master Services Agreement (MSA) if you are selling $10k+ enterprise contracts where standard 'click-wrap' Terms of Service are insufficient. You also need solid NDAs and Contractor Agreements for any engineers you hire so they don't walk away with your source code.
 
-Use services like Stripe Atlas or Clerky to incorporate quickly and generate standard founder agreements, IP assignments, and bylaws. If you operate in a regulated industry (Healthcare/HIPAA, Finance/Fintech), you *must* consult specialized legal counsel. Do not rely on AI or free templates for industry-specific compliance documents. Ensure you have proper contracts in place if you are hiring contractors or freelancers.
-
-## Incorporation Strategy Prompt
-\`\`\`prompt
-Act as a Startup Advisor. I am launching a B2B SaaS business and plan to charge customers. Compare the pros and cons of forming an LLC versus a Delaware C-Corp. What are the immediate legal documents (e.g., IP assignment) I need in place between my co-founder and me?
+## The Data We Need From You
+**Are you currently incorporating an entity, or operating as a sole proprietor?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] A formal legal entity (LLC, C-Corp, etc.) has been established.
-- [ ] Intellectual Property (IP) has been assigned to the company.
-- [ ] Any required industry-specific compliance documentation is in progress.
-`,
+## Accountability Check
+- [ ] I understand what legal agreements I need beyond the basic website terms.`,
   'cookiepolicy': `# Cookie Policy
 
-**Estimated Time:** 1 hour
+**Estimated Time:** 15 min
 
 ---
 
 ## Why this matters
-Regulations like the ePrivacy Directive (Cookie Law) require websites to get consent from users before storing non-essential cookies on their devices. Failing to do so can result in hefty fines, especially if you have users in Europe.
+The EU "Cookie Law" (ePrivacy Directive) requires you to get explicit consent before dropping non-essential cookies (like Facebook Pixels or Google Analytics trackers) into a user's browser. If you don't show a cookie banner to EU users, you are non-compliant.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Ignore it. You are not processing EU data for a real business. Skip the cookie banner entirely; it just clutters your demo.
+Skip it.
 
 ### Personal Project
-Ignore it, unless you want to practice implementing a cookie consent banner. If you use local storage for app state (like dark mode), you generally don't need a cookie banner. Only bother if you are integrating heavy third-party trackers, but for a personal project, you shouldn't be.
+Just use cookieless analytics (like Plausible) so you never have to show an annoying cookie banner. Everyone hates cookie banners.
 
 ### Production SaaS
-If you have users in Europe, a Cookie Policy and a Consent Banner are legally required. 
+If you run retargeting ads (Meta/Google Ads), you are dropping tracking cookies. You must implement a compliant cookie banner that blocks these scripts from loading *until* the user clicks "Accept". Use a Consent Management Platform (CMP) like Cookiebot, OneTrust, or Termly to handle this automatically based on the user's geolocation (e.g., only showing the strict banner to EU traffic).
 
-You must explicitly ask for consent *before* firing non-essential trackers like Google Analytics, Facebook Pixels, or Mixpanel. (Essential cookies, like session tokens for logging in, do not require consent). 
-
-Use a Consent Management Platform (CMP) like Cookiebot, Termly, or OneTrust to automate this. The banner must allow users to accept all, reject all, or customize their preferences. It is illegal to use "dark patterns" to make rejecting cookies significantly harder than accepting them.
-
-## Cookie Consent Prompt
-\`\`\`prompt
-Act as a Compliance Expert. I am building a SaaS using [Insert Tech Stack]. We use HttpOnly cookies for authentication, and we use PostHog for product analytics. Explain which of these require user consent under GDPR, and provide a strategy for implementing a compliant cookie banner that blocks PostHog until consent is given.
+## The Data We Need From You
+**Will you be using tracking cookies for advertising or analytics?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] A cookie consent banner is visible to users (specifically in the EU).
-- [ ] Non-essential tracking scripts are blocked until the user explicitly consents.
-- [ ] Users have an easy way to reject non-essential cookies.
-- [ ] A dedicated Cookie Policy page explains what cookies are used and why.
-`,
+## Accountability Check
+- [ ] I have implemented a compliant cookie banner if required.`,
   'customersupport': `# Customer Support
 
-**Estimated Time:** 2-4 hours
+**Estimated Time:** 2 Hours
 
 ---
 
 ## Why this matters
-Your first users are taking a risk on a new product. They will encounter bugs and get confused. If they cannot reach you easily, they will churn. Excellent customer support can turn a frustrated user into a lifelong evangelist for your product.
+Customer support is not a cost center; it is a retention engine. When your app breaks (and it will), a fast, empathetic response from the founder can turn an angry user into a lifelong evangelist. Ignoring support emails is the fastest way to get negative reviews on G2 and Twitter.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-There are no customers, only judges. Do not build a contact form or integrate a support widget. If you need a placeholder, put your Twitter handle or a fake \`support@example.com\` email in the footer.
+Your customer support is you physically walking over to the judges' table when they have a question.
 
 ### Personal Project
-Include a simple \`mailto:\` link in the footer or a basic contact form so recruiters or other developers can reach out to you if they have questions about your project. No support infrastructure is needed.
+Put a "Feedback" button in the corner that opens a `mailto:` link to your personal email, or points them to a GitHub Issues page. It's totally fine to respond to these on weekends.
 
 ### Production SaaS
-Customer support is a critical feature of your MVP. Do not launch without a way for users to contact you from inside the application.
+You must have a dedicated support channel (like Intercom, Zendesk, or Crisp). You must commit to an SLA (Service Level Agreement)—for example, responding to all tickets within 24 hours. Set up keyboard shortcuts (snippets) for common answers, but always personalize the first sentence. The founder must do all customer support for the first year to truly understand the product's flaws.
 
-Integrate a support widget or shared inbox (like Crisp, Intercom, or HelpScout). When a user submits a ticket, ensure it captures their user ID and metadata so you don't have to ask them for their email. 
-
-Set up a dedicated support email (e.g., \`help@yourdomain.com\`). Consider building a very basic FAQ or Knowledge Base for the top 5 questions you expect to receive. In the early days, the founders should do all customer support; it is the fastest way to learn exactly where your product is failing.
-
-## Customer Support Setup Prompt
-\`\`\`prompt
-Act as a Head of Customer Success. I am launching a new SaaS product. Recommend a lightweight, cost-effective tech stack for managing customer support tickets and building a basic knowledge base. What are the top 3 best practices for handling bug reports from angry early adopters?
+## The Data We Need From You
+**What tool will you use to manage customer support tickets?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Users can easily contact support from within the application.
-- [ ] Support tickets automatically capture the user's context (ID, email).
-- [ ] A dedicated support email address is active and monitored.
-- [ ] A basic FAQ or Help Center exists for common issues.
-`,
-  'retention': `# Retention
+## AI Refinement Phase
+\`\`\`prompt
+Act as a Head of Customer Success. A furious customer just emailed me because my SaaS went offline for 2 hours, and they lost their work. Write a highly empathetic, professional response template that apologizes, explains the situation without making excuses, and offers a specific gesture of goodwill (e.g., a free month) to prevent them from churning.
+\`\`\`
 
-**Estimated Time:** Ongoing
+## Accountability Check
+- [ ] I have a system in place to receive and manage support requests.`,
+  'retention': `# Retention Strategy
+
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Acquiring a new user is 5 to 25 times more expensive than retaining an existing one. If your app is a leaky bucket, no amount of marketing will save it. High retention proves that you have built something people actually want and are willing to integrate into their lives or workflows.
+Acquiring a new customer is 5x more expensive than keeping an existing one. If your app has high churn (users cancel their subscription after month 1), you have a "leaky bucket." You can pour all the marketing money you want into the top, but the business will eventually die.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Ignore this. Your retention period is exactly the 48 hours of the hackathon. Once the demo is over, the product is functionally dead. Do not waste a single second thinking about how to keep users coming back on day 30.
+Skip it. Your app only needs to retain users for exactly the length of the demo.
 
 ### Personal Project
-For a portfolio piece, you do not need to worry about long-term retention. However, you should demonstrate that you understand the *concept* of engagement. 
-
-Implement basic transactional emails (e.g., a welcome email when they sign up). This shows recruiters that you know how to build complete user flows, even if you are not running complex lifecycle marketing campaigns.
+Your retention metric is whether *you* are still using it in 3 months. If you stop using it, ask yourself why. Was it too slow? Too annoying to open? That friction is exactly what causes real users to churn.
 
 ### Production SaaS
-Retention is the lifeblood of a SaaS business. A 5% increase in customer retention can increase profits by 25% to 95%. You must actively monitor and improve it.
+You must measure "Net Revenue Retention" (NRR). If NRR is over 100%, your business is growing even if you add zero new customers, because existing customers are upgrading faster than they are churning. To improve retention, you must build "Sticky Features" (like team collaboration, or storing their core business data) so the Switching Cost becomes painfully high.
 
-Track your Day 1, Day 7, and Day 30 retention rates in your analytics platform (PostHog/Mixpanel). Identify the 'Aha!' moment—the specific action a user takes that correlates heavily with long-term retention (e.g., for Slack, it was sending 2,000 messages). Optimize your onboarding to get users to that moment as fast as possible. Set up automated lifecycle emails (e.g., an email sent on Day 3 if the user hasn't completed onboarding) to re-engage churning users. Talk to users who churn and ask them exactly why they left.
-
-## Retention Strategy Prompt
-\`\`\`prompt
-Act as a Growth Hacker. I am running a SaaS product. Outline a 14-day automated lifecycle email sequence designed to onboard new users, get them to the 'Aha!' moment, and prevent Day 7 churn. Include specific triggers for when these emails should be sent based on user behavior.
+## The Data We Need From You
+**What is the single "Aha!" moment that makes a user realize the value of your product?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Day 1, Day 7, and Day 30 retention metrics are being actively tracked.
-- [ ] An automated welcome email is sent upon signup.
-- [ ] A lifecycle email campaign is configured to re-engage inactive users.
-- [ ] Churn reasons are collected when a user deletes their account or cancels their subscription.
-`,
-  'userfeedback': `# User Feedback
+## AI Refinement Phase
+\`\`\`prompt
+Act as a Head of Growth. My SaaS does [Insert SaaS Description] and the "Aha!" moment is [Insert Aha Moment]. Give me a 3-step Email Drip Campaign designed specifically to pull new signups back into the app until they experience that "Aha!" moment.
+\`\`\`
 
-**Estimated Time:** Ongoing
+## Accountability Check
+- [ ] I have identified my app's core retention hook.`,
+  'userfeedback': `# User Feedback Loop
+
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-You are not your user. The features you think are brilliant might be completely ignored, and the bugs you think are minor might be driving users insane. Systematically collecting and acting on user feedback is the only way to ensure product-market fit.
+You are not your user. The features you think are brilliant might be completely ignored, while a tiny bug might be driving your best customers insane. Building a tight feedback loop ensures you are always building what the market actually wants to buy.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-The judges' feedback is the only feedback that matters. Take notes during their Q&A, but you do not need a systemic feedback collection mechanism inside the app.
+Your feedback loop is the Q&A session with the judges. Write down every question they ask. If they ask a question, it means your pitch didn't explain it well enough.
 
 ### Personal Project
-Include a simple "Feedback" or "Contact Me" button in the footer. If a recruiter or another developer finds a bug, give them an easy way to tell you. No need for complex voting boards or survey tools.
+Show it to 3 friends. Watch them try to use it without you explaining what the buttons do. Their confusion is your feedback.
 
 ### Production SaaS
-Feedback must be operationalized. If it takes more than two clicks for a user to report a bug or request a feature, they simply will not do it, and you will lose valuable insights.
+You must actively solicit feedback, but you must also ignore bad feedback. Do not build a feature just because one loud user asked for it. Look for patterns. Implement a formal feature request board (like Canny or Featurebase) so users can upvote ideas. Trigger a short NPS (Net Promoter Score) survey inside the app after a user successfully completes a core action.
 
-Integrate an in-app feedback widget (like Canny, Featurebase, or a simple Intercom chat). Categorize feedback into bugs, UX issues, and feature requests. Do not blindly build every requested feature. Instead, look for the underlying problem the user is trying to solve. Send Net Promoter Score (NPS) surveys to gauge overall satisfaction, but pay closer attention to the written qualitative feedback than the numerical score.
-
-## Feedback Analysis Prompt
-\`\`\`prompt
-Act as a Product Manager. We have received 50 feature requests this month. Provide a framework (e.g., RICE scoring or Kano model) for evaluating and prioritizing these requests based on engineering effort, potential revenue impact, and strategic alignment.
+## The Data We Need From You
+**How will you collect and organize feature requests from your users?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Users can submit feedback or report bugs directly from within the app.
-- [ ] Feedback is actively monitored and categorized (Bug, Feature Request, UX).
-- [ ] A system (like NPS or CSAT) is in place to measure overall user satisfaction.
-`,
+## AI Execution Phase
+\`\`\`prompt
+Act as a User Researcher. I want to email my active users to ask for feedback, but I don't want to send a boring "Please take our survey" email. Write a short, highly engaging, plain-text email from the Founder asking for brutal, honest feedback on what we should build next.
+\`\`\`
+
+## Accountability Check
+- [ ] I have a mechanism to collect, organize, and prioritize user feedback.`,
   'scalingstrategy': `# Scaling Strategy
 
-**Estimated Time:** Ongoing
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Success can kill you. If your app goes viral or you close a massive enterprise deal, a lack of scaling strategy will cause your servers to crash, resulting in massive downtime and lost revenue. Scaling is about preparing your architecture and your team for the next order of magnitude of growth.
+"Doing things that don't scale" is great advice for V1. But when you hit 10,000 users, those manual processes will burn you out. You need a strategy for scaling your infrastructure, your team, and your marketing without the entire company collapsing.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Irrelevant. Do not plan for scale.
+Your scaling strategy is hoping the Vercel free tier holds up during the 5 minutes the judges test your link.
 
 ### Personal Project
-Understand the difference between vertical scaling (upgrading to a bigger server) and horizontal scaling (adding more servers). You do not need to implement this for a personal project, but knowing the concepts is essential for interviews.
+Scaling just means writing better code. If your API is taking 3 seconds, maybe you should finally learn how to use database indexes or Redis.
 
 ### Production SaaS
-Scaling is a continuous process of identifying bottlenecks. You must monitor your infrastructure to see what breaks first under load—is it CPU, Memory, or Database Connections?
+You must scale efficiently. Throwing money at AWS is easy; optimizing your queries is hard. You also need to scale your team. This means writing SOPs (Standard Operating Procedures) for onboarding new engineers, implementing strict code reviews, and automating your QA testing so you don't break production every deploy.
 
-Initially, rely on vertical scaling (paying for a larger database instance) as it is cheap and requires zero architectural changes. As you approach the limits of vertical scaling, implement read replicas to offload database read queries. Move expensive, synchronous operations (like generating PDFs or sending bulk emails) into asynchronous background workers (e.g., Redis + BullMQ). Ensure your API servers are entirely stateless so you can spin up 10 or 100 of them behind a load balancer during traffic spikes.
-
-## Architecture Scaling Prompt
-\`\`\`prompt
-Act as a Principal Engineer. Our monolithic Node.js and PostgreSQL app is starting to experience database connection limits during peak traffic hours. Outline a technical roadmap for introducing database connection pooling (e.g., PgBouncer) and asynchronous background workers to stabilize the system.
+## The Data We Need From You
+**If your user base 10x'd overnight, what is the very first thing in your company (code, support, infrastructure) that would break?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] The API is completely stateless (sessions are stored in a DB or Redis, not in memory).
-- [ ] Expensive operations are handled asynchronously by background workers.
-- [ ] Database connection limits are monitored and managed (e.g., via pooling).
-- [ ] A plan exists for scaling the database (vertical scaling -> read replicas).
-`,
-  'marketing': `# Marketing
+## Accountability Check
+- [ ] I know where my system's limits are and how to push past them.`,
+  'marketing': `# Marketing & Distribution
 
-**Estimated Time:** Ongoing
+**Estimated Time:** Continuous
 
 ---
 
 ## Why this matters
-If you build it, they will *not* come. Distribution is often more important than the product itself. Marketing is how you get your product in front of the people who desperately need it.
+First-time founders think "If I build it, they will come." They won't. Distribution is more important than the product itself. A mediocre product with incredible marketing will always beat an incredible product with zero marketing.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your "marketing" is the 3-minute pitch you give to the judges. Focus on storytelling. Make the judges understand the pain point in the first 30 seconds before you even show the app. 
+Marketing is your demo presentation. Focus entirely on the storytelling, the energy in the room, and the visual "wow" factor.
 
 ### Personal Project
-Market yourself, not the app. Write a high-quality README on GitHub. Record a 2-minute Loom video walking through the architecture and the hardest technical challenges you overcame. Share the project on LinkedIn, Twitter, or Dev.to to attract recruiters and engineering managers.
+Write a great technical blog post about *how* you built it, the problems you faced, and post it to Hacker News, Dev.to, or r/programming. Developers love reading about other developers' side projects.
 
 ### Production SaaS
-Marketing must be systematic and measurable. Do not try every channel at once. 
+You must find a scalable, repeatable acquisition channel. "Posting on Twitter" is not a scalable channel. You need to explore SEO (Content Marketing), Paid Ads (Google/LinkedIn), Cold Email Outreach (B2B), or Affiliate Partnerships. Pick exactly ONE channel, dedicate 3 months to it, and master it before trying another one.
 
-Pick one acquisition channel that aligns with your product (e.g., SEO for evergreen problems, Cold Email for high-ticket B2B, or Social Content for consumer apps) and master it. Track your Customer Acquisition Cost (CAC) rigorously. If it costs you $50 to acquire a user who only pays you $10 before churning, your business is failing regardless of how good the code is. Build a launch plan for Product Hunt and Hacker News, but remember that launches only provide a temporary spike; sustainable growth requires a repeatable acquisition engine.
-
-## GTM Strategy Prompt
-\`\`\`prompt
-Act as a Chief Marketing Officer. I am launching a B2B SaaS targeting [Insert Target Audience, e.g., HR Managers]. Suggest 3 distinct go-to-market (GTM) channels (e.g., Outbound Sales, Content SEO, Partnerships). For each channel, provide the first 3 actionable steps I need to take this week.
+## The Data We Need From You
+**What is the single primary marketing channel you will focus on for the next 3 months?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] A primary customer acquisition channel has been identified and tested.
-- [ ] Customer Acquisition Cost (CAC) is being tracked and measured against Lifetime Value (LTV).
-- [ ] A launch plan (e.g., Product Hunt, Hacker News, specific subreddits) is prepared.
-`,
+## AI Strategy Phase
+\`\`\`prompt
+Act as a Chief Marketing Officer. My SaaS product is [Insert Product] and my target audience is [Insert Audience]. My primary marketing channel is [Insert Channel]. Give me a 30-day actionable marketing sprint with specific, daily tasks I can execute to get my first 100 paying customers through this channel.
+\`\`\`
+
+## Accountability Check
+- [ ] I have a dedicated, focused marketing strategy.`,
   'referralsystems': `# Referral Systems
 
-**Estimated Time:** 2-4 Days
+**Estimated Time:** 2 Hours
 
 ---
 
 ## Why this matters
-Your best marketers are your happy customers. A well-designed referral system turns your user base into a viral growth engine, significantly lowering your Customer Acquisition Cost (CAC).
+Organic growth driven by your own users is the cheapest way to acquire customers. If your product is great, users might mention it to a friend. But if you actively incentivize them to invite a friend (e.g., "Give $10, Get $10"), you turn your user base into a massive, decentralized sales team.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip it completely. There is no time to build double-sided incentive loops.
+Ignore this entirely. It's too complex to build and impossible to test in 24 hours.
 
 ### Personal Project
-Skip it. You do not have an active user base to refer other users.
+Also ignore this. You don't have the budget to pay out referrals anyway.
 
 ### Production SaaS
-Implement a referral system only *after* you have proven retention. If users are churning, they will not refer their friends.
+You must implement a Viral Loop. For B2C or "Prosumer" SaaS, offer account credits for every friend they invite. For B2B SaaS, consider an Affiliate Program where industry influencers get a 20% recurring commission for every customer they send you. Use tools like Rewardful or PartnerStack so you don't have to build the payout logic yourself.
 
-Design a double-sided incentive: reward both the referrer and the referee (e.g., "Give $10, Get $10"). The reward must be highly desirable to your specific audience (e.g., free credits, extended trials, or actual cash via an affiliate program). Make the referral link extremely easy to find in the app UI. Track the virality coefficient (K-factor) to see if the referral loop is actually driving exponential growth. Consider using third-party tools like Rewardful or PartnerStack if you don't want to build the tracking logic from scratch.
-
-## Viral Loop Prompt
-\`\`\`prompt
-Act as a Growth Product Manager. I run a SaaS app for [Describe App]. Design a double-sided referral incentive program that aligns with our business model. Should we offer account credits, premium features, or cash payouts? Explain the rationale.
+## The Data We Need From You
+**What incentive can you afford to give away to encourage users to refer their friends?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Core retention metrics are stable before launching the referral program.
-- [ ] A double-sided incentive is established (both parties benefit).
-- [ ] The referral link is easily accessible within the core user dashboard.
-- [ ] Referral attribution and payouts/credits are tracked automatically.
-`,
+## Accountability Check
+- [ ] I have considered how to turn my users into advocates.`,
   'featureroadmap': `# Feature Roadmap
 
-**Estimated Time:** Ongoing
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-A roadmap aligns your engineering efforts with your business goals and customer needs. Without a roadmap, you will succumb to "feature factory" syndrome—blindly building things because they sound cool or because one loud customer asked for it, rather than building what moves the needle.
+A roadmap communicates your product's future to both your internal team and your paying customers. It proves that the product is alive and actively improving. It also helps you politely say "No" to bad feature requests by showing that your engineers are already booked for the next quarter.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your roadmap is the next 12 hours. Write down the 3 things that absolutely must work for the demo, and cross them off as you finish. Ignore everything else.
+This is your final slide in the presentation. List 3 massive, ambitious features that you would build if you had 6 months instead of 24 hours. It shows vision.
 
 ### Personal Project
-Use a simple Kanban board (Trello or GitHub Projects) to track what you are building. Once you finish the core MVP, your roadmap should consist of features that allow you to learn a new skill (e.g., "Add WebSockets for real-time notifications to learn Socket.io").
+Keep a simple Kanban board in GitHub Projects or Trello. It's just for you, so organize it however your brain works best.
 
 ### Production SaaS
-A production roadmap must balance technical debt, bug fixes, customer requests, and strategic vision.
+You need a public-facing roadmap (using a tool like Linear, Canny, or a public Notion page). Categorize features into "Now", "Next", and "Later". Do not put specific release dates (like "Launching Oct 12th"); you will inevitably miss them and anger your users. Keep the roadmap flexible and driven by your North Star Metric.
 
-Do not make your roadmap a rigid list of features with exact release dates; this sets you up for failure. Instead, organize your roadmap by "Now, Next, and Later" or by the specific problems you are trying to solve (e.g., "Q3 Goal: Reduce onboarding drop-off"). Make a public-facing version of your roadmap to build trust with users and show that the product is actively maintained. Always tie feature development back to your core KPIs (Revenue, Retention, Acquisition).
-
-## Roadmap Planning Prompt
-\`\`\`prompt
-Act as a VP of Product. We have a backlog of 20 feature requests, 5 critical bugs, and a need to refactor our database schema. Provide a framework for how we should allocate our engineering bandwidth across these three categories for the next quarter.
+## The Data We Need From You
+**What are the top 3 major features on your "Next" list?**
+\`\`\`input
+1. 
+2. 
+3. 
 \`\`\`
 
-## Validation Checklist
-- [ ] Engineering bandwidth is allocated intentionally between new features, bug fixes, and tech debt.
-- [ ] Features are prioritized based on business impact and engineering effort.
-- [ ] A high-level public roadmap is available to users (optional but recommended).
-`,
+## Accountability Check
+- [ ] I have a roadmap to guide my next 3 months of development.`,
   'technicaldebt': `# Technical Debt
 
-**Estimated Time:** Ongoing
+**Estimated Time:** 1 Hour
 
 ---
 
 ## Why this matters
-Technical debt is the cost of choosing a fast, easy solution now instead of a better, longer-term approach. Like financial debt, it isn't inherently bad—it allows you to ship faster—but if you don't pay it down, the "interest" will eventually paralyze your ability to ship new features.
+Technical debt is the code you wrote quickly to meet a deadline, knowing it wasn't the "right" way. Like financial debt, it accrues interest. If you never pay it down, eventually your entire engineering team will spend 100% of their time fixing bugs caused by the debt, and 0% of their time building new features.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your entire project is technical debt. Embrace it. Hardcode values, duplicate code, skip tests. The goal is a working demo, not a maintainable codebase. You will likely throw the code away anyway.
+Your entire project is technical debt. Embrace it. If someone asks you to maintain this code next week, delete the repo.
 
 ### Personal Project
-Use personal projects to practice writing clean, maintainable code. Try to avoid technical debt. If you realize you wrote a messy component, take the time to refactor it. This is a safe environment to learn design patterns and clean architecture without the pressure of a production deadline.
+Refactor only when it's fun or educational. Don't stress about perfect code in a side project, but do try to keep your files organized.
 
 ### Production SaaS
-In production, you must manage technical debt intentionally. 
+You must allocate time to pay down debt. A common industry standard is dedicating 20% of every sprint to refactoring and debt repayment. Keep a specific "Tech Debt" tag in your Jira/Linear board. When a developer touches a messy file to add a feature, they should follow the "Boy Scout Rule": leave the code cleaner than you found it.
 
-It is acceptable to take on technical debt to hit a critical launch deadline, but you must document it (e.g., add \`// TODO: Tech Debt - Refactor this O(N^2) loop before we hit 10k users\`). Dedicate a fixed percentage of your engineering capacity (e.g., 20% of every sprint) strictly to paying down debt, upgrading dependencies, and refactoring fragile code. If you ignore technical debt, your developers will become miserable, deployment times will skyrocket, and the system will become dangerously unstable.
-
-## Tech Debt Management Prompt
-\`\`\`prompt
-Act as a VP of Engineering. My team is struggling to ship new features because the codebase is bogged down by technical debt. Outline a strategy for identifying the most critical areas of technical debt and convincing the CEO that we need to dedicate 20% of our next sprint to refactoring rather than building new features.
+## The Data We Need From You
+**What is the single messiest, most fragile file or system in your codebase right now?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Known technical debt is documented in the issue tracker, not just hidden in the code.
-- [ ] A consistent portion of engineering time is dedicated to refactoring and paying down debt.
-- [ ] Dependencies (NPM packages, Docker images) are regularly audited and updated.
-`,
+## Accountability Check
+- [ ] I have a plan for managing and paying down technical debt.`,
   'pitchdeck': `# Pitch Deck
 
-**Estimated Time:** 45-60 min
+**Estimated Time:** 3 Hours
 
 ---
 
-## Overview
-You have built a phenomenal product. But whether you are pitching to a panel of hackathon judges, a Venture Capitalist, or a massive enterprise client, your code does not speak for itself. You must translate your technical achievement into a compelling business narrative. A Pitch Deck is a visual story that proves you understand the problem deeply, your solution is unique, and you have the ability to execute.
+## Why this matters
+If you are raising venture capital or competing in a major pitch competition, your deck is your resume. It needs to convey massive ambition, a deep understanding of the market, and a clear path to generating revenue.
 
----
+## Strategic Guidance
 
-## Think First
-Distill your narrative.
+### Hackathon Mode
+Keep it to 5 slides maximum: 1. The Problem, 2. The Solution (Your App), 3. The Tech Stack, 4. The Business Model, 5. The Team. Spend 80% of your time on the actual Live Demo, not the slides.
 
-**What is the single biggest "Villain" (the problem) your pitch is fighting against?**
+### Personal Project
+You don't need a pitch deck. You need a landing page.
+
+### Production SaaS
+Follow the standard Sequoia Capital pitch deck template. Investors look at decks for an average of 2 minutes and 42 seconds. Your slides must be highly visual, with massive fonts and very little text. The "Traction" slide (showing your revenue or active users going up and to the right) is the most important slide in the entire deck.
+
+## The Data We Need From You
+**List the 5 core slides you will include in your deck.**
 \`\`\`input
-Type your answer here...
+1. 
+2. 
+3. 
+4. 
+5. 
 \`\`\`
 
-**Why are *you* (or your team) the exact right people to solve this? (The "Why Us?")**
-\`\`\`input
-Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **The 10-Slide Rule:** Guy Kawasaki famously created the 10/20/30 rule. A pitch deck should have 10 slides, last no more than 20 minutes, and contain no font smaller than 30 points. For a hackathon or quick pitch, you only have 3 minutes. Less is always more.
-- **Problem First, Product Second:** Never start by showing screenshots of your app. Always start by making the audience feel the pain of the problem. If they don't care about the problem, they will immediately tune out your solution.
-
----
-
-## Common Mistakes
-- **The "Wall of Text" Slide:**
-  - *Why it happens:* You are nervous you will forget what to say, so you write your entire script on the slide.
-  - *Consequence:* The audience reads the slide instead of listening to you. They finish reading before you finish talking, and then they get bored.
-  - *Prevention:* Slides should be strictly visual. Use large icons, single metrics (e.g., "40% Time Saved"), and high-contrast imagery. Your voice provides the context.
-- **Feature Dumping:** Explaining exactly how your Redis cache architecture works to a non-technical judge. They don't care how it works; they care what it enables.
-
----
-
-## Examples
-- *Good Implementation:* Slide 1: The Problem (A stark, emotional statistic). Slide 2: The Solution (A 1-sentence value proposition). Slide 3: The Demo (A 60-second video). Slide 4: The Market/Traction. Slide 5: The Team.
-- *Bad Implementation:* A 25-slide deck where 14 slides are complex UML diagrams of your backend architecture.
-
----
-
-## AI Prompt
-Use AI to outline the narrative arc of your pitch deck based on your product.
-
-\`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-My target audience for this pitch is: [Hackathon Judges / Venture Capitalists / Enterprise Clients].
-I have [INSERT TIME, e.g., 3 minutes] to present.
-
-Act as an Expert Presentation Coach (like Steve Jobs).
-1. Outline a strict, slide-by-slide narrative arc for my pitch deck. Limit it to maximum 7 slides.
-2. For each slide, tell me exactly what the core visual should be.
-3. For each slide, write the 1-2 sentence "talking point" I must memorize.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Is your deck 10 slides or fewer?
-- [ ] Is the font size on your slides 30pt or larger?
-- [ ] Did you put the problem *before* the solution?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Write out the single most important sentence of your pitch—the "Hook" that will open your presentation.
-
-\`\`\`input
-Type your answer here...
-\`\`\`
-`,
+## Accountability Check
+- [ ] I have a concise, visually appealing pitch deck.`,
   'demoscript': `# Demo Script
 
-**Estimated Time:** 30-45 min
+**Estimated Time:** 1 Hour
 
 ---
 
-## Overview
-A live demo is a high-wire act. It is the moment your product goes from an abstract idea to a tangible reality. A great demo feels like magic; it shows the user achieving their ultimate goal with zero friction. A bad demo is a confusing series of clicking through settings menus, waiting for loading spinners, and praying the app doesn't crash. You must choreograph every single mouse click.
+## Why this matters
+Live demos fail. They always fail. The Wi-Fi drops, the API hits a rate limit, or you click the wrong button because you are nervous. A rigid, practiced script ensures you know exactly where to click, and more importantly, where *not* to click.
 
----
+## Strategic Guidance
 
-## Think First
-Identify the "Aha!" moment.
+### Hackathon Mode
+Write down the exact "Happy Path". Click Login -> Click Add Item -> Type "Hello" -> Click Save. Do not deviate from this path during the presentation. If a judge asks "What happens if you click that other button?", honestly tell them "That feature is out of scope for this weekend."
 
-**What is the single most impressive, "magic" moment in your app? (e.g., The moment the AI generates the final video, the moment the payment clears instantly)**
+### Personal Project
+Write a script for your launch video. Speak clearly, don't use filler words, and edit out the boring parts where the page is loading.
+
+### Production SaaS
+For enterprise sales calls, your demo script must be tailored to the specific client. Don't show them 50 features. Ask them what their biggest problem is, and then only demo the 2 features that solve that exact problem. "Show, don't tell."
+
+## The Data We Need From You
+**Write down the exact 5-step "Happy Path" you will click through during the demo.**
 \`\`\`input
-Type your answer here...
+1. 
+2. 
+3. 
+4. 
+5. 
 \`\`\`
 
-**What is the "Happy Path" you will take to get to that magic moment as quickly as possible?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Live Demo vs. Recorded Video:**
-  - *Live Demo:* Highly authentic, builds massive trust, but carries the risk of a fatal crash or slow Wi-Fi.
-  - *Recorded Video:* Zero risk of crashing, allows you to edit out loading times. If you have 3 minutes to pitch on a stage, **always use a pre-recorded video** and talk over it. The risk of the Wi-Fi failing is too high.
-- **Story-Driven vs. Feature-Driven:** Do not say "Here is the login page. Now I will click the dropdown. Here is the settings page." Instead, invent a character: "Meet Sarah. Sarah is a stressed founder. Watch how Sarah uses our app to save 5 hours..."
-
----
-
-## Common Mistakes
-- **Showing the "Boring" Stuff:**
-  - *Why it happens:* You spent 3 weeks building a robust JWT authentication system and a beautiful settings page, so you want to show it off.
-  - *Consequence:* You waste 45 seconds of your 3-minute demo logging in and resetting a password while the judges fall asleep.
-  - *Prevention:* Start the demo already logged in. Start directly on the dashboard. Cut straight to the value.
-- **Moving the Mouse Too Fast:** When you are nervous, you click quickly. The audience cannot follow your cursor. Move your mouse slowly and deliberately.
-
----
-
-## Examples
-- *Good Implementation:* "Our app turns text into podcasts. Let's start. I paste an article here. I click 'Generate'. While that runs in the background, let me tell you about our market size... And it's done! Let's listen."
-- *Bad Implementation:* "Okay, let me type in a dummy email to sign up... oops, password must be 8 characters... let me try again... okay, now I have to check my email for the verification link..."
-
----
-
-## AI Prompt
-Use AI to choreograph the exact timing of your demo.
-
-\`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-The "Magic Moment" of my app is: [INSERT MAGIC MOMENT].
-I have exactly [INSERT TIME, e.g., 90 seconds] to do a live demo.
-
-Act as a Broadway Director.
-Write a strict, second-by-second script for my demo.
-Divide the script into two columns:
-1. "Action" (Exactly what I should click on screen).
-2. "Voiceover" (Exactly what I should say while clicking it).
-Ensure the demo skips all boring setup steps and gets to the Magic Moment before the 45-second mark.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Have you removed all login/signup steps from the demo?
-- [ ] Does the demo focus on a specific user story (e.g., "Sarah") rather than a list of features?
-- [ ] Have you practiced the demo while timing yourself with a stopwatch to ensure it fits the time limit?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Define the exact starting state of your app when the demo begins (e.g., "Logged in, empty dashboard, fake data pre-loaded").
-
-\`\`\`input
-Type your answer here...
-\`\`\`
-`,
+## Accountability Check
+- [ ] I have a practiced, bulletproof demo script.`,
   'submissionchecklist': `# Submission Checklist
 
-**Estimated Time:** 15-20 min
+**Estimated Time:** 30 min
 
 ---
 
-## Overview
-You did it. You validated the idea, designed the architecture, wrote the code, and crafted the pitch. Now it's time to hit submit. Whether you are submitting to a Hackathon, launching on Product Hunt, or sending your final proposal to an enterprise client, unforced errors at the very end can ruin weeks of hard work. This is the final sanity check.
+## Why this matters
+Hackathons have strict deadlines. If the deadline is 12:00 PM, and you submit at 12:01 PM, you are disqualified. Do not lose a weekend of sleep because you forgot to hit "Submit" on Devpost.
 
----
+## Strategic Guidance
 
-## Think First
-Review your critical links.
+### Hackathon Mode
+Submit 1 hour early. Devpost servers often crash in the final 10 minutes due to traffic. You can usually update your project details after you submit, but the initial submission MUST be in before the buzzer.
 
-**What is the public URL where judges/users can test your app right now?**
+### Personal Project
+Your submission is posting the link to Hacker News, Product Hunt, and Twitter. Make sure your server can handle a sudden spike of 500 concurrent users.
+
+### Production SaaS
+This is your Product Hunt launch checklist. Ensure you have high-quality screenshots, an engaging maker comment, and that you are launching at 12:01 AM PST to maximize your time on the homepage. Have your team ready to answer comments immediately.
+
+## The Data We Need From You
+**What platform are you submitting/launching on, and what is the exact deadline time?**
 \`\`\`input
 Type your answer here...
 \`\`\`
 
-**What is the link to your demo video (e.g., unlisted YouTube link)?**
-\`\`\`input
-Type your answer here...
-\`\`\`
-
----
-
-## Key Decisions
-- **Frictionless Access:** Judges and early adopters are lazy. If your app requires them to enter a credit card to try it, they will close the tab. If you are submitting to a hackathon, **provide a dummy login** (e.g., Email: \`judge@test.com Password: \`password123\`) right in the README so they don't even have to sign up.
-- **The Fallback Plan:** If your deployed app crashes 5 minutes after submission because of a database spike, the judges will see a blank screen. You must include a high-quality video demo link in your submission. If the app fails, the video proves it worked.
-
----
-
-## Common Mistakes
-- **Private Repositories / Broken Links:**
-  - *Why it happens:* You are rushing at the 11th hour to submit.
-  - *Consequence:* You submit a link to a private GitHub repo, or an unlisted YouTube video that is actually set to "Private". The judges give you a score of 0 because they can't see your work.
-  - *Prevention:* Send your submission links to a friend on Discord/Slack and ask them to open it in an Incognito window to verify access.
-- **Forgetting Environment Variables:** You deploy to Vercel, but forget to add your Supabase/Stripe keys in the Vercel dashboard. The app works locally but crashes in production.
-
----
-
-## Examples
-- *Good Implementation:* A submission with a crisp 2-paragraph description, a public GitHub repo containing a beautiful README, a working Vercel link, a set of test credentials, and a 2-minute YouTube demo.
-- *Bad Implementation:* Submitting a link to \`localhost:3000\`. (Yes, this happens constantly).
-
----
-
-## AI Prompt
-Use AI to write your final submission description or Product Hunt launch post.
-
-\`\`\`prompt
-My SaaS product is: [INSERT ELEVATOR PITCH].
-The core features are: [INSERT 3 FEATURES].
-The tech stack is: [INSERT TECH STACK].
-
-Act as a top-tier Developer Advocate.
-Write a 300-word submission post for my app.
-It must include:
-1. A hook that explains the problem.
-2. How my app solves it.
-3. A brief mention of the tech stack (to impress technical judges).
-4. Clear instructions on how to use the provided test credentials.
-Keep the tone energetic and confident.
-\`\`\`
-
----
-
-## Validation Checklist
-- [ ] Is your deployed app accessible via a public URL?
-- [ ] Have you tested the public URL in an Incognito window?
-- [ ] Have you provided test credentials so users don't have to sign up?
-- [ ] Is your GitHub repository set to Public (if required)?
-- [ ] Is your demo video accessible (Unlisted or Public, NOT Private)?
-
----
-
-## How to Use AI's Output
-1. Review the generated response.
-2. If the task involves external platforms (like Supabase, Vercel, Stripe, or Google Search Console) that AI cannot configure for you, send this follow-up prompt to your AI: **"I am a beginner. Provide a click-by-click guide on exactly how to set this up in the [Platform Name] dashboard."**
-3. Paste the final architectural decision, code, or plan into the **Deliverable** section below to save it to your Master Context.
-
-## Deliverable
-Take a deep breath. You built an entire application from scratch. You planned the architecture, wrote the code, and prepared the pitch. You are a builder. Hit submit, celebrate your achievement, and get ready for the next one.
-`,
+## Accountability Check
+- [ ] I have submitted the project before the deadline.`,
   'mobileideadefinition': `# Idea Definition
 
 **Estimated Time:** 1-2 hours
@@ -7211,110 +7108,103 @@ Paste your deliverable here...
 You cannot submit an app without a valid Privacy Policy URL.`,
   'privacypolicy': `# Privacy Policy
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-A Privacy Policy is a legally mandated document that explains how you collect, use, and protect user data. Failing to have one violates international laws (like GDPR or CCPA) and will get your app rejected from the Apple App Store, Google Play Store, and third-party API providers like Google OAuth.
+A Privacy Policy is legally required in almost every country if your software collects any personal data (including just an email address for a newsletter). Failing to have one violates the terms of service of Stripe, Google Analytics, and the Apple App Store, and can result in massive GDPR fines.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-You technically need a privacy policy if you are using Google OAuth or deploying to an App Store, but you have zero time to write one.
-
-Generate a generic privacy policy using a free online generator (e.g., Termly or Firebase's default generator). Host it on a free Notion page or a simple GitHub Pages site. Paste the URL into whatever submission form is blocking you and move on. No one is going to sue you over a hackathon project.
+Generate a boilerplate policy online (search "Free Privacy Policy Generator"), copy the text, and put a link in your footer. Do not spend time reading it. Just check the box so you don't get rejected if the hackathon has strict submission rules.
 
 ### Personal Project
-For a personal project, a basic privacy policy is required if you are collecting emails or using analytics.
-
-Use a free template. Clearly state that this is a portfolio project, but accurately list the third-party services you use (e.g., "We use Supabase for authentication"). This shows attention to detail and professionalism. Ensure the link is visible in your footer.
+If your project is open source and hosted on Vercel for free, you still need a basic policy if you have user accounts. Just clearly state "I am one person building a hobby project. I will not sell your data." Keep it plain English.
 
 ### Production SaaS
-In a production environment, your Privacy Policy is a serious legal document. Misrepresenting how you handle data can lead to massive fines.
+You must have a comprehensive, legally binding Privacy Policy. It must explicitly detail what data you collect, how you store it, who you share it with (e.g., Stripe, AWS), and how users can request their data be deleted (Right to be Forgotten). If you are targeting EU or California customers, you must explicitly comply with GDPR and CCPA. Strongly consider using a paid legal generator like Termly or Iubenda.
 
-You must explicitly list every piece of Personally Identifiable Information (PII) you collect and every third-party subprocessor you use (Stripe, PostHog, OpenAI, AWS). You must define your data retention periods and provide a mechanism for users to request data deletion (Right to be Forgotten). If you are operating in Europe or California, you must comply with GDPR and CCPA strictly. Consider consulting a lawyer or using a premium compliance service like Termly or Iubenda to ensure your policy is watertight.
-
-## Legal Generation Prompt
-\`\`\`prompt
-Act as a Tech Lawyer. I am building a SaaS application that collects email addresses for authentication, uses Stripe for payments, and OpenAI for generating text. Draft a comprehensive Privacy Policy that complies with GDPR and CCPA. Include a section explicitly detailing how users can request the deletion of their data.
+## The Data We Need From You
+**What third-party services (like Stripe or Google Analytics) will process your users' data?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] A Privacy Policy is accessible from the main website footer.
-- [ ] All third-party data processors are listed.
-- [ ] The policy includes instructions for users to request data deletion.
-- [ ] The policy complies with local regulations (GDPR/CCPA) if applicable.
-`,
+## AI Generation Phase
+\`\`\`prompt
+Act as a Privacy Lawyer. I am launching a SaaS product called [Insert Name]. It does [Insert Function]. I collect user emails and passwords via [Auth Provider] and process payments via [Payment Provider]. Please draft a standard, plain-English Privacy Policy covering data collection, third-party sharing, and user deletion rights.
+\`\`\`
+
+## Accountability Check
+- [ ] I have generated and published a Privacy Policy.`,
   'termsofservice': `# Terms of Service
 
-**Estimated Time:** 1-2 hours
+**Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-Your Terms of Service (ToS) is the legal contract between you and your users. It protects your business from liability, outlines acceptable use, and gives you the legal right to terminate abusive accounts or refuse refunds.
+The Terms of Service (ToS) is the contract between you and your users. It protects you from liability if your software crashes and costs a user money, or if a user uploads illegal content to your platform. Without a ToS, you can be personally sued for the actions of your users.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip it completely unless a platform specifically requires a URL to allow you to use their API. If forced, generate a boilerplate template online, host it on a free Notion page, and forget about it. Your focus must remain entirely on shipping the product.
+Same as the Privacy Policy. Generate a free boilerplate one, link it in the footer, and forget about it.
 
 ### Personal Project
-A basic Terms of Service is good practice if you allow user-generated content (UGC). You need a clause that allows you to delete inappropriate content. Use a free template to establish basic ground rules, but do not spend more than 15 minutes on it. 
+Include a "Limitation of Liability" clause. You are providing a free tool; you must legally state that you are not responsible if the tool breaks and deletes someone's files. An "As-Is" open-source license (like MIT) usually covers this, but a dedicated ToS page is safer.
 
 ### Production SaaS
-For a production SaaS, the ToS is your primary defense against lawsuits and abusive users. It must be robust.
+You must have a rigorous ToS. It must cover your refund policy, acceptable use (banning spam or illegal content), intellectual property rights (who owns the data generated by the AI?), and a mandatory arbitration clause to prevent class-action lawsuits. You should eventually have a real lawyer review this.
 
-You must clearly define your refund policy, limitation of liability, and account termination rights. If users generate content, you need a DMCA takedown policy. If you process payments, outline what happens during chargebacks. Force users to explicitly agree to the ToS during signup (a required checkbox, not just a link in the footer). For a serious business, this document should eventually be reviewed by legal counsel.
-
-## Terms Generation Prompt
-\`\`\`prompt
-Act as a Corporate Lawyer. Draft a Terms of Service for a SaaS application. The application allows users to upload content, charges a monthly subscription via Stripe, and has a strict no-refund policy after 14 days. Include a robust Limitation of Liability clause and a clause granting us the right to terminate accounts for abusive behavior.
+## The Data We Need From You
+**Will users be uploading user-generated content (text, images, files) to your platform?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] Users must explicitly agree to the Terms of Service during account creation.
-- [ ] The refund and cancellation policies are clearly defined.
-- [ ] Limitation of Liability and account termination clauses are included.
-`,
+## AI Generation Phase
+\`\`\`prompt
+Act as a Corporate Lawyer. I am launching a SaaS product called [Insert Name]. Please draft a comprehensive Terms of Service. It must include a strong 'Limitation of Liability' clause stating the software is provided 'as is', and an 'Acceptable Use' policy that allows me to immediately ban users who abuse the system.
+\`\`\`
+
+## Accountability Check
+- [ ] I have generated and published a Terms of Service agreement.`,
   'betatesting': `# Beta Testing
 
-**Estimated Time:** 3-7 Days
+**Estimated Time:** 1-2 Weeks
 
 ---
 
 ## Why this matters
-You have lost objectivity. After staring at your app for weeks, you know exactly where to click, but your users will inevitably click the wrong things. Beta testing exposes critical UX flaws, edge-case bugs, and confusing onboarding flows before a public launch ruins your reputation.
+If you launch to the public immediately, the massive influx of users will uncover 50 bugs at once, leading to terrible reviews and a blown launch. Beta testing allows you to find those bugs with a small, forgiving group of early adopters before the general public sees your product.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-There is no time for beta testing. The judges are your beta testers. Your "testing" consists of you running through the demo script exactly three times to ensure it doesn't crash. If it works on your machine, ship it.
+Beta testing is handing your laptop to the person sitting next to you 2 hours before the deadline. Watch them try to use it. Fix whatever button they complain about.
 
 ### Personal Project
-For a personal project, beta testing means sending the link to 3-5 friends or posting it in a developer Discord. 
-
-Ask them to try a specific workflow (e.g., "Try creating an account and posting a comment"). Watch them do it live over a screen share if possible. You will immediately see where they get confused. Fix the glaring issues, but do not get bogged down in minor UI tweaks.
+Post your app in a niche Discord or Subreddit with the title "I built a free tool to do X. Looking for feedback!" Personal project beta testers are usually very friendly and will point out obvious UX flaws you missed.
 
 ### Production SaaS
-A production SaaS launch must be preceded by a structured, closed beta. Launching a broken product to a large audience will permanently burn leads.
+You need a structured Private Beta. Invite 10-50 high-intent users from your waitlist. Give them a white-glove onboarding experience over a Zoom call. Do not just ask "Do you like it?" Ask them to complete a specific task while sharing their screen, and watch where they struggle. You must fix critical bugs found in Beta before your public Launch Day.
 
-Invite a small cohort (10-50 users) of your most engaged waitlist subscribers. Use tools like PostHog or FullStory to record their sessions and see exactly where they drop off. Create a dedicated feedback channel (a private Slack/Discord group or an in-app feedback widget). 
-
-Your goal is to validate the "Aha!" moment. If beta testers don't experience the core value quickly, your onboarding is broken. Do not transition to a public launch until the beta cohort is successfully using the product and reporting no critical blockers.
-
-## Beta Tester Outreach Prompt
-\`\`\`prompt
-Act as a Product Marketer. Write an email to the top 50 users on our waitlist, inviting them to an exclusive closed beta. The tone should be appreciative and emphasize that their feedback will directly shape the product. Include instructions on how to report bugs or provide feedback.
+## The Data We Need From You
+**Where will you find your first 10 beta testers?**
+\`\`\`input
+Type your answer here...
 \`\`\`
 
-## Validation Checklist
-- [ ] A small cohort of users has successfully completed the core workflow.
-- [ ] Session recording tools are active to observe user behavior.
-- [ ] A clear channel exists for beta testers to report bugs and feedback.
-- [ ] All critical bugs identified during the beta have been resolved.
-`,
+## AI Strategy Phase
+\`\`\`prompt
+Act as a User Research Expert. I am launching a private beta for my app [Insert App]. Write a short, highly-personalized email template I can send to 20 people on my waitlist inviting them to the beta. The email must explicitly ask them to jump on a 15-minute onboarding call with me.
+\`\`\`
+
+## Accountability Check
+- [ ] I have recruited a small group of beta testers and watched them use the app.`,
   'playstoreresearch': `# Play Store Research
 
 **Estimated Time:** 1-2 hours
