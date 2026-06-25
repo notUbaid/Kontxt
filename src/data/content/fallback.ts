@@ -1826,111 +1826,61 @@ I am building a React Native app. I need a robust state management setup using Z
 With state management in place, proceed to implement the **Auth** flows to populate that state with real user data.`,
   'welcome': `# Welcome to Kontxt
 
+🕒 **Estimated Time:** 5 min
+
+---
+
+## Why this matters
+Kontxt is a guided software-building platform that teaches you how to think like a software architect and product builder. The goal is to build something that succeeds in the real world.
+
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Speed is everything. Your goal is to survive the weekend, build a flashy demo, and impress the judges. Do not get bogged down in edge cases.
+- 🏗️ **Personal Project:** The goal is learning. Take your time to understand the underlying mechanisms of what you are building. It's okay if you break things.
+- 🏢 **Production SaaS:** Quality is non-negotiable. You have infinite time, but the end product must be scalable, performant, and deeply valuable to paying users.
+- ⚙️ **Custom Mode:** You are building at enterprise scale. Rigorous validation, extreme performance, and massive TAM (Total Addressable Market) are required.
+
+## Accountability Check
+- [ ] I understand my target outcome and the philosophy of the mode I am currently in.
+`,
+  'ideadefinition': `# Idea Definition
+
+🕒 **Estimated Time:** 20 min
+
+---
+
+## Why this matters
+An idea is just a multiplier of execution. Choosing the right idea dictates how hard the execution will be.
+
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Your idea should optimize for "wow factor" and technical complexity. Judges love flashy tech (AI, Web3, 3D). Business viability does not matter; visual impact does.
+- 🏗️ **Personal Project:** Choose an idea that forces you to learn a new stack or tool you want on your resume. Keep the scope small enough that you can actually finish it.
+- 🏢 **Production SaaS:** Your idea must solve a highly painful, monetizable problem. Flashy tech does not matter; solving the pain matters. If people won't pay for it, don't build it.
+- ⚙️ **Custom Mode:** Every aspect of this idea must be validated through rigorous enterprise-grade market analysis. If the Total Addressable Market (TAM) cannot support a $100M+ valuation, discard it immediately.
+
+## The Core Concept
+\`\`\`input
+✏️ Paste your core idea here...
+\`\`\`
+`,
+  'problemstatement': `# Problem Statement
+
 🕒 **Estimated Time:** 15 min
 
 ---
 
 ## Why this matters
-Welcome to Phase 0. Before writing any code or choosing a database, we must clearly define *what* you are building and *why* it matters. A blurry idea leads to a blurry product.
+If there is no problem, your solution is useless. You must articulate exactly what is broken in the world today.
 
-This platform isn't just a reading guide-it's a **Project Memory Engine**. Every time you fill out an input field, you are building up the context that will fuel your AI code generators later on. 
-
-## Mode-Specific Guidance
-Depending on what you are building, your approach here should drastically change:
-- ⚡ **Hackathon Mode:** Skip the deep validation. Read the overview and move fast. Your goal is a working demo.
-- 🏗️ **Personal Project:** Focus on building a portfolio piece. Use this phase to document *what* you learned.
-- 🏢 **Production SaaS:** Do not skip this phase. Market validation is the difference between a real business and a failed side project.
-
-## The Core Objective
-What is the single biggest goal you want to achieve with this SaaS? (e.g. "Generate $1k MRR", "Learn full-stack development", "Solve a problem for my own business").
-
-**Declare your primary goal:**
-\`\`\`input
-✏️ My primary goal for this SaaS is: 
-\`\`\`
-
-## The Commitment
-Building a SaaS is hard. It requires patience and accountability. 
-- [ ] I commit to not writing code until Phase 0 is complete.
-- [ ] I understand that ignoring market validation is the fastest way to fail.
-- [ ] I will answer the input fields thoroughly to give my AI the best context possible.
-`,
-  'ideadefinition': `# Idea Definition
-
-🕒 **Estimated Time:** 30 min
-
----
-
-## Why this matters
-Ideas are cheap; execution is everything. However, an idea that is too vague cannot be executed. We must strip away the buzzwords and define the product in plain, undeniable terms.
-
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Your idea should optimize for "wow factor" and technical complexity. Judges love flashy tech (AI, Web3, 3D).
-- 🏗️ **Personal Project:** Choose an idea that forces you to learn a new stack or tool you want on your resume.
-- 🏢 **Production SaaS:** Your idea must solve a painful, monetizable problem. Flashy tech does not matter; solving the pain matters.
-
-## The Raw Concept
-Don't use marketing speak. Explain what the software does as if you are explaining it to a 10-year-old.
-**What exactly does your app do?**
-\`\`\`input
-✏️ 
-\`\`\`
-
-## AI Brainstorming & Stress Test
-Let's use AI to poke holes in your idea and suggest sharper angles.
-
-\`\`\`prompt
-Act as a ruthless Y Combinator Partner. Here is my raw SaaS idea: [PASTE YOUR RAW CONCEPT HERE].
-1. Tear it down: What is the most obvious reason this will fail?
-2. Pivot it: Give me 3 highly-specific, nichified angles for this same idea that have a higher chance of survival.
-\`\`\`
-
-## The Refined Decision
-Based on the AI's feedback, you must now lock in your final, sharpened idea. 
-
-**State your final, refined idea:**
-\`\`\`input
-✏️ The final idea we are executing is:
-\`\`\`
-- [ ] I have verified this idea is technically feasible with my current skillset.
-`,
-  'problemstatement': `# Problem Statement
-
-🕒 **Estimated Time:** 45 min
-
----
-
-## Why this matters
-People do not buy software; they buy painkillers. If the problem you are solving isn't painful enough, no one will pay for your solution, regardless of how beautiful the UI is. You must fall in love with the problem, not your solution.
-
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** The problem just needs to be relatable to the judges. Don't overthink it.
-- 🏢 **Production SaaS:** The problem must be painful enough that people will pull out their credit cards to solve it today.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** The problem just needs to be relatable to the judges. Don't overthink the market dynamics.
+- 🏗️ **Personal Project:** Pick a problem you personally experience. It will keep you motivated when debugging gets hard.
+- 🏢 **Production SaaS:** The problem must be painful enough that people are currently hacking together spreadsheets and Zapier to solve it. 
+- ⚙️ **Custom Mode:** The problem must be a massive, systemic inefficiency costing enterprises millions of dollars annually.
 
 ## Documenting the Pain
-What is the exact workflow that is currently broken? How much time or money is being wasted?
-**Describe the broken workflow:**
+**What is the exact workflow that is currently broken?**
 \`\`\`input
 ✏️ 
-\`\`\`
-**What is the financial or emotional cost of this problem?**
-\`\`\`input
-✏️ 
-\`\`\`
-
-## AI Problem Refinement (Jobs To Be Done)
-The "Jobs To Be Done" (JTBD) framework helps clarify *why* someone hires your product.
-
-\`\`\`prompt
-Act as a Product Strategist. Based on this broken workflow: [PASTE WORKFLOW], generate 3 different "Jobs To Be Done" statements in the format: "When I [context], but [problem], help me [goal], so I can [outcome]."
-\`\`\`
-
-## The Final Problem Statement
-Review the JTBD statements. Choose the most compelling one and finalize your problem statement.
-
-**Final Problem Statement:**
-\`\`\`input
-✏️ Our product exists to solve...
 \`\`\`
 `,
   'userpainpoints': `# User Pain Points
@@ -1940,21 +1890,21 @@ Review the JTBD statements. Choose the most compelling one and finalize your pro
 ---
 
 ## Why this matters
-Empathy drives design. A Problem Statement defines *what* is broken on a macro level. User Pain Points define *how it feels* on a micro level. If you understand the exact friction points, your marketing copy will write itself.
+You need to understand the emotional state of your user when they encounter the problem. Are they annoyed? Are they losing money? Are they risking their job?
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Skip interviewing real users. Assume the pain points.
-- 🏢 **Production SaaS:** If you haven't spoken to a real human who complained about this, you are hallucinating.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Skip deep user psychology. Focus on a simple, universal frustration.
+- 🏗️ **Personal Project:** Focus on your own frustration. Why did you decide to build this?
+- 🏢 **Production SaaS:** Map out the exact financial and emotional cost of the pain. If it's not a "hair on fire" problem, SaaS churn will kill your business.
+- ⚙️ **Custom Mode:** Quantify the pain point in exact dollar amounts of lost revenue or wasted employee hours.
 
-## AI Empathy Generation
+## AI Brainstorming Phase
 \`\`\`prompt
-Act as a User Researcher. I am solving this problem: [PASTE PROBLEM STATEMENT]. 
-Write a short, highly-emotional narrative from the perspective of the user experiencing this problem at 4 PM on a Friday. Help me feel their frustration.
+Act as a Product Manager. Based on my problem statement: [PASTE PROBLEM], brainstorm the top 5 emotional and financial pain points the user experiences.
 \`\`\`
 
 ## Accountability Check
-- [ ] I have actually spoken to at least ONE real human being who experiences this pain.
-- [ ] I am not just making these up based on assumptions.
+- [ ] I understand the exact pain my user is feeling.
 `,
   'targetusers': `# Target Users
 
@@ -1963,54 +1913,39 @@ Write a short, highly-emotional narrative from the perspective of the user exper
 ---
 
 ## Why this matters
-"Everyone" is a terrible demographic. If you build for everyone, you build for no one. A hyper-specific audience allows you to build features faster, write better marketing copy, and completely ignore distractions.
+"Everyone" is not a target user. If you build for everyone, you build for no one.
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Your target audience is the hackathon judges. 
-- 🏢 **Production SaaS:** Niche down until it hurts. "Everyone" is the enemy.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Your target user is the judging panel. Tailor the UX to make sense to them immediately.
+- 🏗️ **Personal Project:** You are the target user. Build what you want.
+- 🏢 **Production SaaS:** Niche down until it hurts. Find a highly specific subset of users who desperately need this.
+- ⚙️ **Custom Mode:** Target users must be high-LTV (Life Time Value) enterprise buyers with deep pockets.
 
 ## Accountability Check
-- [ ] I have explicitly decided who I am NOT building for.
+- [ ] I have identified a specific, reachable target user.
 `,
   'icpidealcustomerprofile': `# ICP (Ideal Customer Profile)
 
-🕒 **Estimated Time:** 45 min
+🕒 **Estimated Time:** 20 min
 
 ---
 
 ## Why this matters
-Your Ideal Customer Profile (ICP) is the hyper-specific, fictional representation of your *absolute perfect buyer*. If your ICP is "Local plumbers in Texas with exactly 3 trucks who currently use paper invoices", you can easily find exactly where those 5,000 people hang out and sell directly to them.
+The ICP defines exactly who holds the credit card. It includes their industry, company size, role, and budget.
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Feel free to skip this entirely.
-- 🏢 **Production SaaS:** You must define the exact job title of the person who holds the company credit card.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Skip this. Hackathons don't require paying customers.
+- 🏗️ **Personal Project:** Skip this. You aren't selling this to B2B clients.
+- 🏢 **Production SaaS:** This is mandatory. Define their exact job title (e.g., "VP of Sales at a 50-person agency"). 
+- ⚙️ **Custom Mode:** Your ICP must include procurement workflows, compliance requirements, and average sales cycles.
 
-## The Variables
-Define the rigid parameters of the person holding the credit card.
-**Role/Title:**
-\`\`\`input
-✏️ 
-\`\`\`
-**Company Size/Revenue (if B2B):**
-\`\`\`input
-✏️ 
-\`\`\`
-**Current Workaround (What are they doing right now?):**
-\`\`\`input
-✏️ 
-\`\`\`
-
-## AI ICP Narrowing
+## AI Brainstorming Phase
 \`\`\`prompt
-Act as a B2B SaaS Marketer. My broad audience is [PASTE BROAD AUDIENCE]. My product solves [PASTE PROBLEM STATEMENT]. 
-Give me 3 hyper-specific "Bullseye" ICP definitions that are desperate for this solution right now. Explain exactly where they hang out online.
+Act as a B2B Sales Executive. Based on my idea: [PASTE IDEA], define the exact Ideal Customer Profile (ICP). Include their job title, company size, and budget authority.
 \`\`\`
 
-## The Final Decision
-**Paste your final, hyper-specific ICP here:**
-\`\`\`input
-✏️ 
-\`\`\`
+## Accountability Check
+- [ ] I know exactly whose credit card will be charged.
 `,
   'personas': `# Personas
 
@@ -2019,84 +1954,60 @@ Give me 3 hyper-specific "Bullseye" ICP definitions that are desperate for this 
 ---
 
 ## Why this matters
-An ICP tells you *who to sell to*. A Persona tells you *how to design for them*. By giving your ICP a name, a personality, and a technical proficiency level, you prevent endless debates over UI decisions. "Would Dave the Plumber know what a hamburger menu is?"
+Personas humanize your target users. They help you design the UI. For example, a persona for a 65-year-old accountant needs larger text and higher contrast than a persona for a 20-year-old gamer.
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Skip this. Just build the thing.
-- 🏢 **Production SaaS:** Give your persona a name and stick it on your wall. 
-
-## AI Persona Generation
-\`\`\`prompt
-Act as a UX Researcher. Based on my ICP: [PASTE ICP], generate a detailed User Persona. Include their daily routine, their biggest technical frustrations, and the tone of voice I should use when communicating with them in the app UI.
-\`\`\`
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Keep it simple. One user persona.
+- 🏗️ **Personal Project:** Just you.
+- 🏢 **Production SaaS:** Differentiate between the "User" (who clicks the buttons) and the "Buyer" (who signs the check). They often want different things.
+- ⚙️ **Custom Mode:** Map out the entire buying committee (End User, Champion, Economic Buyer, Security Assessor).
 
 ## Accountability Check
-- [ ] I have read the generated Persona and understand how technically proficient my user is.
+- [ ] I understand the difference between the user and the buyer.
 `,
   'solutionstatement': `# Solution Statement
 
-🕒 **Estimated Time:** 30 min
+🕒 **Estimated Time:** 15 min
 
 ---
 
 ## Why this matters
-You know the problem and you know exactly who has it. Now, how do you solve it? The Solution Statement bridges the gap between the Problem Statement and the actual code. We use Amazon's famous "Working Backwards" PR/FAQ methodology to articulate exactly *what* you are building from the customer's perspective.
+How does your product actually solve the problem? This is the core mechanic of your application.
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** What is the specific 'trick' or API that makes your solution possible in 24 hours?
-- 🏢 **Production SaaS:** The solution must be 10x better or 10x cheaper than the existing workaround.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** The solution should be entirely focused on the "magic moment" (e.g., clicking a button and AI generates a video).
+- 🏗️ **Personal Project:** The solution should incorporate the tech you want to learn.
+- 🏢 **Production SaaS:** The solution must be a 10x improvement over their current spreadsheet or manual process.
+- ⚙️ **Custom Mode:** The solution must integrate seamlessly into their existing enterprise architecture.
 
-## First Draft
-Without using any technical jargon (no "AI-powered blockchain"), describe exactly how your product solves the problem.
-**How does it work?**
-\`\`\`input
-✏️ 
-\`\`\`
-
-## AI Stress Test (The Amazon PR/FAQ)
-Let's see how this sounds in a press release.
-
-\`\`\`prompt
-Act as a Product Manager at Amazon. Using the "Working Backwards" PR/FAQ methodology, write a 1-page internal Press Release announcing my product: [PASTE YOUR DRAFT HERE]. Include a fictional quote from a frustrated user who just experienced the 'Aha!' moment using my solution.
-\`\`\`
-
-## The Final Decision
-**Paste your finalized Solution Statement here:**
+## Documenting the Solution
+**Explain your solution in one clear sentence:**
 \`\`\`input
 ✏️ 
 \`\`\`
 `,
   'valueproposition': `# Value Proposition
 
-🕒 **Estimated Time:** 20 min
+🕒 **Estimated Time:** 10 min
 
 ---
 
 ## Why this matters
-A Value Proposition is not a marketing slogan (like Nike's "Just Do It"). It is a clear, concise statement that explains exactly what measurable benefit your solution delivers, and why the customer should buy it from *you* instead of a competitor.
+Your value proposition is the promise of value to be delivered. It's the primary reason a prospect should buy from you.
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Your value prop should make the judges say "Whoa."
-- 🏢 **Production SaaS:** Your value prop should make the customer say "Take my money."
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** "We do X using cutting-edge Y."
+- 🏗️ **Personal Project:** "A tool that automates X for me."
+- 🏢 **Production SaaS:** "We help [ICP] achieve [Result] by [Solution]."
+- ⚙️ **Custom Mode:** "We reduce operational costs by [X]% through [Enterprise Solution]."
 
-## Your Unfair Advantage
-Why are you the right person to build this? Do you have insider knowledge? A unique distribution channel?
-**My unfair advantage is:**
-\`\`\`input
-✏️ 
-\`\`\`
-
-## AI Value Prop Generator
+## AI Brainstorming Phase
 \`\`\`prompt
-Act as a B2B Copywriter. My solution is [PASTE SOLUTION STATEMENT]. My target audience is [PASTE ICP]. Generate 5 highly-differentiated Value Propositions using the format: "We help [ICP] achieve [Desired Outcome] by doing [Unique Action]."
+Act as a Product Marketer. Based on my problem and solution: [PASTE SUMMARY], write 3 compelling, concise value propositions.
 \`\`\`
 
-## Finalizing the Proposition
-Review the AI's output and select the strongest one.
-**Our Official Value Proposition:**
-\`\`\`input
-✏️ 
-\`\`\`
+## Accountability Check
+- [ ] I have a clear, compelling value proposition.
 `,
   'elevatorpitch': `# Elevator Pitch
 
@@ -2105,19 +2016,16 @@ Review the AI's output and select the strongest one.
 ---
 
 ## Why this matters
-You have 10 seconds to not sound boring. If you cannot explain your product in a single sentence at a dinner party without confusing people, your website visitors will definitely bounce within 3 seconds. 
+If you can't explain your product in 30 seconds, it's too complicated.
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Memorize this for your 3-minute demo presentation.
-- 🏢 **Production SaaS:** Use this as the H1 headline on your landing page.
-
-## AI Pitch Synthesizer
-\`\`\`prompt
-Act as a Startup Pitch Coach. My Value Proposition is: [PASTE VALUE PROP]. Distill this into a single, punchy, conversational Elevator Pitch. It must be under 140 characters. Give me 3 variations.
-\`\`\`
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Rehearse this for the final presentation. Keep it punchy.
+- 🏗️ **Personal Project:** Useful for explaining what you built to recruiters.
+- 🏢 **Production SaaS:** This goes on the hero section of your landing page. Make it convert.
+- ⚙️ **Custom Mode:** Must include ROI metrics and scalability assurances.
 
 ## Accountability Check
-- [ ] I have saved my favorite pitch somewhere handy.
+- [ ] I can explain my product clearly in under 30 seconds.
 `,
   'marketresearch': `# Market Research
 
@@ -2126,77 +2034,85 @@ Act as a Startup Pitch Coach. My Value Proposition is: [PASTE VALUE PROP]. Disti
 ---
 
 ## Why this matters
-Is your market growing, shrinking, or completely stagnant? A brilliant product in a dying market will fail. A mediocre product in a rapidly growing market can thrive. You must understand the macroeconomic trends before committing months of your life to this codebase.
+Is the market growing or shrinking? Are people actively searching for this solution? 
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Skip this. You don't have time.
-- 🏢 **Production SaaS:** If your users are not hanging out in communities complaining, you are building in the dark.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Skip this. Just build.
+- 🏗️ **Personal Project:** Skip this. Just code.
+- 🏢 **Production SaaS:** Look at Google Trends, subreddits, and keyword volume. If the market is too small, you won't make money.
+- ⚙️ **Custom Mode:** Commission or purchase Gartner/Forrester reports to validate total TAM and CAGR.
 
-## Finding the Watering Holes
-Find 3 specific subreddits, Facebook groups, or forums where your ICP complains.
+## AI Brainstorming Phase
+\`\`\`prompt
+Act as a Market Analyst. Analyze the market trends for: [PASTE IDEA]. Are there macro tailwinds or headwinds for this sector?
+\`\`\`
 
 ## Accountability Check
-- [ ] I have read at least 20 raw, unfiltered complaints from my target users on these platforms.
+- [ ] I am confident there are enough people with this problem to sustain a business.
 `,
   'competitoranalysis': `# Competitor Analysis
 
-🕒 **Estimated Time:** 15 min
+🕒 **Estimated Time:** 30 min
 
 ---
 
 ## Why this matters
-"We don't have any competitors." If this is true, there is no market. Competitors are proof that the problem is painful enough that people are willing to pay for a solution. Your goal is not to copy them, but to figure out exactly what they suck at.
+You are never the first person to have this idea. You must know who else is doing this and why they suck.
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** If someone already built it, just say you are building the "AI-powered" version.
-- 🏢 **Production SaaS:** If there are no competitors, there is likely no market.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Only look at competitors for UI/UX inspiration. Don't worry about stealing market share.
+- 🏗️ **Personal Project:** Find open-source alternatives to study their architecture.
+- 🏢 **Production SaaS:** Identify their weak points (pricing, UI, speed) and attack them. Read their 1-star reviews.
+- ⚙️ **Custom Mode:** Map out the exact feature matrix of enterprise competitors and find the compliance gaps.
 
-## AI Competitive Tear-Down
-Identify your 2 biggest competitors and feed them to the AI.
-
+## AI Brainstorming Phase
 \`\`\`prompt
-Act as a Market Analyst. My 2 main competitors are [COMPETITOR 1] and [COMPETITOR 2]. My Value Proposition is [PASTE VALUE PROP]. Create a SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis highlighting exactly how I can disrupt them.
+Act as a Competitive Intelligence Analyst. Identify the top 3 competitors for: [PASTE IDEA]. What are their biggest weaknesses based on public sentiment?
 \`\`\`
 
 ## Accountability Check
-- [ ] I know exactly what my competitors are bad at.
+- [ ] I know who my competitors are and how I am different.
 `,
   'existingalternatives': `# Existing Alternatives
 
-🕒 **Estimated Time:** 10 min
-
----
-
-## Why this matters
-Your biggest competitor isn't a venture-backed startup; it's Microsoft Excel. Or a messy Slack channel. Or a notebook. Understanding the "Free & Manual" alternative is crucial for pricing your product. 
-
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Skip this.
-- 🏢 **Production SaaS:** If your users aren't already hacking together a solution using spreadsheets, the pain isn't real.
-
-## Accountability Check
-- [ ] I am 100% confident that my solution is at least 10x better or 10x faster than the manual workaround they use today.
-`,
-  'marketpositioning': `# Market Positioning
-
 🕒 **Estimated Time:** 15 min
 
 ---
 
 ## Why this matters
-Are you the cheap, fast alternative? Or the premium, slow, high-quality agency? Positioning dictates your pricing, your UI design, and your feature set. You cannot be "The Best" and "The Cheapest" at the same time.
+Your biggest competitor isn't a startup; it's Microsoft Excel. Or a piece of paper. What are they using right now?
 
-## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Position yourself as the cutting-edge, experimental tool.
-- 🏢 **Production SaaS:** Pick an axis where your giant competitors cannot legally or technically compete.
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** Skip this. 
+- 🏗️ **Personal Project:** Skip this.
+- 🏢 **Production SaaS:** You must convince them to change their current habits. Changing habits is incredibly hard.
+- ⚙️ **Custom Mode:** Legacy on-premise systems are usually the existing alternative. Prepare a migration strategy.
 
-## AI Positioning Strategy
+## Accountability Check
+- [ ] I understand the friction involved in making a user switch from their current solution.
+`,
+  'marketpositioning': `# Market Positioning
+
+🕒 **Estimated Time:** 20 min
+
+---
+
+## Why this matters
+Are you the cheap, fast alternative? Or the expensive, premium, enterprise-grade solution? 
+
+## Strategic Guidance
+- ⚡ **Hackathon Mode:** You are the "cool, AI-powered" alternative.
+- 🏗️ **Personal Project:** You are the "free, open-source" alternative.
+- 🏢 **Production SaaS:** Never compete on price. Be the "fastest, best UX" or the "most specialized for [niche]" alternative.
+- ⚙️ **Custom Mode:** You are the "most secure, compliant, and scalable" alternative.
+
+## AI Brainstorming Phase
 \`\`\`prompt
-Act as a Brand Strategist. I am positioning my product as [PREMIUM / BUDGET / FAST / ENTERPRISE] in a market dominated by my competitors. Provide a 3-point strategy on how our UI/UX should visually communicate this positioning to a new visitor instantly.
+Act as a Brand Strategist. Based on my competitors, suggest 3 different ways I can position my product in the market to stand out.
 \`\`\`
 
 ## Accountability Check
-- [ ] I have decided on my core positioning axis.
+- [ ] I know exactly where my product sits in the market landscape.
 `,
   'featureplanning': `# Feature Planning
 
