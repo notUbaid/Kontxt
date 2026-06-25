@@ -1935,7 +1935,7 @@ Review the JTBD statements. Choose the most compelling one and finalize your pro
 `,
   'userpainpoints': `# User Pain Points
 
-🕒 **Estimated Time:** 30 min
+🕒 **Estimated Time:** 15 min
 
 ---
 
@@ -1943,37 +1943,22 @@ Review the JTBD statements. Choose the most compelling one and finalize your pro
 Empathy drives design. A Problem Statement defines *what* is broken on a macro level. User Pain Points define *how it feels* on a micro level. If you understand the exact friction points, your marketing copy will write itself.
 
 ## Mode-Specific Guidance
-- ⚡ **Hackathon Mode:** Skip interviewing real users. Assume the pain points based on the prompt.
-- 🏢 **Production SaaS:** If you haven't spoken to a real human who complained about this, you are hallucinating the pain points.
-
-## Extracting the Friction
-List three highly specific complaints a user might shout at their computer right now.
-**Pain Point 1:**
-\`\`\`input
-✏️ "I am so sick of having to..."
-\`\`\`
-**Pain Point 2:**
-\`\`\`input
-✏️ "It takes me 4 hours every week just to..."
-\`\`\`
-**Pain Point 3:**
-\`\`\`input
-✏️ "Why isn't there a way to simply..."
-\`\`\`
+- ⚡ **Hackathon Mode:** Skip interviewing real users. Assume the pain points.
+- 🏢 **Production SaaS:** If you haven't spoken to a real human who complained about this, you are hallucinating.
 
 ## AI Empathy Generation
 \`\`\`prompt
-Act as a User Researcher. I am solving this problem: [PASTE PROBLEM STATEMENT]. My users complain about: [PASTE PAIN POINTS]. 
+Act as a User Researcher. I am solving this problem: [PASTE PROBLEM STATEMENT]. 
 Write a short, highly-emotional narrative from the perspective of the user experiencing this problem at 4 PM on a Friday. Help me feel their frustration.
 \`\`\`
 
 ## Accountability Check
-- [ ] I have actually spoken to at least ONE real human being who experiences these pain points.
+- [ ] I have actually spoken to at least ONE real human being who experiences this pain.
 - [ ] I am not just making these up based on assumptions.
 `,
   'targetusers': `# Target Users
 
-🕒 **Estimated Time:** 20 min
+🕒 **Estimated Time:** 10 min
 
 ---
 
@@ -1984,19 +1969,8 @@ Write a short, highly-emotional narrative from the perspective of the user exper
 - ⚡ **Hackathon Mode:** Your target audience is the hackathon judges. 
 - 🏢 **Production SaaS:** Niche down until it hurts. "Everyone" is the enemy.
 
-## Broad Demographic Mapping
-Before we narrow down to the exact buyer, let's establish the sandbox we are playing in.
-**Who is the primary broad audience for this tool? (e.g., Freelance Designers, Small E-commerce Brands, Local Plumbers)**
-\`\`\`input
-✏️ Our broad target audience is:
-\`\`\`
-
-## The Negative Audience
-Who explicitly should *never* use this product? Excluding users is just as important as including them.
-**Who are we explicitly NOT building for?**
-\`\`\`input
-✏️ We will actively ignore feature requests from:
-\`\`\`
+## Accountability Check
+- [ ] I have explicitly decided who I am NOT building for.
 `,
   'icpidealcustomerprofile': `# ICP (Ideal Customer Profile)
 
@@ -2040,7 +2014,7 @@ Give me 3 hyper-specific "Bullseye" ICP definitions that are desperate for this 
 `,
   'personas': `# Personas
 
-🕒 **Estimated Time:** 30 min
+🕒 **Estimated Time:** 15 min
 
 ---
 
@@ -2051,29 +2025,13 @@ An ICP tells you *who to sell to*. A Persona tells you *how to design for them*.
 - ⚡ **Hackathon Mode:** Skip this. Just build the thing.
 - 🏢 **Production SaaS:** Give your persona a name and stick it on your wall. 
 
-## Persona Development
-Define the actual human using the software.
-**Name & Age:**
-\`\`\`input
-✏️ 
-\`\`\`
-**Technical Proficiency (1 = Beginner, 10 = Expert):**
-\`\`\`input
-✏️ 
-\`\`\`
-**Primary Motivation for using the app:**
-\`\`\`input
-✏️ 
-\`\`\`
-
 ## AI Persona Generation
 \`\`\`prompt
 Act as a UX Researcher. Based on my ICP: [PASTE ICP], generate a detailed User Persona. Include their daily routine, their biggest technical frustrations, and the tone of voice I should use when communicating with them in the app UI.
 \`\`\`
 
 ## Accountability Check
-- [ ] I have mapped this persona directly back to my ICP.
-- [ ] I have verified that my technical proficiency rating matches reality.
+- [ ] I have read the generated Persona and understand how technically proficient my user is.
 `,
   'solutionstatement': `# Solution Statement
 
@@ -2142,7 +2100,7 @@ Review the AI's output and select the strongest one.
 `,
   'elevatorpitch': `# Elevator Pitch
 
-🕒 **Estimated Time:** 15 min
+🕒 **Estimated Time:** 10 min
 
 ---
 
@@ -2154,21 +2112,16 @@ You have 10 seconds to not sound boring. If you cannot explain your product in a
 - 🏢 **Production SaaS:** Use this as the H1 headline on your landing page.
 
 ## AI Pitch Synthesizer
-Let's condense your Value Proposition into something punchy.
-
 \`\`\`prompt
 Act as a Startup Pitch Coach. My Value Proposition is: [PASTE VALUE PROP]. Distill this into a single, punchy, conversational Elevator Pitch. It must be under 140 characters. Give me 3 variations.
 \`\`\`
 
-## The Final Pitch
-**Commit your best Elevator Pitch to memory (and to this field):**
-\`\`\`input
-✏️ 
-\`\`\`
+## Accountability Check
+- [ ] I have saved my favorite pitch somewhere handy.
 `,
   'marketresearch': `# Market Research
 
-🕒 **Estimated Time:** 1-2 hours
+🕒 **Estimated Time:** 30 min
 
 ---
 
@@ -2180,21 +2133,14 @@ Is your market growing, shrinking, or completely stagnant? A brilliant product i
 - 🏢 **Production SaaS:** If your users are not hanging out in communities complaining, you are building in the dark.
 
 ## Finding the Watering Holes
-Where do your users hang out online?
-**Paste links to 3 specific subreddits, Facebook groups, or forums where your ICP complains:**
-\`\`\`input
-✏️ 1. 
-2. 
-3. 
-\`\`\`
+Find 3 specific subreddits, Facebook groups, or forums where your ICP complains.
 
 ## Accountability Check
 - [ ] I have read at least 20 raw, unfiltered complaints from my target users on these platforms.
-- [ ] I have identified the exact words they use to describe their pain.
 `,
   'competitoranalysis': `# Competitor Analysis
 
-🕒 **Estimated Time:** 45 min
+🕒 **Estimated Time:** 15 min
 
 ---
 
@@ -2205,27 +2151,19 @@ Where do your users hang out online?
 - ⚡ **Hackathon Mode:** If someone already built it, just say you are building the "AI-powered" version.
 - 🏢 **Production SaaS:** If there are no competitors, there is likely no market.
 
-## The Big Players
-Identify the 3 heaviest hitters in your space.
-**Competitor 1 & Their Biggest Weakness:**
-\`\`\`input
-✏️ Name:
-Weakness:
-\`\`\`
-**Competitor 2 & Their Biggest Weakness:**
-\`\`\`input
-✏️ Name:
-Weakness:
+## AI Competitive Tear-Down
+Identify your 2 biggest competitors and feed them to the AI.
+
+\`\`\`prompt
+Act as a Market Analyst. My 2 main competitors are [COMPETITOR 1] and [COMPETITOR 2]. My Value Proposition is [PASTE VALUE PROP]. Create a SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis highlighting exactly how I can disrupt them.
 \`\`\`
 
-## AI Competitive Tear-Down
-\`\`\`prompt
-Act as a Market Analyst. My 2 main competitors are [PASTE COMPETITORS]. My Value Proposition is [PASTE VALUE PROP]. Create a SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis highlighting exactly how I can disrupt them.
-\`\`\`
+## Accountability Check
+- [ ] I know exactly what my competitors are bad at.
 `,
   'existingalternatives': `# Existing Alternatives
 
-🕒 **Estimated Time:** 15 min
+🕒 **Estimated Time:** 10 min
 
 ---
 
@@ -2236,18 +2174,12 @@ Your biggest competitor isn't a venture-backed startup; it's Microsoft Excel. Or
 - ⚡ **Hackathon Mode:** Skip this.
 - 🏢 **Production SaaS:** If your users aren't already hacking together a solution using spreadsheets, the pain isn't real.
 
-## The Status Quo
-**What is the exact manual workaround your users are doing right now?**
-\`\`\`input
-✏️ They currently use...
-\`\`\`
-
 ## Accountability Check
-- [ ] I am 100% confident that my solution is at least 10x better or 10x faster than this manual workaround. If it's only 2x better, they won't switch.
+- [ ] I am 100% confident that my solution is at least 10x better or 10x faster than the manual workaround they use today.
 `,
   'marketpositioning': `# Market Positioning
 
-🕒 **Estimated Time:** 30 min
+🕒 **Estimated Time:** 15 min
 
 ---
 
@@ -2258,26 +2190,17 @@ Are you the cheap, fast alternative? Or the premium, slow, high-quality agency? 
 - ⚡ **Hackathon Mode:** Position yourself as the cutting-edge, experimental tool.
 - 🏢 **Production SaaS:** Pick an axis where your giant competitors cannot legally or technically compete.
 
-## Defining Your Axes
-A positioning matrix requires two axes (e.g., Price vs Quality, Speed vs Customization). 
-**What two axes define your market?**
-\`\`\`input
-✏️ Axis 1:
-Axis 2:
-\`\`\`
-**Where do you sit on this matrix compared to your competitors?**
-\`\`\`input
-✏️ 
-\`\`\`
-
 ## AI Positioning Strategy
 \`\`\`prompt
-Act as a Brand Strategist. I am positioning my product as [PASTE POSITIONING] in a market dominated by [PASTE COMPETITORS]. Provide a 3-point strategy on how our UI/UX should visually communicate this positioning to a new visitor instantly.
+Act as a Brand Strategist. I am positioning my product as [PREMIUM / BUDGET / FAST / ENTERPRISE] in a market dominated by my competitors. Provide a 3-point strategy on how our UI/UX should visually communicate this positioning to a new visitor instantly.
 \`\`\`
+
+## Accountability Check
+- [ ] I have decided on my core positioning axis.
 `,
   'featureplanning': `# Feature Planning
 
-🕒 **Estimated Time:** 45 min
+🕒 **Estimated Time:** 15 min
 
 ---
 
@@ -2288,27 +2211,15 @@ You have a problem and a solution. Now, what does the software actually *do*? Fe
 - ⚡ **Hackathon Mode:** If a feature takes more than 4 hours to build, cut it immediately.
 - 🏢 **Production SaaS:** Features must tie directly back to solving the core user pain point.
 
-## The Brain Dump
-Don't censor yourself yet. List the 5 core features you think your app absolutely needs to function.
-**List 5 core features:**
-\`\`\`input
-✏️ 1. 
-2. 
-3. 
-4. 
-5. 
-\`\`\`
-
 ## AI CTO Review
-Developers love to build. That is our weakness. Let's use AI to forcefully cut your scope.
+Developers love to build. That is our weakness. Write down your top 5 features and have the AI cut them.
 
 \`\`\`prompt
-Act as a ruthless, pragmatic CTO who hates writing unnecessary code. Review my 5 core features: [PASTE FEATURES]. Explain why at least 2 of these features are "Nice-to-Haves" and should be immediately cut from the initial build.
+Act as a ruthless, pragmatic CTO who hates writing unnecessary code. Review my 5 core features: [PASTE 5 FEATURES]. Explain why at least 2 of these features are "Nice-to-Haves" and should be immediately cut from the initial build.
 \`\`\`
 
 ## Accountability Check
-- [ ] I accept that my initial feature list was bloated.
-- [ ] I have emotionally detached from the features that were cut.
+- [ ] I have emotionally detached from the features that the AI cut.
 `,
   'mvpfeatures': `# MVP Features
 
@@ -2338,29 +2249,23 @@ What is the exact second the user realizes your product is valuable? (e.g., "Whe
 `,
   'futurefeatures': `# Future Features (The Parking Lot)
 
-🕒 **Estimated Time:** 15 min
+🕒 **Estimated Time:** 5 min
 
 ---
 
 ## Why this matters
-As you build the MVP, you will have brilliant ideas for new features. If you act on them, you will suffer from "Feature Creep" and never launch. You must rigorously write them down here, get them out of your head, and ignore them.
+As you build the MVP, you will have brilliant ideas for new features. If you act on them, you will suffer from "Feature Creep" and never launch. You must rigorously write them down somewhere else, get them out of your head, and ignore them.
 
 ## Mode-Specific Guidance
 - ⚡ **Hackathon Mode:** Tell the judges about these in the "What's Next" slide.
 - 🏢 **Production SaaS:** Do not build these until users are begging for them.
 
-## The Parking Lot
-**Dump all the features you *want* to build, but are strictly forbidden from building right now:**
-\`\`\`input
-✏️ - AI Integration
-- Dark Mode
-- Complex Analytics Dashboard
-- 
-\`\`\`
+## Accountability Check
+- [ ] I have created a "Parking Lot" document for my wild ideas and will not code them today.
 `,
   'featureprioritization': `# Feature Prioritization
 
-🕒 **Estimated Time:** 30 min
+🕒 **Estimated Time:** 15 min
 
 ---
 
@@ -2376,12 +2281,8 @@ Once you launch, users will ask for 100 different things. How do you decide what
 Act as a Senior Product Manager. I have these 3 features requested by users: [PASTE 3 FEATURES]. Walk me through a RICE scoring matrix for each of them to determine which one I should build first.
 \`\`\`
 
-## The Verdict
-**What is the #1 feature you are prioritizing next?**
-\`\`\`input
-✏️ We are building: 
-Because:
-\`\`\`
+## Accountability Check
+- [ ] I know exactly what the #1 most important feature is.
 `,
   'businessmodel': `# Business Model
 
@@ -2444,7 +2345,7 @@ Tier 3:
 `,
   'subscriptionmodel': `# Subscription Model
 
-🕒 **Estimated Time:** 20 min
+🕒 **Estimated Time:** 10 min
 
 ---
 
@@ -2455,19 +2356,13 @@ Will you offer a 14-day free trial? A freemium tier? A reverse trial? Freemium i
 - ⚡ **Hackathon Mode:** Skip this.
 - 🏢 **Production SaaS:** Freemium is a marketing expense, not a business model. Default to a 14-day Free Trial.
 
-## The Trial Decision
-**Are you offering a Free Trial, a Freemium tier, or a Reverse Trial? Why?**
-\`\`\`input
-✏️ We are choosing [Model] because...
-\`\`\`
-
 ## Accountability Check
 - [ ] If choosing Freemium, I understand I need a massive top-of-funnel (SEO/Ads) to convert the 3% who actually pay.
 - [ ] If choosing a Free Trial, I know exactly what sequence of emails I will send on Day 1, Day 7, and Day 14.
 `,
   'revenuestreams': `# Revenue Streams
 
-🕒 **Estimated Time:** 15 min
+🕒 **Estimated Time:** 5 min
 
 ---
 
@@ -2478,16 +2373,12 @@ Subscriptions are the holy grail of SaaS, but there are often secondary revenue 
 - ⚡ **Hackathon Mode:** Skip this.
 - 🏢 **Production SaaS:** Don't get distracted by secondary streams until the primary subscription model is working.
 
-## Secondary Streams
-**List any secondary revenue streams you can implement immediately:**
-\`\`\`input
-✏️ 1.
-2.
-\`\`\`
+## Accountability Check
+- [ ] I will not overcomplicate my billing system on Day 1.
 `,
   'successmetrics': `# Success Metrics
 
-🕒 **Estimated Time:** 20 min
+🕒 **Estimated Time:** 10 min
 
 ---
 
@@ -2498,19 +2389,12 @@ You cannot improve what you do not measure. But if you measure everything, you u
 - ⚡ **Hackathon Mode:** Success is finishing the project and presenting it.
 - 🏢 **Production SaaS:** Success is reaching ramen profitability.
 
-## Initial Definition
-Before we get into specific KPIs, define what success looks like to you right now. 
-**What must happen for this app to be considered a success in 6 months?**
-\`\`\`input
-✏️ 
-\`\`\`
-
 ## Accountability Check
 - [ ] My success definition is tied to user value, not just my own ego (e.g., "10 users completing a workflow daily" vs "Being featured on TechCrunch").
 `,
   'kpis': `# KPIs (Key Performance Indicators)
 
-🕒 **Estimated Time:** 30 min
+🕒 **Estimated Time:** 15 min
 
 ---
 
@@ -2521,26 +2405,13 @@ Vanity metrics (e.g., "Total Registered Users") make you feel good but don't hel
 - ⚡ **Hackathon Mode:** Skip this.
 - 🏢 **Production SaaS:** If your daily active users (DAU) aren't growing, your product is dying.
 
-## The Vanity Trap
-**List 3 Vanity Metrics you will actively ignore:**
-\`\`\`input
-✏️ 1.
-2.
-3.
-\`\`\`
-
-## The Core KPIs
-**List 3 Actionable KPIs you will look at every single morning:**
-\`\`\`input
-✏️ 1.
-2.
-3.
-\`\`\`
-
 ## AI KPI Auditor
 \`\`\`prompt
-Act as a Data Scientist. I have selected these 3 KPIs to track daily: [PASTE KPIs]. Tell me exactly how I can manipulate or misinterpret these numbers, and suggest a 'Counter-Metric' for each to keep me honest.
+Act as a Data Scientist. I am tracking [DAU] and [MRR]. Tell me exactly how I can manipulate or misinterpret these numbers, and suggest a 'Counter-Metric' for each to keep me honest.
 \`\`\`
+
+## Accountability Check
+- [ ] I will actively ignore Vanity Metrics.
 `,
   'northstarmetric': `# North Star Metric
 
@@ -2675,7 +2546,7 @@ Act as an Information Architect. Based on my PRD and User Flows, generate a hier
 `,
   'wireframes': `# Wireframes
 
-🕒 **Estimated Time:** 1-2 hours
+🕒 **Estimated Time:** 45 min
 
 ---
 
@@ -2687,13 +2558,6 @@ Depending on what you are building, your approach here should drastically change
 - ⚡ **Hackathon Mode:** Draw it on a napkin. Use AI tools like v0.dev to skip wireframing entirely.
 - 🏗️ **Personal Project:** Use Balsamiq or Excalidraw to block out the layout.
 - 🏢 **Production SaaS:** Use Figma to create click-through low-fidelity prototypes to align stakeholders before coding.
-
-## The Core Interaction
-Look at your Golden Path. What is the single most important action the user takes on the main dashboard?
-**The primary Call To Action (CTA) on the dashboard is:**
-\`\`\`input
-✏️ 
-\`\`\`
 
 ## Accountability Check
 - [ ] I have created a wireframe for the mobile view first, forcing me to prioritize content.
@@ -2731,7 +2595,7 @@ Act as a UI/UX Designer. My primary brand hex code is [PASTE HEX]. Generate a co
 `,
   'branding': `# Branding & Voice
 
-🕒 **Estimated Time:** 30 min
+🕒 **Estimated Time:** 15 min
 
 ---
 
@@ -2744,18 +2608,14 @@ Depending on what you are building, your approach here should drastically change
 - 🏗️ **Personal Project:** Write copy that reflects your personal personality.
 - 🏢 **Production SaaS:** Define a strict brand voice that resonates perfectly with the Persona you defined in Phase 0.
 
-## The Persona's Voice
-If your brand was a person talking to your user at a coffee shop, how would they speak?
-**Describe your brand tone (e.g., "Professional but witty", "Aggressive and motivational", "Calm and reassuring"):**
-\`\`\`input
-✏️ 
-\`\`\`
-
 ## AI Copywriter
 \`\`\`prompt
-Act as a World-Class Conversion Copywriter. My product is [PASTE SOLUTION STATEMENT]. My brand voice is [PASTE TONE]. 
+Act as a World-Class Conversion Copywriter. My product is [PASTE SOLUTION STATEMENT]. My brand voice is [PROFESSIONAL / WITTY / AGGRESSIVE]. 
 Write 3 variations of the H1 Headline and Sub-headline for my landing page. The H1 must be under 8 words, and the sub-headline must handle objections.
 \`\`\`
+
+## Accountability Check
+- [ ] I have chosen a consistent tone of voice for the app.
 `,
   'accessibility': `# Accessibility (a11y)
 

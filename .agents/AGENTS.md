@@ -24,9 +24,13 @@ Every page must guide the user through this workflow (this workflow is more impo
 
 ## Content Structure & Interactivity (Accountability-Driven)
 The rigid 10-step template is DEAD. Every topic is unique, so its structure must be entirely dynamic. Form follows function.
-- **Niche Topics**: Might just be a brief overview and a single input field.
-- **Crucial Topics**: Might have massive amounts of content, 5 specific input fields, and multiple AI prompts.
-- **Goal of Interactivity**: Input fields (` ```input `) are not for "boring questions" or "fill-in-the-blanks". They are designed to extract specific, highly-structured data that an AI will later read to understand the user's project state. Demand URLs, pricing data, feature lists, target demographics. Create an *accountability* check.
+
+### The 3 Topic Archetypes
+To avoid causing user fatigue and "homework," every topic must fall into one of these three archetypes:
+1. 🧱 **Memory Topics (High Friction)**: Only use inputs (` ```input `) when the AI *absolutely needs* this specific data to generate code or architecture later (e.g., MVP Features, DB Schema).
+2. ⚡ **Execution Topics (Low Friction)**: Provide an AI prompt (` ```prompt `) for the user to execute externally, but do NOT ask them to paste the result back unless it's critical. Use a simple `[ ] Done` checkbox.
+3. 📖 **Reading Topics (Zero Friction)**: Purely educational. Zero inputs, zero prompts. Just beautifully written markdown and a `[ ] I understand` checkbox.
+
 - **Multiple Prompts**: If a task requires multiple steps (e.g. "Prompt 1: Brainstorm", "Prompt 2: Refine"), use multiple ` ```prompt ` blocks!
 
 ## Output Format Syntax
