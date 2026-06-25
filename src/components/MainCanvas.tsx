@@ -143,9 +143,9 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
         exit="exit"
         transition={{ 
           type: 'spring',
-          stiffness: 110,
-          damping: 15,
-          mass: 0.9
+          stiffness: 250,
+          damping: 20,
+          mass: 0.5
         }}
       className="flex-1 min-w-0 pt-8 pb-24 px-8 mx-auto max-w-3xl w-full h-[calc(100vh-4rem)] overflow-y-auto scroll-smooth"
     >
