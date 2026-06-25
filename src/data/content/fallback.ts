@@ -1835,6 +1835,12 @@ Welcome to Phase 0. Before writing any code or choosing a database, we must clea
 
 This platform isn't just a reading guide-it's a **Project Memory Engine**. Every time you fill out an input field, you are building up the context that will fuel your AI code generators later on. 
 
+## Mode-Specific Guidance
+Depending on what you are building, your approach here should drastically change:
+- ⚡ **Hackathon Mode:** Skip the deep validation. Read the overview and move fast. Your goal is a working demo.
+- 🏗️ **Personal Project:** Focus on building a portfolio piece. Use this phase to document *what* you learned.
+- 🏢 **Production SaaS:** Do not skip this phase. Market validation is the difference between a real business and a failed side project.
+
 ## The Core Objective
 What is the single biggest goal you want to achieve with this SaaS? (e.g. "Generate $1k MRR", "Learn full-stack development", "Solve a problem for my own business").
 
@@ -1857,6 +1863,11 @@ Building a SaaS is hard. It requires patience and accountability.
 
 ## Why this matters
 Ideas are cheap; execution is everything. However, an idea that is too vague cannot be executed. We must strip away the buzzwords and define the product in plain, undeniable terms.
+
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Your idea should optimize for "wow factor" and technical complexity. Judges love flashy tech (AI, Web3, 3D).
+- 🏗️ **Personal Project:** Choose an idea that forces you to learn a new stack or tool you want on your resume.
+- 🏢 **Production SaaS:** Your idea must solve a painful, monetizable problem. Flashy tech does not matter; solving the pain matters.
 
 ## The Raw Concept
 Don't use marketing speak. Explain what the software does as if you are explaining it to a 10-year-old.
@@ -1891,6 +1902,10 @@ Based on the AI's feedback, you must now lock in your final, sharpened idea.
 
 ## Why this matters
 People do not buy software; they buy painkillers. If the problem you are solving isn't painful enough, no one will pay for your solution, regardless of how beautiful the UI is. You must fall in love with the problem, not your solution.
+
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** The problem just needs to be relatable to the judges. Don't overthink it.
+- 🏢 **Production SaaS:** The problem must be painful enough that people will pull out their credit cards to solve it today.
 
 ## Documenting the Pain
 What is the exact workflow that is currently broken? How much time or money is being wasted?
@@ -1927,6 +1942,10 @@ Review the JTBD statements. Choose the most compelling one and finalize your pro
 ## Why this matters
 Empathy drives design. A Problem Statement defines *what* is broken on a macro level. User Pain Points define *how it feels* on a micro level. If you understand the exact friction points, your marketing copy will write itself.
 
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Skip interviewing real users. Assume the pain points based on the prompt.
+- 🏢 **Production SaaS:** If you haven't spoken to a real human who complained about this, you are hallucinating the pain points.
+
 ## Extracting the Friction
 List three highly specific complaints a user might shout at their computer right now.
 **Pain Point 1:**
@@ -1961,6 +1980,10 @@ Write a short, highly-emotional narrative from the perspective of the user exper
 ## Why this matters
 "Everyone" is a terrible demographic. If you build for everyone, you build for no one. A hyper-specific audience allows you to build features faster, write better marketing copy, and completely ignore distractions.
 
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Your target audience is the hackathon judges. 
+- 🏢 **Production SaaS:** Niche down until it hurts. "Everyone" is the enemy.
+
 ## Broad Demographic Mapping
 Before we narrow down to the exact buyer, let's establish the sandbox we are playing in.
 **Who is the primary broad audience for this tool? (e.g., Freelance Designers, Small E-commerce Brands, Local Plumbers)**
@@ -1983,6 +2006,10 @@ Who explicitly should *never* use this product? Excluding users is just as impor
 
 ## Why this matters
 Your Ideal Customer Profile (ICP) is the hyper-specific, fictional representation of your *absolute perfect buyer*. If your ICP is "Local plumbers in Texas with exactly 3 trucks who currently use paper invoices", you can easily find exactly where those 5,000 people hang out and sell directly to them.
+
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Feel free to skip this entirely.
+- 🏢 **Production SaaS:** You must define the exact job title of the person who holds the company credit card.
 
 ## The Variables
 Define the rigid parameters of the person holding the credit card.
@@ -2020,6 +2047,10 @@ Give me 3 hyper-specific "Bullseye" ICP definitions that are desperate for this 
 ## Why this matters
 An ICP tells you *who to sell to*. A Persona tells you *how to design for them*. By giving your ICP a name, a personality, and a technical proficiency level, you prevent endless debates over UI decisions. "Would Dave the Plumber know what a hamburger menu is?"
 
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Skip this. Just build the thing.
+- 🏢 **Production SaaS:** Give your persona a name and stick it on your wall. 
+
 ## Persona Development
 Define the actual human using the software.
 **Name & Age:**
@@ -2053,6 +2084,10 @@ Act as a UX Researcher. Based on my ICP: [PASTE ICP], generate a detailed User P
 ## Why this matters
 You know the problem and you know exactly who has it. Now, how do you solve it? The Solution Statement bridges the gap between the Problem Statement and the actual code. We use Amazon's famous "Working Backwards" PR/FAQ methodology to articulate exactly *what* you are building from the customer's perspective.
 
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** What is the specific 'trick' or API that makes your solution possible in 24 hours?
+- 🏢 **Production SaaS:** The solution must be 10x better or 10x cheaper than the existing workaround.
+
 ## First Draft
 Without using any technical jargon (no "AI-powered blockchain"), describe exactly how your product solves the problem.
 **How does it work?**
@@ -2082,6 +2117,10 @@ Act as a Product Manager at Amazon. Using the "Working Backwards" PR/FAQ methodo
 ## Why this matters
 A Value Proposition is not a marketing slogan (like Nike's "Just Do It"). It is a clear, concise statement that explains exactly what measurable benefit your solution delivers, and why the customer should buy it from *you* instead of a competitor.
 
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Your value prop should make the judges say "Whoa."
+- 🏢 **Production SaaS:** Your value prop should make the customer say "Take my money."
+
 ## Your Unfair Advantage
 Why are you the right person to build this? Do you have insider knowledge? A unique distribution channel?
 **My unfair advantage is:**
@@ -2110,6 +2149,10 @@ Review the AI's output and select the strongest one.
 ## Why this matters
 You have 10 seconds to not sound boring. If you cannot explain your product in a single sentence at a dinner party without confusing people, your website visitors will definitely bounce within 3 seconds. 
 
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Memorize this for your 3-minute demo presentation.
+- 🏢 **Production SaaS:** Use this as the H1 headline on your landing page.
+
 ## AI Pitch Synthesizer
 Let's condense your Value Proposition into something punchy.
 
@@ -2132,6 +2175,10 @@ Act as a Startup Pitch Coach. My Value Proposition is: [PASTE VALUE PROP]. Disti
 ## Why this matters
 Is your market growing, shrinking, or completely stagnant? A brilliant product in a dying market will fail. A mediocre product in a rapidly growing market can thrive. You must understand the macroeconomic trends before committing months of your life to this codebase.
 
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Skip this. You don't have time.
+- 🏢 **Production SaaS:** If your users are not hanging out in communities complaining, you are building in the dark.
+
 ## Finding the Watering Holes
 Where do your users hang out online?
 **Paste links to 3 specific subreddits, Facebook groups, or forums where your ICP complains:**
@@ -2153,6 +2200,10 @@ Where do your users hang out online?
 
 ## Why this matters
 "We don't have any competitors." If this is true, there is no market. Competitors are proof that the problem is painful enough that people are willing to pay for a solution. Your goal is not to copy them, but to figure out exactly what they suck at.
+
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** If someone already built it, just say you are building the "AI-powered" version.
+- 🏢 **Production SaaS:** If there are no competitors, there is likely no market.
 
 ## The Big Players
 Identify the 3 heaviest hitters in your space.
@@ -2181,6 +2232,10 @@ Act as a Market Analyst. My 2 main competitors are [PASTE COMPETITORS]. My Value
 ## Why this matters
 Your biggest competitor isn't a venture-backed startup; it's Microsoft Excel. Or a messy Slack channel. Or a notebook. Understanding the "Free & Manual" alternative is crucial for pricing your product. 
 
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Skip this.
+- 🏢 **Production SaaS:** If your users aren't already hacking together a solution using spreadsheets, the pain isn't real.
+
 ## The Status Quo
 **What is the exact manual workaround your users are doing right now?**
 \`\`\`input
@@ -2198,6 +2253,10 @@ Your biggest competitor isn't a venture-backed startup; it's Microsoft Excel. Or
 
 ## Why this matters
 Are you the cheap, fast alternative? Or the premium, slow, high-quality agency? Positioning dictates your pricing, your UI design, and your feature set. You cannot be "The Best" and "The Cheapest" at the same time.
+
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Position yourself as the cutting-edge, experimental tool.
+- 🏢 **Production SaaS:** Pick an axis where your giant competitors cannot legally or technically compete.
 
 ## Defining Your Axes
 A positioning matrix requires two axes (e.g., Price vs Quality, Speed vs Customization). 
@@ -2224,6 +2283,10 @@ Act as a Brand Strategist. I am positioning my product as [PASTE POSITIONING] in
 
 ## Why this matters
 You have a problem and a solution. Now, what does the software actually *do*? Feature planning is the process of translating your Solution Statement into actionable engineering tasks. 
+
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** If a feature takes more than 4 hours to build, cut it immediately.
+- 🏢 **Production SaaS:** Features must tie directly back to solving the core user pain point.
 
 ## The Brain Dump
 Don't censor yourself yet. List the 5 core features you think your app absolutely needs to function.
@@ -2256,6 +2319,10 @@ Act as a ruthless, pragmatic CTO who hates writing unnecessary code. Review my 5
 ## Why this matters
 An MVP (Minimum Viable Product) is not a "crappy version of your app". It is the absolute smallest thing you can build to prove your core hypothesis. If you spend 3 months building a login system and a settings page before users can experience the core value, you have failed the MVP test.
 
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Hardcode everything that isn't the primary 'Aha!' moment. Fake the backend if you have to.
+- 🏢 **Production SaaS:** The MVP must actually work reliably, even if it only does one thing.
+
 ## The 'Aha!' Moment
 What is the exact second the user realizes your product is valuable? (e.g., "When they see their first invoice generated in 3 seconds").
 **Define the Aha! Moment:**
@@ -2278,6 +2345,10 @@ What is the exact second the user realizes your product is valuable? (e.g., "Whe
 ## Why this matters
 As you build the MVP, you will have brilliant ideas for new features. If you act on them, you will suffer from "Feature Creep" and never launch. You must rigorously write them down here, get them out of your head, and ignore them.
 
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Tell the judges about these in the "What's Next" slide.
+- 🏢 **Production SaaS:** Do not build these until users are begging for them.
+
 ## The Parking Lot
 **Dump all the features you *want* to build, but are strictly forbidden from building right now:**
 \`\`\`input
@@ -2295,6 +2366,10 @@ As you build the MVP, you will have brilliant ideas for new features. If you act
 
 ## Why this matters
 Once you launch, users will ask for 100 different things. How do you decide what to build next? The RICE framework (Reach, Impact, Confidence, Effort) removes emotion from the roadmap.
+
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Prioritize features that look best in a 3-minute video demo.
+- 🏢 **Production SaaS:** Prioritize features that prevent users from churning.
 
 ## AI RICE Analysis
 \`\`\`prompt
@@ -2317,6 +2392,11 @@ Because:
 ## Why this matters
 How does this actually make money? Are you a B2B SaaS charging per seat? A B2C app using freemium? A marketplace taking a 10% cut? Your business model dictates your entire software architecture (e.g., if you are seat-based, you need an organization/team database schema).
 
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Pick a standard SaaS model just for the pitch. Don't actually implement Stripe.
+- 🏗️ **Personal Project:** Assume it will be completely free forever.
+- 🏢 **Production SaaS:** How exactly does money enter your bank account?
+
 ## The Flow of Money
 **Who specifically pays you, and what exactly are they paying for?**
 \`\`\`input
@@ -2336,6 +2416,10 @@ Act as a SaaS CFO. My business model is: [PASTE MODEL]. My target ICP is: [PASTE
 
 ## Why this matters
 Pricing is a marketing tool. If you price too low, users will assume your product is cheap/low-quality. If you price based on "what it cost me to build", you are leaving money on the table. You must use Value-Based Pricing.
+
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Skip this.
+- 🏢 **Production SaaS:** Charge more than you think you should. It filters out bad customers.
 
 ## The Competitive Landscape
 **How much are your top 3 competitors charging per month?**
@@ -2367,6 +2451,10 @@ Tier 3:
 ## Why this matters
 Will you offer a 14-day free trial? A freemium tier? A reverse trial? Freemium is incredibly expensive to maintain (you pay server costs for free users). Free trials force a buying decision after 14 days. 
 
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Skip this.
+- 🏢 **Production SaaS:** Freemium is a marketing expense, not a business model. Default to a 14-day Free Trial.
+
 ## The Trial Decision
 **Are you offering a Free Trial, a Freemium tier, or a Reverse Trial? Why?**
 \`\`\`input
@@ -2386,6 +2474,10 @@ Will you offer a 14-day free trial? A freemium tier? A reverse trial? Freemium i
 ## Why this matters
 Subscriptions are the holy grail of SaaS, but there are often secondary revenue streams that can cover your server costs early on. (e.g., charging a one-time $500 "White-glove setup fee" for Enterprise clients, or charging for API access).
 
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Skip this.
+- 🏢 **Production SaaS:** Don't get distracted by secondary streams until the primary subscription model is working.
+
 ## Secondary Streams
 **List any secondary revenue streams you can implement immediately:**
 \`\`\`input
@@ -2401,6 +2493,10 @@ Subscriptions are the holy grail of SaaS, but there are often secondary revenue 
 
 ## Why this matters
 You cannot improve what you do not measure. But if you measure everything, you understand nothing. Success metrics define the health of your product at a high level. Is the patient breathing? Is the heart rate normal?
+
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Success is finishing the project and presenting it.
+- 🏢 **Production SaaS:** Success is reaching ramen profitability.
 
 ## Initial Definition
 Before we get into specific KPIs, define what success looks like to you right now. 
@@ -2420,6 +2516,10 @@ Before we get into specific KPIs, define what success looks like to you right no
 
 ## Why this matters
 Vanity metrics (e.g., "Total Registered Users") make you feel good but don't help you make decisions. Actionable KPIs (e.g., "Daily Active Users", "Churn Rate") tell you exactly when the house is on fire.
+
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Skip this.
+- 🏢 **Production SaaS:** If your daily active users (DAU) aren't growing, your product is dying.
 
 ## The Vanity Trap
 **List 3 Vanity Metrics you will actively ignore:**
@@ -2450,6 +2550,10 @@ Act as a Data Scientist. I have selected these 3 KPIs to track daily: [PASTE KPI
 
 ## Why this matters
 When your team grows, developers will want to refactor, marketing will want to run ads, and sales will want new features. How do you align them? The North Star Metric is the single measurement that best captures the core value your product delivers to its customers. If the North Star goes up, the business grows.
+
+## Mode-Specific Guidance
+- ⚡ **Hackathon Mode:** Skip this.
+- 🏢 **Production SaaS:** This should be the singular number your entire team obsesses over.
 
 ## AI North Star Generator
 \`\`\`prompt

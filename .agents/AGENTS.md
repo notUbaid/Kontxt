@@ -88,3 +88,16 @@ Reason:
 ```
 
 Ensure logical sections are separated by `---` with blank lines before and after.
+
+## Mode-Specific Guidance (Crucial)
+Kontxt supports different project "Modes". When generating topic content, you MUST include a `## Mode-Specific Guidance` section if the strategic approach or technical implementation changes drastically based on the mode.
+
+The structure should look like this:
+```markdown
+## Mode-Specific Guidance
+Depending on what you are building, your approach here should drastically change:
+- ⚡ **Hackathon Mode:** [Advice for speed, avoiding this step, faking the backend, etc.]
+- 🏗️ **Personal Project:** [Advice for solo-devs, learning, zero-cost tools, maintainability.]
+- 🏢 **Production SaaS:** [Advice for scalability, security, rigorous validation, charging money.]
+```
+Use this to ensure Hackathon users don't get bogged down in rigorous Production-level validation, and Production users don't skip critical security steps.
