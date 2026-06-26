@@ -13161,8 +13161,7 @@ Act as a Database Architect. Explain the concept of Database Connection Exhausti
 
 - [ ] The app successfully scales past initial architectural bottlenecks (e.g., via Connection Pooling).
 `,
-};
-export const mobileideadefinition = `
+  'mobileideadefinition': `
 # Idea Definition
 
 🕒 **Estimated Time:** 1-2 hours
@@ -13187,9 +13186,8 @@ A production mobile app must leverage Push Notifications for retention, Native P
 \`\`\`prompt
 Act as an iOS Product Strategist. I have an idea for [Insert Industry]. What are 3 core workflows in this industry that absolutely require offline capabilities, push notifications, or native camera access, thereby justifying a dedicated mobile app over a responsive website?
 \`\`\`
-`;
-
-export const mobileproblemstatement = `
+`,
+  'mobileproblemstatement': `
 # Problem Statement
 
 🕒 **Estimated Time:** 1 hour
@@ -13216,9 +13214,8 @@ Act as a Mobile UX Strategist. I believe the problem is: [Insert vague problem].
 \`\`\`
 
 - [ ] The mobile-specific problem statement is defined.
-`;
-
-export const mobileusecases = `
+`,
+  'mobileusecases': `
 # Core Use Cases
 
 🕒 **Estimated Time:** 1-2 hours
@@ -13243,9 +13240,8 @@ If your primary use case involves heavy real-time audio/video processing, Blueto
 \`\`\`prompt
 Act as a Mobile Systems Architect. My core use cases are: [List Use Cases]. Analyze these use cases for 'Native Bridge Friction'. Warn me if any of these features will be extremely difficult to build using a cross-platform framework like React Native or Expo.
 \`\`\`
-`;
-
-export const mobileuserjourney = `
+`,
+  'mobileuserjourney': `
 # User Journey
 
 🕒 **Estimated Time:** 2 hours
@@ -13270,9 +13266,8 @@ Map the 'Permissions Journey'. If you ask for Push Notification and GPS permissi
 \`\`\`prompt
 Act as a Mobile UX Researcher. My app requires Push Notifications and Camera access to function properly. Map out a 'Progressive Onboarding' user journey that builds trust first, detailing exactly at which step we should ask for these permissions to maximize opt-in rates.
 \`\`\`
-`;
-
-export const mobiletargetaudience = `
+`,
+  'mobiletargetaudience': `
 # Target Audience
 
 🕒 **Estimated Time:** 1 hour
@@ -13297,9 +13292,8 @@ If you are building a paid productivity app for US executives, prioritize iOS. I
 \`\`\`prompt
 Act as an App Store Optimization (ASO) Expert. My target audience is [Insert Demographic]. Analyze whether this specific demographic leans heavily towards iOS or Android, and how that should impact my monetization strategy (In-App Purchases vs Ad-Supported).
 \`\`\`
-`;
-
-export const mobilepersonas = `
+`,
+  'mobilepersonas': `
 # Personas
 
 🕒 **Estimated Time:** 1 hour
@@ -13330,9 +13324,8 @@ Primary Persona:
 \`\`\`prompt
 Act as a Mobile Ergonomics Expert. My primary persona is [Paste Input]. Detail the typical physical environment (e.g., lighting, one-handed usage, movement) this user experiences when trying to accomplish [Task], and how that should impact the app's thumb-zone layout and contrast ratios.
 \`\`\`
-`;
-
-export const mobilesolutionstatement = `
+`,
+  'mobilesolutionstatement': `
 # Solution Statement
 
 🕒 **Estimated Time:** 1 hour
@@ -13357,9 +13350,8 @@ The solution must explicitly state how the mobile form factor solves the problem
 \`\`\`prompt
 Act as a strict Mobile Product Manager. Here is my Problem: [Paste Problem]. Here is my Solution: [Paste Solution]. Critique my solution. Does it actually require a native mobile app, or is it just a glorified responsive website? Force me to leverage native device capabilities.
 \`\`\`
-`;
-
-export const mobileelevatorpitch = `
+`,
+  'mobileelevatorpitch': `
 # Elevator Pitch
 
 🕒 **Estimated Time:** 1 hour
@@ -13386,9 +13378,8 @@ Act as an App Store Marketer. Based on this value proposition [Paste Value Prop]
 \`\`\`
 
 - [ ] A 2-sentence elevator pitch is defined.
-`;
-
-export const mobilecompetitoranalysis = `
+`,
+  'mobilecompetitoranalysis': `
 # Competitor Analysis
 
 🕒 **Estimated Time:** 2 hours
@@ -13413,9 +13404,8 @@ Read your competitors' 1-star reviews. This is your roadmap. If the incumbent's 
 \`\`\`prompt
 Act as a Product Strategist. I have collected these 1-star reviews from my top competitor: [Paste 5-10 negative reviews]. Analyze the core underlying architectural or UX failures causing these complaints, and suggest 3 ways my new app can position itself as the perfect alternative.
 \`\`\`
-`;
-
-export const mobilesimilarapps = `
+`,
+  'mobilesimilarapps': `
 # Similar Apps (UI/UX Inspiration)
 
 🕒 **Estimated Time:** 1 hour
@@ -13440,9 +13430,8 @@ Identify best-in-class apps outside of your industry. If you are building a bank
 \`\`\`prompt
 Act as a Mobile UX Designer. I am building a [Type of App, e.g., Fitness Tracker]. Identify 3 best-in-class apps from *completely different industries* that solve similar UX challenges (e.g., complex data visualization, daily habit building, or social leaderboards) that I should study for inspiration.
 \`\`\`
-`;
-
-export const playstoreresearch = `
+`,
+  'playstoreresearch': `
 # Play Store Research
 
 🕒 **Estimated Time:** 1 hour
@@ -13467,9 +13456,8 @@ Google Play is strict about background permissions (Location, Battery). If your 
 \`\`\`prompt
 Act as a Google Play Policy Expert. My app features include: [List Features]. Highlight any potential policy violations, particularly regarding Background Location, SMS access, or aggressive advertising practices, that could lead to an app suspension.
 \`\`\`
-`;
-
-export const appstoreresearch = `
+`,
+  'appstoreresearch': `
 # App Store Research
 
 🕒 **Estimated Time:** 1 hour
@@ -13496,9 +13484,8 @@ Act as a strict Apple App Store Reviewer. Review my app's core mechanics and mon
 \`\`\`
 
 - [ ] Account deletion and Apple Sign-In requirements are accounted for.
-`;
-
-export const mobilefeatureplanning = `
+`,
+  'mobilefeatureplanning': `
 # Feature Planning
 
 🕒 **Estimated Time:** 2-3 hours
@@ -13523,9 +13510,8 @@ Plan for 'Graceful Degradation' and 'Feature Flags'. Every new feature must be h
 \`\`\`prompt
 Act as a Lead Mobile Engineer. Explain the concept of Remote Feature Flags. Detail how utilizing a service like PostHog to wrap new features allows a mobile team to instantly rollback a buggy feature without waiting 24 hours for an App Store review.
 \`\`\`
-`;
-
-export const mobilemvpfeatures = `
+`,
+  'mobilemvpfeatures': `
 # MVP Features
 
 🕒 **Estimated Time:** 1-2 hours
@@ -13560,9 +13546,8 @@ Act as a ruthless Mobile Product Manager. I am building a mobile MVP. My current
 \`\`\`
 
 - [ ] The MVP feature list has been ruthlessly minimized.
-`;
-
-export const mobilefuturefeatures = `
+`,
+  'mobilefuturefeatures': `
 # Future Features
 
 🕒 **Estimated Time:** 30 mins
@@ -13587,9 +13572,8 @@ Future features should focus on 'Re-engagement Loops' (e.g., Social leaderboards
 \`\`\`prompt
 Act as a Mobile Growth Hacker. Based on my MVP [Describe MVP], brainstorm 3 'Future Features' specifically designed to create high-retention re-engagement loops (e.g., clever use of Push Notifications, iOS Home Screen Widgets, or social proof).
 \`\`\`
-`;
-
-export const mobilefeatureprioritization = `
+`,
+  'mobilefeatureprioritization': `
 # Feature Prioritization
 
 🕒 **Estimated Time:** 1 hour
@@ -13614,9 +13598,8 @@ Use the RICE framework (Reach, Impact, Confidence, Effort). A feature that requi
 \`\`\`prompt
 Act as a Product Manager. Evaluate these 3 features using the RICE framework: [List Features]. Score them out of 10 for Reach, Impact, Confidence, and Effort, and tell me which one I should build first in a React Native environment.
 \`\`\`
-`;
-
-export const mobilemonetization = `
+`,
+  'mobilemonetization': `
 # Monetization Strategy
 
 🕒 **Estimated Time:** 1-2 hours
@@ -13641,9 +13624,8 @@ You must clearly define if you are selling Physical Goods (Stripe/Shopify) or Di
 \`\`\`prompt
 Act as a Mobile Monetization Expert. I plan to charge users for [Describe Premium Service]. Detail whether this falls under Apple's 'Digital Goods' policy (requiring In-App Purchase and the 30% fee) or if it qualifies for a third-party payment processor like Stripe.
 \`\`\`
-`;
-
-export const mobilefree = `
+`,
+  'mobilefree': `
 # Free Model
 
 🕒 **Estimated Time:** 30 mins
@@ -13668,9 +13650,8 @@ If the app is completely free, it must act as an acquisition channel for a paid 
 \`\`\`prompt
 Act as a SaaS Strategist. My mobile app is 100% free. Detail how I can use this free mobile app as a high-conversion 'Loss-Leader' to funnel users into a highly profitable B2B Desktop/Web SaaS product.
 \`\`\`
-`;
-
-export const mobilefreemium = `
+`,
+  'mobilefreemium': `
 # Freemium Model
 
 🕒 **Estimated Time:** 1 hour
@@ -13695,9 +13676,8 @@ Implement a "Paywall UI" immediately after onboarding. Don't hide the premium fe
 \`\`\`prompt
 Act as a Mobile Growth Hacker. Design the layout and copywriting for a high-converting Freemium Paywall screen. What psychological triggers (e.g., social proof, scarcity, clear value prop) should be present on the screen before the 'Start 7-Day Free Trial' button?
 \`\`\`
-`;
-
-export const mobilesubscription = `
+`,
+  'mobilesubscription': `
 # Subscription Model
 
 🕒 **Estimated Time:** 1-2 hours
@@ -13724,9 +13704,8 @@ Act as a Mobile Backend Architect. Explain the engineering nightmare of manually
 \`\`\`
 
 - [ ] A plan is in place to use a robust IAP manager (like RevenueCat).
-`;
-
-export const mobileads = `
+`,
+  'mobileads': `
 # Ad-Supported Model
 
 🕒 **Estimated Time:** 1 hour
@@ -13751,9 +13730,8 @@ Avoid banner ads. If you must use ads, use Rewarded Video Ads (e.g., "Watch this
 \`\`\`prompt
 Act as a Mobile Monetization Strategist. My app is a [App Type]. Suggest 3 clever placements for 'Rewarded Video Ads' that feel like a fair value exchange to the user, rather than an annoying interruption.
 \`\`\`
-`;
-
-export const mobileonetimepurchase = `
+`,
+  'mobileonetimepurchase': `
 # One-Time Purchase
 
 🕒 **Estimated Time:** 1 hour
@@ -13778,9 +13756,8 @@ Use One-Time purchases (Lifetime Deals) early in the product lifecycle to genera
 \`\`\`prompt
 Act as a SaaS CFO. Explain the financial danger of offering a 'Lifetime Deal' for a mobile app that relies heavily on expensive third-party APIs (like OpenAI). Suggest a hybrid model (e.g., Pay-once for the app, bring-your-own-API-key) to mitigate this risk.
 \`\`\`
-`;
-
-export const mobilesuccessmetrics = `
+`,
+  'mobilesuccessmetrics': `
 # Success Metrics
 
 🕒 **Estimated Time:** 1 hour
@@ -13805,9 +13782,8 @@ Track Day 1, Day 7, and Day 30 Retention. Track the "Activation Rate" (the perce
 \`\`\`prompt
 Act as a Mobile Data Analyst. I am launching a mobile app. Define realistic benchmarks for Day 1 and Day 7 Retention rates in the [Insert Industry] category. What percentage of users should I expect to lose immediately after downloading?
 \`\`\`
-`;
-
-export const mobileretention = `
+`,
+  'mobileretention': `
 # Retention
 
 🕒 **Estimated Time:** 1-2 hours
@@ -13834,9 +13810,8 @@ Act as a Mobile CRM Manager. Design a 7-day Lifecycle Push Notification campaign
 \`\`\`
 
 - [ ] A baseline Push Notification re-engagement strategy is defined.
-`;
-
-export const mobiledau = `
+`,
+  'mobiledau': `
 # Daily Active Users (DAU)
 
 🕒 **Estimated Time:** 30 mins
@@ -13861,9 +13836,8 @@ Not every app is meant to be a DAU app. A tax filing app is yearly. A travel boo
 \`\`\`prompt
 Act as a Product Strategist. Analyze my app concept: [Describe App]. Realistically, is this a Daily, Weekly, or Monthly use case? Suggest a metric that better reflects the app's true value delivery if DAU is the wrong metric.
 \`\`\`
-`;
-
-export const mobilemau = `
+`,
+  'mobilemau': `
 # Monthly Active Users (MAU)
 
 🕒 **Estimated Time:** 30 mins
@@ -13888,9 +13862,8 @@ Focus on the DAU/MAU ratio. This tells you the "stickiness" of your app. If you 
 \`\`\`prompt
 Act as a VC Analyst. Explain the DAU/MAU 'Stickiness' ratio. What constitutes a 'good' ratio for a Utility app versus a Social Network? How can a mobile team artificially inflate this number, and why is that dangerous?
 \`\`\`
-`;
-
-export const mobilesessionduration = `
+`,
+  'mobilesessionduration': `
 # Session Duration
 
 🕒 **Estimated Time:** 30 mins
@@ -13915,9 +13888,8 @@ Define what a "successful" session length is. For TikTok, longer is better. For 
 \`\`\`prompt
 Act as a UX Researcher. My app is a [Utility/Tool App]. Since this is a utility, shorter session durations indicate a better user experience. Identify 3 common UX bottlenecks (e.g., hidden menus, slow animations) that artificially inflate session duration, and how to fix them.
 \`\`\`
-`;
-
-export const mobileprd = `
+`,
+  'mobileprd': `
 # PRD (Product Requirements Document)
 
 🕒 **Estimated Time:** 2-3 hours
@@ -13944,9 +13916,8 @@ Act as a Senior Mobile Product Manager. I am building a [App Description]. Gener
 \`\`\`
 
 - [ ] A PRD with explicit mobile NFRs is defined.
-`;
-
-export const mobileuserflows = `
+`,
+  'mobileuserflows': `
 # User Flows
 
 🕒 **Estimated Time:** 2-3 hours
@@ -13971,9 +13942,8 @@ Map out the complex edge cases. What happens when a user clicks a Push Notificat
 \`\`\`prompt
 Act as a Mobile UX Architect. Review my proposed user flow: [Describe Flow]. Detail the exact deep-linking and state-restoration logic required when a user taps a Push Notification to jump directly into a buried settings screen from a 'Cold Start'.
 \`\`\`
-`;
-
-export const appnavigation = `
+`,
+  'appnavigation': `
 # App Navigation
 
 🕒 **Estimated Time:** 2 hours
@@ -13998,9 +13968,8 @@ Avoid Hamburger Menus (Drawers) for core features; they hide functionality and r
 \`\`\`prompt
 Act as a React Native Architect. Compare 'Expo Router' (file-based routing) with traditional 'React Navigation'. Detail which paradigm is better suited for a massive, heavily deep-linked production mobile application.
 \`\`\`
-`;
-
-export const mobilewireframes = `
+`,
+  'mobilewireframes': `
 # Wireframes
 
 🕒 **Estimated Time:** 3-4 hours
@@ -14027,9 +13996,8 @@ Act as a Mobile UI Designer. Explain the concept of 'Safe Areas' and 'Notches' i
 \`\`\`
 
 - [ ] Wireframes explicitly account for Safe Area insets.
-`;
-
-export const mobiledesignsystem = `
+`,
+  'mobiledesignsystem': `
 # Design System
 
 🕒 **Estimated Time:** 2-3 hours
@@ -14054,9 +14022,8 @@ Create a platform-agnostic design system with platform-specific tweaks. iOS user
 \`\`\`prompt
 Act as a Mobile UX Expert. Explain the core differences between Apple's Human Interface Guidelines (HIG) and Google's Material Design, specifically focusing on how navigation transitions, shadows, and button typography should differ between the two OS platforms.
 \`\`\`
-`;
-
-export const mobilebranding = `
+`,
+  'mobilebranding': `
 # Branding
 
 🕒 **Estimated Time:** 1-2 hours
@@ -14081,9 +14048,8 @@ Your App Icon must not contain text (it will be unreadable). It must work in bot
 \`\`\`prompt
 Act as a Brand Designer. My app is a [Describe App]. Brainstorm 5 concepts for an App Icon. The concepts must avoid using text, must use a central recognizable glyph, and must stand out against a dark-mode iOS home screen.
 \`\`\`
-`;
-
-export const mobileaccessibility = `
+`,
+  'mobileaccessibility': `
 # Accessibility (a11y)
 
 🕒 **Estimated Time:** 2-3 hours
@@ -14110,9 +14076,8 @@ Act as a Mobile Accessibility Expert. Explain how 'Dynamic Type' works on iOS an
 \`\`\`
 
 - [ ] UI layouts respond gracefully to 200% Dynamic Type scaling.
-`;
-
-export const mobileemptystates = `
+`,
+  'mobileemptystates': `
 # Empty States
 
 🕒 **Estimated Time:** 1 hour
@@ -14137,9 +14102,8 @@ Mobile screen real estate is tiny. Use a high-quality, vertically-stacked empty 
 \`\`\`prompt
 Act as a Mobile UX Writer. My app has an empty state for the [e.g., Saved Workouts] tab. Write the headline, subtext, and CTA button text, optimizing for the limited width of a mobile screen and driving immediate action.
 \`\`\`
-`;
-
-export const mobileerrorstates = `
+`,
+  'mobileerrorstates': `
 # Error States
 
 🕒 **Estimated Time:** 1-2 hours
@@ -14164,9 +14128,8 @@ Implement localized error states. If a specific image fails to load, show a subt
 \`\`\`prompt
 Act as a React Native Developer. Provide a code snippet for an 'Offline Banner' component that listens to the device's network state (using \`@react-native-community/netinfo\`) and automatically slides down from the top of the screen when the connection drops.
 \`\`\`
-`;
-
-export const mobileloadingstates = `
+`,
+  'mobileloadingstates': `
 # Loading States
 
 🕒 **Estimated Time:** 1-2 hours
@@ -14193,9 +14156,8 @@ Act as a Mobile UX Designer. Explain the psychological difference between using 
 \`\`\`
 
 - [ ] Async actions utilize inline spinners or skeletons, avoiding full-screen blocks.
-`;
-
-export const mobileplatformstrategy = `
+`,
+  'mobileplatformstrategy': `
 # Platform Strategy
 
 🕒 **Estimated Time:** 1-2 hours
@@ -14222,9 +14184,8 @@ Act as a Mobile Architect. I am building a [App Description]. Write a technical 
 \`\`\`
 
 - [ ] A definitive Platform Strategy (Native vs Cross-Platform) is decided.
-`;
-
-export const mobilefundamentals = `
+`,
+  'mobilefundamentals': `
 # Mobile Fundamentals
 
 🕒 **Estimated Time:** 1 hour
@@ -14249,9 +14210,8 @@ You must understand the 'App Lifecycle' (Foreground, Background, Killed). The OS
 \`\`\`prompt
 Act as a Mobile Engineer. Explain the mobile App Lifecycle (Foreground, Background, Suspended, Killed). Detail how a React Native app should listen for these state changes to save drafts or pause video playback before the OS kills the process.
 \`\`\`
-`;
-
-export const mobiletechstackselection = `
+`,
+  'mobiletechstackselection': `
 # Tech Stack Selection
 
 🕒 **Estimated Time:** 1-2 hours
@@ -14276,9 +14236,8 @@ Use **Expo (Continuous Native Generation)**. Do not "eject" to bare React Native
 \`\`\`prompt
 Act as a React Native Architect. Explain the concept of Expo's 'Continuous Native Generation' (CNG). Why has this paradigm largely replaced the old method of 'ejecting' to bare React Native, and how does it prevent Xcode merge conflicts?
 \`\`\`
-`;
-
-export const mobilestatemanagement = `
+`,
+  'mobilestatemanagement': `
 # State Management Architecture
 
 🕒 **Estimated Time:** 2-3 hours
@@ -14305,9 +14264,8 @@ Act as a React Native Developer. Explain how to configure TanStack Query to pers
 \`\`\`
 
 - [ ] Server State and Client State are architecturally separated.
-`;
-
-export const mobileapistrategy = `
+`,
+  'mobileapistrategy': `
 # API Strategy
 
 🕒 **Estimated Time:** 2-3 hours
@@ -14332,9 +14290,8 @@ Implement the **BFF (Backend-For-Frontend)** pattern. Create a specific API endp
 \`\`\`prompt
 Act as a Backend Architect. Explain the 'Backend-For-Frontend' (BFF) pattern. Detail why it is critical for mobile performance to aggregate data on the server and return a single, compressed JSON payload rather than forcing the mobile client to make waterfall REST calls.
 \`\`\`
-`;
-
-export const mobilelocalstorage = `
+`,
+  'mobilelocalstorage': `
 # Local Storage Strategy
 
 🕒 **Estimated Time:** 2-3 hours
@@ -14359,9 +14316,8 @@ For simple key-value pairs (auth tokens, theme preferences), use **React Native 
 \`\`\`prompt
 Act as a Mobile Performance Engineer. Compare \`AsyncStorage\`, \`MMKV\`, and \`SQLite\` (via WatermelonDB) for a React Native application. Give specific examples of when to use each storage mechanism based on data complexity and volume.
 \`\`\`
-`;
-
-export const mobileauthentication = `
+`,
+  'mobileauthentication': `
 # Authentication
 
 🕒 **Estimated Time:** 2 hours
@@ -14388,9 +14344,8 @@ Act as a Mobile Security Expert. Detail the vulnerability of storing JWTs in sta
 \`\`\`
 
 - [ ] Sensitive tokens are exclusively stored in the OS Encrypted Keystore (SecureStore).
-`;
-
-export const mobiledatabase = `
+`,
+  'mobiledatabase': `
 # Database Schema
 
 🕒 **Estimated Time:** 3-4 hours
@@ -14415,9 +14370,8 @@ You must design for **API Versioning**. You cannot force all users to update the
 \`\`\`prompt
 Act as a Backend Database Architect. Explain the danger of breaking schema changes when supporting mobile clients. Detail 3 strategies for maintaining backward compatibility in your API and Database when you need to radically alter a core data model.
 \`\`\`
-`;
-
-export const mobilebackend = `
+`,
+  'mobilebackend': `
 # Backend Architecture
 
 🕒 **Estimated Time:** 2-4 hours
@@ -14442,9 +14396,8 @@ Push Notifications create the 'Thundering Herd' problem. If you send a Push Noti
 \`\`\`prompt
 Act as a Site Reliability Engineer. Explain the 'Thundering Herd' problem in the context of Mobile Push Notifications. Detail how implementing Redis caching and Database Connection Pooling protects the infrastructure from instantly crashing.
 \`\`\`
-`;
-
-export const mobilepushnotifications = `
+`,
+  'mobilepushnotifications': `
 # Push Notification Strategy
 
 🕒 **Estimated Time:** 2-3 hours
@@ -14469,9 +14422,8 @@ Use a managed service like **Expo Push Notifications** or **OneSignal**. Never m
 \`\`\`prompt
 Act as a Mobile Backend Engineer. Explain the lifecycle of a Push Notification Device Token. Provide a backend logic flow detailing when to save the token, when to update it, and critically, why it MUST be deleted from the database upon user logout.
 \`\`\`
-`;
-
-export const mobiledeeplinking = `
+`,
+  'mobiledeeplinking': `
 # Deep Linking
 
 🕒 **Estimated Time:** 2-4 hours
@@ -14498,9 +14450,8 @@ Act as a Mobile DevOps Engineer. Explain the difference between custom URI schem
 \`\`\`
 
 - [ ] Universal Links (iOS) and App Links (Android) are architecturally planned.
-`;
-
-export const mobilefilestorage = `
+`,
+  'mobilefilestorage': `
 # File Storage & Uploads
 
 🕒 **Estimated Time:** 2 hours
@@ -14525,9 +14476,8 @@ You must compress media *before* it leaves the device. Use libraries like \`reac
 \`\`\`prompt
 Act as a Mobile Performance Engineer. Detail the architecture for uploading a large video file from a React Native app to AWS S3. Explain why compressing the video natively and using a Background Upload Task (which survives app minimization) is critical for UX.
 \`\`\`
-`;
-
-export const mobileofflinestrategy = `
+`,
+  'mobileofflinestrategy': `
 # Offline Strategy
 
 🕒 **Estimated Time:** 3-5 hours
@@ -14552,9 +14502,8 @@ Implement an **Offline-First** architecture. 1) All reads hit the local SQLite c
 \`\`\`prompt
 Act as a Mobile Architect. Explain the 'Offline-First' architecture paradigm using a local database like WatermelonDB. Detail how optimistic UI updates, local caching, and background sync queues work together to make the app feel instant regardless of network quality.
 \`\`\`
-`;
-
-export const mobileanalyticsstrategy = `
+`,
+  'mobileanalyticsstrategy': `
 # Analytics Strategy
 
 🕒 **Estimated Time:** 1-2 hours
@@ -14579,9 +14528,8 @@ Integrate PostHog or Amplitude. Track "Screen Views" automatically. Manually ins
 \`\`\`prompt
 Act as a Mobile Privacy Expert. Explain Apple's App Tracking Transparency (ATT) framework. Detail exactly when a mobile app is required to show the ATT permission prompt, and how to design a 'pre-prompt' screen to maximize user opt-in rates.
 \`\`\`
-`;
-
-export const mobilecostestimation = `
+`,
+  'mobilecostestimation': `
 # Cost Estimation
 
 🕒 **Estimated Time:** 1 hour
@@ -14606,9 +14554,8 @@ If you don't own a Mac, you must use a cloud build service like **EAS Build** (E
 \`\`\`prompt
 Act as a Mobile Engineering Manager. Explain the economics and workflow of Expo Application Services (EAS) Build. Why is paying for EAS often cheaper and more efficient than forcing every developer on the team to manually configure Xcode and CocoaPods on their local machines?
 \`\`\`
-`;
-
-export const mobilestatemanagementimplementation = `
+`,
+  'mobilestatemanagementimplementation': `
 # State Management Implementation
 
 🕒 **Estimated Time:** 2-3 hours
@@ -14635,9 +14582,8 @@ Act as a React Native Performance Expert. Provide a code snippet demonstrating h
 \`\`\`
 
 - [ ] State management is optimized to prevent unnecessary re-renders.
-`;
-
-export const mobileauth = `
+`,
+  'mobileauth': `
 # Auth Implementation
 
 🕒 **Estimated Time:** 2-4 hours
@@ -14662,9 +14608,8 @@ You must implement "Sign in with Apple" (SIWA) if you offer any other third-part
 \`\`\`prompt
 Act as an iOS Security Engineer. Provide a React Native (Expo) code snippet demonstrating how to implement 'Sign in with Apple'. Detail how to securely send the resulting Apple Identity Token to a Node.js backend for verification.
 \`\`\`
-`;
-
-export const mobiledatabaseimplementation = `
+`,
+  'mobiledatabaseimplementation': `
 # Database Implementation
 
 🕒 **Estimated Time:** 2-3 hours
@@ -14689,9 +14634,8 @@ Never connect your mobile app directly to your production Postgres database. You
 \`\`\`prompt
 Act as a Database Security Expert. Explain why connecting a mobile app directly to a Postgres database via a standard connection string is a massive security vulnerability. Detail how Supabase's 'Row Level Security' (RLS) mitigates this risk when using their mobile SDK.
 \`\`\`
-`;
-
-export const mobilebackendimplementation = `
+`,
+  'mobilebackendimplementation': `
 # Backend Implementation
 
 🕒 **Estimated Time:** 3-5 hours
@@ -14718,9 +14662,8 @@ Act as a Backend Security Engineer. Explain the concept of 'Receipt Validation' 
 \`\`\`
 
 - [ ] The backend is configured to securely validate IAP receipts.
-`;
-
-export const mobilepushnotificationsimplementation = `
+`,
+  'mobilepushnotificationsimplementation': `
 # Push Notifications
 
 🕒 **Estimated Time:** 2-4 hours
@@ -14745,9 +14688,8 @@ Use **Expo Push Notifications**. On app launch, request permission from the user
 \`\`\`prompt
 Act as a React Native Engineer. Provide the exact boilerplate code required to request Push Notification permissions on iOS/Android, generate an \`ExpoPushToken\`, and set up a listener to handle incoming notifications when the app is foregrounded.
 \`\`\`
-`;
-
-export const mobilefrontendui = `
+`,
+  'mobilefrontendui': `
 # Frontend (UI)
 
 🕒 **Estimated Time:** 4-8 hours
@@ -14774,9 +14716,8 @@ Act as a React Native Performance Engineer. Explain why rendering a large array 
 \`\`\`
 
 - [ ] Large lists are rendered using optimized \`FlatList\` or \`FlashList\` components.
-`;
-
-export const mobilenavigation = `
+`,
+  'mobilenavigation': `
 # Navigation Implementation
 
 🕒 **Estimated Time:** 2-3 hours
@@ -14801,9 +14742,8 @@ Use **Expo Router v3+**. It provides file-based routing (like Next.js) which mak
 \`\`\`prompt
 Act as a React Native Architect. Provide an Expo Router \`_layout.tsx\` file that implements an 'Authentication Guard'. It should automatically redirect an unauthenticated user to the \`/login\` screen while showing a splash screen during the initial auth check.
 \`\`\`
-`;
-
-export const mobileapis = `
+`,
+  'mobileapis': `
 # API Integration
 
 🕒 **Estimated Time:** 2-3 hours
@@ -14828,9 +14768,8 @@ Wrap all API calls in TanStack Query. Configure an exponential backoff retry str
 \`\`\`prompt
 Act as a Frontend Engineer. Provide an Axios interceptor setup for a React Native app that automatically retrieves a JWT from \`expo-secure-store\` and attaches it as an 'Authorization: Bearer' header to every outgoing HTTP request.
 \`\`\`
-`;
-
-export const mobilepayments = `
+`,
+  'mobilepayments': `
 # Payments (IAP)
 
 🕒 **Estimated Time:** 4-6 hours
@@ -14857,9 +14796,8 @@ Act as a Mobile Monetization Engineer. Provide a React Native code snippet using
 \`\`\`
 
 - [ ] In-App Purchases are abstracted via RevenueCat (or similar).
-`;
-
-export const mobilemediauploads = `
+`,
+  'mobilemediauploads': `
 # Media Uploads
 
 🕒 **Estimated Time:** 2-4 hours
@@ -14884,9 +14822,8 @@ You MUST compress media on the device before uploading. Use \`expo-image-manipul
 \`\`\`prompt
 Act as a Mobile Performance Engineer. Provide a React Native snippet using \`expo-image-manipulator\` to take an image URI from the camera roll, resize it to a maximum width of 1080px, compress it by 30%, and return the new optimized URI for uploading.
 \`\`\`
-`;
-
-export const mobilemapslocation = `
+`,
+  'mobilemapslocation': `
 # Maps & Location
 
 🕒 **Estimated Time:** 2-4 hours
@@ -14911,9 +14848,8 @@ Only ask for "While In Use" permission. If you must use background location, pro
 \`\`\`prompt
 Act as a Mobile UI Engineer. Explain why rendering 1,000 individual markers on a \`react-native-maps\` instance causes the UI thread to freeze. Detail how 'Marker Clustering' solves this, and suggest a library to implement it.
 \`\`\`
-`;
-
-export const mobiledevicepermissions = `
+`,
+  'mobiledevicepermissions': `
 # Device Permissions
 
 🕒 **Estimated Time:** 1-2 hours
@@ -14938,9 +14874,8 @@ Never trigger the OS-level permission prompt (which can only be shown once) unti
 \`\`\`prompt
 Act as a Mobile UX Researcher. Design the UI flow and copywriting for a 'Soft Prompt' that asks for Push Notification permissions in an e-commerce app. Explain why this 2-step process prevents the user from permanently disabling notifications at the OS level.
 \`\`\`
-`;
-
-export const mobileofflinefeatures = `
+`,
+  'mobileofflinefeatures': `
 # Offline Implementation
 
 🕒 **Estimated Time:** 3-5 hours
@@ -14965,9 +14900,8 @@ If offline support is a core feature (e.g., a hiking map app), use **WatermelonD
 \`\`\`prompt
 Act as a Mobile Systems Architect. Explain the 'Observable' paradigm of WatermelonDB in React Native. Detail how components automatically re-render when the local SQLite database changes, and outline the logic required to synchronize those local changes with a remote backend.
 \`\`\`
-`;
-
-export const mobileanalyticsevents = `
+`,
+  'mobileanalyticsevents': `
 # Analytics Events
 
 🕒 **Estimated Time:** 1-2 hours
@@ -14992,9 +14926,8 @@ Integrate PostHog. Track three core flows: 1) The Onboarding Funnel (Screen A ->
 \`\`\`prompt
 Act as a Mobile Data Analyst. I am building a [Type of App]. Define the 5 specific telemetry events (e.g., \`onboarding_started\`) I need to instrument in my code to build an accurate funnel visualizing where users drop off before making their first In-App Purchase.
 \`\`\`
-`;
-
-export const mobileerrorhandling = `
+`,
+  'mobileerrorhandling': `
 # Error Handling
 
 🕒 **Estimated Time:** 2-3 hours
@@ -15019,9 +14952,8 @@ You must implement a Global Error Boundary. If a component crashes, the Error Bo
 \`\`\`prompt
 Act as a React Native Engineer. Provide a robust \`ErrorBoundary\` class component for React Native. Demonstrate how to catch fatal JS errors, display a custom fallback UI, and log the error stack trace to an external service like Sentry.
 \`\`\`
-`;
-
-export const mobiletesting = `
+`,
+  'mobiletesting': `
 # Testing
 
 🕒 **Estimated Time:** 3-5 hours
@@ -15048,9 +14980,8 @@ Act as a Mobile QA Automation Engineer. Explain why Maestro is gaining popularit
 \`\`\`
 
 - [ ] Core user flows are covered by E2E tests (Maestro or Detox).
-`;
-
-export const mobilesecurity = `
+`,
+  'mobilesecurity': `
 # Security
 
 🕒 **Estimated Time:** 2-3 hours
@@ -15075,9 +15006,8 @@ Assume the client is fully compromised. Never trust data coming from the app. Us
 \`\`\`prompt
 Act as a Mobile Security Engineer. Explain the concept of 'Certificate Pinning'. Why is HTTPS not enough to prevent a Man-In-The-Middle (MITM) attack on a mobile app, and how does pinning solve this on React Native?
 \`\`\`
-`;
-
-export const mobileperformanceoptimization = `
+`,
+  'mobileperformanceoptimization': `
 # Performance Optimization
 
 🕒 **Estimated Time:** 4-6 hours
@@ -15104,9 +15034,8 @@ Act as a React Native Performance Expert. Explain the difference between the Jav
 \`\`\`
 
 - [ ] UI animations are offloaded to the native thread (Reanimated).
-`;
-
-export const mobilecrashreporting = `
+`,
+  'mobilecrashreporting': `
 # Crash Reporting
 
 🕒 **Estimated Time:** 1-2 hours
@@ -15131,9 +15060,8 @@ Integrate **Sentry**. Sentry captures the exact JavaScript stack trace, the devi
 \`\`\`prompt
 Act as a Mobile DevOps Engineer. Detail the workflow for integrating Sentry into an Expo React Native app. Specifically, explain why uploading 'Source Maps' during the EAS Build process is mandatory for reading production crash logs.
 \`\`\`
-`;
-
-export const mobilemonitoring = `
+`,
+  'mobilemonitoring': `
 # Monitoring
 
 🕒 **Estimated Time:** 1 hour
@@ -15158,9 +15086,8 @@ Monitor your backend latency heavily. The mobile client should also implement AP
 \`\`\`prompt
 Act as a Mobile App Optimizer. My React Native app takes 4 seconds to 'Cold Start' on older Android devices. Identify 3 common architectural bottlenecks (e.g., massive bundle sizes, synchronous storage reads on boot) and how to resolve them.
 \`\`\`
-`;
-
-export const mobilelogging = `
+`,
+  'mobilelogging': `
 # Logging
 
 🕒 **Estimated Time:** 1 hour
@@ -15185,9 +15112,8 @@ Use a logging library that writes to a local rolling file, and uploads to the se
 \`\`\`prompt
 Act as a Mobile Architect. Explain the performance penalty of leaving \`console.log\` statements in a production React Native bundle. Recommend a strategy for structured, remote logging that only uploads data when absolutely necessary.
 \`\`\`
-`;
-
-export const mobileratelimiting = `
+`,
+  'mobileratelimiting': `
 # Rate Limiting
 
 🕒 **Estimated Time:** 1-2 hours
@@ -15212,9 +15138,8 @@ Your backend API MUST have aggressive rate limiting (e.g., via Upstash Redis) ba
 \`\`\`prompt
 Act as a Backend Architect. Describe how a simple React Native \`useEffect\` dependency bug on the home screen can accidentally DDoS a startup's infrastructure. Detail the exact rate-limiting configuration required on a Node.js backend to absorb this attack.
 \`\`\`
-`;
-
-export const mobilebackups = `
+`,
+  'mobilebackups': `
 # Backups
 
 🕒 **Estimated Time:** 1-2 hours
@@ -15239,9 +15164,8 @@ For local-first apps, you must implement iCloud CloudKit backup (iOS) or Google 
 \`\`\`prompt
 Act as an iOS Engineer. Explain how to securely back up a local SQLite database to a user's private iCloud Drive using CloudKit, ensuring that the data is restored automatically when they install the app on a new device.
 \`\`\`
-`;
-
-export const mobilecicd = `
+`,
+  'mobilecicd': `
 # CI/CD (Continuous Integration)
 
 🕒 **Estimated Time:** 3-5 hours
@@ -15268,9 +15192,8 @@ Act as a Mobile DevOps Engineer. Provide a complete GitHub Actions YAML workflow
 \`\`\`
 
 - [ ] CI/CD automatically builds and submits binaries to TestFlight/Play Console.
-`;
-
-export const mobileinfrastructure = `
+`,
+  'mobileinfrastructure': `
 # Infrastructure
 
 🕒 **Estimated Time:** 2 hours
@@ -15295,9 +15218,8 @@ You must use a global CDN (Cloudflare or AWS CloudFront) for all static assets. 
 \`\`\`prompt
 Act as a Mobile UX Architect. Detail the strategy of 'Asset Pre-fetching' in React Native using \`expo-image\`. How can we silently cache heavy assets in the background before the user navigates to the screen that requires them?
 \`\`\`
-`;
-
-export const mobileappsizeoptimization = `
+`,
+  'mobileappsizeoptimization': `
 # App Size Optimization
 
 🕒 **Estimated Time:** 1-2 hours
@@ -15322,9 +15244,8 @@ Keep your initial download under 100MB. Do not bundle massive videos or 4K image
 \`\`\`prompt
 Act as a Mobile Release Engineer. My React Native iOS binary is 300MB. Identify the top 3 common culprits for app bloat (e.g., unoptimized bundled assets, massive hermes engines) and the specific tools required to analyze the binary size.
 \`\`\`
-`;
-
-export const mobilebatteryoptimization = `
+`,
+  'mobilebatteryoptimization': `
 # Battery Optimization
 
 🕒 **Estimated Time:** 2 hours
@@ -15351,9 +15272,8 @@ Act as a Mobile Systems Architect. Explain the hardware reasons why constant GPS
 \`\`\`
 
 - [ ] Background tasks (GPS, network polling) are optimized for battery life.
-`;
-
-export const mobilescalability = `
+`,
+  'mobilescalability': `
 # Scalability
 
 🕒 **Estimated Time:** 2-3 hours
@@ -15378,9 +15298,8 @@ You cannot force users to update. You will have users running v1.0, v1.1, and v2
 \`\`\`prompt
 Act as a Mobile Product Manager. Design a 'Force Update' architecture. How should the mobile app query the server on launch to determine if its current version is deprecated, and how should it gracefully lock the UI and direct the user to the App Store?
 \`\`\`
-`;
-
-export const mobileplaystoresetup = `
+`,
+  'mobileplaystoresetup': `
 # Play Store Setup
 
 🕒 **Estimated Time:** 2 hours
@@ -15405,9 +15324,8 @@ You must fill out the Data Safety form accurately. If you collect location data 
 \`\`\`prompt
 Act as a Google Play Policy Expert. Explain the requirements of the 'Data Safety' section in the Google Play Console. What specific disclosures are required if an app uses Firebase Analytics or Crashlytics?
 \`\`\`
-`;
-
-export const mobileappstoresetup = `
+`,
+  'mobileappstoresetup': `
 # App Store Setup
 
 🕒 **Estimated Time:** 2 hours
@@ -15432,9 +15350,8 @@ Use \`eas credentials\` to let Expo manage your Apple certificates. Fill out the
 \`\`\`prompt
 Act as an Apple App Store Reviewer. Detail the top 3 most common reasons an app is rejected during the manual review process (e.g., lack of demo credentials, crashing on IPv6 networks, violating Guideline 4.2 Minimum Functionality).
 \`\`\`
-`;
-
-export const mobileappicons = `
+`,
+  'mobileappicons': `
 # App Icons
 
 🕒 **Estimated Time:** 1 hour
@@ -15459,9 +15376,8 @@ Provide a high-res \`1024x1024\` icon without any rounded corners or transparenc
 \`\`\`prompt
 Act as an Android UI Designer. Explain why Android push notifications often display a broken 'white square' instead of the app's logo. Detail the specific design requirements (monochrome, alpha channel only) required to fix this.
 \`\`\`
-`;
-
-export const mobilescreenshots = `
+`,
+  'mobilescreenshots': `
 # Screenshots
 
 🕒 **Estimated Time:** 2 hours
@@ -15488,9 +15404,8 @@ Act as an App Store Optimization (ASO) Expert. Critique the practice of uploadin
 \`\`\`
 
 - [ ] Store screenshots are wrapped in device mockups with bold value-prop copy.
-`;
-
-export const mobilefeaturegraphics = `
+`,
+  'mobilefeaturegraphics': `
 # Feature Graphics
 
 🕒 **Estimated Time:** 1 hour
@@ -15515,9 +15430,8 @@ The Feature Graphic often includes a video play button if you link a YouTube pro
 \`\`\`prompt
 Act as a Google Play Store Marketer. Detail the exact dimensions and safe zones for the Android 'Feature Graphic'. Explain why centering text in this graphic is a terrible idea if a promotional video is attached.
 \`\`\`
-`;
-
-export const mobilestorelistingseo = `
+`,
+  'mobilestorelistingseo': `
 # Store Listing SEO (ASO)
 
 🕒 **Estimated Time:** 2-3 hours
@@ -15542,9 +15456,8 @@ The App Title and Subtitle are the most heavily weighted fields in Apple's searc
 \`\`\`prompt
 Act as an ASO Expert. Explain the algorithmic weight difference between the App Title, the Subtitle, and the hidden Keyword field on the iOS App Store. Generate an optimized Title and Subtitle for a [Describe App] aiming for high organic search traffic.
 \`\`\`
-`;
-
-export const mobileprivacypolicy = `
+`,
+  'mobileprivacypolicy': `
 # Privacy Policy
 
 🕒 **Estimated Time:** 1 hour
@@ -15569,9 +15482,8 @@ If you use third-party analytics (PostHog), crash reporting (Sentry), or ad netw
 \`\`\`prompt
 Act as a Tech Lawyer. I am launching a mobile app that uses Sentry for crash reporting, RevenueCat for payments, and PostHog for analytics. Generate a boilerplate Privacy Policy section specifically disclosing the use of these third-party SDKs.
 \`\`\`
-`;
-
-export const mobiletermsofservice = `
+`,
+  'mobiletermsofservice': `
 # Terms of Service
 
 🕒 **Estimated Time:** 1 hour
@@ -15596,9 +15508,8 @@ If you have User Generated Content (UGC) like a social feed, Apple requires incr
 \`\`\`prompt
 Act as an iOS App Reviewer. Detail the strict requirements for apps featuring User Generated Content (UGC). Explain why an EULA, a reporting mechanism, and a blocking mechanism are mandatory to prevent the app from being banned.
 \`\`\`
-`;
-
-export const mobilecontentrating = `
+`,
+  'mobilecontentrating': `
 # Content Rating
 
 🕒 **Estimated Time:** 30 mins
@@ -15623,9 +15534,8 @@ If your app allows unrestricted web browsing or unmoderated social feeds, it wil
 \`\`\`prompt
 Act as a Mobile Compliance Expert. Explain the severe restrictions placed on apps in the 'Kids Category' (Targeting children under 13). Detail why standard implementations of Google Analytics and AdMob are illegal under COPPA.
 \`\`\`
-`;
-
-export const mobiletesttracks = `
+`,
+  'mobiletesttracks': `
 # Test Tracks
 
 🕒 **Estimated Time:** 1-2 hours
@@ -15650,9 +15560,8 @@ Utilize Google Play's Internal, Closed, and Open testing tracks. Use Apple's Tes
 \`\`\`prompt
 Act as a Mobile QA Engineer. Explain the process of testing Apple In-App Purchases using 'Sandbox Accounts' in TestFlight. Detail the common pitfalls where a purchase succeeds in Sandbox but fails in Production.
 \`\`\`
-`;
-
-export const mobilebetatesting = `
+`,
+  'mobilebetatesting': `
 # Beta Testing
 
 🕒 **Estimated Time:** 1-2 weeks
@@ -15677,9 +15586,8 @@ Distribute to at least 50 external TestFlight/Google Play Beta users. Instruct t
 \`\`\`prompt
 Act as a Mobile QA Manager. Recommend a React Native 'Shake-to-Report' bug reporting SDK that beta testers can use in TestFlight. Explain how this drastically improves the quality of QA feedback compared to asking testers to send emails.
 \`\`\`
-`;
-
-export const mobilereleasechecklist = `
+`,
+  'mobilereleasechecklist': `
 # Release Checklist
 
 🕒 **Estimated Time:** 2-3 hours
@@ -15706,9 +15614,8 @@ Act as a Mobile Release Manager. Detail the 'Phased Release' (7-day rollout) pro
 \`\`\`
 
 - [ ] A 7-day Phased Rollout strategy is configured for the production launch.
-`;
-
-export const mobileanalytics = `
+`,
+  'mobileanalytics': `
 # Analytics Strategy (Growth)
 
 🕒 **Estimated Time:** 2 hours
@@ -15733,9 +15640,8 @@ Set up Cohort Analysis in Amplitude or Mixpanel. Compare the retention of users 
 \`\`\`prompt
 Act as a Mobile Growth Marketer. Define 'Time to First Value' (TTFV) in the context of a mobile app. Provide 3 UX strategies to aggressively reduce TTFV and immediately hook a user within their first 60-second session.
 \`\`\`
-`;
-
-export const mobilenotificationsstrategy = `
+`,
+  'mobilenotificationsstrategy': `
 # Notifications Strategy (Growth)
 
 🕒 **Estimated Time:** 2 hours
@@ -15760,9 +15666,8 @@ Shift from "Broadcast" notifications to "Behavioral" notifications. Do not send 
 \`\`\`prompt
 Act as a Mobile CRM Manager. Explain the difference between Broadcast Push Notifications and Behavioral Push Notifications. Design a behavioral push trigger that utilizes a user's recent in-app activity to dramatically increase open rates.
 \`\`\`
-`;
-
-export const mobileuserfeedback = `
+`,
+  'mobileuserfeedback': `
 # User Feedback
 
 🕒 **Estimated Time:** 1 hour
@@ -15787,9 +15692,8 @@ Implement an "In-App Intercept." Ask the user "Are you enjoying the app?" within
 \`\`\`prompt
 Act as a Mobile UX Strategist. Design a 'Rating Intercept' flow. Detail how to ask the user for feedback internally, capturing negative feedback privately, while aggressively funneling only the happiest users to the official iOS \`SKStoreReviewController\`.
 \`\`\`
-`;
-
-export const mobilereviewsratings = `
+`,
+  'mobilereviewsratings': `
 # Reviews & Ratings
 
 🕒 **Estimated Time:** 1-2 hours
@@ -15816,9 +15720,8 @@ Act as a Customer Success Manager. Write a template response for a 1-star App St
 \`\`\`
 
 - [ ] A process is established to reply to all 1-star and 2-star store reviews.
-`;
-
-export const mobilereferralprograms = `
+`,
+  'mobilereferralprograms': `
 # Referral Programs
 
 🕒 **Estimated Time:** 3-5 hours
@@ -15843,9 +15746,8 @@ Implement "Double-Sided Rewards" (e.g., Give $10, Get $10). You must use Deep Li
 \`\`\`prompt
 Act as a Mobile Growth Engineer. Explain how deferred deep linking works for mobile referral programs. How can we pass a referral code through the App Store installation process so it is automatically applied the first time the user opens the app?
 \`\`\`
-`;
-
-export const mobileroadmap = `
+`,
+  'mobileroadmap': `
 # Roadmap
 
 🕒 **Estimated Time:** 2 hours
@@ -15870,9 +15772,8 @@ Plan for the September OS updates. When Apple releases iOS 18, they will introdu
 \`\`\`prompt
 Act as an App Store Marketer. Explain the massive organic growth benefit of adopting new Apple/Google OS features (like a new Widget or Watch app) on 'Day One' of the new OS release, and how it impacts your chances of being featured by editorial teams.
 \`\`\`
-`;
-
-export const mobilescalingstrategy = `
+`,
+  'mobilescalingstrategy': `
 # Scaling Strategy
 
 🕒 **Estimated Time:** 2-3 hours
@@ -15897,9 +15798,8 @@ Move to a "Release Train" model. The app releases every 2 weeks on Tuesday, rega
 \`\`\`prompt
 Act as an Engineering Manager. Detail the 'Release Train' deployment model for a large mobile engineering team. How does setting a strict, unmoving bi-weekly release schedule improve QA stability and reduce developer stress compared to feature-driven releases?
 \`\`\`
-`;
-
-export const mobiledemodata = `
+`,
+  'mobiledemodata': `
 # Demo Data
 
 🕒 **Estimated Time:** 1 hour
@@ -15924,9 +15824,8 @@ Skip.
 \`\`\`prompt
 Act as a Developer. Generate a massive JSON array of 15 highly realistic, diverse mock records for a [Describe App] feed. Include realistic names, timestamps, and placeholder image URLs (e.g., Unsplash) so my UI looks completely populated.
 \`\`\`
-`;
-
-export const mobileplaystoremockups = `
+`,
+  'mobileplaystoremockups': `
 # Play Store Mockups
 
 🕒 **Estimated Time:** 1 hour
@@ -15951,9 +15850,8 @@ Skip.
 \`\`\`prompt
 Act as an App Store Marketer. Write a punchy, 3-sentence App Store description and 3 'Screenshot Callout' phrases for my hackathon app: [Describe App].
 \`\`\`
-`;
-
-export const mobilepitchdeck = `
+`,
+  'mobilepitchdeck': `
 # Pitch Deck
 
 🕒 **Estimated Time:** 1-2 hours
@@ -15978,9 +15876,8 @@ Skip.
 \`\`\`prompt
 Act as a Startup Founder. I am pitching my mobile app hackathon project: [Describe App]. Outline a 5-slide pitch deck script. Focus heavily on explaining the unique 'On-the-go' friction this app solves.
 \`\`\`
-`;
-
-export const mobiledemoscript = `
+`,
+  'mobiledemoscript': `
 # Demo Script
 
 🕒 **Estimated Time:** 1 hour
@@ -16005,9 +15902,8 @@ Skip.
 \`\`\`prompt
 Act as a Presentation Coach. Write a 90-second script for a pre-recorded video demo of my mobile app: [Describe App]. Tell me exactly when to point out specific native features (like camera usage or push notifications).
 \`\`\`
-`;
-
-export const mobilesubmissionchecklist = `
+`,
+  'mobilesubmissionchecklist': `
 # Submission Checklist
 
 🕒 **Estimated Time:** 30 mins
@@ -16032,9 +15928,8 @@ Skip.
 \`\`\`prompt
 Act as a DevRel. Write a short 3-step instruction guide I can put in my project Readme that tells judges exactly how to download the 'Expo Go' app and scan my QR code to test my hackathon project on their own phones.
 \`\`\`
-`;
-
-export const marketplacecompetitoranalysis = `
+`,
+  'marketplacecompetitoranalysis': `
 ## Why this matters
 Marketplaces are typically winner-take-all or winner-take-most dynamics due to network effects. Understanding who currently owns the liquidity is vital.
 
@@ -16055,9 +15950,8 @@ Look for fragmented subreddits or Facebook Groups. If people are transacting in 
 
 ### Production SaaS
 You must analyze competitor *take rates* (how much they charge) and *multi-tenanting* (do suppliers list on multiple platforms?). If take rates are too high, your wedge is price. If multi-tenanting is high, you must compete on demand generation.
-`;
-
-export const marketplacesuccessmetrics = `
+`,
+  'marketplacesuccessmetrics': `
 ## Why this matters
 Marketplace metrics are twice as hard as SaaS metrics. You aren't just tracking users; you are tracking the *match rate* between supply and demand.
 
@@ -16079,9 +15973,8 @@ You must meticulously track:
 - **Liquidity Quality:** Search-to-fill rate (what % of searches result in a booking/purchase?).
 - **Provider to Consumer Ratio:** How many buyers can one seller serve?
 - **Take Rate:** Your cut of the GMV.
-`;
-
-export const marketplacefundamentals = `
+`,
+  'marketplacefundamentals': `
 ## Why this matters
 Building a marketplace is like building two entirely different startups simultaneously. You need a compelling value prop for the Supply side, and a completely different one for the Demand side.
 
@@ -16106,9 +15999,8 @@ Start with a "Single-Player Mode". Build a tool that is highly useful for the su
 
 ### Production SaaS
 You must understand the difference between a fragmented market (Uber, where all supply is interchangeable) vs a differentiated market (Airbnb, where every listing is unique). This fundamental truth will dictate your entire search and discovery architecture.
-`;
-
-export const marketplacetype = `
+`,
+  'marketplacetype': `
 ## Why this matters
 Are you building a B2B, B2C, or C2C marketplace? Is it for Products (Amazon), Services (Fiverr), or Time/Space (Airbnb)? The architecture and legal liabilities differ wildly.
 
@@ -16127,9 +16019,8 @@ C2C product marketplaces (like a niche Craigslist) are incredibly fun to build a
 
 ### Production SaaS
 B2B Marketplaces have the highest GMV and lowest churn, but require complex invoicing, net-30 payment terms, and massive trust. If you are doing B2B, your escrow and payment routing architecture will be your biggest moat.
-`;
-
-export const marketplacesupplyside = `
+`,
+  'marketplacesupplyside': `
 ## Why this matters
 In most marketplaces, the Supply side is the hardest to acquire. You must treat suppliers as your primary customers. If you have the best supply, the demand will follow.
 
@@ -16148,9 +16039,8 @@ Build a scraper. If you are making a marketplace for used guitars, scrape Reverb
 
 ### Production SaaS
 You need a scalable "Supply Side Acquisition Strategy". Often this means direct sales. You must build a robust Seller Dashboard that gives them analytics, inventory management, and payout tracking. If the dashboard sucks, they will go to a competitor.
-`;
-
-export const marketplacedemandside = `
+`,
+  'marketplacedemandside': `
 ## Why this matters
 Demand side users (Buyers) are notoriously fickle. They come for the inventory, but they stay for the trust, safety, and UX.
 
@@ -16169,9 +16059,8 @@ Focus heavily on SEO. Programmatic SEO (generating a landing page for every sing
 
 ### Production SaaS
 Demand acquisition is usually solved by paid marketing (CAC) once you have supply. Your job is to ensure the conversion rate (Search to Purchase) is incredibly high. Invest heavily in Algolia/ElasticSearch for instant, typo-tolerant search.
-`;
-
-export const marketplaceliquidity = `
+`,
+  'marketplaceliquidity': `
 ## Why this matters
 Liquidity is the lifeblood of a marketplace. It's the probability that a buyer finds what they want, and a seller successfully sells their offering. 
 
@@ -16190,9 +16079,8 @@ Constrain the market! Do not launch globally. Launch in one city, or one extreme
 
 ### Production SaaS
 You must track "Zero Search Results" metrics religiously. If a buyer searches and gets 0 results, they churn forever. You must also track "Utilization Rate" for suppliers. If a supplier doesn't get a booking in 30 days, they will abandon your platform.
-`;
-
-export const marketplacechickenegg = `
+`,
+  'marketplacechickenegg': `
 ## Why this matters
 The classic cold start problem: Buyers won't come without sellers, and sellers won't list without buyers. You must strategically break this loop.
 
@@ -16216,9 +16104,8 @@ Subsidize the supply by doing the work for them. Go to existing businesses, take
 
 ### Production SaaS
 Use the "Bowling Pin Strategy". Target one highly specific niche (Pin 1). Once you have liquidity there, expand to the adjacent niche (Pin 2). Example: Amazon started strictly with Books. Do not boil the ocean.
-`;
-
-export const marketplacerevenuemodel = `
+`,
+  'marketplacerevenuemodel': `
 ## Why this matters
 How you make money dictates how users behave. Take rates, listing fees, lead generation fees, or SaaS subscriptions for sellers—each has massive implications.
 
@@ -16237,9 +16124,8 @@ Keep it simple. Charge a flat subscription fee to sellers to list, and make it f
 
 ### Production SaaS
 Take Rates (Rake) are the gold standard. To justify a high take rate (15-30%), you must provide massive value (insurance, dispute resolution, shipping logistics). Beware of "Disintermediation" (users bypassing your platform to pay in cash). To prevent this, hide contact info until payment is secured.
-`;
-
-export const marketplacemvpscope = `
+`,
+  'marketplacemvpscope': `
 ## Why this matters
 A marketplace MVP is inherently larger than a SaaS MVP because you must build two interfaces (Buyer app and Seller app).
 
@@ -16258,9 +16144,8 @@ Skip the native mobile app. Build a responsive web app. Native apps require two 
 
 ### Production SaaS
 Your MVP MUST include a robust Trust & Safety layer. If your MVP allows fraudsters to scam your first 10 buyers, your brand is permanently dead. Scope in Stripe Identity or basic KYC for sellers from Day 1.
-`;
-
-export const marketplacedemodata = `
+`,
+  'marketplacedemodata': `
 ## Why this matters
 An empty marketplace looks dead. You need high-quality, realistic demo data to make the platform feel alive and bustling.
 
@@ -16273,9 +16158,8 @@ Use Faker.js to generate 1,000 realistic users and listings. This will help you 
 
 ### Production SaaS
 Demo data is for staging environments only. Ensure you have a robust seeding script (\`seed.ts\`) that populates your dev database with edge cases (e.g., listings with no images, extreme prices, banned users) to test your UI robustly.
-`;
-
-export const marketplacemvpfeatures = `
+`,
+  'marketplacemvpfeatures': `
 ## Why this matters
 You must ruthlessly cut features to launch on time.
 
@@ -16293,9 +16177,8 @@ Cut the in-app messaging system. Just provide a \`mailto:\` link for buyers and 
 
 ### Production SaaS
 You cannot cut Stripe Connect (or equivalent). You must legally handle split payments and 1099 tax reporting if you are moving money at scale. Do not try to manually route money through your personal bank account.
-`;
-
-export const marketplacepitchdeck = `
+`,
+  'marketplacepitchdeck': `
 ## Why this matters
 Marketplaces are capital intensive because you usually have to subsidize the supply side. A strong pitch deck focuses on the Network Effect.
 
@@ -16308,9 +16191,8 @@ Focus the deck on your unique wedge. Why are *you* uniquely positioned to acquir
 
 ### Production SaaS
 Investors want to see your CAC (Customer Acquisition Cost) for both sides, your LTV (Lifetime Value), and your plan to prevent disintermediation. Highlight your "Network Density" metrics.
-`;
-
-export const marketplacedemoscript = `
+`,
+  'marketplacedemoscript': `
 ## Why this matters
 Marketplace demos are tricky because you have to switch between two user personas (Buyer and Seller).
 
@@ -16323,9 +16205,8 @@ Show the "Aha!" moment immediately. Start the demo with a populated search page,
 
 ### Production SaaS
 Demo the Trust & Safety features. Show how the platform handles a dispute or a bad review. Enterprise investors love robust edge-case handling.
-`;
-
-export const marketplacesubmissionchecklist = `
+`,
+  'marketplacesubmissionchecklist': `
 ## Why this matters
 Don't fail because you forgot a minor requirement.
 
@@ -16338,9 +16219,8 @@ Ensure your database is locked down (Row Level Security) so anonymous users can'
 
 ### Production SaaS
 Ensure your Stripe Webhooks are pointing to production, your terms of service explicitly limit your liability for seller actions, and your DNS is fully propagated.
-`;
-
-export const marketplaceprd = `
+`,
+  'marketplaceprd': `
 ## Why this matters
 A Product Requirements Document for a marketplace must explicitly define the state machine of a transaction (e.g. Requested -> Accepted -> Escrowed -> Fulfilled -> Disputed/Released).
 
@@ -16359,9 +16239,8 @@ Write a PRD that heavily relies on existing third-party logic (like Stripe Conne
 
 ### Production SaaS
 Your PRD must include Edge Cases: What happens if a buyer disputes *after* funds are released? What happens if the seller's bank account fails KYC? What happens if a partial refund is requested? If these aren't documented, your engineers will build fatal security flaws.
-`;
-
-export const marketplaceuserflows = `
+`,
+  'marketplaceuserflows': `
 ## Why this matters
 You have two distinct user flows that intersect at the point of transaction. They must be mapped separately but harmonized at checkout.
 
@@ -16374,9 +16253,8 @@ Map out the "Supplier Onboarding" flow carefully. If it takes more than 3 steps 
 
 ### Production SaaS
 Map out the "Unhappy Paths". Dispute flows, password resets, KYC failure flows, and listing rejection flows. In a production marketplace, the unhappy paths generate 80% of your customer support tickets.
-`;
-
-export const marketplacewireframes = `
+`,
+  'marketplacewireframes': `
 ## Why this matters
 Marketplace wireframes usually revolve around three core screens: The Search/Discovery Grid, the Listing Detail Page, and the Checkout.
 
@@ -16389,9 +16267,8 @@ Focus your wireframing on mobile-responsiveness. Most buyers will browse on thei
 
 ### Production SaaS
 Your wireframes must include "Trust Signals" natively in the design. Verification badges, super-host icons, review aggregations, and secure-checkout lock icons must be prominent.
-`;
-
-export const marketplacedesignsystem = `
+`,
+  'marketplacedesignsystem': `
 ## Why this matters
 Your design system must handle highly dynamic, unpredictable user-generated content (UGC) without breaking the layout.
 
@@ -16404,9 +16281,8 @@ Ensure your design system handles variable-length text gracefully. Sellers will 
 
 ### Production SaaS
 Build a robust Image Pipeline into your design system. You need standardized aspect ratios (e.g. \`aspect-square\` or \`aspect-video\`) and rigorous fallback images, because sellers will upload terrible, poorly-cropped photos.
-`;
-
-export const marketplaceaccessibility = `
+`,
+  'marketplaceaccessibility': `
 ## Why this matters
 Marketplaces serve broad populations. If your search filters aren't screen-reader accessible, you are cutting off a segment of buyers.
 
@@ -16419,9 +16295,8 @@ Use semantic HTML (\`<nav>\`, \`<main>\`, \`<article>\`) for your listings. It g
 
 ### Production SaaS
 Ensure your complex UI elements (like price-range sliders, interactive maps, and date pickers) are fully accessible and keyboard navigable. A lawsuit over ADA compliance can bankrupt a scaling startup.
-`;
-
-export const marketplaceemptystates = `
+`,
+  'marketplaceemptystates': `
 ## Why this matters
 An empty search result is the #1 cause of buyer churn in a marketplace.
 
@@ -16434,9 +16309,8 @@ If search yields 0 results, always show "Popular in other categories" or "Recent
 
 ### Production SaaS
 Empty states must be conversion engines. If a buyer searches for "Plumbers in Austin" and gets 0 results, show a form: "Can't find one? Leave your email and we will notify you when a plumber joins." Use this data to prove demand to potential suppliers.
-`;
-
-export const marketplaceerrorstates = `
+`,
+  'marketplaceerrorstates': `
 ## Why this matters
 Payment errors and booking collisions (two people trying to book the same time/item) are unique to marketplaces.
 
@@ -16449,9 +16323,8 @@ Handle "Out of Stock" or "Date Unavailable" gracefully. Disable the Buy button *
 
 ### Production SaaS
 Handle "Race Conditions" elegantly. If two buyers try to buy the last item simultaneously, the loser must receive a highly empathetic error state, perhaps offering a discount on a similar item.
-`;
-
-export const marketplaceloadingstates = `
+`,
+  'marketplaceloadingstates': `
 ## Why this matters
 Search queries in a marketplace can be slow (geospatial queries + text matching + availability checking). Loading states must keep the user patient.
 
@@ -16464,9 +16337,8 @@ Use skeleton loaders shaped exactly like your listing cards. It dramatically red
 
 ### Production SaaS
 Implement "Optimistic UI" for seller actions. When a seller updates their listing price, show the new price immediately while the server request finishes in the background.
-`;
-
-export const marketplacebuyerjourney = `
+`,
+  'marketplacebuyerjourney': `
 ## Why this matters
 The Buyer Journey is heavily dependent on search mechanics, filters, and trust validation.
 
@@ -16484,9 +16356,8 @@ Add a "Wishlist" or "Save for Later" step. It's easy to build and significantly 
 
 ### Production SaaS
 Analyze the "Time to Discover". If buyers have to click more than 3 filters to find what they want, your taxonomy is broken. Invest in algorithmic recommendations (e.g. "Because you viewed X").
-`;
-
-export const marketplacesellerjourney = `
+`,
+  'marketplacesellerjourney': `
 ## Why this matters
 Sellers hate friction. If listing an item feels like doing taxes, they will abandon the platform.
 
@@ -16499,17 +16370,15 @@ Build a single-page form for listing items. No multi-step wizards. Just get the 
 
 ### Production SaaS
 Implement a "Listing Grader". As the seller types, give them a score out of 100 on how likely their item is to sell based on image quality, description length, and price competitiveness. This gamifies high-quality supply generation.
-`;
-
-export const marketplacemarketplacepolicies = `
+`,
+  'marketplacemarketplacepolicies': `
 ## Why this matters
 You need rules of engagement.
 
 ## Strategic Guidance
 Define exactly what items/services are prohibited. Define response time SLAs for sellers (e.g., "Sellers must ship within 3 days or the order is auto-canceled"). Enforce these algorithmically.
-`;
-
-export const marketplacetrustsafetyplanning = `
+`,
+  'marketplacetrustsafetyplanning': `
 ## Why this matters
 Without trust, a marketplace is just a scam directory.
 
@@ -16522,9 +16391,8 @@ Implement email verification and require a connected Stripe account for sellers.
 
 ### Production SaaS
 Trust is your core product. Implement automated KYC/AML (Know Your Customer / Anti-Money Laundering) via Stripe Identity or Persona. Build a robust reporting system for users to flag inappropriate listings. Hold seller payouts in escrow for 7 days to ensure buyer satisfaction.
-`;
-
-export const marketplacetechstackselection = `
+`,
+  'marketplacetechstackselection': `
 ## Why this matters
 Your stack must handle complex relational data (users -> listings -> bookings -> reviews -> transactions). 
 
@@ -16537,9 +16405,8 @@ Stick to Next.js or Remix for SSR (Server-Side Rendering). SEO is critical for m
 
 ### Production SaaS
 Separate the frontend from the backend. Use a dedicated API (Node/Nest/Go) and a highly robust relational database (PostgreSQL). You will eventually need complex geospatial queries (PostGIS) or heavy text-search (Algolia/ElasticSearch), which are hard to manage purely through BaaS constraints.
-`;
-
-export const marketplaceauthentication = `
+`,
+  'marketplaceauthentication': `
 ## Why this matters
 Marketplaces have dual-sided auth. Can a buyer easily become a seller using the same account? 
 
@@ -16552,9 +16419,8 @@ Allow users to have one account. Add a \`role\` column (e.g. \`buyer\`, \`seller
 
 ### Production SaaS
 You must implement rigorous session management and multi-factor authentication (MFA) for seller accounts, as they hold financial data and routing numbers. Compromised seller accounts are a massive attack vector.
-`;
-
-export const marketplacecostestimation = `
+`,
+  'marketplacecostestimation': `
 ## Why this matters
 Marketplaces scale differently than SaaS. You have massive read-volume (buyers searching) but lower write-volume (transactions). 
 
@@ -16567,9 +16433,8 @@ Your biggest cost will be image storage and bandwidth. Sellers upload huge, unop
 
 ### Production SaaS
 Stripe Connect fees (for routing payments) and search infrastructure (Algolia) will dominate your COGS. Optimize your search indices to only update when a listing changes, rather than on every view, to save costs.
-`;
-
-export const marketplacereviewsratings = `
+`,
+  'marketplacereviewsratings': `
 ## Why this matters
 Reviews are the currency of trust in a marketplace.
 
@@ -16582,9 +16447,8 @@ Allow buyers to leave a 1-5 rating and a text review *only if* they have a compl
 
 ### Production SaaS
 Implement a "Double-Blind" review system (like Airbnb). Neither party sees the review until both have submitted theirs, or 14 days have passed. This prevents retaliatory reviews and ensures honest feedback.
-`;
-
-export const marketplaceuserarchitecture = `
+`,
+  'marketplaceuserarchitecture': `
 ## Why this matters
 How you structure users in your database dictates your entire platform's flexibility.
 
@@ -16597,9 +16461,8 @@ One \`Users\` table, with a \`role\` enum. This allows a user to act as a buyer 
 
 ### Production SaaS
 Use a unified \`Users\` table for Auth, but separate \`BuyerProfiles\` and \`SellerProfiles\` tables for business logic. A seller profile needs tax IDs, payout routing numbers, and business addresses. A buyer profile just needs shipping info and preferences.
-`;
-
-export const marketplaceauthorization = `
+`,
+  'marketplaceauthorization': `
 ## Why this matters
 Sellers must only be able to edit *their own* listings. Buyers must only be able to see *their own* purchase history.
 
@@ -16612,9 +16475,8 @@ Implement Row Level Security (RLS) if using Supabase, or simple middleware check
 
 ### Production SaaS
 Implement robust Role-Based Access Control (RBAC). What happens when a Seller becomes a "Company" and wants to add "Staff" accounts to manage their listings? You need an organization-level authorization architecture (e.g. Permit.io or Cerbos) early.
-`;
-
-export const marketplacelistingsystem = `
+`,
+  'marketplacelistingsystem': `
 ## Why this matters
 Listings are the core entity. They require inventory management, pricing logic, and availability windows.
 
@@ -16627,9 +16489,8 @@ Add a \`status\` column (\`draft\`, \`active\`, \`paused\`, \`sold\`). Never phy
 
 ### Production SaaS
 If you are a booking/rental marketplace, the \`Listings\` table is simple, but the \`Availability\` or \`Inventory\` tables are a nightmare. You must handle timezone conversions, double-booking race conditions, and recurring availability rules. Rely on robust PostgreSQL constraints.
-`;
-
-export const marketplacesearcharchitecture = `
+`,
+  'marketplacesearcharchitecture': `
 ## Why this matters
 If buyers can't find it, they can't buy it.
 
@@ -16642,9 +16503,8 @@ Use PostgreSQL Full-Text Search. It's built-in, handles stemming (matching "runn
 
 ### Production SaaS
 You must use a dedicated search engine (Algolia, Typesense, ElasticSearch). Your search must support typo-tolerance, faceted filtering (checkboxes for size/color), geospatial queries (radius search), and personalized ranking (showing higher-converting listings first).
-`;
-
-export const marketplacepaymentsarchitecture = `
+`,
+  'marketplacepaymentsarchitecture': `
 ## Why this matters
 You are routing money between two untrusted parties. You cannot legally hold the funds in your own bank account (money transmission laws).
 
@@ -16662,9 +16522,8 @@ Use Stripe Connect (Standard or Express). Let Stripe handle all the seller onboa
 
 ### Production SaaS
 Decide between "Destination Charges" vs "Separate Charges and Transfers". If you need to hold funds in Escrow for 14 days (e.g. until the product is shipped and verified), you must architect complex webhook listeners to trigger the final transfer to the seller.
-`;
-
-export const marketplacemessagingsystem = `
+`,
+  'marketplacemessagingsystem': `
 ## Why this matters
 Buyers and sellers need to communicate. If they communicate off-platform, they will transact off-platform (disintermediation).
 
@@ -16677,9 +16536,8 @@ Build a simple comment thread on the booking/transaction object. A basic polling
 
 ### Production SaaS
 Build a robust, realtime chat interface (like Twilio Conversations or Sendbird). You must implement automated filters that block phone numbers and email addresses in the chat to prevent users from bypassing your take rate.
-`;
-
-export const marketplacedisputeresolution = `
+`,
+  'marketplacedisputeresolution': `
 ## Why this matters
 Inevitably, a seller will scam a buyer, or a buyer will claim they never received the item. Who decides who gets the money?
 
@@ -16692,9 +16550,8 @@ Provide a "Report Issue" button that sends an email to you (the admin). You hand
 
 ### Production SaaS
 You must build a dedicated Admin Dashboard (using Retool or custom React). The dashboard must show the entire transaction timeline, the chat logs between the buyer and seller, and provide one-click buttons to issue partial or full refunds. If your dispute volume scales linearly with GMV, you will drown in support costs.
-`;
-
-export const marketplacedatabaseschema = `
+`,
+  'marketplacedatabaseschema': `
 ## Why this matters
 Marketplace schemas are heavily relational. You cannot afford data anomalies when dealing with financial transactions.
 
@@ -16707,9 +16564,8 @@ Ensure your \`Transactions\` table captures the *price at the time of purchase*.
 
 ### Production SaaS
 Your schema must handle complex edge cases: Multi-currency, tax calculation lines, platform fees vs shipping fees, and strict foreign key constraints. Use UUIDs, not auto-incrementing integers, to prevent competitors from scraping your transaction volume.
-`;
-
-export const marketplacedemotransactions = `
+`,
+  'marketplacedemotransactions': `
 ## Why this matters
 You need to prove that the money flows correctly.
 
@@ -16722,9 +16578,8 @@ Use Stripe's test credit cards (4242...) to show a real checkout flow working in
 
 ### Production SaaS
 Write automated E2E tests (Playwright/Cypress) that simulate a buyer purchasing, the webhook firing, the database updating the state to 'Escrowed', and the payout being queued. Payment logic cannot be tested manually; the regressions are too dangerous.
-`;
-
-export const marketplaceauthenticationimplementation = `
+`,
+  'marketplaceauthenticationimplementation': `
 ## Why this matters
 Executing dual-sided auth securely is the foundation of a marketplace.
 
@@ -16737,9 +16592,8 @@ Implement social logins (Google, Apple). Buyers vastly prefer one-click login ov
 
 ### Production SaaS
 Implement SSO (Single Sign-On) if targeting B2B sellers. Build session invalidation logic so if a seller reports a compromised account, you can instantly kill all their active JWTs globally.
-`;
-
-export const marketplacedatabase = `
+`,
+  'marketplacedatabase': `
 ## Why this matters
 Marketplace data is highly structured. A poor database schema will result in impossibly slow queries.
 
@@ -16752,9 +16606,8 @@ Use Prisma or Drizzle ORM. Type safety from your database to your frontend will 
 
 ### Production SaaS
 Use PostgreSQL. Implement robust indexing (B-Tree for standard lookups, GiST/GIN for geospatial or text search). Ensure your financial ledgers use \`DECIMAL\` or store cents as integers, NEVER use floating-point numbers for money.
-`;
-
-export const marketplacebackend = `
+`,
+  'marketplacebackend': `
 ## Why this matters
 The backend acts as the referee between the buyer and the seller.
 
@@ -16767,9 +16620,8 @@ Ensure your backend routes validate input rigorously using Zod. Never trust that
 
 ### Production SaaS
 Extract heavy jobs (image resizing, bulk email notifications, PDF receipt generation) into background workers (e.g. Inngest, BullMQ). If a buyer checks out and the server hangs while generating an email, the checkout will timeout and fail.
-`;
-
-export const marketplacefrontend = `
+`,
+  'marketplacefrontend': `
 ## Why this matters
 The frontend must feel incredibly snappy, especially the search experience.
 
@@ -16782,9 +16634,8 @@ Use TanStack Query (React Query) for all data fetching. It provides caching, loa
 
 ### Production SaaS
 Implement advanced optimistic updates. If a buyer clicks "Save to Wishlist", the heart icon should instantly turn red, even if the backend request takes 300ms. High perceived performance increases conversion.
-`;
-
-export const marketplacepayments = `
+`,
+  'marketplacepayments': `
 ## Why this matters
 Executing Stripe Connect logic is notoriously difficult.
 
@@ -16802,9 +16653,8 @@ Use Stripe Connect Express. It gives sellers a pre-built dashboard to manage the
 
 ### Production SaaS
 Implement Idempotency Keys on all payment and refund requests. If your server crashes mid-request and retries, you do not want to accidentally refund a buyer twice.
-`;
-
-export const marketplacenotifications = `
+`,
+  'marketplacenotifications': `
 ## Why this matters
 Prompt notifications drive marketplace liquidity. If a seller doesn't know they have an order, the buyer gets a bad experience.
 
@@ -16817,9 +16667,8 @@ Send transactional emails using Resend. Send "Order Confirmed" to the buyer and 
 
 ### Production SaaS
 Build an aggressive multi-channel notification engine (Email, SMS via Twilio, and Push Notifications). For critical actions (e.g. "Your booking starts in 1 hour"), SMS is required because email open rates are too slow.
-`;
-
-export const marketplacesearch = `
+`,
+  'marketplacesearch': `
 ## Why this matters
 Search is the engine of GMV.
 
@@ -16832,9 +16681,8 @@ Implement basic server-side pagination and simple SQL \`ILIKE\` filtering. Don't
 
 ### Production SaaS
 Implement Algolia or Typesense. You must support faceted search (e.g. filtering by brand, size, location) and typo-tolerance. Track "Search without Clicks" metrics to optimize your ranking algorithms continuously.
-`;
-
-export const marketplaceanalytics = `
+`,
+  'marketplaceanalytics': `
 ## Why this matters
 You must track the funnel: Search -> View Listing -> Add to Cart -> Purchase.
 
@@ -16847,9 +16695,8 @@ Install PostHog. It tracks every click automatically (autocapture) so you can wa
 
 ### Production SaaS
 Implement server-side analytics for financial events. Client-side tracking is blocked by ad-blockers, so if you rely on the frontend to track "Purchases", your analytics will under-report your GMV by 30%.
-`;
-
-export const marketplaceadminpanel = `
+`,
+  'marketplaceadminpanel': `
 ## Why this matters
 You need a God-mode dashboard to resolve disputes, refund buyers, and ban bad sellers.
 
@@ -16862,9 +16709,8 @@ Build a hidden \`/admin\` route protected by a simple password check. Build basi
 
 ### Production SaaS
 Use Retool to build an internal CRM. Customer support agents should not have direct SQL access to the production database. The admin panel must log every action an agent takes (Audit Logs) for security.
-`;
-
-export const marketplacetesting = `
+`,
+  'marketplacetesting': `
 ## Why this matters
 Marketplaces break in complex ways due to dual-sided interactions.
 
@@ -16877,9 +16723,8 @@ Write 3 E2E (End-to-End) tests using Playwright: The Buyer Signup flow, the Sell
 
 ### Production SaaS
 Implement rigorous Unit Tests for your fee-calculation logic. If your code calculates the 10% take-rate incorrectly, you will either lose money on every transaction or overcharge your users, leading to legal disaster.
-`;
-
-export const marketplacedocumentation = `
+`,
+  'marketplacedocumentation': `
 ## Why this matters
 If you have complex seller policies, they must be documented.
 
@@ -16892,9 +16737,8 @@ Write a simple markdown FAQ page.
 
 ### Production SaaS
 Use Mintlify or similar tools to host a robust "Seller Center". Provide guides on how to optimize listings, how payouts work, and how disputes are handled. Good documentation deflects thousands of support tickets.
-`;
-
-export const marketplaceauthorizationimplementation = `
+`,
+  'marketplaceauthorizationimplementation': `
 ## Why this matters
 Preventing users from accessing other people's data.
 
@@ -16907,9 +16751,8 @@ Use Supabase Row Level Security (RLS) to ensure buyers can only read public list
 
 ### Production SaaS
 Implement comprehensive RBAC (Role-Based Access Control) using tools like Permit.io, especially if you support B2B sellers who have "teams" of employees managing a single store.
-`;
-
-export const marketplacelistings = `
+`,
+  'marketplacelistings': `
 ## Why this matters
 Listing quality dictates buyer conversion.
 
@@ -16922,9 +16765,8 @@ Implement Draft and Published states. Let sellers preview their listing before i
 
 ### Production SaaS
 Implement an approval queue. When a seller publishes a listing, it goes into "Pending" state until an automated ML model (or a human moderator) verifies it doesn't violate terms of service (e.g. no prohibited items, no nudity).
-`;
-
-export const marketplacemessaging = `
+`,
+  'marketplacemessaging': `
 ## Why this matters
 In-app messaging prevents users from sharing phone numbers and bypassing your fee.
 
@@ -16937,9 +16779,8 @@ Build a simple comment thread. No read-receipts, no typing indicators.
 
 ### Production SaaS
 Implement Sendbird or Twilio. Build regex filters that automatically block messages containing "@" or phone number patterns. If users try to share contact info, warn them they will be banned.
-`;
-
-export const marketplacereviews = `
+`,
+  'marketplacereviews': `
 ## Why this matters
 Reviews generate SEO and trust.
 
@@ -16952,9 +16793,8 @@ Allow basic 1-5 star text reviews. Aggregate the average on the server to preven
 
 ### Production SaaS
 Implement automated review prompts via email 3 days after a transaction. Build logic to flag and quarantine reviews that contain hate speech or PII (Personally Identifiable Information) before they are displayed publicly.
-`;
-
-export const marketplacemoderationtools = `
+`,
+  'marketplacemoderationtools': `
 ## Why this matters
 You must keep bad actors off your platform.
 
@@ -16967,9 +16807,8 @@ Add a "Report Listing" button that emails you directly.
 
 ### Production SaaS
 Integrate automated moderation APIs (like AWS Rekognition for images or OpenAI moderation for text) to auto-ban egregious content. Build a robust suspension system where banned sellers can appeal decisions.
-`;
-
-export const marketplacesecurity = `
+`,
+  'marketplacesecurity': `
 ## Why this matters
 Marketplaces are honeypots for financial fraud, money laundering, and credential stuffing.
 
@@ -16982,9 +16821,8 @@ Implement basic rate limiting on the login and sign-up routes to prevent credent
 
 ### Production SaaS
 You must implement comprehensive KYC (Know Your Customer) and AML (Anti-Money Laundering) checks for sellers via Stripe Identity or Persona. If you facilitate money laundering, the government will hold the platform liable. Also, secure all seller payout endpoints with explicit MFA checks.
-`;
-
-export const marketplaceperformanceoptimization = `
+`,
+  'marketplaceperformanceoptimization': `
 ## Why this matters
 A slow marketplace kills conversions. Amazon found that 100ms of latency costs 1% in sales.
 
@@ -16997,9 +16835,8 @@ Optimize your images! Use Next.js \`<Image />\` component or Cloudinary to autom
 
 ### Production SaaS
 Implement aggressive Edge Caching for the search results and listing pages using Vercel or Cloudflare. Dynamic pricing or inventory updates should be injected client-side (via SWR/TanStack Query) over a static shell.
-`;
-
-export const marketplacemonitoring = `
+`,
+  'marketplacemonitoring': `
 ## Why this matters
 If the Stripe integration breaks silently, you lose money every minute.
 
@@ -17012,9 +16849,8 @@ Set up BetterStack or UptimeRobot to ping your site every 5 minutes. If it goes 
 
 ### Production SaaS
 Implement synthetic monitoring for your critical checkout flow. Tools like Datadog or Checkly will simulate a buyer checking out every 10 minutes. If the synthetic transaction fails, PagerDuty must wake up the on-call engineer.
-`;
-
-export const marketplacelogging = `
+`,
+  'marketplacelogging': `
 ## Why this matters
 When a seller claims they never received a payout, logs are your only proof.
 
@@ -17027,9 +16863,8 @@ Use standard Vercel logs, but ensure you attach the \`transaction_id\` to any lo
 
 ### Production SaaS
 Implement structured JSON logging (e.g. Pino) and ship logs to Axiom or Datadog. Ensure you DO NOT log PII (credit card numbers, plain text passwords, or social security numbers). Implement log masking before they leave the server.
-`;
-
-export const marketplaceerrortracking = `
+`,
+  'marketplaceerrortracking': `
 ## Why this matters
 Errors in the checkout flow = lost GMV.
 
@@ -17042,9 +16877,8 @@ Install Sentry. The free tier is enough to catch fatal crashes in your React app
 
 ### Production SaaS
 Implement Session Replay (LogRocket or PostHog) combined with Sentry. When a buyer encounters an error at checkout, you can literally watch a video playback of their screen to see exactly what they clicked before the crash.
-`;
-
-export const marketplaceratelimiting = `
+`,
+  'marketplaceratelimiting': `
 ## Why this matters
 Competitors will try to scrape your entire marketplace inventory (supply) to bootstrap their own platform.
 
@@ -17057,9 +16891,8 @@ Implement a basic IP-based rate limit using Upstash Redis on your API routes (e.
 
 ### Production SaaS
 Implement sophisticated behavioral rate limiting and CAPTCHAs (like Cloudflare Turnstile). Scrapers will rotate IPs, so IP-based rate limiting isn't enough. Rate limit based on user sessions, device fingerprints, and geographic anomalies.
-`;
-
-export const marketplacecaching = `
+`,
+  'marketplacecaching': `
 ## Why this matters
 Database queries for "Search within 50 miles of NYC" are incredibly expensive.
 
@@ -17072,9 +16905,8 @@ Use React Query (TanStack Query) to cache data on the client. If a user clicks b
 
 ### Production SaaS
 Implement a distributed Redis cache (Upstash or ElastiCache). Cache the results of complex geospatial searches for 5 minutes. Invalidate the cache explicitly when a high-profile listing is booked or taken offline.
-`;
-
-export const marketplacebackups = `
+`,
+  'marketplacebackups': `
 ## Why this matters
 If you lose your database, you lose your sellers' livelihoods and your buyers' orders.
 
@@ -17087,9 +16919,8 @@ Enable Point-in-Time Recovery (PITR) on your Supabase or database provider. It's
 
 ### Production SaaS
 Maintain cross-region read replicas. Implement daily logical backups (pg_dump) stored in an immutable Amazon S3 bucket (object lock enabled) to protect against ransomware or rogue employee deletions.
-`;
-
-export const marketplacecicd = `
+`,
+  'marketplacecicd': `
 ## Why this matters
 You need to ship bug fixes rapidly without breaking the checkout flow.
 
@@ -17102,9 +16933,8 @@ Add a GitHub Action that runs \`npm run lint\` and \`npm run build\` before allo
 
 ### Production SaaS
 Implement staging environments with cloned (but anonymized) production data. Run E2E Cypress tests against staging. If a PR breaks the simulated Stripe webhook, block the deployment.
-`;
-
-export const marketplacefraudprevention = `
+`,
+  'marketplacefraudprevention': `
 ## Why this matters
 Fraudsters will use stolen credit cards to buy items on your platform, resulting in chargebacks. You (the platform) are often liable for these chargebacks.
 
@@ -17117,9 +16947,8 @@ Enable Stripe Radar basic rules. Block payments from high-risk IP addresses or a
 
 ### Production SaaS
 Implement Stripe Radar for Fraud Teams or a dedicated fraud engine (Sift/Riskified). Build velocity rules: If a brand new seller account suddenly receives 50 orders in an hour, automatically freeze their payouts until manual review.
-`;
-
-export const marketplacescalabilityplanning = `
+`,
+  'marketplacescalabilityplanning': `
 ## Why this matters
 Marketplaces experience massive spikes (e.g., ticket marketplaces on a Friday morning launch).
 
@@ -17132,9 +16961,8 @@ Ensure you aren't doing N+1 queries in your ORM. Fetching 50 listings and doing 
 
 ### Production SaaS
 Implement connection pooling (PgBouncer) for your database. Offload all read-heavy traffic to read replicas, reserving the primary database purely for writes (transactions).
-`;
-
-export const marketplaceabusedetection = `
+`,
+  'marketplaceabusedetection': `
 ## Why this matters
 Spammers will flood your messaging system trying to phish users or move transactions off-platform.
 
@@ -17147,177 +16975,155 @@ Build a "Report User" button.
 
 ### Production SaaS
 Implement automated NLP (Natural Language Processing) on all user messages. Flag and quarantine messages containing emails, phone numbers, or cryptocurrency wallet addresses. Implement shadow-banning for chronic spammers.
-`;
-
-export const marketplaceenterprisemoderation = `
+`,
+  'marketplaceenterprisemoderation': `
 ## Why this matters
 Moderating thousands of listings manually is impossible.
 
 ## Strategic Guidance
 Build a Moderation Queue. Use AI (AWS Rekognition or OpenAI Vision) to auto-approve clean images, and flag blurry, inappropriate, or heavily watermarked images for human review. Track "Moderator Actions per Hour" to scale your trust and safety team.
-`;
-
-export const marketplaceadvancedfrauddetection = `
+`,
+  'marketplaceadvancedfrauddetection': `
 ## Why this matters
 Professional fraudsters use advanced techniques like triangulation fraud and account takeovers.
 
 ## Strategic Guidance
 Monitor device fingerprints and IP velocity. If a buyer suddenly logs in from a new country and makes a massive purchase, force step-up authentication (SMS code). Escrow funds for high-risk transactions for 14+ days.
-`;
-
-export const marketplacelargescaleinfrastructure = `
+`,
+  'marketplacelargescaleinfrastructure': `
 ## Why this matters
 Global marketplaces require low latency for users everywhere.
 
 ## Strategic Guidance
 Implement Multi-Region architecture (e.g., Active-Active databases via CockroachDB or Spanner). Route European users to EU servers (critical for GDPR) and US users to US servers, while maintaining a unified global search index.
-`;
-
-export const marketplaceprivacypolicy = `
+`,
+  'marketplaceprivacypolicy': `
 ## Why this matters
 Marketplaces collect massive amounts of PII (addresses, IDs, financial data).
 
 ## Strategic Guidance
 Use Termly to generate a policy. You must explicitly state how you share data with third parties (like Stripe for payments or Algolia for search).
-`;
-
-export const marketplacetermsofservice = `
+`,
+  'marketplacetermsofservice': `
 ## Why this matters
 Your TOS is your shield. You must define that you are a *venue*, not a participant in the transaction, to avoid liability for defective goods or services.
 
 ## Strategic Guidance
 Explicitly state that users may not circumvent the platform (disintermediation). Define your arbitration clause to prevent class-action lawsuits.
-`;
-
-export const marketplacebetatesting = `
+`,
+  'marketplacebetatesting': `
 ## Why this matters
 You need to test the transaction flow with real money before a public launch.
 
 ## Strategic Guidance
 Onboard 10 highly trusted sellers manually. Make real purchases yourself using real credit cards to ensure the Stripe Connect splits and payouts work flawlessly before inviting strangers.
-`;
-
-export const marketplaceselleronboarding = `
+`,
+  'marketplaceselleronboarding': `
 ## Why this matters
 High-quality supply requires low-friction onboarding.
 
 ## Strategic Guidance
 Don't ask for tax IDs or bank routing numbers upfront. Let sellers create their profile and list their first item immediately. Only ask for the heavy KYC/financial data *after* they make their first sale. This is called "Progressive Onboarding".
-`;
-
-export const marketplacebuyeronboarding = `
+`,
+  'marketplacebuyeronboarding': `
 ## Why this matters
 Buyers should experience zero friction until checkout.
 
 ## Strategic Guidance
 Allow "Guest Checkout". Force account creation *after* the payment succeeds by just asking them for a password (you already have their email from the checkout flow).
-`;
-
-export const marketplaceanalyticssetup = `
+`,
+  'marketplaceanalyticssetup': `
 ## Why this matters
 You must track the funnel.
 
 ## Strategic Guidance
 Set up PostHog or Google Analytics. Track these specific events: \`search_performed\`, \`listing_viewed\`, \`checkout_started\`, \`checkout_completed\`. If \`checkout_started\` is high but \`checkout_completed\` is low, your pricing/fees are scaring them away.
-`;
-
-export const marketplaceseo = `
+`,
+  'marketplaceseo': `
 ## Why this matters
 SEO is the most sustainable demand acquisition channel for marketplaces.
 
 ## Strategic Guidance
 Implement Programmatic SEO. Every listing, category, and city should automatically generate a static, SEO-optimized page (e.g., \`/plumbers/austin-tx\`). Ensure Next.js generates correct \`<title>\` and structured JSON-LD schema for each page.
-`;
-
-export const marketplacelegaldocuments = `
+`,
+  'marketplacelegaldocuments': `
 ## Why this matters
 Marketplaces have heavy compliance burdens.
 
 ## Strategic Guidance
 Use Stripe Atlas to incorporate. Ensure you have independent contractor agreements if you classify suppliers as 1099 workers, and consult a lawyer about AB5 laws if you are building a gig marketplace (like Uber/Instacart).
-`;
-
-export const marketplacerefundpolicies = `
+`,
+  'marketplacerefundpolicies': `
 ## Why this matters
 Refunds in a marketplace are complex because you've already paid the seller (and taken your cut).
 
 ## Strategic Guidance
 Define who eats the cost of a refund. Does the seller have to return the money? Does the platform refund its fee? Hold funds in escrow until the refund window closes to avoid negative balances.
-`;
-
-export const marketplacelaunchchecklist = `
+`,
+  'marketplacelaunchchecklist': `
 ## Why this matters
 Don't launch with broken payments.
 
 ## Strategic Guidance
 Ensure Stripe Webhooks are pointed to production. Ensure SSL/TLS is strictly enforced. Send a test email from your production domain to verify SPF/DKIM records. Flip the switch.
-`;
-
-export const marketplaceretention = `
+`,
+  'marketplaceretention': `
 ## Why this matters
 Acquiring a buyer costs money; retaining them is pure profit.
 
 ## Strategic Guidance
 Implement targeted lifecycle emails. If a buyer books a cleaning service, email them 30 days later asking if they want to book again. For sellers, send weekly "Performance Reports" showing how many views their listings got.
-`;
-
-export const marketplacereferralprograms = `
+`,
+  'marketplacereferralprograms': `
 ## Why this matters
 Network effects thrive on referrals.
 
 ## Strategic Guidance
 Implement a dual-sided referral program. "Give a friend $20, get $20 when they buy." Use tools like Branch.io to generate deep links that track attribution perfectly across app installs.
-`;
-
-export const marketplaceroadmap = `
+`,
+  'marketplaceroadmap': `
 ## Why this matters
 You must constantly evolve to stop competitors from stealing your liquidity.
 
 ## Strategic Guidance
 Move from "Venue" to "Workflow". Once you connect the buyer and seller, build tools they use *after* the connection (e.g., invoicing, insurance, CRM). This makes your platform "sticky".
-`;
-
-export const marketplacescalingstrategy = `
+`,
+  'marketplacescalingstrategy': `
 ## Why this matters
 You must expand methodically.
 
 ## Strategic Guidance
 Use the "Bowling Pin" strategy. Once you dominate one hyper-niche (e.g., vintage guitars), launch a closely adjacent niche (e.g., vintage synthesizers). Do not jump to unrelated categories (e.g., used cars).
-`;
-
-export const marketplacesupplygrowth = `
+`,
+  'marketplacesupplygrowth': `
 ## Why this matters
 More supply = better buyer experience.
 
 ## Strategic Guidance
 Build a "Scrape & Claim" system. Scrape public business data, build beautiful profile pages for them, and email the owners saying, "You have 50 views on your profile, click here to claim it and start accepting bookings."
-`;
-
-export const marketplacedemandgrowth = `
+`,
+  'marketplacedemandgrowth': `
 ## Why this matters
 More demand = happier sellers.
 
 ## Strategic Guidance
 Invest heavily in long-tail SEO and paid search (Google Ads) capturing extremely high-intent queries (e.g., "hire emergency plumber near me right now").
-`;
-
-export const marketplacereviewsoptimization = `
+`,
+  'marketplacereviewsoptimization': `
 ## Why this matters
 Reviews drive conversion algorithms.
 
 ## Strategic Guidance
 Algorithmically sort reviews to show the most helpful ones first, not just chronological. Prompt users to leave photo reviews, as UGC images increase conversion by over 30%.
-`;
-
-export const marketplacemarketplaceliquidity = `
+`,
+  'marketplacemarketplaceliquidity': `
 ## Why this matters
 The ultimate metric of marketplace success.
 
 ## Strategic Guidance
 Track your "Search to Fill" rate rigorously. Build internal dashboards that flag "Liquidity Deserts" (e.g., you have lots of buyers searching in Dallas, but zero sellers). Focus your entire acquisition budget on filling those specific deserts.
-`;
-
-export const ecommercetargetaudience = `
+`,
+  'ecommercetargetaudience': `
 ## Why this matters
 In e-commerce, targeting "everyone" means targeting no one. Advertising algorithms (Meta/Google Ads) require incredibly tight lookalike audiences to keep your Customer Acquisition Cost (CAC) profitable.
 
@@ -17336,9 +17142,8 @@ Target an audience that already congregates in free, organic channels (a specifi
 
 ### Production E-Commerce
 Analyze audience LTV (Lifetime Value). Are you targeting one-off buyers (wedding rings) or high-frequency buyers (skincare routines)? High-frequency buyers allow for subscription (Subscribe & Save) models, which drastically increase valuation multiples.
-`;
-
-export const ecommercevalueproposition = `
+`,
+  'ecommercevalueproposition': `
 ## Why this matters
 Why should someone buy from your obscure website instead of Amazon? You cannot compete on 2-day shipping or price. You must compete on curation, brand, or exclusive access.
 
@@ -17357,9 +17162,8 @@ Focus on curation. Your value prop is "I did 100 hours of research so you don't 
 
 ### Production E-Commerce
 You must define your "Unfair Advantage". Is it proprietary manufacturing (DTC)? Is it an exclusive licensing deal? Is it a massive influencer audience? If you are just drop-shipping generic Ali-Express items, your value prop is a race to the bottom.
-`;
-
-export const ecommercecompetitoranalysis = `
+`,
+  'ecommercecompetitoranalysis': `
 ## Why this matters
 Your competitors dictate your price ceiling and your advertising floor.
 
@@ -17380,9 +17184,8 @@ Look at your competitors' 1-star reviews on Trustpilot. That is your product roa
 
 ### Production E-Commerce
 Analyze their supply chain and AOV (Average Order Value). Are they doing free shipping? If so, you probably have to as well, which means you must build the cost of shipping into your base product price.
-`;
-
-export const ecommercesuccessmetrics = `
+`,
+  'ecommercesuccessmetrics': `
 ## Why this matters
 E-commerce is a math equation: \`(Traffic * Conversion Rate * AOV) - (CAC + COGS) = Profit\`.
 
@@ -17401,9 +17204,8 @@ Focus on Conversion Rate. The industry average is 2-3%. If you can get 5%, you h
 
 ### Production E-Commerce
 You must ruthlessly track Blended ROAS (Return on Ad Spend), LTV:CAC Ratio, and Gross Margin. If your Gross Margin is below 50%, you will struggle to afford paid advertising.
-`;
-
-export const ecommercestorefundamentals = `
+`,
+  'ecommercestorefundamentals': `
 ## Why this matters
 Are you building a Single Product Store, a Niche Boutique, or a Massive Catalog?
 
@@ -17416,9 +17218,8 @@ Keep it under 20 SKUs. Manage inventory manually to save time.
 
 ### Production E-Commerce
 Your catalog hierarchy (Categories > Subcategories > Products > Variants) must be defined on Day 1. Changing this taxonomy later will destroy your SEO rankings and break thousands of URLs.
-`;
-
-export const ecommercebusinessdefinition = `
+`,
+  'ecommercebusinessdefinition': `
 ## Why this matters
 You must define how the physical goods actually get to the customer.
 
@@ -17437,9 +17238,8 @@ Start with Print-on-Demand (Printify/Printful) or Drop-shipping. Do not buy $5,0
 
 ### Production E-Commerce
 If you are doing 3PL (e.g. ShipBob), you must architect deep inventory-syncing webhooks. If your site sells an item that the 3PL doesn't actually have, you will incur massive chargebacks and angry customers.
-`;
-
-export const ecommercebrandvision = `
+`,
+  'ecommercebrandvision': `
 ## Why this matters
 Brand is the only long-term defense against commoditization.
 
@@ -17452,9 +17252,8 @@ Develop a "Voice". If you are selling tactical gear, sound intense. If you are s
 
 ### Production E-Commerce
 Your brand must be completely unified across your web storefront, your Instagram ads, your unboxing experience (custom packaging), and your customer support macros.
-`;
-
-export const ecommerceproductcatalogplanning = `
+`,
+  'ecommerceproductcatalogplanning': `
 ## Why this matters
 Variants (Sizes, Colors) cause combinatorial explosions in database architecture.
 
@@ -17467,9 +17266,8 @@ Hardcode the variants in a simple JSON array. Don't over-engineer a relational d
 
 ### Production E-Commerce
 You must understand \`Options\` vs \`Variants\`. A Product has Options (Size, Color). A Variant is the specific combination (Large, Red). Each Variant needs its own SKU, its own Inventory Count, and potentially its own Price and Image.
-`;
-
-export const ecommercestoreeconomics = `
+`,
+  'ecommercestoreeconomics': `
 ## Why this matters
 Unit economics will determine if you survive.
 
@@ -17482,9 +17280,8 @@ Calculate your breakeven. If you sell a $20 item, and shipping is $5, and the it
 
 ### Production E-Commerce
 Calculate your Contribution Margin. Include Payment Gateway fees (Stripe's 2.9% + 30¢), Pick & Pack fees from the warehouse, Shipping fees, Returns processing, and Blended CAC.
-`;
-
-export const ecommercepricingstrategy = `
+`,
+  'ecommercepricingstrategy': `
 ## Why this matters
 Price signals quality.
 
@@ -17503,9 +17300,8 @@ Price higher than you think. It gives you a buffer for mistakes and shipping mis
 
 ### Production E-Commerce
 Implement "Psychological Pricing" ($19.99 vs $20.00). Map out your discounting strategy carefully. If you train your customers to expect a 20% off coupon every weekend, they will never buy at full price again (The Bed Bath & Beyond effect).
-`;
-
-export const ecommercemvpscope = `
+`,
+  'ecommercemvpscope': `
 ## Why this matters
 E-commerce is incredibly complex under the hood. You must limit the scope to launch.
 
@@ -17518,9 +17314,8 @@ Use Shopify. Do not build a custom React storefront unless the technical challen
 
 ### Production E-Commerce
 Your MVP must include a robust Cart, Checkout, Post-purchase email flows, and a returns portal. If you launch without a way for customers to track their order, your support inbox will explode on Day 1.
-`;
-
-export const ecommercestoreconcept = `
+`,
+  'ecommercestoreconcept': `
 ## Why this matters
 What is the "hook" for your store?
 
@@ -17533,9 +17328,8 @@ A store that solves a highly specific problem for a hobby you love.
 
 ### Production E-Commerce
 A brand that attacks a stale, sleeping incumbent industry (e.g. Dollar Shave Club attacking Gillette).
-`;
-
-export const ecommercedemoproducts = `
+`,
+  'ecommercedemoproducts': `
 ## Why this matters
 An empty store looks terrible.
 
@@ -17548,9 +17342,8 @@ Write a quick script to seed your database with 20 realistic products so you can
 
 ### Production E-Commerce
 Ensure your staging environment is loaded with edge-case products (e.g. a product with a 100-character name, a product with zero inventory, a product with 50 variants) to break your UI before customers do.
-`;
-
-export const ecommercepitchdeck = `
+`,
+  'ecommercepitchdeck': `
 ## Why this matters
 Investors want to see margin and distribution.
 
@@ -17563,9 +17356,8 @@ Focus on your organic distribution channel (e.g. "I have a TikTok with 50k follo
 
 ### Production E-Commerce
 Focus on your CAC to LTV ratio. Show that you have a repeatable, profitable machine: "If we put $1 in, we get $3 out in 60 days."
-`;
-
-export const ecommercedemoscript = `
+`,
+  'ecommercedemoscript': `
 ## Why this matters
 You must prove the money flows.
 
@@ -17578,9 +17370,8 @@ Show the email receipt arriving in your inbox to prove the backend integration w
 
 ### Production E-Commerce
 Demo the "Unhappy Path". Show what happens when a card is declined, or when an item goes out of stock while in the cart.
-`;
-
-export const ecommercesubmissionchecklist = `
+`,
+  'ecommercesubmissionchecklist': `
 ## Why this matters
 Don't fail at the finish line.
 
@@ -17593,9 +17384,8 @@ Make sure you aren't pointing to a \`localhost\` database.
 
 ### Production E-Commerce
 Ensure Apple Pay / Google Pay are properly registered and verified on your production domain.
-`;
-
-export const ecommerceprd = `
+`,
+  'ecommerceprd': `
 ## Why this matters
 Your PRD must explicitly define the state machine of an order: Pending -> Paid -> Processing -> Shipped -> Delivered -> Refunded.
 
@@ -17614,9 +17404,8 @@ Write a PRD that defines what happens when an item goes out of stock *while* a u
 
 ### Production E-Commerce
 Your PRD must handle "Partial Fulfillments" (e.g. 2 items ship today, 1 item is backordered and ships next week). If your database architecture assumes 1 Order = 1 Shipment, you will have to rewrite your entire backend.
-`;
-
-export const ecommerceinformationarchitecture = `
+`,
+  'ecommerceinformationarchitecture': `
 ## Why this matters
 If a customer cannot intuitively find a product via your category tree, they will bounce.
 
@@ -17629,9 +17418,8 @@ Have a simple 2-level hierarchy: Category (Mens) -> Subcategory (Shirts). Do not
 
 ### Production E-Commerce
 Implement faceted taxonomy (Polyhierarchical navigation). A "Nike Running Shoe" must exist in \`/shoes\`, \`/brands/nike\`, and \`/sports/running\` without creating duplicate content penalties for SEO.
-`;
-
-export const ecommercewireframes = `
+`,
+  'ecommercewireframes': `
 ## Why this matters
 E-commerce UX has been solved. Do not try to invent a new way to display a shopping cart.
 
@@ -17644,9 +17432,8 @@ Focus your wireframing on the Product Display Page (PDP). The "Add to Cart" butt
 
 ### Production E-Commerce
 Wireframe the "Cart Drawer" (slide-out cart). Do not redirect the user to a \`/cart\` page every time they add an item; it interrupts their shopping flow and decreases AOV.
-`;
-
-export const ecommercedesignsystem = `
+`,
+  'ecommercedesignsystem': `
 ## Why this matters
 Your design system must highlight the products, not the UI.
 
@@ -17659,9 +17446,8 @@ Keep your UI colors monochromatic (Black/White/Gray) so the colorful product pho
 
 ### Production E-Commerce
 Build specific components for "Badges" (e.g. "Bestseller", "Out of Stock", "20% Off"). These micro-components drastically increase click-through rates on the collection pages.
-`;
-
-export const ecommercebranding = `
+`,
+  'ecommercebranding': `
 ## Why this matters
 Commodities compete on price. Brands compete on loyalty.
 
@@ -17674,9 +17460,8 @@ Write a "Brand Manifesto" on your About Us page. People buy from small stores be
 
 ### Production E-Commerce
 Your branding must extend to your transactional emails. A boring text email for an Order Confirmation is a missed opportunity. Make it beautiful, exciting, and include an upsell.
-`;
-
-export const ecommerceaccessibility = `
+`,
+  'ecommerceaccessibility': `
 ## Why this matters
 E-commerce sites are the #1 target for ADA compliance lawsuits.
 
@@ -17689,9 +17474,8 @@ Ensure your \`<button>\` elements have text inside them, not just an icon. Scree
 
 ### Production E-Commerce
 Your "Add to Cart" and "Checkout" flows must be 100% keyboard navigable. Ensure focus states are highly visible, and color contrast ratios exceed WCAG AA standards.
-`;
-
-export const ecommerceemptystates = `
+`,
+  'ecommerceemptystates': `
 ## Why this matters
 An empty cart is a sad cart.
 
@@ -17704,9 +17488,8 @@ An empty cart is a sad cart.
 
 ### Production E-Commerce
 If a search yields 0 results, do not just say "No results". Say "We couldn't find X, but here are our best sellers." Capture the intent.
-`;
-
-export const ecommerceerrorstates = `
+`,
+  'ecommerceerrorstates': `
 ## Why this matters
 Checkout errors are high-anxiety moments. The user just gave you their credit card and it failed.
 
@@ -17719,9 +17502,8 @@ Catch the specific Stripe error (e.g. \`insufficient_funds\`, \`expired_card\`) 
 
 ### Production E-Commerce
 If a promo code is invalid, explain exactly *why* (e.g. "This code is only valid for orders over $50"). Generic "Invalid Code" errors cause massive cart abandonment.
-`;
-
-export const ecommerceloadingstates = `
+`,
+  'ecommerceloadingstates': `
 ## Why this matters
 Slow loading = cart abandonment.
 
@@ -17734,9 +17516,8 @@ Use skeleton loaders that match the exact aspect ratio of your product images to
 
 ### Production E-Commerce
 When a user clicks "Pay Now", disable the button immediately and show a secure loading spinner. If they click it twice because it was slow, you might charge them twice, resulting in angry emails and chargebacks.
-`;
-
-export const ecommercecustomerjourney = `
+`,
+  'ecommercecustomerjourney': `
 ## Why this matters
 You must remove all friction between "I want this" and "I bought this".
 
@@ -17754,9 +17535,8 @@ Add an "Upsell" step. Right after they add an item to the cart, show a popup: "C
 
 ### Production E-Commerce
 Map the Post-Purchase journey. The anxiety is highest *after* they pay. Send an immediate email, provide tracking numbers via SMS, and send a "How to use your product" guide before it even arrives.
-`;
-
-export const ecommercestorearchitecture = `
+`,
+  'ecommercestorearchitecture': `
 ## Why this matters
 Monolithic (Shopify) vs Headless (Next.js + Shopify/Medusa).
 
@@ -17769,9 +17549,8 @@ Just use Shopify Liquid. Don't build a custom Headless React frontend unless you
 
 ### Production E-Commerce
 If you need sub-second page loads, complex bespoke 3D product configurators, or unified CMS content alongside products, go Headless (e.g. Next.js Commerce + Shopify Storefront API).
-`;
-
-export const ecommerceproductpagedesign = `
+`,
+  'ecommerceproductpagedesign': `
 ## Why this matters
 The Product Display Page (PDP) is where the conversion happens.
 
@@ -17784,9 +17563,8 @@ Ensure your images are massive. High-quality imagery is the #1 driver of convers
 
 ### Production E-Commerce
 Implement accordion sections for "Shipping info", "Materials", and "Returns". Do not clutter the main viewport with giant blocks of text.
-`;
-
-export const ecommercecheckoutflow = `
+`,
+  'ecommercecheckoutflow': `
 ## Why this matters
 69% of carts are abandoned. The checkout flow must be flawless.
 
@@ -17799,9 +17577,8 @@ Use Stripe Elements to keep them on your domain. It looks more professional and 
 
 ### Production E-Commerce
 Implement 1-Click checkouts (Apple Pay, Google Pay, Shop Pay). Typing in a 16-digit credit card on a mobile phone is torture. Apple Pay increases mobile conversions by up to 20%.
-`;
-
-export const ecommercemobileresponsiveness = `
+`,
+  'ecommercemobileresponsiveness': `
 ## Why this matters
 70%+ of e-commerce traffic is mobile.
 
@@ -17814,9 +17591,8 @@ Design Mobile-First. Make sure your "Add to Cart" button spans the full width of
 
 ### Production E-Commerce
 Ensure your mobile touch targets (buttons) are at least 44x44 pixels. Ensure the mobile keyboard automatically switches to the \`numeric\` keypad when they click the "Zip Code" or "Credit Card" input fields.
-`;
-
-export const ecommercetechstackselection = `
+`,
+  'ecommercetechstackselection': `
 ## Why this matters
 E-commerce is heavily standardized. If you build everything from scratch, you will spend 6 months building a Cart instead of selling products.
 
@@ -17829,9 +17605,8 @@ Shopify. Just use Shopify. It handles taxes, shipping logic, and payments out of
 
 ### Production E-Commerce
 If you need a bespoke frontend (e.g. 3D models, complex configurators), use Next.js Commerce (Headless) backed by Shopify or Swell. If you are a B2B wholesaler needing custom pricing logic per customer, use MedusaJS or Vendure.
-`;
-
-export const ecommercecostestimation = `
+`,
+  'ecommercecostestimation': `
 ## Why this matters
 SaaS has high margins; E-commerce has low margins. Software costs can eat your profit.
 
@@ -17844,9 +17619,8 @@ Shopify Basic ($39/mo) + Stripe Fees (2.9% + 30¢).
 
 ### Production E-Commerce
 Beware of Shopify App Bloat. If you install 15 Shopify apps for reviews, upsells, and popups, your monthly software bill will exceed $500/mo. Calculate this into your fixed costs.
-`;
-
-export const ecommerceecommercefundamentals = `
+`,
+  'ecommerceecommercefundamentals': `
 ## Why this matters
 You are managing physical atoms, not just bits. You have supply chains, lead times, and shipping costs.
 
@@ -17859,9 +17633,8 @@ Understand "Dimensional Weight". Shipping carriers charge you based on the *size
 
 ### Production E-Commerce
 Understand "Landed Cost". This is the cost of manufacturing the item + freight shipping it to your warehouse + customs duties. If you don't know your landed cost, you don't know your true profit margin.
-`;
-
-export const ecommercebuildvsbuyshopify = `
+`,
+  'ecommercebuildvsbuyshopify': `
 ## Why this matters
 Engineers love building custom storefronts. It is almost always a mistake for a new business.
 
@@ -17874,9 +17647,8 @@ BUY. Use Shopify. You are running a retail business, not a software company.
 
 ### Production E-Commerce
 If your brand relies on a completely unique UI, or you have a massive engineering team, go Headless (Next.js + Shopify Storefront API). Otherwise, stick to a premium Shopify theme.
-`;
-
-export const ecommerceproductarchitecture = `
+`,
+  'ecommerceproductarchitecture': `
 ## Why this matters
 How you structure a "Product" in the database dictates everything.
 
@@ -17889,9 +17661,8 @@ Add \`description\`, \`is_active\`, and \`stripe_price_id\`.
 
 ### Production E-Commerce
 You need a Parent-Child architecture. A \`Product\` is the Parent (e.g. "Air Force 1"). A \`Variant\` is the Child (e.g. "Size 10, Red"). The \`Variant\` is what actually holds the \`price\`, \`SKU\`, and \`inventory_count\`.
-`;
-
-export const ecommerceinventoryarchitecture = `
+`,
+  'ecommerceinventoryarchitecture': `
 ## Why this matters
 Selling an item you don't actually have is a disaster.
 
@@ -17904,9 +17675,8 @@ Add an \`inventory_count\` integer to your database. Decrease it by 1 when the S
 
 ### Production E-Commerce
 You must handle "Reservations". If 5 people have the last item in their cart, who gets it? Best practice: Inventory is decremented ONLY when payment is successfully captured, and an aggressive "Out of Stock" error is thrown at checkout if they lose the race condition.
-`;
-
-export const ecommercecartarchitecture = `
+`,
+  'ecommercecartarchitecture': `
 ## Why this matters
 The cart state must persist across sessions, but also handle anonymous users.
 
@@ -17919,9 +17689,8 @@ Use Zustand with the \`persist\` middleware to save the cart to \`localStorage\`
 
 ### Production E-Commerce
 Store the cart in a fast server-side database (Redis). This allows a user to add items to their cart on their phone, log in on their laptop, and see the same cart. Also, never store prices in the client-side cart; always re-calculate prices on the server before checkout to prevent tampering.
-`;
-
-export const ecommercecheckoutarchitecture = `
+`,
+  'ecommercecheckoutarchitecture': `
 ## Why this matters
 Checkout logic is heavily regulated (PCI compliance).
 
@@ -17934,9 +17703,8 @@ Use Stripe Checkout. Do not build custom credit card inputs.
 
 ### Production E-Commerce
 If using a Headless setup, use Stripe Elements. You must also architect for Sales Tax (TaxJar/Stripe Tax), which must dynamically calculate the tax rate based on the buyer's Zip Code *before* charging the card.
-`;
-
-export const ecommercepaymentarchitecture = `
+`,
+  'ecommercepaymentarchitecture': `
 ## Why this matters
 Money movement.
 
@@ -17949,9 +17717,8 @@ Ensure your backend only provisions the order *after* receiving the \`checkout.s
 
 ### Production E-Commerce
 Implement "Auth and Capture". Authorize the card at checkout, but only *Capture* (charge) the funds when the item actually ships. This prevents you from paying refund fees if the item is backordered and canceled.
-`;
-
-export const ecommercecustomeraccounts = `
+`,
+  'ecommercecustomeraccounts': `
 ## Why this matters
 Repeat buyers.
 
@@ -17964,9 +17731,8 @@ Allow them to view their past orders.
 
 ### Production E-Commerce
 Implement "One-Click Reorder" for consumable goods. Store their payment method securely via Stripe Customer IDs for frictionless future purchases.
-`;
-
-export const ecommerceshippingarchitecture = `
+`,
+  'ecommerceshippingarchitecture': `
 ## Why this matters
 Shipping costs can destroy your margin if calculated incorrectly.
 
@@ -17979,9 +17745,8 @@ Charge a flat rate (e.g. $5 standard, $15 expedited). It's easy to code and pred
 
 ### Production E-Commerce
 Integrate with Shippo or EasyPost via API. Your backend must pass the cart's total weight and dimensions to the API in real-time to fetch accurate USPS/UPS rates before the user pays.
-`;
-
-export const ecommercesearcharchitecture = `
+`,
+  'ecommercesearcharchitecture': `
 ## Why this matters
 Users who search convert at 3x the rate of users who just browse.
 
@@ -17994,9 +17759,8 @@ PostgreSQL Full-Text Search on the title and description.
 
 ### Production E-Commerce
 Algolia. E-commerce search requires typo-tolerance (searching for "nke" should return "Nike") and synonym mapping ("sneakers" = "shoes"). You must also implement faceted filtering (size, color, price range) which Algolia handles perfectly.
-`;
-
-export const ecommerceanalyticsarchitecture = `
+`,
+  'ecommerceanalyticsarchitecture': `
 ## Why this matters
 You must track the exact ROAS of your ad campaigns.
 
@@ -18009,9 +17773,8 @@ Add Google Analytics 4 (GA4) or PostHog. Track \`add_to_cart\` and \`purchase\` 
 
 ### Production E-Commerce
 Implement Server-Side Tracking (Facebook Conversions API). iOS updates block client-side pixels, so if you don't send purchase events directly from your backend server to Facebook/Google, your ads will optimize blindly and fail.
-`;
-
-export const ecommercedatabase = `
+`,
+  'ecommercedatabase': `
 ## Why this matters
 E-commerce requires strict relational integrity. You cannot have an order pointing to a product that was deleted.
 
@@ -18024,9 +17787,8 @@ Use Prisma ORM. Implement \`soft deletes\` (e.g., \`is_deleted: boolean\`). Neve
 
 ### Production E-Commerce
 Use PostgreSQL. Enforce database-level foreign key constraints. Your price columns must be stored as integers (cents, e.g., \`1999\` for $19.99) to avoid floating-point rounding errors in financial math.
-`;
-
-export const ecommercebackend = `
+`,
+  'ecommercebackend': `
 ## Why this matters
 The backend orchestrates the chaos of payments, inventory, and emails.
 
@@ -18039,9 +17801,8 @@ Validate all incoming checkout data with Zod. Never trust the cart total sent fr
 
 ### Production E-Commerce
 Use background jobs (Inngest, BullMQ) for post-purchase workflows. Generating PDF receipts, sending emails, and syncing to your 3PL warehouse should NOT block the HTTP response to the user.
-`;
-
-export const ecommercefrontend = `
+`,
+  'ecommercefrontend': `
 ## Why this matters
 Slow sites don't sell.
 
@@ -18054,9 +17815,8 @@ Use Next.js Server Components for the Product pages (great for SEO). Use Client 
 
 ### Production E-Commerce
 Implement aggressive Optimistic UI. When a user clicks "Add to Cart", the cart icon should instantly increment visually, while the server request happens in the background.
-`;
-
-export const ecommercepayments = `
+`,
+  'ecommercepayments': `
 ## Why this matters
 Webhooks are the lifeblood of e-commerce.
 
@@ -18074,9 +17834,8 @@ Ensure your webhook endpoint is idempotent. Stripe might send the same webhook t
 
 ### Production E-Commerce
 Implement manual review triggers for orders over a certain threshold (e.g. $1,000) to mitigate fraud before funds are captured.
-`;
-
-export const ecommerceemails = `
+`,
+  'ecommerceemails': `
 ## Why this matters
 Transactional emails have a 70%+ open rate.
 
@@ -18089,9 +17848,8 @@ Use Resend to send an "Order Confirmation" email with the order total and a list
 
 ### Production E-Commerce
 Implement Klaviyo. You must send: Order Confirmation, Shipping Confirmation (with tracking link), Out for Delivery, and Delivered. These reduce "Where is my order?" (WISMO) support tickets by 80%.
-`;
-
-export const ecommercenotifications = `
+`,
+  'ecommercenotifications': `
 ## Why this matters
 You (the admin) need to know when you make money.
 
@@ -18104,9 +17862,8 @@ Send a Discord or Slack webhook to yourself every time an order is placed. Heari
 
 ### Production E-Commerce
 Connect Stripe to a dedicated Slack channel (\`#sales\`) but scrub PII (Personally Identifiable Information) from the payload so your entire company isn't looking at customer addresses.
-`;
-
-export const ecommercesearch = `
+`,
+  'ecommercesearch': `
 ## Why this matters
 Discoverability.
 
@@ -18119,9 +17876,8 @@ Add a search bar that queries the database using \`ILIKE\` on the product title.
 
 ### Production E-Commerce
 Integrate Algolia. Ensure your indexing script runs automatically every time a product is created, updated, or deleted so the search index is never stale.
-`;
-
-export const ecommerceanalytics = `
+`,
+  'ecommerceanalytics': `
 ## Why this matters
 Funnel drop-off analysis.
 
@@ -18134,9 +17890,8 @@ Install PostHog. Track the exact step where users abandon their cart.
 
 ### Production E-Commerce
 Implement robust Google Tag Manager (GTM) data layers. Your ad platforms need to know the exact \`item_id\` and \`value\` of every purchase to train their algorithms.
-`;
-
-export const ecommercetesting = `
+`,
+  'ecommercetesting': `
 ## Why this matters
 Broken checkout = zero revenue.
 
@@ -18149,9 +17904,8 @@ Write a Playwright E2E test that adds an item to the cart and goes through the S
 
 ### Production E-Commerce
 Run Cypress/Playwright tests on a staging environment that runs a mock payment gateway. Never deploy to production on a Friday.
-`;
-
-export const ecommercedocumentation = `
+`,
+  'ecommercedocumentation': `
 ## Why this matters
 You will forget how your own tax calculation logic works in 3 months.
 
@@ -18164,9 +17918,8 @@ Write a basic \`README.md\` explaining how to add a new product to the database.
 
 ### Production E-Commerce
 Document your complex business logic: How are discounts applied? Are they stackable? Does tax apply *before* or *after* the discount? This is critical for future developers.
-`;
-
-export const ecommerceproducts = `
+`,
+  'ecommerceproducts': `
 ## Why this matters
 Handling product variants.
 
@@ -18179,9 +17932,8 @@ Use a CMS like Sanity or Contentful if you want non-technical founders to be abl
 
 ### Production E-Commerce
 Build a robust Product Information Management (PIM) system. Products need high-res images, SEO meta tags, and structured JSON-LD data for Google Shopping.
-`;
-
-export const ecommerceinventory = `
+`,
+  'ecommerceinventory': `
 ## Why this matters
 Overselling.
 
@@ -18194,9 +17946,8 @@ Hardcode inventory in the DB and decrement on purchase.
 
 ### Production E-Commerce
 Implement "Available to Promise" (ATP) logic. If you have 10 items in the warehouse, but 2 are reserved for pending orders, your frontend must only show 8 available.
-`;
-
-export const ecommercecart = `
+`,
+  'ecommercecart': `
 ## Why this matters
 Cart state.
 
@@ -18209,9 +17960,8 @@ Zustand \`persist\` to LocalStorage.
 
 ### Production E-Commerce
 If an item is in the cart, periodically check the server for inventory changes. If it goes out of stock while in their cart, alert them immediately, rather than waiting for them to click Checkout.
-`;
-
-export const ecommercecheckout = `
+`,
+  'ecommercecheckout': `
 ## Why this matters
 Friction.
 
@@ -18224,9 +17974,8 @@ Auto-fill the shipping address based on the zip code to save them keystrokes.
 
 ### Production E-Commerce
 Implement Address Validation APIs (like Lob or Google Maps). If a user typos their address and you ship it, you eat the cost of the lost package.
-`;
-
-export const ecommerceorders = `
+`,
+  'ecommerceorders': `
 ## Why this matters
 Order management.
 
@@ -18239,9 +17988,8 @@ Build a simple \`/admin/orders\` page to view what you need to ship.
 
 ### Production E-Commerce
 Integrate directly with ShipStation or a 3PL. The order must flow automatically from your DB to the warehouse without human intervention.
-`;
-
-export const ecommerceshipping = `
+`,
+  'ecommerceshipping': `
 ## Why this matters
 Logistics.
 
@@ -18254,9 +18002,8 @@ Flat rate.
 
 ### Production E-Commerce
 Offer "Economy (5-7 days)" and "Expedited (2-day)". Expedited shipping is a massive profit center because you can charge a premium.
-`;
-
-export const ecommercewishlist = `
+`,
+  'ecommercewishlist': `
 ## Why this matters
 Capturing intent when they aren't ready to buy.
 
@@ -18269,9 +18016,8 @@ Store wishlist items in LocalStorage.
 
 ### Production E-Commerce
 Require an email to save a wishlist, then trigger an automated Klaviyo email 3 days later saying, "The item on your wishlist is selling out fast!"
-`;
-
-export const ecommerceadmindashboard = `
+`,
+  'ecommerceadmindashboard': `
 ## Why this matters
 Running the business.
 
@@ -18284,9 +18030,8 @@ Basic hidden route.
 
 ### Production E-Commerce
 Use Retool. Customer service reps need to be able to issue partial refunds, change shipping addresses before fulfillment, and apply store credit without calling an engineer.
-`;
-
-export const ecommercesecurity = `
+`,
+  'ecommercesecurity': `
 ## Why this matters
 E-commerce sites are targeted by card-testing bots that will spam your checkout endpoint with 10,000 stolen credit cards.
 
@@ -18299,9 +18044,8 @@ Use Stripe. Never ever build a \`<input>\` field that directly handles raw credi
 
 ### Production E-Commerce
 Implement reCAPTCHA v3 on your checkout endpoints to silently block card-testing bots. If bots run 10,000 cards through your Stripe account, Stripe will ban you permanently.
-`;
-
-export const ecommerceperformanceoptimization = `
+`,
+  'ecommerceperformanceoptimization': `
 ## Why this matters
 Walmart found that every 100ms improvement in page load time increased conversions by 1%.
 
@@ -18314,9 +18058,8 @@ Optimize your product images. Use AVIF or WebP formats. Do not serve 5MB JPEGs t
 
 ### Production E-Commerce
 Implement Edge Caching for your product pages. The HTML should be served from a CDN node geographically closest to the user. Defer loading of non-critical third-party scripts (like chat widgets) until after the user interacts with the page.
-`;
-
-export const ecommercemonitoring = `
+`,
+  'ecommercemonitoring': `
 ## Why this matters
 If checkout breaks, you lose money every minute.
 
@@ -18329,9 +18072,8 @@ Set up UptimeRobot to ping your site.
 
 ### Production E-Commerce
 Implement synthetic transaction monitoring (e.g. Datadog or Checkly). An automated script should attempt to add an item to the cart and reach the checkout page every 5 minutes. If it fails, PagerDuty alerts you.
-`;
-
-export const ecommercelogging = `
+`,
+  'ecommercelogging': `
 ## Why this matters
 Debugging missing orders.
 
@@ -18344,9 +18086,8 @@ Vercel logs. Ensure you log the \`stripe_session_id\` so you can match it to the
 
 ### Production E-Commerce
 Structured JSON logging (Pino/Axiom). Never log customer PII (addresses, emails) in plain text. Implement automated log masking.
-`;
-
-export const ecommerceerrortracking = `
+`,
+  'ecommerceerrortracking': `
 ## Why this matters
 Finding silent JavaScript crashes.
 
@@ -18359,9 +18100,8 @@ Sentry.
 
 ### Production E-Commerce
 Sentry + LogRocket (Session Replay). If a customer reports "I can't click checkout", you can watch a video of their screen to see exactly which JS error blocked them.
-`;
-
-export const ecommerceratelimiting = `
+`,
+  'ecommerceratelimiting': `
 ## Why this matters
 Stopping scrapers from stealing your product catalog and pricing data.
 
@@ -18374,9 +18114,8 @@ Upstash Redis basic rate limiting.
 
 ### Production E-Commerce
 Implement Cloudflare Bot Management. Competitors will aggressively scrape your prices to undercut you dynamically.
-`;
-
-export const ecommercecaching = `
+`,
+  'ecommercecaching': `
 ## Why this matters
 Database load reduction.
 
@@ -18389,9 +18128,8 @@ Next.js ISR (Incremental Static Regeneration). Rebuild the product page every 60
 
 ### Production E-Commerce
 Aggressive Redis caching for inventory checks, combined with Vercel Data Cache for headless storefronts.
-`;
-
-export const ecommercebackups = `
+`,
+  'ecommercebackups': `
 ## Why this matters
 Ransomware or accidental deletions.
 
@@ -18404,9 +18142,8 @@ Supabase PITR (Point-in-Time Recovery).
 
 ### Production E-Commerce
 Daily logical backups shipped to immutable S3 buckets.
-`;
-
-export const ecommercecicd = `
+`,
+  'ecommercecicd': `
 ## Why this matters
 Deploying confidently on Black Friday.
 
@@ -18419,9 +18156,8 @@ GitHub Actions running \`npm run lint\` and \`npm run build\`.
 
 ### Production E-Commerce
 Robust E2E tests running in staging. Blue/Green deployments to ensure zero downtime during traffic spikes.
-`;
-
-export const ecommercepaymentsecurity = `
+`,
+  'ecommercepaymentsecurity': `
 ## Why this matters
 Chargebacks.
 
@@ -18434,9 +18170,8 @@ Stripe Radar basic rules.
 
 ### Production E-Commerce
 Enforce 3D Secure (3DS) for high-value orders. This shifts the liability of fraud from you to the bank.
-`;
-
-export const ecommercefraudprevention = `
+`,
+  'ecommercefraudprevention': `
 ## Why this matters
 Professional fraudsters use triangulation fraud.
 
@@ -18449,9 +18184,8 @@ Block orders where the shipping address is a known freight forwarder (often used
 
 ### Production E-Commerce
 Use Sift or Riskified. Build velocity rules: If the same IP address tries 5 different credit cards in 10 minutes, block them immediately.
-`;
-
-export const ecommercescalabilityplanning = `
+`,
+  'ecommercescalabilityplanning': `
 ## Why this matters
 Black Friday crashes.
 
@@ -18464,201 +18198,176 @@ Ensure no N+1 queries in your ORM on the collection pages.
 
 ### Production E-Commerce
 Read Replicas for the database. Connection pooling via PgBouncer. Stress test your checkout flow with Artillery.io.
-`;
-
-export const ecommerceenterprisefrauddetection = `
+`,
+  'ecommerceenterprisefrauddetection': `
 ## Why this matters
 Sophisticated fraud rings.
 
 ## Strategic Guidance
 Implement machine learning models to detect impossible travel speeds (e.g., an order placed from a New York IP, followed by an order 5 minutes later from a London IP using the same account).
-`;
-
-export const ecommerceadvancedmonitoring = `
+`,
+  'ecommerceadvancedmonitoring': `
 ## Why this matters
 Knowing before the customer knows.
 
 ## Strategic Guidance
 Track business metrics as closely as CPU metrics. Set alerts if "Orders per Minute" drops by more than 50% compared to the same time last week.
-`;
-
-export const ecommercemultiregioninfrastructure = `
+`,
+  'ecommercemultiregioninfrastructure': `
 ## Why this matters
 Global latency.
 
 ## Strategic Guidance
 Use CockroachDB or Spanner. Keep EU customer data in the EU to comply with GDPR, while serving US customers from US datacenters.
-`;
-
-export const ecommerceprivacypolicy = `
+`,
+  'ecommerceprivacypolicy': `
 ## Why this matters
 GDPR and CCPA compliance.
 
 ## Strategic Guidance
 Generate via Termly. Explicitly state that you use cookies for retargeting ads (Facebook Pixel).
-`;
-
-export const ecommercetermsofservice = `
+`,
+  'ecommercetermsofservice': `
 ## Why this matters
 Protecting yourself from lawsuits.
 
 ## Strategic Guidance
 Include a binding arbitration clause and a class-action waiver. State clearly that shipping times are estimates, not guarantees.
-`;
-
-export const ecommerceproductphotography = `
+`,
+  'ecommerceproductphotography': `
 ## Why this matters
 Images are the only way the customer "touches" the product.
 
 ## Strategic Guidance
 Invest in professional photography. You need: 1 Hero shot (white background), 3 Lifestyle shots (in use), and 1 Detail shot (zoomed in on texture/quality).
-`;
-
-export const ecommerceproductdescriptions = `
+`,
+  'ecommerceproductdescriptions': `
 ## Why this matters
 SEO and conversion.
 
 ## Strategic Guidance
 Don't just list features; sell the benefit. Instead of "Made of 100% cotton", write "Breathable cotton that keeps you cool all summer."
-`;
-
-export const ecommerceseosetup = `
+`,
+  'ecommerceseosetup': `
 ## Why this matters
 Free traffic.
 
 ## Strategic Guidance
 Implement JSON-LD \`Product\` schema on all PDPs so Google shows the price and review stars directly in the search results.
-`;
-
-export const ecommerceanalyticssetup = `
+`,
+  'ecommerceanalyticssetup': `
 ## Why this matters
 Data-driven decisions.
 
 ## Strategic Guidance
 Set up GA4 E-commerce tracking. Ensure you are passing the \`transaction_id\` and \`value\` correctly on the thank-you page.
-`;
-
-export const ecommercegooglemerchantcenter = `
+`,
+  'ecommercegooglemerchantcenter': `
 ## Why this matters
 Google Shopping tab.
 
 ## Strategic Guidance
 Generate an XML feed of your product catalog and sync it daily to Google Merchant Center to run highly profitable Shopping Ads.
-`;
-
-export const ecommerceshippingsetup = `
+`,
+  'ecommerceshippingsetup': `
 ## Why this matters
 Logistics.
 
 ## Strategic Guidance
 Buy a thermal label printer (Rollo/Dymo). Taping paper labels to boxes will destroy your soul after 10 orders.
-`;
-
-export const ecommercetaxessetup = `
+`,
+  'ecommercetaxessetup': `
 ## Why this matters
 Economic Nexus laws.
 
 ## Strategic Guidance
 Use Stripe Tax or TaxJar. Once you cross $100k in sales in a specific state, you must register and remit sales tax to that state.
-`;
-
-export const ecommercelegaldocuments = `
+`,
+  'ecommercelegaldocuments': `
 ## Why this matters
 Compliance.
 
 ## Strategic Guidance
 Incorporate (LLC or C-Corp). Never run e-commerce as a sole proprietorship, or your personal assets are liable if someone sues you over a defective product.
-`;
-
-export const ecommercerefundpolicy = `
+`,
+  'ecommercerefundpolicy': `
 ## Why this matters
 Trust.
 
 ## Strategic Guidance
 Offer a generous return policy (e.g. 30 days no questions asked). The increase in conversion rate will vastly outweigh the cost of the returns.
-`;
-
-export const ecommercereturnpolicy = `
+`,
+  'ecommercereturnpolicy': `
 ## Why this matters
 Reverse logistics.
 
 ## Strategic Guidance
 Use a portal like Loop Returns or AfterShip. Automate the generation of the return shipping label.
-`;
-
-export const ecommercelaunchchecklist = `
+`,
+  'ecommercelaunchchecklist': `
 ## Why this matters
 Don't launch broken.
 
 ## Strategic Guidance
 Place a real order using a real credit card. Verify the money hits your Stripe account, the email receipt arrives, and the shipping label generates.
-`;
-
-export const ecommerceretention = `
+`,
+  'ecommerceretention': `
 ## Why this matters
 LTV.
 
 ## Strategic Guidance
 Implement "Subscribe & Save" using tools like Recharge or Skio. Subscriptions turn one-off e-commerce into recurring revenue (SaaS multiples!).
-`;
-
-export const ecommerceroadmap = `
+`,
+  'ecommerceroadmap': `
 ## Why this matters
 What's next?
 
 ## Strategic Guidance
 Plan your holiday sales calendar (Black Friday, Valentine's Day, Mother's Day) 6 months in advance. E-commerce is highly seasonal.
-`;
-
-export const ecommerceconversionoptimization = `
+`,
+  'ecommerceconversionoptimization': `
 ## Why this matters
 Making more money with the same traffic.
 
 ## Strategic Guidance
 A/B test the wording on your CTA button ("Add to Cart" vs "Buy Now"). A/B test free shipping thresholds ("Free shipping over $50" vs "$75").
-`;
-
-export const ecommerceupsells = `
+`,
+  'ecommerceupsells': `
 ## Why this matters
 Increasing AOV.
 
 ## Strategic Guidance
 Offer "One-Click Post-Purchase Upsells". *After* they enter their credit card and hit buy, show a page: "Add this matching item for 20% off. One click, no need to re-enter your card."
-`;
-
-export const ecommercecrosssells = `
+`,
+  'ecommercecrosssells': `
 ## Why this matters
 Bundling.
 
 ## Strategic Guidance
 "Frequently Bought Together" modules (like Amazon). If they buy a flashlight, cross-sell batteries.
-`;
-
-export const ecommerceemailmarketing = `
+`,
+  'ecommerceemailmarketing': `
 ## Why this matters
 Owned audience.
 
 ## Strategic Guidance
 Set up 3 core automated flows in Klaviyo: 1. Welcome Series (10% off for subscribing). 2. Abandoned Cart (Reminder 4 hours later). 3. Win-back Series (Email them 60 days after last purchase).
-`;
-
-export const ecommerceloyaltyprograms = `
+`,
+  'ecommerceloyaltyprograms': `
 ## Why this matters
 Gamification.
 
 ## Strategic Guidance
 Use tools like Smile.io. "Earn 1 point for every $1 spent." VIP tiers (Gold, Platinum) increase repeat purchase rates significantly.
-`;
-
-export const ecommercereferrals = `
+`,
+  'ecommercereferrals': `
 ## Why this matters
 Viral growth.
 
 ## Strategic Guidance
 "Give $20, Get $20." Embed this heavily in the post-purchase email sequence when the customer is most excited about their purchase.
-`;
-
-export const gametargetaudience = `
+`,
+  'gametargetaudience': `
 ## Why this matters
 Game audiences are notoriously tribal. A "Cozy Gamer" expects frictionless mechanics, lush aesthetics, and forgiving failure states (e.g., Stardew Valley). A "Hardcore Gamer" demands rigorous i-frames (invincibility frames), strict animation canceling, and punishing failure loops (e.g., Elden Ring). If your game's mechanics do not perfectly align with the psychological expectations of your target demographic, your game will be review-bombed on Steam within 24 hours of launch.
 
@@ -18677,9 +18386,8 @@ Target yourself. Build a game that solves a mechanical itch you have that other 
 
 ### Production SaaS
 Target a hyper-specific, underserved subgenre (e.g., "Factory building games but with biology instead of machinery"). This is called the 'Blue Ocean' strategy. If you try to build a generic First Person Shooter, you are competing directly with Call of Duty's $300M budget. You will lose. Define your core audience by what they *hate* about current games in the genre.
-`;
-
-export const gamecompetitoranalysis = `
+`,
+  'gamecompetitoranalysis': `
 ## Why this matters
 Players do not evaluate your game in a vacuum. They evaluate your game against the $20 masterpiece they just finished playing. You must deconstruct your competitors on a mechanical level: How many frames is their jump animation? What is their time-to-kill (TTK)? How do they handle inventory sorting?
 
@@ -18700,9 +18408,8 @@ Play your competitors' games with a stopwatch and a notebook. Do not just "play 
 
 ### Production SaaS
 You must conduct a deep dive into your competitors' Steam reviews. Specifically, filter by "Negative" reviews on highly successful games in your genre. This is your feature roadmap. If 1,000 players complain about "clunky UI" in your competitor's game, you must engineer the most buttery-smooth UI imaginable as your core differentiator.
-`;
-
-export const gamemonetization = `
+`,
+  'gamemonetization': `
 ## Why this matters
 How you make money dictates how your game is designed at a fundamental level. If you are Free-to-Play (F2P), your entire game architecture must revolve around retention loops, daily login bonuses, and microtransaction (MTX) psychology. If you are Premium ($20 upfront), your game must front-load its highest quality content into the first 2 hours to prevent Steam refunds.
 
@@ -18715,9 +18422,8 @@ Release it for free on Itch.io with a "Pay what you want" tip jar. Your goal is 
 
 ### Production SaaS
 Decide your model on Day 1. If Premium, you must design a massive "Wishlist" funnel via marketing, as Day-1 sales dictate Steam algorithm visibility. If F2P, you must architect server-authoritative databases for premium currency. Do not ever trust the client (the player's machine) with currency data, or memory editors (Cheat Engine) will instantly bankrupt your economy.
-`;
-
-export const gamegameconcept = `
+`,
+  'gamegameconcept': `
 ## Why this matters
 A strong concept can be summarized in an "X meets Y" elevator pitch (e.g., "Stardew Valley meets Doom"). If it takes 3 paragraphs to explain what your game is, your core mechanics are too muddy.
 
@@ -18736,9 +18442,8 @@ Combine two genres that shouldn't work together (e.g., a typing game that is als
 
 ### Production SaaS
 Your concept must pass the "GIF Test." Can you capture the essence of your game's unique selling point in a 3-second, soundless GIF? If yes, it is highly marketable on Twitter and Reddit. If no, your marketing costs will skyrocket because it requires too much explanation.
-`;
-
-export const gamegenre = `
+`,
+  'gamegenre': `
 ## Why this matters
 Genres come with rigid player expectations. If you build an RPG and don't include an inventory sorting button, players will riot. If you build a Metroidvania and don't include sequence-breaking upgrades, it's not a Metroidvania.
 
@@ -18751,9 +18456,8 @@ Avoid RPGs. The amount of database management, dialogue writing, and state track
 
 ### Production SaaS
 Analyze the Steam tag metrics (e.g., via GameDiscoverCo or SteamDB). Some genres (like puzzle platformers) have massive supply and zero demand, guaranteeing commercial failure. Other genres (like Base Building or Deckbuilders) have rabid player bases hungry for infinite variations.
-`;
-
-export const gametargetplatform = `
+`,
+  'gametargetplatform': `
 ## Why this matters
 Your target platform dictates your engine, your control scheme, your UI scale, and your performance budget. A UI designed for a 27-inch PC monitor is illegible on a Nintendo Switch in handheld mode.
 
@@ -18766,9 +18470,8 @@ Target PC (Windows). It is the most forgiving platform regarding memory manageme
 
 ### Production SaaS
 If you plan to release on Consoles (PlayStation, Xbox, Switch), you must architect your input system abstractly from Day 1 (using Unity's New Input System or Unreal's Enhanced Input). You must also prepare for rigorous certification processes (TRC/XR), where a memory leak or a UI text overlap will cause your game to be rejected by Sony/Nintendo.
-`;
-
-export const gamescoperealitycheck = `
+`,
+  'gamescoperealitycheck': `
 ## Why this matters
 Scope creep is the apex predator of game development. 90% of indie games fail because the developer tried to build an MMO by themselves.
 
@@ -18789,9 +18492,8 @@ Cut 3D. 3D requires rigging, UV unwrapping, normal mapping, and complex animatio
 
 ### Production SaaS
 Calculate your "Burn Rate". If you estimate the game will take 12 months, double it to 24 months. If your studio's burn rate (salaries, software, rent) is $10k/month, your game now costs $240,000 to make. Does your projected Steam revenue (assuming average 2,000 copies sold) justify this? If not, drastically reduce scope.
-`;
-
-export const gamecoregameplayloop = `
+`,
+  'gamecoregameplayloop': `
 ## Why this matters
 The Core Loop is the repetitive action the player takes. (e.g., Monster Hunter: Kill Monster -> Get Loot -> Craft Better Gear -> Kill Bigger Monster). If this 30-second loop isn't insanely satisfying, no amount of story or graphics will save the game.
 
@@ -18810,9 +18512,8 @@ Implement the core loop in gray-box (primitive shapes) immediately. If the game 
 
 ### Production SaaS
 You must engineer "Friction" and "Release" within the loop. The player must experience a managed level of frustration (friction) that is suddenly resolved by a mechanical reward (release). Architect your systems so designers can easily tweak values (enemy health, drop rates) via ScriptableObjects/DataAssets without touching source code.
-`;
-
-export const gamescopeplanning = `
+`,
+  'gamescopeplanning': `
 ## Why this matters
 Planning your technical architecture against your scope.
 
@@ -18825,63 +18526,56 @@ Use Trello or Obsidian. Break your game down into "Vertical Slices". A vertical 
 
 ### Production SaaS
 Implement Agile/Scrum. You need rigorous tracking of technical debt. If you hack together the physics system in month 1, it will collapse in month 18 when you try to add multiplayer. Architect modular, event-driven systems (Observer pattern) to decouple gameplay logic from UI logic.
-`;
-
-export const gamedemoassets = `
+`,
+  'gamedemoassets': `
 ## Why this matters
 Hackathons are visual. You don't have time to model a 3D character.
 
 ## Strategic Guidance
 ### Hackathon Mode
 Use Kenney.nl for CC0 (public domain) assets. Use Mixamo for instant 3D character rigging and animations. Spend your time coding mechanics, not drawing sprites. Ensure you attribute assets properly if the license requires it.
-`;
-
-export const gamepitchdeck = `
+`,
+  'gamepitchdeck': `
 ## Why this matters
 You have 3 minutes to convince judges your game is amazing.
 
 ## Strategic Guidance
 ### Hackathon Mode
 Slide 1: The Hook (GIF of the core mechanic). Slide 2: The Problem/Opportunity. Slide 3: The Tech Stack (briefly). Slide 4: Live Demo. Do not use bullet points. Use massive, high-contrast images and large text.
-`;
-
-export const gamedemoscript = `
+`,
+  'gamedemoscript': `
 ## Why this matters
 Live demos fail. Physics engines glitch, colliders fall through floors.
 
 ## Strategic Guidance
 ### Hackathon Mode
 Write a "Golden Path" script. You will only walk from Point A to Point B. Add a hidden keyboard shortcut (e.g., F12) that instantly teleports the player to the final boss or skips a broken level in case of emergency.
-`;
-
-export const gamesubmissionchecklist = `
+`,
+  'gamesubmissionchecklist': `
 ## Why this matters
 Failing to submit properly invalidates your 48 hours of work.
 
 ## Strategic Guidance
 ### Hackathon Mode
 Build for WebGL 4 hours before the deadline. WebGL builds almost always break the first time due to unsupported shaders or memory limits. Test the build in an Incognito window to ensure no local caching is hiding errors.
-`;
-
-export const gamedemodata = `
+`,
+  'gamedemodata': `
 ## Why this matters
 A game needs levels, stats, and configurations to run.
 
 ## Strategic Guidance
 ### Hackathon Mode
 Hardcode it. Do not spend time building a custom JSON parser or a level editor. If you need a map, define it as a 2D array in code.
-`;
-
-export const gamegameplay = `
+`,
+  'gamegameplay': `
 ## Why this matters
 This is the moment-to-moment interaction.
 
 ## Strategic Guidance
 ### Hackathon Mode
 Implement "Coyote Time" (allowing the player to jump a few frames after walking off a ledge) and "Jump Buffering" (registering a jump input slightly before hitting the ground). These two mechanics alone will make your platformer feel 100x more professional.
-`;
-
-export const gamegamedesigndocumentgdd = `
+`,
+  'gamegamedesigndocumentgdd': `
 ## Why this matters
 A Game Design Document (GDD) is the blueprint of your game. Without it, feature creep will consume your project. If you are working with a team, the GDD is the singular source of truth. If a mechanic isn't in the GDD, it doesn't get built.
 
@@ -18902,9 +18596,8 @@ Keep your GDD agile. Use a Wiki format (like Notion or Obsidian) instead of a ma
 
 ### Production SaaS
 Your GDD must be rigorously maintained and linked directly to your engineering Jira tickets. It must contain detailed formulas (e.g., the exact math behind damage calculation: \`Damage = Base * (1 + (Str/100)) - EnemyArmor\`). If designers and engineers disagree, the math in the GDD wins.
-`;
-
-export const gamecoremechanics = `
+`,
+  'gamecoremechanics': `
 ## Why this matters
 Core mechanics are the verbs of your game (Jump, Shoot, Dash, Craft). If the verbs feel bad, the game is bad.
 
@@ -18917,9 +18610,8 @@ Implement the "3 C's" flawlessly: Character, Camera, Controls. If the camera cli
 
 ### Production SaaS
 Architect your mechanics using the Strategy Pattern or the Command Pattern. If a player can "Dash", that dash should be an encapsulated class/struct, not 50 lines of code inside \`Update()\`. This allows you to easily implement input buffering, replay systems, and network rollback (GGPO) for multiplayer.
-`;
-
-export const gamegamerules = `
+`,
+  'gamegamerules': `
 ## Why this matters
 Rules define the boundaries of play and the win/loss conditions.
 
@@ -18932,9 +18624,8 @@ Clearly communicate the rules visually. If lava kills the player, it must be glo
 
 ### Production SaaS
 Hardcode your rules into a server-authoritative state machine if you are building multiplayer. The client should only *request* to move or attack; the server validates the rule (e.g., "Is the player actually close enough to hit the enemy?") and broadcasts the result.
-`;
-
-export const gameplayerprogression = `
+`,
+  'gameplayerprogression': `
 ## Why this matters
 Progression is the psychological engine of long-term retention. Without it, players quit after the novelty wears off.
 
@@ -18947,9 +18638,8 @@ Implement a simple XP system. \`NextLevelXP = BaseXP * (Level ^ 1.5)\`. This cre
 
 ### Production SaaS
 You must balance Horizontal vs Vertical progression. Vertical (bigger numbers, higher damage) eventually breaks the game balance. Horizontal (sidegrades, new playstyles, utility items) extends the game's lifespan infinitely without causing power creep.
-`;
-
-export const gameeconomydesign = `
+`,
+  'gameeconomydesign': `
 ## Why this matters
 A broken economy ruins games. If players have infinite gold, loot becomes meaningless.
 
@@ -18962,9 +18652,8 @@ Identify your "Faucets" (how players get gold, e.g., killing monsters) and "Sink
 
 ### Production SaaS
 Hire an economy designer or use deep spreadsheet modeling (Machinations.io). If you have premium currencies (gems) and soft currencies (gold), you must architect massive sinks (like cosmetic rerolls or guild housing) for your "Whales" (top 1% of spenders) to prevent hyperinflation.
-`;
-
-export const gameleveldesign = `
+`,
+  'gameleveldesign': `
 ## Why this matters
 Level design guides the player without them realizing they are being guided.
 
@@ -18977,9 +18666,8 @@ Use the "Nintendo Formula": Introduce a mechanic in a safe environment, escalate
 
 ### Production SaaS
 Use metrics-driven level design. Define standard metrics (e.g., "Max Jump Height is 4 meters", "Doorway Width is 2 meters"). If your level designers arbitrarily scale objects, your AI NavMesh will break, and the camera will clip through geometry.
-`;
-
-export const gamecharacters = `
+`,
+  'gamecharacters': `
 ## Why this matters
 Characters are the emotional anchor for the player.
 
@@ -18992,9 +18680,8 @@ Focus on strong silhouettes. If the player cannot identify the character in pure
 
 ### Production SaaS
 Establish a rigorous pipeline for rigging and retargeting. If you have 50 characters, they must all share a master skeleton (like the Unreal Mannequin) so that you only have to animate a "Run" cycle once, rather than 50 times.
-`;
-
-export const gamestory = `
+`,
+  'gamestory': `
 ## Why this matters
 Context gives mechanics meaning.
 
@@ -19007,9 +18694,8 @@ Use Environmental Storytelling. Blood stains on the floor and a broken sword tel
 
 ### Production SaaS
 Implement a robust dialogue and localization architecture (e.g., Yarn Spinner or Ink). Do not hardcode English text strings into your UI. Every string must be referenced by a Localization Key (e.g., \`DIA_GREET_NPC1\`) to allow for eventual translation into 10+ languages.
-`;
-
-export const gamequests = `
+`,
+  'gamequests': `
 ## Why this matters
 Quests provide short-term and medium-term goals.
 
@@ -19022,9 +18708,8 @@ Build a simple Quest Manager singleton that listens to events (e.g., \`OnEnemyKi
 
 ### Production SaaS
 Architect a highly decoupled, data-driven Quest System. Designers should be able to create complex, branching quests via node graphs (Visual Scripting) without asking engineers to write custom C# logic for every fetch quest.
-`;
-
-export const gameachievements = `
+`,
+  'gameachievements': `
 ## Why this matters
 Achievements artificially extend playtime by appealing to completionists.
 
@@ -19037,9 +18722,8 @@ Implement local tracking for simple milestones (e.g., "Jump 1,000 times").
 
 ### Production SaaS
 Wrap the Steamworks API, PlayStation Network (PSN) Trophies, and Xbox Live achievements in a unified interface. You must handle asynchronous network callbacks gracefully—what happens if the player unlocks an achievement while offline?
-`;
-
-export const gameinventorysystem = `
+`,
+  'gameinventorysystem': `
 ## Why this matters
 Inventory management is a core loop in itself for RPGs and Survival games.
 
@@ -19052,9 +18736,8 @@ Build a grid or slot-based UI. Separate the *Data* (the item ID, quantity) from 
 
 ### Production SaaS
 Architect a highly scalable Item Database using ScriptableObjects (Unity) or DataAssets (Unreal). Each item must have a unique GUID. If you rely on string names (e.g., \`GiveItem("Iron Sword")\`), a designer changing a typo will break your entire save system.
-`;
-
-export const gamebalancing = `
+`,
+  'gamebalancing': `
 ## Why this matters
 Post-launch balancing keeps the meta fresh.
 
@@ -19067,9 +18750,8 @@ Never nerf the fun. If a weapon is overpowered and players love it, buff the ene
 
 ### Production SaaS
 Use A/B testing on live servers. Roll out a balance tweak to 10% of players and measure the impact on retention and win-rates before pushing it globally.
-`;
-
-export const gameuiuxdesign = `
+`,
+  'gameuiuxdesign': `
 ## Why this matters
 UI is how the player understands the game state.
 
@@ -19082,9 +18764,8 @@ Animate your UI. When the player takes damage, flash the health bar red and shak
 
 ### Production SaaS
 Use advanced UI frameworks (e.g., Unity UI Toolkit, Unreal UMG, or Cohtml). Implement Object Pooling for your UI elements (like scrolling lists or damage numbers) to prevent massive Garbage Collection spikes that cause frame stutters.
-`;
-
-export const gameartdirection = `
+`,
+  'gameartdirection': `
 ## Why this matters
 Art direction defines your screenshots, and screenshots sell the game.
 
@@ -19097,9 +18778,8 @@ Lean into your limitations. If you can't model photorealistic humans, build a lo
 
 ### Production SaaS
 Establish rigorous Technical Art guidelines. Strict polycount limits, strict texture atlas packing, and shader complexity budgets. If your artists use 4K textures for a pebble, your game will run at 10 FPS on consoles.
-`;
-
-export const gamesounddesign = `
+`,
+  'gamesounddesign': `
 ## Why this matters
 Sound is 50% of the game feel. A punch without a bass-heavy impact sound feels like hitting a pillow.
 
@@ -19112,9 +18792,8 @@ Randomize the pitch of your sound effects slightly (e.g., +/- 10%) every time th
 
 ### Production SaaS
 Integrate Audio Middleware (FMOD or Wwise). This allows your sound designers to create complex, dynamic audio landscapes (e.g., engine sounds that dynamically pitch up based on the car's RPM) without requiring a programmer to write the logic.
-`;
-
-export const gamebackendarchitecture = `
+`,
+  'gamebackendarchitecture': `
 ## Why this matters
 If your game has accounts, leaderboards, or multiplayer, you need a backend. If your backend is slow, players will experience latency (lag), which ruins the game feel.
 
@@ -19127,9 +18806,8 @@ Use a Backend-as-a-Service (BaaS) designed specifically for games, like Unity Ga
 
 ### Production SaaS
 If building a massive multiplayer game, you need a custom, highly scalable microservices architecture (e.g., Kubernetes + Agones). Matchmaking, chat, and game server orchestration must be decoupled. Use UDP for real-time player movement (TCP is too slow due to packet resending), and use WebSockets/HTTPS for chat and inventory management.
-`;
-
-export const gamecostestimation = `
+`,
+  'gamecostestimation': `
 ## Why this matters
 Game servers are astronomically expensive compared to web servers because they must run simulations at 60 ticks per second.
 
@@ -19142,9 +18820,8 @@ Budget for art and sound assets. A decent 3D model can cost $50-$200 on the Unit
 
 ### Production SaaS
 Calculate your CCU (Concurrent Users) server costs. If you are running dedicated servers (e.g., via AWS GameLift), and each server instance costs $40/month and holds 100 players, a spike of 10,000 players on launch day will cost you $4,000/month immediately. Ensure your monetization model covers this burn rate.
-`;
-
-export const gameengineselection = `
+`,
+  'gameengineselection': `
 ## Why this matters
 Your engine is a marriage. You cannot easily switch engines halfway through development.
 
@@ -19157,9 +18834,8 @@ Godot is excellent for 2D and lightweight 3D, and has no royalties. Unity is the
 
 ### Production SaaS
 Choose based on your team's expertise and the target platform. If targeting mobile, Unity's build pipeline is vastly superior. If building a AAA-quality FPS, Unreal's built-in replication, Lumen (lighting), and Nanite (geometry) systems will save you years of engineering.
-`;
-
-export const gamearchitecturefundamentals = `
+`,
+  'gamearchitecturefundamentals': `
 ## Why this matters
 Spaghetti code in game dev is fatal. If the UI directly modifies the player's health, and the enemy directly modifies the player's health, you will eventually create a race condition where the player is dead but the UI says they are alive.
 
@@ -19172,9 +18848,8 @@ Implement the Singleton pattern sparingly (only for global managers like Audio o
 
 ### Production SaaS
 Architect using Entity Component System (ECS) or highly decoupled Component-Based architecture. Separate your Data, your Logic (Systems), and your View. Use Dependency Injection (e.g., Zenject in Unity) to manage complex dependencies and facilitate unit testing.
-`;
-
-export const gamegameloop = `
+`,
+  'gamegameloop': `
 ## Why this matters
 The Game Loop is the heartbeat of your engine (Process Input -> Update Game State -> Render).
 
@@ -19187,9 +18862,8 @@ Understand the difference between \`Update\` (variable frame rate, used for inpu
 
 ### Production SaaS
 Implement custom Delta Time smoothing. If the frame rate spikes wildly, raw \`deltaTime\` can cause physics tunneling (bullets passing through walls). You must clamp your delta time or implement sub-stepping for rigorous physics simulations.
-`;
-
-export const gamegamestates = `
+`,
+  'gamegamestates': `
 ## Why this matters
 Main Menu, Loading, Playing, Paused, Game Over. These are states. Managing transitions between them without memory leaks is critical.
 
@@ -19202,9 +18876,8 @@ Implement a basic Finite State Machine (FSM). Create discrete classes for each s
 
 ### Production SaaS
 Architect a robust State Machine with sub-states (e.g., \`PlayingState\` has sub-states \`Combat\` and \`Exploration\`). Ensure UI bindings are properly subscribed and unsubscribed during state transitions to prevent null reference exceptions when scenes unload.
-`;
-
-export const gamescenemanagement = `
+`,
+  'gamescenemanagement': `
 ## Why this matters
 Loading an entire RPG world at once will crash the computer's RAM. You must manage what is loaded and when.
 
@@ -19217,9 +18890,8 @@ Use Additive Scene Loading. Keep a "Persistent" scene containing your UI and Aud
 
 ### Production SaaS
 Implement World Partitioning (Unreal) or complex chunk streaming. The world must be broken into grids; as the player moves, grids in front of them are loaded into memory, and grids behind them are dumped. This requires rigorous memory profiling to prevent stuttering.
-`;
-
-export const gameeventsystems = `
+`,
+  'gameeventsystems': `
 ## Why this matters
 Decoupling your code. If the UI needs to update when the player takes damage, the Player script should NOT have a reference to the UI script.
 
@@ -19232,9 +18904,8 @@ Use C# \`Actions\` or basic Observer patterns. The Player fires an \`OnDamageTak
 
 ### Production SaaS
 Architect a global, typed Event Bus (or ScriptableObject-based event architecture). This allows a "Boss Killed" event to trigger an achievement, update a quest, play a sound, and open a door, without any of those systems knowing the others exist.
-`;
-
-export const gamesavesystems = `
+`,
+  'gamesavesystems': `
 ## Why this matters
 Players will refund your game if they lose 10 hours of progress.
 
@@ -19247,9 +18918,8 @@ Serialize your game state to JSON. Write a \`SaveManager\` that collects data fr
 
 ### Production SaaS
 Use Binary formatting (MessagePack or Protobuf) to prevent players from opening the save file in Notepad and giving themselves 999,999 gold. Implement rolling backups (SaveSlot1, SaveSlot2) to prevent file corruption if the game crashes *while* writing to the disk.
-`;
-
-export const gameinputsystems = `
+`,
+  'gameinputsystems': `
 ## Why this matters
 Hardcoding "Press Space to Jump" ruins accessibility and breaks controller support.
 
@@ -19262,9 +18932,8 @@ Map inputs to logical actions, not physical keys (e.g., \`if (Input.GetButton("J
 
 ### Production SaaS
 Use advanced input routing (Unity's New Input System or Unreal's Enhanced Input). You must handle dynamic device switching (player unplugs their Xbox controller and starts using mouse/keyboard mid-game) seamlessly, instantly updating the UI prompts on screen.
-`;
-
-export const gamedataarchitecture = `
+`,
+  'gamedataarchitecture': `
 ## Why this matters
 Games contain thousands of stats: enemy health, weapon damage, loot drop rates. If these are hardcoded in scripts, balancing the game is impossible.
 
@@ -19277,9 +18946,8 @@ Use ScriptableObjects (Unity) or Resources (Godot) to separate data from logic. 
 
 ### Production SaaS
 Your game must be Data-Driven. All stats should live in a central database (e.g., Google Sheets or CastleDB) that exports to JSON/CSV, which the game parses at runtime. This allows game designers to balance the entire game without opening the engine or touching a single line of code.
-`;
-
-export const gamecloudsaves = `
+`,
+  'gamecloudsaves': `
 ## Why this matters
 Players expect to play on their desktop, close the game, and resume on their Steam Deck seamlessly.
 
@@ -19292,9 +18960,8 @@ Ignore, let the platform handle basic local saves.
 
 ### Production SaaS
 Integrate Steam Cloud API or Epic Online Services Cloud Storage. You must architect conflict resolution logic. What happens if the local save is newer, but the cloud save has more playtime? The UI must elegantly ask the player which save they want to keep.
-`;
-
-export const gamemultiplayerarchitecture = `
+`,
+  'gamemultiplayerarchitecture': `
 ## Why this matters
 Multiplayer fundamentally breaks single-player code. You cannot "add multiplayer later."
 
@@ -19307,9 +18974,8 @@ Use a high-level networking library (Photon PUN/Fusion, or Unity Netcode for Gam
 
 ### Production SaaS
 You must use Server-Authoritative architecture with Client-Side Prediction and Rollback. If a player shoots, their local client immediately plays the gunshot animation (prediction). The server receives the input, validates it, and if it was illegal, forces the client to snap back to the correct state (rollback). This is the only way to prevent hacking and mask latency.
-`;
-
-export const gamebackend = `
+`,
+  'gamebackend': `
 ## Why this matters
 Your backend is the referee for everything that happens off the client.
 
@@ -19322,9 +18988,8 @@ Implement an authoritative cloud function to validate simple achievements or cur
 
 ### Production SaaS
 Implement dedicated Game Server Orchestration. Use Agones on Kubernetes. When a match is requested, the orchestrator spins up a dedicated container running a headless version of your game engine, connects the players, and spins it down to save costs when the match ends.
-`;
-
-export const gametesting = `
+`,
+  'gametesting': `
 ## Why this matters
 Game code is highly stateful and non-deterministic (physics, frame-rate variations). Standard TDD (Test-Driven Development) is exceptionally difficult.
 
@@ -19337,9 +19002,8 @@ Use automated Unity Test Framework to test your math and pure logic (e.g., Damag
 
 ### Production SaaS
 Implement a massive QA pipeline. Use automated bots that randomly generate inputs (Chaos Monkeys) and run the game overnight at 10x speed to find memory leaks or out-of-bounds glitches. Maintain a strict matrix of OS/Hardware configurations for manual testing.
-`;
-
-export const gamedocumentation = `
+`,
+  'gamedocumentation': `
 ## Why this matters
 If the senior engineer leaves, how does the junior engineer know how the dialogue system works?
 
@@ -19352,9 +19016,8 @@ Write tooltips (e.g., \`[Tooltip("Adjusts jump height")]\`) above your serialize
 
 ### Production SaaS
 Maintain a technical wiki (Confluence/Notion). Document the exact pipeline for importing a character model (e.g., "FBX export settings, scale factor, naming conventions"). If the art pipeline isn't documented, artists will constantly break the build.
-`;
-
-export const gamecoregameplay = `
+`,
+  'gamecoregameplay': `
 ## Why this matters
 This is the implementation of the "Game Feel" (Juice).
 
@@ -19367,9 +19030,8 @@ Implement Hit Stop (Sleep the engine for 0.1 seconds when a massive hit lands) a
 
 ### Production SaaS
 Architect your core gameplay systems using a robust Ability System (like Unreal's Gameplay Ability System - GAS). This allows designers to create complex, buff/debuff interacting abilities without hardcoding massive \`if/else\` chains in the player controller.
-`;
-
-export const gameuisystems = `
+`,
+  'gameuisystems': `
 ## Why this matters
 Bad UI kills games.
 
@@ -19382,9 +19044,8 @@ Ensure your Canvas anchors are set correctly so the UI scales cleanly between 16
 
 ### Production SaaS
 Separate your UI into completely distinct Canvas layers (e.g., Background, HUD, Popups, Tooltips). If a tooltip updates every frame, it must be on its own Canvas, or it will force the entire HUD to redraw every frame, destroying your CPU budget.
-`;
-
-export const gamesavesystem = `
+`,
+  'gamesavesystem': `
 ## Why this matters
 Executing the save graph.
 
@@ -19397,9 +19058,8 @@ Implement \`ISaveable\` interfaces on any object that needs to be persisted. The
 
 ### Production SaaS
 Handle schema migrations. If a player saves a game in Version 1.0, and you add a new "Stamina" stat in Version 1.1, the save file must load successfully and inject a default value for Stamina without crashing.
-`;
-
-export const gameaudio = `
+`,
+  'gameaudio': `
 ## Why this matters
 Audio implementation is technical.
 
@@ -19412,9 +19072,8 @@ Build an AudioManager singleton that handles Object Pooling for AudioSources so 
 
 ### Production SaaS
 Implement Audio Mixers and Ducking. When a character speaks (Dialogue channel), the Music and SFX channels should automatically "duck" (lower in volume by 10db) to ensure the dialogue is legible.
-`;
-
-export const gameanimation = `
+`,
+  'gameanimation': `
 ## Why this matters
 Animation drives the feel of the mechanics.
 
@@ -19427,9 +19086,8 @@ Use Animation State Machines (Animators). Implement Blend Trees to smoothly tran
 
 ### Production SaaS
 Implement Inverse Kinematics (IK). The player's feet must automatically align to the angle of the stairs they are walking on. If building a shooter, the left hand IK must perfectly lock to the barrel of the gun, regardless of the animation currently playing.
-`;
-
-export const gamephysics = `
+`,
+  'gamephysics': `
 ## Why this matters
 Physics are unpredictable and computationally expensive.
 
@@ -19442,9 +19100,8 @@ Never write custom collision math if you can avoid it. Use Raycasts and Sphereca
 
 ### Production SaaS
 Understand the difference between Kinematic and Dynamic rigidbodies. If a platform is moving via code, it must be Kinematic so the physics engine knows not to calculate gravity for it. Overusing Dynamic rigidbodies will tank your frame rate.
-`;
-
-export const gameaisystems = `
+`,
+  'gameaisystems': `
 ## Why this matters
 Enemies that just walk in a straight line are boring.
 
@@ -19457,9 +19114,8 @@ Implement a basic State Machine for AI (Patrol, Chase, Attack). Use baked NavMes
 
 ### Production SaaS
 Implement Behavior Trees or Utility AI for complex decision making. If an enemy is low on health, a Utility AI will evaluate the "Desire to Flee" vs the "Desire to Attack" based on proximity to cover and the player's health.
-`;
-
-export const gameinventory = `
+`,
+  'gameinventory': `
 ## Why this matters
 Implementation of the database.
 
@@ -19472,9 +19128,8 @@ Implement Drag-and-Drop using UI event interfaces (\`IBeginDragHandler\`, \`IDro
 
 ### Production SaaS
 Handle edge cases aggressively. What happens if the inventory is full and the player completes a quest that rewards an item? Does it drop on the ground? Does it go to a postmaster? It cannot just disappear.
-`;
-
-export const gameeconomy = `
+`,
+  'gameeconomy': `
 ## Why this matters
 Connecting the math to the game loop.
 
@@ -19487,9 +19142,8 @@ Hardcode prices.
 
 ### Production SaaS
 Implement dynamic pricing or loot tables. Use Weighted Random Distribution for loot drops. If a sword has a 1% drop rate, use "Pseudo-Random Distribution" (PRD) to slightly increase the chance every time the player fails to get it, preventing extreme bad luck streaks that cause players to quit.
-`;
-
-export const gamelevels = `
+`,
+  'gamelevels': `
 ## Why this matters
 Building the world.
 
@@ -19502,9 +19156,8 @@ Use Tilemaps for 2D or modular kits for 3D. Snap everything to a strict grid (e.
 
 ### Production SaaS
 Implement procedural generation algorithms (e.g., Wave Function Collapse or Cellular Automata) if building a roguelike. Combine this with hand-crafted "set pieces" to ensure the procedural generation doesn't feel monotonous.
-`;
-
-export const gamemultiplayer = `
+`,
+  'gamemultiplayer': `
 ## Why this matters
 The hardest discipline in software engineering.
 
@@ -19517,9 +19170,8 @@ Implement simple RPCs (Remote Procedure Calls). Tell the server "I swung my swor
 
 ### Production SaaS
 Handle Dead Reckoning and Interpolation. The network updates at 20 ticks per second, but the game runs at 60 frames per second. You must smoothly interpolate between the network ticks so enemy players don't visually stutter across the screen.
-`;
-
-export const gameanalytics = `
+`,
+  'gameanalytics': `
 ## Why this matters
 You cannot improve what you do not measure. Game analytics tell you exactly where players get frustrated and quit.
 
@@ -19532,9 +19184,8 @@ Integrate Unity Analytics or GameAnalytics. Track two core events: \`Level Start
 
 ### Production SaaS
 Implement deep telemetry. Track economy faucets (how much gold was generated globally today?) and combat metrics (which weapon causes the most player deaths?). Use BigQuery to analyze massive datasets and adjust your live-ops balancing patches.
-`;
-
-export const gamesecurity = `
+`,
+  'gamesecurity': `
 ## Why this matters
 Hackers will ruin your economy and drive legitimate players away.
 
@@ -19547,9 +19198,8 @@ Obfuscate your code (e.g., Dotfuscator) to prevent simple decompilation via ILSp
 
 ### Production SaaS
 Implement Server-Side validation for *everything*. Never trust the client. If the client says "I bought this sword for 0 gold", the server must check the database price and reject the transaction. Encrypt memory values so players can't use Cheat Engine to freeze their health at 100.
-`;
-
-export const gameperformanceoptimization = `
+`,
+  'gameperformanceoptimization': `
 ## Why this matters
 A game running at 20 FPS is unplayable and will be immediately refunded.
 
@@ -19562,9 +19212,8 @@ Use the Profiler. Do not guess what is causing lag. If you see massive spikes in
 
 ### Production SaaS
 Implement rigorous CI/CD performance testing. Set a budget (e.g., "Total scene memory cannot exceed 2GB"). If an artist commits a 4K texture that breaks the budget, the build pipeline must automatically reject the commit.
-`;
-
-export const gamecrashreporting = `
+`,
+  'gamecrashreporting': `
 ## Why this matters
 Silent crashes are impossible to debug without stack traces from the user's specific hardware.
 
@@ -19577,9 +19226,8 @@ Enable Unity Crash Reporting or use Backtrace.
 
 ### Production SaaS
 Integrate Sentry or Crashlytics natively into the C++ engine layer. You must collect the minidump, the OS version, GPU drivers, and the last 50 lines of the game log to identify hardware-specific driver crashes (e.g., "Nvidia driver 512.xx crashes when volumetric fog is enabled").
-`;
-
-export const gamemonitoring = `
+`,
+  'gamemonitoring': `
 ## Why this matters
 Live service games require 24/7 uptime.
 
@@ -19592,9 +19240,8 @@ Ignore.
 
 ### Production SaaS
 Set up Datadog or Grafana. Monitor CPU usage, Memory, and CCU (Concurrent Users) across your server fleet. Set up PagerDuty alerts if the matchmaking queue time exceeds 2 minutes, indicating a backend crash.
-`;
-
-export const gamecicd = `
+`,
+  'gamecicd': `
 ## Why this matters
 Manually building a game for Windows, Mac, Linux, iOS, and Android takes 5 hours and is prone to human error.
 
@@ -19607,9 +19254,8 @@ Use Unity Cloud Build or GitHub Actions. Have it automatically build a Windows \
 
 ### Production SaaS
 Implement a massive Jenkins or Buildkite pipeline. The pipeline must bake lighting, compile shaders for all platforms, run automated UI tests, and push the artifact directly to Steamworks (via SteamCMD) on a nightly schedule.
-`;
-
-export const gamefpsoptimization = `
+`,
+  'gamefpsoptimization': `
 ## Why this matters
 Frame drops break the "Game Feel".
 
@@ -19622,9 +19268,8 @@ Implement Object Pooling. Do not call \`Instantiate()\` or \`Destroy()\` during 
 
 ### Production SaaS
 Implement GPU Instancing and Draw Call Batching. If you have 1,000 trees on screen, they must be drawn in a single draw call, not 1,000 separate calls. Optimize your shaders to use mobile-friendly math (e.g., \`half\` instead of \`float\` where precision isn't critical).
-`;
-
-export const gamememoryoptimization = `
+`,
+  'gamememoryoptimization': `
 ## Why this matters
 Out of Memory (OOM) crashes are the leading cause of mobile game 1-star reviews.
 
@@ -19637,9 +19282,8 @@ Compress your textures! A 2048x2048 texture uncompressed takes 16MB of VRAM. Cru
 
 ### Production SaaS
 Implement strict memory pooling and Addressables (Unity). Do not load audio clips into memory until they are needed. Dump them from memory the second the level ends. Monitor Heap fragmentation closely.
-`;
-
-export const gameloadingoptimization = `
+`,
+  'gameloadingoptimization': `
 ## Why this matters
 Long loading screens break immersion and cause players to open their phones (and forget your game).
 
@@ -19652,9 +19296,8 @@ Use asynchronous loading (\`LoadSceneAsync\`). Show a progress bar and a tip on 
 
 ### Production SaaS
 Implement seamless background streaming. The player should never see a loading screen after the initial boot. Pre-warm shaders during the main menu to prevent stuttering when a new VFX particle spawns for the first time in-game.
-`;
-
-export const gameanticheat = `
+`,
+  'gameanticheat': `
 ## Why this matters
 Cheaters destroy multiplayer communities in weeks.
 
@@ -19667,9 +19310,8 @@ Ignore, not worth the engineering cost for a small game.
 
 ### Production SaaS
 Integrate Easy Anti-Cheat (EAC) or BattlEye. Obfuscate network packets to prevent Man-in-the-Middle (MitM) radar hacks. However, remember that client-side anti-cheat is only a speedbump; true security is a fully server-authoritative architecture.
-`;
-
-export const gamecloudinfrastructure = `
+`,
+  'gamecloudinfrastructure': `
 ## Why this matters
 Scaling from 1,000 to 1,000,000 players overnight.
 
@@ -19682,33 +19324,29 @@ Ignore.
 
 ### Production SaaS
 Use AWS GameLift or Google Cloud Game Servers. Implement auto-scaling groups. If server capacity reaches 80%, spin up 50 new instances globally. If capacity drops below 30% at 3 AM, terminate instances aggressively to save thousands of dollars.
-`;
-
-export const gameenterprisemultiplayerinfrastructure = `
+`,
+  'gameenterprisemultiplayerinfrastructure': `
 ## Why this matters
 AAA multiplayer scale requires bespoke networking.
 
 ## Strategic Guidance
 Move beyond off-the-shelf solutions. Implement custom UDP protocols and delta-compression. If a player hasn't moved, do not send their coordinates in the network tick. This saves terabytes of bandwidth costs per month.
-`;
-
-export const gameadvancedanalytics = `
+`,
+  'gameadvancedanalytics': `
 ## Why this matters
 Predicting churn before it happens.
 
 ## Strategic Guidance
 Implement machine learning models on your telemetry data. If the model detects a player's session length has decreased by 20% over 3 days, automatically trigger a "We miss you" email with a premium currency gift to retain them.
-`;
-
-export const gameliveservicecomplexity = `
+`,
+  'gameliveservicecomplexity': `
 ## Why this matters
 Live Ops is a relentless treadmill.
 
 ## Strategic Guidance
 Architect your game to support Hot-Fixing via AssetBundles or Addressables. You must be able to push a balance patch (changing a weapon's damage) without requiring the user to download a new 5GB patch from the App Store/Steam, bypassing certification delays.
-`;
-
-export const gameappstoresetup = `
+`,
+  'gameappstoresetup': `
 ## Why this matters
 App store metadata (ASO) determines if your game gets organic traffic.
 
@@ -19721,9 +19359,8 @@ Optimize your Keywords. Use tools like SensorTower. If your title and subtitle d
 
 ### Production SaaS
 Architect your build pipeline to handle Apple's App Tracking Transparency (ATT) and GDPR prompts natively on boot. If you fail to implement these correctly, Apple will reject your binary.
-`;
-
-export const gamescreenshots = `
+`,
+  'gamescreenshots': `
 ## Why this matters
 Players do not read descriptions. They look at screenshots and watch the trailer. If the first screenshot doesn't show gameplay, they bounce.
 
@@ -19736,9 +19373,8 @@ Ensure your screenshots are 1920x1080 and heavily edited to increase contrast. T
 
 ### Production SaaS
 A/B test your screenshots (Capsule Art) using Steam's built-in A/B testing tools or Facebook Ads before launch. A 1% increase in Click-Through Rate (CTR) on your capsule art can mean thousands of extra sales.
-`;
-
-export const gamebetatesting = `
+`,
+  'gamebetatesting': `
 ## Why this matters
 Developers suffer from "snow blindness." You know how to play the game perfectly, so you don't realize the tutorial is impossible for a new player.
 
@@ -19751,9 +19387,8 @@ Use Steam Playtest. Give out 1,000 keys and require players to fill out a Google
 
 ### Production SaaS
 Run rigorous Closed Alphas under NDA. Use specialized companies to conduct UX Testing where they eye-track players and record their heart rates to objectively measure "fun" and frustration.
-`;
-
-export const gamereleasechecklist = `
+`,
+  'gamereleasechecklist': `
 ## Why this matters
 Releasing a game is a 50-step process.
 
@@ -19766,9 +19401,8 @@ Ensure you've integrated the Steamworks SDK correctly, the overlay works, and ac
 
 ### Production SaaS
 Coordinate the "Press Embargo." Ensure 50+ content creators (YouTubers/Streamers) have keys 2 weeks in advance, and explicitly state they cannot publish videos until 24 hours before launch to concentrate the algorithm hype.
-`;
-
-export const gamestoreassets = `
+`,
+  'gamestoreassets': `
 ## Why this matters
 Your Capsule Art is your storefront window.
 
@@ -19781,9 +19415,8 @@ Pay a professional 2D illustrator $300-$500 for a custom Capsule Art piece. It i
 
 ### Production SaaS
 Ensure you have localized graphical assets (Capsules in Chinese, Japanese, Russian, German). The text on the image must be translated to maximize conversion in those regions.
-`;
-
-export const gamesteamsetup = `
+`,
+  'gamesteamsetup': `
 ## Why this matters
 The Steam algorithm is complex and unforgiving.
 
@@ -19796,9 +19429,8 @@ You must get 10 reviews immediately on launch day to achieve a "Positive" rating
 
 ### Production SaaS
 Optimize your "More Like This" tags. Your top 5 user-defined tags dictate which games your game appears beneath. If you tag your 2D platformer as a "Shooter," you will be recommended to Call of Duty players, who will not buy it.
-`;
-
-export const gametrailers = `
+`,
+  'gametrailers': `
 ## Why this matters
 The trailer is the make-or-break marketing asset.
 
@@ -19811,9 +19443,8 @@ The "Wadjet Eye" rule: The first 3 seconds must show action. No studio logos. No
 
 ### Production SaaS
 Hire a professional trailer editor (like Derek Lieu). Cut the trailer to the beat of custom-composed music. Ensure the trailer explains the core loop (Gather -> Craft -> Fight) visually, without requiring voiceover.
-`;
-
-export const gamecommunitytesting = `
+`,
+  'gamecommunitytesting': `
 ## Why this matters
 Your Discord community is your free QA department.
 
@@ -19826,9 +19457,8 @@ Post weekly GIFs on Twitter/Reddit to funnel players into a Discord. Release an 
 
 ### Production SaaS
 Implement an in-game "Press F8 to Report Bug" tool that automatically takes a screenshot, captures the player's coordinates, and posts it to a private Jira board.
-`;
-
-export const gameretention = `
+`,
+  'gameretention': `
 ## Why this matters
 Acquiring a player costs $2-$5. Retaining them costs $0.
 
@@ -19841,9 +19471,8 @@ Add a "New Game+" mode or a randomized Daily Challenge. This adds infinite repla
 
 ### Production SaaS
 Implement sophisticated "Return Mechanics." E.g., Crops that take 24 hours to grow, forcing the player to log in tomorrow. Be careful not to make these mechanics feel like a second job (chore mechanics), or players will churn permanently.
-`;
-
-export const gameroadmap = `
+`,
+  'gameroadmap': `
 ## Why this matters
 Players buy Early Access games based on the promise of the future.
 
@@ -19856,9 +19485,8 @@ Publish a simple infographic on the Steam page showing 3 major updates planned f
 
 ### Production SaaS
 Under-promise and over-deliver. If you promise a highly complex multiplayer mode and fail to deliver it, your game will be review-bombed to "Overwhelmingly Negative" and your studio's reputation will be permanently destroyed.
-`;
-
-export const gameplayerfeedback = `
+`,
+  'gameplayerfeedback': `
 ## Why this matters
 Players are excellent at identifying problems, but terrible at designing solutions.
 
@@ -19871,9 +19499,8 @@ If players say "The shotgun is too weak," don't just increase the damage. Maybe 
 
 ### Production SaaS
 Implement Community Managers as a buffer. Engineers should not read raw Steam forums; the vitriol will cause massive burnout. Aggregate feedback into actionable sprint tickets.
-`;
-
-export const gameupdates = `
+`,
+  'gameupdates': `
 ## Why this matters
 Consistent updates tell the Steam algorithm the game is alive.
 
@@ -19886,9 +19513,8 @@ Push small bug fixes weekly to maintain visibility on the "Recently Updated" lis
 
 ### Production SaaS
 Coordinate massive "Beat" updates (e.g., Season 1). A major update should be treated like a mini-launch, complete with a new trailer, press releases, and paid advertising to recapture churned players.
-`;
-
-export const gameseasonalcontent = `
+`,
+  'gameseasonalcontent': `
 ## Why this matters
 FOMO (Fear of Missing Out) drives engagement.
 
@@ -19901,9 +19527,8 @@ Change the menu background to snow during December. It takes 10 minutes and play
 
 ### Production SaaS
 Architect a robust "Live Ops" pipeline. You should be able to trigger a Halloween event (new skins, spooky lighting) purely via server-side configuration switches, without requiring players to download a massive patch.
-`;
-
-export const gamecommunitymanagement = `
+`,
+  'gamecommunitymanagement': `
 ## Why this matters
 Toxicity kills multiplayer games.
 
@@ -19916,9 +19541,8 @@ Be authentic. Talk to players directly in Discord. A solo dev with a good person
 
 ### Production SaaS
 Implement automated chat filters and robust player-reporting tools. Do not tolerate toxicity in the name of "free speech"; toxic players will drive away the silent majority of your highest-paying casual users.
-`;
-
-export const gamemonetizationoptimization = `
+`,
+  'gamemonetizationoptimization': `
 ## Why this matters
 Maximizing ARPU (Average Revenue Per User).
 
@@ -19931,9 +19555,8 @@ Release the game on sale (10% off) during launch week to maximize impulse buys.
 
 ### Production SaaS
 Analyze your "Whale" conversion funnels. If your top spenders stop spending, offer highly exclusive, high-ticket cosmetic items (e.g., a $50 skin). Do not sell "Pay to Win" items (stat boosts), as this will instantly destroy the game's competitive integrity and community goodwill.
-`;
-
-export const cyberredtargetselection = `
+`,
+  'cyberredtargetselection': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -19960,9 +19583,8 @@ Act as a Senior Offensive Security Engineer. I am building an offensive security
 
 - [ ] I have explicitly defined the target scope.
 - [ ] I have designed a mechanism to prevent out-of-scope execution.
-`;
-
-export const cyberredrulesofengagement = `
+`,
+  'cyberredrulesofengagement': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -19989,9 +19611,8 @@ Act as a Senior Red Team Architect. I need to build a ROE (Rules of Engagement) 
 
 - [ ] I have drafted a clear ROE.
 - [ ] I have designed the kill-switch and blackout architecture.
-`;
-
-export const cyberredlegalliability = `
+`,
+  'cyberredlegalliability': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20018,9 +19639,8 @@ Act as a Cybersecurity Legal Architect. I am building a tool capable of exploita
 
 - [ ] I understand the legal risks of building offensive tools.
 - [ ] I have implemented tamper-proof audit logging.
-`;
-
-export const cyberredthreatmodeling = `
+`,
+  'cyberredthreatmodeling': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20047,9 +19667,8 @@ Act as an OPSEC Specialist. I am developing an offensive security tool. Conduct 
 
 - [ ] I have identified the primary risks to my own infrastructure.
 - [ ] I have designed mitigations for reverse-engineering and attribution.
-`;
-
-export const cyberredscopeboundaries = `
+`,
+  'cyberredscopeboundaries': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20078,9 +19697,8 @@ Act as a Senior Go Developer. Write the architectural design for a high-performa
 
 - [ ] I have implemented a mathematical CIDR validation engine.
 - [ ] I have tested the tool to ensure it drops out-of-scope requests.
-`;
-
-export const cyberredsuccessmetrics = `
+`,
+  'cyberredsuccessmetrics': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20107,9 +19725,8 @@ Act as a Red Team Lead. I am building a [TOOL_TYPE]. Explain how I should format
 
 - [ ] I have defined the success metrics.
 - [ ] The output maps to recognizable security frameworks.
-`;
-
-export const cyberredexecutionflow = `
+`,
+  'cyberredexecutionflow': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20136,9 +19753,8 @@ Act as a Principal Software Engineer. I am building a distributed offensive secu
 
 - [ ] I have mapped the execution flow.
 - [ ] I have designed the system to handle crashes gracefully.
-`;
-
-export const cyberredstealthevasion = `
+`,
+  'cyberredstealthevasion': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20165,9 +19781,8 @@ Act as a Senior Malware Developer. I am building a C2 implant that needs to bypa
 
 - [ ] I understand the target's defensive capabilities.
 - [ ] I have designed the payload to avoid basic static signatures.
-`;
-
-export const cyberredpayloaddelivery = `
+`,
+  'cyberredpayloaddelivery': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20194,9 +19809,8 @@ Act as an Advanced Threat Actor. I need to design an "Environment Keying" mechan
 
 - [ ] I have chosen a delivery method.
 - [ ] I have considered how to prevent the payload from being analyzed by third parties.
-`;
-
-export const cyberredc2architecture = `
+`,
+  'cyberredc2architecture': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20223,9 +19837,8 @@ Act as a C2 Framework Architect. I need to design a "Malleable C2" engine. Expla
 
 - [ ] I have decided on the beaconing interval and protocol.
 - [ ] I have designed the C2 to blend in with normal network traffic.
-`;
-
-export const cyberredlanguageselection = `
+`,
+  'cyberredlanguageselection': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20253,9 +19866,8 @@ Act as a Systems Programmer. I am evaluating Rust for an offensive security impl
 
 - [ ] I have chosen the language for the implant.
 - [ ] I have chosen the language for the orchestration server.
-`;
-
-export const cyberredconcurrencymodel = `
+`,
+  'cyberredconcurrencymodel': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20282,9 +19894,8 @@ Act as a Network Engineer. I am building a highly concurrent network scanner. De
 
 - [ ] I have selected a concurrency model (Threads, Async, Processes).
 - [ ] I have implemented rate limiting to prevent accidental DoS.
-`;
-
-export const cyberredosintaggregation = `
+`,
+  'cyberredosintaggregation': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20311,9 +19922,8 @@ Act as a Data Architect. I am building an OSINT aggregation tool. Explain why a 
 
 - [ ] I have identified the necessary APIs and data sources.
 - [ ] I have designed the data storage model.
-`;
-
-export const cyberredportscanning = `
+`,
+  'cyberredportscanning': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20340,9 +19950,8 @@ Act as a Network Protocol Expert. I want to build a port scanner capable of scan
 
 - [ ] I have determined the type of scan (TCP, SYN, UDP).
 - [ ] I have considered the performance impact on the host network.
-`;
-
-export const cyberredserviceenumeration = `
+`,
+  'cyberredserviceenumeration': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20369,9 +19978,8 @@ Act as a Network Protocol Analyst. I am building a service enumeration tool. Exp
 
 - [ ] I have defined the core protocols the tool will understand.
 - [ ] I have implemented logic to handle non-standard port assignments.
-`;
-
-export const cyberredsubdomainbruteforcing = `
+`,
+  'cyberredsubdomainbruteforcing': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20398,9 +20006,8 @@ Act as a Senior DNS Engineer. I am building a subdomain enumeration tool. Design
 
 - [ ] I have integrated a high-quality wordlist (e.g., SecLists).
 - [ ] I have designed a mechanism to handle Wildcard DNS false positives.
-`;
-
-export const cyberredratelimitingevasion = `
+`,
+  'cyberredratelimitingevasion': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20427,9 +20034,8 @@ Act as a WAF Evasion Researcher. I am building an automated web scanner. Explain
 
 - [ ] I understand the target's rate-limiting infrastructure.
 - [ ] I have designed the tool to rotate IPs or headers to avoid blocks.
-`;
-
-export const cyberredvulnerabilitymatching = `
+`,
+  'cyberredvulnerabilitymatching': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20456,9 +20062,8 @@ Act as a Vulnerability Research Lead. I am building a network vulnerability scan
 
 - [ ] I have selected a source for vulnerability data.
 - [ ] I have designed an engine that can ingest and update signatures dynamically.
-`;
-
-export const cyberredpayloadgeneration = `
+`,
+  'cyberredpayloadgeneration': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20485,9 +20090,8 @@ Act as an Advanced Malware Analyst. I am building a payload generation engine fo
 
 - [ ] I have determined the type of payload to generate.
 - [ ] I have implemented obfuscation techniques to defeat static analysis.
-`;
-
-export const cyberredmemoryexploitation = `
+`,
+  'cyberredmemoryexploitation': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20514,9 +20118,8 @@ Act as a Senior Exploit Developer. I am building a tool to exploit a memory corr
 
 - [ ] I have identified the vulnerable function and memory offset.
 - [ ] I have designed the exploit to bypass modern memory protections.
-`;
-
-export const cyberredwebexploitation = `
+`,
+  'cyberredwebexploitation': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20543,9 +20146,8 @@ Act as a Senior Web App Security Researcher. I am building an automated web expl
 
 - [ ] I have selected the class of web vulnerabilities to target.
 - [ ] I have designed a mechanism to detect blind or asynchronous execution.
-`;
-
-export const cyberredauthenticationbypass = `
+`,
+  'cyberredauthenticationbypass': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20572,9 +20174,8 @@ Act as an Active Directory Exploitation Expert. I am building a tool to automate
 
 - [ ] I have identified the authentication mechanism in use.
 - [ ] I have mapped out the specific cryptographic or logical flaws to attack.
-`;
-
-export const cyberredprivilegeescalation = `
+`,
+  'cyberredprivilegeescalation': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20601,9 +20202,8 @@ Act as a Windows Internals Expert. I am building a post-exploitation module for 
 
 - [ ] I have determined the target OS and current privilege level.
 - [ ] I have designed the escalation module to avoid crashing the system.
-`;
-
-export const cyberredpersistencemechanisms = `
+`,
+  'cyberredpersistencemechanisms': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20630,9 +20230,8 @@ Act as an Advanced Persistent Threat (APT) Researcher. I am building a stealthy 
 
 - [ ] I have selected a persistence mechanism that matches the target's OPSEC requirements.
 - [ ] I have built a reliable cleanup function to remove all artifacts.
-`;
-
-export const cyberredlateralmovement = `
+`,
+  'cyberredlateralmovement': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20659,9 +20258,8 @@ Act as a C2 Infrastructure Architect. I am building a lateral movement module. D
 
 - [ ] I have identified the protocol used for lateral movement.
 - [ ] I have designed the tool to operate within segmented network boundaries.
-`;
-
-export const cyberreddataexfiltration = `
+`,
+  'cyberreddataexfiltration': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20688,9 +20286,8 @@ Act as a Red Team Operator. I need to design a stealthy data exfiltration module
 
 - [ ] I have chosen an exfiltration method that blends with normal traffic.
 - [ ] I have implemented encryption and chunking for the stolen data.
-`;
-
-export const cyberredlogwiping = `
+`,
+  'cyberredlogwiping': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20717,9 +20314,8 @@ Act as a Threat Hunter. I am building an anti-forensics module. Explain the conc
 
 - [ ] I have identified the logs generated by the tool's actions.
 - [ ] I have designed a mechanism to selectively remove or prevent those logs.
-`;
-
-export const cyberredbinaryobfuscation = `
+`,
+  'cyberredbinaryobfuscation': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20746,9 +20342,8 @@ Act as a Compiler Engineer. I am building a commercial offensive security tool. 
 
 - [ ] I have implemented a packer or crypter.
 - [ ] I have investigated code signing options to bypass SmartScreen.
-`;
-
-export const cyberredcrosscompilation = `
+`,
+  'cyberredcrosscompilation': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20775,9 +20370,8 @@ Act as a DevSecOps Engineer. I am building a C2 Team Server. Design a dynamic co
 
 - [ ] I have defined the target operating systems and architectures.
 - [ ] I have set up a cross-compilation toolchain.
-`;
-
-export const cyberreddocumentation = `
+`,
+  'cyberreddocumentation': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20804,9 +20398,8 @@ Act as a Red Team Operator. I am writing documentation for a commercial C2 frame
 
 - [ ] I have written clear usage instructions.
 - [ ] I have documented the specific IOCs the tool generates.
-`;
-
-export const cyberredethicaldisclaimers = `
+`,
+  'cyberredethicaldisclaimers': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20833,9 +20426,8 @@ Act as a Software Architect. I am selling a commercial offensive security tool. 
 
 - [ ] I have included clear ethical disclaimers.
 - [ ] I have implemented mechanisms to prevent unauthorized use.
-`;
-
-export const cyberredreleasepipeline = `
+`,
+  'cyberredreleasepipeline': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20862,9 +20454,8 @@ Act as a DevSecOps Architect. I am managing the release pipeline for a commercia
 
 - [ ] I have automated the build process.
 - [ ] I have secured the pipeline against supply-chain compromise.
-`;
-
-export const cyberredcveintegration = `
+`,
+  'cyberredcveintegration': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20891,9 +20482,8 @@ Act as a Threat Intelligence Engineer. I am building a vulnerability scanner. De
 
 - [ ] I have integrated a CVE data source.
 - [ ] I have designed a mechanism to update scanning signatures.
-`;
-
-export const cyberredsignatureupdates = `
+`,
+  'cyberredsignatureupdates': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20920,9 +20510,8 @@ Act as a Security Architect. I am building a commercial vulnerability scanner th
 
 - [ ] I have separated signatures from the core codebase.
 - [ ] I have implemented a secure update mechanism for proprietary signatures.
-`;
-
-export const cyberredbypassmaintenance = `
+`,
+  'cyberredbypassmaintenance': `
 ## Strategic Guidance
 
 ### Hackathon Mode
@@ -20949,4 +20538,826 @@ Act as a Red Team QA Engineer. I am maintaining a commercial C2 framework. Detai
 
 - [ ] I have established a testing environment for my exploits.
 - [ ] I have automated the testing of evasion techniques against live defenses.
-`;
+`
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
