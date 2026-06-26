@@ -2,7 +2,7 @@ export const fallbackContent: Record<string, string> = {
   'internaltechnicaldebt': `
 # Technical Debt
 
-🕒 **Estimated Time:** 1-3 Hours
+ **Estimated Time:** 1-3 Hours
 
 ---
 
@@ -49,7 +49,7 @@ Act as a Staff Engineer. Our internal tool is 2 years old and the Tech Debt is s
   'internalusagetracking': `
 # Usage Tracking
 
-🕒 **Estimated Time:** 1-2 Hours
+ **Estimated Time:** 1-2 Hours
 
 ---
 
@@ -96,7 +96,7 @@ Act as a Data Engineer. I need to generate a weekly summary of our internal tool
   'internalprocessimprovements': `
 # Process Improvements
 
-🕒 **Estimated Time:** 1-2 Hours
+ **Estimated Time:** 1-2 Hours
 
 ---
 
@@ -143,7 +143,7 @@ Act as an Operations Consultant. We built an internal tool that tracks our suppl
   'internalfeaturerequests': `
 # Feature Requests
 
-🕒 **Estimated Time:** 1-2 Hours
+ **Estimated Time:** 1-2 Hours
 
 ---
 
@@ -190,7 +190,7 @@ Act as a Senior Product Manager. A Department Head has requested a highly comple
   'internalroadmap': `
 # Roadmap
 
-🕒 **Estimated Time:** 1-2 Hours
+ **Estimated Time:** 1-2 Hours
 
 ---
 
@@ -239,7 +239,7 @@ Act as a VP of Engineering. We just launched V1 of our internal logistics tool. 
   'internaluserfeedback': `
 # User Feedback
 
-🕒 **Estimated Time:** 1-2 Hours
+ **Estimated Time:** 1-2 Hours
 
 ---
 
@@ -286,7 +286,7 @@ Act as a Product Manager. We want to implement a frictionless feedback loop in o
   'internalanalytics': `
 # Analytics
 
-🕒 **Estimated Time:** 1-3 Hours
+ **Estimated Time:** 1-3 Hours
 
 ---
 
@@ -331,7 +331,7 @@ Act as a Product Analyst. We are launching an internal tool for our Customer Sup
   'internallaunchchecklist': `
 # Launch Checklist
 
-🕒 **Estimated Time:** 2-4 Hours
+ **Estimated Time:** 2-4 Hours
 
 ---
 
@@ -379,7 +379,7 @@ Act as a Release Manager. We are launching a new internal tool that replaces the
   'internalbetarollout': `
 # Beta Rollout
 
-🕒 **Estimated Time:** 2-4 Hours
+ **Estimated Time:** 2-4 Hours
 
 ---
 
@@ -428,7 +428,7 @@ Act as a QA Manager. We are deploying the Beta environment for our internal tool
   'internaltrainingmaterials': `
 # Training Materials
 
-🕒 **Estimated Time:** 1-3 Hours
+ **Estimated Time:** 1-3 Hours
 
 ---
 
@@ -476,7 +476,7 @@ Act as a Change Management Consultant. We are replacing a 10-year-old legacy int
   'internalemployeeonboarding': `
 # Employee Onboarding
 
-🕒 **Estimated Time:** 2-4 Hours
+ **Estimated Time:** 2-4 Hours
 
 ---
 
@@ -523,7 +523,7 @@ Act as a UX Designer. I am building the "Empty State" for the primary dashboard 
   'internaldomainsetup': `
 # Domain Setup
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -569,7 +569,7 @@ Act as a Principal Enterprise Architect. I am building the Domain Setup componen
   'internalhosting': `
 # Hosting
 
-🕒 **Estimated Time:** 1-3 Hours
+ **Estimated Time:** 1-3 Hours
 
 ---
 
@@ -613,7 +613,7 @@ Act as a Cloud Architect. We are deploying an internal tool. The primary legacy 
   'internaldisasterrecovery': `
 # Disaster Recovery
 
-🕒 **Estimated Time:** 2-4 Hours
+ **Estimated Time:** 2-4 Hours
 
 ---
 
@@ -663,7 +663,7 @@ Act as a Business Continuity Manager. We are hosting a critical internal logisti
   'internalrbacvalidation': `
 # RBAC Validation
 
-🕒 **Estimated Time:** 2-4 Hours
+ **Estimated Time:** 2-4 Hours
 
 ---
 
@@ -712,7 +712,7 @@ Act as an Application Security Engineer. I am building a Node.js backend. I need
   'internalscalability': `
 # Scalability
 
-🕒 **Estimated Time:** 3-5 Hours
+ **Estimated Time:** 3-5 Hours
 
 ---
 
@@ -761,7 +761,7 @@ Act as a Systems Architect. We have a Node.js API that currently stores JWT refr
   'internalinfrastructure': `
 # Infrastructure
 
-🕒 **Estimated Time:** 2-4 Hours
+ **Estimated Time:** 2-4 Hours
 
 ---
 
@@ -810,7 +810,7 @@ Act as a Cloud Infrastructure Architect. We need to deploy a Node.js backend and
   'internalcicd': `
 # CI/CD
 
-🕒 **Estimated Time:** 2-4 Hours
+ **Estimated Time:** 2-4 Hours
 
 ---
 
@@ -864,7 +864,7 @@ Act as a DevSecOps Engineer. We are deploying a Next.js/Prisma internal tool. Wr
   'internalbackups': `
 # Backups
 
-🕒 **Estimated Time:** 2-3 Hours
+ **Estimated Time:** 2-3 Hours
 
 ---
 
@@ -913,7 +913,7 @@ Act as a Database Administrator. We are using PostgreSQL on AWS RDS. Explain the
   'internalerrortracking': `
 # Error Tracking
 
-🕒 **Estimated Time:** 2-3 Hours
+ **Estimated Time:** 2-3 Hours
 
 ---
 
@@ -962,7 +962,7 @@ Act as a Frontend Reliability Engineer. I am using Vite and React for my interna
   'internallogging': `
 # Logging
 
-🕒 **Estimated Time:** 2-3 Hours
+ **Estimated Time:** 2-3 Hours
 
 ---
 
@@ -1015,7 +1015,7 @@ Act as a Backend Architect. I am standardizing the logging in my Node.js applica
   'internalmonitoring': `
 # Monitoring
 
-🕒 **Estimated Time:** 2-4 Hours
+ **Estimated Time:** 2-4 Hours
 
 ---
 
@@ -1064,7 +1064,7 @@ Act as a DevOps Engineer. We are deploying our Node.js internal tool to producti
   'internalperformanceoptimization': `
 # Performance Optimization
 
-🕒 **Estimated Time:** 3-5 Hours
+ **Estimated Time:** 3-5 Hours
 
 ---
 
@@ -1114,7 +1114,7 @@ Act as a Database Optimization Expert. Our internal tool has an endpoint that fe
   'internalsecurity': `
 # Security
 
-🕒 **Estimated Time:** 4-8 Hours
+ **Estimated Time:** 4-8 Hours
 
 ---
 
@@ -1163,7 +1163,7 @@ Act as a Cybersecurity Engineer. I am building an internal tool dashboard that a
   'internalauditlogs': `
 # Audit Logs
 
-🕒 **Estimated Time:** 2-4 Hours
+ **Estimated Time:** 2-4 Hours
 
 ---
 
@@ -1217,7 +1217,7 @@ Act as a Compliance Engineer. I need to implement SOC2-compliant audit logging i
   'internalfileuploads': `
 # File Uploads
 
-🕒 **Estimated Time:** 2-4 Hours
+ **Estimated Time:** 2-4 Hours
 
 ---
 
@@ -1266,7 +1266,7 @@ Act as a Cloud Security Architect. I am building an internal tool where employee
   'internalreporting': `
 # Reporting
 
-🕒 **Estimated Time:** 3-5 Hours
+ **Estimated Time:** 3-5 Hours
 
 ---
 
@@ -1315,7 +1315,7 @@ Act as a Data Engineer. Management wants a real-time dashboard showing aggregate
   'internalworkflowautomation': `
 # Workflow Automation
 
-🕒 **Estimated Time:** 4-8 Hours
+ **Estimated Time:** 4-8 Hours
 
 ---
 
@@ -1367,7 +1367,7 @@ Act as a Cloud Architect. We need to run a heavy data-processing script every ni
   'internalcrudoperations': `
 # CRUD Operations
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -1413,7 +1413,7 @@ Act as a Principal Enterprise Architect. I am building the CRUD Operations compo
   'internalauthorization': `
 # Authorization
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -1459,7 +1459,7 @@ Act as a Principal Enterprise Architect. I am building the Authorization compone
   'internaldocumentation': `
 # Documentation
 
-🕒 **Estimated Time:** 2-4 Hours
+ **Estimated Time:** 2-4 Hours
 
 ---
 
@@ -1513,7 +1513,7 @@ Act as a Technical Writer. I am handing off a custom React/Node internal tool to
   'internaltesting': `
 # Testing
 
-🕒 **Estimated Time:** 4-8 Hours
+ **Estimated Time:** 4-8 Hours
 
 ---
 
@@ -1565,7 +1565,7 @@ Act as a QA Automation Engineer. We are building a Next.js internal tool with a 
   'internaladminpanel': `
 # Admin Panel
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -1611,7 +1611,7 @@ Act as a Principal Enterprise Architect. I am building the Admin Panel component
   'internalsearch': `
 # Search
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -1657,7 +1657,7 @@ Act as a Principal Enterprise Architect. I am building the Search component for 
   'internalnotifications': `
 # Notifications
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -1703,7 +1703,7 @@ Act as a Principal Enterprise Architect. I am building the Notifications compone
   'internalfrontend': `
 # Frontend
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -1749,7 +1749,7 @@ Act as a Principal Enterprise Architect. I am building the Frontend component fo
   'internalbackend': `
 # Backend
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -1795,7 +1795,7 @@ Act as a Principal Enterprise Architect. I am building the Backend component for
   'internaldatabase': `
 # Database
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -1841,7 +1841,7 @@ Act as a Principal Enterprise Architect. I am building the Database component fo
   'internalreportingarchitecture': `
 # Reporting & Audit Logging
 
-🕒 **Estimated Time:** 1-2 Days
+ **Estimated Time:** 1-2 Days
 
 ---
 
@@ -1892,7 +1892,7 @@ Act as a Data Architect. I need to design an immutable Audit Log system for my E
   'internalworkflowengine': `
 # Workflow Engine
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -1938,7 +1938,7 @@ Act as a Principal Enterprise Architect. I am building the Workflow Engine compo
   'internalauthorizationrbac': `
 # Authorization (RBAC)
 
-🕒 **Estimated Time:** 8-16 Hours
+ **Estimated Time:** 8-16 Hours
 
 ---
 
@@ -1985,7 +1985,7 @@ Act as a Principal Enterprise Architect. I am building a B2B internal tool. I ne
   'internalinternaltoolfundamentals': `
 # Internal Tool Fundamentals
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2031,7 +2031,7 @@ Act as a Principal Enterprise Architect. I am building the Internal Tool Fundame
   'internalintegrations': `
 # Integrations
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2077,7 +2077,7 @@ Act as a Principal Enterprise Architect. I am building the Integrations componen
   'internalcostestimation': `
 # Cost Estimation
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2123,7 +2123,7 @@ Act as a Principal Enterprise Architect. I am building the Cost Estimation compo
   'internaldatabaseschema': `
 # Database Schema
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2169,7 +2169,7 @@ Act as a Principal Enterprise Architect. I am building the Database Schema compo
   'internalauthentication': `
 # Authentication
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2215,7 +2215,7 @@ Act as a Principal Enterprise Architect. I am building the Authentication compon
   'internaltechstackselection': `
 # Tech Stack Selection
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2261,7 +2261,7 @@ Act as a Principal Enterprise Architect. I am building the Tech Stack Selection 
   'internaldataflowdesign': `
 # Data Flow Design
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2307,7 +2307,7 @@ Act as a Principal Enterprise Architect. I am building the Data Flow Design comp
   'internaldashboarddesign': `
 # Dashboard Design
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2353,7 +2353,7 @@ Act as a Principal Enterprise Architect. I am building the Dashboard Design comp
   'internaluserroles': `
 # User Roles
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2399,7 +2399,7 @@ Act as a Principal Enterprise Architect. I am building the User Roles component 
   'internalbusinessprocessmapping': `
 # Business Process Mapping
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2445,7 +2445,7 @@ Act as a Principal Enterprise Architect. I am building the Business Process Mapp
   'internalloadingstates': `
 # Loading States
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2491,7 +2491,7 @@ Act as a Principal Enterprise Architect. I am building the Loading States compon
   'internalerrorstates': `
 # Error States
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2537,7 +2537,7 @@ Act as a Principal Enterprise Architect. I am building the Error States componen
   'internalaccessibility': `
 # Accessibility
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2583,7 +2583,7 @@ Act as a Principal Enterprise Architect. I am building the Accessibility compone
   'internaldesignsystem': `
 # Design System
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2629,7 +2629,7 @@ Act as a Principal Enterprise Architect. I am building the Design System compone
   'internalwireframes': `
 # Wireframes
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2675,7 +2675,7 @@ Act as a Principal Enterprise Architect. I am building the Wireframes component 
   'internaluserflows': `
 # User Flows
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2721,7 +2721,7 @@ Act as a Principal Enterprise Architect. I am building the User Flows component 
   'internalprd': `
 # PRD
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2767,7 +2767,7 @@ Act as a Principal Enterprise Architect. I am building the PRD component for a n
   'internalmvpscope': `
 # MVP Scope
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2813,7 +2813,7 @@ Act as a Principal Enterprise Architect. I am building the MVP Scope component f
   'internalrequirementsgathering': `
 # Requirements Gathering
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2859,7 +2859,7 @@ Act as a Principal Enterprise Architect. I am building the Requirements Gatherin
   'internalstakeholdermapping': `
 # Stakeholder Mapping
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2905,7 +2905,7 @@ Act as a Principal Enterprise Architect. I am building the Stakeholder Mapping c
   'internalexistingpainpoints': `
 # Existing Pain Points
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2951,7 +2951,7 @@ Act as a Principal Enterprise Architect. I am building the Existing Pain Points 
   'internalcurrentworkflowanalysis': `
 # Current Workflow Analysis
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -2997,7 +2997,7 @@ Act as a Principal Enterprise Architect. I am building the Current Workflow Anal
   'internalproblemdefinition': `
 # Problem Definition
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -3043,7 +3043,7 @@ Act as a Principal Enterprise Architect. I am building the Problem Definition co
   'internalsuccessmetrics': `
 # Success Metrics
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -3089,7 +3089,7 @@ Act as a Principal Enterprise Architect. I am building the Success Metrics compo
   'internalfeatureprioritization': `
 # Feature Prioritization
 
-🕒 **Estimated Time:** 2-6 Hours
+ **Estimated Time:** 2-6 Hours
 
 ---
 
@@ -3131,46 +3131,46 @@ Act as a Principal Enterprise Architect. I am building the Feature Prioritizatio
 - [ ] I have implemented the core logic for Feature Prioritization.
 - [ ] I have verified that access controls and audit logs are functioning correctly.
 `,
-  'apifeaturerequests': `# featurerequests\n\n🕒 **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nThis is where API products win or lose the Developer Experience (DX) war.\n\n## Strategic Guidance\n\n### Hackathon Mode\nMove fast, don't over-engineer DX.\n\n### Personal Project\nProvide basic examples and a simple status page.\n\n### Production SaaS / Enterprise\nInvest heavily in automated DX. Changelogs should be tied to Git releases. Status pages must auto-update based on Datadog alerts. Example requests must be automatically tested in CI so documentation never falls out of sync with production code.\n\n- [ ] DX assets are automated and verified in CI/CD.`,
-  'apiproblemdefinition': `# Problem Definition\n\n🕒 **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nIf you don't explicitly define the problem your API solves, you will build endpoints for everything. Focus on the core friction.\n\n## Strategic Guidance\n\n### Hackathon Mode\nSolve a fun problem fast.\n\n### Personal Project\nSolve your own problem.\n\n### Production SaaS / Enterprise\nDefine the business cost of the problem. If the API doesn't save the company $10,000 in engineering time or generate revenue, the Engineering Manager won't buy it.\n\n- [ ] The core problem is explicitly defined in business value.`,
-  'apiapiusecase': `# API Use Case\n\n🕒 **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nAn API must be opinionated about *how* it is used.\n\n## Strategic Guidance\n\n### Hackathon Mode\nFocus on the frontend demo.\n\n### Personal Project\nSupport a single core flow.\n\n### Production SaaS / Enterprise\nDefine "Golden Paths". The exact sequence of 3 API calls a developer must make to achieve value. Document these paths aggressively.\n\n- [ ] Golden paths are defined.`,
-  'apitargetdevelopers': `# Target Developers\n\n🕒 **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nKnowing your audience changes your API design.\n\n## Strategic Guidance\n\n### Hackathon Mode\nAnyone.\n\n### Personal Project\nJavaScript devs.\n\n### Production SaaS / Enterprise\nEnterprise APIs are often integrated by System Integrators (SIs) or legacy backend engineers. Design for strict types and robust error handling over "clever" dynamic payloads.\n\n- [ ] Developer constraints are understood.`,
-  'apimonetizationmodel': `# Monetization Model\n\n🕒 **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nYou must integrate billing before you scale, otherwise tracking usage retroactively is impossible.\n\n## Strategic Guidance\n\n### Hackathon Mode\nFree.\n\n### Personal Project\nDonations or a single flat tier.\n\n### Production SaaS / Enterprise\nImplement Metered Billing (Usage-based). Track every single API call through a high-throughput queue (like Kafka or Redis Streams) and aggregate it before sending it to Stripe. Never block an API request to call the Stripe API.\n\n- [ ] Usage tracking is asynchronous to prevent latency.`,
-  'apiusecases': `# Use Cases\n\n🕒 **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nMapping exact use cases prevents scope creep.\n\n## Strategic Guidance\n\n### Hackathon Mode\nJust the demo flow.\n\n### Personal Project\nCRUD for your app.\n\n### Production SaaS / Enterprise\nWrite sequence diagrams for every major integration flow. If an integration requires 15 API calls, redesign it to require 2.\n\n- [ ] Sequence diagrams exist for core flows.`,
-  'apiprd': `# API PRD\n\n🕒 **Estimated Time:** 2-4 Hours\n\n---\n\n## Why this matters\nThe Product Requirements Document for an API is the source of truth for the Engineering team.\n\n## Strategic Guidance\n\n### Hackathon Mode\nSkip.\n\n### Personal Project\nA simple markdown list.\n\n### Production SaaS / Enterprise\nThe PRD must define the SLAs (Service Level Agreements), rate limits, latency targets, and compliance requirements (SOC2, HIPAA) before a single line of code is written.\n\n- [ ] SLAs and latency targets are defined.`,
-  'apiapistandards': `# API Standards\n\n🕒 **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nInconsistency kills DX.\n\n## Strategic Guidance\n\n### Hackathon Mode\nUse whatever JSON looks good.\n\n### Personal Project\nTry to be consistent with casing.\n\n### Production SaaS / Enterprise\nAdopt a global standard. Use ISO-8601 for all dates. Always return objects, never raw arrays (to prevent JSON hijacking and allow pagination metadata). Standardize on snake_case.\n\n- [ ] A formal standards document exists.`,
-  'apiversioningstrategy': `# Versioning Strategy\n\n🕒 **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nBreaking changes destroy trust. You must be able to upgrade your API without breaking old clients.\n\n## Strategic Guidance\n\n### Hackathon Mode\nNo versioning.\n\n### Personal Project\nURL versioning (\`/v1/\`).\n\n### Production SaaS / Enterprise\nDo not use URL versioning for minor changes. Adopt Header-based versioning (e.g., Stripe's \`Stripe-Version: 2023-10-15\`). Build a middleware layer that automatically mutates incoming requests from old versions to the new internal schema, and mutates responses back.\n\n- [ ] Header-based, date-driven versioning is implemented.`,
-  'apiauthorizationstrategy': `# Authorization Strategy\n\n🕒 **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nAuthentication proves WHO you are. Authorization proves WHAT you can do. Mixing them up causes data leaks.\n\n## Strategic Guidance\n\n### Hackathon Mode\nIf they have an API key, they can do anything.\n\n### Personal Project\nBasic Role-Based Access Control (RBAC).\n\n### Production SaaS / Enterprise\nImplement OAuth 2.0 Scopes (e.g., \`read:invoices\`, \`write:users\`). If a developer generates an API key, they must explicitly grant it minimum-privilege scopes. The backend must enforce these scopes at the routing layer.\n\n- [ ] OAuth Scopes or granular permissions are enforced.`,
-  'apirequestdesign': `# Request Design\n\n🕒 **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nStrict request design prevents injection attacks and simplifies client code.\n\n## Strategic Guidance\n\n### Hackathon Mode\nAccept any JSON.\n\n### Personal Project\nBasic validation.\n\n### Production SaaS / Enterprise\nStrictly type every request using Zod or JSON Schema. Reject any request with unknown fields (strict mode) to prevent developers from thinking a typo'd field was saved. Use idempotency keys for POSTs.\n\n- [ ] Requests are strictly validated.`,
-  'apiresponsedesign': `# Response Design\n\n🕒 **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nPredictable responses make parsing easy.\n\n## Strategic Guidance\n\n### Hackathon Mode\nReturn whatever the DB outputs.\n\n### Personal Project\nConsistent JSON.\n\n### Production SaaS / Enterprise\nAlways envelope your data. E.g., \`{ "data": [...], "meta": { "pagination": ... } }\`. Never return a top-level array. Exclude null fields to save bandwidth, or explicitly include them based on team standards. Be consistent.\n\n- [ ] All responses are enveloped and consistent.`,
-  'apidatabasearchitecture': `# Database Architecture\n\n🕒 **Estimated Time:** 3-5 Hours\n\n---\n\n## Why this matters\nAPIs are inherently read-heavy. If your database architecture cannot scale reads, your API will collapse under load.\n\n## Strategic Guidance\n\n### Hackathon Mode\nSingle Postgres instance or MongoDB.\n\n### Personal Project\nManaged Serverless Postgres (e.g., Neon, Supabase).\n\n### Production SaaS / Enterprise\nImplement a Primary/Replica architecture. Route all \`GET\` requests (Reads) to Read Replicas. Route \`POST/PUT/DELETE\` (Writes) to the Primary node. Implement Connection Pooling (PgBouncer) to prevent API spikes from exhausting database connections.\n\n- [ ] Read/Write separation strategy is mapped out.\n- [ ] Connection pooling is architected.`,
-  'apicostestimation': `# costestimation\n\n🕒 **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
-  'apiapifundamentals': `# apifundamentals\n\n🕒 **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
-  'apiratelimits': `# ratelimits\n\n🕒 **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
-  'apiapikeys': `# apikeys\n\n🕒 **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
-  'apioauth': `# oauth\n\n🕒 **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
-  'apijwt': `# jwt\n\n🕒 **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
-  'apiserviceaccounts': `# serviceaccounts\n\n🕒 **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
-  'apiusagetracking': `# usagetracking\n\n🕒 **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
-  'apimetering': `# metering\n\n🕒 **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
-  'apiquotas': `# quotas\n\n🕒 **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
-  'apisubscriptions': `# subscriptions\n\n🕒 **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
-  'apiapiimplementation': `# API Implementation (Coding)\n\n🕒 **Estimated Time:** 2-4 Days\n\n---\n\n## Why this matters\nThis is where you write the actual business logic. If your controllers are 1,000 lines long, your API will be a nightmare to test and maintain.\n\n## Strategic Guidance\n\n### Hackathon Mode\nPut all logic directly in the Express/Next.js route handlers.\n\n### Personal Project\nSeparate route definitions from controller functions.\n\n### Production SaaS / Enterprise\nImplement a strict 3-tier architecture: Routes -> Controllers -> Services. Controllers only handle HTTP parsing (status codes, headers). Services handle the pure business logic and do not know about HTTP at all. This makes your business logic 100% unit-testable.\n\n- [ ] Business logic is decoupled from HTTP handlers.`,
-  'apidatabase': `# database\n\n🕒 **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nRobust development practices prevent massive refactors during the scaling phase.\n\n## Strategic Guidance\n\n### Hackathon Mode\nFocus purely on getting it working for the demo.\n\n### Personal Project\nImplement basic integration tests to prevent regressions.\n\n### Production SaaS / Enterprise\nAchieve 80%+ test coverage. Implement strictly typed input validation (e.g., Zod). All infrastructure should be declared as code (Terraform). Ensure horizontal scalability by keeping all nodes strictly stateless.\n\n- [ ] Tests and validation logic are comprehensively executed.`,
-  'apitesting': `# testing\n\n🕒 **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nRobust development practices prevent massive refactors during the scaling phase.\n\n## Strategic Guidance\n\n### Hackathon Mode\nFocus purely on getting it working for the demo.\n\n### Personal Project\nImplement basic integration tests to prevent regressions.\n\n### Production SaaS / Enterprise\nAchieve 80%+ test coverage. Implement strictly typed input validation (e.g., Zod). All infrastructure should be declared as code (Terraform). Ensure horizontal scalability by keeping all nodes strictly stateless.\n\n- [ ] Tests and validation logic are comprehensively executed.`,
-  'apidocumentation': `# documentation\n\n🕒 **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nRobust development practices prevent massive refactors during the scaling phase.\n\n## Strategic Guidance\n\n### Hackathon Mode\nFocus purely on getting it working for the demo.\n\n### Personal Project\nImplement basic integration tests to prevent regressions.\n\n### Production SaaS / Enterprise\nAchieve 80%+ test coverage. Implement strictly typed input validation (e.g., Zod). All infrastructure should be declared as code (Terraform). Ensure horizontal scalability by keeping all nodes strictly stateless.\n\n- [ ] Tests and validation logic are comprehensively executed.`,
-  'apiratelimiting': `# ratelimiting\n\n🕒 **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nRobust development practices prevent massive refactors during the scaling phase.\n\n## Strategic Guidance\n\n### Hackathon Mode\nFocus purely on getting it working for the demo.\n\n### Personal Project\nImplement basic integration tests to prevent regressions.\n\n### Production SaaS / Enterprise\nAchieve 80%+ test coverage. Implement strictly typed input validation (e.g., Zod). All infrastructure should be declared as code (Terraform). Ensure horizontal scalability by keeping all nodes strictly stateless.\n\n- [ ] Tests and validation logic are comprehensively executed.`,
-  'apiauthorization': `# authorization\n\n🕒 **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nRobust development practices prevent massive refactors during the scaling phase.\n\n## Strategic Guidance\n\n### Hackathon Mode\nFocus purely on getting it working for the demo.\n\n### Personal Project\nImplement basic integration tests to prevent regressions.\n\n### Production SaaS / Enterprise\nAchieve 80%+ test coverage. Implement strictly typed input validation (e.g., Zod). All infrastructure should be declared as code (Terraform). Ensure horizontal scalability by keeping all nodes strictly stateless.\n\n- [ ] Tests and validation logic are comprehensively executed.`,
-  'apibilling': `# billing\n\n🕒 **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nRobust development practices prevent massive refactors during the scaling phase.\n\n## Strategic Guidance\n\n### Hackathon Mode\nFocus purely on getting it working for the demo.\n\n### Personal Project\nImplement basic integration tests to prevent regressions.\n\n### Production SaaS / Enterprise\nAchieve 80%+ test coverage. Implement strictly typed input validation (e.g., Zod). All infrastructure should be declared as code (Terraform). Ensure horizontal scalability by keeping all nodes strictly stateless.\n\n- [ ] Tests and validation logic are comprehensively executed.`,
-  'apiperformanceoptimization': `# performanceoptimization\n\n🕒 **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nThese are the operational requirements that differentiate an amateur API from an enterprise-grade platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nSkip completely to save time.\n\n### Personal Project\nRely on PaaS providers (Vercel, Render, Supabase) to handle this automatically.\n\n### Production SaaS / Enterprise\nImplement aggressive defensive mechanisms. Configure WAFs (Web Application Firewalls) to drop malicious traffic at the Edge. Set up cross-region read replicas. Automate daily backups and test disaster recovery restores quarterly.\n\n- [ ] The enterprise operational standard is implemented.`,
-  'apimonitoring': `# monitoring\n\n🕒 **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nThese are the operational requirements that differentiate an amateur API from an enterprise-grade platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nSkip completely to save time.\n\n### Personal Project\nRely on PaaS providers (Vercel, Render, Supabase) to handle this automatically.\n\n### Production SaaS / Enterprise\nImplement aggressive defensive mechanisms. Configure WAFs (Web Application Firewalls) to drop malicious traffic at the Edge. Set up cross-region read replicas. Automate daily backups and test disaster recovery restores quarterly.\n\n- [ ] The enterprise operational standard is implemented.`,
-  'apilogging': `# logging\n\n🕒 **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nThese are the operational requirements that differentiate an amateur API from an enterprise-grade platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nSkip completely to save time.\n\n### Personal Project\nRely on PaaS providers (Vercel, Render, Supabase) to handle this automatically.\n\n### Production SaaS / Enterprise\nImplement aggressive defensive mechanisms. Configure WAFs (Web Application Firewalls) to drop malicious traffic at the Edge. Set up cross-region read replicas. Automate daily backups and test disaster recovery restores quarterly.\n\n- [ ] The enterprise operational standard is implemented.`,
-  'apierrortracking': `# errortracking\n\n🕒 **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nThese are the operational requirements that differentiate an amateur API from an enterprise-grade platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nSkip completely to save time.\n\n### Personal Project\nRely on PaaS providers (Vercel, Render, Supabase) to handle this automatically.\n\n### Production SaaS / Enterprise\nImplement aggressive defensive mechanisms. Configure WAFs (Web Application Firewalls) to drop malicious traffic at the Edge. Set up cross-region read replicas. Automate daily backups and test disaster recovery restores quarterly.\n\n- [ ] The enterprise operational standard is implemented.`,
-  'apisdks': `# sdks\n\n🕒 **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nThis is where API products win or lose the Developer Experience (DX) war.\n\n## Strategic Guidance\n\n### Hackathon Mode\nMove fast, don't over-engineer DX.\n\n### Personal Project\nProvide basic examples and a simple status page.\n\n### Production SaaS / Enterprise\nInvest heavily in automated DX. Changelogs should be tied to Git releases. Status pages must auto-update based on Datadog alerts. Example requests must be automatically tested in CI so documentation never falls out of sync with production code.\n\n- [ ] DX assets are automated and verified in CI/CD.`,
-  'apipostmancollection': `# postmancollection\n\n🕒 **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nThis is where API products win or lose the Developer Experience (DX) war.\n\n## Strategic Guidance\n\n### Hackathon Mode\nMove fast, don't over-engineer DX.\n\n### Personal Project\nProvide basic examples and a simple status page.\n\n### Production SaaS / Enterprise\nInvest heavily in automated DX. Changelogs should be tied to Git releases. Status pages must auto-update based on Datadog alerts. Example requests must be automatically tested in CI so documentation never falls out of sync with production code.\n\n- [ ] DX assets are automated and verified in CI/CD.`,
+  'apifeaturerequests': `# featurerequests\n\n **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nThis is where API products win or lose the Developer Experience (DX) war.\n\n## Strategic Guidance\n\n### Hackathon Mode\nMove fast, don't over-engineer DX.\n\n### Personal Project\nProvide basic examples and a simple status page.\n\n### Production SaaS / Enterprise\nInvest heavily in automated DX. Changelogs should be tied to Git releases. Status pages must auto-update based on Datadog alerts. Example requests must be automatically tested in CI so documentation never falls out of sync with production code.\n\n- [ ] DX assets are automated and verified in CI/CD.`,
+  'apiproblemdefinition': `# Problem Definition\n\n **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nIf you don't explicitly define the problem your API solves, you will build endpoints for everything. Focus on the core friction.\n\n## Strategic Guidance\n\n### Hackathon Mode\nSolve a fun problem fast.\n\n### Personal Project\nSolve your own problem.\n\n### Production SaaS / Enterprise\nDefine the business cost of the problem. If the API doesn't save the company $10,000 in engineering time or generate revenue, the Engineering Manager won't buy it.\n\n- [ ] The core problem is explicitly defined in business value.`,
+  'apiapiusecase': `# API Use Case\n\n **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nAn API must be opinionated about *how* it is used.\n\n## Strategic Guidance\n\n### Hackathon Mode\nFocus on the frontend demo.\n\n### Personal Project\nSupport a single core flow.\n\n### Production SaaS / Enterprise\nDefine "Golden Paths". The exact sequence of 3 API calls a developer must make to achieve value. Document these paths aggressively.\n\n- [ ] Golden paths are defined.`,
+  'apitargetdevelopers': `# Target Developers\n\n **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nKnowing your audience changes your API design.\n\n## Strategic Guidance\n\n### Hackathon Mode\nAnyone.\n\n### Personal Project\nJavaScript devs.\n\n### Production SaaS / Enterprise\nEnterprise APIs are often integrated by System Integrators (SIs) or legacy backend engineers. Design for strict types and robust error handling over "clever" dynamic payloads.\n\n- [ ] Developer constraints are understood.`,
+  'apimonetizationmodel': `# Monetization Model\n\n **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nYou must integrate billing before you scale, otherwise tracking usage retroactively is impossible.\n\n## Strategic Guidance\n\n### Hackathon Mode\nFree.\n\n### Personal Project\nDonations or a single flat tier.\n\n### Production SaaS / Enterprise\nImplement Metered Billing (Usage-based). Track every single API call through a high-throughput queue (like Kafka or Redis Streams) and aggregate it before sending it to Stripe. Never block an API request to call the Stripe API.\n\n- [ ] Usage tracking is asynchronous to prevent latency.`,
+  'apiusecases': `# Use Cases\n\n **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nMapping exact use cases prevents scope creep.\n\n## Strategic Guidance\n\n### Hackathon Mode\nJust the demo flow.\n\n### Personal Project\nCRUD for your app.\n\n### Production SaaS / Enterprise\nWrite sequence diagrams for every major integration flow. If an integration requires 15 API calls, redesign it to require 2.\n\n- [ ] Sequence diagrams exist for core flows.`,
+  'apiprd': `# API PRD\n\n **Estimated Time:** 2-4 Hours\n\n---\n\n## Why this matters\nThe Product Requirements Document for an API is the source of truth for the Engineering team.\n\n## Strategic Guidance\n\n### Hackathon Mode\nSkip.\n\n### Personal Project\nA simple markdown list.\n\n### Production SaaS / Enterprise\nThe PRD must define the SLAs (Service Level Agreements), rate limits, latency targets, and compliance requirements (SOC2, HIPAA) before a single line of code is written.\n\n- [ ] SLAs and latency targets are defined.`,
+  'apiapistandards': `# API Standards\n\n **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nInconsistency kills DX.\n\n## Strategic Guidance\n\n### Hackathon Mode\nUse whatever JSON looks good.\n\n### Personal Project\nTry to be consistent with casing.\n\n### Production SaaS / Enterprise\nAdopt a global standard. Use ISO-8601 for all dates. Always return objects, never raw arrays (to prevent JSON hijacking and allow pagination metadata). Standardize on snake_case.\n\n- [ ] A formal standards document exists.`,
+  'apiversioningstrategy': `# Versioning Strategy\n\n **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nBreaking changes destroy trust. You must be able to upgrade your API without breaking old clients.\n\n## Strategic Guidance\n\n### Hackathon Mode\nNo versioning.\n\n### Personal Project\nURL versioning (\`/v1/\`).\n\n### Production SaaS / Enterprise\nDo not use URL versioning for minor changes. Adopt Header-based versioning (e.g., Stripe's \`Stripe-Version: 2023-10-15\`). Build a middleware layer that automatically mutates incoming requests from old versions to the new internal schema, and mutates responses back.\n\n- [ ] Header-based, date-driven versioning is implemented.`,
+  'apiauthorizationstrategy': `# Authorization Strategy\n\n **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nAuthentication proves WHO you are. Authorization proves WHAT you can do. Mixing them up causes data leaks.\n\n## Strategic Guidance\n\n### Hackathon Mode\nIf they have an API key, they can do anything.\n\n### Personal Project\nBasic Role-Based Access Control (RBAC).\n\n### Production SaaS / Enterprise\nImplement OAuth 2.0 Scopes (e.g., \`read:invoices\`, \`write:users\`). If a developer generates an API key, they must explicitly grant it minimum-privilege scopes. The backend must enforce these scopes at the routing layer.\n\n- [ ] OAuth Scopes or granular permissions are enforced.`,
+  'apirequestdesign': `# Request Design\n\n **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nStrict request design prevents injection attacks and simplifies client code.\n\n## Strategic Guidance\n\n### Hackathon Mode\nAccept any JSON.\n\n### Personal Project\nBasic validation.\n\n### Production SaaS / Enterprise\nStrictly type every request using Zod or JSON Schema. Reject any request with unknown fields (strict mode) to prevent developers from thinking a typo'd field was saved. Use idempotency keys for POSTs.\n\n- [ ] Requests are strictly validated.`,
+  'apiresponsedesign': `# Response Design\n\n **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nPredictable responses make parsing easy.\n\n## Strategic Guidance\n\n### Hackathon Mode\nReturn whatever the DB outputs.\n\n### Personal Project\nConsistent JSON.\n\n### Production SaaS / Enterprise\nAlways envelope your data. E.g., \`{ "data": [...], "meta": { "pagination": ... } }\`. Never return a top-level array. Exclude null fields to save bandwidth, or explicitly include them based on team standards. Be consistent.\n\n- [ ] All responses are enveloped and consistent.`,
+  'apidatabasearchitecture': `# Database Architecture\n\n **Estimated Time:** 3-5 Hours\n\n---\n\n## Why this matters\nAPIs are inherently read-heavy. If your database architecture cannot scale reads, your API will collapse under load.\n\n## Strategic Guidance\n\n### Hackathon Mode\nSingle Postgres instance or MongoDB.\n\n### Personal Project\nManaged Serverless Postgres (e.g., Neon, Supabase).\n\n### Production SaaS / Enterprise\nImplement a Primary/Replica architecture. Route all \`GET\` requests (Reads) to Read Replicas. Route \`POST/PUT/DELETE\` (Writes) to the Primary node. Implement Connection Pooling (PgBouncer) to prevent API spikes from exhausting database connections.\n\n- [ ] Read/Write separation strategy is mapped out.\n- [ ] Connection pooling is architected.`,
+  'apicostestimation': `# costestimation\n\n **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
+  'apiapifundamentals': `# apifundamentals\n\n **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
+  'apiratelimits': `# ratelimits\n\n **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
+  'apiapikeys': `# apikeys\n\n **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
+  'apioauth': `# oauth\n\n **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
+  'apijwt': `# jwt\n\n **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
+  'apiserviceaccounts': `# serviceaccounts\n\n **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
+  'apiusagetracking': `# usagetracking\n\n **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
+  'apimetering': `# metering\n\n **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
+  'apiquotas': `# quotas\n\n **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
+  'apisubscriptions': `# subscriptions\n\n **Estimated Time:** 1 Hour\n\n---\n\n## Why this matters\nCore architecture decisions made here dictate the stability of your platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nKeep it incredibly simple. Bypass complex logic.\n\n### Personal Project\nImplement the standard pattern using managed services.\n\n### Production SaaS / Enterprise\nArchitect for 100x your current load. Decouple synchronous operations into background queues. Enforce strict SLAs and fallback mechanisms in case primary services fail.\n\n- [ ] The enterprise pattern is documented and understood.`,
+  'apiapiimplementation': `# API Implementation (Coding)\n\n **Estimated Time:** 2-4 Days\n\n---\n\n## Why this matters\nThis is where you write the actual business logic. If your controllers are 1,000 lines long, your API will be a nightmare to test and maintain.\n\n## Strategic Guidance\n\n### Hackathon Mode\nPut all logic directly in the Express/Next.js route handlers.\n\n### Personal Project\nSeparate route definitions from controller functions.\n\n### Production SaaS / Enterprise\nImplement a strict 3-tier architecture: Routes -> Controllers -> Services. Controllers only handle HTTP parsing (status codes, headers). Services handle the pure business logic and do not know about HTTP at all. This makes your business logic 100% unit-testable.\n\n- [ ] Business logic is decoupled from HTTP handlers.`,
+  'apidatabase': `# database\n\n **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nRobust development practices prevent massive refactors during the scaling phase.\n\n## Strategic Guidance\n\n### Hackathon Mode\nFocus purely on getting it working for the demo.\n\n### Personal Project\nImplement basic integration tests to prevent regressions.\n\n### Production SaaS / Enterprise\nAchieve 80%+ test coverage. Implement strictly typed input validation (e.g., Zod). All infrastructure should be declared as code (Terraform). Ensure horizontal scalability by keeping all nodes strictly stateless.\n\n- [ ] Tests and validation logic are comprehensively executed.`,
+  'apitesting': `# testing\n\n **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nRobust development practices prevent massive refactors during the scaling phase.\n\n## Strategic Guidance\n\n### Hackathon Mode\nFocus purely on getting it working for the demo.\n\n### Personal Project\nImplement basic integration tests to prevent regressions.\n\n### Production SaaS / Enterprise\nAchieve 80%+ test coverage. Implement strictly typed input validation (e.g., Zod). All infrastructure should be declared as code (Terraform). Ensure horizontal scalability by keeping all nodes strictly stateless.\n\n- [ ] Tests and validation logic are comprehensively executed.`,
+  'apidocumentation': `# documentation\n\n **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nRobust development practices prevent massive refactors during the scaling phase.\n\n## Strategic Guidance\n\n### Hackathon Mode\nFocus purely on getting it working for the demo.\n\n### Personal Project\nImplement basic integration tests to prevent regressions.\n\n### Production SaaS / Enterprise\nAchieve 80%+ test coverage. Implement strictly typed input validation (e.g., Zod). All infrastructure should be declared as code (Terraform). Ensure horizontal scalability by keeping all nodes strictly stateless.\n\n- [ ] Tests and validation logic are comprehensively executed.`,
+  'apiratelimiting': `# ratelimiting\n\n **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nRobust development practices prevent massive refactors during the scaling phase.\n\n## Strategic Guidance\n\n### Hackathon Mode\nFocus purely on getting it working for the demo.\n\n### Personal Project\nImplement basic integration tests to prevent regressions.\n\n### Production SaaS / Enterprise\nAchieve 80%+ test coverage. Implement strictly typed input validation (e.g., Zod). All infrastructure should be declared as code (Terraform). Ensure horizontal scalability by keeping all nodes strictly stateless.\n\n- [ ] Tests and validation logic are comprehensively executed.`,
+  'apiauthorization': `# authorization\n\n **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nRobust development practices prevent massive refactors during the scaling phase.\n\n## Strategic Guidance\n\n### Hackathon Mode\nFocus purely on getting it working for the demo.\n\n### Personal Project\nImplement basic integration tests to prevent regressions.\n\n### Production SaaS / Enterprise\nAchieve 80%+ test coverage. Implement strictly typed input validation (e.g., Zod). All infrastructure should be declared as code (Terraform). Ensure horizontal scalability by keeping all nodes strictly stateless.\n\n- [ ] Tests and validation logic are comprehensively executed.`,
+  'apibilling': `# billing\n\n **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nRobust development practices prevent massive refactors during the scaling phase.\n\n## Strategic Guidance\n\n### Hackathon Mode\nFocus purely on getting it working for the demo.\n\n### Personal Project\nImplement basic integration tests to prevent regressions.\n\n### Production SaaS / Enterprise\nAchieve 80%+ test coverage. Implement strictly typed input validation (e.g., Zod). All infrastructure should be declared as code (Terraform). Ensure horizontal scalability by keeping all nodes strictly stateless.\n\n- [ ] Tests and validation logic are comprehensively executed.`,
+  'apiperformanceoptimization': `# performanceoptimization\n\n **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nThese are the operational requirements that differentiate an amateur API from an enterprise-grade platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nSkip completely to save time.\n\n### Personal Project\nRely on PaaS providers (Vercel, Render, Supabase) to handle this automatically.\n\n### Production SaaS / Enterprise\nImplement aggressive defensive mechanisms. Configure WAFs (Web Application Firewalls) to drop malicious traffic at the Edge. Set up cross-region read replicas. Automate daily backups and test disaster recovery restores quarterly.\n\n- [ ] The enterprise operational standard is implemented.`,
+  'apimonitoring': `# monitoring\n\n **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nThese are the operational requirements that differentiate an amateur API from an enterprise-grade platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nSkip completely to save time.\n\n### Personal Project\nRely on PaaS providers (Vercel, Render, Supabase) to handle this automatically.\n\n### Production SaaS / Enterprise\nImplement aggressive defensive mechanisms. Configure WAFs (Web Application Firewalls) to drop malicious traffic at the Edge. Set up cross-region read replicas. Automate daily backups and test disaster recovery restores quarterly.\n\n- [ ] The enterprise operational standard is implemented.`,
+  'apilogging': `# logging\n\n **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nThese are the operational requirements that differentiate an amateur API from an enterprise-grade platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nSkip completely to save time.\n\n### Personal Project\nRely on PaaS providers (Vercel, Render, Supabase) to handle this automatically.\n\n### Production SaaS / Enterprise\nImplement aggressive defensive mechanisms. Configure WAFs (Web Application Firewalls) to drop malicious traffic at the Edge. Set up cross-region read replicas. Automate daily backups and test disaster recovery restores quarterly.\n\n- [ ] The enterprise operational standard is implemented.`,
+  'apierrortracking': `# errortracking\n\n **Estimated Time:** 2 Hours\n\n---\n\n## Why this matters\nThese are the operational requirements that differentiate an amateur API from an enterprise-grade platform.\n\n## Strategic Guidance\n\n### Hackathon Mode\nSkip completely to save time.\n\n### Personal Project\nRely on PaaS providers (Vercel, Render, Supabase) to handle this automatically.\n\n### Production SaaS / Enterprise\nImplement aggressive defensive mechanisms. Configure WAFs (Web Application Firewalls) to drop malicious traffic at the Edge. Set up cross-region read replicas. Automate daily backups and test disaster recovery restores quarterly.\n\n- [ ] The enterprise operational standard is implemented.`,
+  'apisdks': `# sdks\n\n **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nThis is where API products win or lose the Developer Experience (DX) war.\n\n## Strategic Guidance\n\n### Hackathon Mode\nMove fast, don't over-engineer DX.\n\n### Personal Project\nProvide basic examples and a simple status page.\n\n### Production SaaS / Enterprise\nInvest heavily in automated DX. Changelogs should be tied to Git releases. Status pages must auto-update based on Datadog alerts. Example requests must be automatically tested in CI so documentation never falls out of sync with production code.\n\n- [ ] DX assets are automated and verified in CI/CD.`,
+  'apipostmancollection': `# postmancollection\n\n **Estimated Time:** 1-2 Hours\n\n---\n\n## Why this matters\nThis is where API products win or lose the Developer Experience (DX) war.\n\n## Strategic Guidance\n\n### Hackathon Mode\nMove fast, don't over-engineer DX.\n\n### Personal Project\nProvide basic examples and a simple status page.\n\n### Production SaaS / Enterprise\nInvest heavily in automated DX. Changelogs should be tied to Git releases. Status pages must auto-update based on Datadog alerts. Example requests must be automatically tested in CI so documentation never falls out of sync with production code.\n\n- [ ] DX assets are automated and verified in CI/CD.`,
   'dtideadefinition': `# Idea Definition
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -3201,7 +3201,7 @@ Desktop SaaS requires a high barrier to entry for users (downloading and install
 - [ ] I understand the cross-platform maintenance burden.`,
   'dtproblemstatement': `# Problem Statement
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -3231,7 +3231,7 @@ Write Here...
 \`\`\``,
   'dttargetusers': `# Target Users
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -3265,7 +3265,7 @@ Act as a User Researcher. Based on my ICP, generate 3 specific user personas, hi
 - [ ] I have defined the primary target OS.`,
   'dtcompetitoranalysis': `# Competitor Analysis
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -3297,7 +3297,7 @@ Act as a Market Analyst. Based on these 3 competitors in the desktop space, anal
 \`\`\``,
   'dtfeatureplanning': `# Feature Planning
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -3331,7 +3331,7 @@ Act as a Desktop Systems Architect. Suggest 5 high-value features for my app tha
 - [ ] I have identified at least one feature that requires native OS access.`,
   'dtmvpfeatures': `# MVP Features
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -3361,7 +3361,7 @@ Core User Flow:
 - [ ] The MVP delivers value that a browser cannot.`,
   'dtfuturefeatures': `# Future Features
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -3390,7 +3390,7 @@ Write Here...
 \`\`\``,
   'dtmonetization': `# Monetization
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -3423,7 +3423,7 @@ Act as a Pricing Strategist. Analyze the pros and cons of using a Perpetual Lice
 - [ ] I have selected a pricing and distribution model.`,
   'dtsuccessmetrics': `# Success Metrics
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -3451,7 +3451,7 @@ You must implement opt-in telemetry (like PostHog or Sentry). Key metrics includ
 - [ ] I understand that desktop telemetry often requires explicit user opt-in.`,
   'dtuserworkflowanalysis': `# User Workflow Analysis
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -3477,7 +3477,7 @@ Act as a UX Architect. Map out a frictionless daily workflow for a user interact
 - [ ] I have mapped the daily workflow and identified the primary triggers (clicks vs hotkeys).`,
   'dtprd': `# Product Requirements Document (PRD)
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -3510,7 +3510,7 @@ Act as a Senior Technical Product Manager. Based on my previous inputs, generate
 - [ ] I have finalized the PRD and OS constraints.`,
   'dtuserflows': `# User Flows
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -3536,7 +3536,7 @@ Act as a UX Designer. My desktop app requires [INSERT PERMISSIONS]. Write a user
 - [ ] I have mapped out the OS Permission request flows.`,
   'dtinformationarchitecture': `# Information Architecture
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -3566,7 +3566,7 @@ Act as an Information Architect. I am building a [Single/Multi/Tray] desktop app
 \`\`\``,
   'dtwireframes': `# Wireframes
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -3593,7 +3593,7 @@ Act as a Desktop UI/UX Designer. Suggest a highly productive, dense layout struc
 - [ ] I have wireframed the offline state.`,
   'dtdesignsystem': `# Design System
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -3623,7 +3623,7 @@ Act as a Design System Engineer. Generate a set of CSS variables/Tailwind tokens
 \`\`\``,
   'dtaccessibility': `# Accessibility (a11y)
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -3650,7 +3650,7 @@ Act as an Accessibility Expert. Provide a checklist of 5 critical accessibility 
 - [ ] The app is fully navigable via the Tab key.`,
   'dterrorstates': `# Error States
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -3677,7 +3677,7 @@ Act as a Desktop Systems Engineer. Outline a strategy for handling fatal rendere
 - [ ] I have a mechanism to reset local app data if corrupted.`,
   'dtloadingstates': `# Loading States
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -3704,7 +3704,7 @@ Act as a Performance Engineer. Provide the specific code strategy for Electron o
 - [ ] The window will not be shown until the UI is ready.`,
   'dtdesktopux': `# Desktop UX Patterns
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -3731,7 +3731,7 @@ Act as a Native App Designer. List 5 Desktop-specific UX patterns (like native c
 - [ ] I have a plan for a Command Palette (if applicable).`,
   'dtplatformstrategy': `# Platform Strategy
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -3765,7 +3765,7 @@ Act as a Principal Engineer. Compare Electron and Tauri specifically regarding m
 \`\`\``,
   'dtauthentication': `# Authentication
 
-🕒 **Estimated Time:** 3 hours
+ **Estimated Time:** 3 hours
 
 ---
 
@@ -3792,7 +3792,7 @@ Act as a Security Architect. Explain the step-by-step PKCE OAuth flow for a desk
 - [ ] I will not store long-lived JWTs in plain text \`localStorage\`.`,
   'dtcostestimation': `# Cost Estimation
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -3821,7 +3821,7 @@ Update Server Bandwidth:
 - [ ] I have budgeted for necessary OS Code Signing certificates.`,
   'dtdesktopvswebdecision': `# Desktop vs Web Decision
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -3848,7 +3848,7 @@ Reason for rejecting Web:
 - [ ] I have verified a PWA cannot fulfill my requirements.`,
   'dtdesktopfundamentals': `# Desktop Fundamentals
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -3874,7 +3874,7 @@ Act as a Desktop Systems Engineer. Explain the difference between the Main Proce
 - [ ] I understand the necessity of separating the UI process from the OS process.`,
   'dtframeworkselection': `# Framework Selection
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -3900,7 +3900,7 @@ Act as a CTO. Compare Electron, Tauri, and Wails. Create a matrix evaluating the
 - [ ] I have officially selected my desktop framework.`,
   'dtarchitecturedesign': `# Architecture Design
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -3930,7 +3930,7 @@ Act as a System Architect. Design a hybrid architecture for a desktop app that u
 \`\`\``,
   'dtuilayer': `# UI Layer Architecture
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -3957,7 +3957,7 @@ Act as a Frontend Architect. Provide the CSS and configuration required to build
 - [ ] The app responds to OS-level theme changes automatically.`,
   'dtbusinesslogic': `# Business Logic Layer
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -3983,7 +3983,7 @@ Act as a Performance Engineer. I need to process a 5GB file in my desktop app wi
 - [ ] I have isolated heavy business logic away from the UI Renderer thread.`,
   'dtstoragelayer': `# Storage Layer
 
-🕒 **Estimated Time:** 3 hours
+ **Estimated Time:** 3 hours
 
 ---
 
@@ -4015,7 +4015,7 @@ Act as a Database Architect. Explain the exact configuration steps required to e
 - [ ] I am using a robust file-based storage solution, not \`localStorage\`.`,
   'dtservices': `# External Services
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -4041,7 +4041,7 @@ Act as a Network Architect. Explain why making external API calls from the Main 
 - [ ] All sensitive API calls are routed through the Main process.`,
   'dtnativeintegrations': `# Native Integrations
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -4073,7 +4073,7 @@ Act as a Desktop Systems Engineer. Provide a robust implementation guide for reg
 \`\`\``,
   'dtlocaldatastorage': `# Local Data Storage (File System)
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -4099,7 +4099,7 @@ Act as an OS Expert. Map out the correct directories for storing Configuration D
 - [ ] I am using OS-approved directories for all local data persistence.`,
   'dtcloudsync': `# Cloud Sync
 
-🕒 **Estimated Time:** 4-5 hours
+ **Estimated Time:** 4-5 hours
 
 ---
 
@@ -4125,7 +4125,7 @@ Act as a Distributed Systems Architect. Explain how to implement a Local-First a
 - [ ] I have chosen a strategy for resolving offline data conflicts.`,
   'dtupdatestrategy': `# Update Strategy
 
-🕒 **Estimated Time:** 3 hours
+ **Estimated Time:** 3 hours
 
 ---
 
@@ -4151,7 +4151,7 @@ Act as a Release Engineer. Provide a robust configuration guide for setting up b
 - [ ] I have tested the auto-updater mechanism thoroughly before shipping v1.0.`,
   'dtaiintegration': `# AI Integration
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -4178,7 +4178,7 @@ Act as an AI Infrastructure Architect. Explain the architectural steps required 
 - [ ] I have evaluated whether a Local LLM is viable for my use case.`,
   'dtstatemanagement': `# State Management
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -4202,7 +4202,7 @@ Act as a Principal Frontend Engineer. Explain how to architecture state synchron
 \`\`\``,
   'dtlocalstorage': `# Local Storage Implementation
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -4228,7 +4228,7 @@ Act as a Database Engineer. Provide the exact steps to configure Drizzle ORM wit
 - [ ] I am executing all database queries in the Main process.`,
   'dtauth': `# Authentication Implementation
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -4252,7 +4252,7 @@ Act as a Security Engineer. Provide a step-by-step guide on how to register a cu
 \`\`\``,
   'dtapis': `# API Integrations
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -4278,7 +4278,7 @@ Act as a Network Architect. Design a durable offline request queue for a desktop
 - [ ] The app handles sudden network disconnections gracefully.`,
   'dtnotifications': `# Native Notifications
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -4304,7 +4304,7 @@ Act as an OS Developer. Provide the code to trigger a native OS notification wit
 - [ ] I have configured the AppUserModelID for Windows notifications.`,
   'dttesting': `# Testing
 
-🕒 **Estimated Time:** 3 hours
+ **Estimated Time:** 3 hours
 
 ---
 
@@ -4330,7 +4330,7 @@ Act as a QA Engineer. Provide the configuration and a sample test script using P
 - [ ] I have an E2E testing framework capable of launching the compiled desktop binary.`,
   'dtdocumentation': `# Documentation
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -4354,7 +4354,7 @@ Act as a Technical Writer. Generate an IT Admin Deployment Guide for my desktop 
 \`\`\``,
   'dtuidevelopment': `# UI Development
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -4380,7 +4380,7 @@ Act as a Frontend Engineer. Provide the specific CSS and React structure require
 - [ ] The app feels like native software, not a website.`,
   'dtfilesystemoperations': `# File System Operations
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -4406,7 +4406,7 @@ Act as a Systems Engineer. Explain what an "Atomic Write" is in the context of f
 - [ ] I am using atomic writes for all critical local data.`,
   'dtbackgroundservices': `# Background Services
 
-🕒 **Estimated Time:** 3 hours
+ **Estimated Time:** 3 hours
 
 ---
 
@@ -4432,7 +4432,7 @@ Act as a Desktop Systems Engineer. Provide the code architecture in [Electron/Ta
 - [ ] The app minimizes to the system tray rather than fully quitting (if applicable).`,
   'dtaifeatures': `# AI Features Development
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -4458,7 +4458,7 @@ Act as an AI Engineer. Explain how to implement a Local-First RAG (Retrieval-Aug
 - [ ] I am respecting the user's privacy by not blindly uploading their local files to cloud APIs.`,
   'dtsettingssystem': `# Settings System
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -4484,7 +4484,7 @@ Act as an OS Developer. Provide the exact API methods and code required in [Elec
 - [ ] Settings are persisted to the disk and survive application updates.`,
   'dtsecurity': `# Security
 
-🕒 **Estimated Time:** 4-5 hours
+ **Estimated Time:** 4-5 hours
 
 ---
 
@@ -4516,7 +4516,7 @@ Act as a Penetration Tester. I am building an [Electron/Tauri] app. Provide a ch
 - [ ] All IPC inputs are validated.`,
   'dtperformanceoptimization': `# Performance Optimization
 
-🕒 **Estimated Time:** 3 hours
+ **Estimated Time:** 3 hours
 
 ---
 
@@ -4543,7 +4543,7 @@ Act as a Performance Engineer. Explain how to profile a compiled Electron applic
 \`\`\``,
   'dtcrashreporting': `# Crash Reporting
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -4569,7 +4569,7 @@ Act as a DevOps Engineer. Provide the configuration code to initialize Sentry in
 - [ ] Crash reporting captures both Main and Renderer processes.`,
   'dtmonitoring': `# Monitoring
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -4593,7 +4593,7 @@ Act as a Data Engineer. Design a lightweight telemetry payload that a desktop ap
 \`\`\``,
   'dtlogging': `# Logging
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -4620,7 +4620,7 @@ Act as a Support Engineer. Provide the configuration for \`electron-log\` to imp
 - [ ] The logs automatically rotate to prevent consuming disk space.`,
   'dtcicd': `# CI/CD Pipelines
 
-🕒 **Estimated Time:** 4-5 hours
+ **Estimated Time:** 4-5 hours
 
 ---
 
@@ -4649,7 +4649,7 @@ Act as a DevOps Architect. Generate a complete GitHub Actions \`.yml\` workflow 
 \`\`\``,
   'dtscalability': `# Scalability
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -4673,7 +4673,7 @@ Act as a Frontend Engineer. Provide a React implementation using \`react-virtuos
 \`\`\``,
   'dtfilesystemsecurity': `# File System Security
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -4700,7 +4700,7 @@ Act as a Security Architect. Explain how to integrate SQLCipher with an [Electro
 - [ ] Encryption keys are stored in the OS Keychain.`,
   'dtcredentialstorage': `# Credential Storage
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -4724,7 +4724,7 @@ Act as a Desktop Systems Engineer. Provide a code example using Electron's \`saf
 \`\`\``,
   'dtcodesigning': `# Code Signing & Notarization
 
-🕒 **Estimated Time:** 4-5 hours
+ **Estimated Time:** 4-5 hours
 
 ---
 
@@ -4753,7 +4753,7 @@ Act as a Release Engineer. Provide a step-by-step checklist for acquiring an App
 - [ ] The app is signed for Windows.`,
   'dtmemoryoptimization': `# Memory Optimization
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -4780,7 +4780,7 @@ Act as a Performance Engineer. What are the 3 most common causes of Memory Leaks
 \`\`\``,
   'dtautoupdates': `# Auto Updates
 
-🕒 **Estimated Time:** 3 hours
+ **Estimated Time:** 3 hours
 
 ---
 
@@ -4807,7 +4807,7 @@ Act as a Release Engineer. Provide the exact implementation for \`electron-updat
 - [ ] Update payloads are cryptographically verified.`,
   'dtpackaging': `# Packaging Strategy
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -4834,7 +4834,7 @@ Act as a DevOps Architect. Explain the difference between an NSIS \`.exe\` insta
 \`\`\``,
   'dtbetatesting': `# Beta Testing
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -4860,7 +4860,7 @@ Act as a Release Manager. Explain how to configure \`electron-updater\` to suppo
 - [ ] I have tested the app on both a fresh Windows machine and a fresh macOS machine.`,
   'dtinstallercreation': `# Installer Creation
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -4884,7 +4884,7 @@ Act as a DevOps Engineer. Provide the \`electron-builder\` configuration JSON re
 \`\`\``,
   'dtwindowspackaging': `# Windows Packaging
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -4908,7 +4908,7 @@ Act as a Release Engineer. Explain the pros and cons of packaging an Electron ap
 \`\`\``,
   'dtmacospackaging': `# macOS Packaging
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -4934,7 +4934,7 @@ Act as a Release Engineer. Provide the \`electron-builder\` configuration requir
 - [ ] The app runs natively on Apple Silicon (ARM64).`,
   'dtlinuxpackaging': `# Linux Packaging
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -4958,7 +4958,7 @@ Act as a Linux DevOps Engineer. Compare \`.AppImage\`, \`.deb\`, and \`Snap\` pa
 \`\`\``,
   'dtreleasestrategy': `# Release Strategy
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -4982,7 +4982,7 @@ Act as a Release Manager. Explain how to implement a "Phased Rollout" (Canary Re
 \`\`\``,
   'dtlaunchchecklist': `# Launch Checklist
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -5014,7 +5014,7 @@ Act as a QA Lead. Provide a strict 10-point pre-launch checklist specifically fo
 - [ ] Verified auto-updater points to the production endpoint.`,
   'dtanalytics': `# Analytics & Telemetry
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -5038,7 +5038,7 @@ Act as a Data Privacy Officer. Outline how to implement PostHog telemetry in a d
 \`\`\``,
   'dtuserfeedback': `# User Feedback
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -5062,7 +5062,7 @@ Act as a Support Architect. Design an in-app feedback submission payload for a d
 \`\`\``,
   'dtroadmap': `# Roadmap & Communication
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -5086,7 +5086,7 @@ Act as a Product Marketer. Explain the best practices for displaying a "What's N
 \`\`\``,
   'dtfeaturerequests': `# Feature Requests
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -5110,7 +5110,7 @@ Act as a Product Manager for a Desktop App. Write a framework for evaluating fea
 \`\`\``,
   'dtcommunitybuilding': `# Community Building
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -5134,7 +5134,7 @@ Act as a Community Manager. Draft a recruitment message to send to your most act
 \`\`\``,
   'dtpluginecosystem': `# Plugin Ecosystem
 
-🕒 **Estimated Time:** 4-5 hours
+ **Estimated Time:** 4-5 hours
 
 ---
 
@@ -5160,7 +5160,7 @@ Act as a Security Architect. Design a secure Plugin Ecosystem for an Electron ap
 - [ ] I understand the massive security risks of executing third-party plugins in a desktop environment.`,
   'extideadefinition': `# Idea Definition
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -5186,7 +5186,7 @@ Act as a Chrome Web Store Reviewer. I want to build a browser extension that [de
 - [ ] I have verified that this idea requires an extension and cannot be a standard web app.`,
   'extproblemstatement': `# Problem Statement
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -5213,7 +5213,7 @@ Write Here...
 - [ ] The problem statement is strictly defined.`,
   'extcompetitoranalysis': `# Competitor Analysis
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -5239,7 +5239,7 @@ Act as a Product Strategist. Analyze these 3 competitor browser extensions: [Com
 - [ ] I have analyzed the top 3 competitors in the Web Store.`,
   'extfeatureplanning': `# Feature Planning
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -5268,7 +5268,7 @@ You must architect for the "Side Panel" API if your user needs persistent access
 - [ ] Features are correctly mapped to Extension UI surfaces.`,
   'extmvpfeatures': `# MVP Features
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -5292,7 +5292,7 @@ Act as a strict Product Manager. Review my feature list for a Browser Extension 
 \`\`\``,
   'extfuturefeatures': `# Future Features
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -5319,7 +5319,7 @@ If your future features require cross-browser support (Firefox, Safari), you mus
 \`\`\``,
   'extmonetization': `# Monetization
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -5345,7 +5345,7 @@ Act as a SaaS Architect. Explain the most secure way to implement Stripe subscri
 - [ ] A secure, server-validated monetization strategy is defined.`,
   'extsuccessmetrics': `# Success Metrics
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -5369,7 +5369,7 @@ Act as a Data Engineer. How do I implement PostHog analytics in a Manifest V3 Se
 \`\`\``,
   'extuserworkflowanalysis': `# User Workflow Analysis
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -5395,7 +5395,7 @@ Act as a UX Researcher. I am building a browser extension that does [X]. How can
 - [ ] Workflows are optimized for minimum clicks.`,
   'extprd': `# Product Requirements Document (PRD)
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -5424,7 +5424,7 @@ Your PRD must explicitly detail the architecture (Service Worker vs Content Scri
 - [ ] PRD aligns with Manifest V3 technical limitations.`,
   'extuserflows': `# User Flows
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -5448,7 +5448,7 @@ Act as a Systems Architect. Map the exact User Flow for authenticating a user vi
 \`\`\``,
   'extwireframes': `# Wireframes
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -5475,7 +5475,7 @@ Act as a UI/UX Designer. Given the strict 800x600 pixel limitation of Chrome Ext
 - [ ] Injected UI is designed to utilize Shadow DOM.`,
   'extdesignsystem': `# Design System
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -5499,7 +5499,7 @@ Act as a Frontend Engineer. Explain how to configure Tailwind CSS (via PostCSS) 
 \`\`\``,
   'extaccessibility': `# Accessibility (a11y)
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -5525,7 +5525,7 @@ Act as an Accessibility Expert. Provide a checklist for ensuring a Chrome Extens
 - [ ] The entire popup UI can be navigated using only the keyboard.`,
   'exterrorstates': `# Error States
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -5552,7 +5552,7 @@ Act as a Senior Extension Developer. Write a robust wrapper function for \`chrom
 \`\`\``,
   'extloadingstates': `# Loading States
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -5578,7 +5578,7 @@ Act as a Frontend Engineer. Provide the HTML/CSS required in the extension's roo
 - [ ] The popup UI provides instant feedback upon opening.`,
   'extextensionux': `# Extension UX
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -5604,7 +5604,7 @@ Act as a UX Engineer. Provide a React component implementation for a floating Ac
 - [ ] Injected UI does not permanently obscure critical host page content.`,
   'extapidesign': `# API Design
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -5630,7 +5630,7 @@ Act as a Backend Engineer. Design an API schema for a Chrome Extension that uses
 - [ ] Client-side caching is implemented to prevent API spam.`,
   'extauthentication': `# Authentication
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -5656,7 +5656,7 @@ Act as a Security Architect. Explain why passing a JWT to a Content Script is a 
 - [ ] Authentication state is isolated from the Content Script.`,
   'extcostestimation': `# Cost Estimation
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -5680,7 +5680,7 @@ Act as a SaaS CFO. I am building a Chrome extension that uses the OpenAI API (GP
 \`\`\``,
   'extextensionfundamentals': `# Extension Fundamentals
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -5706,7 +5706,7 @@ Act as a Chrome Extension Expert. Explain the ephemeral nature of Manifest V3 Se
 - [ ] I understand that Service Workers terminate after 30 seconds of inactivity.`,
   'extplatformselection': `# Platform Selection
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -5730,7 +5730,7 @@ Act as a Build Engineer. Provide a \`vite.config.ts\` configuration utilizing \`
 \`\`\``,
   'extarchitecturedesign': `# Architecture Design
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -5756,7 +5756,7 @@ Act as a Typescript Architect. Explain how to set up strongly-typed message pass
 - [ ] Message passing between extension contexts is strongly typed.`,
   'extpopupui': `# Popup UI
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -5780,7 +5780,7 @@ Act as a Frontend Engineer. Provide a React \`useEffect\` hook pattern for a Chr
 \`\`\``,
   'extsidepanel': `# Side Panel API
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -5806,7 +5806,7 @@ Act as a Chrome Extension Expert. Provide the Background Service Worker code req
 - [ ] If continuous context is required, the Side Panel API is utilized instead of the Popup.`,
   'extcontextmenus': `# Context Menus
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -5830,7 +5830,7 @@ Act as a Chrome Extension Developer. Provide the exact Service Worker code to sa
 \`\`\``,
   'extcontentscripts': `# Content Scripts
 
-🕒 **Estimated Time:** 3 hours
+ **Estimated Time:** 3 hours
 
 ---
 
@@ -5857,7 +5857,7 @@ Act as a Frontend Engineer. Write a robust \`MutationObserver\` script for a Con
 - [ ] Injected UI is protected via Shadow DOM.`,
   'extbackgroundlogic': `# Background Logic
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -5881,7 +5881,7 @@ Act as a Chrome Extension Expert. Explain why \`setInterval\` fails in Manifest 
 \`\`\``,
   'extserviceworkers': `# Service Workers (Manifest V3)
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -5907,7 +5907,7 @@ Act as an Architecture Specialist. Explain how to use the \`chrome.offscreen\` A
 - [ ] I understand that the Service Worker lacks access to the DOM.`,
   'extstoragestrategy': `# Storage Strategy
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -5934,7 +5934,7 @@ Act as a Chrome Extension Expert. Compare \`chrome.storage.local\`, \`chrome.sto
 \`\`\``,
   'extmessagingsystem': `# Messaging System
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -5958,7 +5958,7 @@ Act as a Systems Engineer. Provide a robust implementation using \`chrome.runtim
 \`\`\``,
   'extdatastorage': `# Data Storage
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -5982,7 +5982,7 @@ Act as a Database Engineer. Explain how to integrate \`Dexie.js\` (IndexedDB) wi
 \`\`\``,
   'extsyncstorage': `# Sync Storage
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -6008,7 +6008,7 @@ Act as a Chrome Extension Expert. Write a utility function for \`chrome.storage.
 - [ ] \`chrome.storage.sync\` is strictly limited to lightweight configuration data.`,
   'extoauth': `# OAuth & Identity
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -6032,7 +6032,7 @@ Act as an Auth Security Engineer. Provide a complete implementation using \`chro
 \`\`\``,
   'extaifeatures': `# AI Features
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -6058,7 +6058,7 @@ Act as a Cloud Architect. Design an architecture where a Chrome Extension secure
 - [ ] API keys for LLMs are strictly secured on a backend server.`,
   'extllmintegration': `# LLM Integration
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -6082,7 +6082,7 @@ Act as a Frontend Engineer. Write the code to receive a Server-Sent Events (SSE)
 \`\`\``,
   'extcontextcollection': `# Context Collection
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -6106,7 +6106,7 @@ Act as an AI Data Engineer. Provide a highly optimized JavaScript function to ex
 \`\`\``,
   'extpageanalysis': `# Page Analysis
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -6130,7 +6130,7 @@ Act as a Chrome Extension Expert. Explain how to use the \`chrome.declarativeCon
 \`\`\``,
   'extsummarization': `# Summarization UI
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -6154,7 +6154,7 @@ Act as a UX Engineer. How can I prompt an LLM to return data in a strict JSON fo
 \`\`\``,
   'extauth': `# Auth Implementation
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -6178,7 +6178,7 @@ Act as an Auth Expert. Detail the exact flow for authenticating a user in a Mani
 \`\`\``,
   'extbackend': `# Backend Integration
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -6202,7 +6202,7 @@ Act as a Backend Security Engineer. How do I configure CORS and strict rate-limi
 \`\`\``,
   'extapis': `# API Integration
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -6226,7 +6226,7 @@ Act as a Chrome Extension Expert. Write a reusable function in a Manifest V3 Ser
 \`\`\``,
   'extanalytics': `# Analytics Implementation
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -6250,7 +6250,7 @@ Act as a Data Engineer. Provide the code to initialize PostHog analytics in a Ma
 \`\`\``,
   'exttesting': `# Testing Strategy
 
-🕒 **Estimated Time:** 3 hours
+ **Estimated Time:** 3 hours
 
 ---
 
@@ -6276,7 +6276,7 @@ Act as a QA Automation Engineer. Provide a Playwright configuration and test scr
 - [ ] Automated tests verify core extension functionality.`,
   'extmanifestconfiguration': `# Manifest Configuration
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -6300,7 +6300,7 @@ Act as a Chrome Web Store Reviewer. Review this \`manifest.json\` snippet: [Past
 \`\`\``,
   'extbackgroundserviceworker': `# Background Service Worker
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -6324,7 +6324,7 @@ Act as a Chrome Extension Expert. Explain the critical rule regarding synchronou
 \`\`\``,
   'extsettingspage': `# Settings Page
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -6348,7 +6348,7 @@ Act as a Frontend Developer. Provide a React component for an Extension Options 
 \`\`\``,
   'extsecurity': `# Security & CSP
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -6374,7 +6374,7 @@ Act as a Security Auditor. Explain the strict Content Security Policy (CSP) enfo
 - [ ] The extension contains zero \`eval()\` or remote script executions.`,
   'extperformanceoptimization': `# Performance Optimization
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -6400,7 +6400,7 @@ Act as a Performance Engineer. Explain the difference between declaring a Conten
 \`\`\``,
   'extmonitoring': `# Monitoring
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -6424,7 +6424,7 @@ Act as a DevOps Engineer. Provide the configuration code to initialize Sentry in
 \`\`\``,
   'exterrortracking': `# Error Tracking
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -6448,7 +6448,7 @@ Act as a QA Lead. What are the most common unhandled promise rejections that cau
 \`\`\``,
   'extratelimiting': `# Rate Limiting
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -6472,7 +6472,7 @@ Act as a Backend Security Engineer. Design a rate-limiting strategy using Redis 
 \`\`\``,
   'extcaching': `# Caching
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -6496,7 +6496,7 @@ Act as a Software Architect. Provide a Typescript class that wraps \`chrome.stor
 \`\`\``,
   'extcicd': `# CI/CD Pipelines
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -6522,7 +6522,7 @@ Act as a Release Engineer. Provide a complete GitHub Actions workflow YAML file 
 - [ ] Store submission is fully automated via CI/CD.`,
   'extpermissionauditing': `# Permission Auditing
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -6546,7 +6546,7 @@ Act as a Chrome Extension Expert. Explain the UX and retention benefits of using
 \`\`\``,
   'extprivacyreview': `# Privacy Review
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -6570,7 +6570,7 @@ Act as a Data Privacy Officer. What are the top 5 ways Chrome Extensions acciden
 \`\`\``,
   'extextensionsizeoptimization': `# Size Optimization
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -6594,7 +6594,7 @@ Act as a Build Engineer. Explain how to configure Vite to analyze the bundle siz
 \`\`\``,
   'extscreenshots': `# Screenshots & Promo Assets
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -6621,7 +6621,7 @@ Act as a Product Marketer. Suggest a 3-part storyboard for a YouTube promo video
 \`\`\``,
   'extprivacypolicy': `# Privacy Policy
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -6647,7 +6647,7 @@ Act as a Tech Lawyer. Draft a Privacy Policy for a Chrome Extension that uses th
 - [ ] A valid Privacy Policy is publicly hosted.`,
   'exttermsofservice': `# Terms of Service
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -6671,7 +6671,7 @@ Act as a Tech Lawyer. Draft a Terms of Service clause for a Browser Extension th
 \`\`\``,
   'extchromewebstoresetup': `# Chrome Web Store Setup
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -6695,7 +6695,7 @@ Act as a Chrome Web Store Reviewer. Review my extension's core functionality: [D
 \`\`\``,
   'extedgeaddonsstore': `# Edge Add-ons Store
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -6721,7 +6721,7 @@ Act as a Release Manager. What are the key differences between the Chrome Web St
 - [ ] The extension is published to the Microsoft Edge Add-ons Store.`,
   'extfirefoxaddons': `# Firefox Add-ons
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -6745,7 +6745,7 @@ Act as a WebExtensions Architect. Outline the primary differences in \`manifest.
 \`\`\``,
   'extlistingoptimization': `# Listing Optimization (ASO)
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -6771,7 +6771,7 @@ Act as an App Store Optimization (ASO) Expert. Write a highly optimized, SEO-fri
 - [ ] The extension title and description are optimized for target keywords.`,
   'extstoresubmission': `# Store Submission
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -6795,7 +6795,7 @@ Act as a Release Manager. Provide a final checklist for submitting an authentica
 \`\`\``,
   'extreviewprocess': `# Review Process
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -6819,7 +6819,7 @@ Act as a Chrome Web Store Developer Advocate. My extension was rejected for 'Vio
 \`\`\``,
   'extlaunchchecklist': `# Launch Checklist
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -6849,7 +6849,7 @@ Act as a QA Lead. Provide a strict 10-point final launch checklist for a Chrome 
 - [ ] The extension was tested on a fresh, isolated Chrome profile.`,
   'extuserfeedback': `# User Feedback
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -6873,7 +6873,7 @@ Act as a Product Manager. Design a user flow for an in-extension feedback form t
 \`\`\``,
   'extscalingstrategy': `# Scaling Strategy
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -6897,7 +6897,7 @@ Act as a Cloud Architect. My Chrome extension just went viral and is hitting my 
 \`\`\``,
   'extstorereviews': `# Store Reviews
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -6923,7 +6923,7 @@ Act as a Growth Hacker. Write the logic for a Manifest V3 Service Worker that tr
 - [ ] Store review prompts are tied to positive user milestones.`,
   'extfeaturerequests': `# Feature Requests
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -6947,7 +6947,7 @@ Act as a Product Manager. Write a polite but firm template response to a user wh
 \`\`\``,
   'extseo': `# SEO & Web Presence
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -6973,7 +6973,7 @@ Act as an SEO Specialist. Outline the ideal structure for a 1-page SaaS landing 
 - [ ] A dedicated landing page exists outside of the Chrome Web Store.`,
   'extmonetizationexpansion': `# Monetization Expansion
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -6997,7 +6997,7 @@ Act as a B2B SaaS Founder. Draft a cold email targeting an Engineering Manager, 
 \`\`\``,
   'aiusecases': `# Use Cases
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -7021,7 +7021,7 @@ Act as a YC Partner. I want to build an AI SaaS for [Target Audience]. Brainstor
 \`\`\``,
   'aicompetitoranalysis': `# Competitor Analysis
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -7047,7 +7047,7 @@ Act as an AI Strategist. My competitors are generic AI chatbots (like ChatGPT an
 - [ ] I understand that "wrapping an API" is not a defensible moat.`,
   'aifeatureprioritization': `# Feature Prioritization
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -7074,7 +7074,7 @@ Phase 3: Autonomous Agent (High risk, high trust required)
 \`\`\``,
   'aisuccessmetrics': `# Success Metrics
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -7098,7 +7098,7 @@ Act as a Head of Data. Suggest 5 specialized telemetry metrics I should track fo
 \`\`\``,
   'aiproblemdefinition': `# Problem Definition
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -7124,7 +7124,7 @@ Act as a skeptical Systems Architect. The problem I am trying to solve is [Descr
 - [ ] The problem actually requires probabilistic reasoning, not just deterministic logic.`,
   'aiaijustification': `# AI Justification
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -7148,7 +7148,7 @@ Act as a CTO. I am proposing we replace our traditional keyword search with an A
 \`\`\``,
   'aiuserpersonas': `# User Personas
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -7172,7 +7172,7 @@ Act as a Risk Management Officer. Create a risk profile for a [User Persona] usi
 \`\`\``,
   'aicostexpectations': `# Cost Expectations
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -7198,7 +7198,7 @@ Act as a SaaS CFO. My AI app uses GPT-4o. The average request uses 2,000 input t
 - [ ] A strict pricing model is defined to prevent power users from ruining unit economics.`,
   'aiprd': `# Product Requirements Document
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -7225,7 +7225,7 @@ Act as an AI Product Manager. Outline a PRD for an AI tool that [describe tool].
 \`\`\``,
   'aiuserflows': `# User Flows
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -7249,7 +7249,7 @@ Act as a UX Designer. Design a user flow for an AI document generator where the 
 \`\`\``,
   'aidesignsystem': `# Design System
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -7275,7 +7275,7 @@ Act as a Frontend Architect. Provide the boilerplate React code using \`react-ma
 - [ ] The design system supports streaming markdown rendering.`,
   'aiemptystates': `# Empty States
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -7299,7 +7299,7 @@ Act as a UX Researcher. My AI tool is used for [Tool Purpose]. Suggest 4 highly 
 \`\`\``,
   'aierrorstates': `# Error States
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -7326,7 +7326,7 @@ Act as a UX Copywriter. Write user-friendly, empathetic error messages for the f
 \`\`\``,
   'aiaiinteractionflows': `# AI Interaction Flows
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -7352,7 +7352,7 @@ Act as a Product Designer. I am building a [Type of App]. Provide 3 innovative w
 - [ ] The interaction flow integrates seamlessly into the user's workflow without forcing a chat interface.`,
   'aipromptflows': `# Prompt Flows
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -7381,7 +7381,7 @@ Act as an AI Engineer. Design a 3-stage LLM prompt chain for a system that takes
 \`\`\``,
   'aiconversationdesign': `# Conversation Design
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -7405,7 +7405,7 @@ Act as a Prompt Engineer. Write a robust System Prompt fragment that enforces ex
 \`\`\``,
   'aiuxforaiproducts': `# UX for AI Products
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -7431,7 +7431,7 @@ Act as a UX Engineer. Provide a React component architecture that listens to Ser
 - [ ] UI provides real-time status updates during long-running AI tasks.`,
   'aiaifailurestates': `# AI Failure States
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -7455,7 +7455,7 @@ Act as a UI Designer. Explain how to design a citation system for an AI chat int
 \`\`\``,
   'aiapis': `# APIs
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -7481,7 +7481,7 @@ Act as a Backend Architect. Provide a Node.js implementation using Vercel's AI S
 - [ ] The backend architecture supports seamless model switching and fallback routing.`,
   'aiaifundamentals': `# AI Fundamentals
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -7505,7 +7505,7 @@ Act as an AI Engineer. Explain how the OpenAI \`tiktoken\` library works. Provid
 \`\`\``,
   'aimodelselection': `# Model Selection
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -7532,7 +7532,7 @@ Act as an AI Systems Architect. Design a triage system for a customer support AI
 \`\`\``,
   'aiaiarchitecture': `# AI Architecture
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -7558,7 +7558,7 @@ Act as a Cloud Architect. Design an architecture using Vercel Edge Functions, th
 - [ ] Edge Functions or specialized streaming architecture is utilized for LLM responses.`,
   'aipromptarchitecture': `# Prompt Architecture
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -7582,7 +7582,7 @@ Act as a Lead AI Engineer. Demonstrate how to structure a complex LLM prompt usi
 \`\`\``,
   'aisystemprompts': `# System Prompts
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -7606,7 +7606,7 @@ Act as an Expert Prompt Engineer. Write an enterprise-grade System Prompt for a 
 \`\`\``,
   'aiuserprompts': `# User Prompts
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -7630,7 +7630,7 @@ Act as a UX/AI Architect. Design a UI interface that collects parameters for gen
 \`\`\``,
   'aiguardrails': `# Guardrails
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -7656,7 +7656,7 @@ Act as an AI Security Engineer. Explain how to implement a 'Validator Model' pat
 - [ ] A dedicated validation step exists to check inputs for prompt injection.`,
   'aioutputformatting': `# Output Formatting (JSON)
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -7682,7 +7682,7 @@ Act as an AI Engineer. Provide a Typescript code example using Vercel's AI SDK (
 - [ ] Structured Outputs (JSON Schema/Zod) are used for all data extraction tasks.`,
   'aiprompttemplates': `# Prompt Templates
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -7706,7 +7706,7 @@ Act as a Software Architect. Explain how to decouple AI prompt templates from th
 \`\`\``,
   'aicontextarchitecture': `# Context Architecture
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -7730,7 +7730,7 @@ Act as an AI Engineer. Explain the 'Lost in the Middle' phenomenon in LLMs. Deta
 \`\`\``,
   'aiknowledgebase': `# Knowledge Base
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -7754,7 +7754,7 @@ Act as a Data Engineer. Design an automated ingestion pipeline that pulls docume
 \`\`\``,
   'airagdesign': `# RAG Design (Retrieval-Augmented Generation)
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -7780,7 +7780,7 @@ Act as an AI Architect. Explain the failures of 'Naive RAG'. Outline an 'Advance
 - [ ] The system utilizes Advanced RAG techniques (Hybrid Search/Query Rewriting) rather than just Naive Vector Search.`,
   'aichunkingstrategy': `# Chunking Strategy
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -7804,7 +7804,7 @@ Act as an AI Data Engineer. Explain the difference between Character-based chunk
 \`\`\``,
   'airetrievalstrategy': `# Retrieval Strategy
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -7828,7 +7828,7 @@ Act as a Search Engineer. Explain why Vector Search fails at exact-match queries
 \`\`\``,
   'aireranking': `# Re-ranking
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -7854,7 +7854,7 @@ Act as a Search Relevance Engineer. Explain the two-stage retrieval process usin
 - [ ] A dedicated Re-ranking step is implemented to improve retrieval precision.`,
   'aiembeddings': `# Embeddings
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -7878,7 +7878,7 @@ Act as a Machine Learning Engineer. I am building a RAG system for [Specific Dom
 \`\`\``,
   'aitoolcalling': `# Tool Calling (Functions)
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -7904,7 +7904,7 @@ Act as an AI Security Architect. Design a Tool Calling architecture where 'Read'
 - [ ] Destructive tool calls require explicit human confirmation.`,
   'aimcp': `# Model Context Protocol (MCP)
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -7928,7 +7928,7 @@ Act as an AI Infrastructure Engineer. Explain the architecture of the Model Cont
 \`\`\``,
   'aiagents': `# Agents
 
-🕒 **Estimated Time:** 4+ hours
+ **Estimated Time:** 4+ hours
 
 ---
 
@@ -7952,7 +7952,7 @@ Act as an AI Systems Architect. Explain why treating an LLM Agent as a determini
 \`\`\``,
   'aimultiagent': `# Multi-Agent Systems
 
-🕒 **Estimated Time:** 4+ hours
+ **Estimated Time:** 4+ hours
 
 ---
 
@@ -7978,7 +7978,7 @@ Act as a Lead AI Engineer. Design a Multi-Agent system for a research tool. Deta
 - [ ] Multi-agent systems use a Supervisor/Worker architecture rather than one monolithic prompt.`,
   'aiworkflowautomation': `# Workflow Automation
 
-🕒 **Estimated Time:** 3 hours
+ **Estimated Time:** 3 hours
 
 ---
 
@@ -8002,7 +8002,7 @@ Act as a Cloud Architect. Design an asynchronous architecture using Inngest or B
 \`\`\``,
   'aivoice': `# Voice Interfaces
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -8026,7 +8026,7 @@ Act as an Audio Engineer. Explain the architecture required to implement 'Barge-
 \`\`\``,
   'aivision': `# Vision Capabilities
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -8050,7 +8050,7 @@ Act as an AI Cost Optimization Expert. Explain how OpenAI's Vision pricing calcu
 \`\`\``,
   'aiocr': `# OCR (Optical Character Recognition)
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -8074,7 +8074,7 @@ Act as a Data Engineer. Design a hybrid extraction pipeline that uses AWS Textra
 \`\`\``,
   'aifinetuning': `# Fine-Tuning
 
-🕒 **Estimated Time:** 4+ hours
+ **Estimated Time:** 4+ hours
 
 ---
 
@@ -8100,7 +8100,7 @@ Act as a Machine Learning Engineer. A client wants to 'fine-tune ChatGPT on thei
 - [ ] Fine-tuning is reserved for style/format adherence, not factual knowledge.`,
   'aidatabases': `# Databases for AI
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -8124,7 +8124,7 @@ Act as a Database Architect. Compare using a dedicated Vector Database (like Pin
 \`\`\``,
   'aicalculators': `# Deterministic Tools
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -8148,7 +8148,7 @@ Act as an AI Engineer. Explain the fundamental architectural reason why Large La
 \`\`\``,
   'aicustomtools': `# Custom Integrations
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -8172,7 +8172,7 @@ Act as a Security Architect. I am building a RAG system over a company's Google 
 \`\`\``,
   'aiaicostestimation': `# AI Cost Estimation
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -8196,7 +8196,7 @@ Act as a Backend Engineer. Provide a Node.js implementation that executes an Ope
 \`\`\``,
   'aiauth': `# Auth
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -8220,7 +8220,7 @@ Act as a Backend Security Engineer. Provide a Next.js App Router API route (\`/a
 \`\`\``,
   'aidatabase': `# Database
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -8244,7 +8244,7 @@ Act as a Database Architect. Explain the read/write load caused by AI chat appli
 \`\`\``,
   'aibackend': `# Backend Framework
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -8268,7 +8268,7 @@ Act as a Cloud Engineer. Write a Next.js API route designed to run on the Edge R
 \`\`\``,
   'aifrontend': `# Frontend Architecture
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -8292,7 +8292,7 @@ Act as a Frontend Performance Expert. Explain why naive implementations of strea
 \`\`\``,
   'aisearch': `# Search Implementation
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -8316,7 +8316,7 @@ Act as a Database Engineer. Explain the difference between Exact Nearest Neighbo
 \`\`\``,
   'aianalytics': `# Analytics & Telemetry
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -8342,7 +8342,7 @@ Act as an AI Ops Engineer. Explain the necessity of LLM observability platforms 
 - [ ] LLM observability (e.g., LangSmith, Helicone) is implemented to track prompt performance.`,
   'aitesting': `# Testing AI Output
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -8368,7 +8368,7 @@ Act as a QA Automation Engineer. Explain the concept of 'LLM-as-a-Judge' for tes
 - [ ] Automated 'LLM-as-a-Judge' evaluations are integrated to catch prompt regressions.`,
   'aiaiintegration': `# AI Integration Strategy
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -8392,7 +8392,7 @@ Act as a Software Architect. Design an interface or wrapper class in TypeScript 
 \`\`\``,
   'aipromptengineering': `# Advanced Prompt Engineering
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -8416,7 +8416,7 @@ Act as an Expert Prompt Engineer. Write a highly structured System Prompt using 
 \`\`\``,
   'airagimplementation': `# RAG Implementation
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -8440,7 +8440,7 @@ Act as a Backend Engineer. Explain why heavy frameworks like LangChain can be de
 \`\`\``,
   'aivectordatabase': `# Vector Database
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -8464,7 +8464,7 @@ Act as a Database Optimizer. Explain the concept of Embedding Dimensionality Red
 \`\`\``,
   'aistreamingresponses': `# Streaming Responses
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -8490,7 +8490,7 @@ Act as a Frontend Engineer. Explain the challenge of streaming JSON payloads fro
 - [ ] Streaming is implemented properly, including support for partial JSON parsing if needed.`,
   'aifileprocessing': `# File Processing
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -8514,7 +8514,7 @@ Act as a Data Engineer. Explain why standard libraries like \`pdf-parse\` fail s
 \`\`\``,
   'aifileuploads': `# File Uploads
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -8538,7 +8538,7 @@ Act as a Cloud Architect. Design a secure file upload pipeline for massive PDFs 
 \`\`\``,
   'aihumanreview': `# Human-in-the-Loop (HITL)
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -8564,7 +8564,7 @@ Act as a UX/UI Architect. Design a 'Human-in-the-Loop' (HITL) review dashboard f
 - [ ] A Human-in-the-Loop (HITL) approval step is implemented for all critical actions.`,
   'aisecurity': `# Enterprise Security
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -8588,7 +8588,7 @@ Act as a CISO (Chief Information Security Officer). Draft a 1-page compliance ar
 \`\`\``,
   'aiperformanceoptimization': `# Performance Optimization
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -8615,7 +8615,7 @@ Act as an AI Performance Engineer. Write a utility function that takes a massive
 \`\`\``,
   'aimonitoring': `# Monitoring
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -8639,7 +8639,7 @@ Act as an SRE. Write a synthetic testing script (to be run on a Cron schedule) t
 \`\`\``,
   'ailogging': `# Logging
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -8663,7 +8663,7 @@ Act as a Data Privacy Engineer. Provide a robust Regex-based utility function th
 \`\`\``,
   'aierrortracking': `# Error Tracking
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -8687,7 +8687,7 @@ Act as a Backend Engineer. Provide a robust wrapper function for the OpenAI API 
 \`\`\``,
   'airatelimiting': `# Rate Limiting
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -8711,7 +8711,7 @@ Act as a Backend Engineer. Provide a Next.js App Router API route that uses Upst
 \`\`\``,
   'aicaching': `# Semantic Caching
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -8737,7 +8737,7 @@ Act as an AI Systems Architect. Explain the architecture of Semantic Caching for
 - [ ] Semantic caching is implemented to avoid redundant LLM generation.`,
   'aicicd': `# CI/CD for Prompts
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -8761,7 +8761,7 @@ Act as a DevOps Engineer. Provide a complete GitHub Actions workflow YAML file t
 \`\`\``,
   'aipromptinjectionprotection': `# Prompt Injection Protection
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -8790,7 +8790,7 @@ Act as an AI Security Expert. Write a bulletproof System Prompt template that us
 - [ ] User input is strictly isolated using delimiters to prevent Prompt Injection.`,
   'aijailbreakprevention': `# Jailbreak Prevention
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -8814,7 +8814,7 @@ Act as a Backend Security Engineer. Provide a Node.js implementation that passes
 \`\`\``,
   'aicostcontrols': `# Cost Controls
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -8838,7 +8838,7 @@ Act as an SRE. Explain how to implement anomaly detection on AI API usage. Detai
 \`\`\``,
   'aiusagelimits': `# Usage Limits
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -8862,7 +8862,7 @@ Act as a Database Architect. Design a relational database schema for an AI Credi
 \`\`\``,
   'aiaievaluation': `# AI Evaluation
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -8888,7 +8888,7 @@ Act as a Lead Machine Learning Engineer. Explain the concept of a 'Golden Datase
 - [ ] A 'Golden Dataset' exists for automated prompt evaluation.`,
   'aihallucinationtesting': `# Hallucination Testing
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -8912,7 +8912,7 @@ Act as a QA Engineer for AI systems. Explain the concept of 'Negative Recall Tes
 \`\`\``,
   'aidocumentation': `# Documentation
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -8936,7 +8936,7 @@ Act as a Technical Writer. Outline the structure for a public-facing 'Prompt Lib
 \`\`\``,
   'aiprivacypolicy': `# Privacy Policy
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -8960,7 +8960,7 @@ Act as a Tech Lawyer. Draft a strict, plain-English Privacy Policy clause for a 
 \`\`\``,
   'aiuserfeedback': `# User Feedback
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -8986,7 +8986,7 @@ Act as a Product Manager. Design the UI/UX flow for capturing granular user feed
 - [ ] A granular feedback mechanism (Thumbs Up/Down with reasoning) is present on all AI outputs.`,
   'aihosting': `# Hosting Infrastructure
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -9010,7 +9010,7 @@ Act as a DevOps Engineer. Explain why deploying a heavy Python AI backend (FastA
 \`\`\``,
   'aidomainsetup': `# Domain Setup
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -9034,7 +9034,7 @@ Act as a Backend Security Engineer. Provide a robust CORS configuration for a No
 \`\`\``,
   'ailaunchchecklist': `# Launch Checklist
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -9061,7 +9061,7 @@ Act as a QA Lead. Provide a strict 10-point launch checklist specifically tailor
 \`\`\``,
   'ailegalpages': `# Legal Pages
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -9085,7 +9085,7 @@ Act as a Tech Lawyer. Draft a strict 'No Professional Advice' and 'AI Hallucinat
 \`\`\``,
   'aiaidisclosure': `# AI Disclosure
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -9109,7 +9109,7 @@ Act as a Product Ethicist. Explain the regulatory and UX importance of AI disclo
 \`\`\``,
   'airetention': `# Retention Strategy
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -9133,7 +9133,7 @@ Act as a Head of Product. Explain why standalone 'AI Chatbots' suffer from high 
 \`\`\``,
   'aiscalingstrategy': `# Scaling Strategy
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -9157,7 +9157,7 @@ Act as a DevOps Engineer. My application is hitting OpenAI's 'Tokens Per Minute'
 \`\`\``,
   'aiusageanalytics': `# Usage Analytics
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -9181,7 +9181,7 @@ Act as a Data Engineer. Explain how to implement metadata tagging on OpenAI API 
 \`\`\``,
   'aipromptoptimization': `# Prompt Optimization
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -9205,7 +9205,7 @@ Act as an AI Optimization Engineer. Describe a systematic process for migrating 
 \`\`\``,
   'aicostoptimization': `# Cost Optimization
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -9229,7 +9229,7 @@ Act as a Cloud Architect. Explain how Anthropic's Prompt Caching feature works f
 \`\`\``,
   'aimodelupgrades': `# Model Upgrades
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -9253,7 +9253,7 @@ Act as an AI Release Manager. A new LLM model was just released and promises to 
 \`\`\``,
   'aifeatureroadmap': `# Feature Roadmap
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -9278,7 +9278,7 @@ Act as a SaaS Product Executive. Given the rapid pace of foundation model update
 
   'welcome': `# Welcome to the Web App (SaaS) Track
 
-🕒 **Estimated Time:** 10 mins
+ **Estimated Time:** 10 mins
 
 ---
 
@@ -9301,7 +9301,7 @@ Your goal is B2B (Business-to-Business) recurring revenue. You must prioritize d
 
   'ideadefinition': `# Idea Definition
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -9326,7 +9326,7 @@ Act as a Y Combinator Partner. I want to build a SaaS in the [Insert Industry] s
 
   'problemstatement': `# Problem Statement
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -9353,7 +9353,7 @@ Act as a Product Strategist. I believe the problem is: [Insert vague problem]. R
 
   'userpainpoints': `# User Pain Points
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -9386,7 +9386,7 @@ Act as a UX Researcher. Based on these pain points: [Paste Input], generate an '
 
   'targetusers': `# Target Users
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -9411,7 +9411,7 @@ Act as a Go-To-Market Strategist. I want to sell my SaaS to [Broad Audience, e.g
 
   'icp': `# ICP (Ideal Customer Profile)
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -9438,7 +9438,7 @@ Act as a VP of Sales. My SaaS does [Describe SaaS]. Generate a strict Ideal Cust
 
   'personas': `# Personas
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -9463,7 +9463,7 @@ Act as a Product Marketer. For a SaaS selling to [Insert ICP], define the 'Champ
 
   'solutionstatement': `# Solution Statement
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -9488,7 +9488,7 @@ Act as a strict Product Manager. Here is my Problem Statement: [Paste Problem]. 
 
   'valueproposition': `# Value Proposition
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -9519,7 +9519,7 @@ Act as an elite SaaS Copywriter. Take this raw value proposition: [Paste Input] 
 
   'elevatorpitch': `# Elevator Pitch
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -9544,7 +9544,7 @@ Act as a Y Combinator Partner. Based on this value proposition [Paste Value Prop
 
   'marketresearch': `# Market Research
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -9571,7 +9571,7 @@ Act as a UX Researcher utilizing 'The Mom Test' methodology. I am building a Saa
 
   'competitoranalysis': `# Competitor Analysis
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -9604,7 +9604,7 @@ Act as a Competitive Intelligence Analyst. My competitors are [Paste Competitors
 
   'existingalternatives': `# Existing Alternatives
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -9629,7 +9629,7 @@ Act as a Solutions Architect. My potential customers are currently using [Excel/
 
   'marketpositioning': `# Market Positioning
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -9654,7 +9654,7 @@ Act as April Dunford (expert in SaaS positioning). My product does [Describe Fea
 
   'featureplanning': `# Feature Planning
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -9679,7 +9679,7 @@ Act as a Technical Product Manager. Here is my list of features: [List Features]
 
   'mvpfeatures': `# MVP Features
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -9714,7 +9714,7 @@ Act as a ruthless Y Combinator Mentor. I am building an MVP. My current feature 
 
   'futurefeatures': `# Future Features
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -9739,7 +9739,7 @@ Act as a SaaS Product Manager. Based on my MVP [Describe MVP], generate a realis
 
   'featureprioritization': `# Feature Prioritization
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -9764,7 +9764,7 @@ Act as a Product Manager. I have these 3 feature requests: [List 3 Features]. He
 
   'businessmodel': `# Business Model
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -9789,7 +9789,7 @@ Act as a SaaS Financial Analyst. My product is [Describe Product]. Analyze the u
 
   'pricing': `# Pricing
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -9822,7 +9822,7 @@ Act as a Pricing Strategist. My SaaS targets [Audience] and the core value metri
 
   'subscriptionmodel': `# Subscription Model
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -9847,7 +9847,7 @@ Act as a Stripe Architect. Explain the engineering complexity difference between
 
   'revenuestreams': `# Revenue Streams
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -9872,7 +9872,7 @@ Act as a SaaS Growth Expert. My core product is a $99/mo subscription. Brainstor
 
   'successmetrics': `# Success Metrics
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -9897,7 +9897,7 @@ Act as a Data-Driven Founder. I am launching a B2B SaaS for [Audience]. Set real
 
   'kpis': `# KPIs (Key Performance Indicators)
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -9926,7 +9926,7 @@ Act as a SaaS CFO. Explain the relationship between CAC, LTV, MRR, and Churn in 
 
   'northstarmetric': `# North Star Metric
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -9959,7 +9959,7 @@ Act as a VP of Product. My proposed North Star Metric is [Paste Input]. Critique
 
   'prd': `# PRD (Product Requirements Document)
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -9986,7 +9986,7 @@ Act as a Senior Product Manager. I am building a SaaS that does [Describe Produc
 
   'userflows': `# User Flows
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -10011,7 +10011,7 @@ Act as a UX Architect. Review my proposed user flow: [Describe Flow]. Identify 3
 
   'informationarchitecture': `# Information Architecture
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -10036,7 +10036,7 @@ Act as an Information Architect. My SaaS has these features: [List Features]. De
 
   'wireframes': `# Wireframes
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -10061,7 +10061,7 @@ Act as a Frontend Engineer. Based on this wireframe description [Describe Layout
 
   'designsystem': `# Design System
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -10088,7 +10088,7 @@ Act as a UX Designer. Generate a comprehensive JSON theme configuration (colors,
 
   'branding': `# Branding
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -10113,7 +10113,7 @@ Act as a Brand Strategist. Define the 'Tone of Voice' guidelines for a B2B SaaS 
 
   'accessibility': `# Accessibility (a11y)
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -10138,7 +10138,7 @@ Act as an Accessibility Expert. Review this React component code for a custom dr
 
   'techstackselection': `# Tech Stack Selection
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -10165,7 +10165,7 @@ Act as a CTO. I am considering using [Experimental Framework] and [Niche Databas
 
   'frontendarchitecture': `# Frontend Architecture
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -10190,7 +10190,7 @@ Act as a Frontend Architect. Explain the architectural difference between 'Serve
 
   'backendarchitecture': `# Backend Architecture
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -10215,7 +10215,7 @@ Act as a Backend Architect. Refactor this monolithic Express/Next.js API route [
 
   'apidesign': `# API Design
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -10242,7 +10242,7 @@ Act as a API Designer. Design a standardized JSON response wrapper for a REST AP
 
   'authentication': `# Authentication
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -10267,7 +10267,7 @@ Act as a Security Architect. Explain why implementing custom password hashing (u
 
   'authorizationroles': `# Authorization & Roles (RBAC)
 
-🕒 **Estimated Time:** 3 hours
+ **Estimated Time:** 3 hours
 
 ---
 
@@ -10294,7 +10294,7 @@ Act as a Database Security Expert. I have a 'projects' table and a 'users' table
 
   'databaseschema': `# Database Schema
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -10319,7 +10319,7 @@ Act as a Database Architect. Design a Prisma schema for a multi-tenant B2B SaaS.
 
   'filestorage': `# File Storage
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -10344,7 +10344,7 @@ Act as a Cloud Engineer. Explain the 'Presigned URL' architecture for handling l
 
   'thirdpartyintegrations': `# Third-Party Integrations
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -10371,7 +10371,7 @@ Act as a Backend Engineer. Provide a robust Express/Next.js route for receiving 
 
   'aiarchitecture': `# AI Architecture (Optional)
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -10396,7 +10396,7 @@ Act as a Systems Architect. Explain why tightly coupling a SaaS application to t
 
   'systemarchitecturediagram': `# System Architecture Diagram
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -10421,7 +10421,7 @@ Act as a Cloud Architect. Generate a Mermaid.js flowchart mapping a modern serve
 
   'costestimation': `# Cost Estimation
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -10446,7 +10446,7 @@ Act as a Cloud FinOps Engineer. Explain the pricing models of Serverless Databas
 
   'auth': `# Auth Implementation
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -10473,7 +10473,7 @@ Act as a Web Security Expert. Explain the vulnerability of storing JWTs in \`loc
 
   'database': `# Database Implementation
 
-🕒 **Estimated Time:** 3-5 hours
+ **Estimated Time:** 3-5 hours
 
 ---
 
@@ -10498,7 +10498,7 @@ Act as a Database Engineer. Provide a robust seeding script using Drizzle ORM an
 
   'backend': `# Backend Logic
 
-🕒 **Estimated Time:** 4-6 hours
+ **Estimated Time:** 4-6 hours
 
 ---
 
@@ -10525,7 +10525,7 @@ Act as a Backend Security Engineer. Write a Next.js API route that uses Zod to v
 
   'frontend': `# Frontend Implementation
 
-🕒 **Estimated Time:** 4-8 hours
+ **Estimated Time:** 4-8 hours
 
 ---
 
@@ -10552,7 +10552,7 @@ Act as a Frontend Architect. Provide a React component utilizing TanStack Query'
 
   'payments': `# Payments
 
-🕒 **Estimated Time:** 3-5 hours
+ **Estimated Time:** 3-5 hours
 
 ---
 
@@ -10577,7 +10577,7 @@ Act as a FinTech Backend Engineer. Provide a robust Node.js webhook handler for 
 
   'emails': `# Transactional Emails
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -10602,7 +10602,7 @@ Act as an Email Deliverability Expert. Provide the React component boilerplate (
 
   'notifications': `# Notifications
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -10627,7 +10627,7 @@ Act as a Realtime Systems Engineer. Provide a React hook utilizing Supabase Real
 
   'search': `# Search Implementation
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -10652,7 +10652,7 @@ Act as a Database Engineer. Explain the difference between standard SQL \`ILIKE\
 
   'analytics': `# Analytics Implementation
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -10679,7 +10679,7 @@ Act as a Data Engineer. Explain the discrepancy between Client-Side analytics (w
 
   'adminpanel': `# Admin Panel
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -10704,7 +10704,7 @@ Act as an Internal Tools Engineer. Detail the architecture of securely connectin
 
   'integrations': `# Integrations Engine
 
-🕒 **Estimated Time:** 4-8 hours
+ **Estimated Time:** 4-8 hours
 
 ---
 
@@ -10729,7 +10729,7 @@ Act as a Security Architect. I need to store user-provided third-party API keys 
 
   'testing': `# Testing
 
-🕒 **Estimated Time:** 3-5 hours
+ **Estimated Time:** 3-5 hours
 
 ---
 
@@ -10756,7 +10756,7 @@ Act as a QA Automation Engineer. Provide a complete Playwright test script that 
 
   'documentation': `# Documentation
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -10781,7 +10781,7 @@ Act as a Developer Advocate. Explain the importance of the OpenAPI specification
 
   'security': `# Security Hardening
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -10808,7 +10808,7 @@ Act as a Web Security Expert. Explain the importance of a Content Security Polic
 
   'performanceoptimization': `# Performance Optimization
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -10833,7 +10833,7 @@ Act as a Frontend Performance Engineer. Explain how 'Code Splitting' reduces the
 
   'monitoring': `# Uptime Monitoring
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -10860,7 +10860,7 @@ Act as a Site Reliability Engineer (SRE). Define the difference between an SLA, 
 
   'logging': `# Logging
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -10885,7 +10885,7 @@ Act as a Backend Engineer. Explain why standard \`console.log\` is insufficient 
 
   'errortracking': `# Error Tracking
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -10912,7 +10912,7 @@ Act as a Frontend Engineer. Provide a robust React Error Boundary component that
 
   'ratelimiting': `# Rate Limiting
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -10939,7 +10939,7 @@ Act as a Backend Security Engineer. Provide a Next.js App Router snippet utilizi
 
   'caching': `# Caching Strategy
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -10964,7 +10964,7 @@ Act as a Systems Architect. Explain the 'stale-while-revalidate' caching strateg
 
   'backups': `# Database Backups
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -10991,7 +10991,7 @@ Act as a Database Administrator. Explain the concept of Point-in-Time Recovery (
 
   'cicd': `# CI/CD Pipeline
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -11018,7 +11018,7 @@ Act as a DevOps Engineer. Provide a complete GitHub Actions YAML workflow for a 
 
   'infrastructure': `# Infrastructure as Code (IaC)
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -11043,7 +11043,7 @@ Act as a DevOps Engineer. Explain the concept of Infrastructure as Code (IaC). P
 
   'disasterrecovery': `# Disaster Recovery
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -11068,7 +11068,7 @@ Act as an SRE Manager. Draft a 1-page Incident Response Playbook for a SaaS comp
 
   'scalabilityplanning': `# Scalability Planning
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -11093,7 +11093,7 @@ Act as a Database Architect. Explain the concept of Database Connection Exhausti
 
   'betalaunch': `# Beta Launch
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -11118,7 +11118,7 @@ Act as a Startup Founder. Write a personalized, non-salesy email inviting a warm
 
   'userfeedback': `# Gathering User Feedback
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -11143,7 +11143,7 @@ Act as a UX Researcher. I have collected this raw feedback from my beta testers:
 
   'bugfixing': `# Bug Fixing & Triage
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -11170,7 +11170,7 @@ Act as a Technical Project Manager. Review these 3 reported bugs: [List Bugs]. C
 
   'marketingassets': `# Marketing Assets
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -11195,7 +11195,7 @@ Act as a Product Marketer. Write a punchy, fast-paced script for a 60-second dem
 
   'landingpage': `# Landing Page
 
-🕒 **Estimated Time:** 4-6 hours
+ **Estimated Time:** 4-6 hours
 
 ---
 
@@ -11222,7 +11222,7 @@ Act as an elite Copywriter. Based on my Value Proposition [Paste Value Prop], wr
 
   'seo': `# SEO (Search Engine Optimization)
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -11247,7 +11247,7 @@ Act as an SEO Strategist. My SaaS is [Describe SaaS]. Devise a Programmatic SEO 
 
   'publiclaunch': `# Public Launch
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -11274,7 +11274,7 @@ Act as a Growth Hacker. Create a comprehensive hour-by-hour checklist for launch
 
   'postlaunchmarketing': `# Post-Launch Marketing
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -11299,7 +11299,7 @@ Act as a CMO. My SaaS targets [Audience]. Analyze the top 3 potential marketing 
 
   'salesoutreach': `# Sales Outreach
 
-🕒 **Estimated Time:** 3-5 hours
+ **Estimated Time:** 3-5 hours
 
 ---
 
@@ -11324,7 +11324,7 @@ Act as a B2B Sales Expert. Write a 3-step cold email sequence targeting [Job Tit
 
   'onboarding': `# User Onboarding
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -11351,7 +11351,7 @@ Act as a UX Designer. My SaaS requires the user to [Action 1], [Action 2], and [
 
   'retention': `# Retention Strategies
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -11376,7 +11376,7 @@ Act as a Product Manager focused on Retention. My SaaS is [Describe SaaS]. Sugge
 
   'churnanalysis': `# Churn Analysis
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -11401,7 +11401,7 @@ Act as a Customer Success Manager. Design an automated 'Exit Survey / Cancellati
 
   'scaling': `# Scaling & Future Proofing
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -11429,7 +11429,7 @@ Act as a Cloud Architect. A serverless Postgres/Next.js SaaS application has jus
   'webideadefinition': `
 # Idea Definition
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -11456,7 +11456,7 @@ Act as a Product Strategist. I want to build a Web App in the [Insert Industry] 
   'webproblemstatement': `
 # Problem Statement
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -11485,7 +11485,7 @@ Act as a Product Strategist. I believe the problem is: [Insert vague problem]. R
   'webuserjourney': `
 # User Journey
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -11512,7 +11512,7 @@ Act as a UX Researcher. I am building a Web App that does [Describe App]. Map ou
   'webpersonas': `
 # Personas
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -11545,7 +11545,7 @@ Act as a UX Researcher. My primary persona is [Paste Input]. Detail the typical 
   'websolutionstatement': `
 # Solution Statement
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -11572,7 +11572,7 @@ Act as a strict Product Manager. Here is my Problem Statement: [Paste Problem]. 
   'webelevatorpitch': `
 # Elevator Pitch
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -11601,7 +11601,7 @@ Act as a Y Combinator Partner. Based on this value proposition [Paste Value Prop
   'webcompetitoranalysis': `
 # Competitor Analysis
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -11628,7 +11628,7 @@ Act as a Product Strategist. My web app competitors are [List Competitors]. Anal
   'webfeatureplanning': `
 # Feature Planning
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -11655,7 +11655,7 @@ Act as a Technical Product Manager. Here are the core user goals: [List Goals]. 
   'webmvpfeatures': `
 # MVP Features
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -11692,7 +11692,7 @@ Act as a ruthless Y Combinator Mentor. I am building a Web App MVP. My current f
   'webfuturefeatures': `
 # Future Features
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -11719,7 +11719,7 @@ Act as a Web Product Manager. Based on my MVP [Describe MVP], generate a realist
   'websuccessmetrics': `
 # Success Metrics
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -11746,7 +11746,7 @@ Act as a Data-Driven Founder. I am launching a Web App for [Audience]. Set reali
   'webusersaudience': `
 # Users & Audience
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -11773,7 +11773,7 @@ Act as a Growth Hacker. My highly specific audience is [Insert Niche Audience]. 
   'webusergoals': `
 # User Goals
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -11802,7 +11802,7 @@ Act as a UX Strategist using the 'Jobs to be Done' framework. My user is a [Pers
   'webnicetohavefeatures': `
 # Nice-to-Have Features
 
-🕒 **Estimated Time:** 30 mins
+ **Estimated Time:** 30 mins
 
 ---
 
@@ -11829,7 +11829,7 @@ Act as a strict Engineering Manager. Review this list of 'Nice-to-Have' features
   'webprd': `
 # PRD (Product Requirements Document)
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -11858,7 +11858,7 @@ Act as a Senior Product Manager. I am building a Web App that does [Describe Pro
   'webuserflows': `
 # User Flows
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -11885,7 +11885,7 @@ Act as a UX Architect. Review my proposed user flow: [Describe Flow]. Detail the
   'webinformationarchitecture': `
 # Information Architecture
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -11912,7 +11912,7 @@ Act as an Information Architect. My Web App has these features: [List Features].
   'webwireframes': `
 # Wireframes
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -11941,7 +11941,7 @@ Act as a Frontend Engineer. Based on this wireframe description [Describe Deskto
   'webdesignsystem': `
 # Design System
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -11968,7 +11968,7 @@ Act as a Frontend Architect. Explain the concept of 'Headless UI' components. Wh
   'webbranding': `
 # Branding
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -11995,7 +11995,7 @@ Act as a UI Designer. My primary brand color is [Hex Code]. Generate a complete 
   'webaccessibility': `
 # Accessibility (a11y)
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -12024,7 +12024,7 @@ Act as a Web Accessibility Expert. Explain the concept of 'Focus Trapping' in a 
   'webemptystates': `
 # Empty States
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -12051,7 +12051,7 @@ Act as a UX Writer. My Web App has an empty state for the [e.g., Invoices] page.
   'weberrorstates': `
 # Error States
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -12078,7 +12078,7 @@ Act as a Frontend Engineer. Explain the concept of 'Graceful Degradation' using 
   'webloadingstates': `
 # Loading States
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -12107,7 +12107,7 @@ Act as a UX Designer. Explain the psychological difference between using a gener
   'websitemap': `
 # Sitemap & SEO (Optional)
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -12134,7 +12134,7 @@ Act as a Web Architect. Explain why pure Client-Side Rendered (CSR) React apps (
   'webtechstack': `
 # Tech Stack Selection
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -12163,7 +12163,7 @@ Act as a CTO. I am considering using [Framework A] vs [Framework B] for a produc
   'webfrontendarchitecture': `
 # Frontend Architecture
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -12190,7 +12190,7 @@ Act as a Frontend Architect. Explain the architectural difference between 'Serve
   'webbackendarchitecture': `
 # Backend Architecture
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -12217,7 +12217,7 @@ Act as a Backend Architect. Refactor this monolithic Express/Next.js API route [
   'webapidesign': `
 # API Design
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -12246,7 +12246,7 @@ Act as a API Designer. Design a standardized JSON response wrapper for a REST AP
   'webauthentication': `
 # Authentication
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -12273,7 +12273,7 @@ Act as a Web Security Expert. Explain the vulnerability of storing JWTs in \`loc
   'webdatabaseschema': `
 # Database Schema
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -12302,7 +12302,7 @@ Act as a Database Architect. I have a flat 'Users' table that currently contains
   'webfilestorage': `
 # File Storage
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -12329,7 +12329,7 @@ Act as a Cloud Engineer. Explain the 'Presigned URL' architecture for handling l
   'webcostestimation': `
 # Cost Estimation
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -12356,7 +12356,7 @@ Act as a Cloud FinOps Engineer. Explain the pricing models of Serverless Databas
   'webfundamentals': `
 # Web Fundamentals
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -12383,7 +12383,7 @@ Act as a Principal Web Engineer. Explain the difference between 'Cache-Control: 
   'webauthorization': `
 # Authorization
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -12412,7 +12412,7 @@ Act as a Security Architect. Detail the architecture of a robust Role-Based Acce
   'websearchsystem': `
 # Search System
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -12439,7 +12439,7 @@ Act as a Database Engineer. Explain the difference between standard SQL \`ILIKE\
   'webthirdpartyintegrations': `
 # Third-Party Integrations
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -12466,7 +12466,7 @@ Act as a Backend Architect. Explain why synchronously calling an external API (l
   'webaifeatures': `
 # AI Features (Optional)
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -12493,7 +12493,7 @@ Act as an AI Systems Engineer. Explain how to use the Vercel AI SDK to stream an
   'webauthdev': `
 # Auth Implementation
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -12522,7 +12522,7 @@ Act as a Security Engineer. Provide a Next.js App Router implementation for inte
   'webdatabasedev': `
 # Database Implementation
 
-🕒 **Estimated Time:** 3-5 hours
+ **Estimated Time:** 3-5 hours
 
 ---
 
@@ -12549,7 +12549,7 @@ Act as a Database Engineer. Explain how Drizzle ORM manages database migrations 
   'webbackenddev': `
 # Backend Implementation
 
-🕒 **Estimated Time:** 4-8 hours
+ **Estimated Time:** 4-8 hours
 
 ---
 
@@ -12578,7 +12578,7 @@ Act as a Backend Security Expert. Provide an Express.js (or Next.js Route Handle
   'webfrontenddev': `
 # Frontend Implementation
 
-🕒 **Estimated Time:** 4-8 hours
+ **Estimated Time:** 4-8 hours
 
 ---
 
@@ -12607,7 +12607,7 @@ Act as a Frontend Architect. Provide a React component utilizing TanStack Query'
   'webapisdev': `
 # APIs Implementation
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -12634,7 +12634,7 @@ Act as an API Designer. Provide a TypeScript generic interface for a standardize
   'webnotificationsdev': `
 # In-App Notifications
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -12661,7 +12661,7 @@ Act as a Realtime Systems Engineer. Explain the difference between WebSockets, S
   'websearchdev': `
 # Search Implementation
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -12688,7 +12688,7 @@ Act as a Frontend Engineer. Provide a custom React hook (\`useDebounce\`) and de
   'webadminpaneldev': `
 # Admin Panel
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -12715,7 +12715,7 @@ Act as an Internal Tools Engineer. Detail the architecture of securely connectin
   'webintegrationsdev': `
 # External Integrations
 
-🕒 **Estimated Time:** 3-5 hours
+ **Estimated Time:** 3-5 hours
 
 ---
 
@@ -12742,7 +12742,7 @@ Act as a Security Architect. I need to store user-provided third-party API keys 
   'webtestingdev': `
 # Testing
 
-🕒 **Estimated Time:** 3-5 hours
+ **Estimated Time:** 3-5 hours
 
 ---
 
@@ -12771,7 +12771,7 @@ Act as a QA Automation Engineer. Provide a complete Playwright test script that 
   'webdocumentationdev': `
 # Documentation
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -12798,7 +12798,7 @@ Act as a Developer Advocate. Explain the importance of the OpenAPI specification
   'webemailnotificationsdev': `
 # Transactional Emails
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -12825,7 +12825,7 @@ Act as an Email Deliverability Expert. Provide the React component boilerplate (
   'webfileuploadsdev': `
 # File Uploads
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -12852,7 +12852,7 @@ Act as a Backend Security Engineer. Provide a Node.js snippet that securely vali
   'websecurityreadiness': `
 # Security Hardening
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -12881,7 +12881,7 @@ Act as a Web Security Expert. Explain how a Content Security Policy (CSP) preven
   'webperformanceoptimization': `
 # Performance Optimization
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -12908,7 +12908,7 @@ Act as a Frontend Performance Engineer. Explain how 'Code Splitting' reduces the
   'webmonitoring': `
 # Uptime Monitoring
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -12937,7 +12937,7 @@ Act as a Site Reliability Engineer (SRE). Define the difference between an SLA, 
   'weblogging': `
 # Logging
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -12964,7 +12964,7 @@ Act as a Backend Engineer. Explain why standard \`console.log\` is insufficient 
   'weberrortracking': `
 # Error Tracking
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -12993,7 +12993,7 @@ Act as a DevOps Engineer. Explain what a 'Source Map' is in modern Javascript de
   'webratelimiting': `
 # Rate Limiting
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -13024,7 +13024,7 @@ Act as a Backend Security Engineer. Provide a Next.js App Router snippet utilizi
   'webcaching': `
 # Caching Strategy
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -13051,7 +13051,7 @@ Act as a Systems Architect. Explain the 'stale-while-revalidate' caching strateg
   'webbackups': `
 # Database Backups
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -13080,7 +13080,7 @@ Act as a Database Administrator. Explain the concept of Point-in-Time Recovery (
   'webcicd': `
 # CI/CD Pipeline
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -13109,7 +13109,7 @@ Act as a DevOps Engineer. Provide a complete GitHub Actions YAML workflow for a 
   'webseoprod': `
 # SEO & Core Web Vitals
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -13136,7 +13136,7 @@ Act as an SEO Technical Expert. Explain what JSON-LD structured data is and why 
   'webscalabilityplanning': `
 # Scalability Planning
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -13164,7 +13164,7 @@ Act as a Database Architect. Explain the concept of Database Connection Exhausti
   'mobileideadefinition': `
 # Idea Definition
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -13190,7 +13190,7 @@ Act as an iOS Product Strategist. I have an idea for [Insert Industry]. What are
   'mobileproblemstatement': `
 # Problem Statement
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -13218,7 +13218,7 @@ Act as a Mobile UX Strategist. I believe the problem is: [Insert vague problem].
   'mobileusecases': `
 # Core Use Cases
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -13244,7 +13244,7 @@ Act as a Mobile Systems Architect. My core use cases are: [List Use Cases]. Anal
   'mobileuserjourney': `
 # User Journey
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -13270,7 +13270,7 @@ Act as a Mobile UX Researcher. My app requires Push Notifications and Camera acc
   'mobiletargetaudience': `
 # Target Audience
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -13296,7 +13296,7 @@ Act as an App Store Optimization (ASO) Expert. My target audience is [Insert Dem
   'mobilepersonas': `
 # Personas
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -13328,7 +13328,7 @@ Act as a Mobile Ergonomics Expert. My primary persona is [Paste Input]. Detail t
   'mobilesolutionstatement': `
 # Solution Statement
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -13354,7 +13354,7 @@ Act as a strict Mobile Product Manager. Here is my Problem: [Paste Problem]. Her
   'mobileelevatorpitch': `
 # Elevator Pitch
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -13382,7 +13382,7 @@ Act as an App Store Marketer. Based on this value proposition [Paste Value Prop]
   'mobilecompetitoranalysis': `
 # Competitor Analysis
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -13408,7 +13408,7 @@ Act as a Product Strategist. I have collected these 1-star reviews from my top c
   'mobilesimilarapps': `
 # Similar Apps (UI/UX Inspiration)
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -13434,7 +13434,7 @@ Act as a Mobile UX Designer. I am building a [Type of App, e.g., Fitness Tracker
   'playstoreresearch': `
 # Play Store Research
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -13460,7 +13460,7 @@ Act as a Google Play Policy Expert. My app features include: [List Features]. Hi
   'appstoreresearch': `
 # App Store Research
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -13488,7 +13488,7 @@ Act as a strict Apple App Store Reviewer. Review my app's core mechanics and mon
   'mobilefeatureplanning': `
 # Feature Planning
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -13514,7 +13514,7 @@ Act as a Lead Mobile Engineer. Explain the concept of Remote Feature Flags. Deta
   'mobilemvpfeatures': `
 # MVP Features
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -13550,7 +13550,7 @@ Act as a ruthless Mobile Product Manager. I am building a mobile MVP. My current
   'mobilefuturefeatures': `
 # Future Features
 
-🕒 **Estimated Time:** 30 mins
+ **Estimated Time:** 30 mins
 
 ---
 
@@ -13576,7 +13576,7 @@ Act as a Mobile Growth Hacker. Based on my MVP [Describe MVP], brainstorm 3 'Fut
   'mobilefeatureprioritization': `
 # Feature Prioritization
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -13602,7 +13602,7 @@ Act as a Product Manager. Evaluate these 3 features using the RICE framework: [L
   'mobilemonetization': `
 # Monetization Strategy
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -13628,7 +13628,7 @@ Act as a Mobile Monetization Expert. I plan to charge users for [Describe Premiu
   'mobilefree': `
 # Free Model
 
-🕒 **Estimated Time:** 30 mins
+ **Estimated Time:** 30 mins
 
 ---
 
@@ -13654,7 +13654,7 @@ Act as a SaaS Strategist. My mobile app is 100% free. Detail how I can use this 
   'mobilefreemium': `
 # Freemium Model
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -13680,7 +13680,7 @@ Act as a Mobile Growth Hacker. Design the layout and copywriting for a high-conv
   'mobilesubscription': `
 # Subscription Model
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -13708,7 +13708,7 @@ Act as a Mobile Backend Architect. Explain the engineering nightmare of manually
   'mobileads': `
 # Ad-Supported Model
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -13734,7 +13734,7 @@ Act as a Mobile Monetization Strategist. My app is a [App Type]. Suggest 3 cleve
   'mobileonetimepurchase': `
 # One-Time Purchase
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -13760,7 +13760,7 @@ Act as a SaaS CFO. Explain the financial danger of offering a 'Lifetime Deal' fo
   'mobilesuccessmetrics': `
 # Success Metrics
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -13786,7 +13786,7 @@ Act as a Mobile Data Analyst. I am launching a mobile app. Define realistic benc
   'mobileretention': `
 # Retention
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -13814,7 +13814,7 @@ Act as a Mobile CRM Manager. Design a 7-day Lifecycle Push Notification campaign
   'mobiledau': `
 # Daily Active Users (DAU)
 
-🕒 **Estimated Time:** 30 mins
+ **Estimated Time:** 30 mins
 
 ---
 
@@ -13840,7 +13840,7 @@ Act as a Product Strategist. Analyze my app concept: [Describe App]. Realistical
   'mobilemau': `
 # Monthly Active Users (MAU)
 
-🕒 **Estimated Time:** 30 mins
+ **Estimated Time:** 30 mins
 
 ---
 
@@ -13866,7 +13866,7 @@ Act as a VC Analyst. Explain the DAU/MAU 'Stickiness' ratio. What constitutes a 
   'mobilesessionduration': `
 # Session Duration
 
-🕒 **Estimated Time:** 30 mins
+ **Estimated Time:** 30 mins
 
 ---
 
@@ -13892,7 +13892,7 @@ Act as a UX Researcher. My app is a [Utility/Tool App]. Since this is a utility,
   'mobileprd': `
 # PRD (Product Requirements Document)
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -13920,7 +13920,7 @@ Act as a Senior Mobile Product Manager. I am building a [App Description]. Gener
   'mobileuserflows': `
 # User Flows
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -13946,7 +13946,7 @@ Act as a Mobile UX Architect. Review my proposed user flow: [Describe Flow]. Det
   'appnavigation': `
 # App Navigation
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -13972,7 +13972,7 @@ Act as a React Native Architect. Compare 'Expo Router' (file-based routing) with
   'mobilewireframes': `
 # Wireframes
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -14000,7 +14000,7 @@ Act as a Mobile UI Designer. Explain the concept of 'Safe Areas' and 'Notches' i
   'mobiledesignsystem': `
 # Design System
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -14026,7 +14026,7 @@ Act as a Mobile UX Expert. Explain the core differences between Apple's Human In
   'mobilebranding': `
 # Branding
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -14052,7 +14052,7 @@ Act as a Brand Designer. My app is a [Describe App]. Brainstorm 5 concepts for a
   'mobileaccessibility': `
 # Accessibility (a11y)
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -14080,7 +14080,7 @@ Act as a Mobile Accessibility Expert. Explain how 'Dynamic Type' works on iOS an
   'mobileemptystates': `
 # Empty States
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -14106,7 +14106,7 @@ Act as a Mobile UX Writer. My app has an empty state for the [e.g., Saved Workou
   'mobileerrorstates': `
 # Error States
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -14132,7 +14132,7 @@ Act as a React Native Developer. Provide a code snippet for an 'Offline Banner' 
   'mobileloadingstates': `
 # Loading States
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -14160,7 +14160,7 @@ Act as a Mobile UX Designer. Explain the psychological difference between using 
   'mobileplatformstrategy': `
 # Platform Strategy
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -14188,7 +14188,7 @@ Act as a Mobile Architect. I am building a [App Description]. Write a technical 
   'mobilefundamentals': `
 # Mobile Fundamentals
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -14214,7 +14214,7 @@ Act as a Mobile Engineer. Explain the mobile App Lifecycle (Foreground, Backgrou
   'mobiletechstackselection': `
 # Tech Stack Selection
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -14240,7 +14240,7 @@ Act as a React Native Architect. Explain the concept of Expo's 'Continuous Nativ
   'mobilestatemanagement': `
 # State Management Architecture
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -14268,7 +14268,7 @@ Act as a React Native Developer. Explain how to configure TanStack Query to pers
   'mobileapistrategy': `
 # API Strategy
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -14294,7 +14294,7 @@ Act as a Backend Architect. Explain the 'Backend-For-Frontend' (BFF) pattern. De
   'mobilelocalstorage': `
 # Local Storage Strategy
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -14320,7 +14320,7 @@ Act as a Mobile Performance Engineer. Compare \`AsyncStorage\`, \`MMKV\`, and \`
   'mobileauthentication': `
 # Authentication
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -14348,7 +14348,7 @@ Act as a Mobile Security Expert. Detail the vulnerability of storing JWTs in sta
   'mobiledatabase': `
 # Database Schema
 
-🕒 **Estimated Time:** 3-4 hours
+ **Estimated Time:** 3-4 hours
 
 ---
 
@@ -14374,7 +14374,7 @@ Act as a Backend Database Architect. Explain the danger of breaking schema chang
   'mobilebackend': `
 # Backend Architecture
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -14400,7 +14400,7 @@ Act as a Site Reliability Engineer. Explain the 'Thundering Herd' problem in the
   'mobilepushnotifications': `
 # Push Notification Strategy
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -14426,7 +14426,7 @@ Act as a Mobile Backend Engineer. Explain the lifecycle of a Push Notification D
   'mobiledeeplinking': `
 # Deep Linking
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -14454,7 +14454,7 @@ Act as a Mobile DevOps Engineer. Explain the difference between custom URI schem
   'mobilefilestorage': `
 # File Storage & Uploads
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -14480,7 +14480,7 @@ Act as a Mobile Performance Engineer. Detail the architecture for uploading a la
   'mobileofflinestrategy': `
 # Offline Strategy
 
-🕒 **Estimated Time:** 3-5 hours
+ **Estimated Time:** 3-5 hours
 
 ---
 
@@ -14506,7 +14506,7 @@ Act as a Mobile Architect. Explain the 'Offline-First' architecture paradigm usi
   'mobileanalyticsstrategy': `
 # Analytics Strategy
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -14532,7 +14532,7 @@ Act as a Mobile Privacy Expert. Explain Apple's App Tracking Transparency (ATT) 
   'mobilecostestimation': `
 # Cost Estimation
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -14558,7 +14558,7 @@ Act as a Mobile Engineering Manager. Explain the economics and workflow of Expo 
   'mobilestatemanagementimplementation': `
 # State Management Implementation
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -14586,7 +14586,7 @@ Act as a React Native Performance Expert. Provide a code snippet demonstrating h
   'mobileauth': `
 # Auth Implementation
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -14612,7 +14612,7 @@ Act as an iOS Security Engineer. Provide a React Native (Expo) code snippet demo
   'mobiledatabaseimplementation': `
 # Database Implementation
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -14638,7 +14638,7 @@ Act as a Database Security Expert. Explain why connecting a mobile app directly 
   'mobilebackendimplementation': `
 # Backend Implementation
 
-🕒 **Estimated Time:** 3-5 hours
+ **Estimated Time:** 3-5 hours
 
 ---
 
@@ -14666,7 +14666,7 @@ Act as a Backend Security Engineer. Explain the concept of 'Receipt Validation' 
   'mobilepushnotificationsimplementation': `
 # Push Notifications
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -14692,7 +14692,7 @@ Act as a React Native Engineer. Provide the exact boilerplate code required to r
   'mobilefrontendui': `
 # Frontend (UI)
 
-🕒 **Estimated Time:** 4-8 hours
+ **Estimated Time:** 4-8 hours
 
 ---
 
@@ -14720,7 +14720,7 @@ Act as a React Native Performance Engineer. Explain why rendering a large array 
   'mobilenavigation': `
 # Navigation Implementation
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -14746,7 +14746,7 @@ Act as a React Native Architect. Provide an Expo Router \`_layout.tsx\` file tha
   'mobileapis': `
 # API Integration
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -14772,7 +14772,7 @@ Act as a Frontend Engineer. Provide an Axios interceptor setup for a React Nativ
   'mobilepayments': `
 # Payments (IAP)
 
-🕒 **Estimated Time:** 4-6 hours
+ **Estimated Time:** 4-6 hours
 
 ---
 
@@ -14800,7 +14800,7 @@ Act as a Mobile Monetization Engineer. Provide a React Native code snippet using
   'mobilemediauploads': `
 # Media Uploads
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -14826,7 +14826,7 @@ Act as a Mobile Performance Engineer. Provide a React Native snippet using \`exp
   'mobilemapslocation': `
 # Maps & Location
 
-🕒 **Estimated Time:** 2-4 hours
+ **Estimated Time:** 2-4 hours
 
 ---
 
@@ -14852,7 +14852,7 @@ Act as a Mobile UI Engineer. Explain why rendering 1,000 individual markers on a
   'mobiledevicepermissions': `
 # Device Permissions
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -14878,7 +14878,7 @@ Act as a Mobile UX Researcher. Design the UI flow and copywriting for a 'Soft Pr
   'mobileofflinefeatures': `
 # Offline Implementation
 
-🕒 **Estimated Time:** 3-5 hours
+ **Estimated Time:** 3-5 hours
 
 ---
 
@@ -14904,7 +14904,7 @@ Act as a Mobile Systems Architect. Explain the 'Observable' paradigm of Watermel
   'mobileanalyticsevents': `
 # Analytics Events
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -14930,7 +14930,7 @@ Act as a Mobile Data Analyst. I am building a [Type of App]. Define the 5 specif
   'mobileerrorhandling': `
 # Error Handling
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -14956,7 +14956,7 @@ Act as a React Native Engineer. Provide a robust \`ErrorBoundary\` class compone
   'mobiletesting': `
 # Testing
 
-🕒 **Estimated Time:** 3-5 hours
+ **Estimated Time:** 3-5 hours
 
 ---
 
@@ -14984,7 +14984,7 @@ Act as a Mobile QA Automation Engineer. Explain why Maestro is gaining popularit
   'mobilesecurity': `
 # Security
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -15010,7 +15010,7 @@ Act as a Mobile Security Engineer. Explain the concept of 'Certificate Pinning'.
   'mobileperformanceoptimization': `
 # Performance Optimization
 
-🕒 **Estimated Time:** 4-6 hours
+ **Estimated Time:** 4-6 hours
 
 ---
 
@@ -15038,7 +15038,7 @@ Act as a React Native Performance Expert. Explain the difference between the Jav
   'mobilecrashreporting': `
 # Crash Reporting
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -15064,7 +15064,7 @@ Act as a Mobile DevOps Engineer. Detail the workflow for integrating Sentry into
   'mobilemonitoring': `
 # Monitoring
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -15090,7 +15090,7 @@ Act as a Mobile App Optimizer. My React Native app takes 4 seconds to 'Cold Star
   'mobilelogging': `
 # Logging
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -15116,7 +15116,7 @@ Act as a Mobile Architect. Explain the performance penalty of leaving \`console.
   'mobileratelimiting': `
 # Rate Limiting
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -15142,7 +15142,7 @@ Act as a Backend Architect. Describe how a simple React Native \`useEffect\` dep
   'mobilebackups': `
 # Backups
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -15168,7 +15168,7 @@ Act as an iOS Engineer. Explain how to securely back up a local SQLite database 
   'mobilecicd': `
 # CI/CD (Continuous Integration)
 
-🕒 **Estimated Time:** 3-5 hours
+ **Estimated Time:** 3-5 hours
 
 ---
 
@@ -15196,7 +15196,7 @@ Act as a Mobile DevOps Engineer. Provide a complete GitHub Actions YAML workflow
   'mobileinfrastructure': `
 # Infrastructure
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -15222,7 +15222,7 @@ Act as a Mobile UX Architect. Detail the strategy of 'Asset Pre-fetching' in Rea
   'mobileappsizeoptimization': `
 # App Size Optimization
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -15248,7 +15248,7 @@ Act as a Mobile Release Engineer. My React Native iOS binary is 300MB. Identify 
   'mobilebatteryoptimization': `
 # Battery Optimization
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -15276,7 +15276,7 @@ Act as a Mobile Systems Architect. Explain the hardware reasons why constant GPS
   'mobilescalability': `
 # Scalability
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -15302,7 +15302,7 @@ Act as a Mobile Product Manager. Design a 'Force Update' architecture. How shoul
   'mobileplaystoresetup': `
 # Play Store Setup
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -15328,7 +15328,7 @@ Act as a Google Play Policy Expert. Explain the requirements of the 'Data Safety
   'mobileappstoresetup': `
 # App Store Setup
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -15354,7 +15354,7 @@ Act as an Apple App Store Reviewer. Detail the top 3 most common reasons an app 
   'mobileappicons': `
 # App Icons
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -15380,7 +15380,7 @@ Act as an Android UI Designer. Explain why Android push notifications often disp
   'mobilescreenshots': `
 # Screenshots
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -15408,7 +15408,7 @@ Act as an App Store Optimization (ASO) Expert. Critique the practice of uploadin
   'mobilefeaturegraphics': `
 # Feature Graphics
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -15434,7 +15434,7 @@ Act as a Google Play Store Marketer. Detail the exact dimensions and safe zones 
   'mobilestorelistingseo': `
 # Store Listing SEO (ASO)
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -15460,7 +15460,7 @@ Act as an ASO Expert. Explain the algorithmic weight difference between the App 
   'mobileprivacypolicy': `
 # Privacy Policy
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -15486,7 +15486,7 @@ Act as a Tech Lawyer. I am launching a mobile app that uses Sentry for crash rep
   'mobiletermsofservice': `
 # Terms of Service
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -15512,7 +15512,7 @@ Act as an iOS App Reviewer. Detail the strict requirements for apps featuring Us
   'mobilecontentrating': `
 # Content Rating
 
-🕒 **Estimated Time:** 30 mins
+ **Estimated Time:** 30 mins
 
 ---
 
@@ -15538,7 +15538,7 @@ Act as a Mobile Compliance Expert. Explain the severe restrictions placed on app
   'mobiletesttracks': `
 # Test Tracks
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -15564,7 +15564,7 @@ Act as a Mobile QA Engineer. Explain the process of testing Apple In-App Purchas
   'mobilebetatesting': `
 # Beta Testing
 
-🕒 **Estimated Time:** 1-2 weeks
+ **Estimated Time:** 1-2 weeks
 
 ---
 
@@ -15590,7 +15590,7 @@ Act as a Mobile QA Manager. Recommend a React Native 'Shake-to-Report' bug repor
   'mobilereleasechecklist': `
 # Release Checklist
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -15618,7 +15618,7 @@ Act as a Mobile Release Manager. Detail the 'Phased Release' (7-day rollout) pro
   'mobileanalytics': `
 # Analytics Strategy (Growth)
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -15644,7 +15644,7 @@ Act as a Mobile Growth Marketer. Define 'Time to First Value' (TTFV) in the cont
   'mobilenotificationsstrategy': `
 # Notifications Strategy (Growth)
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -15670,7 +15670,7 @@ Act as a Mobile CRM Manager. Explain the difference between Broadcast Push Notif
   'mobileuserfeedback': `
 # User Feedback
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -15696,7 +15696,7 @@ Act as a Mobile UX Strategist. Design a 'Rating Intercept' flow. Detail how to a
   'mobilereviewsratings': `
 # Reviews & Ratings
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -15724,7 +15724,7 @@ Act as a Customer Success Manager. Write a template response for a 1-star App St
   'mobilereferralprograms': `
 # Referral Programs
 
-🕒 **Estimated Time:** 3-5 hours
+ **Estimated Time:** 3-5 hours
 
 ---
 
@@ -15750,7 +15750,7 @@ Act as a Mobile Growth Engineer. Explain how deferred deep linking works for mob
   'mobileroadmap': `
 # Roadmap
 
-🕒 **Estimated Time:** 2 hours
+ **Estimated Time:** 2 hours
 
 ---
 
@@ -15776,7 +15776,7 @@ Act as an App Store Marketer. Explain the massive organic growth benefit of adop
   'mobilescalingstrategy': `
 # Scaling Strategy
 
-🕒 **Estimated Time:** 2-3 hours
+ **Estimated Time:** 2-3 hours
 
 ---
 
@@ -15802,7 +15802,7 @@ Act as an Engineering Manager. Detail the 'Release Train' deployment model for a
   'mobiledemodata': `
 # Demo Data
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -15828,7 +15828,7 @@ Act as a Developer. Generate a massive JSON array of 15 highly realistic, divers
   'mobileplaystoremockups': `
 # Play Store Mockups
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -15854,7 +15854,7 @@ Act as an App Store Marketer. Write a punchy, 3-sentence App Store description a
   'mobilepitchdeck': `
 # Pitch Deck
 
-🕒 **Estimated Time:** 1-2 hours
+ **Estimated Time:** 1-2 hours
 
 ---
 
@@ -15880,7 +15880,7 @@ Act as a Startup Founder. I am pitching my mobile app hackathon project: [Descri
   'mobiledemoscript': `
 # Demo Script
 
-🕒 **Estimated Time:** 1 hour
+ **Estimated Time:** 1 hour
 
 ---
 
@@ -15906,7 +15906,7 @@ Act as a Presentation Coach. Write a 90-second script for a pre-recorded video d
   'mobilesubmissionchecklist': `
 # Submission Checklist
 
-🕒 **Estimated Time:** 30 mins
+ **Estimated Time:** 30 mins
 
 ---
 
@@ -20207,7 +20207,7 @@ Act as a Windows Internals Expert. I am building a post-exploitation module for 
 ## Strategic Guidance
 
 ### Hackathon Mode
-A simple cron job on Linux or a basic Registry Run Key on Windows (\`HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\`). It's noisy, but it ensures your payload restarts when the machine reboots.
+A simple cron job on Linux or a basic Registry Run Key on Windows (\`HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\\`). It's noisy, but it ensures your payload restarts when the machine reboots.
 
 ### Personal Project
 Experiment with WMI (Windows Management Instrumentation) event subscriptions. Write a script that creates a WMI filter that triggers your payload every time a user logs in. This is much stealthier than a Registry key and teaches you about Windows event tracing.
@@ -20538,6 +20538,1182 @@ Act as a Red Team QA Engineer. I am maintaining a commercial C2 framework. Detai
 
 - [ ] I have established a testing environment for my exploits.
 - [ ] I have automated the testing of evasion techniques against live defenses.
+`
+,
+  'cyberbluethreatlandscape': `
+# Threat Landscape
+
+ **Estimated Time:** 2-4 Hours
+
+---
+
+## Why this matters
+Before you can defend a network, you must understand exactly who is attacking it and why. A generic "we need a firewall" approach wastes money and CPU cycles. Threat modeling forces you to think about the specific Advanced Persistent Threats (APTs), ransomware gangs, or insider threats that target your specific industry.
+
+## Threat Modeling Frameworks
+
+### STRIDE vs DREAD vs PASTA
+**Which threat modeling framework aligns best with your team's culture?**
+\`\`\`input
+1. 
+\`\`\`
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't overcomplicate this. Pick a single, obvious threat (e.g., "An unauthenticated user trying to brute-force our login portal") and build your defensive pipeline strictly around catching that one attack. You don't have time to model APT29.
+
+### Personal Project
+Use this to learn the MITRE ATT&CK framework. Map out 3-4 specific techniques (e.g., T1078 - Valid Accounts) and define exactly how your home lab or project will detect them. This is incredible practice for SOC interviews.
+
+### Production SaaS
+You must conduct formal threat modeling exercises (like STRIDE) for every major architectural change. Your SOC needs to track industry-specific Threat Intelligence (e.g., if you are in healthcare, tracking FIN12). Maintain a living document mapping your coverage against the MITRE D3FEND matrix.
+
+## Brainstorming the Landscape
+\`\`\`prompt
+Act as a Principal Security Architect. I am building a [insert app type]. Help me identify the top 5 most likely threat actors (e.g., script kiddies, financially motivated syndicates, insiders) and map their likely initial access vectors using the MITRE ATT&CK framework.
+\`\`\`
+
+- [ ] I have identified the top 3 threat actors for my environment.
+- [ ] I have mapped their likely attack vectors.
+`,
+  'cyberbluelogsources': `
+# Log Sources
+
+ **Estimated Time:** 1-2 Days
+
+---
+
+## Why this matters
+Logs are the lifeblood of the Blue Team. If it isn't logged, it didn't happen. However, logging *everything* will bankrupt you in SIEM ingestion costs. You must strategically choose which logs provide high-fidelity security signals versus which logs are just noise.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Stick to the absolute basics: Web server access logs (Nginx/Apache), application error logs, and basic auth logs (who logged in, who failed). Send them all to a single flat file or a free Datadog/New Relic tier.
+
+### Personal Project
+Set up a local ELK stack or Wazuh and ingest Windows Event Logs (using Sysmon) or Linux auth logs. Learn how to filter out noisy events (like standard network broadcasts) before they hit your indexer to save disk space.
+
+### Production SaaS
+You need a tiered logging strategy. High-value logs (Authentication, Privilege Escalation, CloudTrail/IAM changes) go into a "Hot" SIEM index for real-time alerting. High-volume, low-value logs (VPC Flow Logs, standard web traffic) go into "Cold" storage (e.g., AWS S3) for compliance and retrospective hunting.
+
+## Data Ingestion Audit
+**List your top 3 most critical log sources:**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## Filtering the Noise
+\`\`\`prompt
+I am ingesting Windows Event Logs into my SIEM. Provide a baseline Sysmon configuration XML that filters out high-volume, low-value noise (like trusted system process executions) while strictly capturing process hollowing, LSASS dumping, and network connections from unusual binaries.
+\`\`\`
+
+- [ ] I have configured log forwarding for my critical endpoints.
+- [ ] I have implemented filters to drop noisy, low-value events.
+`,
+  'cyberbluecompliance': `
+# Compliance Requirements
+
+ **Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+Compliance does not equal security, but failing compliance equals bankruptcy. Whether it's SOC2, HIPAA, PCI-DSS, or GDPR, your defensive architecture must provide irrefutable proof to auditors that controls are working as intended.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ignore compliance entirely. Focus on building a cool detection engine. Nobody expects a 48-hour project to be SOC2 Type II compliant.
+
+### Personal Project
+Pick one framework (like CIS Critical Security Controls) and try to implement the first 5 "Basic" controls in your lab. It's a great way to structure a home network security project and looks excellent on a resume.
+
+### Production SaaS
+Bake compliance into your CI/CD pipeline (Compliance-as-Code). If you are processing credit cards, your log architecture must strictly segregate PCI data. You must enforce 1-year log retention minimums, immutable audit trails, and strict RBAC on who can view the SIEM dashboards.
+
+## The Audit Checklist
+**Which regulatory frameworks apply to your business?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Gap Analysis
+\`\`\`prompt
+Act as a GRC (Governance, Risk, and Compliance) Auditor. My company is preparing for a SOC2 Type I audit. We currently use AWS CloudTrail and an ELK stack for logging. What are the top 5 missing controls or reports we need to build into our SIEM to satisfy the Security and Availability trust principles?
+\`\`\`
+
+- [ ] I have identified the compliance frameworks legally required for my app.
+- [ ] I have mapped my log sources to specific compliance controls.
+`,
+  'cyberbluedataprivacy': `
+# Data Privacy
+
+ **Estimated Time:** 2-4 Hours
+
+---
+
+## Why this matters
+SIEMs and log aggregators are massive targets for attackers because they often accidentally contain plain-text passwords, PII (Personally Identifiable Information), or API keys. If your defensive tools leak user data, the Blue Team becomes the vulnerability.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't worry about masking data in logs. Just make sure your log files aren't publicly exposed to the internet.
+
+### Personal Project
+Practice writing Logstash or Fluentd regex filters to mask mock credit card numbers or Social Security Numbers before they are indexed.
+
+### Production SaaS
+You must implement strict Data Masking and Tokenization at the ingestion layer. Ensure that your application logs never print raw HTTP request bodies that contain passwords or session tokens. Implement "Right to be Forgotten" processes for your log archives to comply with GDPR.
+
+## Data Sanitization
+**Which log sources are most at risk of containing PII?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Writing Masking Rules
+\`\`\`prompt
+Write a Logstash filter configuration (using Grok and Mutate) that intercepts incoming application logs and automatically masks credit card numbers (PANs) and email addresses, replacing them with '[REDACTED]' before they are indexed into Elasticsearch.
+\`\`\`
+
+- [ ] I have audited my logs for accidental PII leakage.
+- [ ] I have implemented ingestion-layer masking for sensitive data.
+`,
+  'cyberbluesuccessmetrics': `
+# Success Metrics
+
+ **Estimated Time:** 1-2 Hours
+
+---
+
+## Why this matters
+You cannot improve what you cannot measure. A SOC (Security Operations Center) without metrics will quickly burn out its analysts with alert fatigue. You need KPIs like Mean Time to Detect (MTTD) and Mean Time to Respond (MTTR) to prove the Blue Team is actually effective.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Your only metric is: "Did the alert fire when I ran the exploit?" If yes, you succeed.
+
+### Personal Project
+Track your false positive rate. If you write a custom YARA rule, monitor how often it triggers on legitimate software versus actual malware. Tune the rule until the false positive rate is near zero.
+
+### Production SaaS
+Implement rigorous tracking for MTTD and MTTR. Track the "Alert to Ticket" ratio—if 10,000 alerts fire but only 5 result in an investigation, your rules are too noisy. Tie your SOC metrics to business objectives to justify budget increases.
+
+## Defining KPIs
+**What is your target MTTR for a Critical severity alert?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Building the Dashboard
+\`\`\`prompt
+Act as a SOC Manager. Outline the top 5 metrics that should be present on a CISO-level dashboard. Explain how to calculate each metric and what threshold indicates a 'healthy' security operation.
+\`\`\`
+
+- [ ] I have defined MTTD and MTTR targets for my team.
+- [ ] I have a system in place to measure the false positive rate of my alerts.
+`,
+  'cyberblueagentvsagentless': `
+# Agent vs Agentless Architecture
+
+ **Estimated Time:** 1-2 Days
+
+---
+
+## Why this matters
+How are you going to collect telemetry? Installing an agent (like CrowdStrike, Wazuh, or Datadog) on every endpoint gives you deep kernel-level visibility but consumes CPU and complicates deployment. Agentless collection (like polling AWS APIs or using network taps) is easier to deploy but lacks deep endpoint context.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Go Agentless. Rely on cloud provider logs (like AWS CloudTrail or Vercel logs) or simple webhooks. Installing and configuring endpoint agents will eat up your entire 48 hours.
+
+### Personal Project
+Deploy a free open-source agent like Wazuh or Osquery on a few VMs. Learn how the agent hooks into the OS (e.g., via eBPF on Linux or ETW on Windows) and sends data back to the manager.
+
+### Production SaaS
+You need a hybrid approach. Use Agents (EDR) for your critical servers and employee laptops where deep process-level visibility is mandatory. Use Agentless API polling for SaaS applications (like GitHub, Google Workspace, or Office 365) where you don't control the underlying OS.
+
+## The Architecture Decision
+**Will you deploy endpoint agents, or rely on agentless telemetry? Why?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Evaluating Agents
+\`\`\`prompt
+Compare and contrast Wazuh, Osquery, and Elastic Agent for endpoint telemetry collection. Break down their OS support, footprint (CPU/RAM overhead), and ease of writing custom detection rules.
+\`\`\`
+
+- [ ] I have chosen my primary telemetry collection method.
+- [ ] I have tested the CPU/RAM overhead of my chosen agent in a staging environment.
+`,
+  'cyberbluedataingestion': `
+# Data Ingestion Pipelines
+
+ **Estimated Time:** 2-4 Days
+
+---
+
+## Why this matters
+Logs don't magically appear in your SIEM. They must be shipped, buffered, parsed, and routed. If your ingestion pipeline is brittle, a volumetric DDoS attack will crash your logging infrastructure exactly when you need it most, blinding your Blue Team.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use direct API pushes to a managed service (like Datadog or Splunk Cloud). Do not build Kafka queues or Logstash clusters. Just get the data from point A to point B.
+
+### Personal Project
+Set up Filebeat or Promtail to read local log files and ship them to a central server. This teaches you the basics of log shipping, network buffering, and TLS encryption for log transit.
+
+### Production SaaS
+You must implement a message broker (like Apache Kafka or Redis) in front of your SIEM. This acts as a shock absorber during log spikes. Use Logstash, Vector, or Fluentd to pull from the broker, normalize the data, and push it into Elasticsearch or Splunk.
+
+## Sizing the Pipeline
+**What is your estimated daily log volume (in GB)?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Building the Broker
+\`\`\`prompt
+Design a high-availability log ingestion architecture using Filebeat, Apache Kafka, and Logstash. Explain how Kafka prevents data loss when Elasticsearch goes down for maintenance, and provide a sample Docker Compose file to spin up this architecture.
+\`\`\`
+
+- [ ] I have a mechanism to buffer logs if the SIEM goes offline.
+- [ ] All log transit is encrypted via TLS.
+`,
+  'cyberbluestoragearchitecture': `
+# Storage Architecture (Hot/Warm/Cold)
+
+ **Estimated Time:** 1-2 Days
+
+---
+
+## Why this matters
+Storing 10 terabytes of logs per day on high-speed NVMe SSDs will bankrupt your company in a month. You must implement a lifecycle policy that moves aging logs from expensive, fast storage to cheap, slow storage.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ignore lifecycle policies. Store everything on the default disk. It won't live long enough to fill up.
+
+### Personal Project
+Set up Index Lifecycle Management (ILM) in Elasticsearch. Configure it to roll over indices daily and delete logs older than 7 days to keep your home lab from running out of disk space.
+
+### Production SaaS
+Implement a strict Hot/Warm/Cold/Frozen architecture. 
+- **Hot (0-7 Days):** High IOPS SSDs for real-time alerting.
+- **Warm (7-30 Days):** Cheaper HDDs for recent investigations.
+- **Cold (30-365 Days):** Read-only snapshots in AWS S3 for compliance.
+- **Frozen (1 Year+):** Glacier storage.
+
+## Lifecycle Policy
+**Define your retention periods for Hot, Warm, and Cold storage:**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Automating Index Management
+\`\`\`prompt
+Provide an Elasticsearch Index Lifecycle Management (ILM) JSON policy that keeps indices in the 'hot' phase for 7 days, moves them to a 'warm' phase with replica reduction for 30 days, and finally archives them to a searchable snapshot in AWS S3 before deleting the local index.
+\`\`\`
+
+- [ ] I have implemented automated index rollover based on size or age.
+- [ ] I have configured cold storage archiving for compliance retention.
+`,
+  'cyberblueparsingengine': `
+# Parsing Engine (Grok/Regex)
+
+ **Estimated Time:** 2-5 Days
+
+---
+
+## Why this matters
+Unstructured logs are useless for alerting. If a firewall log is just a massive string of text, you can't run a query for \`source_ip == '10.0.0.5'\`. Parsing engines use Regex and Grok patterns to extract meaningful fields (IPs, Usernames, Ports) from unstructured text so the SIEM can index them properly.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Enforce structured logging (JSON) at the application level. If the app outputs JSON, the SIEM parses it automatically. Avoid writing Regex at all costs during a hackathon.
+
+### Personal Project
+Practice writing Grok filters for standard Linux logs (like \`/var/log/auth.log\`). Use tools like Grok Debugger to visualize how your regex breaks apart a SSH failed login attempt into \`user\`, \`src_ip\`, and \`timestamp\` fields.
+
+### Production SaaS
+Adopt a standard schema, such as the Elastic Common Schema (ECS) or Splunk CIM. Every parser you write MUST map extracted fields to this standard. If your Cisco firewall calls it \`src_ip\` and your Windows server calls it \`ClientIP\`, your SOC cannot write unified detection rules. Map everything to \`source.ip\`.
+
+## Schema Standardization
+**Which normalized schema (e.g., ECS, CIM, OCSF) will your parsers map to?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Writing Grok Patterns
+\`\`\`prompt
+Act as a SIEM Engineer. I have the following raw log line from a custom application: 
+'[2023-10-27T10:00:00Z] ERROR (AuthService): Failed login for user admin from 192.168.1.50 - Invalid Password'
+Write a Logstash Grok pattern that extracts the timestamp, log level, service name, username, source IP, and failure reason, mapping them to the Elastic Common Schema (ECS).
+\`\`\`
+
+- [ ] I have enforced JSON logging wherever possible to avoid manual parsing.
+- [ ] All my parsed fields map to a unified, standard schema.
+`,
+  'cyberbluerbac': `
+# RBAC & IAM for the SOC
+
+ **Estimated Time:** 1-3 Days
+
+---
+
+## Why this matters
+Your SIEM contains the keys to the kingdom. If an attacker compromises a junior SOC analyst's account, they can view all logs, uncover network topologies, or even delete audit trails to cover their tracks. Strict Role-Based Access Control (RBAC) is mandatory.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use a single admin account. Don't waste time building user roles.
+
+### Personal Project
+Create two roles in your SIEM: An \`Analyst\` role that can only read dashboards and search logs, and an \`Admin\` role that can modify pipelines and delete indices. Practice the principle of least privilege.
+
+### Production SaaS
+Integrate your SIEM with your enterprise Identity Provider (Okta, Azure AD) via SAML/OIDC. Enforce hardware MFA for all logins. Implement strict index-level permissions (e.g., Tier 1 analysts cannot view HR or Executive VIP logs). Alert the SOC immediately if any user attempts to modify SIEM configurations or delete logs.
+
+## Role Definitions
+**Define the permissions for a Tier 1 Analyst versus a SIEM Engineer:**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Configuring SAML & RBAC
+\`\`\`prompt
+Provide a comprehensive guide on implementing Role-Based Access Control in Elasticsearch/Kibana. Explain how to map an Okta SAML group to an Elastic Role that grants read-only access to specific indices (e.g., 'logs-endpoint-*') while explicitly denying access to sensitive indices (e.g., 'logs-billing-*').
+\`\`\`
+
+- [ ] All SOC personnel authenticate via SSO with hardware MFA.
+- [ ] Analysts have read-only access to log data and cannot modify ingestion pipelines.
+`,
+  'cyberblueebpf': `
+# Kernel Visibility (eBPF)
+
+ **Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+User-space logging (like reading \`/var/log/syslog\`) is easily bypassed by advanced rootkits. eBPF (Extended Berkeley Packet Filter) allows you to run sandboxed monitoring programs directly inside the Linux kernel. It provides near-zero overhead visibility into every syscall, network packet, and file open event, making it almost impossible for user-space malware to hide.
+
+## Strategic Guidance
+
+### Hackathon Mode
+eBPF is too complex for a 48-hour sprint. Stick to standard user-space logging or simple auditd rules.
+
+### Personal Project
+Experiment with Cilium Tetragon or tracee in a local Linux VM. Write a simple eBPF probe that triggers an alert anytime the \`execve\` syscall is called to spawn \`/bin/bash\`, simulating a reverse shell detection.
+
+### Production SaaS
+eBPF is the gold standard for modern cloud-native security. Deploy eBPF-based sensors (like Tetragon, Falco, or Aqua Tracee) across your Kubernetes clusters. Use it to enforce runtime security, such as instantly killing a container if it attempts to write to a protected directory or opens an unauthorized outbound network socket.
+
+## Defining eBPF Scope
+**What critical syscalls or behaviors do you need eBPF to monitor?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Implementing eBPF Sensors
+\`\`\`prompt
+Act as a Cloud Security Engineer. Explain how eBPF differs from traditional kernel modules for security observability. Provide a configuration snippet using Cilium Tetragon to detect and log any process that attempts to modify the /etc/shadow file or execute a reverse shell.
+\`\`\`
+
+- [ ] I have evaluated eBPF-based tooling for my cloud infrastructure.
+- [ ] I have tested the performance impact of syscall hooking on my workloads.
+`,
+  'cyberbluenetworkpacketanalysis': `
+# Network Packet Analysis (NDR)
+
+ **Estimated Time:** 1-3 Weeks
+
+---
+
+## Why this matters
+Endpoints can be compromised, and logs can be deleted, but network traffic doesn't lie. Network Detection and Response (NDR) using tools like Zeek or Suricata provides ground-truth visibility into data exfiltration, lateral movement, and Command & Control (C2) beacons.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't attempt deep packet inspection. Just use VPC flow logs to visualize basic source/destination IP connections.
+
+### Personal Project
+Set up Security Onion or just Zeek on a home router (like pfSense) or a span port. Analyze the \`conn.log\` and \`dns.log\` to understand what normal household traffic looks like, then simulate a DNS tunneling attack and watch it appear in the logs.
+
+### Production SaaS
+Decrypting TLS at scale is incredibly hard and often breaks privacy compliance. Instead of deep packet inspection, rely on metadata analysis (Zeek). Monitor JA3/JA4 TLS fingerprints to detect malicious C2 clients. Analyze beaconing intervals (e.g., a connection exactly every 60 seconds) to detect automated malware callbacks.
+
+## Placement of Sensors
+**Where in your network topology will you place network taps or span ports?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Zeek Scripting
+\`\`\`prompt
+Act as a Threat Hunter. Explain how to use Zeek to detect Command and Control (C2) beaconing based on connection intervals and payload sizes. Provide a sample Zeek script that alerts on repetitive, uniform HTTP POST requests outbound to a newly registered domain.
+\`\`\`
+
+- [ ] I have visibility into East-West (internal) network traffic, not just North-South (perimeter).
+- [ ] I am monitoring for known-bad JA3 TLS fingerprints.
+`,
+  'cyberblueendpointtelemetry': `
+# Endpoint Telemetry (EDR)
+
+ **Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+The endpoint is the ultimate battlefield. If you can't see process trees (e.g., Word.exe spawning PowerShell.exe), registry modifications, or memory injections, you are blind to 90% of modern malware. Endpoint Detection and Response (EDR) provides this granular visibility.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip EDR. Use Windows Defender logs or basic auditd.
+
+### Personal Project
+Deploy Osquery to your personal machines. Use it to query running processes, open network sockets, and loaded kernel modules using standard SQL syntax. It's a fantastic way to learn endpoint forensics.
+
+### Production SaaS
+Deploy a commercial EDR (CrowdStrike, SentinelOne) or a robust open-source alternative (Wazuh). You must collect full process execution command lines, file hashes (SHA256), and network connections tied to specific PIDs. Ensure the EDR has "tamper protection" so local admins or malware cannot disable the sensor.
+
+## Telemetry Requirements
+**What are the top 3 high-fidelity endpoint events you must collect?**
+\`\`\`input
+1. Process Creation (with command line arguments)
+2. 
+3. 
+\`\`\`
+
+## EDR Bypasses and Visibility
+\`\`\`prompt
+Explain the concept of 'Process Hollowing' and 'Reflective DLL Injection'. How do modern EDR solutions (like CrowdStrike or Microsoft Defender for Endpoint) use Userland API Hooking (NTDLL.dll) and Kernel Callbacks to detect these memory-based attacks?
+\`\`\`
+
+- [ ] My endpoint agent logs full command-line arguments for all executed processes.
+- [ ] The agent has tamper protection enabled.
+`,
+  'cyberbluecloudtrail': `
+# Cloud Trail Hooks
+
+ **Estimated Time:** 1-2 Days
+
+---
+
+## Why this matters
+In the cloud, the control plane IS the network. An attacker who compromises an AWS IAM key doesn't need to hack a server; they just use the API to snapshot your database and make it public. Cloud audit logs (like AWS CloudTrail or GCP Audit Logs) are the only way to detect control plane attacks.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Enable CloudTrail or GCP Audit logging, but don't spend time building alerts unless your hackathon specifically requires it.
+
+### Personal Project
+Set up a CloudTrail trail to S3, and use AWS Athena to query the logs. Try to find the exact JSON event that fires when you manually create a new IAM user in the console.
+
+### Production SaaS
+Cloud logs must be shipped to a centralized SIEM in a dedicated "Security" AWS account that the production environment cannot access. Write strict alerts for: Disabling CloudTrail, creating new IAM users, modifying Security Groups to \`0.0.0.0/0\`, and enumerating S3 buckets (\`ListBuckets\` without a specific target).
+
+## Cloud Alerting Scenarios
+**List 3 cloud API calls that should trigger a P1 incident if executed by an unauthorized role:**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## Cloud Detection Engineering
+\`\`\`prompt
+Act as a Cloud Detection Engineer. I am monitoring AWS CloudTrail logs. Write a Sigma rule or Elasticsearch query that detects when an IAM user or role attempts to perform 'sts:AssumeRole' across accounts suspiciously, or attempts to execute 'cloudtrail:StopLogging'.
+\`\`\`
+
+- [ ] Cloud audit logs are stored in an immutable bucket in a separate AWS account.
+- [ ] Alerts are configured for the disabling or deletion of security logging.
+`,
+  'cyberblueanomalydetection': `
+# Anomaly Detection (ML/UEBA)
+
+ **Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+Static rules (e.g., "Alert if User logs in from North Korea") fail against compromised credentials used by domestic attackers. User and Entity Behavior Analytics (UEBA) uses Machine Learning to establish a baseline of "normal" behavior and alerts on deviations (e.g., "Bob usually downloads 10MB a day, today he downloaded 40GB").
+
+## Strategic Guidance
+
+### Hackathon Mode
+Do not use ML. Use simple static thresholds (e.g., > 10 failed logins = Block).
+
+### Personal Project
+Experiment with Elastic's Machine Learning module. Feed it a dataset of web access logs and use the "Rare" function to find unusual user-agent strings or HTTP status codes.
+
+### Production SaaS
+Do not rely entirely on UEBA, as it generates high false positives. Use it as a secondary signal to increase the risk score of an entity. If a static YARA rule fires AND the user is exhibiting anomalous lateral movement, escalate the alert to Critical. Train your ML models for at least 30 days to establish an accurate baseline before enabling alerts.
+
+## Defining the Baseline
+**What defines 'normal' behavior for a standard user in your application?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Building UEBA Models
+\`\`\`prompt
+Act as a Data Scientist in Cyber Security. Explain how to implement a User and Entity Behavior Analytics (UEBA) model using Isolation Forests to detect anomalous data exfiltration. What features (e.g., bytes out, connection time, destination ASN) are most critical for training this model?
+\`\`\`
+
+- [ ] I have collected enough historical data (30+ days) to establish an accurate baseline.
+- [ ] Anomaly alerts are used for context/scoring, rather than immediate paging, to reduce fatigue.
+`,
+  'cyberblueyara': `
+# YARA Rule Engine
+
+ **Estimated Time:** 2-4 Days
+
+---
+
+## Why this matters
+YARA is the "pattern matching swiss army knife" for malware researchers. It allows you to write rules based on text or binary patterns (strings, hex signatures, file magic numbers) to identify specific malware strains or threat actor tools across your environment.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Download public YARA rulesets (like the one from Florian Roth) and point a scanner at a directory. Don't write custom rules.
+
+### Personal Project
+Download a known malware sample (e.g., WannaCry) in a safe sandbox. Reverse engineer it lightly using \`strings\` or a hex editor, and write a custom YARA rule to detect its specific mutex or ransom note text.
+
+### Production SaaS
+Integrate YARA scanning into your file upload pipelines and EDR sweeps. If your SaaS application allows users to upload PDFs or images, run a YARA engine (like \`yextend\`) against every upload to catch embedded shellcode or malicious macros before the file hits your storage backend.
+
+## Custom YARA Signatures
+**What proprietary intellectual property or specific threats do you need custom YARA rules for?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Writing YARA Rules
+\`\`\`prompt
+Act as a Malware Analyst. Write a robust YARA rule to detect WebShells (specifically targeting PHP payloads like China Chopper). The rule should look for specific magic bytes, heavily obfuscated eval() functions, and common base64 encoded command execution strings. Include conditions for file size to optimize scanning speed.
+\`\`\`
+
+- [ ] All user-uploaded files are scanned with a robust YARA ruleset.
+- [ ] I have a pipeline to regularly update my YARA signatures from Threat Intel feeds.
+`,
+  'cyberbluesigma': `
+# Sigma Rules Integration
+
+ **Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+Sigma is to logs what YARA is to files. It is a generic, open signature format for SIEM systems. Instead of writing detection logic tied to Splunk (SPL) or Elastic (KQL), you write it in Sigma (YAML). You can then compile that Sigma rule into ANY backend query language. This prevents vendor lock-in.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use Sigma to quickly generate a Splunk or Elastic query using \`sigmac\` or uncoder.io, rather than learning the query syntax from scratch.
+
+### Personal Project
+Write a Sigma rule for a specific attack (e.g., clearing the Windows Event Log). Convert it to an Elasticsearch query and test it against your local ELK stack.
+
+### Production SaaS
+Adopt "Detection as Code". Store all your SOC's detection logic as Sigma YAML files in a Git repository. When a PR is approved, use CI/CD pipelines to automatically compile the Sigma rules into the syntax of your current SIEM and deploy them via API. If you migrate from Splunk to Sentinel next year, your detections port over instantly.
+
+## Detection as Code Workflow
+**How will your team review and approve new detection rules?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Writing Sigma Rules
+\`\`\`prompt
+Act as a Detection Engineer. Write a Sigma rule (in YAML format) that detects an attacker using 'certutil.exe' to download a file from an external URL (a common Living off the Land technique). Include the log source requirements, the detection selection criteria, and false positive considerations.
+\`\`\`
+
+- [ ] My detection rules are stored in a version-controlled repository (Git).
+- [ ] My rules are written in a vendor-agnostic format (Sigma) to prevent lock-in.
+`,
+  'cyberbluebehavioralheuristics': `
+# Behavioral Heuristics
+
+ **Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+Signatures (like matching a specific file hash) are dead. Attackers recompile their malware, changing the hash instantly. Behavioral heuristics focus on the *action* rather than the *artifact*. E.g., "Word.exe should never spawn PowerShell.exe with a base64 encoded payload." This detects attacks regardless of the malware's signature.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip complex heuristics. Rely on the default behavioral rules provided by your open-source tools.
+
+### Personal Project
+Map your behavioral rules against the MITRE ATT&CK matrix. Identify gaps in your visibility (e.g., "I have no rules for T1055 - Process Injection").
+
+### Production SaaS
+Build stateful, correlation-based detections. A single suspicious event (e.g., \`whoami\` execution) is noise. But if the same user executes \`whoami\`, followed by \`net user\`, followed by an outbound SSH connection within 5 minutes, that is a high-fidelity heuristic for Lateral Movement. Use your SIEM's correlation engine (like Elastic EQL) to link these events.
+
+## Correlation Scenarios
+**Define a 3-step behavioral chain that indicates a successful compromise in your environment:**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## Building EQL / Correlation Rules
+\`\`\`prompt
+Act as a SOC Analyst. Explain how to use Event Query Language (EQL) or Splunk Transaction commands to detect a behavioral chain: A user logs in from a new IP address, immediately disables multi-factor authentication, and exports a large volume of data within a 10-minute window.
+\`\`\`
+
+- [ ] Detections are mapped to the MITRE ATT&CK framework to identify coverage gaps.
+- [ ] I rely on behavioral correlation chains to reduce false positives from single events.
+`,
+  'cyberbluefalsepositives': `
+# False Positive Tuning
+
+ **Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+Alert fatigue is the silent killer of the Blue Team. If your SIEM generates 500 "Critical" alerts a day that turn out to be nothing, analysts will eventually ignore a real alert (the "Boy Who Cried Wolf" syndrome). Tuning rules to silence false positives is the most important daily task of a Detection Engineer.
+
+## Strategic Guidance
+
+### Hackathon Mode
+If an alert is noisy, just turn it off. You don't have time to tune it.
+
+### Personal Project
+Learn how to use exception lists or whitelists. If a rule triggers every time you run a backup script, modify the rule to specifically exclude that script's hash or path.
+
+### Production SaaS
+Implement a rigorous tuning lifecycle. When a new rule is deployed, put it in "Shadow Mode" (it generates logs, but doesn't page anyone) for 14 days. Analyze the false positives, add strict whitelists for trusted administrative tools, and only move it to "Active/Paging Mode" when the false positive rate is under 5%.
+
+## Exception Handling
+**What are the most common administrative tasks in your environment that look like attacks?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Tuning Methodologies
+\`\`\`prompt
+Act as a Senior Detection Engineer. A highly critical Sigma rule detecting 'Pass the Hash' is generating massive false positives due to a legacy vulnerability scanner operating on our network. How do I construct a resilient whitelist/exception that allows the scanner to operate without whitelisting the entire subnet and creating a blind spot for attackers?
+\`\`\`
+
+- [ ] New detection rules are run in 'Shadow Mode' before alerting analysts.
+- [ ] Exceptions are highly specific (e.g., matching Path + Hash + Parent Process) to avoid creating blind spots.
+`,
+  'cyberbluethreatintel': `
+# Threat Intelligence Feeds
+
+ **Estimated Time:** 3-5 Days
+
+---
+
+## Why this matters
+Threat Intelligence turns your SIEM from reactive to proactive. By ingesting feeds of known-bad IP addresses, malicious domains, and file hashes (Indicators of Compromise / IoCs), your defensive engine can automatically block or alert on infrastructure used by known threat actors before they successfully breach your network.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use a free API like AbuseIPDB or VirusTotal to manually check suspicious IPs. Do not attempt to build an automated ingestion pipeline.
+
+### Personal Project
+Set up MISP (Malware Information Sharing Platform). Connect it to a few free OSINT feeds (like AlienVault OTX) and pull the latest IoCs into your SIEM to match against your network logs.
+
+### Production SaaS
+Do not just ingest every free feed on the internet; it will crush your SIEM with false positives (e.g., a feed accidentally listing 8.8.8.8 as malicious). Curate your feeds. Subscribe to industry-specific ISACs (Information Sharing and Analysis Centers). Use a Threat Intel Platform (TIP) to aggregate, score, and deduplicate IoCs before pushing them to your Firewalls and EDRs for blocking.
+
+## Curation and Relevance
+**Which threat intel sources are most relevant to your specific industry?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Automating IoC Matching
+\`\`\`prompt
+Act as a Threat Intelligence Analyst. Explain how to integrate a Threat Intelligence Platform (like MISP) with Elasticsearch. Provide an architectural overview of how to perform real-time IoC matching against incoming network flow logs without creating massive performance bottlenecks in the SIEM.
+\`\`\`
+
+- [ ] I am pulling in Threat Intel feeds relevant to my specific sector.
+- [ ] I have a mechanism to quickly expire stale IoCs (like IP addresses that have been reassigned).
+`,
+  'cyberbluesoar': `
+# SOAR Playbooks
+
+ **Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+When a ransomware alert fires at 3:00 AM, a human analyst takes 15 minutes to wake up, log in, find the affected IP, and block it. In 15 minutes, ransomware can encrypt your entire file share. Security Orchestration, Automation, and Response (SOAR) playbooks automate the triage and response at machine speed.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use simple Python scripts or Zapier/n8n webhooks to trigger a block on a firewall when a specific alert fires. Keep it extremely basic.
+
+### Personal Project
+Install Shuffle (Open Source SOAR). Write a playbook that listens for a webhook from your SIEM, automatically checks the offending IP against VirusTotal, and sends a formatted message to a Discord or Slack channel with the results.
+
+### Production SaaS
+Do not automate destructive actions (like shutting down production databases) without a "Human in the Loop" approval step, or you will cause an self-inflicted outage. Automate the *enrichment* of alerts perfectly. A Tier 1 analyst should never have to manually lookup an IP on AbuseIPDB; the SOAR should have already queried it, attached the reputation score to the ticket, and presented a "Click to Isolate Host" button.
+
+## Designing the Playbook
+**Which repetitive, manual task should your SOC automate first?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Automating the Triage
+\`\`\`prompt
+Act as a SOAR Automation Engineer. Outline a playbook workflow for handling a 'Suspicious Login from New Country' alert. Detail the steps to automatically extract the IP, enrich it via GeoIP and Threat Intel APIs, check if the user is a traveling executive via the HR system, and conditionally prompt the user for MFA reverification via Slack before paging an analyst.
+\`\`\`
+
+- [ ] High-volume, low-complexity alerts are fully automated.
+- [ ] Destructive automated responses require human approval.
+`,
+  'cyberblueprocesstermination': `
+# Process Termination
+
+ **Estimated Time:** 1-3 Days
+
+---
+
+## Why this matters
+If you detect a malicious payload executing in memory, you must kill it immediately. However, attackers know this. Advanced malware will hook termination APIs, spawn watchdog processes that resurrect the malware if it's killed, or inject itself into critical system processes (like \`lsass.exe\`) where killing it crashes the operating system (BSOD).
+
+## Strategic Guidance
+
+### Hackathon Mode
+Just use the \`kill -9 <PID>\` command on Linux or \`Stop-Process\` in PowerShell. It's good enough for a demo.
+
+### Personal Project
+Experiment with Sysinternals PsKill or Process Hacker. Learn how to identify and kill a process tree, rather than just the child process. Try to kill a process that is running as \`SYSTEM\` while you are a local admin.
+
+### Production SaaS
+Use your EDR's built-in remediation capabilities to safely suspend or terminate process trees. If a process is deeply injected into a critical system service, your automated playbook should *suspend* the thread rather than kill it to avoid a kernel panic, while simultaneously isolating the host from the network so a forensic analyst can investigate.
+
+## Safe Termination Strategies
+**How will you handle malware that injects into a critical system process?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Handling Watchdogs
+\`\`\`prompt
+Act as an Incident Responder. Explain how malware uses 'Watchdog' or 'Resurrection' processes to maintain persistence when a defender attempts to terminate the primary payload. Provide a strategy using Windows APIs or EDR commands to simultaneously suspend the entire process tree before terminating it.
+\`\`\`
+
+- [ ] My response playbooks terminate the entire process tree, not just the child.
+- [ ] I have safeguards against terminating critical OS processes.
+`,
+  'cyberbluenetworkisolation': `
+# Network Isolation
+
+ **Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+When an endpoint is compromised, your immediate goal is to stop lateral movement and sever Command & Control (C2) communications. Network Isolation essentially puts the machine in a quarantine VLAN or drops all its packets, except for the traffic required by the Blue Team to investigate it.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Write a script that simply disables the network adapter or flushes the routing table on the target machine.
+
+### Personal Project
+Use the Windows Firewall API to write a script that blocks all inbound and outbound traffic, *except* for RDP (TCP 3389) from your specific management IP address.
+
+### Production SaaS
+Do not rely on local firewalls, as root-level malware can disable them. Use your EDR's "Network Containment" feature or integrate with your Network Access Control (NAC) / Cloud Security Groups to dynamically move the host into an isolated micro-segment. Ensure the isolation policy still permits traffic to your SIEM and forensic tools.
+
+## Defining the Quarantine
+**Which IP addresses/ports must remain open even when a host is isolated?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Dynamic Containment
+\`\`\`prompt
+Act as a Network Security Architect. Explain how to implement dynamic network isolation for AWS EC2 instances using AWS Lambda and Security Groups. Detail a workflow where a GuardDuty alert triggers a Lambda function that replaces the instance's Security Group with a strict 'Quarantine' group, cutting off all traffic except SSH from a jump box.
+\`\`\`
+
+- [ ] I can isolate a compromised host within 5 minutes of detection.
+- [ ] Isolated hosts can still communicate with my forensic and management tools.
+`,
+  'cyberbluealerttriage': `
+# Alert Triage
+
+ **Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+Alert Triage is the process of looking at a flashing red light and deciding if it's a real attack (True Positive) or a normal admin task (False Positive). Poor triage processes lead to analysts blindly closing tickets or, worse, escalating every single alert to the Incident Response team, causing massive organizational panic.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Just print the alerts to the screen. Triage is a human problem, not a hackathon problem.
+
+### Personal Project
+Create a standard operating procedure (SOP) for investigating your own alerts. What 3 things should you check first when a "Suspicious Process" alert fires?
+
+### Production SaaS
+Build strict "Runbooks" for every single alert type in your SIEM. A Tier 1 analyst should not have to guess how to investigate a "Pass the Hash" alert; the runbook should explicitly state: 1. Check if the user is a Domain Admin. 2. Check if the source IP is a known scanner. 3. Look for corresponding Service Ticket requests. Standardizing triage prevents junior analysts from missing critical context.
+
+## Runbook Creation
+**Pick your most critical alert. What are the first 3 steps an analyst must take to verify it?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## Building SOPs
+\`\`\`prompt
+Act as a SOC Lead. Write a comprehensive triage runbook for a Tier 1 Analyst handling an 'Impossible Travel' alert (e.g., a user logs in from New York, and 10 minutes later logs in from Moscow). Outline the exact verification steps, the contextual data to gather, and the specific criteria that mandate escalating the alert to Tier 2.
+\`\`\`
+
+- [ ] Every alert generated by the SIEM has a documented triage runbook.
+- [ ] Analysts have a clear escalation path for when an alert is verified as a True Positive.
+`,
+  'cyberblueforensics': `
+# Forensic Evidence Capture
+
+ **Estimated Time:** 1-3 Weeks
+
+---
+
+## Why this matters
+If you format a compromised server, you destroy the evidence. How did they get in? What did they steal? Are there backdoors left behind? Digital Forensics and Incident Response (DFIR) requires capturing memory (RAM) dumps, disk images, and volatile artifacts *before* you remediate the threat.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Forensics takes hours. In a hackathon, just reboot the box and pretend the threat is gone.
+
+### Personal Project
+Learn how to use Volatility. Take a memory dump of a Windows VM, run a known malware sample, and use Volatility plugins like \`pslist\`, \`netscan\`, and \`malfind\` to locate the injected malicious code in RAM.
+
+### Production SaaS
+Automate artifact collection. When an endpoint is isolated, your EDR or SOAR should automatically execute a tool like KAPE (Kroll Artifact Parser and Extractor) to grab the MFT, registry hives, prefetch files, and event logs, zipping them up and sending them to a secure S3 bucket for the DFIR team to analyze offline. Never do analysis on the live, compromised machine.
+
+## Defining Artifacts
+**What are the top 3 critical forensic artifacts you need to capture from a compromised Windows machine?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Memory Forensics
+\`\`\`prompt
+Act as a Digital Forensics Examiner. Explain the process of capturing volatile memory from a live Windows system. Detail how to use the Volatility framework to identify unlinked processes (rootkits) and extract injected malicious DLLs from the memory dump for reverse engineering.
+\`\`\`
+
+- [ ] I have a mechanism to capture RAM and volatile artifacts before a machine is rebooted.
+- [ ] Forensic evidence is stored securely with a strict chain of custody.
+`,
+  'cyberblueantitamper': `
+# Self-Protection (Anti-Tamper)
+
+ **Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+The very first thing advanced malware does is attempt to kill your antivirus, EDR, and logging agents. If your defensive tools can be disabled by a simple \`taskkill\` command or by stopping a service, you have zero security.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ignore this. Assume the attacker won't target your security tools directly.
+
+### Personal Project
+Look at how Windows Defender implements Tamper Protection. Try to write a PowerShell script that disables it, and observe how the OS prevents even an Administrator from altering the Defender registry keys.
+
+### Production SaaS
+Your EDR and logging agents MUST have kernel-level anti-tamper protections. This usually involves an Early Launch Anti-Malware (ELAM) driver that protects the agent's processes, files, and registry keys from being modified by anything—even \`NT AUTHORITY\\SYSTEM\`. If an agent is forcefully uninstalled or stops reporting, your SIEM must immediately generate a Critical alert.
+
+## Agent Resilience
+**How will you know if a logging agent has been silently disabled by an attacker?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Designing Anti-Tamper Mechanisms
+\`\`\`prompt
+Explain how modern EDR solutions use Kernel Callbacks (e.g., ObRegisterCallbacks in Windows) to protect their own processes from being terminated by malware running with Administrator or SYSTEM privileges. How can a Blue Team monitor for the failure or bypass of these mechanisms?
+\`\`\`
+
+- [ ] My security agents have anti-tamper protections enabled.
+- [ ] The SIEM generates a 'Dead Agent' alert if telemetry stops flowing from a host for more than 15 minutes.
+`,
+  'cyberblueperformance': `
+# Performance Overhead
+
+ **Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+Security tools are notorious for destroying system performance. If your EDR agent consumes 40% of a production database's CPU, the DevOps team will uninstall it, leaving you blind. Security must be frictionless and performant.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Performance doesn't matter for a 48-hour demo. Run the heaviest queries you want.
+
+### Personal Project
+Use tools like \`htop\` or Performance Monitor to measure the CPU and RAM usage of your security agents when the system is idle versus under heavy load. Learn how to limit the agent's resource consumption.
+
+### Production SaaS
+Strictly benchmark your security agents in a staging environment before deploying to production. Configure CPU/Memory caps for your agents. For high-throughput servers (like databases or load balancers), you may need to selectively disable certain invasive hooking features (like full packet inspection) to maintain SLA requirements.
+
+## Benchmarking Strategy
+**What is the maximum acceptable CPU overhead for your security agents on production servers?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Optimizing Security Agents
+\`\`\`prompt
+Act as a DevSecOps Engineer. We are deploying an EDR agent to a high-throughput PostgreSQL database cluster. Outline the steps to benchmark the agent's performance impact using tools like sysbench. Detail the common EDR configuration exclusions (e.g., directory exclusions, hooking disables) required to prevent locking issues and latency spikes on database servers.
+\`\`\`
+
+- [ ] I have benchmarked the performance impact of my security tools in a staging environment.
+- [ ] I have configured resource limits (cgroups/CPU caps) for my agents to prevent them from crashing production services.
+`,
+  'cyberblueencryption': `
+# Encryption at Rest
+
+ **Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+If an attacker gains access to the underlying storage volume (e.g., stealing a hard drive or compromising an AWS EBS snapshot), they can bypass the operating system's access controls and read the raw data directly. Encryption at rest renders that data completely unreadable without the decryption key.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it. Just use the default cloud provider settings.
+
+### Personal Project
+Set up LUKS full-disk encryption on a Linux VM. Understand the boot process and how the decryption key is supplied (via password or TPM) before the OS mounts the drive.
+
+### Production SaaS
+You must use strong Encryption at Rest for all databases, log archives, and S3 buckets. Rely on a centralized Key Management Service (like AWS KMS or HashiCorp Vault) to manage the encryption keys. Implement strict IAM policies limiting who (or what role) can call the \`Decrypt\` API. Rotate your Customer Master Keys (CMKs) annually.
+
+## Key Management
+**Where are your encryption keys stored, and who has access to them?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Designing KMS Architecture
+\`\`\`prompt
+Explain the concept of Envelope Encryption. Design a secure key management architecture using AWS KMS where application servers can encrypt and decrypt data in an S3 bucket, but database administrators cannot access the raw plaintext data. Include the necessary IAM policy constraints.
+\`\`\`
+
+- [ ] All sensitive data is encrypted at rest using industry-standard algorithms (AES-256).
+- [ ] Encryption keys are managed by a dedicated KMS and access is tightly restricted.
+`,
+  'cyberblueauditlogging': `
+# Audit Logging
+
+ **Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+While telemetry tells you what the OS is doing, Audit Logging tells you what the *Application* is doing. If a rogue administrator logs into your SaaS dashboard and deletes a customer's account, endpoint logs won't help you. You need application-level audit logs to prove exactly who did what, and when.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Just dump all actions to \`console.log()\` or a simple database table.
+
+### Personal Project
+Implement an audit logging middleware in your backend framework (Node.js, Django). Intercept every POST/PUT/DELETE request, strip out passwords, and log the User ID, action, and timestamp to a separate file.
+
+### Production SaaS
+Audit logs must be immutable. Write them to a WORM (Write Once, Read Many) storage system. They must follow a strict schema (Actor, Action, Resource, Timestamp, Status). Ensure that the application cannot delete or modify its own audit logs; the logs should be shipped asynchronously to a secure, segregated log archive.
+
+## Defining the Audit Schema
+**What critical application actions (e.g., password changes, data exports) must be audit logged?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Building Immutable Logs
+\`\`\`prompt
+Act as an Application Security Architect. Design an immutable audit logging architecture for a Node.js microservices platform. Explain how to ensure non-repudiation (proving a user definitively took an action) and how to securely ship these logs to an AWS S3 bucket with Object Lock enabled to prevent tampering by compromised application servers.
+\`\`\`
+
+- [ ] Application audit logs record the Actor, Action, Resource, and Timestamp for all state-changing events.
+- [ ] Audit logs are stored in a tamper-proof, immutable location.
+`,
+  'cyberbluedashboarding': `
+# Dashboarding
+
+ **Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+Raw logs are unreadable at scale. Dashboards translate millions of log lines into visual trends, allowing SOC analysts to instantly spot anomalies (like a massive spike in failed logins from a specific country) that might not trigger a static alert.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use out-of-the-box dashboards provided by Grafana or Datadog integrations. Don't build custom charts.
+
+### Personal Project
+Build a custom Kibana or Grafana dashboard tracking SSH logins to your home lab. Create a map visualization plotting the geo-location of failed login attempts.
+
+### Production SaaS
+Dashboards must be role-specific. Build a high-level "Threat Landscape" dashboard for the CISO (showing MTTR, blocked attacks, and compliance metrics). Build granular, tactical dashboards for Tier 1 analysts (showing active alerts, firewall drops, and top talking IPs). Avoid "Vanity Metrics" (like 'Total packets scanned') that don't drive actionable decisions.
+
+## Identifying Key Visualizations
+**What 3 charts do your analysts need to see the moment they log in for their shift?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## Designing Effective SOC Dashboards
+\`\`\`prompt
+Act as a UI/UX Designer for Security Operations. Explain the principles of building effective SOC dashboards that minimize cognitive load. What data visualizations should be avoided, and what is the best way to visually represent a distributed brute-force attack occurring over a 24-hour period?
+\`\`\`
+
+- [ ] Dashboards are tailored to specific roles (Executive vs Analyst).
+- [ ] Dashboards focus on actionable metrics rather than vanity numbers.
+`,
+  'cyberblueincidentresponse': `
+# Incident Response (IR)
+
+ **Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+When a major breach occurs, chaos reigns. Without a practiced Incident Response plan, teams will accidentally destroy evidence, miscommunicate with stakeholders, and make the situation worse. IR is the structured process of identifying, containing, eradicating, and recovering from a cyberattack.
+
+## Strategic Guidance
+
+### Hackathon Mode
+If you get hacked during a hackathon, just delete the AWS account and start over.
+
+### Personal Project
+Read the NIST SP 800-61 Incident Handling Guide. Understand the 4 phases: Preparation; Detection and Analysis; Containment, Eradication, and Recovery; and Post-Incident Activity.
+
+### Production SaaS
+You must have a formally documented Incident Response Plan (IRP). You must conduct "Tabletop Exercises" quarterly (e.g., simulating a ransomware outbreak in a boardroom setting) to train executives and engineers. Ensure you have an out-of-band communication method (like Signal) in case the attacker compromises your corporate Slack/Email.
+
+## IR Readiness
+**Who is the designated "Incident Commander" in the event of a critical breach?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Conducting a Tabletop Exercise
+\`\`\`prompt
+Act as a Lead Incident Commander. Design a 60-minute Tabletop Exercise scenario for a SaaS company where an attacker has compromised an engineer's laptop, stolen an AWS admin credential, and is currently demanding a ransom to stop deleting S3 buckets. Outline the injects (updates provided during the exercise) and the key decisions the executive team must make.
+\`\`\`
+
+- [ ] I have a documented Incident Response Plan.
+- [ ] My team conducts regular tabletop exercises to practice the plan.
+`,
+  'cyberblueruleupdates': `
+# Rule Updates
+
+ **Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+Attackers constantly evolve their tactics. A detection rule written a year ago is likely obsolete today. Maintaining your detection engineering lifecycle ensures your SOC is equipped to detect the newest CVEs and malware strains before they impact your environment.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Not applicable. Write the rules once and forget them.
+
+### Personal Project
+Write a simple Python script that pulls the latest YARA rules from a public GitHub repository daily and updates your local scanner directory.
+
+### Production SaaS
+Implement "Detection as Code". Subscribe to Threat Intel reports (like Mandiant or CrowdStrike). When a new attack technique is published, write a Sigma rule, test it against historical logs to ensure it doesn't cause false positives, get it peer-reviewed via a Pull Request, and automatically deploy it to the SIEM via CI/CD pipelines.
+
+## Staying Current
+**How will your team learn about new attack techniques to build rules against?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Detection as Code Pipeline
+\`\`\`prompt
+Outline a robust CI/CD pipeline for deploying SIEM detection rules. Include automated testing steps (e.g., using a tool like generic-log-generator to simulate the attack and verify the rule fires) before the rule is allowed to be pushed to the production SIEM environment.
+\`\`\`
+
+- [ ] Detection rules are updated regularly based on new Threat Intelligence.
+- [ ] All rule changes go through a formal testing and peer-review process.
+`,
+  'cyberbluethreathunting': `
+# Threat Hunting
+
+ **Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+Alerts only catch what you already know is bad (Known-Bads). Threat Hunting is the proactive, hypothesis-driven search through your network to find the "Unknown-Bads"—attackers who have bypassed your automated detections and are silently lurking in your environment.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Too advanced. Skip.
+
+### Personal Project
+Formulate a hypothesis (e.g., "An attacker is hiding a backdoor in a scheduled task"). Use PowerShell or Osquery to manually list all scheduled tasks on your machine, filtering out known Microsoft signatures, and investigate the remaining outliers.
+
+### Production SaaS
+Dedicate 20% of your senior analysts' time to proactive Threat Hunting. Hunts should be hypothesis-driven, mapped to MITRE ATT&CK (e.g., "Let's hunt for T1071 - Application Layer Protocol C2"). If a hunt successfully uncovers an attacker (or uncovers a visibility gap), the outcome MUST be converted into a new, automated detection rule so you never have to manually hunt for it again.
+
+## Formulating a Hypothesis
+**What is a specific attack technique you suspect your automated tools might currently miss?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Designing a Threat Hunt
+\`\`\`prompt
+Act as a Senior Threat Hunter. Design a hypothesis-driven threat hunt for detecting 'Living off the Land' (LotL) binaries being used for lateral movement (e.g., WMI or WinRM). Detail the specific logs required, the queries used to filter out normal administrative noise, and how to analyze the resulting outliers.
+\`\`\`
+
+- [ ] My team regularly conducts proactive threat hunts based on specific hypotheses.
+- [ ] The results of threat hunts are converted into automated detection rules.
 `
 };
 
