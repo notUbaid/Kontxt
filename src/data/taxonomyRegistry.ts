@@ -56,6 +56,21 @@ import {
   webHackathonTaxonomy,
   webPersonalTaxonomy
 } from './taxonomies/web';
+import {
+  cyberRedProductionTaxonomy,
+  cyberRedHackathonTaxonomy,
+  cyberRedPersonalTaxonomy
+} from './taxonomies/cyber-red';
+import {
+  cyberBlueProductionTaxonomy,
+  cyberBlueHackathonTaxonomy,
+  cyberBluePersonalTaxonomy
+} from './taxonomies/cyber-blue';
+import {
+  cyberDevSecOpsProductionTaxonomy,
+  cyberDevSecOpsHackathonTaxonomy,
+  cyberDevSecOpsPersonalTaxonomy
+} from './taxonomies/cyber-devsecops';
 
 export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] => {
   const resolvedMode = mode;
@@ -150,6 +165,27 @@ export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] =
         case 'Production': return webProductionTaxonomy;
 
         default: return webProductionTaxonomy;
+      }
+    case 'Cyber Security (Offensive)':
+      switch (resolvedMode) {
+        case 'Hackathon': return cyberRedHackathonTaxonomy;
+        case 'Personal': return cyberRedPersonalTaxonomy;
+        case 'Production': return cyberRedProductionTaxonomy;
+        default: return cyberRedProductionTaxonomy;
+      }
+    case 'Cyber Security (Defensive)':
+      switch (resolvedMode) {
+        case 'Hackathon': return cyberBlueHackathonTaxonomy;
+        case 'Personal': return cyberBluePersonalTaxonomy;
+        case 'Production': return cyberBlueProductionTaxonomy;
+        default: return cyberBlueProductionTaxonomy;
+      }
+    case 'Cyber Security (DevSecOps)':
+      switch (resolvedMode) {
+        case 'Hackathon': return cyberDevSecOpsHackathonTaxonomy;
+        case 'Personal': return cyberDevSecOpsPersonalTaxonomy;
+        case 'Production': return cyberDevSecOpsProductionTaxonomy;
+        default: return cyberDevSecOpsProductionTaxonomy;
       }
     default:
       return saasProductionTaxonomy;

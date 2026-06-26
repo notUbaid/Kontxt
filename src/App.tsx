@@ -18,7 +18,10 @@ export type AppType =
   | 'Internal Tool' 
   | 'Marketplace' 
   | 'E-commerce' 
-  | 'Game';
+  | 'Game'
+  | 'Cyber Security (Offensive)'
+  | 'Cyber Security (Defensive)'
+  | 'Cyber Security (DevSecOps)';
 
 export interface Project {
   id: string;

@@ -2,7 +2,7 @@ import React, { Suspense, lazy, useState } from 'react';
 import { 
   Rocket, User, Building2, FolderOpen, Plus, ArrowRight,
   Cloud, Smartphone, Globe, Brain, Puzzle, Monitor, Server, Wrench,
-  Store, ShoppingCart, Gamepad2, AlertTriangle
+  Store, ShoppingCart, Gamepad2, AlertTriangle, Skull, Shield, Lock
 } from 'lucide-react';
 import type { Mode } from './TopNav';
 import type { Project, AppType } from '../App';
@@ -30,6 +30,9 @@ const TYPE_META: Record<AppType, { icon: React.ElementType; description: string 
   'Marketplace': { icon: Store, description: 'Two-sided platform connecting buyers & sellers' },
   'E-commerce': { icon: ShoppingCart, description: 'Online store or D2C brand' },
   'Game': { icon: Gamepad2, description: 'Mobile, PC, or web game' },
+  'Cyber Security (Offensive)': { icon: Skull, description: 'Red Team tools, exploit dev, & scanners' },
+  'Cyber Security (Defensive)': { icon: Shield, description: 'Blue Team, SIEM, & EDR monitors' },
+  'Cyber Security (DevSecOps)': { icon: Lock, description: 'Compliance, CI/CD scanning, & GRC' },
 };
 
 // Contextual mode descriptions per type
@@ -89,6 +92,21 @@ const MODE_DESCRIPTIONS: Partial<Record<AppType, Record<Mode, string>>> = {
     'Personal': 'Polished game with save system, audio, and store-ready.',
     'Production': 'Live ops, multiplayer, anti-cheat, analytics, seasonal content.',
   },
+  'Cyber Security (Offensive)': {
+    'Hackathon': 'Wrapper scripts, basic port scanners, polished CLI.',
+    'Personal': 'Deep protocol parsers, memory exploitation, custom evasion.',
+    'Production': 'C2 architectures, evasion pipelines, exploit delivery networks.'
+  },
+  'Cyber Security (Defensive)': {
+    'Hackathon': 'Basic log parsers, rule-based alerts, dashboard UI.',
+    'Personal': 'eBPF sensors, threat hunting, YARA rule integration.',
+    'Production': 'SIEM integration, incident response automation, ML anomaly detection.'
+  },
+  'Cyber Security (DevSecOps)': {
+    'Hackathon': 'GitHub Actions hooks, static code linters.',
+    'Personal': 'Terraform drift detection, Docker config scanning.',
+    'Production': 'SOC2 automation, SBOM generation, zero-trust enforcement.'
+  },
 };
 
 const HIGH_RISK_WARNINGS: Partial<Record<AppType, { title: string; message: string; icon: React.ElementType }>> = {
@@ -107,6 +125,11 @@ const HIGH_RISK_WARNINGS: Partial<Record<AppType, { title: string; message: stri
     message: 'Most marketplace failures aren\'t technical — they\'re liquidity failures. How will you get buyers without sellers? How will you get sellers without buyers? Solve the supply/demand bootstrapping problem before writing code, or your marketplace will be a ghost town.',
     icon: AlertTriangle,
   },
+  'Cyber Security (Offensive)': {
+    title: 'Rules of Engagement & Liability',
+    message: 'Building and deploying offensive security tools (Red Team) carries extreme legal risk (e.g. CFAA violations). You MUST have explicit, written authorization (Rules of Engagement) before pointing any scanner, exploiter, or C2 framework at an external target. Ensure your tool has built-in kill switches and scope limitations.',
+    icon: Skull,
+  },
 };
 
 export const Onboarding = ({ projects, onCreateProject, onSelectProject, isAuthenticated, setIsAuthenticated }: OnboardingProps) => {
@@ -117,7 +140,8 @@ export const Onboarding = ({ projects, onCreateProject, onSelectProject, isAuthe
 
   const APP_TYPES: AppType[] = [
     'SaaS', 'Mobile App', 'Web App', 'AI Tool', 'Browser Extension',
-    'Desktop App', 'API Product', 'Internal Tool', 'Marketplace', 'E-commerce', 'Game'
+    'Desktop App', 'API Product', 'Internal Tool', 'Marketplace', 'E-commerce', 'Game',
+    'Cyber Security (Offensive)', 'Cyber Security (Defensive)', 'Cyber Security (DevSecOps)'
   ];
 
   const handleTypeSelect = (type: AppType) => {

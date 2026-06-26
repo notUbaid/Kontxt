@@ -19932,3 +19932,1021 @@ Release the game on sale (10% off) during launch week to maximize impulse buys.
 ### Production SaaS
 Analyze your "Whale" conversion funnels. If your top spenders stop spending, offer highly exclusive, high-ticket cosmetic items (e.g., a $50 skin). Do not sell "Pay to Win" items (stat boosts), as this will instantly destroy the game's competitive integrity and community goodwill.
 `;
+
+export const cyberredtargetselection = `
+## Strategic Guidance
+
+### Hackathon Mode
+In a 48-hour sprint, pick a target that is **legally safe** and explicitly designed to be attacked. Use platforms like Hack The Box (HTB) or TryHackMe, or deploy a localized, intentionally vulnerable container (like OWASP Juice Shop). Do not point your tool at a public domain.
+
+### Personal Project
+You are building a portfolio piece. Focus on a specific subclass of targets to prove your depth. Instead of a general web scanner, target outdated IoT protocols (e.g., UPnP) on a closed local network. Build a lab using VirtualBox or Proxmox to legally simulate an enterprise environment with Active Directory.
+
+### Production SaaS
+If you are building an enterprise offensive tool (like a commercial vulnerability scanner or C2 framework), the "target" is your client's infrastructure. You must build strict **CIDR block whitelisting** into the core engine to ensure your tool cannot accidentally scan or exploit out-of-scope IP addresses. A single packet sent to the wrong subnet can trigger a lawsuit.
+
+---
+
+## Define the Objective
+What exactly is this tool designed to hit?
+\`\`\`input
+Target definition (e.g., "Internal /24 subnet", "Specific web application DOM", "Active Directory Kerberos tickets")
+\`\`\`
+
+## The Architecture of Scope Validation
+\`\`\`prompt
+Act as a Senior Offensive Security Engineer. I am building an offensive security tool targeting [TARGET]. Write the architectural requirements for implementing strict target validation to ensure the tool NEVER executes against out-of-scope assets.
+\`\`\`
+
+- [ ] I have explicitly defined the target scope.
+- [ ] I have designed a mechanism to prevent out-of-scope execution.
+`;
+
+export const cyberredrulesofengagement = `
+## Strategic Guidance
+
+### Hackathon Mode
+Your ROE is simple: "I will only run this against \`localhost\` or a specifically provisioned, authorized VM." Judges need to know your tool is safe to test.
+
+### Personal Project
+Write a formal Rules of Engagement document for your portfolio. Treat your home lab like a client. Define the "Start/Stop" times, the approved IPs, and the explicit "Do Not Touch" systems (like your roommate's PlayStation). This shows maturity to hiring managers.
+
+### Production SaaS
+The ROE is a legally binding contract. Your tool MUST support ROE enforcement natively. If the ROE states "No scanning between 9 AM and 5 PM EST to avoid impacting business operations," your tool's orchestration engine must enforce a hard execution blackout window, automatically pausing and resuming states.
+
+---
+
+## Define the Boundaries
+What are the explicit limitations of this engagement?
+\`\`\`input
+Blackout windows, prohibited subnets, "Do Not Exploit" flags...
+\`\`\`
+
+## Designing the ROE Enforcement Engine
+\`\`\`prompt
+Act as a Senior Red Team Architect. I need to build a ROE (Rules of Engagement) enforcement layer into my offensive tool. Generate an architecture for a "Kill Switch" and "Execution Window" system that forcefully halts all active threads if the time window closes or if an out-of-bounds IP is detected.
+\`\`\`
+
+- [ ] I have drafted a clear ROE.
+- [ ] I have designed the kill-switch and blackout architecture.
+`;
+
+export const cyberredlegalliability = `
+## Strategic Guidance
+
+### Hackathon Mode
+Do not break the law. Do not run scanners against the hackathon venue's Wi-Fi. The Computer Fraud and Abuse Act (CFAA) does not care if it was "just a hackathon project."
+
+### Personal Project
+Understand the legal distinction between "Scanning" and "Exploiting." In many jurisdictions, unauthorized port scanning is a gray area, but executing a payload to bypass authentication is a felony. Build your tool so that the exploitation module is completely decoupled and requires explicit manual unlocking.
+
+### Production SaaS
+Liability is the single biggest threat to an offensive security startup. If your tool goes rogue and takes down a hospital's network, your company is dead. You need **Liability Segmentation**. This means robust audit logging (recording exactly what the tool did, when, and who authorized it), E&O (Errors and Omissions) insurance, and strict Terms of Service indemnification clauses.
+
+---
+
+## Legal Defense Mechanisms
+How are you protecting yourself from the CFAA or similar laws?
+\`\`\`input
+Audit logging, explicit user-consent prompts, hardcoded IP whitelists...
+\`\`\`
+
+## The Liability Architecture
+\`\`\`prompt
+Act as a Cybersecurity Legal Architect. I am building a tool capable of exploitation. Outline the software architecture required to maintain a cryptographically secure audit log of all actions taken by the tool, proving user authorization and preventing tampering.
+\`\`\`
+
+- [ ] I understand the legal risks of building offensive tools.
+- [ ] I have implemented tamper-proof audit logging.
+`;
+
+export const cyberredthreatmodeling = `
+## Strategic Guidance
+
+### Hackathon Mode
+Threat modeling your own tool means asking: "What happens if someone steals my laptop while this tool is open?" Keep it simple. Don't hardcode API keys for your Shodan or Discord webhook integrations.
+
+### Personal Project
+Assume the Blue Team will find your tool. How will they reverse engineer it? Will they find your personal IP address hardcoded in the C2 callback? You must threat model your own OPSEC (Operational Security). Route callbacks through heavily anonymized redirectors.
+
+### Production SaaS
+If you sell an offensive tool, you are selling a weapon. What happens if a nation-state threat actor compromises your CI/CD pipeline and pushes a backdoor into your C2 framework? (This is exactly what happened to SolarWinds, but imagine it happening to Cobalt Strike). You must implement extreme Supply Chain Security: reproducible builds, hardware MFA for all commits, and rigorous dependency scanning.
+
+---
+
+## Attack Surface of the Attacker
+How could your tool be weaponized against you?
+\`\`\`input
+Reverse engineering, CI/CD compromise, C2 infrastructure takeover...
+\`\`\`
+
+## OPSEC Threat Model
+\`\`\`prompt
+Act as an OPSEC Specialist. I am developing an offensive security tool. Conduct a STRIDE threat model on the tool itself, focusing heavily on how a sophisticated Blue Team might intercept my C2 traffic, reverse my payloads, or attribute the infrastructure back to me.
+\`\`\`
+
+- [ ] I have identified the primary risks to my own infrastructure.
+- [ ] I have designed mitigations for reverse-engineering and attribution.
+`;
+
+export const cyberredscopeboundaries = `
+## Strategic Guidance
+
+### Hackathon Mode
+Hardcode the scope. If you are targeting \`192.168.1.50\`, hardcode it. Do not allow the user to type in a domain name. This prevents accidental execution against real-world targets during a tired 3 AM coding sprint.
+
+### Personal Project
+Implement strict CIDR parsing. Your tool should accept a scope file (e.g., \`scope.txt\`) and run a mathematical validation on every single packet or request before it leaves the network interface, ensuring the destination IP strictly falls within the defined CIDR block.
+
+### Production SaaS
+Scope is fluid in the real world. A client might own \`example.com\` but host it on AWS infrastructure they don't own. Your scope engine must handle **DNS resolution validation**—resolving the domain dynamically and checking if the resulting IP matches an approved ASN (Autonomous System Number) before executing an exploit. You also need "Out-of-Scope Detection" alerts.
+
+---
+
+## The Scope Matrix
+Define the boundaries.
+\`\`\`input
+In-scope CIDRs:
+Out-of-scope subdomains:
+Authorized execution methods:
+\`\`\`
+
+## Building the Scope Validator
+\`\`\`prompt
+Act as a Senior Go Developer. Write the architectural design for a high-performance CIDR and DNS scope-validation engine. It must sit between the application logic and the network interface, validating that every outbound request strictly matches an allowed IP range, dropping out-of-bounds packets instantly.
+\`\`\`
+
+- [ ] I have implemented a mathematical CIDR validation engine.
+- [ ] I have tested the tool to ensure it drops out-of-scope requests.
+`;
+
+export const cyberredsuccessmetrics = `
+## Strategic Guidance
+
+### Hackathon Mode
+Success is a popped shell and a flashy screenshot. Focus entirely on the visual output of the exploit. A terminal that prints \`[+] ROOT SHELL OBTAINED\` in bright green text is exactly what you need.
+
+### Personal Project
+Success is proving a deep technical concept. If you are building a custom memory scanner, success is successfully dumping LSASS memory without triggering Windows Defender. The metric is "Evasion Rate" and "Time to Detection."
+
+### Production SaaS
+Success for a commercial offensive tool is **Actionable Remediation**. Red teams don't just hack; they provide value by showing the Blue team how to fix it. Your tool's output must map perfectly to the MITRE ATT&CK framework. If your tool exploits a misconfiguration, the final report must generate the exact Terraform or bash script required to patch it.
+
+---
+
+## Defining the Win Condition
+What proves this tool is valuable?
+\`\`\`input
+Evasion of specific EDRs, mapping to MITRE, speed of execution...
+\`\`\`
+
+## MITRE ATT&CK Integration
+\`\`\`prompt
+Act as a Red Team Lead. I am building a [TOOL_TYPE]. Explain how I should format the output and logging of this tool so that it automatically maps its actions to specific MITRE ATT&CK Tactic and Technique IDs, providing maximum value to a Blue Team.
+\`\`\`
+
+- [ ] I have defined the success metrics.
+- [ ] The output maps to recognizable security frameworks.
+`;
+
+export const cyberredexecutionflow = `
+## Strategic Guidance
+
+### Hackathon Mode
+Keep the architecture linear. Read from a file of targets -> scan -> exploit -> print result. Don't worry about asynchronous edge cases or complex state machines. A simple procedural script is perfect.
+
+### Personal Project
+Build a modular pipeline. Separate your modules: Recon, Exploitation, and Reporting. Design a shared data bus (like a simple JSON structure passed between functions) so you can easily swap out the Recon module without breaking the Exploit module.
+
+### Production SaaS
+Execution flow must be highly distributed and asynchronous. If you are scanning 10,000 subdomains, you need a message broker (like RabbitMQ or Redis) to handle a fleet of worker nodes. Furthermore, the execution flow must support **Stateful Resumption**—if the tool crashes halfway through a 3-day scan, it must resume exactly where it left off without duplicating network noise.
+
+---
+
+## Define the Pipeline
+How does data move through your tool?
+\`\`\`input
+E.g., Recon -> RabbitMQ -> Exploit Worker -> PostgreSQL
+\`\`\`
+
+## Architecting the Engine
+\`\`\`prompt
+Act as a Principal Software Engineer. I am building a distributed offensive security tool. Design an asynchronous, queue-based execution flow architecture that supports stateful resumption, graceful failure, and decoupled modular components (Recon, Exploit, Reporting).
+\`\`\`
+
+- [ ] I have mapped the execution flow.
+- [ ] I have designed the system to handle crashes gracefully.
+`;
+
+export const cyberredstealthevasion = `
+## Strategic Guidance
+
+### Hackathon Mode
+Evasion is out of scope. Assume the target has Windows Defender disabled and no EDR (Endpoint Detection and Response). Focus purely on getting the exploit to work in a pristine environment.
+
+### Personal Project
+Learn the basics of AMSI (Antimalware Scan Interface) bypass. Don't just copy a PowerShell one-liner from GitHub; read the Microsoft docs on how AMSI hooks work, and write a custom script to patch the \`AmsiScanBuffer\` function in memory. Focus on understanding *why* signatures trigger.
+
+### Production SaaS
+This is where the real money is. Commercial C2 frameworks must bypass enterprise EDRs (CrowdStrike, SentinelOne). This requires **Direct System Calls** (bypassing user-land API hooks), **Polymorphic Payloads** (generating unique signatures on the fly), and **Sleep Obfuscation** (encrypting the payload in memory while the thread is sleeping to defeat memory scanners).
+
+---
+
+## The Evasion Strategy
+Which defensive layers are you targeting to bypass?
+\`\`\`input
+AMSI, User-land API hooks, Network DPI, Memory Scanners...
+\`\`\`
+
+## EDR Evasion Architecture
+\`\`\`prompt
+Act as a Senior Malware Developer. I am building a C2 implant that needs to bypass modern EDR user-land hooking. Detail the architectural differences between using standard Windows APIs vs. implementing Direct System Calls (Syscalls) via Hell's Gate or Tartarus' Gate techniques.
+\`\`\`
+
+- [ ] I understand the target's defensive capabilities.
+- [ ] I have designed the payload to avoid basic static signatures.
+`;
+
+export const cyberredpayloaddelivery = `
+## Strategic Guidance
+
+### Hackathon Mode
+Use a simple Python HTTP server (\`python3 -m http.server\`) to serve your payload, and a basic \`curl\` or \`wget\` command to pull it down. It’s loud, but it works for a demo.
+
+### Personal Project
+Experiment with "Living off the Land" (LotL) binaries. Instead of serving an \`.exe\` file, can you deliver your payload entirely in memory using \`certutil\`, \`regsvr32\`, or \`MSBuild\`? This demonstrates a deeper understanding of OS internals and reduces forensic artifacts on the disk.
+
+### Production SaaS
+Payload delivery must be pristine and heavily obfuscated. You should use **Domain Fronting** or **CDN (Content Delivery Network) Routing** to hide the true origin of your payloads. The delivery mechanism should also implement **Environment Keying**—the payload will only decrypt and execute if it detects the specific hostname, MAC address, or domain of the target, preventing Blue Teams from analyzing the payload in a sandbox.
+
+---
+
+## Delivery Vector
+How does the weaponized code reach the target?
+\`\`\`input
+Spearphishing macro, SMB lateral movement, Supply chain injection...
+\`\`\`
+
+## Environment Keying Architecture
+\`\`\`prompt
+Act as an Advanced Threat Actor. I need to design an "Environment Keying" mechanism for payload delivery. How can I architect a payload that dynamically derives its decryption key from the target's Active Directory domain name, ensuring it cannot be analyzed in a security vendor's sandbox?
+\`\`\`
+
+- [ ] I have chosen a delivery method.
+- [ ] I have considered how to prevent the payload from being analyzed by third parties.
+`;
+
+export const cyberredc2architecture = `
+## Strategic Guidance
+
+### Hackathon Mode
+A simple reverse shell (like a Netcat listener) is your C2. It’s unencrypted, single-threaded, and highly detectable, but it proves you achieved Remote Code Execution (RCE).
+
+### Personal Project
+Build a basic HTTP/S C2 framework. Implement a "Beaconing" architecture where the implant checks in periodically (e.g., every 60 seconds) rather than maintaining a persistent, noisy TCP connection. Learn how to encrypt the traffic using TLS or AES.
+
+### Production SaaS
+Commercial C2s (like Cobalt Strike or Mythic) require extreme sophistication. You must implement **Malleable C2 Profiles** (allowing operators to change the shape of the network traffic to mimic legitimate apps like Spotify or Google Analytics). The architecture needs **Peer-to-Peer (P2P) SMB/Named Pipe routing** for lateral movement in segregated networks, and robust **Team Server** RBAC so multiple red teamers can operate safely simultaneously.
+
+---
+
+## C2 Toplogy
+What does the command and control network look like?
+\`\`\`input
+HTTP beaconing, DNS tunneling, P2P Named Pipes...
+\`\`\`
+
+## Malleable C2 Design
+\`\`\`prompt
+Act as a C2 Framework Architect. I need to design a "Malleable C2" engine. Explain how to structure the framework so that network indicators (User-Agents, URI paths, headers, sleep jitter) can be dynamically configured via a profile file without recompiling the core implant.
+\`\`\`
+
+- [ ] I have decided on the beaconing interval and protocol.
+- [ ] I have designed the C2 to blend in with normal network traffic.
+`;
+
+export const cyberredlanguageselection = `
+## Strategic Guidance
+
+### Hackathon Mode
+**Python**. Period. It has the richest ecosystem of networking libraries (Scapy, Requests, Impacket), allowing you to build complex offensive tools in hours instead of weeks.
+
+### Personal Project
+**Go** or **C#**. Go allows you to compile a single, statically linked binary that runs on Linux, Windows, or macOS, making deployment trivial. C# allows you to leverage the immense power of the .NET framework on Windows, enabling powerful in-memory execution via \`Assembly.Load\`.
+
+### Production SaaS
+**Rust** for the implant, **Go/Elixir** for the Team Server. Rust provides memory safety (preventing your implant from crashing the target's critical servers via a segmentation fault—a massive liability) while maintaining bare-metal speed and tiny binary sizes. The Team Server needs massive concurrency, making Go or Elixir ideal for handling thousands of asynchronous beacons.
+
+---
+
+## Core Technologies
+What languages are you using and why?
+\`\`\`input
+Implant Language:
+Team Server Language:
+\`\`\`
+
+## Rust for Malware
+\`\`\`prompt
+Act as a Systems Programmer. I am evaluating Rust for an offensive security implant. Detail the specific advantages of Rust regarding memory safety, lack of a heavy runtime, and its ability to interface with raw Windows APIs via FFI, compared to traditional C++.
+\`\`\`
+
+- [ ] I have chosen the language for the implant.
+- [ ] I have chosen the language for the orchestration server.
+`;
+
+export const cyberredconcurrencymodel = `
+## Strategic Guidance
+
+### Hackathon Mode
+Don't worry about concurrency. Run your scans sequentially. If you need it to be faster, use Python's basic \`ThreadPoolExecutor\` and move on. Don't get bogged down in race conditions.
+
+### Personal Project
+Learn the difference between Concurrency (Goroutines/Asyncio) and Parallelism (Multiprocessing). If you are writing a port scanner, use Go's Goroutines. You will learn how to manage channels and wait groups to scan 65,000 ports in seconds without overwhelming the OS socket limits.
+
+### Production SaaS
+You must implement a deeply robust concurrency model that respects OS limitations and target fragility. If your tool opens 100,000 TCP sockets simultaneously, you will cause a Denial of Service (DoS) on the target's firewall, breaking your Rules of Engagement. Your concurrency engine must include **Dynamic Rate Limiting** and **Jitter** to slowly throttle up and down based on network latency and packet drop rates.
+
+---
+
+## Speed vs Stealth
+How fast does this tool need to operate?
+\`\`\`input
+Max threads, socket limits, desired scan duration...
+\`\`\`
+
+## Designing the Throttler
+\`\`\`prompt
+Act as a Network Engineer. I am building a highly concurrent network scanner. Design a "Dynamic Rate Limiting" architecture that monitors packet latency and drop rates in real-time, automatically throttling the number of concurrent worker threads to prevent crashing the target's stateful firewall.
+\`\`\`
+
+- [ ] I have selected a concurrency model (Threads, Async, Processes).
+- [ ] I have implemented rate limiting to prevent accidental DoS.
+`;
+
+export const cyberredosintaggregation = `
+## Strategic Guidance
+
+### Hackathon Mode
+Use existing APIs. Tie together Shodan, Censys, and GitHub's REST API using Python. Your "tool" is essentially just a smart parser that unifies the JSON output from these services into a readable report.
+
+### Personal Project
+Build a specialized scraper. Instead of relying purely on APIs, learn how to build a headless browser (Puppeteer/Playwright) to scrape LinkedIn for employee names, then run permutations to generate a list of likely email addresses and AD usernames. This teaches you data pipeline management.
+
+### Production SaaS
+Commercial OSINT tools deal with massive data lakes. You need a graph database (like Neo4j) to map relationships (e.g., Domain -> Resolves To -> IP -> Hosted By -> ASN). You must also implement **Continuous Monitoring**—polling certificate transparency logs (CT logs) in real-time to alert clients the second a new subdomain is registered under their brand.
+
+---
+
+## OSINT Sources
+Which data streams are you aggregating?
+\`\`\`input
+Shodan, CT Logs, Whois, LinkedIn...
+\`\`\`
+
+## Graph Database Architecture
+\`\`\`prompt
+Act as a Data Architect. I am building an OSINT aggregation tool. Explain why a Graph Database (like Neo4j) is vastly superior to a relational database (PostgreSQL) for mapping complex threat intelligence relationships (Domains, IPs, ASNs, SSL Certs, and Organizations).
+\`\`\`
+
+- [ ] I have identified the necessary APIs and data sources.
+- [ ] I have designed the data storage model.
+`;
+
+export const cyberredportscanning = `
+## Strategic Guidance
+
+### Hackathon Mode
+Just wrap \`nmap\`. Write a Python script that calls \`nmap -sV -p- -T4\`, parses the XML output, and feeds it into your next step. Writing a fast port scanner from scratch takes too much time for a 48-hour event.
+
+### Personal Project
+Write your own \`SYN\` scanner in C or Rust. You will learn intimately how the TCP handshake works, how to craft raw packets, and how to use raw sockets (libpcap). This is a rite of passage for network security engineers.
+
+### Production SaaS
+A commercial scanner must be distributed and incredibly fast, similar to \`masscan\` or \`zmap\`. It must support **Asynchronous Stateless Scanning**—sending millions of SYN packets without allocating memory for the connection state, and capturing the SYN-ACK responses using a separate listening thread. It must also identify and gracefully handle IDS/IPS (Intrusion Detection System) shunning.
+
+---
+
+## Scanning Methodology
+How are you discovering open ports?
+\`\`\`input
+Full TCP Connect, SYN Stealth, UDP Scanning...
+\`\`\`
+
+## Stateless Scanning Architecture
+\`\`\`prompt
+Act as a Network Protocol Expert. I want to build a port scanner capable of scanning the entire IPv4 space. Explain the architecture of an "Asynchronous Stateless SYN Scanner." How does it send packets without tracking state, and how does it correlate the returning SYN-ACKs to the original requests?
+\`\`\`
+
+- [ ] I have determined the type of scan (TCP, SYN, UDP).
+- [ ] I have considered the performance impact on the host network.
+`;
+
+export const cyberredserviceenumeration = `
+## Strategic Guidance
+
+### Hackathon Mode
+Stick to the heavy hitters. If you see port 80/443, pull the HTTP headers and HTML title. If you see 445, try an anonymous SMB login. Don't worry about parsing obscure protocols like AS/400 or SCADA for a 48-hour project.
+
+### Personal Project
+Build a custom protocol parser. Choose a service like RDP (3389) or LDAP (389) and write a script that doesn't just read the banner, but actually initiates the handshake to extract deeper information (like the Windows domain name or the encryption protocols supported) without authenticating.
+
+### Production SaaS
+Service enumeration must be **Signature-Based and Protocol-Aware**. A port might be 8080, but it could be hosting SSH instead of HTTP. Your engine must send protocol-agnostic probes, analyze the raw hex response, and use a massive signature database (like nmap's \`nmap-service-probes\`) to definitively identify the service, version, and underlying OS.
+
+---
+
+## Targeted Services
+What protocols are you actively fingerprinting?
+\`\`\`input
+HTTP/S, SMB, SSH, RDP, Kerberos...
+\`\`\`
+
+## Fingerprinting Architecture
+\`\`\`prompt
+Act as a Network Protocol Analyst. I am building a service enumeration tool. Explain how to architect a "Protocol Fallback" engine: if a service on port 443 fails to respond to an HTTP GET request, how should the tool gracefully step through other protocol probes (e.g., raw TLS ClientHello, SSH banner grab) to accurately fingerprint obfuscated services?
+\`\`\`
+
+- [ ] I have defined the core protocols the tool will understand.
+- [ ] I have implemented logic to handle non-standard port assignments.
+`;
+
+export const cyberredsubdomainbruteforcing = `
+## Strategic Guidance
+
+### Hackathon Mode
+Use existing wordlists like \`SecLists\` and a tool like \`ffuf\` or \`gobuster\`. Your application can just be a wrapper that orchestrates the bruteforcing and formats the output. Do not try to write a DNS resolver from scratch.
+
+### Personal Project
+Write a fast DNS bruteforcer in Go. You will learn the intricacies of the DNS protocol (UDP 53), how to query specific record types (A, AAAA, CNAME), and how to manage a massive list of open public resolvers to avoid getting rate-limited by your ISP.
+
+### Production SaaS
+Production subdomain bruteforcing requires **Wildcard Resolution Handling**. If \`*.example.com\` resolves to an IP, a naive bruteforcer will report 10,000 false positives. Your tool must dynamically detect wildcard DNS responses, categorize the resulting IP addresses, and intelligently filter out junk. It should also incorporate **Permutation Engines** (e.g., taking known subdomains and generating variations like \`dev-app\` or \`app-staging\`).
+
+---
+
+## Resolver Strategy
+How are you resolving the DNS queries?
+\`\`\`input
+Local resolver, Public DNS lists, Custom UDP engine...
+\`\`\`
+
+## Wildcard DNS Mitigation
+\`\`\`prompt
+Act as a Senior DNS Engineer. I am building a subdomain enumeration tool. Design an algorithmic approach to dynamically detect and filter out "Wildcard DNS" responses across multiple sub-tiers, ensuring the final output contains only legitimately unique infrastructure.
+\`\`\`
+
+- [ ] I have integrated a high-quality wordlist (e.g., SecLists).
+- [ ] I have designed a mechanism to handle Wildcard DNS false positives.
+`;
+
+export const cyberredratelimitingevasion = `
+## Strategic Guidance
+
+### Hackathon Mode
+Don't worry about evasion. If a WAF blocks you, switch to a different target. In a hackathon, you want the path of least resistance to demonstrate the exploit.
+
+### Personal Project
+Learn the basics of HTTP header manipulation. Write a script that rotates the \`X-Forwarded-For\`, \`User-Agent\`, and \`Accept-Language\` headers to see if you can trick a basic web application firewall (WAF) into thinking your automated requests are coming from different organic users.
+
+### Production SaaS
+Defeating enterprise WAFs (Cloudflare, Akamai) requires **Distributed Proxy Rotation**. Your architecture needs to hook into a residential proxy network, rotating IP addresses on every single request. Furthermore, your HTTP client must perfectly mimic a real browser's TLS fingerprint (JA3/JA4) and HTTP/2 pseudo-header ordering, or the WAF will block you instantly regardless of the IP.
+
+---
+
+## Evasion Tactics
+How are you avoiding IP bans?
+\`\`\`input
+Proxy rotation, TLS fingerprint spoofing, Jitter delays...
+\`\`\`
+
+## TLS Fingerprinting Evasion
+\`\`\`prompt
+Act as a WAF Evasion Researcher. I am building an automated web scanner. Explain the concept of TLS Fingerprinting (JA3/JA4) and how modern WAFs use it to block automated tools. Provide the architectural requirements for a custom HTTP client (e.g., using Go or Python) that can seamlessly spoof the TLS fingerprint of a modern Chrome browser.
+\`\`\`
+
+- [ ] I understand the target's rate-limiting infrastructure.
+- [ ] I have designed the tool to rotate IPs or headers to avoid blocks.
+`;
+
+export const cyberredvulnerabilitymatching = `
+## Strategic Guidance
+
+### Hackathon Mode
+Hardcode the vulnerability. If your project is a Log4j scanner, only look for Log4j. Don't try to build a universal vulnerability database in a weekend.
+
+### Personal Project
+Integrate the NVD (National Vulnerability Database) API. Write a module that takes the output of your service enumeration (e.g., "Apache 2.4.49") and queries the NVD to return the relevant CVEs. This teaches you how to map CPEs (Common Platform Enumerations) to CVEs.
+
+### Production SaaS
+Commercial scanners rely on custom, highly curated signature databases. Relying solely on the NVD generates too many false positives. You need an architecture that ingests exploit templates (like Nuclei YAML templates) and dynamically maps network responses to those templates. The matching engine must be incredibly fast, utilizing Aho-Corasick or Regex state machines to scan gigabytes of HTTP responses for vulnerability indicators.
+
+---
+
+## The Vulnerability Database
+Where is the tool getting its vulnerability intelligence?
+\`\`\`input
+NVD API, Exploit-DB, Custom Nuclei Templates...
+\`\`\`
+
+## Signature Engine Architecture
+\`\`\`prompt
+Act as a Vulnerability Research Lead. I am building a network vulnerability scanner. Explain the architectural advantages of using a template-based matching engine (like Nuclei's YAML system) over hardcoding vulnerability checks directly into the source code. How should the parsing engine handle complex regex and AST matching against raw HTTP responses?
+\`\`\`
+
+- [ ] I have selected a source for vulnerability data.
+- [ ] I have designed an engine that can ingest and update signatures dynamically.
+`;
+
+export const cyberredpayloadgeneration = `
+## Strategic Guidance
+
+### Hackathon Mode
+Use \`msfvenom\` (Metasploit) to generate your payloads manually, and have your tool execute them. Don't waste time writing a custom shellcode generator.
+
+### Personal Project
+Write a custom payload generator. Create a script that takes a template (e.g., a reverse shell written in C), injects the user's IP and port, and compiles the binary on the fly using \`gcc\` or \`mingw\`. This teaches you compilation pipelines.
+
+### Production SaaS
+Payload generation must be polymorphic and dynamic. The tool must generate **Shellcode** that is automatically obfuscated using XOR encoding, encrypted with AES (where the key is derived from the target environment), and injected into a legitimate Windows process (Process Hollowing). The payload engine must never output the exact same byte sequence twice.
+
+---
+
+## Payload Characteristics
+What kind of payload is being delivered?
+\`\`\`input
+Reverse TCP Shell, Bind Shell, PowerShell cradle, Reflective DLL...
+\`\`\`
+
+## Polymorphic Payload Architecture
+\`\`\`prompt
+Act as an Advanced Malware Analyst. I am building a payload generation engine for a C2 framework. Detail the software architecture required to create a polymorphic payload generator. How can I ensure that the output binary has a completely unique file hash and memory signature every single time it is generated, while still reliably executing the core shellcode?
+\`\`\`
+
+- [ ] I have determined the type of payload to generate.
+- [ ] I have implemented obfuscation techniques to defeat static analysis.
+`;
+
+export const cyberredmemoryexploitation = `
+## Strategic Guidance
+
+### Hackathon Mode
+Skip memory exploitation. Writing buffer overflows or ROP (Return-Oriented Programming) chains is incredibly time-consuming and fragile. Focus on web exploitation or misconfigurations instead.
+
+### Personal Project
+Build a specialized exploiter for a known, older CVE (like MS08-067 or EternalBlue). Learn how to use a debugger (x64dbg) to find memory offsets, construct a payload, and overwrite the Instruction Pointer (EIP/RIP). This is pure, hardcore computer science.
+
+### Production SaaS
+Modern memory exploitation must defeat ASLR (Address Space Layout Randomization), DEP (Data Execution Prevention), and CFG (Control Flow Guard). Your exploit framework must have a massive database of memory offsets for different Windows builds. It must execute **Reflective DLL Injection** or **Shellcode Execution via Callbacks** to ensure the payload runs entirely in memory without ever touching the hard drive.
+
+---
+
+## The Memory Vector
+What technique is being used to hijack execution flow?
+\`\`\`input
+Buffer Overflow, Heap Spray, ROP Chain, Use-After-Free...
+\`\`\`
+
+## Defeating ASLR and DEP
+\`\`\`prompt
+Act as a Senior Exploit Developer. I am building a tool to exploit a memory corruption vulnerability on modern Windows 11. Explain the architectural concepts of ASLR, DEP, and CFG, and outline the strategies required (such as info leaks and ROP chains) to bypass these mitigations and achieve reliable code execution.
+\`\`\`
+
+- [ ] I have identified the vulnerable function and memory offset.
+- [ ] I have designed the exploit to bypass modern memory protections.
+`;
+
+export const cyberredwebexploitation = `
+## Strategic Guidance
+
+### Hackathon Mode
+Focus on the OWASP Top 10. Build a tool that automatically detects SQL Injection (SQLi) or Cross-Site Scripting (XSS). Use simple payloads (\`' OR 1=1--\`) and look for database error strings in the response. It’s simple, effective, and visually obvious for a demo.
+
+### Personal Project
+Build a Blind SQL Injection tool. Instead of looking for errors, write a script that injects a \`SLEEP(5)\` command. Measure the response time mathematically to determine if the query executed. This requires precise timing algorithms and a deep understanding of database syntax (MySQL vs PostgreSQL vs MSSQL).
+
+### Production SaaS
+Commercial web exploitation tools (like Burp Suite Pro or Acunetix) use **AST-based Fuzzing** and **OAST (Out-of-Band Application Security Testing)**. OAST is critical: if a payload triggers an exploit (like Server-Side Request Forgery - SSRF), the server might not return a response to the tool. Instead, the tool must inject a unique DNS payload (e.g., \`curl http://payload123.your-oast-server.com\`) and have a separate backend server listening for that specific DNS resolution to confirm the vulnerability.
+
+---
+
+## The Web Vector
+What specific web vulnerability are you targeting?
+\`\`\`input
+SQLi, XSS, SSRF, Deserialization, XXE...
+\`\`\`
+
+## OAST (Out-of-Band) Architecture
+\`\`\`prompt
+Act as a Senior Web App Security Researcher. I am building an automated web exploitation framework. Detail the architecture required to implement OAST (Out-of-Band Application Security Testing) to detect blind vulnerabilities (like Blind SSRF or Blind RCE) using a custom DNS/HTTP interaction server.
+\`\`\`
+
+- [ ] I have selected the class of web vulnerabilities to target.
+- [ ] I have designed a mechanism to detect blind or asynchronous execution.
+`;
+
+export const cyberredauthenticationbypass = `
+## Strategic Guidance
+
+### Hackathon Mode
+Build a credential stuffer. Take a list of leaked usernames and passwords, and automate the login requests using Python \`requests\` or Selenium. It's loud, but it demonstrates the concept of account takeover.
+
+### Personal Project
+Target JWT (JSON Web Token) manipulation. Write a tool that intercepts a JWT, changes the signing algorithm from \`RS256\` to \`HS256\`, or attempts to crack the symmetric key locally using \`hashcat\`. This proves a deep understanding of modern authentication protocols.
+
+### Production SaaS
+Authentication bypass in enterprise environments often means attacking **Active Directory (AD)** or **SAML/OAuth**. Your tool needs to implement attacks like Kerberoasting, AS-REP Roasting, or Golden Ticket generation. For web apps, it needs to analyze OAuth flows for improper state validation or token hijacking. This requires deep cryptographic understanding and seamless integration with protocols like Kerberos over TCP/UDP port 88.
+
+---
+
+## The Authentication Target
+What system is protecting the target?
+\`\`\`input
+Active Directory, OAuth 2.0, JWT, Basic Auth...
+\`\`\`
+
+## Kerberos Exploitation Architecture
+\`\`\`prompt
+Act as an Active Directory Exploitation Expert. I am building a tool to automate Kerberoasting. Explain the underlying architecture of the Kerberos protocol (TGTs and TGSs) and how a tool can request a service ticket (TGS) for an SPN using a low-privileged account, extract the hash, and format it for offline cracking.
+\`\`\`
+
+- [ ] I have identified the authentication mechanism in use.
+- [ ] I have mapped out the specific cryptographic or logical flaws to attack.
+`;
+
+export const cyberredprivilegeescalation = `
+## Strategic Guidance
+
+### Hackathon Mode
+Use automated scripts like \`LinPEAS\` or \`WinPEAS\`. Your tool can simply be a wrapper that drops these scripts onto the target, executes them, and parses the output to highlight the most obvious misconfigurations (like world-writable SUID binaries).
+
+### Personal Project
+Write a custom Linux PrivEsc enumerator in Bash or Python. Have it specifically look for a single, complex vector, such as vulnerable kernel versions (like Dirty COW) or Docker socket misconfigurations. Understand *why* the misconfiguration leads to root.
+
+### Production SaaS
+Enterprise PrivEsc tools must operate entirely in memory to avoid EDR detection. They must exploit complex Windows internals, such as Token Impersonation (e.g., Potato attacks like PrintSpoofer or Juicy Potato), UAC (User Account Control) bypasses via COM object hijacking, or exploiting vulnerable third-party drivers (Bring Your Own Vulnerable Driver - BYOVD). The architecture must gracefully handle failure without crashing the compromised process.
+
+---
+
+## The Escalation Vector
+How are you moving from a standard user to SYSTEM/root?
+\`\`\`input
+Token Impersonation, Kernel Exploit, SUID Binaries, Scheduled Tasks...
+\`\`\`
+
+## Token Impersonation Architecture
+\`\`\`prompt
+Act as a Windows Internals Expert. I am building a post-exploitation module for a C2 framework. Explain the architecture of Windows Access Tokens and detail how a process running as a local service (like IIS) can duplicate a SYSTEM token (e.g., via the SeImpersonatePrivilege) to spawn a new process with full administrative rights.
+\`\`\`
+
+- [ ] I have determined the target OS and current privilege level.
+- [ ] I have designed the escalation module to avoid crashing the system.
+`;
+
+export const cyberredpersistencemechanisms = `
+## Strategic Guidance
+
+### Hackathon Mode
+A simple cron job on Linux or a basic Registry Run Key on Windows (\`HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\`). It's noisy, but it ensures your payload restarts when the machine reboots.
+
+### Personal Project
+Experiment with WMI (Windows Management Instrumentation) event subscriptions. Write a script that creates a WMI filter that triggers your payload every time a user logs in. This is much stealthier than a Registry key and teaches you about Windows event tracing.
+
+### Production SaaS
+Persistence must survive EDR and threat hunting. Advanced persistence mechanisms include **DLL Search Order Hijacking** (placing a malicious DLL in the path of a legitimate, signed application), **Bootkit/Rootkit** deployment (if you have SYSTEM access), or modifying the code of a frequently used binary on disk. The tool must also include an automated "Cleanup" module to completely remove the persistence mechanism when the engagement ends.
+
+---
+
+## The Persistence Vector
+How will the payload survive a reboot?
+\`\`\`input
+Registry Keys, WMI, Scheduled Tasks, DLL Hijacking...
+\`\`\`
+
+## DLL Hijacking Architecture
+\`\`\`prompt
+Act as an Advanced Persistent Threat (APT) Researcher. I am building a stealthy persistence module. Explain the architecture of Windows DLL Search Order. How can an automated tool identify vulnerable binaries, craft a proxy DLL that forwards legitimate exports, and load malicious shellcode without breaking the host application?
+\`\`\`
+
+- [ ] I have selected a persistence mechanism that matches the target's OPSEC requirements.
+- [ ] I have built a reliable cleanup function to remove all artifacts.
+`;
+
+export const cyberredlateralmovement = `
+## Strategic Guidance
+
+### Hackathon Mode
+SSH key stealing. Write a script that checks \`~/.ssh/\` for private keys and \`~/.bash_history\` for cleartext passwords, then automatically attempts to SSH into other machines on the subnet.
+
+### Personal Project
+Automate Pass-the-Hash (PtH). Write a tool that extracts NTLM hashes using a tool like Mimikatz or a custom LSASS dumper, and then uses the SMB protocol (via a library like \`impacket\`) to execute code on remote Windows machines without needing the cleartext password.
+
+### Production SaaS
+Lateral movement in a mature enterprise requires defeating Network Segmentation and Zero Trust architectures. The tool must support **P2P C2 Routing** (where compromised hosts act as proxies to reach segmented networks) and execute code via stealthy RPC calls, WMI, or DCOM, rather than noisy methods like PsExec. It must also monitor for "Honeypots" or deceptive infrastructure before moving.
+
+---
+
+## The Movement Vector
+How are you pivoting to the next machine?
+\`\`\`input
+Pass-the-Hash, WMI, SSH Pivoting, RDP Hijacking...
+\`\`\`
+
+## Peer-to-Peer (P2P) Routing Architecture
+\`\`\`prompt
+Act as a C2 Infrastructure Architect. I am building a lateral movement module. Detail the architecture of a Peer-to-Peer (P2P) communication network over SMB Named Pipes. How can an implant on a segmented internal network securely route its traffic through a chain of other compromised internal hosts to eventually reach the external Team Server?
+\`\`\`
+
+- [ ] I have identified the protocol used for lateral movement.
+- [ ] I have designed the tool to operate within segmented network boundaries.
+`;
+
+export const cyberreddataexfiltration = `
+## Strategic Guidance
+
+### Hackathon Mode
+Simple HTTP POST requests. Zip up the target files and POST them to a web server you control. It’s fast and gets the job done for a demo.
+
+### Personal Project
+Build a DNS exfiltration tool. Write a script that chunks a sensitive file, encodes it in Base64 or Hex, and sends it out of the network via DNS A-record queries (e.g., \`chunk1.base64data.yourdomain.com\`). This teaches you how to bypass restrictive egress firewalls.
+
+### Production SaaS
+Data exfiltration must look like legitimate business traffic to bypass Data Loss Prevention (DLP) systems. The tool should utilize **Domain Fronting**, **Steganography**, or exfiltrate data directly to trusted cloud providers (like uploading chunks to a Google Drive API or an AWS S3 bucket). The exfiltration module must also throttle its bandwidth usage dynamically to avoid triggering "Spike in Outbound Traffic" alerts in the SOC.
+
+---
+
+## The Exfiltration Vector
+How is the stolen data leaving the network?
+\`\`\`input
+DNS Tunneling, HTTP/S, ICMP, Cloud Provider APIs...
+\`\`\`
+
+## Egress Evasion Architecture
+\`\`\`prompt
+Act as a Red Team Operator. I need to design a stealthy data exfiltration module. Explain how to architect an exfiltration pipeline that uses legitimate third-party APIs (e.g., Microsoft Graph API, Google Drive) to exfiltrate encrypted data chunks, bypassing traditional DLP (Data Loss Prevention) and deep packet inspection systems.
+\`\`\`
+
+- [ ] I have chosen an exfiltration method that blends with normal traffic.
+- [ ] I have implemented encryption and chunking for the stolen data.
+`;
+
+export const cyberredlogwiping = `
+## Strategic Guidance
+
+### Hackathon Mode
+Don't implement log wiping. In a competition setting, wiping logs destroys the evidence the judges or scoring engines need to verify your exploit actually worked.
+
+### Personal Project
+Write a script that targets specific Linux logs. Instead of just running \`rm -rf /var/log/*\` (which is incredibly loud and triggers alarms), learn how to parse \`/var/log/auth.log\` or \`/var/log/syslog\` and mathematically remove *only* the specific lines that contain your IP address, leaving the rest of the file intact.
+
+### Production SaaS
+Log tampering in an enterprise environment is heavily monitored by SIEMs (Security Information and Event Management) and EDRs. Advanced tools must manipulate the **Windows Event Log (EVTX) format** at the binary level, or utilize API unhooking to blind the EDR sensor *before* the malicious action occurs, preventing the log from ever being written in the first place (often called "Ghosting").
+
+---
+
+## The Anti-Forensic Vector
+How are you hiding the tool's tracks?
+\`\`\`input
+Clearing bash_history, Binary EVTX manipulation, EDR blinding...
+\`\`\`
+
+## EDR Blinding Architecture
+\`\`\`prompt
+Act as a Threat Hunter. I am building an anti-forensics module. Explain the concept of "EDR Blinding" via API unhooking or ETW (Event Tracing for Windows) patching. How can an automated tool temporarily disable telemetry generation in memory without crashing the host process or triggering a "Service Stopped" alert in the SIEM?
+\`\`\`
+
+- [ ] I have identified the logs generated by the tool's actions.
+- [ ] I have designed a mechanism to selectively remove or prevent those logs.
+`;
+
+export const cyberredbinaryobfuscation = `
+## Strategic Guidance
+
+### Hackathon Mode
+Pack the binary with UPX (\`upx -9 payload.exe\`). It's the oldest trick in the book and almost every antivirus will flag the UPX stub immediately, but it reduces the file size for a quick demo.
+
+### Personal Project
+Build a custom crypter. Write a program in C or Python that takes your payload, encrypts it with AES or RC4, and generates a "stub" binary. The stub runs, decrypts the payload in memory, and executes it. This teaches you the fundamentals of malware packers.
+
+### Production SaaS
+Commercial tools require deeply integrated, polymorphic obfuscation. You must implement **LLVM Obfuscation** passes (if compiling from C/C++/Rust) to scramble control flow, insert junk code, and flatten the execution graph. The binary must also be **Digitally Signed** with a stolen or gray-market EV (Extended Validation) certificate, as modern Windows environments will block unsigned executables via SmartScreen or AppLocker.
+
+---
+
+## Obfuscation Strategy
+How are you preventing reverse engineering and static analysis?
+\`\`\`input
+UPX, Custom Crypter, LLVM Control Flow Flattening, Code Signing...
+\`\`\`
+
+## Control Flow Flattening Architecture
+\`\`\`prompt
+Act as a Compiler Engineer. I am building a commercial offensive security tool. Explain the architecture of LLVM-based obfuscation, specifically focusing on "Control Flow Flattening" and "Opaque Predicates." How do these techniques prevent a reverse engineer (using tools like IDA Pro or Ghidra) from understanding the tool's execution flow?
+\`\`\`
+
+- [ ] I have implemented a packer or crypter.
+- [ ] I have investigated code signing options to bypass SmartScreen.
+`;
+
+export const cyberredcrosscompilation = `
+## Strategic Guidance
+
+### Hackathon Mode
+Write the tool in Python. Assume the target has Python installed, or use a tool like \`PyInstaller\` to bundle it into a standalone executable. It's bloated, but it's fast to build.
+
+### Personal Project
+Learn how to cross-compile C or Go. If you are developing on macOS, write a Makefile that compiles your payload for Windows (\`GOOS=windows GOARCH=amd64\`) and Linux. This ensures your tool is versatile.
+
+### Production SaaS
+The CI/CD pipeline must automatically build, obfuscate, and sign payloads for dozens of architectures (Windows x64/ARM, Linux x64/ARM/MIPS, macOS Apple Silicon/Intel). The framework must also support **Dynamic Payload Generation**—meaning the Team Server compiles a fresh, customized, cross-compiled binary for the specific target architecture the moment the operator requests it, injecting the unique C2 configuration.
+
+---
+
+## Target Architectures
+What systems must this tool run on natively?
+\`\`\`input
+Windows x64, Linux ARM, macOS...
+\`\`\`
+
+## Dynamic Compilation Pipeline
+\`\`\`prompt
+Act as a DevSecOps Engineer. I am building a C2 Team Server. Design a dynamic compilation pipeline architecture where the Team Server (running on Linux) can receive a request from an operator, inject a custom AES key into a Go source code template, and instantly cross-compile a statically linked Windows \`.exe\` payload on the fly.
+\`\`\`
+
+- [ ] I have defined the target operating systems and architectures.
+- [ ] I have set up a cross-compilation toolchain.
+`;
+
+export const cyberreddocumentation = `
+## Strategic Guidance
+
+### Hackathon Mode
+A solid \`README.md\`. Include a diagram of how the exploit works, a clear disclaimer that it's for educational purposes, and the exact command to run the tool. Good documentation wins hackathons.
+
+### Personal Project
+Write a "Whitepaper." Document the specific vulnerability you are exploiting, the memory offsets you found, and the evasion techniques you implemented. This turns a simple script into a powerful portfolio piece that demonstrates deep comprehension.
+
+### Production SaaS
+Commercial offensive tools require massive documentation libraries. You need operator manuals, API references for the Team Server, and most importantly, **Blue Team IOC (Indicator of Compromise) Reports**. When a red team uses your tool, they must provide the client's SOC with a list of the exact network signatures, file hashes, and event logs your tool generated, so the Blue team can build defenses.
+
+---
+
+## Documentation Requirements
+What level of documentation is required for this tool?
+\`\`\`input
+README, Technical Whitepaper, Operator Manual, IOC Report...
+\`\`\`
+
+## Generating IOC Reports
+\`\`\`prompt
+Act as a Red Team Operator. I am writing documentation for a commercial C2 framework. Detail what a "Blue Team IOC (Indicator of Compromise) Report" must contain. How should the framework automatically track and format the file hashes, memory signatures, and network beacons it generates during an engagement?
+\`\`\`
+
+- [ ] I have written clear usage instructions.
+- [ ] I have documented the specific IOCs the tool generates.
+`;
+
+export const cyberredethicaldisclaimers = `
+## Strategic Guidance
+
+### Hackathon Mode
+Put a standard "For Educational Purposes Only" banner at the top of your CLI output and in your GitHub repository. It won't save you in court, but it sets the right intent.
+
+### Personal Project
+Add a hardcoded interactive prompt. When the user runs the tool, force them to type \`I AGREE\` to a statement confirming they have authorized access to the target. This adds a layer of intentionality.
+
+### Production SaaS
+Commercial tools must enforce strict legal and ethical guardrails. This includes **End User License Agreements (EULAs)**, **Export Control Compliance** (ensuring you aren't selling weaponized exploits to sanctioned nation-states), and potentially **Hardware Dongles or License Keys** to ensure the tool cannot be pirated or used by unauthorized actors.
+
+---
+
+## Legal Protections
+How are you preventing unauthorized use of your tool?
+\`\`\`input
+CLI warnings, Interactive Prompts, License Keys, Export Controls...
+\`\`\`
+
+## License Enforcement Architecture
+\`\`\`prompt
+Act as a Software Architect. I am selling a commercial offensive security tool. Explain the architecture of a secure licensing system (e.g., using cryptographic signatures or hardware tokens) to ensure the tool cannot be pirated, reverse-engineered to bypass the license check, or sold to unauthorized entities.
+\`\`\`
+
+- [ ] I have included clear ethical disclaimers.
+- [ ] I have implemented mechanisms to prevent unauthorized use.
+`;
+
+export const cyberredreleasepipeline = `
+## Strategic Guidance
+
+### Hackathon Mode
+Zip the source code and put it on GitHub. Done.
+
+### Personal Project
+Use GitHub Actions. Set up a workflow that runs unit tests, compiles the binaries for Windows and Linux, and automatically creates a GitHub Release with the attached assets. This shows you understand modern software engineering.
+
+### Production SaaS
+The release pipeline for an offensive tool is a massive target. If a threat actor compromises your pipeline, they can push a backdoor to all your clients. You must implement **Reproducible Builds**, **Hardware Security Module (HSM) Code Signing**, and strict **Software Bill of Materials (SBOM)** generation. The binaries should only be distributed through a secure, authenticated portal.
+
+---
+
+## Deployment Pipeline
+How is the tool being built and distributed safely?
+\`\`\`input
+GitHub Releases, Private authenticated portal, HSM Code Signing...
+\`\`\`
+
+## Secure Supply Chain Architecture
+\`\`\`prompt
+Act as a DevSecOps Architect. I am managing the release pipeline for a commercial offensive security tool. Outline the architectural requirements for achieving "Reproducible Builds" and securing the CI/CD pipeline against supply-chain attacks (similar to the SolarWinds breach).
+\`\`\`
+
+- [ ] I have automated the build process.
+- [ ] I have secured the pipeline against supply-chain compromise.
+`;
+
+export const cyberredcveintegration = `
+## Strategic Guidance
+
+### Hackathon Mode
+If a new CVE drops during the hackathon (like a new zero-day), manually write a script for it. Don't build a system to pull CVEs dynamically.
+
+### Personal Project
+Build a module that queries the GitHub API or Exploit-DB for Proof of Concepts (PoCs) related to specific CVEs. This allows your tool to dynamically fetch exploit code for new vulnerabilities.
+
+### Production SaaS
+Your tool must ingest threat intelligence feeds in real-time. It needs an architecture that pulls from the NVD, vendor advisories, and private exploit brokers. The engine must automatically convert CVE descriptions into actionable scanning signatures (like Nuclei templates) and push them to client scanners worldwide within hours of a vulnerability disclosure.
+
+---
+
+## Threat Intelligence Feeds
+Where is the tool getting information on new vulnerabilities?
+\`\`\`input
+NVD API, Exploit-DB, Private Threat Intel Feeds...
+\`\`\`
+
+## Automated Signature Generation
+\`\`\`prompt
+Act as a Threat Intelligence Engineer. I am building a vulnerability scanner. Detail the architecture of an automated pipeline that ingests raw CVE data from the National Vulnerability Database (NVD) and uses heuristics to automatically generate basic scanning signatures (e.g., checking for vulnerable software versions in HTTP headers).
+\`\`\`
+
+- [ ] I have integrated a CVE data source.
+- [ ] I have designed a mechanism to update scanning signatures.
+`;
+
+export const cyberredsignatureupdates = `
+## Strategic Guidance
+
+### Hackathon Mode
+Hardcode your payload signatures. You don't need an update mechanism for a weekend project.
+
+### Personal Project
+Store your signatures (e.g., regex patterns for finding sensitive files) in a separate JSON or YAML file. Your tool should read this file at runtime, allowing you to update the signatures without recompiling the code.
+
+### Production SaaS
+Commercial scanners and C2 frameworks require **Encrypted, Authenticated Signature Feeds**. You cannot send plaintext exploit templates over the internet, or Blue Teams and competitors will steal them. The tool must pull encrypted signatures from a central server, verify their cryptographic integrity (preventing MITM attacks from injecting malicious signatures), and load them dynamically into memory.
+
+---
+
+## Signature Management
+How are exploit signatures and evasion profiles updated?
+\`\`\`input
+Local YAML files, Encrypted API feeds, Dynamic memory loading...
+\`\`\`
+
+## Encrypted Threat Feed Architecture
+\`\`\`prompt
+Act as a Security Architect. I am building a commercial vulnerability scanner that relies on proprietary exploit signatures. Design the architecture for securely distributing these signatures to client scanners. How can the scanner download, decrypt, and verify the integrity of the signatures without storing the plaintext exploit logic on the client's hard drive?
+\`\`\`
+
+- [ ] I have separated signatures from the core codebase.
+- [ ] I have implemented a secure update mechanism for proprietary signatures.
+`;
+
+export const cyberredbypassmaintenance = `
+## Strategic Guidance
+
+### Hackathon Mode
+If an evasion technique works for the demo, you're done. Don't worry about it breaking tomorrow.
+
+### Personal Project
+Create a testing lab. If you wrote an AMSI bypass, write a script that automatically runs your bypass against Windows Defender in a VM every night. If Defender updates its signatures and catches your bypass, the script alerts you.
+
+### Production SaaS
+Offensive security is a constant cat-and-mouse game. An EDR bypass that works today will be patched in a week. Your framework must employ **Automated Regression Testing against Live EDRs**. You need a massive lab of virtual machines running the latest versions of CrowdStrike, SentinelOne, and Defender. The CI/CD pipeline must automatically compile your payloads, execute them in these VMs, and alert the engineering team the moment a payload is blocked.
+
+---
+
+## Evasion Lifespan
+How will you know when your exploit or evasion technique is burned?
+\`\`\`input
+Manual testing, Automated EDR regression labs, Threat intel feeds...
+\`\`\`
+
+## Automated EDR Regression Architecture
+\`\`\`prompt
+Act as a Red Team QA Engineer. I am maintaining a commercial C2 framework. Detail the architecture required to build an automated "EDR Regression Lab." How can the CI/CD pipeline automatically provision a VM, install a commercial EDR agent, execute a payload, and monitor the EDR's telemetry to determine if the payload was caught or successfully evaded detection?
+\`\`\`
+
+- [ ] I have established a testing environment for my exploits.
+- [ ] I have automated the testing of evasion techniques against live defenses.
+`;
