@@ -21715,6 +21715,1137 @@ Act as a Senior Threat Hunter. Design a hypothesis-driven threat hunt for detect
 - [ ] My team regularly conducts proactive threat hunts based on specific hypotheses.
 - [ ] The results of threat hunts are converted into automated detection rules.
 `
+,
+  'cyberdevsecopscompliance': `
+# Compliance Framework (SOC2/HIPAA)
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+Before you start shifting left and writing pipeline policies, you must know what rules you are legally required to enforce. DevSecOps isn't just about finding SQL injection; it's about proving to auditors that every single line of code in production was reviewed by a human and scanned for vulnerabilities before it was deployed.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ignore compliance entirely. The goal is to build a cool pipeline that catches basic flaws, not to pass a SOC2 audit.
+
+### Personal Project
+Pick one control from a standard like SOC2 (e.g., "Code Changes Must Be Reviewed"). Set up a GitHub repository and enforce Branch Protection rules so that you cannot merge code into main without an approved Pull Request. This is a foundational DevSecOps concept.
+
+### Production SaaS
+You must map your pipeline controls directly to compliance frameworks. If SOC2 requires Separation of Duties, your CI/CD pipeline must enforce that the person who writes the code cannot be the person who deploys it to production. Automate the collection of these proofs (e.g., linking PR approvals to Jira tickets) so that your annual audit takes days instead of months.
+
+## Identifying Requirements
+**Which regulatory frameworks (e.g., SOC2, HIPAA, PCI-DSS, GDPR) apply to your product?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Mapping Controls to the Pipeline
+\`\`\`prompt
+Act as a DevSecOps Architect. My company is pursuing SOC2 Type II compliance. We use GitHub Actions for CI/CD. What specific Branch Protection rules and CI/CD workflow checks must we implement to satisfy the SOC2 Common Criteria regarding Change Management and Separation of Duties?
+\`\`\`
+
+- [ ] I have identified the compliance frameworks required for my application.
+- [ ] I understand how my deployment pipeline maps to those compliance requirements.
+`,
+  'cyberdevsecopsdataclassification': `
+# Data Classification
+
+**Estimated Time:** 2-3 Days
+
+---
+
+## Why this matters
+Not all data is created equal. A repository containing marketing copy does not need the same level of security scrutiny as a repository containing the billing microservice. Data Classification allows you to dynamically adjust your DevSecOps pipeline strictness based on the sensitivity of the code being modified.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Treat all data as public. Don't waste time classifying it.
+
+### Personal Project
+Create a mental model of "Sensitive" vs "Public" data. If you write a web scraper, that's public. If you write a script that handles your personal API keys, that requires strict secrets scanning.
+
+### Production SaaS
+Implement a formal Data Classification policy (e.g., Public, Internal, Confidential, Restricted). Tag your GitHub repositories or AWS resources with these classifications. A PR in a "Restricted" repository might require two human approvals and a manual security team review, whereas a PR in an "Internal" UI component library might only require automated SAST scans.
+
+## Tagging Your Assets
+**List your top 3 most sensitive code repositories or microservices:**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## Building Classification Policies
+\`\`\`prompt
+Act as a Security Governance Lead. Provide a 4-tier Data Classification matrix (e.g., Public, Internal, Confidential, Restricted). For each tier, define the mandatory CI/CD security checks (e.g., SAST, DAST, Manual Pentest) that must be enforced before code can be deployed to production.
+\`\`\`
+
+- [ ] All code repositories are tagged with a data classification level.
+- [ ] Pipeline strictness scales based on the sensitivity of the application.
+`,
+  'cyberdevsecopsassetinventory': `
+# Asset Inventory
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+You cannot secure what you do not know exists. If the marketing team spins up a shadow AWS account and deploys a vulnerable WordPress site, your DevSecOps pipeline won't catch it because it's not wired in. A continuous, automated asset inventory is the bedrock of cloud security.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Your entire asset inventory is the single GitHub repo and the single Vercel deployment you are building right now.
+
+### Personal Project
+Write a simple Python script using \`boto3\` to list all running EC2 instances across all regions in your personal AWS account. You might be surprised to find resources you forgot to turn off.
+
+### Production SaaS
+Do not rely on manual spreadsheets. Use a Cloud Security Posture Management (CSPM) tool or tools like Cartography (by Lyft) to automatically discover and map every S3 bucket, IAM role, EC2 instance, and GitHub repository. If a new repository is created, the system must automatically enforce that the default DevSecOps pipeline is attached to it.
+
+## Identifying Shadow IT
+**What process do you have in place to detect a developer spinning up unauthorized cloud resources?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Automating Discovery
+\`\`\`prompt
+Explain how to build a continuous asset inventory system for a multi-account AWS environment using AWS Config and AWS Security Hub. How can we ensure that every newly created S3 bucket is automatically logged in our central asset database?
+\`\`\`
+
+- [ ] I have an automated tool that discovers cloud resources and code repositories.
+- [ ] I have a mechanism to detect and alert on 'Shadow IT'.
+`,
+  'cyberdevsecopsiam': `
+# Identity Management (IAM)
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+In a modern cloud environment, IAM (Identity and Access Management) is the new network perimeter. Over-permissive CI/CD roles are a massive attack vector. If your Jenkins server has an AWS IAM role with \`AdministratorAccess\`, a single vulnerability in Jenkins allows an attacker to take over your entire AWS organization.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Just use a single Admin key. You don't have time to craft granular IAM policies for a 48-hour sprint.
+
+### Personal Project
+Practice the Principle of Least Privilege. If you have a GitHub Action that deploys a static site to an S3 bucket, write an IAM policy that ONLY allows \`s3:PutObject\` on that specific bucket, and nothing else.
+
+### Production SaaS
+Never use long-lived IAM Access Keys in your CI/CD pipelines. Implement OIDC (OpenID Connect) federation between your CI/CD provider (like GitHub Actions or GitLab) and your Cloud Provider (AWS/GCP). This allows the pipeline to request temporary, short-lived tokens that expire after the deployment is finished. Enforce strict least-privilege policies for every microservice.
+
+## Auditing Pipeline Privileges
+**Does your CI/CD pipeline use long-lived access keys, or short-lived OIDC tokens?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Setting up OIDC
+\`\`\`prompt
+Act as a Cloud Security Architect. Provide a step-by-step guide on how to configure OpenID Connect (OIDC) between GitHub Actions and AWS IAM. Detail how to write the Trust Policy so that only a specific GitHub repository in my organization can assume the deployment role.
+\`\`\`
+
+- [ ] My CI/CD pipelines authenticate to the cloud using short-lived OIDC tokens, not hardcoded keys.
+- [ ] Every deployment role is strictly scoped to the exact permissions needed for that specific application.
+`,
+  'cyberdevsecopsriskassessment': `
+# Risk Assessment
+
+**Estimated Time:** 1-2 Days
+
+---
+
+## Why this matters
+DevSecOps teams have finite resources. You will inevitably have 500 "Medium" severity vulnerabilities in your backlog. A formal Risk Assessment process helps you prioritize what to fix first based on the actual business impact, rather than just the CVSS score.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Fix whatever breaks the build. Ignore the rest.
+
+### Personal Project
+Look at a vulnerability scan of a vulnerable app (like OWASP Juice Shop). Try to calculate the real-world risk. A Cross-Site Scripting (XSS) bug on the login page is High Risk; an XSS bug in an admin-only portal that is only accessible via VPN is Low Risk.
+
+### Production SaaS
+Adopt a risk framework like FAIR (Factor Analysis of Information Risk) to quantify risk in financial terms. If a vulnerability scanner flags an outdated library in an internal tool, but that tool is isolated from the internet and contains no sensitive data, the risk is negligible. Do not block deployments for low-risk findings; log them as technical debt and move on.
+
+## Defining Impact
+**If your primary database was encrypted by ransomware today, what would be the financial impact per hour of downtime?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Quantifying Risk
+\`\`\`prompt
+Act as a Risk Management Officer. Explain the difference between a vulnerability's CVSS score and its actual Business Risk. Give 3 examples where a Critical CVSS vulnerability might actually pose a Low Risk to a SaaS business due to compensating controls.
+\`\`\`
+
+- [ ] I have a framework for prioritizing vulnerabilities based on business context, not just CVSS scores.
+- [ ] I do not block production deployments for low-risk findings.
+`,
+  'cyberdevsecopsshiftleft': `
+# Shift-Left Strategy
+
+**Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+"Shifting Left" means moving security testing as early in the Software Development Life Cycle (SDLC) as possible. Finding a vulnerability while the developer is typing in their IDE costs pennies to fix. Finding that same vulnerability during a penetration test in production costs thousands of dollars and weeks of rework.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Install a basic linter in your IDE. That's your shift-left strategy.
+
+### Personal Project
+Install SonarLint or Snyk plugin in your VS Code. Watch how it highlights security flaws (like hardcoded passwords or insecure random number generators) in real-time as you type.
+
+### Production SaaS
+Security must be frictionless. Do not force developers to log into a separate security portal to see their vulnerabilities. Push the findings directly into the tools they already use: IDE plugins, pre-commit hooks, and GitHub/GitLab Pull Request comments. If a security tool takes 45 minutes to run, it cannot be in the PR blocking path.
+
+## Friction Analysis
+**What is the current average time it takes for a developer to get security feedback on a code change?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Designing the Developer Experience
+\`\`\`prompt
+Act as a DevSecOps Evangelist. Explain the concept of 'Developer Experience (DX) in Security'. How do you implement SAST and Secrets Scanning in a way that developers actually appreciate, rather than viewing it as a blocker?
+\`\`\`
+
+- [ ] Developers receive security feedback directly in their IDE or via PR comments.
+- [ ] Security scans in the critical path (PRs) take less than 5 minutes to complete.
+`,
+  'cyberdevsecopscicdhooks': `
+# CI/CD Integration Hooks
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+The CI/CD pipeline (e.g., GitHub Actions, GitLab CI, Jenkins) is the engine of DevSecOps. If your security tools aren't hooked into the pipeline, they are just isolated scanners that nobody looks at. You must embed security checks seamlessly into the build and deploy stages.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Add a single GitHub Action that runs \`npm audit\` or a basic Semgrep scan when you push to main.
+
+### Personal Project
+Build a GitHub Actions workflow that runs a SAST scan on every Pull Request. Configure the workflow to automatically fail the build if it finds any "High" or "Critical" severity vulnerabilities.
+
+### Production SaaS
+Build modular, reusable CI/CD templates. Application teams should not have to write their own security scanning logic. Provide a centralized GitHub Action (e.g., \`uses: my-org/security-pipeline@v1\`) that runs SAST, SCA, and Secrets Scanning. This guarantees uniform security checks across all 500 microservices in your company without duplicating code.
+
+## Standardizing the Pipeline
+**Which CI/CD platform will serve as the backbone for your automated security checks?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Building Reusable Workflows
+\`\`\`prompt
+Act as a DevOps Engineer. Provide a complete GitHub Actions YAML workflow that acts as a reusable pipeline. It should trigger on Pull Requests, run Semgrep for SAST, Trivy for container scanning, and block the merge if critical vulnerabilities are found, while outputting the results to the GitHub Security tab.
+\`\`\`
+
+- [ ] Security scans are automatically triggered on every Pull Request.
+- [ ] Security workflows are modular and centrally managed to ensure consistency.
+`,
+  'cyberdevsecopssecrets': `
+# Secrets Management
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+Hardcoded API keys, database passwords, and AWS tokens are the number one cause of massive data breaches. If a developer accidentally pushes a Slack token to a public GitHub repo, attackers will scrape it and use it within 3 seconds. You must prevent secrets from entering source code, and securely inject them at runtime.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use \`.env\` files and strictly ensure they are in your \`.gitignore\`. Use GitHub Repository Secrets to pass them to your build pipeline.
+
+### Personal Project
+Install \`gitleaks\` or \`trufflehog\` as a pre-commit hook. This will prevent you from even creating a local commit if the commit contains something that looks like an AWS key.
+
+### Production SaaS
+Implement HashiCorp Vault or AWS Secrets Manager. Applications must never have static credentials. They should authenticate to Vault at runtime (using Kubernetes Service Accounts or AWS IAM) to request temporary, dynamically generated database credentials that expire after 1 hour. Scan all historical Git commits across the entire organization for leaked secrets.
+
+## Handling Leaked Secrets
+**If an AWS key is pushed to a public repository, what is your exact process for rotating it?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Dynamic Secrets Architecture
+\`\`\`prompt
+Act as a Cloud Architect. Explain the concept of 'Dynamic Secrets' using HashiCorp Vault. Provide an architectural overview of how a Node.js microservice running in Kubernetes can request a temporary PostgreSQL database password from Vault that automatically revokes itself after 60 minutes.
+\`\`\`
+
+- [ ] Pre-commit hooks are enforced to prevent secrets from entering source control.
+- [ ] Production applications retrieve secrets dynamically at runtime from a secure vault.
+`,
+  'cyberdevsecopszerotrust': `
+# Zero-Trust Architecture
+
+**Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+The old model of "hard outer shell, soft gooey center" (where anything on the corporate VPN is trusted) is dead. If an attacker breaches one developer's laptop, they can access everything. Zero-Trust dictates that trust is never granted implicitly based on network location; every single request must be authenticated and authorized.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Not applicable. Focus on building the app.
+
+### Personal Project
+Put a reverse proxy like Cloudflare Access or Tailscale in front of your home lab web server. Only allow connections if you successfully authenticate with GitHub or Google SSO, completely bypassing the need for a traditional VPN.
+
+### Production SaaS
+Enforce strict Mutual TLS (mTLS) between all microservices (using a service mesh like Istio or Linkerd). Just because Service A and Service B are in the same Kubernetes cluster doesn't mean Service A is allowed to talk to Service B. Implement identity-aware proxies (like BeyondCorp) so employees can access internal tools securely from a coffee shop without a VPN.
+
+## Microsegmentation
+**Which two internal microservices in your architecture have absolutely no business talking to each other?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Implementing mTLS
+\`\`\`prompt
+Act as a Network Security Architect. Explain how a Service Mesh (like Istio) enforces Zero-Trust inside a Kubernetes cluster using Mutual TLS (mTLS). How does this protect against a compromised container attempting to sniff traffic or perform lateral movement to a database pod?
+\`\`\`
+
+- [ ] Internal microservices communicate via encrypted, mutually authenticated channels (mTLS).
+- [ ] Access to internal developer tools requires SSO and device-posture checks, not just a VPN.
+`,
+  'cyberdevsecopsiac': `
+# Infrastructure as Code (IaC) Security
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+When infrastructure is defined as code (Terraform, CloudFormation, Kubernetes YAML), a single typo can expose a production database to the entire internet. Scanning IaC templates *before* they are deployed allows you to catch cloud misconfigurations in the CI/CD pipeline, rather than waiting for an alert in production.
+
+## Strategic Guidance
+
+### Hackathon Mode
+If you use Terraform, just double-check your security groups manually. You don't need a scanner.
+
+### Personal Project
+Install \`checkov\` or \`tfsec\`. Run it against a simple Terraform file that provisions an AWS S3 bucket. Fix the warnings it throws (like missing encryption or lack of versioning).
+
+### Production SaaS
+Mandate IaC for 100% of cloud resources; manual ClickOps in the AWS console is banned. Integrate an IaC scanner (like Checkov, OPA, or Snyk IaC) into your Terraform PR pipeline. If a developer attempts to merge a PR that changes a Security Group ingress rule to \`0.0.0.0/0\` on port 22, the pipeline must block the merge automatically.
+
+## Defining IaC Policies
+**What are 3 critical cloud misconfigurations that should automatically fail an IaC pipeline build?**
+\`\`\`input
+1. S3 buckets with public read access
+2. 
+3. 
+\`\`\`
+
+## Automating IaC Scans
+\`\`\`prompt
+Act as a Cloud Security Engineer. Provide a GitHub Actions workflow snippet that runs 'Checkov' against a directory of Terraform files. Configure it to fail the build only if 'High' or 'Critical' severity misconfigurations are found, specifically enforcing that no AWS Security Groups allow public SSH access.
+\`\`\`
+
+- [ ] All infrastructure changes are managed via IaC and version control.
+- [ ] IaC templates are scanned for security misconfigurations before being applied.
+`,
+  'cyberdevsecopssast': `
+# Static Code Analysis (SAST)
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+Static Application Security Testing (SAST) analyzes your source code without executing it. It looks for insecure coding patterns like SQL Injection (concatenating strings into database queries) or Cross-Site Scripting (XSS). It is the first line of defense for application security.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Run a quick local scan with a lightweight tool before you submit, but don't configure it to block your build.
+
+### Personal Project
+Integrate Semgrep into your project. It's fast, open-source, and uses a very intuitive syntax to find bugs. Write a custom Semgrep rule to detect if you ever accidentally type \`eval()\` in your JavaScript code.
+
+### Production SaaS
+SAST must run on every single Pull Request. However, legacy SAST tools take hours to run and produce 90% false positives. You must use modern, fast SAST tools (like Semgrep or CodeQL) and aggressively tune out the false positives. If a SAST tool blocks a developer's PR with a false positive more than twice, they will learn to hate the security team.
+
+## Tuning the Scanner
+**Which specific vulnerability categories (e.g., SQLi, XSS, Command Injection) are most relevant to your tech stack?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Writing Custom Rules
+\`\`\`prompt
+Act as an Application Security Engineer. Explain how to write a custom Semgrep rule to detect insecure direct object references (IDOR) in a Node.js Express application. Provide a YAML rule snippet that flags any route handler where a user ID is taken from the URL parameters and queried in the database without an explicit authorization check.
+\`\`\`
+
+- [ ] SAST runs automatically on every Pull Request.
+- [ ] The SAST tool is tuned to ignore test files and focus only on production code.
+`,
+  'cyberdevsecopsdast': `
+# Dynamic Analysis (DAST)
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+While SAST looks at the blueprint (the source code), DAST looks at the finished building. Dynamic Application Security Testing (DAST) interacts with your running application from the outside, injecting malicious payloads into input fields and analyzing the HTTP responses. It catches runtime issues like server misconfigurations and authentication bypasses that SAST cannot see.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip DAST. It takes too long to configure and run.
+
+### Personal Project
+Download OWASP ZAP (Zed Attack Proxy). Run an automated spider and active scan against your local development server. Review the PDF report to see how many missing security headers (like HSTS or CSP) your app has.
+
+### Production SaaS
+Integrate a headless DAST scanner (like ZAP CLI or Nuclei) into your CI/CD pipeline, but do NOT run it on every PR (it takes too long). Run it nightly against a Staging environment. You must seed the DAST scanner with valid authentication tokens so it can crawl the authenticated areas of your SaaS app, otherwise, it will only scan your login page.
+
+## Authenticated Scanning
+**How will your DAST scanner authenticate to your staging environment without breaking production metrics?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Automating DAST
+\`\`\`prompt
+Act as a DevSecOps Engineer. Provide a GitHub Actions workflow that spins up a Dockerized version of my web application, runs an OWASP ZAP Baseline Scan against it, and fails the build if any High-severity vulnerabilities are found. Explain how to handle the ZAP context file for authenticated scanning.
+\`\`\`
+
+- [ ] DAST scans are run regularly against a staging or QA environment.
+- [ ] The scanner is configured with valid credentials to test authenticated routes.
+`,
+  'cyberdevsecopssca': `
+# Software Composition (SCA)
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+Modern applications are 90% open-source libraries and 10% custom code. If you import a vulnerable version of \`log4j\` or \`express\`, your application is vulnerable, regardless of how secure your custom code is. Software Composition Analysis (SCA) scans your \`package.json\` or \`requirements.txt\` against databases of known vulnerabilities (CVEs).
+
+## Strategic Guidance
+
+### Hackathon Mode
+GitHub's default Dependabot is sufficient.
+
+### Personal Project
+Run \`npm audit\` or \`pip-audit\` locally. Understand the difference between a direct dependency and a transitive dependency (a library that your library relies on).
+
+### Production SaaS
+SCA is non-negotiable. Integrate tools like Snyk, Mend, or Black Duck into your pipeline. You must establish strict SLAs for remediation: Critical CVEs in direct dependencies must be patched within 48 hours. Block PRs that attempt to introduce net-new Critical or High CVEs into the codebase.
+
+## Dependency Management
+**What is your Service Level Agreement (SLA) for patching Critical vulnerabilities in open-source dependencies?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Handling Transitive Risk
+\`\`\`prompt
+Act as a Vulnerability Management Lead. Explain the challenge of patching transitive dependencies (dependencies of dependencies) in a Node.js project. Provide a strategy using 'npm overrides' or 'yarn resolutions' to force a patched version of a deep dependency without waiting for the top-level package maintainer to update their library.
+\`\`\`
+
+- [ ] An SCA tool is actively monitoring all third-party libraries for known CVEs.
+- [ ] The CI/CD pipeline blocks the introduction of new Critical vulnerabilities.
+`,
+  'cyberdevsecopssbom': `
+# SBOM Generation
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+A Software Bill of Materials (SBOM) is the "ingredients list" of your software. When a massive zero-day vulnerability (like Log4Shell) drops, you don't have time to run new scans across 500 repositories. You query your central SBOM database to instantly find out exactly which microservices are running the vulnerable version.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Use a tool like \`syft\` to generate a CycloneDX or SPDX JSON file for a Docker image you built. Look at the raw output to understand how it catalogues every binary, library, and OS package.
+
+### Production SaaS
+SBOM generation must be a native artifact of your build pipeline. Every time a Docker image is built or a binary is compiled, an SBOM must be generated, signed, and published to a central repository (like Dependency-Track). If you sell software to the US Federal Government, providing an SBOM is legally mandated by Executive Order 14028.
+
+## Centralizing Inventory
+**Where will you store and query your SBOMs across the organization?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Automating the Ingredients List
+\`\`\`prompt
+Act as a Build Engineer. Provide a GitHub Actions workflow snippet that uses 'Syft' by Anchore to generate a CycloneDX SBOM for a newly built Docker image. Explain how to use 'Grype' to immediately scan that generated SBOM for vulnerabilities before pushing the image to a container registry.
+\`\`\`
+
+- [ ] Every production build artifact has an associated SBOM.
+- [ ] SBOMs are stored centrally to allow for rapid querying during zero-day events.
+`,
+  'cyberdevsecopscontainerscanning': `
+# Container Vulnerability Scanning
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+A secure application running on an insecure operating system is vulnerable. When you build a Docker image, you are bundling a mini-Linux OS with your app. If the base image (e.g., \`node:14-alpine\`) contains unpatched OS vulnerabilities, attackers can exploit them to break out of the container. 
+
+## Strategic Guidance
+
+### Hackathon Mode
+Just use official, slim base images (like \`node:18-alpine\`). Don't worry about scanning them.
+
+### Personal Project
+Install \`trivy\`. Run \`trivy image nginx:latest\` and look at the output. You will be shocked at how many vulnerabilities exist in standard public images.
+
+### Production SaaS
+Container scanning must happen in three places: 1) In the CI pipeline (failing the build if the image contains High/Critical OS vulnerabilities), 2) In the Container Registry (scanning images at rest continuously), and 3) In the Kubernetes cluster (using Admission Controllers to block the deployment of vulnerable images). Always use "distroless" or highly minimized base images to reduce the attack surface.
+
+## Base Image Strategy
+**Which base images are approved for use in your production environment?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Implementing Image Scanning
+\`\`\`prompt
+Explain the security benefits of using 'Distroless' container images compared to standard Alpine or Debian base images. Provide a multi-stage Dockerfile for a Go application that compiles the binary in an Alpine builder and copies it into a Distroless static image for the final runtime.
+\`\`\`
+
+- [ ] Docker images are scanned for OS-level vulnerabilities during the CI build.
+- [ ] Production workloads utilize minimal or distroless base images.
+`,
+  'cyberdevsecopsdriftdetection': `
+# Terraform Drift Detection
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+Infrastructure as Code (IaC) is only secure if the cloud environment actually matches the code. If a tired engineer logs into the AWS console at 2 AM and manually opens port 22 on a firewall to debug something, your Terraform code won't show it. This discrepancy is called "Drift," and it hides critical vulnerabilities.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Not applicable. You are probably building everything in the console anyway.
+
+### Personal Project
+Run \`terraform plan\` against an infrastructure you haven't touched in a month. See if anything in the plan shows changes outside of your code (this usually happens if you manually tweaked a setting).
+
+### Production SaaS
+Implement automated drift detection. Run a pipeline job every 12 hours that executes a \`terraform plan\` (or uses a tool like \`driftctl\`). If it detects that the actual cloud state differs from the Git repository, it should instantly alert the DevSecOps team. The only acceptable fix is to update the Terraform code, never to leave the manual change in place.
+
+## Preventing Manual Changes
+**How do you prevent engineers from manually altering production infrastructure in the cloud console?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Automating Drift Alerts
+\`\`\`prompt
+Act as a Cloud Operations Engineer. Design a workflow using GitHub Actions and Slack webhooks that runs 'terraform plan' on a cron schedule every night. If the plan indicates that resources will be added, changed, or destroyed (indicating drift), send a formatted alert to the #sec-ops Slack channel.
+\`\`\`
+
+- [ ] I have an automated process to detect drift between my IaC code and the actual cloud environment.
+- [ ] Write access to the production cloud console is strictly disabled for human users.
+`,
+  'cyberdevsecopscspm': `
+# CSPM (Cloud Security Posture Management)
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+Cloud environments are incredibly complex. A single misconfigured IAM policy or a publicly exposed S3 bucket can lead to a catastrophic breach. CSPM tools continuously monitor your cloud provider's API to ensure your environment complies with security best practices (like the CIS AWS Foundations Benchmark).
+
+## Strategic Guidance
+
+### Hackathon Mode
+Enable AWS Security Hub's free tier or use GCP Security Command Center. Just look at the dashboard once before you finish.
+
+### Personal Project
+Run the open-source tool \`Prowler\` against your personal AWS account. Review the HTML report to see all the security best practices you are currently violating.
+
+### Production SaaS
+A commercial or robust open-source CSPM (like CloudQuery, Wiz, or Prisma Cloud) is mandatory. It must continuously scan all cloud accounts across all regions. It should alert the security team immediately if a database is made publicly accessible or if encryption at rest is disabled. Tie the CSPM findings directly into Jira so DevOps teams can remediate them.
+
+## Cloud Best Practices
+**Which compliance benchmark (e.g., CIS AWS, NIST) will you use to measure your cloud security posture?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Continuous Cloud Auditing
+\`\`\`prompt
+Act as a Cloud Security Architect. Compare and contrast agent-based cloud security monitoring versus agentless CSPM (via Cloud Provider APIs). Explain how a tool like Prowler or AWS Security Hub identifies a publicly exposed S3 bucket and an IAM user lacking MFA.
+\`\`\`
+
+- [ ] A CSPM tool is continuously scanning the production cloud environment for misconfigurations.
+- [ ] The environment is measured against a recognized security benchmark (e.g., CIS).
+`,
+  'cyberdevsecopsk8smisconfigs': `
+# Kubernetes Misconfigurations
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+Kubernetes is a massive, complex beast. By default, it is incredibly insecure. If you deploy a pod without strict resource limits or with \`privileged: true\`, an attacker who compromises that container can easily break out and take over the entire cluster node.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't use Kubernetes for a hackathon unless you already have a template. Use a PaaS like Vercel or Heroku to avoid the configuration overhead.
+
+### Personal Project
+Install \`kube-bench\` and run it against a local Minikube or K3s cluster. Install \`datree\` or \`checkov\` and scan a basic deployment YAML file to see what security contexts you forgot to define.
+
+### Production SaaS
+Implement Kubernetes Admission Controllers (like OPA Gatekeeper or Kyverno). These tools sit inside the cluster and intercept every deployment request. If a developer tries to deploy a pod running as root, or mounting the host filesystem, the Admission Controller will outright reject the deployment, regardless of what the CI/CD pipeline allowed.
+
+## Hardening the Cluster
+**What Kubernetes Admission Controller will you use to enforce cluster policies?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Enforcing Pod Security
+\`\`\`prompt
+Act as a Kubernetes Security Expert. Write an OPA Gatekeeper constraint (Rego policy) that completely blocks the creation of any Pod in the 'production' namespace that does not explicitly set 'runAsNonRoot: true' in its SecurityContext.
+\`\`\`
+
+- [ ] Kubernetes manifests are scanned for misconfigurations before deployment.
+- [ ] An Admission Controller is actively preventing insecure pods from running in the cluster.
+`,
+  'cyberdevsecopsnetworkpolicy': `
+# Network Policy Scanning
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+In Kubernetes, the default behavior is that every pod can communicate with every other pod. If your frontend web app is compromised, the attacker can port-scan and attack your backend database pods directly. Network Policies act as internal firewalls to enforce microsegmentation.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ignore Network Policies. Rely on the cloud provider's outer firewall (Security Groups).
+
+### Personal Project
+Write a basic Kubernetes \`NetworkPolicy\` YAML that explicitly denies all ingress and egress traffic in a namespace, and then poke holes only for the specific ports your app needs. Test it by trying to \`curl\` the database from a different pod.
+
+### Production SaaS
+Network Policies must be strictly enforced. Use a CNI (Container Network Interface) like Cilium or Calico that supports advanced network policies. Scan your infrastructure repository to ensure every single deployment has an associated Network Policy. If a service does not need to talk to the internet, its egress traffic must be explicitly blocked.
+
+## Microsegmentation Strategy
+**How do you map and enforce the required communication paths between your microservices?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Writing Network Policies
+\`\`\`prompt
+Provide a robust Kubernetes NetworkPolicy definition using Cilium. The policy must apply to a 'backend-api' pod. It should only allow ingress traffic on port 8080 from pods labeled 'role: frontend', and strictly deny all egress traffic except for DNS resolution (UDP 53) to the kube-system namespace.
+\`\`\`
+
+- [ ] A "Default Deny" network policy is applied to all production namespaces.
+- [ ] Pod-to-Pod communication is explicitly whitelisted.
+`,
+  'cyberdevsecopsiamescalation': `
+# IAM Privilege Escalation Checks
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+IAM policies are complex JSON documents. A developer might write an IAM policy granting \`iam:PassRole\` and \`ec2:RunInstances\`. On the surface, it looks like they just want to spin up a server. In reality, an attacker can use those exact permissions to pass an Administrator role to a new EC2 instance, log into the instance, and take over the AWS account. You must scan for these toxic permission combinations.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use managed policies (like \`AmazonS3ReadOnlyAccess\`). Do not try to write custom IAM policies.
+
+### Personal Project
+Review the Rhino Security Labs article on AWS IAM Privilege Escalation. Try to understand how \`iam:CreatePolicyVersion\` can be used to grant yourself admin rights.
+
+### Production SaaS
+Integrate tools like AWS IAM Access Analyzer or PMapper into your IaC pipeline. Before Terraform applies a new IAM policy, these tools must mathematically analyze the JSON to ensure it does not create a privilege escalation vector or grant unintended cross-account access. Block the deployment if a toxic combination is found.
+
+## Preventing Toxic Permissions
+**How do you verify that a new IAM policy does not accidentally grant privilege escalation vectors?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Automating IAM Analysis
+\`\`\`prompt
+Act as a Cloud Security Researcher. Explain the specific privilege escalation vector associated with granting 'iam:PassRole' and 'lambda:CreateFunction' to a developer role. How can a DevSecOps pipeline use tools like Cloudsplaining to detect and block this specific toxic combination in Terraform code?
+\`\`\`
+
+- [ ] IAM policies are analyzed for privilege escalation vectors before being deployed.
+- [ ] Cross-account access is strictly monitored and audited.
+`,
+  'cyberdevsecopsautofix': `
+# Auto-Fix PR Generation
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+Developers hate being told their code is broken; they love being handed a fix. If an SCA tool finds an outdated library, forcing the developer to manually bump the version is friction. Auto-fix tools (like Dependabot or Renovate) automatically generate a Pull Request with the exact version bump required to fix the vulnerability.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Enable GitHub Dependabot. It takes 1 click and will keep your packages mildly up to date.
+
+### Personal Project
+Configure Renovate Bot. Set it up to automatically merge PRs for minor/patch updates to testing libraries, so you don't even have to click "Approve" for low-risk updates.
+
+### Production SaaS
+Implement aggressive auto-remediation. When a Critical CVE drops, Renovate should instantly create a PR. If your CI/CD test suite is robust, you can configure the pipeline to automatically merge the security patch and deploy it to staging without any human intervention. This drastically reduces your Mean Time to Remediate (MTTR).
+
+## Defining Auto-Merge Policies
+**Which types of dependencies (e.g., devDependencies, minor version bumps) are you comfortable auto-merging without human review?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Setting up Renovate
+\`\`\`prompt
+Act as a DevSecOps Engineer. Provide a robust \`renovate.json\` configuration file that groups all minor updates for React and Next.js into a single weekly Pull Request, but instantly creates a high-priority PR if a 'Critical' CVE is detected in any npm dependency.
+\`\`\`
+
+- [ ] My repositories automatically generate PRs to update vulnerable open-source libraries.
+- [ ] Low-risk patches are automatically merged if the test suite passes.
+`,
+  'cyberdevsecopspipelineblocking': `
+# Pipeline Blocking Policies
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+A pipeline that just "warns" about security issues is a pipeline that gets ignored. You must implement hard blocking policies. If a developer attempts to deploy code that violates a core security tenet (like deploying a container running as root), the pipeline must aggressively fail the deployment.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't block the pipeline. You need to ship. Warning logs are fine.
+
+### Personal Project
+Write a simple bash script in your CI/CD pipeline that greps your codebase for the word "TODO: Security" and fails the build if it finds it. It's a simple introduction to pipeline blocking.
+
+### Production SaaS
+Implement Open Policy Agent (OPA) or Kyverno in your CI/CD pipeline. Define your security policies as code (Rego). If an IaC template, Kubernetes manifest, or application configuration violates the Rego policy, the deployment fails with a clear, actionable error message telling the developer exactly how to fix the issue.
+
+## Defining the Red Lines
+**List 3 absolute 'Red Line' security violations that must immediately block a production deployment:**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## Writing OPA Policies
+\`\`\`prompt
+Act as a Cloud Security Architect. Explain how to use Open Policy Agent (OPA) and the Rego language to enforce CI/CD guardrails. Provide a sample Rego policy that inspects a Terraform JSON plan and blocks the deployment if any AWS S3 bucket is configured without 'aws_s3_bucket_server_side_encryption_configuration'.
+\`\`\`
+
+- [ ] My pipeline has hard 'blocking' capabilities for critical security violations.
+- [ ] Developers receive actionable error messages explaining why the build failed and how to fix it.
+`,
+  'cyberdevsecopsfalsepositives': `
+# False Positive Handling
+
+**Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+If your SAST scanner flags a hardcoded test token in a \`mock_data.js\` file and blocks the build, the developer's velocity is halted. A broken false positive workflow will cause developers to actively bypass or disable security tooling. You must have a frictionless "Accept Risk" or "Mark as False Positive" workflow.
+
+## Strategic Guidance
+
+### Hackathon Mode
+If a tool gives you a false positive, just delete the tool. You don't have time to tune it.
+
+### Personal Project
+Learn how to use inline suppression comments (e.g., \`// eslint-disable-next-line no-eval\`). Understand how the scanner interprets these comments to ignore specific lines of code.
+
+### Production SaaS
+Do not allow developers to suppress vulnerabilities indefinitely without review. Implement a "Security Champion" program where a trained developer on the team can review and approve false positives. Use a vulnerability management platform (like DefectDojo) to track suppressions, and set them to automatically "re-open" after 90 days to ensure the accepted risk is still valid.
+
+## Suppressions Workflow
+**If a developer encounters a false positive that blocks their build, what is the exact 3-step process to get it unblocked?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Managing Suppressions at Scale
+\`\`\`prompt
+Act as an Application Security Manager. Explain the risks of allowing developers to use inline suppression comments (like \`@SuppressWarnings\`) without oversight. Design a workflow using GitHub PR Reviews and a central Vulnerability Management tool to securely handle and audit false positive requests.
+\`\`\`
+
+- [ ] There is a documented, frictionless process for developers to report false positives.
+- [ ] Suppressed vulnerabilities are audited regularly to ensure they remain invalid.
+`,
+  'cyberdevsecopsnotifications': `
+# Developer Notification Workflows
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+Sending a 500-page PDF vulnerability report to an engineering manager is useless. Security findings must be routed directly to the specific developer who wrote the vulnerable code, in the tools they already use (Slack, Jira, GitHub PR comments), immediately after the code is pushed.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Just let the CI/CD pipeline output the results to the terminal console.
+
+### Personal Project
+Configure a GitHub Action to send a Slack or Discord message to your personal server if a vulnerability scan fails. This teaches you basic webhook integration.
+
+### Production SaaS
+Integrate your security scanners with a Vulnerability Management platform (like DefectDojo or Faraday). The platform must automatically deduplicate findings. If a vulnerability is found, the platform should automatically open a Jira ticket, assign it to the developer who made the commit (using \`git blame\`), and tag the ticket with the appropriate SLA based on the CVSS score.
+
+## Routing Findings
+**How will security findings be automatically assigned to the correct engineering squad?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Automating Ticketing
+\`\`\`prompt
+Act as a DevSecOps Engineer. Design an automated workflow where a High severity SAST finding in GitHub Actions automatically triggers a webhook to an AWS Lambda function, which then formats the finding and opens a Jira ticket assigned to the author of the commit.
+\`\`\`
+
+- [ ] Security findings are automatically converted into tickets in the developer's issue tracker (e.g., Jira).
+- [ ] Findings are automatically deduplicated to prevent ticket spam.
+`,
+  'cyberdevsecopsevidence': `
+# Evidence Collection
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+During a compliance audit (like SOC2), the auditor will ask: "Show me proof that this specific database change was approved by a manager." If you have to spend 4 hours digging through Slack logs and GitHub PRs to find the proof, your audit will take months. Automated evidence collection pulls this data continuously.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it entirely.
+
+### Personal Project
+Look at the GitHub API. Write a script that pulls the approval status of a specific Pull Request. This is the foundation of automated evidence collection.
+
+### Production SaaS
+Use an automated compliance platform like Vanta, Drata, or Secureframe. These tools hook directly into your AWS, GitHub, and HR systems (like Gusto). They continuously monitor whether employees have completed security training, whether databases are encrypted, and whether PRs are approved, automatically generating the evidence artifacts required by auditors.
+
+## Automating the Audit
+**Which compliance automation platform will you use to continuous collect audit evidence?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Building Custom Evidence Collectors
+\`\`\`prompt
+Act as a Compliance Engineer. I need to prove to a SOC2 auditor that all infrastructure changes are peer-reviewed. Write a Python script using the GitHub GraphQL API that iterates through all merged Pull Requests in the last 90 days and generates a CSV report showing the author, the reviewer, and the timestamp of the approval.
+\`\`\`
+
+- [ ] I have automated the collection of evidence for my compliance controls.
+- [ ] I can instantly prove who approved a specific change to the production environment.
+`,
+  'cyberdevsecopscontinuouscompliance': `
+# Continuous Compliance Monitoring
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+Passing an audit is a snapshot in time. You might be compliant on Tuesday, but on Wednesday a developer disables database encryption, and you fall out of compliance. Continuous Compliance monitoring ensures you are alerted the second an asset violates a regulatory control.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it.
+
+### Personal Project
+Enable AWS Config (be careful with the pricing) and set up a rule that checks if your S3 buckets are public. This is a basic form of continuous compliance.
+
+### Production SaaS
+Map your CSPM (Cloud Security Posture Management) alerts directly to compliance frameworks. If a security group is modified to allow SSH from \`0.0.0.0/0\`, the CSPM should not just trigger a "Security" alert; it should trigger a "PCI-DSS Control 1.2.1 Violation" alert. This allows the GRC (Governance, Risk, and Compliance) team to monitor real-time compliance drift.
+
+## Mapping Controls
+**How will the GRC team be notified if an engineering change causes a compliance violation?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Real-time Compliance Dashboards
+\`\`\`prompt
+Act as a GRC Analyst. Explain how to use AWS Security Hub to map real-time cloud misconfigurations directly to the PCI-DSS framework. How do you construct a dashboard that allows the CISO to view the company's real-time compliance posture across multiple AWS accounts?
+\`\`\`
+
+- [ ] My cloud environment is continuously monitored for compliance drift.
+- [ ] Security alerts are enriched with the specific compliance controls they violate.
+`,
+  'cyberdevsecopsauditarchiving': `
+# Audit Logs Archiving (WORM)
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+If an attacker gains administrative access to your environment, the first thing they will do is delete the audit logs to hide their tracks. To satisfy compliance and forensic requirements, audit logs must be stored in a WORM (Write Once, Read Many) architecture, where absolutely no one—not even the CEO—can delete or modify the logs until the retention period expires.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Just store logs in a basic database table. Don't worry about WORM compliance.
+
+### Personal Project
+Create an AWS S3 bucket and enable "Object Lock" in Compliance Mode for 7 days. Upload a text file to it, and then try to delete it using the root AWS account. You will find it is impossible.
+
+### Production SaaS
+Ship all CI/CD audit logs, CloudTrail logs, and application audit logs to a dedicated, isolated "Security Archive" AWS account. Store them in an S3 bucket with Object Lock enabled for at least 1 year (or 7 years for financial data). Ensure that the IAM roles used by the application can only perform \`s3:PutObject\` and strictly deny \`s3:DeleteObject\`.
+
+## WORM Storage Strategy
+**What is the required retention period for your audit logs (e.g., 1 year, 7 years)?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Designing Immutable Archives
+\`\`\`prompt
+Act as a Cloud Storage Architect. Provide a Terraform configuration that creates an Amazon S3 bucket designated for secure audit log archiving. The bucket must have Object Lock enabled in Compliance Mode with a retention period of 365 days, and it must enforce server-side encryption using a customer-managed KMS key.
+\`\`\`
+
+- [ ] Audit logs are shipped to an isolated environment separate from production.
+- [ ] Logs are stored immutably (WORM) and cannot be deleted by compromised administrators.
+`,
+  'cyberdevsecopsvendorrisk': `
+# Vendor Risk Management
+
+**Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+You can have the most secure DevSecOps pipeline in the world, but if you integrate a third-party SaaS tool (like a marketing widget or an analytics SDK) that gets breached, your data is compromised. Third-Party / Vendor Risk Management ensures the vendors you use meet your security standards.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use any free API or SDK you can find. Don't worry about their security posture.
+
+### Personal Project
+Before you npm install a random package, look at its GitHub repository. Does it have thousands of unresolved issues? Has it not been updated in 4 years? Use basic intuition to assess open-source vendor risk.
+
+### Production SaaS
+Implement a formal Vendor Risk Assessment process. Before engineering can adopt a new SaaS tool or integrate a third-party API, the security team must review the vendor's SOC2 report and Pentest executive summary. Use a tool like SecurityScorecard or UpGuard to continuously monitor the external security posture of your critical vendors.
+
+## Vendor Assessment
+**List your top 3 most critical third-party vendors (e.g., AWS, Stripe, Auth0):**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## Automating Vendor Questionnaires
+\`\`\`prompt
+Act as a Third-Party Risk Analyst. We are considering integrating a new SaaS vendor that will process our customers' PII. Outline a standard 10-question security questionnaire that we must send to the vendor. What specific red flags in their SOC2 Type II report would immediately disqualify them?
+\`\`\`
+
+- [ ] All third-party vendors are vetted for security compliance before integration.
+- [ ] Critical vendors are continuously monitored for security breaches.
+`,
+  'cyberdevsecopsvulnsla': `
+# Vulnerability SLA Tracking
+
+**Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+Discovering a vulnerability is useless if it takes engineering 6 months to fix it. Service Level Agreements (SLAs) define the maximum acceptable time to patch a vulnerability based on its severity (e.g., Critical = 48 Hours, High = 14 Days). Tracking these SLAs ensures the engineering team is actually resolving technical debt.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Fix it immediately or ignore it forever.
+
+### Personal Project
+Try to fix every Dependabot alert within 24 hours of it appearing in your repository.
+
+### Production SaaS
+Enforce SLAs at the CI/CD pipeline level. If a vulnerability is found, a ticket is created. If that ticket breaches its SLA (e.g., a High severity vulnerability is 15 days old), the DevSecOps pipeline should automatically block ALL non-security deployments for that specific microservice until the security debt is paid down. This is the only way to force engineering teams to prioritize security.
+
+## Defining SLAs
+**What are your specific remediation timeframes for Critical, High, and Medium vulnerabilities?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Enforcing Security Debt
+\`\`\`prompt
+Act as a DevSecOps Manager. Explain the concept of 'Breaking the Build for Security Debt'. How can you implement a policy where a GitHub Actions pipeline queries Jira for any breached SLA security tickets assigned to a specific service, and blocks new feature deployments if the service is out of compliance?
+\`\`\`
+
+- [ ] Remediation SLAs are strictly defined for all vulnerability severities.
+- [ ] The pipeline can enforce SLAs by blocking feature deployments if security debt is too high.
+`,
+  'cyberdevsecopsdashboarding': `
+# Dashboarding & Reporting
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+The CISO does not care about the raw JSON output of a SAST scan. They care about the aggregate risk of the organization. Dashboards translate pipeline scanner data into business intelligence, allowing leadership to see which engineering squads are shipping the most vulnerabilities and where additional security training is needed.
+
+## Strategic Guidance
+
+### Hackathon Mode
+The GitHub Security tab is your only dashboard.
+
+### Personal Project
+Use the built-in reporting features of tools like SonarQube or DefectDojo to view your "Vulnerability Density" (vulnerabilities per 1,000 lines of code).
+
+### Production SaaS
+Build custom BI dashboards (using Tableau, PowerBI, or Kibana). Track metrics like: Mean Time to Remediate (MTTR) broken down by engineering squad, Open vs Closed vulnerabilities over time, and the percentage of applications onboarded to the DevSecOps pipeline. Use these metrics to gamify security (e.g., rewarding the squad with the lowest MTTR).
+
+## Defining the Metrics
+**What are the top 3 DevSecOps metrics the Executive Board wants to see?**
+\`\`\`input
+1. 
+2. 
+3. 
+\`\`\`
+
+## Building Executive Reports
+\`\`\`prompt
+Act as a Chief Information Security Officer (CISO). Outline the structure of a monthly 'State of Application Security' executive report. What specific DevSecOps KPIs demonstrate that the security program is successfully reducing risk without slowing down engineering velocity?
+\`\`\`
+
+- [ ] DevSecOps metrics are visualized in a centralized dashboard.
+- [ ] Reports are generated to track the MTTR (Mean Time to Remediate) for each engineering squad.
+`,
+  'cyberdevsecopsincidentresponse': `
+# Incident Response Plans
+
+**Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+What happens when a developer accidentally pushes an AWS Root Access key to a public GitHub repository? If the DevSecOps team doesn't have a practiced response plan, attackers will use that key to spin up cryptominers or delete databases before you even figure out who to call. You must have playbooks for pipeline-specific incidents.
+
+## Strategic Guidance
+
+### Hackathon Mode
+If a key is leaked, quickly delete the repo and revoke the key manually.
+
+### Personal Project
+Read the AWS documentation on what to do if an access key is compromised. Understand the process of rotating the key and checking CloudTrail for unauthorized usage.
+
+### Production SaaS
+Create specific Incident Response runbooks for CI/CD compromises (e.g., "Codecov Breach", "Leaked Secrets", "Compromised GitHub Account"). Automate the response: If a high-privilege key is leaked, an automated script should immediately apply a \`DenyAll\` IAM policy to the compromised user, effectively quarantining the blast radius while the team investigates.
+
+## CI/CD Playbooks
+**Do you have a specific runbook for a compromised CI/CD server (like Jenkins or GitLab Runner)?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Automating the Quarantine
+\`\`\`prompt
+Act as an Incident Commander. Provide a detailed runbook for responding to an automated alert that an AWS IAM Access Key has been committed to a public GitHub repository. Include the automated containment steps (e.g., using AWS Lambda to attach a DenyAll policy) and the forensic investigation steps to determine if the key was actively exploited.
+\`\`\`
+
+- [ ] Incident Response plans explicitly cover CI/CD and supply chain attacks.
+- [ ] Automated containment mechanisms are in place for critical pipeline breaches (like leaked secrets).
+`,
+  'cyberdevsecopsredteam': `
+# Red Team Exercises (Purple Teaming)
+
+**Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+You built the pipeline, but does it actually catch attacks? Red Team exercises simulate advanced attackers trying to bypass your DevSecOps controls. Purple Teaming is when the Red Team (attackers) and Blue/DevSecOps Team (defenders) sit in the same room, executing an attack and immediately tuning the pipeline if it fails to block it.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it. You don't have time to attack your own code.
+
+### Personal Project
+Try to purposefully bypass your own security controls. If you set up a pre-commit hook to catch secrets, try encoding the secret in Base64 or splitting it into two variables to see if the scanner still catches it.
+
+### Production SaaS
+Conduct regular "Purple Team" exercises focusing on the CI/CD pipeline. Have the Red Team attempt to bypass Branch Protections, exploit a vulnerability in a Jenkins runner, or poison a Terraform module. Use these exercises to validate that your IaC scanners, SAST tools, and OPA policies are actually effective against a determined adversary.
+
+## Validating the Pipeline
+**How frequently will you formally test the efficacy of your DevSecOps controls?**
+\`\`\`input
+Write Here...
+\`\`\`
+
+## Designing a Purple Team Scenario
+\`\`\`prompt
+Act as a Purple Team Lead. Design a collaborative exercise where the Red Team attempts to perform a 'Supply Chain Attack' by compromising an internal npm registry or bypassing GitHub Branch Protections to merge malicious code. Outline how the DevSecOps team should use this exercise to tune their pipeline blocking policies.
+\`\`\`
+
+- [ ] The efficacy of the DevSecOps pipeline is regularly tested via adversarial simulation.
+- [ ] Red and Blue teams collaborate (Purple Teaming) to immediately patch pipeline blind spots.
+`
 };
 
 
