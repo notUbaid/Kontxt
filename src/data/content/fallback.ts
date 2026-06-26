@@ -18368,212 +18368,461 @@ Viral growth.
 "Give $20, Get $20." Embed this heavily in the post-purchase email sequence when the customer is most excited about their purchase.
 `,
   'gametargetaudience': `
-## Why this matters
-Game audiences are notoriously tribal. A "Cozy Gamer" expects frictionless mechanics, lush aesthetics, and forgiving failure states (e.g., Stardew Valley). A "Hardcore Gamer" demands rigorous i-frames (invincibility frames), strict animation canceling, and punishing failure loops (e.g., Elden Ring). If your game's mechanics do not perfectly align with the psychological expectations of your target demographic, your game will be review-bombed on Steam within 24 hours of launch.
 
-## Audience Profiling
-**Describe the psychological motivation of your core player. Are they playing to relax, to dominate, to socialize, or to explore?**
-\`\`\`input
-Write Here...
-\`\`\`
+# Target Audience
+
+**Estimated Time:** 1-2 Days
+
+---
+
+## Why this matters
+Game audiences are notoriously tribal. A "Cozy Gamer" expects frictionless mechanics, lush aesthetics, and forgiving failure states (e.g., Stardew Valley). A "Hardcore Gamer" demands rigorous i-frames (invincibility frames), strict animation canceling, and punishing failure loops (e.g., Elden Ring). If your mechanics do not perfectly align with the psychological expectations of your demographic, your game will be review-bombed on Steam.
 
 ## Strategic Guidance
+
 ### Hackathon Mode
 Target the judges. Build a game with a singular, immediate "hook" that can be understood and mastered within 30 seconds. Do not build slow-burn strategy games for a hackathon.
 
 ### Personal Project
-Target yourself. Build a game that solves a mechanical itch you have that other games aren't scratching. This ensures you maintain the passion required to push through the grueling "last 10%" of game dev.
+Target yourself. Build a game that you personally want to play. Do not worry about market viability; focus entirely on learning the game engine and finishing the project.
 
 ### Production SaaS
-Target a hyper-specific, underserved subgenre (e.g., "Factory building games but with biology instead of machinery"). This is called the 'Blue Ocean' strategy. If you try to build a generic First Person Shooter, you are competing directly with Call of Duty's $300M budget. You will lose. Define your core audience by what they *hate* about current games in the genre.
+Commercial indie development requires rigorous market research. You must identify a niche that is underserved (e.g., "Deckbuilding Roguelite mixed with Farming Sim"). Define your Player Personas explicitly: Are they motivated by Mastery, Social Connection, or Immersion? Every mechanic you code must serve this specific psychological profile.
+
+---
+
+## The Data We Need From You
+Your audience dictates your mechanics.
+
+**Describe the psychological motivation of your core player. Are they playing to relax, to dominate, to socialize, or to explore?**
+\\\`\\\`\\\`input
+Write Here...
+\\\`\\\`\\\`
+
 `,
   'gamecompetitoranalysis': `
-## Why this matters
-Players do not evaluate your game in a vacuum. They evaluate your game against the $20 masterpiece they just finished playing. You must deconstruct your competitors on a mechanical level: How many frames is their jump animation? What is their time-to-kill (TTK)? How do they handle inventory sorting?
 
-## Mechanical Deconstruction
-**List 3 direct competitors. Identify one core mechanic they execute perfectly, and one mechanic that feels terrible:**
-\`\`\`input
-1. 
-2. 
-3.
-\`\`\`
+# Competitor Analysis
+
+**Estimated Time:** 1 Week
+
+---
+
+## Why this matters
+"It's like Minecraft but with guns" is not a valid competitive analysis. You must deconstruct the games in your genre down to their core loops. If you are building a Metroidvania, you must understand exactly how *Hollow Knight* handles jump momentum and coyote time, otherwise, your platforming will feel floaty and amateurish.
 
 ## Strategic Guidance
+
 ### Hackathon Mode
-Pick a wildly successful mechanic from a 90s arcade game (e.g., Pac-Man's wrap-around screen) and mash it up with a modern aesthetic.
+Pick exactly one successful game and clone its core mechanic. Add a single unique "twist" (e.g., Pac-Man, but you play as the ghosts).
 
 ### Personal Project
-Play your competitors' games with a stopwatch and a notebook. Do not just "play for fun." Analyze their game loops. How long does a single session last? How do they punish failure without making the player quit?
+Play three games in your chosen genre with a notebook. Write down exactly what feels good (e.g., the hit-stop animation when landing a heavy attack) and try to replicate that exact feeling in your engine.
 
 ### Production SaaS
-You must conduct a deep dive into your competitors' Steam reviews. Specifically, filter by "Negative" reviews on highly successful games in your genre. This is your feature roadmap. If 1,000 players complain about "clunky UI" in your competitor's game, you must engineer the most buttery-smooth UI imaginable as your core differentiator.
+Commercial success requires identifying a "Market Gap." Do not compete directly with AAA studios on graphics. Deconstruct the top 5 games in your Steam tag. Read their negative reviews to identify what players hated (e.g., "The inventory system is tedious"), and make solving that specific pain point the primary selling feature of your game.
+
+---
+
+- [ ] I understand that "cloning" core mechanics is a valid starting point for game design.
+- [ ] I have identified specific mechanical flaws in my competitors that my game will fix.
+
 `,
   'gamemonetization': `
+
+# Monetization Strategy
+
+**Estimated Time:** 1-3 Days
+
+---
+
 ## Why this matters
-How you make money dictates how your game is designed at a fundamental level. If you are Free-to-Play (F2P), your entire game architecture must revolve around retention loops, daily login bonuses, and microtransaction (MTX) psychology. If you are Premium ($20 upfront), your game must front-load its highest quality content into the first 2 hours to prevent Steam refunds.
+Monetization is not something you staple onto a game at the end. If you want a Free-to-Play game with microtransactions, the entire game loop must be designed around retention and cosmetic desirability from Day 1. If it's a premium game, the first 2 hours must be flawless to prevent Steam refunds.
 
 ## Strategic Guidance
+
 ### Hackathon Mode
-Ignore monetization entirely. The game is free.
+Not applicable. The game is free.
 
 ### Personal Project
-Release it for free on Itch.io with a "Pay what you want" tip jar. Your goal is portfolio building and feedback, not revenue.
+Release it for free on Itch.io with a "Name Your Price" option. Use it to build a portfolio and a following.
 
 ### Production SaaS
-Decide your model on Day 1. If Premium, you must design a massive "Wishlist" funnel via marketing, as Day-1 sales dictate Steam algorithm visibility. If F2P, you must architect server-authoritative databases for premium currency. Do not ever trust the client (the player's machine) with currency data, or memory editors (Cheat Engine) will instantly bankrupt your economy.
+Commercial indie games generally succeed best as Premium (Pay-to-Play) titles. Free-to-Play requires massive marketing budgets for User Acquisition (UA) and predatory psychological mechanics that indie developers struggle to balance. Price your game aggressively (e.g., $15-$20), participate in Steam Next Fest, and rely on Wishlist conversions for launch day revenue.
+
+---
+
+## AI Orchestration Phase
+\\\`\\\`\\\`prompt
+Act as an Indie Game Publisher. I am developing a premium 2D platformer. Explain the "Steam Wishlist" funnel. How many wishlists do I need to guarantee a spot in the "Popular Upcoming" tab, and what conversion rate should I expect on launch day?
+\\\`\\\`\\\`
+
+- [ ] I have decided between a Premium or Free-to-Play monetization model.
+
 `,
   'gamegameconcept': `
-## Why this matters
-A strong concept can be summarized in an "X meets Y" elevator pitch (e.g., "Stardew Valley meets Doom"). If it takes 3 paragraphs to explain what your game is, your core mechanics are too muddy.
 
-## The Elevator Pitch
-**Summarize your game in one sentence using the "X meets Y" formula:**
-\`\`\`input
-Write Here...
-\`\`\`
+# Game Concept & Hook
+
+**Estimated Time:** 2-4 Days
+
+---
+
+## Why this matters
+Every successful game has an "Elevator Pitch" that instantly communicates the core fantasy. "Rocket League is soccer with RC cars." If it takes you 5 minutes to explain your game, nobody will buy it. The Hook is the single mechanic that makes your game unique.
 
 ## Strategic Guidance
+
 ### Hackathon Mode
-Pick an absurd, meme-worthy concept. Physical comedy (like QWOP or Fall Guys) performs incredibly well in demo environments.
+Your hook must be instantly visual. When the judges look at your screen, they should immediately understand the twist (e.g., "The screen is split in half, and you control a character in the past and the future simultaneously").
 
 ### Personal Project
-Combine two genres that shouldn't work together (e.g., a typing game that is also an RPG). Innovation lives in genre-blending.
+Focus on a mechanic you want to learn how to code (e.g., A grappling hook, or procedural dungeon generation). The concept doesn't have to be revolutionary; it just has to be fun to build.
 
 ### Production SaaS
-Your concept must pass the "GIF Test." Can you capture the essence of your game's unique selling point in a 3-second, soundless GIF? If yes, it is highly marketable on Twitter and Reddit. If no, your marketing costs will skyrocket because it requires too much explanation.
+Your concept must pass the "GIF Test." If you post a 5-second GIF of your core gameplay loop on Twitter or Reddit, does it look interesting enough to make someone stop scrolling? If the game relies entirely on deep narrative or slow strategy, it will be extremely difficult to market. The hook must be visually explosive.
+
+---
+
+## The Data We Need From You
+Your core concept defines the entire architecture of the codebase.
+
+**Write your "X meets Y" elevator pitch (e.g., Doom meets Stardew Valley):**
+\\\`\\\`\\\`input
+Write Here...
+\\\`\\\`\\\`
+
 `,
   'gamegenre': `
+
+# Genre Selection
+
+**Estimated Time:** 1 Day
+
+---
+
 ## Why this matters
-Genres come with rigid player expectations. If you build an RPG and don't include an inventory sorting button, players will riot. If you build a Metroidvania and don't include sequence-breaking upgrades, it's not a Metroidvania.
+Genre defines scope. A 2D puzzle game can be built by one person in a month. A 3D Open World RPG requires a team of 50 people working for 4 years. Choosing the wrong genre will guarantee your project fails before you write the first line of code.
 
 ## Strategic Guidance
+
 ### Hackathon Mode
-Pick an Endless Runner, a Twin-Stick Shooter, or a Physics Puzzler. These require the least amount of asset generation.
+Stick to Arcade, Endless Runner, or simple Puzzle Platformer. Avoid RPGs, strategy games, or anything requiring an inventory system.
 
 ### Personal Project
-Avoid RPGs. The amount of database management, dialogue writing, and state tracking required for an RPG will crush a solo developer. Pick a systems-driven genre like a Roguelite.
+2D Top-Down (Zelda-like) or 2D Side-Scroller (Mario-like) are the best genres for learning the fundamentals of collision, state machines, and level design without drowning in 3D math.
 
 ### Production SaaS
-Analyze the Steam tag metrics (e.g., via GameDiscoverCo or SteamDB). Some genres (like puzzle platformers) have massive supply and zero demand, guaranteeing commercial failure. Other genres (like Base Building or Deckbuilders) have rabid player bases hungry for infinite variations.
+Certain genres are "commercial suicide" for solo indie developers (e.g., Multiplayer Arena Shooters, MMORPGs). You simply cannot generate the necessary concurrent player base to make the game function. Stick to highly replayable single-player genres like Roguelites, Deckbuilders, or Survival Crafters, which have massive, dedicated audiences on Steam.
+
+---
+
+- [ ] I have explicitly avoided MMOs and massive Open World RPGs.
+- [ ] I understand that the genre dictates the complexity of the codebase.
+
 `,
   'gametargetplatform': `
+
+# Target Platform
+
+**Estimated Time:** 1 Day
+
+---
+
 ## Why this matters
-Your target platform dictates your engine, your control scheme, your UI scale, and your performance budget. A UI designed for a 27-inch PC monitor is illegible on a Nintendo Switch in handheld mode.
+Deploying a game to PC (Steam) is drastically different from deploying to Mobile (iOS/Android). Mobile requires touch controls, aggressive memory management, and integrating Ad SDKs. PC requires handling variable resolutions and keyboard/gamepad mapping.
 
 ## Strategic Guidance
+
 ### Hackathon Mode
-Target WebGL (Browser). A link that opens instantly in a browser will get 100x more players than a \`.exe\` file that requires downloading and triggers Windows Defender warnings.
+Target WebGL (HTML5). Hosting your game on Itch.io allows judges to play it instantly in their browser without downloading a suspicious \`.exe\` file.
 
 ### Personal Project
-Target PC (Windows). It is the most forgiving platform regarding memory management and performance optimization.
+Target PC (Windows/Mac). It is the most forgiving environment for performance, and you don't have to deal with Apple's provisioning profiles or Android SDKs.
 
 ### Production SaaS
-If you plan to release on Consoles (PlayStation, Xbox, Switch), you must architect your input system abstractly from Day 1 (using Unity's New Input System or Unreal's Enhanced Input). You must also prepare for rigorous certification processes (TRC/XR), where a memory leak or a UI text overlap will cause your game to be rejected by Sony/Nintendo.
+Target PC first (Steam). If the game is successful, hire a porting studio to move it to the Nintendo Switch or PlayStation. Trying to launch on PC and Mobile simultaneously will split your focus and result in a clunky UI that satisfies nobody.
+
+---
+
+- [ ] I understand the technical limitations of WebGL compared to native desktop builds.
+- [ ] I recognize the UI/UX differences between Touch controls and Gamepad controls.
+
 `,
   'gamescoperealitycheck': `
-## Why this matters
-Scope creep is the apex predator of game development. 90% of indie games fail because the developer tried to build an MMO by themselves.
 
-## The Cutting Room Floor
-**List 3 "Cool to have" features you are explicitly cutting from this version:**
-\`\`\`input
-1.
-2.
-3.
-\`\`\`
+# Scope Reality Check
+
+**Estimated Time:** 1-2 Days
+
+---
+
+## Why this matters
+Scope Creep kills 99% of indie games. "I'll just add a crafting system, and multiplayer, and a branching narrative." You must violently cut features until the game is small enough to actually finish.
 
 ## Strategic Guidance
+
 ### Hackathon Mode
-Cut multiplayer. Cut save states. Cut menus. The game starts when the page loads.
+Cut the scope in half. Then cut it in half again. You only have time for a single mechanic, a start screen, and a "You Win/Lose" screen.
 
 ### Personal Project
-Cut 3D. 3D requires rigging, UV unwrapping, normal mapping, and complex animation blending. 2D allows you to focus purely on gameplay logic and art direction.
+Define the Minimum Viable Product (MVP). If you are building a platformer, the MVP is a square that jumps over a triangle. Do not add double-jumps, wall-jumps, or enemies until the basic jump feels absolutely perfect.
 
 ### Production SaaS
-Calculate your "Burn Rate". If you estimate the game will take 12 months, double it to 24 months. If your studio's burn rate (salaries, software, rent) is $10k/month, your game now costs $240,000 to make. Does your projected Steam revenue (assuming average 2,000 copies sold) justify this? If not, drastically reduce scope.
+Commercial scope must be managed via strict production schedules (e.g., Jira or Trello). If a feature does not directly support the Core Hook of the game, delete it. Do not spend 3 weeks coding a dynamic weather system if your game is about fast-paced sword combat.
+
+---
+
+## AI Orchestration Phase
+\\\`\\\`\\\`prompt
+Act as a Lead Game Producer. I am a solo developer trying to build a 2D farming simulator in 6 months. Ask me 5 highly critical questions to force me to reduce my scope and focus only on the absolute essential features required for a Minimum Viable Product.
+\\\`\\\`\\\`
+
+- [ ] I have brutally cut non-essential features from my design document.
+
 `,
   'gamecoregameplayloop': `
-## Why this matters
-The Core Loop is the repetitive action the player takes. (e.g., Monster Hunter: Kill Monster -> Get Loot -> Craft Better Gear -> Kill Bigger Monster). If this 30-second loop isn't insanely satisfying, no amount of story or graphics will save the game.
 
-## The Loop Definition
-**Define your 3-step core loop:**
-\`\`\`input
-Action -> Reward -> Upgrade
-\`\`\`
+# Core Gameplay Loop
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+The Core Loop is the repetitive sequence of actions a player takes. (e.g., Kill Monster -> Get Loot -> Upgrade Sword -> Kill Bigger Monster). If this primary loop is not inherently fun, adding 100 hours of story or 50 new weapons will not save the game.
 
 ## Strategic Guidance
+
 ### Hackathon Mode
-Focus 95% of your time on the "Action" part of the loop. Make jumping, shooting, or moving feel incredibly "juicy" (screenshake, hit pauses, particle effects).
+Your core loop must take less than 15 seconds to complete. (e.g., Shoot target, reload, shoot next target). Hardcode the variables. Don't build complex state machines.
 
 ### Personal Project
-Implement the core loop in gray-box (primitive shapes) immediately. If the game isn't fun when it's just moving a gray cube around, adding HD textures won't fix it.
+Build a "Greybox" prototype. Do not use actual art or sound. Use primitive cubes and spheres. If navigating a cube around a grey environment isn't fun, your mechanics need work.
 
 ### Production SaaS
-You must engineer "Friction" and "Release" within the loop. The player must experience a managed level of frustration (friction) that is suddenly resolved by a mechanical reward (release). Architect your systems so designers can easily tweak values (enemy health, drop rates) via ScriptableObjects/DataAssets without touching source code.
+Commercial games require 'Juice'. The core loop must be heavily polished with screen shake, particle effects, hit-stop, and dynamic sound design. A player should feel visceral satisfaction simply from pressing the 'Jump' button. Spend 80% of your prototyping phase polishing the character controller until it feels like a AAA game.
+
+---
+
+- [ ] I understand that the core loop must be fun before adding any art or story.
+- [ ] I recognize the importance of "Greyboxing" to test mechanics rapidly.
+
 `,
   'gamescopeplanning': `
+
+# Scope Planning
+
+**Estimated Time:** 1-3 Days
+
+---
+
 ## Why this matters
-Planning your technical architecture against your scope.
+A game is a complex software project. You need to know exactly what assets to draw, what scripts to write, and what audio to record. Without a plan, you will waste weeks drawing animations for a character that gets cut from the final game.
 
 ## Strategic Guidance
+
 ### Hackathon Mode
-Write everything in one massive script if you have to. Architecture doesn't matter for a 48-hour sprint.
+Write a 5-item checklist on a sticky note. When those 5 things are done, you export the game.
 
 ### Personal Project
-Use Trello or Obsidian. Break your game down into "Vertical Slices". A vertical slice is one fully playable level with final art and sound, rather than building 10 levels with placeholder art.
+Create a basic Trello board. Make lists for "To Do (Art)", "To Do (Code)", and "Done". Break down large tasks (e.g., "Code the Boss") into atomic units (e.g., "Code Boss Walk Animation", "Code Boss Laser Attack").
 
 ### Production SaaS
-Implement Agile/Scrum. You need rigorous tracking of technical debt. If you hack together the physics system in month 1, it will collapse in month 18 when you try to add multiplayer. Architect modular, event-driven systems (Observer pattern) to decouple gameplay logic from UI logic.
+Enterprise game development uses Agile/Scrum. You must maintain a Game Design Document (GDD) that acts as the single source of truth. Every feature must be estimated in story points, and you must rigorously track your velocity to ensure you actually hit your target launch window (like Steam Next Fest).
+
+---
+
+## The Data We Need From You
+Your task list keeps the project grounded in reality.
+
+**List the top 3 critical coding tasks required to make your prototype playable:**
+\\\`\\\`\\\`input
+Write Here...
+\\\`\\\`\\\`
+
 `,
   'gamedemoassets': `
+
+# Demo Assets
+
+**Estimated Time:** 1 Week
+
+---
+
 ## Why this matters
-Hackathons are visual. You don't have time to model a 3D character.
+Art takes time. During the prototyping phase, you should not be spending hours drawing pixel-perfect sprites or modeling 3D characters. You need placeholder assets that convey gameplay information quickly.
 
 ## Strategic Guidance
+
 ### Hackathon Mode
-Use Kenney.nl for CC0 (public domain) assets. Use Mixamo for instant 3D character rigging and animations. Spend your time coding mechanics, not drawing sprites. Ensure you attribute assets properly if the license requires it.
+Use Kenny.nl or the Unity/Unreal Asset Store. Do not draw your own art unless you are explicitly participating in a "Solo Dev" jam with strict rules. Time is your most valuable resource.
+
+### Personal Project
+Draw incredibly rough "programmer art." Use MS Paint or Aseprite to create basic shapes with eyes so you know which way they are facing. This forces you to focus on the code instead of getting distracted by art polishing.
+
+### Production SaaS
+Commercial prototypes (Vertical Slices) require "Target Render" assets. While you shouldn't build out the entire game, the specific level you are prototyping must look exactly like the final product. This is because publishers and investors evaluate funding based on the visual quality of the Vertical Slice.
+
+---
+
+- [ ] I understand the difference between Greybox assets and Target Render assets.
+- [ ] I will not waste time polishing art before the core mechanics are finalized.
+
 `,
   'gamepitchdeck': `
+
+# Pitch Deck
+
+**Estimated Time:** 2-4 Days
+
+---
+
 ## Why this matters
-You have 3 minutes to convince judges your game is amazing.
+Whether pitching to a Hackathon judge or a multi-million dollar publisher like Devolver Digital, your pitch deck is the key to securing funding and attention. If you cannot explain why your game makes financial sense and why your specific team is capable of shipping it, you will be rejected.
 
 ## Strategic Guidance
+
 ### Hackathon Mode
 Slide 1: The Hook (GIF of the core mechanic). Slide 2: The Problem/Opportunity. Slide 3: The Tech Stack (briefly). Slide 4: Live Demo. Do not use bullet points. Use massive, high-contrast images and large text.
+
+### Personal Project
+Write a 1-page "Sell Sheet" instead of a full deck. Include 3 high-res screenshots, your core gameplay pillars, and a fictional Steam page description. This is excellent practice for marketing.
+
+### Production SaaS
+Enterprise publisher pitches require deep financial projections. Your deck must include a detailed Budget Request (e.g., $150k for Development, $50k for Marketing), a Production Timeline (Alpha, Beta, Gold Master dates), a Competitor Analysis (listing games that sold well in your genre), and Team Bios proving your studio's track record. The pitch is about risk mitigation, not just creative vision.
+
+---
+
+## The Data We Need From You
+A pitch must clearly define the financial ask and timeline.
+
+**What is the estimated budget and production timeline you are proposing in your pitch?**
+\\\`\\\`\\\`input
+Write Here...
+\\\`\\\`\\\`
+
 `,
   'gamedemoscript': `
+
+# Demo Script
+
+**Estimated Time:** 1-2 Days
+
+---
+
 ## Why this matters
-Live demos fail. Physics engines glitch, colliders fall through floors.
+Live demos fail. Physics engines glitch, colliders fall through floors, and AI breaks. You must choreograph your live demo strictly to minimize the risk of a catastrophic bug happening while people are watching.
 
 ## Strategic Guidance
+
 ### Hackathon Mode
 Write a "Golden Path" script. You will only walk from Point A to Point B. Add a hidden keyboard shortcut (e.g., F12) that instantly teleports the player to the final boss or skips a broken level in case of emergency.
+
+### Personal Project
+Record a seamless gameplay trailer instead of doing a live demo. Use OBS to capture the best takes of your gameplay and edit out the bugs.
+
+### Production SaaS
+For trade shows (like PAX or E3), you must build a specific, self-contained "Demo Build." This build should physically rip out the rest of the game's code to prevent players from wandering out of bounds. The build should also automatically reset to the title screen if the controller is idle for 60 seconds, ensuring the booth is always ready for the next player.
+
+---
+
+- [ ] I understand the necessity of choreographing live demos to avoid bugs.
+- [ ] I have implemented emergency "skip" shortcuts for live presentations.
+
 `,
   'gamesubmissionchecklist': `
+
+# Submission Checklist
+
+**Estimated Time:** 1-2 Days
+
+---
+
 ## Why this matters
-Failing to submit properly invalidates your 48 hours of work.
+Failing to submit properly invalidates your work. If you upload a \`.exe\` without the necessary \`.dll\` files, the game won't launch. If you fail Microsoft or Sony's certification tests, your launch will be delayed by weeks.
 
 ## Strategic Guidance
+
 ### Hackathon Mode
-Build for WebGL 4 hours before the deadline. WebGL builds almost always break the first time due to unsupported shaders or memory limits. Test the build in an Incognito window to ensure no local caching is hiding errors.
+Build for WebGL 4 hours before the deadline. WebGL builds almost always break the first time due to unsupported shaders or file size limits. Give yourself time to fix it.
+
+### Personal Project
+Zip the entire build folder correctly. Ask a friend to download the zip and run it on their machine to ensure you didn't accidentally include hardcoded paths to your local \`C:/\` drive.
+
+### Production SaaS
+Console certification (Nintendo Lotcheck, Sony TRC) is notoriously brutal. You must strictly adhere to their checklists (e.g., "The game must pause if the controller is disconnected," "The game must not crash if the user signs out of their profile"). Hire an external QA agency that specializes in pre-certification testing to run through the checklists before you submit to the platform holders.
+
+---
+
+## AI Orchestration Phase
+\\\`\\\`\\\`prompt
+Act as a Technical QA Lead. Explain the concept of Console Certification (e.g., Sony TRC or Xbox XR). Provide 5 common, highly specific technical reasons why an indie game might fail console certification on its first attempt.
+\\\`\\\`\\\`
+
+- [ ] I understand that deploying a game requires rigorous adherence to platform guidelines.
+
 `,
   'gamedemodata': `
+
+# Marketing Data & Analytics
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
 ## Why this matters
-A game needs levels, stats, and configurations to run.
+If you launch a game into the void without tracking its reception, you cannot improve it. Post-launch analytics tell you if your marketing spend was effective and where players are churning.
 
 ## Strategic Guidance
+
 ### Hackathon Mode
-Hardcode it. Do not spend time building a custom JSON parser or a level editor. If you need a map, define it as a 2D array in code.
+Not applicable. 
+
+### Personal Project
+Integrate simple Steam analytics. Track how many people view your store page versus how many actually click "Wishlist." If the conversion rate is below 5%, your capsule art or trailer needs to be replaced immediately.
+
+### Production SaaS
+Enterprise live-ops requires deep telemetry. You must track DAU (Daily Active Users), ARPDAU (Average Revenue Per Daily Active User), and Day-1, Day-7, and Day-30 Retention rates. If your Day-1 retention is below 40%, you have a massive onboarding problem. Use this telemetry to drive rapid A/B testing (e.g., testing two different tutorial layouts to see which yields higher retention).
+
+---
+
+- [ ] I understand that marketing and analytics do not stop after launch.
+- [ ] I recognize the importance of tracking retention metrics to evaluate game health.
+
 `,
   'gamegameplay': `
+
+# Gameplay Systems Architecture
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
 ## Why this matters
-This is the moment-to-moment interaction.
+If you write all your logic inside a massive \`Update()\` function in a \`Player.cs\` script, your game will become a spaghetti-code nightmare. You won't be able to add new weapons or enemies without breaking existing mechanics. You must architect scalable systems.
 
 ## Strategic Guidance
+
 ### Hackathon Mode
-Implement "Coyote Time" (allowing the player to jump a few frames after walking off a ledge) and "Jump Buffering" (registering a jump input slightly before hitting the ground). These two mechanics alone will make your platformer feel 100x more professional.
+Spaghetti code is fine. Hardcode references. Use singletons for everything (e.g., \`GameManager.Instance\`). It only has to survive for 48 hours.
+
+### Personal Project
+Learn the Component Pattern. Decouple your logic. A \`HealthComponent\` should handle taking damage, and it can be attached to the Player, an Enemy, or a wooden crate. The \`PlayerController\` shouldn't care *what* it hits, it just calls \`GetComponent<Health>()\`.
+
+### Production SaaS
+Enterprise architecture requires Scriptable Objects (Unity) or Data Assets (Unreal) to drive game data. Designers should be able to create new weapons or enemies purely by tweaking data files in the editor, without requiring a programmer to recompile code. Furthermore, implement an Event Bus (Observer Pattern) so that the UI can update the health bar without being tightly coupled to the Player script.
+
+---
+
+## The Data We Need From You
+Architecture defines scalability.
+
+**Will you use a Component-based architecture, Object-Oriented Inheritance, or an Entity Component System (ECS) for your core logic?**
+\\\`\\\`\\\`input
+Write Here...
+\\\`\\\`\\\`
+
 `,
   'gamegamedesigndocumentgdd': `
 ## Why this matters
@@ -18654,18 +18903,36 @@ Identify your "Faucets" (how players get gold, e.g., killing monsters) and "Sink
 Hire an economy designer or use deep spreadsheet modeling (Machinations.io). If you have premium currencies (gems) and soft currencies (gold), you must architect massive sinks (like cosmetic rerolls or guild housing) for your "Whales" (top 1% of spenders) to prevent hyperinflation.
 `,
   'gameleveldesign': `
+
+# Level Design
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
 ## Why this matters
-Level design guides the player without them realizing they are being guided.
+A great mechanic is ruined by a bad level. Level design teaches the player how to play without tutorials, controls the pacing of tension and release, and guides the player's eye using lighting and geometry.
 
 ## Strategic Guidance
+
 ### Hackathon Mode
-Build a single arena. Spawn enemies in waves. No level geometry required.
+Build a single, small arena. Do not try to build a massive scrolling level. Spawn enemies in waves to keep the player in one highly polished area.
 
 ### Personal Project
-Use the "Nintendo Formula": Introduce a mechanic in a safe environment, escalate the difficulty, require mastery of the mechanic, then twist the mechanic. 
+Study Nintendo's "4-Step Level Design" (Kishotenketsu). 1: Introduce a mechanic in a safe environment. 2: Develop the mechanic with a minor challenge. 3: Twist the mechanic (e.g., you must now do it while falling). 4: Provide a satisfying conclusion.
 
 ### Production SaaS
-Use metrics-driven level design. Define standard metrics (e.g., "Max Jump Height is 4 meters", "Doorway Width is 2 meters"). If your level designers arbitrarily scale objects, your AI NavMesh will break, and the camera will clip through geometry.
+Enterprise level design requires modularity. Do not hand-place every tree. Build a robust set of modular "prefabs" (rooms, corridors, props) that snap together on a grid. For replayable games, invest heavily in Procedural Content Generation (PCG) using algorithms like Wave Function Collapse or Cellular Automata to generate infinite, high-quality variations of your levels.
+
+---
+
+## AI Orchestration Phase
+\\\`\\\`\\\`prompt
+Act as a Senior Level Designer. Explain the concept of "Leading Lines" and "Weenies" (as coined by Walt Disney). How can I use lighting and environmental geometry to subconsciously guide a player toward the critical path in a 3D level without using explicit UI waypoints?
+\\\`\\\`\\\`
+
+- [ ] I recognize the importance of teaching mechanics through level design rather than text tutorials.
+
 `,
   'gamecharacters': `
 ## Why this matters
@@ -19060,18 +19327,32 @@ Implement \`ISaveable\` interfaces on any object that needs to be persisted. The
 Handle schema migrations. If a player saves a game in Version 1.0, and you add a new "Stamina" stat in Version 1.1, the save file must load successfully and inject a default value for Stamina without crashing.
 `,
   'gameaudio': `
+
+# Audio & Polish
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
 ## Why this matters
-Audio implementation is technical.
+Audio is 50% of the game experience. A sword swing with no sound feels weightless. A sword swing with a massive bass drop feels incredibly powerful, even if the animation is exactly the same.
 
 ## Strategic Guidance
+
 ### Hackathon Mode
-Play sounds directly via \`AudioSource.PlayClipAtPoint\`.
+Download free SFX from freesound.org. Play them directly using \`PlayOneShot()\`. It will sound repetitive, but it works.
 
 ### Personal Project
-Build an AudioManager singleton that handles Object Pooling for AudioSources so you don't instantiate and destroy 100 audio components when a machine gun fires.
+Implement pitch and volume randomization. If the player shoots a gun, randomly alter the pitch by +/- 10% every time. This prevents ear fatigue and makes the game feel vastly more polished.
 
 ### Production SaaS
-Implement Audio Mixers and Ducking. When a character speaks (Dialogue channel), the Music and SFX channels should automatically "duck" (lower in volume by 10db) to ensure the dialogue is legible.
+Enterprise audio requires middleware like FMOD or Wwise. You must implement dynamic, adaptive music that crossfades seamlessly based on game states (e.g., transitioning from exploration music to combat music). Sound effects must utilize spatial audio (3D panning) and environmental occlusion (muffling sounds behind walls) to provide players with tactical acoustic information.
+
+---
+
+- [ ] I have implemented pitch randomization for repetitive sound effects.
+- [ ] I recognize that audio feedback heavily dictates the perceived "weight" of game mechanics.
+
 `,
   'gameanimation': `
 ## Why this matters
@@ -20629,1178 +20910,971 @@ Act as an Offensive Security Researcher. Explain the concept of Automated EDR Te
 
 `,
   'cyberbluelogsources': `
+
 # Log Sources
 
- **Estimated Time:** 1-2 Days
+**Estimated Time:** 2-4 Weeks
 
 ---
 
 ## Why this matters
-Logs are the lifeblood of the Blue Team. If it isn't logged, it didn't happen. However, logging *everything* will bankrupt you in SIEM ingestion costs. You must strategically choose which logs provide high-fidelity security signals versus which logs are just noise.
+If it isn't logged, it didn't happen. The foundation of any Security Operations Center (SOC) is telemetry. However, turning on every single log source will bankrupt you in SIEM ingestion costs. You must identify high-value log sources that provide maximum visibility into attacker behavior.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Stick to the absolute basics: Web server access logs (Nginx/Apache), application error logs, and basic auth logs (who logged in, who failed). Send them all to a single flat file or a free Datadog/New Relic tier.
+Enable basic application logging to \`stdout\`. Use a free tier of Datadog or Papertrail to ingest and search the logs during the demo.
 
 ### Personal Project
-Set up a local ELK stack or Wazuh and ingest Windows Event Logs (using Sysmon) or Linux auth logs. Learn how to filter out noisy events (like standard network broadcasts) before they hit your indexer to save disk space.
+Configure local logging via Syslog (Linux) or Windows Event Logs. Write a custom script that parses your web server's \`access.log\` to identify repeated 404 errors or failed login attempts.
 
 ### Production SaaS
-You need a tiered logging strategy. High-value logs (Authentication, Privilege Escalation, CloudTrail/IAM changes) go into a "Hot" SIEM index for real-time alerting. High-volume, low-value logs (VPC Flow Logs, standard web traffic) go into "Cold" storage (e.g., AWS S3) for compliance and retrospective hunting.
+Enterprise logging requires centralized Windows Event Forwarding (WEF) and Endpoint Detection and Response (EDR) telemetry. You must tune tools like Sysmon to filter out legitimate administrative noise (e.g., standard SCCM deployments) while capturing critical events like Process Creation (Event ID 1) with full command-line arguments, Network Connections (Event ID 3), and LSASS memory access (Event ID 10).
 
-## Data Ingestion Audit
-**List your top 3 most critical log sources:**
-\`\`\`input
-1. 
-2. 
-3. 
-\`\`\`
+---
 
-## Filtering the Noise
-\`\`\`prompt
-I am ingesting Windows Event Logs into my SIEM. Provide a baseline Sysmon configuration XML that filters out high-volume, low-value noise (like trusted system process executions) while strictly capturing process hollowing, LSASS dumping, and network connections from unusual binaries.
-\`\`\`
+## The Data We Need From You
+Log ingestion strategy directly impacts SIEM licensing costs.
 
-- [ ] I have configured log forwarding for my critical endpoints.
-- [ ] I have implemented filters to drop noisy, low-value events.
+**What are the top 3 high-value log sources your architecture absolutely requires for detection?**
+\\\`\\\`\\\`input
+Write Here...
+\\\`\\\`\\\`
+
 `,
   'cyberbluecompliance': `
+
 # Compliance Requirements
 
- **Estimated Time:** 1-2 Weeks
+**Estimated Time:** 1-2 Months
 
 ---
 
 ## Why this matters
-Compliance does not equal security, but failing compliance equals bankruptcy. Whether it's SOC2, HIPAA, PCI-DSS, or GDPR, your defensive architecture must provide irrefutable proof to auditors that controls are working as intended.
+Compliance is not security, but failing an audit will kill enterprise sales immediately. Frameworks like SOC 2, HIPAA, or PCI-DSS mandate specific defensive controls (like log retention periods, encrypted backups, and access reviews) that must be architected into your platform from Day 1.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Ignore compliance entirely. Focus on building a cool detection engine. Nobody expects a 48-hour project to be SOC2 Type II compliant.
+Ignore compliance entirely. It is irrelevant for a 48-hour prototype.
 
 ### Personal Project
-Pick one framework (like CIS Critical Security Controls) and try to implement the first 5 "Basic" controls in your lab. It's a great way to structure a home network security project and looks excellent on a resume.
+Familiarize yourself with the CIS (Center for Internet Security) Critical Security Controls. Implement the Top 5 controls (like inventorying assets and continuous vulnerability management) to build a secure baseline.
 
 ### Production SaaS
-Bake compliance into your CI/CD pipeline (Compliance-as-Code). If you are processing credit cards, your log architecture must strictly segregate PCI data. You must enforce 1-year log retention minimums, immutable audit trails, and strict RBAC on who can view the SIEM dashboards.
+Enterprise compliance requires Continuous Control Monitoring. Do not rely on manual spreadsheets. Implement infrastructure-as-code scanning (like Checkov) to ensure every Terraform deployment adheres to NIST 800-53 standards. Your SIEM must automatically generate daily reports proving that antivirus is running on all endpoints and that administrative access is strictly logged and MFA-enforced.
 
-## The Audit Checklist
-**Which regulatory frameworks apply to your business?**
-\`\`\`input
-Write Here...
-\`\`\`
+---
 
-## Gap Analysis
-\`\`\`prompt
-Act as a GRC (Governance, Risk, and Compliance) Auditor. My company is preparing for a SOC2 Type I audit. We currently use AWS CloudTrail and an ELK stack for logging. What are the top 5 missing controls or reports we need to build into our SIEM to satisfy the Security and Availability trust principles?
-\`\`\`
+- [ ] I understand the difference between being compliant and being secure.
+- [ ] I have identified the specific regulatory frameworks my product must adhere to.
 
-- [ ] I have identified the compliance frameworks legally required for my app.
-- [ ] I have mapped my log sources to specific compliance controls.
 `,
   'cyberbluedataprivacy': `
+
 # Data Privacy
 
- **Estimated Time:** 2-4 Hours
+**Estimated Time:** 2-4 Weeks
 
 ---
 
 ## Why this matters
-SIEMs and log aggregators are massive targets for attackers because they often accidentally contain plain-text passwords, PII (Personally Identifiable Information), or API keys. If your defensive tools leak user data, the Blue Team becomes the vulnerability.
+Collecting user data is a massive liability. Frameworks like GDPR (Europe) and CCPA (California) impose severe financial penalties for data mishandling. The best way to protect user data from a breach is to simply not collect it in the first place.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Don't worry about masking data in logs. Just make sure your log files aren't publicly exposed to the internet.
+Use placeholder users. Don't worry about encryption or data minimization. Just make the database work.
 
 ### Personal Project
-Practice writing Logstash or Fluentd regex filters to mask mock credit card numbers or Social Security Numbers before they are indexed.
+Implement strict Data Minimization. If you only need an email address for authentication, do not ask for a phone number or physical address. Hash passwords using Argon2id.
 
 ### Production SaaS
-You must implement strict Data Masking and Tokenization at the ingestion layer. Ensure that your application logs never print raw HTTP request bodies that contain passwords or session tokens. Implement "Right to be Forgotten" processes for your log archives to comply with GDPR.
+Enterprise privacy requires granular Data Loss Prevention (DLP) and automated redaction. Your log ingestion pipelines must utilize regex to automatically mask Personally Identifiable Information (PII) like Social Security Numbers or Credit Cards *before* they are written to the SIEM. Furthermore, you must implement a robust "Right to be Forgotten" workflow that permanently purges a user's data across all active databases and cold backups upon request.
 
-## Data Sanitization
-**Which log sources are most at risk of containing PII?**
-\`\`\`input
-Write Here...
-\`\`\`
+---
 
-## Writing Masking Rules
-\`\`\`prompt
-Write a Logstash filter configuration (using Grok and Mutate) that intercepts incoming application logs and automatically masks credit card numbers (PANs) and email addresses, replacing them with '[REDACTED]' before they are indexed into Elasticsearch.
-\`\`\`
+## AI Orchestration Phase
+\\\`\\\`\\\`prompt
+Act as a Data Privacy Officer. Explain the concept of Data Minimization under GDPR. Provide a technical checklist for a development team to ensure that PII is automatically redacted from application logs before ingestion into a centralized SIEM like Splunk.
+\\\`\\\`\\\`
 
-- [ ] I have audited my logs for accidental PII leakage.
-- [ ] I have implemented ingestion-layer masking for sensitive data.
+- [ ] I have minimized the PII collected by the application.
+
 `,
   'cyberbluesuccessmetrics': `
+
 # Success Metrics
-
- **Estimated Time:** 1-2 Hours
-
----
-
-## Why this matters
-You cannot improve what you cannot measure. A SOC (Security Operations Center) without metrics will quickly burn out its analysts with alert fatigue. You need KPIs like Mean Time to Detect (MTTD) and Mean Time to Respond (MTTR) to prove the Blue Team is actually effective.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Your only metric is: "Did the alert fire when I ran the exploit?" If yes, you succeed.
-
-### Personal Project
-Track your false positive rate. If you write a custom YARA rule, monitor how often it triggers on legitimate software versus actual malware. Tune the rule until the false positive rate is near zero.
-
-### Production SaaS
-Implement rigorous tracking for MTTD and MTTR. Track the "Alert to Ticket" ratio—if 10,000 alerts fire but only 5 result in an investigation, your rules are too noisy. Tie your SOC metrics to business objectives to justify budget increases.
-
-## Defining KPIs
-**What is your target MTTR for a Critical severity alert?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Building the Dashboard
-\`\`\`prompt
-Act as a SOC Manager. Outline the top 5 metrics that should be present on a CISO-level dashboard. Explain how to calculate each metric and what threshold indicates a 'healthy' security operation.
-\`\`\`
-
-- [ ] I have defined MTTD and MTTR targets for my team.
-- [ ] I have a system in place to measure the false positive rate of my alerts.
-`,
-  'cyberblueagentvsagentless': `
-# Agent vs Agentless Architecture
-
- **Estimated Time:** 1-2 Days
-
----
-
-## Why this matters
-How are you going to collect telemetry? Installing an agent (like CrowdStrike, Wazuh, or Datadog) on every endpoint gives you deep kernel-level visibility but consumes CPU and complicates deployment. Agentless collection (like polling AWS APIs or using network taps) is easier to deploy but lacks deep endpoint context.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Go Agentless. Rely on cloud provider logs (like AWS CloudTrail or Vercel logs) or simple webhooks. Installing and configuring endpoint agents will eat up your entire 48 hours.
-
-### Personal Project
-Deploy a free open-source agent like Wazuh or Osquery on a few VMs. Learn how the agent hooks into the OS (e.g., via eBPF on Linux or ETW on Windows) and sends data back to the manager.
-
-### Production SaaS
-You need a hybrid approach. Use Agents (EDR) for your critical servers and employee laptops where deep process-level visibility is mandatory. Use Agentless API polling for SaaS applications (like GitHub, Google Workspace, or Office 365) where you don't control the underlying OS.
-
-## The Architecture Decision
-**Will you deploy endpoint agents, or rely on agentless telemetry? Why?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Evaluating Agents
-\`\`\`prompt
-Compare and contrast Wazuh, Osquery, and Elastic Agent for endpoint telemetry collection. Break down their OS support, footprint (CPU/RAM overhead), and ease of writing custom detection rules.
-\`\`\`
-
-- [ ] I have chosen my primary telemetry collection method.
-- [ ] I have tested the CPU/RAM overhead of my chosen agent in a staging environment.
-`,
-  'cyberbluedataingestion': `
-# Data Ingestion Pipelines
-
- **Estimated Time:** 2-4 Days
-
----
-
-## Why this matters
-Logs don't magically appear in your SIEM. They must be shipped, buffered, parsed, and routed. If your ingestion pipeline is brittle, a volumetric DDoS attack will crash your logging infrastructure exactly when you need it most, blinding your Blue Team.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Use direct API pushes to a managed service (like Datadog or Splunk Cloud). Do not build Kafka queues or Logstash clusters. Just get the data from point A to point B.
-
-### Personal Project
-Set up Filebeat or Promtail to read local log files and ship them to a central server. This teaches you the basics of log shipping, network buffering, and TLS encryption for log transit.
-
-### Production SaaS
-You must implement a message broker (like Apache Kafka or Redis) in front of your SIEM. This acts as a shock absorber during log spikes. Use Logstash, Vector, or Fluentd to pull from the broker, normalize the data, and push it into Elasticsearch or Splunk.
-
-## Sizing the Pipeline
-**What is your estimated daily log volume (in GB)?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Building the Broker
-\`\`\`prompt
-Design a high-availability log ingestion architecture using Filebeat, Apache Kafka, and Logstash. Explain how Kafka prevents data loss when Elasticsearch goes down for maintenance, and provide a sample Docker Compose file to spin up this architecture.
-\`\`\`
-
-- [ ] I have a mechanism to buffer logs if the SIEM goes offline.
-- [ ] All log transit is encrypted via TLS.
-`,
-  'cyberbluestoragearchitecture': `
-# Storage Architecture (Hot/Warm/Cold)
-
- **Estimated Time:** 1-2 Days
-
----
-
-## Why this matters
-Storing 10 terabytes of logs per day on high-speed NVMe SSDs will bankrupt your company in a month. You must implement a lifecycle policy that moves aging logs from expensive, fast storage to cheap, slow storage.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Ignore lifecycle policies. Store everything on the default disk. It won't live long enough to fill up.
-
-### Personal Project
-Set up Index Lifecycle Management (ILM) in Elasticsearch. Configure it to roll over indices daily and delete logs older than 7 days to keep your home lab from running out of disk space.
-
-### Production SaaS
-Implement a strict Hot/Warm/Cold/Frozen architecture. 
-- **Hot (0-7 Days):** High IOPS SSDs for real-time alerting.
-- **Warm (7-30 Days):** Cheaper HDDs for recent investigations.
-- **Cold (30-365 Days):** Read-only snapshots in AWS S3 for compliance.
-- **Frozen (1 Year+):** Glacier storage.
-
-## Lifecycle Policy
-**Define your retention periods for Hot, Warm, and Cold storage:**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Automating Index Management
-\`\`\`prompt
-Provide an Elasticsearch Index Lifecycle Management (ILM) JSON policy that keeps indices in the 'hot' phase for 7 days, moves them to a 'warm' phase with replica reduction for 30 days, and finally archives them to a searchable snapshot in AWS S3 before deleting the local index.
-\`\`\`
-
-- [ ] I have implemented automated index rollover based on size or age.
-- [ ] I have configured cold storage archiving for compliance retention.
-`,
-  'cyberblueparsingengine': `
-# Parsing Engine (Grok/Regex)
-
- **Estimated Time:** 2-5 Days
-
----
-
-## Why this matters
-Unstructured logs are useless for alerting. If a firewall log is just a massive string of text, you can't run a query for \`source_ip == '10.0.0.5'\`. Parsing engines use Regex and Grok patterns to extract meaningful fields (IPs, Usernames, Ports) from unstructured text so the SIEM can index them properly.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Enforce structured logging (JSON) at the application level. If the app outputs JSON, the SIEM parses it automatically. Avoid writing Regex at all costs during a hackathon.
-
-### Personal Project
-Practice writing Grok filters for standard Linux logs (like \`/var/log/auth.log\`). Use tools like Grok Debugger to visualize how your regex breaks apart a SSH failed login attempt into \`user\`, \`src_ip\`, and \`timestamp\` fields.
-
-### Production SaaS
-Adopt a standard schema, such as the Elastic Common Schema (ECS) or Splunk CIM. Every parser you write MUST map extracted fields to this standard. If your Cisco firewall calls it \`src_ip\` and your Windows server calls it \`ClientIP\`, your SOC cannot write unified detection rules. Map everything to \`source.ip\`.
-
-## Schema Standardization
-**Which normalized schema (e.g., ECS, CIM, OCSF) will your parsers map to?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Writing Grok Patterns
-\`\`\`prompt
-Act as a SIEM Engineer. I have the following raw log line from a custom application: 
-'[2023-10-27T10:00:00Z] ERROR (AuthService): Failed login for user admin from 192.168.1.50 - Invalid Password'
-Write a Logstash Grok pattern that extracts the timestamp, log level, service name, username, source IP, and failure reason, mapping them to the Elastic Common Schema (ECS).
-\`\`\`
-
-- [ ] I have enforced JSON logging wherever possible to avoid manual parsing.
-- [ ] All my parsed fields map to a unified, standard schema.
-`,
-  'cyberbluerbac': `
-# RBAC & IAM for the SOC
-
- **Estimated Time:** 1-3 Days
-
----
-
-## Why this matters
-Your SIEM contains the keys to the kingdom. If an attacker compromises a junior SOC analyst's account, they can view all logs, uncover network topologies, or even delete audit trails to cover their tracks. Strict Role-Based Access Control (RBAC) is mandatory.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Use a single admin account. Don't waste time building user roles.
-
-### Personal Project
-Create two roles in your SIEM: An \`Analyst\` role that can only read dashboards and search logs, and an \`Admin\` role that can modify pipelines and delete indices. Practice the principle of least privilege.
-
-### Production SaaS
-Integrate your SIEM with your enterprise Identity Provider (Okta, Azure AD) via SAML/OIDC. Enforce hardware MFA for all logins. Implement strict index-level permissions (e.g., Tier 1 analysts cannot view HR or Executive VIP logs). Alert the SOC immediately if any user attempts to modify SIEM configurations or delete logs.
-
-## Role Definitions
-**Define the permissions for a Tier 1 Analyst versus a SIEM Engineer:**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Configuring SAML & RBAC
-\`\`\`prompt
-Provide a comprehensive guide on implementing Role-Based Access Control in Elasticsearch/Kibana. Explain how to map an Okta SAML group to an Elastic Role that grants read-only access to specific indices (e.g., 'logs-endpoint-*') while explicitly denying access to sensitive indices (e.g., 'logs-billing-*').
-\`\`\`
-
-- [ ] All SOC personnel authenticate via SSO with hardware MFA.
-- [ ] Analysts have read-only access to log data and cannot modify ingestion pipelines.
-`,
-  'cyberblueebpf': `
-# Kernel Visibility (eBPF)
-
- **Estimated Time:** 1-2 Weeks
-
----
-
-## Why this matters
-User-space logging (like reading \`/var/log/syslog\`) is easily bypassed by advanced rootkits. eBPF (Extended Berkeley Packet Filter) allows you to run sandboxed monitoring programs directly inside the Linux kernel. It provides near-zero overhead visibility into every syscall, network packet, and file open event, making it almost impossible for user-space malware to hide.
-
-## Strategic Guidance
-
-### Hackathon Mode
-eBPF is too complex for a 48-hour sprint. Stick to standard user-space logging or simple auditd rules.
-
-### Personal Project
-Experiment with Cilium Tetragon or tracee in a local Linux VM. Write a simple eBPF probe that triggers an alert anytime the \`execve\` syscall is called to spawn \`/bin/bash\`, simulating a reverse shell detection.
-
-### Production SaaS
-eBPF is the gold standard for modern cloud-native security. Deploy eBPF-based sensors (like Tetragon, Falco, or Aqua Tracee) across your Kubernetes clusters. Use it to enforce runtime security, such as instantly killing a container if it attempts to write to a protected directory or opens an unauthorized outbound network socket.
-
-## Defining eBPF Scope
-**What critical syscalls or behaviors do you need eBPF to monitor?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Implementing eBPF Sensors
-\`\`\`prompt
-Act as a Cloud Security Engineer. Explain how eBPF differs from traditional kernel modules for security observability. Provide a configuration snippet using Cilium Tetragon to detect and log any process that attempts to modify the /etc/shadow file or execute a reverse shell.
-\`\`\`
-
-- [ ] I have evaluated eBPF-based tooling for my cloud infrastructure.
-- [ ] I have tested the performance impact of syscall hooking on my workloads.
-`,
-  'cyberbluenetworkpacketanalysis': `
-# Network Packet Analysis (NDR)
-
- **Estimated Time:** 1-3 Weeks
-
----
-
-## Why this matters
-Endpoints can be compromised, and logs can be deleted, but network traffic doesn't lie. Network Detection and Response (NDR) using tools like Zeek or Suricata provides ground-truth visibility into data exfiltration, lateral movement, and Command & Control (C2) beacons.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Don't attempt deep packet inspection. Just use VPC flow logs to visualize basic source/destination IP connections.
-
-### Personal Project
-Set up Security Onion or just Zeek on a home router (like pfSense) or a span port. Analyze the \`conn.log\` and \`dns.log\` to understand what normal household traffic looks like, then simulate a DNS tunneling attack and watch it appear in the logs.
-
-### Production SaaS
-Decrypting TLS at scale is incredibly hard and often breaks privacy compliance. Instead of deep packet inspection, rely on metadata analysis (Zeek). Monitor JA3/JA4 TLS fingerprints to detect malicious C2 clients. Analyze beaconing intervals (e.g., a connection exactly every 60 seconds) to detect automated malware callbacks.
-
-## Placement of Sensors
-**Where in your network topology will you place network taps or span ports?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Zeek Scripting
-\`\`\`prompt
-Act as a Threat Hunter. Explain how to use Zeek to detect Command and Control (C2) beaconing based on connection intervals and payload sizes. Provide a sample Zeek script that alerts on repetitive, uniform HTTP POST requests outbound to a newly registered domain.
-\`\`\`
-
-- [ ] I have visibility into East-West (internal) network traffic, not just North-South (perimeter).
-- [ ] I am monitoring for known-bad JA3 TLS fingerprints.
-`,
-  'cyberblueendpointtelemetry': `
-# Endpoint Telemetry (EDR)
-
- **Estimated Time:** 2-4 Weeks
-
----
-
-## Why this matters
-The endpoint is the ultimate battlefield. If you can't see process trees (e.g., Word.exe spawning PowerShell.exe), registry modifications, or memory injections, you are blind to 90% of modern malware. Endpoint Detection and Response (EDR) provides this granular visibility.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Skip EDR. Use Windows Defender logs or basic auditd.
-
-### Personal Project
-Deploy Osquery to your personal machines. Use it to query running processes, open network sockets, and loaded kernel modules using standard SQL syntax. It's a fantastic way to learn endpoint forensics.
-
-### Production SaaS
-Deploy a commercial EDR (CrowdStrike, SentinelOne) or a robust open-source alternative (Wazuh). You must collect full process execution command lines, file hashes (SHA256), and network connections tied to specific PIDs. Ensure the EDR has "tamper protection" so local admins or malware cannot disable the sensor.
-
-## Telemetry Requirements
-**What are the top 3 high-fidelity endpoint events you must collect?**
-\`\`\`input
-1. Process Creation (with command line arguments)
-2. 
-3. 
-\`\`\`
-
-## EDR Bypasses and Visibility
-\`\`\`prompt
-Explain the concept of 'Process Hollowing' and 'Reflective DLL Injection'. How do modern EDR solutions (like CrowdStrike or Microsoft Defender for Endpoint) use Userland API Hooking (NTDLL.dll) and Kernel Callbacks to detect these memory-based attacks?
-\`\`\`
-
-- [ ] My endpoint agent logs full command-line arguments for all executed processes.
-- [ ] The agent has tamper protection enabled.
-`,
-  'cyberbluecloudtrail': `
-# Cloud Trail Hooks
-
- **Estimated Time:** 1-2 Days
-
----
-
-## Why this matters
-In the cloud, the control plane IS the network. An attacker who compromises an AWS IAM key doesn't need to hack a server; they just use the API to snapshot your database and make it public. Cloud audit logs (like AWS CloudTrail or GCP Audit Logs) are the only way to detect control plane attacks.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Enable CloudTrail or GCP Audit logging, but don't spend time building alerts unless your hackathon specifically requires it.
-
-### Personal Project
-Set up a CloudTrail trail to S3, and use AWS Athena to query the logs. Try to find the exact JSON event that fires when you manually create a new IAM user in the console.
-
-### Production SaaS
-Cloud logs must be shipped to a centralized SIEM in a dedicated "Security" AWS account that the production environment cannot access. Write strict alerts for: Disabling CloudTrail, creating new IAM users, modifying Security Groups to \`0.0.0.0/0\`, and enumerating S3 buckets (\`ListBuckets\` without a specific target).
-
-## Cloud Alerting Scenarios
-**List 3 cloud API calls that should trigger a P1 incident if executed by an unauthorized role:**
-\`\`\`input
-1. 
-2. 
-3. 
-\`\`\`
-
-## Cloud Detection Engineering
-\`\`\`prompt
-Act as a Cloud Detection Engineer. I am monitoring AWS CloudTrail logs. Write a Sigma rule or Elasticsearch query that detects when an IAM user or role attempts to perform 'sts:AssumeRole' across accounts suspiciously, or attempts to execute 'cloudtrail:StopLogging'.
-\`\`\`
-
-- [ ] Cloud audit logs are stored in an immutable bucket in a separate AWS account.
-- [ ] Alerts are configured for the disabling or deletion of security logging.
-`,
-  'cyberblueanomalydetection': `
-# Anomaly Detection (ML/UEBA)
-
- **Estimated Time:** 2-4 Weeks
-
----
-
-## Why this matters
-Static rules (e.g., "Alert if User logs in from North Korea") fail against compromised credentials used by domestic attackers. User and Entity Behavior Analytics (UEBA) uses Machine Learning to establish a baseline of "normal" behavior and alerts on deviations (e.g., "Bob usually downloads 10MB a day, today he downloaded 40GB").
-
-## Strategic Guidance
-
-### Hackathon Mode
-Do not use ML. Use simple static thresholds (e.g., > 10 failed logins = Block).
-
-### Personal Project
-Experiment with Elastic's Machine Learning module. Feed it a dataset of web access logs and use the "Rare" function to find unusual user-agent strings or HTTP status codes.
-
-### Production SaaS
-Do not rely entirely on UEBA, as it generates high false positives. Use it as a secondary signal to increase the risk score of an entity. If a static YARA rule fires AND the user is exhibiting anomalous lateral movement, escalate the alert to Critical. Train your ML models for at least 30 days to establish an accurate baseline before enabling alerts.
-
-## Defining the Baseline
-**What defines 'normal' behavior for a standard user in your application?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Building UEBA Models
-\`\`\`prompt
-Act as a Data Scientist in Cyber Security. Explain how to implement a User and Entity Behavior Analytics (UEBA) model using Isolation Forests to detect anomalous data exfiltration. What features (e.g., bytes out, connection time, destination ASN) are most critical for training this model?
-\`\`\`
-
-- [ ] I have collected enough historical data (30+ days) to establish an accurate baseline.
-- [ ] Anomaly alerts are used for context/scoring, rather than immediate paging, to reduce fatigue.
-`,
-  'cyberblueyara': `
-# YARA Rule Engine
-
- **Estimated Time:** 2-4 Days
-
----
-
-## Why this matters
-YARA is the "pattern matching swiss army knife" for malware researchers. It allows you to write rules based on text or binary patterns (strings, hex signatures, file magic numbers) to identify specific malware strains or threat actor tools across your environment.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Download public YARA rulesets (like the one from Florian Roth) and point a scanner at a directory. Don't write custom rules.
-
-### Personal Project
-Download a known malware sample (e.g., WannaCry) in a safe sandbox. Reverse engineer it lightly using \`strings\` or a hex editor, and write a custom YARA rule to detect its specific mutex or ransom note text.
-
-### Production SaaS
-Integrate YARA scanning into your file upload pipelines and EDR sweeps. If your SaaS application allows users to upload PDFs or images, run a YARA engine (like \`yextend\`) against every upload to catch embedded shellcode or malicious macros before the file hits your storage backend.
-
-## Custom YARA Signatures
-**What proprietary intellectual property or specific threats do you need custom YARA rules for?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Writing YARA Rules
-\`\`\`prompt
-Act as a Malware Analyst. Write a robust YARA rule to detect WebShells (specifically targeting PHP payloads like China Chopper). The rule should look for specific magic bytes, heavily obfuscated eval() functions, and common base64 encoded command execution strings. Include conditions for file size to optimize scanning speed.
-\`\`\`
-
-- [ ] All user-uploaded files are scanned with a robust YARA ruleset.
-- [ ] I have a pipeline to regularly update my YARA signatures from Threat Intel feeds.
-`,
-  'cyberbluesigma': `
-# Sigma Rules Integration
-
- **Estimated Time:** 1-2 Weeks
-
----
-
-## Why this matters
-Sigma is to logs what YARA is to files. It is a generic, open signature format for SIEM systems. Instead of writing detection logic tied to Splunk (SPL) or Elastic (KQL), you write it in Sigma (YAML). You can then compile that Sigma rule into ANY backend query language. This prevents vendor lock-in.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Use Sigma to quickly generate a Splunk or Elastic query using \`sigmac\` or uncoder.io, rather than learning the query syntax from scratch.
-
-### Personal Project
-Write a Sigma rule for a specific attack (e.g., clearing the Windows Event Log). Convert it to an Elasticsearch query and test it against your local ELK stack.
-
-### Production SaaS
-Adopt "Detection as Code". Store all your SOC's detection logic as Sigma YAML files in a Git repository. When a PR is approved, use CI/CD pipelines to automatically compile the Sigma rules into the syntax of your current SIEM and deploy them via API. If you migrate from Splunk to Sentinel next year, your detections port over instantly.
-
-## Detection as Code Workflow
-**How will your team review and approve new detection rules?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Writing Sigma Rules
-\`\`\`prompt
-Act as a Detection Engineer. Write a Sigma rule (in YAML format) that detects an attacker using 'certutil.exe' to download a file from an external URL (a common Living off the Land technique). Include the log source requirements, the detection selection criteria, and false positive considerations.
-\`\`\`
-
-- [ ] My detection rules are stored in a version-controlled repository (Git).
-- [ ] My rules are written in a vendor-agnostic format (Sigma) to prevent lock-in.
-`,
-  'cyberbluebehavioralheuristics': `
-# Behavioral Heuristics
-
- **Estimated Time:** 2-4 Weeks
-
----
-
-## Why this matters
-Signatures (like matching a specific file hash) are dead. Attackers recompile their malware, changing the hash instantly. Behavioral heuristics focus on the *action* rather than the *artifact*. E.g., "Word.exe should never spawn PowerShell.exe with a base64 encoded payload." This detects attacks regardless of the malware's signature.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Skip complex heuristics. Rely on the default behavioral rules provided by your open-source tools.
-
-### Personal Project
-Map your behavioral rules against the MITRE ATT&CK matrix. Identify gaps in your visibility (e.g., "I have no rules for T1055 - Process Injection").
-
-### Production SaaS
-Build stateful, correlation-based detections. A single suspicious event (e.g., \`whoami\` execution) is noise. But if the same user executes \`whoami\`, followed by \`net user\`, followed by an outbound SSH connection within 5 minutes, that is a high-fidelity heuristic for Lateral Movement. Use your SIEM's correlation engine (like Elastic EQL) to link these events.
-
-## Correlation Scenarios
-**Define a 3-step behavioral chain that indicates a successful compromise in your environment:**
-\`\`\`input
-1. 
-2. 
-3. 
-\`\`\`
-
-## Building EQL / Correlation Rules
-\`\`\`prompt
-Act as a SOC Analyst. Explain how to use Event Query Language (EQL) or Splunk Transaction commands to detect a behavioral chain: A user logs in from a new IP address, immediately disables multi-factor authentication, and exports a large volume of data within a 10-minute window.
-\`\`\`
-
-- [ ] Detections are mapped to the MITRE ATT&CK framework to identify coverage gaps.
-- [ ] I rely on behavioral correlation chains to reduce false positives from single events.
-`,
-  'cyberbluefalsepositives': `
-# False Positive Tuning
-
- **Estimated Time:** Ongoing
-
----
-
-## Why this matters
-Alert fatigue is the silent killer of the Blue Team. If your SIEM generates 500 "Critical" alerts a day that turn out to be nothing, analysts will eventually ignore a real alert (the "Boy Who Cried Wolf" syndrome). Tuning rules to silence false positives is the most important daily task of a Detection Engineer.
-
-## Strategic Guidance
-
-### Hackathon Mode
-If an alert is noisy, just turn it off. You don't have time to tune it.
-
-### Personal Project
-Learn how to use exception lists or whitelists. If a rule triggers every time you run a backup script, modify the rule to specifically exclude that script's hash or path.
-
-### Production SaaS
-Implement a rigorous tuning lifecycle. When a new rule is deployed, put it in "Shadow Mode" (it generates logs, but doesn't page anyone) for 14 days. Analyze the false positives, add strict whitelists for trusted administrative tools, and only move it to "Active/Paging Mode" when the false positive rate is under 5%.
-
-## Exception Handling
-**What are the most common administrative tasks in your environment that look like attacks?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Tuning Methodologies
-\`\`\`prompt
-Act as a Senior Detection Engineer. A highly critical Sigma rule detecting 'Pass the Hash' is generating massive false positives due to a legacy vulnerability scanner operating on our network. How do I construct a resilient whitelist/exception that allows the scanner to operate without whitelisting the entire subnet and creating a blind spot for attackers?
-\`\`\`
-
-- [ ] New detection rules are run in 'Shadow Mode' before alerting analysts.
-- [ ] Exceptions are highly specific (e.g., matching Path + Hash + Parent Process) to avoid creating blind spots.
-`,
-  'cyberbluethreatintel': `
-# Threat Intelligence Feeds
-
- **Estimated Time:** 3-5 Days
-
----
-
-## Why this matters
-Threat Intelligence turns your SIEM from reactive to proactive. By ingesting feeds of known-bad IP addresses, malicious domains, and file hashes (Indicators of Compromise / IoCs), your defensive engine can automatically block or alert on infrastructure used by known threat actors before they successfully breach your network.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Use a free API like AbuseIPDB or VirusTotal to manually check suspicious IPs. Do not attempt to build an automated ingestion pipeline.
-
-### Personal Project
-Set up MISP (Malware Information Sharing Platform). Connect it to a few free OSINT feeds (like AlienVault OTX) and pull the latest IoCs into your SIEM to match against your network logs.
-
-### Production SaaS
-Do not just ingest every free feed on the internet; it will crush your SIEM with false positives (e.g., a feed accidentally listing 8.8.8.8 as malicious). Curate your feeds. Subscribe to industry-specific ISACs (Information Sharing and Analysis Centers). Use a Threat Intel Platform (TIP) to aggregate, score, and deduplicate IoCs before pushing them to your Firewalls and EDRs for blocking.
-
-## Curation and Relevance
-**Which threat intel sources are most relevant to your specific industry?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Automating IoC Matching
-\`\`\`prompt
-Act as a Threat Intelligence Analyst. Explain how to integrate a Threat Intelligence Platform (like MISP) with Elasticsearch. Provide an architectural overview of how to perform real-time IoC matching against incoming network flow logs without creating massive performance bottlenecks in the SIEM.
-\`\`\`
-
-- [ ] I am pulling in Threat Intel feeds relevant to my specific sector.
-- [ ] I have a mechanism to quickly expire stale IoCs (like IP addresses that have been reassigned).
-`,
-  'cyberbluesoar': `
-# SOAR Playbooks
-
- **Estimated Time:** 2-4 Weeks
-
----
-
-## Why this matters
-When a ransomware alert fires at 3:00 AM, a human analyst takes 15 minutes to wake up, log in, find the affected IP, and block it. In 15 minutes, ransomware can encrypt your entire file share. Security Orchestration, Automation, and Response (SOAR) playbooks automate the triage and response at machine speed.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Use simple Python scripts or Zapier/n8n webhooks to trigger a block on a firewall when a specific alert fires. Keep it extremely basic.
-
-### Personal Project
-Install Shuffle (Open Source SOAR). Write a playbook that listens for a webhook from your SIEM, automatically checks the offending IP against VirusTotal, and sends a formatted message to a Discord or Slack channel with the results.
-
-### Production SaaS
-Do not automate destructive actions (like shutting down production databases) without a "Human in the Loop" approval step, or you will cause an self-inflicted outage. Automate the *enrichment* of alerts perfectly. A Tier 1 analyst should never have to manually lookup an IP on AbuseIPDB; the SOAR should have already queried it, attached the reputation score to the ticket, and presented a "Click to Isolate Host" button.
-
-## Designing the Playbook
-**Which repetitive, manual task should your SOC automate first?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Automating the Triage
-\`\`\`prompt
-Act as a SOAR Automation Engineer. Outline a playbook workflow for handling a 'Suspicious Login from New Country' alert. Detail the steps to automatically extract the IP, enrich it via GeoIP and Threat Intel APIs, check if the user is a traveling executive via the HR system, and conditionally prompt the user for MFA reverification via Slack before paging an analyst.
-\`\`\`
-
-- [ ] High-volume, low-complexity alerts are fully automated.
-- [ ] Destructive automated responses require human approval.
-`,
-  'cyberblueprocesstermination': `
-# Process Termination
-
- **Estimated Time:** 1-3 Days
-
----
-
-## Why this matters
-If you detect a malicious payload executing in memory, you must kill it immediately. However, attackers know this. Advanced malware will hook termination APIs, spawn watchdog processes that resurrect the malware if it's killed, or inject itself into critical system processes (like \`lsass.exe\`) where killing it crashes the operating system (BSOD).
-
-## Strategic Guidance
-
-### Hackathon Mode
-Just use the \`kill -9 <PID>\` command on Linux or \`Stop-Process\` in PowerShell. It's good enough for a demo.
-
-### Personal Project
-Experiment with Sysinternals PsKill or Process Hacker. Learn how to identify and kill a process tree, rather than just the child process. Try to kill a process that is running as \`SYSTEM\` while you are a local admin.
-
-### Production SaaS
-Use your EDR's built-in remediation capabilities to safely suspend or terminate process trees. If a process is deeply injected into a critical system service, your automated playbook should *suspend* the thread rather than kill it to avoid a kernel panic, while simultaneously isolating the host from the network so a forensic analyst can investigate.
-
-## Safe Termination Strategies
-**How will you handle malware that injects into a critical system process?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Handling Watchdogs
-\`\`\`prompt
-Act as an Incident Responder. Explain how malware uses 'Watchdog' or 'Resurrection' processes to maintain persistence when a defender attempts to terminate the primary payload. Provide a strategy using Windows APIs or EDR commands to simultaneously suspend the entire process tree before terminating it.
-\`\`\`
-
-- [ ] My response playbooks terminate the entire process tree, not just the child.
-- [ ] I have safeguards against terminating critical OS processes.
-`,
-  'cyberbluenetworkisolation': `
-# Network Isolation
-
- **Estimated Time:** 1-2 Weeks
-
----
-
-## Why this matters
-When an endpoint is compromised, your immediate goal is to stop lateral movement and sever Command & Control (C2) communications. Network Isolation essentially puts the machine in a quarantine VLAN or drops all its packets, except for the traffic required by the Blue Team to investigate it.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Write a script that simply disables the network adapter or flushes the routing table on the target machine.
-
-### Personal Project
-Use the Windows Firewall API to write a script that blocks all inbound and outbound traffic, *except* for RDP (TCP 3389) from your specific management IP address.
-
-### Production SaaS
-Do not rely on local firewalls, as root-level malware can disable them. Use your EDR's "Network Containment" feature or integrate with your Network Access Control (NAC) / Cloud Security Groups to dynamically move the host into an isolated micro-segment. Ensure the isolation policy still permits traffic to your SIEM and forensic tools.
-
-## Defining the Quarantine
-**Which IP addresses/ports must remain open even when a host is isolated?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Dynamic Containment
-\`\`\`prompt
-Act as a Network Security Architect. Explain how to implement dynamic network isolation for AWS EC2 instances using AWS Lambda and Security Groups. Detail a workflow where a GuardDuty alert triggers a Lambda function that replaces the instance's Security Group with a strict 'Quarantine' group, cutting off all traffic except SSH from a jump box.
-\`\`\`
-
-- [ ] I can isolate a compromised host within 5 minutes of detection.
-- [ ] Isolated hosts can still communicate with my forensic and management tools.
-`,
-  'cyberbluealerttriage': `
-# Alert Triage
-
- **Estimated Time:** Ongoing
-
----
-
-## Why this matters
-Alert Triage is the process of looking at a flashing red light and deciding if it's a real attack (True Positive) or a normal admin task (False Positive). Poor triage processes lead to analysts blindly closing tickets or, worse, escalating every single alert to the Incident Response team, causing massive organizational panic.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Just print the alerts to the screen. Triage is a human problem, not a hackathon problem.
-
-### Personal Project
-Create a standard operating procedure (SOP) for investigating your own alerts. What 3 things should you check first when a "Suspicious Process" alert fires?
-
-### Production SaaS
-Build strict "Runbooks" for every single alert type in your SIEM. A Tier 1 analyst should not have to guess how to investigate a "Pass the Hash" alert; the runbook should explicitly state: 1. Check if the user is a Domain Admin. 2. Check if the source IP is a known scanner. 3. Look for corresponding Service Ticket requests. Standardizing triage prevents junior analysts from missing critical context.
-
-## Runbook Creation
-**Pick your most critical alert. What are the first 3 steps an analyst must take to verify it?**
-\`\`\`input
-1. 
-2. 
-3. 
-\`\`\`
-
-## Building SOPs
-\`\`\`prompt
-Act as a SOC Lead. Write a comprehensive triage runbook for a Tier 1 Analyst handling an 'Impossible Travel' alert (e.g., a user logs in from New York, and 10 minutes later logs in from Moscow). Outline the exact verification steps, the contextual data to gather, and the specific criteria that mandate escalating the alert to Tier 2.
-\`\`\`
-
-- [ ] Every alert generated by the SIEM has a documented triage runbook.
-- [ ] Analysts have a clear escalation path for when an alert is verified as a True Positive.
-`,
-  'cyberblueforensics': `
-# Forensic Evidence Capture
-
- **Estimated Time:** 1-3 Weeks
-
----
-
-## Why this matters
-If you format a compromised server, you destroy the evidence. How did they get in? What did they steal? Are there backdoors left behind? Digital Forensics and Incident Response (DFIR) requires capturing memory (RAM) dumps, disk images, and volatile artifacts *before* you remediate the threat.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Forensics takes hours. In a hackathon, just reboot the box and pretend the threat is gone.
-
-### Personal Project
-Learn how to use Volatility. Take a memory dump of a Windows VM, run a known malware sample, and use Volatility plugins like \`pslist\`, \`netscan\`, and \`malfind\` to locate the injected malicious code in RAM.
-
-### Production SaaS
-Automate artifact collection. When an endpoint is isolated, your EDR or SOAR should automatically execute a tool like KAPE (Kroll Artifact Parser and Extractor) to grab the MFT, registry hives, prefetch files, and event logs, zipping them up and sending them to a secure S3 bucket for the DFIR team to analyze offline. Never do analysis on the live, compromised machine.
-
-## Defining Artifacts
-**What are the top 3 critical forensic artifacts you need to capture from a compromised Windows machine?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Memory Forensics
-\`\`\`prompt
-Act as a Digital Forensics Examiner. Explain the process of capturing volatile memory from a live Windows system. Detail how to use the Volatility framework to identify unlinked processes (rootkits) and extract injected malicious DLLs from the memory dump for reverse engineering.
-\`\`\`
-
-- [ ] I have a mechanism to capture RAM and volatile artifacts before a machine is rebooted.
-- [ ] Forensic evidence is stored securely with a strict chain of custody.
-`,
-  'cyberblueantitamper': `
-# Self-Protection (Anti-Tamper)
-
- **Estimated Time:** 1-2 Weeks
-
----
-
-## Why this matters
-The very first thing advanced malware does is attempt to kill your antivirus, EDR, and logging agents. If your defensive tools can be disabled by a simple \`taskkill\` command or by stopping a service, you have zero security.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Ignore this. Assume the attacker won't target your security tools directly.
-
-### Personal Project
-Look at how Windows Defender implements Tamper Protection. Try to write a PowerShell script that disables it, and observe how the OS prevents even an Administrator from altering the Defender registry keys.
-
-### Production SaaS
-Your EDR and logging agents MUST have kernel-level anti-tamper protections. This usually involves an Early Launch Anti-Malware (ELAM) driver that protects the agent's processes, files, and registry keys from being modified by anything—even \`NT AUTHORITY\\SYSTEM\`. If an agent is forcefully uninstalled or stops reporting, your SIEM must immediately generate a Critical alert.
-
-## Agent Resilience
-**How will you know if a logging agent has been silently disabled by an attacker?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Designing Anti-Tamper Mechanisms
-\`\`\`prompt
-Explain how modern EDR solutions use Kernel Callbacks (e.g., ObRegisterCallbacks in Windows) to protect their own processes from being terminated by malware running with Administrator or SYSTEM privileges. How can a Blue Team monitor for the failure or bypass of these mechanisms?
-\`\`\`
-
-- [ ] My security agents have anti-tamper protections enabled.
-- [ ] The SIEM generates a 'Dead Agent' alert if telemetry stops flowing from a host for more than 15 minutes.
-`,
-  'cyberblueperformance': `
-# Performance Overhead
-
- **Estimated Time:** 1-2 Weeks
-
----
-
-## Why this matters
-Security tools are notorious for destroying system performance. If your EDR agent consumes 40% of a production database's CPU, the DevOps team will uninstall it, leaving you blind. Security must be frictionless and performant.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Performance doesn't matter for a 48-hour demo. Run the heaviest queries you want.
-
-### Personal Project
-Use tools like \`htop\` or Performance Monitor to measure the CPU and RAM usage of your security agents when the system is idle versus under heavy load. Learn how to limit the agent's resource consumption.
-
-### Production SaaS
-Strictly benchmark your security agents in a staging environment before deploying to production. Configure CPU/Memory caps for your agents. For high-throughput servers (like databases or load balancers), you may need to selectively disable certain invasive hooking features (like full packet inspection) to maintain SLA requirements.
-
-## Benchmarking Strategy
-**What is the maximum acceptable CPU overhead for your security agents on production servers?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Optimizing Security Agents
-\`\`\`prompt
-Act as a DevSecOps Engineer. We are deploying an EDR agent to a high-throughput PostgreSQL database cluster. Outline the steps to benchmark the agent's performance impact using tools like sysbench. Detail the common EDR configuration exclusions (e.g., directory exclusions, hooking disables) required to prevent locking issues and latency spikes on database servers.
-\`\`\`
-
-- [ ] I have benchmarked the performance impact of my security tools in a staging environment.
-- [ ] I have configured resource limits (cgroups/CPU caps) for my agents to prevent them from crashing production services.
-`,
-  'cyberblueencryption': `
-# Encryption at Rest
-
- **Estimated Time:** 1-2 Weeks
-
----
-
-## Why this matters
-If an attacker gains access to the underlying storage volume (e.g., stealing a hard drive or compromising an AWS EBS snapshot), they can bypass the operating system's access controls and read the raw data directly. Encryption at rest renders that data completely unreadable without the decryption key.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Skip it. Just use the default cloud provider settings.
-
-### Personal Project
-Set up LUKS full-disk encryption on a Linux VM. Understand the boot process and how the decryption key is supplied (via password or TPM) before the OS mounts the drive.
-
-### Production SaaS
-You must use strong Encryption at Rest for all databases, log archives, and S3 buckets. Rely on a centralized Key Management Service (like AWS KMS or HashiCorp Vault) to manage the encryption keys. Implement strict IAM policies limiting who (or what role) can call the \`Decrypt\` API. Rotate your Customer Master Keys (CMKs) annually.
-
-## Key Management
-**Where are your encryption keys stored, and who has access to them?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Designing KMS Architecture
-\`\`\`prompt
-Explain the concept of Envelope Encryption. Design a secure key management architecture using AWS KMS where application servers can encrypt and decrypt data in an S3 bucket, but database administrators cannot access the raw plaintext data. Include the necessary IAM policy constraints.
-\`\`\`
-
-- [ ] All sensitive data is encrypted at rest using industry-standard algorithms (AES-256).
-- [ ] Encryption keys are managed by a dedicated KMS and access is tightly restricted.
-`,
-  'cyberblueauditlogging': `
-# Audit Logging
-
- **Estimated Time:** 1-2 Weeks
-
----
-
-## Why this matters
-While telemetry tells you what the OS is doing, Audit Logging tells you what the *Application* is doing. If a rogue administrator logs into your SaaS dashboard and deletes a customer's account, endpoint logs won't help you. You need application-level audit logs to prove exactly who did what, and when.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Just dump all actions to \`console.log()\` or a simple database table.
-
-### Personal Project
-Implement an audit logging middleware in your backend framework (Node.js, Django). Intercept every POST/PUT/DELETE request, strip out passwords, and log the User ID, action, and timestamp to a separate file.
-
-### Production SaaS
-Audit logs must be immutable. Write them to a WORM (Write Once, Read Many) storage system. They must follow a strict schema (Actor, Action, Resource, Timestamp, Status). Ensure that the application cannot delete or modify its own audit logs; the logs should be shipped asynchronously to a secure, segregated log archive.
-
-## Defining the Audit Schema
-**What critical application actions (e.g., password changes, data exports) must be audit logged?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Building Immutable Logs
-\`\`\`prompt
-Act as an Application Security Architect. Design an immutable audit logging architecture for a Node.js microservices platform. Explain how to ensure non-repudiation (proving a user definitively took an action) and how to securely ship these logs to an AWS S3 bucket with Object Lock enabled to prevent tampering by compromised application servers.
-\`\`\`
-
-- [ ] Application audit logs record the Actor, Action, Resource, and Timestamp for all state-changing events.
-- [ ] Audit logs are stored in a tamper-proof, immutable location.
-`,
-  'cyberbluedashboarding': `
-# Dashboarding
-
- **Estimated Time:** 1-2 Weeks
-
----
-
-## Why this matters
-Raw logs are unreadable at scale. Dashboards translate millions of log lines into visual trends, allowing SOC analysts to instantly spot anomalies (like a massive spike in failed logins from a specific country) that might not trigger a static alert.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Use out-of-the-box dashboards provided by Grafana or Datadog integrations. Don't build custom charts.
-
-### Personal Project
-Build a custom Kibana or Grafana dashboard tracking SSH logins to your home lab. Create a map visualization plotting the geo-location of failed login attempts.
-
-### Production SaaS
-Dashboards must be role-specific. Build a high-level "Threat Landscape" dashboard for the CISO (showing MTTR, blocked attacks, and compliance metrics). Build granular, tactical dashboards for Tier 1 analysts (showing active alerts, firewall drops, and top talking IPs). Avoid "Vanity Metrics" (like 'Total packets scanned') that don't drive actionable decisions.
-
-## Identifying Key Visualizations
-**What 3 charts do your analysts need to see the moment they log in for their shift?**
-\`\`\`input
-1. 
-2. 
-3. 
-\`\`\`
-
-## Designing Effective SOC Dashboards
-\`\`\`prompt
-Act as a UI/UX Designer for Security Operations. Explain the principles of building effective SOC dashboards that minimize cognitive load. What data visualizations should be avoided, and what is the best way to visually represent a distributed brute-force attack occurring over a 24-hour period?
-\`\`\`
-
-- [ ] Dashboards are tailored to specific roles (Executive vs Analyst).
-- [ ] Dashboards focus on actionable metrics rather than vanity numbers.
-`,
-  'cyberblueincidentresponse': `
-# Incident Response (IR)
-
- **Estimated Time:** Ongoing
-
----
-
-## Why this matters
-When a major breach occurs, chaos reigns. Without a practiced Incident Response plan, teams will accidentally destroy evidence, miscommunicate with stakeholders, and make the situation worse. IR is the structured process of identifying, containing, eradicating, and recovering from a cyberattack.
-
-## Strategic Guidance
-
-### Hackathon Mode
-If you get hacked during a hackathon, just delete the AWS account and start over.
-
-### Personal Project
-Read the NIST SP 800-61 Incident Handling Guide. Understand the 4 phases: Preparation; Detection and Analysis; Containment, Eradication, and Recovery; and Post-Incident Activity.
-
-### Production SaaS
-You must have a formally documented Incident Response Plan (IRP). You must conduct "Tabletop Exercises" quarterly (e.g., simulating a ransomware outbreak in a boardroom setting) to train executives and engineers. Ensure you have an out-of-band communication method (like Signal) in case the attacker compromises your corporate Slack/Email.
-
-## IR Readiness
-**Who is the designated "Incident Commander" in the event of a critical breach?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Conducting a Tabletop Exercise
-\`\`\`prompt
-Act as a Lead Incident Commander. Design a 60-minute Tabletop Exercise scenario for a SaaS company where an attacker has compromised an engineer's laptop, stolen an AWS admin credential, and is currently demanding a ransom to stop deleting S3 buckets. Outline the injects (updates provided during the exercise) and the key decisions the executive team must make.
-\`\`\`
-
-- [ ] I have a documented Incident Response Plan.
-- [ ] My team conducts regular tabletop exercises to practice the plan.
-`,
-  'cyberblueruleupdates': `
-# Rule Updates
-
- **Estimated Time:** Ongoing
-
----
-
-## Why this matters
-Attackers constantly evolve their tactics. A detection rule written a year ago is likely obsolete today. Maintaining your detection engineering lifecycle ensures your SOC is equipped to detect the newest CVEs and malware strains before they impact your environment.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Not applicable. Write the rules once and forget them.
-
-### Personal Project
-Write a simple Python script that pulls the latest YARA rules from a public GitHub repository daily and updates your local scanner directory.
-
-### Production SaaS
-Implement "Detection as Code". Subscribe to Threat Intel reports (like Mandiant or CrowdStrike). When a new attack technique is published, write a Sigma rule, test it against historical logs to ensure it doesn't cause false positives, get it peer-reviewed via a Pull Request, and automatically deploy it to the SIEM via CI/CD pipelines.
-
-## Staying Current
-**How will your team learn about new attack techniques to build rules against?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Detection as Code Pipeline
-\`\`\`prompt
-Outline a robust CI/CD pipeline for deploying SIEM detection rules. Include automated testing steps (e.g., using a tool like generic-log-generator to simulate the attack and verify the rule fires) before the rule is allowed to be pushed to the production SIEM environment.
-\`\`\`
-
-- [ ] Detection rules are updated regularly based on new Threat Intelligence.
-- [ ] All rule changes go through a formal testing and peer-review process.
-`,
-  'cyberbluethreathunting': `
-# Threat Hunting
-
- **Estimated Time:** Ongoing
-
----
-
-## Why this matters
-Alerts only catch what you already know is bad (Known-Bads). Threat Hunting is the proactive, hypothesis-driven search through your network to find the "Unknown-Bads"—attackers who have bypassed your automated detections and are silently lurking in your environment.
-
-## Strategic Guidance
-
-### Hackathon Mode
-Too advanced. Skip.
-
-### Personal Project
-Formulate a hypothesis (e.g., "An attacker is hiding a backdoor in a scheduled task"). Use PowerShell or Osquery to manually list all scheduled tasks on your machine, filtering out known Microsoft signatures, and investigate the remaining outliers.
-
-### Production SaaS
-Dedicate 20% of your senior analysts' time to proactive Threat Hunting. Hunts should be hypothesis-driven, mapped to MITRE ATT&CK (e.g., "Let's hunt for T1071 - Application Layer Protocol C2"). If a hunt successfully uncovers an attacker (or uncovers a visibility gap), the outcome MUST be converted into a new, automated detection rule so you never have to manually hunt for it again.
-
-## Formulating a Hypothesis
-**What is a specific attack technique you suspect your automated tools might currently miss?**
-\`\`\`input
-Write Here...
-\`\`\`
-
-## Designing a Threat Hunt
-\`\`\`prompt
-Act as a Senior Threat Hunter. Design a hypothesis-driven threat hunt for detecting 'Living off the Land' (LotL) binaries being used for lateral movement (e.g., WMI or WinRM). Detail the specific logs required, the queries used to filter out normal administrative noise, and how to analyze the resulting outliers.
-\`\`\`
-
-- [ ] My team regularly conducts proactive threat hunts based on specific hypotheses.
-- [ ] The results of threat hunts are converted into automated detection rules.
-`
-,
-  'cyberdevsecopscompliance': `
-# Compliance Framework (SOC2/HIPAA)
 
 **Estimated Time:** 1-2 Weeks
 
 ---
 
 ## Why this matters
-Before you start shifting left and writing pipeline policies, you must know what rules you are legally required to enforce. DevSecOps isn't just about finding SQL injection; it's about proving to auditors that every single line of code in production was reviewed by a human and scanned for vulnerabilities before it was deployed.
+A SOC that cannot measure its effectiveness is flying blind. Without concrete metrics, you cannot justify budget increases to the board, nor can you identify which detection rules are generating alert fatigue.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Ignore compliance entirely. The goal is to build a cool pipeline that catches basic flaws, not to pass a SOC2 audit.
+Success is a working demo that doesn't crash when someone types a single quote into the login field.
 
 ### Personal Project
-Pick one control from a standard like SOC2 (e.g., "Code Changes Must Be Reviewed"). Set up a GitHub repository and enforce Branch Protection rules so that you cannot merge code into main without an approved Pull Request. This is a foundational DevSecOps concept.
+Track simple uptime and the number of failed login attempts blocked per week. It provides a good sense of background internet noise.
 
 ### Production SaaS
-You must map your pipeline controls directly to compliance frameworks. If SOC2 requires Separation of Duties, your CI/CD pipeline must enforce that the person who writes the code cannot be the person who deploys it to production. Automate the collection of these proofs (e.g., linking PR approvals to Jira tickets) so that your annual audit takes days instead of months.
+Enterprise defense relies on MTTR (Mean Time to Respond) and MTTD (Mean Time to Detect). You must track the True Positive to False Positive ratio of every single detection rule in your SIEM. If a rule generates 99% false positives, it must be aggressively tuned or deleted, as it contributes to analyst burnout. Success is defined by the speed at which automation (SOAR) can isolate a compromised asset without human intervention.
 
-## Identifying Requirements
-**Which regulatory frameworks (e.g., SOC2, HIPAA, PCI-DSS, GDPR) apply to your product?**
-\`\`\`input
+---
+
+- [ ] I understand that measuring False Positive rates is critical for analyst health.
+- [ ] I recognize MTTR and MTTD as the primary metrics for SOC efficiency.
+
+`,
+  'cyberblueagentvsagentless': `
+
+# Agent vs Agentless Architecture
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+To gain visibility into endpoints (servers and laptops), you must collect telemetry. You can either install a dedicated software Agent (like CrowdStrike or Wazuh) on every machine, or use Agentless techniques (polling via SSH/WMI). This architectural decision dictates your deployment complexity and visibility depth.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't use either. Rely entirely on cloud provider logs (like AWS CloudTrail) for basic visibility.
+
+### Personal Project
+Deploy a free, open-source agent like Wazuh or Osquery to a single local VM. Learn how the agent communicates with the management server and what type of telemetry (file integrity, process execution) it can pull.
+
+### Production SaaS
+Enterprise environments demand lightweight, kernel-level Agents (EDR) for real-time blocking and deep memory telemetry. However, for legacy systems or IoT devices where installing an agent is impossible, you must implement Agentless scanning (e.g., using a vulnerability scanner that authenticates via SSH). A mature architecture utilizes Agents for endpoints and Agentless API polling for Cloud infrastructure.
+
+---
+
+## The Data We Need From You
+Agent deployment requires organizational buy-in and testing to ensure it doesn't break production applications.
+
+**Will your architecture rely primarily on deployed Agents (EDR) or Agentless telemetry for endpoint visibility?**
+\\\`\\\`\\\`input
 Write Here...
-\`\`\`
+\\\`\\\`\\\`
 
-## Mapping Controls to the Pipeline
-\`\`\`prompt
-Act as a DevSecOps Architect. My company is pursuing SOC2 Type II compliance. We use GitHub Actions for CI/CD. What specific Branch Protection rules and CI/CD workflow checks must we implement to satisfy the SOC2 Common Criteria regarding Change Management and Separation of Duties?
-\`\`\`
+`,
+  'cyberbluedataingestion': `
 
-- [ ] I have identified the compliance frameworks required for my application.
-- [ ] I understand how my deployment pipeline maps to those compliance requirements.
+# Data Ingestion
+
+**Estimated Time:** 3-5 Weeks
+
+---
+
+## Why this matters
+Raw logs are useless. They must be transported securely from thousands of endpoints to your central SIEM, normalized into a standard format, and enriched with threat intelligence. A poorly designed ingestion pipeline will drop logs during a DDoS attack, blinding the SOC when they need visibility most.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Write logs directly to a single Elasticsearch node or a local text file. No queuing necessary.
+
+### Personal Project
+Implement a basic Logstash or Filebeat pipeline. Read logs from a directory, apply a simple grok filter to extract the IP address, and push the structured JSON to Elasticsearch.
+
+### Production SaaS
+Enterprise ingestion requires massive horizontal scalability and backpressure handling. Your architecture must use a message broker like Apache Kafka or Redis as a buffer. If the SIEM goes down for maintenance, the agents will push logs to Kafka, which queues them safely until the SIEM recovers. You must also implement Vector (or similar Rust-based routers) to filter out high-volume, low-value logs (like firewall denies) at the edge before they consume expensive SIEM indexing resources.
+
+---
+
+- [ ] I understand the necessity of a message broker (like Kafka) to prevent log dropping during traffic spikes.
+- [ ] I recognize the financial imperative of filtering noisy logs before ingestion.
+
+`,
+  'cyberbluestoragearchitecture': `
+
+# Storage Architecture
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+Security logs grow exponentially. Storing petabytes of data on ultra-fast SSDs will destroy your IT budget. You must architect a tiered storage system that balances lightning-fast querying for active incidents with cheap, long-term storage for compliance audits.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Store everything locally on the VM's primary disk. It will hold enough data for a weekend.
+
+### Personal Project
+Implement a basic retention policy. Write a cron job that compresses logs older than 7 days into a \`.tar.gz\` archive and deletes logs older than 30 days to prevent disk exhaustion.
+
+### Production SaaS
+Enterprise SIEMs (like Elastic or Splunk) require Hot/Warm/Cold architectures. Logs from the last 14 days stay on expensive 'Hot' NVMe drives for instantaneous threat hunting. Logs from 14-90 days move to 'Warm' standard SSDs. Logs older than 90 days are compressed and shipped to ultra-cheap 'Cold' object storage (like AWS S3 Glacier) strictly for compliance retention. The lifecycle must be completely automated.
+
+---
+
+## AI Orchestration Phase
+\\\`\\\`\\\`prompt
+Act as a SIEM Architect. Explain the concept of Index Lifecycle Management (ILM) in Elasticsearch. Provide an example JSON policy that keeps indices on a Hot tier for 7 days, moves them to a Warm tier for 30 days, and finally deletes them after 90 days.
+\\\`\\\`\\\`
+
+- [ ] I have architected a tiered storage solution to control infrastructure costs.
+
+`,
+  'cyberblueparsingengine': `
+
+# Parsing Engine
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+If you search your SIEM for \`source_ip: 10.0.0.5\`, you expect it to return firewall logs, web logs, and endpoint logs. This only works if every log format has been parsed and normalized into a unified schema. Raw syslog strings are unsearchable at scale.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Output all application logs as structured JSON. You don't need a parser if the application natively emits JSON.
+
+### Personal Project
+Learn Regex and Grok. Take an unstructured Nginx access log string and write a Grok pattern that explicitly extracts the HTTP method, URI, status code, and client IP into separate, queryable fields.
+
+### Production SaaS
+Enterprise parsing requires adherence to a strict schema, such as the Elastic Common Schema (ECS) or Splunk CIM. Your parsing engine (Logstash/Vector) must mutate incoming logs in real-time. If a firewall log calls the IP \`src_ip\` and a web log calls it \`client_ip\`, the parsing engine must rename both to \`source.ip\`. Without normalized parsing, your global detection rules will fail.
+
+---
+
+- [ ] I understand the critical importance of a unified data schema (like ECS).
+- [ ] I recognize that JSON logging natively bypasses the need for complex Grok parsing.
+
+`,
+  'cyberbluerbac': `
+
+# RBAC & IAM
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+Role-Based Access Control (RBAC) and Identity and Access Management (IAM) are the perimeter of the cloud. An attacker doesn't need an exploit if they can steal an overly permissive IAM token. The Blue Team must strictly enforce the Principle of Least Privilege across all human users and automated services.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use a single Admin account for everything. Speed is the only priority.
+
+### Personal Project
+Implement basic RBAC in your application. Create a 'User' role and an 'Admin' role, and write middleware that explicitly checks the user's JWT role claim before allowing access to sensitive API endpoints.
+
+### Production SaaS
+Enterprise IAM requires zero standing privileges (ZSP). Developers should not have permanent access to production databases. Instead, implement Just-In-Time (JIT) access, where an engineer requests database access via a Slack bot, it is auto-approved for exactly 2 hours, and the credentials automatically expire. Furthermore, every microservice must assume a unique, tightly scoped IAM role that only grants access to its specific required resources (e.g., S3 bucket read access, but not delete).
+
+---
+
+- [ ] I understand the dangers of long-lived, overly permissive IAM credentials.
+- [ ] I have researched Just-In-Time (JIT) access for production environments.
+
+`,
+  'cyberblueebpf': `
+
+# Kernel Visibility (eBPF)
+
+**Estimated Time:** 3-5 Weeks
+
+---
+
+## Why this matters
+Traditional security tools operate in 'user space', meaning advanced malware (rootkits) can simply lie to the monitoring tools about what processes are running. eBPF (Extended Berkeley Packet Filter) allows security teams to safely run sandboxed programs directly inside the Linux Kernel, giving you un-falsifiable visibility into every system call, network packet, and file execution.
+
+## Strategic Guidance
+
+### Hackathon Mode
+eBPF requires complex kernel compilation. Stick to standard Linux auditd logs for user-space monitoring.
+
+### Personal Project
+Experiment with Cilium Tetragon or tracee. Run a malicious script (like a reverse shell) and observe how the eBPF tool catches the exact \`execve\` syscall in real-time, even if the script attempts to obfuscate itself.
+
+### Production SaaS
+Enterprise Cloud-Native defense relies heavily on eBPF. Traditional agents consume massive CPU resources context-switching between user and kernel space. eBPF provides high-performance, low-overhead observability. Your architecture should leverage tools like Tetragon to automatically block malicious syscalls (like a container attempting to mount the host file system) at the kernel level before the action actually executes.
+
+---
+
+- [ ] I understand the difference between user-space monitoring and kernel-space visibility.
+- [ ] I recognize eBPF as the modern standard for low-overhead cloud security.
+
+`,
+  'cyberbluenetworkpacketanalysis': `
+
+# Network Packet Analysis
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+Endpoints can be compromised and logs can be deleted, but the network never lies. Network Security Monitoring (NSM) captures the actual packets traversing your infrastructure, allowing you to detect lateral movement, data exfiltration, and C2 beacons that bypass host-based defenses.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use Wireshark to capture a \`.pcap\` of a reverse shell. It's the most effective way to visualize network exploitation.
+
+### Personal Project
+Deploy Zeek (formerly Bro) or Suricata on a local network span port. Zeek won't block traffic; instead, it parses complex protocols (like HTTP and DNS) and generates highly structured, search-friendly logs (e.g., extracting all unique User-Agents seen on the network).
+
+### Production SaaS
+Enterprise network monitoring must handle heavily encrypted traffic. Since modern malware uses TLS 1.3, deep packet inspection (DPI) is often impossible without terminating SSL at the firewall. Therefore, your architecture must focus on metadata analysis (like JA3/JA4 TLS fingerprinting) to identify malicious clients based on the *shape* and *timing* of their encrypted handshakes, rather than the payload itself.
+
+---
+
+## AI Orchestration Phase
+\\\`\\\`\\\`prompt
+Act as a Network Security Engineer. Explain the concept of JA3 TLS Fingerprinting. How can a Blue Team use the metadata of an encrypted TLS handshake to identify a specific malware family (like Cobalt Strike) without actually decrypting the network payload?
+\\\`\\\`\\\`
+
+- [ ] I understand that full packet capture (PCAP) is often impossible at enterprise scale due to encryption.
+
+`,
+  'cyberblueendpointtelemetry': `
+
+# Endpoint Telemetry
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+When an alert fires, the SOC needs immediate context. Did the user click the phishing link? Did the macro spawn PowerShell? Endpoint telemetry provides the granular, process-tree level data required to reconstruct the entire attack chain.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use built-in OS tools (Task Manager, \`ps aux\`) to manually check for suspicious processes.
+
+### Personal Project
+Deploy Osquery. It allows you to query your operating system like a SQL database. Write a query to list all processes running from the \`/tmp\` directory (a common malware staging ground) and set it to run every 5 minutes.
+
+### Production SaaS
+Enterprise endpoint telemetry requires continuous recording. Tools like Velociraptor or commercial EDRs stream process execution, registry modifications, and file creations to the cloud. You must configure "Live Response" capabilities, allowing analysts to remotely run YARA scans on the endpoint's memory or pull arbitrary files for forensic analysis without requiring physical access to the machine.
+
+---
+
+## The Data We Need From You
+Telemetry defines your investigative power.
+
+**What specific endpoint tool (e.g., Osquery, Velociraptor, Sysmon) will you use to gather process-level data?**
+\\\`\\\`\\\`input
+Write Here...
+\\\`\\\`\\\`
+
+`,
+  'cyberbluecloudtrail': `
+
+# Cloud Trail Hooks
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+In the cloud, the API is the perimeter. If an attacker steals an AWS Access Key, they won't exploit a server; they will simply call \`ec2:RunInstances\` to mine crypto. Cloud audit logs (like AWS CloudTrail or GCP Audit Logs) are the only way to detect control-plane attacks.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Enable basic API logging in your cloud provider dashboard to prove you thought about security.
+
+### Personal Project
+Set up an EventBridge rule that triggers a Lambda function whenever a specific high-risk API call is made (e.g., \`iam:CreateAccessKey\`). Have the Lambda function send a message to your personal Slack channel.
+
+### Production SaaS
+Enterprise cloud defense requires multi-region, multi-account trail aggregation. All CloudTrail logs from all organizational accounts must be forwarded to a centralized, locked-down "Security Account" bucket. You must build detections for anomalous API behavior, such as a developer key suddenly making API calls from a geographical region (e.g., North Korea) that your company does not operate in, or an unusual spike in \`sts:AssumeRole\` failures.
+
+---
+
+- [ ] I understand that cloud attacks target the API, not just the underlying servers.
+- [ ] I have centralized cloud audit logs into an immutable storage location.
+
+`,
+  'cyberblueanomalydetection': `
+
+# Anomaly Detection
+
+**Estimated Time:** 3-5 Weeks
+
+---
+
+## Why this matters
+Static rules catch known bads (e.g., "Alert if User-Agent equals 'Nmap'"). But what if a legitimate employee suddenly downloads 50GB of data at 3 AM? That behavior isn't inherently malicious, but it is highly anomalous. Machine Learning (ML) helps identify "unknown unknowns."
+
+## Strategic Guidance
+
+### Hackathon Mode
+True ML requires months of baseline data. It is impossible to build in a weekend. Write a static threshold rule (e.g., "Alert if > 100 failed logins").
+
+### Personal Project
+Experiment with basic statistical profiling. Write a Python script that calculates the average bytes transferred per IP address per day. Flag any IP that exceeds 3 standard deviations from its historical mean.
+
+### Production SaaS
+Enterprise anomaly detection relies on User and Entity Behavior Analytics (UEBA). Your SIEM (like Splunk or Elastic ML) must build a baseline for every single employee and service account. If Alice in Marketing normally logs in from New York between 9-5, an authentication success from London at 4 AM should instantly trigger a high-severity alert and mandate a step-up MFA prompt, even if the password was correct.
+
+---
+
+- [ ] I understand the difference between static signature detection and behavior-based anomaly detection.
+- [ ] I recognize that ML models require significant tuning to avoid massive false-positive rates.
+
+`,
+  'cyberblueyara': `
+
+# YARA Rule Engine
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+YARA is the "pattern matching swiss army knife" for malware researchers. It allows you to create highly specific rules to identify malware families based on byte sequences, strings, and file headers. A strong SOC relies on YARA to scan endpoints for custom threats that generic Antivirus misses.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Write a basic YARA rule that looks for the string \`"mimikatz"\` inside a text file. It demonstrates the syntax perfectly.
+
+### Personal Project
+Write a YARA rule that detects a specific packer (like UPX) by analyzing the PE (Portable Executable) header and section names. Test it against a known packed binary to confirm it works.
+
+### Production SaaS
+Enterprise YARA deployment must be continuous. You should integrate a massive repository of open-source rules (like the Neo23x0 Signature Base) into your EDR platform. Furthermore, whenever your Incident Response team reverse-engineers a new piece of malware, they must write a custom YARA rule and immediately deploy it fleet-wide to hunt for other infected endpoints in memory (not just on disk).
+
+---
+
+## AI Orchestration Phase
+\\\`\\\`\\\`prompt
+Act as a Malware Analyst. Write a YARA rule designed to detect a malicious Windows Executable (PE file). The rule should check that the file has a valid MZ header, is less than 500KB in size, and contains the suspicious strings "CreateRemoteThread" and "VirtualAllocEx" (which are common in process injection).
+\\\`\\\`\\\`
+
+- [ ] I understand how to use YARA for both disk and memory scanning.
+
+`,
+  'cyberbluesigma': `
+
+# Sigma Rules Integration
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+If YARA is for files, Sigma is for logs. Sigma is an open-source, generic signature format for SIEM systems. Instead of writing a detection rule in Splunk SPL, translating it to Elastic KQL, and rewriting it again for CrowdStrike, you write one Sigma rule and automatically compile it for any backend.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Find a public Sigma rule for a well-known attack (like Pass-the-Hash) and show how it can be converted into your specific database query language using \`uncoder.io\`.
+
+### Personal Project
+Write a custom Sigma rule that detects \`whoami\` execution. Use the \`sigmac\` compiler to generate the exact query for your local logging setup (e.g., generating an Elasticsearch query).
+
+### Production SaaS
+Enterprise detection engineering must treat "Detection as Code." Your SOC should maintain a centralized Git repository of Sigma rules. Whenever a new threat emerges, an analyst commits a new Sigma rule. The CI/CD pipeline should automatically compile the rule for Splunk, Elastic, and AWS CloudWatch, test it against historical data to ensure it doesn't generate false positives, and push it directly into the production SIEMs.
+
+---
+
+- [ ] I understand that Sigma provides vendor-agnostic detection rules.
+- [ ] I recognize the value of "Detection as Code" methodologies.
+
+`,
+  'cyberbluebehavioralheuristics': `
+
+# Behavioral Heuristics
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+Attackers change their malware hashes constantly. Relying on file hashes (IoCs) is a losing battle. You must detect the *behavior*. If Microsoft Word (\`winword.exe\`) suddenly spawns a hidden PowerShell window (\`powershell.exe -WindowStyle Hidden\`), it doesn't matter what the malware hash is; the behavior itself is definitively malicious.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Hardcode a single behavioral check in your application (e.g., blocking any request that contains \`../\` in the URL to prevent path traversal).
+
+### Personal Project
+Use Sysmon Event ID 1 (Process Creation). Write a script that alerts whenever a process is launched from the \`C:\\Users\\Public\` directory (a common staging ground) and attempts to make an outbound network connection.
+
+### Production SaaS
+Enterprise behavioral analytics map directly to the MITRE ATT&CK framework. You must build parent-child process tree detections. For example, \`cmd.exe\` running \`net use\` is normal. However, if the parent process of \`cmd.exe\` is \`w3wp.exe\` (the IIS web server), it strongly indicates a web shell has been deployed. You must build stateful rules that analyze the sequence of events across time, not just single, isolated logs.
+
+---
+
+## The Data We Need From You
+Behavioral rules rely on understanding the target architecture.
+
+**What specific MITRE ATT&CK Technique (e.g., T1059 Command and Scripting Interpreter) are you building a behavioral rule to detect?**
+\\\`\\\`\\\`input
+Write Here...
+\\\`\\\`\\\`
+
+`,
+  'cyberbluefalsepositives': `
+
+# False Positive Tuning
+
+**Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+Alert fatigue is the number one cause of SOC burnout. If a detection rule fires 500 times a day and 499 of them are legitimate developer activity, analysts will start ignoring the alert entirely. When the 1 true attack happens, it will be missed. You must aggressively tune your rules.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ignore it. In a demo, you want your alerts to fire constantly to show that the system works.
+
+### Personal Project
+Implement an allowlist (whitelist). If your rule detects \`nmap\` scanning, explicitly allowlist your own IP address so you don't trigger your own alarms while testing.
+
+### Production SaaS
+Enterprise tuning is a continuous lifecycle. You must implement "Suppression Rules" that filter out known-good behavior without blinding the SOC. For example, if a vulnerability scanner runs every Sunday at 2 AM, build a suppression rule that silences alerts for that specific IP address only during that specific time window. Additionally, track the exact tuning history of every rule in Git to ensure you understand why a suppression was added years later.
+
+---
+
+- [ ] I understand that an un-tuned rule is worse than no rule at all.
+- [ ] I have a mechanism to easily allowlist known-good behavior (suppression rules).
+
+`,
+  'cyberbluethreatintel': `
+
+# Threat Intelligence Feeds
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+You cannot defend against threats you don't know about. Threat Intelligence (CTI) provides the SOC with context—lists of malicious IP addresses, domain names (IoCs), and reports on new APT campaigns. Integrating CTI directly into your SIEM allows you to retroactively search your logs for newly discovered threats.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Download a free list of known Tor exit nodes. Write a script that blocks any login attempt from those IPs.
+
+### Personal Project
+Integrate the AlienVault OTX API. Write a Python script that pulls the latest malicious IP indicators daily and updates a firewall blocklist automatically.
+
+### Production SaaS
+Enterprise CTI requires a dedicated Threat Intelligence Platform (TIP) like MISP. Your TIP must aggregate feeds from commercial vendors, open-source communities, and ISACs (Information Sharing and Analysis Centers). It must automatically deprecate old indicators (an IP malicious 3 years ago is likely safe today) to prevent false positives. Finally, the TIP must integrate directly with your SIEM to trigger alerts the millisecond an internal host resolves a newly identified malicious domain.
+
+---
+
+## AI Orchestration Phase
+\\\`\\\`\\\`prompt
+Act as a Cyber Threat Intelligence (CTI) Analyst. Explain the concept of Indicator Lifecycle Management. Why is it dangerous to permanently block an IP address based on an open-source threat feed, and how often should a SOC "age out" or deprecate IoCs (Indicators of Compromise)?
+\\\`\\\`\\\`
+
+- [ ] I recognize the importance of integrating external intelligence into internal monitoring.
+
+`,
+  'cyberbluesoar': `
+
+# SOAR Playbooks
+
+**Estimated Time:** 3-5 Weeks
+
+---
+
+## Why this matters
+Humans are too slow to stop automated ransomware. By the time an analyst wakes up, VPNs in, and begins investigating an alert, the network is encrypted. Security Orchestration, Automation, and Response (SOAR) connects your SIEM to your firewalls, EDR, and IAM systems to execute automated defensive actions at machine speed.
+
+## Strategic Guidance
+
+### Hackathon Mode
+SOAR is overkill. Write a simple bash script that parses a log file and updates \`iptables\` if it sees a malicious IP. It's essentially a poor man's Fail2Ban.
+
+### Personal Project
+Set up a free SOAR platform like Shuffle. Connect it to an open-source threat feed (like AlienVault OTX) and a mock ticketing system (like Jira). Write a playbook that automatically creates a ticket and enriches it with IP reputation data whenever a specific alert fires.
+
+### Production SaaS
+Enterprise response requires highly complex, conditional playbooks. When a "Suspicious Login" alert fires, the SOAR platform must automatically parse the IP, check it against CrowdStrike Threat Intel, query Active Directory to see if the user is an executive, and—if the risk score is high enough—automatically trigger a password reset and force the user to re-authenticate with MFA, all without a human analyst ever touching the keyboard.
+
+---
+
+## AI Orchestration Phase
+\\\`\\\`\\\`prompt
+Act as a Security Automation Engineer. I am building a SOAR playbook in Python. Write a script that takes an IP address as input, queries the VirusTotal API for its reputation, and if the IP has more than 5 malicious votes, automatically adds it to a pre-configured AWS WAF blocklist.
+\\\`\\\`\\\`
+
+- [ ] I understand that automation is required to respond to modern, high-speed threats.
+
+`,
+  'cyberblueprocesstermination': `
+
+# Process Termination
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+When an endpoint is compromised, you must stop the bleeding immediately. Terminating the malicious process prevents it from encrypting files or establishing a reverse shell, giving the incident response team time to investigate.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use native OS commands (\`kill -9\` on Linux, \`taskkill /f /im\` on Windows) to terminate the process manually.
+
+### Personal Project
+Write a custom script that monitors a specific directory (like \`/tmp\`) and automatically kills any process that attempts to execute from it. This simulates basic EDR process blocking.
+
+### Production SaaS
+Enterprise process termination must be handled carefully. If you automatically kill \`svchost.exe\` because a behavioral rule flagged it, you might blue-screen the entire Windows server. Your automated response platform must map the process to critical system binaries and apply a "Do Not Kill" allowlist to prevent self-inflicted outages. Furthermore, the termination command must be issued via a secure, encrypted channel (like your EDR console), not via raw SSH or WinRM.
+
+---
+
+- [ ] I understand the risk of blindly killing critical system processes.
+- [ ] I have established safe methods for remote process termination.
+
+`,
+  'cyberbluenetworkisolation': `
+
+# Network Isolation
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+Sometimes, killing a process isn't enough. The malware might have injected into a legitimate system process, or it might be communicating with a C2 server via a protocol you can't easily block. In these cases, you must isolate the entire machine from the network to prevent lateral movement, while still allowing the Blue Team to connect for forensics.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Just pull the virtual network cable on the VM.
+
+### Personal Project
+Write a PowerShell script that modifies the Windows Firewall to block all inbound and outbound traffic, except for a single IP address (your investigation machine). Trigger this script manually when you detect a compromise.
+
+### Production SaaS
+Enterprise isolation must be completely automated and reversible. When a high-severity alert fires (like "Ransomware Behavior Detected"), the EDR platform should instantly quarantine the host. The host's local firewall is modified to drop all traffic *except* communication to the EDR management console. This "containment state" isolates the threat but allows the SOC to pull memory dumps and eventually remediate the machine remotely.
+
+---
+
+## The Data We Need From You
+Network isolation strategy dictates how quickly you can contain a widespread outbreak.
+
+**What mechanism (e.g., EDR quarantine, VLAN switching, AWS Security Group modification) will you use to isolate compromised hosts?**
+\\\`\\\`\\\`input
+Write Here...
+\\\`\\\`\\\`
+
+`,
+  'cyberbluealerttriage': `
+
+# Alert Triage
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+A SIEM generates thousands of alerts per day. A Tier 1 SOC Analyst cannot manually investigate all of them. Alert triage is the process of automatically enriching, prioritizing, and grouping alerts so the human analyst only looks at the incidents that matter.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Sort alerts chronologically in a simple dashboard. Newest first.
+
+### Personal Project
+Implement basic risk scoring. Assign a score of 10 to a "Failed Login" and a score of 100 to "Mimikatz Execution." Group alerts by the IP address they originated from, and sort the dashboard by the total risk score per IP.
+
+### Production SaaS
+Enterprise triage requires complex event correlation. If a user fails to log in 5 times (Low Severity), then successfully logs in (Medium Severity), and then immediately downloads 5GB of data from SharePoint (High Severity), your SIEM must correlate these three disparate alerts into a single, massive "Incident" ticket. The system must also auto-enrich the ticket with the user's AD group (e.g., Finance) and the host's vulnerability scan results before it ever reaches the analyst's screen.
+
+---
+
+- [ ] I understand the difference between a raw Alert and a correlated Incident.
+- [ ] I recognize the necessity of automatic context enrichment (Risk Scoring) to prevent analyst fatigue.
+
+`,
+  'cyberblueforensics': `
+
+# Forensic Evidence Capture
+
+**Estimated Time:** 3-5 Weeks
+
+---
+
+## Why this matters
+After an incident is contained, you must answer three questions: How did they get in? What did they take? Are they still here? Digital Forensics and Incident Response (DFIR) requires pristine, untampered evidence (like memory dumps and raw disk images) to reconstruct the timeline for legal and regulatory reporting.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it. Forensics takes hours to run and isn't exciting for a demo.
+
+### Personal Project
+Learn basic memory forensics. Spin up a Windows VM, execute a known piece of malware, take a full memory snapshot (using a tool like DumpIt or VMware snapshots), and use Volatility to extract the malicious process from the memory dump.
+
+### Production SaaS
+Enterprise forensics must be remote and scalable. You cannot ask a user to mail you their physical laptop. Your endpoint agents must support automated artifact collection. When an incident is declared, the system should automatically use tools like KAPE (Kroll Artifact Parser and Extractor) to quietly pull the Master File Table (MFT), Prefetch files, Windows Event Logs, and active memory strings across the network, saving them to a secure S3 bucket for the DFIR team to analyze.
+
+---
+
+## AI Orchestration Phase
+\\\`\\\`\\\`prompt
+Act as a Digital Forensics Examiner. Explain the Order of Volatility when capturing evidence from a compromised machine. Why is it critical to capture RAM (memory) before pulling the power plug or acquiring the physical hard drive?
+\\\`\\\`\\\`
+
+- [ ] I understand the strict legal requirements (Chain of Custody) for handling forensic evidence.
+
+`,
+  'cyberblueantitamper': `
+
+# Self-Protection (Anti-Tamper)
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+The first thing an attacker does after gaining SYSTEM privileges is attempt to kill your Antivirus or EDR. If your monitoring tools can be trivially uninstalled or terminated, your entire defense is useless. Your defensive architecture must include robust anti-tampering mechanisms.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Run your monitoring script as \`root\`. That's the basic level of self-protection.
+
+### Personal Project
+Explore Windows service permissions. Write a script that installs itself as a Windows Service, but explicitly removes the \`SERVICE_STOP\` and \`DELETE\` permissions from the local Administrators group, making it incredibly difficult for a standard attacker to kill the service.
+
+### Production SaaS
+Enterprise EDRs implement Kernel-Level Anti-Tamper. A user-mode attacker (even one with SYSTEM privileges) cannot terminate the EDR process because a kernel driver protects it. The driver intercepts \`TerminateProcess\` API calls directed at the EDR binary and denies them with \`ACCESS_DENIED\`. Your EDR must also protect its registry keys, configuration files, and network communication channels from modification.
+
+---
+
+- [ ] I understand that attackers will actively target defensive tools.
+- [ ] I recognize the necessity of kernel-level protections for enterprise security software.
+
+`,
+  'cyberblueperformance': `
+
+# Performance Overhead
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+Security must not break the business. If your new EDR deployment consumes 40% of the CPU and causes the production database to crash, the business will force you to uninstall it. You must rigorously test the performance overhead of every defensive agent and logging configuration.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ignore performance. If the VM lags, give it more RAM.
+
+### Personal Project
+Write a basic monitoring script and use \`top\` or \`Task Manager\` to measure its CPU and memory usage over 24 hours. Ensure it doesn't leak memory.
+
+### Production SaaS
+Enterprise security engineering requires performance baselining. Before deploying a new Sysmon configuration to 10,000 endpoints, you must deploy it to a small "canary" group of high-load servers (like SQL databases). Use tools like PerfMon to explicitly measure the CPU context-switching overhead and Disk I/O impact. Only if the overhead remains below an agreed-upon SLA (e.g., < 2% CPU usage) can you authorize the global rollout.
+
+---
+
+## The Data We Need From You
+Performance overhead dictates deployment feasibility.
+
+**What is the maximum acceptable CPU overhead for your security agents on production database servers?**
+\\\`\\\`\\\`input
+Write Here...
+\\\`\\\`\\\`
+
+`,
+  'cyberblueencryption': `
+
+# Encryption at Rest
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+If an attacker steals a hard drive from the data center, or if an AWS administrator accidentally makes an S3 bucket public, Encryption at Rest is your only defense. It ensures that the data is mathematically useless without the decryption key.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Check the box for "Default AWS Encryption" when creating an S3 bucket or RDS database.
+
+### Personal Project
+Implement application-level encryption. Use a library like \`libsodium\` to encrypt specific, highly sensitive fields (like API keys or Social Security Numbers) in the database before they are written to disk. This protects the data even if the database itself is compromised.
+
+### Production SaaS
+Enterprise encryption requires strict Key Management Systems (KMS). You cannot hardcode encryption keys in your source code. The keys must be stored in a dedicated Hardware Security Module (HSM) or cloud KMS (like AWS KMS). The application must authenticate to the KMS via IAM to request cryptographic operations. Furthermore, the master keys must be automatically rotated every 90 days without requiring system downtime.
+
+---
+
+## AI Orchestration Phase
+\\\`\\\`\\\`prompt
+Act as a Cryptography Engineer. Explain the difference between Transparent Data Encryption (TDE) at the database level and Application-Level Encryption. Why might an enterprise choose to implement Application-Level Encryption for highly sensitive PII, despite the increased development complexity?
+\\\`\\\`\\\`
+
+- [ ] I understand that database-level encryption (TDE) does not protect against SQL injection.
+
+`,
+  'cyberblueauditlogging': `
+
+# Audit Logging
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+Your defensive platform must be auditable. If a malicious insider (like a rogue SOC analyst) deletes an alert or modifies a SOAR playbook to ignore a specific IP address, you must be able to prove who did it and when. The watchers must be watched.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it. You don't need audit logs for a demo.
+
+### Personal Project
+Write a simple middleware function in your web application that intercepts every HTTP \`POST\`, \`PUT\`, or \`DELETE\` request. Log the user's ID, the timestamp, and the exact data payload they modified to a local file.
+
+### Production SaaS
+Enterprise audit logging must be immutable. Every configuration change made in the SIEM, EDR, or SOAR platform must be written to an Append-Only storage system (like an S3 bucket with Object Lock enabled). Even a Domain Admin cannot delete these logs. This provides undeniable non-repudiation for internal investigations and external compliance audits.
+
+---
+
+- [ ] I understand the concept of Non-Repudiation in security engineering.
+- [ ] I recognize the necessity of Immutable Storage for critical audit logs.
+
+`,
+  'cyberbluedashboarding': `
+
+# Dashboarding
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+A wall of raw text logs is useless during an active attack. Dashboards visualize telemetry, allowing analysts to spot anomalies—like a sudden spike in outbound traffic to an unknown IP—at a glance. Good dashboards reduce the time it takes to understand the scope of an incident.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use pre-built dashboards. If you are using Datadog or Splunk, install the "Security Overview" app and show it during the demo.
+
+### Personal Project
+Build a custom Grafana dashboard connected to an Elasticsearch backend. Create visual panels that track "Top 10 Source IPs for Failed Logins" and "Volume of HTTPS Traffic over 24 Hours." This proves you understand data visualization.
+
+### Production SaaS
+Enterprise dashboards must be role-specific. A Tier 1 Analyst needs a tactical dashboard showing active alerts and unassigned tickets. The CISO needs a strategic dashboard showing Mean Time to Resolve (MTTR), compliance status, and the number of prevented attacks this month. The dashboarding engine must query billions of rows of data in sub-second timeframes, requiring aggressive data pre-aggregation (like Elastic Rollups) to maintain performance.
+
+---
+
+## The Data We Need From You
+Visualizing the right data accelerates incident response.
+
+**What are the top 3 key performance indicators (KPIs) or metrics you will visualize on the SOC's primary dashboard?**
+\\\`\\\`\\\`input
+Write Here...
+\\\`\\\`\\\`
+
+`,
+  'cyberblueincidentresponse': `
+
+# Incident Response
+
+**Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+Prevention will eventually fail. When an APT breaches your network, your Incident Response (IR) plan dictates whether the breach costs the company $50,000 or $50 million. IR is a highly structured, stressful process that requires technical precision and clear communication.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Not applicable for a hackathon demo. 
+
+### Personal Project
+Draft a basic 1-page Incident Response plan for your application. Define exactly who to call, what server to isolate, and how to restore the database from a clean backup if ransomware hits.
+
+### Production SaaS
+Enterprise IR follows the PICERL framework (Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned). Your security organization must conduct quarterly Tabletop Exercises, simulating massive breaches (e.g., "Our AWS root account was compromised"). The technical platform must support secure, out-of-band communication (since you cannot trust corporate Slack during an active breach) and provide automated "War Room" ticket generation for executive updates.
+
+---
+
+- [ ] I understand the PICERL Incident Response lifecycle.
+- [ ] I recognize the necessity of secure, out-of-band communication during a breach.
+
+`,
+  'cyberblueruleupdates': `
+
+# Rule Updates
+
+**Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+The threat landscape evolves daily. If your SOC does not update its detection rules, it will miss tomorrow's attacks. However, pushing a broken rule to production can generate 100,000 false-positive alerts, crashing the SIEM and blinding the SOC.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Write rules manually in the UI. If they break, fix them manually.
+
+### Personal Project
+Store your detection rules in a Git repository. When you update a rule, push it to GitHub, and write a small script that automatically pulls the new rule and applies it to your local logging server.
+
+### Production SaaS
+Enterprise detection engineering requires a rigorous CI/CD pipeline (Detection as Code). When a Detection Engineer writes a new Sigma rule, it must be committed to Git. The pipeline must automatically test the rule against a sandbox of historical data to verify it doesn't trigger false positives. Only after passing these automated tests (and receiving a peer review) is the rule automatically deployed to the production SIEM via API.
+
+---
+
+## AI Orchestration Phase
+\\\`\\\`\\\`prompt
+Act as a Detection Engineer. Explain the concept of 'Detection as Code'. Provide a high-level architecture diagram (described in text) of a CI/CD pipeline that automatically tests a new Sigma rule against historical Elasticsearch data before deploying it to production.
+\\\`\\\`\\\`
+
+- [ ] I understand the danger of manually editing detection rules in a production environment.
+
+`,
+  'cyberbluethreathunting': `
+
+# Threat Hunting
+
+**Estimated Time:** Ongoing
+
+---
+
+## Why this matters
+Alerts tell you about the attacks you already know how to detect. Threat Hunting is the proactive process of searching through logs to find the attacks that bypassed your automated defenses. It requires deep technical knowledge and a paranoid mindset.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Not applicable for a weekend project.
+
+### Personal Project
+Run a basic hunt. Query your web logs for any HTTP requests containing base64 encoded strings, or any requests that resulted in a 500 Internal Server Error, and manually investigate them to see if they were attacks.
+
+### Production SaaS
+Enterprise Threat Hunting is hypothesis-driven. A hunter starts with an assumption (e.g., "An attacker has bypassed our EDR by using a vulnerable, signed driver (BYOVD)"). The hunter then builds complex KQL/SPL queries to look for anomalous driver load events across the entire fleet over the last 90 days. If the hunt discovers an attacker, an Incident is declared. If the hunt finds nothing, the query is operationalized into a permanent, automated detection rule for the SOC.
+
+---
+
+- [ ] I understand the difference between reactive Alert Triage and proactive Threat Hunting.
+- [ ] I recognize that the output of a successful hunt is a new automated detection rule.
+
 `,
   'cyberdevsecopsdataclassification': `
 # Data Classification
@@ -22896,6 +22970,223 @@ Act as a Purple Team Lead. Design a collaborative exercise where the Red Team at
 
 - [ ] The efficacy of the DevSecOps pipeline is regularly tested via adversarial simulation.
 - [ ] Red and Blue teams collaborate (Purple Teaming) to immediately patch pipeline blind spots.
+`
+,
+  'cyberbluethreatlandscape': `
+
+# Threat Landscape
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+You cannot defend against everything. Attempting to block every possible attack wastes budget and burns out analysts. You must map your specific architecture to known Threat Actor groups (APT) that target your industry, prioritizing the tactics and techniques (using MITRE ATT&CK/D3FEND) they actually use.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Identify the top 3 critical risks for your demo (e.g., SQLi, weak passwords, exposed API keys) and explicitly state how you mitigate them. Don't build a massive threat model.
+
+### Personal Project
+Map your architecture against the OWASP Top 10. Write a short document explaining how your chosen tech stack inherently mitigates some risks (e.g., React neutralizing DOM XSS) and where you need explicit security controls.
+
+### Production SaaS
+Enterprise defense requires formal Threat Modeling (like STRIDE or PASTA). Your security team must continuously map your cloud infrastructure against the MITRE D3FEND matrix. When a new APT campaign targets your industry, you must cross-reference their known Tactics, Techniques, and Procedures (TTPs) against your current detection coverage to identify critical visibility gaps.
+
+---
+
+- [ ] I understand that threat modeling must be tailored to my specific industry and architecture.
+- [ ] I recognize the importance of the MITRE ATT&CK framework for mapping adversary behavior.
+
+`
+,
+  'gameassetpipeline': `
+
+# Asset Pipeline
+
+**Estimated Time:** 1-2 Weeks
+
+---
+
+## Why this matters
+If exporting a 3D model from Blender to Unity takes 15 manual clicks, adjusting the rotation, and fixing the materials every single time, you will burn out. A smooth asset pipeline allows artists to instantly see their changes in-engine.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Drag and drop PNGs directly into the engine. Don't worry about texture atlases or optimization.
+
+### Personal Project
+Establish strict naming conventions (e.g., \`Player_Run_01.png\`, \`Env_Tree_Oak.fbx\`). Ensure your 3D modeling software exports with the correct Up-Axis and Scale applied so you don't have to rescale everything in the game engine.
+
+### Production SaaS
+Enterprise pipelines must be fully automated. Use tools like Python scripts in Maya/Blender to auto-export FBX files directly into the engine's project folder. Implement Texture Atlasing to batch draw calls. If you are building for mobile, your pipeline must automatically compress textures (e.g., ASTC) and strip unused vertices during the build process to strictly manage memory limits.
+
+---
+
+- [ ] I understand the necessity of strict naming conventions for art assets.
+- [ ] I recognize that manual export processes are a massive time sink.
+
+`
+,
+  'gamesystems': `
+
+# Complex Systems (AI & Physics)
+
+**Estimated Time:** 3-5 Weeks
+
+---
+
+## Why this matters
+AI and Physics are notorious for destroying framerates and introducing game-breaking bugs. If an enemy pathfinding algorithm calculates a route every single frame, your game will freeze. If your physics colliders are too complex, players will clip through the floor.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't write AI. Use simple sine waves for movement, or have enemies constantly move directly toward the player (\`transform.LookAt\`).
+
+### Personal Project
+Learn State Machines for AI. An enemy should have states: \`Idle\`, \`Patrol\`, \`Chase\`, and \`Attack\`. Transition between them based on distance to the player. For physics, use simple primitives (Box and Sphere colliders) rather than complex mesh colliders.
+
+### Production SaaS
+Enterprise AI requires Behavior Trees or Utility AI, allowing NPCs to make complex, weighted decisions (e.g., "I am low on health, there is cover nearby, I will retreat"). Pathfinding must be asynchronous (e.g., using A* on a background thread or Unity's NavMesh system). Physics calculations should be deterministic if the game is multiplayer, and you must utilize continuous collision detection (CCD) for fast-moving projectiles to prevent them from passing through thin walls.
+
+---
+
+- [ ] I understand the performance implications of complex AI pathfinding.
+- [ ] I recognize that primitive physics colliders are vastly superior to mesh colliders for performance.
+
+`
+,
+  'gameui': `
+
+# User Interface (UI/UX)
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+A bad UI makes a good game unplayable. If the player cannot understand their health, ammo, or objective instantly, they will quit. The UI must convey critical information without obscuring the gameplay.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use default engine UI text. Slap it in the top left corner. Function over form.
+
+### Personal Project
+Implement a Diegetic UI where possible (e.g., the ammo count is physically written on the gun, like in *Dead Space*). If using screen-space UI, ensure it scales correctly across different aspect ratios (anchor your UI elements properly).
+
+### Production SaaS
+Enterprise UI must support full controller navigation, keyboard/mouse, and variable resolutions (including Ultrawide). Do not hardcode UI interactions. Use a robust UI framework (like Unity's UI Toolkit or Unreal's UMG). Your menus must be fully localized (supporting right-to-left languages like Arabic) and accessible (colorblind modes, scalable text sizes, and high-contrast options).
+
+---
+
+## AI Orchestration Phase
+\\\`\\\`\\\`prompt
+Act as a Game UX Designer. Explain the concept of "Diegetic", "Non-Diegetic", "Spatial", and "Meta" UI elements. Provide examples of when it is appropriate to use a Spatial UI element over a traditional Non-Diegetic HUD in a fast-paced shooter.
+\\\`\\\`\\\`
+
+- [ ] I have ensured my UI scales correctly across different screen resolutions.
+
+`
+,
+  'gameplaytesting': `
+
+# Playtesting
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+You are blind to your own game's flaws. Because you built it, you instinctively know how to play it. When a new player touches the controller, they will immediately get stuck on a puzzle you thought was obvious, or ignore a mechanic you thought was critical.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Hand your laptop to a teammate. Watch them play for 5 minutes. Fix whatever frustrated them.
+
+### Personal Project
+Send an itch.io link to 5 friends. Do not explain the controls. Watch them play via Discord screen share. If they ask "What do I do here?", do not answer. Take notes on where the game failed to teach them.
+
+### Production SaaS
+Enterprise playtesting requires blind external testing and analytics telemetry. You must integrate analytics SDKs (like Unity Analytics) to generate heatmaps of where players die most frequently. If 80% of players die on Level 3 and uninstall the game, you have a massive churn point that must be rebalanced immediately before full release.
+
+---
+
+## The Data We Need From You
+Playtesting requires identifying specific metrics.
+
+**What specific telemetry data (e.g., deaths per level, time spent in inventory) will you track to measure player friction?**
+\\\`\\\`\\\`input
+Write Here...
+\\\`\\\`\\\`
+
+`
+,
+  'gamebugfixing': `
+
+# Bug Fixing & Triage
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+A game with minor visual glitches is acceptable; a game with soft-locks (where the player cannot progress but the game doesn't crash) is unforgivable. You must systematically triage and crush bugs before launch.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Only fix crashes. If a visual glitch happens, call it a "feature" and move on.
+
+### Personal Project
+Prioritize "A-Class" bugs (Crashes, Soft-Locks, Save Data Corruption). Ignore minor clipping issues or slight animation jitters. You must learn to accept that the game will ship with minor imperfections.
+
+### Production SaaS
+Enterprise bug fixing requires rigorous QA. You must maintain a public bug tracker. Implement automated crash reporting (like Sentry or Backtrace) so that when the game crashes on a player's machine, the stack trace and memory dump are automatically uploaded to your servers. Establish a "Zero Bug Bounce" phase where absolutely no new features are added to the game; 100% of engineering effort is dedicated to resolving the backlog.
+
+---
+
+- [ ] I understand the difference between a game-breaking soft-lock and a minor visual bug.
+- [ ] I recognize the necessity of feature freezes during the bug-fixing phase.
+
+`
+,
+  'gameperformance': `
+
+# Performance Optimization
+
+**Estimated Time:** 2-4 Weeks
+
+---
+
+## Why this matters
+If your game runs at 15 FPS, it is unplayable. Performance optimization ensures your game runs smoothly across a wide variety of hardware, minimizing input latency and preventing battery drain on mobile devices.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ignore it unless the game literally freezes. A 30 FPS hackathon game is fine.
+
+### Personal Project
+Use your engine's Profiler. Identify whether your game is CPU-bound (e.g., too many physics calculations) or GPU-bound (e.g., too many dynamic lights). Implement Object Pooling for bullets or enemies instead of constantly calling \`Instantiate()\` and \`Destroy()\`, which causes massive Garbage Collection spikes.
+
+### Production SaaS
+Enterprise optimization is ruthless. You must strictly budget your memory and draw calls. Implement Level of Detail (LOD) meshes for distant objects, aggressively bake lighting instead of using real-time shadows, and utilize Occlusion Culling to prevent the engine from rendering geometry hidden behind walls. For mobile ports, you must strictly limit overdraw (transparent UI elements stacked on top of each other).
+
+---
+
+## AI Orchestration Phase
+\\\`\\\`\\\`prompt
+Act as a Technical Artist. Explain the concept of Object Pooling in game development. Why is instantiating and destroying hundreds of bullet prefabs per second a bad idea in C#, and how does Object Pooling resolve the Garbage Collection (GC) spikes?
+\\\`\\\`\\\`
+
+- [ ] I understand how to use the engine Profiler to identify CPU/GPU bottlenecks.
+- [ ] I have implemented Object Pooling for frequently spawned entities.
+
 `
 };
 
