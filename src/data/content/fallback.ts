@@ -11952,337 +11952,456 @@ Distracting Features to avoid:
 `,
 
   'webprd': `
-# PRD (Product Requirements Document)
 
- **Estimated Time:** 2-3 hours
+# Product Requirements Document (PRD): The Blueprint
+
+**Estimated Time:** 2-3 Hours
 
 ---
 
-## Why this matters
-A Web App PRD must explicitly define browser support. If you don't define it, you will spend 3 weeks trying to make your CSS Grid layout work on Safari 12.
+The Product Requirements Document (PRD) is the master blueprint of your application. It bridges the gap between high-level business goals and ground-level engineering implementation. A good PRD prevents you from getting halfway through a build only to realize a fatal architectural flaw. It is the single source of truth for what is being built, why it is being built, and exactly how it should function.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-List the features in a text file.
+In a hackathon, a formal PRD is a waste of time. You do not need a 10-page document for a product that will live for exactly 48 hours. Instead, your "PRD" is a simple bulleted list in a README file. 
+
+Focus strictly on the Demo Flow. Write down the 5 exact clicks you will perform on stage, and what the screen should do at each click. Do not plan for edge cases, error handling, or future scale. Your only requirement is that the "Happy Path" looks stunning and does not crash when you press the final button.
 
 ### Personal Project
-Write down what the app must do, what it must NOT do, and the core database models.
+For a personal project, writing a PRD is an excellent exercise in scoping. Your PRD should focus heavily on the *technical requirements* rather than business metrics. 
+
+Define exactly which APIs you will consume, what the shape of the data looks like, and what UI components you need to build from scratch versus import from a library. If your goal is to learn a specific technology (like GraphQL), the PRD must explicitly state how and where that technology will be utilized in the app. This keeps you focused on your learning goals instead of drifting into feature creep.
 
 ### Production SaaS
-Define supported browsers (e.g., "Latest 2 versions of Chrome, Safari, Firefox, Edge. IE11 is strictly unsupported"). Define supported device viewports (Mobile, Tablet, Desktop). Include strict performance requirements (e.g., "First Contentful Paint < 1.5s on 3G network").
+In a production environment, the PRD is a legally and financially binding document. It must be exhaustive. A production PRD details the exact behavior of every feature, including error states, loading states, permissions (who can see what), and telemetry (what events we are tracking). 
 
-## AI PRD Generator
+If a feature is not in the PRD, the engineering team will not build it. You must also include non-functional requirements: the app must load in under 2 seconds, it must be accessible (WCAG compliant), and it must pass security audits. A sloppy PRD results in a sloppy product and massive amounts of expensive technical debt.
+
+---
+
+**Generate the core structure of your PRD using the AI prompt below:**
+
 \`\`\`prompt
-Act as a Senior Product Manager. I am building a Web App that does [Describe Product]. Generate a Product Requirements Document (PRD). Include strict Non-Functional Requirements (NFRs) regarding browser support matrix, responsive viewports, and Core Web Vitals performance targets.
+Act as a Senior Technical Product Manager. I am building a Web App with the following details:
+[Insert your solution statement, target audience, and MVP features]
+
+Generate a comprehensive Product Requirements Document (PRD) tailored for this web application. Include:
+1. Executive Summary & Goals
+2. User Stories (Format: As a [user], I want to [action] so that [benefit])
+3. Functional Requirements (Specific features)
+4. Non-Functional Requirements (Performance, Security)
+5. Out of Scope (What we are NOT building)
 \`\`\`
 
-- [ ] A PRD with explicit browser support matrices is defined.
 `,
 
   'webuserflows': `
-# User Flows
 
- **Estimated Time:** 2-3 hours
+# User Flows: Choreographing the Experience
+
+**Estimated Time:** 2 Hours
 
 ---
 
-## Why this matters
-Web Apps have unique flows (like OAuth redirects or deep-linking). If you don't map them, users will get stuck in endless redirect loops.
+A user flow is a visual or written map of the exact sequence of steps a user takes to achieve a specific goal within your application. Without defined user flows, developers will build isolated pages that do not connect logically, leading to a disjointed, frustrating user experience where people get stuck in dead ends.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Assume the user clicks everything perfectly.
+You only have one user flow in a hackathon: The Demo Path. Do not design "forgot password" flows or "settings page" flows. Design the fastest, most visually impressive path from point A to point B. 
+
+If your app generates images using AI, the flow is: Landing Page -> Enter Prompt -> Instant Loading Animation -> Result Screen. Every click you eliminate from this flow is a massive win for your presentation. Make the path aggressively linear.
 
 ### Personal Project
-Map the happy path on a whiteboard.
+Mapping user flows for a personal project helps you identify the hidden complexity in what seems like a simple idea. For instance, a "simple login" actually involves four distinct flows: standard login, signup, password reset, and magic link authentication.
+
+Focus on mapping the core loop of your application. If it's a productivity app, map the exact flow of creating a new task, categorizing it, and marking it as complete. Keep the flows tight and identify exactly which screens need to be built to support that loop.
 
 ### Production SaaS
-Map every step, specifically focusing on Auth flows (e.g., "User clicks magic link in email -> Opens in new tab -> Authenticates -> Redirects to Dashboard"). Map what happens when a user clicks a deep-link to a private resource but they aren't logged in (they must be prompted to log in, then redirected *back* to that specific resource, not the homepage).
+In production SaaS, user flows are where churn is born or prevented. You must design flows that eliminate friction at all costs, especially during onboarding and checkout. 
 
-## AI Deep-Link Flow
-\`\`\`prompt
-Act as a UX Architect. Review my proposed user flow: [Describe Flow]. Detail the exact logic required for a 'Deep-Link Auth Flow', where an unauthenticated user clicks a link to a private resource, authenticates via Google OAuth, and is successfully redirected back to the original resource.
+You must also map out every single edge case. What happens if they click "Submit" but the payment API times out? What happens if they try to access a premium feature on a free tier? A production user flow diagram resembles a massive flowchart detailing permissions, validation errors, and success states. If you don't map these "Unhappy Paths," your users will encounter broken, unstyled error pages in production.
+
+---
+
+**Map out the exact sequence of steps for your primary core action:**
+\`\`\`input
+Step 1 (Trigger): 
+Step 2 (Action): 
+Step 3 (Result/Success):
 \`\`\`
+
 `,
 
   'webinformationarchitecture': `
-# Information Architecture
 
- **Estimated Time:** 1-2 hours
+# Information Architecture: Organizing the Chaos
+
+**Estimated Time:** 1.5 Hours
 
 ---
 
-## Why this matters
-Web App IA dictates your URL routing structure. Messy IA = messy URLs = terrible SEO and un-bookmarkable pages.
+Information Architecture (IA) is the structural design of your shared information environments. It dictates how pages are grouped, what goes in the main navigation versus the footer, and how users find what they are looking for. Good IA is invisible; bad IA is instantly frustrating.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Put everything on \`index.html\`.
+Keep your architecture completely flat. In a hackathon, navigation is a distraction. Ideally, your entire application is a single, scrolling page or a clean dashboard with no sub-menus. The judges should never have to click a "Back" button or open a hamburger menu. Put everything critical on the main screen.
 
 ### Personal Project
-Use standard top-nav routing.
+Use standard, expected architectural patterns. If you are building a dashboard, use a left-hand sidebar for primary navigation and a top bar for user profile settings. 
+
+Do not try to reinvent navigation paradigms (like hiding the menu in a floating orb) unless the specific goal of your project is experimental UI design. Familiar IA allows users to understand your app instantly, letting your core features shine.
 
 ### Production SaaS
-Design a RESTful URL structure for your frontend (e.g., \`/projects/[projectId]/settings\`). Group related settings logically. Ensure that every distinct visual state of the application has a unique URL so users can share links with colleagues and expect it to load exactly what they were looking at.
+Production IA requires rigorous testing (like card sorting exercises). You must structure the application to support future growth. If you only have 3 features today but plan to have 30 in two years, a simple top-nav will break entirely. 
 
-## AI Route Structure Generator
-\`\`\`prompt
-Act as an Information Architect. My Web App has these features: [List Features]. Design a scalable URL routing structure (e.g., Next.js App Router format) that groups these features logically, utilizing dynamic route segments where appropriate.
+You must separate administrative functions (billing, team management) from core workflow functions. Think about hierarchy: Organizations -> Workspaces -> Projects -> Tasks. Your database schema and your UI routing must perfectly mirror this logical hierarchy. If the IA is confusing, users will require expensive customer support just to find basic features.
+
+---
+
+**Define your top-level navigation structure:**
+\`\`\`input
+Primary Nav Items (e.g., Dashboard, Analytics, Settings):
 \`\`\`
+
 `,
 
   'webwireframes': `
-# Wireframes
 
- **Estimated Time:** 3-4 hours
+# Wireframing: Low-Fidelity Layouts
+
+**Estimated Time:** 2-4 Hours
 
 ---
 
-## Why this matters
-Wireframes are cheap. Code is expensive. Solve your layout problems in gray boxes before you write CSS.
+Wireframing is the process of sketching the skeletal framework of your web application. This step forces you to define where elements live on the screen before you get distracted by colors, typography, or CSS implementation. It is vastly cheaper to erase a box on a whiteboard than it is to refactor an entire React component hierarchy.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Sketch it on paper.
+Skip digital wireframing entirely. Grab a piece of paper and a sharpie, draw three boxes, and start coding. In a hackathon, your wireframe is just a rough mental model of where the main visual elements will sit. Rely heavily on pre-built UI components (like Shadcn or Tailwind UI) to dictate the actual layout.
 
 ### Personal Project
-Use Excalidraw.
+Wireframing a personal project helps you identify which components need to be reusable. If you draw the same "Card" layout on three different screens, you know you need to build a single \`<Card />\` component that accepts props. 
+
+Use a tool like Whimsical or Balsamiq, or just use the wireframe kits in Figma. Do not use color. Do not use actual images. Stick to grayscale boxes. The goal is purely structural alignment.
 
 ### Production SaaS
-Use Figma. You must design "Mobile-First." A complex data table might look great on a 27" monitor, but how does it render on an iPhone? Does it become a list of cards? Does it scroll horizontally? Solve these responsive layout challenges in Figma before starting development.
+In a production setting, wireframes are a critical alignment tool between product managers, designers, and engineers. They must be reviewed for accessibility and responsive behavior. 
 
-## AI Responsive Extractor
+You must wireframe the mobile view at the exact same time as the desktop view. "Mobile-first" is not a buzzword; it is a structural necessity. If you design a massive, complex data table on a desktop wireframe without considering how it collapses on an iPhone, the engineering team will be forced to build awkward, hacked-together solutions later.
+
+---
+
+**To execute this phase, use an AI tool to generate the structural layout of your core screen.**
+
 \`\`\`prompt
-Act as a Frontend Engineer. Based on this wireframe description [Describe Desktop Layout], explain how this specific layout should degrade gracefully into a Mobile viewport. What UI elements should be hidden, collapsed into hamburger menus, or transformed into vertical lists?
+Act as a UX Architect. I am building a Web App that [Solution Statement]. 
+
+Describe the wireframe layout for the main dashboard of this application. Break the layout down into:
+1. Top Navigation Bar (What elements exist here?)
+2. Left Sidebar (If applicable)
+3. Main Content Area (Describe the structural blocks, e.g., "Top left: Metric Card, Bottom: Data Table")
+4. Right Panel / Context Area (If applicable)
+
+Do not describe colors or fonts. Describe the structural hierarchy and the purpose of each visual block.
 \`\`\`
 
-- [ ] Wireframes include explicit designs for mobile viewports.
 `,
 
   'webdesignsystem': `
-# Design System
 
- **Estimated Time:** 2-3 hours
+# Design System: The UI Foundation
+
+**Estimated Time:** 1-2 Hours
 
 ---
 
-## Why this matters
-A Web App without a design system ends up with 14 slightly different shades of blue and buttons with inconsistent padding.
+A Design System is a collection of reusable components, guided by clear standards, that can be assembled together to build any number of applications. It ensures visual consistency and massively accelerates development time. Without a design system, you will end up with 14 different shades of blue and buttons with slightly different border radii scattered across your app.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use Tailwind CSS default utility classes.
+Do not build a design system from scratch. Use a fully-featured component library like Shadcn UI, Chakra UI, or Tailwind UI. Your goal is to copy-paste pre-built, beautiful components so you can focus entirely on the backend logic and the demo flow. Time spent tweaking custom CSS button hover states is time wasted.
 
 ### Personal Project
-Use a component library like Shadcn/ui, Chakra UI, or Mantine.
+Building a small, custom design system is an incredible way to learn CSS architecture (like Tailwind configuration or CSS Modules). Define your design tokens first: primary color, secondary color, spacing scale (4px, 8px, 16px), and typography scale. 
+
+Build a single page in your app called \`/styleguide\` where you render every variant of your button, input field, and card. Once this foundation is laid, building the rest of the application becomes an exercise in simple composition.
 
 ### Production SaaS
-Establish strict Design Tokens (Colors, Typography, Spacing). Use a Headless UI library (like Radix UI or React Aria) to handle the complex accessibility logic of dropdowns and modals, while styling them completely with Tailwind CSS. Never build complex interactive components (like Date Pickers) from scratch.
+A production design system is an internal product of its own. It requires strict version control, Storybook documentation, and rigorous accessibility testing (ensuring all colors meet WCAG contrast ratios and all interactive elements are keyboard navigable). 
 
-## AI Headless UI
-\`\`\`prompt
-Act as a Frontend Architect. Explain the concept of 'Headless UI' components. Why should a production Web App use a library like Radix UI for building a complex Modal, rather than writing the HTML, CSS, and ARIA attributes completely from scratch?
+You must establish a centralized theme file (e.g., a Tailwind config) that acts as the single source of truth for the entire engineering team. Never allow "magic numbers" in your CSS (like \`margin-top: 17px\`). Everything must snap to the predefined design system grid.
+
+---
+
+**Define your core design tokens:**
+\`\`\`input
+Primary Color (Hex code):
+Font Family:
+Component Library Choice (e.g., Shadcn, Custom, MUI):
 \`\`\`
+
 `,
 
   'webbranding': `
-# Branding
 
- **Estimated Time:** 1-2 hours
+# Branding: Voice and Visual Identity
+
+**Estimated Time:** 1 Hour
 
 ---
 
-## Why this matters
-Branding creates trust. If your typography is messy, users subconsciously assume your backend code is messy too.
+Branding is not just a logo; it is the emotional resonance of your application. It encompasses your color palette, your typography, and the tone of voice used in your copywriting. A highly technical developer tool should sound and look completely different from a consumer meditation app.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Pick a vibrant color and a bold font.
+Pick one vibrant, high-contrast primary color (like neon purple or electric blue) and stick it everywhere. Use a bold, modern font (like Inter, Space Grotesk, or Plus Jakarta Sans). Keep the background dark (Dark Mode inherently looks more impressive and technical in demos). The branding should scream "Modern and Fast."
 
 ### Personal Project
-Keep it minimal and clean.
+Use branding to practice modern web aesthetics. Implement a seamless light/dark mode toggle. Play with subtle gradients, glassmorphism, or brutalist design trends depending on the vibe you want. 
+
+Ensure your branding reflects the purpose of the app. If you are building a reading application, use a serif font (like Merriweather) and a calm, low-contrast color palette to reduce eye strain.
 
 ### Production SaaS
-Define a strict typography hierarchy (H1, H2, Body, Caption) using high-quality Web Fonts (e.g., Inter, Roboto). Define your primary brand color, and ensure you have perfectly calibrated "Warning", "Success", and "Error" semantic colors that meet WCAG contrast ratios.
+Production branding requires deep psychological alignment with your Buyer Persona. If you are selling enterprise fintech software, your branding must project stability, security, and trust (often using deep blues, strict geometric sans-serif fonts, and ample white space). 
 
-## AI Semantic Color Palette
-\`\`\`prompt
-Act as a UI Designer. My primary brand color is [Hex Code]. Generate a complete semantic color palette (Success, Error, Warning, Info) that visually harmonizes with this primary brand color, providing the exact Hex codes and ensuring they pass WCAG AA contrast against a white background.
+Your tone of voice in error messages, onboarding emails, and marketing copy must be strictly codified. You must also ensure your brand colors do not clash with standard UI state colors (e.g., if your brand color is red, it will confuse users when they see it on a non-destructive primary action button).
+
+---
+
+**Define the emotional tone and visual direction of your brand:**
+\`\`\`input
+Adjectives describing the brand (e.g., Playful, Secure, Minimal):
+Tone of voice (e.g., Casual, Professional, Academic):
 \`\`\`
+
 `,
 
   'webaccessibility': `
-# Accessibility (a11y)
 
- **Estimated Time:** 2-3 hours
+# Accessibility (a11y): Designing for Everyone
+
+**Estimated Time:** 1 Hour
 
 ---
 
-## Why this matters
-Web Accessibility is not just for screen readers; it ensures your app is usable by power users who navigate entirely via keyboard shortcuts.
+Web accessibility ensures that people with disabilities (visual, auditory, motor, or cognitive) can use your application. Building an accessible app is not just an ethical obligation; it is a legal requirement in many jurisdictions and fundamentally improves the usability of the product for everyone.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip.
+Ignore it. In a 48-hour sprint where you are just trying to get a demo working on a projector, ARIA labels and screen reader testing are not a priority. Focus entirely on the visual presentation.
 
 ### Personal Project
-Use semantic HTML (e.g., \`<nav>\`, \`<main>\`, \`<article>\`).
+Accessibility is a highly sought-after skill in the job market. Treat your personal project as a sandbox to learn WCAG (Web Content Accessibility Guidelines) basics. 
+
+Ensure every image has an \`alt\` tag. Ensure your color contrast ratios are at least 4.5:1. Most importantly, unplug your mouse and try to navigate your entire application using only the \`Tab\` and \`Enter\` keys. If you cannot use your app with a keyboard, it is fundamentally broken.
 
 ### Production SaaS
-You must support full keyboard navigation. When a modal opens, Focus must be trapped inside the modal, and pressing \`Escape\` must close it. Ensure all form inputs have associated \`<label>\` elements. Use a tool like \`axe-core\` to automatically scan your DOM for accessibility violations during testing.
+In production, accessibility is non-negotiable. Large enterprise clients will explicitly require a VPAT (Voluntary Product Accessibility Template) before they sign a contract. If your app is not accessible, you lose the deal.
 
-## AI Focus Trapping
-\`\`\`prompt
-Act as a Web Accessibility Expert. Explain the concept of 'Focus Trapping' in a Modal component. Provide a React code snippet demonstrating how to properly trap keyboard focus inside a modal when it opens, and return focus to the triggering button when it closes.
-\`\`\`
+You must build accessibility into the foundation of your components. Use semantic HTML (use \`<button>\` not \`<div onClick={...}>\`) for interactive elements. Utilize tools like Axe Core in your CI/CD pipeline to automatically catch contrast failures and missing ARIA attributes before code is merged to the main branch.
 
-- [ ] Complex components (modals, dropdowns) support full keyboard navigation.
+---
+
+**Acknowledge the core accessibility requirement:**
+- [ ] I commit to using semantic HTML elements (\`<nav>\`, \`<main>\`, \`<button>\`) instead of generic \`<div>\` tags for interactive elements.
+
 `,
 
   'webemptystates': `
-# Empty States
 
- **Estimated Time:** 1 hour
+# Empty States: The First Impression
+
+**Estimated Time:** 45 Minutes
 
 ---
 
-## Why this matters
-A new user signs up, logs in, and sees a completely blank white screen because they have no data yet. They immediately leave.
+An empty state is what the user sees when there is no data to display (e.g., a brand new account with no projects, or a search result with zero matches). A blank white screen with a tiny "No data" text is a failure of UX. Empty states are your best opportunity to educate the user and prompt them to take action.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Show a text string: "No data."
+You should never have an empty state in a hackathon demo. Your database should be pre-seeded with beautiful, realistic data. If you show an empty dashboard during a pitch, you are wasting valuable seconds. Seed everything before you step on stage.
 
 ### Personal Project
-Show a cute icon and a "Create Item" button.
+Use empty states to show off your UI/UX skills. Include a well-designed illustration (using a tool like unDraw), a clear explanation of what this page *will* look like once data exists, and a prominent Call to Action (CTA) button encouraging the user to create their first item. This shows recruiters that you think about the entire user lifecycle, not just the "perfect data" scenario.
 
 ### Production SaaS
-Empty states are premium onboarding real estate. Do not just say "No Projects." Say "Create your first Project to start collaborating with your team," accompanied by a high-quality illustration, a clear Call-To-Action (CTA) button, and a link to the documentation.
+In a production app, the empty state is the most critical part of your onboarding funnel. If a user signs up, sees an empty dashboard, and doesn't know what to do next, they will close the tab and churn forever. 
 
-## AI Empty State Copy
-\`\`\`prompt
-Act as a UX Writer. My Web App has an empty state for the [e.g., Invoices] page. Write the headline, subtext, and Call-to-Action button text for this empty state, ensuring it actively educates the user on the value of creating their first item.
+Your empty states must be highly actionable. Instead of saying "No invoices found," say "Create your first invoice to get paid faster," and provide a large primary button, alongside a link to a 30-second tutorial video. Empty states must drive the user toward the "Aha!" moment.
+
+---
+
+**Define the empty state for your primary dashboard:**
+\`\`\`input
+Illustration/Visual Idea:
+Headline Copy:
+Primary Action Button (What should they click?):
 \`\`\`
+
 `,
 
   'weberrorstates': `
-# Error States
 
- **Estimated Time:** 1-2 hours
+# Error States: Handling Failure Gracefully
+
+**Estimated Time:** 1 Hour
 
 ---
 
-## Why this matters
-"Error 500: Internal Server Error" is terrifying to a non-technical user.
+Things will break. APIs will timeout, users will upload invalid files, and databases will lock. An error state dictates how your application communicates these failures to the user. Good error states reduce frustration and tell the user exactly how to fix the problem. Bad error states ("Error 500: Internal Server Error") destroy trust.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-\`console.error()\` and ignore it.
+Hardcode success. Your demo should be so strictly rehearsed that you never hit an error state. If you are relying on a flaky third-party API, wrap it in a \`try/catch\` block that silently returns a mocked, successful response if it fails. The judges don't care about your error boundaries; they care about the vision.
 
 ### Personal Project
-Show a red toast notification.
+Implementing proper error boundaries (in React) or global error handlers is a great way to elevate your codebase from "amateur" to "professional." 
+
+Focus on form validation errors. If a user enters an invalid email, don't just outline the box in red. Provide a clear, localized message below the input: "Please enter a valid email address (e.g., name@domain.com)." Practice using validation libraries like Zod or Yup.
 
 ### Production SaaS
-Design graceful Error Boundaries. If a specific component (like a chart) fails to fetch data, do not crash the entire page. Display an localized error state inside that specific component's bounding box with a "Retry" button. Translate HTTP error codes into human-readable language (e.g., "We couldn't connect to the server" instead of "Network Error").
+Production error handling is a multi-layered defense system. 
+1. **Field-level validation**: Catch formatting errors instantly as the user types.
+2. **Form-level validation**: Catch logic errors upon submission (e.g., "End date must be after start date").
+3. **System-level errors**: Catch 500s or network timeouts with a global toast notification ("Unable to connect to the server. We are retrying...").
 
-## AI Graceful Degradation
+Crucially, never expose stack traces or raw database errors to the client. This is a massive security vulnerability. Always map backend technical errors to human-readable UI messages.
+
+---
+
+**Generate your error handling strategy using the AI prompt below:**
+
 \`\`\`prompt
-Act as a Frontend Engineer. Explain the concept of 'Graceful Degradation' using React Error Boundaries. Provide a code example of wrapping a volatile data-fetching component in an Error Boundary that displays a localized fallback UI and a 'Retry' button, rather than crashing the whole app.
+Act as a Senior UX Engineer. I am building a Web App. 
+
+Provide a comprehensive strategy for handling errors in the UI. Include best practices for:
+1. Inline form validation (when to validate, what colors/icons to use)
+2. Destructive action warnings (e.g., deleting an account)
+3. Global system failures (e.g., the API goes down)
+4. 404 Page Not Found design
 \`\`\`
+
 `,
 
   'webloadingstates': `
-# Loading States
 
- **Estimated Time:** 1-2 hours
+# Loading States: Managing Perception of Time
+
+**Estimated Time:** 1 Hour
 
 ---
 
-## Why this matters
-If the screen is frozen for 2 seconds while fetching data, the user assumes the app is broken and furiously clicks the button 5 more times.
+Performance is subjective. If an application takes 2 seconds to load a blank screen, it feels broken. If it takes 2 seconds to load, but immediately shows a skeleton layout with a smooth pulse animation, it feels fast. Loading states manage the user's psychological perception of time while the backend does the heavy lifting.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use a generic spinning circle.
+If an API call takes longer than 1 second, fake it. Use a \`setTimeout\` for 300ms to show a cool loading spinner, then instantly render hardcoded data. Never let the audience watch a loading spinner for 5 seconds on stage. It kills the momentum of the pitch.
 
 ### Personal Project
-Use a generic spinning circle.
+Practice implementing Skeleton UI components. Instead of replacing the entire screen with a spinning circle, render gray boxes in the exact shape and layout of the data that is about to arrive. 
+
+This prevents "Cumulative Layout Shift" (CLS)—the jarring effect where the UI jumps around as data loads in. Implementing skeleton loaders shows a deep understanding of modern frontend UX patterns.
 
 ### Production SaaS
-Use Skeleton UI (shimmering gray boxes that match the shape of the incoming data) for initial page loads. For mutations (like saving a form), disable the submit button immediately and show an inline spinner inside the button to prevent duplicate submissions. Never leave the UI in an ambiguous "frozen" state.
+In production, you must handle different types of loading states based on context. 
+1. **Initial Page Load**: Use Skeleton UIs.
+2. **Submitting a Form**: Disable the submit button and show a small inline spinner on the button itself to prevent double-submissions.
+3. **Background Processes**: If a task takes longer than 5 seconds (e.g., generating a massive report), do not block the UI. Show a "Toast" notification indicating the process has started, and allow the user to navigate away. Send an in-app notification when it finishes.
 
-## AI Skeleton vs Spinner
-\`\`\`prompt
-Act as a UX Designer. Explain the psychological difference between using a generic Loading Spinner versus a Skeleton UI for perceived performance. Provide guidelines on when to use each in a modern Web App.
-\`\`\`
+Optimistic UI updates (updating the UI before the server responds) should be used heavily to make the application feel instantaneous.
 
-- [ ] Loading states (Spinners or Skeletons) are explicitly defined for all async actions.
+---
+
+**Acknowledge the core loading state requirement:**
+- [ ] I will disable submit buttons immediately upon click to prevent duplicate API requests.
+
 `,
 
   'websitemap': `
-# Sitemap & SEO (Optional)
 
- **Estimated Time:** 1-2 hours
+# Sitemap: The Blueprint of URLs
+
+**Estimated Time:** 30 Minutes
 
 ---
 
-## Why this matters
-If your Web App relies on public, indexable content (like public profiles or template galleries), Search Engine Optimization (SEO) is critical.
+A sitemap is the exhaustive list of every route (URL) in your application. Planning this ensures you have a logical routing structure (e.g., using nested routes correctly) and helps you identify missing pages before you start setting up your router (like React Router or Next.js App Router).
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip.
+Your app is likely a Single Page Application (SPA) with only one route: \`/\`. If you need multiple views, try to handle them via state changes (conditional rendering) rather than actual URL routing to avoid complexity. If you must have routes, keep it to \`/\` (Home) and \`/dashboard\`.
 
 ### Personal Project
-Skip.
+Use this step to learn how dynamic routing works. Map out exactly how URLs will pass parameters to your components. 
+
+For example, a blog project requires a static route for the homepage (\`/\`), a static route for the blog index (\`/posts\`), and a dynamic route for individual articles (\`/posts/:slug\`). Understanding how to structure these URLs cleanly is foundational to web development.
 
 ### Production SaaS
-If your web app is an SPA (Single Page Application) rendered purely on the client, Google's crawlers will struggle to index it. You must use Server-Side Rendering (SSR) or Static Site Generation (SSG) via a framework like Next.js for all public-facing pages. Generate a dynamic \`sitemap.xml\` that updates automatically as users create public content.
+Production routing must be strictly organized to support middleware, authentication guards, and SEO. 
 
-## AI SSR vs CSR for SEO
-\`\`\`prompt
-Act as a Web Architect. Explain why pure Client-Side Rendered (CSR) React apps (like those built with standard Vite) struggle with SEO. Detail how Server-Side Rendering (SSR) in Next.js solves this by sending fully populated HTML to search engine crawlers.
+You must separate public marketing routes (which need to be statically generated for SEO) from private, authenticated app routes. 
+Example structure:
+- \`/\` (Marketing Home)
+- \`/pricing\` (Public)
+- \`/login\` (Public Auth)
+- \`/app/dashboard\` (Protected, requires session)
+- \`/app/settings/billing\` (Protected, nested layout)
+
+Any URL that contains user-generated content must be designed to be shareable, and any private route must instantly redirect unauthenticated users back to \`/login\`.
+
+---
+
+**List the primary routes (URLs) for your application:**
+\`\`\`input
+Public Routes:
+Protected/Private Routes:
 \`\`\`
+
 `,
 
   'webtechstack': `
+
 # Tech Stack Selection
 
- **Estimated Time:** 1-2 hours
+**Estimated Time:** 1-2 Hours
 
 ---
 
-## Why this matters
-Choosing the wrong framework means you will spend 50% of your time fighting configuration instead of building features.
+Your technology stack is the foundation of your application. While it is true that "you can build anything with anything," choosing the wrong stack for your specific requirements can add months of unnecessary development time or introduce scaling bottlenecks later on. The goal is to choose a stack that maximizes your development speed while satisfying your non-functional requirements.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use whatever you know best. Speed is all that matters.
+Use exactly what you already know best. A hackathon is not the time to learn Rust or experiment with a new graph database. If you know React and Firebase, use React and Firebase. If you only know Vanilla JS and PHP, use that. The only wrong tech stack in a hackathon is the one that slows you down. If you must use a new tool (because of a sponsor prize), isolate it to a single API call.
 
 ### Personal Project
-Use standard React (Vite) or Next.js. Keep it simple.
+This is your sandbox. Choose a stack that optimizes for your resume or your personal learning goals. If you want to learn full-stack development, Next.js or Nuxt are excellent choices. If you want to learn backend architecture, separate your frontend (React/Vite) from your backend (Node/Express, Python/FastAPI, or Go) so you can explicitly practice building and documenting REST APIs.
 
 ### Production SaaS
-Next.js (App Router) has become the industry standard for production React apps because it solves routing, Server-Side Rendering (SSR), and API routes out of the box. Do not use Create-React-App (it is deprecated). Use TypeScript everywhere. If you prefer Vue, use Nuxt. If you prefer Python, use FastAPI for the backend and standard React for the frontend.
+Boring technology is good technology. In production, you want a stack with a massive ecosystem, thousands of StackOverflow answers, and a large pool of developers you can hire later. 
 
-## AI Stack Justification
-\`\`\`prompt
-Act as a CTO. I am considering using [Framework A] vs [Framework B] for a production Web App. Write a memo comparing their ecosystem maturity, hiring pool size, and native support for Server-Side Rendering (SSR).
+Avoid shiny, unproven frameworks for your core business logic. Next.js, React, Node, Python, and Ruby on Rails are standard for a reason. You must also consider the cost of hosting and maintenance. A serverless architecture (like Vercel + Supabase) is fantastic for starting with zero ops overhead, but you must understand its vendor lock-in implications compared to spinning up a Docker container on AWS or GCP.
+
+---
+
+**Define your core technology stack:**
+\`\`\`input
+Frontend Framework:
+Backend Framework/Language:
+Database:
 \`\`\`
 
-- [ ] The tech stack relies on mature technology with native SSR capabilities if required.
 `,
 
   'webfrontendarchitecture': `
@@ -12340,59 +12459,79 @@ Act as a Backend Architect. Refactor this monolithic Express/Next.js API route [
 `,
 
   'webapidesign': `
-# API Design
 
- **Estimated Time:** 2-3 hours
+# API Design & Architecture
+
+**Estimated Time:** 2 Hours
 
 ---
 
-## Why this matters
-If your API responses are inconsistent, the frontend team will have to write brittle, custom parsing logic for every single endpoint.
+Your API is the contract between your frontend and your backend. A well-designed API is intuitive, predictable, and heavily documented. A poorly designed API requires frontend engineers to guess what data will be returned and how to format their requests.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Return whatever JSON object is easiest at the moment.
+If you are using a BaaS like Supabase or Firebase, your API is already built (you just use their client SDKs). If you must build a custom backend, use a framework that auto-generates your routes, or just build one massive "god endpoint" that takes a payload and does everything. REST principles do not matter in a hackathon. Speed is the only metric.
 
 ### Personal Project
-Return predictable JSON objects.
+Practice strict RESTful design or GraphQL. If building REST, ensure you use the correct HTTP methods (GET for fetching, POST for creating, PUT/PATCH for updating, DELETE for removing). 
+
+Use standard HTTP status codes (200 OK, 201 Created, 400 Bad Request, 401 Unauthorized, 404 Not Found). This is the perfect time to learn how to write a Swagger/OpenAPI specification, which is an industry standard for documenting endpoints.
 
 ### Production SaaS
-Enforce strict RESTful conventions or use tRPC for end-to-end type safety. Every REST endpoint must return a standardized wrapper (e.g., \`{ data: [...], error: null }\`). Never return a raw array from an endpoint; it leaves no room to add pagination metadata later without breaking the API.
+In production, your API must be versioned (e.g., \`/api/v1/users\`) so that you can make breaking changes in the future without destroying older mobile clients or third-party integrations. 
 
-## AI RESTful Standardization
+You must implement rate limiting to prevent DDoS attacks and abuse. You must validate every single incoming payload using a library like Zod or Joi. Never trust client data; always assume it is malicious. Finally, ensure your API responses are paginated (using cursor or offset pagination) so that querying a table with 100,000 rows doesn't crash your server.
+
+---
+
+**Generate your API endpoint structure using the AI prompt below:**
+
 \`\`\`prompt
-Act as a API Designer. Design a standardized JSON response wrapper for a REST API that handles success, pagination, and error states uniformly. Provide examples of a 200 OK response with paginated data, and a 400 Bad Request response with detailed validation errors.
+Act as a Senior Backend Engineer. I am building a Web App with the following core entities: [Insert your main database tables/concepts].
+
+Generate a RESTful API specification for the MVP. For each endpoint, include:
+1. HTTP Method and Route (e.g., GET /api/v1/projects)
+2. Description of what it does
+3. Required parameters or request body structure
+4. Expected response structure (JSON) and status code
 \`\`\`
 
-- [ ] A standardized API response format is established.
 `,
 
   'webauthentication': `
-# Authentication
 
- **Estimated Time:** 2 hours
+# Authentication & Authorization
+
+**Estimated Time:** 1-2 Hours
 
 ---
 
-## Why this matters
-Rolling your own crypto or session management is the fastest way to get your users' data stolen.
+Authentication (AuthN) verifies *who* the user is (e.g., logging in). Authorization (AuthZ) verifies *what* the user is allowed to do (e.g., an Admin can delete users, a Viewer cannot). Rolling your own auth from scratch (hashing passwords, managing JWTs, handling session cookies) is a massive security risk and a waste of time unless you are a cryptography expert.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Use a third-party provider like Clerk. It takes 5 minutes.
+Use OAuth (Google or GitHub login) via a managed provider like Supabase Auth, Firebase Auth, or Clerk. It takes 10 minutes to set up and looks incredibly professional in a demo. Do not build an email/password flow because confirming emails during a live demo is clunky and prone to failure. 
 
 ### Personal Project
-Use Supabase Auth or Auth.js (NextAuth).
+If you want to understand how auth works under the hood, use a library like NextAuth.js or Lucia Auth. Implement a standard email/password flow with bcrypt password hashing, and implement one OAuth provider (like GitHub) to learn how OAuth handshakes work. 
+
+Ensure you understand the difference between a JWT (stateless) and a Session Cookie (stateful). Learning to manage HTTP-only cookies securely is a critical web development skill.
 
 ### Production SaaS
-Delegate authentication to a dedicated Identity Provider (Clerk, Auth0, Supabase). You must secure your tokens. If using JWTs, store them in HttpOnly cookies, never in localStorage (to prevent XSS attacks). Support OAuth (Google/GitHub login) to dramatically increase signup conversion rates.
+Outsource your Auth. Use Auth0, Clerk, or Supabase. A production application requires password resets, magic links, multi-factor authentication (MFA), and enterprise Single Sign-On (SAML/SSO). 
 
-## AI Secure Auth Flow
-\`\`\`prompt
-Act as a Web Security Expert. Explain the vulnerability of storing JWTs in \`localStorage\`. Provide a Next.js implementation that uses HttpOnly cookies for session management, and demonstrate how to verify the session securely on the backend.
+Furthermore, you must implement strict Role-Based Access Control (RBAC). Your backend APIs must verify the user's role on *every single request*. Never trust the client-side UI to enforce security (hiding a "Delete" button in React does not prevent a user from sending a DELETE request via Postman).
+
+---
+
+**Define your authentication strategy:**
+\`\`\`input
+Auth Provider (e.g., Clerk, Supabase, NextAuth):
+Login Methods (e.g., Google, Email/Password, Magic Link):
 \`\`\`
+
 `,
 
   'webdatabaseschema': `
@@ -13147,30 +13286,45 @@ Act as a Backend Security Engineer. Provide a Next.js App Router snippet utilizi
 `,
 
   'webcaching': `
-# Caching Strategy
 
- **Estimated Time:** 2-3 hours
+# Caching Strategies (Redis)
+
+**Estimated Time:** 1-2 Hours
 
 ---
 
-## Why this matters
-The fastest and cheapest database query is the one you don't make.
+Database queries are slow and expensive. If 1,000 users request the exact same list of public articles, your database has to execute the exact same query 1,000 times. Caching stores the result of that query in memory (RAM), allowing the next 999 requests to be served in milliseconds without ever touching the database.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip.
+Do not use caching. Your app will likely have 5 users (you and the judges). Your database will handle 5 concurrent requests perfectly fine. Adding Redis introduces infrastructure complexity and caching bugs ("Why isn't the new data showing up?!") that will destroy your demo.
 
 ### Personal Project
-Use React Query on the frontend.
+Use Redis to cache expensive API endpoints or third-party API calls. 
+
+If your app fetches data from the Twitter API, cache the response in Redis with a Time-To-Live (TTL) of 60 seconds. This is an excellent way to learn about cache invalidation. Remember the famous quote: "There are only two hard things in Computer Science: cache invalidation and naming things." 
 
 ### Production SaaS
-Use Edge Caching (CDN). Implement \`stale-while-revalidate\` (SWR) headers for dynamic data that updates infrequently. For heavy database analytics, cache the results in Redis. Be extremely careful with Cache Invalidation; if a user updates their billing info, you MUST invalidate the cache immediately, or they will see stale data and panic.
+Caching is mandatory for scale and cost-reduction. 
 
-## AI Cache Invalidation
+1. **Database Caching**: Cache heavily read, rarely updated data (like user roles, configuration settings, or public profiles). 
+2. **Session Caching**: Store user session tokens in Redis so you don't have to hit the primary PostgreSQL database on every single authenticated request. 
+3. **CDN Edge Caching**: Cache static HTML and assets globally at the edge (Cloudflare/Vercel) so users in Tokyo don't have to fetch a generic landing page from a server in Virginia.
+
+You must design a strict cache invalidation strategy. When a user updates their profile, you must explicitly delete the old cached profile in Redis, or they will continue to see their old data.
+
+---
+
+**Generate a caching strategy using the AI prompt below:**
+
 \`\`\`prompt
-Act as a Systems Architect. Explain the 'stale-while-revalidate' caching strategy. Detail the exact flow of how to cache a heavy database query in Redis, and more importantly, how to architect the Cache Invalidation strategy so the data updates immediately upon a mutation.
+Act as a Senior Infrastructure Engineer. I am building a Web App.
+
+Identify the 3 most database-intensive or highly-trafficked read operations in my application based on this concept: [Insert App Concept]. 
+Provide a strategy for caching these operations using Redis, including the exact Cache Key naming convention (e.g., \`user:123:profile\`) and the recommended Time-To-Live (TTL) for each.
 \`\`\`
+
 `,
 
   'webbackups': `
@@ -13203,32 +13357,35 @@ Act as a Database Administrator. Explain the concept of Point-in-Time Recovery (
 `,
 
   'webcicd': `
-# CI/CD Pipeline
 
- **Estimated Time:** 2-3 hours
+# CI/CD: Continuous Integration & Deployment
+
+**Estimated Time:** 1.5 Hours
 
 ---
 
-## Why this matters
-Manually deploying code creates a "Bus Factor" of 1 (if that developer gets hit by a bus, the company can't deploy).
+Continuous Integration and Continuous Deployment (CI/CD) is the automation of your testing and release process. Instead of manually running tests and manually FTPing files to a server, a CI/CD pipeline ensures that every time you push code, it is automatically linted, tested, built, and deployed.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Connect your GitHub repo to Vercel.
+Your CI/CD pipeline is just the automatic deployment feature of Vercel or Netlify. When you push to \`main\`, it deploys. That's it. Do not waste time writing GitHub Actions to run tests, because you shouldn't be writing tests in a hackathon anyway.
 
 ### Personal Project
-Connect your GitHub repo to Vercel.
+Setting up a basic GitHub Action is a fantastic learning experience. Create a workflow file (\`.github/workflows/main.yml\`) that runs \`npm run lint\`, \`npm run typecheck\`, and \`npm run build\` every time you open a Pull Request. 
+
+This forces you to keep your codebase clean and prevents you from merging code that will break the deployment. It is the first step toward professional engineering practices.
 
 ### Production SaaS
-Implement GitOps. Developers must push code to a feature branch. GitHub Actions automatically runs the Linter, Type Checker, and E2E Tests. If tests pass, the PR can be merged to \`main\`. A merge to \`main\` automatically triggers a zero-downtime deployment to production.
+A production CI/CD pipeline is an absolute necessity. It is the safety net that prevents broken code from reaching your users. 
 
-## AI GitHub Actions Workflow
-\`\`\`prompt
-Act as a DevOps Engineer. Provide a complete GitHub Actions YAML workflow for a Next.js application. The workflow should trigger on Pull Requests, run \`npm ci\`, execute ESLint, run Playwright E2E tests, and block the merge if any step fails.
-\`\`\`
+Your pipeline must run Unit Tests, Integration Tests, and End-to-End (E2E) tests (using Playwright or Cypress). It must run security scans (checking for vulnerable npm packages). It must generate preview environments for every Pull Request so the QA team can test changes before they are merged. Finally, production deployments should ideally be automated, but gated behind a manual approval step or a phased rollout (Canary deployment).
 
-- [ ] A CI/CD pipeline enforces automated testing and linting before deployment.
+---
+
+**Acknowledge the core CI/CD requirement:**
+- [ ] I commit to configuring my deployment platform (e.g., Vercel) to block production deployments if the build command or type-checking fails.
+
 `,
 
   'webseoprod': `
@@ -23141,826 +23298,851 @@ Act as a Technical Artist. Explain the concept of Object Pooling in game develop
 - [ ] I understand how to use the engine Profiler to identify CPU/GPU bottlenecks.
 - [ ] I have implemented Object Pooling for frequently spawned entities.
 
+`,
+
+  'webdatabase': `
+
+# Database Architecture
+
+**Estimated Time:** 2-3 Hours
+
+---
+
+The database schema is the most difficult part of an application to change later. A poorly designed schema will result in impossibly complex SQL queries, massive performance bottlenecks, and data corruption. You must decide whether your data is highly relational (SQL), highly unstructured (NoSQL), or heavily reliant on realtime subscriptions.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use a Backend-as-a-Service (BaaS) like Supabase or Firebase. You do not have time to provision an RDS instance, write raw SQL migrations, or configure ORMs. Set your security rules to "public read/write" (only if you don't care about security for the demo) to avoid spending 3 hours debugging row-level security policies at 3 AM.
+
+### Personal Project
+Take the time to learn an Object-Relational Mapper (ORM) like Prisma or Drizzle (for TypeScript), or SQLAlchemy (for Python). Write explicit migration files. 
+
+If you are using PostgreSQL, practice writing constraints (like foreign keys and unique indexes). Understanding how to model data correctly is the most important skill you can develop as a backend engineer. Do not just throw everything into a JSONB column because it's easier.
+
+### Production SaaS
+Production data architecture requires extreme rigor. You must choose between SQL (PostgreSQL, MySQL) and NoSQL (MongoDB, DynamoDB) based on your access patterns. For 95% of SaaS applications, PostgreSQL is the correct answer. 
+
+You must implement Row-Level Security (RLS) if you are in a multi-tenant environment to ensure Tenant A can never accidentally query Tenant B's data. You must also plan for backups, point-in-time recovery, and read-replicas. Never use a SQLite file for a production multi-tenant web app unless you deeply understand the concurrency limits.
+
+---
+
+**Generate your initial database schema using the AI prompt below:**
+
+\`\`\`prompt
+Act as a Senior Database Administrator. I am building a Web App with the following features: [Insert your MVP features].
+My chosen database is [Insert Database Choice, e.g., PostgreSQL].
+
+Please generate the initial database schema. 
+1. Provide the raw SQL CREATE TABLE statements (or Prisma/Drizzle schema if requested).
+2. Explicitly define all Primary Keys, Foreign Keys, and necessary Indexes for performance.
+3. Add comments explaining why certain relationships (1-to-many, many-to-many) were chosen.
+\`\`\`
+
+`,
+
+  'webhosting': `
+
+# Hosting & Deployment Strategy
+
+**Estimated Time:** 1 Hour
+
+---
+
+Your code is useless until it lives on a server accessible to the public. Hosting dictates how your application is deployed, scaled, and maintained. The spectrum ranges from fully managed, zero-config serverless platforms to raw virtual machines that you must provision and secure yourself.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Deploy to Vercel, Netlify, or Render. These platforms offer "git push to deploy." Do not spend time configuring Nginx or Docker. Your goal is to have a live, sharable URL as quickly as possible. If the build fails on Vercel, fix the linting errors locally and push again.
+
+### Personal Project
+Vercel/Netlify are great, but if you want to learn DevOps, try deploying your app to a DigitalOcean Droplet or an AWS EC2 instance. 
+
+Learn how to SSH into a server, install Node.js, set up a reverse proxy with Nginx, and keep the app running with PM2. Alternatively, learn how to write a simple \`Dockerfile\` and deploy it to a container service like Google Cloud Run or AWS ECS. These are highly marketable skills.
+
+### Production SaaS
+Production hosting requires high availability and disaster recovery. You must separate your environments (Development, Staging, Production). 
+
+If you use Vercel, ensure your production branch is locked down. If you use AWS/GCP, manage your infrastructure using Infrastructure as Code (IaC) tools like Terraform. You must also configure a Content Delivery Network (CDN) like Cloudflare to serve static assets globally and protect against DDoS attacks. Never deploy a production database on the same exact server instance as your web application.
+
+---
+
+**Define your hosting providers:**
+\`\`\`input
+Frontend Hosting (e.g., Vercel, AWS S3):
+Backend/API Hosting (e.g., Render, Heroku, AWS ECS):
+Database Hosting (e.g., Supabase, RDS, MongoDB Atlas):
+\`\`\`
+
+`,
+
+  'webrepositorystructure': `
+
+# Repository & Folder Structure
+
+**Estimated Time:** 1 Hour
+
+---
+
+A clean repository structure prevents your codebase from becoming a tangled "spaghetti" mess as it grows. It dictates where components live, where utility functions go, and how state is managed. A well-structured repo allows a new engineer to find a specific file in seconds just by applying logical deduction.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Put everything in the \`src\` folder. Do not over-engineer a complex feature-based architecture. A simple split between \`components\`, \`pages\`, and \`utils\` is more than enough. You will likely delete this repository in three days anyway.
+
+### Personal Project
+Adopt an industry-standard structure. If you are using React, consider a feature-based structure where instead of grouping all components together and all hooks together, you group by feature (e.g., \`src/features/authentication/components\`, \`src/features/authentication/hooks\`). 
+
+This keeps related logic colocated. Ensure you have clear separation between UI components (dumb components that just render props) and Container components (smart components that fetch data).
+
+### Production SaaS
+In production, your repository structure must be strictly enforced via linting rules. 
+
+You should consider a Monorepo approach (using tools like Turborepo or Nx) if you have multiple applications sharing code (e.g., a web app, a marketing site, and a shared UI package). Your folder structure must clearly separate business logic from UI frameworks. Implement a strict "Barrel export" pattern (\`index.ts\`) to keep import statements clean and prevent circular dependencies.
+
+---
+
+**Generate a standardized folder structure using the AI prompt below:**
+
+\`\`\`prompt
+Act as a Staff Frontend Engineer. I am building a [Insert Tech Stack, e.g., Next.js App Router] application.
+
+Generate a production-ready repository folder structure.
+Provide the folder tree format and include a 1-sentence comment next to each major folder explaining exactly what types of files belong there and what should NOT go there.
+\`\`\`
+
+`,
+
+  'weblayouts': `
+
+# Core Layouts & Grid
+
+**Estimated Time:** 1-2 Hours
+
+---
+
+A web application is typically built on 2 or 3 master layouts (e.g., an unauthenticated "Auth" layout, a "Dashboard" layout with a sidebar, and a "Settings" layout). Creating robust, responsive master layouts upfront prevents you from duplicating navigation logic across 50 different pages.
+
+## Strategic Guidance
+
+### Hackathon Mode
+You only need one layout. Use a simple CSS Flexbox column (Navbar on top, content stretching to the bottom). If you are using Tailwind CSS, your root \`div\` should just be \`min-h-screen flex flex-col\`. Don't waste time building collapsible sidebars or complex grid systems. Keep it completely linear.
+
+### Personal Project
+Practice CSS Grid. Build a classic "Holy Grail Layout" (Header, Left Sidebar, Main Content, Right Sidebar, Footer). Learn how to use CSS Grid areas or Tailwind grid template classes to create layouts that are impossible to break. 
+
+Ensure your layouts are fully responsive. The sidebar should collapse into a hamburger menu on mobile devices. If your layout breaks when the user resizes their browser window, it destroys the illusion of a professional application.
+
+### Production SaaS
+Production layouts require deep consideration for state and data fetching. Your layout component often acts as a boundary. For example, your \`DashboardLayout\` might be responsible for fetching the current user's profile and rendering the sidebar, while the \`{children}\` prop renders the specific page content. 
+
+You must also consider "Layout Shift." If your layout relies on data that takes time to load, you must render a Skeleton Layout immediately so the screen doesn't aggressively jump around when the data finally arrives. Use CSS variables to enforce strict maximum widths (e.g., \`max-w-7xl\`) so your app doesn't stretch awkwardly on ultrawide monitors.
+
+---
+
+**Generate your core layout code using the AI prompt below:**
+
+\`\`\`prompt
+Act as a Senior Frontend Engineer. I am using [Insert Framework, e.g., Next.js] and [Insert Styling, e.g., Tailwind CSS].
+
+Generate a reusable Master Layout component for a SaaS dashboard. It must include:
+1. A top navigation bar (fixed to the top)
+2. A left sidebar (hidden on mobile, visible on desktop)
+3. A main content area that takes up the remaining space
+4. Responsive behavior using Tailwind utility classes
+
+Provide the code for this layout component.
+\`\`\`
+
+`,
+
+  'webcomponents': `
+
+# Reusable UI Components
+
+**Estimated Time:** 3-4 Hours
+
+---
+
+Component-driven development is the cornerstone of modern web frameworks. A component is a self-contained unit of UI and logic (like a Button, a Modal, or a Data Table). If you find yourself writing the exact same HTML and CSS more than twice, it needs to be abstracted into a reusable component.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Do not build complex components from scratch. Use Shadcn UI. Run \`npx shadcn-ui@latest add button card dialog\` and you instantly have production-ready, beautiful components. Your only job is to wire them together. Building a custom accessible dropdown menu in a hackathon is a guaranteed way to run out of time.
+
+### Personal Project
+Building a small library of primitive components (Button, Input, Card) is the best way to master a frontend framework like React or Vue. 
+
+Focus heavily on the Component API (the props it accepts). A \`<Button>\` component should accept an \`intent\` prop (primary, secondary, danger) and a \`size\` prop (sm, md, lg). It should also pass all native HTML attributes (like \`disabled\` or \`onClick\`) down to the underlying DOM element. This teaches you advanced TypeScript patterns and component composition.
+
+### Production SaaS
+Production components must be isolated, documented, and bulletproof. 
+
+You should use Storybook to document every single state of your components (hover, focused, disabled, loading). Your components must be strictly typed with TypeScript. If a developer tries to pass \`variant="ghost"\` to a button that only accepts \`primary\` or \`secondary\`, the compiler should throw an error instantly. You must also implement strict accessibility standards, ensuring every component can be navigated using only a keyboard.
+
+---
+
+**Define the core components you need to build or import:**
+\`\`\`input
+Primitive Components (e.g., Button, Input, Modal):
+Complex Components (e.g., Data Table, Chart, Kanban Board):
+\`\`\`
+
+`,
+
+  'webstatemanagement': `
+
+# State Management Architecture
+
+**Estimated Time:** 2 Hours
+
+---
+
+State management is how your application remembers things. It tracks if a user is logged in, what text they have typed into a search bar, or if a modal is currently open. Choosing the wrong state management solution leads to "prop drilling" (passing data through 10 layers of components) or an impossibly complex, buggy architecture.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Keep all state entirely local using React's \`useState\`. If you absolutely must share state between two distant components, use the React Context API. Do not install Redux, Zustand, or MobX. Setting up a global state store requires boilerplate that you simply do not have time to write or debug.
+
+### Personal Project
+This is the perfect time to learn modern global state management. Zustand is the current industry standard for React because it requires almost zero boilerplate. 
+
+Learn how to separate Server State (data from your API) from Client State (is the dark mode toggle checked?). Do not put API responses into a global store like Redux; that is an outdated pattern. Use a data-fetching library (like React Query or SWR) for server state, and a simple store (Zustand) for UI state.
+
+### Production SaaS
+In production, state management bugs cause catastrophic issues (like showing User A's data to User B due to a caching error). 
+
+You must aggressively adopt specialized tools:
+1. **Server State**: Use TanStack Query (React Query). It handles caching, deduplication, background refetching, and pagination automatically.
+2. **Global UI State**: Use Zustand or Jotai.
+3. **Local UI State**: Use \`useState\` or \`useReducer\`.
+4. **URL State**: If state can be shared via a link (like a search query or a filter), it MUST live in the URL search parameters (\`?query=shoes\`), not in a Javascript variable. This ensures the app is bookmarkable.
+
+---
+
+**Generate your global state store using the AI prompt below:**
+
+\`\`\`prompt
+Act as a Senior Frontend Architect. I am using React and Zustand.
+
+Generate a Zustand store that manages the following global UI state for my application:
+1. User session state (e.g., is the user authenticated, user profile data)
+2. A global UI toggle (e.g., is the left sidebar collapsed or expanded)
+3. A theme toggle (light/dark mode)
+
+Provide the TypeScript interface and the store implementation.
+\`\`\`
+
+`,
+
+  'webrouting': `
+
+# Routing & Navigation
+
+**Estimated Time:** 1-2 Hours
+
+---
+
+Routing is how users navigate between different URLs in your application. In modern Single Page Applications (SPAs), routing happens on the client-side (in the browser) without refreshing the entire page. A robust routing architecture handles redirects, lazy loading, and authentication guards.
+
+## Strategic Guidance
+
+### Hackathon Mode
+If you are using a framework like Next.js, use the App Router and just create folders. Do not overcomplicate it with dynamic route parameters unless strictly necessary. If you are using plain React, install \`react-router-dom\` and define your 3 routes in a single \`App.tsx\` file. If a user tries to access a page they shouldn't, just redirect them to \`/\`.
+
+### Personal Project
+Practice building protected routes. Create a Higher Order Component (HOC) or a wrapper component that checks if a user is logged in. If they are not, it should redirect them to the \`/login\` page and append a \`?redirectTo=/dashboard\` parameter so they are sent back to their original destination after authenticating. 
+
+Learn how to use dynamic segments (e.g., \`/users/:id\`) and how to extract those parameters inside your components to fetch the correct data.
+
+### Production SaaS
+Production routing is intimately tied to performance and security. 
+
+If using React Router, you must implement Code Splitting / Lazy Loading. Do not bundle your massive 5MB Admin Dashboard code into the payload that gets sent to an unauthenticated user on the login page.
+If using Next.js App Router, you must master the difference between Server Components and Client Components. Your route structure must enforce authentication at the middleware level (edge computing) before the request ever reaches your application logic. A failure in routing architecture often results in massive security vulnerabilities (like an unauthenticated user accessing an admin route).
+
+---
+
+**Map out your route structure and route guards:**
+\`\`\`input
+Public Routes (No auth required):
+Protected Routes (Auth required):
+Dynamic Routes (e.g., /project/:projectId):
+\`\`\`
+
+`,
+
+  'webapifetching': `
+
+# API Integration & Data Fetching
+
+**Estimated Time:** 2-3 Hours
+
+---
+
+Data fetching is how your frontend talks to your backend. In the old days, developers used \`useEffect\` and \`fetch()\` to grab data, manually handling loading states, error states, and caching. Today, doing this manually is considered a massive anti-pattern.
+
+## Strategic Guidance
+
+### Hackathon Mode
+If you are querying a database directly from the frontend (like Firebase or Supabase), just use their provided hooks. If you must use \`fetch()\`, it is acceptable to use a simple \`useEffect\` with a boolean \`isLoading\` state. You do not need to worry about stale-while-revalidate caching or background refetching during a 5-minute demo.
+
+### Personal Project
+Never use \`useEffect\` for data fetching in modern React. It leads to race conditions, memory leaks, and complex boilerplate. 
+
+Instead, install and learn TanStack Query (React Query) or SWR. These libraries fundamentally change how you build apps. You simply call a hook (\`const { data, isLoading, error } = useQuery(...)\`) and the library handles caching, retries, and deduplication instantly. This is a mandatory skill for modern frontend developers.
+
+### Production SaaS
+In production, data fetching must be wildly optimized. 
+
+You must implement Optimistic Updates. When a user clicks "Like" on a post, do not wait 300ms for the API to respond before turning the heart red. Turn it red instantly on the client side, send the API request in the background, and silently roll back the UI if the request fails. 
+
+Furthermore, you must establish strict TypeScript interfaces for all API responses. If the backend changes the shape of the data, your frontend build should fail immediately. Use tools like OpenAPI (Swagger) generators or tRPC to ensure end-to-end type safety between your database and your UI.
+
+---
+
+**Generate your data fetching layer using the AI prompt below:**
+
+\`\`\`prompt
+Act as a Senior Frontend Developer. I am using React and TanStack Query (React Query).
+
+I have a REST API endpoint: GET /api/v1/projects
+It returns an array of Project objects.
+
+Generate a custom React hook (e.g., \`useProjects\`) that fetches this data. Include:
+1. The TypeScript interface for the Project object.
+2. The fetcher function.
+3. The useQuery implementation with a query key.
+4. Error handling and loading state types.
+\`\`\`
+
+`,
+
+  'webformhandling': `
+
+# Form Handling & Validation
+
+**Estimated Time:** 2 Hours
+
+---
+
+Forms are the primary way users input data into your application. Handling forms in modern web frameworks is notoriously difficult because you have to manage controlled states, handle validation rules, display inline errors, and manage submission loading states simultaneously.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Do not write custom form validation logic. If you are building a React app, just use standard HTML5 validation attributes (\`required\`, \`type="email"\`). The browser will stop the user from submitting invalid data automatically. This is fast, requires zero JavaScript, and gets the job done for a demo.
+
+### Personal Project
+This is the perfect time to learn the industry-standard stack for forms: React Hook Form paired with Zod (for validation). 
+
+React Hook Form manages the form state without causing massive re-renders every time the user types a single character. Zod allows you to define a strict schema (e.g., "password must be 8 characters and contain a number") and automatically handles error messages. Mastering these two libraries will save you hundreds of hours in your career.
+
+### Production SaaS
+Forms in a production environment are complex state machines. 
+
+Every single input must have instantaneous inline validation (validating *on blur* or *on change*). You must handle complex edge cases: What if the user submits the form, the API returns a 409 Conflict (e.g., "Email already exists"), and you need to display that server error under the specific email input field? 
+
+Furthermore, you must ensure your forms are accessible. Every \`<input>\` must have an associated \`<label>\`, and error messages must be linked to the input via \`aria-describedby\` so screen readers can announce the error to visually impaired users.
+
+---
+
+**Generate your form handling logic using the AI prompt below:**
+
+\`\`\`prompt
+Act as a Senior Frontend Engineer. I am using React, React Hook Form, and Zod.
+
+Generate a complete "Create Project" form component. Include:
+1. A Zod schema requiring a "Project Name" (min 3 chars) and an optional "Description" (max 500 chars).
+2. The React Hook Form integration using the zodResolver.
+3. Two input fields showing inline error messages if the validation fails.
+4. A submit button that shows a loading state while processing.
+\`\`\`
+
+`,
+
+  'webrestgraphql': `
+
+# API Paradigms: REST vs GraphQL vs tRPC
+
+**Estimated Time:** 1-2 Hours
+
+---
+
+The way your frontend communicates with your backend dictates the speed at which you can build features. Choosing between a traditional REST API, a highly flexible GraphQL API, or a modern End-to-End Type Safe solution (like tRPC) is a foundational architectural decision.
+
+## Strategic Guidance
+
+### Hackathon Mode
+If you are using a BaaS like Supabase, you do not need to build an API. You just query the database directly from the client using their SDK. If you must build a custom backend, use standard REST endpoints because it requires zero configuration and zero schema definitions. Just write a function that returns JSON and move on.
+
+### Personal Project
+Learn tRPC or GraphQL. These tools fundamentally change how you think about client-server communication. 
+
+If you are using a full-stack TypeScript framework (like Next.js), tRPC is the ultimate learning experience. It allows you to call backend functions directly from your frontend components with perfect autocomplete and type safety, without ever writing a \`fetch()\` call or manually defining an endpoint URL. It bridges the gap between frontend and backend beautifully.
+
+### Production SaaS
+Production APIs must be heavily documented and fiercely protected. 
+
+If you are building a public API that third-party developers will use, you *must* build a REST API documented with Swagger/OpenAPI. GraphQL is excellent if you have a massive, complex data model and want to allow clients to request exactly the data they need, preventing over-fetching (which saves bandwidth and database costs). However, GraphQL requires complex rate-limiting strategies (since a user can request a query nested 10 levels deep that crashes your database). Whichever you choose, enforce strict schema validation on every single incoming request to prevent injection attacks.
+
+---
+
+**Generate your API architecture plan using the AI prompt below:**
+
+\`\`\`prompt
+Act as a Senior Backend Architect. I am building a Web App.
+
+I need to decide between REST, GraphQL, and tRPC for my primary client-server communication.
+Based on industry best practices for a standard SaaS application, recommend one paradigm and explain exactly why it fits best. Provide a brief code example of how a "Fetch User Profile" request would look in the chosen paradigm.
+\`\`\`
+
+`,
+
+  'webdatabaseorm': `
+
+# Database ORMs & Migrations
+
+**Estimated Time:** 2 Hours
+
+---
+
+An Object-Relational Mapper (ORM) allows you to interact with your database using your programming language (e.g., TypeScript or Python) instead of writing raw SQL strings. A good ORM provides type safety, autocompletion, and handles the dangerous process of database migrations (altering tables without losing data).
+
+## Strategic Guidance
+
+### Hackathon Mode
+Use Prisma. It has the best developer experience and auto-generates TypeScript types instantly. Run \`npx prisma db push\` to sync your database schema immediately without worrying about formal migration history files. In a hackathon, you will likely change your database schema 20 times a day; Prisma makes this painless.
+
+### Personal Project
+Take the time to understand Database Migrations. 
+
+When you add a new column to a table, do not just manually add it in a GUI like pgAdmin. Use an ORM (like Drizzle or Prisma) to generate a migration file (e.g., \`0001_add_user_bio.sql\`). Understand how to apply and rollback migrations. This is how real engineering teams manage database state across multiple environments (local, staging, production).
+
+### Production SaaS
+Production database access requires an obsession with performance. 
+
+While Prisma is incredibly developer-friendly, it can sometimes generate terribly inefficient SQL queries (the "N+1 query problem"). In production, many teams prefer a thinner query builder like Drizzle ORM or Kysely (for TypeScript) because they offer type safety while keeping you close to the raw SQL. Furthermore, production migrations must be reviewed meticulously; dropping a column in production permanently deletes data, so you must use multi-step migrations (add new column -> copy data -> drop old column) to achieve zero-downtime deployments.
+
+---
+
+**Generate your initial ORM configuration using the AI prompt below:**
+
+\`\`\`prompt
+Act as a Senior Database Engineer. I am using [Insert ORM, e.g., Prisma] and [Insert Database, e.g., PostgreSQL].
+
+I need to model two tables: User and Project (A user can have many projects).
+Provide the schema definition code for these two models.
+Ensure you include created_at/updated_at timestamps and explain how the foreign key relationship is structured.
+\`\`\`
+
+`,
+
+  'weberrorhandling': `
+
+# Backend Error Handling & Logging
+
+**Estimated Time:** 1 Hour
+
+---
+
+When your backend fails, it must fail safely. Unhandled exceptions crash servers, while poorly formatted error responses leave frontend developers guessing what went wrong. Furthermore, if an error happens in production and you aren't logging it, you will never be able to fix it.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Wrap everything in a massive \`try/catch\` block. If it fails, \`console.log(error)\` and return a \`500 Internal Server Error\`. You do not have time to set up Sentry or Datadog. Keep an eye on your terminal output and pray it doesn't crash during the pitch.
+
+### Personal Project
+Build a centralized Error Handling Middleware (if using Express, Fastify, or NestJS). 
+
+Never sprinkle \`res.status(500).send("Error")\` throughout your controllers. Instead, create custom Error classes (e.g., \`NotFoundError\`, \`ValidationError\`) and throw them. Your centralized middleware will catch the error, log it, and format a consistent JSON response for the frontend. 
+
+Example consistent response:
+\`{ "error": true, "code": "VALIDATION_FAILED", "message": "Email is required" }\`
+
+### Production SaaS
+Production logging is a non-negotiable security and debugging requirement. 
+
+You must integrate an error tracking service like Sentry to catch unhandled exceptions and alert your Slack channel immediately. You must also implement structured JSON logging (using tools like Winston or Pino) so your logs can be ingested by Datadog or AWS CloudWatch and queried efficiently. Crucially: *Never log sensitive data* (like passwords, credit cards, or PII) in your error logs.
+
+---
+
+**Acknowledge the core error handling requirement:**
+- [ ] I commit to never returning raw stack traces or database errors directly to the client API response, as it poses a massive security risk.
+
+`,
+
+  'webbackgroundjobs': `
+
+# Background Jobs & Queues
+
+**Estimated Time:** 2 Hours
+
+---
+
+Web requests must be fast. If a user clicks "Generate Report," and the report takes 30 seconds to compile, the browser will timeout and the user will think the app is broken. Long-running tasks must be offloaded to a Background Job Queue, allowing the web server to respond instantly while a separate worker process does the heavy lifting.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Fake it. If you need to send an email, just use an asynchronous API call (like Resend) and don't await the response. If you are doing heavy AI image generation, rely on the provider's webhooks or long-polling instead of setting up a complex Redis queue locally. 
+
+### Personal Project
+Setting up a job queue is an impressive architectural achievement for a junior/mid-level developer. 
+
+Install Redis and use a queuing library like BullMQ (for Node). Build a flow where:
+1. The user requests a video export.
+2. The API creates a Job in the database, sends it to the Redis queue, and returns \`{ status: "processing", jobId: 123 }\`.
+3. The frontend polls an endpoint every 3 seconds to check the status of \`jobId: 123\`.
+4. A separate worker process completes the job and updates the status to "completed".
+
+### Production SaaS
+In production, your web servers (which handle API traffic) and your worker servers (which process queues) must be scaled independently. If you have 10,000 background jobs suddenly queued, it should not slow down the login endpoint for regular users. 
+
+You must handle job retries (with exponential backoff), dead-letter queues (for jobs that fail 5 times permanently), and concurrency limits (so you don't exceed rate limits on third-party APIs). Managed solutions like Inngest, Trigger.dev, or AWS SQS remove much of the infrastructure headache.
+
+---
+
+**Define your background processing strategy:**
+\`\`\`input
+List 2 tasks in your app that take longer than 2 seconds (e.g., AI generation, bulk email, file processing):
+1.
+2.
+\`\`\`
+
+`,
+
+  'websecurity': `
+
+# Security & Rate Limiting
+
+**Estimated Time:** 1-2 Hours
+
+---
+
+Security is not an afterthought; it is a foundational layer. A single vulnerability (like SQL Injection or an insecure API endpoint) can result in a data breach that destroys your company's reputation and incurs massive legal liabilities. You must actively defend against bots, scrapers, and malicious actors.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ignore it completely. Put your API keys in your frontend code if it makes the demo work faster (just make sure you revoke them the day after the hackathon). Do not spend time configuring CORS or Rate Limiting. Just build.
+
+### Personal Project
+Learn the OWASP Top 10. Understand what Cross-Site Scripting (XSS) is, and how React protects against it by default. 
+
+Learn how to configure CORS (Cross-Origin Resource Sharing) properly so your backend only accepts requests from your specific frontend domain, rather than \`*\`. Never push \`.env\` files to GitHub. Use a tool like GitGuardian to scan your commits for accidental secrets. 
+
+### Production SaaS
+Production security requires aggressive defense mechanisms. 
+1. **Rate Limiting**: You must implement IP-based and User-based rate limiting (e.g., maximum 100 requests per minute). If you have an AI feature, you must strictly limit it to prevent a malicious user from draining your OpenAI credits in 5 minutes.
+2. **CSRF Protection**: Protect against Cross-Site Request Forgery on state-changing endpoints.
+3. **Input Sanitization**: Never blindly insert user data into a database or render it as HTML. Use strict validation schemas.
+4. **Headers**: Implement security headers (Helmet.js) including strict Content Security Policies (CSP).
+
+Conduct regular dependency audits (\`npm audit\`) to ensure third-party libraries have not introduced known vulnerabilities.
+
+---
+
+**Acknowledge the core security requirement:**
+- [ ] I commit to never pushing \`.env\` files to a public repository and rotating any API keys that are accidentally exposed.
+
+`,
+
+  'weblintingformatting': `
+
+# Linting & Formatting
+
+**Estimated Time:** 30 Minutes
+
+---
+
+Linting catches syntax errors and enforces code quality rules before the code is even run. Formatting ensures that every file in your codebase looks exactly the same, preventing massive git conflicts where one developer uses tabs and another uses spaces.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Install Prettier, check "Format on Save" in your editor, and never think about it again. Do not spend time configuring strict ESLint rules that will yell at you for using \`any\` in TypeScript when you have 12 hours left to finish the project.
+
+### Personal Project
+Set up ESLint and Prettier properly. 
+
+Learn how they differ: ESLint catches bugs (e.g., unused variables, missing dependencies in a \`useEffect\` array), while Prettier handles style (e.g., single quotes vs double quotes). Configure your IDE to auto-format on save. Setting these up correctly is a rite of passage for modern developers.
+
+### Production SaaS
+In production, linting and formatting are enforced at the repository level. 
+
+You must set up Git Hooks (using Husky and lint-staged) to automatically run Prettier and ESLint on every single commit. If the code fails the lint check, the commit is rejected. Furthermore, you must configure strict TypeScript rules (\`strict: true\` in \`tsconfig.json\`). Allowing \`any\` types or ignoring lint warnings in a production codebase is a fast track to unmaintainable technical debt.
+
+---
+
+**Acknowledge the core formatting requirement:**
+- [ ] I commit to configuring my editor (e.g., VSCode) to "Format on Save" to ensure consistent code style across all files.
+
+`,
+
+  'webunittesting': `
+
+# Unit & Integration Testing
+
+**Estimated Time:** 1-2 Hours
+
+---
+
+Unit testing verifies that individual, isolated pieces of code (like a single function or component) work exactly as expected. Integration testing verifies that multiple pieces of code work together correctly. Tests act as an automated safety net, ensuring you don't accidentally break existing features when you add new ones.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Do not write tests. Writing tests in a hackathon is actively detrimental to your speed. Your "test" is clicking the button manually and seeing if it works. 
+
+### Personal Project
+Practice Test-Driven Development (TDD) for at least one complex utility function. 
+
+If you have a function that calculates pricing discounts based on user tiers, write the Jest or Vitest tests first: \`expect(calculateDiscount(100, 'premium')).toBe(80)\`. Then, write the code to make the test pass. Do not bother writing unit tests for simple React components that just render a standard UI; focus on testing the core business logic.
+
+### Production SaaS
+Production code requires a robust testing strategy. 
+
+You should aim for high test coverage on critical paths (billing logic, authentication, complex state mutations). Use Vitest (for speed) or Jest. For frontend components, use React Testing Library to test behavior, not implementation (e.g., "Does clicking the submit button show a success message?" rather than "Is the button's internal state set to true?"). Your CI/CD pipeline must execute all unit tests and block deployments if any fail.
+
+---
+
+**Generate a unit test file using the AI prompt below:**
+
+\`\`\`prompt
+Act as a QA Engineer. I have the following TypeScript function: [Paste your most complex utility function or business logic here].
+
+Using Vitest (or Jest), write a comprehensive test suite for this function. Include tests for the "happy path" (expected inputs) as well as edge cases (null inputs, extreme values, or invalid formats).
+\`\`\`
+
+`,
+
+  'webe2etesting': `
+
+# End-to-End (E2E) Testing
+
+**Estimated Time:** 2 Hours
+
+---
+
+End-to-End (E2E) testing simulates a real user interacting with your application in a real browser. It clicks buttons, fills out forms, and navigates between pages. While unit tests check if the engine works, E2E tests check if the entire car can drive from point A to point B.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip entirely. E2E tests take significant time to write, are notoriously flaky, and require dedicated CI/CD infrastructure to run reliably. You do not need them for a demo.
+
+### Personal Project
+This is an excellent opportunity to learn Playwright or Cypress. 
+
+Write exactly one E2E test: the "Happy Path" user journey. Have the test script navigate to the homepage, click "Sign Up", fill in a test email, submit the form, and verify that the user is redirected to the dashboard. Automating this single flow will save you from manually testing the signup process 50 times during development.
+
+### Production SaaS
+In production, E2E tests are your final line of defense against deploying a broken app. 
+
+You should use Playwright to automate tests across multiple browsers (Chrome, Firefox, Safari) and multiple viewports (Desktop, Mobile). Because E2E tests are slow, you shouldn't test every minor UI variation. Focus on critical business flows: User Registration, Checkout/Payment, and Core Feature Usage. Set up these tests to run in your staging environment automatically before code is promoted to production.
+
+---
+
+**Generate an E2E test script using the AI prompt below:**
+
+\`\`\`prompt
+Act as a QA Automation Engineer. I am using Playwright.
+
+Generate a basic E2E test script that simulates a user visiting my application's landing page, clicking the "Login" button, filling in an email and password, submitting the form, and expecting to see an element with the text "Welcome back".
+\`\`\`
+
+`,
+
+  'weberrorlogging': `
+
+# Error Logging & Alerting
+
+**Estimated Time:** 1 Hour
+
+---
+
+When a user encounters a fatal error (like a "White Screen of Death" in React), they rarely email you to report it; they just leave. Error logging tools automatically capture the stack trace, the user's browser information, and the exact sequence of actions that led to the crash, sending it to a central dashboard.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Skip it. If it crashes during the demo, refresh the page and apologize.
+
+### Personal Project
+Integrate Sentry (or LogRocket). It takes exactly 5 minutes to set up the SDK. 
+
+Watch the magic happen: deliberately throw an error in your code and see the stack trace appear instantly in the Sentry dashboard. This is a crucial skill for understanding how real-world applications are monitored in the wild.
+
+### Production SaaS
+Production apps require aggressive, intelligent monitoring. 
+
+You must integrate Sentry to catch unhandled exceptions on both the frontend and the backend. Crucially, you must upload your Source Maps to Sentry during your build process; otherwise, your frontend errors will just point to minified, unreadable code (like \`error at x.a.b\`). 
+
+Set up Slack or PagerDuty alerts for fatal errors. Do not ignore your error logs; a noisy error dashboard trains your engineers to ignore actual critical failures. Fix the root cause or explicitly silence known, non-critical warnings.
+
+---
+
+**Acknowledge the error tracking requirement:**
+- [ ] I commit to integrating an error tracking service (like Sentry) before publicly launching my application, so I am not blind to frontend crashes.
+
+`,
+
+  'webanalytics': `
+
+# Product Analytics & Telemetry
+
+**Estimated Time:** 1 Hour
+
+---
+
+Analytics tools tell you exactly how users are interacting with your product. Are they dropping off at the signup page? Are they using the new feature you spent three weeks building? Without product analytics, you are flying blind and relying purely on intuition.
+
+## Strategic Guidance
+
+### Hackathon Mode
+You only need to know how many people visit the site after you launch it on Product Hunt or Twitter. Use a lightweight, privacy-friendly tool like Plausible or Fathom Analytics, or just use Google Analytics. It takes 2 minutes to inject the tracking script into your \`<head>\`. 
+
+### Personal Project
+Learn the difference between Pageview Analytics and Event-Based Analytics. 
+
+Google Analytics is great for seeing where traffic comes from, but tools like PostHog or Mixpanel are essential for tracking specific user actions. Instrument specific events in your code (e.g., \`posthog.capture('clicked_upgrade_button')\`). This teaches you how product managers make data-driven decisions.
+
+### Production SaaS
+Production analytics require a structured data plan. 
+
+You cannot just fire random events with messy naming conventions. Establish a strict taxonomy (e.g., \`[Noun] [Verb]\` -> \`Project Created\`, \`Subscription Upgraded\`). 
+
+You must track the complete funnel: Acquisition (Landing Page) -> Activation (Signed Up) -> Engagement (Used Core Feature) -> Monetization (Paid). Additionally, you must ensure compliance with GDPR and CCPA by offering cookie consent banners and providing mechanisms for users to opt out of tracking.
+
+---
+
+**Define the core events you need to track:**
+\`\`\`input
+List 3 key user actions (events) that indicate a user is successfully using your app:
+1.
+2.
+3.
+\`\`\`
+
+`,
+
+  'webperformancemonitoring': `
+
+# Performance & Web Vitals
+
+**Estimated Time:** 1 Hour
+
+---
+
+A slow website fundamentally destroys the user experience and severely penalizes your SEO rankings. Performance monitoring involves measuring your Core Web Vitals (Largest Contentful Paint, First Input Delay, Cumulative Layout Shift) to ensure your app loads instantly and feels highly responsive.
+
+## Strategic Guidance
+
+### Hackathon Mode
+If your site loads in under 3 seconds, do not worry about it. Do not spend time optimizing image formats or configuring advanced chunk splitting. 
+
+### Personal Project
+Run a Google Lighthouse audit (built into Chrome DevTools) on your application. 
+
+Aim for a score of 90+ in Performance, Accessibility, Best Practices, and SEO. Learn how to optimize the low-hanging fruit: compress your massive PNG images to WebP, ensure you aren't loading a 2MB unminified JavaScript library, and use lazy loading (\`next/image\` or React's \`Suspense\`) for heavy components below the fold.
+
+### Production SaaS
+Performance directly impacts revenue. Amazon found that every 100ms of latency cost them 1% in sales. 
+
+In production, you must monitor Real User Monitoring (RUM) metrics, not just synthetic Lighthouse tests. Tools like Vercel Analytics or Datadog will show you exactly how fast your site loads for a user on a 3G connection in a different country. You must aggressively optimize your First Byte (TTFB) using Edge caching, minimize main-thread blocking JavaScript, and implement a strict performance budget in your CI/CD pipeline to block PRs that increase the bundle size significantly.
+
+---
+
+**Generate a performance optimization checklist using the AI prompt below:**
+
+\`\`\`prompt
+Act as a Senior Performance Engineer. My web app is built with [Insert Tech Stack].
+
+Provide a checklist of the top 5 most impactful performance optimizations I should implement before launching to production. Focus specifically on bundle size reduction, image optimization, and caching strategies relevant to my stack.
+\`\`\`
+
+`,
+
+  'webseo': `
+
+# SEO & Open Graph Metadata
+
+**Estimated Time:** 1 Hour
+
+---
+
+Search Engine Optimization (SEO) dictates how easily users can find your application on Google. Open Graph (OG) metadata dictates how beautiful your links look when shared on Twitter, Slack, or iMessage (generating a nice preview card with an image and title).
+
+## Strategic Guidance
+
+### Hackathon Mode
+Ensure your \`<title>\` and \`<meta name="description">\` tags are set correctly so your app doesn't say "Vite + React" when you share the link. Generate a quick 1200x630px image in Figma and add it as your \`og:image\`. When you share your hackathon project on social media, that image is the first thing people see.
+
+### Personal Project
+Learn the fundamentals of technical SEO. 
+
+Ensure your application has a \`robots.txt\` file and an XML \`sitemap.xml\`. Learn the difference between Client-Side Rendering (CSR) and Server-Side Rendering (SSR). If you build a CSR app (like a standard Vite React app), Google's crawlers have to execute JavaScript to see the content, which can hurt SEO. If SEO is critical, you must use SSR or Static Site Generation (SSG) via Next.js or Astro.
+
+### Production SaaS
+Production SEO requires a comprehensive content strategy. 
+
+You must implement dynamic metadata for every single page (e.g., if a user views a specific product, the \`<title>\` and \`og:image\` must dynamically match that product). You must use canonical tags to prevent duplicate content penalties. Finally, you should implement structured data (JSON-LD) so Google can display rich snippets (like star ratings or pricing) directly in the search results.
+
+---
+
+**Generate your meta tags using the AI prompt below:**
+
+\`\`\`prompt
+Act as an SEO Specialist. I am building a web app described as: [Insert App Concept].
+
+Generate the essential HTML \`<head>\` tags for my landing page. Include:
+1. An optimized Title tag (under 60 characters)
+2. A compelling Meta Description (under 160 characters)
+3. The necessary Open Graph (og:) and Twitter Card meta tags for social sharing.
+\`\`\`
+
+`,
+
+  'weblaunchchecklist': `
+
+# The Final Launch Checklist
+
+**Estimated Time:** 1 Hour
+
+---
+
+Launching a web application is the final hurdle. A failed launch—where the database crashes under load or users encounter broken signup links—can permanently damage your product's reputation. A rigorous pre-launch checklist ensures a smooth rollout.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Check your live production URL on a mobile phone to ensure the CSS isn't broken. Try to sign up as a new user in the production environment. If those two things work, post the link everywhere and celebrate. You shipped.
+
+### Personal Project
+Do a thorough walkthrough. 
+1. Check all environment variables (did you accidentally deploy with test Stripe keys instead of live keys?). 
+2. Test the "Forgot Password" flow. 
+3. Run a Lighthouse audit. 
+4. Ensure your custom domain is connected and the SSL certificate is active (HTTPS). 
+Once verified, share it on Reddit, Hacker News, or Twitter to gather real-world feedback.
+
+### Production SaaS
+A production launch is a highly coordinated event. 
+You must execute a "Soft Launch" first—inviting a small group of beta testers to use the production environment to catch edge-case bugs. 
+
+Verify your database backup strategy is active. Ensure your error monitoring (Sentry) and analytics (PostHog) are receiving events correctly. Prepare your customer support infrastructure (a support email or live chat widget). Finally, coordinate your marketing launch (Product Hunt, newsletters, press releases) only *after* the soft launch confirms the infrastructure is stable under load.
+
+---
+
+**Acknowledge the final launch requirements:**
+- [ ] I have tested the complete user journey (Signup -> Core Action -> Logout) on the LIVE production URL, not just localhost.
+- [ ] I have verified that the application is fully usable on a mobile device.
+
 `
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
