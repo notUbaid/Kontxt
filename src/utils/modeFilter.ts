@@ -3,14 +3,17 @@ import type { Mode } from '../components/TopNav';
 export function filterModeContent(markdown: string, activeMode: Mode): string {
   if (!markdown) return markdown;
 
-  // Find the Strategic Guidance or Mode-Specific Guidance block up to the next heading or end of string
-  const modeRegex = /## (Mode-Specific Guidance|Strategic Guidance)([\s\S]*?)(?=\n## |\n*$)/;
+  // Find the mode block. It might be under `## Strategic Guidance`, or it might just be the `### Hackathon Mode` etc.
+  // We want to capture from either `## Strategic Guidance` or the first `### <Mode>` until the next `## `, `---`, or end of string.
+  const modeRegex = /(?:## (?:Mode-Specific Guidance|Strategic Guidance)\n*)?(### (?:Hackathon Mode|Personal Project|Production SaaS|Hackathon|Personal|Production)[\s\S]*?)(?=\n## |\n---|\n*$)/i;
   
-  return markdown.replace(modeRegex, (match, _title, content) => {
-    // Check if we are using the new deep H3 syntax or the old bullet point syntax
-    if (content.includes('\n### ')) {
-      // New H3 Syntax
-      const h3Sections = content.split(/(?=\n### )/);
+  return markdown.replace(modeRegex, (match, content) => {
+    // Check if we are using the new deep H3 syntax
+    if (content.includes('\n### ') || content.startsWith('### ')) {
+      // Split into sections by H3
+      // We prepend a newline to make splitting consistent if it starts with ###
+      const normalizedContent = content.startsWith('### ') ? '\n' + content : content;
+      const h3Sections = normalizedContent.split(/(?=\n### )/);
       let activeSection = '';
       
       for (const section of h3Sections) {
@@ -22,9 +25,9 @@ export function filterModeContent(markdown: string, activeMode: Mode): string {
           continue;
         }
         
-        const isHackathon = section.includes('Hackathon');
-        const isPersonal = section.includes('Personal');
-        const isProduction = section.includes('Production');
+        const isHackathon = section.toLowerCase().includes('hackathon');
+        const isPersonal = section.toLowerCase().includes('personal');
+        const isProduction = section.toLowerCase().includes('production');
         
         if (activeMode === 'Hackathon' && isHackathon) activeSection += section;
         if (activeMode === 'Personal' && isPersonal) activeSection += section;
@@ -57,7 +60,7 @@ export function filterModeContent(markdown: string, activeMode: Mode): string {
       const hasBullets = filteredLines.some(line => line.trim().startsWith('- '));
       if (!hasBullets) return '';
 
-      return filteredLines.join('\n').replace('## Mode-Specific Guidance', '## Strategic Guidance');
+      return filteredLines.join('\n').replace(/## (Mode-Specific Guidance|Strategic Guidance)/, '## Strategic Guidance');
     }
   });
 }
