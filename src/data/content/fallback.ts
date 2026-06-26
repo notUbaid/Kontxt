@@ -11427,403 +11427,528 @@ Act as a Cloud Architect. A serverless Postgres/Next.js SaaS application has jus
 - [ ] The app successfully scales past initial architectural bottlenecks.`,
 
   'webideadefinition': `
-# Idea Definition
 
- **Estimated Time:** 1-2 hours
+# Idea Definition: Finding the Wedge
+
+**Estimated Time:** 1 Hour
 
 ---
 
-## Why this matters
-A Web App is meant to be accessible anywhere, instantly, without installation. If your idea requires heavy local processing or deep OS integration, you should be building a Desktop App, not a Web App.
+Great software doesn't start with code; it starts with a precise understanding of the market wedge. A wedge is the specific, hyper-narrow problem you solve so well that users are willing to overlook the fact that your product is new, unpolished, or missing features. Most products fail because their initial definition is too broad, attempting to boil the ocean instead of boiling a single cup of water. 
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your idea must look incredible in the browser. Build something highly visual, interactive, or utilizing 3D (like Three.js) to capture attention immediately.
+In a hackathon, your idea definition needs to be instantly understandable to a judge within 10 seconds. You are not building a sustainable business model here; you are building a compelling narrative wrapped in a technical demo. Avoid complex B2B workflow tools that require 5 minutes of context to understand. Choose ideas with high visual impact, obvious utility, and a "wow" factor that can be demonstrated quickly.
+
+Your wedge here is often a novel application of a new technology (like a new AI model) applied to a relatable, everyday problem. Focus on the demo above all else.
 
 ### Personal Project
-Pick an idea that you want to access across your phone, tablet, and laptop seamlessly. Web Apps excel at ubiquitous access.
+For a personal project, the idea definition must optimize for your own learning and sustained interest. The wedge doesn't need to be commercially viable, but it must be technically interesting enough to keep you motivated on a Sunday afternoon. 
+
+Pick an idea that forces you to interact with a specific piece of the stack you want to master. If you want to learn WebSockets, build a real-time collaborative tool. If you want to learn advanced CSS, build a heavily animated portfolio. Your "market" is yourself, so validate the idea against your own curriculum, not against revenue potential.
 
 ### Production SaaS
-A Web App idea must have a clear path to user acquisition. It should naturally lend itself to shareable URLs, collaborative multiplayer features (like Figma or Notion), or SEO-driven acquisition loops.
+In a production environment, the idea definition is a high-stakes financial hypothesis. Your wedge must address a "Hair on Fire" problem—a problem so painful that users are already spending money or significant time trying to solve it with inferior tools (like messy Excel spreadsheets). 
 
-## AI Brainstorming Prompt
-\`\`\`prompt
-Act as a Product Strategist. I want to build a Web App in the [Insert Industry] space. What are 3 core workflows in this industry that would benefit massively from real-time browser collaboration or shareable, permissioned links?
-\`\`\`
+Do not build "vitamins" (nice-to-have improvements); build "painkillers" (urgent solutions). You must define exactly who is feeling the pain, how much they are willing to pay to make it stop, and why existing solutions are failing them. Your idea must be narrow enough to dominate a niche before expanding.
+
+---
+
+**Define your core idea and the specific wedge you are targeting:**
+\\\`\\\`\\\`input
+Idea & Wedge:
+\\\`\\\`\\\`
+
 `,
 
   'webproblemstatement': `
-# Problem Statement
 
- **Estimated Time:** 1 hour
+# The Problem Statement: Articulating the Pain
+
+**Estimated Time:** 2 Hours
 
 ---
 
-## Why this matters
-People do not wake up wishing they had another tab open. They open a tab because they have an urgent, specific problem to solve.
+A well-crafted problem statement is the foundation of any successful web application. If the problem doesn't exist, or isn't severe enough, the execution of the solution does not matter. The goal here is to shift focus away from your proposed features and intensely scrutinize the friction your target user experiences today. You must be able to articulate their pain better than they can.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-State the problem in one sentence. Keep it universally relatable.
+Your problem statement needs to be immediately relatable to the judges or audience. You don't have time to explain complex industry-specific workflows (like supply chain logistics). Instead, focus on universal frustrations: finding parking, splitting bills, or summarizing long videos. 
+
+The pain should be something the audience has felt recently. Your goal is to get heads nodding in the first 30 seconds of your pitch. Frame the problem as an acute, annoying friction that your tech stack can magically eliminate.
 
 ### Personal Project
-Define exactly what workflow you are currently doing manually that takes too long.
+When articulating the problem for a personal project, focus on a friction you personally experience frequently. Building a tool for a problem you intimately understand ensures you don't have to guess what features are necessary. 
+
+This process teaches you empathy in product design. Document exactly what manual steps you currently take to solve this problem, and how much time it wastes. The clearer the problem, the easier it will be to scope the solution when you start coding.
 
 ### Production SaaS
-The problem statement must highlight the friction of the "Status Quo." For example: "Freelancers currently have to download a PDF, sign it in preview, and email it back, which takes 15 minutes and causes a 20% drop-off in contract completion."
+For an enterprise or commercial product, the problem statement must translate directly into a clear financial impact. If the problem doesn't cost the user time, money, or massive reputational risk, they will not pay for your SaaS.
 
-## AI Problem Refinement
-\`\`\`prompt
-Act as a Product Strategist. I believe the problem is: [Insert vague problem]. Refine this into a strict, one-sentence Problem Statement that highlights the friction of the current user workflow.
-\`\`\`
+You must quantify the problem. Instead of saying "teams struggle to communicate," state "marketing agencies lose 15 hours per week manually reconciling client feedback across 4 different platforms, leading to missed deadlines and churn." A quantified problem statement allows you to anchor your pricing strategy later. If you save them $10,000 a month, charging $1,000 a month is a trivial decision for them.
 
-- [ ] The core problem is defined.
+---
+
+**Write a quantified problem statement for your target user:**
+\\\`\\\`\\\`input
+Problem Statement:
+\\\`\\\`\\\`
+
 `,
 
   'webuserjourney': `
-# User Journey
 
- **Estimated Time:** 1-2 hours
+# User Journey: Mapping the Flow
+
+**Estimated Time:** 2 Hours
 
 ---
 
-## Why this matters
-The User Journey maps the user's emotional and physical state from the moment they realize they have a problem, to the moment they achieve success in your app.
+The User Journey maps the complete lifecycle of a user's interaction with your application, from the moment they realize they have a problem, to discovering your solution, using it, and eventually returning to it. This isn't just about clicking buttons; it's about the emotional and psychological state of the user at each touchpoint. Mapping this out prevents you from building disjointed features that don't logically flow together.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Map out: Click Link -> See Demo -> Say "Wow."
+For a hackathon, the user journey is strictly linear and highly compressed. It is exactly the path you will take during your live demo. You should map out the "Happy Path"—the perfect, error-free sequence of events that shows off your application's core value.
+
+Ignore edge cases, password resets, and onboarding flows. The journey should start with a dramatic "before" state (the problem), transition into your application doing the heavy lifting, and end with a satisfying "after" state. Design the journey to maximize visual impact and technical "wow" moments.
 
 ### Personal Project
-Map out the sequence of screens you need to click through to accomplish your task.
+In a personal project, mapping the user journey is an exercise in learning how to structure an application logically. Focus on the core loop: the repetitive action the user takes to get value. 
+
+Think about how data flows through the application. If it's a habit tracker, the journey is: open app, view today's habits, click to complete, see a visual reward (like a streak counter). Don't overcomplicate it. A clean, simple journey is much easier to implement and results in a more polished portfolio piece.
 
 ### Production SaaS
-Map out the acquisition channels. Do they find you via a Google search? Do they click a link shared by a colleague? If the user journey starts with "They type our URL into the browser," you have failed, because no one knows your URL.
+For a commercial SaaS, the user journey must be comprehensive and account for friction at every stage. You are mapping the funnel. How do they discover the product? What is the "Aha!" moment during onboarding where they realize the value? What triggers them to upgrade to a paid tier?
 
-## AI Journey Mapping
-\`\`\`prompt
-Act as a UX Researcher. I am building a Web App that does [Describe App]. Map out the 5-step User Journey starting from the 'Trigger Event' (what causes them to open Google) all the way to the 'Aha Moment' inside the app.
-\`\`\`
+You must meticulously document the "Unhappy Paths"—what happens when a payment fails, when they forget their password, or when an API integration breaks. A production user journey is an interconnected web of states, emails, push notifications, and UI states designed to minimize churn and maximize engagement.
+
+---
+
+**Map out the primary Happy Path for your core user:**
+\\\`\\\`\\\`input
+1. User discovers the app via...
+2. User signs up and immediately sees...
+3. User performs core action...
+4. User receives value (Aha moment)...
+\\\`\\\`\\\`
+
 `,
 
   'webpersonas': `
-# Personas
 
- **Estimated Time:** 1-2 hours
+# Personas: Who Are We Building For?
+
+**Estimated Time:** 1 Hour
 
 ---
 
-## Why this matters
-You must design your UI for the technical literacy of your persona. A dashboard for a Data Scientist looks very different from a dashboard for a Florist.
+If you build a product for everyone, you build a product for no one. A persona is a semi-fictional archetype that represents the key traits of a large segment of your target audience. You need to intimately understand what this person cares about, what their technical proficiency is, and what triggers them to adopt new software. 
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip.
+You do not need a 10-page psychological profile. You just need one highly specific user to ground your demo narrative. For example, "Sarah, a freelance graphic designer who is drowning in disorganized client emails." 
+
+During your pitch, everything you say should tie back to this single persona. Show how your app takes Sarah from a state of chaos to a state of control in 3 clicks. It provides emotional resonance to what is otherwise just a technical demo.
 
 ### Personal Project
-Skip.
+For a personal project, the persona is often yourself or someone you know closely. If you are building for yourself, document your exact pain points and technical constraints. 
+
+If you are building a tool for your friends or a local community group, define their technical literacy. Building a beautiful, complex dashboard is useless if your persona gets overwhelmed by anything more complicated than a Google Form. Designing with a persona forces you to make UX decisions based on empathy, not just what looks cool in a UI library.
 
 ### Production SaaS
-Define the user's context. Are they using your web app on a 4K monitor in an office, or on a shattered iPhone 8 while walking down the street? Your persona definition dictates your responsive design strategy and your accessibility (a11y) requirements.
+In B2B SaaS, you rarely have just one persona. You have the **User Persona** (the person who logs in every day) and the **Buyer Persona** (the executive who holds the credit card). 
 
-## The Data We Need From You
-**Who is the primary user?**
-\`\`\`input
-Primary Persona:
-\`\`\`
+Your app must satisfy both. The User Persona cares about speed, UI, and eliminating tedious work. The Buyer Persona cares about ROI, reporting, and security compliance. If your app only solves the User's problem but doesn't give the Buyer a dashboard to prove it's saving money, they will churn when budget season arrives. 
 
-## AI Persona Context
-\`\`\`prompt
-Act as a UX Researcher. My primary persona is [Paste Input]. Detail the typical physical environment and device constraints this user experiences when trying to accomplish [Task], and how that should impact the Web App's UI design.
-\`\`\`
+---
+
+**Define your primary User Persona:**
+\\\`\\\`\\\`input
+Name/Role:
+Biggest Pain Point:
+\\\`\\\`\\\`
+
 `,
 
   'websolutionstatement': `
-# Solution Statement
 
- **Estimated Time:** 1 hour
+# The Solution Statement: The Antidote
+
+**Estimated Time:** 1 Hour
 
 ---
 
-## Why this matters
-The solution statement is your anchor. When "feature creep" threatens to derail the project, you test the new feature against this statement.
+You have defined a bleeding-neck problem; now you must clearly define the antidote. The solution statement is not a feature list. It is a clear, concise declaration of how your product systematically eliminates the pain outlined in your problem statement.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Focus on the technology. "An AI-powered web canvas that..."
+Keep it punchy. Your solution statement should read like a magical "Easy Button." If the problem was "people waste hours finding parking," the solution is not "a geospatial mapping app with ML predictive analytics." The solution is "we instantly route drivers to the nearest open spot using live traffic camera data." Focus on the *outcome*, not the underlying infrastructure.
 
 ### Personal Project
-Focus on utility. "A simple list app that..."
+Your solution statement should define the scope boundary of your project. If you are building a habit tracker, the solution might be "a minimalist, offline-first mobile app that lets me check off habits with zero loading screens." This acts as your north star. If you ever feel tempted to add complex social sharing features, refer back to this statement. Does social sharing fit the "minimalist, offline-first" solution? If not, cut it.
 
 ### Production SaaS
-Focus on the outcome. "A browser-based contract editor that allows users to sign and share documents instantly without ever downloading a file, increasing completion rates by 20%."
+In production, your solution statement must position you against the status quo. If you are competing against Excel, your solution statement needs to highlight why your purpose-built software is structurally superior to a spreadsheet. 
 
-## AI Solution Alignment
-\`\`\`prompt
-Act as a strict Product Manager. Here is my Problem Statement: [Paste Problem]. Here is my proposed Solution: [Paste Solution]. Critique my solution. Does it actually solve the core problem, or is it just a list of cool features looking for a use case?
-\`\`\`
+Example: "Unlike fragmented spreadsheets that require manual updates, our platform acts as a single source of truth, automatically syncing inventory data across Shopify, Amazon, and physical stores in real-time." It explicitly calls out the legacy alternative and explains the structural advantage of your approach.
+
+---
+
+**Write a one-sentence solution statement that defines the outcome you deliver:**
+\\\`\\\`\\\`input
+Solution Statement:
+\\\`\\\`\\\`
+
 `,
 
   'webelevatorpitch': `
-# Elevator Pitch
 
- **Estimated Time:** 1 hour
+# Elevator Pitch: The 30-Second Sell
+
+**Estimated Time:** 30 Minutes
 
 ---
 
-## Why this matters
-You need a fast, jargon-free way to explain what your URL does when you share it in a Discord channel or at a meetup.
+An elevator pitch is the ultimate test of clarity. If you cannot explain what your Web App does, who it is for, and why it matters in under 30 seconds, you do not understand your own product well enough. A confused mind says no, and a confused user closes the browser tab.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Make it punchy and focus on the "Wow" factor.
+Your elevator pitch is your opening hook for the presentation. Do not start by explaining your tech stack. Start with the hook. 
+
+Formula: "Every day, [Target Audience] loses [Resource] because of [Problem]. We built [Project Name] to solve this by [Core Action], allowing them to [Ultimate Benefit]." 
+
+Nail this pitch, practice it until you can say it flawlessly, and deliver it with high energy. It sets the tone for the entire demo.
 
 ### Personal Project
-Skip.
+Even for a personal project, an elevator pitch is crucial. It becomes your GitHub repository description and the headline of your portfolio piece. When recruiters or other developers look at your work, they decide within 5 seconds if it's worth exploring the codebase. 
+
+A clear pitch like "A React-based visualizer for sorting algorithms that I built to deepen my understanding of Big O notation" instantly communicates your intent and technical focus.
 
 ### Production SaaS
-Use the "We help [X] do [Y] by [Z]" format. Avoid technical jargon. "We help remote teams brainstorm visually by providing a real-time multiplayer whiteboard right in the browser."
+Your elevator pitch is your homepage H1 headline. It is the core messaging that drives your entire marketing strategy. It needs to be polished, jargon-free (unless selling to highly technical buyers), and heavily optimized for conversion. 
 
-## AI Pitch Generator
-\`\`\`prompt
-Act as a Y Combinator Partner. Based on this value proposition [Paste Value Prop], write a 2-sentence conversational elevator pitch. Do not use any marketing buzzwords. Make it sound natural when spoken out loud.
-\`\`\`
+A great SaaS pitch focuses entirely on value extraction. "Stripe: Financial infrastructure for the internet." It doesn't say "A REST API for processing credit card transactions using PCI-compliant tokens." It sells the high-level infrastructure value.
 
-- [ ] A 2-sentence elevator pitch is defined.
+---
+
+**Write your 30-second elevator pitch:**
+\\\`\\\`\\\`input
+Elevator Pitch:
+\\\`\\\`\\\`
+
 `,
 
   'webcompetitoranalysis': `
-# Competitor Analysis
 
- **Estimated Time:** 2 hours
+# Competitor Analysis: Knowing the Enemy
+
+**Estimated Time:** 2 Hours
 
 ---
 
-## Why this matters
-Every web app has competitors. You need to know why users will close their tab and open yours.
+Unless you are inventing a fundamentally new category of technology, you have competitors. Even if you don't have direct software competitors, your competitor is "the old way of doing things" (usually Excel, pen-and-paper, or an intern). Analyzing competitors reveals gaps in the market, pricing strategies, and UX patterns you can legally steal.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip.
+You only need to know enough about your competitors to explain why you are different. The classic hackathon framing is "We are like [Famous Company], but for [Niche Market]." (e.g., "We are Tinder for adopting rescue dogs"). 
+
+If a judge asks, "Doesn't X already do this?", your answer should be "Yes, but X focuses on enterprise clients, whereas we are laser-focused on local communities." Find one single axis of differentiation and lean into it hard.
 
 ### Personal Project
-Skip.
+Competitor analysis for a personal project is about UI/UX research. Find the 3 most popular apps in the space you are building and study them. What UI frameworks are they using? How do they handle empty states? How do they structure their navigation?
+
+You don't need to reinvent the wheel. If every major to-do app uses a specific layout for a reason, adopt that layout so you can focus your coding efforts on the complex backend logic or unique features you actually want to learn.
 
 ### Production SaaS
-Identify the incumbents. Do they require users to download desktop software? If so, your competitive advantage is "Zero friction, runs entirely in the browser." Do they have complex, bloated UIs? Your advantage is "Blazing fast, minimalistic design."
+In a commercial environment, competitor analysis is a survival mechanism. You need a deep, feature-by-feature matrix comparing your product to the top 3 incumbents. 
 
-## AI Competitive Advantage
-\`\`\`prompt
-Act as a Product Strategist. My web app competitors are [List Competitors]. Analyze their typical onboarding friction and suggest 3 ways a modern, browser-native Web App could steal their impatient users.
-\`\`\`
+You must analyze their pricing (are they freemium or sales-led?), their positioning (do they target SMBs or Enterprise?), and their technical debt (are they a sluggish legacy app that you can beat with a modern, fast React frontend?). Your goal is to find their weak flank and attack it. If they are expensive and complex, be cheap and simple. If they are generic, be highly specialized.
+
+---
+
+**List your top 3 competitors and your single biggest advantage over them:**
+\\\`\\\`\\\`input
+1. [Competitor A] - Advantage:
+2. [Competitor B] - Advantage:
+3. [Competitor C] - Advantage:
+\\\`\\\`\\\`
+
+## AI Execution Phase
+
+\\\`\\\`\\\`prompt
+Act as a seasoned Product Strategist. I am building a Web App in the following space:
+
+[INSERT BRIEF DESCRIPTION OF YOUR APP IDEA HERE]
+
+Analyze the current competitive landscape for this type of product. Identify the top 3-5 likely direct or indirect competitors. For each competitor, provide:
+1. Their core value proposition
+2. Their primary target market
+3. Their biggest weakness or vulnerability that a new entrant could exploit.
+\\\`\\\`\\\`
+
 `,
 
   'webfeatureplanning': `
-# Feature Planning
 
- **Estimated Time:** 2-3 hours
+# Feature Planning: Taming the Scope
+
+**Estimated Time:** 1 Hour
 
 ---
 
-## Why this matters
-Planning prevents you from building the "Settings" page before you've built the core functionality.
+Feature planning is the process of translating your solution statement into concrete, buildable modules. Without a strict feature planning framework, web apps suffer from "scope creep"—the slow, steady addition of minor features that eventually bloat the codebase, ruin the UX, and delay the launch indefinitely.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Plan exactly 1 "Killer Feature" and fake everything else.
+In a hackathon, feature planning is an exercise in ruthless elimination. You do not have time for authentication (use a hardcoded user if possible), you do not have time for settings pages, and you absolutely do not have time for complex user onboarding flows. 
+
+Plan only the features that are strictly necessary to prove your core technical concept on stage. If you are building an AI video editor, your features are: 1. Video Upload, 2. The AI processing step, and 3. Video Download. Everything else is a distraction.
 
 ### Personal Project
-Plan the CRUD (Create, Read, Update, Delete) operations.
+When planning features for a personal project, align them with your learning objectives. If your goal is to learn WebGL, plan features that require complex 3D rendering. If your goal is to learn backend scaling, plan features that require massive data ingestion. 
+
+Do not plan features just because "real apps have them." If you don't care about learning how to implement password reset flows, skip it. Use a third-party auth provider like Clerk or simply mock the authentication entirely. Your feature list is your syllabus.
 
 ### Production SaaS
-Map features to User Goals. If the user's goal is to "Share a document securely," the features are: 1) Document Editor, 2) Unique Link Generation, 3) Password Protection. Discard any feature that does not directly map to a core User Goal.
+Production feature planning is an ongoing negotiation between engineering reality and customer demands. You must categorize features into strict buckets: "Must-Haves" (the app fundamentally fails without this), "Should-Haves" (important, but can wait a few weeks), and "Could-Haves" (nice ideas for the backlog).
 
-## AI Feature Mapping
-\`\`\`prompt
-Act as a Technical Product Manager. Here are the core user goals: [List Goals]. Generate a comprehensive list of Web App features required to achieve these goals, categorizing them into 'Core Engine', 'User Management', and 'Growth Loops'.
-\`\`\`
+You also need to plan for "invisible features." These are the infrastructural requirements that users never see but will cause your company to fail if absent: automated daily database backups, GDPR compliance data deletion endpoints, rate limiting to prevent DDoS attacks, and robust error logging (e.g., Sentry).
+
+---
+
+**Brainstorm the core features required for your application:**
+\\\`\\\`\\\`input
+List of proposed features:
+\\\`\\\`\\\`
+
 `,
 
   'webmvpfeatures': `
-# MVP Features
 
- **Estimated Time:** 1-2 hours
+# MVP Features: The Bare Minimum
+
+**Estimated Time:** 1 Hour
 
 ---
 
-## Why this matters
-The MVP is the smallest, ugliest version of your web app that proves someone wants it.
+The Minimum Viable Product (MVP) is the smallest possible version of your app that still delivers the core value proposition. If you are not slightly embarrassed by the first version of your app, you launched too late. The MVP's sole purpose is to get your product into the hands of real users so you can test your hypotheses before writing another line of code.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Your MVP is the final product.
+Your hackathon "MVP" is just a prototype. It is smoke and mirrors. If a feature can be faked with hardcoded JSON data instead of a complex database schema, fake it. If a background process takes 5 minutes to run, fake the loading state and show a pre-computed result. 
+
+Your MVP only needs to work on your laptop, during a 3-minute presentation, on a single browser tab. Do not build for scale. Build for the demo.
 
 ### Personal Project
-The MVP is a single page.
+For a personal project, your MVP is the first functional version that achieves your primary learning goal. Once the MVP is done, you should deploy it (e.g., to Vercel or Netlify) so you can share the link. 
+
+A deployed, working MVP—even if it looks basic—is infinitely more valuable in a portfolio than a massive, half-finished monolithic codebase that only runs on \\\`localhost\\\`. Scope the MVP so small that you can finish and deploy it in a single weekend.
 
 ### Production SaaS
-Cut ruthlessly. Do you need social login (Google/GitHub) for an MVP? No, use magic email links. Do you need a dark mode toggle? No. The MVP only exists to validate the core differentiator.
+In SaaS, the MVP must be viable. It can be small, it can lack nice-to-have features, but it cannot be buggy or insecure. If a user pays you money, the features you do provide must work flawlessly. 
 
-## The Data We Need From You
-**List the absolute minimum features required to deliver value:**
-\`\`\`input
-1. 
-2. 
-3. 
-\`\`\`
+Your MVP must include the "Happy Path" for your primary persona, a secure payment gateway (like Stripe Checkout), and basic account management. Cut everything else. If they ask for PDF exports, tell them you'll email it to them manually until you build the feature. Do things that don't scale until you have enough paying users to justify automating them.
 
-## AI MVP Scythe
-\`\`\`prompt
-Act as a ruthless Y Combinator Mentor. I am building a Web App MVP. My current feature list is: [Paste Input]. Tell me exactly which features to cut, mock, or manually execute behind the scenes so I can launch next week.
-\`\`\`
+---
 
-- [ ] The MVP feature list has been ruthlessly minimized.
+**Filter your feature list down to the absolute Minimum Viable Product:**
+\\\`\\\`\\\`input
+MVP Feature 1:
+MVP Feature 2:
+MVP Feature 3:
+\\\`\\\`\\\`
+
 `,
 
   'webfuturefeatures': `
-# Future Features
 
- **Estimated Time:** 1 hour
+# Future Features: The Backlog
+
+**Estimated Time:** 30 Minutes
 
 ---
 
-## Why this matters
-You need a roadmap to sell the vision, but writing code for future features today creates technical debt.
+As you trim your features down to the MVP, you will inevitably have to cut brilliant ideas. Do not throw them away. Place them in the "Future Features" backlog. This keeps your current scope clean while preserving the vision for the future.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip.
+You can use your "Future Features" backlog during the Q&A portion of your presentation. When judges ask, "How would you monetize this?" or "How would you handle moderation?", you can confidently pull from your backlog: "We scoped this out of the MVP for the 48-hour limit, but our Phase 2 architecture involves implementing X and Y."
 
 ### Personal Project
-Write them down so you don't forget them.
+Your backlog is your roadmap for continued learning. After you launch your V1 MVP, you can return to the backlog to pick up new technical challenges. If V1 taught you React, V2 (from the backlog) might teach you how to implement a Redis caching layer or a GraphQL API.
 
 ### Production SaaS
-Keep a "Backlog." Only build future features when users explicitly demand them. Your future features should focus on virality (e.g., "Multiplayer collaboration", "Public template galleries") to drive organic web traffic.
+In production, the backlog is a prioritization battlefield. Just because a feature is in the backlog does not mean you will ever build it. Future features should only be moved into active development if they are directly requested by paying customers, or if they unblock a new, lucrative segment of the market. 
 
-## AI Roadmap Generator
-\`\`\`prompt
-Act as a Web Product Manager. Based on my MVP [Describe MVP], generate a realistic 6-month product roadmap broken into Q1 and Q2, focusing specifically on adding 'Multiplayer Collaboration' and 'Organic SEO Growth' features.
-\`\`\`
+Resist the urge to build features just because a vocal minority asks for them. Review the backlog quarterly and ruthlessly delete features that no longer align with your core product vision.
+
+---
+
+**List the features you are explicitly cutting from the MVP to build later:**
+\\\`\\\`\\\`input
+Future Features (The Backlog):
+\\\`\\\`\\\`
+
 `,
 
   'websuccessmetrics': `
-# Success Metrics
 
- **Estimated Time:** 1 hour
+# Success Metrics: Defining "Done"
+
+**Estimated Time:** 1 Hour
 
 ---
 
-## Why this matters
-If you don't define what "success" looks like, you won't know if you should keep working on the app or pivot.
+If you cannot measure success, you cannot achieve it. Success metrics are the quantitative indicators that prove your application is solving the problem you set out to solve. Without metrics, you will rely on gut feelings or isolated user feedback, both of which are notoriously unreliable.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Success is winning.
+In a hackathon, your primary "metric" is whether the application runs without crashing during a 3-minute live demo. 
+
+However, if your app is a B2C consumer tool, the judges will ask how you plan to measure success in the real world. You should have a slide ready that says: "Our primary success metric is [Metric], because it indicates [Value]." For example, "Our success metric is the number of successfully split bills, not just app downloads, because bill splitting proves they are extracting value."
 
 ### Personal Project
-Success is using it yourself.
+For a personal project, your success metrics should be tied to your learning goals. If you built the app to learn performance optimization, your success metric should be a Lighthouse score of 95+ or a First Contentful Paint under 1.5 seconds. 
+
+If you built it to learn backend architecture, your metric might be "Handling 1,000 concurrent requests without dropping below 99% uptime on the free tier." Don't track user signups if you don't plan on marketing the app; track technical milestones.
 
 ### Production SaaS
-Track Weekly Active Users (WAU). Since web apps don't have "App Store Downloads" to track, you must measure how many people actively return to the URL and execute a core action each week.
+In SaaS, success metrics dictate the valuation of your company. You need to track the "North Star Metric"—the single most important number that indicates product-market fit. 
 
-## AI Metric Calibration
-\`\`\`prompt
-Act as a Data-Driven Founder. I am launching a Web App for [Audience]. Set realistic, objective targets for Launch + 30 Days regarding: Website Visitors, Sign-up Conversion Rate, and Weekly Active Users (WAU). Explain why these baselines make sense.
-\`\`\`
+If you are building a communication tool, your North Star Metric is "Daily Active Users (DAU)." If you are building an e-commerce integration, it's "Gross Merchandise Value (GMV) processed." You must also track Churn Rate (how many users cancel) and Customer Acquisition Cost (CAC). Design your database schema right now to make querying these metrics easy.
+
+---
+
+**Define your North Star Metric and how you will track it:**
+\\\`\\\`\\\`input
+North Star Metric:
+How we will measure it:
+\\\`\\\`\\\`
+
 `,
 
   'webusersaudience': `
-# Users & Audience
 
- **Estimated Time:** 1 hour
+# Target Audience: Who is This For?
+
+**Estimated Time:** 1 Hour
 
 ---
 
-## Why this matters
-Knowing where your audience hangs out dictates your acquisition strategy.
+While a Persona is a specific fictional individual, your Target Audience is the broader demographic and market segment you are attacking. Understanding your audience dictates your marketing channels, your pricing strategy, and even your UX copy. A Web App designed for Gen-Z gamers will look fundamentally different from a Web App designed for corporate accountants.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Skip.
+Your target audience is the judging panel. Period. If you are building a tool for Gen-Z gamers, but the judges are 50-year-old enterprise architects, you must frame the pitch so the *architects* understand the value, even if they aren't the end users. 
+
+Focus on the scale of the audience. "There are 40 million gamers who experience this problem daily." Use big numbers to show the market potential, but keep the explanation simple enough for a non-expert to grasp.
 
 ### Personal Project
-Skip.
+If the target audience is just yourself, write that down. It is perfectly fine to build "A markdown editor optimized exactly for my personal note-taking workflow." 
+
+If you plan to release it for free (e.g., on Product Hunt), define the specific community you will launch to. For example, "Indie developers who want to deploy Next.js apps faster." When you build with a specific community in mind, you can use their vernacular in your UI.
 
 ### Production SaaS
-Be hyper-specific. Don't target "Designers." Target "Figma designers who struggle with handoff to React developers." Specific audiences have specific watering holes (like specialized Discord servers or subreddits) where you can post your web app link for immediate traffic.
+You must calculate your Total Addressable Market (TAM). If your target audience is "Dentists in Ohio," your TAM might be too small to support a venture-backed SaaS, but perfect for a highly profitable lifestyle business. 
 
-## AI Watering Hole Finder
-\`\`\`prompt
-Act as a Growth Hacker. My highly specific audience is [Insert Niche Audience]. Identify 5 niche 'watering holes' (forums, subreddits, Slack groups, Discord servers) where this exact audience spends their time online.
-\`\`\`
+You must also define your "Ideal Customer Profile" (ICP). This is a rigid set of criteria that qualifies a user. For example: "B2B SaaS companies with 50-200 employees, using Salesforce, struggling with lead attribution." If a user does not fit the ICP, you explicitly do not build features for them, even if they ask.
+
+---
+
+**Define your Target Audience and Total Addressable Market (TAM):**
+\\\`\\\`\\\`input
+Target Audience Description:
+Estimated TAM (Size of market):
+\\\`\\\`\\\`
+
 `,
 
   'webusergoals': `
-# User Goals
 
- **Estimated Time:** 1 hour
+# User Goals: The 'Why' Behind the Clicks
+
+**Estimated Time:** 1 Hour
 
 ---
 
-## Why this matters
-Users do not care about your app. They care about what your app enables them to do.
+Users do not use your Web App because they like clicking buttons. They use your Web App to achieve a specific goal in the real world. If you focus too much on the mechanics of your app (the "How") and ignore the outcome (the "Why"), you will build a complex tool that nobody uses.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-Their goal is to be entertained for 3 minutes.
+The user goal must be achieved instantly during your demo. If the goal is "invest money wisely," that takes months to prove. Instead, the immediate goal of your app should be "get a personalized, AI-generated investment strategy in 5 seconds." Focus entirely on the immediate dopamine hit of achieving a micro-goal on stage.
 
 ### Personal Project
-Their goal is to save 5 minutes a day.
+Focus on a single, highly specific goal. If you are building a fitness app, the goal shouldn't be "get healthy." The goal should be "log a workout in under 10 seconds while at the gym." 
+
+By focusing on the micro-goal (speed of logging), you realize you need a mobile-responsive UI with massive tap targets, rather than a desktop-optimized dashboard with tiny dropdowns.
 
 ### Production SaaS
-Define the "Job To Be Done" (JTBD). The user isn't "buying a 1/4 inch drill bit," they are "buying a 1/4 inch hole in the wall." Design your web app to get them that hole as fast as possible, with the fewest clicks.
+In B2B SaaS, the user goal is almost always tied to job security or promotion. A marketing manager doesn't use your analytics tool because they love charts; they use it because they need to present a report to the CEO on Friday to prove their campaign was successful. 
 
-## AI JTBD Framework
-\`\`\`prompt
-Act as a UX Strategist using the 'Jobs to be Done' framework. My user is a [Persona] who wants to [Action]. Write 3 JTBD statements following the format: 'When [Situation], I want to [Motivation], so I can [Expected Outcome].'
-\`\`\`
+Your job is to make them look like a genius to their boss. Design features specifically around exporting, sharing, and summarizing data so the user can easily demonstrate the value they are creating.
 
-- [ ] The core 'Jobs to be Done' are explicitly defined.
+---
+
+**List the top 3 goals your user wants to achieve by using your app:**
+\\\`\\\`\\\`input
+1.
+2.
+3.
+\\\`\\\`\\\`
+
 `,
 
   'webnicetohavefeatures': `
-# Nice-to-Have Features
 
- **Estimated Time:** 30 mins
+# Nice-to-Have Features: The Danger Zone
+
+**Estimated Time:** 30 Minutes
 
 ---
 
-## Why this matters
-"Nice to haves" are the graveyard of velocity. They delay launches and bloat the codebase.
+"Nice-to-have" features are the siren song of software development. They are usually fun to build (like Dark Mode, complex animations, or social sharing integrations), but they do not solve the core problem. Building these before you have validated your MVP is the #1 reason projects are abandoned.
 
 ## Strategic Guidance
 
 ### Hackathon Mode
-If it looks cool, it's not a nice-to-have, it's a priority.
+If a "nice-to-have" feature provides massive visual impact for the demo, it is actually a "Must-Have." In a hackathon, perception is reality. A beautiful CSS particle effect might be useless in production, but if it wows the judges, build it. 
+
+Conversely, complex backend features like "multi-tenant role-based access control" are invisible during a 3-minute pitch. Do not build them. They are nice-to-haves for a hackathon.
 
 ### Personal Project
-Skip.
+Use nice-to-have features as a reward. Tell yourself: "I am not allowed to add Framer Motion animations until the core CRUD operations are working and connected to the database." 
+
+This forces you to eat your vegetables (the hard backend logic) before you get dessert (the fun frontend polish).
 
 ### Production SaaS
-Dark mode, custom avatars, keyboard shortcuts, and complex animations are Nice-to-Haves. Do not build them until the core engine is flawless and users are actively using the product. Log them in a document and immediately forget about them.
+In production, nice-to-have features are often demanded by the loudest, but least profitable, customers. You must rigorously defend your roadmap against them. 
 
-## AI Scope Defender
-\`\`\`prompt
-Act as a strict Engineering Manager. Review this list of 'Nice-to-Have' features: [List Features]. Explain the hidden technical debt, maintenance costs, and edge-case bugs associated with implementing these features too early in the product lifecycle.
-\`\`\`
+When a customer asks for a nice-to-have feature, ask them: "If we build this, will you upgrade to the enterprise tier?" If the answer is no, put it at the absolute bottom of the backlog. Only build nice-to-haves when your core metrics (like churn) are stable, and you need to build a defensive moat against competitors.
+
+---
+
+**List the features you are tempted to build, but commit to ignoring until the MVP is done:**
+- [ ] I commit to ignoring Dark Mode until the core logic works.
+- [ ] I commit to ignoring complex User Roles until I have actual users.
+
+**List any other distracting features you are cutting:**
+\\\`\\\`\\\`input
+Distracting Features to avoid:
+\\\`\\\`\\\`
+
 `,
 
   'webprd': `
