@@ -301,7 +301,7 @@ export const SettingsModal = ({ isOpen, onClose, activeProject, projects, onMode
                         >
                           <option value="Hackathon">Hackathon</option>
                           <option value="Personal">Personal</option>
-                          <option value="Production">Production SaaS</option>
+                          <option value="Production">Production</option>
                         </select>
                       </div>
                       

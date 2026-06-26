@@ -7687,7 +7687,7 @@ Act as an AI Engineer. Provide a Typescript code example using Vercel's AI SDK (
 ---
 
 ## Why this matters
-Hardcoding variables into strings using Javascript template literals (e.g., \`Hello ${name}\`) gets messy when dealing with 2000-word prompts containing JSON, Markdown, and user context.
+Hardcoding variables into strings using Javascript template literals (e.g., \`Hello \${name}\`) gets messy when dealing with 2000-word prompts containing JSON, Markdown, and user context.
 
 ## Strategic Guidance
 
