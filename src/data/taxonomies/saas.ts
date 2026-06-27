@@ -1,7 +1,7 @@
 import { 
   FileText, Database, Settings, Globe, Box, CheckSquare, Shield, Rocket, 
   BookOpen, Layers, Server, Cloud, Cpu, Activity, Zap, Search, Key, ShieldAlert,
-  Target, Users, Briefcase, BarChart, DollarSign, PenTool, Lock,
+  Target, Users, BarChart, DollarSign, PenTool, Lock,
   Bell, HelpCircle, UserCheck, MessageSquare, TrendingUp, Presentation, Play, AlertCircle, Mail, List
 } from 'lucide-react';
 import { type Category, createTopic } from './types';
