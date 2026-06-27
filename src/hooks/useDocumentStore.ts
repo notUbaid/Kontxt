@@ -13,7 +13,7 @@ export interface DocumentData {
 
 export type SaveStatus = 'saved' | 'saving' | 'error' | 'idle';
 
-const customContentModules = import.meta.glob('../data/content/**/*.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+const customContentModules = import.meta.glob('../data/content/**/*.md', { query: '?raw', import: 'default' }) as Record<string, () => Promise<string>>;
 
 export function useDocumentStore(projectId: string | null, topicId: string, activeMode: Mode = 'Production', isAuthenticated: boolean = true) {
   const [content, setContent] = useState<string>('');
@@ -37,13 +37,17 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
       if (isMounted) {
         // Find if there is a custom markdown file for this specific mode and topic
         let customContent: string | null = null;
-        for (const [path, fileContent] of Object.entries(customContentModules)) {
+        for (const [path, importFn] of Object.entries(customContentModules)) {
           if (path.includes(activeMode)) {
             // Strip non-alphanumeric chars from filename to match against topicId
             const filename = path.split('/').pop() || '';
             const normalizedFilename = filename.toLowerCase().replace(/[^a-z0-9]/g, '');
             if (normalizedFilename.startsWith(topicId) || normalizedFilename.includes(topicId)) {
-              customContent = fileContent;
+              try {
+                customContent = await importFn();
+              } catch (e) {
+                console.error('Failed to dynamically load markdown:', e);
+              }
               break;
             }
           }
@@ -146,14 +150,18 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
     }, 1000);
   };
 
-  const resetContent = () => {
+  const resetContent = async () => {
     let customContent: string | null = null;
-    for (const [path, fileContent] of Object.entries(customContentModules)) {
+    for (const [path, importFn] of Object.entries(customContentModules)) {
       if (path.includes(activeMode)) {
         const filename = path.split('/').pop() || '';
         const normalizedFilename = filename.toLowerCase().replace(/[^a-z0-9]/g, '');
         if (normalizedFilename.startsWith(topicId) || normalizedFilename.includes(topicId)) {
-          customContent = fileContent;
+          try {
+            customContent = await importFn();
+          } catch (e) {
+            console.error('Failed to dynamically load markdown:', e);
+          }
           break;
         }
       }

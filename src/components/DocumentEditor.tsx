@@ -73,6 +73,7 @@ const StandardCodeBlock = ({ children, language }: { children: React.ReactNode, 
       </div>
       <div className="text-[13px] font-mono leading-relaxed">
         <SyntaxHighlighter
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           style={vscDarkPlus as any}
           language={language || 'text'}
           PreTag="div"
