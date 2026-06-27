@@ -71,7 +71,7 @@ Look for:
 - Required setup before any value is visible
 - Too many fields or decisions before the user has seen anything useful
 
-> **Warning**
+> [!WARNING]
 >
 > The most common onboarding mistake is requiring users to configure everything before they see value.
 >

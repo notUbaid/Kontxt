@@ -68,7 +68,7 @@ If yes — that's your Core. Everything else is Supporting or Later.
 
 If no — your Core needs more features to be useful. Add the minimum required. Stop there.
 
-> **Warning**
+> [!WARNING]
 >
 > "The minimum required" is not the same as "everything that would be nice."
 > It means: what is the smallest set of features where a user can actually accomplish the thing they came to do?

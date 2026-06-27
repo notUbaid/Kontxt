@@ -46,7 +46,7 @@ For most solo personal SaaS projects: **Next.js**.
 
 It handles routing, API routes, server-side rendering, and static generation. You get one framework instead of assembling multiple tools. The ecosystem is mature. AI knows it well — prompts produce accurate, usable output.
 
-> **Tip**
+> [!TIP]
 >
 > The framework that produces the best AI-assisted code is the one with the most training examples. React and Next.js have by far the most. If you're building primarily with AI assistance, this matters.
 
@@ -67,7 +67,7 @@ For many personal SaaS products — you don't.
 
 Starting with a BaaS or API routes and extracting a backend later is almost always better than building a full backend you don't need yet.
 
-> **Warning**
+> [!WARNING]
 >
 > Building a microservices architecture for a product with zero users is one of the most reliable ways to never ship.
 >
@@ -117,7 +117,7 @@ This is not about skill. It's about surface area. Auth is where security vulnera
 
 For most personal SaaS projects: **Clerk** if you want it done in an hour, **Auth.js** if you want zero vendor dependency.
 
-> **Warning**
+> [!WARNING]
 >
 > "I'll add auth later" is how you build a product with no user data isolation.
 >

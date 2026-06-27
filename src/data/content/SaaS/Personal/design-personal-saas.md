@@ -63,7 +63,7 @@ The goal is to decide:
 - What the primary action on each screen is
 - What information users need to make that action
 
-> **Tip**
+> [!TIP]
 >
 > The fastest wireframing tool is pen and paper. A phone photo of a sketch is enough to guide AI implementation. Don't spend hours in Figma wireframing before you've validated the structure.
 
@@ -117,7 +117,7 @@ Pick a minimal palette. For a solo product, you need:
 
 That's eight tokens. Everything in your UI derives from these.
 
-> **Warning**
+> [!WARNING]
 >
 > Do not use more than one accent color. Every additional color is a decision every future component has to make. One accent. Everything else is neutral.
 
@@ -187,7 +187,7 @@ Shadcn/ui, Radix, or Tailwind UI give you accessible, well-designed components w
 
 The result will look professional. Not distinctive — but professional. For v1 of a personal project, professional is the right bar.
 
-> **Tip**
+> [!TIP]
 >
 > If you want your product to look distinctive without hiring a designer: find a SaaS product whose visual style you respect, identify the three decisions that make it feel that way (usually: typography, color density, and border treatment), and make the same decisions intentionally in your own product.
 >

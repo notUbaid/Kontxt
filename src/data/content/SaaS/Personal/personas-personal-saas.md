@@ -43,7 +43,7 @@ For a personal SaaS project: **one primary persona**.
 
 You can have a secondary — but only if they use the product in a meaningfully different way. If they have the same problem and use the product the same way, they're the same persona with different job titles.
 
-> **Warning**
+> [!WARNING]
 >
 > Building for two equally weighted personas at the same time is one of the most common reasons solo products never ship.
 >
