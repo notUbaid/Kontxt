@@ -3,7 +3,7 @@ import {
   Settings, Filter, Shield, AlertCircle, Cloud, Terminal, CheckSquare, 
   Globe, Zap, Key, Rocket, FileJson, Clock, DollarSign,
   Monitor, RefreshCcw, Layers
-} from 'lucide-react';
+, Presentation } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const dataPipelineProductionTaxonomy: Category[] = [
@@ -66,6 +66,8 @@ export const dataPipelineProductionTaxonomy: Category[] = [
       createTopic('Backfilling Data', HardDrive, [{name:'Airflow Backfilling',url:'https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dag-run.html#backfill'}], 'datapipe-backfilling'),
       createTopic('Data Lineage & Docs', FileText, [{name:'dbt Docs',url:'https://docs.getdbt.com/docs/collaborate/documentation'}], 'datapipe-lineage'),
       createTopic('Governance & Access', Key, [{name:'Row-Level Security',url:'https://docs.snowflake.com/en/user-guide/security-row-intro'}], 'datapipe-governance'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];

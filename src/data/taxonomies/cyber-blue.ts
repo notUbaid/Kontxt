@@ -1,6 +1,6 @@
 import { FileText, Shield, Eye, Activity, Database, Server, Network, 
   Search, AlertTriangle, Play, Settings, Cloud, Cpu, Lock, Crosshair, Map, Skull, RefreshCcw
-} from 'lucide-react';
+, Presentation } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const cyberBlueProductionTaxonomy: Category[] = [
@@ -157,7 +157,9 @@ export const cyberBlueProductionTaxonomy: Category[] = [
       createTopic('Threat Hunting', Search, [
         { name: 'Threat Hunting Project', url: 'https://github.com/ThreatHuntingProject/ThreatHunting' },
         { name: 'Cymulate Threat Hunting', url: 'https://cymulate.com/threat-hunting/' }
-      ], 'cyberbluethreathunting')
+      ], 'cyberbluethreathunting'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];

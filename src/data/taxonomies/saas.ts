@@ -131,6 +131,8 @@ export const saasProductionTaxonomy: Category[] = [
       createTopic('Referral Systems', Users),
       createTopic('Feature Roadmap', Globe),
       createTopic('Technical Debt', AlertCircle),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];
@@ -244,6 +246,8 @@ export const saasPersonalTaxonomy: Category[] = [
       createTopic('Feedback', MessageSquare, [{name:'Stripe Atlas',url:'https://stripe.com/atlas'},{name:'YC Startup Library',url:'https://www.ycombinator.com/library'}], 'userfeedback'),
       createTopic('Roadmap', Globe, [{name:'Linear',url:'https://linear.app/'},{name:'Notion Templates',url:'https://www.notion.so/templates'}], 'featureroadmap'),
       createTopic('SEO', Search),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];

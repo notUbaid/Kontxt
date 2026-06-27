@@ -3,7 +3,7 @@ import {
   Layers, Server, Activity, Zap, Search, Key, Target, Users, BarChart, 
   DollarSign, PenTool, AlertCircle,
   Cloud, LayoutDashboard, Terminal, CheckCircle
-} from 'lucide-react';
+, Presentation } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 // The Flagship 45-Step Web App Taxonomy
@@ -94,6 +94,8 @@ export const webProductionTaxonomy: Category[] = [
       createTopic('Performance', Zap, [{ name: 'Core Web Vitals', url: 'https://web.dev/vitals/' }], 'webperformancemonitoring'),
       createTopic('SEO', Search, [{ name: 'Google Search Console', url: 'https://search.google.com/search-console' }], 'webseo'),
       createTopic('Launch Checklist', CheckCircle, [{ name: 'Product Hunt', url: 'https://www.producthunt.com/' }], 'weblaunchchecklist'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];
@@ -140,6 +142,8 @@ export const webPersonalTaxonomy: Category[] = [
     topics: [
       createTopic('Analytics', BarChart, [{ name: 'PostHog', url: 'https://posthog.com/' }], 'webanalytics'),
       createTopic('Launch Checklist', CheckCircle, [], 'weblaunchchecklist'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];
@@ -160,6 +164,8 @@ export const webHackathonTaxonomy: Category[] = [
       createTopic('Tech Stack', Settings, [], 'webtechstack'),
       createTopic('Design System', PenTool, [{ name: 'Shadcn UI', url: 'https://ui.shadcn.com/' }], 'webdesignsystem'),
       createTopic('Hosting', Server, [{ name: 'Vercel', url: 'https://vercel.com/' }], 'webhosting'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];

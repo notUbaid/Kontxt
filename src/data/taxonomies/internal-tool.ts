@@ -3,7 +3,7 @@ import {
   BookOpen, Layers, Cloud, Activity, Zap, Search, Key, ShieldAlert,
   Target, Users, BarChart, DollarSign, Lock, ListChecks,
   UserCheck, MessageSquare, TrendingUp, AlertCircle, List, Monitor, KeyRound, Share2, Network, Code, FileSignature, LayoutDashboard, DatabaseZap, Workflow, Server, Globe
-} from 'lucide-react';
+, Presentation } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const internalToolProductionTaxonomy: Category[] = [
@@ -116,6 +116,8 @@ export const internalToolProductionTaxonomy: Category[] = [
       createTopic('Process Improvements', Activity, [{name: 'Lean Software Development', url: 'https://en.wikipedia.org/wiki/Lean_software_development'}, {name: 'Theory of Constraints', url: 'https://en.wikipedia.org/wiki/Theory_of_constraints'}], 'internalprocessimprovements'),
       createTopic('Usage Tracking', Target, [{name: 'Metabase', url: 'https://www.metabase.com/'}, {name: 'Mixpanel', url: 'https://mixpanel.com/'}], 'internalusagetracking'),
       createTopic('Technical Debt', AlertCircle, [{name: 'Martin Fowler: Tech Debt Quadrant', url: 'https://martinfowler.com/bliki/TechnicalDebtQuadrant.html'}, {name: 'Renovate Bot', url: 'https://docs.renovatebot.com/'}], 'internaltechnicaldebt'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];

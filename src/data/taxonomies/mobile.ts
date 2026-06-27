@@ -147,6 +147,8 @@ export const mobileProductionTaxonomy: Category[] = [
       createTopic('Referral Programs', Users, [{name:'Branch Deep Linking',url:'https://branch.io/'}], 'mobilereferralprograms'),
       createTopic('Roadmap', Globe, [{name:'Apple WWDC Highlights',url:'https://developer.apple.com/wwdc/'}], 'mobileroadmap'),
       createTopic('Scaling Strategy', BarChart, [{name:'Mobile Release Trains',url:'https://blog.pragmaticengineer.com/mobile-release-trains/'}], 'mobilescalingstrategy'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];
@@ -195,6 +197,7 @@ export const mobileHackathonTaxonomy: Category[] = [
       createTopic('Pitch Deck', Presentation, [{name:'Sequoia Pitch Deck',url:'https://www.sequoiacap.com/article/writing-a-business-plan-pitch-deck/'}], 'mobilepitchdeck'),
       createTopic('Demo Script', FileText, [{name:'Loom',url:'https://www.loom.com/'}], 'mobiledemoscript'),
       createTopic('Submission Checklist', CheckSquare, [{name:'Devpost Guides',url:'https://devpost.com/'}], 'mobilesubmissionchecklist'),
+      createTopic('Presentation Prep', Presentation),
     ]
   }
 ];
@@ -244,6 +247,8 @@ export const mobilePersonalTaxonomy: Category[] = [
     topics: [
       createTopic('Feedback', MessageSquare, [{name:'Expo Docs',url:'https://docs.expo.dev/'},{name:'React Native Directory',url:'https://reactnative.directory/'}], 'mobilefeedback'),
       createTopic('Roadmap', Globe, [{name:'Apple WWDC Highlights',url:'https://developer.apple.com/wwdc/'}], 'mobileroadmap'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];

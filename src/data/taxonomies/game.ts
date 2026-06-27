@@ -5,7 +5,7 @@ import {
   MessageSquare, TrendingUp, AlertCircle, Network, Globe, Server, 
   Gamepad2, Music, Cpu, HardDrive, PlayCircle, Trophy, Crown, Play,
   Monitor, Archive, LayoutTemplate, Palette, RefreshCcw, LayoutDashboard, Film, Clock, Smartphone, Camera
-} from 'lucide-react';
+, Presentation } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const gameProductionTaxonomy: Category[] = [
@@ -127,6 +127,8 @@ export const gameProductionTaxonomy: Category[] = [
       createTopic('Seasonal Content', Crown, [{name:'Live Ops Strategies',url:'https://www.gamesindustry.biz/'}], 'gameseasonalcontent'),
       createTopic('Community Management', Users, [{name:'Community Management Playbook',url:'https://www.gamedeveloper.com/'}], 'gamecommunitymanagement'),
       createTopic('Monetization Optimization', DollarSign, [{name:'Whale Conversion',url:'https://deltadna.com/blog/'}], 'gamemonetizationoptimization'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];

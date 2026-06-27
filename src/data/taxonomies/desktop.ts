@@ -4,7 +4,7 @@ import {
   Target, BarChart, DollarSign, PenTool, Lock,
   UserCheck, MessageSquare, TrendingUp, AlertCircle, List,
   Layout, Monitor, Terminal, Laptop, Cpu, HardDrive, RefreshCw, Key, ShieldCheck, Download
-} from 'lucide-react';
+, Presentation } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const desktopProductionTaxonomy: Category[] = [
@@ -125,6 +125,8 @@ export const desktopProductionTaxonomy: Category[] = [
       createTopic('Feature Requests', List, [{name:'Linear',url:'https://linear.app/'},{name:'Notion Templates',url:'https://www.notion.so/templates'}], 'dtfeaturerequests'),
       createTopic('Community Building', Users, [{name:'Figma',url:'https://www.figma.com/'},{name:'Shadcn UI',url:'https://ui.shadcn.com/'},{name:'Tailwind CSS',url:'https://tailwindcss.com/'},{name:'Radix UI Accessibility',url:'https://www.radix-ui.com/'}], 'dtcommunitybuilding'),
       createTopic('Plugin Ecosystem', Box, [{name:'Figma Plugin Sandboxing',url:'https://www.figma.com/blog/how-we-built-the-figma-plugin-system/'}], 'dtpluginecosystem'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];

@@ -3,7 +3,7 @@ import {
   BookOpen, Layers, Cloud, Activity, Zap, Search, Key, ShieldAlert,
   Target, Users, BarChart, DollarSign, Lock,
   UserCheck, MessageSquare, TrendingUp, AlertCircle, List, Play, Monitor, Headphones, Terminal, KeyRound, Share2, Network, Code, RefreshCcw
-} from 'lucide-react';
+, Presentation } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const apiProductionTaxonomy: Category[] = [
@@ -146,6 +146,8 @@ export const apiProductionTaxonomy: Category[] = [
       createTopic('Customer Feedback', MessageSquare, [{name:'OpenAPI Spec',url:'https://swagger.io/specification/'},{name:'Postman Docs',url:'https://learning.postman.com/docs/getting-started/introduction/'}], 'apicustomerfeedback'),
       createTopic('Pricing Evolution', DollarSign, [{name:'Stripe Billing',url:'https://stripe.com/billing'}], 'apipricingevolution'),
       createTopic('Feature Requests', List, [{name:'OpenAPI Spec',url:'https://swagger.io/specification/'},{name:'Postman Docs',url:'https://learning.postman.com/docs/getting-started/introduction/'}], 'apifeaturerequests'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];

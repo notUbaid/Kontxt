@@ -1,6 +1,6 @@
 import { FileText, Shield, CheckCircle, Activity, Database, Server, Network, 
   Search, AlertTriangle, Play, Settings, Cloud, Lock, Crosshair, Code, FileCode
-} from 'lucide-react';
+, Presentation } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const cyberDevSecOpsProductionTaxonomy: Category[] = [
@@ -149,7 +149,9 @@ export const cyberDevSecOpsProductionTaxonomy: Category[] = [
       ], 'cyberdevsecopsincidentresponse'),
       createTopic('Red Team Exercises', Crosshair, [
         { name: 'Atomic Red Team', url: 'https://github.com/redcanaryco/atomic-red-team' }
-      ], 'cyberdevsecopsredteam')
+      ], 'cyberdevsecopsredteam'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];

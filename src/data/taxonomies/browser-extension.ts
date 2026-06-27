@@ -4,7 +4,7 @@ import {
   Target, BarChart, DollarSign, PenTool, Lock,
   UserCheck, MessageSquare, TrendingUp, AlertCircle, List,
   Layout, PanelRight, MessageCircle, Link, KeyRound, MonitorSmartphone, Code, MousePointerClick
-} from 'lucide-react';
+, Presentation } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const extensionProductionTaxonomy: Category[] = [
@@ -127,6 +127,8 @@ export const extensionProductionTaxonomy: Category[] = [
       createTopic('Feature Requests', List, [{name:'Linear',url:'https://linear.app/'},{name:'Notion Templates',url:'https://www.notion.so/templates'}], 'extfeaturerequests'),
       createTopic('SEO', Search, [{name:'Ahrefs SEO',url:'https://ahrefs.com/'},{name:'Discord Community',url:'https://discord.com/developers'}], 'extseo'),
       createTopic('Monetization Expansion', DollarSign, [{name:'Stripe Billing',url:'https://stripe.com/billing'},{name:'RevenueCat (Mobile)',url:'https://www.revenuecat.com/'}], 'extmonetizationexpansion'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];

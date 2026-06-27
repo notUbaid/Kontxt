@@ -3,7 +3,7 @@ import {
   BookOpen, Layers, Cloud, Activity, Zap, Search, ShieldAlert,
   Target, Users, BarChart, DollarSign, Lock, ListChecks,
   UserCheck, MessageSquare, TrendingUp, AlertCircle, List, Share2, Network, Code, Globe, Star, HelpCircle, CreditCard, Server, ShoppingCart, Tag, Package, Truck, Gift, RefreshCcw, Heart, PieChart, Layout, MonitorSmartphone
-} from 'lucide-react';
+, Presentation } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const ecommerceProductionTaxonomy: Category[] = [
@@ -138,6 +138,8 @@ export const ecommerceProductionTaxonomy: Category[] = [
       createTopic('Email Marketing', MessageSquare, [{name:'Klaviyo Flows',url:'https://www.klaviyo.com/'}], 'ecommerceemailmarketing'),
       createTopic('Loyalty Programs', Heart, [{name:'Smile.io',url:'https://smile.io/'}], 'ecommerceloyaltyprograms'),
       createTopic('Referrals', Share2, [{name:'ReferralCandy',url:'https://www.referralcandy.com/'}], 'ecommercereferrals'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];

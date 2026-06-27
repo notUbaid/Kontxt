@@ -140,6 +140,8 @@ export const aiProductionTaxonomy: Category[] = [
       createTopic('Cost Optimization', DollarSign, [{name:'Anthropic Prompt Caching',url:'https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching'}], 'aicostoptimization'),
       createTopic('Model Upgrades', Cpu, [{name:'OpenAI API Docs',url:'https://platform.openai.com/docs/introduction'},{name:'HuggingFace',url:'https://huggingface.co/docs'}], 'aimodelupgrades'),
       createTopic('Feature Roadmap', Presentation, [{name:'Linear',url:'https://linear.app/'},{name:'Notion Templates',url:'https://www.notion.so/templates'}], 'aifeatureroadmap'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];

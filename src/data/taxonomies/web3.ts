@@ -2,7 +2,7 @@ import {
   Users, BarChart, Settings, Activity, Link, Layers, Lock,
   Shield, AlertTriangle, AlertCircle, Cloud, Terminal, CheckSquare, Database,
   Globe, Zap, FileText, Box, HardDrive, Hexagon, Code, Key, Network, Rocket
-} from 'lucide-react';
+, Presentation } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const web3ProductionTaxonomy: Category[] = [
@@ -78,6 +78,8 @@ export const web3ProductionTaxonomy: Category[] = [
       createTopic('Analytics & Monitoring', BarChart, [{name:'Tenderly',url:'https://tenderly.co/'},{name:'Dune Analytics',url:'https://dune.com/'}], 'web3monitoring'),
       createTopic('Governance Setup', Users, [{name:'Snapshot',url:'https://snapshot.org/'},{name:'Tally',url:'https://www.tally.xyz/'}], 'web3governance'),
       createTopic('Incident Response', AlertTriangle, [{name:'Smart Contract Incident Response',url:'https://github.com/nascentxyz/simple-security-toolkit'}], 'web3incidentresponse'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];

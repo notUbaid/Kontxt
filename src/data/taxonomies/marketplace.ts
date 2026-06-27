@@ -3,7 +3,7 @@ import {
   BookOpen, Layers, Cloud, Activity, Zap, Search, ShieldAlert,
   Target, Users, BarChart, DollarSign, Lock, ListChecks,
   UserCheck, MessageSquare, TrendingUp, AlertCircle, List, Share2, Network, Code, Globe, Star, FileWarning, HelpCircle, CreditCard, Server
-} from 'lucide-react';
+, Presentation } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const marketplaceProductionTaxonomy: Category[] = [
@@ -128,6 +128,8 @@ export const marketplaceProductionTaxonomy: Category[] = [
       createTopic('Demand Growth', TrendingUp, [{name:'Lenny: Scaling Demand',url:'https://www.lennysnewsletter.com/'}], 'marketplacedemandgrowth'),
       createTopic('Reviews Optimization', Star, [{name:'UGC Conversions',url:'https://yotpo.com/'}], 'marketplacereviewsoptimization'),
       createTopic('Marketplace Liquidity', Zap, [{name:'Measuring Liquidity',url:'https://a16z.com/2020/02/18/marketplace-liquidity/'}], 'marketplacemarketplaceliquidity'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];

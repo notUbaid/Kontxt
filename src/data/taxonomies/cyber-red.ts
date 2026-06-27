@@ -1,6 +1,6 @@
 import { FileText, ShieldAlert, Target, Crosshair, Network, 
   Cpu, Database, Cloud, Key, FileCode, Search, Server, Skull, Activity, Play, Code, Globe
-} from 'lucide-react';
+, Presentation } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const cyberRedProductionTaxonomy: Category[] = [
@@ -183,7 +183,9 @@ export const cyberRedProductionTaxonomy: Category[] = [
       createTopic('Bypass Maintenance', Crosshair, [
       { name: 'Automated EDR Testing Labs', url: 'https://github.com/splunk/attack_data' },
       { name: 'Continuous Integration for Malware', url: 'https://medium.com/@jordan.s.drysdale/ci-cd-for-malware-part-1-b286b5952f4c' }
-    ], 'cyberredbypassmaintenance')
+    ], 'cyberredbypassmaintenance'),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Pitch Deck', Presentation),
     ]
   }
 ];
