@@ -279,7 +279,7 @@ export function handleError(error: unknown) {
     { status: 500 }
   )
 }
-```prompt
+```
 
 Frontend developers thank you for consistent error shapes. You are also a frontend developer, so this is self-care.
 
@@ -359,7 +359,7 @@ const envSchema = z.object({
 })
 
 export const env = envSchema.parse(process.env)
-```prompt
+```
 
 If a required variable is missing, your app crashes on startup with a clear message — not silently mid-request.
 
@@ -367,37 +367,30 @@ If a required variable is missing, your app crashes on startup with a clear mess
 
 ## Backend Implementation Prompt
 
-```
 ```prompt
-
-> You are a senior backend engineer helping me implement clean API routes for my SaaS.
->
-> My SaaS: [what your app does]
-> Backend framework: [Next.js App Router / Express / Fastify]
-> ORM: [Prisma / Drizzle]
-> Auth provider: [Clerk / Auth.js / Supabase Auth]
-> Language: [TypeScript / JavaScript / Python]
->
-> I need you to implement the following route:
-> [method] [path] — [what it does]
->
-> Business rules:
-> - [list the rules this route must enforce]
->
-> Database tables involved:
-> [paste relevant Prisma schema or table definitions]
->
-> Please generate:
-> 1. Full route handler (auth, validation, authorization, logic, response)
-> 2. Zod schema for request validation
-> 3. Any service functions extracted from the handler
-> 4. Error cases handled with correct status codes
-> 5. Call out any security considerations
->
-> Follow these conventions:
-> - Consistent error shape: `{ error: { code, message } }`
-> - Use status codes correctly
-> - No business logic in the route handler itself
+You are a senior backend engineer helping me implement clean API routes for my SaaS.
+My SaaS: [what your app does]
+Backend framework: [Next.js App Router / Express / Fastify]
+ORM: [Prisma / Drizzle]
+Auth provider: [Clerk / Auth.js / Supabase Auth]
+Language: [TypeScript / JavaScript / Python]
+I need you to implement the following route:
+[method] [path] — [what it does]
+Business rules:
+- [list the rules this route must enforce]
+Database tables involved:
+[paste relevant Prisma schema or table definitions]
+Please generate:
+1. Full route handler (auth, validation, authorization, logic, response)
+2. Zod schema for request validation
+3. Any service functions extracted from the handler
+4. Error cases handled with correct status codes
+5. Call out any security considerations
+Follow these conventions:
+- Consistent error shape: `{ error: { code, message } }`
+- Use status codes correctly
+- No business logic in the route handler itself
+```
 
 ---
 

@@ -186,28 +186,22 @@ Stripe Event → POST /api/webhooks/stripe
 Use this when you're ready to generate your route structure with AI.
 
 ```prompt
+You are a senior backend engineer helping me design a clean REST API for my SaaS.
+My SaaS: [describe what your app does in 2–3 sentences]
+Core features:
+[list your main features from your PRD]
+Tech stack:
+- Backend: [e.g. Next.js API routes / Express / FastAPI]
+- Database: [e.g. PostgreSQL with Prisma]
+- Auth: [e.g. Clerk]
+Please generate:
+1. A complete list of REST routes grouped by resource
+2. HTTP method, path, and one-line description for each
+3. Flag each route as: Public / Authenticated / Authorized
+4. Flag any routes that need special handling (webhooks, file upload, rate limiting)
+5. Call out any security concerns I should be aware of
+Do not generate any code. Output structured Markdown only.
 ```
-
-> You are a senior backend engineer helping me design a clean REST API for my SaaS.
->
-> My SaaS: [describe what your app does in 2–3 sentences]
->
-> Core features:
-> [list your main features from your PRD]
->
-> Tech stack:
-> - Backend: [e.g. Next.js API routes / Express / FastAPI]
-> - Database: [e.g. PostgreSQL with Prisma]
-> - Auth: [e.g. Clerk]
->
-> Please generate:
-> 1. A complete list of REST routes grouped by resource
-> 2. HTTP method, path, and one-line description for each
-> 3. Flag each route as: Public / Authenticated / Authorized
-> 4. Flag any routes that need special handling (webhooks, file upload, rate limiting)
-> 5. Call out any security concerns I should be aware of
->
-> Do not generate any code. Output structured Markdown only.
 
 ---
 

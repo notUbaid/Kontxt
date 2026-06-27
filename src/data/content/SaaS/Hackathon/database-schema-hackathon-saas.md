@@ -213,7 +213,7 @@ is_active     boolean DEFAULT true
 -- Do this instead
 status  text NOT NULL DEFAULT 'draft'
 -- valid values: 'draft' | 'published' | 'archived'
-```prompt
+```
 
 When the hackathon brief changes and you need a third state, you'll thank yourself.
 
@@ -225,7 +225,7 @@ When the hackathon brief changes and you need a third state, you'll thank yourse
 
 Use this after you have your PRD and user flows. The more context you give, the better the output.
 
-```
+```prompt
 Generate a Postgres schema for a [describe your SaaS in 1 sentence].
 
 Users can: [list 3-5 core user actions from your MVP features]
@@ -242,7 +242,7 @@ Output:
 - CREATE TABLE statements only (no indexes, no RLS yet)
 - A short comment above each table explaining what it stores
 - A list of the 3 relationships I should add indexes on
-```prompt
+```
 
 ---
 
@@ -250,7 +250,7 @@ Output:
 
 Run this after AI generates your schema, before writing any queries.
 
-```
+```prompt
 Review this Postgres schema for a hackathon SaaS MVP:
 
 [paste your schema]
@@ -263,13 +263,13 @@ Check for:
 5. Anything that will make it hard to add auth row-level security later
 
 Return: a numbered list of issues only. No praise. No rewriting unless I ask.
-```prompt
+```
 
 ---
 
 ### Supabase RLS prompt (if using Supabase Auth)
 
-```
+```prompt
 Generate Supabase Row Level Security policies for this schema:
 
 [paste your schema]

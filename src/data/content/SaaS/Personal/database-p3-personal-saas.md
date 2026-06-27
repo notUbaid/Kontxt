@@ -228,29 +228,22 @@ Prisma handles this with `prisma migrate dev` (local) and `prisma migrate deploy
 ## Schema Design Prompt
 
 ```prompt
+You are a senior database architect helping me design a PostgreSQL schema for my SaaS.
+My SaaS: [what your app does in 2–3 sentences]
+Core features:
+[list features from your PRD]
+Multi-tenancy model: [user-level / workspace-level / both]
+Auth provider: [Clerk / Auth.js / Supabase Auth / other]
+ORM: [Prisma / Drizzle / other]
+Please generate:
+1. A complete list of tables with all columns, types, and constraints
+2. All relationships clearly labeled (one-to-many, many-to-many)
+3. Junction tables for any many-to-many relationships
+4. Recommended indexes per table
+5. Which tables should have soft delete (`deleted_at`)
+6. Any normalization issues or design concerns to flag
+Output as a structured schema description in Markdown. No SQL or Prisma schema code yet — decisions and structure only.
 ```
-
-> You are a senior database architect helping me design a PostgreSQL schema for my SaaS.
->
-> My SaaS: [what your app does in 2–3 sentences]
->
-> Core features:
-> [list features from your PRD]
->
-> Multi-tenancy model: [user-level / workspace-level / both]
->
-> Auth provider: [Clerk / Auth.js / Supabase Auth / other]
-> ORM: [Prisma / Drizzle / other]
->
-> Please generate:
-> 1. A complete list of tables with all columns, types, and constraints
-> 2. All relationships clearly labeled (one-to-many, many-to-many)
-> 3. Junction tables for any many-to-many relationships
-> 4. Recommended indexes per table
-> 5. Which tables should have soft delete (`deleted_at`)
-> 6. Any normalization issues or design concerns to flag
->
-> Output as a structured schema description in Markdown. No SQL or Prisma schema code yet — decisions and structure only.
 
 ---
 

@@ -1008,7 +1008,7 @@ async function handleCreate() {
   await fetch('/api/projects', { method: 'POST', body: ... })
   router.refresh()   // re-runs server data fetching for current page
 }
-```prompt
+```
 
 ---
 
@@ -1016,7 +1016,7 @@ async function handleCreate() {
 
 ### Component generation prompt
 
-```
+```prompt
 Generate a [component name] React component for a Next.js 14 App Router SaaS application.
 
 Tech stack:
@@ -1036,13 +1036,13 @@ Requirements:
 - TypeScript types for all props
 
 Output: single file, full component, no placeholders.
-```prompt
+```
 
 ---
 
 ### Full page generation prompt
 
-```
+```prompt
 Generate a complete Next.js 14 App Router page for [page name].
 
 This page shows: [describe what's on the page]
@@ -1060,13 +1060,13 @@ Include:
 - All imports
 
 Output each file separately with full path.
-```prompt
+```
 
 ---
 
 ### UI review prompt
 
-```
+```prompt
 Review this React component for a hackathon demo:
 
 [paste component]

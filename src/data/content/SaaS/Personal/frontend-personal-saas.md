@@ -417,38 +417,30 @@ const HeavyEditor = dynamic(() => import("@/components/Editor"), {
 
 ## Frontend AI Prompt
 
+```prompt
+You are a senior frontend engineer helping me build a React/Next.js component for my SaaS.
+My SaaS: [what your app does]
+Framework: [Next.js App Router / Vite + React]
+UI library: [shadcn/ui / Mantine / other]
+Styling: [Tailwind CSS / CSS Modules / other]
+Data fetching: [React Query / SWR / server components]
+Component I need: [describe the component]
+It must handle:
+- Loading state
+- Error state
+- Empty state (if it fetches a list)
+- Success state
+API routes it calls:
+[list the routes from your API design]
+Types:
+[paste relevant TypeScript types]
+Please generate:
+1. The full component with all four states handled
+2. Any sub-components it needs
+3. The typed API client function(s) it calls
+4. Accessibility considerations (aria labels, keyboard navigation)
+5. Flag any UX improvements I should consider
 ```
-Copy Prompt
-```
-
-> You are a senior frontend engineer helping me build a React/Next.js component for my SaaS.
->
-> My SaaS: [what your app does]
-> Framework: [Next.js App Router / Vite + React]
-> UI library: [shadcn/ui / Mantine / other]
-> Styling: [Tailwind CSS / CSS Modules / other]
-> Data fetching: [React Query / SWR / server components]
->
-> Component I need: [describe the component]
->
-> It must handle:
-> - Loading state
-> - Error state
-> - Empty state (if it fetches a list)
-> - Success state
->
-> API routes it calls:
-> [list the routes from your API design]
->
-> Types:
-> [paste relevant TypeScript types]
->
-> Please generate:
-> 1. The full component with all four states handled
-> 2. Any sub-components it needs
-> 3. The typed API client function(s) it calls
-> 4. Accessibility considerations (aria labels, keyboard navigation)
-> 5. Flag any UX improvements I should consider
 
 ---
 

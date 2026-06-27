@@ -163,27 +163,22 @@ Recommended limits for personal SaaS:
 ## Storage AI Prompt
 
 ```prompt
+You are a senior backend engineer helping me implement file storage for my SaaS.
+My SaaS: [what your app does]
+Storage provider: [Cloudflare R2 / Supabase Storage / AWS S3]
+Backend: [Next.js API routes / Express / FastAPI]
+Upload pattern: [server-side upload / presigned URLs]
+Files my app handles:
+[list every file type — avatars, documents, exports, etc.]
+Please generate:
+1. The recommended bucket structure (how many buckets, public vs private)
+2. The API routes needed for upload, retrieval, and deletion
+3. File validation rules I should enforce server-side
+4. How to generate and return presigned read URLs for private files
+5. How to store file metadata in my database (schema fields needed)
+6. Any security considerations specific to my setup
+Output structured Markdown. No code yet — architecture and decisions only.
 ```
-
-> You are a senior backend engineer helping me implement file storage for my SaaS.
->
-> My SaaS: [what your app does]
-> Storage provider: [Cloudflare R2 / Supabase Storage / AWS S3]
-> Backend: [Next.js API routes / Express / FastAPI]
-> Upload pattern: [server-side upload / presigned URLs]
->
-> Files my app handles:
-> [list every file type — avatars, documents, exports, etc.]
->
-> Please generate:
-> 1. The recommended bucket structure (how many buckets, public vs private)
-> 2. The API routes needed for upload, retrieval, and deletion
-> 3. File validation rules I should enforce server-side
-> 4. How to generate and return presigned read URLs for private files
-> 5. How to store file metadata in my database (schema fields needed)
-> 6. Any security considerations specific to my setup
->
-> Output structured Markdown. No code yet — architecture and decisions only.
 
 ---
 
