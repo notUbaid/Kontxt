@@ -4,9 +4,6 @@ import { Search, Moon, Sun, Settings, X, Download, ChevronDown, ArchiveRestore, 
 import { getTaxonomy } from '../data/taxonomy';
 import type { Project } from '../App';
 import { getSupabase } from '../lib/supabase';
-import { fallbackContent } from '../data/content/fallback';
-
-import { filterModeContent } from '../utils/modeFilter';
 
 export type Mode = 'Hackathon' | 'Personal' | 'Production';
 
