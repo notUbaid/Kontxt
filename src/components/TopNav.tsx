@@ -68,33 +68,18 @@ export const TopNav = ({
   };
 
   const handleExport = async () => {
-    // Fetch all documents for this project from Supabase
-    const supabase = await getSupabase();
-    const { data: docs } = await supabase
-      .from('documents')
-      .select('topic_id, content')
-      .eq('project_id', activeProject.id);
-
-    const docMap = new Map<string, string>();
-    if (docs) {
-      for (const doc of docs) {
-        if (doc.content?.trim()) docMap.set(doc.topic_id, doc.content);
-      }
-    }
-
-    let combinedMarkdown = `> **MASTER PROJECT CONTEXT:**\n> This document contains the complete, structured blueprint for this application.\n> It includes the target audience, value propositions, technical architecture, and UI/UX flows.\n> Use this document to maintain strict context when writing code, designing features, or planning marketing strategies.\n\n---\n\n# Project: ${activeProject.name}\nMode: ${activeProject.mode}\n\n`;
+    let combinedMarkdown = `# Project: ${activeProject.name}\nMode: ${activeProject.mode}\n\n`;
     
     const taxonomy = getTaxonomy(activeProject.type || 'SaaS', activeProject.mode);
     for (const cat of taxonomy) {
       const modeTopics = cat.topics;
       if (modeTopics.length === 0) continue;
       
-      combinedMarkdown += `## ${cat.name}\n\n`;
+      combinedMarkdown += `## ${cat.name}\n`;
       for (const topic of modeTopics) {
-        const rawFallback = fallbackContent[topic.id] || '';
-        const content = docMap.get(topic.id) || filterModeContent(rawFallback, activeProject.mode) || "_No content drafted yet._";
-        combinedMarkdown += `### ${topic.name}\n\n${content}\n\n---\n\n`;
+        combinedMarkdown += `- ${topic.name}\n`;
       }
+      combinedMarkdown += `\n`;
     }
 
     const blob = new Blob([combinedMarkdown], { type: 'text/markdown' });
