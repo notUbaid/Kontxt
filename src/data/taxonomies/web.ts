@@ -2,8 +2,8 @@ import {
   FileText, Database, Settings, Globe, Box, CheckSquare, Shield, Rocket, 
   Layers, Server, Activity, Zap, Search, Key, Target, Users, BarChart, 
   DollarSign, PenTool, AlertCircle,
-  Cloud, LayoutDashboard, Terminal, CheckCircle
-, Presentation } from 'lucide-react';
+  Cloud, LayoutDashboard, Terminal, CheckCircle, HelpCircle,
+  Presentation } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 // The Flagship 45-Step Web App Taxonomy
@@ -13,6 +13,7 @@ export const webProductionTaxonomy: Category[] = [
     id: 'phase-0',
     name: 'PHASE 0 — DISCOVERY & PLANNING',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Idea Definition', Rocket, [{ name: 'YC RFS', url: 'https://www.ycombinator.com/rfs' }], 'webideadefinition'),
       createTopic('Target Audience', Users, [{ name: 'SparkToro', url: 'https://sparktoro.com/' }], 'webtargetaudience'),
       createTopic('Competitor Analysis', BarChart, [{ name: 'Similarweb', url: 'https://www.similarweb.com/' }], 'webcompetitoranalysis'),
@@ -105,6 +106,7 @@ export const webPersonalTaxonomy: Category[] = [
     id: 'phase-0',
     name: 'PHASE 0 — DISCOVERY',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Idea Definition', Rocket, [{ name: 'YC RFS', url: 'https://www.ycombinator.com/rfs' }], 'webideadefinition'),
       createTopic('MVP Features', CheckSquare, [{ name: 'How to Build an MVP', url: 'https://www.ycombinator.com/library/4Q-a-guide-to-seed-fundraising' }], 'webmvpfeatures'),
     ]
@@ -113,6 +115,7 @@ export const webPersonalTaxonomy: Category[] = [
     id: 'phase-1',
     name: 'PHASE 1 — DESIGN',
     topics: [
+      createTopic('PRD', FileText, [], 'webprd'),
       createTopic('User Flows', Globe, [{ name: 'Whimsical', url: 'https://whimsical.com/' }], 'webuserflows'),
       createTopic('Design System', PenTool, [{ name: 'Shadcn UI', url: 'https://ui.shadcn.com/' }], 'webdesignsystem'),
     ]
@@ -131,14 +134,24 @@ export const webPersonalTaxonomy: Category[] = [
     id: 'phase-3',
     name: 'PHASE 3 — DEVELOPMENT',
     topics: [
-      createTopic('Reusable Components', Box, [], 'webcomponents'),
-      createTopic('Data Fetching', Cloud, [{ name: 'TanStack Query', url: 'https://tanstack.com/query/latest' }], 'webapifetching'),
+      createTopic('Frontend Engineering', Box, [], 'webfrontend'),
+      createTopic('Backend Engineering', Server, [], 'webbackend'),
       createTopic('Database ORMs', Database, [{ name: 'Prisma', url: 'https://www.prisma.io/' }], 'webdatabaseorm'),
+      createTopic('Data Fetching', Cloud, [{ name: 'TanStack Query', url: 'https://tanstack.com/query/latest' }], 'webapifetching'),
     ]
   },
   {
     id: 'phase-4',
-    name: 'PHASE 4 — LAUNCH',
+    name: 'PHASE 4 — PRODUCTION LITE',
+    topics: [
+      createTopic('Performance', Zap, [], 'webperformancemonitoring'),
+      createTopic('Deployment', Server, [], 'webhosting'),
+      createTopic('Security Basics', Shield, [], 'websecurity'),
+    ]
+  },
+  {
+    id: 'phase-5',
+    name: 'PHASE 5 — GROWTH LITE',
     topics: [
       createTopic('Analytics', BarChart, [{ name: 'PostHog', url: 'https://posthog.com/' }], 'webanalytics'),
       createTopic('Launch Checklist', CheckCircle, [], 'weblaunchchecklist'),
@@ -153,19 +166,47 @@ export const webHackathonTaxonomy: Category[] = [
     id: 'phase-0',
     name: 'PHASE 0 — PLANNING',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Idea Definition', Rocket, [], 'webideadefinition'),
       createTopic('MVP Features', CheckSquare, [], 'webmvpfeatures'),
     ]
   },
   {
     id: 'phase-1',
-    name: 'PHASE 1 — SPEED BUILDING',
+    name: 'PHASE 1 — DESIGN',
+    topics: [
+      createTopic('PRD', FileText, [], 'webprd'),
+      createTopic('User Flows', Globe, [], 'webuserflows'),
+      createTopic('Design System', PenTool, [{ name: 'Shadcn UI', url: 'https://ui.shadcn.com/' }], 'webdesignsystem'),
+    ]
+  },
+  {
+    id: 'phase-2',
+    name: 'PHASE 2 — ARCHITECTURE',
     topics: [
       createTopic('Tech Stack', Settings, [], 'webtechstack'),
-      createTopic('Design System', PenTool, [{ name: 'Shadcn UI', url: 'https://ui.shadcn.com/' }], 'webdesignsystem'),
+      createTopic('Database Architecture', Database, [], 'webdatabase'),
+      createTopic('Authentication', Key, [], 'webauthentication'),
+    ]
+  },
+  {
+    id: 'phase-3',
+    name: 'PHASE 3 — SPEED BUILDING',
+    topics: [
+      createTopic('Backend Engineering', Server, [], 'webbackend'),
+      createTopic('Frontend Engineering', Box, [], 'webfrontend'),
       createTopic('Hosting', Server, [{ name: 'Vercel', url: 'https://vercel.com/' }], 'webhosting'),
+      createTopic('Demo Data', Database),
       createTopic('Presentation Prep', Presentation),
+    ]
+  },
+  {
+    id: 'phase-4',
+    name: 'PHASE 4 — SUBMISSION',
+    topics: [
       createTopic('Pitch Deck', Presentation),
+      createTopic('Demo Script', FileText),
+      createTopic('Submission Checklist', CheckSquare),
     ]
   }
 ];
