@@ -30,13 +30,8 @@ export const saasProductionTaxonomy: Category[] = [
       createTopic('Feature Prioritization', List),
       createTopic('MVP Features', Rocket),
       createTopic('Future Features', Play),
-      createTopic('Business Model', Briefcase),
-      createTopic('Pricing', DollarSign),
-      createTopic('Subscription Model', DollarSign),
-      createTopic('Revenue Streams', DollarSign),
-      createTopic('Success Metrics', Activity),
-      createTopic('KPIs', BarChart),
-      createTopic('North Star Metric', Target),
+      createTopic('Business & Monetization', DollarSign, [], 'businessmonetization'),
+      createTopic('Metrics & KPIs', BarChart, [], 'metricskpis'),
     ]
   },
   {
