@@ -146,9 +146,30 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
     }, 1000);
   };
 
+  const resetContent = () => {
+    let customContent: string | null = null;
+    for (const [path, fileContent] of Object.entries(customContentModules)) {
+      if (path.includes(activeMode)) {
+        const filename = path.split('/').pop() || '';
+        const normalizedFilename = filename.toLowerCase().replace(/[^a-z0-9]/g, '');
+        if (normalizedFilename.startsWith(topicId) || normalizedFilename.includes(topicId)) {
+          customContent = fileContent;
+          break;
+        }
+      }
+    }
+    
+    const newContent = customContent 
+      ? customContent.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '') 
+      : filterModeContent(fallbackContent[topicId] || '', activeMode);
+      
+    saveContent(newContent);
+  };
+
   return {
     content,
     setContent: saveContent,
+    resetContent,
     isLoaded,
     saveStatus
   };

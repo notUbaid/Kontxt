@@ -44,7 +44,7 @@ export const MainCanvas = ({ activeType, activePage, activeMode, projectId, isAu
     }
   }
 
-  const { content, setContent, isLoaded, saveStatus } = useDocumentStore(projectId, activePage, activeMode, isAuthenticated);
+  const { content, setContent, resetContent, isLoaded, saveStatus } = useDocumentStore(projectId, activePage, activeMode, isAuthenticated);
   const { settings } = useSettingsStore(isAuthenticated);
   const [isGenerating, setIsGenerating] = useState(false);
 
@@ -164,6 +164,7 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
         topicName={activeTopicName}
         content={content}
         onChange={setContent}
+        onReset={resetContent}
         onGenerate={handleGenerate}
         isGenerating={isGenerating}
         saveStatus={saveStatus}

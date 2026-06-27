@@ -2,13 +2,14 @@ import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Edit2, Eye, Sparkles, FileEdit, CheckCircle2, Loader2, AlertCircle, Copy, Check, ArrowRight, Info, AlertTriangle, Lightbulb, ShieldAlert } from 'lucide-react';
+import { Edit2, Eye, Sparkles, FileEdit, CheckCircle2, Loader2, AlertCircle, Copy, Check, ArrowRight, Info, AlertTriangle, Lightbulb, ShieldAlert, RotateCcw } from 'lucide-react';
 import type { SaveStatus } from '../hooks/useDocumentStore';
 
 interface DocumentEditorProps {
   topicName: string;
   content: string;
   onChange: (content: string) => void;
+  onReset?: () => void;
   onGenerate: () => void;
   isGenerating: boolean;
   saveStatus?: SaveStatus;
@@ -123,6 +124,7 @@ export const DocumentEditor = ({
   topicName, 
   content, 
   onChange, 
+  onReset,
   onGenerate, 
   isGenerating,
   saveStatus = 'idle',
@@ -182,16 +184,31 @@ export const DocumentEditor = ({
           )}
 
           {!isEmpty && !isGenerating && (
-            <button
-              onClick={() => setIsEditing(!isEditing)}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-muted/40 hover:bg-muted text-sm font-medium transition-colors text-foreground"
-            >
-              {isEditing ? (
-                <><Eye size={16} /> Read Mode</>
-              ) : (
-                <><Edit2 size={16} /> Edit Mode</>
+            <div className="flex items-center gap-2">
+              {onReset && (
+                <button
+                  onClick={() => {
+                    if (window.confirm("Are you sure you want to reset this topic? Any edits you made will be lost and it will revert to the original playbook template.")) {
+                      onReset();
+                    }
+                  }}
+                  title="Reset to Template"
+                  className="flex items-center justify-center p-2 rounded-lg bg-muted/40 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <RotateCcw size={16} />
+                </button>
               )}
-            </button>
+              <button
+                onClick={() => setIsEditing(!isEditing)}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-muted/40 hover:bg-muted text-sm font-medium transition-colors text-foreground"
+              >
+                {isEditing ? (
+                  <><Eye size={16} /> Read Mode</>
+                ) : (
+                  <><Edit2 size={16} /> Edit Mode</>
+                )}
+              </button>
+            </div>
           )}
         </div>
       </div>
