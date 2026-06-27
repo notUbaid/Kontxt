@@ -19,7 +19,8 @@ When handling the user's `.md` files, follow these strict parsing and cleanup ru
 3. **ESTIMATED TIME**: Topics will include an `**Estimated Time:** X Minutes` line right beneath the H1. Ensure this is rendered elegantly. Do NOT inject or use the clock emoji (`🕒`).
 4. **PROMPT BLOCKS**: AI Prompts are wrapped in ````prompt`. If the user accidentally uses `> **Copy Prompt**` or generic ```` ```` blocks for prompts, write a cleanup script to fix them into the correct `prompt` tag format.
 5. **NO EMOJIS**: Emojis are strictly banned from all headings, bullets, UI elements, and markdown content. If found in user content, silently strip them using regex cleanup scripts.
-6. **TAXONOMY & ROUTING**: Ensure that as the user provides new files for different modes (SaaS, Mobile, Personal, Hackathon, Production), they are accurately tracked and mapped in the taxonomy registry (e.g., `saas.ts`).
+6. **CALLOUTS (GITHUB ALERTS)**: Convert legacy text callouts (like `> **Warning**`) to standard GitHub Markdown Alerts (`> [!WARNING]`, `> [!TIP]`, `> [!IMPORTANT]`). The custom blockquote renderer relies on these specific strings to style the UI dynamically.
+7. **TAXONOMY & ROUTING**: Ensure that as the user provides new files for different modes (SaaS, Mobile, Personal, Hackathon, Production), they are accurately tracked and mapped in the taxonomy registry (e.g., `saas.ts`).
 
 ---
 
@@ -31,7 +32,7 @@ The markdown must never look like a generic GitHub readme. Every single HTML ele
    - **Code Blocks (`prompt`, `input`)**: Must look like sleek terminal windows or premium interactive blocks with copy buttons, syntax highlighting, and hover states.
    - **Blockquotes**: Must use glassmorphism, subtle gradient borders, and modern styling.
    - **Tables**: Must have hover effects, sleek borders, and perfect padding.
-   - **Checklists / Tasks**: Must feel satisfying to click, with micro-animations.
+   - **Checklists / Tasks**: Must feel satisfying to click, with micro-animations. *(Note: `react-markdown` AST hides the `checked` state inside the `<input>` child of the `<li>`, not on the `<li>` itself. Do not use native HTML checkboxes.)*
 3. **Typography**: Rely on the custom `kontxt` tailwind typography theme. Maintain perfect vertical rhythm, line heights, and spacing.
 4. **Animations**: Use Framer Motion for page transitions, expanding sections, and hover states. Interfaces must feel responsive and alive.
 5. **Next Topic Navigation**: Ensure there is a highly visible, beautifully animated "Next Topic" button at the bottom of every document to guide the user seamlessly through the workflow.
