@@ -71,6 +71,16 @@ import {
   cyberDevSecOpsHackathonTaxonomy,
   cyberDevSecOpsPersonalTaxonomy
 } from './taxonomies/cyber-devsecops';
+import {
+  web3ProductionTaxonomy,
+  web3HackathonTaxonomy,
+  web3PersonalTaxonomy
+} from './taxonomies/web3';
+import {
+  dataPipelineProductionTaxonomy,
+  dataPipelineHackathonTaxonomy,
+  dataPipelinePersonalTaxonomy
+} from './taxonomies/data-pipeline';
 
 export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] => {
   const resolvedMode = mode;
@@ -186,6 +196,20 @@ export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] =
         case 'Personal': return cyberDevSecOpsPersonalTaxonomy;
         case 'Production': return cyberDevSecOpsProductionTaxonomy;
         default: return cyberDevSecOpsProductionTaxonomy;
+      }
+    case 'Web3 dApp':
+      switch (resolvedMode) {
+        case 'Hackathon': return web3HackathonTaxonomy;
+        case 'Personal': return web3PersonalTaxonomy;
+        case 'Production': return web3ProductionTaxonomy;
+        default: return web3ProductionTaxonomy;
+      }
+    case 'Data Pipeline':
+      switch (resolvedMode) {
+        case 'Hackathon': return dataPipelineHackathonTaxonomy;
+        case 'Personal': return dataPipelinePersonalTaxonomy;
+        case 'Production': return dataPipelineProductionTaxonomy;
+        default: return dataPipelineProductionTaxonomy;
       }
     default:
       return saasProductionTaxonomy;

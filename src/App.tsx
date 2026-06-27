@@ -21,7 +21,9 @@ export type AppType =
   | 'Game'
   | 'Cyber Security (Offensive)'
   | 'Cyber Security (Defensive)'
-  | 'Cyber Security (DevSecOps)';
+  | 'Cyber Security (DevSecOps)'
+  | 'Web3 dApp'
+  | 'Data Pipeline';
 
 export interface Project {
   id: string;

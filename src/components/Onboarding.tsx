@@ -2,7 +2,8 @@ import React, { Suspense, lazy, useState } from 'react';
 import { 
   Rocket, User, Building2, FolderOpen, Plus, ArrowRight,
   Cloud, Smartphone, Globe, Brain, Puzzle, Monitor, Server, Wrench,
-  Store, ShoppingCart, Gamepad2, AlertTriangle, Skull, Shield, Lock
+  Store, ShoppingCart, Gamepad2, AlertTriangle, Skull, Shield, Lock,
+  Hexagon, Database
 } from 'lucide-react';
 import type { Mode } from './TopNav';
 import type { Project, AppType } from '../App';
@@ -33,6 +34,8 @@ const TYPE_META: Record<AppType, { icon: React.ElementType; description: string 
   'Cyber Security (Offensive)': { icon: Skull, description: 'Red Team tools, exploit dev, & scanners' },
   'Cyber Security (Defensive)': { icon: Shield, description: 'Blue Team, SIEM, & EDR monitors' },
   'Cyber Security (DevSecOps)': { icon: Lock, description: 'Compliance, CI/CD scanning, & GRC' },
+  'Web3 dApp': { icon: Hexagon, description: 'Decentralized application & smart contracts' },
+  'Data Pipeline': { icon: Database, description: 'ETL, scrapers, and data warehouses' },
 };
 
 // Contextual mode descriptions per type
@@ -107,6 +110,16 @@ const MODE_DESCRIPTIONS: Partial<Record<AppType, Record<Mode, string>>> = {
     'Personal': 'Terraform drift detection, Docker config scanning.',
     'Production': 'SOC2 automation, SBOM generation, zero-trust enforcement.'
   },
+  'Web3 dApp': {
+    'Hackathon': 'Scaffold-ETH, local testnet, skip audits. Ship a working dApp.',
+    'Personal': 'Clean frontend integration, verifiable contracts, basic wallet auth.',
+    'Production': 'Audited smart contracts, gas optimization, SIWE auth, robust node providers.'
+  },
+  'Data Pipeline': {
+    'Hackathon': 'Cron jobs, basic scrapers, direct DB writes. Move data fast.',
+    'Personal': 'Clean ETL scripts, basic orchestration, error logging.',
+    'Production': 'Airflow/Dagster, data validation, scalable warehouses, robust alerting.'
+  },
 };
 
 const HIGH_RISK_WARNINGS: Partial<Record<AppType, { title: string; message: string; icon: React.ElementType }>> = {
@@ -130,6 +143,11 @@ const HIGH_RISK_WARNINGS: Partial<Record<AppType, { title: string; message: stri
     message: 'Building and deploying offensive security tools (Red Team) carries extreme legal risk (e.g. CFAA violations). You MUST have explicit, written authorization (Rules of Engagement) before pointing any scanner, exploiter, or C2 framework at an external target. Ensure your tool has built-in kill switches and scope limitations.',
     icon: Skull,
   },
+  'Web3 dApp': {
+    title: 'Smart Contract Security Risk',
+    message: 'Deploying smart contracts that handle real monetary value (tokens, NFTs, DeFi) carries extreme risk. You MUST have your contracts professionally audited before moving to mainnet. A single vulnerability can lead to a complete, irreversible drain of user funds.',
+    icon: AlertTriangle,
+  },
 };
 
 export const Onboarding = ({ projects, onCreateProject, onSelectProject, isAuthenticated, setIsAuthenticated }: OnboardingProps) => {
@@ -141,7 +159,8 @@ export const Onboarding = ({ projects, onCreateProject, onSelectProject, isAuthe
   const APP_TYPES: AppType[] = [
     'SaaS', 'Mobile App', 'Web App', 'AI Tool', 'Browser Extension',
     'Desktop App', 'API Product', 'Internal Tool', 'Marketplace', 'E-commerce', 'Game',
-    'Cyber Security (Offensive)', 'Cyber Security (Defensive)', 'Cyber Security (DevSecOps)'
+    'Cyber Security (Offensive)', 'Cyber Security (Defensive)', 'Cyber Security (DevSecOps)',
+    'Web3 dApp', 'Data Pipeline'
   ];
 
   const handleTypeSelect = (type: AppType) => {

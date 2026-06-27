@@ -1,4 +1,102 @@
 export const fallbackContent: Record<string, string> = {
+  'webmonetization': `
+
+# Monetization
+
+**Estimated Time:** 20 Minutes
+
+---
+
+Monetization is how your application will make money. Even if you don't plan to charge users on day one, understanding your economic model influences how you design the product, acquire users, and scale infrastructure.
+
+## Strategic Guidance
+
+### Hackathon Mode
+You don't need a real monetization plan, but you DO need a believable "business model slide" for your pitch. Pick the simplest, most standard model (e.g., a freemium subscription for premium features) and confidently state it. Don't waste time integrating Stripe.
+
+### Personal Project
+If you want to cover server costs, consider a "Buy Me a Coffee" button or a one-time lifetime license. Subscription fatigue is real, especially for hobbyist tools. Keeping it free or low-friction encourages adoption and feedback.
+
+### Production SaaS
+You must implement a scalable, recurring revenue model. B2B SaaS typically thrives on tiered subscriptions (e.g., Starter, Pro, Enterprise) based on usage metrics (seats, storage, API calls). Integrating a robust billing provider like Stripe early is non-negotiable, as custom billing logic is a massive technical debt trap.
+
+---
+
+**Determine your business model:**
+\`\`\`input
+Describe your monetization strategy (e.g., B2B SaaS Subscriptions, Ads, One-time Purchases):
+\`\`\`
+
+`,
+
+
+  'webusp': `
+
+# Unique Selling Proposition
+
+**Estimated Time:** 20 Minutes
+
+---
+
+Your Unique Selling Proposition (USP) is the single reason why a user should choose your product over the competition. It is not a feature list; it is a clear, concise statement of the unique value you provide.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Your USP needs to be "shiny." It's often the integration of a new technology (like a cutting-edge LLM) or a wildly creative twist on an existing concept. It needs to make judges say "Wow, I never thought of doing it that way."
+
+### Personal Project
+Your USP doesn't have to be groundbreaking. It can simply be "It's open source," "It has no ads," or "It's built exactly the way I want it." Focus on the value it brings to your specific use case.
+
+### Production SaaS
+Your USP must directly translate into business value: saving time, making money, or reducing risk. It needs to be defensible. If your USP can be copied by a competitor in a weekend, it's not strong enough. Focus on deep integrations, proprietary data, or a fundamentally superior workflow.
+
+---
+
+**Brainstorm your Unique Selling Proposition:**
+\`\`\`prompt
+Act as an expert Product Marketer. My web app does [describe app] for [describe audience]. My top competitors are [list competitors]. Based on this, suggest 5 powerful, concise Unique Selling Propositions (USPs) that clearly differentiate my product. Focus on clear benefits, not just features.
+\`\`\`
+
+**Select your primary USP:**
+\`\`\`input
+Our Unique Selling Proposition is:
+\`\`\`
+
+`,
+
+
+  'webtargetaudience': `
+
+# Target Audience
+
+**Estimated Time:** 15 Minutes
+
+---
+
+Your target audience is the specific group of people who experience the problem you are solving most acutely. If you build for everyone, you build for no one. You need to narrow your focus to a specific persona who is desperate for a solution.
+
+## Strategic Guidance
+
+### Hackathon Mode
+Don't overthink this. Pick a very specific, relatable group of people (e.g., "College students looking for cheap late-night food"). If the judges can instantly picture the user, you've succeeded. Your target audience dictates the "vibe" of your pitch.
+
+### Personal Project
+Define an audience you personally belong to or deeply understand. This is called "scratching your own itch." When you are the target user, you have an intuitive sense of what features matter and what the UI should look like. Build this for yourself first.
+
+### Production SaaS
+Your target audience must have a high willingness to pay (WTP). If your audience consists of teenagers or hobbyists with no disposable income, building a scalable SaaS will be incredibly difficult. Focus on B2B personas, professionals, or businesses that lose money when the problem you are solving remains unaddressed.
+
+---
+
+**Define your target audience in extreme detail:**
+\`\`\`input
+Who is your ideal user? (Age, profession, pain points, budget, habits)
+\`\`\`
+
+`,
+
+
   'internaltechnicaldebt': `
 # Technical Debt
 
@@ -11456,9 +11554,9 @@ Do not build "vitamins" (nice-to-have improvements); build "painkillers" (urgent
 ---
 
 **Define your core idea and the specific wedge you are targeting:**
-\\\`\\\`\\\`input
+\`\`\`input
 Idea & Wedge:
-\\\`\\\`\\\`
+\`\`\`
 
 `,
 
@@ -11492,9 +11590,9 @@ You must quantify the problem. Instead of saying "teams struggle to communicate,
 ---
 
 **Write a quantified problem statement for your target user:**
-\\\`\\\`\\\`input
+\`\`\`input
 Problem Statement:
-\\\`\\\`\\\`
+\`\`\`
 
 `,
 
@@ -11528,12 +11626,12 @@ You must meticulously document the "Unhappy Paths"—what happens when a payment
 ---
 
 **Map out the primary Happy Path for your core user:**
-\\\`\\\`\\\`input
+\`\`\`input
 1. User discovers the app via...
 2. User signs up and immediately sees...
 3. User performs core action...
 4. User receives value (Aha moment)...
-\\\`\\\`\\\`
+\`\`\`
 
 `,
 
@@ -11567,10 +11665,10 @@ Your app must satisfy both. The User Persona cares about speed, UI, and eliminat
 ---
 
 **Define your primary User Persona:**
-\\\`\\\`\\\`input
+\`\`\`input
 Name/Role:
 Biggest Pain Point:
-\\\`\\\`\\\`
+\`\`\`
 
 `,
 
@@ -11600,9 +11698,9 @@ Example: "Unlike fragmented spreadsheets that require manual updates, our platfo
 ---
 
 **Write a one-sentence solution statement that defines the outcome you deliver:**
-\\\`\\\`\\\`input
+\`\`\`input
 Solution Statement:
-\\\`\\\`\\\`
+\`\`\`
 
 `,
 
@@ -11638,9 +11736,9 @@ A great SaaS pitch focuses entirely on value extraction. "Stripe: Financial infr
 ---
 
 **Write your 30-second elevator pitch:**
-\\\`\\\`\\\`input
+\`\`\`input
 Elevator Pitch:
-\\\`\\\`\\\`
+\`\`\`
 
 `,
 
@@ -11674,15 +11772,15 @@ You must analyze their pricing (are they freemium or sales-led?), their position
 ---
 
 **List your top 3 competitors and your single biggest advantage over them:**
-\\\`\\\`\\\`input
+\`\`\`input
 1. [Competitor A] - Advantage:
 2. [Competitor B] - Advantage:
 3. [Competitor C] - Advantage:
-\\\`\\\`\\\`
+\`\`\`
 
 ## AI Execution Phase
 
-\\\`\\\`\\\`prompt
+\`\`\`prompt
 Act as a seasoned Product Strategist. I am building a Web App in the following space:
 
 [INSERT BRIEF DESCRIPTION OF YOUR APP IDEA HERE]
@@ -11691,7 +11789,7 @@ Analyze the current competitive landscape for this type of product. Identify the
 1. Their core value proposition
 2. Their primary target market
 3. Their biggest weakness or vulnerability that a new entrant could exploit.
-\\\`\\\`\\\`
+\`\`\`
 
 `,
 
@@ -11725,9 +11823,9 @@ You also need to plan for "invisible features." These are the infrastructural re
 ---
 
 **Brainstorm the core features required for your application:**
-\\\`\\\`\\\`input
+\`\`\`input
 List of proposed features:
-\\\`\\\`\\\`
+\`\`\`
 
 `,
 
@@ -11751,7 +11849,7 @@ Your MVP only needs to work on your laptop, during a 3-minute presentation, on a
 ### Personal Project
 For a personal project, your MVP is the first functional version that achieves your primary learning goal. Once the MVP is done, you should deploy it (e.g., to Vercel or Netlify) so you can share the link. 
 
-A deployed, working MVP—even if it looks basic—is infinitely more valuable in a portfolio than a massive, half-finished monolithic codebase that only runs on \\\`localhost\\\`. Scope the MVP so small that you can finish and deploy it in a single weekend.
+A deployed, working MVP—even if it looks basic—is infinitely more valuable in a portfolio than a massive, half-finished monolithic codebase that only runs on \`localhost\`. Scope the MVP so small that you can finish and deploy it in a single weekend.
 
 ### Production SaaS
 In SaaS, the MVP must be viable. It can be small, it can lack nice-to-have features, but it cannot be buggy or insecure. If a user pays you money, the features you do provide must work flawlessly. 
@@ -11761,11 +11859,11 @@ Your MVP must include the "Happy Path" for your primary persona, a secure paymen
 ---
 
 **Filter your feature list down to the absolute Minimum Viable Product:**
-\\\`\\\`\\\`input
+\`\`\`input
 MVP Feature 1:
 MVP Feature 2:
 MVP Feature 3:
-\\\`\\\`\\\`
+\`\`\`
 
 `,
 
@@ -11795,9 +11893,9 @@ Resist the urge to build features just because a vocal minority asks for them. R
 ---
 
 **List the features you are explicitly cutting from the MVP to build later:**
-\\\`\\\`\\\`input
+\`\`\`input
 Future Features (The Backlog):
-\\\`\\\`\\\`
+\`\`\`
 
 `,
 
@@ -11831,10 +11929,10 @@ If you are building a communication tool, your North Star Metric is "Daily Activ
 ---
 
 **Define your North Star Metric and how you will track it:**
-\\\`\\\`\\\`input
+\`\`\`input
 North Star Metric:
 How we will measure it:
-\\\`\\\`\\\`
+\`\`\`
 
 `,
 
@@ -11868,10 +11966,10 @@ You must also define your "Ideal Customer Profile" (ICP). This is a rigid set of
 ---
 
 **Define your Target Audience and Total Addressable Market (TAM):**
-\\\`\\\`\\\`input
+\`\`\`input
 Target Audience Description:
 Estimated TAM (Size of market):
-\\\`\\\`\\\`
+\`\`\`
 
 `,
 
@@ -11903,11 +12001,11 @@ Your job is to make them look like a genius to their boss. Design features speci
 ---
 
 **List the top 3 goals your user wants to achieve by using your app:**
-\\\`\\\`\\\`input
+\`\`\`input
 1.
 2.
 3.
-\\\`\\\`\\\`
+\`\`\`
 
 `,
 
@@ -11945,9 +12043,9 @@ When a customer asks for a nice-to-have feature, ask them: "If we build this, wi
 - [ ] I commit to ignoring complex User Roles until I have actual users.
 
 **List any other distracting features you are cutting:**
-\\\`\\\`\\\`input
+\`\`\`input
 Distracting Features to avoid:
-\\\`\\\`\\\`
+\`\`\`
 
 `,
 
