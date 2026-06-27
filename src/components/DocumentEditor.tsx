@@ -15,7 +15,7 @@ interface DocumentEditorProps {
   onGenerate: () => void;
   isGenerating: boolean;
   saveStatus?: SaveStatus;
-  onNavigate: (page: string) => void;
+  onNavigate: (page: string, markComplete?: boolean) => void;
   nextTopic?: { id: string; name: string } | null;
   activeMode: string;
   onTopicComplete?: () => void;
@@ -301,7 +301,7 @@ export const DocumentEditor = ({
                   blockquote: ({ node, children, ...props }) => {
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     const firstChild = node?.children?.[0] as any;
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                     
                     const firstTextNode = (firstChild?.type === 'element' && firstChild?.tagName === 'p') ? firstChild.children?.[0] : null;
                     const textContent = firstTextNode?.type === 'text' ? firstTextNode.value : '';
                     
@@ -529,13 +529,17 @@ export const DocumentEditor = ({
                   Mark this topic as complete and move on to <span className="font-semibold text-foreground">{nextTopic.name}</span> to continue your {activeMode} playbook.
                 </p>
                 <button
-                  onClick={() => {
-                    if (onTopicComplete) onTopicComplete();
-                    onNavigate(nextTopic.id);
-                  }}
-                  className="flex items-center gap-3 px-8 py-4 rounded-xl bg-primary hover:bg-primary/90 text-background text-lg font-bold transition-all duration-150 ease-out shadow-md hover:shadow-lg group"
+                  onClick={() => onNavigate(nextTopic.id, true)}
+                  className="flex items-center justify-between w-full max-w-sm px-5 py-3 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground font-semibold transition-all duration-150 shadow-sm hover:shadow group"
                 >
-                  Next: {nextTopic.name} <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-150 ease-out" />
+                  <span className="flex items-center gap-2">
+                    <CheckCircle2 size={18} className="text-primary-foreground/70 group-hover:text-primary-foreground transition-colors" />
+                    Complete & Next
+                  </span>
+                  <span className="flex items-center gap-1 opacity-90 font-normal text-sm">
+                    {nextTopic.name}
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </span>
                 </button>
               </div>
             )}

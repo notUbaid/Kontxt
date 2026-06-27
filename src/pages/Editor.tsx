@@ -70,8 +70,17 @@ export default function Editor({ projects, updateProject, deleteProject, isAuthe
     return 'prd';
   }
 
-  const handleSetActivePage = (page: string) => {
-    updateProject({ ...activeProject, lastViewedTopic: page });
+  const handleSetActivePage = (page: string, markCurrentAsComplete?: boolean) => {
+    const updatedProject = { ...activeProject, lastViewedTopic: page };
+    
+    if (markCurrentAsComplete) {
+      const completedArray = activeProject.completedTopics || [];
+      if (!completedArray.includes(activePage)) {
+        updatedProject.completedTopics = [...completedArray, activePage];
+      }
+    }
+
+    updateProject(updatedProject);
     navigate(`/project/${activeProject.id}/topic/${page}`);
     setIsLeftSidebarOpen(false); // Close sidebar on mobile after nav
   };

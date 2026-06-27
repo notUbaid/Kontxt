@@ -16,7 +16,7 @@ interface MainCanvasProps {
   projectId: string;
   isAuthenticated: boolean;
   onRequestLogin: () => void;
-  onNavigate: (page: string) => void;
+  onNavigate: (page: string, markComplete?: boolean) => void;
   activeProject: Project;
   onProjectUpdate: (p: Project) => void;
 }
