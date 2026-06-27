@@ -32,6 +32,7 @@ The markdown must never look like a generic GitHub readme. Every single HTML ele
    - **Code Blocks (`prompt`, `input`)**: Must look like sleek terminal windows or premium interactive blocks with copy buttons, syntax highlighting, and hover states.
    - **Blockquotes**: Must use glassmorphism, subtle gradient borders, and modern styling.
    - **Tables**: Must have hover effects, sleek borders, and perfect padding.
+   - **Lists & Bullets**: Never use chevron arrows (`>`) for standard bullet points, as they mimic collapsible/dropdown menus. Use bespoke abstract shapes (like glowing diamonds, circles, or dashes) that match the theme.
    - **Checklists / Tasks**: Must feel satisfying to click, with micro-animations. *(Note: `react-markdown` AST hides the `checked` state inside the `<input>` child of the `<li>`, not on the `<li>` itself. Do not use native HTML checkboxes.)*
 3. **Typography**: Rely on the custom `kontxt` tailwind typography theme. Maintain perfect vertical rhythm, line heights, and spacing.
 4. **Animations**: Use Framer Motion for page transitions, expanding sections, and hover states. Interfaces must feel responsive and alive.

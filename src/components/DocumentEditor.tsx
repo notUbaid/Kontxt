@@ -4,7 +4,7 @@ import remarkGfm from 'remark-gfm';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Edit2, Eye, Sparkles, FileEdit, CheckCircle2, Loader2, AlertCircle, Copy, Check, ArrowRight, Info, AlertTriangle, Lightbulb, ShieldAlert, RotateCcw, ChevronRight } from 'lucide-react';
+import { Edit2, Eye, Sparkles, FileEdit, CheckCircle2, Loader2, AlertCircle, Copy, Check, ArrowRight, Info, AlertTriangle, Lightbulb, ShieldAlert, RotateCcw } from 'lucide-react';
 import type { SaveStatus } from '../hooks/useDocumentStore';
 
 interface DocumentEditorProps {
@@ -431,7 +431,7 @@ export const DocumentEditor = ({
                     }
                     return (
                       <li className={`relative pl-7 flex items-start ${className || ''}`} {...props}>
-                        <ChevronRight className="w-4 h-4 text-accent absolute left-0 top-1.5 opacity-70" />
+                        <div className="absolute left-1.5 top-[0.7rem] w-1.5 h-1.5 bg-accent/70 rotate-45 ring-1 ring-accent/30 shadow-[0_0_8px_rgba(var(--accent),0.4)]" />
                         <span className="flex-1">{children}</span>
                       </li>
                     );
