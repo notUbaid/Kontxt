@@ -14,11 +14,12 @@ The primary role of the AI agent is to:
 ## Content Parsing & Formatting Rules
 When handling the user's `.md` files, follow these strict parsing and cleanup rules:
 
-1. **NO YAML FRONTMATTER**: Kontxt's `DocumentEditor` parses raw text. If a user-provided `.md` file contains YAML frontmatter (`--- title: ... ---`), the AI must write a node script to strip it out or handle it programmatically at runtime so it does not bleed into the UI.
-2. **ESTIMATED TIME**: Topics will include an `**Estimated Time:** X Minutes` line right beneath the H1. Ensure this is rendered elegantly. Do NOT inject or use the clock emoji (`🕒`).
-3. **PROMPT BLOCKS**: AI Prompts are wrapped in ````prompt`. If the user accidentally uses `> **Copy Prompt**` or generic ```` ```` blocks for prompts, write a cleanup script to fix them into the correct `prompt` tag format.
-4. **NO EMOJIS**: Emojis are strictly banned from all headings, bullets, UI elements, and markdown content. If found in user content, silently strip them using regex cleanup scripts.
-5. **TAXONOMY & ROUTING**: Ensure that as the user provides new files for different modes (SaaS, Mobile, Personal, Hackathon, Production), they are accurately tracked and mapped in the taxonomy registry (e.g., `saas.ts`).
+1. **YAML FRONTMATTER**: Kontxt's `DocumentEditor` parses raw text, but the `.md` files use YAML frontmatter (e.g. `--- title: ... ---`) for metadata. **DO NOT strip frontmatter from the physical files.** Instead, ensure it is stripped programmatically at runtime (e.g., in `useDocumentStore`) so it does not bleed into the UI.
+2. **CHECKLISTS VS BULLETS**: Interactive checklists (`- [ ]`) are strictly reserved for actionable Validation Checklists (e.g., under a `## Checklist:` heading) at the end of a topic. General overviews, deliverable lists, or non-actionable points MUST use standard bullet points (`- `).
+3. **ESTIMATED TIME**: Topics will include an `**Estimated Time:** X Minutes` line right beneath the H1. Ensure this is rendered elegantly. Do NOT inject or use the clock emoji (`🕒`).
+4. **PROMPT BLOCKS**: AI Prompts are wrapped in ````prompt`. If the user accidentally uses `> **Copy Prompt**` or generic ```` ```` blocks for prompts, write a cleanup script to fix them into the correct `prompt` tag format.
+5. **NO EMOJIS**: Emojis are strictly banned from all headings, bullets, UI elements, and markdown content. If found in user content, silently strip them using regex cleanup scripts.
+6. **TAXONOMY & ROUTING**: Ensure that as the user provides new files for different modes (SaaS, Mobile, Personal, Hackathon, Production), they are accurately tracked and mapped in the taxonomy registry (e.g., `saas.ts`).
 
 ---
 
