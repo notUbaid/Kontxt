@@ -50,7 +50,7 @@ Use one of:
 
 **On the slide:** The stat or story. Nothing else.
 
-> **Warning**
+> [!WARNING]
 >
 > Do not write "Problem Statement:" as a heading. It wastes space and signals a student project.
 > Let the content speak. Judges know it's a problem slide.
@@ -105,7 +105,7 @@ User → Frontend (React) → API (Node/FastAPI) → DB (Postgres)
 
 Keep it visual. Two to three elements maximum. No walls of text.
 
-> **Tip**
+> [!TIP]
 >
 > Mention one technically impressive decision you made. Judges who are engineers will notice.
 > *"We built a custom scoring engine instead of relying on a third-party API — gives us 3x faster response and full control over the logic."*
@@ -253,7 +253,7 @@ Trailing off with "...yeah, that's pretty much it" loses the last impression. Wr
 
 For a hackathon: **Canva or Pitch**. Both have startup templates that look professional out of the box.
 
-> **Tip**
+> [!TIP]
 >
 > Don't build slides from scratch under time pressure.
 > Find a clean template, strip it to 7 slides, and replace every word and color.

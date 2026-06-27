@@ -101,7 +101,7 @@ Exit / return to slides
 
 Do not deviate from this path during the live demo.
 
-> **Warning**
+> [!WARNING]
 >
 > Do not say "let me show you one more thing" unless it's scripted.
 > Unscripted additions run over time, hit edge cases, and lose judges mid-flow.
@@ -166,7 +166,7 @@ Something will go wrong. Script your recovery too.
 | Wrong account open | "Let me switch to our demo account — " [switch quickly, don't apologize] |
 | Forgot what comes next | Pause. Take a breath. Say: "And here's where it gets interesting." [buy 3 seconds] |
 
-> **Tip**
+> [!TIP]
 >
 > Rehearse your failure recoveries out loud. They feel unnatural until they don't.
 > The judge won't remember the failure. They'll remember how you handled it.
@@ -194,7 +194,7 @@ This line does three things: summarizes the value, references your demo user by 
 - [ ] Run it once while someone asks you a question mid-demo (practice ignoring it)
 - [ ] Run it the morning of with demo data fresh and golden-path account loaded
 
-> **Warning**
+> [!WARNING]
 >
 > Do not rehearse by reading the script silently.
 > Your hands and your mouth need to be in sync. Only live rehearsal builds that.

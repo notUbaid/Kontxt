@@ -88,7 +88,7 @@ That sentence has already lost the room.
 
 ---
 
-> **Rule**
+> [!IMPORTANT]
 >
 > Never begin your pitch with your team name, your project name, or an agenda slide.
 > Begin with the problem. The audience will figure out who you are.
@@ -123,7 +123,7 @@ Something will go wrong. Prepare for it.
 | DB resets | Seed script runnable in under 60 seconds |
 | Slow API | Mock the slow endpoint with hardcoded response |
 
-> **Warning**
+> [!WARNING]
 >
 > If you have a live AI call in your demo (LLM, image gen, etc.) — pre-generate a cached response.
 > LLM latency during a live pitch kills momentum. Show the result instantly.
@@ -148,7 +148,7 @@ Keep it tight. Judges are not reading slides — they're watching your demo.
 
 7 slides maximum. If you have 10+, cut.
 
-> **Tip**
+> [!TIP]
 >
 > Use large text. Judges in the back of the room should be able to read every slide without squinting.
 > Minimum 28pt body text. Headlines 48pt+.
@@ -200,7 +200,7 @@ Q&A is where underprepared teams lose points they earned in the pitch.
 | "What would you build next?" | Do you have vision beyond this weekend? | 2–3 prioritized features with reasoning |
 | "How did you split the work?" | Are you a real team or one person? | Name who owned what. Be specific. |
 
-> **Tip**
+> [!TIP]
 >
 > If you don't know the answer, say: *"We haven't solved that yet — here's how we'd think about it."*
 > Honest reasoning beats a bluffed answer every time.
@@ -218,7 +218,7 @@ Do not skip this. Timing and confidence come only from repetition.
 - [ ] Q&A practice: teammates ask the hardest questions you can think of
 - [ ] Test slides on the presentation display if possible
 
-> **Warning**
+> [!WARNING]
 >
 > If your demo is showing on a projector or external display, test it there.
 > Resolution changes, browser zoom defaults change, fonts render differently.

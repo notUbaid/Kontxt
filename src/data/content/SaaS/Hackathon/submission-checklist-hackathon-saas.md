@@ -49,7 +49,7 @@ Most hackathons require a demo video. Treat it as seriously as the live demo.
 - [ ] Video uploaded to YouTube (unlisted) or Loom — not a Drive link that might break
 - [ ] Link tested from an incognito browser tab
 
-> **Warning**
+> [!WARNING]
 >
 > Never submit a Google Drive video link as your primary demo.
 > Permissions fail. Links expire. Judges won't chase access.
@@ -74,7 +74,7 @@ Most hackathons require a demo video. Treat it as seriously as the live demo.
 - [ ] Live demo link (if deployed)
 - [ ] Team names
 
-> **Tip**
+> [!TIP]
 >
 > A judge trying to run your project locally is a good sign — they're interested.
 > A README that fails them in the first step turns that interest into frustration.
@@ -86,7 +86,7 @@ Most hackathons require a demo video. Treat it as seriously as the live demo.
 - [ ] Deployment is stable — not crashing under cold start
 - [ ] Demo data is seeded and visible on first load
 
-> **Warning**
+> [!WARNING]
 >
 > If you're on a free tier (Render, Railway, Vercel), keep a browser tab open and hit the URL 10 minutes before judging starts.
 > Cold starts on free tiers can take 30–60 seconds. Wake the server before judges see it.
@@ -135,7 +135,7 @@ Run this in the last 30 minutes before your slot.
 
 ---
 
-> **Rule**
+> [!IMPORTANT]
 >
 > Submit 30 minutes before the deadline. Not 5. Not 1.
 >

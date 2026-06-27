@@ -160,7 +160,7 @@ This account should have:
 - Your best features already in use
 - Numbers that look impressive for the use case
 
-> **Warning**
+> [!WARNING]
 >
 > Don't let judges log in as `admin@test.com`. It destroys the illusion immediately.
 > Name your demo user something real. It signals that you thought about users.
@@ -193,7 +193,7 @@ The more your data sounds like the industry you're solving for, the more credibl
 5. Lock the seed — don't change it 2 hours before demo
 ```
 
-> **Tip**
+> [!TIP]
 >
 > Add a `npm run seed` or `python seed.py` command to your README.
 > Judges sometimes ask to run your project locally. A one-command seed is a green flag.

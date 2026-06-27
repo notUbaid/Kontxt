@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Edit2, Eye, Sparkles, FileEdit, CheckCircle2, Loader2, AlertCircle, Copy, Check, ArrowRight } from 'lucide-react';
+import { Edit2, Eye, Sparkles, FileEdit, CheckCircle2, Loader2, AlertCircle, Copy, Check, ArrowRight, Info, AlertTriangle, Lightbulb, ShieldAlert } from 'lucide-react';
 import type { SaveStatus } from '../hooks/useDocumentStore';
 
 interface DocumentEditorProps {
@@ -17,6 +17,21 @@ interface DocumentEditorProps {
   activeMode: string;
   onTopicComplete?: () => void;
 }
+
+const cleanAlertText = (children: React.ReactNode): React.ReactNode => {
+  return React.Children.map(children, child => {
+    if (typeof child === 'string') {
+      return child.replace(/^\[!\w+\]\s*/, '');
+    }
+    if (React.isValidElement(child) && child.props && child.props.children) {
+      return React.cloneElement(child, {
+        ...child.props,
+        children: cleanAlertText(child.props.children)
+      });
+    }
+    return child;
+  });
+};
 
 const PromptBlock = ({ children }: { children: string }) => {
   const [copied, setCopied] = useState(false);
@@ -255,11 +270,51 @@ export const DocumentEditor = ({
                   h3: ({ children, ...props }) => (
                     <h3 className="text-xl font-semibold tracking-tight text-foreground/90 mt-8 mb-3" {...props}>{children}</h3>
                   ),
-                  blockquote: ({ children, ...props }) => (
-                    <blockquote className="my-6 border-l-4 border-primary/80 bg-gradient-to-r from-primary/5 to-transparent py-3 px-5 rounded-r-xl shadow-sm text-foreground/90 italic text-lg" {...props}>
-                      {children}
-                    </blockquote>
-                  ),
+                  blockquote: ({ node, children, ...props }) => {
+                    const firstChild = node?.children?.[0];
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    const firstTextNode = firstChild?.type === 'paragraph' ? (firstChild as any).children?.[0] : null;
+                    const textContent = firstTextNode?.type === 'text' ? firstTextNode.value : '';
+                    
+                    const isAlert = textContent.startsWith('[!');
+                    
+                    if (isAlert) {
+                      const alertTypeMatch = textContent.match(/^\[!(\w+)\]/);
+                      const alertType = alertTypeMatch ? alertTypeMatch[1] : 'NOTE';
+                      
+                      let alertColor = 'border-blue-500/30 bg-blue-500/10 text-blue-500';
+                      let Icon = Info;
+                      
+                      if (alertType === 'WARNING') {
+                        alertColor = 'border-amber-500/30 bg-amber-500/10 text-amber-500';
+                        Icon = AlertTriangle;
+                      } else if (alertType === 'TIP') {
+                        alertColor = 'border-emerald-500/30 bg-emerald-500/10 text-emerald-500';
+                        Icon = Lightbulb;
+                      } else if (alertType === 'IMPORTANT') {
+                        alertColor = 'border-purple-500/30 bg-purple-500/10 text-purple-500';
+                        Icon = AlertCircle;
+                      } else if (alertType === 'CAUTION') {
+                        alertColor = 'border-red-500/30 bg-red-500/10 text-red-500';
+                        Icon = ShieldAlert;
+                      }
+                      
+                      return (
+                        <div className={`my-6 rounded-xl border ${alertColor} p-4 flex gap-4 items-start shadow-sm`}>
+                          <Icon className="w-5 h-5 mt-0.5 shrink-0" />
+                          <div className="flex-1 text-foreground/90 text-sm leading-relaxed alert-content">
+                            {cleanAlertText(children)}
+                          </div>
+                        </div>
+                      );
+                    }
+                    
+                    return (
+                      <blockquote className="my-6 border-l-4 border-muted-foreground/30 bg-muted/20 py-3 px-5 rounded-r-xl text-muted-foreground italic text-lg" {...props}>
+                        {children}
+                      </blockquote>
+                    );
+                  },
                   table: ({ children, ...props }) => (
                     <div className="my-8 w-full overflow-x-auto rounded-xl border border-muted shadow-sm">
                       <table className="w-full text-sm text-left border-collapse" {...props}>
@@ -300,13 +355,34 @@ export const DocumentEditor = ({
                   },
                   li: ({ node, className, children, ...props }) => {
                     if (className === 'task-list-item' && node?.position) {
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                      const checked = (node as any).checked;
                       return (
                         <li 
-                          className={className} 
+                          className={`flex items-start gap-3 my-3 p-4 rounded-xl border transition-all duration-150 ease-out shadow-sm hover:shadow-md cursor-pointer ${checked ? 'bg-muted/30 border-muted-foreground/20' : 'bg-background border-muted'}`}
                           data-line={node.position.start.line}
+                          onClick={(e) => {
+                            if ((e.target as HTMLElement).tagName.toLowerCase() === 'input' || (e.target as HTMLElement).tagName.toLowerCase() === 'a') return;
+                            
+                            const lineAttr = e.currentTarget.getAttribute('data-line');
+                            if (lineAttr) {
+                              const lineIndex = parseInt(lineAttr, 10) - 1;
+                              const lines = content.split('\n');
+                              if (lines[lineIndex]) {
+                                if (!checked) {
+                                  lines[lineIndex] = lines[lineIndex].replace(/\[\s\]/, '[x]');
+                                } else {
+                                  lines[lineIndex] = lines[lineIndex].replace(/\[x\]/i, '[ ]');
+                                }
+                                onChange(lines.join('\n'));
+                              }
+                            }
+                          }}
                           {...props}
                         >
-                          {children}
+                          <div className={`flex-1 -mt-1 prose-p:my-0 ${checked ? 'line-through text-muted-foreground opacity-70' : 'text-foreground'}`}>
+                            {children}
+                          </div>
                         </li>
                       );
                     }
@@ -318,24 +394,8 @@ export const DocumentEditor = ({
                         <input
                           type="checkbox"
                           checked={checked}
-                          className="cursor-pointer w-4 h-4 text-primary bg-background border-muted rounded focus:ring-primary focus:ring-2 mt-1 mr-2 inline-block shadow-sm transition-all hover:ring-2 hover:ring-primary/50 hover:border-primary/50"
-                          onChange={(e) => {
-                            const newChecked = e.target.checked;
-                            const li = e.target.closest('li');
-                            const lineAttr = li?.getAttribute('data-line');
-                            if (lineAttr) {
-                              const lineIndex = parseInt(lineAttr, 10) - 1;
-                              const lines = content.split('\n');
-                              if (lines[lineIndex]) {
-                                if (newChecked) {
-                                  lines[lineIndex] = lines[lineIndex].replace(/\[\s\]/, '[x]');
-                                } else {
-                                  lines[lineIndex] = lines[lineIndex].replace(/\[x\]/i, '[ ]');
-                                }
-                                onChange(lines.join('\n'));
-                              }
-                            }
-                          }}
+                          className="w-5 h-5 text-primary bg-background border-muted rounded focus:ring-primary focus:ring-2 mt-0.5 shrink-0 shadow-sm transition-all pointer-events-none"
+                          readOnly
                         />
                       );
                     }
