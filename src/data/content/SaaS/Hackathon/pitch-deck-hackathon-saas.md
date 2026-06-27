@@ -1,5 +1,9 @@
 # Pitch Deck
 
+🕒 **Estimated Time:** 20 Minutes
+
+---
+
 Your pitch deck is not a document.
 
 It is a visual backdrop for a live performance.

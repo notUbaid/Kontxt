@@ -1,5 +1,9 @@
 # User Flows
 
+🕒 **Estimated Time:** 20 Minutes
+
+---
+
 Most teams skip this step. They read the PRD, open their code editor, and start building the first screen they can think of. Three hours later they hit a state they never planned for — the empty dashboard, the redirect after form submission, the screen you need when something fails — and they stop to figure it out from scratch, mid-build, under pressure.
 
 User flows are not wireframes. You are not designing anything yet.

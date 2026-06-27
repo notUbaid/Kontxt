@@ -1,5 +1,9 @@
 # Welcome to Kontxt
 
+🕒 **Estimated Time:** 5 Minutes
+
+---
+
 You have an idea for a SaaS product.
 
 Maybe it's been sitting in your notes for months. Maybe it came to you last week. Maybe you've already tried to build it once and stopped.

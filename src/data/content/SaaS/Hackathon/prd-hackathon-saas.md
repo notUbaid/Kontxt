@@ -1,5 +1,9 @@
 # PRD
 
+🕒 **Estimated Time:** 20 Minutes
+
+---
+
 A PRD — Product Requirements Document — is where your decisions become a document.
 
 You have already made the hard decisions. In Idea Definition, you locked the user, the problem, and the demo moment. In MVP Features, you bucketed every feature. This page is where you write all of that down in a format the whole team agrees on, that AI can read and use, and that you can reference when someone suggests adding a feature at midnight.

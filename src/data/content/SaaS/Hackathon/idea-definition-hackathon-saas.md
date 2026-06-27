@@ -1,5 +1,9 @@
 # Idea Definition
 
+🕒 **Estimated Time:** 15 Minutes
+
+---
+
 A good startup idea and a good hackathon idea are not the same thing.
 
 A startup idea needs to be true, defensible, and sustainable over years. You can spend months validating it.

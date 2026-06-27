@@ -1,5 +1,9 @@
 # Design System
 
+🕒 **Estimated Time:** 15 Minutes
+
+---
+
 Open any five hackathon projects from last year. They all look the same. Default blue buttons. Random font sizes. Cards that are slightly different shades of gray on different screens. A sidebar that uses 16px padding and a modal that uses 24px padding for no reason.
 
 None of this is intentional. It happened because each screen was built separately, styled in isolation, with no shared decisions. The product looks assembled, not designed.

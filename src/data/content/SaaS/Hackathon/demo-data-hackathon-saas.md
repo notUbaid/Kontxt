@@ -1,5 +1,9 @@
 # Demo Data
 
+🕒 **Estimated Time:** 15 Minutes
+
+---
+
 Demo data is not a last-minute task.
 
 It is a product decision.

@@ -1,5 +1,9 @@
 # Phase 3 · Backend
 
+🕒 **Estimated Time:** 30 Minutes
+
+---
+
 > **Mode: Hackathon** — Your backend is API routes, not a microservices architecture. Build the minimum that makes your frontend work. Ship fast.
 
 ---

@@ -1,5 +1,9 @@
 # Phase 2 · Database Schema
 
+🕒 **Estimated Time:** 20 Minutes
+
+---
+
 > **Mode: Hackathon** — Design your schema before writing a single query. AI generates significantly better code when it has a clear schema to reason about.
 
 The biggest time sink in hackathons isn't writing code — it's rewriting it because the schema was wrong. Spend 20 minutes here and save 3 hours later.

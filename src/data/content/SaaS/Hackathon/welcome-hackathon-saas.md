@@ -1,5 +1,9 @@
 # You Have Hours, Not Months
 
+🕒 **Estimated Time:** 5 Minutes
+
+---
+
 Most hackathon teams lose before they write a single line of code.
 
 Not because they can't build. Because they start building the wrong thing, don't realize it until hour 18, and spend the last 6 hours frantically pivoting into something half-finished that nobody asked for.

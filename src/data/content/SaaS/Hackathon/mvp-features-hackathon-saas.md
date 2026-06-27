@@ -1,5 +1,9 @@
 # MVP Features
 
+🕒 **Estimated Time:** 15 Minutes
+
+---
+
 Here is the thing nobody tells you at hackathons.
 
 You are not building a product. You are building a demo that implies a product.

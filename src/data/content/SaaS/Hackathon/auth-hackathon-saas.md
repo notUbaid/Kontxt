@@ -1,5 +1,9 @@
 # Phase 2 · Authentication
 
+🕒 **Estimated Time:** 15 Minutes
+
+---
+
 > **Mode: Hackathon** — Auth is infrastructure, not a feature. Get it working in 15 minutes and never think about it again.
 
 The goal is a working login flow before you write a single feature. Every hour you spend on auth is an hour not spent on what judges actually evaluate.

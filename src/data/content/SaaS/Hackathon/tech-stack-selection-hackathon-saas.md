@@ -1,5 +1,9 @@
 # Phase 2 · Tech Stack Selection
 
+🕒 **Estimated Time:** 15 Minutes
+
+---
+
 > **Mode: Hackathon** — Optimize for demo quality and time to working screen, not perfection.
 
 In a hackathon, the best stack isn't the most powerful — it's the one that lets you ship a polished demo in 24–48 hours. Every decision here compounds.

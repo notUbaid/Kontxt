@@ -1,5 +1,9 @@
 # Phase 3 · Frontend
 
+🕒 **Estimated Time:** 30 Minutes
+
+---
+
 > **Mode: Hackathon** — Judges spend 3 minutes on your demo. In that window, UI quality is the single biggest signal of competence. A beautiful, responsive, fast-feeling interface with fake data beats an ugly one with real data every time.
 
 This is the phase where hackathons are won or lost.

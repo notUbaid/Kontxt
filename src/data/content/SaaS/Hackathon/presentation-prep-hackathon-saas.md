@@ -1,5 +1,9 @@
 # Presentation Prep
 
+🕒 **Estimated Time:** 15 Minutes
+
+---
+
 You are not presenting a project.
 
 You are selling a vision to a panel of skeptics who have already seen eleven other demos today.

@@ -1,5 +1,9 @@
 # Demo Script
 
+🕒 **Estimated Time:** 15 Minutes
+
+---
+
 A demo script is not what you say.
 
 It is the exact sequence of clicks, words, and transitions you will perform — rehearsed until it feels natural but never improvised.

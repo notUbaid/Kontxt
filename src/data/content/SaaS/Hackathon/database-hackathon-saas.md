@@ -1,5 +1,9 @@
 # Phase 3 · Database
 
+🕒 **Estimated Time:** 20 Minutes
+
+---
+
 > **Mode: Hackathon** — Your schema is designed. Now wire it up, seed it with data, and never think about it again.
 
 This phase is execution, not design. Schema decisions belong in Phase 2. If you're making table changes here, stop — fix the schema first or you'll be migrating mid-build.

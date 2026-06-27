@@ -1,5 +1,9 @@
 # Submission Checklist
 
+🕒 **Estimated Time:** 5 Minutes
+
+---
+
 You've built the product. You've rehearsed the pitch.
 
 Now you have one job: submit correctly.
