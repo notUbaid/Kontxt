@@ -39,3 +39,21 @@ The markdown must never look like a generic GitHub readme. Every single HTML ele
 5. **Next Topic Navigation**: Ensure there is a highly visible, beautifully animated "Next Topic" button at the bottom of every document to guide the user seamlessly through the workflow.
 
 **Your ultimate goal as an agent is to make the platform feel like a high-end, $10,000/month enterprise tool.**
+
+---
+
+## The Zero-Context Workflow
+If the user tells you to "parse MD files" or you are starting a fresh session with no context, follow this exact workflow:
+
+1. **Locate the New Content**: The user drops new `.md` files into `src/data/content/<AppType>/<Mode>/`. Find them.
+2. **Run Cleanup Scripts**: Do NOT manually edit each file. Write a Node.js script in the `scratch/` folder to bulk-process the files:
+   - Strip emojis.
+   - Convert legacy callouts to `> [!TIP]` etc.
+   - Fix prompt blocks to use ````prompt`.
+   - Fix lists vs checklists.
+3. **Update the Taxonomy**: Go to `src/data/taxonomies/<appType>.ts` (e.g., `web.ts`, `saas.ts`).
+   - Ensure the new topics are added to the correct phase arrays.
+   - Ensure you use the exact `id` that matches the MD filename (without the `.md` extension).
+   - Ensure you import and use a fitting `lucide-react` icon.
+4. **Fix the UI**: Check `DocumentEditor.tsx`. If the new content introduces new markdown structures, intercept them in `react-markdown` and style them with our premium glassmorphism aesthetic.
+5. **Clear Caches**: The app uses local storage for document state (`useDocumentStore.ts`). If the user complains that content isn't updating, instruct them to click the **"Reset to Template"** button in the UI or manually clear `localStorage`. Do not chase ghost bugs caused by cached state.
