@@ -157,10 +157,10 @@ export const Onboarding = ({ projects, onCreateProject, onSelectProject, isAuthe
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
   const APP_TYPES: AppType[] = [
-    'SaaS', 'Mobile App', 'Web App', 'AI Tool', 'Browser Extension',
-    'Desktop App', 'API Product', 'Internal Tool', 'Marketplace', 'E-commerce', 'Game',
-    'Cyber Security (Offensive)', 'Cyber Security (Defensive)', 'Cyber Security (DevSecOps)',
-    'Web3 dApp', 'Data Pipeline'
+    'SaaS', 'Web App', 'Mobile App', 'AI Tool',
+    'E-commerce', 'Marketplace', 'Internal Tool', 'API Product',
+    'Web3 dApp', 'Data Pipeline', 'Browser Extension', 'Desktop App',
+    'Game', 'Cyber Security (Offensive)', 'Cyber Security (Defensive)', 'Cyber Security (DevSecOps)'
   ];
 
   const handleTypeSelect = (type: AppType) => {
