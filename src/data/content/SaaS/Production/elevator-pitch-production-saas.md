@@ -126,7 +126,7 @@ Use whatever you have. If you have nothing yet, lead with your credibility or yo
 
 ## AI Prompt: Elevator Pitch Variants
 
-```
+```prompt
 I need to write elevator pitch variants for a SaaS product.
 
 My solution statement: [paste from Solution Statement module]

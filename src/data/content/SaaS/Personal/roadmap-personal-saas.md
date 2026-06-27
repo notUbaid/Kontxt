@@ -85,7 +85,7 @@ LOW EFFORT ─────────┼───────── HIGH EFFORT
 
 Be honest about effort. Most solo builders underestimate effort by 3–5x.
 
-> **Tip:** When in doubt, cut. Shipping fewer things done well beats shipping many things done poorly.
+> [!TIP]** When in doubt, cut. Shipping fewer things done well beats shipping many things done poorly.
 
 ---
 

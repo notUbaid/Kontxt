@@ -18,10 +18,10 @@ For production SaaS, this also isn't optional politeness — enterprise customer
 ## Decision 1: The Four Pillars (Quick Mental Model)
 
 > **Decision Card — WCAG's Core Principles**
-> - **Perceivable** — can users perceive the content (contrast, text alternatives for images, captions)?
-> - **Operable** — can users operate it with a keyboard alone, with enough time, without seizure-inducing motion?
-> - **Understandable** — is language clear, are errors explained, is behavior predictable?
-> - **Robust** — does it work correctly with assistive technology (screen readers, voice control)?
+- **Perceivable** — can users perceive the content (contrast, text alternatives for images, captions)?
+- **Operable** — can users operate it with a keyboard alone, with enough time, without seizure-inducing motion?
+- **Understandable** — is language clear, are errors explained, is behavior predictable?
+- **Robust** — does it work correctly with assistive technology (screen readers, voice control)?
 
 You don't need to memorize WCAG's full spec. You need to check your product against these four questions at every phase.
 
@@ -29,7 +29,7 @@ You don't need to memorize WCAG's full spec. You need to check your product agai
 
 ## Decision 2: Keyboard Navigation
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > If a feature can't be fully operated with a keyboard alone — no mouse — it fails accessibility, full stop. This is the single most common failure in AI-generated UIs, because keyboard interaction isn't visually obvious in a screenshot.
 
 Checklist for every interactive screen:
@@ -56,7 +56,7 @@ Checklist for every interactive screen:
 
 ## Decision 4: Motion & Animation
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Respect the `prefers-reduced-motion` media query. Vestibular disorders make large animations and parallax effects genuinely harmful, not just distracting. Build your animation system to check this preference and fall back to instant or minimal transitions.
 
 ---
@@ -114,7 +114,7 @@ Code/component to review:
 - [ ] Reduced-motion preference is respected in any animation
 - [ ] You've tested at least the critical path with a screen reader once (VoiceOver on Mac, NVDA on Windows — both free)
 
-> 💡 **Tip**
+> [!TIP]
 > Automated tools (axe DevTools, Lighthouse) catch maybe 30–40% of real accessibility issues — contrast, missing labels, structural problems. They cannot catch whether your flow actually makes sense to someone using a screen reader. Run the automated check, then spend ten minutes actually navigating your critical path by keyboard alone.
 
 ---

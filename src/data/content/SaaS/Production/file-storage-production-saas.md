@@ -21,7 +21,7 @@ File uploads are a common source of production incidents — not because storing
 | Cloudflare R2 | No egress fees — meaningfully cheaper if you serve a lot of file downloads; S3-compatible API |
 | Supabase Storage | If you're already using Supabase for auth/database, simplest integration |
 
-> 💡 **Tip**
+> [!TIP]
 > Don't treat this as a major decision — these are largely interchangeable behind an abstraction in your backend. Pick based on what's already in your stack (from Tech Stack Selection) rather than researching extensively.
 
 ---
@@ -36,14 +36,14 @@ File uploads are a common source of production incidents — not because storing
 | Pre-signed direct upload | File never touches your server — saves bandwidth and server load; requires generating signed URLs with correct scoping |
 | Proxy through your backend | Simpler to add validation/virus scanning inline; uses your server's bandwidth and compute for every upload |
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Use pre-signed uploads for production, but still validate file type and size **before** issuing the signed URL (based on what the client declares) **and** re-verify on the storage side or via a post-upload check — never trust client-declared metadata as your only validation.
 
 ---
 
 ## Decision 3: Access Control on Files
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > **Default every bucket to private.** A public-by-default storage bucket is one of the most common real-world SaaS data leaks — customer documents, profile images meant to be private, or exported data accidentally become publicly accessible via a guessable or even just unguarded URL. Make "private" the only option unless a specific file is genuinely meant to be public (e.g., a public-facing avatar).
 
 For private files, serve them through **signed URLs with a short expiry** (minutes, not days), generated server-side after your authorization check confirms the requesting user can access that specific file.
@@ -58,7 +58,7 @@ Tie storage keys back to your tenancy model from Database Schema:
 /{workspace_id}/{resource_type}/{file_id}-{original_filename}
 ```
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Never let a file's storage key or access URL be guessable or sequential — apply the same reasoning here as you did for database IDs and API routes. And always verify the requesting user belongs to the `workspace_id` in the file's path before issuing a signed URL, exactly like every other tenant-scoped resource.
 
 This structure also makes workspace-level operations (export all files, delete all files on workspace deletion) straightforward — a clean prefix to operate on, rather than scattered keys with no tenant grouping.
@@ -72,7 +72,7 @@ This structure also makes workspace-level operations (export all files, delete a
 - [ ] **Rate limiting on uploads** — prevent a single account from exhausting storage or bandwidth
 - [ ] **Malware/virus scanning** — for any production SaaS accepting file uploads from users who might share files with others, scan uploads before they're accessible to anyone else
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Trusting a client-declared file extension or MIME type is a known attack vector — a malicious file can be renamed to look like an image. Validate based on actual file content where security matters (especially before allowing the file to be downloaded/opened by other users).
 
 ---
@@ -115,7 +115,7 @@ Flag anywhere this implementation would make a bucket or file path publicly acce
 - [ ] Uploads are rate-limited per user/workspace
 - [ ] You have a plan for malware scanning if users can share uploaded files with others
 
-> 💡 **Tip**
+> [!TIP]
 > Reuse the same authorization-checking function from Authorization & Roles here — file access is just another resource-permission check, not a separate system to design from scratch.
 
 ---

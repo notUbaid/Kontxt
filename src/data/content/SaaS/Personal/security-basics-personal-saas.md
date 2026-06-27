@@ -312,8 +312,7 @@ export async function deleteAccount(userId: string) {
   // Cancel Stripe subscription
   await cancelSubscription(userId)
 }
-```
-
+```prompt
 Write and test this function before launch. GDPR gives users the right to request deletion — you need to be able to fulfill it.
 
 ---

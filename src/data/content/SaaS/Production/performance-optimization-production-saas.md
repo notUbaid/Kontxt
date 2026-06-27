@@ -141,13 +141,13 @@ Every table that stores tenant data should have an index on `(organization_id, .
 The N+1 problem: you fetch 20 documents, then run 20 separate queries to get each document's author. That's 21 queries where 2 would do.
 
 ```typescript
-// ❌ N+1 — fetches 1 document list + N author queries
+//  N+1 — fetches 1 document list + N author queries
 const documents = await db.document.findMany({ where: { organizationId } });
 for (const doc of documents) {
   doc.author = await db.user.findUnique({ where: { id: doc.authorId } }); // N queries
 }
 
-// ✓ Single query with join
+//  Single query with join
 const documents = await db.document.findMany({
   where: { organizationId },
   include: { author: { select: { id: true, name: true, avatarUrl: true } } },
@@ -199,12 +199,12 @@ async function getDocuments(organizationId: string, cursor?: string, limit = 20)
 Each HTTP request carries fixed overhead: DNS lookup, TCP handshake, TLS negotiation, headers. Minimize the number of requests your frontend makes on page load.
 
 ```typescript
-// ❌ Three separate requests on dashboard load
+//  Three separate requests on dashboard load
 const user = await fetch('/api/user');
 const documents = await fetch('/api/documents');
 const notifications = await fetch('/api/notifications');
 
-// ✓ One request for everything needed on load
+//  One request for everything needed on load
 const dashboardData = await fetch('/api/dashboard');
 // Returns: { user, recentDocuments, unreadNotifications }
 ```
@@ -230,10 +230,10 @@ JSON APIs typically compress 60–80%. A 200KB response becomes 40KB. Enable com
 Only return fields the client actually needs.
 
 ```typescript
-// ❌ Returning full document including body for a list view
+//  Returning full document including body for a list view
 const documents = await db.document.findMany({ where: { organizationId } });
 
-// ✓ Select only what the list view renders
+//  Select only what the list view renders
 const documents = await db.document.findMany({
   where: { organizationId },
   select: {
@@ -382,7 +382,7 @@ Cache invalidation is hard to get right. When in doubt, use short TTLs (60–300
 
 Use this when you have real usage data and want to prioritize where to focus.
 
-```
+```prompt
 You are a senior performance engineer reviewing a SaaS application.
 
 Product context:
@@ -456,19 +456,19 @@ Be specific to my context and data volumes.
 
 ## Common Mistakes
 
-> **⚠️ Optimizing before measuring**
+> **️ Optimizing before measuring**
 > You will spend days optimizing the wrong thing. Run `pg_stat_statements` and Lighthouse first. The actual bottleneck is almost never where you assume it is.
 
-> **⚠️ Using OFFSET pagination on large tables**
+> **️ Using OFFSET pagination on large tables**
 > `OFFSET 10000 LIMIT 20` forces Postgres to read and discard 10,000 rows. At scale this becomes unusably slow. Switch to cursor-based pagination early.
 
-> **⚠️ Fetching full rows for list views**
+> **️ Fetching full rows for list views**
 > A documents list page doesn't need the document body. Selecting only the fields rendered in the UI can reduce query time and payload size by 80%+.
 
-> **⚠️ Adding infrastructure before fixing queries**
+> **️ Adding infrastructure before fixing queries**
 > A faster server still runs slow queries slowly. Fix your indexes and N+1 queries before considering horizontal scaling. It's cheaper and usually solves the problem entirely.
 
-> **⚠️ Caching without invalidation**
+> **️ Caching without invalidation**
 > A cache that returns stale data when it matters (wrong plan displayed, wrong permissions applied) is worse than no cache. Build the invalidation before you build the cache.
 
 ---

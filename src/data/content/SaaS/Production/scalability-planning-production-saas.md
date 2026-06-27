@@ -172,17 +172,17 @@ Stateless application servers are easy to scale — add more of them. The challe
 
 ```
 Stateless (easy to scale horizontally):
-  ✓ No in-memory session storage
-  ✓ No in-memory rate limit counters
-  ✓ No in-memory cache (use Redis instead)
-  ✓ No local file writes during request handling
-  ✓ No sticky sessions required
+   No in-memory session storage
+   No in-memory rate limit counters
+   No in-memory cache (use Redis instead)
+   No local file writes during request handling
+   No sticky sessions required
 
 Not stateless (must fix before scaling):
-  ✗ Sessions stored in server memory
-  ✗ Rate limiting using local memory
-  ✗ WebSocket connections that require sticky routing
-  ✗ File uploads written to local disk
+   Sessions stored in server memory
+   Rate limiting using local memory
+   WebSocket connections that require sticky routing
+   File uploads written to local disk
 ```
 
 If you've followed the recommendations in previous modules (Redis for caching and rate limiting, S3 for file storage), your application is likely already stateless.

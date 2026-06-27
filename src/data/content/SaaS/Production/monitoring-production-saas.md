@@ -319,7 +319,7 @@ Warning (Slack #alerts):
 
 ## AI Prompt — Monitoring Strategy Review
 
-```
+```prompt
 You are a senior SRE reviewing the monitoring strategy for a SaaS product.
 
 Product context:
@@ -385,19 +385,19 @@ Be specific to my stack and revenue model.
 
 ## Common Mistakes
 
-> **⚠️ Health check endpoint behind authentication**
+> **️ Health check endpoint behind authentication**
 > An authenticated health check that returns 401 when your session service is broken tells you nothing. Health checks must be public and dependency-aware.
 
-> **⚠️ Alerting on averages instead of percentiles**
+> **️ Alerting on averages instead of percentiles**
 > Average latency of 200ms can coexist with p99 latency of 8,000ms. 1% of your users are having a terrible experience. Always alert on p95 or p99.
 
-> **⚠️ Only monitoring infrastructure, not application behaviour**
+> **️ Only monitoring infrastructure, not application behaviour**
 > Your server can show green on CPU and memory while returning 500s to every user. Infrastructure metrics and application metrics are not the same thing. You need both.
 
-> **⚠️ `console.log` in production**
+> **️ `console.log` in production**
 > Unstructured logs can't be queried or alerted on. They fill up disk. They contain no context. Replace with structured logging before you go to production.
 
-> **⚠️ No on-call process**
+> **️ No on-call process**
 > An alert that fires to a Slack channel nobody watches at 3am is not monitoring. Define who gets paged, how, and what they should do. Even for a solo founder: set up PagerDuty to call your phone for critical alerts.
 
 ---

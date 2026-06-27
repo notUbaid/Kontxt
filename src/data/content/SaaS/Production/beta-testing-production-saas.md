@@ -91,12 +91,12 @@ Who you recruit determines what you learn. Bad beta users waste everyone's time.
 ### The Ideal Beta User
 
 ```
-✓ Experiences the problem you're solving regularly
-✓ Has tried existing solutions and found them wanting
-✓ Is willing to give honest, specific feedback (not just "looks great!")
-✓ Represents your ICP (Ideal Customer Profile)
-✓ Has a realistic use case — not a hypothetical one
-✓ Has time to engage with you during the beta period
+ Experiences the problem you're solving regularly
+ Has tried existing solutions and found them wanting
+ Is willing to give honest, specific feedback (not just "looks great!")
+ Represents your ICP (Ideal Customer Profile)
+ Has a realistic use case — not a hypothetical one
+ Has time to engage with you during the beta period
 ```
 
 ### Where to Find Them
@@ -124,15 +124,15 @@ Be honest about what they're signing up for.
 
 ```
 Be clear about:
-  ✓ This is a beta — bugs will exist
-  ✓ The time commitment expected (e.g. 30 min/week)
-  ✓ What you need from them (feedback calls, survey responses)
-  ✓ What they get in return (early access, pricing, direct influence on the roadmap)
+   This is a beta — bugs will exist
+   The time commitment expected (e.g. 30 min/week)
+   What you need from them (feedback calls, survey responses)
+   What they get in return (early access, pricing, direct influence on the roadmap)
 
 Never promise:
-  ✗ A finished product
-  ✗ Features that don't exist yet
-  ✗ More of your time than you can actually give
+   A finished product
+   Features that don't exist yet
+   More of your time than you can actually give
 ```
 
 ---
@@ -294,22 +294,22 @@ At the end of beta, you need a clear decision framework. "I feel like it's ready
 
 ```
 Product:
-  ✓ Activation rate > 60%
-  ✓ Week-2 retention > 30%
-  ✓ "Very disappointed" score ≥ 40% (or trending toward it)
-  ✓ No P0 or P1 bugs open
-  ✓ Core use case completable by a new user without assistance
+   Activation rate > 60%
+   Week-2 retention > 30%
+   "Very disappointed" score ≥ 40% (or trending toward it)
+   No P0 or P1 bugs open
+   Core use case completable by a new user without assistance
 
 Operations:
-  ✓ Payments processing correctly end-to-end
-  ✓ Support inbox manageable (not drowning before launch)
-  ✓ Monitoring and alerting active
-  ✓ Runbooks exist for known failure modes
+   Payments processing correctly end-to-end
+   Support inbox manageable (not drowning before launch)
+   Monitoring and alerting active
+   Runbooks exist for known failure modes
 
 Business:
-  ✓ At least one beta user would pay (or is paying)
-  ✓ Pricing validated — users understand the value exchange
-  ✓ You can articulate who this is for and why in one sentence
+   At least one beta user would pay (or is paying)
+   Pricing validated — users understand the value exchange
+   You can articulate who this is for and why in one sentence
 ```
 
 If you don't meet these criteria, you are not ready. Launch anyway and you will spend the next month fixing problems you could have identified in beta.

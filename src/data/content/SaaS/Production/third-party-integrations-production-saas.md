@@ -15,7 +15,7 @@ Every production SaaS depends on external services — payments, email, analytic
 
 ## Decision 1: Secrets Management
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > **Never commit API keys or secrets to your repository** — not even temporarily, not even in a private repo. Git history is forever; a key committed and removed in the next commit is still in history and should be treated as compromised. Use environment variables loaded from your hosting platform's secret management, never hardcoded values.
 
 - [ ] All API keys/secrets live in environment variables, not in code
@@ -46,7 +46,7 @@ This means switching providers later (or adding a fallback provider) is a change
 
 Many integrations (payments, email delivery status) communicate back to you via webhooks. These need specific, non-obvious handling:
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > **Always verify webhook signatures.** Every reputable provider signs webhook payloads with a secret you can verify. Skipping this means anyone who finds your webhook URL can send fake events — fake "payment succeeded" events, for instance, which is a direct path to a billing fraud vulnerability.
 
 - [ ] Verify the provider's signature on every incoming webhook before processing it
@@ -66,7 +66,7 @@ You already flagged single points of failure in your System Architecture Diagram
 | Email provider | Queue and retry — don't block account creation or other core flows on email delivery succeeding |
 | Analytics provider | Fail silently, log the failure — analytics should never block or degrade the core product experience |
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Categorize each integration as **critical-path** (the user is blocked if it fails) or **best-effort** (failure is logged but doesn't block the user). Most integrations should be best-effort; keep the critical-path list as short as possible.
 
 ---
@@ -106,7 +106,7 @@ Show me where in my codebase this wrapper should live, consistent with the domai
 - [ ] Each integration is explicitly classified as critical-path or best-effort, with defined failure behavior
 - [ ] You could swap a provider by changing one file, not searching the whole codebase
 
-> 💡 **Tip**
+> [!TIP]
 > This wrapper pattern is what makes Payments, Emails, and Notifications (coming up in Phase 3) fast to implement — you're applying the same abstraction, not designing a new pattern per integration.
 
 ---

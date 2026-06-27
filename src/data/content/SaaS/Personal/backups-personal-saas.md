@@ -185,8 +185,7 @@ Before launch, run through this once:
 4. Verify your app boots against the restored DB
 5. Spot-check 3–5 records to confirm data integrity
 6. Document the restore time (how long did it take?)
-```
-
+```prompt
 Write down the restore time. That number is your RTO — Recovery Time Objective. It tells you how long your app is down if the worst happens.
 
 ---

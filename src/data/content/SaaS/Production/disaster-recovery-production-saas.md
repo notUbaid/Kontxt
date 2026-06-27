@@ -83,8 +83,7 @@ Growth-stage (paying customers):
 Scale (enterprise contracts):
   RPO: 15 minutes  RTO: 1 hour
   Justification: SLA commitments and enterprise churn costs
-```
-
+```prompt
 Write these down. Share them with co-founders. They drive every other DR decision.
 
 ---
@@ -371,7 +370,7 @@ Expected values: [FILL IN YOUR BASELINE NUMBERS]
 ## 8. Communication Templates
 
 ### Internal (Slack #incidents)
-"🔴 INCIDENT DECLARED — [DESCRIPTION]
+" INCIDENT DECLARED — [DESCRIPTION]
 Impact: [WHAT IS DOWN]
 Started: [TIME]
 IC: [INCIDENT COMMANDER NAME]
@@ -415,22 +414,22 @@ An untested DR plan is a hypothesis. Test it.
 
 ```
 Monthly:
-  ✓ Restore a database backup to staging
-  ✓ Verify restored data is intact
-  ✓ Record restore duration (compare against RTO)
+   Restore a database backup to staging
+   Verify restored data is intact
+   Record restore duration (compare against RTO)
 
 Quarterly:
-  ✓ Full DR drill — simulate a specific disaster scenario
-  ✓ Follow the runbook exactly as written
-  ✓ Identify gaps between runbook and reality
-  ✓ Update runbook with what you learned
-  ✓ Rotate test participants (everyone should know how to recover)
+   Full DR drill — simulate a specific disaster scenario
+   Follow the runbook exactly as written
+   Identify gaps between runbook and reality
+   Update runbook with what you learned
+   Rotate test participants (everyone should know how to recover)
 
 Annually:
-  ✓ Review and update all RTO/RPO targets
-  ✓ Audit all credentials and access documented in runbook
-  ✓ Verify backup storage is accessible and not expired
-  ✓ Full region failover test (if applicable)
+   Review and update all RTO/RPO targets
+   Audit all credentials and access documented in runbook
+   Verify backup storage is accessible and not expired
+   Full region failover test (if applicable)
 ```
 
 Put these in a shared calendar with a named owner. They will not happen otherwise.
@@ -520,18 +519,18 @@ Disaster Recovery is the final topic in Phase 4 — Production Readiness.
 You have now covered:
 
 ```
-✓ Security
-✓ Performance Optimization
-✓ Monitoring
-✓ Logging
-✓ Error Tracking
-✓ Rate Limiting
-✓ Caching
-✓ Backups
-✓ CI/CD
-✓ Infrastructure
-✓ Disaster Recovery
-✓ Scalability Planning
+ Security
+ Performance Optimization
+ Monitoring
+ Logging
+ Error Tracking
+ Rate Limiting
+ Caching
+ Backups
+ CI/CD
+ Infrastructure
+ Disaster Recovery
+ Scalability Planning
 ```
 
 A SaaS with all of these in place is genuinely production-ready — not just deployed, but resilient, observable, and recoverable. Most products that fail in production do so because they skipped most of this list.

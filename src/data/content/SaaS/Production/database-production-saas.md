@@ -21,14 +21,14 @@ Database Schema (Phase 2) decided the shape of your data. This module is about i
 | Drizzle | Lighter weight, closer to SQL, strong typing, less "magic" | 
 | Raw SQL with a query builder (Kysely) | Maximum control and performance visibility; more manual work for relations and migrations |
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > For most production SaaS teams, **Prisma or Drizzle** are the standard choice — both give you type safety against your actual schema, which catches a large class of bugs (typos in column names, wrong types) at compile time rather than at runtime in production.
 
 ---
 
 ## Decision 2: Connection Pooling
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > **Database connections are a finite resource**, and this matters more than beginners expect — especially on serverless hosting, where every function invocation can open a new connection. Without pooling, a traffic spike can exhaust your database's connection limit and start rejecting connections, including from parts of your app that were working fine seconds earlier.
 
 - [ ] Use a connection pooler (PgBouncer, or your managed Postgres provider's built-in pooling — Supabase, Neon, and RDS Proxy all offer this) rather than connecting directly to Postgres from every server instance/function
@@ -46,7 +46,7 @@ You decided to use a migration tool in Database Schema. Now apply the workflow:
 > 3. Only after verifying it works as expected, run it against production
 > 4. Never hand-edit a production database schema outside this workflow, even for "a quick fix"
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Renaming or dropping a column is the most common migration danger — if your application code deploys *after* the migration runs (or vice versa), there's a window where running code doesn't match the schema. For anything destructive, prefer a two-step approach: add the new column, migrate code to use it, then remove the old column in a separate, later migration.
 
 ---
@@ -61,7 +61,7 @@ You decided to use a migration tool in Database Schema. Now apply the workflow:
 
 ## Decision 5: Preventing N+1 Queries
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > The N+1 query problem — fetching a list, then querying again for each item's related data in a loop — is the single most common ORM performance bug, and it's invisible at small scale (10 rows: 11 queries, barely noticeable) and serious at real scale (10,000 rows: 10,001 queries).
 
 - [ ] Use your ORM's eager-loading/`include` features to fetch related data in one query, not in a loop
@@ -71,7 +71,7 @@ You decided to use a migration tool in Database Schema. Now apply the workflow:
 
 ## Decision 6: Transactions for Multi-Step Writes
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Any operation that writes to multiple tables as one logical action (e.g., creating a workspace *and* its owner membership record) must happen inside a **database transaction**. If the second write fails after the first succeeds, without a transaction you're left with a workspace that has no owner — a partial, inconsistent state that's hard to recover from automatically.
 
 ---
@@ -111,7 +111,7 @@ Flag any place a migration would be destructive (column drop/rename) and suggest
 - [ ] Every multi-table write is wrapped in a transaction
 - [ ] Local development never touches real production/customer data
 
-> 💡 **Tip**
+> [!TIP]
 > Run your seed script regularly during development, not just once — it should be quick and repeatable so you're always testing against realistic, multi-tenant data instead of a hand-edited local database that's drifted from what production will actually look like.
 
 ---

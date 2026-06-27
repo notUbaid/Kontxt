@@ -18,13 +18,13 @@ Every architecture decision you've made in this phase has a cost attached to it.
 Go through your System Architecture Diagram and Third Party Integrations and list every line item:
 
 > **Decision Card — Cost Categories**
-> - **Hosting/compute** (your app server)
-> - **Database** (managed Postgres instance, scales with storage and connections)
-> - **Object storage + bandwidth** (file storage, plus egress costs — often the most underestimated line item)
-> - **Third-party services** (auth provider, email provider, payment processor fees, AI provider if applicable)
-> - **Monitoring/observability tools** (often free at low volume, cost scales with log/event volume)
+- **Hosting/compute** (your app server)
+- **Database** (managed Postgres instance, scales with storage and connections)
+- **Object storage + bandwidth** (file storage, plus egress costs — often the most underestimated line item)
+- **Third-party services** (auth provider, email provider, payment processor fees, AI provider if applicable)
+- **Monitoring/observability tools** (often free at low volume, cost scales with log/event volume)
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > **Bandwidth/egress costs are the most commonly underestimated line item.** A service that looks cheap based on compute pricing alone can become expensive once you account for data transfer out — especially for file-heavy SaaS products. Check egress pricing explicitly for every service that stores or serves files.
 
 ---
@@ -39,7 +39,7 @@ Don't estimate cost for "launch" alone — estimate at a few milestones so you c
 | Growth (hundreds–low thousands of users) | Where does a service's pricing tier require an upgrade? Is that jump gradual or a cliff? |
 | Scale (tens of thousands+) | Which costs scale per-user (predictable) vs. per-resource-consumed (less predictable, e.g., AI tokens, storage, email volume)? |
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > **Free tiers create cost cliffs, not gradual increases.** Many providers charge nothing up to a threshold and then a meaningfully higher rate immediately after. Know where those thresholds are for every service you depend on, so a usage spike doesn't produce a surprise bill.
 
 ---
@@ -59,7 +59,7 @@ This is especially important for any feature with variable, usage-based cost (AI
 - [ ] A single place (dashboard or recurring check) where you can see total spend across providers, not five separate billing pages you have to remember to check
 - [ ] Alert thresholds set meaningfully below "this is now a problem" — early warning, not just confirmation of an overrun that already happened
 
-> 💡 **Tip**
+> [!TIP]
 > The usage limits you defined in AI Architecture and Third Party Integrations (rate limits per user/workspace) are also cost-control mechanisms — they're not just abuse prevention, they're what keeps a single misbehaving account from generating a runaway bill.
 
 ---
@@ -76,7 +76,7 @@ This is especially important for any feature with variable, usage-based cost (AI
 
 ## AI Prompt: Build a Cost Estimate
 
-```
+```prompt
 Help me estimate infrastructure costs for a production SaaS at three scale points: 50 users, 1,000 users, 10,000 users.
 
 Services in use: [list your actual chosen providers from Tech Stack Selection and Third Party Integrations — hosting, database, storage, auth, email, payments, AI if applicable]
@@ -89,7 +89,7 @@ For each service:
 Then calculate estimated cost-to-serve per customer at the 1,000-user scale point, and compare it against my planned price of [your price] per customer per month.
 ```
 
-> 💡 **Tip**
+> [!TIP]
 > Since pricing for cloud and AI services changes frequently, have your AI tool search for current pricing rather than relying on its training data — provider pricing pages change often enough that even recent model knowledge can be stale.
 
 ---
@@ -103,7 +103,7 @@ Then calculate estimated cost-to-serve per customer at the 1,000-user scale poin
 - [ ] Billing alerts exist on every variable-cost provider
 - [ ] Usage limits from earlier modules are confirmed to double as cost controls, not just abuse prevention
 
-> 💡 **Tip**
+> [!TIP]
 > Revisit this estimate after Phase 3 development, once real usage patterns exist — early estimates are directional, not final, and should be checked against actual measured usage before you scale marketing spend or onboard large customers.
 
 ---

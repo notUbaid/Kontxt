@@ -45,18 +45,18 @@ Best for: Next.js, static sites, API routes, edge functions
 
 ```
 Pros:
-  ✓ Zero infrastructure management
-  ✓ Automatic scaling to zero and to millions
-  ✓ Global edge network included
-  ✓ Preview deployments per PR
-  ✓ Tightly integrated with modern frameworks
+   Zero infrastructure management
+   Automatic scaling to zero and to millions
+   Global edge network included
+   Preview deployments per PR
+   Tightly integrated with modern frameworks
 
 Cons:
-  ✗ Cold starts on infrequently called functions
-  ✗ Execution time limits (Vercel: 60s on Pro, 300s on Enterprise)
-  ✗ Vendor lock-in on routing and middleware
-  ✗ Costs can spike unpredictably at scale
-  ✗ No persistent connections (problematic for some databases)
+   Cold starts on infrequently called functions
+   Execution time limits (Vercel: 60s on Pro, 300s on Enterprise)
+   Vendor lock-in on routing and middleware
+   Costs can spike unpredictably at scale
+   No persistent connections (problematic for some databases)
 ```
 
 ### Platform-as-a-Service (Railway, Render, Fly.io)
@@ -65,17 +65,17 @@ Best for: Long-running servers, background workers, WebSockets, cron jobs
 
 ```
 Pros:
-  ✓ Runs any Docker container
-  ✓ Persistent connections to databases
-  ✓ WebSocket support
-  ✓ Background workers and cron jobs
-  ✓ Simpler than raw cloud providers
-  ✓ Predictable pricing
+   Runs any Docker container
+   Persistent connections to databases
+   WebSocket support
+   Background workers and cron jobs
+   Simpler than raw cloud providers
+   Predictable pricing
 
 Cons:
-  ✗ You manage container health and resource sizing
-  ✗ Less global edge presence than Vercel
-  ✗ More setup than pure serverless
+   You manage container health and resource sizing
+   Less global edge presence than Vercel
+   More setup than pure serverless
 ```
 
 ### Cloud Provider (AWS, GCP, Azure)
@@ -84,16 +84,16 @@ Best for: Complex infrastructure, compliance requirements, cost optimisation at 
 
 ```
 Pros:
-  ✓ Maximum control and flexibility
-  ✓ Every service imaginable
-  ✓ Best pricing at high scale
-  ✓ Compliance certifications available
+   Maximum control and flexibility
+   Every service imaginable
+   Best pricing at high scale
+   Compliance certifications available
 
 Cons:
-  ✗ Steep learning curve
-  ✗ Significant ops overhead
-  ✗ Easy to misconfigure security
-  ✗ Cost management is a full-time job without guardrails
+   Steep learning curve
+   Significant ops overhead
+   Easy to misconfigure security
+   Cost management is a full-time job without guardrails
 ```
 
 > **Recommended starting point for most SaaS:** Vercel (frontend + API routes) + Railway or Render (background workers, cron jobs) + managed database (Supabase, Neon, or PlanetScale). This gives you near-zero ops overhead, real scaling capability, and reasonable pricing through the first $50K MRR.
@@ -174,12 +174,12 @@ Your domain lives in DNS. This is often overlooked until it matters.
 
 ```
 Recommended: Cloudflare DNS
-  ✓ Free
-  ✓ Fastest DNS resolution globally
-  ✓ DDoS protection included
-  ✓ Analytics
-  ✓ Easy proxy and redirect rules
-  ✓ SSL certificates managed automatically
+   Free
+   Fastest DNS resolution globally
+   DDoS protection included
+   Analytics
+   Easy proxy and redirect rules
+   SSL certificates managed automatically
 ```
 
 Transfer your domain's nameservers to Cloudflare even if you host elsewhere. The DNS management and protection benefits are free.
@@ -374,13 +374,13 @@ Your on-call response starts with the uptime monitor. Everything else is diagnos
 Infrastructure security is a deep topic — the Security module covers it fully. The baseline for infrastructure:
 
 ```
-✓ No services exposed to the internet that don't need to be
-✓ Database not publicly accessible (only accessible from app servers)
-✓ All traffic over HTTPS (SSL termination at load balancer or CDN)
-✓ SSH access via key pair only — no password authentication
-✓ Principle of least privilege on all IAM roles and service accounts
-✓ Security groups / firewalls restrict inbound traffic to known ports
-✓ DDoS protection at CDN layer (Cloudflare free tier covers basics)
+ No services exposed to the internet that don't need to be
+ Database not publicly accessible (only accessible from app servers)
+ All traffic over HTTPS (SSL termination at load balancer or CDN)
+ SSH access via key pair only — no password authentication
+ Principle of least privilege on all IAM roles and service accounts
+ Security groups / firewalls restrict inbound traffic to known ports
+ DDoS protection at CDN layer (Cloudflare free tier covers basics)
 ```
 
 ---

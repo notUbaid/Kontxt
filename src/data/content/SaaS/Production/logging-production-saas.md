@@ -90,10 +90,10 @@ Auth events: always INFO regardless of volume
 **Never log plain strings in production.**
 
 ```javascript
-// ❌ Unstructured — unsearchable, unqueryable
+//  Unstructured — unsearchable, unqueryable
 console.log("User 12345 failed to login at 2:34pm")
 
-// ✅ Structured — filterable, queryable, alertable
+//  Structured — filterable, queryable, alertable
 logger.warn("auth.login.failed", {
   userId: "usr_12345",
   email: "user@example.com",

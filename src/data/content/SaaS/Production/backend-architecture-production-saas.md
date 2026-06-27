@@ -17,13 +17,13 @@ You already decided in Tech Stack Selection that this is a monolith. This module
 
 > **Decision Card — Three Layers, Every Feature**
 > Every feature should be split across three layers, regardless of how small it feels right now:
-> - **Route/Controller** — parses the request, calls a service, returns a response. No business logic here.
-> - **Service** — contains the actual business logic. Framework-agnostic, testable in isolation.
-> - **Data Access** — talks to the database. Nothing else should query the database directly.
+- **Route/Controller** — parses the request, calls a service, returns a response. No business logic here.
+- **Service** — contains the actual business logic. Framework-agnostic, testable in isolation.
+- **Data Access** — talks to the database. Nothing else should query the database directly.
 
 This isn't ceremony for its own sake — it's what makes business logic testable without spinning up an HTTP server, and what stops a database schema change from rippling through every route that happens to query that table directly.
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > The most common backend architecture failure in AI-assisted projects is the "fat controller" — a route handler that validates input, queries the database, applies business rules, and formats the response all inline. It works for the first feature. By the tenth feature, with no consistent pattern, every route looks different and bugs hide in the inconsistency.
 
 ---
@@ -63,7 +63,7 @@ This is the backend equivalent of the feature-based folder structure you chose i
 > 5. Input validation (reject malformed requests before they reach business logic)
 > 6. Route handler
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Authentication and tenant scoping must happen in middleware, applied consistently — never as a check duplicated (or forgotten) inside individual route handlers. A route that forgets the tenant check is a data leak between customers, and it's far easier to audit one middleware function than every route in the codebase.
 
 ---
@@ -79,7 +79,7 @@ Every API needs one consistent error response shape and one place that produces 
 | Not found | 404, generic message (don't leak whether a resource exists for another tenant) |
 | Unexpected/server error | 500, generic message to the client, full details logged server-side |
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Define one custom error class hierarchy (`ValidationError`, `NotFoundError`, `ForbiddenError`) that services throw, and one centralized error-handling middleware that converts them to the right HTTP response. Services should never know about HTTP status codes — that's the controller layer's job.
 
 ---
@@ -92,7 +92,7 @@ For anything async (from your System Architecture Diagram's queue box):
 - [ ] Jobs have a defined retry policy with backoff, not infinite immediate retries
 - [ ] Failed jobs are logged somewhere visible, not silently dropped
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Idempotency is the most-skipped concept in beginner background job design. If a "send welcome email" job retries after a transient failure and isn't idempotent, your user gets two welcome emails. If a "charge customer" job isn't idempotent, this becomes a billing incident, not a UX annoyance.
 
 ---
@@ -109,7 +109,7 @@ For anything async (from your System Architecture Diagram's queue box):
 
 ## AI Prompt: Scaffold a Backend Feature
 
-```
+```prompt
 Generate the backend implementation for the [feature name] feature in a production SaaS, following this architecture strictly:
 
 - Three layers: route/controller (no business logic), service (business logic, no HTTP knowledge), repository (database access only)
@@ -134,7 +134,7 @@ Flag anything where you had to guess at a missing architectural decision rather 
 - [ ] Any background job is idempotent and has a defined retry policy
 - [ ] Services never reference HTTP concepts (status codes, request/response objects)
 
-> 💡 **Tip**
+> [!TIP]
 > This layered structure and error-class hierarchy should be defined once, early, and referenced in every subsequent backend prompt — pasting the pattern once per session is far cheaper than letting AI reinvent the structure per feature.
 
 ---

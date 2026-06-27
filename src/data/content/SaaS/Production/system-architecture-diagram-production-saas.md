@@ -19,14 +19,14 @@ This is a high-level diagram. You're mapping boxes and connections, not class st
 
 > **Decision Card — Standard Production SaaS Components**
 > Map these, using your actual Tech Stack Selection decisions — not generic placeholders:
-> - **Client** (web app, and mobile if applicable)
-> - **CDN/Edge** (static assets, possibly edge functions)
-> - **Application server/API layer** (your monolith or backend service)
-> - **Database** (primary data store)
-> - **Cache** (Redis or similar, if you're using one)
-> - **Background job/queue system** (for async work — emails, exports, webhooks)
-> - **Third-party integrations** (payments, transactional email, auth provider, file storage)
-> - **Object storage** (user uploads, generated files)
+- **Client** (web app, and mobile if applicable)
+- **CDN/Edge** (static assets, possibly edge functions)
+- **Application server/API layer** (your monolith or backend service)
+- **Database** (primary data store)
+- **Cache** (Redis or similar, if you're using one)
+- **Background job/queue system** (for async work — emails, exports, webhooks)
+- **Third-party integrations** (payments, transactional email, auth provider, file storage)
+- **Object storage** (user uploads, generated files)
 
 If a box in your diagram doesn't correspond to a real decision you've already made, that's a sign you're inventing architecture instead of documenting it.
 
@@ -36,7 +36,7 @@ If a box in your diagram doesn't correspond to a real decision you've already ma
 
 This is the most important thing this diagram should make visible — and the thing most beginner diagrams miss entirely.
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Anything slow (sending email, processing a file, calling a third-party API that might be down) should not happen inline in a request a user is waiting on. Draw a clear line in your diagram between the **synchronous request path** (what the user waits for) and the **asynchronous path** (queued jobs, webhooks, scheduled tasks). If your diagram doesn't have a queue/background job box, you'll likely end up blocking user-facing requests on slow third-party calls.
 
 ---
@@ -49,7 +49,7 @@ Mark explicitly on the diagram:
 - [ ] Where the multi-tenant boundary is enforced (which layer checks "does this user belong to this workspace")
 - [ ] Which boxes are publicly reachable vs. internal-only
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Authentication and tenant-scoping should happen in exactly one place in your request path (typically middleware in your API layer), not re-implemented per route. Your diagram should make it obvious there's one gate, not many.
 
 ---
@@ -98,7 +98,7 @@ flowchart LR
 
 ## AI Prompt: Generate Your System Architecture Diagram
 
-```
+```prompt
 Generate a system architecture diagram in Mermaid syntax for a production SaaS, based strictly on these decisions — do not introduce components I haven't listed.
 
 Stack decisions:
@@ -127,7 +127,7 @@ Requirements:
 - [ ] No microservice complexity appears unless you deliberately chose that pattern
 - [ ] You could explain this diagram to another engineer in under two minutes
 
-> 💡 **Tip**
+> [!TIP]
 > Keep this diagram as a living reference, not a one-time artifact. Paste it into prompts for Backend Architecture, Database Schema, and API Design instead of re-describing your system from scratch each time.
 
 ---

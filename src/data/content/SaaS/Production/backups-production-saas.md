@@ -221,11 +221,11 @@ aws s3api put-bucket-lifecycle-configuration \
 
 ```
 Backup bucket must be:
-✓ Private (no public access)
-✓ Encrypted at rest (AES-256 or KMS)
-✓ In a different AWS account OR different region from primary
-✓ Access limited to a dedicated backup IAM role
-✗ Never accessible from your application's primary IAM role
+ Private (no public access)
+ Encrypted at rest (AES-256 or KMS)
+ In a different AWS account OR different region from primary
+ Access limited to a dedicated backup IAM role
+ Never accessible from your application's primary IAM role
 ```
 
 If your production environment is compromised and the attacker has your application's credentials, they should not be able to reach your backups. Separate accounts or separate credentials are essential.

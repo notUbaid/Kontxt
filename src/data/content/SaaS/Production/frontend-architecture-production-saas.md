@@ -23,7 +23,7 @@ Not every page in your SaaS should render the same way. Decide this per route ca
 | Authenticated dashboard pages | Server-rendered with client-side interactivity | Data is per-user, can't be statically cached; still want fast first paint |
 | Highly interactive views (live data, drag-and-drop) | Client-rendered after initial shell | Server rendering adds no value once it's all client-side state anyway |
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Don't make everything a client component by default just because it's the path of least resistance in a component-based framework. Over-using client components increases bundle size and pushes data-fetching waterfalls to the browser, slowing down the exact dashboard pages where users expect speed.
 
 ---
@@ -61,7 +61,7 @@ Shared, generic UI primitives live in one place (your Design System output). Fea
 | Client-side fetching with a cache library (TanStack Query, SWR) | Data that updates frequently, needs refetching, optimistic updates, or pagination |
 | Direct fetch in `useEffect` | Almost never — this pattern causes waterfalls, race conditions, and missing loading/error handling that a proper library already solves |
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Pick **one** client-side data fetching library (TanStack Query is the current standard) and use it everywhere you need client-side fetching. Mixing raw `fetch` calls, `useEffect`, and a cache library across different features is a common source of stale-data bugs.
 
 ---
@@ -75,7 +75,7 @@ Decide what kind of state goes where *before* you build, so it's not a per-featu
 - **Local UI state** (modal open/closed, form input before submit) → component state, nothing fancier needed
 - **Global client state** (current user, current workspace, theme) → a lightweight global store, only for things genuinely needed app-wide
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Don't reach for a global state library to solve a problem that's actually server state. The most common frontend architecture mistake in SaaS apps is duplicating server data into global state and then fighting to keep both in sync. Let your data-fetching library own server state entirely.
 
 ---
@@ -130,7 +130,7 @@ Do not default everything to client components — justify each rendering choice
 - [ ] A top-level error boundary and consistent loading states exist
 - [ ] You can name, for any given feature, exactly where its code should live
 
-> 💡 **Tip**
+> [!TIP]
 > This architecture doc becomes the context you paste at the start of every Phase 3 Frontend coding session — it keeps AI-generated code consistent with decisions made here instead of reinventing structure per feature.
 
 ---

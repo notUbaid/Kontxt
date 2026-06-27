@@ -20,12 +20,12 @@ Your job in this phase: make decisions precise enough that engineering never has
 Don't pick "a color." Define a system, or every future feature becomes a new ad-hoc color decision.
 
 > **Decision Card — Minimum Color System**
-> - **Primary** — main brand color, used for primary actions (buttons, links, focus states)
-> - **Neutral scale** — 5–9 grays for text, borders, backgrounds (this does most of the visual work in a SaaS UI)
-> - **Semantic colors** — success, warning, error, info (these matter more than people expect in a data-dense app)
-> - **Dark mode variants** — even if you ship dark mode later, decide now whether your color system needs to support it, because retrofitting a hardcoded light-only palette is expensive
+- **Primary** — main brand color, used for primary actions (buttons, links, focus states)
+- **Neutral scale** — 5–9 grays for text, borders, backgrounds (this does most of the visual work in a SaaS UI)
+- **Semantic colors** — success, warning, error, info (these matter more than people expect in a data-dense app)
+- **Dark mode variants** — even if you ship dark mode later, decide now whether your color system needs to support it, because retrofitting a hardcoded light-only palette is expensive
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Contrast isn't optional, it's an accessibility requirement (WCAG AA: 4.5:1 for normal text, 3:1 for large text). Check this *before* finalizing colors, not after a screen fails an audit.
 
 ---
@@ -38,7 +38,7 @@ Don't pick "a color." Define a system, or every future feature becomes a new ad-
 | Font source | A modern variable font (Inter, Geist, or similar) covers 90% of SaaS needs and is free, fast, and well-supported |
 | Sizing scale | Define a fixed type scale (e.g., 12/14/16/20/24/32px) now — this becomes the backbone of your Design System in the next module |
 
-> 💡 **Tip**
+> [!TIP]
 > Don't pick a font because it looks distinctive in a hero image. Pick one that stays legible at 12–14px, because that's where most of your SaaS UI text actually lives — table rows, labels, helper text.
 
 ---
@@ -51,7 +51,7 @@ For an MVP-stage production SaaS, you need exactly three logo assets, not a full
 - [ ] Icon-only mark for favicon, app sidebar, and small UI contexts
 - [ ] Social preview image (1200×630) for link unfurling
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > If design isn't your strength, a clean wordmark in your chosen typeface is a perfectly legitimate production logo. A generic, professional mark beats an elaborate one that doesn't scale down to a 16px favicon.
 
 ---
@@ -104,7 +104,7 @@ Do not generate a tagline, mission statement, or marketing copy. Keep output to 
 - [ ] Voice/tone decision is written down somewhere your team (or future AI prompts) can reference
 - [ ] You spent hours on this, not days — if you're iterating on logo concepts for a week, you've over-invested at this stage
 
-> 💡 **Tip**
+> [!TIP]
 > Save the color hex values and font name as plain text — you'll paste them directly into your Design System prompt next, instead of re-describing your brand from memory.
 
 ---

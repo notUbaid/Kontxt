@@ -23,7 +23,7 @@ Skipping wireframes and jumping straight to high-fidelity UI is the most common 
 | Mid-fidelity | Grayscale, real components, no brand styling | Confirming component structure before handoff to design system |
 | High-fidelity | Final colors, fonts, spacing | After Branding + Design System are decided |
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Stay at **low-to-mid fidelity** in this phase. Production teams that jump to high-fidelity wireframes end up re-skinning everything once branding decisions land — duplicated work, guaranteed.
 
 ---
@@ -37,7 +37,7 @@ Wireframe in this order, not screen-by-screen as features come to mind:
 3. **Settings screens** — account, workspace, billing (these mirror the separation you made in Information Architecture).
 4. Everything else, only if it's in your MVP feature list.
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > If a screen isn't on your MVP feature list from Phase 0, don't wireframe it yet. Wireframing non-MVP screens is scope creep disguised as productivity.
 
 ---
@@ -47,10 +47,10 @@ Wireframe in this order, not screen-by-screen as features come to mind:
 This is what separates production wireframes from beginner wireframes. Every screen showing data needs **four states**, not one:
 
 > **Decision Card — Required States**
-> - **Empty state** — first-time use, zero data. (What does a brand-new workspace's dashboard actually show?)
-> - **Loading state** — data is fetching. (Skeleton? Spinner? Matters for perceived performance.)
-> - **Populated state** — the "happy path" screen most people only wireframe.
-> - **Error state** — request failed, permission denied, or resource not found.
+- **Empty state** — first-time use, zero data. (What does a brand-new workspace's dashboard actually show?)
+- **Loading state** — data is fetching. (Skeleton? Spinner? Matters for perceived performance.)
+- **Populated state** — the "happy path" screen most people only wireframe.
+- **Error state** — request failed, permission denied, or resource not found.
 
 Skipping empty and error states is the single most common wireframing gap. It's also where AI tools default to skipping, because the happy path is the "obvious" answer.
 
@@ -77,7 +77,7 @@ For most B2B SaaS dashboards, desktop is the primary use case — but you still 
 | Mobile-first | Consumer-facing SaaS, anything used on the go |
 | Desktop-only (explicitly) | Niche B2B tools where mobile use is genuinely rare — state this decision explicitly so engineering doesn't over-invest in responsive CSS unnecessarily |
 
-> 💡 **Tip**
+> [!TIP]
 > Decide this explicitly and write it down. "We'll handle responsiveness later" quietly becomes "we never did," and retrofitting responsive layouts onto a desktop-only component structure is far more expensive than designing for it now.
 
 ---
@@ -126,7 +126,7 @@ Do not suggest colors, fonts, or branding. Do not invent screens outside the rou
 - [ ] No colors, fonts, or branding decisions appear yet
 - [ ] Mobile/responsive approach is an explicit decision, not an unstated assumption
 
-> 💡 **Tip**
+> [!TIP]
 > Keep this output handy for **Branding** and **Design System** — you'll apply visual styling directly onto this structure rather than starting over.
 
 ---

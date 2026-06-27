@@ -66,7 +66,7 @@ Notice that "strong" doesn't mean "long." It means precise.
 Before you write yours, know which type of value you're offering. This shapes the entire product strategy.
 
 <details>
-<summary><strong>🔵 Cost Reduction</strong> — "We make this cheaper"</summary>
+<summary><strong> Cost Reduction</strong> — "We make this cheaper"</summary>
 
 You're solving an existing, known problem at a lower cost than incumbents.
 
@@ -79,7 +79,7 @@ You're solving an existing, known problem at a lower cost than incumbents.
 </details>
 
 <details>
-<summary><strong>🟢 Time Savings</strong> — "We make this faster"</summary>
+<summary><strong> Time Savings</strong> — "We make this faster"</summary>
 
 You're collapsing a slow, painful manual process into something automated or significantly faster.
 
@@ -92,7 +92,7 @@ You're collapsing a slow, painful manual process into something automated or sig
 </details>
 
 <details>
-<summary><strong>🟡 Capability Unlock</strong> — "We let you do things you couldn't before"</summary>
+<summary><strong> Capability Unlock</strong> — "We let you do things you couldn't before"</summary>
 
 You're giving users access to something previously unavailable — technical capability, data, reach, or expertise.
 
@@ -105,7 +105,7 @@ You're giving users access to something previously unavailable — technical cap
 </details>
 
 <details>
-<summary><strong>🔴 Outcome Improvement</strong> — "We make you better at your job"</summary>
+<summary><strong> Outcome Improvement</strong> — "We make you better at your job"</summary>
 
 You're increasing the quality of results, not just the speed or cost.
 
@@ -147,9 +147,9 @@ Fill in this sentence and iterate until it feels true:
 
 Examples:
 
-❌ "After using our platform, users can access our dashboard."
+ "After using our platform, users can access our dashboard."
 
-✅ "After using our product, sales managers can see which deals are actually at risk before they miss their quarter — without waiting for reps to update CRM manually."
+ "After using our product, sales managers can see which deals are actually at risk before they miss their quarter — without waiting for reps to update CRM manually."
 
 ---
 

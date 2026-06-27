@@ -32,12 +32,12 @@ Most SaaS applications need at least two types of search. Knowing which type you
 Before writing a line of code, map your search surface.
 
 > **Questions to answer:**
-> - What entities can users search? (e.g. contacts, documents, orders, projects)
-> - Does search cross ownership boundaries? (user A should never see user B's results)
-> - Do users expect typo tolerance?
-> - Do you need faceted filtering (filter by status, date range, tag)?
-> - Do you need search *within* documents or file content?
-> - Does search need to be real-time as a user types?
+- What entities can users search? (e.g. contacts, documents, orders, projects)
+- Does search cross ownership boundaries? (user A should never see user B's results)
+- Do users expect typo tolerance?
+- Do you need faceted filtering (filter by status, date range, tag)?
+- Do you need search *within* documents or file content?
+- Does search need to be real-time as a user types?
 
 Your answers here determine whether Postgres is enough or whether you need Algolia/Typesense.
 
@@ -100,11 +100,11 @@ LIMIT 20;
 Typesense is open-source, self-hostable, and free. It's what you should reach for when Postgres isn't enough. Algolia has the same API shape but charges per search operation — acceptable for high-value SaaS, expensive at scale.
 
 > **Why Typesense over Algolia for most SaaS:**
-> - Self-hosted = no per-search cost
-> - Full API compatibility with Algolia client SDKs
-> - Typo-tolerant by default
-> - Instant faceted filtering
-> - Sub-10ms queries on millions of records
+- Self-hosted = no per-search cost
+- Full API compatibility with Algolia client SDKs
+- Typo-tolerant by default
+- Instant faceted filtering
+- Sub-10ms queries on millions of records
 
 ### The Sync Problem
 
@@ -278,7 +278,7 @@ Either run parallel queries per type or use Typesense's multi-search API. Show r
 
 Use this after you've sketched your initial search plan.
 
-```
+```prompt
 You are a senior backend engineer reviewing a search implementation plan for a SaaS product.
 
 Product context:
@@ -349,19 +349,19 @@ Be direct and specific. If the plan is appropriate, say so — don't pad the rev
 
 ## Common Mistakes
 
-> **⚠️ Skipping tenant isolation**
+> **️ Skipping tenant isolation**
 > Building search before scoping by organization is how data leaks happen. Add the WHERE clause first, before any query logic.
 
-> **⚠️ Syncing inline**
+> **️ Syncing inline**
 > Writing to Typesense/Algolia inside your HTTP handler means a search engine outage breaks your writes. Always use a queue.
 
-> **⚠️ Indexing everything**
+> **️ Indexing everything**
 > Don't index fields users never search. Every indexed field increases index size and sync cost. Be deliberate about what goes into the search document.
 
-> **⚠️ Treating search as a feature**
+> **️ Treating search as a feature**
 > Search is infrastructure. Treat it like your database — monitor it, measure query times, test it with realistic data volumes before launch.
 
-> **⚠️ No backfill plan**
+> **️ No backfill plan**
 > When you add a new field to your search schema, you need to re-index all existing records. Build the backfill job before you need it.
 
 ---

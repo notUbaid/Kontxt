@@ -15,7 +15,7 @@ Payments is where a subtle bug becomes a billing incident, not just a UX issue. 
 
 ## Decision 1: Payment Processor
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Default to **Stripe** for production SaaS billing. It's the industry standard for a reason: mature subscription primitives, a hosted checkout that keeps raw card data off your servers entirely, and a customer portal you don't have to build yourself.
 
 ---
@@ -28,7 +28,7 @@ Payments is where a subtle bug becomes a billing incident, not just a UX issue. 
 | Seat-based | Value scales with team size — common for collaboration tools |
 | Usage-based | Value scales with consumption (API calls, storage, AI tokens) — more complex to implement and to explain to customers |
 
-> 💡 **Tip**
+> [!TIP]
 > Start with the simplest model that reflects your value — usually flat-rate tiers or seat-based. Usage-based billing adds real implementation complexity (metering, proration edge cases) that's only worth it once your cost-to-serve genuinely scales with usage, which you should already know from Cost Estimation.
 
 ---
@@ -42,7 +42,7 @@ Payments is where a subtle bug becomes a billing incident, not just a UX issue. 
 
 ## Decision 4: Webhooks Are Your Source of Truth
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > **Never grant access based solely on the client-side redirect after checkout.** A user landing on your "success" page after Stripe Checkout is a UX signal, not a payment confirmation — the redirect can happen before your backend has confirmed payment, and a user could even reach that URL without paying (e.g., a browser back button, a flaky network). Grant or update access **only** when you receive and verify the corresponding webhook event (`checkout.session.completed`, `invoice.paid`, etc.).
 
 This connects directly to your Third Party Integrations webhook handling: verify the signature, process idempotently (a webhook can be delivered more than once), and update your local subscription record from the event — not from anything the client told you.
@@ -67,14 +67,14 @@ This connects directly to your Third Party Integrations webhook handling: verify
 
 ## Decision 7: Test Mode vs. Live Mode
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Stripe test and live mode use **entirely separate API keys and webhook signing secrets.** Mixing them — accidentally using a live key in staging, or a test webhook secret in production — either silently fails or, worse, processes real charges somewhere you didn't intend. Keep these clearly separated in your environment variable setup per environment (tie back to Third Party Integrations secrets management).
 
 ---
 
 ## Decision 8: Customer Self-Service
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Use Stripe's **Customer Portal** for self-service plan changes, payment method updates, and invoice history, rather than building this UI yourself. It's a significant amount of UI and edge-case handling you don't need to build, test, or maintain.
 
 ---
@@ -118,7 +118,7 @@ Show the webhook handler and the database update logic explicitly — I want to 
 - [ ] Customer self-service billing uses Stripe's Customer Portal, not custom-built UI
 - [ ] You've tested the failure path (declined card) as carefully as the success path
 
-> 💡 **Tip**
+> [!TIP]
 > Use Stripe's CLI to forward webhook events to your local environment during development — this lets you test the full webhook-driven flow before deploying, rather than discovering webhook bugs for the first time in production.
 
 ---

@@ -213,7 +213,7 @@ Be specific. If you don't know something, say so rather than speculating.
 I will verify everything you produce before relying on it.
 ```
 
-⚠️ **AI has a training cutoff.** It will not know about products launched recently, recent funding rounds, or live pricing pages. Use AI output as a starting map, then verify every specific claim against live sources.
+️ **AI has a training cutoff.** It will not know about products launched recently, recent funding rounds, or live pricing pages. Use AI output as a starting map, then verify every specific claim against live sources.
 ```
 
 ---

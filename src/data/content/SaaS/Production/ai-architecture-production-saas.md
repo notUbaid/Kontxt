@@ -17,14 +17,14 @@ If your product does include an AI feature (summarization, generation, chat, cla
 
 ## Decision 1: Where AI Calls Happen
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > **Never call an LLM provider's API directly from the client with your API key embedded.** This is the AI-era equivalent of committing a secret to your repo — anyone can extract the key from client-side code and run up usage on your account. All AI provider calls must go through your backend, where the key stays server-side.
 
 ---
 
 ## Decision 2: Provider Abstraction
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Apply the same pattern from Third Party Integrations: wrap your AI provider behind your own interface (`aiService.summarize(text)`), not scattered direct SDK calls. Model capabilities and pricing change frequently — an abstraction layer means swapping models or providers is a contained change, not a rewrite.
 
 ---
@@ -43,18 +43,18 @@ Treat prompts as part of your codebase, not inline magic strings:
 
 > **Decision Card — AI Features Need Their Own Rate Limits**
 > AI API costs scale with usage in a way most other infrastructure doesn't. Decide, before launch:
-> - A per-user or per-workspace usage limit (e.g., N AI requests per day on a given plan tier)
-> - Monitoring/alerting on unexpected cost spikes
-> - Caching for repeated/identical requests where the output doesn't need to be fresh every time
+- A per-user or per-workspace usage limit (e.g., N AI requests per day on a given plan tier)
+- Monitoring/alerting on unexpected cost spikes
+- Caching for repeated/identical requests where the output doesn't need to be fresh every time
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Shipping an AI feature with no usage limit is one of the most common production cost incidents in AI-powered SaaS — a bug causing repeated calls, or simply heavier-than-expected usage, can turn into a large bill before anyone notices. Set a limit before launch, not after the first invoice surprises you.
 
 ---
 
 ## Decision 5: Validating AI Output
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Never let AI output directly trigger a sensitive action (a database write, a payment, a permission change) without passing through your normal validation and authorization layers. AI output should be treated like any other untrusted input — validated, never blindly executed.
 
 - [ ] If you expect structured output (JSON), validate it against a schema before using it — don't assume the model always returns well-formed output
@@ -113,7 +113,7 @@ Show the wrapper interface and where it fits in the domain-based folder structur
 - [ ] AI output never directly triggers a sensitive action without passing through normal authorization
 - [ ] The feature is classified as critical-path or best-effort, with defined fallback behavior
 
-> 💡 **Tip**
+> [!TIP]
 > If this module doesn't apply to your product, skip straight to Cost Estimation — don't force an AI feature into your architecture just because the option exists.
 
 ---

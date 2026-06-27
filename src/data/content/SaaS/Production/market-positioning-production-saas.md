@@ -41,8 +41,8 @@ Every positioning strategy answers the same four questions. Answer them in order
 
 Not a demographic. A person with a specific job, a specific context, and a specific frustration.
 
-❌ "Small businesses"
-✅ "Operations managers at e-commerce brands doing $1M–$10M in annual revenue"
+ "Small businesses"
+ "Operations managers at e-commerce brands doing $1M–$10M in annual revenue"
 
 The more precisely you name your user, the more that user feels like the product was built for them. Specificity is not exclusion — it's magnetism. The right users self-select in. The wrong ones self-select out. That's efficient.
 

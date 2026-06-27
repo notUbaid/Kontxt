@@ -22,7 +22,7 @@ Notifications exist to tell users something happened without making them go look
 | Critical regardless of presence | Email always, in-app as well |
 | Low-priority, informational | Batch into a digest rather than individual notifications |
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Don't default every event to "send a notification." Notification fatigue is real — if everything is notified, users stop reading notifications altogether, including the important ones. Be deliberate about which events actually warrant interrupting the user.
 
 ---
@@ -42,14 +42,14 @@ notifications
   created_at
 ```
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Store a `type` and structured `payload` rather than a pre-rendered message string. This lets you change the displayed wording later without a data migration, and lets the frontend render different notification types with different UI treatments from the same table.
 
 ---
 
 ## Decision 3: Decouple Notification Creation from the Triggering Action
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Don't create a notification inline as a side effect buried inside an unrelated service function (e.g., the invoice payment handler directly writing a notification row). This couples unrelated concerns and makes it easy to forget notifications when the triggering logic changes. Instead, emit an event or enqueue a background job, and have a dedicated notification handler create the actual notification — consistent with the async patterns from Backend Architecture.
 
 This also makes it easy to add new notification types later without modifying the original triggering code.
@@ -63,7 +63,7 @@ This also makes it easy to add new notification types later without modifying th
 | Poll on an interval (e.g., every 30–60s) or refetch-on-focus | Default choice — simple, no infrastructure overhead, sufficient for most notification urgency levels |
 | Server-Sent Events / WebSockets | Only if you need true real-time badge updates (e.g., a live collaboration product where seconds matter) |
 
-> 💡 **Tip**
+> [!TIP]
 > Revisit your State Management decision here — if you already decided you don't need real-time infrastructure, polling/refetch-on-focus for the notification count is almost always sufficient. Don't add WebSocket complexity for a notification bell.
 
 ---
@@ -129,7 +129,7 @@ Flag any event from my list that you think shouldn't generate an individual noti
 - [ ] Users can opt out of non-critical notification types per channel
 - [ ] You've deliberately chosen which events generate a notification — not "all of them by default"
 
-> 💡 **Tip**
+> [!TIP]
 > Review your notification types list after a few weeks of real usage. It's common to over-notify at launch and need to dial back — treat this as expected iteration, not a design failure.
 
 ---

@@ -26,7 +26,7 @@ You already chose a data-fetching library (likely TanStack Query) in Frontend Ar
 | Cache invalidation after mutation | Invalidate the specific query keys affected, not the entire cache — broad invalidation causes unnecessary refetches and UI flicker |
 | Optimistic updates | Use for actions where instant feedback matters (toggling a checkbox, sending a message) — but always have a rollback path if the mutation fails |
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Optimistic updates without a rollback path are worse than no optimistic update at all — the UI shows success, then silently reverts or stays wrong when the request actually fails. Only add optimism once you've handled the failure case.
 
 ---
@@ -40,10 +40,10 @@ You already chose a data-fetching library (likely TanStack Query) in Frontend Ar
 | Redux Toolkit | Large teams with complex, highly-interdependent state and a need for strict patterns/devtools | More ceremony than most SaaS apps actually need |
 | Jotai | Fine-grained atomic state, good for complex interdependent UI state | Smaller ecosystem than Zustand |
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > For most production SaaS apps, **Zustand** hits the right balance: minimal boilerplate, good performance characteristics, and it doesn't tempt you to put server data into it the way Redux's "single source of truth" framing sometimes does.
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Whatever you choose, this store should hold genuinely global UI/session state only — current workspace ID, sidebar collapsed/expanded, theme. It should never hold a copy of data your server-state library already caches. If you find yourself manually syncing the two, that's the signal something's in the wrong place.
 
 ---
@@ -54,8 +54,8 @@ Forms deserve their own pattern, separate from general component state — produ
 
 > **Decision Card**
 > Pair a form library with a schema validation library:
-> - **React Hook Form** for form state, field registration, and submission handling
-> - **Zod** for schema validation — define the schema once, use it for both client-side validation and (ideally) server-side validation of the same payload
+- **React Hook Form** for form state, field registration, and submission handling
+- **Zod** for schema validation — define the schema once, use it for both client-side validation and (ideally) server-side validation of the same payload
 
 This pairing means your validation rules are defined once, not duplicated between frontend and backend with the risk of drift.
 
@@ -65,7 +65,7 @@ This pairing means your validation rules are defined once, not duplicated betwee
 
 For filters, pagination, selected tabs, and search queries — keep this in the URL, not in component state. A lightweight library (e.g., `nuqs` for Next.js) gives you typed search params without manually parsing query strings.
 
-> 💡 **Tip**
+> [!TIP]
 > If a piece of state should survive a page refresh or be shareable via a link (a filtered table view, a specific tab), it almost certainly belongs in the URL, not in React state.
 
 ---
@@ -80,7 +80,7 @@ Only address this if your MVP genuinely requires live updates (collaborative edi
 | Bidirectional, low-latency (collaborative editing, chat) | WebSockets, or a managed real-time provider |
 | No real-time requirement | Skip this entirely — polling or refetch-on-focus via your data-fetching library is sufficient and far simpler |
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Don't add WebSocket infrastructure because real-time "feels production-grade." It adds meaningful operational complexity (connection management, scaling, reconnection logic). Add it only when a specific MVP feature genuinely requires it.
 
 ---
@@ -128,7 +128,7 @@ Do not put server data into the global store. Do not suggest real-time/WebSocket
 - [ ] Filter/pagination/tab state lives in the URL, not component state
 - [ ] Real-time infrastructure exists only if a specific feature requires it
 
-> 💡 **Tip**
+> [!TIP]
 > Keep your query key list and global store shape documented — you'll reference both directly during Phase 3 Frontend implementation instead of re-deriving them per feature.
 
 ---

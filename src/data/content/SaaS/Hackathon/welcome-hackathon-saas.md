@@ -99,7 +99,7 @@ If a topic feels obvious for your project, skip it. Kontxt is a guide, not a gat
 
 If a topic produces a decision you're unsure about, flag it and keep moving. Paralysis is more dangerous than a slightly wrong choice right now. You can fix decisions. You can't recover lost time.
 
->  **One warning:** The AI prompts in Kontxt are designed to be used *after* you've made your decisions, not instead of making them. Don't outsource your thinking to Claude before you've done the thinking yourself. That's how you end up with a technically impressive app that solves a problem nobody has.
+>  **One warning:** The AI prompts in Kontxt are designed to be used *after* you've made your decisions, not instead of making them. Don't outsource your thinking to Kontxt before you've done the thinking yourself. That's how you end up with a technically impressive app that solves a problem nobody has.
 
 ---
 

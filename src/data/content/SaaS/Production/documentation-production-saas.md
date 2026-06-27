@@ -68,12 +68,12 @@ The rule: **write from the user's goal, not the product's features.**
 Users don't think "I need to use the Document Settings panel." They think "I need to change who can see this document."
 
 ```
-❌ Feature-centric (bad)
+ Feature-centric (bad)
 Title: Document Settings Panel
 Content: The Document Settings panel can be accessed by clicking the gear icon.
 It contains the following options: Visibility, Collaborators, Version History...
 
-✓ Goal-centric (good)
+ Goal-centric (good)
 Title: Control who can see a document
 Content: By default, documents are only visible to your team. To share with
 someone outside your organization, open the document, click Share, and choose
@@ -261,7 +261,7 @@ npm run test:e2e      # end-to-end (requires dev server running)
 
 Use this once you have a first draft of any doc type.
 
-```
+```prompt
 You are a senior technical writer reviewing documentation for a SaaS product.
 
 Product context:
@@ -316,19 +316,19 @@ Be specific. Quote the parts that need improvement.
 
 ## Common Mistakes
 
-> **⚠️ Writing docs nobody reads**
+> **️ Writing docs nobody reads**
 > Docs written before you know your users' actual questions are guesswork. Use support tickets and user interviews to find out what's confusing, then write those pages first.
 
-> **⚠️ Hand-maintaining API docs**
+> **️ Hand-maintaining API docs**
 > An API doc that's out of sync with the actual API is worse than no docs. Generate from code or use a tool that enforces sync. Manual maintenance always drifts.
 
-> **⚠️ Internal docs in too many places**
+> **️ Internal docs in too many places**
 > Notion for some things, Confluence for others, Google Docs for others, random Markdown files in repos. Nobody knows where to look. Pick one tool for internal docs and enforce it.
 
-> **⚠️ Burying the getting started guide**
+> **️ Burying the getting started guide**
 > If a new user can't find "how do I get started?" within 10 seconds of landing on your docs, you have a navigation problem. The getting started guide is always one click from the homepage.
 
-> **⚠️ Documenting every feature instead of every workflow**
+> **️ Documenting every feature instead of every workflow**
 > Users want to accomplish goals, not learn features. Document workflows ("how do I invite my team") not UI panels ("the Settings page").
 
 ---

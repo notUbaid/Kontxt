@@ -32,7 +32,7 @@ Vague answers here produce vague products. "We're better because we're simpler" 
 Before you analyze anything, understand what you're looking for. Competitive advantage in SaaS lives in four places:
 
 <details>
-<summary><strong>🔵 Product Advantage</strong> — You do something they can't or don't</summary>
+<summary><strong> Product Advantage</strong> — You do something they can't or don't</summary>
 
 A capability, integration, workflow, or UX decision that users want and competitors don't offer.
 
@@ -43,7 +43,7 @@ A capability, integration, workflow, or UX decision that users want and competit
 </details>
 
 <details>
-<summary><strong>🟢 Distribution Advantage</strong> — You reach users they can't</summary>
+<summary><strong> Distribution Advantage</strong> — You reach users they can't</summary>
 
 A channel, community, partnership, or go-to-market motion that gives you access to users competitors don't have.
 
@@ -54,7 +54,7 @@ A channel, community, partnership, or go-to-market motion that gives you access 
 </details>
 
 <details>
-<summary><strong>🟡 Positioning Advantage</strong> — You own a category or identity they don't</summary>
+<summary><strong> Positioning Advantage</strong> — You own a category or identity they don't</summary>
 
 You've defined yourself as the clear choice for a specific user type so precisely that competitors feel generic by comparison.
 
@@ -65,7 +65,7 @@ You've defined yourself as the clear choice for a specific user type so precisel
 </details>
 
 <details>
-<summary><strong>🔴 Operational Advantage</strong> — You move faster, cost less, or serve better</summary>
+<summary><strong> Operational Advantage</strong> — You move faster, cost less, or serve better</summary>
 
 Speed of iteration, support quality, onboarding experience, or price-to-value ratio that incumbents structurally can't match.
 
@@ -125,18 +125,18 @@ Build yours now. Rows are features or capabilities that matter to your target us
 
 | Capability | Your Product | Competitor A | Competitor B | Competitor C |
 |---|---|---|---|---|
-| [Feature 1] | ✅ | ✅ | ✅ | ❌ |
-| [Feature 2] | ✅ | ❌ | ✅ | ❌ |
-| [Feature 3] | ✅ | ❌ | ❌ | ❌ |
-| [Feature 4] | ❌ | ✅ | ✅ | ✅ |
+| [Feature 1] |  |  |  |  |
+| [Feature 2] |  |  |  |  |
+| [Feature 3] |  |  |  |  |
+| [Feature 4] |  |  |  |  |
 
 **What to look for:**
 
-- A column of ❌ across all competitors for something your users need — this is a product gap worth building toward
-- A row of ✅ across all competitors — this is table stakes, not differentiation
+- A column of  across all competitors for something your users need — this is a product gap worth building toward
+- A row of  across all competitors — this is table stakes, not differentiation
 - A feature only you have — only valuable if users actually want it
 
-> ⚠️ Don't build this from competitor marketing pages. Marketing pages show what competitors want you to think they do. Sign up for free trials. Read changelogs. Read user reviews that mention specific features.
+> ️ Don't build this from competitor marketing pages. Marketing pages show what competitors want you to think they do. Sign up for free trials. Read changelogs. Read user reviews that mention specific features.
 
 ---
 

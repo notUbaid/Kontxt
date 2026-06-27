@@ -143,7 +143,7 @@ Authorization bugs are the most common source of data breaches in SaaS. One miss
 ### Enforce at the Data Layer, Not Just the Route Layer
 
 ```typescript
-// ❌ Checking at the route level only — bypassable
+//  Checking at the route level only — bypassable
 app.get('/api/documents/:id', authMiddleware, async (req, res) => {
   const doc = await db.document.findUnique({ where: { id: req.params.id } });
   // If you forget the org check here, any authenticated user can read any document
@@ -151,7 +151,7 @@ app.get('/api/documents/:id', authMiddleware, async (req, res) => {
   res.json(doc);
 });
 
-// ✓ Scoping at the query level — always correct
+//  Scoping at the query level — always correct
 app.get('/api/documents/:id', authMiddleware, async (req, res) => {
   const doc = await db.document.findFirst({
     where: {
@@ -363,7 +363,7 @@ Dependabot opens PRs for dependency updates automatically. Your CI tests them. Y
 
 Use this after completing your core API and before going to production.
 
-```
+```prompt
 You are a senior application security engineer performing a threat model review for a SaaS product.
 
 Product context:
@@ -441,19 +441,19 @@ Be specific and adversarial in your thinking.
 
 ## Common Mistakes
 
-> **⚠️ Checking authorization at the route layer only**
+> **️ Checking authorization at the route layer only**
 > A missing check in one handler exposes the resource. Scope at the query level — it's structural, not manual.
 
-> **⚠️ Returning 403 for cross-tenant resources**
+> **️ Returning 403 for cross-tenant resources**
 > A 403 tells an attacker the resource exists. A 404 reveals nothing. Return 404 when a user requests a resource outside their organization.
 
-> **⚠️ Trusting the client for organizationId**
+> **️ Trusting the client for organizationId**
 > If your API accepts `organizationId` from the request body, any authenticated user can write data into any organization. Always derive scope from the auth token.
 
-> **⚠️ Secrets in git history**
+> **️ Secrets in git history**
 > Deleting a file doesn't remove it from git history. If a secret was committed, rotate it immediately regardless of whether the file was later deleted.
 
-> **⚠️ Skipping the security headers**
+> **️ Skipping the security headers**
 > CSP, HSTS, and X-Frame-Options close entire classes of browser attacks. Adding `helmet` takes 5 minutes. Not adding it leaves low-hanging fruit for attackers.
 
 ---

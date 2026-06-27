@@ -92,7 +92,7 @@ Every public page needs:
 - A unique `<meta name="description">` (120–155 characters)
 - One `<h1>` that matches the page's primary topic
 
-> **Warning:** Do not auto-generate identical titles and descriptions across pages. Duplicate metadata actively hurts rankings.
+> [!WARNING]** Do not auto-generate identical titles and descriptions across pages. Duplicate metadata actively hurts rankings.
 
 ---
 

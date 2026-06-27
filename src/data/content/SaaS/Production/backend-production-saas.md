@@ -22,7 +22,7 @@ This is where the architecture from Phase 2 becomes real code. The decisions are
 
 ## Decision 2: Validate at the Boundary
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Every request payload must be validated **before** it reaches your service layer — using the same Zod schemas (or equivalent) you defined for forms in State Management, ideally shared between frontend and backend so validation rules can't drift apart. Never let unvalidated data reach business logic; if a service has to defensively check whether a field exists, validation happened in the wrong place.
 
 ---
@@ -39,17 +39,17 @@ You defined custom error classes in Backend Architecture (`ValidationError`, `No
 
 ## Decision 4: Structured Logging
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Use structured logging (JSON logs with consistent fields), not scattered `console.log` statements. Every log line should include enough context to trace a single request: a request ID, the user/workspace involved, and the action being performed. This is what makes Phase 4's Logging and Error Tracking actually useful — logging discipline starts here, not as a separate retrofit later.
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Remove debug `console.log` statements before committing. They're easy to leave in during AI-assisted development since each generation pass might add its own, and they're a different problem than the structured logs you actually want in production — noisy, unstructured, and not tied to anything you can search or alert on.
 
 ---
 
 ## Decision 5: Don't Duplicate Business Logic
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > When building similar features (e.g., several CRUD resources), AI tools often regenerate near-identical logic per feature instead of recognizing a shared pattern. If three resources all need "verify the user owns this workspace, then soft-delete the record, then log the action," that's a shared service function, not three near-identical copies with subtle differences that will drift over time. Watch specifically for this when building several similar features back to back.
 
 ---
@@ -67,7 +67,7 @@ This isn't just style — it's what makes the Testing module (coming up in this 
 
 ## Decision 7: Review Every Generated File
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > You are accountable for what ships, not the AI tool that generated it. Read every generated file before committing — especially the error paths, the authorization checks, and any database query. This isn't about distrusting AI broadly; it's about the same discipline a senior engineer applies to any pull request, including their own.
 
 ---
@@ -111,7 +111,7 @@ After generating, list every error path you handled (not just the happy path) so
 - [ ] Services are testable without an HTTP server
 - [ ] You've personally read every generated file, not just skimmed the diff
 
-> 💡 **Tip**
+> [!TIP]
 > Keep a running note of any shared logic you extract while building — it's exactly the kind of pattern worth mentioning explicitly in future prompts ("reuse the `assertWorkspaceMembership` helper") instead of letting AI regenerate it slightly differently each time.
 
 ---

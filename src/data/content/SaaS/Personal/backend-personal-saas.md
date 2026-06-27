@@ -205,8 +205,7 @@ if (!workspace) return notFound()
 if (workspace.ownerId !== user.id) return forbidden()  // ← this is authorization
 
 await db.workspace.delete({ where: { id: params.id } })
-```
-
+```prompt
 Write a helper per resource:
 
 ```typescript

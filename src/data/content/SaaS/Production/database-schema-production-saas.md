@@ -23,10 +23,10 @@ This is the most consequential decision in this module — it determines how iso
 | Schema-per-tenant | Same database, separate schema per tenant | Better isolation; migrations must run per schema, gets unwieldy past a moderate number of tenants |
 | Database-per-tenant | Fully separate database per tenant | Strongest isolation; highest operational overhead — not worth it until you have specific compliance requirements demanding it |
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Default to **shared schema with a `workspace_id` column on every tenant-scoped table**. It's the standard, proven approach for the vast majority of production SaaS. Reserve stronger isolation models for when a specific enterprise customer's compliance requirement actually demands it — don't pre-build for a requirement you don't have yet.
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > If you choose shared schema, **every single query against a tenant-scoped table must filter by `workspace_id`**, with no exceptions. This should be enforced at the data-access layer from Backend Architecture, not left to developer discipline per query — one missed filter is a cross-tenant data leak.
 
 ---
@@ -53,14 +53,14 @@ Apply these consistently across every table, not decided per-table:
 - [ ] `workspace_id` (or equivalent tenant key) on every tenant-scoped table, indexed
 - [ ] A soft-delete strategy decision: `deleted_at` nullable timestamp, or hard deletes — pick one and apply consistently
 
-> 💡 **Tip**
+> [!TIP]
 > **Soft deletes** (`deleted_at`) are usually worth the small added complexity in production SaaS — they let you recover from accidental deletions and preserve referential integrity for historical records (e.g., an invoice referencing a since-"deleted" customer). Hard deletes are fine for genuinely disposable data (e.g., expired sessions).
 
 ---
 
 ## Decision 4: Money & Sensitive Values
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > **Never store currency amounts as floating-point numbers.** Floating-point rounding errors compound and will eventually produce incorrect charges. Store money as **integer cents** (e.g., `amount_cents: 1999` for $19.99) or a fixed-precision `decimal` type. This is a well-known, well-documented production mistake — verify any AI-generated schema doesn't default to `float` or `double` for money.
 
 ---
@@ -73,14 +73,14 @@ You don't need to index everything upfront, but these are non-negotiable:
 - [ ] `workspace_id` is indexed on every tenant-scoped table (it's in nearly every query's `WHERE` clause)
 - [ ] Columns used in frequent filtering or sorting (e.g., `created_at` for default ordering) are indexed
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Missing an index on a foreign key or tenant column is invisible at MVP scale (a handful of rows) and becomes a real performance problem the moment you have real data volume. This is cheap to get right now and expensive to discover later via a slow-query alert in production.
 
 ---
 
 ## Decision 6: Migrations
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Use a migration tool tied to your ORM/stack (Prisma Migrate, Drizzle Kit, Rails migrations, etc.) from the very first table. Never hand-edit a production schema directly. Every schema change should be a reviewable, versioned file — this is what lets you roll back, replicate the schema in a new environment, and know exactly what changed and when.
 
 ---
@@ -124,7 +124,7 @@ For each table, briefly state which queries it's expected to support, so I can v
 - [ ] Soft-delete strategy is applied consistently, not ad-hoc per table
 - [ ] The schema is managed through a migration tool from the first commit
 
-> 💡 **Tip**
+> [!TIP]
 > This schema becomes the shared vocabulary for every future prompt — API Design, Backend implementation, and Testing should all reference these exact table and column names rather than re-describing your data model each time.
 
 ---

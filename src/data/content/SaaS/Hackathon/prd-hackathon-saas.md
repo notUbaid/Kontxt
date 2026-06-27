@@ -18,7 +18,7 @@ Most people know the first job: team alignment. Everyone reads it, everyone agre
 
 The second job is specific to how you are building: **this document is the context block you paste into every AI coding session.**
 
-Every time you open Cursor, Claude Code, or a new Claude conversation to build a feature, you paste the PRD first. The AI now knows what the product is, who it is for, what is in scope, and — critically — what is out of scope. That last part is what most people miss. A Non-Goals section actively prevents AI from suggesting features you decided not to build.
+Every time you open Cursor, Kontxt Code, or a new Kontxt conversation to build a feature, you paste the PRD first. The AI now knows what the product is, who it is for, what is in scope, and — critically — what is out of scope. That last part is what most people miss. A Non-Goals section actively prevents AI from suggesting features you decided not to build.
 
 A well-written PRD improves AI output for the entire hackathon. That makes writing it now one of the highest-leverage things you can do before writing any code.
 
@@ -80,10 +80,10 @@ Good problem statements contain specific, observable friction. "It's inefficient
 
 **Example:**
 
-> - A manager can build a complete weekly schedule in under five minutes
-> - Staff can see their upcoming shifts without needing to ask
-> - A swap request reaches the right person without going through a group chat
-> - A judge who watches the demo understands the core value without explanation
+- A manager can build a complete weekly schedule in under five minutes
+- Staff can see their upcoming shifts without needing to ask
+- A swap request reaches the right person without going through a group chat
+- A judge who watches the demo understands the core value without explanation
 
 That last goal is specifically a hackathon goal. It belongs here.
 
@@ -103,13 +103,13 @@ When you paste the PRD into an AI session, the Non-Goals section actively preven
 
 **Example:**
 
-> - **Email or SMS notifications** — not in the demo path, can be faked with an in-app toast
-> - **Mobile app or responsive layout** — the demo is on desktop, no time to build both
-> - **Payment or subscription billing** — will show the upgrade button, will not wire up Stripe
-> - **Admin panel** — no operational need during the demo
-> - **Multi-location support** — the target user has one location
-> - **Third-party calendar sync** — adds integration time with no demo value
-> - **Account creation flow** — will seed demo accounts, judges will not onboard live
+- **Email or SMS notifications** — not in the demo path, can be faked with an in-app toast
+- **Mobile app or responsive layout** — the demo is on desktop, no time to build both
+- **Payment or subscription billing** — will show the upgrade button, will not wire up Stripe
+- **Admin panel** — no operational need during the demo
+- **Multi-location support** — the target user has one location
+- **Third-party calendar sync** — adds integration time with no demo value
+- **Account creation flow** — will seed demo accounts, judges will not onboard live
 
 Write a reason for each. The reason is what makes this a decision, not just a list.
 
@@ -170,11 +170,11 @@ Three features. That is a realistic MVP for a 24-hour hackathon. If your list ha
 
 **Example:**
 
-> - Manager account can log in and reach the schedule builder in under 10 seconds
-> - A complete schedule for 5 staff across 5 days can be built live without errors
-> - Staff account can log in and see the correct shifts
-> - At least one swap request can be submitted and approved during the demo
-> - No loading spinners during the core demo path
+- Manager account can log in and reach the schedule builder in under 10 seconds
+- A complete schedule for 5 staff across 5 days can be built live without errors
+- Staff account can log in and see the correct shifts
+- At least one swap request can be submitted and approved during the demo
+- No loading spinners during the core demo path
 
 If the success criteria are met, you are ready to demo. That is the only job this section has.
 

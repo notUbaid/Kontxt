@@ -17,14 +17,14 @@ Everything planned in Phase 1 and Phase 2 — wireframes, design system, state m
 
 Mirror the approach from Backend: build one feature's complete UI — list view, detail view, create/edit, **and all four states from Wireframes** — before moving to the next feature.
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Empty, loading, and error states are the most commonly skipped part of frontend implementation, even when they were correctly planned in Wireframes. It's easy to build the populated/happy-path view, ship it, and quietly never circle back to the empty and error states. Build all four states as part of the same task, not as a follow-up.
 
 ---
 
 ## Decision 2: Connect to the API Consistently
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Use your chosen data-fetching library (from State Management) for every API call — no inconsistent mixing of raw `fetch` in some components and the library in others. If your backend exposes an OpenAPI spec (from API Design), generate typed API client functions from it rather than hand-writing fetch calls and request/response types — this keeps frontend types automatically in sync with backend changes.
 
 ---
@@ -54,7 +54,7 @@ For every data-driven screen, verify all of these actually exist in the implemen
 
 ## Decision 5: Use the Design System, Don't Recreate It
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Building a one-off styled button or input instead of using the established Design System component is how visual inconsistency creeps in feature by feature. If a component you need doesn't exist yet, that's a signal to add it to the design system properly (with all its states), not to write inline styles for just this one screen.
 
 ---
@@ -118,7 +118,7 @@ Ensure: keyboard navigation works, icon-only buttons have aria-labels, focus-vis
 - [ ] Keyboard navigation and aria-labels are verified by actually testing, not assumed from the plan
 - [ ] Heavy routes are code-split; images aren't oversized
 
-> 💡 **Tip**
+> [!TIP]
 > If you find yourself building the same loading-skeleton or error-banner pattern repeatedly with small variations, that's a sign to add it to your Design System as a shared component now, rather than letting five slightly different versions accumulate across features.
 
 ---

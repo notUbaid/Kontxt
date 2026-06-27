@@ -21,7 +21,7 @@ In a hackathon, the best stack isn't the most powerful — it's the one that let
 Pick the shape that matches your idea. Each type has different stack priorities.
 
 ### AI-powered tool
-Bias toward FastAPI (Python) if your AI logic is complex. Next.js API routes work for simple Claude/OpenAI calls. Add Supabase for storing conversation history — judges love persistent state.
+Bias toward FastAPI (Python) if your AI logic is complex. Next.js API routes work for simple Kontxt/OpenAI calls. Add Supabase for storing conversation history — judges love persistent state.
 
 ### CRUD / dashboard
 This is where Next.js + Supabase shines. You'll have a working data table and form in under 2 hours. Add shadcn/ui for polished components with zero custom CSS.
@@ -36,7 +36,7 @@ Use Supabase Realtime or Ably for presence/sync. Avoid building your own WebSock
 
 ## Step 2 · Build your stack layer by layer
 
-Select one option per layer. Recommended picks are marked with ★.
+Select one option per layer. Recommended picks are marked with .
 
 ---
 
@@ -44,7 +44,7 @@ Select one option per layer. Recommended picks are marked with ★.
 
 | Option | Notes |
 |---|---|
-| ★ **Next.js (App Router)** | Best AI tooling support, Vercel deploy is 1 click |
+|  **Next.js (App Router)** | Best AI tooling support, Vercel deploy is 1 click |
 | Next.js (Pages Router) | Familiar, slightly faster to scaffold |
 | SvelteKit | Fast DX, smaller ecosystem |
 | Vite + React | Best for Python backends |
@@ -58,7 +58,7 @@ Select one option per layer. Recommended picks are marked with ★.
 
 | Option | Notes |
 |---|---|
-| ★ **Next.js API routes** | Zero extra deployment, colocated with frontend |
+|  **Next.js API routes** | Zero extra deployment, colocated with frontend |
 |  FastAPI (Python) | Best for AI/ML-heavy apps, needs separate host |
 | Express.js | Familiar, more setup than Next.js routes |
 | Hono (edge-ready) | Tiny and fast, less documentation |
@@ -72,7 +72,7 @@ Select one option per layer. Recommended picks are marked with ★.
 
 | Option | Notes |
 |---|---|
-| ★ **Supabase** | Postgres + auth + storage + realtime in one dashboard |
+|  **Supabase** | Postgres + auth + storage + realtime in one dashboard |
 | PlanetScale (MySQL) | Serverless MySQL, great DX |
 | Firebase Firestore | Good if you know it, NoSQL can complicate queries |
 | Neon (serverless Postgres) | Cheap, fast, minimal UI |
@@ -86,7 +86,7 @@ Select one option per layer. Recommended picks are marked with ★.
 
 | Option | Notes |
 |---|---|
-| ★ **Clerk** | Pre-built UI, hooks, social login — 15 min setup |
+|  **Clerk** | Pre-built UI, hooks, social login — 15 min setup |
 | Supabase Auth | Free, good if already using Supabase |
 | NextAuth.js (Auth.js) | Open source, some config required |
 | Lucia | Lightweight, more manual work |
@@ -100,7 +100,7 @@ Select one option per layer. Recommended picks are marked with ★.
 
 | Option | Notes |
 |---|---|
-| ★ **Vercel AI SDK + Claude** | Best streaming DX, multi-provider support |
+|  **Vercel AI SDK + Kontxt** | Best streaming DX, multi-provider support |
 | OpenAI SDK directly | Familiar, slightly more boilerplate for streaming |
 | Anthropic SDK directly | Direct control, manual streaming setup |
 |  LangChain.js | Powerful, heavily abstracted, debugging is harder |
@@ -114,7 +114,7 @@ Select one option per layer. Recommended picks are marked with ★.
 
 | Option | Notes |
 |---|---|
-| ★ **Vercel** | Zero config for Next.js, generous free tier, instant previews |
+|  **Vercel** | Zero config for Next.js, generous free tier, instant previews |
 | Railway | Great for full-stack + DB co-location |
 | Render | Solid free tier, slight cold starts |
 | Fly.io | Docker-based, more setup time |
@@ -142,7 +142,7 @@ Select one option per layer. Recommended picks are marked with ★.
 
 ### Architecture review prompt
 
-Copy this into Claude, fill in your stack, and run it before writing any feature code.
+Copy this into Kontxt, fill in your stack, and run it before writing any feature code.
 
 ```prompt
 I'm building a [describe your SaaS in 1 sentence] for a hackathon. My planned stack is:

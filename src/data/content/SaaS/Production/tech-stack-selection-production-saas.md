@@ -30,7 +30,7 @@ This doesn't mean "use the oldest thing available." It means: prefer technology 
 | Remix / React Router v7 | Teams that want explicit data-loading patterns over Next's conventions | Smaller ecosystem than Next.js |
 | SvelteKit | Smaller bundle sizes, simpler reactivity model | Smaller hiring pool and ecosystem than React |
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Default to **Next.js** unless you have a specific reason not to. It's the most battle-tested choice for production SaaS in the current ecosystem, with the deepest hiring pool and library support.
 
 ---
@@ -50,7 +50,7 @@ This doesn't mean "use the oldest thing available." It means: prefer technology 
 
 ## Decision 3: Database
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Default to **PostgreSQL** for a production SaaS unless your data genuinely doesn't fit a relational model. It handles relational data, JSON columns, full-text search, and most workloads a SaaS needs — without the operational overhead of running multiple database technologies.
 
 Only reach for additional specialized stores when you have a concrete reason:
@@ -59,7 +59,7 @@ Only reach for additional specialized stores when you have a concrete reason:
 - **Dedicated search (Elasticsearch/Meilisearch/Typesense)** — only once Postgres full-text search genuinely isn't enough
 - **NoSQL (MongoDB, DynamoDB)** — only if your data is genuinely document-shaped and you've confirmed you don't need relational integrity, joins, or transactions
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Don't add a second database technology "for scale" before you've measured an actual bottleneck. This is one of the most common forms of premature optimization in early-stage SaaS — it adds operational burden (backups, monitoring, expertise) for a problem you don't have yet.
 
 ---
@@ -72,7 +72,7 @@ Only reach for additional specialized stores when you have a concrete reason:
 | Railway / Render | Full-stack apps needing a traditional server + managed Postgres, simple ops |
 | AWS/GCP/Azure directly | Once you need fine-grained control, compliance requirements, or scale that managed platforms don't fit |
 
-> 💡 **Tip**
+> [!TIP]
 > Don't start on raw AWS/GCP unless you already have the DevOps expertise to manage it. A managed platform (Vercel, Railway, Render) gets a solo founder or small team to production faster, and migrating later — once you have real scale and the budget for dedicated infra work — is a known, well-trodden path.
 
 ---
@@ -115,7 +115,7 @@ Explicitly flag if any part of my stated scale expectations would justify a diff
 - [ ] Hosting matches your team's actual DevOps capacity, not an aspirational one
 - [ ] You could explain each choice to another engineer in one sentence, with a reason
 
-> 💡 **Tip**
+> [!TIP]
 > Write this stack decision down in one place. You'll reference it directly in System Architecture Diagram, Frontend Architecture, and Backend Architecture instead of re-deciding (or re-explaining to AI) at each step.
 
 ---

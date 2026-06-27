@@ -219,10 +219,10 @@ GitHub Actions Environments let you protect production deployments with required
 
 ```
 Settings → Environments → production
-  ✓ Required reviewers: [list approvers]
-  ✓ Wait timer: 0 minutes
-  ✓ Deployment branches: main only
-  ✓ Secrets scoped to this environment only
+   Required reviewers: [list approvers]
+   Wait timer: 0 minutes
+   Deployment branches: main only
+   Secrets scoped to this environment only
 ```
 
 With this configured, every production deployment requires approval from a team member. The pipeline cannot skip this step.
@@ -411,11 +411,11 @@ Slow pipelines get ignored or bypassed. Target under 5 minutes for CI, under 10 
 
 ```
 Speed improvements:
-  ✓ Cache node_modules between runs (actions/cache)
-  ✓ Run lint and tests in parallel jobs
-  ✓ Only run full test suite on main, smoke tests on PRs
-  ✓ Skip unchanged paths (paths-ignore in workflow triggers)
-  ✓ Use faster runners if budget allows
+   Cache node_modules between runs (actions/cache)
+   Run lint and tests in parallel jobs
+   Only run full test suite on main, smoke tests on PRs
+   Skip unchanged paths (paths-ignore in workflow triggers)
+   Use faster runners if budget allows
 
 Signs your pipeline is too slow:
   → Developers push and immediately switch tasks

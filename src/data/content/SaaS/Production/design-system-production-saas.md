@@ -26,7 +26,7 @@ The goal in production mode isn't to build a design system from scratch. It's to
 | Headless UI / Radix directly | Accessible behavior only, you style everything | More setup work, maximum design flexibility |
 | Full component library (e.g., Chakra, Mantine) | Fastest to start, less custom styling work | Harder to make it not look like "every other app built on it" |
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > For a production SaaS where you want a distinctive, on-brand UI without reinventing accessibility behavior (focus traps, keyboard nav, ARIA), **shadcn/ui-style copy-owned components on Radix primitives** is the current industry-standard tradeoff — you get accessibility for free and full styling control.
 
 ---
@@ -41,7 +41,7 @@ Tokens are the single source of truth that connects your Branding decisions to a
 - [ ] **Radius scale** — 2–4 options (e.g., sm/md/lg), not a different border-radius per component
 - [ ] **Shadow/elevation scale** — 2–3 levels, used consistently for cards, modals, dropdowns
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > If a component needs a value not in your token scale, that's a signal to either extend the scale deliberately or reconsider the design — not to hardcode a one-off value. One-off values are how design systems silently die.
 
 ---
@@ -65,7 +65,7 @@ Missing focus states is the most common accessibility gap in beginner-built SaaS
 | Simple markdown component reference | Solo builders moving fast; document props and usage examples in plain text |
 | No documentation | Never, even solo — future-you (and every AI session) needs a reference instead of re-reading component source every time |
 
-> 💡 **Tip**
+> [!TIP]
 > At minimum, keep one reference file listing every component, its props, and a usage example. This becomes the context you paste into AI prompts during the Frontend development phase instead of pasting entire component files.
 
 ---
@@ -109,7 +109,7 @@ Do not introduce new color or spacing values outside the scales above. Flag anyt
 - [ ] Naming convention for tokens is consistent and documented
 - [ ] A reference file exists listing components and usage — even a simple one
 
-> 💡 **Tip**
+> [!TIP]
 > Keep your token file and component reference handy — you'll paste them directly into Frontend Architecture and Frontend development prompts instead of re-describing your design system each time.
 
 ---

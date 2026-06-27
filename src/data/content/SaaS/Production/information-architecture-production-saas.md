@@ -24,11 +24,11 @@ This module is not about visual design. Wireframes (next module) handle layout. 
 |---|---|---|
 | Persistent sidebar | Apps with 5+ top-level sections (most B2B SaaS) | Takes horizontal space; needs a collapse state for mobile |
 | Top nav only | Simple apps with ≤4 sections | Doesn't scale past a handful of items without a dropdown mess |
-| Sidebar + command palette (⌘K) | Power-user tools, dense data apps | Extra implementation cost; high payoff for retention |
+| Sidebar + command palette (K) | Power-user tools, dense data apps | Extra implementation cost; high payoff for retention |
 
 **Recommendation for production SaaS:** persistent collapsible sidebar for core navigation, top bar reserved for workspace switching, search, and account menu. This pattern (used by Linear, Notion, Stripe's dashboard) scales cleanly as you add features — new items become new sidebar entries, not new top-level redesigns.
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > If you find yourself redesigning navigation every time you ship a feature, your IA is reactive, not architected. Define the sidebar's top-level categories *before* you build, based on your MVP feature list — not after.
 
 ---
@@ -43,10 +43,10 @@ This is the decision most beginners skip — and the one that's hardest to chang
 | Path-based | `yourapp.com/acme/dashboard` | Good | Low — works on any host | Most SaaS, fastest to ship |
 | Session/header-based | `yourapp.com/dashboard` (tenant from session) | N/A — single domain | Lowest | Single-workspace-per-user apps only |
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Default to **path-based tenancy** unless you already know you need custom domains for enterprise customers. It's the cheapest to build, deploy, and test locally, and migrating to subdomains later is a routing change, not a rearchitecture — as long as you never hardcode tenant context anywhere outside your routing layer.
 
-> ⚠️ **Security Warning**
+> ️ **Security Warning**
 > Whatever structure you choose, **never use sequential integer IDs in tenant or resource URLs** (`/acme/invoices/204`). They invite enumeration attacks. Use UUIDs or ULIDs. And remember: URL structure is not an authorization boundary. `/acme/...` in the path does not stop a user from requesting `/beta/...` — your backend must verify tenant membership on every request regardless of what the URL implies.
 
 ---
@@ -76,7 +76,7 @@ Beginners routinely collapse this into one "Settings" page. Production SaaS need
 | Workspace settings | Members, roles, integrations | Workspace admins |
 | Billing settings | Plan, invoices, payment method | Workspace owner/billing role — never general members |
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Billing access is a common privilege-escalation bug. If billing lives inside general "workspace settings," it's easy to accidentally grant it to every admin instead of just owners. Treat it as its own permission, not a sub-tab of admin settings.
 
 ---
@@ -133,7 +133,7 @@ Rules:
 - [ ] Admin routes live in an isolated namespace with one gate, not scattered checks
 - [ ] No nav path is more than 3 clicks from the dashboard
 
-> 💡 **Tip**
+> [!TIP]
 > Save this route map as-is. You'll reuse it directly as context for **Backend Architecture**, **API Design**, and **Authorization & Roles** — no need to re-explain your structure to AI in those sessions.
 
 ---

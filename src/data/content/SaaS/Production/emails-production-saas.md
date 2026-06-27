@@ -21,14 +21,14 @@ Email feels simple until a password reset lands in spam, or a billing receipt fi
 | Postmark | Strong deliverability reputation specifically for transactional email |
 | SendGrid | Mature, handles both transactional and marketing at scale |
 
-> 💡 **Tip**
+> [!TIP]
 > Any of these work well for transactional SaaS email. Pick based on integration ease with your stack rather than agonizing over the choice — the deliverability setup below matters more than the provider choice itself.
 
 ---
 
 ## Decision 2: Separate Transactional from Marketing
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > If you send both critical transactional email (password resets, invoices) and marketing/newsletter email, **separate them by sending domain or subdomain** (e.g., `mail.yourapp.com` for transactional, `news.yourapp.com` for marketing). Marketing email has a higher chance of spam complaints and unsubscribes, which can damage sender reputation — if that reputation is shared with your password reset emails, a marketing campaign's poor performance can start landing your critical transactional emails in spam too.
 
 ---
@@ -36,18 +36,18 @@ Email feels simple until a password reset lands in spam, or a billing receipt fi
 ## Decision 3: Deliverability Setup (Non-Negotiable)
 
 > **Decision Card — DNS Records You Need**
-> - **SPF** — declares which servers are allowed to send email on your domain's behalf
-> - **DKIM** — cryptographically signs outgoing email so receiving servers can verify it wasn't tampered with
-> - **DMARC** — tells receiving servers what to do with email that fails SPF/DKIM checks
+- **SPF** — declares which servers are allowed to send email on your domain's behalf
+- **DKIM** — cryptographically signs outgoing email so receiving servers can verify it wasn't tampered with
+- **DMARC** — tells receiving servers what to do with email that fails SPF/DKIM checks
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Skipping SPF/DKIM/DMARC setup is the single most common reason transactional emails land in spam for new SaaS products. This is DNS configuration, not application code — set it up through your email provider's domain verification flow before you rely on email for anything user-facing, especially password resets and verification.
 
 ---
 
 ## Decision 4: Send Asynchronously
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > Never send an email inline, blocking the request the user is waiting on. If your email provider is slow or briefly down, you don't want that to delay account creation or any other user-facing action. Queue the email send as a background job (your async boundary from System Architecture Diagram) and let the user's request complete immediately.
 
 ---
@@ -60,7 +60,7 @@ Apply the same idempotency principle from Backend Architecture's background jobs
 
 ## Decision 6: Templating
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > Use a component-based email templating approach (React Email or similar) so templates live in your codebase, are versioned, and can be previewed locally — rather than hardcoded HTML strings scattered through your backend that are painful to edit and impossible to preview without actually sending a test email.
 
 Required email types for most production SaaS:
@@ -125,7 +125,7 @@ Also list the DNS records (SPF, DKIM, DMARC) I need to configure with this provi
 - [ ] Critical emails are never suppressed by user notification preferences
 - [ ] You've sent a real test email to an inbox you control and verified it didn't land in spam
 
-> 💡 **Tip**
+> [!TIP]
 > Test deliverability with a tool like mail-tester.com before launch — it scores your actual sent email against SPF/DKIM/DMARC and common spam triggers, catching deliverability issues before real customers experience them.
 
 ---

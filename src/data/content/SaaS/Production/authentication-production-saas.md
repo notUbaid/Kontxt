@@ -24,7 +24,7 @@ Authentication is the one area of a production SaaS where "build it yourself to 
 | Self-hosted auth library (NextAuth/Auth.js, Lucia) | You need full control over the data model or have specific constraints a managed provider can't meet |
 | Fully custom auth | Only with genuine security expertise on the team — the cost of getting this wrong (a breach) far outweighs any benefit of building it yourself |
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > If you do build your own: **never hand-roll password hashing.** Use a vetted library implementing bcrypt or argon2. Never store plaintext passwords, ever, even temporarily, even in logs.
 
 ---
@@ -36,7 +36,7 @@ Authentication is the one area of a production SaaS where "build it yourself to 
 | Server-side sessions (session ID in a cookie, session data in DB/Redis) | Easy to revoke instantly (delete the session record); requires a session store |
 | JWT (stateless) | No session store needed, scales easily across servers; **revocation is hard** — a JWT is valid until it expires, you can't simply "delete" it |
 
-> ✅ **Best Practice**
+>  **Best Practice**
 > For most production SaaS, prefer **server-side sessions** (or short-lived JWTs with a refresh-token rotation pattern and a server-side revocation list) over long-lived stateless JWTs. The ability to instantly revoke access — when a user logs out, when an account is compromised, when an admin removes a team member — matters more in a multi-tenant SaaS than the marginal scaling benefit of pure statelessness.
 
 ---
@@ -48,7 +48,7 @@ Authentication is the one area of a production SaaS where "build it yourself to 
 - [ ] **Login rate limiting** — lock out or delay after repeated failed attempts from the same account/IP, to prevent brute-force attacks
 - [ ] **Logout that actually revokes** the session, not just clears the client-side cookie
 
-> ⚠️ **Warning**
+> ️ **Warning**
 > A password reset token that doesn't expire, or can be reused after the password is already reset, is a real, exploitable vulnerability — not a theoretical one. Verify both properties explicitly on any auth flow, whether you built it or a managed provider handles it.
 
 ---
@@ -60,7 +60,7 @@ For a production SaaS handling business data, plan for MFA even if you don't req
 - [ ] Support TOTP-based MFA (authenticator apps) as an optional account setting
 - [ ] Plan to make MFA **required** for admin/owner roles as the product matures — these accounts have the most damage potential if compromised
 
-> 💡 **Tip**
+> [!TIP]
 > Most managed auth providers support MFA as a built-in toggle. This is one of the clearest cases where "buy" beats "build" — implementing TOTP correctly yourself is solvable but unnecessary work when it's a checkbox in a managed provider's dashboard.
 
 ---
@@ -114,7 +114,7 @@ Explain explicitly how a compromised session or token gets revoked under this ap
 - [ ] MFA is at least available as an option, with a plan to require it for admin/owner roles
 - [ ] Session data resolves correctly to your multi-tenant model (workspace context)
 
-> 💡 **Tip**
+> [!TIP]
 > Once auth is decided, this becomes the foundation for the next module — Authorization & Roles builds directly on top of "who is this user," deciding "what can they actually do."
 
 ---
