@@ -134,13 +134,13 @@ AI can generate options. It cannot choose the right one for your specific constr
 
 Before you write any code, you will have produced:
 
-- [ ] A precise problem statement grounded in real user pain
-- [ ] A defined ICP (Ideal Customer Profile) and user personas
-- [ ] A validated solution statement and elevator pitch
-- [ ] A market positioning view that knows its competitors
-- [ ] A prioritised MVP feature set with explicit tradeoffs documented
-- [ ] A monetisation model with pricing hypotheses
-- [ ] Metrics and KPIs that define what success looks like
+- A precise problem statement grounded in real user pain
+- A defined ICP (Ideal Customer Profile) and user personas
+- A validated solution statement and elevator pitch
+- A market positioning view that knows its competitors
+- A prioritised MVP feature set with explicit tradeoffs documented
+- A monetisation model with pricing hypotheses
+- Metrics and KPIs that define what success looks like
 
 These are not deliverables. They are decisions. Each one will be referenced in later phases — your database schema reflects your data model, which reflects your feature decisions, which reflect your problem statement. The chain is direct.
 

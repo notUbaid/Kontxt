@@ -389,6 +389,9 @@ export const DocumentEditor = ({
                           }}
                           {...props}
                         >
+                          <div className={`w-5 h-5 mt-0.5 shrink-0 rounded border flex items-center justify-center transition-all duration-200 ${checked ? 'bg-primary border-primary text-primary-foreground shadow-[0_0_10px_rgba(var(--primary),0.3)]' : 'bg-background/50 border-muted-foreground/30'}`}>
+                            {checked && <Check className="w-3.5 h-3.5" />}
+                          </div>
                           <div className={`flex-1 -mt-1 prose-p:my-0 ${checked ? 'line-through text-muted-foreground opacity-70' : 'text-foreground'}`}>
                             {children}
                           </div>
@@ -397,21 +400,11 @@ export const DocumentEditor = ({
                     }
                     return <li className={className} {...props}>{children}</li>;
                   },
-                  input: ({ node: _node, checked, disabled, ...props }) => {
+                  input: ({ node: _node, checked: _checked, disabled: _disabled, ...props }) => {
                     if (props.type === 'checkbox') {
-                      return (
-                        <div 
-                          className={`w-5 h-5 mt-0.5 shrink-0 rounded border flex items-center justify-center transition-all duration-200 ${
-                            checked 
-                              ? 'bg-primary border-primary text-primary-foreground shadow-[0_0_10px_rgba(var(--primary),0.3)]' 
-                              : 'bg-background/50 border-muted-foreground/30'
-                          }`}
-                        >
-                          {checked && <Check className="w-3.5 h-3.5" />}
-                        </div>
-                      );
+                      return null; // Rendered manually inside the li component
                     }
-                    return <input disabled={disabled} {...props} />;
+                    return <input disabled={_disabled} {...props} />;
                   },
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   code: ({ node, inline, className, children, ...props }: any) => {
