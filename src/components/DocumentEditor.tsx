@@ -23,11 +23,17 @@ const cleanAlertText = (children: React.ReactNode): React.ReactNode => {
     if (typeof child === 'string') {
       return child.replace(/^\[!\w+\]\s*/, '');
     }
-    if (React.isValidElement(child) && child.props && child.props.children) {
-      return React.cloneElement(child, {
-        ...child.props,
-        children: cleanAlertText(child.props.children)
-      });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    if (React.isValidElement(child) && child.props && 'children' in (child.props as any)) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const props = child.props as any;
+      if (props.children) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        return React.cloneElement(child as React.ReactElement<any>, {
+          ...props,
+          children: cleanAlertText(props.children)
+        });
+      }
     }
     return child;
   });
@@ -271,9 +277,10 @@ export const DocumentEditor = ({
                     <h3 className="text-xl font-semibold tracking-tight text-foreground/90 mt-8 mb-3" {...props}>{children}</h3>
                   ),
                   blockquote: ({ node, children, ...props }) => {
-                    const firstChild = node?.children?.[0];
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                    const firstTextNode = firstChild?.type === 'paragraph' ? (firstChild as any).children?.[0] : null;
+                    const firstChild = node?.children?.[0] as any;
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    const firstTextNode = (firstChild?.type === 'element' && firstChild?.tagName === 'p') ? firstChild.children?.[0] : null;
                     const textContent = firstTextNode?.type === 'text' ? firstTextNode.value : '';
                     
                     const isAlert = textContent.startsWith('[!');
