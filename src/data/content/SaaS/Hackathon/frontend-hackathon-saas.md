@@ -1,6 +1,6 @@
 # Phase 3 · Frontend
 
-🕒 **Estimated Time:** 30 Minutes
+ **Estimated Time:** 30 Minutes
 
 ---
 

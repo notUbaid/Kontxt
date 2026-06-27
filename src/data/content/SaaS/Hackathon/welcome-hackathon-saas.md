@@ -1,6 +1,6 @@
 # You Have Hours, Not Months
 
-🕒 **Estimated Time:** 5 Minutes
+ **Estimated Time:** 5 Minutes
 
 ---
 

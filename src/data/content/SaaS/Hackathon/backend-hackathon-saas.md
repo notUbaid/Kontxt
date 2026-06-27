@@ -1,6 +1,6 @@
 # Phase 3 · Backend
 
-🕒 **Estimated Time:** 30 Minutes
+ **Estimated Time:** 30 Minutes
 
 ---
 

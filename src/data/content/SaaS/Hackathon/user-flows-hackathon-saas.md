@@ -1,6 +1,6 @@
 # User Flows
 
-🕒 **Estimated Time:** 20 Minutes
+ **Estimated Time:** 20 Minutes
 
 ---
 

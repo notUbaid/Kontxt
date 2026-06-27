@@ -1,6 +1,6 @@
 # Phase 2 · Database Schema
 
-🕒 **Estimated Time:** 20 Minutes
+ **Estimated Time:** 20 Minutes
 
 ---
 

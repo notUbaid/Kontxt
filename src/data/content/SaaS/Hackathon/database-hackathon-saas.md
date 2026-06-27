@@ -1,6 +1,6 @@
 # Phase 3 · Database
 
-🕒 **Estimated Time:** 20 Minutes
+ **Estimated Time:** 20 Minutes
 
 ---
 
