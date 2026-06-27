@@ -400,12 +400,15 @@ export const DocumentEditor = ({
                   input: ({ node: _node, checked, disabled, ...props }) => {
                     if (props.type === 'checkbox') {
                       return (
-                        <input
-                          type="checkbox"
-                          checked={checked}
-                          className="w-5 h-5 text-primary bg-background border-muted rounded focus:ring-primary focus:ring-2 mt-0.5 shrink-0 shadow-sm transition-all pointer-events-none"
-                          readOnly
-                        />
+                        <div 
+                          className={`w-5 h-5 mt-0.5 shrink-0 rounded border flex items-center justify-center transition-all duration-200 ${
+                            checked 
+                              ? 'bg-primary border-primary text-primary-foreground shadow-[0_0_10px_rgba(var(--primary),0.3)]' 
+                              : 'bg-background/50 border-muted-foreground/30'
+                          }`}
+                        >
+                          {checked && <Check className="w-3.5 h-3.5" />}
+                        </div>
                       );
                     }
                     return <input disabled={disabled} {...props} />;
