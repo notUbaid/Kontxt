@@ -42,6 +42,53 @@ const cleanAlertText = (children: React.ReactNode): React.ReactNode => {
   });
 };
 
+const StandardCodeBlock = ({ children, language }: { children: React.ReactNode, language?: string }) => {
+  const [copied, setCopied] = useState(false);
+  const rawText = String(children).replace(/\n$/, '');
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(rawText);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="relative my-6 rounded-xl overflow-hidden bg-[#1e1e1e] shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-muted/50 ring-1 ring-white/10 group/code">
+      <div className="flex items-center justify-between px-4 py-2.5 bg-background/5 border-b border-white/10 backdrop-blur-md">
+        <div className="flex items-center gap-2">
+          <div className="flex gap-1.5">
+            <div className="w-3 h-3 rounded-full bg-rose-500/80"></div>
+            <div className="w-3 h-3 rounded-full bg-amber-500/80"></div>
+            <div className="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+          </div>
+          {language && <span className="ml-3 text-[11px] font-bold text-gray-400 uppercase tracking-widest">{language}</span>}
+        </div>
+        <button
+          onClick={handleCopy}
+          className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-[11px] font-medium text-white/70 hover:text-white hover:bg-white/10 transition-all opacity-0 group-hover/code:opacity-100 focus:opacity-100"
+        >
+          {copied ? <Check size={12} /> : <Copy size={12} />}
+          {copied ? 'Copied' : 'Copy'}
+        </button>
+      </div>
+      <div className="text-[13px] font-mono leading-relaxed">
+        <SyntaxHighlighter
+          style={vscDarkPlus as any}
+          language={language || 'text'}
+          PreTag="div"
+          customStyle={{
+            margin: 0,
+            padding: '1.25rem',
+            background: 'transparent',
+          }}
+        >
+          {rawText}
+        </SyntaxHighlighter>
+      </div>
+    </div>
+  );
+};
+
 const PromptBlock = ({ children }: { children: string }) => {
   const [copied, setCopied] = useState(false);
 
@@ -479,35 +526,7 @@ export const DocumentEditor = ({
                     
                     if (!inline) {
                       // Standard Code Block
-                      return (
-                        <div className="relative my-6 rounded-xl overflow-hidden bg-[#1e1e1e] shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-muted/50 ring-1 ring-white/10">
-                           <div className="flex items-center justify-between px-4 py-2.5 bg-background/5 border-b border-white/10 backdrop-blur-md">
-                             <div className="flex items-center gap-2">
-                               <div className="flex gap-1.5">
-                                 <div className="w-3 h-3 rounded-full bg-rose-500/80"></div>
-                                 <div className="w-3 h-3 rounded-full bg-amber-500/80"></div>
-                                 <div className="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-                               </div>
-                               {match && <span className="ml-3 text-[11px] font-bold text-muted-foreground uppercase tracking-widest">{match[1]}</span>}
-                             </div>
-                           </div>
-                           <div className="text-[13px] font-mono leading-relaxed">
-                             <SyntaxHighlighter
-                               style={vscDarkPlus}
-                               language={match ? match[1] : 'text'}
-                               PreTag="div"
-                               customStyle={{
-                                 margin: 0,
-                                 padding: '1.25rem',
-                                 background: 'transparent',
-                                 border: 'none',
-                               }}
-                             >
-                               {String(children).replace(/\n$/, '')}
-                             </SyntaxHighlighter>
-                           </div>
-                        </div>
-                      );
+                      return <StandardCodeBlock language={match ? match[1] : undefined}>{children}</StandardCodeBlock>;
                     }
 
                     // Inline Code
@@ -530,10 +549,10 @@ export const DocumentEditor = ({
                 </p>
                 <button
                   onClick={() => onNavigate(nextTopic.id, true)}
-                  className="flex items-center justify-between w-full max-w-sm px-5 py-3 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground font-semibold transition-all duration-150 shadow-sm hover:shadow group"
+                  className="flex items-center justify-between w-full max-w-sm px-5 py-3 rounded-lg bg-primary hover:bg-primary/90 text-background font-semibold transition-all duration-150 shadow-sm hover:shadow group"
                 >
                   <span className="flex items-center gap-2">
-                    <CheckCircle2 size={18} className="text-primary-foreground/70 group-hover:text-primary-foreground transition-colors" />
+                    <CheckCircle2 size={18} className="text-background/70 group-hover:text-background transition-colors" />
                     Complete & Next
                   </span>
                   <span className="flex items-center gap-1 opacity-90 font-normal text-sm">
