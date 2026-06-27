@@ -1008,7 +1008,7 @@ async function handleCreate() {
   await fetch('/api/projects', { method: 'POST', body: ... })
   router.refresh()   // re-runs server data fetching for current page
 }
-```
+```prompt
 
 ---
 
@@ -1036,7 +1036,7 @@ Requirements:
 - TypeScript types for all props
 
 Output: single file, full component, no placeholders.
-```
+```prompt
 
 ---
 
@@ -1060,7 +1060,7 @@ Include:
 - All imports
 
 Output each file separately with full path.
-```
+```prompt
 
 ---
 

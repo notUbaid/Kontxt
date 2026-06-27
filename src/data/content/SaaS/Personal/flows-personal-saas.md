@@ -158,7 +158,7 @@ Mark every one of these in your flow map before you start building. Fixing a bro
 
 ## AI Prompt — Map and Stress-Test Your Flows
 
-```
+```prompt
 I'm building a personal SaaS product. Help me map and stress-test my user flows.
 
 **Product:** [one sentence]
@@ -182,7 +182,6 @@ Do the following for each of the three flows (Onboarding, Core, Return):
 Flag every issue you find. I'd rather fix flows on paper than in code.
 ```
 
-> **Copy Prompt**
 
 ---
 

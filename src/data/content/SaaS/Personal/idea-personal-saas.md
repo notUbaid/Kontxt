@@ -126,7 +126,7 @@ Write this before you move to Features. If you can't write it cleanly, your idea
 
 Use this after working through the questions above.
 
-```
+```prompt
 I'm building a personal SaaS product. Help me sharpen the idea.
 
 **My persona (from the Personas module):**
@@ -152,7 +152,6 @@ Do the following:
 Be direct. Push back where the idea is soft.
 ```
 
-> **Copy Prompt**
 
 ---
 

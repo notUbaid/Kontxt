@@ -473,7 +473,7 @@ export async function POST(req: Request) {
 
 ### API route generation prompt
 
-```
+```prompt
 Generate Next.js 14 App Router API routes for a [your SaaS description].
 
 My schema (relevant tables):
@@ -502,7 +502,7 @@ Output each route in a separate code block with its file path.
 
 ### AI route prompt
 
-```
+```prompt
 Generate a streaming AI chat API route for Next.js 14 App Router using the Vercel AI SDK and Anthropic Claude.
 
 My product: [describe what your AI feature does]
@@ -522,7 +522,7 @@ Also generate the client component that calls it using the useChat hook.
 
 ### Backend review prompt
 
-```
+```prompt
 Review these API routes for a hackathon SaaS demo:
 
 [paste your routes]

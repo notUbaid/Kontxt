@@ -159,7 +159,7 @@ Keep it tight. Judges are not reading slides — they're watching your demo.
 
 Use this once you know your product, user, and core demo flow.
 
-```
+```prompt
 You are a startup pitch coach helping a team win a hackathon.
 
 **Product:** [one sentence]
@@ -183,7 +183,6 @@ Make it sound confident, not salesy.
 The audience is technical judges at a hackathon.
 ```
 
-> **Copy Prompt**
 
 ---
 

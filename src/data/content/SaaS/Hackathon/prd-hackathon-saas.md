@@ -188,7 +188,7 @@ If the success criteria are met, you are ready to demo. That is the only job thi
 
 Paste everything from Idea Definition and MVP Features. Do not clean it up first.
 
-```
+```prompt
 I am building a SaaS product for a hackathon. Below are my planning outputs from Phase 0.
 
 ---
@@ -232,7 +232,7 @@ Rules:
 
 Use this after generating or writing your PRD. Before anyone writes code.
 
-```
+```prompt
 Here is our hackathon PRD:
 
 [paste full PRD]
@@ -258,7 +258,7 @@ Be direct. Do not compliment the document.
 
 This produces a compressed version of the PRD optimized for pasting into coding sessions, where token efficiency matters.
 
-```
+```prompt
 Here is our hackathon PRD:
 
 [paste full PRD]

@@ -156,7 +156,7 @@ Notice: the Core and Supporting features let the product do its job. The Later f
 
 Use this after you've listed your features.
 
-```
+```prompt
 I'm building a personal SaaS product. Help me prioritize my feature list for v1.
 
 **My persona:**
@@ -178,7 +178,6 @@ Do the following:
 Be ruthless. The goal is to ship something real, not build everything I can imagine.
 ```
 
-> **Copy Prompt**
 
 ---
 

@@ -139,7 +139,7 @@ Use these after you have a rough idea. Do not use them to generate ideas from sc
 
 Use this to expose weak assumptions before you start building. The goal is to find problems now, not during the demo.
 
-```
+```prompt
 I'm building a SaaS for a hackathon. Here is the idea:
 
 [Your one-sentence pitch]
@@ -158,7 +158,7 @@ After listing all five questions, go back through each one and tell me: (a) how 
 
 Use this when your description is still messy and you need to find the crisp version.
 
-```
+```prompt
 Here is my rough description of the product I'm building:
 
 [Your messy description — don't clean it up first, paste it as-is]
@@ -179,7 +179,7 @@ Rules:
 
 Use this to figure out exactly what judges will see, and in what order.
 
-```
+```prompt
 I'm building a SaaS for a hackathon. The core idea is:
 
 [Your one-sentence pitch]

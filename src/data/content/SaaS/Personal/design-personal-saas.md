@@ -69,7 +69,7 @@ The goal is to decide:
 
 **AI Prompt — Generate Wireframe Descriptions**
 
-```
+```prompt
 I'm building a personal SaaS product. Help me design the information architecture and wireframe layout for each screen.
 
 **Product:** [one sentence]
@@ -87,7 +87,6 @@ For each surface:
 Keep it structural. No visual design. Focus on what exists and where it lives.
 ```
 
-> **Copy Prompt**
 
 ---
 
@@ -218,7 +217,7 @@ The more specific the constraint, the better the output. Give AI your design tok
 
 ## AI Prompt — Generate Your Design System
 
-```
+```prompt
 I'm building a personal SaaS product. Generate a complete CSS design system as custom properties.
 
 **Accent color:** [your chosen accent — a hex value]
@@ -236,7 +235,6 @@ Format as CSS custom properties on :root.
 Include a short comment on each token explaining when to use it.
 ```
 
-> **Copy Prompt**
 
 ---
 

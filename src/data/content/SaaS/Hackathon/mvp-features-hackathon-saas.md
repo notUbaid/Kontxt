@@ -145,7 +145,7 @@ A rule that holds: if your team of two cannot name every feature you are buildin
 
 Use this immediately after Idea Definition. Paste your deliverables and get a starting feature list to triage.
 
-```
+```prompt
 I am building a SaaS for a hackathon. Here is my idea:
 
 Idea Statement: [your one sentence]
@@ -169,7 +169,7 @@ Be ruthless. Default to cutting or faking. Flag any feature that will take more 
 
 Use this after you have your own list. Paste it in and let AI challenge your decisions.
 
-```
+```prompt
 I am building a SaaS hackathon demo. Here is my current feature list with bucket assignments:
 
 [paste your feature list with Must Demo / Must Work / Can Fake / Cut labels]
@@ -194,7 +194,7 @@ Do not validate my decisions. Challenge them.
 
 Use this when you are unsure whether a specific feature is worth building.
 
-```
+```prompt
 I am building [one-sentence product description] for a hackathon.
 
 I am debating whether to build this feature: [feature description]

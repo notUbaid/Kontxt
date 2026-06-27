@@ -28,18 +28,18 @@ const PromptBlock = ({ children }: { children: string }) => {
   };
 
   return (
-    <div className="relative my-8 group rounded-2xl overflow-hidden border border-primary/20 bg-background shadow-lg hover:shadow-xl transition-shadow">
-      <div className="flex items-center justify-between px-5 py-3 bg-primary/5 border-b border-primary/10">
-        <div className="flex items-center gap-2 text-primary font-bold text-sm tracking-wide uppercase">
-          <Sparkles size={14} />
+    <div className="relative my-10 group rounded-2xl overflow-hidden border border-primary/20 bg-gradient-to-br from-background to-muted/30 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300">
+      <div className="flex items-center justify-between px-6 py-3.5 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border-b border-primary/10 backdrop-blur-sm">
+        <div className="flex items-center gap-2.5 text-primary font-bold text-xs tracking-wider uppercase">
+          <Sparkles size={16} className="text-primary/80" />
           <span>AI Prompt Template</span>
         </div>
         <button
           onClick={handleCopy}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-primary/20 text-xs font-semibold text-foreground hover:bg-primary/10 hover:border-primary/40 transition-all shadow-sm"
+          className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-background/80 backdrop-blur-sm border border-primary/20 text-xs font-semibold text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all shadow-sm active:scale-95"
         >
-          {copied ? <Check size={14} className="text-green-500" /> : <Copy size={14} />}
-          {copied ? 'Copied!' : 'Copy Prompt'}
+          {copied ? <Check size={14} /> : <Copy size={14} />}
+          {copied ? 'Copied!' : 'Copy'}
         </button>
       </div>
       <div className="p-5 font-mono text-sm leading-relaxed text-foreground whitespace-pre-wrap bg-muted/5">

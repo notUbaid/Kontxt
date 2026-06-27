@@ -209,13 +209,12 @@ Do this before building any screens. Every component you generate after this poi
 
 ## AI Prompts
 
-<!-- UI: copy-to-clipboard button on each prompt block -->
 
 **Generate your design token decisions**
 
 Use this if you have your product type and mood but have not picked specific values yet.
 
-```
+```prompt
 I am building a SaaS hackathon project. Here is the product:
 
 [Paste your PRD Product Overview]
@@ -244,7 +243,7 @@ Do not suggest gradients, shadows, or animations. Only the five decisions above.
 
 Use this as the template for every UI generation prompt during Phase 3. The design token block at the top is the key — it anchors every generated component to your system.
 
-```
+```prompt
 I am building a React component using Tailwind CSS and shadcn/ui.
 
 My design system:
@@ -273,7 +272,7 @@ Rules:
 
 Run this before submission on your most important screens.
 
-```
+```prompt
 I am going to describe the visual state of my product's UI. Identify every inconsistency against my design system.
 
 My design system:

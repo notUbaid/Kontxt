@@ -262,7 +262,7 @@ Sessions expire. Your frontend needs to handle 401 responses gracefully — redi
 
 ## AI Prompt — Implement Auth for Your Stack
 
-```
+```prompt
 I'm implementing authentication in my personal SaaS product.
 
 **Stack:** [your stack from the Tech Stack module]
@@ -283,7 +283,6 @@ Generate the following:
 Follow security best practices. Flag anything I need to handle that you haven't generated.
 ```
 
-> **Copy Prompt**
 
 ---
 

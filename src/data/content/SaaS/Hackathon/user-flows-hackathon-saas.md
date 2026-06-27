@@ -176,11 +176,10 @@ That is eleven screens for a reasonably complete demo. Some of these share a com
 
 ## AI Prompts
 
-<!-- UI: copy-to-clipboard button on each prompt block -->
 
 **Generate flows from your PRD and demo moment**
 
-```
+```prompt
 I am building a SaaS for a hackathon. Here is my context:
 
 PRD: [paste full PRD]
@@ -207,7 +206,7 @@ Do not add screens that are not implied by the PRD. Do not add features that are
 
 **Stress-test flows for missing states and gaps**
 
-```
+```prompt
 Here are my user flows:
 
 [paste your three flows]
@@ -231,7 +230,7 @@ Do not suggest adding features from Non-Goals.
 
 The demo flow requires realistic data to look believable. This prompt produces a seeding plan.
 
-```
+```prompt
 I am building [product name]. Here is my Demo Flow:
 
 [paste Demo Flow]

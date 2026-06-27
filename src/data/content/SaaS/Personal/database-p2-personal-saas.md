@@ -1,9 +1,5 @@
 # Database
 
-🕒 **Estimated Time:** 20 Minutes
-
----
-
 Your database schema is the most consequential technical decision you'll make.
 
 Not because changing it is impossible — it isn't. But because every change after you have real data requires a migration, and migrations in production are the most stressful moments in solo product development.
@@ -309,7 +305,7 @@ Rules for migrations:
 
 ## AI Prompt — Generate Your Schema
 
-```
+```prompt
 I'm designing the database schema for a personal SaaS product using Prisma and PostgreSQL.
 
 **Product:** [one sentence]
@@ -334,7 +330,6 @@ After the schema, list:
 - Any columns I might have missed based on the features
 ```
 
-> **Copy Prompt**
 
 ---
 

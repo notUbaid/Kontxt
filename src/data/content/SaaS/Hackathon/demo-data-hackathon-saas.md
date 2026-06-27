@@ -100,7 +100,7 @@ A good seed script does 5 things:
 
 Use this after your schema is finalized.
 
-```
+```prompt
 You are seeding a demo database for a SaaS hackathon project.
 
 **Product:** [one sentence description]
@@ -120,7 +120,6 @@ The data should tell the story of a team that has been actively using the produc
 Return only the seed script. No explanations.
 ```
 
-> **Copy Prompt**
 
 ---
 

@@ -124,7 +124,7 @@ As you make decisions on these, update the PRD. The document evolves as you lear
 
 Use this after completing your Personas, Idea, and Features modules.
 
-```
+```prompt
 I'm building a personal SaaS product and I need to write a PRD.
 
 **Persona:**
@@ -155,7 +155,6 @@ Use plain language. No corporate jargon.
 The audience is me — a solo developer who will reference this throughout development.
 ```
 
-> **Copy Prompt**
 
 ---
 

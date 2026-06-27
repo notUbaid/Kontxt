@@ -128,7 +128,7 @@ Run a timer during rehearsal. If you're consistently hitting 3+ minutes on the d
 
 Use this after you've finalized your golden-path flow.
 
-```
+```prompt
 You are writing a live demo script for a hackathon pitch.
 
 **Product:** [one sentence]
@@ -152,7 +152,6 @@ Rules:
 Return as a markdown table.
 ```
 
-> **Copy Prompt**
 
 ---
 

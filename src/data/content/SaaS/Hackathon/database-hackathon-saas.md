@@ -256,7 +256,7 @@ WHERE u.email = 'alice@example.com';
 
 ### AI prompt for seed data
 
-```
+```prompt
 Generate realistic seed data SQL for this schema:
 
 [paste your schema]

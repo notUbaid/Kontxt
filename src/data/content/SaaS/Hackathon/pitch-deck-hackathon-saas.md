@@ -187,7 +187,7 @@ These apply regardless of your visual style.
 
 Use this once you know your product, user, and demo flow.
 
-```
+```prompt
 You are designing a 7-slide hackathon pitch deck for a SaaS product.
 
 **Product:** [one sentence]
@@ -216,7 +216,6 @@ Rules:
 Return slide-by-slide. Label each one clearly.
 ```
 
-> **Copy Prompt**
 
 ---
 

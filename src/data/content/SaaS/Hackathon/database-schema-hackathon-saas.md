@@ -213,7 +213,7 @@ is_active     boolean DEFAULT true
 -- Do this instead
 status  text NOT NULL DEFAULT 'draft'
 -- valid values: 'draft' | 'published' | 'archived'
-```
+```prompt
 
 When the hackathon brief changes and you need a third state, you'll thank yourself.
 
@@ -242,7 +242,7 @@ Output:
 - CREATE TABLE statements only (no indexes, no RLS yet)
 - A short comment above each table explaining what it stores
 - A list of the 3 relationships I should add indexes on
-```
+```prompt
 
 ---
 
@@ -263,7 +263,7 @@ Check for:
 5. Anything that will make it hard to add auth row-level security later
 
 Return: a numbered list of issues only. No praise. No rewriting unless I ask.
-```
+```prompt
 
 ---
 

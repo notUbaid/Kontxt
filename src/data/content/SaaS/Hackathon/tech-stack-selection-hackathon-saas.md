@@ -144,7 +144,7 @@ Select one option per layer. Recommended picks are marked with ★.
 
 Copy this into Claude, fill in your stack, and run it before writing any feature code.
 
-```
+```prompt
 I'm building a [describe your SaaS in 1 sentence] for a hackathon. My planned stack is:
 - Frontend: [framework]
 - Backend: [API layer or BFF]
@@ -161,7 +161,7 @@ Review this for a 48-hour hackathon context. Flag any integration that will cost
 
 Use this *after* your stack is locked. Do not run it before.
 
-```
+```prompt
 Generate the minimal project scaffold for:
 - Framework: [framework]
 - Auth: [provider + package]

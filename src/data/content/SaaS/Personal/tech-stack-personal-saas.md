@@ -199,7 +199,7 @@ Learning a new technology and shipping a product are two different goals. If the
 
 ## AI Prompt — Validate Your Stack Decision
 
-```
+```prompt
 I'm building a personal SaaS product and I've chosen a tech stack. Help me validate it.
 
 **Product:** [one sentence]
@@ -223,7 +223,6 @@ Do the following:
 Be direct. I want to catch stack mistakes before I start building.
 ```
 
-> **Copy Prompt**
 
 ---
 

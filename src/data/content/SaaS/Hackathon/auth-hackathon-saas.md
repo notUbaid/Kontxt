@@ -328,7 +328,7 @@ CREATE POLICY "org members see org posts"
 
 ### Auth scaffold prompt
 
-```
+```prompt
 Generate the auth integration for a Next.js 14 App Router project using [Clerk / Supabase Auth].
 
 My schema has these tables:
@@ -349,7 +349,7 @@ Output each file separately with its full path.
 
 ### Webhook handler prompt (for user sync)
 
-```
+```prompt
 Generate a [Clerk / Supabase] webhook handler for Next.js App Router that:
 1. Verifies the webhook signature
 2. On user.created event: inserts a row into my `users` table with id, email, created_at
@@ -367,7 +367,7 @@ Use the official SDK. Include the env variable name for the webhook secret.
 
 ### RLS policy prompt
 
-```
+```prompt
 Generate Supabase Row Level Security policies for these tables:
 
 [paste schema]

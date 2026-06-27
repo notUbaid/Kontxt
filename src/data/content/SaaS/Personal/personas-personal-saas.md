@@ -116,7 +116,7 @@ The cost of changing tools is real. What would make them do it?
 
 Use this after you've drafted your answers above.
 
-```
+```prompt
 I'm building a personal SaaS project and I've drafted a primary user persona.
 Help me stress-test it.
 
@@ -136,7 +136,6 @@ Do the following:
 Be direct. I'd rather fix the persona now than build the wrong product.
 ```
 
-> **Copy Prompt**
 
 ---
 
