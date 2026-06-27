@@ -363,7 +363,9 @@ export const DocumentEditor = ({
                   li: ({ node, className, children, ...props }) => {
                     if (className === 'task-list-item' && node?.position) {
                       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                      const checked = (node as any).checked;
+                      const inputChild = (node.children || []).find((c: any) => c.tagName === 'input' && c.properties?.type === 'checkbox');
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                      const checked = inputChild ? (inputChild as any).properties?.checked : false;
                       return (
                         <li 
                           className={`flex items-start gap-3 my-3 p-4 rounded-xl border transition-all duration-150 ease-out shadow-sm hover:shadow-md cursor-pointer ${checked ? 'bg-muted/30 border-muted-foreground/20' : 'bg-background border-muted'}`}

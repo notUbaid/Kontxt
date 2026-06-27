@@ -50,7 +50,9 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
         }
 
         if (customContent) {
-          setContent(customContent);
+          // Strip YAML frontmatter at runtime so it doesn't bleed into the UI
+          const strippedContent = customContent.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
+          setContent(strippedContent);
         } else {
           const rawFallback = fallbackContent[topicId] || '';
           setContent(filterModeContent(rawFallback, activeMode));
@@ -63,7 +65,8 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
         const localKey = `kontxt_doc_${projectId}_${topicId}`;
         const localData = localStorage.getItem(localKey);
         if (localData && isMounted) {
-          setContent(localData);
+          const strippedContent = localData.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
+          setContent(strippedContent);
         }
         if (isMounted) setSaveStatus('saved');
         return;
@@ -81,7 +84,8 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
         if (isMounted) {
           if (!error && data && data.content) {
             // Only update if there is custom content in the database
-            setContent(data.content);
+            const strippedContent = data.content.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
+            setContent(strippedContent);
           }
           setSaveStatus('saved');
         }
