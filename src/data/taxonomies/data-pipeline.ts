@@ -1,7 +1,7 @@
 import { 
-  Target, Database, HardDrive, Activity, ArrowRightLeft, Cpu, GitMerge, FileText, 
-  Settings, Bot, FileSearch, Filter, Shield, AlertTriangle, AlertCircle, Cloud, Terminal, CheckSquare, 
-  Globe, Zap, Box, Hexagon, Code, Key, Network, Rocket, FileJson, Clock, DollarSign,
+  Target, Database, HardDrive, ArrowRightLeft, Cpu, GitMerge, FileText, 
+  Settings, Filter, Shield, AlertCircle, Cloud, Terminal, CheckSquare, 
+  Globe, Zap, Key, Rocket, FileJson, Clock, DollarSign,
   Monitor, RefreshCcw, Layers
 } from 'lucide-react';
 import { type Category, createTopic } from './types';

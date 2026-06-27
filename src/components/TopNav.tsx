@@ -104,6 +104,14 @@ export const TopNav = ({
     a.download = `${activeProject.name.replace(/\s+/g, '-').toLowerCase()}-kontxt.md`;
     a.click();
     URL.revokeObjectURL(url);
+    
+    try {
+      await navigator.clipboard.writeText(combinedMarkdown);
+      // Optional: Add a simple alert or notification if desired
+      // alert('Project exported and copied to clipboard!');
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
   };
 
   // Keyboard shortcut for Search
