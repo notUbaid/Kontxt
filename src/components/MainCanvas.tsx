@@ -106,7 +106,7 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
 
   if (!isLoaded) {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center min-w-0 pt-8 pb-24 px-8 mx-auto max-w-3xl w-full h-[calc(100vh-4rem)]">
+      <div className="flex-1 flex flex-col items-center justify-center min-w-0 pt-8 pb-24 px-8 mx-auto max-w-4xl w-full h-[calc(100vh-4rem)]">
         <div className="animate-pulse space-y-6 w-full">
           <div className="h-8 bg-muted rounded w-1/3 mb-10"></div>
           <div className="h-4 bg-muted rounded w-full"></div>
@@ -154,7 +154,7 @@ Output MUST be in Markdown format. Keep your response highly structured, actiona
             duration: 0.15,
             ease: "easeOut"
           }}
-      className="flex-1 min-w-0 pt-8 pb-24 px-8 mx-auto max-w-3xl w-full h-[calc(100vh-4rem)] overflow-y-auto scroll-smooth"
+      className="flex-1 min-w-0 pt-8 pb-24 px-8 mx-auto max-w-4xl w-full h-[calc(100vh-4rem)] overflow-y-auto scroll-smooth"
     >
       <div className="mb-4 inline-block px-3 py-1 bg-muted rounded-md text-xs font-bold text-muted-foreground uppercase tracking-widest">
         Mode: <span className="text-accent">{activeMode}</span>

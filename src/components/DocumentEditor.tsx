@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Edit2, Eye, Sparkles, FileEdit, CheckCircle2, Loader2, AlertCircle, Copy, Check, ArrowRight, Info, AlertTriangle, Lightbulb, ShieldAlert, RotateCcw } from 'lucide-react';
+import { Edit2, Eye, Sparkles, FileEdit, CheckCircle2, Loader2, AlertCircle, Copy, Check, ArrowRight, Info, AlertTriangle, Lightbulb, ShieldAlert, RotateCcw, ChevronRight } from 'lucide-react';
 import type { SaveStatus } from '../hooks/useDocumentStore';
 
 interface DocumentEditorProps {
@@ -282,16 +284,19 @@ export const DocumentEditor = ({
                 remarkPlugins={[remarkGfm]}
                 components={{
                   h1: ({ children, ...props }) => (
-                    <h1 className="text-3xl font-extrabold tracking-tight text-foreground mt-8 mb-6 pb-2 border-b border-primary/10" {...props}>{children}</h1>
+                    <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-foreground to-foreground/60 mt-10 mb-8 pb-4 border-b border-muted" {...props}>{children}</h1>
                   ),
                   h2: ({ children, ...props }) => (
-                    <h2 className="text-2xl font-bold tracking-tight text-foreground mt-10 mb-4 flex items-center gap-2" {...props}>
-                      <span className="w-1.5 h-6 bg-primary/80 rounded-full inline-block"></span>
+                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground mt-12 mb-6 flex items-center gap-3 relative" {...props}>
+                      <span className="absolute -left-5 w-1.5 h-full bg-gradient-to-b from-accent to-accent/40 rounded-full opacity-80 inline-block"></span>
                       {children}
                     </h2>
                   ),
                   h3: ({ children, ...props }) => (
-                    <h3 className="text-xl font-semibold tracking-tight text-foreground/90 mt-8 mb-3" {...props}>{children}</h3>
+                    <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground/80 mt-10 mb-4 flex items-center gap-2" {...props}>
+                      <span className="text-accent/50 font-normal">#</span>
+                      {children}
+                    </h3>
                   ),
                   blockquote: ({ node, children, ...props }) => {
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -377,6 +382,15 @@ export const DocumentEditor = ({
                     }
                     return <a {...props} className="text-primary hover:underline font-medium" target="_blank" rel="noopener noreferrer" />;
                   },
+                  ul: ({ children, ...props }) => (
+                    <ul className="my-6 ml-2 space-y-3" {...props}>{children}</ul>
+                  ),
+                  ol: ({ children, ...props }) => (
+                    <ol className="my-6 ml-6 space-y-3 list-decimal marker:text-muted-foreground font-medium" {...props}>{children}</ol>
+                  ),
+                  strong: ({ children, ...props }) => (
+                    <strong className="font-semibold text-foreground bg-primary/5 px-1 rounded-md" {...props}>{children}</strong>
+                  ),
                   li: ({ node, className, children, ...props }) => {
                     if (className === 'task-list-item' && node?.position) {
                       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -415,7 +429,12 @@ export const DocumentEditor = ({
                         </li>
                       );
                     }
-                    return <li className={className} {...props}>{children}</li>;
+                    return (
+                      <li className={`relative pl-7 flex items-start ${className || ''}`} {...props}>
+                        <ChevronRight className="w-4 h-4 text-accent absolute left-0 top-1.5 opacity-70" />
+                        <span className="flex-1">{children}</span>
+                      </li>
+                    );
                   },
                   input: ({ node: _node, checked: _checked, disabled: _disabled, ...props }) => {
                     if (props.type === 'checkbox') {
@@ -461,19 +480,31 @@ export const DocumentEditor = ({
                     if (!inline) {
                       // Standard Code Block
                       return (
-                        <div className="relative my-6 rounded-xl overflow-hidden bg-zinc-950 shadow-sm border border-zinc-800/50">
-                           <div className="flex items-center justify-between px-4 py-2 bg-zinc-900/50 border-b border-zinc-800/50">
+                        <div className="relative my-6 rounded-xl overflow-hidden bg-[#1e1e1e] shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-muted/50 ring-1 ring-white/10">
+                           <div className="flex items-center justify-between px-4 py-2.5 bg-background/5 border-b border-white/10 backdrop-blur-md">
                              <div className="flex items-center gap-2">
                                <div className="flex gap-1.5">
-                                 <div className="w-3 h-3 rounded-full bg-zinc-700/50"></div>
-                                 <div className="w-3 h-3 rounded-full bg-zinc-700/50"></div>
-                                 <div className="w-3 h-3 rounded-full bg-zinc-700/50"></div>
+                                 <div className="w-3 h-3 rounded-full bg-rose-500/80"></div>
+                                 <div className="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                                 <div className="w-3 h-3 rounded-full bg-emerald-500/80"></div>
                                </div>
-                               {match && <span className="ml-2 text-xs font-medium text-zinc-400 uppercase tracking-wider">{match[1]}</span>}
+                               {match && <span className="ml-3 text-[11px] font-bold text-muted-foreground uppercase tracking-widest">{match[1]}</span>}
                              </div>
                            </div>
-                           <div className="p-4 overflow-x-auto text-sm text-zinc-300 font-mono leading-relaxed">
-                             <code className={className} {...props}>{children}</code>
+                           <div className="text-[13px] font-mono leading-relaxed">
+                             <SyntaxHighlighter
+                               style={vscDarkPlus}
+                               language={match ? match[1] : 'text'}
+                               PreTag="div"
+                               customStyle={{
+                                 margin: 0,
+                                 padding: '1.25rem',
+                                 background: 'transparent',
+                                 border: 'none',
+                               }}
+                             >
+                               {String(children).replace(/\n$/, '')}
+                             </SyntaxHighlighter>
                            </div>
                         </div>
                       );

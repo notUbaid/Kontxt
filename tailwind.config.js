@@ -23,7 +23,7 @@ export default {
       typography: ({ theme }) => ({
         kontxt: {
           css: {
-            '--tw-prose-body': theme('colors.foreground'),
+            '--tw-prose-body': 'rgb(var(--foreground) / 0.9)',
             '--tw-prose-headings': theme('colors.foreground'),
             '--tw-prose-lead': theme('colors.muted-foreground'),
             '--tw-prose-links': theme('colors.primary'),
@@ -40,24 +40,29 @@ export default {
             '--tw-prose-th-borders': theme('colors.muted'),
             '--tw-prose-td-borders': theme('colors.muted'),
             h1: {
-              fontWeight: '800',
-              letterSpacing: '-0.03em',
+              fontWeight: '900',
+              letterSpacing: '-0.04em',
+              lineHeight: '1.1',
             },
             h2: {
               fontWeight: '700',
               letterSpacing: '-0.03em',
-              marginTop: '2em',
+              marginTop: '2.5em',
               marginBottom: '1em',
+              lineHeight: '1.2',
             },
             h3: {
               fontWeight: '600',
-              marginTop: '1.5em',
-              marginBottom: '0.5em',
+              letterSpacing: '-0.01em',
+              marginTop: '2em',
+              marginBottom: '0.75em',
+              lineHeight: '1.3',
             },
             p: {
-              lineHeight: '1.8',
-              marginTop: '1.25em',
-              marginBottom: '1.25em',
+              lineHeight: '1.85',
+              marginTop: '1.5em',
+              marginBottom: '1.5em',
+              fontSize: '1.05rem',
             },
           },
         },
