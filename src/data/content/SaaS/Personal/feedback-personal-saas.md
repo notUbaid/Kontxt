@@ -309,22 +309,20 @@ Store every cancellation reason. After 10 cancellations, the pattern is obvious.
 
 ## Feedback Prompt
 
-```
-Copy Prompt
-```
+```prompt
+You are a product manager helping me design a feedback system for my early-stage SaaS.
 
-> You are a product manager helping me design a feedback system for my early-stage SaaS.
->
-> My SaaS: [what your app does]
-> Current users: [approximately how many active users]
-> Core user action: [the main thing users do in the product]
->
-> Please help me:
-> 1. Write 5 user interview questions specific to my product and user journey
-> 2. Write the copy for an NPS prompt and follow-up text field
-> 3. Write a cancellation survey with 5–7 options specific to my product's likely churn reasons
-> 4. Suggest the 3 most important in-product moments to prompt for feedback
-> 5. Recommend how I should categorize and store feedback given my stage
+My SaaS: [what your app does]
+Current users: [approximately how many active users]
+Core user action: [the main thing users do in the product]
+
+Please help me:
+1. Write 5 user interview questions specific to my product and user journey
+2. Write the copy for an NPS prompt and follow-up text field
+3. Write a cancellation survey with 5–7 options specific to my product's likely churn reasons
+4. Suggest the 3 most important in-product moments to prompt for feedback
+5. Recommend how I should categorize and store feedback given my stage
+```
 
 ---
 

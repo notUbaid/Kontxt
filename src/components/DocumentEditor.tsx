@@ -240,6 +240,44 @@ export const DocumentEditor = ({
               <ReactMarkdown 
                 remarkPlugins={[remarkGfm]}
                 components={{
+                  h1: ({ children, ...props }) => (
+                    <h1 className="text-3xl font-extrabold tracking-tight text-foreground mt-8 mb-6 pb-2 border-b border-primary/10" {...props}>{children}</h1>
+                  ),
+                  h2: ({ children, ...props }) => (
+                    <h2 className="text-2xl font-bold tracking-tight text-foreground mt-10 mb-4 flex items-center gap-2" {...props}>
+                      <span className="w-1.5 h-6 bg-primary/80 rounded-full inline-block"></span>
+                      {children}
+                    </h2>
+                  ),
+                  h3: ({ children, ...props }) => (
+                    <h3 className="text-xl font-semibold tracking-tight text-foreground/90 mt-8 mb-3" {...props}>{children}</h3>
+                  ),
+                  blockquote: ({ children, ...props }) => (
+                    <blockquote className="my-6 border-l-4 border-primary/80 bg-gradient-to-r from-primary/5 to-transparent py-3 px-5 rounded-r-xl shadow-sm text-foreground/90 italic text-lg" {...props}>
+                      {children}
+                    </blockquote>
+                  ),
+                  table: ({ children, ...props }) => (
+                    <div className="my-8 w-full overflow-x-auto rounded-xl border border-muted shadow-sm">
+                      <table className="w-full text-sm text-left border-collapse" {...props}>
+                        {children}
+                      </table>
+                    </div>
+                  ),
+                  thead: ({ children, ...props }) => (
+                    <thead className="bg-muted/50 text-foreground/80 font-semibold border-b border-muted uppercase tracking-wider text-xs" {...props}>
+                      {children}
+                    </thead>
+                  ),
+                  th: ({ children, ...props }) => (
+                    <th className="px-6 py-4" {...props}>{children}</th>
+                  ),
+                  td: ({ children, ...props }) => (
+                    <td className="px-6 py-4 border-b border-muted/50 group-hover:bg-muted/10 transition-colors" {...props}>{children}</td>
+                  ),
+                  tr: ({ children, ...props }) => (
+                    <tr className="group" {...props}>{children}</tr>
+                  ),
                   a: ({ node: _node, ...props }) => {
                     if (props.href?.startsWith('#')) {
                       return (
@@ -255,7 +293,7 @@ export const DocumentEditor = ({
                         </a>
                       );
                     }
-                    return <a {...props} className="text-primary hover:underline" target="_blank" rel="noopener noreferrer" />;
+                    return <a {...props} className="text-primary hover:underline font-medium" target="_blank" rel="noopener noreferrer" />;
                   },
                   li: ({ node, className, children, ...props }) => {
                     if (className === 'task-list-item' && node?.position) {
@@ -335,8 +373,30 @@ export const DocumentEditor = ({
                       return <PromptBlock>{String(children).replace(/\n$/, '')}</PromptBlock>;
                     }
                     
+                    if (!inline) {
+                      // Standard Code Block
+                      return (
+                        <div className="relative my-6 rounded-xl overflow-hidden bg-slate-950 shadow-xl border border-slate-800/60">
+                           <div className="flex items-center justify-between px-4 py-2 bg-slate-900/50 border-b border-slate-800/80">
+                             <div className="flex items-center gap-2">
+                               <div className="flex gap-1.5">
+                                 <div className="w-3 h-3 rounded-full bg-slate-700/50"></div>
+                                 <div className="w-3 h-3 rounded-full bg-slate-700/50"></div>
+                                 <div className="w-3 h-3 rounded-full bg-slate-700/50"></div>
+                               </div>
+                               {match && <span className="ml-2 text-xs font-medium text-slate-400 uppercase tracking-wider">{match[1]}</span>}
+                             </div>
+                           </div>
+                           <div className="p-4 overflow-x-auto text-sm text-slate-300 font-mono leading-relaxed">
+                             <code className={className} {...props}>{children}</code>
+                           </div>
+                        </div>
+                      );
+                    }
+
+                    // Inline Code
                     return (
-                      <code className={className} {...props}>
+                      <code className="px-1.5 py-0.5 rounded-md bg-primary/10 text-primary font-mono text-[0.9em] font-semibold" {...props}>
                         {children}
                       </code>
                     );
