@@ -28,7 +28,7 @@ const PromptBlock = ({ children }: { children: string }) => {
   };
 
   return (
-    <div className="relative my-10 group rounded-2xl overflow-hidden border border-primary/20 bg-gradient-to-br from-background to-muted/30 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300">
+    <div className="relative my-10 group rounded-2xl overflow-hidden border border-primary/10 bg-gradient-to-br from-background to-muted/30 shadow-sm hover:shadow-md transition-all duration-150 ease-out">
       <div className="flex items-center justify-between px-6 py-3.5 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border-b border-primary/10 backdrop-blur-sm">
         <div className="flex items-center gap-2.5 text-primary font-bold text-xs tracking-wider uppercase">
           <Sparkles size={16} className="text-primary/80" />
@@ -183,6 +183,7 @@ export const DocumentEditor = ({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
             className="flex-1 flex flex-col items-center justify-center text-center p-8 border-2 border-dashed border-muted rounded-2xl bg-muted/10"
           >
             <div className="bg-primary/10 p-4 rounded-full mb-6">
@@ -202,9 +203,9 @@ export const DocumentEditor = ({
               </button>
               <button 
                 onClick={onGenerate}
-                className="px-6 py-3 rounded-full bg-primary text-background font-semibold hover:bg-primary/90 transition-colors shadow-sm flex items-center gap-2 group"
+                className="px-6 py-3 rounded-full bg-primary text-background font-semibold hover:bg-primary/90 transition-all duration-150 ease-out shadow-sm flex items-center gap-2 group"
               >
-                <Sparkles size={18} className="group-hover:rotate-12 transition-transform" />
+                <Sparkles size={18} className="opacity-80 group-hover:opacity-100 transition-opacity" />
                 Generate with AI
               </button>
             </div>
@@ -216,6 +217,7 @@ export const DocumentEditor = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
             className="flex-1 w-full"
           >
             <textarea
@@ -234,6 +236,7 @@ export const DocumentEditor = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
             className="flex-1 w-full"
           >
             <div className="prose prose-kontxt max-w-none hover:prose-a:opacity-80">
@@ -376,18 +379,18 @@ export const DocumentEditor = ({
                     if (!inline) {
                       // Standard Code Block
                       return (
-                        <div className="relative my-6 rounded-xl overflow-hidden bg-slate-950 shadow-xl border border-slate-800/60">
-                           <div className="flex items-center justify-between px-4 py-2 bg-slate-900/50 border-b border-slate-800/80">
+                        <div className="relative my-6 rounded-xl overflow-hidden bg-zinc-950 shadow-sm border border-zinc-800/50">
+                           <div className="flex items-center justify-between px-4 py-2 bg-zinc-900/50 border-b border-zinc-800/50">
                              <div className="flex items-center gap-2">
                                <div className="flex gap-1.5">
-                                 <div className="w-3 h-3 rounded-full bg-slate-700/50"></div>
-                                 <div className="w-3 h-3 rounded-full bg-slate-700/50"></div>
-                                 <div className="w-3 h-3 rounded-full bg-slate-700/50"></div>
+                                 <div className="w-3 h-3 rounded-full bg-zinc-700/50"></div>
+                                 <div className="w-3 h-3 rounded-full bg-zinc-700/50"></div>
+                                 <div className="w-3 h-3 rounded-full bg-zinc-700/50"></div>
                                </div>
-                               {match && <span className="ml-2 text-xs font-medium text-slate-400 uppercase tracking-wider">{match[1]}</span>}
+                               {match && <span className="ml-2 text-xs font-medium text-zinc-400 uppercase tracking-wider">{match[1]}</span>}
                              </div>
                            </div>
-                           <div className="p-4 overflow-x-auto text-sm text-slate-300 font-mono leading-relaxed">
+                           <div className="p-4 overflow-x-auto text-sm text-zinc-300 font-mono leading-relaxed">
                              <code className={className} {...props}>{children}</code>
                            </div>
                         </div>
@@ -417,9 +420,9 @@ export const DocumentEditor = ({
                     if (onTopicComplete) onTopicComplete();
                     onNavigate(nextTopic.id);
                   }}
-                  className="flex items-center gap-3 px-8 py-4 rounded-xl bg-primary hover:bg-primary/90 text-background text-lg font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 group"
+                  className="flex items-center gap-3 px-8 py-4 rounded-xl bg-primary hover:bg-primary/90 text-background text-lg font-bold transition-all duration-150 ease-out shadow-md hover:shadow-lg group"
                 >
-                  Next: {nextTopic.name} <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  Next: {nextTopic.name} <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-150 ease-out" />
                 </button>
               </div>
             )}

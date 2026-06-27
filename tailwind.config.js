@@ -41,11 +41,11 @@ export default {
             '--tw-prose-td-borders': theme('colors.muted'),
             h1: {
               fontWeight: '800',
-              letterSpacing: '-0.025em',
+              letterSpacing: '-0.03em',
             },
             h2: {
               fontWeight: '700',
-              letterSpacing: '-0.025em',
+              letterSpacing: '-0.03em',
               marginTop: '2em',
               marginBottom: '1em',
             },
@@ -55,7 +55,7 @@ export default {
               marginBottom: '0.5em',
             },
             p: {
-              lineHeight: '1.75',
+              lineHeight: '1.8',
               marginTop: '1.25em',
               marginBottom: '1.25em',
             },
