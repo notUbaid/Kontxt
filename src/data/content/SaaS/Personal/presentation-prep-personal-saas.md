@@ -1,13 +1,8 @@
----
-title: Presentation Prep
-slug: presentation-prep
-phase: Phase 5
-mode: personal
-projectType: saas
-estimatedTime: 30–45 min
----
-
 # Presentation Prep
+
+**Estimated Time:** 30–45 min
+
+---
 
 A demo that rambles loses the room in 90 seconds.
 

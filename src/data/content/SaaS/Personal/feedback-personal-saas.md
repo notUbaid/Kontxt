@@ -1,11 +1,3 @@
----
-title: Feedback
-slug: feedback
-phase: Phase 5
-mode: personal
-projectType: saas
-estimatedTime: 15–20 min
----
 
 # Feedback
 

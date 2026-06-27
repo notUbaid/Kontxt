@@ -1,6 +1,6 @@
 # Welcome to Kontxt
 
-🕒 **Estimated Time:** 5 Minutes
+ **Estimated Time:** 5 Minutes
 
 ---
 

@@ -1,13 +1,8 @@
----
-title: Storage
-slug: storage
-phase: Phase 2
-mode: personal
-projectType: saas
-estimatedTime: 20–30 min
----
-
 # Storage
+
+**Estimated Time:** 20–30 min
+
+---
 
 Storage is where most personal SaaS projects go wrong — not because it's complicated, but because people make the wrong choice early and refactor it six months later.
 
@@ -132,7 +127,7 @@ Return URL to frontend
 Frontend redirects user to that URL
 ```
 
-> ⚠️ If your private files are accessible via a permanent public URL, any user who shares that link gives it to the world. Presigned URLs expire. Use them for anything sensitive.
+> ️ If your private files are accessible via a permanent public URL, any user who shares that link gives it to the world. Presigned URLs expire. Use them for anything sensitive.
 
 ---
 
@@ -143,14 +138,14 @@ Never trust what the user sends.
 Validate on **your server**, not the frontend.
 
 ```
-✅ Check file extension whitelist
-✅ Check MIME type (not just the filename)
-✅ Check file size limit
-✅ Scan for malware if handling untrusted documents (use a service)
+ Check file extension whitelist
+ Check MIME type (not just the filename)
+ Check file size limit
+ Scan for malware if handling untrusted documents (use a service)
 
-❌ Trust the browser's file type declaration
-❌ Only validate on the frontend
-❌ Accept any file type and figure it out later
+ Trust the browser's file type declaration
+ Only validate on the frontend
+ Accept any file type and figure it out later
 ```
 
 Recommended limits for personal SaaS:
@@ -215,7 +210,7 @@ When a user deletes a record that has an attached file:
 
 If you only delete the database record, you accumulate orphaned files in storage forever — paying for storage you can't reference.
 
-> ⚠️ Soft-delete pattern: if you soft-delete records (mark as deleted, keep in DB), decide upfront whether the file is also soft-deleted or immediately purged. Inconsistency here causes storage bloat and GDPR headaches.
+> ️ Soft-delete pattern: if you soft-delete records (mark as deleted, keep in DB), decide upfront whether the file is also soft-deleted or immediately purged. Inconsistency here causes storage bloat and GDPR headaches.
 
 ---
 

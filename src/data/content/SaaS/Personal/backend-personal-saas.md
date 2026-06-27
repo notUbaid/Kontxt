@@ -1,13 +1,8 @@
----
-title: Backend
-slug: backend
-phase: Phase 3
-mode: personal
-projectType: saas
-estimatedTime: 30–40 min
----
-
 # Backend
+
+**Estimated Time:** 30–40 min
+
+---
 
 Your backend is the enforcer.
 
@@ -194,14 +189,14 @@ Authentication answers: *who are you?*
 Authorization answers: *are you allowed to do this?*
 
 ```typescript
-// ❌ Only checks authentication
+//  Only checks authentication
 const user = await getCurrentUser()
 if (!user) return unauthorized()
 
 const workspace = await db.workspace.findUnique({ where: { id: params.id } })
 await db.workspace.delete({ where: { id: params.id } })  // anyone logged in can delete anything
 
-// ✅ Checks authentication AND authorization
+//  Checks authentication AND authorization
 const user = await getCurrentUser()
 if (!user) return unauthorized()
 
@@ -290,7 +285,7 @@ Frontend developers thank you for consistent error shapes. You are also a fronte
 Don't put business logic in route handlers. Route handlers should be thin.
 
 ```typescript
-// ❌ Fat route handler
+//  Fat route handler
 export async function POST(req: Request) {
   const user = await getCurrentUser()
   if (!user) return unauthorized()
@@ -306,7 +301,7 @@ export async function POST(req: Request) {
   return Response.json(workspace, { status: 201 })
 }
 
-// ✅ Thin route handler, logic in service
+//  Thin route handler, logic in service
 export async function POST(req: Request) {
   const user = await getCurrentUser()
   if (!user) return unauthorized()
@@ -442,13 +437,13 @@ For a personal SaaS, you don't need to optimize early. But avoid these by defaul
 **N+1 queries** — the most common backend performance bug
 
 ```typescript
-// ❌ N+1: one query per workspace member
+//  N+1: one query per workspace member
 const members = await db.workspaceMember.findMany({ where: { workspaceId } })
 for (const member of members) {
   const user = await db.user.findUnique({ where: { id: member.userId } })  // N queries
 }
 
-// ✅ One query with include
+//  One query with include
 const members = await db.workspaceMember.findMany({
   where: { workspaceId },
   include: { user: true }  // single JOIN
@@ -458,10 +453,10 @@ const members = await db.workspaceMember.findMany({
 **Selecting too much data**
 
 ```typescript
-// ❌ Returns every column including sensitive ones
+//  Returns every column including sensitive ones
 const user = await db.user.findUnique({ where: { id } })
 
-// ✅ Select only what you need
+//  Select only what you need
 const user = await db.user.findUnique({
   where: { id },
   select: { id: true, name: true, email: true }

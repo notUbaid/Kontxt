@@ -1,6 +1,6 @@
 # Features
 
-🕒 **Estimated Time:** 15 Minutes
+ **Estimated Time:** 15 Minutes
 
 ---
 

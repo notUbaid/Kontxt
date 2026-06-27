@@ -1,13 +1,8 @@
----
-title: SEO
-slug: seo
-phase: Phase 5
-mode: personal
-projectType: saas
-estimatedTime: 30–45 min
----
-
 # SEO
+
+**Estimated Time:** 30–45 min
+
+---
 
 SEO for a personal SaaS is not about ranking for "project management software." You will not beat Notion or Asana.
 

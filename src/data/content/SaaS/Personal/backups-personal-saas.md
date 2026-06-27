@@ -1,13 +1,8 @@
----
-title: Backups
-slug: backups
-phase: Phase 4
-mode: personal
-projectType: saas
-estimatedTime: 15–20 min
----
-
 # Backups
+
+**Estimated Time:** 15–20 min
+
+---
 
 You will not think about backups until you need them.
 
@@ -43,7 +38,7 @@ Check your tier before assuming anything.
 | **PlanetScale** | Daily backups, 2-day retention | Longer retention |
 | **Railway** | No automatic backups | Manual only |
 
-> ⚠️ Neon free tier has **no automatic backups**. If you're on Neon free and your database is corrupted or accidentally deleted, it is gone. Set up manual exports.
+> ️ Neon free tier has **no automatic backups**. If you're on Neon free and your database is corrupted or accidentally deleted, it is gone. Set up manual exports.
 
 ---
 

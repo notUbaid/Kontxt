@@ -1,13 +1,8 @@
----
-title: Deployment
-slug: deployment
-phase: Phase 4
-mode: personal
-projectType: saas
-estimatedTime: 25–35 min
----
-
 # Deployment
+
+**Estimated Time:** 25–35 min
+
+---
 
 Deployment is not the finish line. It is where your assumptions meet reality.
 
@@ -250,14 +245,14 @@ This gates every deployment on a passing type check and build. Broken code does 
 After every production deployment, verify these manually:
 
 ```
-✅ Home page loads
-✅ Sign up flow works end-to-end
-✅ Login flow works
-✅ Core feature works (create the main object your app manages)
-✅ Stripe checkout completes (use a test card in test mode, live card in production)
-✅ Webhook received and processed (check Stripe dashboard → Webhooks → recent events)
-✅ Email sent (trigger a welcome or invite email, verify it arrives)
-✅ No errors in Vercel's Function Logs
+ Home page loads
+ Sign up flow works end-to-end
+ Login flow works
+ Core feature works (create the main object your app manages)
+ Stripe checkout completes (use a test card in test mode, live card in production)
+ Webhook received and processed (check Stripe dashboard → Webhooks → recent events)
+ Email sent (trigger a welcome or invite email, verify it arrives)
+ No errors in Vercel's Function Logs
 ```
 
 This takes 5 minutes and catches 90% of deployment regressions before users hit them.
@@ -276,7 +271,7 @@ Instant rollback. No redeployment needed.
 
 For Railway or other providers, rollback means reverting your Git commit and pushing — trigger a new deployment from the previous commit.
 
-> ⚠️ Database migrations cannot be automatically rolled back. If a migration breaks production, you need a down migration written manually. This is why dangerous migrations (dropping columns, renaming) need extra care. Deploy the code change before the schema change, not simultaneously.
+> ️ Database migrations cannot be automatically rolled back. If a migration breaks production, you need a down migration written manually. This is why dangerous migrations (dropping columns, renaming) need extra care. Deploy the code change before the schema change, not simultaneously.
 
 ---
 

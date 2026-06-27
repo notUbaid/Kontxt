@@ -1,13 +1,8 @@
----
-title: Security Basics
-slug: security-basics
-phase: Phase 4
-mode: personal
-projectType: saas
-estimatedTime: 25–30 min
----
-
 # Security Basics
+
+**Estimated Time:** 25–30 min
+
+---
 
 Security is not a feature you add at the end.
 
@@ -60,7 +55,7 @@ git log --all --full-history -- .env
 Every data-modifying route must verify the requesting user owns or has permission to act on the resource.
 
 ```typescript
-// ❌ Authenticated but not authorized
+//  Authenticated but not authorized
 // Any logged-in user can delete any workspace by guessing an ID
 export async function DELETE(req: Request, { params }: { params: { id: string } }) {
   const user = await getCurrentUser()
@@ -70,7 +65,7 @@ export async function DELETE(req: Request, { params }: { params: { id: string } 
   return Response.json({ success: true })
 }
 
-// ✅ Authenticated AND authorized
+//  Authenticated AND authorized
 export async function DELETE(req: Request, { params }: { params: { id: string } }) {
   const user = await getCurrentUser()
   if (!user) return unauthorized()
@@ -122,10 +117,10 @@ const schema = z.object({ name: z.string() }).strict()  // throws on extra field
 Prisma protects you from SQL injection by using parameterized queries. Raw SQL via `db.$queryRaw` is vulnerable if you interpolate user input — use tagged template literals:
 
 ```typescript
-// ✅ Safe — parameterized
+//  Safe — parameterized
 const result = await db.$queryRaw`SELECT * FROM users WHERE email = ${email}`
 
-// ❌ Vulnerable — string interpolation
+//  Vulnerable — string interpolation
 const result = await db.$queryRawUnsafe(`SELECT * FROM users WHERE email = '${email}'`)
 ```
 
@@ -278,7 +273,7 @@ Dependabot opens PRs automatically when dependencies have security updates. Revi
 Only collect what you need. Ask before you collect anything you don't need.
 
 ```typescript
-// ❌ Storing what you don't need
+//  Storing what you don't need
 const user = await db.user.create({
   data: {
     email,
@@ -290,7 +285,7 @@ const user = await db.user.create({
   }
 })
 
-// ✅ Only what your product requires
+//  Only what your product requires
 const user = await db.user.create({
   data: { email, name }
 })

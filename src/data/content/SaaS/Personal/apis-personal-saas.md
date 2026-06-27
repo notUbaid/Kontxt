@@ -1,13 +1,8 @@
----
-title: APIs
-slug: apis
-phase: Phase 2
-mode: personal
-projectType: saas
-estimatedTime: 25–35 min
----
-
 # APIs
+
+**Estimated Time:** 25–35 min
+
+---
 
 You don't design APIs after you build your app.
 
@@ -53,7 +48,7 @@ GraphQL is almost never the right choice for a personal project. It's powerful a
 Think in **resources**, not actions.
 
 ```
-✅ Good
+ Good
 GET    /api/workspaces
 POST   /api/workspaces
 GET    /api/workspaces/:id
@@ -63,7 +58,7 @@ DELETE /api/workspaces/:id
 GET    /api/workspaces/:id/members
 POST   /api/workspaces/:id/members
 
-❌ Bad
+ Bad
 GET    /api/getWorkspaces
 POST   /api/createNewWorkspace
 GET    /api/getWorkspaceMembersForId
@@ -99,7 +94,7 @@ Three categories:
 - **Authenticated** — valid session required (e.g. `GET /api/me`)
 - **Authorized** — valid session + permission check (e.g. `DELETE /api/workspaces/:id` — only the owner)
 
-> ⚠️ Most security bugs come from missing the third category. Authentication confirms identity. Authorization confirms permission. They are not the same check.
+> ️ Most security bugs come from missing the third category. Authentication confirms identity. Authorization confirms permission. They are not the same check.
 
 ---
 
@@ -144,8 +139,8 @@ For each one, ask:
 If an API requires a secret key, it must only be called from your backend.
 
 ```
-❌ Frontend → Stripe API (exposes secret key in browser)
-✅ Frontend → Your API → Stripe API
+ Frontend → Stripe API (exposes secret key in browser)
+ Frontend → Your API → Stripe API
 ```
 
 This isn't optional. If your secret key leaks, you pay for every request someone else makes.
@@ -177,7 +172,7 @@ Stripe Event → POST /api/webhooks/stripe
           Return 200 immediately
 ```
 
-> ⚠️ If your webhook handler takes too long, Stripe will retry. Always return `200` fast. Move slow work to a background job or queue.
+> ️ If your webhook handler takes too long, Stripe will retry. Always return `200` fast. Move slow work to a background job or queue.
 
 ---
 

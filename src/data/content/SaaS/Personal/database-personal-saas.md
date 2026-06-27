@@ -1,13 +1,8 @@
----
-title: Database
-slug: database
-phase: Phase 2
-mode: personal
-projectType: saas
-estimatedTime: 25–35 min
----
-
 # Database
+
+**Estimated Time:** 25–35 min
+
+---
 
 Your database outlives your code.
 
@@ -138,7 +133,7 @@ posts.user_id references users.id
 **Many-to-many** — users belong to many workspaces, workspaces have many users
 
 ```
-users (many) ↔ workspaces (many)
+users (many)  workspaces (many)
 Needs a junction table: workspace_members
   workspace_id
   user_id
@@ -153,7 +148,7 @@ users (1) → profiles (1)
 profiles.user_id references users.id (unique constraint)
 ```
 
-> ⚠️ Many-to-many relationships always need a junction table. Never store arrays of IDs in a column. That's the NoSQL instinct creeping in — fight it.
+> ️ Many-to-many relationships always need a junction table. Never store arrays of IDs in a column. That's the NoSQL instinct creeping in — fight it.
 
 ---
 

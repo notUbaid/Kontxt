@@ -1,13 +1,8 @@
----
-title: Frontend
-slug: frontend
-phase: Phase 3
-mode: personal
-projectType: saas
-estimatedTime: 35–45 min
----
-
 # Frontend
+
+**Estimated Time:** 35–45 min
+
+---
 
 Your frontend is the only part of your product users ever experience directly.
 
@@ -346,21 +341,21 @@ Pick a design system early and don't deviate.
 **Spacing** — use a scale, never magic numbers
 
 ```tsx
-// ✅ Tailwind scale
+//  Tailwind scale
 <div className="p-4 mt-6 gap-3">
 
-// ❌ Arbitrary values
+//  Arbitrary values
 <div style={{ padding: "17px", marginTop: "23px" }}>
 ```
 
 **Typography** — define once, use everywhere
 
 ```tsx
-// ✅ Semantic classes
+//  Semantic classes
 <h1 className="text-2xl font-semibold tracking-tight">
 <p className="text-sm text-muted-foreground">
 
-// ❌ Inconsistent inline styles
+//  Inconsistent inline styles
 <h1 style={{ fontSize: "26px", fontWeight: 600 }}>
 ```
 

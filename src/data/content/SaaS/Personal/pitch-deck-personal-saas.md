@@ -1,13 +1,8 @@
----
-title: Pitch Deck
-slug: pitch-deck
-phase: Phase 5
-mode: personal
-projectType: saas
-estimatedTime: 45–60 min
----
-
 # Pitch Deck
+
+**Estimated Time:** 45–60 min
+
+---
 
 A pitch deck is not a presentation with the speaker removed.
 

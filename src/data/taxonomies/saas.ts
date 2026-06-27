@@ -213,7 +213,7 @@ export const saasPersonalTaxonomy: Category[] = [
     topics: [
       createTopic('Tech Stack', Settings, [{name:'Stripe Atlas',url:'https://stripe.com/atlas'},{name:'YC Startup Library',url:'https://www.ycombinator.com/library'}], 'techstackselection'),
       createTopic('Auth', Key),
-      createTopic('Database', Database),
+      createTopic('Database Schema', Database),
       createTopic('APIs', Globe, [{name:'tRPC',url:'https://trpc.io/'},{name:'GraphQL',url:'https://graphql.org/'},{name:'Postman',url:'https://www.postman.com/'}], 'apidesign'),
       createTopic('Storage', Cloud, [{name:'Supabase',url:'https://supabase.com/'},{name:'Prisma ORM',url:'https://www.prisma.io/'},{name:'Drizzle ORM',url:'https://orm.drizzle.team/'},{name:'SQLite',url:'https://www.sqlite.org/'}], 'filestorage'),
     ]

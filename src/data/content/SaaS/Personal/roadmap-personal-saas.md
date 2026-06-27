@@ -1,13 +1,8 @@
----
-title: Roadmap
-slug: roadmap
-phase: Phase 5
-mode: personal
-projectType: saas
-estimatedTime: 25–35 min
----
-
 # Roadmap
+
+**Estimated Time:** 25–35 min
+
+---
 
 You shipped. That's real. Most projects never get here.
 
@@ -117,8 +112,8 @@ Last updated: [date]
 - [Idea]
 
 ## Recently Shipped
-- ✅ [Feature] — [date]
-- ✅ [Feature] — [date]
+-  [Feature] — [date]
+-  [Feature] — [date]
 ```
 
 The `signal` field is the most important part of NEXT. It forces you to justify why something is on the roadmap.

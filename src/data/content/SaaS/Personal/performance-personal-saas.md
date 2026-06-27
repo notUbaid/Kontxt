@@ -1,13 +1,8 @@
----
-title: Performance
-slug: performance
-phase: Phase 4
-mode: personal
-projectType: saas
-estimatedTime: 20–30 min
----
-
 # Performance
+
+**Estimated Time:** 20–30 min
+
+---
 
 Performance is not an optimization pass you do later.
 
@@ -63,13 +58,13 @@ db.$on("query", (e) => {
 The most common database performance bug. Revisit this from the Backend module.
 
 ```typescript
-// ❌ N+1: 1 query for list + 1 per item
+//  N+1: 1 query for list + 1 per item
 const workspaces = await db.workspace.findMany({ where: { ownerId: userId } })
 for (const ws of workspaces) {
   ws.memberCount = await db.workspaceMember.count({ where: { workspaceId: ws.id } })
 }
 
-// ✅ Single query with aggregation
+//  Single query with aggregation
 const workspaces = await db.workspace.findMany({
   where: { ownerId: userId },
   include: {
@@ -112,10 +107,10 @@ Missing an index on a filtered column means your database scans every row. Fine 
 Never return unbounded lists.
 
 ```typescript
-// ❌ Returns all records — terrifying at scale
+//  Returns all records — terrifying at scale
 const posts = await db.post.findMany({ where: { workspaceId } })
 
-// ✅ Cursor-based pagination
+//  Cursor-based pagination
 const posts = await db.post.findMany({
   where: { workspaceId },
   take: 20,
@@ -136,10 +131,10 @@ Cursor-based pagination is more efficient than offset (`skip: page * limit`) at 
 Every field you select is bytes on the wire and memory in Node.js.
 
 ```typescript
-// ❌ Selects every column, including ones you don't use
+//  Selects every column, including ones you don't use
 const users = await db.user.findMany()
 
-// ✅ Select only what the UI needs
+//  Select only what the UI needs
 const users = await db.user.findMany({
   select: {
     id: true,
@@ -159,12 +154,12 @@ This also prevents accidentally exposing sensitive columns in API responses.
 Avoid sequential awaits when requests are independent.
 
 ```typescript
-// ❌ Sequential: total time = A + B + C
+//  Sequential: total time = A + B + C
 const workspace = await fetchWorkspace(id)
 const members = await fetchMembers(id)
 const activity = await fetchActivity(id)
 
-// ✅ Parallel: total time = max(A, B, C)
+//  Parallel: total time = max(A, B, C)
 const [workspace, members, activity] = await Promise.all([
   fetchWorkspace(id),
   fetchMembers(id),
@@ -223,20 +218,20 @@ Layout shift happens when elements load and push content around. Causes:
 **Images without dimensions:**
 
 ```tsx
-// ❌ No dimensions — browser doesn't reserve space
+//  No dimensions — browser doesn't reserve space
 <img src={avatar} />
 
-// ✅ Dimensions reserved — no shift
+//  Dimensions reserved — no shift
 <Image src={avatar} width={40} height={40} alt={name} />
 ```
 
 **Fonts loading late:**
 
 ```tsx
-// ❌ Google Fonts via <link> — loads after page render
+//  Google Fonts via <link> — loads after page render
 <link href="https://fonts.googleapis.com/css2?family=Inter" rel="stylesheet" />
 
-// ✅ next/font — inlined, zero layout shift
+//  next/font — inlined, zero layout shift
 import { Inter } from "next/font/google"
 const inter = Inter({ subsets: ["latin"], display: "swap" })
 ```
@@ -278,11 +273,11 @@ Look for:
 **Common fixes:**
 
 ```typescript
-// ❌ Imports entire lodash (70KB+)
+//  Imports entire lodash (70KB+)
 import _ from "lodash"
 const sorted = _.sortBy(items, "name")
 
-// ✅ Import only what you need (< 1KB)
+//  Import only what you need (< 1KB)
 import sortBy from "lodash/sortBy"
 
 // Or just use native JS
@@ -317,7 +312,7 @@ const Editor = dynamic(() => import("@/components/Editor"), {
 Images are typically the largest assets on any page.
 
 ```tsx
-// ✅ Always use next/image for user-uploaded and static images
+//  Always use next/image for user-uploaded and static images
 import Image from "next/image"
 
 <Image
@@ -368,11 +363,11 @@ Before launch, measure these. After launch, track trends.
 **Minimum pre-launch checks:**
 
 ```
-✅ PageSpeed score > 80 on mobile
-✅ LCP < 2.5s on a simulated slow 4G connection
-✅ CLS < 0.1
-✅ No query taking > 200ms on the happy path
-✅ Bundle size < 200KB initial JS (gzipped)
+ PageSpeed score > 80 on mobile
+ LCP < 2.5s on a simulated slow 4G connection
+ CLS < 0.1
+ No query taking > 200ms on the happy path
+ Bundle size < 200KB initial JS (gzipped)
 ```
 
 ---

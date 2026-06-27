@@ -1,5 +1,9 @@
 # Database
 
+**Estimated Time:** 15 Minutes
+
+---
+
 Your database schema is the most consequential technical decision you'll make.
 
 Not because changing it is impossible — it isn't. But because every change after you have real data requires a migration, and migrations in production are the most stressful moments in solo product development.
