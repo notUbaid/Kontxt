@@ -347,16 +347,19 @@ export const DocumentEditor = ({
               </ReactMarkdown>
             </div>
             {nextTopic && !isEmpty && (
-              <div className="mt-16 pt-8 border-t border-muted/50 pb-8">
-                <h3 className="text-xl font-bold text-foreground mb-4">Next Step</h3>
+              <div className="mt-16 pt-8 border-t border-muted/50 pb-8 flex flex-col items-start">
+                <h3 className="text-xl font-bold text-foreground mb-4">Ready for the next step?</h3>
                 <p className="text-muted-foreground mb-6">
-                  Move on to <span className="font-semibold text-foreground">{nextTopic.name}</span> to continue your {activeMode} playbook.
+                  Mark this topic as complete and move on to <span className="font-semibold text-foreground">{nextTopic.name}</span> to continue your {activeMode} playbook.
                 </p>
                 <button
-                  onClick={() => onNavigate(nextTopic.id)}
-                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary font-semibold transition-colors"
+                  onClick={() => {
+                    if (onTopicComplete) onTopicComplete();
+                    onNavigate(nextTopic.id);
+                  }}
+                  className="flex items-center gap-3 px-8 py-4 rounded-xl bg-primary hover:bg-primary/90 text-background text-lg font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 group"
                 >
-                  Go to {nextTopic.name} <ArrowRight size={18} />
+                  Next: {nextTopic.name} <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
             )}

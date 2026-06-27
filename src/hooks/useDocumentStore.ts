@@ -13,6 +13,8 @@ export interface DocumentData {
 
 export type SaveStatus = 'saved' | 'saving' | 'error' | 'idle';
 
+const customContentModules = import.meta.glob('../data/content/**/*.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+
 export function useDocumentStore(projectId: string | null, topicId: string, activeMode: Mode = 'Production', isAuthenticated: boolean = true) {
   const [content, setContent] = useState<string>('');
   const [isLoaded, setIsLoaded] = useState(false);
@@ -33,8 +35,26 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
     const loadDoc = async () => {
       // SWR: Show fallback content immediately so LCP is not blocked by network
       if (isMounted) {
-        const rawFallback = fallbackContent[topicId] || '';
-        setContent(filterModeContent(rawFallback, activeMode));
+        // Find if there is a custom markdown file for this specific mode and topic
+        let customContent: string | null = null;
+        for (const [path, fileContent] of Object.entries(customContentModules)) {
+          if (path.includes(activeMode)) {
+            // Strip non-alphanumeric chars from filename to match against topicId
+            const filename = path.split('/').pop() || '';
+            const normalizedFilename = filename.toLowerCase().replace(/[^a-z0-9]/g, '');
+            if (normalizedFilename.startsWith(topicId) || normalizedFilename.includes(topicId)) {
+              customContent = fileContent;
+              break;
+            }
+          }
+        }
+
+        if (customContent) {
+          setContent(customContent);
+        } else {
+          const rawFallback = fallbackContent[topicId] || '';
+          setContent(filterModeContent(rawFallback, activeMode));
+        }
         setIsLoaded(true);
       }
 
