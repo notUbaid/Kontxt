@@ -56,11 +56,11 @@ Return URL to frontend
 
 Ask this for every file type your app handles:
 
-- [ ] User avatars / profile pictures
-- [ ] Document uploads (PDFs, CSVs, images)
-- [ ] AI-generated output files
-- [ ] Exports (user data exports, generated reports)
-- [ ] Any file larger than a few KB
+- User avatars / profile pictures
+- Document uploads (PDFs, CSVs, images)
+- AI-generated output files
+- Exports (user data exports, generated reports)
+- Any file larger than a few KB
 
 If it's a file a user uploads or downloads → object storage.
 
