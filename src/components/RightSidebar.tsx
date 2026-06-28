@@ -46,7 +46,7 @@ export const RightSidebar = ({ activeProject, activeType, activePage, activeMode
   const [isChatExpanded, setIsChatExpanded] = useState(true);
   const chatEndRef = useRef<HTMLDivElement>(null);
   
-  const { content } = useDocumentStore(activeProject?.id || null, activePage, activeProject?.mode, isAuthenticated);
+  const { content } = useDocumentStore(activeProject?.id || null, activePage, activeProject?.mode, isAuthenticated, activeType);
 
   const getDomainColor = (url: string) => {
     try {

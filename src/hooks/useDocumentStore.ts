@@ -15,7 +15,7 @@ export type SaveStatus = 'saved' | 'saving' | 'error' | 'idle';
 
 const customContentModules = import.meta.glob('../data/content/**/*.md', { query: '?raw', import: 'default' }) as Record<string, () => Promise<string>>;
 
-export function useDocumentStore(projectId: string | null, topicId: string, activeMode: Mode = 'Production', isAuthenticated: boolean = true) {
+export function useDocumentStore(projectId: string | null, topicId: string, activeMode: Mode = 'Production', isAuthenticated: boolean = true, activeType: string = 'SaaS') {
   const [content, setContent] = useState<string>('');
   const [isLoaded, setIsLoaded] = useState(false);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>('idle');
@@ -37,14 +37,23 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
       if (isMounted) {
         // Find if there is a custom markdown file for this specific mode and topic
         let customContent: string | null = null;
+        const normalizedType = activeType.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const normalizedMode = activeMode.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const normalizedTopicId = topicId.toLowerCase().replace(/[^a-z0-9]/g, '');
+
         for (const [path, importFn] of Object.entries(customContentModules)) {
-          if (path.includes(activeMode)) {
+          const normalizedPath = path.toLowerCase().replace(/[^a-z0-9\/]/g, '');
+          
+          if (normalizedPath.includes(normalizedMode) && normalizedPath.includes(normalizedType)) {
             // Strip non-alphanumeric chars from filename to match against topicId
             const filename = path.split('/').pop() || '';
             const normalizedFilename = filename.toLowerCase().replace(/[^a-z0-9]/g, '');
-            if (normalizedFilename.startsWith(topicId) || normalizedFilename.includes(topicId)) {
+            if (normalizedFilename.startsWith(normalizedTopicId) || normalizedFilename.includes(normalizedTopicId)) {
               try {
-                customContent = await importFn();
+                const mod = await importFn();
+                // Depending on the bundler configuration, dynamic import of raw strings 
+                // might return the string directly or an object with a default export.
+                customContent = typeof mod === 'string' ? mod : (mod as any).default;
               } catch (e) {
                 console.error('Failed to dynamically load markdown:', e);
               }
@@ -104,7 +113,7 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
     loadDoc();
 
     return () => { isMounted = false; };
-  }, [projectId, topicId, activeMode, isAuthenticated]);
+  }, [projectId, topicId, activeMode, isAuthenticated, activeType]);
 
   // Save document
   const saveContent = (newContent: string) => {
@@ -152,13 +161,19 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
 
   const resetContent = async () => {
     let customContent: string | null = null;
+    const normalizedType = activeType.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const normalizedMode = activeMode.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const normalizedTopicId = topicId.toLowerCase().replace(/[^a-z0-9]/g, '');
+
     for (const [path, importFn] of Object.entries(customContentModules)) {
-      if (path.includes(activeMode)) {
+      const normalizedPath = path.toLowerCase().replace(/[^a-z0-9\/]/g, '');
+      if (normalizedPath.includes(normalizedMode) && normalizedPath.includes(normalizedType)) {
         const filename = path.split('/').pop() || '';
         const normalizedFilename = filename.toLowerCase().replace(/[^a-z0-9]/g, '');
-        if (normalizedFilename.startsWith(topicId) || normalizedFilename.includes(topicId)) {
+        if (normalizedFilename.startsWith(normalizedTopicId) || normalizedFilename.includes(normalizedTopicId)) {
           try {
-            customContent = await importFn();
+            const mod = await importFn();
+            customContent = typeof mod === 'string' ? mod : (mod as any).default;
           } catch (e) {
             console.error('Failed to dynamically load markdown:', e);
           }

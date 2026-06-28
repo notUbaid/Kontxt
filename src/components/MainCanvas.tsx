@@ -44,7 +44,7 @@ export const MainCanvas = ({ activeType, activePage, activeMode, projectId, isAu
     }
   }
 
-  const { content, setContent, resetContent, isLoaded, saveStatus } = useDocumentStore(projectId, activePage, activeMode, isAuthenticated);
+  const { content, setContent, resetContent, isLoaded, saveStatus } = useDocumentStore(projectId, activePage, activeMode, isAuthenticated, activeType);
   const { settings } = useSettingsStore(isAuthenticated);
   const [isGenerating, setIsGenerating] = useState(false);
 
