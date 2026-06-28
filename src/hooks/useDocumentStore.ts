@@ -45,10 +45,12 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
           const normalizedPath = path.toLowerCase().replace(/[^a-z0-9\/]/g, '');
           
           if (normalizedPath.includes(normalizedMode) && normalizedPath.includes(normalizedType)) {
-            // Strip non-alphanumeric chars from filename to match against topicId
             const filename = path.split('/').pop() || '';
             const normalizedFilename = filename.toLowerCase().replace(/[^a-z0-9]/g, '');
-            if (normalizedFilename.startsWith(normalizedTopicId) || normalizedFilename.includes(normalizedTopicId)) {
+            const exactMatchString = `${normalizedTopicId}${normalizedMode}${normalizedType}md`;
+            
+            // e.g. "techstackproductionsaasmd" will exactly match the target file and avoid substrings like "techstackselectionproductionsaasmd"
+            if (normalizedFilename === exactMatchString || normalizedFilename.includes(exactMatchString)) {
               try {
                 const mod = await importFn();
                 // Depending on the bundler configuration, dynamic import of raw strings 
@@ -77,7 +79,7 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
         // Offline / Guest mode
         const localKey = `kontxt_doc_${projectId}_${topicId}`;
         const localData = localStorage.getItem(localKey);
-        if (localData && isMounted) {
+        if (localData && isMounted && localData.trim() !== '') {
           const strippedContent = localData.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
           setContent(strippedContent);
         }
@@ -95,8 +97,8 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
           .maybeSingle(); 
         
         if (isMounted) {
-          if (!error && data && data.content) {
-            // Only update if there is custom content in the database
+          if (!error && data && data.content && data.content.trim() !== '') {
+            // Only update if there is meaningful custom content in the database
             const strippedContent = data.content.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
             setContent(strippedContent);
           }
@@ -170,7 +172,9 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
       if (normalizedPath.includes(normalizedMode) && normalizedPath.includes(normalizedType)) {
         const filename = path.split('/').pop() || '';
         const normalizedFilename = filename.toLowerCase().replace(/[^a-z0-9]/g, '');
-        if (normalizedFilename.startsWith(normalizedTopicId) || normalizedFilename.includes(normalizedTopicId)) {
+        const exactMatchString = `${normalizedTopicId}${normalizedMode}${normalizedType}md`;
+        
+        if (normalizedFilename === exactMatchString || normalizedFilename.includes(exactMatchString)) {
           try {
             const mod = await importFn();
             customContent = typeof mod === 'string' ? mod : (mod as any).default;
