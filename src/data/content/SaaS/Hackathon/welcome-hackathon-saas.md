@@ -8,7 +8,7 @@ Most hackathon teams lose before they write a single line of code.
 
 Not because they can't build. Because they start building the wrong thing, don't realize it until hour 18, and spend the last 6 hours frantically pivoting into something half-finished that nobody asked for.
 
-Kontxt exists so that doesn't happen to you.
+Claude exists so that doesn't happen to you.
 
 ---
 
@@ -16,7 +16,7 @@ Kontxt exists so that doesn't happen to you.
 
 This changes everything about the advice you'll receive here.
 
-In Hackathon Mode, Kontxt won't lecture you about microservices, CI/CD pipelines, or 12-factor app methodology. That's not what you need right now.
+In Hackathon Mode, Claude won't lecture you about microservices, CI/CD pipelines, or 12-factor app methodology. That's not what you need right now.
 
 What you need is clarity — fast.
 
@@ -50,13 +50,13 @@ You've seen it. You've probably done it. Three people, seven features, zero work
 
 A SaaS product with one thing that genuinely works will beat a SaaS product with ten things that don't every single time.
 
-Kontxt will force you to make hard decisions early — what to build, what to cut, and why — so you don't negotiate those decisions with your team at 3am when everyone is tired and desperate.
+Claude will force you to make hard decisions early — what to build, what to cut, and why — so you don't negotiate those decisions with your team at 3am when everyone is tired and desperate.
 
 ---
 
 ## What This Is (and Isn't)
 
-> **Kontxt is not documentation.**
+> **Claude is not documentation.**
 > It won't send you to read ten articles about REST API design theory. It will tell you what to do, warn you when AI is about to mislead you, and hand you prompts that actually work.
 
 You'll move through a set of topics that mirror how experienced engineers actually plan software. Not the textbook version — the real version, adapted for the time pressure you're under right now.
@@ -89,17 +89,17 @@ This is what professionals call a Technical Design Document. In a normal company
 
 ---
 
-## How to Move Through Kontxt Right Now
+## How to Move Through Claude Right Now
 
 >  **Hackathon rule:** Don't linger. Read, decide, move on.
 
 Each topic has a recommended depth setting. In Hackathon Mode, most are already dialed to **Basic** — just enough to make a good decision without slowing you down.
 
-If a topic feels obvious for your project, skip it. Kontxt is a guide, not a gatekeeper.
+If a topic feels obvious for your project, skip it. Claude is a guide, not a gatekeeper.
 
 If a topic produces a decision you're unsure about, flag it and keep moving. Paralysis is more dangerous than a slightly wrong choice right now. You can fix decisions. You can't recover lost time.
 
->  **One warning:** The AI prompts in Kontxt are designed to be used *after* you've made your decisions, not instead of making them. Don't outsource your thinking to Kontxt before you've done the thinking yourself. That's how you end up with a technically impressive app that solves a problem nobody has.
+>  **One warning:** The AI prompts in Claude are designed to be used *after* you've made your decisions, not instead of making them. Don't outsource your thinking to Claude before you've done the thinking yourself. That's how you end up with a technically impressive app that solves a problem nobody has.
 
 ---
 
@@ -114,7 +114,7 @@ SaaS is a specific type of product with a specific set of assumptions baked in:
 
 For a hackathon demo, you don't need all of this working. But you need to *look* like you've thought about it, because judges have seen enough weekend projects to spot the difference between someone who has a product vision and someone who hacked something together and called it SaaS.
 
-Kontxt will help you look like the former, even if you're starting from scratch today.
+Claude will help you look like the former, even if you're starting from scratch today.
 
 ---
 

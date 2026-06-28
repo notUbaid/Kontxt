@@ -63,7 +63,7 @@ Use one of:
 
 > **Example**
 >
-> *"Kontxt is a SaaS platform that helps freelancers get paid on time — automatically."*
+> *"Claude is a SaaS platform that helps freelancers get paid on time — automatically."*
 
 **On the slide:** Product name. One sentence. Maybe a tagline.
 
@@ -93,7 +93,7 @@ Two formats that work:
 ```
 User → Frontend (React) → API (Node/FastAPI) → DB (Postgres)
                                          ↓
-                               AI Layer (Kontxt / GPT-4)
+                               AI Layer (Claude / GPT-4)
 ```
 
 **Option B — 3-step flow**

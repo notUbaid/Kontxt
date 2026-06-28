@@ -12,7 +12,7 @@ estimatedTime: 15-20 min
 You've already built the three documents that cover almost every SaaS: Privacy Policy, Terms of Service, Cookie Policy. This module is about what's left over — the documents that only apply depending on *your specific* business, and that founders frequently discover they needed only after a customer, investor, or partner asks for one.
 
 > **️ Important boundary**
-> Kontxt is not a lawyer. This module helps you recognize which additional documents your specific business might need so you can ask the right questions to a professional — it does not tell you definitively which laws apply to you, and AI-drafted versions of any of these should be reviewed before use, especially the ones involving liability or compliance certifications.
+> Claude is not a lawyer. This module helps you recognize which additional documents your specific business might need so you can ask the right questions to a professional — it does not tell you definitively which laws apply to you, and AI-drafted versions of any of these should be reviewed before use, especially the ones involving liability or compliance certifications.
 
 ---
 

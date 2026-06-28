@@ -114,7 +114,7 @@ The bottleneck is knowing what to build, in what order, with what constraints, a
 
 ## How to Use AI Effectively in This System
 
-You will be working with AI tools throughout — Kontxt, Cursor, Kontxt Code, or others. A few principles that apply across all phases:
+You will be working with AI tools throughout — Claude, Cursor, Claude Code, or others. A few principles that apply across all phases:
 
 **Give AI context, not commands.**
 "Build me an authentication system" produces generic output. "Build me an authentication system for a B2B SaaS where each organisation has multiple members with role-based permissions, using Supabase Auth, following these constraints..." produces architecture worth using.

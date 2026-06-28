@@ -21,7 +21,7 @@ In a hackathon, the best stack isn't the most powerful — it's the one that let
 Pick the shape that matches your idea. Each type has different stack priorities.
 
 ### AI-powered tool
-Bias toward FastAPI (Python) if your AI logic is complex. Next.js API routes work for simple Kontxt/OpenAI calls. Add Supabase for storing conversation history — judges love persistent state.
+Bias toward FastAPI (Python) if your AI logic is complex. Next.js API routes work for simple Claude/OpenAI calls. Add Supabase for storing conversation history — judges love persistent state.
 
 ### CRUD / dashboard
 This is where Next.js + Supabase shines. You'll have a working data table and form in under 2 hours. Add shadcn/ui for polished components with zero custom CSS.
@@ -100,7 +100,7 @@ Select one option per layer. Recommended picks are marked with .
 
 | Option | Notes |
 |---|---|
-|  **Vercel AI SDK + Kontxt** | Best streaming DX, multi-provider support |
+|  **Vercel AI SDK + Claude** | Best streaming DX, multi-provider support |
 | OpenAI SDK directly | Familiar, slightly more boilerplate for streaming |
 | Anthropic SDK directly | Direct control, manual streaming setup |
 |  LangChain.js | Powerful, heavily abstracted, debugging is harder |
@@ -142,7 +142,7 @@ Select one option per layer. Recommended picks are marked with .
 
 ### Architecture review prompt
 
-Copy this into Kontxt, fill in your stack, and run it before writing any feature code.
+Copy this into Claude, fill in your stack, and run it before writing any feature code.
 
 ```prompt
 I'm building a [describe your SaaS in 1 sentence] for a hackathon. My planned stack is:
