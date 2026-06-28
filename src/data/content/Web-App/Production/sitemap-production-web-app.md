@@ -175,7 +175,7 @@ The `?redirect=` pattern preserves the user's intent. After login, send them whe
 
 Use this to generate a first-draft sitemap from your idea:
 
-```
+```prompt
 You are a Staff Engineer helping define the URL structure and route map for a new web application.
 
 My app: [describe your app in 2–3 sentences]

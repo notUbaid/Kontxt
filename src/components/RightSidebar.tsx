@@ -205,12 +205,11 @@ Use this context to answer their questions accurately. Keep your answers concise
 
   return (
     <aside 
-      className="w-80 shrink-0 h-[calc(100vh-4rem)] border-l border-muted bg-background/95 backdrop-blur-md grid transition-[grid-template-rows] duration-300 ease-in-out"
-      style={{ gridTemplateRows: isChatExpanded ? '1fr 1fr' : '1fr 40px' }}
+      className="w-[340px] shrink-0 h-[calc(100vh-4rem)] border-l border-muted bg-background/95 backdrop-blur-md flex flex-col"
     >
       
       {/* Top Half: Links Section */}
-      <div className="overflow-y-auto border-b border-muted/50 flex flex-col min-h-0">
+      <div className="flex-1 overflow-y-auto border-b border-muted/50 flex flex-col min-h-0 transition-all duration-300 ease-in-out">
         <div className="p-4 border-b border-muted/20">
           <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">
             Universal Links
@@ -352,7 +351,7 @@ Use this context to answer their questions accurately. Keep your answers concise
 
       {/* Bottom Half: RAG Chatbot */}
       <div 
-        className="flex flex-col bg-background/80 overflow-hidden border-t border-muted min-h-0"
+        className={`flex flex-col bg-background/80 overflow-hidden border-t border-muted min-h-0 transition-all duration-300 ease-in-out ${isChatExpanded ? 'flex-1' : 'flex-none h-[40px]'}`}
       >
         <div 
           className="h-[40px] px-4 border-b border-muted flex items-center justify-between bg-muted/20 shrink-0 cursor-pointer hover:bg-muted/30 transition-colors group"
@@ -379,85 +378,77 @@ Use this context to answer their questions accurately. Keep your answers concise
         </div>
         
         {/* Chat History & Input */}
-        <AnimatePresence initial={false}>
-          {isChatExpanded && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="flex flex-col flex-1 overflow-hidden"
-            >
-              <div className="flex-1 overflow-y-auto p-4 space-y-4">
-          <AnimatePresence initial={false}>
-            {messages.map((msg) => (
-              <motion.div
-                key={msg.id}
-                initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}
-              >
-                <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 ${msg.role === 'user' ? 'bg-primary text-background' : 'bg-accent/20 text-accent'}`}>
-                  {msg.role === 'user' ? <User size={14} /> : <Bot size={14} />}
-                </div>
-                <div className={`text-sm p-3 rounded-2xl max-w-[85%] ${
-                  msg.role === 'user' 
-                    ? 'bg-primary text-primary-foreground rounded-tr-none' 
-                    : 'bg-muted/60 text-foreground rounded-tl-none border border-muted'
-                }`}>
-                  {msg.role === 'user' ? (
-                    msg.content
-                  ) : (
-                    <div className="prose prose-sm dark:prose-invert max-w-none prose-p:leading-relaxed prose-pre:bg-muted prose-pre:border prose-pre:border-muted/50">
-                      <ReactMarkdown 
-                        remarkPlugins={[remarkGfm]}
-                        components={{
-                          a: ({ node: _node, ...props }) => (
-                            <a {...props} className="text-primary hover:underline font-medium" target="_blank" rel="noopener noreferrer" />
-                          )
-                        }}
-                      >
-                        {msg.content}
-                      </ReactMarkdown>
-                    </div>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-          <div ref={chatEndRef} />
-        </div>
+        <div
+          className={`flex flex-col flex-1 overflow-hidden transition-opacity duration-300 ease-in-out ${isChatExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        >
+          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <AnimatePresence initial={false}>
+              {messages.map((msg) => (
+                <motion.div
+                  key={msg.id}
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}
+                >
+                  <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 ${msg.role === 'user' ? 'bg-primary text-background' : 'bg-accent/20 text-accent'}`}>
+                    {msg.role === 'user' ? <User size={14} /> : <Bot size={14} />}
+                  </div>
+                  <div className={`text-sm p-3 rounded-2xl max-w-[85%] ${
+                    msg.role === 'user' 
+                      ? 'bg-primary text-primary-foreground rounded-tr-none' 
+                      : 'bg-muted/60 text-foreground rounded-tl-none border border-muted'
+                  }`}>
+                    {msg.role === 'user' ? (
+                      msg.content
+                    ) : (
+                      <div className="prose prose-sm dark:prose-invert max-w-none prose-p:leading-relaxed prose-pre:bg-muted prose-pre:border prose-pre:border-muted/50">
+                        <ReactMarkdown 
+                          remarkPlugins={[remarkGfm]}
+                          components={{
+                            a: ({ node: _node, ...props }) => (
+                              <a {...props} className="text-primary hover:underline font-medium" target="_blank" rel="noopener noreferrer" />
+                            )
+                          }}
+                        >
+                          {msg.content}
+                        </ReactMarkdown>
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+            <div ref={chatEndRef} />
+          </div>
 
-        {/* Chat Input */}
-        <div className="p-3 border-t border-muted shrink-0">
-          <div className="relative">
-            <input
-              type="text"
-              name="kontxt-chat-input"
-              autoComplete="off"
-              autoCorrect="off"
-              spellCheck={false}
-              value={chatInput}
-              onChange={(e) => setChatInput(e.target.value)}
-              placeholder={`Ask about ${activeTopicName}...`}
-              className="w-full bg-background border border-input rounded-2xl pl-4 pr-10 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all disabled:opacity-50"
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') handleSendMessage();
-              }}
-              disabled={isTyping}
-            />
-            <button 
-              onClick={handleSendMessage}
-              disabled={!chatInput.trim() || isTyping}
-              className="absolute right-1 top-1/2 -translate-y-1/2 p-1.5 text-muted-foreground hover:text-primary transition-colors rounded-full hover:bg-muted disabled:opacity-50 disabled:hover:bg-transparent"
-            >
-              <Send size={16} />
-            </button>
+          {/* Chat Input */}
+          <div className="p-3 border-t border-muted shrink-0">
+            <div className="relative">
+              <input
+                type="text"
+                name="kontxt-chat-input"
+                autoComplete="off"
+                autoCorrect="off"
+                spellCheck={false}
+                value={chatInput}
+                onChange={(e) => setChatInput(e.target.value)}
+                placeholder={`Ask about ${activeTopicName}...`}
+                className="w-full bg-background border border-input rounded-2xl pl-4 pr-10 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all disabled:opacity-50"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') handleSendMessage();
+                }}
+                disabled={isTyping}
+              />
+              <button 
+                onClick={handleSendMessage}
+                disabled={!chatInput.trim() || isTyping}
+                className="absolute right-1 top-1/2 -translate-y-1/2 p-1.5 text-muted-foreground hover:text-primary transition-colors rounded-full hover:bg-muted disabled:opacity-50 disabled:hover:bg-transparent"
+              >
+                <Send size={16} />
+              </button>
+            </div>
           </div>
         </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </aside>
   );

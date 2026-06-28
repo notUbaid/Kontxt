@@ -253,8 +253,8 @@ Body: "Upgrade to Pro to [specific benefit]."
 **Toast notifications:**
 ```
 TOAST (bottom-right, auto-dismiss 4s):
-  Success: ✓ "[Entity] saved"
-  Error: ✗ "Failed to save. [Retry link]"
+  Success:  "[Entity] saved"
+  Error:  "Failed to save. [Retry link]"
   Info: ℹ "[Action] is in progress"
 ```
 

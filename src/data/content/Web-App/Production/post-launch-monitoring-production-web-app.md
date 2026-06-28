@@ -84,7 +84,7 @@ A health check that only returns 200 without checking dependencies gives you a f
 - Alert channel: SMS or phone call for critical apps, email or Slack for lower-stakes apps
 - Recovery alert: notify when the issue resolves (so you know the timeline)
 
-> ⚠️ **Warning:** Uptime alerts at 3am are only useful if someone acts on them. Define your response protocol before you configure your alerts. An alert nobody responds to is noise.
+>  **Warning:** Uptime alerts at 3am are only useful if someone acts on them. Define your response protocol before you configure your alerts. An alert nobody responds to is noise.
 
 ---
 
@@ -355,7 +355,7 @@ The fastest fix for a broken deployment is often the previous working deployment
 
 Use this to review your monitoring coverage before or after launch.
 
-```
+```prompt
 You are a senior SRE reviewing my monitoring setup.
 
 My web app:

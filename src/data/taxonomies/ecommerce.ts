@@ -11,6 +11,7 @@ export const ecommerceProductionTaxonomy: Category[] = [
     id: 'phase-0-discovery',
     name: 'PHASE 0 — BUSINESS & STORE STRATEGY',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Target Audience', Users, [{name:'Meta Lookalike Audiences',url:'https://www.facebook.com/business/help'}], 'ecommercetargetaudience'),
       createTopic('Value Proposition', Gift, [{name:'Value Proposition Canvas',url:'https://www.strategyzer.com/'}], 'ecommercevalueproposition'),
       createTopic('Competitor Analysis', BarChart, [{name:'SimilarWeb',url:'https://www.similarweb.com/'}], 'ecommercecompetitoranalysis'),
@@ -140,6 +141,8 @@ export const ecommerceProductionTaxonomy: Category[] = [
       createTopic('Referrals', Share2, [{name:'ReferralCandy',url:'https://www.referralcandy.com/'}], 'ecommercereferrals'),
       createTopic('Presentation Prep', Presentation),
       createTopic('Pitch Deck', Presentation),
+      createTopic('Demo Script', FileText),
+      createTopic('Submission Checklist', CheckSquare),
     ]
   }
 ];
@@ -159,13 +162,13 @@ const filterTaxonomy = (keep: string[], hide: string[]) => {
 
 export const ecommerceHackathonTaxonomy: Category[] = filterTaxonomy(
   [
-    'Store Concept', 'Product Catalog Planning', 'PRD', 'Customer Journey', 'Product Page Design', 
-    'Cart', 'Checkout', 'Payments', 'Demo Products', 'Pitch Deck', 'Demo Script', 'Submission Checklist',
+    'Business Definition', 'Store Fundamentals', 'Product Catalog Planning', 'PRD', 'Customer Journey', 'Product Page Design', 
+    'Cart', 'Checkout', 'Payments', 'Products', 'Pitch Deck', 'Presentation Prep', 'Demo Script', 'Submission Checklist',
     // Mapped Aliases
     'Store Fundamentals'
   ],
   [
-    'Inventory Architecture', 'Inventory', 'Fraud Prevention', 'SEO Setup', 'Shipping Architecture', 
+    'Inventory', 'Payment & Fraud Protection', 'E-commerce SEO', 'Shipping', g 
     'Shipping Setup', 'Monitoring', 'Scalability Planning', 'Legal Documents'
   ]
 );
@@ -173,8 +176,8 @@ export const ecommerceHackathonTaxonomy: Category[] = filterTaxonomy(
 export const ecommercePersonalTaxonomy: Category[] = filterTaxonomy(
   [],
   [
-    'Enterprise Fraud Detection', 'Advanced Monitoring', 'Multi-region Infrastructure',
-    'Fraud Prevention', 'Scalability Planning', 'Google Merchant Center'
+    'Enterprise Fraud Detection', 'Observability', 'Multi-region Infrastructure',
+    'Payment & Fraud Protection', 'Scalability Planning'g, 'Google Merchant Center'
   ]
 );
 

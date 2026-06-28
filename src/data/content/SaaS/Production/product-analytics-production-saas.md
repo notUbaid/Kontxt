@@ -65,11 +65,11 @@ Retention curves almost always drop sharply at first, then flatten. The flatteni
 
 ## Common Misreadings to Avoid
 
-**️ Survivorship bias in feature usage data.** If you look only at users who are still active and see "80% use Feature X," you're not learning whether Feature X drives retention — you're looking at a population that already survived. Compare feature usage between users who stayed and users who churned to see if it's actually correlated with retention, not just present in current usage.
+** Survivorship bias in feature usage data.** If you look only at users who are still active and see "80% use Feature X," you're not learning whether Feature X drives retention — you're looking at a population that already survived. Compare feature usage between users who stayed and users who churned to see if it's actually correlated with retention, not just present in current usage.
 
-**️ Confusing correlation with causation in cohort comparisons.** If users who complete onboarding step 3 retain better, that doesn't prove step 3 *causes* retention — engaged users may simply be more likely to both finish onboarding and stick around for unrelated reasons. Be especially cautious before redesigning a flow based on a single correlation.
+** Confusing correlation with causation in cohort comparisons.** If users who complete onboarding step 3 retain better, that doesn't prove step 3 *causes* retention — engaged users may simply be more likely to both finish onboarding and stick around for unrelated reasons. Be especially cautious before redesigning a flow based on a single correlation.
 
-**️ Small sample sizes producing noisy percentages.** "Conversion jumped from 10% to 25%!" means very little if that's 2 out of 20 users versus 5 out of 20. Don't make roadmap decisions off small-n data points — wait for a sample size where the swing isn't just noise.
+** Small sample sizes producing noisy percentages.** "Conversion jumped from 10% to 25%!" means very little if that's 2 out of 20 users versus 5 out of 20. Don't make roadmap decisions off small-n data points — wait for a sample size where the swing isn't just noise.
 
 ---
 

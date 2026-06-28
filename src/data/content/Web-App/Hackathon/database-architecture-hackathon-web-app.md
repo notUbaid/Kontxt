@@ -17,7 +17,7 @@ You sketched a rough data model in your PRD. This module turns that sketch into 
 
 A production database anticipates future features, scale, and data you don't have yet. A hackathon database needs to hold exactly the data your demo flow touches — nothing more. Every extra table, every "just in case we need this" column, is time spent on a feature that doesn't exist instead of time spent making your actual demo path solid.
 
-> **⚠️ Warning**
+> ** Warning**
 > Don't design for hypothetical future features ("what if we add teams later" or "what if users need roles"). If it's not in your Must-Have feature list, it doesn't get a table or a column. You can always add it in five minutes later if you somehow have spare time — which, in a hackathon, you almost never do.
 
 ---
@@ -56,7 +56,7 @@ In production, normalization prevents data inconsistency at scale. At hackathon 
 | Data that would normally get its own lookup table (e.g., a fixed status enum) | Just use a string/enum column directly — skip the separate table |
 | Data you're tempted to model relationally "for correctness" but only ever query one way | Denormalize freely — store it duplicated or nested if that's faster to build against |
 
-> **💡 Tip**
+> ** Tip**
 > If you're using a tool like Supabase or Firebase, lean into whatever its fastest default pattern is — a flexible JSON column for loosely structured data, a simple flat table for everything else. Optimize for "what can I query and display fastest," not for textbook schema design.
 
 ---
@@ -89,7 +89,7 @@ Include a brief seed script or sample insert statements I can use to
 populate realistic-looking demo data.
 ```
 
-> **🔍 Why this prompt works**
+> ** Why this prompt works**
 > Explicitly forbidding hypothetical-feature fields and over-normalization counters AI's tendency to generate "complete," production-style schemas by default — without that constraint, you'd likely get extra tables and constraints that cost build time without serving your actual demo. Requesting the seed script in the same prompt saves a second round-trip, since you already know from Step 3 that demo data is a near-certain need.
 
 **Token efficiency note:** Generate this once, directly from your finalized flow-to-data mapping, rather than iterating on schema design across several prompts. If your flow changes meaningfully, regenerate — but don't fine-tune a hackathon schema field-by-field across multiple conversations.

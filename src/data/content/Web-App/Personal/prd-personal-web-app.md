@@ -27,7 +27,7 @@ It is a living reference file — probably 300–600 words — that you update a
 
 ## Why It Matters More Than You Think
 
-> **💡 Tip**
+> ** Tip**
 > AI tools have no memory between conversations. Every time you start a new chat, you're talking to something that knows nothing about your project. A PRD is the context layer that turns generic AI output into output that's actually useful for your specific product.
 
 The difference between "write me a user auth flow" and "here's my PRD — write me a user auth flow for this specific product" is significant. The second prompt produces something you can use. The first produces something you spend 20 minutes adapting.
@@ -175,7 +175,7 @@ Update it when:
 
 Keep it in your project repo as `PRD.md`. Every time you start an AI session that involves product or architecture decisions, paste it at the top of the prompt.
 
-> **💡 Tip**
+> ** Tip**
 > Keep your PRD under 600 words. Longer than that and it stops being useful as a quick-paste context document. If it's growing, it means decisions are getting buried in prose — pull them out into the relevant sections and cut the rest.
 
 ---

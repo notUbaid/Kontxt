@@ -59,7 +59,7 @@ Only reach for additional specialized stores when you have a concrete reason:
 - **Dedicated search (Elasticsearch/Meilisearch/Typesense)** — only once Postgres full-text search genuinely isn't enough
 - **NoSQL (MongoDB, DynamoDB)** — only if your data is genuinely document-shaped and you've confirmed you don't need relational integrity, joins, or transactions
 
-> ️ **Warning**
+> [!WARNING]
 > Don't add a second database technology "for scale" before you've measured an actual bottleneck. This is one of the most common forms of premature optimization in early-stage SaaS — it adds operational burden (backups, monitoring, expertise) for a problem you don't have yet.
 
 ---

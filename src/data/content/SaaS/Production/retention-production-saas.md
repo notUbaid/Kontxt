@@ -57,7 +57,7 @@ Triggers (emails, push notifications, in-app reminders) can genuinely help reten
 
 A trigger works when it reminds the user of something genuinely useful waiting for them: "Your weekly report is ready," "3 teammates joined your workspace," "Your trial ends in 2 days and you haven't tried X yet."
 
-**️ Warning — Triggers as a Crutch**
+** Warning — Triggers as a Crutch**
 
 A trigger that exists only to manufacture an open ("We miss you! ") with no actual new value behind it trains users to treat your notifications as noise. Once a user starts ignoring your emails, re-engaging them later is far harder than if you'd never sent the empty ones.
 

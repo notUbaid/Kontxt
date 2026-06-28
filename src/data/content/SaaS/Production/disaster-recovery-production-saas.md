@@ -249,7 +249,7 @@ Run a cleanup job to permanently purge soft-deleted records after your recovery 
 
 A runbook is step-by-step documentation for restoring service. It is written in advance, when you're calm. It is used during an incident, when you're not.
 
-```markdown
+```
 # Disaster Recovery Runbook
 Last tested: [DATE]
 Owner: [NAME]

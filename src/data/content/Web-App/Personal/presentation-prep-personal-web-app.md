@@ -20,10 +20,10 @@ This module helps you present your project with the same care you put into build
 Developers lead with features. Audiences care about problems.
 
 ```
-❌ "It's a full-stack Next.js app with Prisma, 
+ "It's a full-stack Next.js app with Prisma, 
     TanStack Query, and deployed on Vercel."
 
-✅ "I built this because I kept losing track of [problem]. 
+ "I built this because I kept losing track of [problem]. 
     Now I use it every day."
 ```
 
@@ -137,10 +137,10 @@ Most non-technical audiences don't need the stack. Most technical audiences alre
 What they want to know is: **why did you pick this, and would you pick it again?**
 
 ```
-❌ "I used Next.js, TypeScript, Prisma, PostgreSQL, 
+ "I used Next.js, TypeScript, Prisma, PostgreSQL, 
     TanStack Query, Zod, NextAuth, and Vercel."
 
-✅ "I used Next.js because the full-stack model meant I could ship 
+ "I used Next.js because the full-stack model meant I could ship 
     faster without managing a separate API. The biggest trade-off 
     was that serverless functions have cold starts, which I had to 
     work around for the database connection."

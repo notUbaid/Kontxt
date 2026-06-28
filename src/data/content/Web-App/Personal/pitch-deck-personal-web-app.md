@@ -86,9 +86,9 @@ Don't put your logo and nothing else. Don't put a tagline that sounds clever but
 Be specific. Specific problems feel real. Vague problems feel invented.
 
 ```
-❌ "People struggle to manage their time effectively."
+ "People struggle to manage their time effectively."
 
-✅ "Freelancers send 4–6 follow-up emails per unpaid invoice.
+ "Freelancers send 4–6 follow-up emails per unpaid invoice.
     30% of invoices over 60 days old are never collected.
     The average freelancer loses $3,200/year to unpaid work."
 ```
@@ -218,9 +218,9 @@ Or a comparison table:
 
 | Feature | Competitor A | Competitor B | You |
 |---|---|---|---|
-| Real-time sync | ❌ | ✅ | ✅ |
-| AI-assisted | ❌ | ❌ | ✅ |
-| Mobile app | ✅ | ❌ | ✅ |
+| Real-time sync |  |  |  |
+| AI-assisted |  |  |  |
+| Mobile app |  |  |  |
 | Price | $49/mo | $29/mo | $12/mo |
 
 Be honest. Don't list fake checkmarks for features you don't have. Investors will check.

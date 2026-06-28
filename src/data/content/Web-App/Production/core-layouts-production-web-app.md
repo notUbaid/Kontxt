@@ -331,7 +331,7 @@ Show `MobileSidebarTrigger` in the header on mobile, hide the desktop sidebar be
 
 ## AI Prompt — Layout Generation
 
-```
+```prompt
 You are a Staff Engineer building the core layout system for a Next.js 14 App Router application.
 
 My app: [describe in 2–3 sentences]

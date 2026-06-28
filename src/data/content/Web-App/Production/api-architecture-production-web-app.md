@@ -215,9 +215,9 @@ If you are building Route Handlers, follow REST conventions consistently.
 ### Resource Naming
 
 ```
-✅ Plural nouns:    /api/projects       /api/users        /api/organizations
-❌ Verbs in URLs:   /api/getProjects    /api/createUser   /api/deleteOrg
-❌ Mixed casing:    /api/myProjects     /api/My_Projects
+ Plural nouns:    /api/projects       /api/users        /api/organizations
+ Verbs in URLs:   /api/getProjects    /api/createUser   /api/deleteOrg
+ Mixed casing:    /api/myProjects     /api/My_Projects
 ```
 
 ### Route Patterns
@@ -380,7 +380,7 @@ Apply stricter limits to expensive operations: AI endpoints, file uploads, email
 
 ## AI Prompt — API Design Review
 
-```
+```prompt
 You are a Staff Engineer reviewing the API design for a production Next.js web application.
 
 My app: [describe in 2–3 sentences]

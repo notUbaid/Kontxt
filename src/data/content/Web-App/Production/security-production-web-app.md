@@ -80,11 +80,11 @@ app.use(
 ```
 
 > **What each header does:**
-> - `HSTS`: Forces HTTPS — browser won't allow HTTP connections
-> - `X-Frame-Options: DENY`: Prevents your pages from being embedded in iframes (clickjacking)
-> - `X-Content-Type-Options: nosniff`: Stops browsers guessing MIME types (XSS vector)
-> - `CSP`: Whitelists what scripts, styles, and resources the browser can load
-> - `Referrer-Policy`: Controls what URL is sent in the `Referer` header
+- `HSTS`: Forces HTTPS — browser won't allow HTTP connections
+- `X-Frame-Options: DENY`: Prevents your pages from being embedded in iframes (clickjacking)
+- `X-Content-Type-Options: nosniff`: Stops browsers guessing MIME types (XSS vector)
+- `CSP`: Whitelists what scripts, styles, and resources the browser can load
+- `Referrer-Policy`: Controls what URL is sent in the `Referer` header
 
 ---
 
@@ -150,7 +150,7 @@ router.post('/users', validate(createUserSchema), asyncHandler(createUser));
 router.patch('/users/:id', validate(updateUserSchema), asyncHandler(updateUser));
 ```
 
-> ⚠️ **Never trust client-sent role or permission fields.** Validate and strip them at the schema layer. Role assignment must come from your server-side authorization logic only.
+>  **Never trust client-sent role or permission fields.** Validate and strip them at the schema layer. Role assignment must come from your server-side authorization logic only.
 
 ---
 
@@ -240,17 +240,17 @@ router.post('/orders', rateLimiters.api, asyncHandler(createOrder));
 If you use an ORM like Prisma, you're protected by default — it uses parameterized queries internally. But raw queries are still a risk.
 
 ```typescript
-// ❌ SQL injection vulnerability
+//  SQL injection vulnerability
 const users = await prisma.$queryRaw(
   `SELECT * FROM users WHERE email = '${email}'`
 );
 
-// ✅ Safe — Prisma uses tagged template literals as parameterized queries
+//  Safe — Prisma uses tagged template literals as parameterized queries
 const users = await prisma.$queryRaw`
   SELECT * FROM users WHERE email = ${email}
 `;
 
-// ✅ Also safe — ORM query builder
+//  Also safe — ORM query builder
 const users = await prisma.user.findMany({
   where: { email },
 });
@@ -413,7 +413,7 @@ export const corsMiddleware = cors({
 ALLOWED_ORIGINS=https://yourdomain.com,https://www.yourdomain.com
 ```
 
-> ⚠️ **Never set `origin: '*'` with `credentials: true`.** Browsers block this combination — but more importantly, it would allow any site to make authenticated requests on behalf of your users.
+>  **Never set `origin: '*'` with `credentials: true`.** Browsers block this combination — but more importantly, it would allow any site to make authenticated requests on behalf of your users.
 
 ---
 
@@ -422,11 +422,11 @@ ALLOWED_ORIGINS=https://yourdomain.com,https://www.yourdomain.com
 ### What Must Never Be in Code
 
 ```bash
-# ❌ Never hardcode
+#  Never hardcode
 const secret = 'my-super-secret-key';
 const dbUrl = 'postgresql://admin:password@localhost:5432/mydb';
 
-# ✅ Always from environment
+#  Always from environment
 const secret = process.env.JWT_ACCESS_SECRET!;
 const dbUrl = process.env.DATABASE_URL!;
 ```
@@ -546,7 +546,7 @@ Add to CI pipeline:
 
 ## AI Prompt: Security Audit
 
-```
+```prompt
 You are a senior application security engineer reviewing a production Node.js/Express API.
 
 Stack: Node.js, Express, Prisma, PostgreSQL, Redis, JWT authentication

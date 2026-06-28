@@ -26,7 +26,7 @@ You already chose a data-fetching library (likely TanStack Query) in Frontend Ar
 | Cache invalidation after mutation | Invalidate the specific query keys affected, not the entire cache — broad invalidation causes unnecessary refetches and UI flicker |
 | Optimistic updates | Use for actions where instant feedback matters (toggling a checkbox, sending a message) — but always have a rollback path if the mutation fails |
 
-> ️ **Warning**
+> [!WARNING]
 > Optimistic updates without a rollback path are worse than no optimistic update at all — the UI shows success, then silently reverts or stays wrong when the request actually fails. Only add optimism once you've handled the failure case.
 
 ---
@@ -43,7 +43,7 @@ You already chose a data-fetching library (likely TanStack Query) in Frontend Ar
 >  **Best Practice**
 > For most production SaaS apps, **Zustand** hits the right balance: minimal boilerplate, good performance characteristics, and it doesn't tempt you to put server data into it the way Redux's "single source of truth" framing sometimes does.
 
-> ️ **Warning**
+> [!WARNING]
 > Whatever you choose, this store should hold genuinely global UI/session state only — current workspace ID, sidebar collapsed/expanded, theme. It should never hold a copy of data your server-state library already caches. If you find yourself manually syncing the two, that's the signal something's in the wrong place.
 
 ---
@@ -80,7 +80,7 @@ Only address this if your MVP genuinely requires live updates (collaborative edi
 | Bidirectional, low-latency (collaborative editing, chat) | WebSockets, or a managed real-time provider |
 | No real-time requirement | Skip this entirely — polling or refetch-on-focus via your data-fetching library is sufficient and far simpler |
 
-> ️ **Warning**
+> [!WARNING]
 > Don't add WebSocket infrastructure because real-time "feels production-grade." It adds meaningful operational complexity (connection management, scaling, reconnection logic). Add it only when a specific MVP feature genuinely requires it.
 
 ---

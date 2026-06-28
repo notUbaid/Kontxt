@@ -19,7 +19,7 @@ This module is about building a referral mechanism with real engineering rigor: 
 
 No referral mechanism fixes a retention problem. If users aren't sticking around or getting real value, incentivizing them to invite friends just means you're churning more people, faster. Confirm your retention curve (see the Retention module) has actually flattened at a healthy level before investing engineering time in referral infrastructure — otherwise you're optimizing the wrong layer.
 
-> **️ Warning**
+> ** Warning**
 > Referral programs amplify whatever's already true about your product. A great product with strong organic word-of-mouth gets a multiplier from a well-built referral system. A mediocre product gets a faster-cycling list of disappointed invitees who churn just as quickly as the people who inviting them.
 
 ---
@@ -60,7 +60,7 @@ A referral program is only as good as its ability to correctly attribute a new s
 
 Referral systems are a direct financial incentive, which means they attract abuse the moment they have any real value attached.
 
-**️ Common abuse patterns to design against:**
+** Common abuse patterns to design against:**
 
 - **Self-referral loops** — someone creates a second account to refer themselves
 - **Fake account farming** — generating multiple low-effort accounts purely to claim referrer credit, with no intention of the referee actually using the product

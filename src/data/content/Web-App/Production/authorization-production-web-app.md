@@ -22,7 +22,7 @@ A logged-in user is not automatically allowed to do everything. A correctly auth
 ## The Core Mistake
 
 ```ts
-// ❌ This is authentication, not authorization
+//  This is authentication, not authorization
 const session = await requireSession()
 
 // The user is logged in — but are they allowed to edit THIS project?
@@ -34,7 +34,7 @@ const project = await db.project.findUnique({
 The above code confirms the user is logged in. It does not confirm the user owns or has access to that specific project. This is how data from one tenant leaks to another.
 
 ```ts
-// ✅ This is authentication + authorization
+//  This is authentication + authorization
 const session = await requireSession()
 
 const project = await db.project.findUnique({
@@ -310,10 +310,10 @@ Never trust a role sent from the client. Always fetch the role server-side from 
 
 **Hardcoding role checks inline**
 ```ts
-// ❌ Scattered, inconsistent, hard to audit
+//  Scattered, inconsistent, hard to audit
 if (user.role === 'admin' || user.role === 'owner') { ... }
 
-// ✅ Centralized, auditable
+//  Centralized, auditable
 if (can(user.role, 'project', 'delete')) { ... }
 ```
 

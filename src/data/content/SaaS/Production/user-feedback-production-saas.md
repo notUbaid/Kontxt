@@ -19,7 +19,7 @@ The risk with feedback isn't collecting too little. It's collecting it badly —
 
 Analytics fails quietly through bad instrumentation. Feedback fails loudly through bias — and the bias is usually invisible to the person collecting it, because it feels like listening.
 
-> **️ Warning**
+> ** Warning**
 > The most common feedback trap is over-indexing on your most vocal users. The customer who emails you five times a week is not a representative sample — they're an outlier, in either direction. Their feedback is valuable as one data point, not as a stand-in for what your average user thinks.
 
 ---

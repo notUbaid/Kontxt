@@ -127,7 +127,7 @@ Return URL to frontend
 Frontend redirects user to that URL
 ```
 
-> ️ If your private files are accessible via a permanent public URL, any user who shares that link gives it to the world. Presigned URLs expire. Use them for anything sensitive.
+>  If your private files are accessible via a permanent public URL, any user who shares that link gives it to the world. Presigned URLs expire. Use them for anything sensitive.
 
 ---
 
@@ -210,7 +210,7 @@ When a user deletes a record that has an attached file:
 
 If you only delete the database record, you accumulate orphaned files in storage forever — paying for storage you can't reference.
 
-> ️ Soft-delete pattern: if you soft-delete records (mark as deleted, keep in DB), decide upfront whether the file is also soft-deleted or immediately purged. Inconsistency here causes storage bloat and GDPR headaches.
+>  Soft-delete pattern: if you soft-delete records (mark as deleted, keep in DB), decide upfront whether the file is also soft-deleted or immediately purged. Inconsistency here causes storage bloat and GDPR headaches.
 
 ---
 

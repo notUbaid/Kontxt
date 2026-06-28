@@ -11,7 +11,7 @@ estimatedTime: 15-20 min
 
 You've already built the three documents that cover almost every SaaS: Privacy Policy, Terms of Service, Cookie Policy. This module is about what's left over — the documents that only apply depending on *your specific* business, and that founders frequently discover they needed only after a customer, investor, or partner asks for one.
 
-> **️ Important boundary**
+> ** Important boundary**
 > Kontxt is not a lawyer. This module helps you recognize which additional documents your specific business might need so you can ask the right questions to a professional — it does not tell you definitively which laws apply to you, and AI-drafted versions of any of these should be reviewed before use, especially the ones involving liability or compliance certifications.
 
 ---
@@ -48,7 +48,7 @@ If you sell B2B and your customer's business data includes their end users' pers
 - Notifying the customer of a data breach within a specific timeframe
 - Listing your subprocessors (your own third-party tools — hosting, email, analytics) so the customer's compliance team can review them
 
-> **️ Warning**
+> ** Warning**
 > Your DPA's subprocessor list has to actually match your infrastructure. If you list AWS but you actually use a different host, or you add a new analytics tool six months later without updating the list, you're in breach of the agreement you signed — this is a living document, not a one-time draft.
 
 ---

@@ -456,19 +456,19 @@ Be specific to my context and data volumes.
 
 ## Common Mistakes
 
-> **️ Optimizing before measuring**
+> ** Optimizing before measuring**
 > You will spend days optimizing the wrong thing. Run `pg_stat_statements` and Lighthouse first. The actual bottleneck is almost never where you assume it is.
 
-> **️ Using OFFSET pagination on large tables**
+> ** Using OFFSET pagination on large tables**
 > `OFFSET 10000 LIMIT 20` forces Postgres to read and discard 10,000 rows. At scale this becomes unusably slow. Switch to cursor-based pagination early.
 
-> **️ Fetching full rows for list views**
+> ** Fetching full rows for list views**
 > A documents list page doesn't need the document body. Selecting only the fields rendered in the UI can reduce query time and payload size by 80%+.
 
-> **️ Adding infrastructure before fixing queries**
+> ** Adding infrastructure before fixing queries**
 > A faster server still runs slow queries slowly. Fix your indexes and N+1 queries before considering horizontal scaling. It's cheaper and usually solves the problem entirely.
 
-> **️ Caching without invalidation**
+> ** Caching without invalidation**
 > A cache that returns stale data when it matters (wrong plan displayed, wrong permissions applied) is worse than no cache. Build the invalidation before you build the cache.
 
 ---

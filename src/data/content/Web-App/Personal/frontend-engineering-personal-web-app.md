@@ -33,7 +33,7 @@ src/
 └── styles/            # Global CSS, tokens
 ```
 
-> **💡 Tip**
+> ** Tip**
 > When a file in `components/` grows to include business logic or starts importing from `lib/`, it belongs in `features/`. The cleaner the separation between generic UI components and feature-specific logic, the easier the codebase is to navigate solo.
 
 ---
@@ -204,7 +204,7 @@ export function useHabits() {
 }
 ```
 
-> **💡 Tip**
+> ** Tip**
 > This pattern scales well with React Query if you add it later. The hook interface stays identical — you just swap the internals. Starting with `useState` + `useEffect` keeps things simple until you actually need caching and invalidation.
 
 ---
@@ -261,7 +261,7 @@ For personal projects, start with React's built-in state tools. Add a library on
 | Server data (fetching, caching, mutations) | React Query (add when `useEffect` data fetching gets repetitive) |
 | Complex global UI state | Zustand (add only if Context becomes unwieldy) |
 
-> **⚠️ Warning**
+> ** Warning**
 > Adding Redux, MobX, or Jotai to a personal project before you've hit a real state management problem is over-engineering. `useState` and Context handle the vast majority of personal project needs. Add complexity only when you feel the specific pain it solves.
 
 ---

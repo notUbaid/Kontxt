@@ -93,7 +93,7 @@ Two formats that work:
 ```
 User → Frontend (React) → API (Node/FastAPI) → DB (Postgres)
                                          ↓
-                               AI Layer (Claude / GPT-4)
+                               AI Layer (Kontxt / GPT-4)
 ```
 
 **Option B — 3-step flow**

@@ -41,7 +41,7 @@ Tokens are the single source of truth that connects your Branding decisions to a
 - [ ] **Radius scale** — 2–4 options (e.g., sm/md/lg), not a different border-radius per component
 - [ ] **Shadow/elevation scale** — 2–3 levels, used consistently for cards, modals, dropdowns
 
-> ️ **Warning**
+> [!WARNING]
 > If a component needs a value not in your token scale, that's a signal to either extend the scale deliberately or reconsider the design — not to hardcode a one-off value. One-off values are how design systems silently die.
 
 ---

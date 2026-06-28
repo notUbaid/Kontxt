@@ -413,7 +413,7 @@ const { data } = useQuery({
 
 Use this when you have specific PageSpeed Insights findings you need to act on.
 
-```
+```prompt
 You are a senior performance engineer.
 
 My web app:

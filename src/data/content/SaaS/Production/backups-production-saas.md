@@ -275,7 +275,7 @@ Put this in your calendar. It will not happen otherwise.
 
 When an incident happens, you will be stressed and making decisions quickly. Write your restore process now, while calm.
 
-```markdown
+```
 # Database Restore Runbook
 
 ## Step 1 — Assess

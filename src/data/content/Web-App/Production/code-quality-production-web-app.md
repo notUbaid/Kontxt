@@ -387,10 +387,10 @@ ESLint is not just for bugs — it can enforce architectural decisions.
 ```
 
 ```typescript
-// ❌ Deep relative import — fragile, breaks on refactor
+//  Deep relative import — fragile, breaks on refactor
 import { cache } from '../../../lib/cache';
 
-// ✅ Path alias — stable, readable
+//  Path alias — stable, readable
 import { cache } from '@lib/cache';
 ```
 
@@ -414,7 +414,7 @@ import { cache } from '@lib/cache';
 
 ## AI Prompt: Codebase Quality Audit
 
-```
+```prompt
 You are a senior TypeScript engineer reviewing code quality configuration for a production Node.js application.
 
 Here is my current setup:

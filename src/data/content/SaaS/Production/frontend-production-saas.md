@@ -17,7 +17,7 @@ Everything planned in Phase 1 and Phase 2 — wireframes, design system, state m
 
 Mirror the approach from Backend: build one feature's complete UI — list view, detail view, create/edit, **and all four states from Wireframes** — before moving to the next feature.
 
-> ️ **Warning**
+> [!WARNING]
 > Empty, loading, and error states are the most commonly skipped part of frontend implementation, even when they were correctly planned in Wireframes. It's easy to build the populated/happy-path view, ship it, and quietly never circle back to the empty and error states. Build all four states as part of the same task, not as a follow-up.
 
 ---
@@ -54,7 +54,7 @@ For every data-driven screen, verify all of these actually exist in the implemen
 
 ## Decision 5: Use the Design System, Don't Recreate It
 
-> ️ **Warning**
+> [!WARNING]
 > Building a one-off styled button or input instead of using the established Design System component is how visual inconsistency creeps in feature by feature. If a component you need doesn't exist yet, that's a signal to add it to the design system properly (with all its states), not to write inline styles for just this one screen.
 
 ---

@@ -23,7 +23,7 @@ You already decided in Tech Stack Selection that this is a monolith. This module
 
 This isn't ceremony for its own sake — it's what makes business logic testable without spinning up an HTTP server, and what stops a database schema change from rippling through every route that happens to query that table directly.
 
-> ️ **Warning**
+> [!WARNING]
 > The most common backend architecture failure in AI-assisted projects is the "fat controller" — a route handler that validates input, queries the database, applies business rules, and formats the response all inline. It works for the first feature. By the tenth feature, with no consistent pattern, every route looks different and bugs hide in the inconsistency.
 
 ---
@@ -63,7 +63,7 @@ This is the backend equivalent of the feature-based folder structure you chose i
 > 5. Input validation (reject malformed requests before they reach business logic)
 > 6. Route handler
 
-> ️ **Warning**
+> [!WARNING]
 > Authentication and tenant scoping must happen in middleware, applied consistently — never as a check duplicated (or forgotten) inside individual route handlers. A route that forgets the tenant check is a data leak between customers, and it's far easier to audit one middleware function than every route in the codebase.
 
 ---
@@ -92,7 +92,7 @@ For anything async (from your System Architecture Diagram's queue box):
 - [ ] Jobs have a defined retry policy with backoff, not infinite immediate retries
 - [ ] Failed jobs are logged somewhere visible, not silently dropped
 
-> ️ **Warning**
+> [!WARNING]
 > Idempotency is the most-skipped concept in beginner background job design. If a "send welcome email" job retries after a transient failure and isn't idempotent, your user gets two welcome emails. If a "charge customer" job isn't idempotent, this becomes a billing incident, not a UX annoyance.
 
 ---

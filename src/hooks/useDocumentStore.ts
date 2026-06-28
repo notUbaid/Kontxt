@@ -47,10 +47,14 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
           if (normalizedPath.includes(normalizedMode) && normalizedPath.includes(normalizedType)) {
             const filename = path.split('/').pop() || '';
             const normalizedFilename = filename.toLowerCase().replace(/[^a-z0-9]/g, '');
-            const exactMatchString = `${normalizedTopicId}${normalizedMode}${normalizedType}md`;
+            // Two match strategies: one for simple IDs (e.g. SaaS 'welcome' + mode + type),
+            // and one for IDs that already embed mode+type (e.g. Web App 'welcome-production-web-app').
+            const matchWithContext = `${normalizedTopicId}${normalizedMode}${normalizedType}md`;
+            const matchDirect = `${normalizedTopicId}md`;
             
-            // e.g. "techstackproductionsaasmd" will exactly match the target file and avoid substrings like "techstackselectionproductionsaasmd"
-            if (normalizedFilename === exactMatchString || normalizedFilename.includes(exactMatchString)) {
+            // Exact equality only — .includes() caused substring collisions
+            // (e.g. 'search' matching inside 'marketresearch')
+            if (normalizedFilename === matchWithContext || normalizedFilename === matchDirect) {
               try {
                 const mod = await importFn();
                 // Depending on the bundler configuration, dynamic import of raw strings 
@@ -172,9 +176,10 @@ export function useDocumentStore(projectId: string | null, topicId: string, acti
       if (normalizedPath.includes(normalizedMode) && normalizedPath.includes(normalizedType)) {
         const filename = path.split('/').pop() || '';
         const normalizedFilename = filename.toLowerCase().replace(/[^a-z0-9]/g, '');
-        const exactMatchString = `${normalizedTopicId}${normalizedMode}${normalizedType}md`;
+        const matchWithContext = `${normalizedTopicId}${normalizedMode}${normalizedType}md`;
+        const matchDirect = `${normalizedTopicId}md`;
         
-        if (normalizedFilename === exactMatchString || normalizedFilename.includes(exactMatchString)) {
+        if (normalizedFilename === matchWithContext || normalizedFilename === matchDirect) {
           try {
             const mod = await importFn();
             customContent = typeof mod === 'string' ? mod : (mod as any).default;

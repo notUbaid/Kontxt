@@ -163,7 +163,7 @@ Write from the user's perspective. Be specific. Tell them what happened and what
 
 Use this when you know the feature but haven't written the empty state copy yet:
 
-```
+```prompt
 You are a product writer for a [describe your app in one sentence].
 
 Write empty state copy for the following features. For each, provide:

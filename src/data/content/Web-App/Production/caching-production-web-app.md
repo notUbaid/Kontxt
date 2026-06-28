@@ -188,7 +188,7 @@ export async function updateProduct(productId: string, data: UpdateProductInput)
 Poorly designed cache keys cause cache collisions, stale data, and impossible-to-debug bugs.
 
 ```typescript
-// ✅ Good cache key patterns
+//  Good cache key patterns
 `product:${id}`                          // Single resource
 `product:list:page:${page}:limit:${limit}`  // Paginated list
 `user:${userId}:profile`                 // User-scoped resource
@@ -196,7 +196,7 @@ Poorly designed cache keys cause cache collisions, stale data, and impossible-to
 `analytics:dashboard:${tenantId}:${date}` // Tenant + date scoped
 `search:${encodeURIComponent(query)}:page:${page}` // Search results
 
-// ❌ Bad cache key patterns
+//  Bad cache key patterns
 `products`                  // Too broad — invalidates everything on any change
 `list`                      // Collides across entity types
 `${userId}`                 // No namespace — what does this hold?
@@ -466,7 +466,7 @@ export async function getProduct(productId: string) {
 
 ## AI Prompt: Cache Strategy Review
 
-```
+```prompt
 You are a senior backend engineer reviewing the caching strategy for a production Node.js web application.
 
 Database: [your DB]

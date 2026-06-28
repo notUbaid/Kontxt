@@ -24,7 +24,7 @@ Go through your System Architecture Diagram and Third Party Integrations and lis
 - **Third-party services** (auth provider, email provider, payment processor fees, AI provider if applicable)
 - **Monitoring/observability tools** (often free at low volume, cost scales with log/event volume)
 
-> ️ **Warning**
+> [!WARNING]
 > **Bandwidth/egress costs are the most commonly underestimated line item.** A service that looks cheap based on compute pricing alone can become expensive once you account for data transfer out — especially for file-heavy SaaS products. Check egress pricing explicitly for every service that stores or serves files.
 
 ---
@@ -39,7 +39,7 @@ Don't estimate cost for "launch" alone — estimate at a few milestones so you c
 | Growth (hundreds–low thousands of users) | Where does a service's pricing tier require an upgrade? Is that jump gradual or a cliff? |
 | Scale (tens of thousands+) | Which costs scale per-user (predictable) vs. per-resource-consumed (less predictable, e.g., AI tokens, storage, email volume)? |
 
-> ️ **Warning**
+> [!WARNING]
 > **Free tiers create cost cliffs, not gradual increases.** Many providers charge nothing up to a threshold and then a meaningfully higher rate immediately after. Know where those thresholds are for every service you depend on, so a usage spike doesn't produce a surprise bill.
 
 ---

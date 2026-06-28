@@ -62,15 +62,15 @@ export default async function DashboardPage() {
 }
 ```
 
-> ⚠️ **Warning:** Never await sequentially when requests are independent. Sequential awaits create waterfalls — each request waits for the previous to complete. `Promise.all` runs them in parallel.
+>  **Warning:** Never await sequentially when requests are independent. Sequential awaits create waterfalls — each request waits for the previous to complete. `Promise.all` runs them in parallel.
 
 ```typescript
-// ❌ Sequential — 300ms + 200ms + 150ms = 650ms total
+//  Sequential — 300ms + 200ms + 150ms = 650ms total
 const user = await getUser(id)
 const posts = await getUserPosts(id)
 const followers = await getUserFollowers(id)
 
-// ✅ Parallel — max(300ms, 200ms, 150ms) = 300ms total
+//  Parallel — max(300ms, 200ms, 150ms) = 300ms total
 const [user, posts, followers] = await Promise.all([
   getUser(id),
   getUserPosts(id),
@@ -467,7 +467,7 @@ const updatePost = useMutation({
 
 ## AI Prompt: Data Fetching Architecture Review
 
-```
+```prompt
 You are a senior frontend engineer reviewing data fetching architecture for a production Next.js 14 app using TanStack Query and the App Router.
 
 My app: [describe your app briefly]

@@ -136,7 +136,7 @@ Build yours now. Rows are features or capabilities that matter to your target us
 - A row of  across all competitors — this is table stakes, not differentiation
 - A feature only you have — only valuable if users actually want it
 
-> ️ Don't build this from competitor marketing pages. Marketing pages show what competitors want you to think they do. Sign up for free trials. Read changelogs. Read user reviews that mention specific features.
+>  Don't build this from competitor marketing pages. Marketing pages show what competitors want you to think they do. Sign up for free trials. Read changelogs. Read user reviews that mention specific features.
 
 ---
 

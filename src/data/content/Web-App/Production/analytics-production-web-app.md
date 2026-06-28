@@ -301,7 +301,7 @@ Analytics and privacy are in tension. Handle this deliberately.
 ### What Not to Track
 
 ```typescript
-// ❌ Never track PII in event properties
+//  Never track PII in event properties
 track(userId, {
   event: 'user_signed_up',
   properties: {
@@ -311,10 +311,10 @@ track(userId, {
   },
 });
 
-// ✅ Use identify() for persistent user attributes
+//  Use identify() for persistent user attributes
 identify(userId, { plan: user.plan, role: user.role });
 
-// ✅ Use anonymous IDs for pre-auth flows
+//  Use anonymous IDs for pre-auth flows
 posthog.capture('signup_flow_started', {
   anonymousId: posthog.get_distinct_id(), // PostHog generates this
 });
@@ -389,10 +389,10 @@ Revenue:      MRR, churn rate
 ### What to Ignore Early On
 
 ```
-❌ Pageviews           — vanity metric, low signal
-❌ Time on site        — ambiguous (engaged or confused?)
-❌ Social shares       — rarely correlated with revenue
-❌ App store rating    — lagging indicator
+ Pageviews           — vanity metric, low signal
+ Time on site        — ambiguous (engaged or confused?)
+ Social shares       — rarely correlated with revenue
+ App store rating    — lagging indicator
 ```
 
 ---
@@ -416,7 +416,7 @@ Revenue:      MRR, churn rate
 
 ## AI Prompt: Event Plan
 
-```
+```prompt
 You are a senior product analyst helping design an analytics event plan for a production web application.
 
 Application type: [describe your app in 2-3 sentences]

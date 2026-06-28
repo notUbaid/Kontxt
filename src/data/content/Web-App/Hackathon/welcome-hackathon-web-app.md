@@ -23,7 +23,7 @@ In production, you optimize for: maintainability, security, scalability, real us
 
 In a hackathon, you optimize for: what a judge sees and feels in the 3-5 minutes they spend on your project.
 
-> **️ Warning**
+> ** Warning**
 > The most common hackathon failure isn't a bug. It's spending six hours building a robust backend nobody will ever stress-test, while your UI looks unfinished and your demo has nothing compelling to show. Judges remember what they saw, not what's architecturally sound underneath it.
 
 ---
@@ -57,7 +57,7 @@ Every module ahead is tuned for hackathon mode specifically. When you reach **Te
 
 ## Using AI in a Hackathon
 
-You'll be working fast, likely with Claude, ChatGPT, Cursor, or similar tools doing a large share of the actual code generation. The skill this curriculum builds isn't "how to write code" — it's how to direct AI efficiently under real time pressure: what context it needs, what to verify before moving on, and when a generated result is good enough to ship versus when it'll bite you in the demo.
+You'll be working fast, likely with Kontxt, ChatGPT, Cursor, or similar tools doing a large share of the actual code generation. The skill this curriculum builds isn't "how to write code" — it's how to direct AI efficiently under real time pressure: what context it needs, what to verify before moving on, and when a generated result is good enough to ship versus when it'll bite you in the demo.
 
 That skill matters more in a hackathon than almost anywhere else, because you don't have the luxury of slow, careful review cycles. Every module ahead teaches you exactly where to spend your limited verification time.
 

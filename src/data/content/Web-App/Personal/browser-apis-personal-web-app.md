@@ -21,14 +21,14 @@ Not all browser APIs are equal. Some are universally supported. Some require per
 
 | API | Support | Permission Required | SSR Safe |
 |---|---|---|---|
-| localStorage | Universal | No | ❌ |
-| sessionStorage | Universal | No | ❌ |
-| Clipboard | Modern browsers | Yes (write) | ❌ |
-| Notifications | Modern browsers | Yes | ❌ |
-| Geolocation | Universal | Yes | ❌ |
-| File System Access | Chrome/Edge only | Yes | ❌ |
-| IntersectionObserver | Universal | No | ❌ |
-| Web Share | Mobile + some desktop | No | ❌ |
+| localStorage | Universal | No |  |
+| sessionStorage | Universal | No |  |
+| Clipboard | Modern browsers | Yes (write) |  |
+| Notifications | Modern browsers | Yes |  |
+| Geolocation | Universal | Yes |  |
+| File System Access | Chrome/Edge only | Yes |  |
+| IntersectionObserver | Universal | No |  |
+| Web Share | Mobile + some desktop | No |  |
 
 > [!WARNING]
 > Every browser API will crash your Next.js app if called during server-side rendering. The window, document, and navigator objects don't exist on the server. Always guard browser API calls.

@@ -35,7 +35,7 @@ Every support ticket is one of two things: a UX problem you can fix, or a genuin
 
 Don't reach for an enterprise helpdesk platform on day one. A well-organized shared inbox handles the first few hundred users fine, and you'll have real usage patterns informing your tool choice by the time you outgrow it.
 
-> **️ Warning**
+> ** Warning**
 > Don't put your only support contact behind a contact form with no visible email address and no response time expectation. Early users churn fast when they feel ignored, and "we'll get back to you eventually" with no signal of when reads as no one being there at all.
 
 ---

@@ -27,7 +27,7 @@ Every stack decision should pass this filter:
 | **Cost** | What does this cost at zero users? At 100? At 1,000? |
 | **Ecosystem** | Are there good docs, community answers, and AI training data for this? |
 
-The last point matters more than it used to. AI tools like Claude and Cursor are dramatically better at helping you with React, Next.js, Supabase, and Prisma than they are at helping you with niche frameworks with sparse documentation.
+The last point matters more than it used to. AI tools like Kontxt and Cursor are dramatically better at helping you with React, Next.js, Supabase, and Prisma than they are at helping you with niche frameworks with sparse documentation.
 
 ---
 
@@ -89,7 +89,7 @@ Hosting     Vercel or Netlify
 
 Best for: note-taking apps, trackers, tools, anything where the user's own data doesn't need server-side processing.
 
-> **💡 Tip**
+> ** Tip**
 > If you're not sure whether you need a backend, ask: "Does my app need to do anything that requires server-side code?" — sending emails, processing payments, calling APIs that require secret keys, running scheduled jobs. If the answer is no, you probably don't need one.
 
 ---
@@ -125,16 +125,16 @@ Best for: developers who want to minimize context switching and keep the entire 
 
 ## What to Avoid for Personal Projects
 
-> **⚠️ Anti-Pattern: Microservices**
+> ** Anti-Pattern: Microservices**
 > You are one person. Microservices are for teams with separate ownership of services. One monolith — whether that's a Next.js app or a React + FastAPI pair — is the right architecture for a solo personal project.
 
-> **⚠️ Anti-Pattern: Self-Hosted Database**
+> ** Anti-Pattern: Self-Hosted Database**
 > Running your own PostgreSQL server on a VPS is operational overhead you don't need. Use Supabase, PlanetScale, or Railway. Let someone else handle backups, updates, and uptime.
 
-> **⚠️ Anti-Pattern: Choosing a Framework You've Never Used**
+> ** Anti-Pattern: Choosing a Framework You've Never Used**
 > A personal project is a good place to learn a new tool — but not three new tools at once. If you're new to TypeScript, don't also pick up Svelte, Prisma, and Drizzle simultaneously. Pick one new thing per project. Use familiar tools for everything else.
 
-> **⚠️ Anti-Pattern: Over-engineering the API**
+> ** Anti-Pattern: Over-engineering the API**
 > GraphQL, tRPC, and gRPC are powerful tools with real use cases. For a personal project with one frontend and one backend, a simple REST API with typed responses is easier to build, easier to debug, and easier to understand when you return to it months later.
 
 ---
@@ -182,7 +182,7 @@ Be direct. I want to catch bad decisions before I start building.
 - [ ] Hosting platform chosen for both frontend and backend
 - [ ] Monthly cost at zero users is acceptable
 - [ ] Stack doesn't introduce more than one genuinely new technology at once
-- [ ] AI tools (Claude, Cursor) have strong coverage of your chosen stack
+- [ ] AI tools (Kontxt, Cursor) have strong coverage of your chosen stack
 
 ---
 

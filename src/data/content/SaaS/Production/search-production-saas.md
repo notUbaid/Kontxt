@@ -349,19 +349,19 @@ Be direct and specific. If the plan is appropriate, say so — don't pad the rev
 
 ## Common Mistakes
 
-> **️ Skipping tenant isolation**
+> ** Skipping tenant isolation**
 > Building search before scoping by organization is how data leaks happen. Add the WHERE clause first, before any query logic.
 
-> **️ Syncing inline**
+> ** Syncing inline**
 > Writing to Typesense/Algolia inside your HTTP handler means a search engine outage breaks your writes. Always use a queue.
 
-> **️ Indexing everything**
+> ** Indexing everything**
 > Don't index fields users never search. Every indexed field increases index size and sync cost. Be deliberate about what goes into the search document.
 
-> **️ Treating search as a feature**
+> ** Treating search as a feature**
 > Search is infrastructure. Treat it like your database — monitor it, measure query times, test it with realistic data volumes before launch.
 
-> **️ No backfill plan**
+> ** No backfill plan**
 > When you add a new field to your search schema, you need to re-index all existing records. Build the backfill job before you need it.
 
 ---

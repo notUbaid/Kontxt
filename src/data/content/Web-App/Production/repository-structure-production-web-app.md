@@ -227,7 +227,7 @@ export function cn(...classes: string[]) { ... } // Tailwind class merging
 
 Give this to an AI coding tool at the start of a new project:
 
-```
+```prompt
 You are helping me scaffold a Next.js 14 App Router project with TypeScript and Tailwind CSS.
 
 My app: [describe in 2–3 sentences]

@@ -11,6 +11,7 @@ export const aiProductionTaxonomy: Category[] = [
     id: 'phase-0-ai-discovery',
     name: 'PHASE 0 — AI PRODUCT DISCOVERY',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Problem Definition', AlertCircle, [{name:'Mom Test Guide',url:'https://www.momtestbook.com/'},{name:'YC RFS',url:'https://www.ycombinator.com/rfs'}], 'aiproblemdefinition'),
       createTopic('AI Suitability', Lightbulb, [{name:'When to NOT use AI',url:'https://hbr.org/2023/07/when-not-to-use-ai'},{name:'AI vs Rules Engines',url:'https://martinfowler.com/articles/rules-engines.html'}], 'aiaijustification'),
       createTopic('Target Users', Users, [{name:'Whimsical',url:'https://whimsical.com/'},{name:'FigJam',url:'https://www.figma.com/figjam/'},{name:'Mobbin UX Patterns',url:'https://mobbin.com/'}], 'aiuserpersonas'),
@@ -132,6 +133,7 @@ export const aiPersonalTaxonomy: Category[] = [
     id: 'discovery',
     name: 'PHASE 1 — DISCOVERY & DESIGN',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Problem Definition', AlertCircle, [], 'aiproblemdefinition'),
       createTopic('AI Suitability', Lightbulb, [], 'aiaijustification'),
       createTopic('Conversation Design', MessageSquare, [], 'aiconversationdesign'),
@@ -186,6 +188,7 @@ export const aiHackathonTaxonomy: Category[] = [
     id: 'phase-0',
     name: 'PHASE 0',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Problem Definition', AlertCircle, [], 'aiproblemdefinition'),
       createTopic('Target Users', Users, [], 'aiuserpersonas'),
     ]

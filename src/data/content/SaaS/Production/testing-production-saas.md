@@ -464,19 +464,19 @@ Output as a prioritized list — highest risk first.
 
 ## Common Mistakes
 
-> **️ Testing against your development database**
+> ** Testing against your development database**
 > Parallel test runs corrupt each other's data. A test cleanup job deletes data you were working with. Always use `TEST_DATABASE_URL`.
 
-> **️ Mocking your database in integration tests**
+> ** Mocking your database in integration tests**
 > Mocking Prisma or your ORM means you're not testing your actual queries. You'll miss N+1 problems, missing indexes, and type mismatches. Use a real test database.
 
-> **️ Skipping authorization tests**
+> ** Skipping authorization tests**
 > "We'll add those later" is how multi-tenancy data leaks happen. Authorization tests are not optional — they're your security regression suite.
 
-> **️ High coverage on low-risk code**
+> ** High coverage on low-risk code**
 > 95% coverage that includes getters, setters, and framework glue tells you nothing. Coverage on business logic, auth, and data boundaries is what matters.
 
-> **️ E2E tests for everything**
+> ** E2E tests for everything**
 > E2E tests that cover 50 scenarios take 30 minutes to run. Nobody waits 30 minutes before merging a typo fix. Keep your E2E suite to the 3–5 critical paths that justify the cost.
 
 ---

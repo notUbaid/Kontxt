@@ -21,7 +21,7 @@ Rolling your own authentication means owning: password hashing, token generation
 
 Each of these is a solved problem. Each has well-known failure modes. None of them are what your personal project is actually about.
 
-> **⚠️ Warning**
+> ** Warning**
 > The most common auth mistake in personal projects is not a vulnerability — it's time. Building auth from scratch takes days. Using a provider takes hours. Those days are better spent on the features that make your product worth using.
 
 ---
@@ -75,7 +75,7 @@ Before implementing, decide the minimum auth surface your MVP requires.
 | Two-factor authentication | No — skip for MVP | Operational overhead, rarely needed at personal project scale |
 | Magic link (passwordless) login | Optional | Good UX, easy to add with Supabase |
 
-> **💡 Tip**
+> ** Tip**
 > For most personal projects: email/password + one social provider (Google) + password reset is the right MVP auth surface. Everything else can be added after you have real users.
 
 ---
@@ -222,7 +222,7 @@ Confirm `.env.local` is in your `.gitignore` before your first commit.
 
 The anon key is safe to expose in the browser — it's designed for client-side use. Your RLS policies are what protect data, not the anon key being secret.
 
-> **⚠️ Warning**
+> ** Warning**
 > Never use your `service_role` key in client-side code. It bypasses RLS entirely. It belongs only in server-side code that runs in a trusted environment.
 
 ---

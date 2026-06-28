@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChevronDown, ChevronRight, CheckCircle2 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { getTaxonomy } from '../data/taxonomy';
 import type { Mode } from './TopNav';
 import type { Project } from '../App';
@@ -108,7 +108,7 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
   const progressPercentage = totalTopics > 0 ? Math.round((completedTopicsCount / totalTopics) * 100) : 0;
 
   return (
-    <aside className="w-72 shrink-0 h-[calc(100vh-4rem)] overflow-x-hidden overflow-y-auto border-r border-muted bg-background/95 backdrop-blur-sm pb-10 flex flex-col">
+    <aside className="w-[340px] shrink-0 h-[calc(100vh-4rem)] overflow-x-hidden overflow-y-auto border-r border-muted bg-background/95 backdrop-blur-sm pb-10 flex flex-col">
       {activeProject.progressEnabled !== false && totalTopics > 0 && (
         <div className="p-5 pb-2 border-b border-muted/50 bg-muted/10 shrink-0">
           <div className="flex items-center justify-between mb-2">
@@ -162,52 +162,60 @@ export const LeftSidebar = ({ activeProject, activeType, activeMode, activePage,
                 )}
               </div>
               
-              {isExpanded && (
-                <ul className="space-y-1">
-                  {modeTopics.map((topic) => {
-                    const topicId = topic.id;
-                    const isActive = activePage === topic.id;
-                    const completedRaw = activeProject.completedTopics || [];
-                    const completedArray = Array.isArray(completedRaw) ? completedRaw : Object.values(completedRaw).flat();
-                    const isCompleted = completedArray.includes(topicId);
-                    
-                    return (
-                      <li key={topicId} className="relative group/item" ref={isActive ? activeItemRef : null}>
-                        <button
-                          onClick={() => setActivePage(topic.id)}
-                          className={`w-full flex items-center justify-between py-1.5 pl-3 pr-2 rounded-md text-sm transition-colors z-10 relative ${
-                            isActive
-                              ? 'text-accent-foreground font-medium shadow-sm'
-                              : 'text-foreground hover:bg-muted/60'
-                          }`}
-                        >
-                          {isActive && (
-                            <motion.div
-                              layoutId="activeTopicBg"
-                              className="absolute inset-0 bg-accent rounded-md -z-10"
-                              initial={false}
-                              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                            />
-                          )}
-                          <div className="flex items-center gap-3 w-full pr-2">
-                            <topic.icon size={16} className={`shrink-0 ${isActive ? 'text-accent-foreground' : 'text-muted-foreground'}`} />
-                            <span className="text-left leading-tight">{topic.name}</span>
-                          </div>
-                          {activeProject.progressEnabled !== false && (
-                            <div 
-                              onClick={(e) => toggleTopicProgress(e, topicId)}
-                              className={`p-1 rounded-full transition-all ${isCompleted ? 'text-green-500 opacity-100' : 'text-muted-foreground opacity-0 group-hover/item:opacity-40 hover:!opacity-100 hover:bg-muted/50'}`}
-                              title={isCompleted ? "Mark as uncompleted" : "Mark as completed"}
-                            >
-                              <CheckCircle2 size={16} className={isCompleted ? 'fill-green-500/20' : ''} />
+              <AnimatePresence initial={false}>
+                {isExpanded && (
+                  <motion.ul 
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                    className="space-y-1 overflow-hidden"
+                  >
+                    {modeTopics.map((topic) => {
+                      const topicId = topic.id;
+                      const isActive = activePage === topic.id;
+                      const completedRaw = activeProject.completedTopics || [];
+                      const completedArray = Array.isArray(completedRaw) ? completedRaw : Object.values(completedRaw).flat();
+                      const isCompleted = completedArray.includes(topicId);
+                      
+                      return (
+                        <li key={topicId} className="relative group/item" ref={isActive ? activeItemRef : null}>
+                          <button
+                            onClick={() => setActivePage(topic.id)}
+                            className={`w-full flex items-center justify-between py-1.5 pl-3 pr-2 rounded-md text-sm transition-colors z-10 relative ${
+                              isActive
+                                ? 'text-accent-foreground font-medium shadow-sm'
+                                : 'text-foreground hover:bg-muted/60'
+                            }`}
+                          >
+                            {isActive && (
+                              <motion.div
+                                layoutId="activeTopicBg"
+                                className="absolute inset-0 bg-accent rounded-md -z-10"
+                                initial={false}
+                                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                              />
+                            )}
+                            <div className="flex items-center gap-3 w-full pr-2">
+                              <topic.icon size={16} className={`shrink-0 ${isActive ? 'text-accent-foreground' : 'text-muted-foreground'}`} />
+                              <span className="text-left leading-tight">{topic.name}</span>
                             </div>
-                          )}
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ul>
-              )}
+                            {activeProject.progressEnabled !== false && (
+                              <div 
+                                onClick={(e) => toggleTopicProgress(e, topicId)}
+                                className={`p-1 rounded-full transition-all ${isCompleted ? 'text-green-500 opacity-100' : 'text-muted-foreground opacity-0 group-hover/item:opacity-40 hover:!opacity-100 hover:bg-muted/50'}`}
+                                title={isCompleted ? "Mark as uncompleted" : "Mark as completed"}
+                              >
+                                <CheckCircle2 size={16} className={isCompleted ? 'fill-green-500/20' : ''} />
+                              </div>
+                            )}
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </motion.ul>
+                )}
+              </AnimatePresence>
             </div>
           );
         })}

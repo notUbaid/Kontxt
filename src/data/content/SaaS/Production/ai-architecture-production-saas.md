@@ -17,7 +17,7 @@ If your product does include an AI feature (summarization, generation, chat, cla
 
 ## Decision 1: Where AI Calls Happen
 
-> ️ **Warning**
+> [!WARNING]
 > **Never call an LLM provider's API directly from the client with your API key embedded.** This is the AI-era equivalent of committing a secret to your repo — anyone can extract the key from client-side code and run up usage on your account. All AI provider calls must go through your backend, where the key stays server-side.
 
 ---
@@ -47,14 +47,14 @@ Treat prompts as part of your codebase, not inline magic strings:
 - Monitoring/alerting on unexpected cost spikes
 - Caching for repeated/identical requests where the output doesn't need to be fresh every time
 
-> ️ **Warning**
+> [!WARNING]
 > Shipping an AI feature with no usage limit is one of the most common production cost incidents in AI-powered SaaS — a bug causing repeated calls, or simply heavier-than-expected usage, can turn into a large bill before anyone notices. Set a limit before launch, not after the first invoice surprises you.
 
 ---
 
 ## Decision 5: Validating AI Output
 
-> ️ **Warning**
+> [!WARNING]
 > Never let AI output directly trigger a sensitive action (a database write, a payment, a permission change) without passing through your normal validation and authorization layers. AI output should be treated like any other untrusted input — validated, never blindly executed.
 
 - [ ] If you expect structured output (JSON), validate it against a schema before using it — don't assume the model always returns well-formed output

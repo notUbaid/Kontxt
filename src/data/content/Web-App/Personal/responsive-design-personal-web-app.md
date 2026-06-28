@@ -30,7 +30,7 @@ Before writing a single media query, answer this honestly:
 
 Your answer shapes every layout decision in this module.
 
-> **💡 Tip**
+> ** Tip**
 > Check your PRD. Your target user's context usually tells you. A "freelance designer reviewing client work" is almost certainly on desktop. A "commuter tracking daily habits" is almost certainly on mobile. If you genuinely don't know, mobile-first is the safer default.
 
 ---
@@ -89,7 +89,7 @@ Three breakpoints. Start there. Add more only if a specific layout genuinely nee
 
 Neither is universally right. Use mobile-first if your primary user is on mobile. Use desktop-first if your app is inherently a desktop tool (dashboards, data tables, editors).
 
-> **⚠️ Warning**
+> ** Warning**
 > Mixing both approaches in the same codebase creates conflicts that are painful to debug. Pick one and apply it consistently.
 
 ---
@@ -176,7 +176,7 @@ Navigation is the most device-specific part of any web app. Decide your pattern 
 | **Sidebar (desktop) + hamburger (mobile)** | Dashboard apps, many nav items |
 | **Hamburger only** | Content-heavy sites, minimal nav |
 
-> **⚠️ Warning**
+> ** Warning**
 > Hamburger menus on desktop are a sign the navigation wasn't thought through. If your desktop layout needs a hamburger, you have too many nav items or the wrong layout pattern.
 
 ---

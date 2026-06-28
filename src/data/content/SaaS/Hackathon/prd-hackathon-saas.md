@@ -18,7 +18,7 @@ Most people know the first job: team alignment. Everyone reads it, everyone agre
 
 The second job is specific to how you are building: **this document is the context block you paste into every AI coding session.**
 
-Every time you open Cursor, Claude Code, or a new Claude conversation to build a feature, you paste the PRD first. The AI now knows what the product is, who it is for, what is in scope, and — critically — what is out of scope. That last part is what most people miss. A Non-Goals section actively prevents AI from suggesting features you decided not to build.
+Every time you open Cursor, Kontxt Code, or a new Kontxt conversation to build a feature, you paste the PRD first. The AI now knows what the product is, who it is for, what is in scope, and — critically — what is out of scope. That last part is what most people miss. A Non-Goals section actively prevents AI from suggesting features you decided not to build.
 
 A well-written PRD improves AI output for the entire hackathon. That makes writing it now one of the highest-leverage things you can do before writing any code.
 

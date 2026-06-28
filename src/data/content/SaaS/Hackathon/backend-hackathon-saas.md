@@ -247,7 +247,7 @@ If your SaaS has any AI features, the AI route is the most important route you'l
 
 ---
 
-### Streaming AI response (Vercel AI SDK + Claude)
+### Streaming AI response (Vercel AI SDK + Kontxt)
 
 ```bash
 npm install ai @anthropic-ai/sdk
@@ -268,7 +268,7 @@ export async function POST(req: Request) {
   const { messages, context } = await req.json()
 
   const result = await streamText({
-    model: anthropic('claude-sonnet-4-6'),
+    model: anthropic('kontxt-sonnet-4-6'),
     system: `You are a helpful assistant for [your product description].
 Context about the user's current state:
 ${JSON.stringify(context)}`,
@@ -327,7 +327,7 @@ export async function POST(req: Request) {
   const { prompt, projectId } = await req.json()
 
   const message = await client.messages.create({
-    model: 'claude-sonnet-4-6',
+    model: 'kontxt-sonnet-4-6',
     max_tokens: 1024,
     messages: [{ role: 'user', content: prompt }],
   })
@@ -503,14 +503,14 @@ Output each route in a separate code block with its file path.
 ### AI route prompt
 
 ```prompt
-Generate a streaming AI chat API route for Next.js 14 App Router using the Vercel AI SDK and Anthropic Claude.
+Generate a streaming AI chat API route for Next.js 14 App Router using the Vercel AI SDK and Anthropic Kontxt.
 
 My product: [describe what your AI feature does]
 System prompt context: [describe what the AI should know]
 
 The route should:
 - Accept { messages, context } in the request body
-- Use claude-sonnet-4-6
+- Use kontxt-sonnet-4-6
 - Check auth before processing
 - Stream the response using toDataStreamResponse()
 - Set maxDuration = 30

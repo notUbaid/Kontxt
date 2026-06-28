@@ -23,7 +23,7 @@ Two completely different problems. Don't mix them.
 
 This module covers transactional only. Marketing email needs separate tooling (Loops, Mailchimp, ConvertKit) and separate sending infrastructure — mixing them risks your transactional deliverability when a bulk campaign gets flagged.
 
-> ️ Never send transactional emails from the same domain/IP as marketing emails. A spam complaint on a newsletter shouldn't delay your password reset emails.
+>  Never send transactional emails from the same domain/IP as marketing emails. A spam complaint on a newsletter shouldn't delay your password reset emails.
 
 ---
 
@@ -230,7 +230,7 @@ Emails sent from `hello@yourdomain.com` require DNS records for deliverability. 
 
 Resend provides the exact DNS records to add in their dashboard. Add them through your domain registrar (Cloudflare, Namecheap, etc.).
 
-> ️ Do not skip DNS setup. Emails sent without SPF/DKIM reliably end up in spam or get rejected entirely. This is not optional for production.
+>  Do not skip DNS setup. Emails sent without SPF/DKIM reliably end up in spam or get rejected entirely. This is not optional for production.
 
 Verify your domain is configured correctly at [mail-tester.com](https://www.mail-tester.com) before going live.
 

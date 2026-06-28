@@ -346,19 +346,19 @@ track('document_created', { email: user.email }); //
 
 ## Common Mistakes
 
-> **️ Tracking everything from day one**
+> ** Tracking everything from day one**
 > Autocapture and blanket page view tracking floods you with data that doesn't answer questions. Start with 10 intentional events. Add more only when you have a specific question.
 
-> **️ Revenue events client-side**
+> ** Revenue events client-side**
 > A user can block JavaScript. A refunded charge can still show as an upgrade. Track all revenue events from your Stripe webhook handler, server-side.
 
-> **️ No baseline before launch**
+> ** No baseline before launch**
 > Instrument before you have real users. You can't retroactively add tracking data. Your first week of real users is your most valuable data.
 
-> **️ Building your own business metrics**
+> ** Building your own business metrics**
 > Calculating MRR correctly (accounting for proration, trials, upgrades, refunds) is genuinely hard. Use Baremetrics. It's cheaper than the engineering time.
 
-> **️ Ignoring Week-1 retention**
+> ** Ignoring Week-1 retention**
 > This is the single most predictive metric for long-term product health. If users aren't coming back in week one, no amount of acquisition fixes the problem.
 
 ---

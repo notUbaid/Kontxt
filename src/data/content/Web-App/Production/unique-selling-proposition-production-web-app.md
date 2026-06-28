@@ -14,9 +14,9 @@ A USP is not a tagline. It's not marketing copy. It's a precise, defensible clai
 If your USP could describe any product in your category, it's not a USP. It's a category description.
 
 ```
-❌ "The easiest way to manage your projects."
-❌ "All your work, in one place."
-✅ "The only project tool that automatically surfaces 
+ "The easiest way to manage your projects."
+ "All your work, in one place."
+ "The only project tool that automatically surfaces 
     blockers before they delay a sprint — 
     without requiring manual status updates."
 ```
@@ -118,8 +118,7 @@ Template C — Position-focused:
 For [specific user] who [problem], 
 [Product] is [category] built specifically for [context], 
 not adapted from [broader tool].
-```
-
+```prompt
 Write three versions. Then pick the sharpest one.
 
 ---

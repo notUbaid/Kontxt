@@ -22,7 +22,7 @@ Notifications exist to tell users something happened without making them go look
 | Critical regardless of presence | Email always, in-app as well |
 | Low-priority, informational | Batch into a digest rather than individual notifications |
 
-> ️ **Warning**
+> [!WARNING]
 > Don't default every event to "send a notification." Notification fatigue is real — if everything is notified, users stop reading notifications altogether, including the important ones. Be deliberate about which events actually warrant interrupting the user.
 
 ---
@@ -49,7 +49,7 @@ notifications
 
 ## Decision 3: Decouple Notification Creation from the Triggering Action
 
-> ️ **Warning**
+> [!WARNING]
 > Don't create a notification inline as a side effect buried inside an unrelated service function (e.g., the invoice payment handler directly writing a notification row). This couples unrelated concerns and makes it easy to forget notifications when the triggering logic changes. Instead, emit an event or enqueue a background job, and have a dedicated notification handler create the actual notification — consistent with the async patterns from Backend Architecture.
 
 This also makes it easy to add new notification types later without modifying the original triggering code.

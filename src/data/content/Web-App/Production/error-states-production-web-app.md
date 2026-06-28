@@ -77,7 +77,7 @@ Contain the error to that section. Don't take down the whole page because one AP
 
 ```
 ┌─────────────────────────┐
-│  ⚠ Couldn't load chart  │
+│   Couldn't load chart  │
 │  [ Retry ]              │
 └─────────────────────────┘
 ```
@@ -203,7 +203,7 @@ For critical background operations, consider automatic retry with exponential ba
 
 Use this to audit error handling across your app before launch:
 
-```
+```prompt
 You are a senior frontend engineer performing a pre-launch error handling audit.
 
 My app: [one sentence description]

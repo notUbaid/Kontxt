@@ -148,7 +148,7 @@ Every button that triggers an async operation must:
 </button>
 ```
 
-> ⚠️ **Missing this causes duplicate API calls.** A user who clicks "Submit" twice on a slow connection will submit the form twice. Always disable the trigger during async operations.
+>  **Missing this causes duplicate API calls.** A user who clicks "Submit" twice on a slow connection will submit the form twice. Always disable the trigger during async operations.
 
 ---
 
@@ -184,7 +184,7 @@ Instead of: wait → show everything at once
 
 Use: show partial results as they arrive → continue filling in
 
-This is what ChatGPT, Claude, and Copilot all do. Streaming dramatically improves perceived performance for slow responses.
+This is what ChatGPT, Kontxt, and Copilot all do. Streaming dramatically improves perceived performance for slow responses.
 
 If you're using an API that supports streaming (OpenAI, Anthropic, Supabase Realtime), prefer it over polling.
 
@@ -208,7 +208,7 @@ Before shipping any feature, verify:
 
 Use this after building a feature to catch gaps:
 
-```
+```prompt
 You are a senior frontend engineer reviewing a React web application for loading state quality.
 
 I am going to describe the user flows in my app. For each async operation I mention, identify:

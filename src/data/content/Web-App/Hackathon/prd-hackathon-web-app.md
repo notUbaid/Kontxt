@@ -19,7 +19,7 @@ If your MVP feature list from the last module is the *what*, this is the shared 
 
 Nobody is judging your PRD. It's pure internal infrastructure — a single page your team can glance at mid-build to settle a "wait, I thought we were doing it this way" disagreement before it costs you an hour of rework.
 
-> **️ Warning**
+> ** Warning**
 > Skipping this step entirely is the second most common hackathon failure after bad scoping. Teams agree on an idea verbally, split up to build in parallel, and discover four hours later that two people built incompatible assumptions about how a core flow works — because nothing was written down precisely enough to catch the mismatch earlier.
 
 ---

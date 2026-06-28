@@ -231,7 +231,7 @@ Most apps never hit these limits before finding product-market fit. Build simply
 
 ## AI Prompt — Hosting Configuration Review
 
-```
+```prompt
 You are a Staff Engineer reviewing the hosting configuration for a production Next.js web application deploying to Vercel with Supabase.
 
 My app: [describe in 2–3 sentences]

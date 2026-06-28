@@ -314,7 +314,7 @@ export async function deleteProject(id: string) {
 
 ## AI Prompt — Route Structure Generation
 
-```
+```prompt
 You are a Staff Engineer generating the complete route structure for a Next.js 14 App Router application.
 
 My app: [describe in 2–3 sentences]

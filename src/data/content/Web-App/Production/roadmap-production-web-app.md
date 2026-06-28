@@ -210,7 +210,7 @@ How to decide what debt to address:
 
 Use this when you have a backlog of ideas and need to triage them.
 
-```
+```prompt
 You are a senior product engineer helping me prioritise my post-launch roadmap.
 
 My web app:
@@ -248,7 +248,7 @@ Be direct. I want a prioritised list with reasoning, not a framework lecture.
 
 Use this once an item is prioritised and ready to be specified.
 
-```
+```prompt
 You are a staff engineer helping me scope a feature before development begins.
 
 My web app: [brief description]

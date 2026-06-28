@@ -24,9 +24,9 @@ This module teaches you how experienced engineers design component systems — n
 If you can't describe a component in one sentence without using "and," it's doing too much.
 
 ```
-❌ "UserCard fetches user data, formats the date, shows an avatar, and handles the follow button click"
-✅ "UserCard displays a user's profile summary"
-✅ "FollowButton handles the follow/unfollow action for a given userId"
+ "UserCard fetches user data, formats the date, shows an avatar, and handles the follow button click"
+ "UserCard displays a user's profile summary"
+ "FollowButton handles the follow/unfollow action for a given userId"
 ```
 
 Split on responsibility. Not on size.
@@ -61,14 +61,14 @@ Props are the API of your component. Design them deliberately.
 ### Be specific with types
 
 ```typescript
-// ❌ Vague
+//  Vague
 interface ButtonProps {
   type?: string
   size?: string
   onClick?: any
 }
 
-// ✅ Precise
+//  Precise
 interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'destructive' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
@@ -82,7 +82,7 @@ interface ButtonProps {
 ### Prefer composition over configuration
 
 ```tsx
-// ❌ Configuration hell — one component trying to be everything
+//  Configuration hell — one component trying to be everything
 <Modal
   title="Delete Account"
   body="This action cannot be undone."
@@ -94,7 +94,7 @@ interface ButtonProps {
   onSecondary={handleCancel}
 />
 
-// ✅ Composable — caller decides structure
+//  Composable — caller decides structure
 <Modal>
   <ModalHeader>Delete Account</ModalHeader>
   <ModalBody>This action cannot be undone.</ModalBody>
@@ -172,13 +172,13 @@ Lets consumers change what HTML element a component renders as, without losing s
 <Button>
   <Link href="/dashboard">Go to Dashboard</Link>
 </Button>
-// Renders: <button><a href="/dashboard">Go to Dashboard</a></button> ❌ nested interactive elements
+// Renders: <button><a href="/dashboard">Go to Dashboard</a></button>  nested interactive elements
 
 // With asChild — Button styles, Link semantics
 <Button asChild>
   <Link href="/dashboard">Go to Dashboard</Link>
 </Button>
-// Renders: <a href="/dashboard" class="...button styles...">Go to Dashboard</a> ✅
+// Renders: <a href="/dashboard" class="...button styles...">Go to Dashboard</a> 
 ```
 
 Radix UI and shadcn/ui use this pattern throughout. Learn to recognize when you need it.
@@ -195,7 +195,7 @@ export function Input({ ...props }) {
   return <input {...props} />
 }
 
-// ✅ With forwardRef
+//  With forwardRef
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, ...props }, ref) => {
     return (
@@ -226,13 +226,13 @@ In Next.js App Router, every component is a server component by default. This is
 - Third-party libraries that use any of the above
 
 ```typescript
-// ✅ Server component — no 'use client', fetches data directly
+//  Server component — no 'use client', fetches data directly
 export async function UserProfile({ userId }: { userId: string }) {
   const user = await db.user.findUnique({ where: { id: userId } })
   return <ProfileCard user={user} />
 }
 
-// ✅ Client component — needs interactivity
+//  Client component — needs interactivity
 'use client'
 export function FollowButton({ targetUserId }: { targetUserId: string }) {
   const [isFollowing, setIsFollowing] = useState(false)
@@ -243,11 +243,11 @@ export function FollowButton({ targetUserId }: { targetUserId: string }) {
 **Critical:** `'use client'` is a boundary, not a label. It marks where the server-to-client transition happens. Everything imported into a client component becomes client-side too.
 
 ```
-// ❌ Contamination — HeavyChart pulls all its dependencies into the client bundle
+//  Contamination — HeavyChart pulls all its dependencies into the client bundle
 'use client'
 import { HeavyChart } from './HeavyChart' // now client-side
 
-// ✅ Isolation — lazy load client components
+//  Isolation — lazy load client components
 const HeavyChart = dynamic(() => import('./HeavyChart'), { ssr: false })
 ```
 
@@ -311,7 +311,7 @@ Install both: `npm install clsx tailwind-merge`
 Every component that fetches data needs three states. Design all three before coding any of them.
 
 ```tsx
-// ✅ Component designed for all three states
+//  Component designed for all three states
 export function UserCard({ userId }: { userId: string }) {
   const { data: user, isLoading, error } = useUser(userId)
 
@@ -336,7 +336,7 @@ function UserCardSkeleton() {
 }
 ```
 
-> ⚠️ **Warning:** Skeletons should match the shape of the real content. A generic spinner where a card will appear causes layout shift. Users notice.
+>  **Warning:** Skeletons should match the shape of the real content. A generic spinner where a card will appear causes layout shift. Users notice.
 
 ---
 
@@ -345,7 +345,7 @@ function UserCardSkeleton() {
 Bake these in at component creation time. Retrofitting accessibility is expensive.
 
 ```tsx
-// ✅ Accessible button
+//  Accessible button
 export function IconButton({ icon, label, ...props }: IconButtonProps) {
   return (
     <button aria-label={label} {...props}>
@@ -354,7 +354,7 @@ export function IconButton({ icon, label, ...props }: IconButtonProps) {
   )
 }
 
-// ✅ Accessible form field (label always connected to input)
+//  Accessible form field (label always connected to input)
 export function FormField({ label, id, error, ...props }: FormFieldProps) {
   return (
     <div className="space-y-1">
@@ -383,7 +383,7 @@ export function FormField({ label, id, error, ...props }: FormFieldProps) {
 
 Use after sketching a component or writing a first draft.
 
-```
+```prompt
 You are a senior React engineer reviewing component design for a production Next.js 14 app using TypeScript, Tailwind CSS, and shadcn/ui.
 
 Here is the component I've designed:

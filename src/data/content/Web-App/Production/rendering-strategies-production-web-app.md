@@ -241,10 +241,10 @@ SSR and SSG ship HTML from the server, then React "hydrates" it — attaching ev
 
 **Fixes:**
 ```typescript
-// ❌ Crashes during SSR
+//  Crashes during SSR
 const theme = localStorage.getItem('theme')
 
-// ✅ Safe
+//  Safe
 const [theme, setTheme] = useState<string | null>(null)
 useEffect(() => {
   setTheme(localStorage.getItem('theme'))
@@ -252,10 +252,10 @@ useEffect(() => {
 ```
 
 ```typescript
-// ❌ Hydration mismatch (Date renders differently server vs client)
+//  Hydration mismatch (Date renders differently server vs client)
 <span>{new Date().toLocaleTimeString()}</span>
 
-// ✅ Client-only render
+//  Client-only render
 'use client'
 export function LiveClock() {
   const [time, setTime] = useState('')
@@ -299,7 +299,7 @@ const getCachedUser = unstable_cache(
 )
 ```
 
-> ⚠️ **Warning:** SSR without caching means a database hit on every page view. This kills performance and budget at scale.
+>  **Warning:** SSR without caching means a database hit on every page view. This kills performance and budget at scale.
 
 ---
 
@@ -307,7 +307,7 @@ const getCachedUser = unstable_cache(
 
 Use this after you've drafted your route map.
 
-```
+```prompt
 You are a senior frontend engineer reviewing a Next.js 14 application's rendering strategy.
 
 Project type: [your project type]

@@ -61,7 +61,7 @@ If your repo is part of the submission, the README is the second thing judges lo
 
 Minimum viable hackathon README:
 
-```markdown
+```
 # [Product Name]
 
 [One sentence: what it does and who it's for.]
@@ -76,7 +76,7 @@ Minimum viable hackathon README:
 - Frontend: [e.g. React + Vite + Tailwind]
 - Backend: [e.g. FastAPI on Cloud Run]
 - Database: [e.g. Supabase PostgreSQL]
-- AI: [e.g. Claude claude-sonnet-4-6 via Anthropic API]
+- AI: [e.g. Kontxt kontxt-sonnet-4-6 via Anthropic API]
 
 ## Running Locally
 [Exact commands to clone, install, and run. If it needs env vars, list the keys — not the values.]
@@ -85,7 +85,7 @@ Minimum viable hackathon README:
 [Names and optionally roles. Keep it one line per person.]
 ```
 
-> **💡 Tip**
+> ** Tip**
 > Add one screenshot or GIF to the README. Not five. One. The most impressive screen in the app. Judges who didn't attend your demo will form their entire opinion of the product from this image.
 
 ---
@@ -103,7 +103,7 @@ Many hackathons require or allow a short video. Treat it as insurance — the th
 - Include the "wow moment" from your demo script.
 - End with the product name on screen.
 
-> **⚠️ Warning**
+> ** Warning**
 > Do not spend more than 30 minutes on the video. Record one clean take. Trim the start and end. Upload it. A real recording of a working app is worth more than an overproduced video of a product that barely works.
 
 **Tooling:**
@@ -122,7 +122,7 @@ If your app is deployed, test the link from a browser you haven't used for devel
 - [ ] Demo account credentials are provided if login is required
 - [ ] The landing screen is the best first impression your app has
 
-> **⚠️ Warning**
+> ** Warning**
 > If your app requires signup and there's no demo account, judges will not create an account. They will move on. Either remove the auth wall for judging or provide a working demo account: email and password, in the submission itself.
 
 **Include in your submission:**
@@ -159,7 +159,7 @@ Demo account: demo@yourapp.com / password: hackathon2024
 
 After you submit, stop building.
 
-> **⚠️ Warning**
+> ** Warning**
 > The most dangerous moment in a hackathon is the 20 minutes after submission. Teams push one more feature, break something that was working, and walk into judging with a broken demo. Submission is the freeze point. Nothing changes after it.
 
 If you have time left, use it to rehearse the demo one more time. Not to ship more code.

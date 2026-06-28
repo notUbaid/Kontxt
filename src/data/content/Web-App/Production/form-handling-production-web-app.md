@@ -264,7 +264,7 @@ export async function POST(req: NextRequest) {
 }
 ```
 
-> ⚠️ **Warning:** Never trust client-side validation alone. A user can disable JavaScript, modify requests in DevTools, or call your API directly. Server validation is non-negotiable.
+>  **Warning:** Never trust client-side validation alone. A user can disable JavaScript, modify requests in DevTools, or call your API directly. Server validation is non-negotiable.
 
 ---
 
@@ -462,7 +462,7 @@ function ProfileForm() {
 
 ## AI Prompt: Form Schema and Validation Design
 
-```
+```prompt
 You are a senior frontend engineer helping design form validation for a production Next.js app using React Hook Form, Zod, and TanStack Query.
 
 Form purpose: [describe what this form does]

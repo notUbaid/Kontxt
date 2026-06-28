@@ -19,7 +19,7 @@ This is still not a full UX design exercise. It's the minimum detail needed to s
 
 A real product needs to handle many paths — new users, returning users, error states, edge cases. A hackathon demo follows exactly one path, every time, on stage. Your job here is to define that one path with total clarity, and to explicitly *not* design for paths the demo will never take.
 
-> **️ Warning**
+> ** Warning**
 > Don't design a flow with five different branches "just in case." Every branch is a screen someone has to build and a state someone has to handle. If a branch doesn't appear in your literal demo script, it doesn't belong in your hackathon user flow — build it later only if time allows, never before the core path is solid.
 
 ---

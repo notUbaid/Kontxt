@@ -1,4 +1,4 @@
-import { Suspense, lazy, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Search, Moon, Sun, Settings, X, Download, ChevronDown, ArchiveRestore, Link2, BookOpen } from 'lucide-react';
 import { getTaxonomy } from '../data/taxonomy';
@@ -7,7 +7,7 @@ import { getSupabase } from '../lib/supabase';
 
 export type Mode = 'Hackathon' | 'Personal' | 'Production';
 
-const SettingsModal = lazy(() => import('./SettingsModal').then(({ SettingsModal }) => ({ default: SettingsModal })));
+import { SettingsModal } from './SettingsModal';
 
 interface TopNavProps {
   activeProject: Project;
@@ -467,24 +467,20 @@ export const TopNav = ({
         document.body
       )}
 
-      <Suspense fallback={null}>
-        {isSettingsOpen && (
-          <SettingsModal 
-            isOpen={isSettingsOpen} 
-            onClose={() => setIsSettingsOpen(false)} 
-            activeProject={activeProject}
-            projects={projects}
-            onModeChange={onModeChange}
-            onProjectUpdate={onProjectUpdate}
-            onProjectDelete={onProjectDelete}
-            isAuthenticated={isAuthenticated}
-            onRequestLogin={() => {
-              setIsSettingsOpen(false);
-              onRequestLogin();
-            }}
-          />
-        )}
-      </Suspense>
+      <SettingsModal 
+        isOpen={isSettingsOpen} 
+        onClose={() => setIsSettingsOpen(false)} 
+        activeProject={activeProject}
+        projects={projects}
+        onModeChange={onModeChange}
+        onProjectUpdate={onProjectUpdate}
+        onProjectDelete={onProjectDelete}
+        isAuthenticated={isAuthenticated}
+        onRequestLogin={() => {
+          setIsSettingsOpen(false);
+          onRequestLogin();
+        }}
+      />
     </nav>
   );
 };

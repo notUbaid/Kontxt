@@ -58,8 +58,8 @@ Don't offer every auth method. Each one is a surface to maintain and a UX path t
 
 | Method | Include? | Reason |
 |---|---|---|
-| Email + Password | ✅ | Universal baseline |
-| Google OAuth | ✅ | Highest conversion rate for most apps |
+| Email + Password |  | Universal baseline |
+| Google OAuth |  | Highest conversion rate for most apps |
 | Magic Link (passwordless email) | Optional | Great for B2B, reduces password friction |
 | GitHub OAuth | If dev-focused product | High trust signal for technical users |
 | SSO / SAML | Defer | Required for enterprise, complex to implement |
@@ -90,9 +90,9 @@ Supabase Auth uses JWTs with a short expiry (1 hour) and a refresh token stored 
 
 | Location | XSS Risk | CSRF Risk | Recommended |
 |---|---|---|---|
-| `localStorage` | High (JS-accessible) | Low | ❌ Never for sensitive tokens |
-| Memory (React state) | Low | Low | ✅ For access tokens |
-| HttpOnly Cookie | None | Medium (mitigated by SameSite) | ✅ For refresh tokens |
+| `localStorage` | High (JS-accessible) | Low |  Never for sensitive tokens |
+| Memory (React state) | Low | Low |  For access tokens |
+| HttpOnly Cookie | None | Medium (mitigated by SameSite) |  For refresh tokens |
 
 Supabase handles this correctly by default. Don't override it.
 
@@ -262,7 +262,7 @@ If you embed `role: 'admin'` in the JWT, demoting a user has no effect until the
 
 ## AI Prompt — Auth Implementation Plan
 
-```
+```prompt
 You are a Staff Engineer helping implement authentication for a Next.js 14 App Router application using Supabase Auth.
 
 My app: [describe in 2–3 sentences]

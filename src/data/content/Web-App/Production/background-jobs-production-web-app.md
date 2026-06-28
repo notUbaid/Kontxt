@@ -18,9 +18,9 @@ Background jobs move slow, unreliable, or resource-intensive work off the reques
 ## The Core Principle
 
 ```
-❌ HTTP Request → [send email] → [resize image] → [update DB] → Response (8 seconds)
+ HTTP Request → [send email] → [resize image] → [update DB] → Response (8 seconds)
 
-✅ HTTP Request → [enqueue job] → Response (50ms)
+ HTTP Request → [enqueue job] → Response (50ms)
                       ↓
                [Worker picks up job]
                [send email]
@@ -385,12 +385,12 @@ Poll this from the frontend, or pair it with a WebSocket for real-time updates.
 Jobs can run more than once. Network glitches, worker crashes, and retries all cause reprocessing. Your jobs must handle this safely.
 
 ```typescript
-// ❌ Not idempotent — charges customer twice on retry
+//  Not idempotent — charges customer twice on retry
 async function processPayment(job: Job) {
   await stripe.paymentIntents.create({ amount: job.data.amount });
 }
 
-// ✅ Idempotent — Stripe deduplicates via idempotencyKey
+//  Idempotent — Stripe deduplicates via idempotencyKey
 async function processPayment(job: Job) {
   await stripe.paymentIntents.create(
     { amount: job.data.amount, currency: 'usd' },
@@ -479,7 +479,7 @@ import { serverAdapter } from './lib/bullBoard';
 app.use('/admin/queues', requireAdminAuth, serverAdapter.getRouter());
 ```
 
-> ⚠️ **Never expose the queue dashboard publicly.** It shows job payloads which may contain user data, and allows manual job retries and deletions.
+>  **Never expose the queue dashboard publicly.** It shows job payloads which may contain user data, and allows manual job retries and deletions.
 
 ---
 
@@ -502,7 +502,7 @@ app.use('/admin/queues', requireAdminAuth, serverAdapter.getRouter());
 
 ## AI Prompt: Job Design Review
 
-```
+```prompt
 You are a senior backend engineer reviewing background job design for a production Node.js application.
 
 Here is my job architecture:

@@ -39,7 +39,7 @@ Don't invent more roles than your actual feature set needs. Every additional rol
 
 ## Decision 3: Where Authorization Is Enforced
 
-> ️ **Warning**
+> [!WARNING]
 > **Authorization must be enforced on the server, every time, for every request.** Hiding a button in the UI for users without permission is a UX nicety, not a security control. Any user can call your API directly, bypassing your frontend entirely. If the server doesn't independently verify permission, your "permission system" is decorative.
 
 This connects directly to Backend Architecture's middleware design:
@@ -60,7 +60,7 @@ Role alone often isn't enough. Many actions need an ownership check on top of a 
 | Ownership check | "Did this user create this specific comment/document?" (a Member might be allowed to edit their own comment but not someone else's) |
 | Combined | "Is this user an admin (can edit anything) OR the owner of this specific resource?" |
 
-> ️ **Warning**
+> [!WARNING]
 > Forgetting the ownership check is a common, subtle bug: a Member role might correctly be blocked from admin actions, but still be able to edit *another member's* resource if the check only verifies role and not ownership. Always ask explicitly: does this action need a role check, an ownership check, or both?
 
 ---

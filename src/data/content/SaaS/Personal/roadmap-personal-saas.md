@@ -93,7 +93,7 @@ Be honest about effort. Most solo builders underestimate effort by 3–5x.
 
 Use this format. Keep it in a single file (`ROADMAP.md`) committed to your repo.
 
-```markdown
+```
 # Roadmap
 
 Last updated: [date]

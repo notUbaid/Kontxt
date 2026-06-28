@@ -138,8 +138,8 @@ Recommendation: Use slugs for user-facing content,
 IDs for internal/admin references.
 
 Nesting limit: max 3 path segments for navigable routes
-/projects/[id]/tasks/[id]   ✓  (2 IDs, readable)
-/org/[id]/project/[id]/task/[id]/comment/[id]   ✗  (too deep)
+/projects/[id]/tasks/[id]     (2 IDs, readable)
+/org/[id]/project/[id]/task/[id]/comment/[id]     (too deep)
 ```
 
 ---
@@ -182,12 +182,12 @@ Define which parts of the IA are visible to which users. This has direct databas
 ```
 | Route / Section | Unauthenticated | Free User | Pro User | Admin |
 |---|---|---|---|---|
-| Landing page | ✓ | ✓ | ✓ | ✓ |
-| Dashboard | Redirect to /login | ✓ | ✓ | ✓ |
-| [Core feature] | Redirect to /login | ✓ | ✓ | ✓ |
-| [Pro feature] | Redirect to /login | Upgrade prompt | ✓ | ✓ |
-| Settings/Billing | Redirect to /login | ✓ | ✓ | ✓ |
-| Admin panel | ✗ | ✗ | ✗ | ✓ |
+| Landing page |  |  |  |  |
+| Dashboard | Redirect to /login |  |  |  |
+| [Core feature] | Redirect to /login |  |  |  |
+| [Pro feature] | Redirect to /login | Upgrade prompt |  |  |
+| Settings/Billing | Redirect to /login |  |  |  |
+| Admin panel |  |  |  |  |
 ```
 
 Every row in this table is a middleware rule and a UI decision. Map it completely so your routing and auth middleware can be implemented without guesswork.

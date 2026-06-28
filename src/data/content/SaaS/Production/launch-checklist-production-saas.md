@@ -103,7 +103,7 @@ This is organized by domain. Treat each section as a gate — don't skip ahead b
 
 ---
 
-> **️ Warning — The Most Common Beginner Mistake**
+> ** Warning — The Most Common Beginner Mistake**
 > Testing only the "happy path." Every flow above should be tested with at least one deliberate failure: wrong password, declined card, expired token, malformed input. If you've never seen your app fail gracefully, you don't know that it does.
 
 ---

@@ -24,7 +24,7 @@ Authentication is the one area of a production SaaS where "build it yourself to 
 | Self-hosted auth library (NextAuth/Auth.js, Lucia) | You need full control over the data model or have specific constraints a managed provider can't meet |
 | Fully custom auth | Only with genuine security expertise on the team — the cost of getting this wrong (a breach) far outweighs any benefit of building it yourself |
 
-> ️ **Warning**
+> [!WARNING]
 > If you do build your own: **never hand-roll password hashing.** Use a vetted library implementing bcrypt or argon2. Never store plaintext passwords, ever, even temporarily, even in logs.
 
 ---
@@ -48,7 +48,7 @@ Authentication is the one area of a production SaaS where "build it yourself to 
 - [ ] **Login rate limiting** — lock out or delay after repeated failed attempts from the same account/IP, to prevent brute-force attacks
 - [ ] **Logout that actually revokes** the session, not just clears the client-side cookie
 
-> ️ **Warning**
+> [!WARNING]
 > A password reset token that doesn't expire, or can be reused after the password is already reset, is a real, exploitable vulnerability — not a theoretical one. Verify both properties explicitly on any auth flow, whether you built it or a managed provider handles it.
 
 ---

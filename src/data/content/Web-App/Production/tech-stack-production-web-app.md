@@ -147,7 +147,7 @@ Before writing any code, lock in these decisions:
 
 Use this to pressure-test your stack choices before committing:
 
-```
+```prompt
 You are a Staff Engineer reviewing the proposed tech stack for a production web application.
 
 My app: [describe in 2–3 sentences]

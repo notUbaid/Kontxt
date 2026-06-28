@@ -15,7 +15,7 @@ Authentication (Phase 2) decided your approach. This module wires it into your a
 
 ## Decision 1: Source of Truth for Identity
 
-> ️ **Warning**
+> [!WARNING]
 > **Never trust a client-sent user ID.** A request claiming to be "user_123" in a header or body field proves nothing — anyone can send any value. The only trustworthy source of identity is the verified session or token your auth provider's SDK validates server-side. Every protected route must derive the user from that verification, never from a value the client simply states.
 
 ---
@@ -47,7 +47,7 @@ This is where Authentication and Authorization & Roles connect in actual code. Y
 
 ## Decision 4: Protecting Routes — Pages, Not Just APIs
 
-> ️ **Warning**
+> [!WARNING]
 > **Protecting only your API routes and leaving server-rendered pages unguarded is a common gap.** If your dashboard page itself doesn't check authentication before rendering, an unauthenticated request might still receive a page shell that reveals more than it should, or your API protection alone isn't covering navigation-level redirects. Apply the same auth check at the page/route level as you do at the API level.
 
 - [ ] Every authenticated page redirects unauthenticated users to login
@@ -65,7 +65,7 @@ This is where Authentication and Authorization & Roles connect in actual code. Y
 
 ## Decision 6: Environment Separation
 
-> ️ **Warning**
+> [!WARNING]
 > Use **separate auth provider instances/configurations for development, staging, and production.** Test logins, throwaway accounts, and debugging activity should never touch your production user base or production auth provider dashboard. Most managed providers support multiple environments/projects for exactly this reason — set this up before you have real users, not after.
 
 ---

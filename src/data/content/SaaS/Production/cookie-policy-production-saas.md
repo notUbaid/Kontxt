@@ -13,7 +13,7 @@ A Cookie Policy is the smallest of your three legal documents, but it's the one 
 
 This is also the area where founders most commonly confuse "I added a cookie banner" with "I'm compliant." The banner is a UI component. Compliance is about what your code does *before and after* the user makes a choice on that banner.
 
-> **️ Important boundary**
+> ** Important boundary**
 > Kontxt is not a lawyer. Cookie consent requirements vary significantly by jurisdiction — GDPR's ePrivacy rules (EU/UK) are stricter than US requirements in most states. This module covers the engineering implementation correctly; have a professional confirm the legal text and your specific obligations for your user base.
 
 ---
@@ -26,7 +26,7 @@ This is the single most common implementation bug, and it's a compliance failure
 
 **Correct pattern:** Non-essential scripts (analytics, ads, session recording) do not load until the user explicitly consents. Only strictly necessary cookies (session tokens, CSRF protection, login state) are allowed to load before consent.
 
-> **️ Warning**
+> ** Warning**
 > If your cookie banner library only *hides the banner* on dismiss but your analytics script tag is sitting unconditionally in your page `<head>`, you are not compliant under GDPR/ePrivacy — you're tracking before consent and just hiding the evidence visually. This is one of the most common and most checked violations.
 
 ---

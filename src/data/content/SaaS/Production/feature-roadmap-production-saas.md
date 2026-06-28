@@ -64,7 +64,7 @@ Effort:     Real engineering estimate, not an optimistic guess made
             before looking at the actual code.
 ```
 
-> **️ Warning**
+> ** Warning**
 > The most common scoring mistake is inflating Confidence because a feature *feels* obviously good. If your only evidence is "a customer asked for this once," your confidence should be genuinely low — not adjusted upward because you personally find the idea compelling.
 
 ---

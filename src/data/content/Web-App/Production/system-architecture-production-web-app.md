@@ -241,7 +241,7 @@ Don't add a job queue on day one unless you have a specific use case. Vercel Cro
 
 Use this before committing to your architecture:
 
-```
+```prompt
 You are a Staff Engineer reviewing the system architecture for a production web application.
 
 My app: [describe in 2–3 sentences]

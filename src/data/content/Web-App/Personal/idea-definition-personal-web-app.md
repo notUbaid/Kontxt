@@ -21,7 +21,7 @@ Most developers jump straight to code because it feels like progress. Defining a
 
 A vague idea produces a vague product. A vague product is impossible to scope, impossible to design, and impossible to know when it's done.
 
-> **⚠️ Warning**
+> ** Warning**
 > "I want to build something like X but better" is not an idea. It's a direction. You need a destination.
 
 ---
@@ -126,16 +126,16 @@ Read the questions. Answer them honestly — even if only to yourself. If a ques
 
 These are the idea shapes that tend to produce unfinishable personal projects:
 
-> **⚠️ Anti-Pattern: The Clone**
+> ** Anti-Pattern: The Clone**
 > "Like Twitter but for X" or "Like Airbnb but for Y." Clones are hard to scope and hard to motivate. You're building someone else's vision. The only exception: if you're building a clone explicitly to learn a technology, and you know that going in.
 
-> **⚠️ Anti-Pattern: The Everything App**
+> ** Anti-Pattern: The Everything App**
 > An app that does task management *and* habit tracking *and* journaling *and* goal setting. Pick one. You can add the others after you've shipped the first.
 
-> **⚠️ Anti-Pattern: The Solution Looking for a Problem**
+> ** Anti-Pattern: The Solution Looking for a Problem**
 > "I want to use [technology] so I'll build something with it." This produces demos, not products. Start from the problem, not the tech.
 
-> **⚠️ Anti-Pattern: The Already-Solved Problem**
+> ** Anti-Pattern: The Already-Solved Problem**
 > Your idea exists, works well, and is free. Unless your version does something meaningfully different for a specific underserved user, you're building a learning exercise — which is fine, but call it that.
 
 ---

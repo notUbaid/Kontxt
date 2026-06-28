@@ -6,11 +6,12 @@ import {
 , Presentation } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
-export const marketplaceProductionTaxonomy: Category[] = [
+const baseMarketplaceTaxonomy: Category[] = [
   {
     id: 'phase-0-discovery',
     name: 'PHASE 0 — MARKETPLACE DISCOVERY',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Competitor Analysis', BarChart, [{name:'Lenny: How to Win',url:'https://www.lennysnewsletter.com/p/how-to-win'},{name:'G2',url:'https://www.g2.com/'}], 'marketplacecompetitoranalysis'),
       createTopic('Success Metrics', Target, [{name:'a16z: Marketplace Metrics',url:'https://a16z.com/16-startup-metrics/'},{name:'Lenny: GMV',url:'https://www.lennysnewsletter.com/'}], 'marketplacesuccessmetrics'),
       createTopic('Marketplace Fundamentals', BookOpen, [{name:'Bill Gurley: All Markets Are Not Created Equal',url:'https://abovethecrowd.com/2012/11/13/all-markets-are-not-created-equal/'}], 'marketplacefundamentals'),
@@ -134,8 +135,8 @@ export const marketplaceProductionTaxonomy: Category[] = [
   }
 ];
 
-const filterTaxonomy = (keep: string[], hide: string[]) => {
-  return marketplaceProductionTaxonomy.map(cat => {
+const filterTaxonomy = (baseTaxonomy: Category[], keep: string[], hide: string[]) => {
+  return baseTaxonomy.map(cat => {
     return {
       ...cat,
       topics: cat.topics.filter(t => {
@@ -147,25 +148,30 @@ const filterTaxonomy = (keep: string[], hide: string[]) => {
   }).filter(cat => cat.topics.length > 0);
 };
 
+export const marketplaceProductionTaxonomy: Category[] = filterTaxonomy(
+  baseMarketplaceTaxonomy,
+  [],
+  ['Demo Marketplace Data', 'Fake Messaging', 'Marketplace UI Polish'] // Hide hackathon stuff
+);
+
 export const marketplaceHackathonTaxonomy: Category[] = filterTaxonomy(
+  baseMarketplaceTaxonomy,
   [
     'Marketplace Type', 'MVP Scope', 'PRD', 'Buyer Journey', 'Seller Journey', 
-    'Database Schema', 'Listings', 'Search', 'Authentication', 'Demo Transactions', 
+    'Database', 'Listings', 'Search', 'Authentication', 'Demo Transactions', 
     'Pitch Deck', 'Demo Script', 'Submission Checklist',
-    // Mapped aliases
-    'Demo Data', 'MVP Features'
+    'Demo Marketplace Data', 'Fake Messaging', 'Marketplace UI Polish',
+    'Marketplace Fundamentals', 'Tech Stack'
   ],
-  [
-    'Fraud Prevention', 'Dispute Resolution', 'Moderation Systems', 
-    'Marketplace Policies', 'Monitoring', 'Scalability Planning', 'Abuse Detection'
-  ]
+  []
 );
 
 export const marketplacePersonalTaxonomy: Category[] = filterTaxonomy(
+  baseMarketplaceTaxonomy,
   [],
   [
-    'Enterprise Moderation', 'Advanced Fraud Detection', 'Large-scale Infrastructure',
-    'Abuse Detection', 'Scalability Planning', 'Fraud Prevention'
+    'Trust & Safety', 'Scalability', 'Observability', 'Identity Verification',
+    'Demo Marketplace Data', 'Fake Messaging', 'Marketplace UI Polish'
   ]
 );
 

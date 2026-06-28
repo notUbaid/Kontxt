@@ -17,7 +17,7 @@ You have a schema, auth, and a flow. Now you're writing the actual logic that ma
 
 Every endpoint you write should map directly to a step in your screen-by-screen flow. If you're writing backend logic that doesn't correspond to a screen a judge will see, stop and ask whether it's actually Must-Have — this is the same discipline from MVP Features, now applied at the code level.
 
-> **⚠️ Warning**
+> ** Warning**
 > Backend work is where hackathon scope creep hides best, because it doesn't show up visually — you can spend three hours building a "proper" API layer with clean abstractions and nobody will ever see that effort in the demo. Time spent here is invisible to judges; spend exactly as much as the demo path requires, no more.
 
 ---
@@ -55,7 +55,7 @@ This mirrors the User Flows module's guidance on error handling, applied to back
 | Every possible malformed input a real user might someday send | No | Not relevant to a scripted demo; skip entirely |
 | Database write failures on your core flow | Briefly — log it, show a generic "something went wrong, try again" | A silent failure (nothing happens, no feedback) is worse for a live demo than an ugly-but-visible error message |
 
-> **💡 Tip**
+> ** Tip**
 > A visible, even slightly ugly error message ("Something went wrong — try again") is far better in a live demo than a silent failure where the app just does nothing and you have to explain to judges that it's "supposed to do something here." If something breaks live, you want immediate, visible feedback so you can react and recover quickly — not silence that makes you look confused on stage.
 
 ---
@@ -64,7 +64,7 @@ This mirrors the User Flows module's guidance on error handling, applied to back
 
 Backend code that works perfectly with `{"test": "test"}` often breaks the moment it gets the actual, messier shape of data your real demo input produces. Test with realistic inputs from the first integration, not at the end.
 
-> **⚠️ Warning**
+> ** Warning**
 > If your wow moment involves an AI API call, test it with the actual type of input you'll demo with — a real document, a real image, a real voice clip — as early as possible. AI APIs can behave differently with realistic, messy real-world input than with a clean three-word test string, and discovering that difference the night before submission leaves no time to adjust your prompt or processing logic.
 
 ---
@@ -91,7 +91,7 @@ returning malformed output) — skip comprehensive input validation,
 this is for a hackathon demo, not production.
 ```
 
-> **🔍 Why this prompt works**
+> ** Why this prompt works**
 > Scoping the request to "this step only" with the relevant schema and real sample shapes keeps the model grounded in your actual flow instead of generating a generic, more elaborate endpoint than you need. Explicitly limiting error handling to the most likely single failure mirrors the Step 2 discipline directly in the prompt, preventing the model from defaulting to comprehensive validation that costs you review time without demo benefit.
 
 **Token efficiency note:** Generate and verify one endpoint at a time, in your actual demo order from Step 1, rather than asking for your entire backend in one massive prompt. A focused prompt per endpoint, tested immediately with real data, catches integration problems while they're still cheap to fix — a single giant generation makes it much harder to isolate which part broke when something doesn't work.

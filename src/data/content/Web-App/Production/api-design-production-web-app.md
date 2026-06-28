@@ -23,7 +23,7 @@ This choice affects your entire development workflow. Make it deliberately.
 |---|---|---|
 | **Type safety** | Manual (Zod schemas shared) | Automatic end-to-end |
 | **Client codegen** | Required or manual | Zero — types inferred automatically |
-| **Third-party consumers** | ✅ Standard, any language | ❌ TypeScript/JS only |
+| **Third-party consumers** |  Standard, any language |  TypeScript/JS only |
 | **Learning curve** | Low | Low–Medium |
 | **Next.js integration** | Route Handlers | Route Handlers + tRPC adapter |
 | **Best for** | Public APIs, mobile clients, multi-consumer | Internal full-stack TypeScript apps |
@@ -42,7 +42,7 @@ This module covers REST. tRPC follows the same design principles with better erg
 URLs identify resources. They are nouns, not verbs. Actions are expressed by HTTP methods.
 
 ```
-✅ Correct — resource-based
+ Correct — resource-based
 GET    /api/posts              → list posts
 POST   /api/posts              → create post
 GET    /api/posts/:id          → get post
@@ -51,7 +51,7 @@ DELETE /api/posts/:id          → delete post
 GET    /api/posts/:id/comments → list post's comments
 POST   /api/posts/:id/comments → create comment on post
 
-❌ Wrong — verb-based (RPC style leaking into REST)
+ Wrong — verb-based (RPC style leaking into REST)
 GET  /api/getPosts
 POST /api/createPost
 POST /api/deletePost
@@ -88,7 +88,7 @@ Status codes:
 500 Internal Error  → Server error (never expose details)
 ```
 
-> ⚠️ **Warning:** Never return `200 OK` with `{ success: false }` in the body. HTTP status codes exist for a reason. Return the correct code and let clients branch on it.
+>  **Warning:** Never return `200 OK` with `{ success: false }` in the body. HTTP status codes exist for a reason. Return the correct code and let clients branch on it.
 
 ---
 
@@ -445,7 +445,7 @@ lib/
 
 ## AI Prompt: API Design Review
 
-```
+```prompt
 You are a senior backend engineer reviewing a REST API design for a production Next.js 14 application.
 
 My application: [describe your app]

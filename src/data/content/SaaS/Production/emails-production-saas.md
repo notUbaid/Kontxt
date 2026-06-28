@@ -28,7 +28,7 @@ Email feels simple until a password reset lands in spam, or a billing receipt fi
 
 ## Decision 2: Separate Transactional from Marketing
 
-> ️ **Warning**
+> [!WARNING]
 > If you send both critical transactional email (password resets, invoices) and marketing/newsletter email, **separate them by sending domain or subdomain** (e.g., `mail.yourapp.com` for transactional, `news.yourapp.com` for marketing). Marketing email has a higher chance of spam complaints and unsubscribes, which can damage sender reputation — if that reputation is shared with your password reset emails, a marketing campaign's poor performance can start landing your critical transactional emails in spam too.
 
 ---
@@ -40,14 +40,14 @@ Email feels simple until a password reset lands in spam, or a billing receipt fi
 - **DKIM** — cryptographically signs outgoing email so receiving servers can verify it wasn't tampered with
 - **DMARC** — tells receiving servers what to do with email that fails SPF/DKIM checks
 
-> ️ **Warning**
+> [!WARNING]
 > Skipping SPF/DKIM/DMARC setup is the single most common reason transactional emails land in spam for new SaaS products. This is DNS configuration, not application code — set it up through your email provider's domain verification flow before you rely on email for anything user-facing, especially password resets and verification.
 
 ---
 
 ## Decision 4: Send Asynchronously
 
-> ️ **Warning**
+> [!WARNING]
 > Never send an email inline, blocking the request the user is waiting on. If your email provider is slow or briefly down, you don't want that to delay account creation or any other user-facing action. Queue the email send as a background job (your async boundary from System Architecture Diagram) and let the user's request complete immediately.
 
 ---

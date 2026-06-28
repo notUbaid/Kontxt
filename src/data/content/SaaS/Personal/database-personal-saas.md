@@ -148,7 +148,7 @@ users (1) → profiles (1)
 profiles.user_id references users.id (unique constraint)
 ```
 
-> ️ Many-to-many relationships always need a junction table. Never store arrays of IDs in a column. That's the NoSQL instinct creeping in — fight it.
+>  Many-to-many relationships always need a junction table. Never store arrays of IDs in a column. That's the NoSQL instinct creeping in — fight it.
 
 ---
 

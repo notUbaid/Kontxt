@@ -271,7 +271,7 @@ Instant rollback. No redeployment needed.
 
 For Railway or other providers, rollback means reverting your Git commit and pushing — trigger a new deployment from the previous commit.
 
-> ️ Database migrations cannot be automatically rolled back. If a migration breaks production, you need a down migration written manually. This is why dangerous migrations (dropping columns, renaming) need extra care. Deploy the code change before the schema change, not simultaneously.
+>  Database migrations cannot be automatically rolled back. If a migration breaks production, you need a down migration written manually. This is why dangerous migrations (dropping columns, renaming) need extra care. Deploy the code change before the schema change, not simultaneously.
 
 ---
 

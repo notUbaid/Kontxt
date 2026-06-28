@@ -46,7 +46,7 @@ Marketing effectiveness depends on infrastructure you control. These are worth d
 - [ ] **Fast-loading, SEO-correct landing pages** for any paid campaign, since slow pages waste ad spend on traffic that bounces before converting (see the SEO module)
 - [ ] **A working referral or sharing mechanism**, if your product has natural virality potential — this is often more cost-effective than any paid channel, but only if the actual sharing flow is frictionless
 
-> **️ Warning**
+> ** Warning**
 > Spending on paid ads before your attribution tracking works is spending blind. You'll generate clicks and signups but won't be able to tell which ad, audience, or channel actually produced a paying customer — meaning you can't tell what to scale up versus cut. Fix tracking before scaling spend, not after.
 
 ---

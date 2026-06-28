@@ -130,11 +130,11 @@ For a solo developer: branch protection on `main` still matters. It forces the C
 Configure in GitHub → Settings → Branches → Add rule for `main`:
 
 ```
-✅ Require a pull request before merging
-✅ Require status checks to pass before merging
+ Require a pull request before merging
+ Require status checks to pass before merging
    → Add: "Type Check, Lint, Test" (your CI job name)
-✅ Require branches to be up to date before merging
-✅ Do not allow bypassing the above settings
+ Require branches to be up to date before merging
+ Do not allow bypassing the above settings
 ```
 
 This makes it physically impossible to deploy broken code to production by accident.
@@ -251,10 +251,10 @@ This is a one-click operation that takes ~30 seconds. The previous build is alre
 **What rollback does not fix:** Database migrations that already ran. If a migration added a column, rolling back the code doesn't remove the column. This is why migrations must be backward-compatible:
 
 ```
-✅ Safe: Add a nullable column (old code ignores it)
-✅ Safe: Add a new table
-⚠️ Risky: Remove a column (rolled-back code tries to read it)
-⚠️ Risky: Rename a column (old code uses the old name)
+ Safe: Add a nullable column (old code ignores it)
+ Safe: Add a new table
+ Risky: Remove a column (rolled-back code tries to read it)
+ Risky: Rename a column (old code uses the old name)
 ```
 
 For risky migrations: expand then contract. Add the new column, deploy code that uses both, backfill, then remove the old column in a subsequent deploy.
@@ -278,7 +278,7 @@ For risky migrations: expand then contract. Add the new column, deploy code that
 
 ## AI Prompt — CI/CD Pipeline Generation
 
-```
+```prompt
 You are a Staff Engineer setting up a CI/CD pipeline for a production Next.js web application.
 
 My stack:

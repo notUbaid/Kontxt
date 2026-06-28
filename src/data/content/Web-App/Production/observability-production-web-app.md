@@ -306,9 +306,9 @@ router.get('/metrics', async (_req, res) => {
 });
 ```
 
-> ⚠️ **Protect the `/metrics` endpoint.** It exposes internal system state. Restrict it to your internal network or a specific IP allowlist — never expose it publicly.
+>  **Protect the `/metrics` endpoint.** It exposes internal system state. Restrict it to your internal network or a specific IP allowlist — never expose it publicly.
 
-> ⚠️ **Avoid high-cardinality labels.** Never use `userId` or `productId` as a Prometheus label. Each unique value creates a new time series — millions of users means millions of series, which will OOM your Prometheus instance. Use route patterns, not dynamic values.
+>  **Avoid high-cardinality labels.** Never use `userId` or `productId` as a Prometheus label. Each unique value creates a new time series — millions of users means millions of series, which will OOM your Prometheus instance. Use route patterns, not dynamic values.
 
 ---
 
@@ -433,15 +433,15 @@ sum(rate(http_requests_total[5m]))
 Alert = something requires human action right now
 Log   = something that might be useful for debugging later
 
-✅ Alert: error rate > 1% sustained
-✅ Alert: /health returning 503
-✅ Alert: background job queue depth > 500
-✅ Alert: p99 latency > 2 seconds
+ Alert: error rate > 1% sustained
+ Alert: /health returning 503
+ Alert: background job queue depth > 500
+ Alert: p99 latency > 2 seconds
 
-❌ Don't alert: single 500 error
-❌ Don't alert: single slow request
-❌ Don't alert: scheduled job completed
-❌ Don't alert: user login failed (log it, alert on rate)
+ Don't alert: single 500 error
+ Don't alert: single slow request
+ Don't alert: scheduled job completed
+ Don't alert: user login failed (log it, alert on rate)
 ```
 
 > **Alert fatigue kills incident response.** An on-call engineer who receives 50 alerts per night starts ignoring them all. Every alert must be actionable. If you cannot describe the action to take, do not create the alert.
@@ -494,7 +494,7 @@ Build one dashboard. Keep it simple. Make it the first thing you open during an 
 
 ## AI Prompt: Observability Gap Analysis
 
-```
+```prompt
 You are a senior SRE reviewing the observability setup for a production Node.js web application.
 
 Current setup:

@@ -20,8 +20,8 @@ This module turns a rough concept into a statement precise enough to make archit
 Most ideas arrive as solutions, not problems.
 
 ```
-❌ "I want to build a platform where people can share recipes."
-✅ "Home cooks who follow online recipes waste 30 minutes per meal 
+ "I want to build a platform where people can share recipes."
+ "Home cooks who follow online recipes waste 30 minutes per meal 
     scaling ingredient quantities for different serving sizes. 
     No existing tool handles fractional scaling cleanly."
 ```
@@ -54,8 +54,7 @@ when [specific context or trigger].
 Currently they [describe the workaround or status quo], 
 which causes [specific negative outcome: time lost, money lost, 
 frustration, risk, missed opportunity].
-```
-
+```prompt
 Write yours here before continuing.
 
 ---

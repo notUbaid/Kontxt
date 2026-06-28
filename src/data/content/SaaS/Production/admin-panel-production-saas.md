@@ -192,7 +192,7 @@ if (session.impersonatedBy) {
 // ImpersonationBanner.tsx
 {isImpersonating && (
   <div className="impersonation-banner">
-    ️ You are viewing this account as an admin. Actions taken here affect a real user.
+     You are viewing this account as an admin. Actions taken here affect a real user.
     <button onClick={exitImpersonation}>Exit</button>
   </div>
 )}
@@ -293,19 +293,19 @@ Be specific to my context. Don't give generic admin panel advice.
 
 ## Common Mistakes
 
-> **️ Building the admin panel before you have support volume**
+> ** Building the admin panel before you have support volume**
 > If you're a solo founder with 20 users, run SQL queries. The admin panel is a tool for when manual operations become a bottleneck, not a day-one requirement.
 
-> **️ Giving admin access via a regular role**
+> ** Giving admin access via a regular role**
 > If `role = "admin"` is stored in a column that your own API can modify, a privilege escalation bug gives users admin access. Admin must be a separate flag set out-of-band.
 
-> **️ No audit log**
+> ** No audit log**
 > Without logs, you cannot answer "who changed this user's plan?" or "did anyone access this account?" in a security incident. Add the audit log before the first admin user exists.
 
-> **️ Impersonation without a banner**
+> ** Impersonation without a banner**
 > An admin impersonating a user and forgetting they're impersonating them has caused real data incidents. The banner is not optional UX — it's a safety mechanism.
 
-> **️ Admin panel on the same subdomain with no additional auth**
+> ** Admin panel on the same subdomain with no additional auth**
 > `/admin` protected only by a role check is one IDOR bug away from exposure. Consider a separate subdomain (`admin.yourapp.com`) with enforced 2FA, or at minimum an IP restriction.
 
 ---

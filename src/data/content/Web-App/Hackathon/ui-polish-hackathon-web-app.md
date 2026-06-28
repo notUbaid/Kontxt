@@ -17,7 +17,7 @@ Your screens work. This module is about the difference between "functional" and 
 
 In the first few seconds of seeing your app, a judge forms an impression almost entirely from visual and motion cues — not from your feature list. That first impression colors how generously they interpret everything that follows. A few specific, well-placed details account for most of that impression.
 
-> **💡 Tip**
+> ** Tip**
 > If you have one hour left and have to choose between adding a Nice-to-Have feature or polishing your existing screens, polish. An extra feature is one more thing to explain; polish improves every single second a judge spends looking at what you already built.
 
 ---
@@ -47,18 +47,18 @@ A loading state is visible in every single demo run, guaranteed — covered in F
 **Best Practice Card — Loading State Upgrade**
 
 ```
-❌ Generic spinner with no context
-✅ Skeleton screen that mimics the actual content's layout (gray
+ Generic spinner with no context
+ Skeleton screen that mimics the actual content's layout (gray
    blocks where text/images will appear) — makes the wait feel
    shorter and the app feel more considered
-✅ If your process genuinely takes several seconds (e.g., an AI
+ If your process genuinely takes several seconds (e.g., an AI
    generation step), show a brief, specific status message ("Analyzing
    your document...") instead of a generic spinner — this reframes
    a wait as "the app is doing something smart" rather than "the
    app is stuck"
 ```
 
-> **⚠️ Warning**
+> ** Warning**
 > Don't fake a fast result with no loading state if your actual process takes several real seconds. A result that appears instantly when it shouldn't (because you're secretly using cached/seeded data) can look suspicious to an attentive judge, and a result that's genuinely slow with no loading feedback looks broken. Match the loading state honestly to your real processing time.
 
 ---
@@ -71,7 +71,7 @@ Most component libraries (see Frontend Engineering) include hover states, transi
 - Page/state transitions should fade or slide rather than hard-cut, where your framework makes this easy (e.g., a simple CSS transition class)
 - Form inputs should show clear focus states
 
-> **🔍 Note**
+> ** Note**
 > These are typically near-zero additional engineering effort if you're using a real component library rather than raw unstyled HTML — which is itself a reason to follow the Frontend Engineering module's recommendation to use one.
 
 ---
@@ -80,7 +80,7 @@ Most component libraries (see Frontend Engineering) include hover states, transi
 
 Every other screen can be clean and consistent. Your wow-moment screen — identified back in the User Flows module — should be the one screen where you spend extra deliberate design time: larger, more confident visual treatment of the actual result, more careful layout, maybe a small celebratory animation when it appears.
 
-> **⚠️ Warning**
+> ** Warning**
 > Don't spread polish evenly across every screen if you're short on time. A login screen that's slightly plain is forgettable. A wow-moment screen that's slightly plain is a missed opportunity at the exact moment you had the judge's full attention.
 
 ---
@@ -110,7 +110,7 @@ Do not change the underlying functionality or add new features —
 this is a visual polish pass only.
 ```
 
-> **🔍 Why this prompt works**
+> ** Why this prompt works**
 > Scoping the request explicitly to visual polish, with a clear "do not change functionality" boundary, prevents the model from refactoring working logic while you only wanted appearance changes — a real risk when a broad "improve this" prompt invites scope creep into code that already works. Restricting to utilities already in your existing component library avoids introducing a new dependency this late in the build, which would add setup risk for marginal visual gain.
 
 **Token efficiency note:** Run this polish pass per-screen, after each screen's core functionality is already verified working — polishing a screen before its logic is confirmed correct means redoing visual work if the underlying structure changes. Save this step for after Frontend Engineering's verification step on that screen.

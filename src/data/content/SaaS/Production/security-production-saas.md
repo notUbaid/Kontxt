@@ -441,19 +441,19 @@ Be specific and adversarial in your thinking.
 
 ## Common Mistakes
 
-> **️ Checking authorization at the route layer only**
+> ** Checking authorization at the route layer only**
 > A missing check in one handler exposes the resource. Scope at the query level — it's structural, not manual.
 
-> **️ Returning 403 for cross-tenant resources**
+> ** Returning 403 for cross-tenant resources**
 > A 403 tells an attacker the resource exists. A 404 reveals nothing. Return 404 when a user requests a resource outside their organization.
 
-> **️ Trusting the client for organizationId**
+> ** Trusting the client for organizationId**
 > If your API accepts `organizationId` from the request body, any authenticated user can write data into any organization. Always derive scope from the auth token.
 
-> **️ Secrets in git history**
+> ** Secrets in git history**
 > Deleting a file doesn't remove it from git history. If a secret was committed, rotate it immediately regardless of whether the file was later deleted.
 
-> **️ Skipping the security headers**
+> ** Skipping the security headers**
 > CSP, HSTS, and X-Frame-Options close entire classes of browser attacks. Adding `helmet` takes 5 minutes. Not adding it leaves low-hanging fruit for attackers.
 
 ---

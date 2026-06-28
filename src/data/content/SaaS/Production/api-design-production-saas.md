@@ -50,7 +50,7 @@ Every endpoint should return a predictable shape, so frontend code (and AI gener
 
 Errors follow the centralized shape you defined in Backend Architecture — don't let error responses drift into a different format than success responses.
 
-> ️ **Warning**
+> [!WARNING]
 > Inconsistent response shapes across endpoints (sometimes a bare array, sometimes a wrapped object, sometimes including pagination metadata and sometimes not) is one of the most common sources of frontend bugs in AI-assisted projects, because each endpoint gets generated somewhat independently unless you enforce the shape explicitly every time.
 
 ---
@@ -62,7 +62,7 @@ Errors follow the centralized shape you defined in Backend Architecture — don'
 | Cursor-based | Default choice for production SaaS — stable under concurrent inserts/deletes, scales well |
 | Offset-based (`?page=2&limit=20`) | Acceptable for small, rarely-changing datasets where simplicity matters more than scale |
 
-> ️ **Warning**
+> [!WARNING]
 > Never ship a list endpoint with no pagination at all "for now." It works fine with 10 test rows and becomes a serious performance and payload-size problem the moment a real customer has thousands of records. Decide pagination at design time, not as a retrofit after a slow-endpoint incident.
 
 ---

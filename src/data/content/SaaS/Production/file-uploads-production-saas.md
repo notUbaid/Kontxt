@@ -437,19 +437,19 @@ Be specific and direct.
 
 ## Common Mistakes
 
-> **️ Trusting the client's Content-Type**
+> ** Trusting the client's Content-Type**
 > A user can name a `.exe` file `resume.pdf` and set `Content-Type: application/pdf`. Always verify the actual file type by reading magic bytes server-side or after upload.
 
-> **️ Public buckets**
+> ** Public buckets**
 > A misconfigured public bucket has exposed millions of files across the industry. Start private, generate signed URLs. Only make a bucket public if you explicitly intend every file in it to be world-readable (e.g. public marketing assets).
 
-> **️ Storing files in your database**
+> ** Storing files in your database**
 > BLOBs in Postgres slow down backups, bloat table sizes, and can't be served through a CDN. Always use dedicated object storage.
 
-> **️ No pending upload cleanup**
+> ** No pending upload cleanup**
 > Every failed or abandoned upload leaves a `pending` record and a file in storage. Without cleanup, you accumulate garbage. Run a daily job to delete pending uploads older than 24 hours.
 
-> **️ Accepting uploads without a size limit**
+> ** Accepting uploads without a size limit**
 > Without an explicit limit, a single user can fill your storage bucket. Set limits per upload and consider per-organization storage quotas tied to plan tier.
 
 ---

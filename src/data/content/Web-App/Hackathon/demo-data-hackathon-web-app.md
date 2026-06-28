@@ -19,7 +19,7 @@ This module gets you to a demo-ready data state in the shortest time possible.
 
 ## The Rule: Seed Before You Demo
 
-> **⚠️ Warning**
+> ** Warning**
 > Never demo against a database you've been casually testing in. Real test data is garbage. It has `test`, `asdf`, and `user@user.com` everywhere. Judges are pattern-matching on professionalism. Garbage data breaks that pattern immediately.
 
 Your demo data should tell a convincing story. Users named John Smith with email `john@test.com` are a red flag. A project management app with tasks called "task1", "task2" is a red flag. A social app with one follower is a red flag.
@@ -59,7 +59,7 @@ Write a script that wipes the database and inserts exactly what you need.
 
 For a Supabase/PostgreSQL app with a Vite + React frontend, this goes in a file like `scripts/seed.ts` and runs once.
 
-> **💡 Tip**
+> ** Tip**
 > Always make the seed script idempotent. It should delete existing data before inserting. This means you can re-run it before every demo run-through and always start from a known, clean state.
 
 **Copy Prompt**
@@ -100,7 +100,7 @@ If your app loads data from a static file or you need quick variety:
 
 **Copy Prompt**
 
-```
+```prompt
 Generate a JSON array of [N] realistic [entity type] objects.
 
 Each object needs these fields: [list fields and types]
@@ -139,7 +139,7 @@ const users = Array.from({ length: 20 }, () => ({
 }))
 ```
 
-> **⚠️ Warning**
+> ** Warning**
 > Always pass a seed value (`faker.seed(42)`). Without it, every run produces different data. You will rehearse with one dataset and demo with a different one. Don't.
 
 ---
@@ -167,16 +167,16 @@ Answer these three questions. The answers define your seed data:
 
 ## Common Demo Data Mistakes
 
-> **⚠️ Warning: Sequential Naming**
+> ** Warning: Sequential Naming**
 > `User 1`, `User 2`, `User 3` — never. This is the fastest way to make a judge think your app was built in an afternoon. Pick real, diverse, plausible names.
 
-> **⚠️ Warning: All-Same Timestamps**
+> ** Warning: All-Same Timestamps**
 > Data inserted all at `2024-01-01T00:00:00Z` looks seeded. Spread timestamps across days and times. Vary the hours. Humans don't create things in batches.
 
-> **⚠️ Warning: Empty Relationships**
+> ** Warning: Empty Relationships**
 > Seeding users but not their associated content. If your app shows "posts by this user," make sure those posts exist. Judges will click a user profile.
 
-> **⚠️ Warning: Perfect Data**
+> ** Warning: Perfect Data**
 > Every task completed, every goal hit, every number round. Real data is messy. One incomplete item, one declined transaction, one unread message makes your app look like it handles real usage.
 
 ---

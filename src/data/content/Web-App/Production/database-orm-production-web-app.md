@@ -50,7 +50,7 @@ export const db =
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = db
 ```
 
-> ⚠️ **Warning:** Without the singleton pattern above, Next.js hot reload creates a new `PrismaClient` instance on every file change. You'll exhaust your database connection pool within minutes in development.
+>  **Warning:** Without the singleton pattern above, Next.js hot reload creates a new `PrismaClient` instance on every file change. You'll exhaust your database connection pool within minutes in development.
 
 ---
 
@@ -251,12 +251,12 @@ const tag = await db.tag.upsert({
 The most important performance decision in Prisma queries.
 
 ```typescript
-// ❌ include fetches entire related model — often returns far more than you need
+//  include fetches entire related model — often returns far more than you need
 const posts = await db.post.findMany({
   include: { author: true }, // fetches all 20 user fields
 })
 
-// ✅ select fetches only what you need
+//  select fetches only what you need
 const posts = await db.post.findMany({
   select: {
     id: true,
@@ -439,29 +439,29 @@ await db.post.update({
 ## Query Performance
 
 ```typescript
-// ❌ N+1 query — fetches each author in a separate query
+//  N+1 query — fetches each author in a separate query
 const posts = await db.post.findMany()
 const postsWithAuthors = await Promise.all(
   posts.map(post => db.user.findUnique({ where: { id: post.authorId } }))
 )
 
-// ✅ Single query with include/select
+//  Single query with include/select
 const posts = await db.post.findMany({
   select: { ...postCardSelect, author: { select: userPublicSelect } },
 })
 
-// ❌ Counting with findMany
+//  Counting with findMany
 const posts = await db.post.findMany({ where: { authorId } })
 const count = posts.length // loads all records to count them
 
-// ✅ Dedicated count query
+//  Dedicated count query
 const count = await db.post.count({ where: { authorId } })
 
-// ❌ Loading entire record to check existence
+//  Loading entire record to check existence
 const user = await db.user.findUnique({ where: { email } })
 if (user) { /* ... */ }
 
-// ✅ Existence check without loading
+//  Existence check without loading
 const exists = await db.user.findUnique({
   where: { email },
   select: { id: true }, // minimal payload
@@ -472,7 +472,7 @@ const exists = await db.user.findUnique({
 
 ## AI Prompt: Schema Review
 
-```
+```prompt
 You are a senior backend engineer and database architect reviewing a Prisma schema for a production PostgreSQL application.
 
 Application type: [describe your app]

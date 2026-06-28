@@ -25,7 +25,7 @@ Don't pick "a color." Define a system, or every future feature becomes a new ad-
 - **Semantic colors** — success, warning, error, info (these matter more than people expect in a data-dense app)
 - **Dark mode variants** — even if you ship dark mode later, decide now whether your color system needs to support it, because retrofitting a hardcoded light-only palette is expensive
 
-> ️ **Warning**
+> [!WARNING]
 > Contrast isn't optional, it's an accessibility requirement (WCAG AA: 4.5:1 for normal text, 3:1 for large text). Check this *before* finalizing colors, not after a screen fails an audit.
 
 ---

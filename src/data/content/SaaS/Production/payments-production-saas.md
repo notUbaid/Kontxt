@@ -42,7 +42,7 @@ Payments is where a subtle bug becomes a billing incident, not just a UX issue. 
 
 ## Decision 4: Webhooks Are Your Source of Truth
 
-> ️ **Warning**
+> [!WARNING]
 > **Never grant access based solely on the client-side redirect after checkout.** A user landing on your "success" page after Stripe Checkout is a UX signal, not a payment confirmation — the redirect can happen before your backend has confirmed payment, and a user could even reach that URL without paying (e.g., a browser back button, a flaky network). Grant or update access **only** when you receive and verify the corresponding webhook event (`checkout.session.completed`, `invoice.paid`, etc.).
 
 This connects directly to your Third Party Integrations webhook handling: verify the signature, process idempotently (a webhook can be delivered more than once), and update your local subscription record from the event — not from anything the client told you.
@@ -67,7 +67,7 @@ This connects directly to your Third Party Integrations webhook handling: verify
 
 ## Decision 7: Test Mode vs. Live Mode
 
-> ️ **Warning**
+> [!WARNING]
 > Stripe test and live mode use **entirely separate API keys and webhook signing secrets.** Mixing them — accidentally using a live key in staging, or a test webhook secret in production — either silently fails or, worse, processes real charges somewhere you didn't intend. Keep these clearly separated in your environment variable setup per environment (tie back to Third Party Integrations secrets management).
 
 ---

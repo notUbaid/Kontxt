@@ -94,7 +94,7 @@ Three categories:
 - **Authenticated** — valid session required (e.g. `GET /api/me`)
 - **Authorized** — valid session + permission check (e.g. `DELETE /api/workspaces/:id` — only the owner)
 
-> ️ Most security bugs come from missing the third category. Authentication confirms identity. Authorization confirms permission. They are not the same check.
+>  Most security bugs come from missing the third category. Authentication confirms identity. Authorization confirms permission. They are not the same check.
 
 ---
 
@@ -172,7 +172,7 @@ Stripe Event → POST /api/webhooks/stripe
           Return 200 immediately
 ```
 
-> ️ If your webhook handler takes too long, Stripe will retry. Always return `200` fast. Move slow work to a background job or queue.
+>  If your webhook handler takes too long, Stripe will retry. Always return `200` fast. Move slow work to a background job or queue.
 
 ---
 

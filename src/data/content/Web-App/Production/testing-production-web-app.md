@@ -590,7 +590,7 @@ When you have limited time, test in this order:
 
 ## AI Prompt: Test Coverage Gap Analysis
 
-```
+```prompt
 You are a senior engineer reviewing test coverage for a production Node.js/Express API.
 
 Here is my route file:

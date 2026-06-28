@@ -29,7 +29,7 @@ You don't need to memorize WCAG's full spec. You need to check your product agai
 
 ## Decision 2: Keyboard Navigation
 
-> ️ **Warning**
+> [!WARNING]
 > If a feature can't be fully operated with a keyboard alone — no mouse — it fails accessibility, full stop. This is the single most common failure in AI-generated UIs, because keyboard interaction isn't visually obvious in a screenshot.
 
 Checklist for every interactive screen:

@@ -13,7 +13,7 @@ Your Privacy Policy answers "what do you do with my data?" Your Terms of Service
 
 Founders often treat these as the same document with different names. They're not. A Privacy Policy is about data practices. Terms of Service is about the legal relationship between you and the user — liability, acceptable use, payment terms, and what happens when either side breaks the deal.
 
-> **️ Important boundary**
+> ** Important boundary**
 > Kontxt is not a lawyer, and this is not legal advice. Terms of Service carry real liability consequences — a poorly worded limitation-of-liability clause can be unenforceable exactly when you need it most. AI-drafted terms should be reviewed by a qualified professional before publishing, especially once you're processing payments or operating at meaningful scale. This module covers the engineering-relevant groundwork: what decisions need to be made, and what to check before you trust a draft.
 
 ---
@@ -60,7 +60,7 @@ This is the engineering-relevant check most founders skip. Your terms have to be
 - **"We may suspend accounts for violations"** requires an actual admin process to do that — even a manual one
 - **Subscription terms** (auto-renewal, cancellation notice period) must match your actual billing logic, not just the words in the document
 
-> **️ Warning**
+> ** Warning**
 > A mismatch between your ToS and your actual product behavior isn't just sloppy — it can be used against you in a dispute. If your terms say cancellations take effect "immediately" but your billing logic still charges the next cycle, that's a real, fixable bug with legal consequences, not just a UX inconsistency.
 
 ---

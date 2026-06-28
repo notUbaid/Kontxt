@@ -475,7 +475,7 @@ export async function POST(req: NextRequest) {
 
 ## AI Prompt: Validation Schema Design
 
-```
+```prompt
 You are a senior backend engineer helping design a validation layer for a production Next.js API.
 
 My application: [describe your app]

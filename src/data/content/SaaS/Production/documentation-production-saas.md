@@ -170,7 +170,7 @@ Internal docs serve your team, not your users. They don't need to be pretty. The
 
 When you make a significant technical decision, write a short record of it. Future you — or a new engineer — will need to know not just *what* you chose, but *why*.
 
-```markdown
+```
 # ADR-001: Use Postgres Full-Text Search instead of Algolia
 
 Date: 2024-03-15
@@ -199,7 +199,7 @@ ADRs take 10 minutes to write. They save hours of context-rebuilding six months 
 
 A runbook is a step-by-step guide for performing a specific operational task. Write one every time you do something manually that you'll need to do again.
 
-```markdown
+```
 # Runbook: Manually migrate a customer to a new plan
 
 When: Sales requests an off-cycle plan change not handled by Stripe's UI.
@@ -221,7 +221,7 @@ Rollback: Reverse the Stripe subscription change and DB update.
 
 The `README.md` in your repository should let a new engineer run the project locally in under 30 minutes. If it takes longer, fix the README.
 
-```markdown
+```
 # Getting Started
 
 ## Prerequisites
@@ -316,19 +316,19 @@ Be specific. Quote the parts that need improvement.
 
 ## Common Mistakes
 
-> **️ Writing docs nobody reads**
+> ** Writing docs nobody reads**
 > Docs written before you know your users' actual questions are guesswork. Use support tickets and user interviews to find out what's confusing, then write those pages first.
 
-> **️ Hand-maintaining API docs**
+> ** Hand-maintaining API docs**
 > An API doc that's out of sync with the actual API is worse than no docs. Generate from code or use a tool that enforces sync. Manual maintenance always drifts.
 
-> **️ Internal docs in too many places**
+> ** Internal docs in too many places**
 > Notion for some things, Confluence for others, Google Docs for others, random Markdown files in repos. Nobody knows where to look. Pick one tool for internal docs and enforce it.
 
-> **️ Burying the getting started guide**
+> ** Burying the getting started guide**
 > If a new user can't find "how do I get started?" within 10 seconds of landing on your docs, you have a navigation problem. The getting started guide is always one click from the homepage.
 
-> **️ Documenting every feature instead of every workflow**
+> ** Documenting every feature instead of every workflow**
 > Users want to accomplish goals, not learn features. Document workflows ("how do I invite my team") not UI panels ("the Settings page").
 
 ---

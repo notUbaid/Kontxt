@@ -15,7 +15,7 @@ Every production SaaS depends on external services — payments, email, analytic
 
 ## Decision 1: Secrets Management
 
-> ️ **Warning**
+> [!WARNING]
 > **Never commit API keys or secrets to your repository** — not even temporarily, not even in a private repo. Git history is forever; a key committed and removed in the next commit is still in history and should be treated as compromised. Use environment variables loaded from your hosting platform's secret management, never hardcoded values.
 
 - [ ] All API keys/secrets live in environment variables, not in code
@@ -46,7 +46,7 @@ This means switching providers later (or adding a fallback provider) is a change
 
 Many integrations (payments, email delivery status) communicate back to you via webhooks. These need specific, non-obvious handling:
 
-> ️ **Warning**
+> [!WARNING]
 > **Always verify webhook signatures.** Every reputable provider signs webhook payloads with a secret you can verify. Skipping this means anyone who finds your webhook URL can send fake events — fake "payment succeeded" events, for instance, which is a direct path to a billing fraud vulnerability.
 
 - [ ] Verify the provider's signature on every incoming webhook before processing it

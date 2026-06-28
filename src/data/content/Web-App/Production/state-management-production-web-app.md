@@ -178,12 +178,12 @@ export function useUpdateUser() {
 Query keys are how TanStack Query identifies and invalidates cache entries. Design them deliberately.
 
 ```typescript
-// ❌ Loose — hard to invalidate related queries
+//  Loose — hard to invalidate related queries
 useQuery({ queryKey: ['users'] })
 useQuery({ queryKey: ['user-profile'] })
 useQuery({ queryKey: ['userData'] })
 
-// ✅ Hierarchical — easy to invalidate all user-related data at once
+//  Hierarchical — easy to invalidate all user-related data at once
 useQuery({ queryKey: ['users'] })                           // all users
 useQuery({ queryKey: ['users', userId] })                   // specific user
 useQuery({ queryKey: ['users', userId, 'posts'] })          // user's posts
@@ -308,7 +308,7 @@ function Sidebar() {
 Don't use Context as a global store. Use it for dependency injection of stable values.
 
 ```typescript
-// ✅ Good use of Context — auth session (changes rarely)
+//  Good use of Context — auth session (changes rarely)
 interface AuthContext {
   user: User | null
   isLoading: boolean
@@ -339,7 +339,7 @@ export function useAuth() {
 }
 ```
 
-> ⚠️ **Warning:** Every Context update re-renders all consumers. If your Context value includes frequently-changing data, split it into multiple contexts or switch to Zustand.
+>  **Warning:** Every Context update re-renders all consumers. If your Context value includes frequently-changing data, split it into multiple contexts or switch to Zustand.
 
 ---
 
@@ -361,7 +361,7 @@ Data from server → TanStack Query
 ## Performance: Avoiding Unnecessary Re-renders
 
 ```typescript
-// ❌ Creates new object reference on every render — child always re-renders
+//  Creates new object reference on every render — child always re-renders
 function Parent() {
   const [count, setCount] = useState(0)
   const config = { theme: 'dark', locale: 'en' } // new object every render
@@ -369,7 +369,7 @@ function Parent() {
   return <Child config={config} />
 }
 
-// ✅ Stable reference — child only re-renders when config actually changes
+//  Stable reference — child only re-renders when config actually changes
 function Parent() {
   const [count, setCount] = useState(0)
   const config = useMemo(() => ({ theme: 'dark', locale: 'en' }), [])
@@ -377,7 +377,7 @@ function Parent() {
   return <Child config={config} />
 }
 
-// ✅ Stable callback — required when passing callbacks as props to memoized children
+//  Stable callback — required when passing callbacks as props to memoized children
 const handleSubmit = useCallback((data: FormData) => {
   // ...
 }, [dependency])
@@ -399,7 +399,7 @@ const handleSubmit = useCallback((data: FormData) => {
 
 Use when planning state for a new feature or reviewing existing state structure.
 
-```
+```prompt
 You are a senior React engineer reviewing state architecture for a production Next.js 14 application.
 
 Tech stack: Next.js 14 App Router, TypeScript, TanStack Query, Zustand

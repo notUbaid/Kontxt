@@ -12,6 +12,7 @@ export const mobileProductionTaxonomy: Category[] = [
     id: 'phase-0',
     name: 'PHASE 0 — DISCOVERY & VALIDATION',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Idea Definition', Rocket, [{name:'Apple HIG',url:'https://developer.apple.com/design/human-interface-guidelines/'},{name:'YC RFS',url:'https://www.ycombinator.com/rfs'}], 'mobileideadefinition'),
       createTopic('Problem Statement', AlertCircle, [{name:'Material Design',url:'https://m3.material.io/'},{name:'Mobbin UX',url:'https://mobbin.com/'}], 'mobileproblemstatement'),
       createTopic('Target Audience', Users, [{name:'Sensor Tower ASO',url:'https://sensortower.com/blog/app-store-optimization'}], 'mobiletargetaudience'),
@@ -145,6 +146,7 @@ export const mobileHackathonTaxonomy: Category[] = [
     id: 'phase-0',
     name: 'PHASE 0',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Idea Definition', Rocket, [{name:'Apple HIG',url:'https://developer.apple.com/design/human-interface-guidelines/'},{name:'YC RFS',url:'https://www.ycombinator.com/rfs'}], 'mobileideadefinition'),
       createTopic('MVP', CheckSquare, [{name:'WatermelonDB Sync',url:'https://nozbe.github.io/WatermelonDB/Advanced/Sync.html'}], 'mobilemvp'),
     ]
@@ -199,6 +201,7 @@ export const mobilePersonalTaxonomy: Category[] = [
     id: 'discovery',
     name: 'PHASE 1 — DISCOVERY & DESIGN',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Idea Definition', Rocket, [], 'mobileideadefinition'),
       createTopic('PRD', FileText, [], 'mobileprd'),
       createTopic('Platform Guidelines', Smartphone, [], 'mobileplatformguidelines'),

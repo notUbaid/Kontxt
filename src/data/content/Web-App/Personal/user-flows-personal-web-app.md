@@ -109,7 +109,7 @@ Trigger: User visits app for the first time
 
 Every step in this flow is a potential drop-off point. The fewer steps, the better.
 
-> **⚠️ Warning**
+> ** Warning**
 > Email verification before first use kills onboarding for personal projects. Unless you have a strong security reason, let users in immediately after signup and verify email in the background or on next login. Every extra step before the first "aha moment" loses users.
 
 ---
@@ -174,7 +174,7 @@ Save your flows in a file called `USER_FLOWS.md` in your project repo, alongside
 
 These two documents together become your standard context paste for AI tools throughout development. When you ask AI to build a screen, a component, or an API endpoint — attach the relevant flow. The output will be dramatically more aligned with what you actually need.
 
-> **💡 Tip**
+> ** Tip**
 > When a flow feels complicated to write, that's a signal the feature itself is complicated. Simplify the flow first. The simpler the flow, the simpler the code that implements it.
 
 ---

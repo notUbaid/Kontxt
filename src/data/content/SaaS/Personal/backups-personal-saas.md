@@ -38,7 +38,7 @@ Check your tier before assuming anything.
 | **PlanetScale** | Daily backups, 2-day retention | Longer retention |
 | **Railway** | No automatic backups | Manual only |
 
-> ️ Neon free tier has **no automatic backups**. If you're on Neon free and your database is corrupted or accidentally deleted, it is gone. Set up manual exports.
+>  Neon free tier has **no automatic backups**. If you're on Neon free and your database is corrupted or accidentally deleted, it is gone. Set up manual exports.
 
 ---
 

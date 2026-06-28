@@ -415,19 +415,19 @@ Be specific and direct.
 
 ## Common Mistakes
 
-> **️ Storing OAuth tokens in plaintext**
+> ** Storing OAuth tokens in plaintext**
 > A database backup, a misconfigured log, or a compromised admin account exposes every user's third-party access. Encrypt tokens with a key stored outside the database.
 
-> **️ Skipping webhook signature verification**
+> ** Skipping webhook signature verification**
 > An unverified webhook endpoint will process any POST request from anywhere. This is a remote code execution risk if your handler mutates data. Always verify.
 
-> **️ Processing webhooks synchronously**
+> ** Processing webhooks synchronously**
 > If your webhook handler takes more than 5 seconds, the provider retries. This causes duplicate processing and cascading failures under load. Always queue and acknowledge immediately.
 
-> **️ Requesting too many OAuth scopes**
+> ** Requesting too many OAuth scopes**
 > Users and security-conscious organizations review the permissions your app requests. Request only what you need right now. You can always request additional scopes later with an incremental OAuth flow.
 
-> **️ No graceful degradation when integrations fail**
+> ** No graceful degradation when integrations fail**
 > If Slack is down, posting a Slack notification should not fail your core product operation. Integration failures must be isolated. Log, retry, and move on.
 
 ---

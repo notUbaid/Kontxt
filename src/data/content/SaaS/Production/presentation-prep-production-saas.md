@@ -59,7 +59,7 @@ A presentation that works usually follows a recognizable shape: a real problem, 
    a wishlist
 ```
 
-> **️ Warning**
+> ** Warning**
 > Don't open with your solution. Audiences who don't yet believe the problem is real won't be persuaded by how elegant your solution is — they'll just wonder why you're solving something they don't think matters. Earn the problem first.
 
 ---

@@ -21,7 +21,7 @@ The single rule that fixes most bad decks: **every slide should make exactly one
 
 If you can't summarize a slide's purpose in one sentence, it's actually two slides trying to share space, and the audience will leave with neither point landing clearly.
 
-> **️ Warning**
+> ** Warning**
 > The most common deck failure isn't bad design — it's slides that try to communicate three ideas at once because cutting content feels like losing information. It isn't. It's making the one idea that matters actually visible instead of competing with two others for attention.
 
 ---

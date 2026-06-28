@@ -59,7 +59,7 @@ Trigger to fix: When we sign our first custom-pricing enterprise deal.
 
 This format does the actual work: it explains the tradeoff, names the real cost, and — critically — defines a **trigger** for when it stops being acceptable. Debt entries without a trigger condition just sit on a list forever, never quite urgent enough to address.
 
-> **️ Warning**
+> ** Warning**
 > A technical debt backlog that only ever grows and never gets paid down isn't a tracking failure — it's a sign that debt items are being logged without real cost analysis attached. If every single entry feels equally vague and equally low-priority, the team has no actual way to compare them against feature work, and debt will always lose that comparison by default.
 
 ---

@@ -17,7 +17,7 @@ You have your one-sentence idea and your wow moment. Now you need the actual fea
 
 In a real startup, MVP means "the smallest thing real users would actually find valuable." In a hackathon, it means something tighter: **the smallest thing that makes your wow moment demonstrable to a judge in under 3 minutes.** That's a more brutal cut than startup MVP thinking, because you're not trying to retain a real user — you're trying to land one specific moment, once, live.
 
-> **️ Warning**
+> ** Warning**
 > "It would be cool if it also did X" is the most expensive sentence in a hackathon. Every feature you add beyond the core demo path is hours not spent polishing the path that actually gets judged — and is also one more thing that can break live, in front of the judges, at the worst possible moment.
 
 ---

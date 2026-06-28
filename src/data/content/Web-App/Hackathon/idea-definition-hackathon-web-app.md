@@ -19,7 +19,7 @@ Most hackathon teams don't fail because their idea was bad. They fail because th
 
 In a hackathon, "what should we build?" and "what should we cut?" are the same question asked twice. An idea that sounds impressive but requires five integrated systems to demo will lose to a narrow idea that does one thing flawlessly, every time.
 
-> **️ Warning**
+> ** Warning**
 > The most common hackathon idea-stage mistake: describing your idea as a platform, an ecosystem, or "like Uber but for X" — and meaning it literally. You have hours, not months. Your idea needs to compress into one core loop a judge can see work, live, in under two minutes.
 
 ---

@@ -23,17 +23,17 @@ Next.js renders components on the server before sending them to the browser. Bro
 
 ```
 Server environment:
-  ✅ Node.js APIs
-  ✅ File system, env vars, DB
-  ❌ window, document, localStorage
-  ❌ navigator, IntersectionObserver
-  ❌ Any DOM API
+   Node.js APIs
+   File system, env vars, DB
+   window, document, localStorage
+   navigator, IntersectionObserver
+   Any DOM API
 
 Browser environment:
-  ✅ All of the above
-  ✅ window, document, localStorage
-  ✅ navigator, IntersectionObserver
-  ❌ File system, DB (directly)
+   All of the above
+   window, document, localStorage
+   navigator, IntersectionObserver
+   File system, DB (directly)
 ```
 
 There are three patterns for handling this safely. Know all three — each fits a different scenario.
@@ -160,7 +160,7 @@ export function CopyButton({ text }: { text: string }) {
 }
 ```
 
-> ⚠️ **Warning:** `navigator.clipboard` only works on HTTPS. On localhost it works. On HTTP production it silently fails. Always add a fallback or check.
+>  **Warning:** `navigator.clipboard` only works on HTTPS. On localhost it works. On HTTP production it silently fails. Always add a fallback or check.
 
 ---
 
@@ -240,7 +240,7 @@ function NavBar() {
 }
 ```
 
-> ⚠️ **Hydration warning:** The server renders with `matches = false` (the `useState` default). If the client immediately renders something different, you get a hydration mismatch. This flicker is acceptable for most cases. If it's not, use CSS for the responsive behavior instead.
+>  **Hydration warning:** The server renders with `matches = false` (the `useState` default). If the client immediately renders something different, you get a hydration mismatch. This flicker is acceptable for most cases. If it's not, use CSS for the responsive behavior instead.
 
 ---
 

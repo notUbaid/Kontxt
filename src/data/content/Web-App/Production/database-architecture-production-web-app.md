@@ -308,7 +308,7 @@ USING (
 
 ## AI Prompt — Schema Generation
 
-```
+```prompt
 You are a Staff Engineer designing a PostgreSQL database schema using Prisma for a production SaaS web application.
 
 My app: [describe in 2–3 sentences]

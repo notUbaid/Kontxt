@@ -28,7 +28,7 @@ Database Schema (Phase 2) decided the shape of your data. This module is about i
 
 ## Decision 2: Connection Pooling
 
-> ️ **Warning**
+> [!WARNING]
 > **Database connections are a finite resource**, and this matters more than beginners expect — especially on serverless hosting, where every function invocation can open a new connection. Without pooling, a traffic spike can exhaust your database's connection limit and start rejecting connections, including from parts of your app that were working fine seconds earlier.
 
 - [ ] Use a connection pooler (PgBouncer, or your managed Postgres provider's built-in pooling — Supabase, Neon, and RDS Proxy all offer this) rather than connecting directly to Postgres from every server instance/function
@@ -46,7 +46,7 @@ You decided to use a migration tool in Database Schema. Now apply the workflow:
 > 3. Only after verifying it works as expected, run it against production
 > 4. Never hand-edit a production database schema outside this workflow, even for "a quick fix"
 
-> ️ **Warning**
+> [!WARNING]
 > Renaming or dropping a column is the most common migration danger — if your application code deploys *after* the migration runs (or vice versa), there's a window where running code doesn't match the schema. For anything destructive, prefer a two-step approach: add the new column, migrate code to use it, then remove the old column in a separate, later migration.
 
 ---
@@ -61,7 +61,7 @@ You decided to use a migration tool in Database Schema. Now apply the workflow:
 
 ## Decision 5: Preventing N+1 Queries
 
-> ️ **Warning**
+> [!WARNING]
 > The N+1 query problem — fetching a list, then querying again for each item's related data in a loop — is the single most common ORM performance bug, and it's invisible at small scale (10 rows: 11 queries, barely noticeable) and serious at real scale (10,000 rows: 10,001 queries).
 
 - [ ] Use your ORM's eager-loading/`include` features to fetch related data in one query, not in a loop

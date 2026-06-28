@@ -278,7 +278,7 @@ posthog.init(key, {
 
 Session replay is one of the most valuable tools for a solo founder. When a user drops off during onboarding, you watch exactly where they got confused — no guessing.
 
-> ️ `maskAllInputs: true` is mandatory. Recording unmasked form inputs captures passwords, credit card numbers, and personal data. Never ship session replay without it.
+>  `maskAllInputs: true` is mandatory. Recording unmasked form inputs captures passwords, credit card numbers, and personal data. Never ship session replay without it.
 
 ---
 

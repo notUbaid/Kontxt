@@ -37,7 +37,7 @@ Wireframe in this order, not screen-by-screen as features come to mind:
 3. **Settings screens** — account, workspace, billing (these mirror the separation you made in Information Architecture).
 4. Everything else, only if it's in your MVP feature list.
 
-> ️ **Warning**
+> [!WARNING]
 > If a screen isn't on your MVP feature list from Phase 0, don't wireframe it yet. Wireframing non-MVP screens is scope creep disguised as productivity.
 
 ---

@@ -13,7 +13,7 @@ A Privacy Policy is not boilerplate text you paste in to make a footer link stop
 
 This module focuses on what's actually your job as the engineer: knowing what data your system collects, so whoever drafts or reviews the policy (you, a lawyer, or a generator tool) is working from accurate facts instead of guesses.
 
-> **️ Important boundary**
+> ** Important boundary**
 > Kontxt is not a lawyer, and this module is not legal advice. AI-generated privacy policy text should be reviewed by a qualified professional before publishing, especially if you handle health data, payment data, children's data, or operate in the EU/UK (GDPR), California (CCPA/CPRA), or other regulated jurisdictions. What follows is the engineering groundwork that makes that review fast and accurate instead of a guessing exercise.
 
 ---
@@ -101,7 +101,7 @@ Never publish AI-drafted legal text without checking it against reality. Specifi
 - [ ] The contact method listed for privacy requests is real and monitored
 - [ ] A qualified professional has reviewed the final draft before it goes live, especially for any jurisdiction-specific clauses
 
-> **️ Warning**
+> ** Warning**
 > The most expensive privacy policy mistake isn't a missing policy — it's a policy that makes promises your system can't keep. "We will delete all your data within 30 days" is a real commitment. If you say it, your backend needs an actual deletion job that fulfills it, not just good intentions.
 
 ---

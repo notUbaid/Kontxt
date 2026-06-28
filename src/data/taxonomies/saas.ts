@@ -17,7 +17,7 @@ export const saasProductionTaxonomy: Category[] = [
       createTopic('User Pain Points', AlertCircle),
       createTopic('Target Users', Users),
       createTopic('Project Assumptions', AlertCircle),
-      createTopic('ICP (Ideal Customer Profile)', UserCheck),
+      createTopic('ICP (Ideal Customer Profile)', UserCheck, [], 'icp'),
       createTopic('Personas', Users),
       createTopic('Solution Statement', CheckSquare),
       createTopic('Elevator Pitch', Presentation),
@@ -62,7 +62,7 @@ export const saasProductionTaxonomy: Category[] = [
       createTopic('Authorization & Roles', Shield),
       createTopic('File Storage', Cloud),
       createTopic('Third Party Integrations', Layers),
-      createTopic('AI Architecture (optional)', Cpu),
+      createTopic('AI Architecture (optional)', Cpu, [], 'aiarchitecture'),
       createTopic('Cost Estimation', DollarSign),
     ]
   },
@@ -194,8 +194,8 @@ export const saasPersonalTaxonomy: Category[] = [
     topics: [
       createTopic('Welcome', HelpCircle),
       createTopic('Personas', Users),
-      createTopic('Idea', Rocket, [{name:'Mom Test Guide',url:'https://www.momtestbook.com/'},{name:'YC RFS',url:'https://www.ycombinator.com/rfs'}], 'ideadefinition'),
-      createTopic('Features', CheckSquare, [{name:'Linear',url:'https://linear.app/'},{name:'Notion Templates',url:'https://www.notion.so/templates'}], 'mvpfeatures'),
+      createTopic('Idea', Rocket, [{name:'Mom Test Guide',url:'https://www.momtestbook.com/'},{name:'YC RFS',url:'https://www.ycombinator.com/rfs'}]),
+      createTopic('Features', CheckSquare, [{name:'Linear',url:'https://linear.app/'},{name:'Notion Templates',url:'https://www.notion.so/templates'}]),
     ]
   },
   {
@@ -203,19 +203,19 @@ export const saasPersonalTaxonomy: Category[] = [
     name: 'PHASE 1 — PRODUCT',
     topics: [
       createTopic('PRD', FileText),
-      createTopic('Design', PenTool, [{name:'Stripe Atlas',url:'https://stripe.com/atlas'},{name:'YC Startup Library',url:'https://www.ycombinator.com/library'}], 'designsystem'),
-      createTopic('Flows', Globe, [{name:'Whimsical',url:'https://whimsical.com/'},{name:'FigJam',url:'https://www.figma.com/figjam/'},{name:'Mobbin UX Patterns',url:'https://mobbin.com/'}], 'userflows'),
+      createTopic('Design', PenTool, [{name:'Stripe Atlas',url:'https://stripe.com/atlas'},{name:'YC Startup Library',url:'https://www.ycombinator.com/library'}]),
+      createTopic('Flows', Globe, [{name:'Whimsical',url:'https://whimsical.com/'},{name:'FigJam',url:'https://www.figma.com/figjam/'},{name:'Mobbin UX Patterns',url:'https://mobbin.com/'}]),
     ]
   },
   {
     id: 'architecture',
     name: 'PHASE 2 — ARCHITECTURE',
     topics: [
-      createTopic('Tech Stack', Settings, [{name:'Stripe Atlas',url:'https://stripe.com/atlas'},{name:'YC Startup Library',url:'https://www.ycombinator.com/library'}], 'techstackselection'),
+      createTopic('Tech Stack', Settings, [{name:'Stripe Atlas',url:'https://stripe.com/atlas'},{name:'YC Startup Library',url:'https://www.ycombinator.com/library'}]),
       createTopic('Auth', Key),
       createTopic('Database Schema', Database),
-      createTopic('APIs', Globe, [{name:'tRPC',url:'https://trpc.io/'},{name:'GraphQL',url:'https://graphql.org/'},{name:'Postman',url:'https://www.postman.com/'}], 'apidesign'),
-      createTopic('Storage', Cloud, [{name:'Supabase',url:'https://supabase.com/'},{name:'Prisma ORM',url:'https://www.prisma.io/'},{name:'Drizzle ORM',url:'https://orm.drizzle.team/'},{name:'SQLite',url:'https://www.sqlite.org/'}], 'filestorage'),
+      createTopic('APIs', Globe, [{name:'tRPC',url:'https://trpc.io/'},{name:'GraphQL',url:'https://graphql.org/'},{name:'Postman',url:'https://www.postman.com/'}]),
+      createTopic('Storage', Cloud, [{name:'Supabase',url:'https://supabase.com/'},{name:'Prisma ORM',url:'https://www.prisma.io/'},{name:'Drizzle ORM',url:'https://orm.drizzle.team/'},{name:'SQLite',url:'https://www.sqlite.org/'}]),
     ]
   },
   {
@@ -233,18 +233,18 @@ export const saasPersonalTaxonomy: Category[] = [
     id: 'production-lite',
     name: 'PHASE 4 — PRODUCTION LITE',
     topics: [
-      createTopic('Performance', Zap, [{name:'Supabase',url:'https://supabase.com/'},{name:'Prisma ORM',url:'https://www.prisma.io/'},{name:'Drizzle ORM',url:'https://orm.drizzle.team/'},{name:'SQLite',url:'https://www.sqlite.org/'}], 'performanceoptimization'),
+      createTopic('Performance', Zap, [{name:'Supabase',url:'https://supabase.com/'},{name:'Prisma ORM',url:'https://www.prisma.io/'},{name:'Drizzle ORM',url:'https://orm.drizzle.team/'},{name:'SQLite',url:'https://www.sqlite.org/'}]),
       createTopic('Backups', Database),
-      createTopic('Deployment', Cloud, [{name:'Vercel',url:'https://vercel.com/'},{name:'GitHub Actions',url:'https://github.com/features/actions'},{name:'Product Hunt Launch',url:'https://www.producthunt.com/'}], 'infrastructure'),
-      createTopic('Security Basics', Shield, [{name:'Clerk Auth',url:'https://clerk.com/'},{name:'Supabase Auth',url:'https://supabase.com/auth'},{name:'OWASP Top 10',url:'https://owasp.org/www-project-top-ten/'}], 'security'),
+      createTopic('Deployment', Cloud, [{name:'Vercel',url:'https://vercel.com/'},{name:'GitHub Actions',url:'https://github.com/features/actions'},{name:'Product Hunt Launch',url:'https://www.producthunt.com/'}]),
+      createTopic('Security Basics', Shield, [{name:'Clerk Auth',url:'https://clerk.com/'},{name:'Supabase Auth',url:'https://supabase.com/auth'},{name:'OWASP Top 10',url:'https://owasp.org/www-project-top-ten/'}]),
     ]
   },
   {
     id: 'growth-lite',
     name: 'PHASE 5 — GROWTH LITE',
     topics: [
-      createTopic('Feedback', MessageSquare, [{name:'Stripe Atlas',url:'https://stripe.com/atlas'},{name:'YC Startup Library',url:'https://www.ycombinator.com/library'}], 'userfeedback'),
-      createTopic('Roadmap', Globe, [{name:'Linear',url:'https://linear.app/'},{name:'Notion Templates',url:'https://www.notion.so/templates'}], 'featureroadmap'),
+      createTopic('Feedback', MessageSquare, [{name:'Stripe Atlas',url:'https://stripe.com/atlas'},{name:'YC Startup Library',url:'https://www.ycombinator.com/library'}]),
+      createTopic('Roadmap', Globe, [{name:'Linear',url:'https://linear.app/'},{name:'Notion Templates',url:'https://www.notion.so/templates'}]),
       createTopic('SEO', Search),
       createTopic('Presentation Prep', Presentation),
       createTopic('Pitch Deck', Presentation),

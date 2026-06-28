@@ -17,7 +17,7 @@ Every hour you spend fighting unfamiliar tooling is an hour not spent building y
 
 The "best" stack for a production SaaS optimizes for things that don't matter today — long-term maintainability, team scalability, hiring pools. The best hackathon stack optimizes for one thing: your team's actual, current fluency with it.
 
-> **⚠️ Warning**
+> ** Warning**
 > Don't pick a new framework because you read it's impressive, or because you want to learn it. A hackathon is the worst possible place to learn a new tool for the first time — every unfamiliar error message costs you build time you don't have, and there's no time buffer to recover from a wrong guess about how something works.
 
 ---
@@ -61,7 +61,7 @@ something at 2am.
 
 A tool with massive adoption has more Stack Overflow answers, more AI training data behind it (meaning your AI coding assistant will generate more accurate code for it), and fewer surprising bugs you'll hit for the first time. Cutting-edge tools are exciting in a side project with no deadline — they're a liability when every hour matters.
 
-> **💡 Tip**
+> ** Tip**
 > If you're choosing between a tool you've never used that's "the new hot thing" and a boring, mature tool you've at least seen used before, pick the boring one. The hackathon clock doesn't care which one is more interesting to put on a resume — it cares whether you can debug it fast when something breaks.
 
 ---
@@ -80,7 +80,7 @@ Some tools take 5 minutes to get running. Others take an hour of configuration b
 | OAuth app review (some providers) | Can take hours to days for approval | High — avoid unless already pre-approved |
 | Payment provider live integration | Hours, often requires business verification | High — almost never worth it; fake it for the demo instead |
 
-> **⚠️ Warning**
+> ** Warning**
 > If a service's setup involves an approval queue or a verification process with an unknown wait time, assume it won't be ready before your deadline. Build your demo path around services with instant, self-serve setup only.
 
 ---
@@ -109,7 +109,7 @@ to learn option for that specific gap only — not a full alternative
 stack.
 ```
 
-> **🔍 Why this prompt works**
+> ** Why this prompt works**
 > Framing the question as "confirm sufficiency" rather than "what's the best stack" pushes the model toward validating your existing familiarity instead of defaulting to listing impressive alternatives — directly countering the temptation to switch tools mid-decision under time pressure. Scoping any recommended new tool to "the single gap only" prevents a cascading stack change when you actually just need one new piece, not a full rebuild of your plan.
 
 **Token efficiency note:** This should be one quick confirmation, not a back-and-forth exploration. If the answer comes back "stick with what you know," that's the correct outcome most of the time — don't keep prompting for alternatives hoping for a more exciting answer.

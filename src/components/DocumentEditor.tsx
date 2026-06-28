@@ -387,9 +387,12 @@ export const DocumentEditor = ({
                     }
                     
                     return (
-                      <blockquote className="my-6 border-l-4 border-muted-foreground/30 bg-muted/20 py-3 px-5 rounded-r-xl text-muted-foreground italic text-lg" {...props}>
-                        {children}
-                      </blockquote>
+                      <div className="relative my-8 p-[1px] rounded-2xl bg-gradient-to-br from-primary/30 via-accent/20 to-transparent shadow-sm">
+                        <blockquote className="relative bg-background/80 backdrop-blur-xl py-5 px-6 rounded-[15px] text-foreground/80 italic text-lg shadow-inner border border-white/5" {...props}>
+                          <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-primary to-accent rounded-l-[15px] opacity-80" />
+                          {children}
+                        </blockquote>
+                      </div>
                     );
                   },
                   table: ({ children, ...props }) => (
@@ -400,7 +403,7 @@ export const DocumentEditor = ({
                     </div>
                   ),
                   thead: ({ children, ...props }) => (
-                    <thead className="bg-muted/50 text-foreground/80 font-semibold border-b border-muted uppercase tracking-wider text-xs" {...props}>
+                    <thead className="bg-gradient-to-r from-muted/80 to-muted/30 backdrop-blur-md text-foreground/90 font-bold border-b border-muted uppercase tracking-wider text-xs" {...props}>
                       {children}
                     </thead>
                   ),

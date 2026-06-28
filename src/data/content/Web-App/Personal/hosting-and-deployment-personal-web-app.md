@@ -17,7 +17,7 @@ It forces you to solve real deployment issues before they compound. It gives you
 
 ## Deploy Early, Not When It's Done
 
-> **💡 Tip**
+> ** Tip**
 > Deploy on Day 1. Even if all that exists is a React app with a "Hello World" page. The goal is to establish the deployment pipeline while there's nothing to break — not to figure it out under pressure when the app is complex.
 
 Every personal project should have a live URL within the first day of development. From that point, every push to `main` should update it automatically.
@@ -75,7 +75,7 @@ VITE_SUPABASE_ANON_KEY    = your-anon-key
 
 Add these for Production, Preview, and Development environments.
 
-> **⚠️ Warning**
+> ** Warning**
 > Vercel does not read your `.env.local` file. You must add environment variables manually in the Vercel dashboard. If you deploy without doing this, your app will fail silently — the Supabase client will initialize with `undefined` values.
 
 ---
@@ -91,7 +91,7 @@ Domains cost ~$10–15/year. For `.site`, `.app`, or `.dev` domains, often less.
 - Follow the DNS instructions (add a CNAME or A record in your registrar's DNS settings)
 - Vercel handles SSL automatically — HTTPS is on from the moment the domain propagates
 
-> **💡 Tip**
+> ** Tip**
 > If you're not ready to buy a domain, `your-project.vercel.app` is perfectly shareable and works fine for early users. Buy the domain when you know the project is worth keeping.
 
 ---
@@ -108,7 +108,7 @@ If your stack includes a separate backend (Node.js/Express, Hono, FastAPI), you 
 
 **Railway** is the easiest for personal projects. Connect your GitHub repo and it deploys automatically, the same way Vercel does for frontends.
 
-> **⚠️ Warning**
+> ** Warning**
 > Render's free tier puts services to sleep after 15 minutes of inactivity. The first request after sleep takes 30–60 seconds to respond. This is fine for a project you're testing, painful for real users. Upgrade to the $7/month paid tier or use Railway when you have real traffic.
 
 ### Railway Setup (Node.js/FastAPI backend)

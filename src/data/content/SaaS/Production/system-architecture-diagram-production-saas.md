@@ -36,7 +36,7 @@ If a box in your diagram doesn't correspond to a real decision you've already ma
 
 This is the most important thing this diagram should make visible — and the thing most beginner diagrams miss entirely.
 
-> ️ **Warning**
+> [!WARNING]
 > Anything slow (sending email, processing a file, calling a third-party API that might be down) should not happen inline in a request a user is waiting on. Draw a clear line in your diagram between the **synchronous request path** (what the user waits for) and the **asynchronous path** (queued jobs, webhooks, scheduled tasks). If your diagram doesn't have a queue/background job box, you'll likely end up blocking user-facing requests on slow third-party calls.
 
 ---

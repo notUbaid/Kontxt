@@ -61,7 +61,7 @@ If technical SEO is broken, content SEO can't save you. A brilliant blog post on
 
 ---
 
-> **️ Warning — The Most Common SaaS SEO Mistake**
+> ** Warning — The Most Common SaaS SEO Mistake**
 > Building the marketing site as a client-side-rendered React SPA with no server rendering. Search engines have improved at executing JavaScript, but rendering is inconsistent, delayed, and resource-limited compared to indexing static HTML directly. If your framework supports SSR or static generation (Next.js, Astro, Remix, SvelteKit), use it for public pages — even if your authenticated app stays a pure SPA.
 
 ---

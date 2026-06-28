@@ -68,7 +68,7 @@ Resist the urge to track everything. Untracked, undifferentiated event floods ar
 
 - Scroll depth, click heatmaps, micro-interactions
 
-> **️ Warning**
+> ** Warning**
 > Don't let analytics instrumentation block your launch. Tier 1 events take an afternoon. Tier 2 and 3 can wait until you have real users generating real data to learn from.
 
 ---

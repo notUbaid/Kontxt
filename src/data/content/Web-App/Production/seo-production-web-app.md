@@ -92,7 +92,7 @@ export default async function sitemap() {
 
 Submit your sitemap in [Google Search Console](https://search.google.com/search-console).
 
-> ⚠️ **Warning:** Never include URLs that return 404, redirect, or require authentication. Google penalises sitemaps that claim pages it cannot access.
+>  **Warning:** Never include URLs that return 404, redirect, or require authentication. Google penalises sitemaps that claim pages it cannot access.
 
 ---
 
@@ -106,10 +106,10 @@ If your page renders content via JavaScript after load, Google may or may not ex
 
 | Rendering Strategy | SEO Suitability |
 |---|---|
-| SSG (Static Site Generation) | ✅ Best — content in raw HTML |
-| SSR (Server-Side Rendering) | ✅ Excellent — content in HTML at request time |
-| ISR (Incremental Static Regen) | ✅ Good — cached HTML, revalidated |
-| CSR (Client-Side Rendering) | ⚠️ Risky — depends on JS execution |
+| SSG (Static Site Generation) |  Best — content in raw HTML |
+| SSR (Server-Side Rendering) |  Excellent — content in HTML at request time |
+| ISR (Incremental Static Regen) |  Good — cached HTML, revalidated |
+| CSR (Client-Side Rendering) |  Risky — depends on JS execution |
 
 **Action:** Open any marketing or content page in your browser with JavaScript disabled. If the content disappears, you have an SEO rendering problem.
 
@@ -141,7 +141,7 @@ The minimum required for each indexable page:
 - Description length: 140–160 characters. It does not directly affect ranking but affects click-through rate.
 - Canonical URLs prevent duplicate content penalties (especially important for paginated lists, filtered views, or pages accessible via multiple URLs).
 
-> ⚠️ **Warning:** If your app dynamically renders the same content at multiple URLs (`/products?sort=asc` and `/products?sort=desc`), both URLs need a canonical pointing to the canonical version.
+>  **Warning:** If your app dynamically renders the same content at multiple URLs (`/products?sort=asc` and `/products?sort=desc`), both URLs need a canonical pointing to the canonical version.
 
 ---
 
@@ -310,7 +310,7 @@ Every blog post should link to at least 2–3 related pages. Your highest-author
 
 Use this when you want a structured review of your current SEO state.
 
-```
+```prompt
 You are a senior SEO engineer conducting a technical audit.
 
 My web app:
@@ -345,7 +345,7 @@ Do not explain SEO basics. I want a triage list ordered by impact.
 
 Use this to generate metadata for every public page.
 
-```
+```prompt
 Generate SEO metadata for the following pages of my web app.
 
 App name: [name]

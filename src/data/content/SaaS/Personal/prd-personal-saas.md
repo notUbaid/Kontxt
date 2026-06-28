@@ -109,7 +109,6 @@ When you feel the urge to add something mid-development, check this list. If it'
 Every PRD has things you don't know yet. Write them down.
 
 > **Example**
->
 - Do users need to send invoices via email from inside the app, or is a shareable link enough?
 - Should milestones be time-based or manually marked complete?
 - What happens if a user sends an invoice and the client email bounces?

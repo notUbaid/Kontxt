@@ -204,7 +204,7 @@ export function errorHandler(
 }
 ```
 
-> ⚠️ **Critical**: Unknown errors should never return their raw message to the client. A crash caused by a SQL query might expose your schema. A crash in auth logic might expose session internals. Always return a generic 500 message for unexpected errors.
+>  **Critical**: Unknown errors should never return their raw message to the client. A crash caused by a SQL query might expose your schema. A crash in auth logic might expose session internals. Always return a generic 500 message for unexpected errors.
 
 ---
 
@@ -339,7 +339,7 @@ export const logger = pino({
 
 > **Why Pino?** It's the fastest Node.js logger. It outputs newline-delimited JSON that Datadog, Logtail, Grafana Loki, and every modern log aggregator can ingest directly.
 
-> ⚠️ **Redact sensitive fields.** Passwords, tokens, and cookies have no business in your logs. Pino's `redact` option handles this automatically.
+>  **Redact sensitive fields.** Passwords, tokens, and cookies have no business in your logs. Pino's `redact` option handles this automatically.
 
 ---
 
@@ -517,7 +517,7 @@ export const queryClient = new QueryClient({
 
 > Getting this wrong is either a security breach or a debugging nightmare.
 
-### ✅ Log These
+###  Log These
 
 - Request ID, method, path, status code
 - User ID (not email or PII)
@@ -526,7 +526,7 @@ export const queryClient = new QueryClient({
 - Duration of slow operations (> 1s)
 - Retry attempts and outcomes
 
-### ❌ Never Log These
+###  Never Log These
 
 - Passwords, tokens, API keys
 - Full credit card numbers
@@ -592,7 +592,7 @@ process.on('uncaughtException', (error) => {
 
 Use this after implementing your error handler to catch gaps.
 
-```
+```prompt
 You are a senior backend engineer reviewing error handling in a production Node.js/Express API.
 
 Here is my error handling code:
