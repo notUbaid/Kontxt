@@ -4,7 +4,7 @@ import {
   Target, BarChart, DollarSign, PenTool, Lock,
   UserCheck, MessageSquare, TrendingUp, AlertCircle, List,
   Layout, PanelRight, MessageCircle, Link, KeyRound, MonitorSmartphone, Code, MousePointerClick
-, Presentation } from 'lucide-react';
+, Presentation , HelpCircle } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const extensionProductionTaxonomy: Category[] = [
@@ -12,6 +12,7 @@ export const extensionProductionTaxonomy: Category[] = [
     id: 'phase-0-discovery',
     name: 'PHASE 0 — DISCOVERY & VALIDATION',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Idea Definition', Rocket, [{name:'Chrome Extensions Docs',url:'https://developer.chrome.com/docs/extensions'},{name:'Manifest V3 Overview',url:'https://developer.chrome.com/docs/extensions/mv3/intro/'}], 'extideadefinition'),
       createTopic('Problem Statement', AlertCircle, [{name:'Mom Test Guide',url:'https://www.momtestbook.com/'},{name:'YC RFS',url:'https://www.ycombinator.com/rfs'}], 'extproblemstatement'),
       createTopic('Competitor Analysis', BarChart, [{name:'Chrome Web Store',url:'https://chromewebstore.google.com/'}], 'extcompetitoranalysis'),
@@ -148,6 +149,7 @@ const filterTaxonomy = (keep: string[], hide: string[]) => {
 
 export const extensionHackathonTaxonomy: Category[] = filterTaxonomy(
   [
+    'Welcome',
     'Idea Definition', 'MVP Features', 'PRD', 'User Flows', 'Manifest Configuration', 
     'Popup UI', 'Content Scripts', 'APIs', 'AI Integration', 'Demo Data', 
     'Pitch Deck', 'Demo Script', 'Submission Checklist',

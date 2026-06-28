@@ -1,6 +1,6 @@
-import { FileText, ShieldAlert, Target, Crosshair, Network, 
+import { CheckSquare, FileText, ShieldAlert, Target, Crosshair, Network, 
   Cpu, Database, Cloud, Key, FileCode, Search, Server, Skull, Activity, Play, Code, Globe
-, Presentation } from 'lucide-react';
+, Presentation , HelpCircle } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const cyberRedProductionTaxonomy: Category[] = [
@@ -8,6 +8,7 @@ export const cyberRedProductionTaxonomy: Category[] = [
     id: 'phase-0-discovery',
     name: 'PHASE 0 — SCOPE & ROE',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Target Selection', Target, [
       { name: 'CISA Rules of Engagement Guide', url: 'https://www.cisa.gov/news-events/news/cisa-announces-new-vulnerability-scanning-rules-engagement' },
       { name: 'Scope Creep in Red Teaming', url: 'https://www.redteamsec.com/blog/managing-scope-creep-in-red-teaming' }
@@ -186,6 +187,9 @@ export const cyberRedProductionTaxonomy: Category[] = [
     ], 'cyberredbypassmaintenance'),
       createTopic('Presentation Prep', Presentation),
       createTopic('Pitch Deck', Presentation),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Demo Script', FileText),
+      createTopic('Submission Checklist', CheckSquare),
     ]
   }
 ];
@@ -205,9 +209,10 @@ const filterTaxonomy = (keep: string[], hide: string[]) => {
 
 export const cyberRedHackathonTaxonomy: Category[] = filterTaxonomy(
   [
+    'Welcome',
     'Target Selection', 'Threat Modeling', 'Execution Flow', 'Language Selection',
-    'OSINT Aggregation', 'Port Scanning', 'Vulnerability Matching', 'Documentation', 'Ethical Disclaimers'
-  ],
+    'OSINT Aggregation', 'Port Scanning', 'Vulnerability Matching', 'Documentation', 'Ethical Disclaimers',
+    'Presentation Prep', 'Demo Script', 'Submission Checklist',],
   [
     'C2 Architecture', 'Memory Exploitation', 'Privilege Escalation', 'Lateral Movement', 'Log Wiping'
   ]

@@ -5,7 +5,7 @@ import {
   MessageSquare, TrendingUp, AlertCircle, Network, Globe, Server, 
   Gamepad2, Music, Cpu, HardDrive, PlayCircle, Trophy, Crown, Play,
   Monitor, Archive, LayoutTemplate, Palette, RefreshCcw, LayoutDashboard, Film, Clock, Smartphone, Camera
-, Presentation } from 'lucide-react';
+, Presentation , HelpCircle } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const gameProductionTaxonomy: Category[] = [
@@ -13,6 +13,7 @@ export const gameProductionTaxonomy: Category[] = [
     id: 'phase-0-discovery',
     name: 'PHASE 0 — GAME DISCOVERY',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Target Audience', Users, [{name:'Bartle Taxonomy of Player Types',url:'https://en.wikipedia.org/wiki/Bartle_taxonomy_of_player_types'}], 'gametargetaudience'),
       createTopic('Competitor Analysis', BarChart, [{name:'GameDiscoverCo',url:'https://gamediscover.co/'}], 'gamecompetitoranalysis'),
       createTopic('Monetization', DollarSign, [{name:'Steam Pricing Guide',url:'https://partner.steamgames.com/doc/store/pricing'}], 'gamemonetization'),
@@ -148,6 +149,7 @@ const filterTaxonomy = (keep: string[], hide: string[]) => {
 
 export const gameHackathonTaxonomy: Category[] = filterTaxonomy(
   [
+    'Welcome',
     'Game Concept', 'Core Gameplay Loop', 'Game Design Document (GDD)', 'Core Mechanics', 
     'Engine Selection', 'Core Gameplay', 'UI Systems', 'Demo Assets', 'Pitch Deck', 
     'Demo Script', 'Submission Checklist',

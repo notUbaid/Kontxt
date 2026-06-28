@@ -2,7 +2,7 @@ import {
   Users, BarChart, Settings, Activity, Link, Layers, Lock,
   Shield, AlertTriangle, AlertCircle, Cloud, Terminal, CheckSquare, Database,
   Globe, Zap, FileText, Box, HardDrive, Hexagon, Code, Key, Network, Rocket
-, Presentation } from 'lucide-react';
+, Presentation , HelpCircle } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const web3ProductionTaxonomy: Category[] = [
@@ -10,6 +10,7 @@ export const web3ProductionTaxonomy: Category[] = [
     id: 'phase-0-discovery',
     name: 'PHASE 0 — PROTOCOL DISCOVERY',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Target Audience', Users, [{name:'DeFi User Personas',url:'https://medium.com/'}], 'web3targetaudience'),
       createTopic('Competitor Analysis', BarChart, [{name:'DefiLlama',url:'https://defillama.com/'}], 'web3competitoranalysis'),
       createTopic('Tokenomics Design', Settings, [{name:'Tokenomics Fundamentals',url:'https://cobie.substack.com/p/token-design-101'}], 'web3tokenomics'),
@@ -80,6 +81,9 @@ export const web3ProductionTaxonomy: Category[] = [
       createTopic('Incident Response', AlertTriangle, [{name:'Smart Contract Incident Response',url:'https://github.com/nascentxyz/simple-security-toolkit'}], 'web3incidentresponse'),
       createTopic('Presentation Prep', Presentation),
       createTopic('Pitch Deck', Presentation),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Demo Script', FileText),
+      createTopic('Submission Checklist', CheckSquare),
     ]
   }
 ];
@@ -101,11 +105,12 @@ const filterTaxonomy = (keep: string[], hide: string[]) => {
 // Hackathon: Ship a working demo fast.
 export const web3HackathonTaxonomy: Category[] = filterTaxonomy(
   [
+    'Welcome',
     'Target Audience', 'Chain Selection', 'Wallet Connection Flows', 
     'Development Environment', 'Writing Contracts', 'Local Testnet Deployment', 
     'Provider Setup', 'Reading Contract State', 'Writing Transactions',
-    'Testnet Deployment'
-  ],
+    'Testnet Deployment',
+    'Presentation Prep', 'Demo Script', 'Submission Checklist',],
   []
 );
 

@@ -3,7 +3,7 @@ import {
   Settings, Filter, Shield, AlertCircle, Cloud, Terminal, CheckSquare, 
   Globe, Zap, Key, Rocket, FileJson, Clock, DollarSign,
   Monitor, RefreshCcw, Layers
-, Presentation } from 'lucide-react';
+, Presentation , HelpCircle } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const dataPipelineProductionTaxonomy: Category[] = [
@@ -11,6 +11,7 @@ export const dataPipelineProductionTaxonomy: Category[] = [
     id: 'phase-0-discovery',
     name: 'PHASE 0 — DATA STRATEGY & DISCOVERY',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Pipeline Objective', Target, [{name:'Data Eng Use Cases',url:'https://aws.amazon.com/big-data/datalakes-and-analytics/'}], 'datapipeobjective'),
       createTopic('Source Identification', Database, [{name:'Airbyte Sources',url:'https://airbyte.com/connectors'}], 'datapipe-sources'),
       createTopic('Target Destination', HardDrive, [{name:'Snowflake vs BigQuery',url:'https://www.fivetran.com/blog/snowflake-vs-bigquery'}], 'datapipe-destination'),
@@ -68,6 +69,9 @@ export const dataPipelineProductionTaxonomy: Category[] = [
       createTopic('Governance & Access', Key, [{name:'Row-Level Security',url:'https://docs.snowflake.com/en/user-guide/security-row-intro'}], 'datapipe-governance'),
       createTopic('Presentation Prep', Presentation),
       createTopic('Pitch Deck', Presentation),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Demo Script', FileText),
+      createTopic('Submission Checklist', CheckSquare),
     ]
   }
 ];
@@ -89,9 +93,10 @@ const filterTaxonomy = (keep: string[], hide: string[]) => {
 // Hackathon: Fast data movement
 export const dataPipelineHackathonTaxonomy: Category[] = filterTaxonomy(
   [
+    'Welcome',
     'Pipeline Objective', 'Source Identification', 'Target Destination',
-    'API Ingestion', 'Web Scraping', 'Data Cleaning', 'Deployment Strategy'
-  ],
+    'API Ingestion', 'Web Scraping', 'Data Cleaning', 'Deployment Strategy',
+    'Presentation Prep', 'Demo Script', 'Submission Checklist',],
   []
 );
 

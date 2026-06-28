@@ -414,178 +414,124 @@ AUDITING: Web App
 ======================================================================
 CONTENT QUALITY CHECKS
 ======================================================================
-  EMOJIS in SaaS/Production/accessibility-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/accessibility-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/accessibility-production-saas.md line 37: - [ ] Every clickable element is reachable via Tab, in a log
-  EMOJIS in SaaS/Production/admin-panel-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/admin-panel-production-saas.md
-  EMOJIS in SaaS/Production/ai-architecture-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/ai-architecture-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/ai-architecture-production-saas.md line 36: - [ ] Prompts live in versioned files, not hardcoded inline 
-  EMOJIS in SaaS/Production/analytics-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/analytics-production-saas.md
-  EMOJIS in SaaS/Production/analytics-setup-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/analytics-setup-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/analytics-setup-production-saas.md line 143: - [ ] Trigger each Tier 1 event manually and confirm it appe
-  EMOJIS in SaaS/Production/api-design-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/api-design-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/api-design-production-saas.md line 128: - [ ] Every endpoint follows the same response envelope, inc
-  EMOJIS in SaaS/Production/auth-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/auth-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/auth-production-saas.md line 53: - [ ] Every authenticated page redirects unauthenticated use
-  EMOJIS in SaaS/Production/authentication-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/authentication-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/authentication-production-saas.md line 46: - [ ] **Email verification** before granting full access (pr
-  EMOJIS in SaaS/Production/authorization-roles-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/authorization-roles-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/authorization-roles-production-saas.md line 47: - [ ] Role/permission checks happen in middleware or at the 
-  EMOJIS in SaaS/Production/backend-architecture-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/backend-architecture-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/backend-architecture-production-saas.md line 91: - [ ] Jobs are **idempotent** — running the same job twice (
-  EMOJIS in SaaS/Production/backend-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/backend-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/backend-production-saas.md line 34: - [ ] Services throw the appropriate error class — never ret
   NO ESTIMATED TIME: SaaS/Production/backups-production-saas.md
   NO ESTIMATED TIME: SaaS/Production/beta-testing-production-saas.md
-  EMOJIS in SaaS/Production/branding-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/branding-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/branding-production-saas.md line 50: - [ ] Full logo (wordmark or wordmark + icon) for marketing 
   NO ESTIMATED TIME: SaaS/Production/business-monetization-production-saas.md
   NO ESTIMATED TIME: SaaS/Production/caching-production-saas.md
   NO ESTIMATED TIME: SaaS/Production/ci-cd-production-saas.md
-  EMOJIS in SaaS/Production/competitor-analysis-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/competitor-analysis-production-saas.md
-  EMOJIS in SaaS/Production/cookie-policy-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/cookie-policy-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/cookie-policy-production-saas.md line 85: - [ ] Consent choice is stored (cookie or localStorage) so t
-  EMOJIS in SaaS/Production/cost-estimation-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/cost-estimation-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/cost-estimation-production-saas.md line 58: - [ ] Billing alerts set on every provider that has variable
-  EMOJIS in SaaS/Production/customer-support-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/customer-support-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/customer-support-production-saas.md line 47: - [ ] Target first-response time (e.g., "within 24 hours on 
-  EMOJIS in SaaS/Production/database-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/database-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/database-production-saas.md line 34: - [ ] Use a connection pooler (PgBouncer, or your managed Po
-  EMOJIS in SaaS/Production/database-schema-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/database-schema-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/database-schema-production-saas.md line 51: - [ ] `id` (UUID/ULID primary key)
-  EMOJIS in SaaS/Production/design-system-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/design-system-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/design-system-production-saas.md line 38: - [ ] **Color tokens** — primary, neutral scale, semantic co
   NO ESTIMATED TIME: SaaS/Production/disaster-recovery-production-saas.md
-  EMOJIS in SaaS/Production/documentation-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/documentation-production-saas.md
   NO ESTIMATED TIME: SaaS/Production/elevator-pitch-production-saas.md
-  EMOJIS in SaaS/Production/emails-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/emails-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/emails-production-saas.md line 68: - [ ] Email verification
   NO ESTIMATED TIME: SaaS/Production/error-tracking-production-saas.md
   NO ESTIMATED TIME: SaaS/Production/existing-alternatives-production-saas.md
   NO ESTIMATED TIME: SaaS/Production/feature-brainstorm-production-saas.md
   NO ESTIMATED TIME: SaaS/Production/feature-prioritization-production-saas.md
-  EMOJIS in SaaS/Production/feature-roadmap-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/feature-roadmap-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/feature-roadmap-production-saas.md line 113: - [ ] Every Impact score traces back to either real data or 
-  EMOJIS in SaaS/Production/file-storage-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/file-storage-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/file-storage-production-saas.md line 70: - [ ] **File size limits** — enforced both client-side (fast
-  EMOJIS in SaaS/Production/file-uploads-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/file-uploads-production-saas.md
-  EMOJIS in SaaS/Production/frontend-architecture-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/frontend-architecture-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/frontend-architecture-production-saas.md line 87: - [ ] A top-level error boundary that catches unexpected ren
-  EMOJIS in SaaS/Production/frontend-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/frontend-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/frontend-production-saas.md line 36: - [ ] Empty state (new workspace, zero data)
   NO ESTIMATED TIME: SaaS/Production/future-features-production-saas.md
   NO ESTIMATED TIME: SaaS/Production/icp-production-saas.md
   NO ESTIMATED TIME: SaaS/Production/idea-definition-production-saas.md
-  EMOJIS in SaaS/Production/information-architecture-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/information-architecture-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/information-architecture-production-saas.md line 129: - [ ] Every route maps to a real entity in your planned data
   NO ESTIMATED TIME: SaaS/Production/infrastructure-production-saas.md
-  EMOJIS in SaaS/Production/integrations-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/integrations-production-saas.md
-  EMOJIS in SaaS/Production/launch-checklist-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/launch-checklist-production-saas.md
-  EMOJIS in SaaS/Production/legal-documents-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/legal-documents-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/legal-documents-production-saas.md line 89: - [ ] Every document you publish corresponds to an actual, c
   NO ESTIMATED TIME: SaaS/Production/logging-production-saas.md
   NO ESTIMATED TIME: SaaS/Production/market-positioning-production-saas.md
-  EMOJIS in SaaS/Production/market-research-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/market-research-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/market-research-production-saas.md line 287: - [ ] I can name my top 3 direct competitors and one specifi
-  EMOJIS in SaaS/Production/marketing-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/marketing-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/marketing-production-saas.md line 44: - [ ] **UTM parameters on every campaign link**, so traffic 
   NO ESTIMATED TIME: SaaS/Production/metrics-kpis-production-saas.md
-  EMOJIS in SaaS/Production/monitoring-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/monitoring-production-saas.md
   NO ESTIMATED TIME: SaaS/Production/mvp-features-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/mvp-features-production-saas.md line 119: - [ ] Email and password authentication
-  EMOJIS in SaaS/Production/notifications-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/notifications-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/notifications-production-saas.md line 73: - [ ] Unread count is derived from `read_at IS NULL`, not a 
-  EMOJIS in SaaS/Production/payments-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/payments-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/payments-production-saas.md line 54: - [ ] Listen for `invoice.payment_failed` and trigger a retr
-  EMOJIS in SaaS/Production/performance-optimization-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/performance-optimization-production-saas.md
   NO ESTIMATED TIME: SaaS/Production/personas-production-saas.md
-  EMOJIS in SaaS/Production/pitch-deck-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/pitch-deck-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/pitch-deck-production-saas.md line 88: - [ ] Every chart's metric is defined precisely enough that 
   NO ESTIMATED TIME: SaaS/Production/prd-production-saas.md
-  EMOJIS in SaaS/Production/presentation-prep-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/presentation-prep-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/presentation-prep-production-saas.md line 71: - [ ] Every metric cited has a clear definition behind it (e
-  EMOJIS in SaaS/Production/privacy-policy-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/privacy-policy-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/privacy-policy-production-saas.md line 98: - [ ] Every third party named in the policy actually appears
   NO ESTIMATED TIME: SaaS/Production/problem-statement-production-saas.md
-  EMOJIS in SaaS/Production/product-analytics-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/product-analytics-production-saas.md
   NO ESTIMATED TIME: SaaS/Production/project-assumptions-production-saas.md
   NO ESTIMATED TIME: SaaS/Production/rate-limiting-production-saas.md
-  EMOJIS in SaaS/Production/referral-systems-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/referral-systems-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/referral-systems-production-saas.md line 48: - [ ] Unique referral code or link generated per user, not a
-  EMOJIS in SaaS/Production/retention-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/retention-production-saas.md
   NO ESTIMATED TIME: SaaS/Production/scalability-planning-production-saas.md
-  EMOJIS in SaaS/Production/scaling-strategy-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/scaling-strategy-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/scaling-strategy-production-saas.md line 73: - [ ] At what user count does manual onboarding (calls, pers
-  EMOJIS in SaaS/Production/search-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/search-production-saas.md
-  EMOJIS in SaaS/Production/security-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/security-production-saas.md
-  EMOJIS in SaaS/Production/seo-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/seo-production-saas.md
   NO ESTIMATED TIME: SaaS/Production/solution-statement-production-saas.md
-  EMOJIS in SaaS/Production/state-management-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/state-management-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/state-management-production-saas.md line 123: - [ ] Server state lives only in your data-fetching library'
-  EMOJIS in SaaS/Production/system-architecture-diagram-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/system-architecture-diagram-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/system-architecture-diagram-production-saas.md line 48: - [ ] Where authentication happens (which box verifies who t
   NO ESTIMATED TIME: SaaS/Production/target-users-production-saas.md
-  EMOJIS in SaaS/Production/tech-stack-selection-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/tech-stack-selection-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/tech-stack-selection-production-saas.md line 111: - [ ] Every stack choice is justified against your actual te
-  EMOJIS in SaaS/Production/technical-debt-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/technical-debt-production-saas.md
-  EMOJIS in SaaS/Production/terms-of-service-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/terms-of-service-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/terms-of-service-production-saas.md line 101: - [ ] Every clause about functionality (refunds, deletion, s
-  EMOJIS in SaaS/Production/testing-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/testing-production-saas.md
-  EMOJIS in SaaS/Production/third-party-integrations-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/third-party-integrations-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/third-party-integrations-production-saas.md line 21: - [ ] All API keys/secrets live in environment variables, no
-  EMOJIS in SaaS/Production/user-feedback-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/user-feedback-production-saas.md
   NO ESTIMATED TIME: SaaS/Production/user-flows-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/user-flows-production-saas.md line 277: - [ ] Every decision point has all branches mapped
@@ -593,7 +539,6 @@ CONTENT QUALITY CHECKS
   NO ESTIMATED TIME: SaaS/Production/value-proposition-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/value-proposition-production-saas.md line 242: - [ ] It names a specific type of user (not "everyone" or "b
   NO ESTIMATED TIME: SaaS/Production/welcome-production-saas.md
-  EMOJIS in SaaS/Production/wireframes-production-saas.md: ️
   NO ESTIMATED TIME: SaaS/Production/wireframes-production-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Production/wireframes-production-saas.md line 122: - [ ] Every wireframed screen traces back to a route in your
   NO FRONTMATTER: SaaS/Hackathon/auth-hackathon-saas.md
@@ -619,28 +564,22 @@ CONTENT QUALITY CHECKS
   NO FRONTMATTER: SaaS/Hackathon/user-flows-hackathon-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Hackathon/user-flows-hackathon-saas.md line 161: - [ ] Landing Page
   NO FRONTMATTER: SaaS/Hackathon/welcome-hackathon-saas.md
-  EMOJIS in SaaS/Personal/analytics-personal-saas.md: ️
   NO FRONTMATTER: SaaS/Personal/analytics-personal-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Personal/analytics-personal-saas.md line 330: - [ ] PostHog project created and keys added to `.env`
-  EMOJIS in SaaS/Personal/apis-personal-saas.md: ️
   NO FRONTMATTER: SaaS/Personal/apis-personal-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Personal/apis-personal-saas.md line 207: - [ ] Every route that modifies data is POST, PUT, PATCH, or
   NO FRONTMATTER: SaaS/Personal/auth-personal-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Personal/auth-personal-saas.md line 232: - [ ] Unauthenticated user visiting `/dashboard` is redirect
   NO FRONTMATTER: SaaS/Personal/backend-personal-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Personal/backend-personal-saas.md line 395: - [ ] Auth check is first — before any DB call
-  EMOJIS in SaaS/Personal/backups-personal-saas.md: ️
   NO FRONTMATTER: SaaS/Personal/backups-personal-saas.md
-  EMOJIS in SaaS/Personal/database-personal-saas.md: ️
   NO FRONTMATTER: SaaS/Personal/database-personal-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Personal/database-personal-saas.md line 249: - [ ] Every table has `id`, `created_at`, `updated_at`
   NO FRONTMATTER: SaaS/Personal/database-schema-personal-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Personal/database-schema-personal-saas.md line 344: - [ ] ID is cuid() or uuid() — not auto-increment integer
-  EMOJIS in SaaS/Personal/deployment-personal-saas.md: ️
   NO FRONTMATTER: SaaS/Personal/deployment-personal-saas.md
   NO FRONTMATTER: SaaS/Personal/design-personal-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Personal/design-personal-saas.md line 245: - [ ] All main surfaces identified and named
-  EMOJIS in SaaS/Personal/emails-personal-saas.md: ️
   NO FRONTMATTER: SaaS/Personal/emails-personal-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Personal/emails-personal-saas.md line 322: - [ ] Preview text defined (shows in inbox preview)
   NO FRONTMATTER: SaaS/Personal/features-personal-saas.md
@@ -665,40 +604,31 @@ CONTENT QUALITY CHECKS
   CHECKLIST OUTSIDE SECTION: SaaS/Personal/security-basics-personal-saas.md line 37: - [ ] No API keys, passwords, or tokens in source code
   NO FRONTMATTER: SaaS/Personal/seo-personal-saas.md
   CHECKLIST OUTSIDE SECTION: SaaS/Personal/seo-personal-saas.md line 57: - [ ] Your site is publicly accessible (not behind a login w
-  EMOJIS in SaaS/Personal/storage-personal-saas.md: ️
   NO FRONTMATTER: SaaS/Personal/storage-personal-saas.md
   NO FRONTMATTER: SaaS/Personal/tech-stack-personal-saas.md
   NO FRONTMATTER: SaaS/Personal/welcome-personal-saas.md
   NO ESTIMATED TIME: Web-App/Production/accessibility-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/analytics-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/api-architecture-production-web-app.md
-  EMOJIS in Web-App/Production/api-design-production-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Production/api-design-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/authentication-production-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Production/authentication-production-web-app.md line 235: - [ ] Passwords never stored in your database — auth provide
   NO ESTIMATED TIME: Web-App/Production/authorization-production-web-app.md
-  EMOJIS in Web-App/Production/background-jobs-production-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Production/background-jobs-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/branding-production-web-app.md
-  EMOJIS in Web-App/Production/browser-apis-production-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Production/browser-apis-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/caching-production-web-app.md
-  EMOJIS in Web-App/Production/ci-cd-production-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Production/ci-cd-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/code-quality-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/competitor-analysis-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/core-layouts-production-web-app.md
-  EMOJIS in Web-App/Production/data-fetching-production-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Production/data-fetching-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/database-architecture-production-web-app.md
-  EMOJIS in Web-App/Production/database-orm-production-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Production/database-orm-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/design-system-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/empty-states-production-web-app.md
-  EMOJIS in Web-App/Production/error-handling-production-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Production/error-handling-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/error-states-production-web-app.md
-  EMOJIS in Web-App/Production/form-handling-production-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Production/form-handling-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/future-features-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/hosting-production-web-app.md
@@ -706,34 +636,26 @@ CONTENT QUALITY CHECKS
   CHECKLIST OUTSIDE SECTION: Web-App/Production/idea-definition-production-web-app.md line 194: - [ ] The problem statement names a specific person in a spe
   NO ESTIMATED TIME: Web-App/Production/information-architecture-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/launch-checklist-production-web-app.md
-  EMOJIS in Web-App/Production/loading-states-production-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Production/loading-states-production-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Production/loading-states-production-web-app.md line 197: - [ ] Every async operation has a loading state
   NO ESTIMATED TIME: Web-App/Production/monetization-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/mvp-features-production-web-app.md
-  EMOJIS in Web-App/Production/observability-production-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Production/observability-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/performance-production-web-app.md
-  EMOJIS in Web-App/Production/post-launch-monitoring-production-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Production/post-launch-monitoring-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/prd-production-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Production/prd-production-web-app.md line 127: - [ ] [Observable, testable condition that proves this works
-  EMOJIS in Web-App/Production/rendering-strategies-production-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Production/rendering-strategies-production-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Production/rendering-strategies-production-web-app.md line 224: - [ ] List every distinct route in your app
   NO ESTIMATED TIME: Web-App/Production/repository-structure-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/responsive-design-production-web-app.md
-  EMOJIS in Web-App/Production/reusable-components-production-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Production/reusable-components-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/roadmap-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/routing-production-web-app.md
-  EMOJIS in Web-App/Production/security-production-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Production/security-production-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Production/security-production-web-app.md line 462: - [ ] JWT secrets are at least 256 bits (32+ random characte
-  EMOJIS in Web-App/Production/seo-production-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Production/seo-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/sitemap-production-web-app.md
-  EMOJIS in Web-App/Production/state-management-production-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Production/state-management-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/system-architecture-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/target-audience-production-web-app.md
@@ -745,79 +667,55 @@ CONTENT QUALITY CHECKS
   NO ESTIMATED TIME: Web-App/Production/validation-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/welcome-production-web-app.md
   NO ESTIMATED TIME: Web-App/Production/wireframes-production-web-app.md
-  EMOJIS in Web-App/Hackathon/authentication-hackathon-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Hackathon/authentication-hackathon-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Hackathon/authentication-hackathon-web-app.md line 103: - [ ] Sign-in works on your actual deployed URL, not just lo
-  EMOJIS in Web-App/Hackathon/backend-engineering-hackathon-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Hackathon/backend-engineering-hackathon-web-app.md
-  EMOJIS in Web-App/Hackathon/database-architecture-hackathon-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Hackathon/database-architecture-hackathon-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Hackathon/database-architecture-hackathon-web-app.md line 101: - [ ] Every table/field traces back to something a specific 
-  EMOJIS in Web-App/Hackathon/demo-data-hackathon-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Hackathon/demo-data-hackathon-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Hackathon/demo-data-hackathon-web-app.md line 90: - [ ] Check the foreign key order — inserts should go parent
-  EMOJIS in Web-App/Hackathon/demo-prep-hackathon-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Hackathon/demo-prep-hackathon-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Hackathon/demo-prep-hackathon-web-app.md line 73: - [ ] Did you stumble explaining anything? Simplify that exp
-  EMOJIS in Web-App/Hackathon/design-system-hackathon-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Hackathon/design-system-hackathon-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Hackathon/design-system-hackathon-web-app.md line 107: - [ ] Colors, font(s), spacing scale, and component shapes a
-  EMOJIS in Web-App/Hackathon/frontend-engineering-hackathon-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Hackathon/frontend-engineering-hackathon-web-app.md
-  EMOJIS in Web-App/Hackathon/hosting-hackathon-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Hackathon/hosting-hackathon-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Hackathon/hosting-hackathon-web-app.md line 102: - [ ] The full demo flow has been tested end-to-end on the a
-  EMOJIS in Web-App/Hackathon/idea-definition-hackathon-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Hackathon/idea-definition-hackathon-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Hackathon/idea-definition-hackathon-web-app.md line 106: - [ ] You can state it in one sentence using the Who/What/Pa
-  EMOJIS in Web-App/Hackathon/mvp-features-hackathon-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Hackathon/mvp-features-hackathon-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Hackathon/mvp-features-hackathon-web-app.md line 107: - [ ] Every Must-Have item appears somewhere in the literal 
-  EMOJIS in Web-App/Hackathon/pitch-deck-hackathon-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Hackathon/pitch-deck-hackathon-web-app.md
-  EMOJIS in Web-App/Hackathon/prd-hackathon-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Hackathon/prd-hackathon-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Hackathon/prd-hackathon-web-app.md line 107: - [ ] Every team member has actually read it — not just the 
-  EMOJIS in Web-App/Hackathon/submission-hackathon-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Hackathon/submission-hackathon-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Hackathon/submission-hackathon-web-app.md line 120: - [ ] Link opens without error
-  EMOJIS in Web-App/Hackathon/tech-stack-hackathon-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Hackathon/tech-stack-hackathon-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Hackathon/tech-stack-hackathon-web-app.md line 121: - [ ] Every tool chosen is one at least one team member has 
-  EMOJIS in Web-App/Hackathon/ui-polish-hackathon-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Hackathon/ui-polish-hackathon-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Hackathon/ui-polish-hackathon-web-app.md line 122: - [ ] Loading states are skeleton screens or specific status
-  EMOJIS in Web-App/Hackathon/user-flows-hackathon-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Hackathon/user-flows-hackathon-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Hackathon/user-flows-hackathon-web-app.md line 116: - [ ] Every screen in the flow appears in your literal demo 
-  EMOJIS in Web-App/Hackathon/welcome-hackathon-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Hackathon/welcome-hackathon-web-app.md
   NO ESTIMATED TIME: Web-App/Personal/analytics-personal-web-app.md
-  EMOJIS in Web-App/Personal/authentication-personal-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Personal/authentication-personal-web-app.md
   NO ESTIMATED TIME: Web-App/Personal/backend-engineering-personal-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Personal/backend-engineering-personal-web-app.md line 316: - [ ] Are all route inputs validated before being used?
   NO ESTIMATED TIME: Web-App/Personal/browser-apis-personal-web-app.md
   NO ESTIMATED TIME: Web-App/Personal/data-fetching-personal-web-app.md
-  EMOJIS in Web-App/Personal/database-architecture-personal-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Personal/database-architecture-personal-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Personal/database-architecture-personal-web-app.md line 219: - [ ] Every table has a UUID primary key
   NO ESTIMATED TIME: Web-App/Personal/database-orms-personal-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Personal/database-orms-personal-web-app.md line 290: - [ ] Every model has an `id` field with `@id`
   NO ESTIMATED TIME: Web-App/Personal/deployment-personal-web-app.md
-  EMOJIS in Web-App/Personal/design-system-personal-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Personal/design-system-personal-web-app.md
-  EMOJIS in Web-App/Personal/frontend-engineering-personal-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Personal/frontend-engineering-personal-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Personal/frontend-engineering-personal-web-app.md line 303: - [ ] Does every prop have a TypeScript type?
-  EMOJIS in Web-App/Personal/hosting-and-deployment-personal-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Personal/hosting-and-deployment-personal-web-app.md
-  EMOJIS in Web-App/Personal/idea-definition-personal-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Personal/idea-definition-personal-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Personal/idea-definition-personal-web-app.md line 93: - [ ] I have this problem myself and it genuinely frustrates
   NO ESTIMATED TIME: Web-App/Personal/launch-checklist-personal-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Personal/launch-checklist-personal-web-app.md line 31: - [ ] The core user action works end-to-end (create, view, e
-  EMOJIS in Web-App/Personal/mvp-features-personal-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Personal/mvp-features-personal-web-app.md
   NO ESTIMATED TIME: Web-App/Personal/performance-personal-web-app.md
   NO ESTIMATED TIME: Web-App/Personal/pitch-deck-personal-web-app.md
@@ -825,14 +723,10 @@ CONTENT QUALITY CHECKS
   CHECKLIST OUTSIDE SECTION: Web-App/Personal/prd-personal-web-app.md line 156: - [ ] Does the Project Overview sound like your actual produ
   NO ESTIMATED TIME: Web-App/Personal/presentation-prep-personal-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Personal/presentation-prep-personal-web-app.md line 91: - [ ] Test the full flow on the exact device and network you
-  EMOJIS in Web-App/Personal/responsive-design-personal-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Personal/responsive-design-personal-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Personal/responsive-design-personal-web-app.md line 236: - [ ] 375px (iPhone SE — the smallest common phone)
   NO ESTIMATED TIME: Web-App/Personal/security-basics-personal-web-app.md
-  EMOJIS in Web-App/Personal/tech-stack-personal-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Personal/tech-stack-personal-web-app.md
-  EMOJIS in Web-App/Personal/user-flows-personal-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Personal/user-flows-personal-web-app.md
   CHECKLIST OUTSIDE SECTION: Web-App/Personal/user-flows-personal-web-app.md line 160: - [ ] Is there a clear entry point? Does the user know how t
-  EMOJIS in Web-App/Personal/welcome-personal-web-app.md: ️
   NO ESTIMATED TIME: Web-App/Personal/welcome-personal-web-app.md

@@ -3,7 +3,7 @@ import {
   BookOpen, Layers, Cloud, Activity, Zap, Search, Key, ShieldAlert,
   Target, Users, BarChart, DollarSign, Lock, ListChecks,
   UserCheck, MessageSquare, TrendingUp, AlertCircle, List, Monitor, KeyRound, Share2, Network, Code, FileSignature, LayoutDashboard, DatabaseZap, Workflow, Server, Globe
-, Presentation } from 'lucide-react';
+, Presentation , HelpCircle } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const internalToolProductionTaxonomy: Category[] = [
@@ -11,6 +11,7 @@ export const internalToolProductionTaxonomy: Category[] = [
     id: 'phase-0-discovery',
     name: 'PHASE 0 — BUSINESS PROCESS DISCOVERY',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Feature Prioritization', List, [{name: 'RICE Framework', url: 'https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers/'}, {name: 'Linear Method', url: 'https://linear.app/method/planning'}], 'internalfeatureprioritization'),
       createTopic('Success Metrics', TrendingUp, [{name: 'Amplitude: North Star', url: 'https://amplitude.com/north-star'}, {name: 'AARRR Metrics', url: 'https://500.co/the-startup-playbook/startup-metrics-for-pirates'}], 'internalsuccessmetrics'),
       createTopic('Problem Definition', AlertCircle, [{name: 'Mom Test', url: 'https://www.momtestbook.com/'}, {name: 'Jobs to be Done', url: 'https://jtbd.info/'}], 'internalproblemdefinition'),
@@ -137,6 +138,7 @@ const filterTaxonomy = (keep: string[], hide: string[]) => {
 
 export const internalToolHackathonTaxonomy: Category[] = filterTaxonomy(
   [
+    'Welcome',
     'Problem Definition', 'Current Workflow Analysis', 'MVP Scope', 'PRD', 
     'User Roles', 'Database Schema', 'Frontend', 'Backend', 'CRUD Operations', 
     'Dashboard Design', 'Pitch Deck', 'Demo Script', 'Submission Checklist',

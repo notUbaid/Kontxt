@@ -1,6 +1,6 @@
-import { FileText, Shield, Eye, Activity, Database, Server, Network, 
+import { CheckSquare, FileText, Shield, Eye, Activity, Database, Server, Network, 
   Search, AlertTriangle, Play, Settings, Cloud, Cpu, Lock, Crosshair, Map, Skull, RefreshCcw
-, Presentation } from 'lucide-react';
+, Presentation , HelpCircle } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const cyberBlueProductionTaxonomy: Category[] = [
@@ -8,6 +8,7 @@ export const cyberBlueProductionTaxonomy: Category[] = [
     id: 'phase-0-discovery',
     name: 'PHASE 0 — DISCOVERY',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Threat Landscape', Map, [
         { name: 'MITRE D3FEND Matrix', url: 'https://d3fend.mitre.org/' },
         { name: 'SANS Threat Modeling', url: 'https://www.sans.org/white-papers/39985/' }
@@ -160,6 +161,9 @@ export const cyberBlueProductionTaxonomy: Category[] = [
       ], 'cyberbluethreathunting'),
       createTopic('Presentation Prep', Presentation),
       createTopic('Pitch Deck', Presentation),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Demo Script', FileText),
+      createTopic('Submission Checklist', CheckSquare),
     ]
   }
 ];
@@ -179,9 +183,10 @@ const filterTaxonomy = (keep: string[], hide: string[]) => {
 
 export const cyberBlueHackathonTaxonomy: Category[] = filterTaxonomy(
   [
+    'Welcome',
     'Threat Landscape', 'Log Sources', 'Agent vs Agentless', 'Parsing Engine',
-    'Network Packet Analysis', 'YARA Rule Engine', 'Dashboarding'
-  ],
+    'Network Packet Analysis', 'YARA Rule Engine', 'Dashboarding',
+    'Presentation Prep', 'Demo Script', 'Submission Checklist',],
   []
 );
 

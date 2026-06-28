@@ -3,7 +3,7 @@ import {
   BookOpen, Layers, Cloud, Activity, Zap, Search, Key, ShieldAlert,
   Target, Users, BarChart, DollarSign, Lock,
   UserCheck, MessageSquare, TrendingUp, AlertCircle, List, Play, Monitor, Headphones, Terminal, KeyRound, Share2, Network, Code, RefreshCcw
-, Presentation } from 'lucide-react';
+, Presentation , HelpCircle } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const apiProductionTaxonomy: Category[] = [
@@ -11,6 +11,7 @@ export const apiProductionTaxonomy: Category[] = [
     id: 'phase-0-discovery',
     name: 'PHASE 0 — DISCOVERY & VALIDATION',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('ICP (Ideal Customer Profile)', UserCheck, [{name: 'Lenny: Defining ICP', url: 'https://www.lennysnewsletter.com/p/finding-your-ideal-customer-profile'}, {name: 'Stripe Press: Developer Audience', url: 'https://press.stripe.com/'}], 'apiicpidealcustomerprofile'),
       createTopic('Competitor Analysis', BarChart, [{name: 'API Tracker', url: 'https://www.apitracker.io/'}, {name: 'Twilio API Design', url: 'https://www.twilio.com/docs/api'}], 'apicompetitoranalysis'),
       createTopic('Feature Planning', CheckSquare, [{name: 'API First Design', url: 'https://swagger.io/resources/articles/adopting-an-api-first-approach/'}, {name: 'Narrow API Strategy', url: 'https://blog.jimmybogard.com/2016/01/21/vertical-slice-test-architecture/'}], 'apifeatureplanning'),
@@ -167,6 +168,7 @@ const filterTaxonomy = (keep: string[], hide: string[]) => {
 
 export const apiHackathonTaxonomy: Category[] = filterTaxonomy(
   [
+    'Welcome',
     'Problem Definition', 'MVP Features', 'Endpoint Planning', 'Auth', 
     'Database', 'API Implementation', 'Documentation', 'Demo App', 
     'Pitch Deck', 'Demo Script', 'Submission Checklist',

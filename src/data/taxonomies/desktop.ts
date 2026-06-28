@@ -12,6 +12,7 @@ export const desktopProductionTaxonomy: Category[] = [
     id: 'phase-0-discovery',
     name: 'PHASE 0 — DISCOVERY & VALIDATION',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Idea Definition', Rocket, [{name:'Why build Desktop Apps?',url:'https://electronjs.org/docs/latest/tutorial/why-electron'}], 'dtideadefinition'),
       createTopic('Problem Statement', AlertCircle, [{name:'Electron Architecture',url:'https://www.electronjs.org/docs/latest/tutorial/application-architecture'}, {name:'Tauri Motivation',url:'https://tauri.app/v1/about/intro'}], 'dtproblemstatement'),
       createTopic('Target Users', UserCheck, [{name:'Windows Market Share',url:'https://gs.statcounter.com/os-market-share/desktop/worldwide'}, {name:'Apple Silicon Transition',url:'https://developer.apple.com/documentation/apple-silicon'}], 'dttargetusers'),
@@ -146,6 +147,7 @@ const filterTaxonomy = (keep: string[], hide: string[]) => {
 
 export const desktopHackathonTaxonomy: Category[] = filterTaxonomy(
   [
+    'Welcome',
     'Idea Definition', 'MVP Features', 'PRD', 'User Flows', 'Framework Selection', 
     'Local Storage', 'UI Development', 'Core Features', 'Packaging', 
     'Demo Script', 'Pitch Deck', 'Submission Checklist'

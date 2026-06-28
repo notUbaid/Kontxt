@@ -1,6 +1,6 @@
-import { FileText, Shield, CheckCircle, Activity, Database, Server, Network, 
+import { CheckSquare, FileText, Shield, CheckCircle, Activity, Database, Server, Network, 
   Search, AlertTriangle, Play, Settings, Cloud, Lock, Crosshair, Code, FileCode
-, Presentation } from 'lucide-react';
+, Presentation , HelpCircle } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
 export const cyberDevSecOpsProductionTaxonomy: Category[] = [
@@ -8,6 +8,7 @@ export const cyberDevSecOpsProductionTaxonomy: Category[] = [
     id: 'phase-0-discovery',
     name: 'PHASE 0 — COMPLIANCE SCOPE',
     topics: [
+      createTopic('Welcome', HelpCircle),
       createTopic('Compliance Framework (SOC2/HIPAA)', FileText, [
         { name: 'SOC2 Trust Services Criteria', url: 'https://www.aicpa-cima.com/resources/article/trust-services-and-information-security' },
         { name: 'HIPAA Security Rule', url: 'https://www.hhs.gov/hipaa/for-professionals/security/index.html' }
@@ -152,6 +153,9 @@ export const cyberDevSecOpsProductionTaxonomy: Category[] = [
       ], 'cyberdevsecopsredteam'),
       createTopic('Presentation Prep', Presentation),
       createTopic('Pitch Deck', Presentation),
+      createTopic('Presentation Prep', Presentation),
+      createTopic('Demo Script', FileText),
+      createTopic('Submission Checklist', CheckSquare),
     ]
   }
 ];
@@ -171,9 +175,10 @@ const filterTaxonomy = (keep: string[], hide: string[]) => {
 
 export const cyberDevSecOpsHackathonTaxonomy: Category[] = filterTaxonomy(
   [
+    'Welcome',
     'Compliance Framework (SOC2/HIPAA)', 'CI/CD Integration Hooks', 'Static Code Analysis (SAST)',
-    'Software Composition (SCA)', 'Container Vulnerability Scanning', 'Dashboarding & Reporting'
-  ],
+    'Software Composition (SCA)', 'Container Vulnerability Scanning', 'Dashboarding & Reporting',
+    'Presentation Prep', 'Demo Script', 'Submission Checklist',],
   []
 );
 
