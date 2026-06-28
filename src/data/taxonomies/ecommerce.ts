@@ -162,13 +162,13 @@ const filterTaxonomy = (keep: string[], hide: string[]) => {
 
 export const ecommerceHackathonTaxonomy: Category[] = filterTaxonomy(
   [
-    'Business Definition', 'Store Fundamentals', 'Product Catalog Planning', 'PRD', 'Customer Journey', 'Product Page Design', 
+    'Welcome', 'Business Definition', 'Store Fundamentals', 'Product Catalog Planning', 'PRD', 'Customer Journey', 'Product Page Design', 
     'Cart', 'Checkout', 'Payments', 'Products', 'Pitch Deck', 'Presentation Prep', 'Demo Script', 'Submission Checklist',
     // Mapped Aliases
     'Store Fundamentals'
   ],
   [
-    'Inventory', 'Payment & Fraud Protection', 'E-commerce SEO', 'Shipping', g 
+    'Inventory', 'Payment & Fraud Protection', 'E-commerce SEO', 'Shipping', 
     'Shipping Setup', 'Monitoring', 'Scalability Planning', 'Legal Documents'
   ]
 );
@@ -177,7 +177,7 @@ export const ecommercePersonalTaxonomy: Category[] = filterTaxonomy(
   [],
   [
     'Enterprise Fraud Detection', 'Observability', 'Multi-region Infrastructure',
-    'Payment & Fraud Protection', 'Scalability Planning'g, 'Google Merchant Center'
+    'Payment & Fraud Protection', 'Scalability Planning', 'Google Merchant Center'
   ]
 );
 

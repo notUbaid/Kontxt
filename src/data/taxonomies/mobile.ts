@@ -3,7 +3,7 @@ import {
   Layers, Server, Activity, Zap, Search, Key, Target, Users, BarChart, 
   DollarSign, PenTool, MessageSquare, Presentation, AlertCircle, Map, Bluetooth,
   CreditCard, Bell, Cloud, Smartphone, Watch, Lock, BookOpen,
-  MonitorSmartphone, Navigation, RefreshCw
+  MonitorSmartphone, Navigation, RefreshCw, HelpCircle
 } from 'lucide-react';
 import { type Category, createTopic } from './types';
 

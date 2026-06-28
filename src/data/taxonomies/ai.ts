@@ -2,7 +2,7 @@ import {
   FileText, Database, Settings, Box, CheckSquare, Shield, 
   BookOpen, Layers, Server, Cloud, Cpu, Activity, Zap, Search, ShieldAlert,
   Target, Users, BarChart, DollarSign, PenTool, Lock,
-  UserCheck, MessageSquare, TrendingUp, Presentation, AlertCircle, List, Cpu as Bot, Workflow, Lightbulb, Link, Eye
+  UserCheck, MessageSquare, TrendingUp, Presentation, AlertCircle, List, Cpu as Bot, Workflow, Lightbulb, Link, Eye, HelpCircle
 } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
