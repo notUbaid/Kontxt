@@ -1,4 +1,4 @@
-# Welcome to Claude
+# Welcome to Kontxt
 
  **Estimated Time:** 5 Minutes
 
@@ -24,9 +24,9 @@ You won't be cutting corners to hit a demo deadline. You'll be making deliberate
 
 ---
 
-## What Claude Does
+## What Kontxt Does
 
-Claude guides you through one engineering decision at a time.
+Kontxt guides you through one engineering decision at a time.
 
 Not all at once. Not in the abstract. At the moment you actually need to make it.
 
@@ -76,7 +76,7 @@ Move at your own pace. Come back whenever you're ready for the next decision.
 
 You already know how to get AI to write code.
 
-What Claude teaches is something different: how to use AI the way senior engineers do.
+What Kontxt teaches is something different: how to use AI the way senior engineers do.
 
 That means knowing:
 - What to ask for and what to specify

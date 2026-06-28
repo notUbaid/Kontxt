@@ -63,7 +63,7 @@ Use one of:
 
 > **Example**
 >
-> *"Claude is a SaaS platform that helps freelancers get paid on time — automatically."*
+> *"Kontxt is a SaaS platform that helps freelancers get paid on time — automatically."*
 
 **On the slide:** Product name. One sentence. Maybe a tagline.
 

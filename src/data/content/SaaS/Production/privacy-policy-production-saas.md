@@ -14,7 +14,7 @@ A Privacy Policy is not boilerplate text you paste in to make a footer link stop
 This module focuses on what's actually your job as the engineer: knowing what data your system collects, so whoever drafts or reviews the policy (you, a lawyer, or a generator tool) is working from accurate facts instead of guesses.
 
 > **️ Important boundary**
-> Claude is not a lawyer, and this module is not legal advice. AI-generated privacy policy text should be reviewed by a qualified professional before publishing, especially if you handle health data, payment data, children's data, or operate in the EU/UK (GDPR), California (CCPA/CPRA), or other regulated jurisdictions. What follows is the engineering groundwork that makes that review fast and accurate instead of a guessing exercise.
+> Kontxt is not a lawyer, and this module is not legal advice. AI-generated privacy policy text should be reviewed by a qualified professional before publishing, especially if you handle health data, payment data, children's data, or operate in the EU/UK (GDPR), California (CCPA/CPRA), or other regulated jurisdictions. What follows is the engineering groundwork that makes that review fast and accurate instead of a guessing exercise.
 
 ---
 

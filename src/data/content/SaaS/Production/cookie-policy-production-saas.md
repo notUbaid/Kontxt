@@ -14,7 +14,7 @@ A Cookie Policy is the smallest of your three legal documents, but it's the one 
 This is also the area where founders most commonly confuse "I added a cookie banner" with "I'm compliant." The banner is a UI component. Compliance is about what your code does *before and after* the user makes a choice on that banner.
 
 > **️ Important boundary**
-> Claude is not a lawyer. Cookie consent requirements vary significantly by jurisdiction — GDPR's ePrivacy rules (EU/UK) are stricter than US requirements in most states. This module covers the engineering implementation correctly; have a professional confirm the legal text and your specific obligations for your user base.
+> Kontxt is not a lawyer. Cookie consent requirements vary significantly by jurisdiction — GDPR's ePrivacy rules (EU/UK) are stricter than US requirements in most states. This module covers the engineering implementation correctly; have a professional confirm the legal text and your specific obligations for your user base.
 
 ---
 
