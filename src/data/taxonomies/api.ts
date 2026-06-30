@@ -79,6 +79,9 @@ export const apiProductionTaxonomy: Category[] = [
       createTopic('Logs', FileText, [{name:'Sentry',url:'https://sentry.io/'},{name:'Datadog',url:'https://www.datadoghq.com/'}], 'apilogs'),
       createTopic('Metrics', BarChart, [{name:'OpenAPI Spec',url:'https://swagger.io/specification/'},{name:'Postman Docs',url:'https://learning.postman.com/docs/getting-started/introduction/'}], 'apimetrics'),
       createTopic('Tracing', Search, [{name:'Vercel',url:'https://vercel.com/'},{name:'AWS API Gateway',url:'https://aws.amazon.com/api-gateway/'}], 'apitracing'),
+        createTopic('MVP Features', Zap, [], 'apimvpfeatures'),
+        createTopic('Auth', Zap, [], 'apiauth'),
+        createTopic('Demo App', Box, [], 'apidemoapp'),
     ]
   },
   {
@@ -149,6 +152,8 @@ export const apiProductionTaxonomy: Category[] = [
       createTopic('Feature Requests', List, [{name:'OpenAPI Spec',url:'https://swagger.io/specification/'},{name:'Postman Docs',url:'https://learning.postman.com/docs/getting-started/introduction/'}], 'apifeaturerequests'),
       createTopic('Presentation Prep', Presentation),
       createTopic('Pitch Deck', Presentation),
+        createTopic('Demo Script', CheckSquare, [], 'apidemoscript'),
+        createTopic('Submission Checklist', CheckSquare, [], 'apisubmissionchecklist'),
     ]
   }
 ];

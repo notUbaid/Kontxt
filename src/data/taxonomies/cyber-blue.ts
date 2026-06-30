@@ -186,7 +186,7 @@ export const cyberBlueHackathonTaxonomy: Category[] = filterTaxonomy(
     'Welcome',
     'Threat Landscape', 'Log Sources', 'Agent vs Agentless', 'Parsing Engine',
     'Network Packet Analysis', 'YARA Rule Engine', 'Dashboarding',
-    'Presentation Prep', 'Demo Script', 'Submission Checklist',, 'Pitch Deck'],
+    'Presentation Prep', 'Demo Script', 'Submission Checklist', 'Pitch Deck'],
   []
 );
 

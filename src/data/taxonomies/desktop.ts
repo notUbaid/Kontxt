@@ -60,6 +60,7 @@ export const desktopProductionTaxonomy: Category[] = [
       createTopic('Cloud Sync', Cloud, [{name:'PowerSync',url:'https://www.powersync.com/'},{name:'ElectricSQL',url:'https://electric-sql.com/'}], 'dtcloudsync'),
       createTopic('Update Strategy', RefreshCw, [{name:'Electron AutoUpdater',url:'https://www.electron.build/auto-update'},{name:'Tauri Updater',url:'https://tauri.app/v1/guides/distribution/updater'}], 'dtupdatestrategy'),
       createTopic('AI Integration', Zap, [{name:'Ollama (Local LLMs)',url:'https://ollama.com/'},{name:'Transformers.js',url:'https://huggingface.co/docs/transformers.js/index'}], 'dtaiintegration'),
+        createTopic('Core Features', Zap, [], 'desktopcorefeatures'),
     ]
   },
   {
@@ -128,6 +129,8 @@ export const desktopProductionTaxonomy: Category[] = [
       createTopic('Plugin Ecosystem', Box, [{name:'Figma Plugin Sandboxing',url:'https://www.figma.com/blog/how-we-built-the-figma-plugin-system/'}], 'dtpluginecosystem'),
       createTopic('Presentation Prep', Presentation),
       createTopic('Pitch Deck', Presentation),
+        createTopic('Demo Script', CheckSquare, [], 'desktopdemoscript'),
+        createTopic('Submission Checklist', CheckSquare, [], 'desktopsubmissionchecklist'),
     ]
   }
 ];

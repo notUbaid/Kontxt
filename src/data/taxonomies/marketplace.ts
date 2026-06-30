@@ -58,6 +58,11 @@ const baseMarketplaceTaxonomy: Category[] = [
       createTopic('Payments Architecture', CreditCard, [{name:'Stripe Connect',url:'https://stripe.com/connect'}], 'marketplacepaymentsarchitecture'),
       createTopic('Messaging System', MessageSquare, [{name:'Sendbird',url:'https://sendbird.com/'}], 'marketplacemessagingsystem'),
       createTopic('Dispute Resolution', FileWarning, [{name:'Handling Chargebacks',url:'https://stripe.com/docs/disputes'}], 'marketplacedisputeresolution'),
+        createTopic('Demo Transactions', Box, [], 'marketplacedemotransactions'),
+        createTopic('Demo Marketplace Data', Box, [], 'marketplacedemomarketplacedata'),
+        createTopic('Fake Messaging', Zap, [], 'marketplacefakemessaging'),
+        createTopic('Marketplace UI Polish', Zap, [], 'marketplacemarketplaceuipolish'),
+        createTopic('Tech Stack', Zap, [], 'marketplacetechstack'),
     ]
   },
   {
@@ -131,6 +136,8 @@ const baseMarketplaceTaxonomy: Category[] = [
       createTopic('Liquidity Optimization', Zap, [{name:'Measuring Liquidity',url:'https://a16z.com/2020/02/18/marketplace-liquidity/'}], 'marketplaceliquidityoptimization'),
       createTopic('Presentation Prep', Presentation),
       createTopic('Pitch Deck', Presentation),
+        createTopic('Demo Script', CheckSquare, [], 'marketplacedemoscript'),
+        createTopic('Submission Checklist', CheckSquare, [], 'marketplacesubmissionchecklist'),
     ]
   }
 ];
@@ -151,7 +158,7 @@ const filterTaxonomy = (baseTaxonomy: Category[], keep: string[], hide: string[]
 export const marketplaceProductionTaxonomy: Category[] = filterTaxonomy(
   baseMarketplaceTaxonomy,
   [],
-  ['Demo Marketplace Data', 'Fake Messaging', 'Marketplace UI Polish'] // Hide hackathon stuff
+  ['Demo Marketplace Data', 'Fake Messaging', 'Marketplace UI Polish', 'Demo Transactions', 'Tech Stack', 'Demo Script', 'Submission Checklist'] // Hide hackathon stuff
 );
 
 export const marketplaceHackathonTaxonomy: Category[] = filterTaxonomy(

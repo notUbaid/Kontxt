@@ -64,6 +64,9 @@ export const extensionProductionTaxonomy: Category[] = [
       createTopic('Context Collection', FileText, [{name:'Chrome Ext MV3',url:'https://developer.chrome.com/docs/extensions/mv3/intro/'},{name:'MDN WebExtensions',url:'https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions'}], 'extcontextcollection'),
       createTopic('Page Analysis', Search, [{name:'Chrome Ext MV3',url:'https://developer.chrome.com/docs/extensions/mv3/intro/'},{name:'MDN WebExtensions',url:'https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions'}], 'extpageanalysis'),
       createTopic('Summarization', FileText, [{name:'Chrome Ext MV3',url:'https://developer.chrome.com/docs/extensions/mv3/intro/'},{name:'MDN WebExtensions',url:'https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions'}], 'extsummarization'),
+        createTopic('Demo Data', Box, [], 'browserextensiondemodata'),
+        createTopic('Manifest Setup', Zap, [], 'browserextensionmanifestsetup'),
+        createTopic('Demo Dataset', Box, [], 'browserextensiondemodataset'),
     ]
   },
   {
@@ -130,6 +133,8 @@ export const extensionProductionTaxonomy: Category[] = [
       createTopic('Monetization Expansion', DollarSign, [{name:'Stripe Billing',url:'https://stripe.com/billing'},{name:'RevenueCat (Mobile)',url:'https://www.revenuecat.com/'}], 'extmonetizationexpansion'),
       createTopic('Presentation Prep', Presentation),
       createTopic('Pitch Deck', Presentation),
+        createTopic('Demo Script', CheckSquare, [], 'browserextensiondemoscript'),
+        createTopic('Submission Checklist', CheckSquare, [], 'browserextensionsubmissionchecklist'),
     ]
   }
 ];

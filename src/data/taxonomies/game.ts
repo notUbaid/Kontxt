@@ -63,6 +63,9 @@ export const gameProductionTaxonomy: Category[] = [
       createTopic('Data Architecture', Database, [{name:'Entity Component System (ECS)',url:'https://en.wikipedia.org/wiki/Entity_component_system'}], 'gamedataarchitecture'),
       createTopic('Cloud Saves', Cloud, [{name:'Steam Cloud',url:'https://partner.steamgames.com/doc/features/cloud'}], 'gamecloudsaves'),
       createTopic('Multiplayer Architecture', Network, [{name:'Source Multiplayer Networking',url:'https://developer.valvesoftware.com/wiki/Source_Multiplayer_Networking'}], 'gamemultiplayerarchitecture'),
+        createTopic('Demo Assets', Box, [], 'gamedemoassets'),
+        createTopic('Demo Data', Box, [], 'gamedemodata'),
+        createTopic('Gameplay', Zap, [], 'gamegameplay'),
     ]
   },
   {
@@ -130,6 +133,8 @@ export const gameProductionTaxonomy: Category[] = [
       createTopic('Monetization Optimization', DollarSign, [{name:'Whale Conversion',url:'https://deltadna.com/blog/'}], 'gamemonetizationoptimization'),
       createTopic('Presentation Prep', Presentation),
       createTopic('Pitch Deck', Presentation),
+        createTopic('Demo Script', CheckSquare, [], 'gamedemoscript'),
+        createTopic('Submission Checklist', CheckSquare, [], 'gamesubmissionchecklist'),
     ]
   }
 ];

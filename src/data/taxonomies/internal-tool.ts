@@ -52,6 +52,8 @@ export const internalToolProductionTaxonomy: Category[] = [
       createTopic('Authorization (RBAC)', Shield, [{name: 'Cerbos (Authz)', url: 'https://cerbos.dev/'}, {name: 'Permit.io', url: 'https://www.permit.io/'}], 'internalauthorizationrbac'),
       createTopic('Workflow Engine', Settings, [{name: 'Temporal.io', url: 'https://temporal.io/'}, {name: 'Inngest', url: 'https://www.inngest.com/'}, {name: 'Trigger.dev', url: 'https://trigger.dev/'}], 'internalworkflowengine'),
       createTopic('Reporting Architecture', BarChart, [{name: 'ClickHouse', url: 'https://clickhouse.com/'}, {name: 'Tinybird', url: 'https://www.tinybird.co/'}, {name: 'Metabase Embedding', url: 'https://www.metabase.com/docs/latest/embedding/introduction'}], 'internalreportingarchitecture'),
+        createTopic('Demo Data', Box, [], 'internaltooldemodata'),
+        createTopic('Current Workflow', Zap, [], 'internaltoolcurrentworkflow'),
     ]
   },
   {
@@ -119,6 +121,8 @@ export const internalToolProductionTaxonomy: Category[] = [
       createTopic('Technical Debt', AlertCircle, [{name: 'Martin Fowler: Tech Debt Quadrant', url: 'https://martinfowler.com/bliki/TechnicalDebtQuadrant.html'}, {name: 'Renovate Bot', url: 'https://docs.renovatebot.com/'}], 'internaltechnicaldebt'),
       createTopic('Presentation Prep', Presentation),
       createTopic('Pitch Deck', Presentation),
+        createTopic('Demo Script', CheckSquare, [], 'internaltooldemoscript'),
+        createTopic('Submission Checklist', CheckSquare, [], 'internaltoolsubmissionchecklist'),
     ]
   }
 ];
