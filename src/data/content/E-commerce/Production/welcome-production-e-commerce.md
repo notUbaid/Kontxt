@@ -7,13 +7,13 @@ projectType: e-commerce
 estimatedTime: 8–12 min
 ---
 
-# You're Building a Real Online Store. Here's What That Actually Means.
+# You're Building a Production E-Commerce Store. Here's What That Actually Means.
 
-A hackathon store is a demo. A personal e-commerce store is a business.
+A demo store is built to impress. A production e-commerce store is built to operate.
 
-That difference shapes every decision in this curriculum. You're not optimising for a 3-minute pitch. You're building something that handles real money, real customers, and real consequences — and needs to keep working six months after you ship it.
+That difference shapes every decision in this curriculum. You are not optimising for a 3-minute pitch or a weekend sprint. You are building something that handles real money, real customers, real inventory, and real consequences — and needs to keep working reliably at scale, long after you ship it.
 
-This track will teach you how to think about that, plan for it, and build it without drowning in complexity.
+This track will teach you how to plan, architect, build, and operate that system professionally.
 
 ---
 
@@ -22,24 +22,24 @@ This track will teach you how to think about that, plan for it, and build it wit
 By the end of this curriculum, you will have:
 
 - A clearly defined store concept with a validated market position
-- A technical architecture you understand and can maintain solo
-- A production-quality store with real payments, real inventory, and real customer accounts
-- A launch-ready store with SEO, legal, shipping, and tax foundations in place
-- A growth system you can improve over time
+- A production-grade technical architecture designed for scalability and maintainability
+- A fully featured store with real payments, real inventory, customer accounts, and fulfilment workflows
+- A launch-ready store with SEO, legal compliance, shipping, fraud protection, and tax infrastructure in place
+- A growth system with analytics, conversion optimisation, and retention tooling
 
-This is a long track. It's long because building a real store is a real project. The curriculum respects that and helps you move through it without wasting time on things that don't matter at your stage.
+This is a comprehensive track because building a production store is a serious engineering project. The curriculum respects that and guides you through it without wasting time on things that don't matter at this stage.
 
 ---
 
-## How Personal Mode Is Different
+## What Production Mode Demands
 
-Personal mode optimises for three things that hackathon mode explicitly ignores:
+Production mode is built around three principles that lightweight approaches explicitly ignore:
 
-**Maintainability** — You're the only engineer. Every decision you make today is something you'll have to understand, debug, and extend in six months. Simplicity is a feature.
+**Reliability** — Your store must work correctly at volume, under load, for real customers who trust it with their money. Every system is designed with failure modes, recovery paths, and operational discipline in mind.
 
-**Real costs** — Infrastructure costs money. Payment processing costs money. Email costs money. This curriculum helps you understand what you're actually committing to before you commit to it.
+**Scalability** — Decisions made in Phase 0 will shape whether you can grow from 10 orders a month to 10,000 without a painful rewrite. Architecture comes before code.
 
-**Longevity** — Your store should still work correctly in a year without a rewrite. The architecture decisions here are chosen for that timeline, not for a weekend sprint.
+**Compliance** — A production store has legal, security, and payment industry obligations: PCI DSS compliance, data privacy, fraud prevention, tax collection, and proper order records. These are not optional.
 
 ---
 
@@ -49,46 +49,46 @@ Personal mode optimises for three things that hackathon mode explicitly ignores:
 |---|---|---|
 | **Phase 0** | Business & Store Strategy | A clear concept, defined audience, validated economics |
 | **Phase 1** | Store Design | A complete design system and page-by-page specification |
-| **Phase 2** | E-Commerce Architecture | A technical plan before a single line of code |
-| **Phase 3** | Development | A working store with all core features |
-| **Phase 4** | Production Readiness | A store that's secure, monitored, and resilient |
-| **Phase 5** | Store Launch | A live store with legal, SEO, and operations in place |
-| **Phase 6** | Growth | Systems for retention, conversion, and improvement |
+| **Phase 2** | E-Commerce Architecture | A production-grade technical plan before a single line of code |
+| **Phase 3** | Development | A fully featured store with all core and extended systems |
+| **Phase 4** | Production Readiness | A secure, monitored, scalable, and resilient store |
+| **Phase 5** | Store Launch | A live store with legal, SEO, operations, and merchant feeds in place |
+| **Phase 6** | Growth | Systems for retention, conversion optimisation, and business improvement |
 
 ---
 
 ## A Note on AI in This Track
 
-AI will write significant portions of your code. That's expected and encouraged.
+AI will write significant portions of your code. That is expected and encouraged in a production context.
 
-What AI won't do is make your architectural decisions for you, catch its own blind spots, or tell you when a shortcut will cost you three weeks of debugging later.
+What AI will not do is catch its own architectural blind spots, surface edge cases in your payment or inventory logic, or tell you when a shortcut is creating a security vulnerability you will not discover until it is exploited.
 
-This curriculum teaches you to direct AI effectively — giving it the right context, catching its mistakes, and knowing when to push back. Every module that involves code generation includes a validation step. Never skip those.
+This curriculum teaches you to direct AI precisely — providing the right architectural context, reviewing generated code against production standards, and knowing when to push back. Every module that involves code generation includes a validation step. In production mode, those steps are not optional.
 
 ---
 
 ## Before You Start
 
-Spend two minutes on these. They're worth it.
+Work through these before moving to Phase 0 content:
 
-- [ ] I know why I'm building this store (passion project, side income, full business — it matters for every decision)
-- [ ] I know roughly what I want to sell
-- [ ] I have basic familiarity with at least one of: React, Next.js, Node.js
-- [ ] I have access to an AI coding tool (Cursor, Claude Code, Copilot, etc.)
-- [ ] I'm prepared for this to take weeks, not days — and that's fine
+- [ ] I know what kind of store I am building and have a clear product category in mind
+- [ ] I understand this is a multi-phase project that will take weeks to months, not days
+- [ ] I have chosen or am about to choose a tech stack (custom build, Shopify, or hybrid)
+- [ ] I have access to an AI coding assistant (Cursor, Claude Code, Copilot, or equivalent)
+- [ ] I am prepared to think about compliance, operations, and architecture — not just UI
 
 ---
 
 ## One Principle to Carry Through Every Module
 
-> Build the simplest thing that solves the real problem.
+> Build the simplest architecture that supports the real production requirements.
 
-Not the most impressive thing. Not the most scalable thing. The simplest thing that actually works for real customers paying real money.
+Not the most impressive architecture. Not the most over-engineered platform. The architecture that handles real orders, real edge cases, and real operational needs — reliably and maintainably.
 
-When in doubt, that principle makes the decision for you.
+When you are uncertain between two approaches, choose the one you can operate confidently and debug quickly.
 
 ---
 
 > **First module:** Target Audience →
 >
-> Before you design a single page or write a single line of code, you need to know exactly who you're building for. That person shapes every decision that follows.
+> Before you design a single page or write a single line of code, you need to know exactly who you are building for. That person shapes every commercial, design, and engineering decision that follows.

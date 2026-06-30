@@ -4,20 +4,20 @@ slug: store-economics
 phase: Phase 0
 mode: production
 projectType: e-commerce
-estimatedTime: 20–25 min
+estimatedTime: 25–35 min
 ---
 
 # Store Economics
 
-Most personal stores are built before anyone checks if the numbers work. Then, months into development, the builder realizes the margin per order doesn't justify the infrastructure cost, or the platform fee eats half the profit, or free shipping is actually a loss leader they can't afford.
+Most stores are built before anyone verifies that the numbers work. Then, months into development and operation, the team realizes the margin per order does not justify the infrastructure cost, or the platform fee compounds destructively at scale, or the CAC from paid acquisition is not sustainable given the LTV of the customer they are acquiring.
 
-This module makes sure that doesn't happen to you.
+This module makes sure that does not happen to you — before you write a single line of code.
 
 ---
 
-## The Three Economic Layers
+## The Four Economic Layers
 
-A store's economics operate at three levels. You need to understand all three before choosing your stack, your pricing, or your shipping strategy.
+A production store's economics operate at four levels. You need to understand all four before choosing your stack, your pricing, your acquisition strategy, or your shipping policy.
 
 ```
 Layer 1 — Per-Order Economics
@@ -28,9 +28,12 @@ Layer 2 — Platform Economics
 
 Layer 3 — Acquisition Economics
   Cost of getting a customer to the store in the first place
+
+Layer 4 — Retention Economics
+  Revenue from customers who return — the multiplier on all the above
 ```
 
-Personal stores commonly fail at Layer 2 (platform costs exceed revenue at low order volumes) or Layer 3 (no sustainable way to acquire customers without paid ads they can't afford).
+Production stores most commonly fail at Layer 3 (CAC exceeds LTV) or Layer 4 (no retention mechanism means every customer must be re-acquired at full cost).
 
 ---
 
@@ -54,17 +57,17 @@ Map a single transaction completely.
 | Packaging | ₹50 | Box, tissue, tape, inserts |
 | Shipping cost (you pay) | ₹120 | Actual carrier cost |
 | Payment processing fee | ~2–3% of revenue | Razorpay: ~2%, Stripe: 2.9% + fixed fee |
-| Returns provision | ~3–5% of revenue | Estimated cost of refunds amortized per order |
+| Returns provision | ~3–5% of revenue | Estimated cost of refunds amortised per order |
+| Fulfilment labour (if outsourced) | ₹30–₹80 | 3PL pick-and-pack fee, if applicable |
 
 ### Gross Profit Per Order
 
 ```
-Gross Profit = Revenue − COGS − Packaging − Shipping − Payment Fee − Returns Provision
+Gross Profit = Revenue − COGS − Packaging − Shipping − Payment Fee − Returns − Fulfilment Labour
 ```
 
-> ⚠️ **Warning: Free Shipping Math**
->
-> Offering free shipping means your shipping cost comes entirely out of margin. For low-AOV stores, free shipping can reduce gross profit by 20–40%. Run the numbers before making it your default.
+> [!WARNING]
+> **Free Shipping Math**: Offering free shipping means your shipping cost comes entirely out of margin. For low-AOV stores, free shipping can reduce gross profit by 20–40%. Run the numbers at your actual average order weight before making it your default. Consider a free shipping threshold (e.g. "free over ₹999") that preserves margin on smaller orders.
 
 ---
 
@@ -74,13 +77,15 @@ These are your fixed and semi-fixed monthly costs regardless of order volume.
 
 | Cost Category | Common Options | Typical Monthly Cost |
 |---|---|---|
-| Hosting | Vercel, Railway, Render, DigitalOcean | ₹0–₹2,000 |
-| Database | Supabase, PlanetScale, Neon, Railway Postgres | ₹0–₹1,500 |
-| Email service | Resend, Postmark, SendGrid | ₹0–₹800 |
-| File/image storage | Cloudflare R2, AWS S3, Supabase Storage | ₹0–₹500 |
-| Search (if needed) | Algolia, Typesense Cloud | ₹0–₹2,000 |
-| Domain | Any registrar | ~₹100/mo amortized |
-| **Total** | | **₹100–₹6,800/mo** |
+| Hosting | Vercel, Railway, Render, DigitalOcean | ₹0–₹5,000 |
+| Database | Supabase, PlanetScale, Neon, Railway Postgres | ₹0–₹3,000 |
+| Email service | Resend, Postmark, SendGrid | ₹0–₹2,000 |
+| File/image storage | Cloudflare R2, AWS S3, Supabase Storage | ₹0–₹1,500 |
+| Search (if needed) | Algolia, Typesense Cloud | ₹0–₹4,000 |
+| CDN | Cloudflare, Fastly | ₹0–₹2,000 |
+| Monitoring/observability | Sentry, Datadog, Grafana Cloud | ₹0–₹3,000 |
+| Domain | Any registrar | ~₹100/mo amortised |
+| **Total** | | **₹100–₹20,600/mo** |
 
 ### The Break-Even Calculation
 
@@ -89,32 +94,30 @@ Monthly Platform Cost ÷ Gross Profit Per Order = Orders needed to break even on
 ```
 
 **Example:**
-- Platform costs: ₹2,000/month
+- Platform costs: ₹8,000/month
 - Gross profit per order: ₹800
-- Break-even: 2.5 orders/month
+- Break-even: 10 orders/month
 
-At that level, a personal store can be profitable on very low volume. If your numbers look like this — great. If platform costs are ₹8,000/month and gross profit is ₹200/order, you need 40 orders a month just to cover hosting.
+At production scale, infrastructure costs grow with volume. Model how your platform costs scale from 100 to 1,000 to 10,000 orders/month — the inflection points where you move off free tiers or need to upgrade infrastructure are predictable if you plan ahead.
 
-> 💡 **Tip: Start on Free Tiers**
->
-> At launch, most personal stores can run entirely on free tiers — Vercel hobby, Supabase free, Resend free, Cloudflare R2 free. Your real platform cost at launch can be ₹0–₹300/month. Plan for scale, but don't pay for it before you need it.
+> [!TIP]
+> At launch, most production stores can still start on free tiers for most services. Your real platform cost at launch can be ₹0–₹1,000/month. The critical discipline is knowing exactly when you will hit each tier limit and what the next cost level is.
 
 ---
 
 ## Layer 3 — Acquisition Economics
 
-How do customers find your store? And what does it cost to get one?
+How do customers find your store? And what does it cost to acquire one who actually purchases?
 
-| Channel | Cost | Scalability | Reliability |
-|---|---|---|---|
-| Organic social (Instagram, Pinterest) | Time only | Moderate | Unpredictable |
-| SEO / organic search | Time only | High (slow) | High (long-term) |
-| Word of mouth / referrals | ₹0 | Low | High |
-| Paid social (Meta, Google) | ₹500–₹5,000+/month | High | Predictable but expensive |
-| Marketplace (Etsy, Amazon) | 10–15% commission | High | High |
-| Email list | Platform cost only | Moderate | Very high |
-
-For a personal store at launch, paid acquisition is almost always the wrong choice unless you have validated margin to support it. Build organic channels first.
+| Channel | Cost | Scalability | Reliability | Production Fit |
+|---|---|---|---|---|
+| Organic social (Instagram, Pinterest) | Time only | Moderate | Unpredictable | Good for brand building, not reliable for revenue |
+| SEO / organic search | Time only | High (slow) | High (long-term) | Essential at production scale |
+| Word of mouth / referrals | ₹0 | Low | High | Amplified by referral programs |
+| Paid social (Meta, Google) | ₹5,000–₹50,000+/month | High | Predictable | Primary acquisition channel at scale |
+| Marketplace (Etsy, Amazon) | 10–15% commission | High | High | Useful for early validation and volume |
+| Email list | Platform cost only | Moderate | Very high | Highest ROAS of any channel at scale |
+| Influencer / affiliate | Variable | Moderate | Variable | Important at volume when CAC is validated |
 
 ### Customer Acquisition Cost (CAC)
 
@@ -124,49 +127,73 @@ CAC = Total Marketing Spend ÷ Number of New Customers Acquired
 
 Your store is sustainable when: **LTV > CAC × 3**
 
-If a customer is worth ₹1,500 over their lifetime and it costs ₹600 to acquire them — that's a 2.5x ratio. Marginal. If acquisition costs drop to ₹300, it becomes a healthy 5x ratio.
+If a customer is worth ₹4,500 over their lifetime and it costs ₹1,000 to acquire them — that is a 4.5x ratio. Healthy. If acquisition costs rise to ₹2,500 and LTV stays flat, the unit economics of growth collapse.
 
-You won't know these numbers at launch. But model the assumptions now so you know what you're aiming for.
-
----
-
-## Shopify vs. Build-It Economics
-
-Before Phase 2, you need to understand how platform choice affects economics.
-
-| | Shopify Basic | Custom Build |
-|---|---|---|
-| Monthly platform fee | ~₹1,600–₹2,400/mo | ₹0–₹2,000/mo (infra) |
-| Transaction fee (non-Shopify Payments) | 2% per order | 0% (gateway fee only) |
-| Dev time to launch | Low | High |
-| Customization ceiling | Medium | Unlimited |
-| Ongoing maintenance | Low | High |
-| Break-even order volume | ~10–15 orders/month | ~2–5 orders/month |
-
-> ⚠️ **The Hidden Shopify Cost**
->
-> Shopify's 2% transaction fee (when not using Shopify Payments, which isn't available in India) compounds at scale. At ₹1,00,000/month GMV, that's ₹2,000/month in additional fees on top of the subscription — before payment gateway fees. For Indian stores, this matters.
-
-This is covered in depth in Phase 2's Build vs. Buy module. For now, factor the platform fee into your economics model.
+At production scale, you will need to track CAC by channel and optimise your spend mix. The channel with the lowest CAC should receive the most budget until it saturates.
 
 ---
 
-## ✅ Store Economics Checklist
+## Layer 4 — Retention Economics
 
-- [ ] I have calculated gross profit per order including COGS, packaging, shipping, and payment fees
-- [ ] I know my gross margin percentage
-- [ ] I have listed my monthly platform costs and identified which services I can run on free tiers at launch
-- [ ] I have calculated how many orders per month I need to cover platform costs
-- [ ] I have identified my primary customer acquisition channel at launch
-- [ ] I have a rough estimate of what a repeat customer is worth over 12 months
+This is the multiplier that production stores depend on that lean stores often ignore.
+
+```
+Revenue without retention:
+  Year 1 = N customers × AOV × purchase frequency
+  Year 2 = N new customers × AOV × purchase frequency (same cost)
+
+Revenue with retention:
+  Year 1 = N customers × AOV × purchase frequency
+  Year 2 = N new customers × AOV + (retained_customers × repeat_AOV × repeat_frequency)
+         → Year 2 revenue grows without proportional marketing cost increase
+```
+
+Retention mechanics that production stores need:
+- Email lifecycle flows (welcome, post-purchase, win-back, loyalty)
+- Abandoned cart recovery
+- Customer accounts with order history
+- Loyalty or rewards programs (at scale)
+- Personalised recommendations based on purchase history
+
+Model your expected repurchase rate at 30, 60, and 90 days. Every 10 percentage points of improvement in 90-day return rate has a compounding effect on LTV that typically exceeds what you can achieve by optimising CAC.
+
+---
+
+## Platform Choice and Economics
+
+Your platform choice has direct economic implications at production scale.
+
+| | Shopify Basic | Shopify Plus | Custom Build |
+|---|---|---|---|
+| Monthly platform fee | ~₹1,600–₹2,400/mo | ~₹65,000–₹80,000/mo | ₹0–₹10,000/mo (infra) |
+| Transaction fee (non-Shopify Payments) | 2% per order | 0.15–0.25% per order | 0% (gateway fee only) |
+| Dev time to launch | Low | Low–Medium | High |
+| Customisation ceiling | Medium | High | Unlimited |
+| Ongoing maintenance | Low | Low–Medium | High |
+| Break-even order volume | ~10–15 orders/month | Only viable at significant GMV | ~3–5 orders/month |
+
+> [!WARNING]
+> **The Shopify Transaction Fee Trap**: Shopify's 2% transaction fee (for non-Shopify Payments markets, including India) compounds at scale. At ₹10,00,000/month GMV, that is ₹20,000/month in additional fees on top of the subscription — before payment gateway fees. This is covered in depth in Phase 2's Build vs. Buy module. Factor the transaction fee into your per-order economics model now.
+
+---
+
+## Store Economics Checklist
+
+- [ ] I have calculated gross profit per order including COGS, packaging, shipping, payment fees, and returns provision
+- [ ] I know my gross margin percentage and it is sustainable at my target volume
+- [ ] I have listed my monthly platform costs and modelled how they scale at 100, 1,000, and 10,000 orders/month
+- [ ] I have calculated my break-even order volume
+- [ ] I have identified my primary customer acquisition channel and estimated CAC from it
+- [ ] I have modelled my LTV:CAC ratio at target volume
+- [ ] I have estimated my 90-day repurchase rate and its impact on LTV
 - [ ] I have factored platform transaction fees into my per-order economics
 
 ---
 
 ## AI Prompt — Model Your Store Economics
 
-```
-I am building a personal e-commerce store. Help me model the economics.
+```prompt
+I am building a production e-commerce store. Help me model the full economics.
 
 Per-order inputs:
 - Product sale price: [amount + currency]
@@ -175,29 +202,34 @@ Per-order inputs:
 - Shipping cost I pay per order: [amount]
 - Shipping I charge the customer: [amount or "free"]
 - Payment processor: [Razorpay / Stripe / other] at approximately [rate]%
+- Returns rate estimate: [%]
+- Fulfilment labour (if outsourced): [amount or "none"]
 
 Platform inputs (monthly):
 - Hosting: [service + estimated cost]
 - Database: [service + estimated cost]
 - Email: [service + estimated cost]
 - Other: [list any others]
+- Platform transaction fee: [Shopify 2% / none / other]
 
-Acquisition:
-- Primary channel: [organic social / SEO / referrals / paid / marketplace]
-- Estimated monthly marketing spend: [amount or "₹0"]
+Acquisition and retention:
+- Primary acquisition channel: [organic / paid social / marketplace / SEO]
+- Estimated monthly acquisition spend: [amount or "₹0"]
+- Target customer LTV: [how many purchases over how long?]
 
 Calculate:
 1. Gross profit per order and gross margin %
 2. Monthly orders needed to cover platform costs
-3. Break-even analysis at 10, 25, and 50 orders/month
-4. What my blended margin looks like if I offer free shipping above [threshold amount]
-5. One economic risk I should address before launch
+3. Break-even analysis at 50, 500, and 5,000 orders/month
+4. LTV:CAC ratio at my stated acquisition spend and LTV estimate
+5. What my blended margin looks like if I offer free shipping above [threshold amount]
+6. The single biggest economic risk I should address before launch
 ```
 
 ---
 
 ## What Comes Next
 
-With your economics modeled, you can make informed decisions in Phase 2 about platform choice, payment provider, and shipping strategy — not based on what's popular, but based on what your numbers support.
+With your economics modelled at multiple volume levels, you can make informed decisions in Phase 2 about platform choice, payment provider, and shipping strategy — not based on what is popular, but based on what your numbers support at scale.
 
 **Next: Pricing Strategy →**

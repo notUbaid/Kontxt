@@ -13,9 +13,9 @@ Your value proposition is the answer to one question every potential customer as
 
 **Why should I buy from you instead of anywhere else?**
 
-If your store can't answer that question clearly and quickly, customers leave. Not because your product is bad — because they couldn't tell why it was worth choosing over the obvious alternatives.
+If your store cannot answer that question clearly and quickly, customers leave. Not because your product is bad — because they could not tell why it was worth choosing over the obvious alternatives.
 
-A value proposition is not a tagline. It's not a mission statement. It's a precise claim about the specific value you deliver to a specific customer that they can't get as easily elsewhere.
+A value proposition is not a tagline. It is not a mission statement. It is a precise claim about the specific value you deliver to a specific customer that they cannot get as easily elsewhere. In production mode, it is also a strategic asset — it informs your positioning strategy, your paid acquisition copy, and your long-term competitive moat.
 
 ---
 
@@ -27,9 +27,9 @@ Before defining yours, clear out the noise.
 |---|---|
 | "High quality products" | Every store claims this. It says nothing. |
 | "Great customer service" | Table stakes. Expected, not differentiating. |
-| "The best [X] online" | Unverifiable. Judges don't believe it. |
+| "The best [X] online" | Unverifiable. Customers do not believe it. |
 | "Affordable luxury" | Contradiction without context. Means nothing. |
-| "We're passionate about [X]" | Customers don't buy your passion. They buy outcomes. |
+| "We're passionate about [X]" | Customers do not buy your passion. They buy outcomes. |
 
 Strong value propositions are specific, credible, and customer-outcome-focused.
 
@@ -45,7 +45,7 @@ You sell something genuinely different — in quality, design, materials, functi
 > *"Every mug is wheel-thrown by a single ceramicist in Oaxaca — no factory production, ever."*
 
 ### 2. Customer Specificity
-You serve a narrow audience so precisely that generalist stores can't match the fit.
+You serve a narrow audience so precisely that generalist stores cannot match the fit.
 
 > *"Desk accessories designed exclusively for developers who work from home — dimensions, materials, and aesthetics chosen for that specific context."*
 
@@ -55,11 +55,12 @@ The way you sell — curation, education, packaging, post-purchase experience �
 > *"Every order ships with a card explaining the maker, the materials, and how to care for it. You know what you bought."*
 
 ### 4. Price/Value Differentiation
-You offer meaningfully better value at a given price point — not because you're cheap, but because the comparison is honest.
+You offer meaningfully better value at a given price point — not because you are cheap, but because the comparison is honest.
 
 > *"Factory-direct pricing on professional-grade tools. No retail markup, no middleman."*
 
-> **Personal mode note:** Competing on price alone is a losing strategy for a solo store. You cannot out-price Amazon. Compete on specificity, curation, or experience instead.
+> [!NOTE]
+> At production scale, sustainable differentiation comes from structural advantages — sourcing, brand equity, community, proprietary products — not from being slightly cheaper or having a nicer UI. Think ahead to what will remain defensible as the store grows.
 
 ---
 
@@ -76,7 +77,7 @@ Once you know your source of differentiation, construct the statement:
 **Example:**
 > For remote developers who care deeply about their physical workspace, Studio Supply is the desk accessory store that curates only tools with a minimal, functional aesthetic — unlike Amazon, which buries quality under ten pages of noise, and unlike Etsy, where consistency is impossible to find.
 
-You don't need to say all of this on your homepage. But you need to have thought through all of it before you write a word of copy.
+You do not need to say all of this on your homepage. But you need to have thought through all of it before you write a word of copy or brief an advertising campaign.
 
 ---
 
@@ -84,10 +85,10 @@ You don't need to say all of this on your homepage. But you need to have thought
 
 Compress your value proposition into one sentence. No formula structure — just a clean, direct claim.
 
-**Test:** Read it to someone who doesn't know your store. After one hearing, can they explain back to you who it's for and why it's different?
+**Test:** Read it to someone who does not know your store. After one hearing, can they explain back to you who it is for and why it is different?
 
 If yes: your value proposition is working.
-If no: it's still too vague or too generic.
+If no: it is still too vague or too generic.
 
 ---
 
@@ -101,14 +102,14 @@ These headlines are value propositions in disguise:
 - *"Handmade ceramics with a maker you can name."*
 - *"Professional audio gear. Factory direct. No markup."*
 
-If your value proposition can't compress into a headline like these, it's not sharp enough yet.
+If your value proposition cannot compress into a headline like these, it is not sharp enough yet. This matters for production stores because your paid acquisition campaigns depend on a value proposition tight enough to work in a single ad headline.
 
 ---
 
 ## Use AI to Stress-Test Your Value Proposition
 
-```
-I'm building a personal e-commerce store. Here is my draft value proposition:
+```prompt
+I am building a production e-commerce store. Here is my draft value proposition:
 
 [paste your value proposition]
 
@@ -118,38 +119,45 @@ My target customer is:
 My primary competitors or alternatives are:
 [list 2–3: Amazon, Etsy, specific brand, etc.]
 
+My intended scale: [e.g. "DTC brand targeting 500+ orders/month within 12 months"]
+
 Act as a skeptical customer who has been shopping online for years and has seen every marketing claim. Evaluate my value proposition on:
 1. Specificity — is it precise enough to be believed?
 2. Differentiation — does it say something genuinely different from competitors?
 3. Customer relevance — does it speak to something my target customer actually cares about?
-4. Credibility — can I actually deliver this, or does it sound like a claim I can't back up?
-5. Headline compression — suggest 3 homepage headline versions under 10 words each
+4. Credibility — can I actually deliver this, or does it sound like a claim I cannot back up?
+5. Scalability — does this differentiation hold as the store grows, or does it depend on staying small?
+6. Headline compression — suggest 3 homepage headline versions under 10 words each
 
-Be direct. Tell me what's weak and how to fix it.
+Be direct. Tell me what is weak and how to fix it.
 ```
 
-> **What to look for:**
-> - [ ] If "specificity" gets flagged, you're still being generic — narrow it further
-> - [ ] If "credibility" gets flagged, you're over-promising — scale it back to what you can actually deliver on day one
-> - [ ] Use the headline suggestions as raw material, not final copy — rewrite until one feels genuinely yours
+> [!IMPORTANT]
+> Evaluate the output critically:
+> - If "specificity" gets flagged, you are still being generic — narrow it further
+> - If "credibility" gets flagged, you are over-promising — scale it back to what you can actually deliver
+> - If "scalability" gets flagged, your differentiation may erode as you grow — think about how to build a more structural moat
+> - Use the headline suggestions as raw material, not final copy — rewrite until one feels genuinely right
 
 ---
 
 ## Connecting Value Proposition to Store Decisions
 
-Your value proposition isn't just marketing copy. It filters every decision you make while building.
+Your value proposition is not just marketing copy. It filters every decision you make while building and operating the store.
 
 **Use it as a decision filter:**
 
 | Decision | Question to ask |
 |---|---|
 | Which products to carry | Does this product reinforce or dilute the value proposition? |
-| Pricing | Does this price point match the value I'm claiming? |
+| Pricing | Does this price point match the value I am claiming? |
 | Design aesthetic | Does this visual identity make the value proposition feel credible? |
 | Copy tone | Does this language match what my specific customer responds to? |
-| Features to build | Does this feature support the customer experience I'm promising? |
+| Features to build | Does this feature support the customer experience I am promising? |
+| Marketing channels | Does this channel reach my specific customer as defined? |
+| Paid acquisition copy | Can my value proposition be distilled into a single ad headline? |
 
-If the answer to any of these is "not really" — that's the value proposition making a decision for you. Trust it.
+If the answer to any of these is "not really" — that is the value proposition making a decision for you. Trust it.
 
 ---
 
@@ -160,10 +168,11 @@ If the answer to any of these is "not really" — that's the value proposition m
 - [ ] One-sentence elevator version written
 - [ ] Homepage headline version written (under 10 words)
 - [ ] Value proposition tested with AI and weaknesses addressed
+- [ ] Scalability of the differentiation considered at production volume
 - [ ] Value proposition reviewed against: is this something I can actually deliver?
 
 ---
 
 > **Next module:** Competitor Analysis →
 >
-> Now that you know what you're offering and who you're offering it to, you'll map the competitive landscape — not to copy competitors, but to find the gap your store occupies.
+> Now that you know what you are offering and who you are offering it to, you will map the competitive landscape — not to copy competitors, but to find the gap your store occupies and build a defensible position in it.
