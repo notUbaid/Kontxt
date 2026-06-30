@@ -83,7 +83,7 @@ export const ecommerceProductionTaxonomy: Category[] = [
       createTopic('Cart', ShoppingCart, [{name:'Zustand Persist',url:'https://docs.pmnd.rs/zustand/integrations/persisting-store-data'}], 'ecommercecart'),
       createTopic('Checkout', CreditCard, [{name:'Lob Address Verification',url:'https://www.lob.com/'}], 'ecommercecheckout'),
       createTopic('Orders', Box, [{name:'ShipStation API',url:'https://www.shipstation.com/'}], 'ecommerceorders'),
-      createTopic('Customer Accounts', Users, [{name:'NextAuth',url:'https://next-auth.js.org/'}], 'ecommercecustomeraccounts'),
+      createTopic('Account Implementation', Users, [{name:'NextAuth',url:'https://next-auth.js.org/'}], 'ecommercecustomeraccounts'),
       createTopic('Shipping', Truck, [{name:'EasyPost',url:'https://www.easypost.com/'}], 'ecommerceshipping'),
       createTopic('Wishlist', Heart, [{name:'Local Storage API',url:'https://developer.mozilla.org/'}], 'ecommercewishlist'),
       createTopic('Admin Dashboard', Settings, [{name:'Retool E-commerce CRM',url:'https://retool.com/'}], 'ecommerceadmindashboard'),
@@ -131,7 +131,7 @@ export const ecommerceProductionTaxonomy: Category[] = [
     name: 'PHASE 6 — GROWTH',
     topics: [
       createTopic('Retention', Activity, [{name:'Skio Subscriptions',url:'https://skio.com/'}], 'ecommerceretention'),
-      createTopic('Analytics', BarChart, [{name:'Mixpanel E-commerce',url:'https://mixpanel.com/'}], 'ecommerceanalytics'),
+      createTopic('Growth Analytics', BarChart, [{name:'Mixpanel E-commerce',url:'https://mixpanel.com/'}], 'ecommerceanalytics'),
       createTopic('Roadmap', Layers, [{name:'Linear',url:'https://linear.app/'}], 'ecommerceroadmap'),
       createTopic('Conversion Optimization', TrendingUp, [{name:'Optimizely',url:'https://www.optimizely.com/'}], 'ecommerceconversionoptimization'),
       createTopic('Upsells', Tag, [{name:'Post-purchase Upsells',url:'https://www.shopify.com/blog/upselling'}], 'ecommerceupsells'),

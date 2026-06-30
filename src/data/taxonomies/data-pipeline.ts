@@ -69,7 +69,7 @@ export const dataPipelineProductionTaxonomy: Category[] = [
       createTopic('Governance & Access', Key, [{name:'Row-Level Security',url:'https://docs.snowflake.com/en/user-guide/security-row-intro'}], 'datapipe-governance'),
       createTopic('Presentation Prep', Presentation),
       createTopic('Pitch Deck', Presentation),
-      createTopic('Presentation Prep', Presentation),
+      createTopic('Final Presentation', Presentation),
       createTopic('Demo Script', FileText),
       createTopic('Submission Checklist', CheckSquare),
     ]

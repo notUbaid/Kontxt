@@ -161,7 +161,7 @@ export const cyberBlueProductionTaxonomy: Category[] = [
       ], 'cyberbluethreathunting'),
       createTopic('Presentation Prep', Presentation),
       createTopic('Pitch Deck', Presentation),
-      createTopic('Presentation Prep', Presentation),
+      createTopic('Final Presentation', Presentation),
       createTopic('Demo Script', FileText),
       createTopic('Submission Checklist', CheckSquare),
     ]

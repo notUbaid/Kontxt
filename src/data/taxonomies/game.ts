@@ -123,7 +123,7 @@ export const gameProductionTaxonomy: Category[] = [
       createTopic('Retention', TrendingUp, [{name:'Game Retention Metrics',url:'https://gameanalytics.com/blog/retention-metrics/'}], 'gameretention'),
       createTopic('Roadmap', Layers, [{name:'Public Roadmaps',url:'https://trello.com/b/roadmap'}], 'gameroadmap'),
       createTopic('Player Feedback', MessageSquare, [{name:'Handling Player Toxicity',url:'https://www.gdcvault.com/'}], 'gameplayerfeedback'),
-      createTopic('Balancing', Activity, [{name:'Live Ops A/B Testing',url:'https://unity.com/products/game-growth'}], 'gamebalancing'),
+      createTopic('Game Balancing', Activity, [{name:'Live Ops A/B Testing',url:'https://unity.com/products/game-growth'}], 'gamebalancing'),
       createTopic('Updates', RefreshCcw, [{name:'Steam Update Events',url:'https://partner.steamgames.com/doc/marketing/tools/events'}], 'gameupdates'),
       createTopic('Seasonal Content', Crown, [{name:'Live Ops Strategies',url:'https://www.gamesindustry.biz/'}], 'gameseasonalcontent'),
       createTopic('Community Management', Users, [{name:'Community Management Playbook',url:'https://www.gamedeveloper.com/'}], 'gamecommunitymanagement'),

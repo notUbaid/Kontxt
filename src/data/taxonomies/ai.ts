@@ -110,7 +110,7 @@ export const aiProductionTaxonomy: Category[] = [
       createTopic('Privacy Policy', Shield, [{name:'OpenAI API Docs',url:'https://platform.openai.com/docs/introduction'},{name:'HuggingFace',url:'https://huggingface.co/docs'}], 'aiprivacypolicy'),
       createTopic('AI Disclosure', Shield, [{name:'OpenAI API Docs',url:'https://platform.openai.com/docs/introduction'},{name:'HuggingFace',url:'https://huggingface.co/docs'}], 'aiaidisclosure'),
       createTopic('Launch Checklist', CheckSquare, [{name:'Vercel',url:'https://vercel.com/'},{name:'GitHub Actions',url:'https://github.com/features/actions'},{name:'Product Hunt Launch',url:'https://www.producthunt.com/'}], 'ailaunchchecklist'),
-      createTopic('Analytics', BarChart, [{name:'LangSmith',url:'https://smith.langchain.com/'},{name:'Helicone',url:'https://www.helicone.ai/'}], 'aianalytics'),
+      createTopic('Growth Analytics', BarChart, [{name:'LangSmith',url:'https://smith.langchain.com/'},{name:'Helicone',url:'https://www.helicone.ai/'}], 'aianalytics'),
     ]
   },
   {

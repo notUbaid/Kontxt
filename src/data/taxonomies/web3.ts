@@ -81,7 +81,7 @@ export const web3ProductionTaxonomy: Category[] = [
       createTopic('Incident Response', AlertTriangle, [{name:'Smart Contract Incident Response',url:'https://github.com/nascentxyz/simple-security-toolkit'}], 'web3incidentresponse'),
       createTopic('Presentation Prep', Presentation),
       createTopic('Pitch Deck', Presentation),
-      createTopic('Presentation Prep', Presentation),
+      createTopic('Final Presentation', Presentation),
       createTopic('Demo Script', FileText),
       createTopic('Submission Checklist', CheckSquare),
     ]

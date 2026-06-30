@@ -76,8 +76,8 @@ export const desktopProductionTaxonomy: Category[] = [
       createTopic('UI Development', Layout, [{name:'Tailwind CSS',url:'https://tailwindcss.com/docs'}], 'dtuidevelopment'),
       createTopic('File System Operations', FileText, [{name:'Tauri Guide',url:'https://tauri.app/v1/guides/'},{name:'Electron Docs',url:'https://www.electronjs.org/docs/latest'}], 'dtfilesystemoperations'),
       createTopic('Background Services', Settings, [{name:'tRPC',url:'https://trpc.io/'},{name:'GraphQL',url:'https://graphql.org/'},{name:'Postman',url:'https://www.postman.com/'}], 'dtbackgroundservices'),
-      createTopic('Native Integrations', Cpu, [{name:'Tauri Guide',url:'https://tauri.app/v1/guides/'},{name:'Electron Docs',url:'https://www.electronjs.org/docs/latest'}], 'dtnativeintegrations'),
-      createTopic('Cloud Sync', Cloud, [{name:'PowerSync',url:'https://www.powersync.com/'},{name:'ElectricSQL',url:'https://electric-sql.com/'}], 'dtcloudsync'),
+      createTopic('Native Features', Cpu, [{name:'Tauri Guide',url:'https://tauri.app/v1/guides/'},{name:'Electron Docs',url:'https://www.electronjs.org/docs/latest'}], 'dtnativeintegrations'),
+      createTopic('Cloud Sync Logic', Cloud, [{name:'PowerSync',url:'https://www.powersync.com/'},{name:'ElectricSQL',url:'https://electric-sql.com/'}], 'dtcloudsync'),
       createTopic('AI Features', Zap, [{name:'Ollama (Local LLMs)',url:'https://ollama.com/'},{name:'Transformers.js',url:'https://huggingface.co/docs/transformers.js/index'}], 'dtaifeatures'),
       createTopic('Settings System', Settings, [{name:'Tauri Guide',url:'https://tauri.app/v1/guides/'},{name:'Electron Docs',url:'https://www.electronjs.org/docs/latest'}], 'dtsettingssystem'),
     ]
@@ -105,13 +105,13 @@ export const desktopProductionTaxonomy: Category[] = [
     id: 'phase-5-distribution',
     name: 'PHASE 5 — DISTRIBUTION',
     topics: [
-      createTopic('Documentation', BookOpen, [{name:'macOS App Sandbox',url:'https://developer.apple.com/documentation/security/app_sandbox'},{name:'Windows Firewall rules',url:'https://learn.microsoft.com/en-us/windows/security/operating-system-security/network-security/windows-defender-firewall/windows-firewall-with-advanced-security'}], 'dtdocumentation'),
+      createTopic('User Documentation', BookOpen, [{name:'macOS App Sandbox',url:'https://developer.apple.com/documentation/security/app_sandbox'},{name:'Windows Firewall rules',url:'https://learn.microsoft.com/en-us/windows/security/operating-system-security/network-security/windows-defender-firewall/windows-firewall-with-advanced-security'}], 'dtdocumentation'),
       createTopic('Beta Testing', Target, [{name:'Playwright',url:'https://playwright.dev/'},{name:'Jest',url:'https://jestjs.io/'},{name:'TestFlight',url:'https://developer.apple.com/testflight/'}], 'dtbetatesting'),
       createTopic('Installer Creation', Download, [{name:'Tauri Guide',url:'https://tauri.app/v1/guides/'},{name:'Electron Docs',url:'https://www.electronjs.org/docs/latest'}], 'dtinstallercreation'),
       createTopic('Windows Packaging', Monitor, [{name:'Windows SmartScreen Info',url:'https://learn.microsoft.com/en-us/windows/security/operating-system-security/virus-and-threat-protection/microsoft-defender-smartscreen/'}], 'dtwindowspackaging'),
       createTopic('macOS Packaging', Laptop, [{name:'Apple Developer ID',url:'https://developer.apple.com/programs/'}], 'dtmacospackaging'),
       createTopic('Linux Packaging', Terminal, [{name:'Figma',url:'https://www.figma.com/'},{name:'Shadcn UI',url:'https://ui.shadcn.com/'},{name:'Tailwind CSS',url:'https://tailwindcss.com/'},{name:'Radix UI Accessibility',url:'https://www.radix-ui.com/'}], 'dtlinuxpackaging'),
-      createTopic('Code Signing', Shield, [{name:'macOS Notarization',url:'https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution'},{name:'Windows EV Certificates',url:'https://www.digicert.com/signing/code-signing-certificates'}], 'dtcodesigning'),
+      createTopic('Code Signing Process', Shield, [{name:'macOS Notarization',url:'https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution'},{name:'Windows EV Certificates',url:'https://www.digicert.com/signing/code-signing-certificates'}], 'dtcodesigning'),
       createTopic('Release Strategy', Rocket, [{name:'Vercel',url:'https://vercel.com/'},{name:'GitHub Actions',url:'https://github.com/features/actions'},{name:'Product Hunt Launch',url:'https://www.producthunt.com/'}], 'dtreleasestrategy'),
       createTopic('Launch Checklist', CheckSquare, [{name:'Vercel',url:'https://vercel.com/'},{name:'GitHub Actions',url:'https://github.com/features/actions'},{name:'Product Hunt Launch',url:'https://www.producthunt.com/'}], 'dtlaunchchecklist'),
     ]
