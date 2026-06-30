@@ -165,8 +165,7 @@ export const internalToolHackathonTaxonomy: Category[] = filterTaxonomy(
 export const internalToolPersonalTaxonomy: Category[] = filterTaxonomy(
   [],
   [
-    'Enterprise SSO', 'Advanced Monitoring', 'Large-scale Infrastructure',
-    'Infrastructure', 'Scalability', 'Disaster Recovery', 'Domain Setup',
+    'Infrastructure', 'Scalability', 'Disaster Recovery',
     'Security & Compliance', 'Change Management', 'Permissions Rollout',
     'Presentation Prep', 'Pitch Deck', 'Demo Script', 'Submission Checklist',
     'Fake Business Data',
