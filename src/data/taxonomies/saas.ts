@@ -173,7 +173,6 @@ export const saasHackathonTaxonomy: Category[] = [
       createTopic('Backend', Server),
       createTopic('Frontend', Box),
       createTopic('Demo Data', Database),
-      createTopic('Presentation Prep', Presentation),
     ]
   },
   {
@@ -249,8 +248,6 @@ export const saasPersonalTaxonomy: Category[] = [
       createTopic('SEO', Search),
       createTopic('Presentation Prep', Presentation),
       createTopic('Pitch Deck', Presentation),
-      createTopic('Demo Script', FileText),
-      createTopic('Submission Checklist', CheckSquare),
     ]
   }
 ];
