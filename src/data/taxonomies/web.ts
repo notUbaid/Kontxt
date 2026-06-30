@@ -164,8 +164,6 @@ export const webPersonalTaxonomy: Category[] = [
       createTopic('Launch Checklist', CheckCircle, [], 'launch-checklist-personal-web-app'),
       createTopic('Presentation Prep', Presentation, [], 'presentation-prep-personal-web-app'),
       createTopic('Pitch Deck', Presentation, [], 'pitch-deck-personal-web-app'),
-      createTopic('Demo Script', FileText, [], 'demo-script-personal-web-app'),
-      createTopic('Submission Checklist', CheckSquare, [], 'submission-checklist-personal-web-app'),
     ]
   }
 ];
@@ -215,7 +213,6 @@ export const webHackathonTaxonomy: Category[] = [
     name: 'PHASE 4 — SUBMISSION',
     topics: [
       createTopic('Pitch Deck', Presentation, [], 'pitch-deck-hackathon-web-app'),
-      createTopic('Demo Script', FileText, [], 'demo-script-hackathon-web-app'),
       createTopic('Submission Checklist', CheckSquare, [], 'submission-hackathon-web-app'),
     ]
   }
