@@ -4,298 +4,126 @@ slug: product-architecture
 phase: Phase 2
 mode: production
 projectType: e-commerce
-estimatedTime: 30–40 min
+estimatedTime: 35–45 min
 ---
 
 # Product Architecture
 
-A product is not a database row. It's a system.
+At a small scale, a product is a title, an image, and a price. At production scale, product architecture is a deeply complex data modeling problem involving variant matrices, digital assets, metadata, and multi-system synchronization.
 
-A single product listing touches your database schema, your image storage, your search index, your inventory system, your cart logic, and your SEO structure. Designing it correctly now means every downstream system works cleanly. Designing it poorly means rebuilding when you add your tenth product and realize variants don't fit.
-
-This module covers the complete data model and architecture for products in a personal e-commerce store.
+If you get the product schema wrong in Phase 2, you will eventually hit a wall where merchandising teams cannot sell items the way they want to without requiring custom engineering work for every new product launch.
 
 ---
 
-## The Product Model — What Actually Needs to Exist
+## The Core Product Model
 
-Start with what a product actually is in the real world, then model it.
+A production e-commerce catalog is almost never flat. It is hierarchical.
 
-A product is the thing you sell. A variant is a specific purchasable version of that thing. A customer never buys a "T-Shirt" — they buy a "Medium, Navy T-Shirt." That distinction drives your entire data model.
+### 1. The Parent Product (The Container)
+The `Product` entity holds the shared attributes: the title, the core description, the category relationship, and the overarching marketing imagery. The Parent Product *cannot be purchased*.
 
-```
-Product (the concept)
-  └── Variant (the specific purchasable SKU)
-        └── has: price, inventory, SKU, option values
-  └── Images (belongs to product or specific variant)
-  └── Options (the axes of variation: Size, Color, Material)
-```
+### 2. The Variant (The Sellable Unit)
+The `Variant` is the actual item that has a SKU, a price, an inventory count, and a physical weight. Customers buy variants, not products.
+Even if a product only comes in one size and one color, it must still be modeled as a Product containing a single Variant. This prevents a catastrophic database migration when the business inevitably decides to launch a second color next year.
 
----
+### 3. The Options (The Matrix)
+Variants are defined by a matrix of `Options` (e.g., Size, Color, Material).
+*Example:* A shirt with 3 sizes and 3 colors generates 9 distinct Variants.
 
-## Full Schema
-
-```sql
--- The product concept
-products
-  id            uuid PRIMARY KEY DEFAULT gen_random_uuid()
-  title         text NOT NULL
-  slug          text NOT NULL UNIQUE
-  description   text
-  category_id   uuid REFERENCES categories(id)
-  status        text DEFAULT 'draft'  -- draft | active | archived
-  tags          text[]
-  created_at    timestamptz DEFAULT now()
-  updated_at    timestamptz DEFAULT now()
-
--- The purchasable unit
-product_variants
-  id                  uuid PRIMARY KEY DEFAULT gen_random_uuid()
-  product_id          uuid NOT NULL REFERENCES products(id) ON DELETE CASCADE
-  sku                 text UNIQUE
-  price               integer NOT NULL  -- stored in cents, never floats
-  compare_at_price    integer           -- original price for sale display
-  inventory_quantity  integer DEFAULT 0
-  inventory_policy    text DEFAULT 'deny'  -- deny | continue (oversell allowed?)
-  options             jsonb DEFAULT '{}'   -- { "size": "M", "color": "Navy" }
-  weight_grams        integer
-  is_default          boolean DEFAULT false
-  created_at          timestamptz DEFAULT now()
-
--- Images for product or specific variant
-product_images
-  id          uuid PRIMARY KEY DEFAULT gen_random_uuid()
-  product_id  uuid NOT NULL REFERENCES products(id) ON DELETE CASCADE
-  variant_id  uuid REFERENCES product_variants(id) ON DELETE SET NULL
-  url         text NOT NULL
-  alt         text
-  sort_order  integer DEFAULT 0
-  created_at  timestamptz DEFAULT now()
-
--- Option definitions (Size, Color, Material)
-product_options
-  id          uuid PRIMARY KEY DEFAULT gen_random_uuid()
-  product_id  uuid NOT NULL REFERENCES products(id) ON DELETE CASCADE
-  name        text NOT NULL   -- "Size", "Color"
-  values      text[]          -- ["S", "M", "L", "XL"]
-  sort_order  integer DEFAULT 0
-```
+> [!WARNING]
+> **The Shopify Variant Limit:** Shopify enforces a hard limit of 100 variants and 3 option types per product. If you sell custom furniture with 5 wood types, 10 fabrics, and 3 leg styles (150 variants), you cannot model this natively in Shopify. You must architect a "split product" model or use a headless approach to combine multiple backend products into a single frontend PDP.
 
 ---
 
-## Critical Design Decisions
+## Advanced Product Architectures
 
-### Store Prices in Cents
+Production stores frequently require data models beyond the basic Product/Variant hierarchy.
 
-Never store prices as floats.
+### Kits and Bundles
+A bundle is a sellable unit (e.g., "The Skincare Starter Kit") that is composed of multiple independent SKUs.
+- **The Architecture:** The bundle exists as a parent product, but its inventory is dynamically calculated based on the Bill of Materials (BOM). If the kit requires SKU A and SKU B, the bundle's available inventory is `Math.min(inventory(A), inventory(B))`.
+- **The Trap:** Do not treat bundles as independent inventory. If you do, you will oversell the underlying components.
 
-```
--- Wrong
-price DECIMAL(10,2)  -- floating point arithmetic causes $49.999999 bugs
+### Digital / Physical Hybrids
+Selling a physical textbook that includes a digital access code requires a split fulfillment model. The product schema must flag the variant with `requires_shipping: true` AND trigger a webhook to a digital delivery service (like SendOwl) upon payment capture.
 
--- Right
-price INTEGER  -- 4999 = $49.99
-```
-
-Convert to display currency only at render time:
-
-```ts
-const formatPrice = (cents: number, currency = 'USD') =>
-  new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(cents / 100);
-
-formatPrice(4999) // "$49.99"
-```
-
-Every financial calculation in your system — cart totals, order totals, refund amounts — happens in integers. This eliminates an entire class of rounding bugs.
+### Configurable Products (Made-to-Order)
+If a customer can input a custom text engraving, that text is *not* a variant. It is **Line Item Property** (or metadata) attached to the cart and the final order. Do not generate a new database variant for every custom engraving string.
 
 ---
 
-### The Options + Variants Relationship
+## The Role of a PIM (Product Information Management)
 
-A product with Size (S/M/L) and Color (Black/Navy) has 6 possible variants. You need to model this cleanly.
+In a small store, the e-commerce engine (Shopify/Medusa) is the Source of Truth (SoT) for product data.
+At production scale, this breaks down.
 
-**Options** define the axes. **Variants** represent every combination.
+When your catalog reaches thousands of SKUs, and you need to feed product data to your storefront, a mobile app, Amazon, Google Shopping, and wholesale partners, the commerce engine is no longer the SoT.
 
-```
-product_options:
-  { name: "Size",  values: ["S", "M", "L"] }
-  { name: "Color", values: ["Black", "Navy"] }
-
-product_variants:
-  { options: { size: "S", color: "Black" }, sku: "SHIRT-S-BLK", price: 4999 }
-  { options: { size: "S", color: "Navy" },  sku: "SHIRT-S-NVY", price: 4999 }
-  { options: { size: "M", color: "Black" }, sku: "SHIRT-M-BLK", price: 4999 }
-  ... and so on
-```
-
-Storing options as `jsonb` on the variant keeps the schema simple while allowing arbitrary option combinations without new columns.
+You must integrate a **PIM (Product Information Management)** system (e.g., Akeneo, Salsify, or a custom database).
+- The PIM holds the rich marketing copy, translated content, tech specs, and heavy media assets.
+- The PIM pushes a *subset* of this data (Title, SKU, Price, basic images) to the commerce engine just so the engine can process the transaction.
+- Your frontend fetches data from *both* the commerce engine (for real-time price/inventory) and the PIM (for rich static content).
 
 ---
 
-### Simple Products Still Use Variants
+## Schema Design (If Building Custom)
 
-A product with no variations (a poster, a candle, a single-size item) should still have one variant record. This keeps your cart, checkout, and order systems uniform — they always reference a `variant_id`, never a `product_id` directly.
+If you are using Prisma or building a custom database, your schema must look roughly like this:
 
-```
-products: { id: "abc", title: "Beeswax Candle" }
-product_variants: { id: "xyz", product_id: "abc", price: 1800, options: {} }
-```
-
-Cart items, order items, and inventory all point to `variant_id: "xyz"`. When you later add a "Large" variant, you add a new variant row — no other system changes.
-
----
-
-### Inventory Policy
-
-`inventory_policy` on a variant controls what happens when stock hits zero:
-
-| Policy | Behavior | Use When |
-|---|---|---|
-| `deny` | Block purchase when qty = 0 | Physical goods with real inventory |
-| `continue` | Allow purchase even at qty = 0 | Pre-orders, made-to-order, digital goods |
-
-Set `deny` as your default. Override to `continue` explicitly for products where overselling is intentional.
-
----
-
-### Slug Generation
-
-Product slugs must be URL-safe, unique, and stable.
-
-```ts
-function generateSlug(title: string): string {
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, '')   // remove special chars
-    .replace(/\s+/g, '-')            // spaces to hyphens
-    .replace(/-+/g, '-')             // collapse multiple hyphens
-    .trim();
+```prisma
+model Product {
+  id          String    @id @default(uuid())
+  handle      String    @unique // SEO URL slug
+  title       String
+  description String    @db.Text
+  status      Status    @default(DRAFT)
+  variants    Variant[]
+  options     Option[]  // e.g., Size, Color
+  metadata    Json?     // Flexible attributes (e.g., care instructions)
 }
 
-// "Slim Bifold Leather Wallet" → "slim-bifold-leather-wallet"
+model Variant {
+  id               String   @id @default(uuid())
+  productId        String
+  sku              String   @unique
+  price            Int      // ALWAYS store money in cents/paise
+  inventoryCount   Int      @default(0)
+  weightGrams      Int?     // Crucial for shipping API calculations
+  optionValues     Json     // e.g., { "Size": "M", "Color": "Red" }
+  product          Product  @relation(fields: [productId], references: [id])
+}
 ```
-
-Generate the slug on product creation. If the slug already exists, append `-2`, `-3`, etc. Never auto-update the slug when the title changes — that breaks URLs and SEO.
 
 ---
 
-## Product Status Lifecycle
+## AI Prompt — Architect Your Catalog Data Model
 
+```prompt
+I am designing the product data architecture for a production e-commerce store.
+
+Catalog Profile:
+- Core Product Types: [e.g., Apparel / Electronics / Furniture / Digital]
+- Max Variants per Product: [Estimate]
+- Option Dimensions: [e.g., Size, Color, Material, Voltage]
+- Bundle/Kit Requirements: [Do you sell grouped products?]
+- Customization: [Do users provide custom text, uploads, or measurements?]
+- Tech Stack: [e.g., Headless Shopify / Custom Postgres Database]
+
+Act as a Principal Data Architect:
+1. Design the exact data schema (or platform configuration) needed to support this catalog.
+2. If using a platform like Shopify, identify if I will hit the 100-variant or 3-option limit, and provide the technical workaround.
+3. Detail how I should architect the data model for my bundles/kits so that underlying inventory stays perfectly synced.
+4. Explain how custom user inputs (like engravings) should be passed from the PDP, into the cart state, and finally onto the finalized Order record.
+5. At what specific SKU count or channel complexity should I introduce a dedicated PIM system?
 ```
-draft → active → archived
-  ↑_________↓        ↓
-                (never delete)
-```
-
-| Status | Visible in storefront | Purchasable |
-|---|---|---|
-| `draft` | No | No |
-| `active` | Yes | Yes |
-| `archived` | No | No |
-
-**Never hard-delete products.** Order history references `variant_id`. If you delete a product, order records break. Archive instead. Store a `product_snapshot` on order items (title, image, price at time of purchase) so orders remain readable even if the product is archived.
-
----
-
-## Image Architecture
-
-Images live in Supabase Storage. The `product_images` table stores metadata and references.
-
-**Storage path structure:**
-```
-products/{product-id}/{filename}.webp
-```
-
-**Two types of images:**
-- Product-level images: shown for all variants (main shots, lifestyle)
-- Variant-level images: shown only when that variant is selected (color swatches, specific configurations)
-
-Link variant-specific images via `variant_id` on `product_images`. When a customer selects "Navy," your frontend queries for images where `variant_id = navy_variant_id` OR `variant_id IS NULL`.
-
----
-
-## Product Query Patterns
-
-**Fetch product with all variants and images:**
-
-```ts
-const { data: product } = await supabase
-  .from('products')
-  .select(`
-    *,
-    product_variants (*),
-    product_images (*)
-  `)
-  .eq('slug', slug)
-  .eq('status', 'active')
-  .single();
-```
-
-**Fetch active catalog for collection page:**
-
-```ts
-const { data: products } = await supabase
-  .from('products')
-  .select(`
-    id, title, slug,
-    product_variants (id, price, compare_at_price, inventory_quantity),
-    product_images (url, alt, sort_order)
-  `)
-  .eq('status', 'active')
-  .eq('category_id', categoryId)
-  .order('created_at', { ascending: false });
-```
-
-Fetch only what you need per page. The collection page doesn't need full descriptions or all variant options — just enough to render a product card.
-
----
-
-## AI Prompt — Generate Your Product Schema
-
-<copy-prompt>
-I'm building a personal e-commerce store and need a complete product architecture.
-
-My store:
-- Products: [describe what you sell]
-- Variant types: [list your variation axes — e.g. size, color, material, scent]
-- Number of options per axis: [e.g. 5 sizes, 8 colors]
-- Catalog size: [approximate number of products at launch]
-- Special requirements: [e.g. digital downloads, pre-orders, bundles, custom options]
-- Database: Supabase (PostgreSQL)
-
-Generate:
-1. Complete SQL schema for products, variants, images, and options — tailored to my variant types
-2. TypeScript types that match the schema (for use with Supabase's generated types)
-3. A slug generation utility function
-4. The 3 most important database indexes for my query patterns
-5. Row Level Security policies for: public read on active products, authenticated write for admin
-6. Any schema decisions I should make differently given my specific product type
-
-Flag any simplifications I can make if my catalog is smaller than 50 products.
-</copy-prompt>
-
----
-
-## Validating AI Output
-
-- **Prices as floats** — reject any schema using `DECIMAL` or `FLOAT` for price; prices must be `INTEGER` (cents)
-- **Hard deletes** — reject any migration with `DELETE FROM products`; archiving is always correct
-- **No variant for simple products** — reject any schema where a cart item references `product_id` instead of `variant_id`
-- **Missing `ON DELETE CASCADE`** — variant and image records must cascade delete from their parent product
-- **Missing `updated_at` trigger** — Supabase doesn't auto-update `updated_at`; a trigger is required or you update it manually
 
 ---
 
 ## Product Architecture Checklist
 
-- [ ] Prices stored as integers (cents) — never floats
-- [ ] All products have at least one variant, even single-option products
-- [ ] Cart and order items reference `variant_id`, not `product_id`
-- [ ] `options` stored as `jsonb` on variants — flexible for any combination
-- [ ] Product images linked at product level and/or variant level
-- [ ] `inventory_policy` defined — `deny` as default
-- [ ] Slug generated on creation, never auto-updated on title change
-- [ ] Product status: `draft | active | archived` — no hard deletes
-- [ ] `product_snapshot` planned for order items (title, image, price at purchase)
-- [ ] Supabase Storage path structure defined for images
-- [ ] RLS policies planned: public read on active, authenticated write for admin
+- [ ] Every product modeled to support variants (even single-option products)
+- [ ] Money stored strictly as integers (cents/paise) to avoid floating-point math errors
+- [ ] Bundles and kits architected to calculate inventory dynamically from component SKUs
+- [ ] Line-item properties (customizations) separated from core Variant definitions
+- [ ] Platform variant limits (e.g., Shopify's 100 limit) evaluated against the largest expected product matrix
+- [ ] Weight/Dimensions included in Variant schema for real-time shipping calculation readiness

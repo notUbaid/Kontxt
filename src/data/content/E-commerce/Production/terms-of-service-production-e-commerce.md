@@ -3,141 +3,83 @@ title: Terms of Service
 slug: terms-of-service
 phase: Phase 5
 mode: production
-projectType: ecommerce
-estimatedTime: 15-20 min
+projectType: e-commerce
+estimatedTime: 20–30 min
 ---
 
 # Terms of Service
 
-Your privacy policy covers what data you collect. Terms of Service cover everything else: what a customer can expect from your store, what you're not liable for, and the rules governing how your site can be used. Where the privacy policy is about data, this is about the relationship.
+While the Privacy Policy protects the customer, the Terms of Service (ToS) protects *your business*. 
 
-As with the previous module, this is not legal advice — it's the practical baseline a personal store needs before accepting real orders.
-
----
-
-## Where This Fits
-
-Terms of Service references decisions from across your build: your return/refund policy (covered next), your account rules from Phase 3, and your actual order fulfillment process. Like the privacy policy, this is written to match what your store actually does, not a generic template.
+In production e-commerce, the ToS is your primary shield against fraudulent chargebacks, class-action lawsuits over pricing errors, and liability for supply chain delays. It is the legal contract the user agrees to the moment they click "Complete Purchase."
 
 ---
 
-## Why This Matters for a Store Specifically
+## 1. Limitation of Liability & Pricing Errors
 
-Without terms of service, you have no stated boundaries around:
+A software bug in your Cart API might accidentally apply a 90% discount to your entire catalog. Without a strict ToS, customers might attempt to legally force you to honor the $5,000 laptops they bought for $500.
 
-- Order cancellation and modification rights
-- What happens if a product is out of stock after an order is placed
-- Limitation of liability if a product causes damage or doesn't perform as expected
-- Rules around account use, fraud, and abuse — backing up the technical protections from Phase 4
-
-> **💡 Tip:** Terms of Service is also where you formally state things you've already built protections for — like your right to cancel an order you suspect is fraudulent (from your Fraud Prevention module). The technical capability and the stated right to use it should match.
+**The Implementation:**
+Your ToS must include a "Right to Cancel" clause.
+- It must explicitly state that an order confirmation email is *not* a legally binding contract to fulfill the order.
+- It must state that the business reserves the right to cancel and refund any order at its sole discretion, specifically in the event of software glitches, pricing errors, or inventory shortages.
 
 ---
 
-## What You're Building Today
+## 2. Chargeback and Dispute Policies
 
-- A terms of service page covering order acceptance, pricing, cancellation, and liability
-- Explicit linkage to your return/refund policy (the next module) rather than duplicating it here
-- Account usage rules, consistent with what your account system in Phase 3 actually allows
-- A clear, accurate statement of your right to refuse or cancel suspicious orders, matching your Fraud Prevention flagging process
+When a customer skips your support team and issues a chargeback with their bank, you lose the product, the money, and you pay a penalty fee.
 
-You're **not** drafting custom liability clauses for a complex business, handling international consumer protection law variations, or building anything beyond what a reputable generator covers for a personal store.
-
----
-
-## What Actually Needs to Be Covered
-
-| Section | What It Should Say (for your store) |
-|---|---|
-| Order acceptance | An order isn't a guaranteed sale until confirmed — covers the rare case of an out-of-stock item slipping through |
-| Pricing errors | You reserve the right to cancel and refund an order if a price was clearly listed in error |
-| Cancellation | When and how a customer can cancel before fulfillment, and when you can cancel a suspicious order |
-| Liability limitation | Your liability is limited to the order value — standard, reasonable for a personal store |
-| Account terms | Brief reference to acceptable use, consistent with your account system |
-| Intellectual property | Product photos/descriptions are yours — basic protection against scraping |
-
-> **⚠️ Warning:** Don't state a stronger commitment than your store can actually fulfill — for example, promising same-day cancellation processing if your fulfillment process doesn't actually support that. Terms should describe real operational capability, not aspirational service levels.
+**The Defense:**
+You can submit your Terms of Service to Visa/Mastercard as evidence to win the dispute, *if* the terms are ironclad.
+- **The Clause:** State clearly that customers must contact your support team to resolve issues *before* initiating a chargeback.
+- **Delivery Liability:** State that once a package is marked as "Delivered" by the carrier (e.g., FedEx), the risk of loss (package theft/porch piracy) transfers to the customer. This helps you win "Item Not Received" chargebacks when the tracking shows it was delivered.
 
 ---
 
-## Choosing Your Approach
+## 3. Subscription and Billing Terms (Recurring Revenue)
 
-| Approach | Accuracy | Effort | Best For |
-|---|---|---|---|
-| Generic copy-pasted template | Low — often mismatched to actual store operations | None | Not recommended |
-| **Generator (Termly, GetTerms, similar), filled in accurately** | High, if filled in correctly | Low | Most personal stores (recommended) |
-| Custom-drafted with a lawyer | Highest | High cost | Stores with real legal/financial exposure |
+If you sell subscriptions (e.g., "Subscribe & Save 10%"), you are subject to strict auto-renewal laws, such as California's Automatic Renewal Law (ARL).
 
-Same logic as the privacy policy: a reputable generator, filled in with your store's actual operational details, is the right scope here.
+**The Implementation:**
+- Your ToS must define the billing frequency, the exact cancellation process, and how proration is handled.
+- **UI Requirement:** You cannot hide the ToS. In the checkout flow for a subscription product, the user must explicitly check an un-pre-checked box that says "I agree to the Subscription Terms of Service." If you fail to do this, courts will rule the contract invalid.
 
 ---
 
-## Implementation
+## 4. Dispute Resolution (Arbitration Clause)
 
-**Copy Prompt:**
+E-commerce businesses are frequent targets for class-action lawsuits (e.g., ADA compliance lawsuits, or data breach lawsuits).
 
-```
-Help me prepare accurate Terms of Service for a personal e-commerce
-store. Here's how my store actually operates:
-
-- Order cancellation window: [describe, e.g. "before order ships,
-  customer can cancel via account dashboard"]
-- Pricing error handling: [describe, e.g. "we reserve the right to
-  cancel and refund if price was listed in error"]
-- Fraud/suspicious order handling: [reference your Fraud Prevention
-  flagging process — orders are flagged for manual review, not
-  auto-rejected]
-- Account rules: [reference your account system from Phase 3]
-
-I'm using a Terms of Service generator and need help filling it in
-accurately, and confirming I'm not promising anything my actual
-operations can't support.
-```
-
-> **⚠️ Warning:** Don't let AI generate liability or cancellation language from generic defaults without checking it against your actual fulfillment process. If your terms say "orders ship within 24 hours" but your real process doesn't guarantee that, you've created a commitment your operations can't reliably meet.
+**The Defense:**
+Include a Binding Arbitration Clause and a Class-Action Waiver.
+- This legally mandates that if a customer wants to sue you, they must do so individually through private arbitration, rather than banding together with 10,000 other customers in a devastating class-action lawsuit.
+- *Note:* In some jurisdictions (like the EU), mandatory arbitration clauses against consumers are unenforceable, so this must be tailored to your operating region.
 
 ---
 
-## Common Mistakes
+## AI Prompt — Draft Your Production ToS
 
-- Copying terms from a much larger store that reference services or guarantees a personal store doesn't actually provide
-- Stating fulfillment timelines or service levels that don't match real operational capability
-- Not linking terms of service from checkout — many jurisdictions expect agreement to terms to be presented before purchase, not buried in a footer
-- Writing fraud/cancellation rights that don't match what the Fraud Prevention module actually implemented (e.g., claiming auto-rejection when the real process is manual review)
-- Treating Terms of Service and Privacy Policy as interchangeable — keep data handling in the privacy policy and operational/legal terms here, link between them rather than duplicating
+```prompt
+I am drafting the Terms of Service for a production e-commerce store to protect the business from liability.
 
----
+Business Context:
+- Products: [e.g., Physical Goods / Subscriptions]
+- Target Markets: [e.g., United States]
 
-## Validation Checklist
-
-- [ ] Cancellation terms match what the account/order system actually allows a customer to do
-- [ ] Fraud/order-refusal language matches the actual Fraud Prevention process (manual review, not auto-block, unless that changed)
-- [ ] No fulfillment or service-level promise exceeds actual operational capability
-- [ ] Terms are linked from checkout, not just the footer
-- [ ] You've read the generated terms once yourself, end to end
-
----
-
-## AI Review Prompt
-
-```
-Review these Terms of Service against how my e-commerce store actually
-operates:
-
-[paste your operational details from the prompt above]
-
-Check specifically:
-1. Does any clause promise a service level or timeline my actual
-   process doesn't support?
-2. Does the fraud/order-cancellation language match my real process
-   (manual review, not auto-rejection)?
-3. Is liability limitation reasonable and not missing for a store that
-   sells physical or digital goods?
-4. Is anything generic or mismatched to a personal, solo-run store?
+Act as a Principal Corporate Attorney:
+1. Draft a strict "Limitation of Liability and Pricing Errors" clause that legally protects the business if a software bug causes products to be sold at the wrong price.
+2. Write a "Transfer of Risk" clause that limits our liability for porch piracy once the shipping carrier marks a package as 'Delivered'.
+3. Detail a Binding Arbitration Clause and Class-Action Waiver designed to protect the company from frivolous mass litigation.
+4. For subscription products, outline the exact legal phrasing required to comply with California's Automatic Renewal Law (ARL).
 ```
 
 ---
 
-## What Comes Next
+## Terms of Service Checklist
 
-With your legal foundation in place, the next modules turn to making products themselves ready to sell. Next: **Product Photography** — presenting your catalog in a way that builds trust without requiring a professional studio.
+- [ ] Limitation of Liability clause drafted to protect against software pricing glitches
+- [ ] Transfer of Risk clause defined to protect against package theft / porch piracy claims
+- [ ] Class-Action Waiver and Binding Arbitration clause included (if operating in the US)
+- [ ] Subscription auto-renewal terms explicitly stated (if applicable)
+- [ ] ToS linked prominently in the footer, and enforced via an explicit checkbox during checkout for high-risk purchases

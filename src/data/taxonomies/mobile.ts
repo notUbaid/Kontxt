@@ -156,9 +156,6 @@ export const mobileProductionTaxonomy: Category[] = [
   }
 ];
 
-export const mobileHackathonTaxonomy: Category[] = filterTaxonomy(mobileProductionTaxonomy, ['Welcome', 'Idea Definition', 'MVP', 'PRD', 'Design System', 'UI Polish', 'Animations', 'Loading', 'Microinteractions', 'Tech Stack', 'Database Setup', 'Auth Implementation', 'Backend Integration', 'Frontend', 'Native Device Features', 'App Permissions Strategy', 'Demo Data', 'Play Store Mockups', 'Pitch Deck', 'Demo Script', 'Submission Checklist', 'Presentation Prep'], []);
-
-export const mobilePersonalTaxonomy: Category[] = filterTaxonomy(mobileProductionTaxonomy, ['Welcome', 'Idea Definition', 'PRD', 'Platform Guidelines', 'Design System', 'Responsive Layouts', 'App Navigation', 'Tech Stack', 'State Management Impl', 'Database', 'Authentication', 'Offline Strategy', 'Frontend', 'App Lifecycle', 'Backend', 'App Permissions Strategy', 'Push Notifications', 'Testing', 'Security', 'Performance Optimization', 'Play Store Setup', 'App Store Setup', 'Privacy Policy', 'Analytics', 'Feedback', 'Roadmap', 'Presentation Prep', 'Pitch Deck', 'Demo Script', 'Submission Checklist'], []);
 
 export const mobileCustomTaxonomy: Category[] = [
   ...mobileProductionTaxonomy.map(cat => {
@@ -172,13 +169,17 @@ export const mobileCustomTaxonomy: Category[] = [
           createTopic('Play Store Mockups', Smartphone, [{name:'Figma Store Templates',url:'https://www.figma.com/community/tag/app-store'}], 'mobileplaystoremockups'),
           createTopic('Multi-language', Globe, [{name:'Expo Docs',url:'https://docs.expo.dev/'},{name:'React Native Directory',url:'https://reactnative.directory/'}], 'mobilemultilanguage'),
           createTopic('Subscription Billing', DollarSign, [{name:'Expo Docs',url:'https://docs.expo.dev/'},{name:'React Native Directory',url:'https://reactnative.directory/'}], 'mobilesubscriptionbilling'),
-                    createTopic('Wearables', Watch, [{name:'Expo Docs',url:'https://docs.expo.dev/'},{name:'React Native Directory',url:'https://reactnative.directory/'}], 'mobilewearables'),
+          createTopic('Wearables', Watch, [{name:'Expo Docs',url:'https://docs.expo.dev/'},{name:'React Native Directory',url:'https://reactnative.directory/'}], 'mobilewearables'),
           createTopic('Widgets', Box, [{name:'Expo Docs',url:'https://docs.expo.dev/'},{name:'React Native Directory',url:'https://reactnative.directory/'}], 'mobilewidgets'),
           createTopic('Background Services', Settings, [{name:'tRPC',url:'https://trpc.io/'},{name:'GraphQL',url:'https://graphql.org/'},{name:'Postman',url:'https://www.postman.com/'}], 'mobilebackgroundservices'),
           createTopic('Bluetooth', Bluetooth, [{name:'Expo Docs',url:'https://docs.expo.dev/'},{name:'React Native Directory',url:'https://reactnative.directory/'}], 'mobilebluetooth'),
           createTopic('NFC', Smartphone, [{name:'Expo Docs',url:'https://docs.expo.dev/'},{name:'React Native Directory',url:'https://reactnative.directory/'}], 'mobilenfc'),
           createTopic('Camera', Smartphone, [{name:'Expo Docs',url:'https://docs.expo.dev/'},{name:'React Native Directory',url:'https://reactnative.directory/'}], 'mobilecamera'),
           createTopic('Location Services', Map, [{name:'tRPC',url:'https://trpc.io/'},{name:'GraphQL',url:'https://graphql.org/'},{name:'Postman',url:'https://www.postman.com/'}], 'mobilelocationservices'),
+          createTopic('UI Polish', PenTool, [], 'mobileuipolish'),
+          createTopic('Animations', Zap, [], 'mobileanimations'),
+          createTopic('Microinteractions', Activity, [], 'mobilemicrointeractions'),
+          createTopic('Native Device Features', Smartphone, [], 'mobilenativedevicefeatures')
         ]
       };
     }
@@ -189,10 +190,15 @@ export const mobileCustomTaxonomy: Category[] = [
           ...cat.topics,
           createTopic('Pitch Deck', Presentation),
           createTopic('Demo Script', FileText),
-          createTopic('Submission Checklist', CheckSquare)
+          createTopic('Submission Checklist', CheckSquare),
+          createTopic('Presentation Prep', Presentation)
         ]
       };
     }
     return cat;
   })
 ];
+
+export const mobileHackathonTaxonomy: Category[] = filterTaxonomy(mobileCustomTaxonomy, ['Welcome', 'Idea Definition', 'MVP', 'PRD', 'Design System', 'UI Polish', 'Animations', 'Loading States', 'Microinteractions', 'Tech Stack', 'Database Setup', 'Auth Implementation', 'Backend Integration', 'Frontend', 'Native Device Features', 'App Permissions Strategy', 'Demo Data', 'Play Store Mockups', 'Pitch Deck', 'Demo Script', 'Submission Checklist', 'Presentation Prep'], []);
+
+export const mobilePersonalTaxonomy: Category[] = filterTaxonomy(mobileCustomTaxonomy, ['Welcome', 'Idea Definition', 'PRD', 'Platform Guidelines', 'Design System', 'Responsive Layouts', 'App Navigation', 'Tech Stack', 'State Management Impl', 'Database', 'Authentication', 'Offline Strategy', 'Frontend', 'App Lifecycle', 'Backend', 'App Permissions Strategy', 'Push Notifications', 'Testing', 'Security', 'Performance Optimization', 'Play Store Setup', 'App Store Setup', 'Privacy Policy', 'Analytics', 'User Feedback', 'Roadmap', 'Presentation Prep', 'Pitch Deck', 'Demo Script', 'Submission Checklist'], []);

@@ -3,145 +3,84 @@ title: Submission Checklist
 slug: submission-checklist
 phase: Phase 6
 mode: production
-projectType: ecommerce
-estimatedTime: 15-20 min
-filename: submission-checklist-personal-e-commerce.md
+projectType: e-commerce
+estimatedTime: 10–20 min
 ---
 
 # Submission Checklist
 
-Everything else in this phase was about building the story. This module is the final pass before you actually put that story — and the store behind it — in front of someone else.
+At the end of a production build, the "Submission Checklist" serves as the final, immutable record of engineering sign-off. 
 
-This is deliberately not a creative module. It's a verification pass. The goal is catching the kind of small, embarrassing gap that's invisible to you because you've stared at this project for weeks, but instantly obvious to a stranger seeing it for the first time.
-
----
-
-## Decision 1: What Are You Actually Submitting To?
-
-Tailor the checklist below to your real context — not every category applies to every situation.
-
-| Context | What gets extra scrutiny |
-|---|---|
-| Portfolio / personal site | Live link reliability, README quality, screenshots |
-| Job application | Code readability, commit history, written case study |
-| Course / capstone evaluation | Matches stated requirements exactly, documentation completeness |
-| Public showcase / directory listing | First-impression polish, mobile experience, load speed |
-| Sharing with a mentor or collaborator | Honest "what's not finished yet" notes, clear next-steps |
-
-> **Tip:** Re-read whatever instructions or expectations came with your context (a job posting, a course rubric, a showcase's submission guidelines) one more time before this pass. Most submission failures aren't quality problems — they're missed requirements that were stated plainly somewhere you skimmed past.
+This is not a casual review; this is a formal declaration that the system is secure, compliant, and ready to handle real customers and real money. If a catastrophic failure occurs post-launch, this checklist acts as the audit trail to prove that standard engineering and operational protocols were followed.
 
 ---
 
-## The Full Checklist
+## 1. Financial & Security Audit
 
-Work through these in order. Each category catches a different class of last-minute failure.
+The highest priority is protecting the customer's data and the company's revenue.
 
-### Product Functionality
-
-- [ ] Full purchase flow works end-to-end on a fresh browser session (not just your logged-in dev session)
-- [ ] Checkout completes successfully with a test payment, right now, not "last week when I checked"
-- [ ] Order confirmation actually arrives (email, on-screen, or both)
-- [ ] Cart persists correctly across a page reload
-- [ ] Mobile experience checked on an actual phone, not just a resized browser window
-- [ ] No console errors visible in dev tools on your core pages
-
-> **Common Mistake:** Verifying the happy path once, weeks ago, and assuming it still works. Dependencies update, test API keys expire, seed data gets stale. Re-test the full flow within 24 hours of submitting, not before.
-
-### Content & Polish
-
-- [ ] No placeholder text anywhere ("Lorem ipsum," "Product Name Here," "TODO")
-- [ ] Product images are real, not broken links or generic stock photos that undercut credibility
-- [ ] Empty states (empty cart, no orders yet) look intentional, not broken
-- [ ] Error states (failed payment, invalid input) show a real message, not a raw stack trace
-- [ ] Spelling and grammar checked on every customer-facing page, not just the homepage
-
-### Technical Readiness
-
-- [ ] Live URL is actually live — open it in an incognito window right now and confirm
-- [ ] Environment variables and secrets are not exposed in your repo (check `.env` is gitignored)
-- [ ] README explains what the project is, how to run it, and what's genuinely finished vs. in progress
-- [ ] No debug/test code paths left active in production (test payment bypass, hardcoded admin access, console.logs dumping sensitive data)
-
-> **Warning:** Check specifically for leftover debug shortcuts — a "skip payment" button, a hardcoded discount code, an admin route with no auth check. These get added during development for convenience and forgotten. Anyone evaluating your project who finds one will reasonably question what else was cut.
-
-### Business & Presentation Materials
-
-- [ ] Demo script (if presenting live) has been rehearsed out loud, timed, within the last few days
-- [ ] Pitch deck or written case study claims match what the live product actually does — re-verify after any late changes
-- [ ] Any stated numbers (orders processed, conversion rate) are current, not from an earlier, smaller version of the project
-- [ ] You can answer "what would you build next" in one clear sentence — almost always asked
-
-### Legal & Trust Basics
-
-These matter even for a personal project that processes real or test payments — they're a baseline signal of competence, not bureaucracy.
-
-- [ ] Privacy policy and terms of service exist and are linked, even if minimal
-- [ ] Return/refund policy is stated somewhere visible
-- [ ] If using real payment processing, you understand what's actually live vs. test mode — and you know which one is active right now
+- [ ] **Live Keys Validated:** Confirmed that Stripe, TaxJar, and Shippo `.env` variables are strictly using Production keys, and Sandbox keys have been removed from the live environment.
+- [ ] **Idempotency Verified:** Tested the checkout flow to ensure network stutters or double-clicks do not result in double-charges.
+- [ ] **PCI Compliance Confirmed:** Verified that the database schema does not store raw credit card numbers or CVV codes under any circumstance.
+- [ ] **RBAC (Role-Based Access) Enforced:** Verified that marketing and support staff accounts in the Admin Dashboard do not have write-access to the core user database or developer feature flags.
 
 ---
 
-## Using AI Effectively Here
+## 2. Infrastructure & Scale Audit
 
-Use AI as a second pair of eyes against this exact checklist — not to write new content, but to systematically check what you might be too close to the project to see.
+The system must be proven to handle the anticipated launch traffic without collapsing.
 
-**📋 Copy this prompt:**
+- [ ] **Connection Pooling Active:** Verified PgBouncer (or equivalent) is actively managing Postgres connections to prevent exhaustion during traffic spikes.
+- [ ] **Edge Caching Confirmed:** Verified that the CDN is correctly caching static HTML/assets and bypassing the cache for dynamic cart API routes.
+- [ ] **Load Test Passed:** Final k6 load test results reviewed; API maintained sub-200ms response times at the target concurrent user volume.
+- [ ] **Error Tracking Active:** Verified Sentry (or DataDog) is receiving exceptions from both the Next.js frontend and the Node.js backend in the production environment.
 
-```
-I'm doing a final pre-submission review of a solo e-commerce project before [your context: portfolio / job application / course submission / public showcase].
+---
 
-Here's my project: [paste your README, or describe the core flow and tech stack]
+## 3. Operational & Logistics Audit
 
-Go through this checklist and flag anything that's likely missing, inconsistent, or risky based on what I've described — don't just confirm everything looks fine:
-- Placeholder content or broken states
-- Claims in my presentation materials that might not match the actual product
-- Common last-minute issues: exposed secrets, leftover debug code, untested mobile experience
-- Anything a first-time evaluator would notice in the first 30 seconds that I might be missing because I'm too close to it
+If an order is placed, it must be successfully fulfilled and accounted for.
 
-Be specific about what to check, not generic reassurance.
+- [ ] **3PL Webhook Live:** Verified that the backend successfully pushes a real JSON payload to the warehouse management system when an order is paid.
+- [ ] **Inventory Parity:** Confirmed the digital inventory in the database exactly matches the physical inventory count provided by the warehouse.
+- [ ] **Taxes & Shipping Configured:** Verified that the checkout applies accurate Sales Tax (based on Nexus rules) and calculates dynamic Shipping costs (or Free Shipping thresholds) flawlessly.
+- [ ] **Refund Proration Tested:** Verified that a partial refund of a discounted order mathematically returns the correct fractional amount to the customer.
+
+---
+
+## 4. Growth & Analytics Audit
+
+Marketing cannot spend money if they cannot track the results accurately.
+
+- [ ] **Meta CAPI Live:** Verified the server-side backend is successfully pushing hashed `purchase` events to the Meta Conversions API.
+- [ ] **Consent Mode Verified:** Confirmed that Google Analytics tracking is strictly blocked until the user accepts the GDPR/CCPA cookie consent banner.
+- [ ] **Email Marketing Synced:** Verified that the `Added_to_Cart` and `Placed_Order` events are successfully reaching Klaviyo to trigger Abandoned Cart and Post-Purchase flows.
+- [ ] **SEO Basics Applied:** Verified Dynamic Sitemaps are generating, Canonical tags are present on faceted navigation, and `robots.txt` is not blocking Googlebot.
+
+---
+
+## AI Prompt — Finalize Your Audit
+
+```prompt
+I am completing the final Production Submission Checklist for an e-commerce platform before public launch.
+
+Tech Stack:
+- Infrastructure: [e.g., Vercel / Postgres]
+- Analytics: [e.g., Meta CAPI / Klaviyo]
+- Operations: [e.g., ShipStation / Stripe]
+
+Act as a Principal Site Reliability Engineer (SRE):
+1. Draft the exact incident response protocol if the Sentry error tracking system reports a spike in "Stripe Card Declined" errors 10 minutes after launch.
+2. Provide a script or checklist for safely verifying that all 15 third-party API keys in our `.env.production` file are valid live keys and not sandbox keys.
+3. Outline the emergency rollback procedure if we launch and immediately discover a catastrophic bug in the tax calculation API.
 ```
 
-This prompt is structured to push for genuine scrutiny rather than validation — AI will default to being agreeable unless explicitly told to look for problems, so the instruction to flag issues rather than confirm correctness matters.
-
 ---
 
-## Validating the Output
+## Final Sign-Off
 
-AI can flag likely issues from your description, but it cannot click through your actual live product. The final verification is yours:
+By completing this checklist, the engineering team certifies that the application meets all production-grade standards for financial security, operational logistics, and scalable infrastructure.
 
-- [ ] Personally walked the full purchase flow in an incognito window in the last 24 hours
-- [ ] Personally opened the live URL fresh, not just trusted that deployment succeeded
-- [ ] Personally re-read every claim in your presentation materials against what the product currently does
-- [ ] Asked one other person, even informally, to try the core flow once before you submit
-
-> **Tip:** That last step — one outside pair of eyes — catches more real problems than any amount of solo re-checking. You've built pattern blindness to your own project; someone seeing it fresh hasn't.
-
----
-
-## Common Last-Minute Mistakes
-
-| Mistake | Why it happens | Prevention |
-|---|---|---|
-| Live demo breaks because of an expired test API key | Keys set up weeks ago, never re-verified | Re-test the full flow within 24 hours of presenting |
-| Deck claims a feature that got cut during a late refactor | Materials written before the final build, never updated | Re-verify every claim against the live product, last |
-| Mobile layout broken | Only ever tested on desktop during development | Check on an actual phone, not a resized window |
-| Submission misses a stated requirement | Requirements skimmed once early on, not re-read | Re-read the actual submission guidelines right before sending |
-
----
-
-## Before You Submit
-
-This is the final gate. Don't submit until every box here is genuinely checked, not assumed:
-
-- [ ] Full purchase flow re-tested end-to-end, today
-- [ ] No placeholder content, broken states, or leftover debug code anywhere
-- [ ] Live URL confirmed working in a fresh incognito window
-- [ ] All presentation materials re-verified against the actual current product
-- [ ] At least one other person has tried the core flow
-- [ ] Submission requirements re-read one final time
-
----
-
-## What Comes After This
-
-Submitting isn't the end of the project — it's the point where real feedback starts. Whatever response you get (interview questions, mentor feedback, user reactions), treat it as new input for the next iteration: revisit Retention, Analytics, or Conversion Optimization earlier in this phase based on what you actually learn, rather than treating this checklist as a finish line.
+- [ ] **Final Code Freeze Enacted (No deployments 48 hours prior to launch).**
+- [ ] **Engineering Lead Sign-off.**
+- [ ] **Operations Lead Sign-off.**

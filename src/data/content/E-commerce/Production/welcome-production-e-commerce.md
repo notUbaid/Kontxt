@@ -1,94 +1,73 @@
 ---
-title: Welcome
+title: Welcome to Production E-Commerce
 slug: welcome
 phase: Phase 0
 mode: production
 projectType: e-commerce
-estimatedTime: 8–12 min
+estimatedTime: 10–15 min
 ---
 
-# You're Building a Production E-Commerce Store. Here's What That Actually Means.
+# Welcome to Production E-Commerce
 
-A demo store is built to impress. A production e-commerce store is built to operate.
+Building a production e-commerce store is fundamentally different from launching a weekend dropshipping site. 
 
-That difference shapes every decision in this curriculum. You are not optimising for a 3-minute pitch or a weekend sprint. You are building something that handles real money, real customers, real inventory, and real consequences — and needs to keep working reliably at scale, long after you ship it.
+At production scale, a 1-second delay in your cart API checkout loses thousands of dollars in revenue. A flawed database schema will break your inventory synchronization. A poorly implemented tax engine will result in crippling federal audits. 
 
-This track will teach you how to plan, architect, build, and operate that system professionally.
-
----
-
-## What This Track Builds
-
-By the end of this curriculum, you will have:
-
-- A clearly defined store concept with a validated market position
-- A production-grade technical architecture designed for scalability and maintainability
-- A fully featured store with real payments, real inventory, customer accounts, and fulfilment workflows
-- A launch-ready store with SEO, legal compliance, shipping, fraud protection, and tax infrastructure in place
-- A growth system with analytics, conversion optimisation, and retention tooling
-
-This is a comprehensive track because building a production store is a serious engineering project. The curriculum respects that and guides you through it without wasting time on things that don't matter at this stage.
+This guide is designed for **Principal Engineers, Data Architects, and Technical Founders** who are building scalable, high-throughput digital commerce systems.
 
 ---
 
-## What Production Mode Demands
+## What Does "Production" Mean in E-Commerce?
 
-Production mode is built around three principles that lightweight approaches explicitly ignore:
+Production e-commerce is defined by **Risk Mitigation and Unit Economics.**
 
-**Reliability** — Your store must work correctly at volume, under load, for real customers who trust it with their money. Every system is designed with failure modes, recovery paths, and operational discipline in mind.
+### 1. Zero-Trust Architecture
+When dealing with credit cards, PII (Personally Identifiable Information), and fulfillment operations, you must assume every endpoint will be attacked. You do not build a "Shopping Cart"; you build an idempotent, rate-limited state machine.
 
-**Scalability** — Decisions made in Phase 0 will shape whether you can grow from 10 orders a month to 10,000 without a painful rewrite. Architecture comes before code.
+### 2. The LTV:CAC Equation
+Code quality does not matter if the business goes bankrupt. Production engineering is tied directly to the **LTV:CAC ratio** (Lifetime Value to Customer Acquisition Cost). 
+- If your frontend is slow (poor Core Web Vitals), your conversion rate drops.
+- If your conversion rate drops, your CAC skyrockets.
+- If your CAC is higher than your LTV, you lose money on every ad you run.
 
-**Compliance** — A production store has legal, security, and payment industry obligations: PCI DSS compliance, data privacy, fraud prevention, tax collection, and proper order records. These are not optional.
-
----
-
-## The Curriculum at a Glance
-
-| Phase | Focus | What You'll Have After |
-|---|---|---|
-| **Phase 0** | Business & Store Strategy | A clear concept, defined audience, validated economics |
-| **Phase 1** | Store Design | A complete design system and page-by-page specification |
-| **Phase 2** | E-Commerce Architecture | A production-grade technical plan before a single line of code |
-| **Phase 3** | Development | A fully featured store with all core and extended systems |
-| **Phase 4** | Production Readiness | A secure, monitored, scalable, and resilient store |
-| **Phase 5** | Store Launch | A live store with legal, SEO, operations, and merchant feeds in place |
-| **Phase 6** | Growth | Systems for retention, conversion optimisation, and business improvement |
+### 3. Decoupled Systems (Headless)
+At scale, you cannot rely on monolithic platforms (like a basic Shopify theme). You must decouple the frontend UX from the backend commerce engine. This enables you to deploy a React (Next.js) storefront to the Edge, while treating Shopify or Magento purely as a headless database for inventory and checkout routing.
 
 ---
 
-## A Note on AI in This Track
+## How to Use This Guide
 
-AI will write significant portions of your code. That is expected and encouraged in a production context.
+This guide is broken down into 7 rigorous phases. Do not skip phases. If you skip Phase 0 (Store Economics), you will build a technically perfect app for a business model that is mathematically guaranteed to fail.
 
-What AI will not do is catch its own architectural blind spots, surface edge cases in your payment or inventory logic, or tell you when a shortcut is creating a security vulnerability you will not discover until it is exploited.
-
-This curriculum teaches you to direct AI precisely — providing the right architectural context, reviewing generated code against production standards, and knowing when to push back. Every module that involves code generation includes a validation step. In production mode, those steps are not optional.
-
----
-
-## Before You Start
-
-Work through these before moving to Phase 0 content:
-
-- [ ] I know what kind of store I am building and have a clear product category in mind
-- [ ] I understand this is a multi-phase project that will take weeks to months, not days
-- [ ] I have chosen or am about to choose a tech stack (custom build, Shopify, or hybrid)
-- [ ] I have access to an AI coding assistant (Cursor, Claude Code, Copilot, or equivalent)
-- [ ] I am prepared to think about compliance, operations, and architecture — not just UI
+1. **Phase 0 (Business & Strategy):** Defining the SKU architecture, mapping Unit Economics (Contribution Margins), and validating the LTV:CAC math.
+2. **Phase 1 (Design):** Architecting the Information Architecture, Wireframing for Conversion Rate Optimization (CRO), and defining the Headless tech stack.
+3. **Phase 2 (Architecture):** Designing the Database schema, the Cart State Machine, and the Checkout Idempotency logic.
+4. **Phase 3 (Development):** Building the API layer, integrating Stripe/Payment Gateways, and connecting 3PL (Third Party Logistics) Webhooks.
+5. **Phase 4 (Production Readiness):** Implementing PgBouncer, configuring Meta CAPI tracking, load-testing the API, and securing PCI compliance.
+6. **Phase 5 (Store Launch):** Passing legal and financial audits, configuring automated Sales Tax, and enacting the final 48-Hour Code Freeze.
+7. **Phase 6 (Growth):** Engineering A/B testing frameworks at the Edge, building Subscription Dunning flows, and deploying algorithmic Upsell/Cross-sell engines.
 
 ---
 
-## One Principle to Carry Through Every Module
+## AI Prompt — Establish Your Baseline
 
-> Build the simplest architecture that supports the real production requirements.
+```prompt
+I am preparing to build a high-volume, production-grade e-commerce application.
 
-Not the most impressive architecture. Not the most over-engineered platform. The architecture that handles real orders, real edge cases, and real operational needs — reliably and maintainably.
+Business Context:
+- Target Vertical: [e.g., Direct-to-Consumer Apparel / B2B Wholesale / Hardware]
+- Current Scale: [e.g., 0 to 1 MVP / Migrating from a monolithic Shopify theme]
 
-When you are uncertain between two approaches, choose the one you can operate confidently and debug quickly.
+Act as a Principal Staff Engineer advising a technical founder:
+1. Explain the architectural and financial risks of skipping the "Unit Economics" and "Tax/Compliance" planning phases before writing code.
+2. Define the core difference between building a monolithic e-commerce app versus a decoupled "Headless" architecture using Next.js and a Commerce API.
+3. List the top 3 single points of failure (SPOFs) in a custom e-commerce checkout flow that we must architect around.
+```
 
 ---
 
-> **First module:** Target Audience →
->
-> Before you design a single page or write a single line of code, you need to know exactly who you are building for. That person shapes every commercial, design, and engineering decision that follows.
+## Welcome Checklist
+
+- [ ] Mindset shifted from "building a website" to "engineering a secure financial transaction engine"
+- [ ] Understanding established that performance (Speed) is directly tied to profitability (CAC)
+- [ ] Commitment made to follow the phased architectural approach without skipping planning steps

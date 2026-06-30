@@ -1,214 +1,124 @@
 ---
-title: Search
+title: Search Implementation
 slug: search
 phase: Phase 3
 mode: production
 projectType: e-commerce
-estimatedTime: 20-30 min
+estimatedTime: 40–50 min
 ---
 
-# Search
+# Search Implementation
 
-Search feels like a small feature until a customer types "blu shirt" and gets zero results for the blue shirt sitting right there in your catalog. This module is about building search that's good enough to not lose sales — without reaching for infrastructure a personal store doesn't need.
+Implementing search in a production e-commerce environment is an exercise in data synchronization and sub-50ms query latency.
 
----
-
-## What Problem Are You Actually Solving?
-
-Most personal stores have somewhere between 10 and 500 products. At that scale, the failure mode isn't "search is too slow" — it's "search is too literal."
-
-A customer searching "hoodie" should find "Hoodie," "Pullover Hoodie," and "Zip-Up Hoodie." A customer typing "jaket" (typo) should still find "Jacket." This is the bar.
-
-> **Reframe:** You are not building a search engine. You are building a forgiving product filter. Keep that framing — it'll stop you from overbuilding.
+If you query your primary transactional database for search (e.g., `SELECT * FROM products WHERE description ILIKE '%shirt%'`), you will bring down your database during high-traffic events, and the user experience will suffer due to a lack of typo-tolerance.
 
 ---
 
-## Decision: Where Does Search Run?
+## 1. The Separation of Concerns
 
-<table>
-<tr><th>Approach</th><th>How it works</th><th>Good fit for</th></tr>
-<tr><td><strong>Database query (Postgres full-text search)</strong></td><td>SQL queries against your existing products table using built-in text search</td><td>Personal stores, &lt;1,000 products</td></tr>
-<tr><td><strong>Dedicated search service (Algolia, Typesense, Meilisearch)</strong></td><td>Separate indexed search engine your app queries</td><td>Large catalogs, typo-tolerance at scale, faceted filtering</td></tr>
-<tr><td><strong>Client-side filtering</strong></td><td>Load all products into the browser, filter with JS</td><td>Tiny catalogs (&lt;50 products) only</td></tr>
-</table>
+You must treat Search as a distinct microservice, utilizing specialized indexing engines like **Algolia**, **Typesense**, or **ElasticSearch**.
 
-**Recommendation for Personal Mode:** Postgres full-text search (built into Supabase). It's already there, costs nothing extra, and handles typo-tolerance and ranking well enough for a personal catalog.
-
-> **Why not Algolia/Meilisearch?** They're genuinely excellent products — but they're a separate service to configure, sync, pay for (eventually), and keep in sync with your database. That's real complexity for a problem Postgres already solves at your scale. Revisit this in Phase 6 if your catalog grows past a few thousand products.
+**The Architecture:**
+1. **Primary Database (Postgres):** The Source of Truth. Stores complex relational data (Orders, Variants, Inventory, Users).
+2. **Search Engine (Algolia/Typesense):** The Read-Optimized Index. Stores a flattened, JSON-optimized version of the product catalog.
+3. **The Sync Pipeline:** Event-driven infrastructure that pushes changes from Postgres to the Search Engine instantly.
 
 ---
 
-## How Postgres Full-Text Search Works (The Short Version)
+## 2. Flattening the Payload
 
-Postgres can convert text into a searchable format (`tsvector`) and match it against a search query (`tsquery`), with built-in relevance ranking.
+Search engines do not understand SQL JOINs. You must flatten your relational data into a single JSON document per sellable unit.
 
-```sql
--- Add a generated search column to your products table
-ALTER TABLE products ADD COLUMN search_vector tsvector
-  GENERATED ALWAYS AS (
-    to_tsvector('english', coalesce(name, '') || ' ' || coalesce(description, ''))
-  ) STORED;
+**Do NOT index heavy data.**
+Do not send the 2,000-word HTML product description to the search index. It bloats the index size (costing you money) and dilutes search relevance.
 
--- Index it for speed
-CREATE INDEX products_search_idx ON products USING GIN(search_vector);
-
--- Query it
-SELECT * FROM products
-WHERE search_vector @@ plainto_tsquery('english', 'blue shirt')
-ORDER BY ts_rank(search_vector, plainto_tsquery('english', 'blue shirt')) DESC;
-```
-
-This gives you:
-- Relevance ranking (best matches first)
-- Matching across multiple fields (name + description) at once
-- Stemming (searching "running" matches "run", "runs")
-
-What it does **not** give you out of the box: typo tolerance ("jaket" → "jacket"). More on that below.
-
----
-
-## Handling Typos (Without Overbuilding)
-
-Pure full-text search won't catch typos. You have two reasonable options for a personal store:
-
-**Option 1 — Trigram similarity (`pg_trgm`)**
-Postgres extension that measures string similarity, catching close misspellings.
-
-```sql
-CREATE EXTENSION IF NOT EXISTS pg_trgm;
-CREATE INDEX products_name_trgm_idx ON products USING GIN(name gin_trgm_ops);
-
--- Fuzzy match query
-SELECT *, similarity(name, 'jaket') AS score
-FROM products
-WHERE name % 'jaket'
-ORDER BY score DESC;
-```
-
-**Option 2 — Combine full-text + trigram fallback**
-Run full-text search first; if it returns zero results, fall back to a trigram similarity search. This gives you accurate ranked results most of the time, with typo tolerance as a safety net.
-
-> **Recommendation:** Implement the fallback pattern. It's a small amount of extra logic for a meaningfully better experience — someone who can't find what they're searching for usually just leaves.
-
----
-
-## What Should Be Searchable?
-
-Decide this deliberately — searching too many fields creates noisy, irrelevant results.
-
-| Field | Include in search? | Why |
-|---|---|---|
-| Product name | Yes | Primary match target |
-| Description | Yes | Catches detail-level matches ("waterproof", "cotton") |
-| Category | Yes (lower weight) | Helps broad queries like "shoes" |
-| SKU/internal ID | No | Customers don't search by SKU |
-| Price | No | This is a filter, not a search term |
-| Tags (if you have them) | Yes | Often the highest-signal field |
-
-> **Tip:** Weight your fields. A match in the product name should rank higher than a match buried in a long description. Postgres `ts_rank` supports field weighting (`setweight()`) — worth the extra 10 minutes to configure.
-
----
-
-## AI Prompt: Implement Search
-
-```
-I'm building product search for a personal e-commerce store using Supabase (Postgres).
-
-My products table schema:
-[paste schema here]
-
-Requirements:
-- Full-text search across product name, description, and tags, with name weighted highest
-- Typo-tolerant fallback using pg_trgm when full-text search returns no results
-- Return results ranked by relevance
-- Expose this as a single Supabase function or backend endpoint: search(query: string) -> Product[]
-- Include the SQL migration for the necessary extensions, columns, and indexes
-
-Explain any tradeoffs in your indexing approach before giving me the final code.
-```
-
-> **Token efficiency tip:** Don't ask AI to "build search" without your real schema. Generic schemas produce generic (often wrong) field names you'll spend more time fixing than if you'd included the schema up front.
-
----
-
-## Validating AI-Generated Search Code
-
-Search bugs are easy to miss because "it returns *something*" looks correct at a glance. Check specifically for:
-
-- [ ] Does an empty search query return all products (or nothing) — and is that the behavior you want?
-- [ ] Does the GIN index actually get created? (Search will work without it, just slowly — this is an easy thing for AI to silently skip.)
-- [ ] Is the query parameterized/sanitized, or is user input concatenated directly into SQL? (Direct concatenation is a SQL injection risk.)
-- [ ] Does search exclude out-of-stock or unpublished products, or does it leak them?
-- [ ] Is there a reasonable limit on returned results (e.g., top 20), or could a broad query return your entire catalog?
-
-> **Common AI mistake:** AI frequently forgets to filter search results by product status (published, in-stock). You'll end up with customers searching and finding draft or archived products. Always confirm the `WHERE` clause includes your visibility/status filters.
-
----
-
-## Frontend: Search-as-You-Type vs Search-on-Submit
-
-<table>
-<tr><th></th><th>Search-as-you-type (debounced)</th><th>Search-on-submit</th></tr>
-<tr><td>Feel</td><td>Modern, responsive</td><td>Simpler, more predictable</td></tr>
-<tr><td>Backend load</td><td>Higher (many requests)</td><td>Lower</td></tr>
-<tr><td>Implementation effort</td><td>Needs debouncing logic</td><td>Minimal</td></tr>
-</table>
-
-**Recommendation:** Search-as-you-type with a 300ms debounce. It's a small implementation cost (most UI libraries or a simple `setTimeout` pattern handle it) and meaningfully improves perceived quality. Customers expect this from any modern site.
-
-```javascript
-// Debounce pattern — wait 300ms after typing stops before firing the search
-const debouncedSearch = useMemo(
-  () => debounce((query) => runSearch(query), 300),
-  []
-);
+**The Production Payload:**
+```json
+// One record in the Search Engine
+{
+  "objectID": "variant_999", // The unique ID for the search engine
+  "sku": "TSHIRT-RED-M",
+  "title": "Vintage Red Tee",
+  "brand": "Nike",
+  "price": 2500, // Stored as integer
+  "image_url": "https://cdn.example.com/red-tee-thumb.jpg",
+  "available_inventory": 45,
+  "options": {
+    "size": "M",
+    "color": "Red"
+  },
+  "margin_percentage": 65, // Used for algorithmic boosting, NEVER displayed
+  "created_at_timestamp": 1700000000
+}
 ```
 
 ---
 
-## Empty States Matter Here
+## 3. The Synchronization Pipeline (CDC)
 
-A "no results" page is often where customers decide to leave. Don't let it be a dead end.
+How do you guarantee the search index is up to date when inventory changes by the millisecond?
 
-**Good empty state includes:**
-- Clear "No results for '[query]'" message
-- A suggestion to check spelling
-- 2-3 popular or related products shown anyway
-- A link back to browse all categories
+**The Anti-Pattern:** A nightly cron job that deletes and re-uploads the whole catalog. (Your search results will show out-of-stock items for 23 hours a day).
 
-> **Best Practice card:** Treat your zero-results search page as a recovery opportunity, not a dead end. It directly affects conversion — don't ship a blank page here.
+**The Production Pattern: Event-Driven Updates**
+When a checkout completes and inventory is decremented in Postgres, your backend must publish an event.
+1. `EventQueue.publish('inventory.updated', { sku: 'TSHIRT-RED-M', newQty: 44 })`
+2. A background worker consumes this event.
+3. The worker calls `algoliaIndex.partialUpdateObject({ objectID: 'variant_999', available_inventory: 44 })`.
 
----
-
-## What You're Skipping (On Purpose)
-
-In Personal Mode, deliberately skip:
-
-- Dedicated search infrastructure (Algolia, Typesense, Elasticsearch)
-- Search analytics/tracking ("what are people searching for")
-- Faceted filtering combined with search (filter by price + category + search term simultaneously) — basic category filters are enough for now
-- Search result personalization
-- Voice search, image search
-
-These are real features for a mature store, not requirements for launch.
+For massive enterprise catalogs, use **Change Data Capture (CDC)** tools like Debezium, which listen directly to the Postgres Write-Ahead Log (WAL) and pipe changes directly to the search engine, bypassing the application layer entirely.
 
 ---
 
-## Implementation Checklist
+## 4. Algorithmic Merchandising (Boosting)
 
-- [ ] `pg_trgm` extension enabled
-- [ ] `search_vector` generated column added to products table
-- [ ] GIN indexes created for both full-text and trigram search
-- [ ] Field weighting configured (name > tags > description)
-- [ ] Fallback logic implemented (full-text → trigram on zero results)
-- [ ] Search endpoint/function filters out unpublished/out-of-stock products
-- [ ] Result limit enforced (e.g., top 20-50)
-- [ ] Frontend search-as-you-type with debounce implemented
-- [ ] Empty state designed with recovery suggestions
-- [ ] Tested with: exact match, partial match, typo, empty query, gibberish query
+Search is not just about relevance; it is about revenue optimization.
+
+You must configure the Search Engine's ranking algorithm.
+1. **Typo Tolerance:** Standardize the Levenshtein distance (e.g., 1-2 character mistakes).
+2. **Custom Ranking (Business Metrics):** If two items perfectly match the search "red shirt", which shows up first? 
+   - Tie-breaker 1: Sort by `available_inventory > 0` (never show out-of-stock items first).
+   - Tie-breaker 2: Sort descending by `margin_percentage` (show the most profitable shirt).
+   - Tie-breaker 3: Sort descending by `created_at_timestamp` (show the newest shirt).
 
 ---
 
-## What's Next
+## 5. Instant UI and Faceted Filtering
 
-With customers now able to find products reliably, it's time to understand how they're behaving once they find them — that's **Analytics**, next in this phase.
+The frontend implementation must feel instantaneous.
+
+**Implementation Rules:**
+- **No Backend Hops:** The frontend React components must query the Search Engine API directly using a public, read-only search key. Do not route search keystrokes through your Next.js API routes; it adds unnecessary latency.
+- **Faceted Filters:** Request facet counts (e.g., `Color: Red (14), Blue (5)`) in the same API call as the search results.
+- **URL State:** Bind all search queries and active filters to the URL `?q=shirt&size=M`. If the state is only in React, users cannot share links to their filtered results.
+
+---
+
+## AI Prompt — Implement Your Search Engine
+
+```prompt
+I am implementing the search microservice for a production e-commerce store.
+
+Tech Stack:
+- Database: [e.g., Postgres]
+- Search Engine: [e.g., Algolia / Typesense]
+- Frontend: [e.g., Next.js / React InstantSearch]
+
+Act as a Principal Search Engineer:
+1. Provide the exact Node.js/TypeScript code for the Event-Driven worker that listens for a database `inventory_change` and executes a `partialUpdate` to the search index.
+2. Define the JSON payload schema for indexing a complex product variant (including the hidden attributes needed for profit-based boosting).
+3. Write the configuration logic (ranking formula) for the Search Engine to prioritize items that are: In Stock > High Margin > Newly Released.
+4. Provide a React component architecture demonstrating how to bind faceted filter state directly to the URL parameters.
+```
+
+---
+
+## Search Implementation Checklist
+
+- [ ] Search engine (Algolia/Typesense) deployed and decoupled from the transactional database
+- [ ] Product payload flattened, stripping heavy HTML descriptions and optimizing for small JSON sizes
+- [ ] Event-driven synchronization (or CDC) implemented to update index inventory in near real-time
+- [ ] Business logic ranking configured (boosting high-margin or high-converting items)
+- [ ] Frontend query logic routed directly to the Search API (bypassing backend hops for speed)
+- [ ] Search queries and active faceted filters bound strictly to URL state

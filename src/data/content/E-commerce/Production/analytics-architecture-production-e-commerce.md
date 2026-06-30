@@ -4,327 +4,119 @@ slug: analytics-architecture
 phase: Phase 2
 mode: production
 projectType: e-commerce
-estimatedTime: 20–30 min
+estimatedTime: 30–40 min
 ---
 
 # Analytics Architecture
 
-Analytics tells you what's actually happening in your store — not what you assume is happening. Without it, every product and marketing decision is a guess.
+At a small scale, analytics means dropping a Google Analytics script into the `<head>` of your website to see how many people visited today. 
 
-The goal is not to collect everything. The goal is to collect the right things and actually use them.
+At production scale, analytics is the data pipeline that dictates your multi-million dollar ad spend. If your tracking is inaccurate, your ad algorithms (Meta, Google) will optimize for the wrong audience, destroying your Customer Acquisition Cost (CAC). 
 
----
-
-## What E-Commerce Analytics Is Really For
-
-Before picking tools, be clear on the questions you need to answer:
-
-**Revenue questions**
-- What is my revenue today / this week / this month?
-- Which products generate the most revenue?
-- What is my average order value?
-
-**Conversion questions**
-- What percentage of visitors add to cart?
-- What percentage of carts become orders?
-- Where in checkout do customers drop off?
-
-**Product questions**
-- Which products are viewed most but purchased least?
-- Which search queries return zero results?
-- Which products are frequently wishlisted but not purchased?
-
-**Customer questions**
-- Are customers returning or one-time buyers?
-- What is my customer acquisition source?
-- Which customers have the highest lifetime value?
-
-Design your analytics to answer these questions. Nothing else matters until these are answered.
+If you rely solely on client-side tracking in a world of ad blockers, Safari ITP, and iOS privacy features, you will lose visibility into 30–50% of your actual conversions.
 
 ---
 
-## The Two Layers of Analytics
+## 1. The End of Client-Side Tracking
 
-```
-Layer 1: Business Events (your database)
-─────────────────────────────────────────
-Orders, revenue, products, customers
-Already exists if your schema is right
-Query it directly — no extra tools needed
+Historically, you placed a Facebook Pixel on the checkout success page. When it fired, Facebook registered a sale.
+Today, ad blockers and browser privacy features block these client-side scripts relentlessly.
 
-Layer 2: Behavioural Events (user actions)
-───────────────────────────────────────────
-Page views, clicks, scroll depth, add-to-cart
-Requires event tracking
-External tool or custom event log
-```
+**The Production Architecture: Server-Side Tracking**
+To guarantee accurate attribution, your backend must send conversion events directly to the ad platforms.
+- When an order is confirmed in your database, your backend makes a server-to-server API call (e.g., Facebook Conversions API (CAPI), Google Ads Server-Side Tracking).
+- You must pass a hashed version of the customer's email or phone number to the API so the ad network can match the purchase back to the ad impression.
 
-Most builders jump to Layer 2 (Google Analytics, Mixpanel) and ignore Layer 1. Your order database already answers your most important questions. Start there.
+*Without Server-Side tracking, your Return on Ad Spend (ROAS) reporting will be fundamentally broken.*
 
 ---
 
-## Layer 1: Database Analytics
+## 2. Event Streaming vs Batch Processing
 
-You already have the data. Write the queries.
+Production analytics requires you to separate "Product Analytics" from "Financial Analytics."
 
-**Revenue dashboard queries (examples):**
+### Product Analytics (Event Streaming)
+Understanding how users behave on the site. Where do they click? Which filters do they use? When do they abandon the cart?
+- **Tools:** PostHog, Mixpanel, Amplitude.
+- **Architecture:** You fire a stream of JSON events from the frontend (and backend) to the analytics provider. E.g., `event: "added_to_cart", product: "SKU123"`.
+- **Latency:** Real-time.
 
-```sql
--- Revenue today
-SELECT SUM(total_amount) FROM orders
-WHERE status = 'paid' AND created_at >= CURRENT_DATE;
-
--- Orders by status
-SELECT status, COUNT(*), SUM(total_amount)
-FROM orders GROUP BY status;
-
--- Top products by revenue (last 30 days)
-SELECT p.name, SUM(oi.quantity) as units_sold, SUM(oi.total_price) as revenue
-FROM order_items oi
-JOIN products p ON p.id = oi.product_id
-JOIN orders o ON o.id = oi.order_id
-WHERE o.status = 'paid' AND o.created_at >= NOW() - INTERVAL '30 days'
-GROUP BY p.id, p.name
-ORDER BY revenue DESC
-LIMIT 10;
-
--- Average order value
-SELECT AVG(total_amount) FROM orders WHERE status = 'paid';
-
--- Repeat customer rate
-SELECT
-  COUNT(DISTINCT CASE WHEN order_count > 1 THEN user_id END) * 100.0
-  / COUNT(DISTINCT user_id) AS repeat_rate
-FROM (
-  SELECT user_id, COUNT(*) as order_count
-  FROM orders WHERE user_id IS NOT NULL
-  GROUP BY user_id
-) t;
-```
-
-Build a simple `/admin/analytics` page that runs these queries and displays results. This is your most valuable dashboard and it costs nothing extra.
+### Financial Analytics (Data Warehousing)
+Understanding your actual profit margins, cohort retention, and Customer Lifetime Value (LTV).
+- **Tools:** Snowflake, Google BigQuery, Amazon Redshift.
+- **Architecture:** You use an ETL tool (Extract, Transform, Load) like Fivetran or Airbyte to sync your Postgres database, your Stripe data, and your Shopify data into a single warehouse every few hours.
+- **Latency:** Batch processed (usually every 12–24 hours).
 
 ---
 
-## Layer 2: Behavioural Event Tracking
+## 3. The "Source of Truth" Problem
 
-For understanding the customer journey — what people do before they buy — you need event tracking.
+A classic e-commerce engineering crisis:
+- Google Analytics says you made $50,000 yesterday.
+- Shopify says you made $48,000.
+- Stripe says you processed $51,000.
 
-### Option A: Posthog (Recommended for personal projects)
+**Which is correct?**
+*Stripe.* Money in the bank is the only absolute truth. 
 
-Open-source, self-hostable, generous free cloud tier (1M events/month). Captures page views, custom events, session recordings, funnels, and retention analysis.
-
-```js
-// Install
-npm install posthog-js
-
-// Initialise (layout or _app)
-import posthog from 'posthog-js'
-posthog.init('YOUR_KEY', { api_host: 'https://app.posthog.com' })
-
-// Track custom events
-posthog.capture('product_viewed', { product_id: id, product_name: name })
-posthog.capture('add_to_cart', { product_id: id, quantity, price })
-posthog.capture('checkout_started', { cart_value: total })
-posthog.capture('order_completed', { order_id: id, revenue: total })
-```
-
-### Option B: Google Analytics 4
-
-Free, ubiquitous, powerful. Better for SEO/marketing attribution (UTM parameters, traffic sources). Weaker for product analytics (funnels, retention).
-
-Use GA4 if traffic source analysis and SEO measurement matter more to you than conversion funnel analysis.
-
-### Option C: Custom Event Log
-
-If you want full data ownership and no third-party scripts:
-
-```
-AnalyticsEvent
-├── id
-├── type (product_viewed | add_to_cart | checkout_started | order_completed | search | ...)
-├── sessionId
-├── userId (nullable)
-├── properties (jsonb)
-└── createdAt
-```
-
-Log events server-side on API calls. No client-side JavaScript tracking, no ad blockers defeating your analytics, no third-party data sharing. Query your own table.
-
-The tradeoff: you build your own dashboards. Acceptable for a personal project with a simple admin panel.
+Never use Google Analytics or Mixpanel to report on revenue to your finance team or investors. Analytics tools track *events*, and events can be blocked, duplicated, or corrupted. Use analytics tools to measure *trends and conversion rates*. Use your transactional database and payment processor to measure *money*.
 
 ---
 
-## The Events That Actually Matter
+## 4. Structuring the E-Commerce Data Layer
 
-Track these. Ignore everything else until you've mastered these.
+If you implement GA4 or Google Tag Manager (GTM), you must expose a highly structured `dataLayer` object on the frontend. Do not rely on CSS class scraping to track button clicks.
 
-| Event | When to Fire | Key Properties |
-|---|---|---|
-| `product_viewed` | Product page load | product_id, product_name, category, price |
-| `add_to_cart` | Add to cart action | product_id, quantity, price, cart_value |
-| `checkout_started` | Checkout page load | cart_value, item_count |
-| `address_entered` | Address step completed | country, state |
-| `payment_initiated` | Payment form submitted | cart_value, shipping_cost |
-| `order_completed` | Order confirmed (post-webhook) | order_id, revenue, item_count, coupon |
-| `search_performed` | Search executed | query, result_count |
-| `cart_abandoned` | Session ends with active cart | cart_value, item_count |
+Whenever a user views an item, adds to cart, or purchases, your React components must push a standardized JSON object to the window.
 
-This is your conversion funnel. The drop-off between each step tells you where to focus.
+```javascript
+// The standard E-commerce Data Layer pattern
+window.dataLayer.push({
+  event: 'add_to_cart',
+  ecommerce: {
+    currency: 'USD',
+    value: 77.99,
+    items: [{
+      item_id: 'SKU_12345',
+      item_name: 'Stan Smith',
+      affiliation: 'Google Merchandise Store',
+      item_category: 'Apparel',
+      price: 77.99,
+      quantity: 1
+    }]
+  }
+});
+```
+This single, standardized data layer can then be mapped by GTM to Google Analytics, Meta, TikTok, and PostHog simultaneously, ensuring all platforms receive the exact same telemetry.
 
 ---
 
-## Conversion Funnel Analysis
+## AI Prompt — Architect Your Analytics Pipeline
 
-The funnel is the most actionable analytics output for a store:
+```prompt
+I am architecting the analytics and data pipeline for a production e-commerce store.
 
-```
-Product viewed          1,000 sessions    100%
-Add to cart               250 sessions     25%    ← 75% drop — product pages not converting
-Checkout started          180 sessions     18%    ← 28% cart abandonment
-Address entered           160 sessions     16%
-Payment initiated         140 sessions     14%    ← 12% drop at shipping/address
-Order completed           120 sessions     12%    ← 14% drop at payment
+Business Profile:
+- Traffic Volume: [e.g., 500k monthly visitors]
+- Marketing Channels: [e.g., Heavy Meta/TikTok spend, SEO, Email]
+- Tech Stack: [e.g., Next.js Frontend, Headless Shopify Backend, Vercel]
+- Key Metric Required: [e.g., True LTV/CAC ratio, Cohort Retention]
 
-Overall conversion: 12%
-```
-
-Each drop-off point tells you where to investigate. A 75% drop from viewed to add-to-cart suggests price, trust, or product presentation problems. A large drop at payment suggests payment method gaps or checkout friction.
-
-You cannot see this without event tracking.
-
----
-
-## UTM Parameters and Traffic Attribution
-
-Knowing where your customers come from lets you invest in what works.
-
-UTM parameters are query strings appended to links:
-
-```
-https://yourstore.com?utm_source=instagram&utm_medium=social&utm_campaign=launch
-```
-
-Capture and store UTMs when a session starts:
-
-```js
-// On page load
-const params = new URLSearchParams(window.location.search)
-const utm = {
-  source: params.get('utm_source'),
-  medium: params.get('utm_medium'),
-  campaign: params.get('utm_campaign')
-}
-if (utm.source) sessionStorage.setItem('utm', JSON.stringify(utm))
-
-// On order completion, attach to order
-const utm = JSON.parse(sessionStorage.getItem('utm') || '{}')
-// Send with order creation request
-```
-
-Store `utmSource`, `utmMedium`, `utmCampaign` on the Order table. Now you know which marketing channel generates revenue, not just traffic.
-
----
-
-## Admin Dashboard Minimum Viable Metrics
-
-Your `/admin/analytics` page should answer these at a glance:
-
-```
-Today          This Week       This Month
-──────         ──────────      ──────────
-Revenue        Revenue         Revenue
-Orders         Orders          Orders
-AOV            AOV             AOV
-
-Top Products (by revenue, last 30 days)
-──────────────────────────────────────
-1. Product name    ₹X,XXX    XX units
-2. ...
-
-Recent Orders
-─────────────
-Order #1042  ₹1,299  Paid    2 min ago
-Order #1041  ₹849    Shipped 1 hr ago
-```
-
-Build this before adding any third-party analytics. You'll use it daily.
-
----
-
-## Privacy and Compliance
-
-If you track behavioural events, you have obligations:
-
-**Cookie consent:** If you use third-party analytics (GA4, Posthog cloud), you need a cookie consent banner for EU/UK visitors (GDPR) and California visitors (CCPA).
-
-**Privacy policy:** Must disclose what you collect and why. Required regardless of geography if you sell internationally.
-
-**Data minimisation:** Do not collect what you don't use. Every data point you store is a liability if you're breached.
-
-**IP addresses:** Anonymise IP addresses in GA4 settings. Do not log raw IPs unless you have a specific security reason.
-
-If your store is India-only and you use only server-side event logging to your own database, your compliance obligations are significantly simpler. No third-party cookie consent required.
-
----
-
-## AI Prompt: Analytics Architecture Review
-
-```
-You are a senior product engineer reviewing an analytics architecture for a personal e-commerce project.
-
-Here is my design:
-
-BEHAVIOURAL TRACKING TOOL: [Posthog / GA4 / custom event log / none]
-Reason: [brief explanation]
-
-EVENTS I PLAN TO TRACK:
-[list your events and key properties]
-
-DATABASE ANALYTICS:
-[list the queries or metrics you're computing from your orders/products tables]
-
-ADMIN DASHBOARD:
-[describe what your admin analytics page will show]
-
-UTM ATTRIBUTION: [yes/no]
-
-PRIVACY APPROACH:
-[describe cookie consent and data collection disclosures]
-
-Review for:
-1. Missing events that would break funnel analysis
-2. Events I'm tracking that I probably won't use
-3. Database query gaps (important metrics I'm not computing)
-4. Privacy/compliance oversights
-5. Over-engineering for a personal project
-
-Be specific. Flag critical gaps first.
+Act as a Principal Data Engineer:
+1. Design a Server-Side tracking architecture that implements the Meta Conversions API (CAPI) to bypass ad blockers effectively.
+2. Outline the exact `dataLayer` JSON schemas my frontend team must implement for the 4 critical e-commerce events: view_item, add_to_cart, begin_checkout, purchase.
+3. Recommend an ETL and Data Warehousing stack (e.g., Fivetran + BigQuery) for generating my financial and cohort reports. Justify the cost against my traffic volume.
+4. Explain how I should handle User Identity resolution when a user browses anonymously on their phone, and later purchases on their desktop.
+5. Provide a strict policy for handling PII (Personally Identifiable Information) when transmitting conversion events to third-party ad networks to ensure GDPR/CCPA compliance.
 ```
 
 ---
 
-## Validation Checklist
+## Analytics Architecture Checklist
 
-- [ ] Admin analytics page planned with revenue, orders, and AOV
-- [ ] Top products by revenue query written
-- [ ] Behavioural tracking tool chosen and initialised
-- [ ] Core funnel events defined: product_viewed → add_to_cart → checkout_started → order_completed
-- [ ] `search_performed` event logs query and result count
-- [ ] UTM parameters captured and stored on Order
-- [ ] Conversion funnel analysis possible from captured events
-- [ ] Cookie consent in place if using third-party analytics
-- [ ] Privacy policy updated to reflect data collection
-- [ ] Data minimisation applied — not tracking what won't be used
-
----
-
-## What to Build Next
-
-Phase 2 architecture is complete. You have designed the full technical foundation of your store.
-
-**Phase 3 — Development** begins with **Database** — translating every schema decision from Phase 2 into a real, migrated, seeded database ready for development.
-
----
-
-> **Filename:** `analytics-architecture-personal-e-commerce.md`
+- [ ] Server-side tracking (e.g., Meta CAPI) implemented to ensure 100% conversion attribution
+- [ ] Strictly formatted `dataLayer` implemented on the frontend to standardize event payloads
+- [ ] Product Analytics (Behavior) distinctly separated from Financial Analytics (Revenue)
+- [ ] Data Warehouse / ETL pipeline planned for complex LTV and cohort analysis
+- [ ] Hashing protocols enforced for all PII (email/phone) sent to advertising networks
+- [ ] Consent Management Platform (Cookie Banner) integrated directly with the data layer to respect user privacy laws

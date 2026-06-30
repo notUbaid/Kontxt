@@ -1,162 +1,90 @@
 ---
-title: Roadmap
+title: Roadmap & Engineering Velocity
 slug: roadmap
 phase: Phase 6
 mode: production
-projectType: ecommerce
-estimatedTime: 15-20 min
+projectType: e-commerce
+estimatedTime: 25–35 min
 ---
 
-# Roadmap
+# Roadmap & Engineering Velocity
 
-The next several modules cover specific growth tactics: Conversion Optimization, Upsells, Cross-Sells, Email Marketing, Loyalty Programs, Referrals. Doing all of them in order, regardless of your store's actual data, is how solo store owners burn limited time on tactics that don't address their real bottleneck. This module is the decision layer that comes first: using what you measured in the Analytics module to decide which of those tactics actually deserves your time next.
+In a production e-commerce business, the backlog of feature requests is infinite. Marketing wants a new loyalty program, logistics wants a new barcode scanner integration, and finance wants automated tax reporting.
 
----
-
-## Where This Fits
-
-This is a planning module, not an implementation one. It uses the five metrics and funnel data from the Analytics module to point you toward the right next module — possibly skipping ahead, possibly returning to fix something earlier in the curriculum before any growth tactic will work.
+If the engineering team tries to build everything simultaneously, nothing ships. A production roadmap is a ruthless prioritization engine designed to maximize ROI per engineering hour.
 
 ---
 
-## Why Generic Growth Advice Fails Here
+## 1. Prioritization Frameworks (RICE)
 
-> **⚠️ Warning:** "Add a loyalty program" or "send more emails" is generic advice that works for some stores and is a waste of limited solo time for others, depending entirely on where your actual funnel is leaking. A store with a conversion problem doesn't get fixed by upsells — there's nothing to upsell if visitors aren't completing checkout in the first place.
+Do not prioritize features based on whoever shouts the loudest. Use a quantitative framework like **RICE** (Reach, Impact, Confidence, Effort).
 
-The right next growth tactic is the one that addresses your store's specific, current bottleneck — not the one a generic article ranked first.
+- **Reach:** How many customers will this affect per month? (e.g., A checkout bug affects 100% of buyers; a niche filter affects 5%).
+- **Impact:** How much will this increase revenue or decrease costs? (Scale of 1-3).
+- **Confidence:** How certain are we that this will work? (e.g., 100% for a bug fix, 50% for a new UX experiment).
+- **Effort:** How many engineering sprints will this take? (Scale of 1-5).
 
----
-
-## What You're Building Today
-
-- A clear read on your store's single biggest bottleneck, using existing funnel data
-- A simple impact-vs-effort prioritization for the remaining growth modules
-- A sequencing decision: which of the next five modules to do first, and which to deliberately skip for now
-- Permission to *not* do every growth tactic immediately
-
-You're **not** building a formal product roadmap document or a multi-quarter plan. For a solo personal store, this is a working list, revisited monthly as new data comes in.
+`Score = (Reach × Impact × Confidence) / Effort`
+Sort your roadmap by this score. Build the highest-scoring features first.
 
 ---
 
-## Step 1 — Find the Bottleneck
+## 2. Technical Debt vs Feature Velocity
 
-Pull up your funnel from the Analytics module and find where the biggest relative drop-off happens:
+If you only ship new features, your codebase will eventually collapse under its own weight (Technical Debt). A minor change to the Cart API will take 3 weeks instead of 3 hours because the code is unreadable and brittle.
 
-| Funnel Stage | Bottleneck Signal | Points You Toward |
-|---|---|---|
-| Traffic is low overall | Few visitors regardless of conversion rate | Top-of-funnel: Referrals, content/SEO (already covered) |
-| Visitors → Product views is fine, but Product views → Add to Cart is weak | Pricing, photos, or descriptions aren't convincing | **Conversion Optimization** — revisit Product Photography/Descriptions first |
-| Add to Cart → Checkout is weak | Cart friction, surprise costs | **Conversion Optimization** — cart/checkout flow specifically |
-| Checkout completes fine, but Average Order Value is low | Customers buy one item and leave | **Upsells / Cross-Sells** |
-| First purchase happens, but repeat-purchase rate (from Retention/cohort data) is flat or low | Customers aren't coming back | **Loyalty Programs**, deepen **Email Marketing** |
-| Conversion and AOV are both healthy, but growth has plateaued | Existing customers are satisfied but not bringing new ones | **Referrals** |
-
-> **✅ Best Practice:** Pick the single largest relative drop-off, not the one that feels most interesting to work on. A 60% cart abandonment rate is a bigger lever than a slightly underperforming referral rate, even if upsells sound more exciting to build.
+**The Production Rule:**
+Allocate a strict percentage of every engineering sprint (e.g., 20%) exclusively to paying down technical debt, refactoring code, and improving CI/CD test coverage. This guarantees that your feature velocity remains high over the long term.
 
 ---
 
-## Step 2 — Impact vs Effort
+## 3. The RFC (Request for Comments) Process
 
-For whatever bottleneck you've identified, weigh the relevant tactic against your actual solo capacity:
+Before an engineer writes a single line of code for a complex new feature (like integrating a new 3PL or rebuilding the checkout state machine), they must write an RFC.
 
-| Tactic | Typical Effort (Personal Store) | Typical Impact If Bottleneck Matches |
-|---|---|---|
-| Conversion Optimization | Low-Medium (mostly copy/UX fixes) | High, if conversion is the actual leak |
-| Email Marketing | Low (infrastructure mostly exists from Phase 3) | Medium-High for retention-stage stores |
-| Upsells/Cross-Sells | Medium | Medium, only if conversion is already healthy |
-| Loyalty Programs | Medium-High | Medium, slower to show results |
-| Referrals | Low-Medium | High, but requires an existing satisfied customer base first |
-
-> **💡 Tip:** Referrals and loyalty programs both depend on already having satisfied repeat customers — building them before retention is healthy means asking customers to refer or stay loyal to an experience that hasn't earned it yet. Sequence matters, not just individual tactic quality.
+**The RFC Document:**
+- Defines the exact problem.
+- Proposes the technical architecture and database schema changes.
+- Lists the edge cases and security implications.
+- **The Value:** The entire engineering team reviews the RFC asynchronously. Catching an architectural flaw in a Google Doc takes 5 minutes to fix. Catching it in production takes 5 weeks to fix.
 
 ---
 
-## Implementation
+## 4. Feature Flagging (Safe Rollouts)
 
-**Copy Prompt:**
+When you deploy a massive new feature (e.g., a completely redesigned Product Detail Page), you do not launch it to 100% of your users instantly. That is how you crash a business.
 
-```
-Help me prioritize my next e-commerce growth effort. Here's my current
-funnel and metrics from the Analytics module:
+**The Implementation:**
+Use Feature Flags (e.g., LaunchDarkly, Vercel Edge Config, or PostHog).
+- Deploy the code to production wrapped in a flag: `if (flags.new_pdp_enabled) { render NewPDP() }`.
+- Turn the flag on for internal employee IPs only. Test it.
+- Turn the flag on for 5% of live traffic. Monitor Sentry for error spikes and Datadog for latency spikes.
+- If everything is stable, roll it out to 25%, 50%, and finally 100%. If it breaks at 25%, click a button in LaunchDarkly to instantly turn it off for everyone without requiring a code rollback.
 
-Visitors: [number]
-Product view → Add to cart rate: [%]
-Add to cart → Checkout rate: [%]
-Checkout → Purchase rate: [%]
-Average order value: [$]
-Repeat purchase rate (from cohort data): [%]
-Primary traffic sources and their conversion: [list]
+---
 
-Based on this, identify:
-1. Where my single biggest relative drop-off is
-2. Which of these growth tactics — Conversion Optimization, Upsells,
-   Cross-Sells, Email Marketing, Loyalty Programs, Referrals — most
-   directly addresses that bottleneck
-3. What I should deliberately deprioritize for now, and why
+## AI Prompt — Structure Your Engineering Roadmap
 
-Be specific about the bottleneck, not generic about "improving growth."
+```prompt
+I am establishing the engineering workflow and roadmap prioritization for a scaling e-commerce production team.
+
+Tech Stack:
+- Issue Tracking: [e.g., Linear / Jira]
+- Feature Flags: [e.g., LaunchDarkly / PostHog]
+
+Act as a Principal Engineering Manager:
+1. Provide a template for a technical RFC (Request for Comments) specifically tailored for a proposal to rip out our current Email Marketing API and replace it with Klaviyo.
+2. Outline exactly how to implement a Feature Flag in a Next.js App Router component to safely roll out a redesigned Checkout button to only 10% of users.
+3. Explain the RICE scoring methodology using a real e-commerce example (e.g., scoring a "One-Click Apple Pay" integration vs. a "Customer Wishlist" feature).
+4. Detail a strict sprint policy for balancing product feature requests with mandatory Technical Debt reduction.
 ```
 
 ---
 
-## A Realistic Sequencing Example
+## Roadmap Checklist
 
-For a typical early personal store, the data often points in this order:
-
-```
-1. Fix conversion leaks first (if any exist)
-       — cheapest to fix, biggest leverage, no growth tactic
-         outperforms a broken or unconvincing checkout
-2. Strengthen retention/email once conversion is healthy
-       — turn first-time buyers into repeat ones before
-         spending effort acquiring new ones
-3. Add upsells/cross-sells once order volume is steady
-       — increases revenue per existing transaction
-4. Layer in loyalty once repeat-purchase rate is meaningfully positive
-5. Pursue referrals last
-       — asks happy customers to vouch for an experience
-         that's now actually proven
-```
-
-This is a default, not a rule — your actual funnel data may point somewhere different, which is the entire reason this module exists before the tactic-specific ones.
-
----
-
-## Common Mistakes
-
-- Implementing growth tactics in the curriculum's listed order regardless of what the data actually shows
-- Chasing every tactic simultaneously instead of sequencing based on impact, spreading limited solo time too thin to do any of them well
-- Building referrals or loyalty programs before retention is healthy, asking for advocacy before earning it
-- Reacting to one week of unusual data instead of the trend established in the Analytics module
-- Treating this roadmap as a one-time exercise instead of revisiting it monthly as new data comes in
-
----
-
-## Validation Checklist
-
-- [ ] You can state, in one sentence, your store's current single biggest funnel bottleneck
-- [ ] You've chosen the next growth module to focus on based on that bottleneck, not curriculum order
-- [ ] You've explicitly identified at least one tactic to deliberately skip for now
-- [ ] A date is set to revisit this roadmap once new data accumulates (e.g., monthly)
-
----
-
-## AI Review Prompt
-
-```
-Review my growth prioritization reasoning for an e-commerce store.
-
-My identified bottleneck: [describe]
-My chosen next tactic: [Conversion Optimization / Upsells / etc.]
-My reasoning: [why you picked it]
-
-Check whether my chosen tactic genuinely addresses the bottleneck I
-described, or whether the data actually points somewhere else I might
-be overlooking.
-```
-
----
-
-## What Comes Next
-
-With a data-driven priority set, proceed to whichever module your roadmap pointed to. If conversion is your bottleneck — the most common starting point — next: **Conversion Optimization**.
+- [ ] Quantitative prioritization framework (e.g., RICE) implemented for all backlog grooming
+- [ ] 20% of engineering bandwidth strictly allocated to Technical Debt and refactoring
+- [ ] RFC (Request for Comments) process mandated for all major architectural changes before coding begins
+- [ ] Feature Flag infrastructure (LaunchDarkly/PostHog) integrated for safe, phased rollouts
+- [ ] Staging and Production environments decoupled to allow continuous deployment behind flags

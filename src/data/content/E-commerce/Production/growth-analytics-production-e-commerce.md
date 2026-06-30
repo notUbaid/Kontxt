@@ -3,146 +3,94 @@ title: Growth Analytics
 slug: growth-analytics
 phase: Phase 6
 mode: production
-projectType: ecommerce
-estimatedTime: 15-20 min
+projectType: e-commerce
+estimatedTime: 30–40 min
 ---
 
 # Growth Analytics
 
-Phase 5's Analytics Setup got events flowing — page views, funnel stages, purchases. This module is about turning that raw event stream into a small number of numbers you actually check and act on. Growth-stage analytics isn't about collecting more data; it's about asking better questions of the data you already have.
+Basic analytics (like Google Analytics) will tell you *how many* people visited your store. Growth Analytics tells you *who* is buying, *why* they are buying, and exactly how much you can afford to spend to acquire them.
+
+At production scale, if you cannot calculate your unit economics in real-time, you cannot scale your advertising spend safely.
 
 ---
 
-## Where This Fits
+## 1. The LTV:CAC Ratio (The Golden Metric)
 
-No new tracking is added here. This module is the analytical layer on top of Phase 5's instrumentation and the order data accumulating since launch — plus the repeat-purchase questions introduced in the Retention module.
+The health of an e-commerce business is defined by a single ratio: **Customer Lifetime Value (LTV) to Customer Acquisition Cost (CAC)**.
 
----
+- **CAC (Customer Acquisition Cost):** If you spend $1,000 on Facebook ads and acquire 50 customers, your CAC is $20.
+- **LTV (Lifetime Value):** If the average customer spends $100 over their entire relationship with your brand, and your gross margin is 50%, your LTV is $50.
+- **The Ratio:** In this example, your LTV:CAC is $50:$20, or **2.5:1**.
+- **The Target:** A healthy production e-commerce store aims for a **3:1** ratio. If it is 1:1, you are losing money. If it is 5:1, you are not spending enough on marketing to capture market share.
 
-## Why More Data Isn't the Answer
-
-> **⚠️ Warning:** The most common mistake at this stage isn't too little data — it's too many dashboards nobody checks. A personal store owner has limited time; a dashboard with thirty metrics gets opened once and abandoned. Five numbers, checked weekly, beats thirty numbers checked never.
-
-The goal of this module is narrowing, not expanding.
-
----
-
-## What You're Building Today
-
-- A short list of metrics that actually drive decisions, not just describe activity
-- A simple cohort view: how repeat-purchase rate changes as your store matures
-- Channel attribution: which traffic sources actually produce paying customers, not just visitors
-- A weekly review habit — five minutes, same five numbers, every time
-
-You're **not** building a custom BI tool or a real-time dashboard. A scheduled query or your analytics tool's built-in reports, checked on a fixed cadence, is the right scope here.
+**The Implementation:**
+You must build a real-time dashboard (using a BI tool like Looker, Metabase, or Tableau connected to your Postgres replica) that continuously calculates CAC from your marketing APIs (Meta/Google) against the real gross profit generated in your database.
 
 ---
 
-## The Five Numbers Worth Checking Weekly
+## 2. Contribution Margin (Unit Economics)
 
-| Metric | What It Tells You | Where It Comes From |
-|---|---|---|
-| New visitors | Top-of-funnel reach | Phase 5 analytics tool |
-| Conversion rate (visitor → purchase) | Whether the store itself is doing its job | Phase 5 funnel events |
-| Average order value | Whether upsells/pricing are working | Order data |
-| Repeat purchase rate | Whether retention efforts are working | Order data, from the Retention module's query |
-| Revenue by traffic source | Where to spend limited time/budget | Analytics tool, channel attribution |
+Revenue is a vanity metric. Gross Profit is a vanity metric. Contribution Margin is the truth.
 
-> **💡 Tip:** Write these five numbers down somewhere — a spreadsheet, a notes doc, doesn't matter — every week, even informally. The trend across weeks is more valuable than any single week's number; a static dashboard you glance at doesn't build that trend the way a recorded log does.
+**The Math:**
+To scale, you must know the exact contribution margin of every single order.
+`Order Total - (COGS + Shipping Cost + Payment Gateway Fees + Pick/Pack Fees + Return Rate Allocation) = Contribution Margin`
 
----
-
-## Channel Attribution: Knowing What's Actually Working
-
-Visitors arrive from search, social, direct links, maybe early word of mouth. Not all traffic is equal — this is where limited marketing time should concentrate.
-
-**Copy Prompt:**
-
-```
-Help me set up channel attribution reporting in [your analytics tool],
-so I can see, for each traffic source (organic search, social, direct,
-referral):
-
-1. Number of visitors
-2. Conversion rate to purchase
-3. Revenue generated
-
-I want to identify which channels are actually producing paying
-customers versus just traffic, so I can prioritize where to spend
-limited time on marketing efforts in upcoming growth work.
-```
-
-> **⚠️ Common Mistake:** Treating all traffic sources as equally valuable based on visitor count alone. A channel with fewer visitors but a much higher conversion rate is often a better use of limited time than a high-traffic, low-conversion one — the revenue-by-source view catches this, visitor count alone doesn't.
+If you sell a $50 shirt, and the COGS (Cost of Goods Sold) is $15, you might think you made $35. But after $8 shipping, a $1.75 Stripe fee, a $2.00 warehouse fee, and a $3.00 return risk allocation, your actual Contribution Margin is $20.25.
+This means your maximum allowable CAC to break even on the first purchase is $20.25.
 
 ---
 
-## Cohort Thinking: Is Retention Actually Improving?
+## 3. A/B Testing Infrastructure (Statistical Significance)
 
-This builds directly on the repeat-purchase query from the Retention module — now tracked over time instead of as a single snapshot.
+You cannot guess what will improve conversion. You must test it scientifically.
 
-**Copy Prompt:**
+If you want to change the "Add to Cart" button from Black to Green, you must run an A/B test.
 
-```
-Using my order data, help me build a simple cohort view: group
-customers by the month of their first purchase, then show what
-percentage of each monthly cohort made a second purchase within
-60 days.
-
-I want to see whether repeat-purchase rate is improving, staying flat,
-or declining as my store matures and as I add retention efforts from
-the Retention module.
-```
-
-> **✅ Best Practice:** A single repeat-purchase percentage tells you where you are. A cohort view — tracked monthly — tells you whether your retention efforts are actually working, which is the more useful question once you've started acting on them.
+**The Implementation:**
+Use a tool like **Optimizely**, **VWO**, or **GrowthBook**.
+- The tool randomly assigns 50% of your traffic to the Black button (Control) and 50% to the Green button (Variant).
+- **The Pitfall:** Do not look at the results after 1 day and declare the Green button a winner because it has 5 more clicks. You must wait until the test reaches **Statistical Significance** (usually 95% confidence), meaning the math proves the result is not due to random variance. This requires a minimum sample size of traffic.
 
 ---
 
-## Setting Up the Weekly Review
+## 4. Multi-Touch Attribution
 
-- [ ] Pick a fixed day/time to check the five numbers — consistency matters more than frequency
-- [ ] Record the numbers somewhere, even a simple spreadsheet row per week
-- [ ] After a few weeks, look for trend, not just the latest snapshot
-- [ ] When a number moves unexpectedly, ask why before reacting — a single bad week is often noise, a multi-week trend is signal
+Customers rarely buy on their first visit. 
+1. They see a Facebook ad on Monday on their phone.
+2. They click a Google Search ad on Wednesday on their laptop.
+3. They receive a promotional email on Friday and finally purchase.
 
----
-
-## Common Mistakes
-
-- Building elaborate dashboards that get checked once and then ignored
-- Reacting to single-week fluctuations as if they were trends, before enough data exists to tell the difference
-- Treating all traffic sources as equally worth pursuing without checking which actually convert to revenue
-- Tracking repeat-purchase rate as a single current number instead of a trend over cohorts, missing whether retention work is actually improving things
-- Adding new tracking events instead of first asking whether the five core metrics already answer the question at hand
+Which channel gets credit for the sale? 
+- If you use "Last-Click Attribution", the Email gets 100% of the credit, and you might accidentally turn off your Facebook ads, causing your entire funnel to collapse.
+- **The Implementation:** Implement Data-Driven or Multi-Touch Attribution modeling in your analytics platform to distribute fractional credit to all touchpoints, giving you a true picture of how your marketing channels work together.
 
 ---
 
-## Validation Checklist
+## AI Prompt — Build Your Growth Data Engine
 
-- [ ] The five core metrics are identified and can be pulled without building new tracking
-- [ ] Channel attribution shows revenue by source, not just visitor count by source
-- [ ] A cohort view of repeat-purchase rate by first-purchase month is available, even if early cohorts are small
-- [ ] A weekly review habit is actually scheduled, not just intended
+```prompt
+I am establishing the growth analytics infrastructure for a production e-commerce store to scale our ad spend safely.
 
----
+Tech Stack:
+- Database: [e.g., Postgres Read Replica]
+- BI Tool: [e.g., Metabase / Looker]
+- A/B Testing: [e.g., GrowthBook / Vercel Edge Config]
 
-## AI Review Prompt
-
-```
-Review my analytics setup for an e-commerce store at the growth stage.
-I'm tracking: [list your five metrics and how you're getting them]
-
-Check for:
-1. Whether these five metrics are actually sufficient to guide growth
-   decisions, or if something important is missing
-2. Whether my channel attribution distinguishes traffic volume from
-   actual revenue contribution
-3. Whether my cohort/retention tracking would actually reveal if
-   retention efforts are working over time, or just shows a static
-   snapshot
+Act as a Principal Data Scientist:
+1. Write the SQL query required to calculate the exact Contribution Margin of an order, factoring in COGS, dynamic Shipping costs, and a fixed 2.9% + 30¢ Stripe fee.
+2. Explain how to architect an A/B testing framework at the CDN Edge (using Next.js Middleware or Vercel Edge Config) to ensure that split-testing the homepage does not ruin our Core Web Vitals (LCP/CLS).
+3. Outline the mathematical requirements for reaching 95% Statistical Significance in an A/B test. How do we calculate the required sample size before starting the test?
+4. Define the architecture for a daily automated report that calculates our exact LTV:CAC ratio by joining database revenue metrics with Meta Ads API spend data.
 ```
 
 ---
 
-## What Comes Next
+## Growth Analytics Checklist
 
-You now know what to measure and how to read it. Next: **Roadmap** — turning what the data tells you into a prioritized plan for what to build or fix next.
+- [ ] LTV:CAC ratio dashboard built using real-time database and marketing API inputs
+- [ ] Contribution Margin math strictly defined in the database (including COGS, shipping, and gateway fees)
+- [ ] A/B Testing infrastructure (e.g., GrowthBook) deployed at the Edge to prevent UI flickering
+- [ ] Statistical Significance thresholds established for all conversion rate experiments
+- [ ] Multi-touch attribution modeling implemented to accurately value top-of-funnel ad spend

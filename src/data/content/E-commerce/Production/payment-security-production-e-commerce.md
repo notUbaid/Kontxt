@@ -3,145 +3,96 @@ title: Payment Security
 slug: payment-security
 phase: Phase 4
 mode: production
-projectType: ecommerce
-estimatedTime: 15-20 min
+projectType: e-commerce
+estimatedTime: 35–45 min
 ---
 
 # Payment Security
 
-You already built payment processing in Phase 3 and rate-limited the checkout endpoint in this phase. This module is the dedicated pass over the part of your store that touches money — making sure the *way* you handle payments, not just the volume of attempts, is sound.
+Payment security is the absolute highest liability area of your architecture. 
 
-The good news: if you used a proper payment provider (Stripe or similar) instead of handling card numbers yourself, most of the hard security work is already done for you. This module is mostly about not accidentally undoing that.
+If your marketing emails are delayed by 5 minutes, you might lose a few conversions. If your payment security is compromised, you will be fined by the Payment Card Industry (PCI), blacklisted by Visa/Mastercard, and face existential legal threats.
 
----
-
-## Where This Fits
-
-You're auditing, not rebuilding, your Phase 3 payment integration. If you used Stripe Checkout, Stripe Elements, or an equivalent provider's hosted/embedded flow, you're in a strong position already. If you're handling raw card numbers anywhere in your own code, that's the first thing this module needs to fix.
+Production payment security relies on strict tokenization, minimizing your attack surface (PCI Scope), and rigorously validating webhooks.
 
 ---
 
-## The One Rule That Matters Most
+## 1. PCI Scope Minimization (Tokenization)
 
-> **⚠️ Warning:** Your server should never see, log, or store a raw card number, CVV, or full card details — ever. If your code has a variable holding a card number at any point, something is wrong. Use your payment provider's hosted fields, Elements, or Checkout, which send card data directly from the customer's browser to the provider, never through your server.
+If a user's raw credit card number (the PAN) ever touches a variable in your Node.js code, or is logged to your database, you are subject to PCI-DSS Level 1. This requires massive annual audits, penetration testing, and dedicated security teams.
 
-This single rule eliminates the vast majority of payment-related compliance burden (PCI DSS) and most realistic attack surface. Everything else in this module is secondary to getting this right.
-
----
-
-## What You're Building Today
-
-- Confirmation that card data never touches your server or logs
-- Webhook verification, so you can trust that "payment succeeded" events are genuinely from your provider
-- Idempotency on order creation, so a retried payment never creates duplicate orders or charges
-- Server-side price verification at checkout, so a manipulated client-side price can't be submitted
-- A clear answer to "what happens if a webhook is delayed or arrives twice?"
-
-You're **not** building your own PCI-compliant card vault, your own fraud-scoring model, or custom encryption for card data. None of that should exist in a personal store — it should exist entirely inside your payment provider.
+**The Production Standard:** You must architect your system so that you *never* see the card data.
+- **Implementation:** Use Hosted Fields (e.g., Stripe Elements, Braintree Drop-in, Adyen Components).
+- The text inputs for the card number are rendered inside secure `iframes` hosted directly by the payment processor.
+- When the user clicks "Pay", the browser sends the card data directly to Stripe.
+- Stripe returns a secure `PaymentMethod ID` (a token, e.g., `pm_12345`).
+- Your frontend sends this token to your backend. Your backend uses the token to charge the card. You only ever handle the token, keeping you at the lowest level of PCI compliance (SAQ A).
 
 ---
 
-## Server-Side Price Verification
+## 2. 3D Secure (SCA Compliance)
 
-This is the most commonly missed item in beginner checkout implementations.
+If you operate in Europe, Strong Customer Authentication (SCA) is a legal requirement. Even outside of Europe, 3D Secure shifts liability for fraudulent chargebacks from the merchant to the card issuer (the bank).
 
-> **⚠️ Common Mistake:** If your checkout flow sends the cart total from the client to create the payment, a customer can modify that number in their browser before submitting. The server must independently calculate the total from the actual product prices and quantities in the database — never trust a price or total sent from the client.
-
-```
-Client sends: cart items (product IDs + quantities) — NOT prices, NOT totals
-Server: looks up current price for each product ID, calculates total itself
-Server: creates the payment charge using its own calculated total
-```
+**The Implementation:**
+When you attempt to capture a payment on your backend, the API might return a `requires_action` status instead of `succeeded`.
+1. Your backend must detect this status and return a specific response to the frontend.
+2. The frontend (using the Stripe SDK) must automatically open a modal requesting the user to authenticate the payment with their bank (e.g., entering an SMS code or approving a push notification on their banking app).
+3. Once authenticated, the frontend passes control back to your backend to finalize the capture.
 
 ---
 
-## Implementation
+## 3. Webhook Security (The Man-in-the-Middle)
 
-**Copy Prompt:**
+Your backend relies on webhooks (e.g., `checkout.session.completed`) to know that a payment actually succeeded before decrementing inventory and shipping the physical product.
 
-```
-Review and harden the payment flow in my e-commerce store, built with
-[your framework] and [Stripe / your payment provider].
+**The Vulnerability:**
+An attacker discovers your webhook endpoint URL (`POST /api/webhooks/stripe`). They send a fake JSON payload claiming they paid for a $5,000 order. If your backend blindly trusts this payload, it will ship the goods for free.
 
-Specifically check and fix, in this order:
-
-1. Confirm no raw card data ever passes through my server — only
-   provider-hosted fields/Checkout are used to collect it
-2. Confirm the checkout total is calculated server-side from current
-   database prices, not trusted from any client-sent value
-3. Add webhook signature verification so payment-success events are
-   confirmed to genuinely come from [provider], not spoofed
-4. Add idempotency so a retried or duplicate webhook event can't create
-   two orders or process two charges for the same purchase
-
-Show me the webhook handler first — that's the part most likely to be
-missing verification or idempotency if generated without being asked
-explicitly.
-```
-
-> **💡 Tip:** Ask specifically about idempotency keys, even if you're not sure what they are yet. Payment providers retry webhook delivery if they don't get a fast response from your server, which means your handler *will* receive the same "payment succeeded" event more than once in normal operation, not just in edge cases.
+**The Defense (Signature Verification):**
+1. Stripe signs every webhook payload using a secret key (Endpoint Secret) that only you and Stripe know.
+2. The signature is sent in the `Stripe-Signature` HTTP header.
+3. Your backend must cryptographically verify that the raw payload matches the signature using the Endpoint Secret. If it fails, reject it with a `400 Bad Request`.
+*Crucial Detail:* You must verify the signature against the **raw, unparsed body** of the request, not the parsed JSON object.
 
 ---
 
-## Webhooks: Trust, But Verify
+## 4. Double-Charge Prevention (Idempotency)
 
-Your server receives a "payment succeeded" notification from your payment provider via webhook. Without verification, anyone who knows your webhook URL could send a fake success event and get free products.
+A user clicks the "Submit Order" button twice rapidly. Or, a network timeout causes the frontend to retry the API call.
 
-- [ ] Webhook signature is verified using your provider's signing secret before any order is marked as paid
-- [ ] Webhook handler responds quickly (just acknowledges receipt) and does slower work like sending emails afterward — slow responses cause providers to retry unnecessarily
-- [ ] Order creation/fulfillment logic is idempotent — processing the same webhook event twice has no additional effect
+If you charge the user twice, they will issue a chargeback, and your merchant reputation will suffer.
 
----
-
-## Common Mistakes
-
-- Trusting a price or total sent from the client instead of recalculating it server-side
-- Logging the full request body of a checkout request "for debugging," which can accidentally capture sensitive payment data even when using a provider's hosted fields
-- Skipping webhook signature verification, trusting that the webhook URL being secret is protection enough — it isn't, URLs leak
-- No idempotency check, so a network retry or provider's duplicate webhook delivery creates two orders for one purchase
-- Storing the full payment provider customer object in your own database when you only need the customer ID reference
+**The Implementation (Idempotency Keys):**
+Every request to the payment gateway must include a unique Idempotency Key (usually the `order_id` or a UUID generated when the checkout session starts).
+- When Stripe receives `POST /charges` with `Idempotency-Key: req_123`, it processes the charge.
+- If Stripe receives a duplicate request 2 seconds later with the same `req_123` key, it recognizes it as a duplicate, ignores the charge, and simply returns the exact same success response from the first call.
 
 ---
 
-## Security Checklist
+## AI Prompt — Audit Your Payment Security
 
-- [ ] No raw card number, CVV, or expiry date is ever received, logged, or stored by your own server
-- [ ] Checkout total is calculated server-side from current database prices, never trusted from the client
-- [ ] Webhook events are signature-verified before being trusted
-- [ ] Order/payment processing is idempotent against duplicate webhook delivery
-- [ ] No full request/response bodies containing payment details are written to application logs
-- [ ] Payment provider API keys are environment variables, never hardcoded, and test/live keys are never mixed across environments
+```prompt
+I am auditing the payment security architecture for a production e-commerce store.
 
----
+Tech Stack:
+- Frontend: [e.g., Next.js React]
+- Backend: [e.g., Node.js Route Handlers]
+- Payment Gateway: [e.g., Stripe / Adyen]
 
-## Validation Checklist
-
-- [ ] Attempt to modify the cart total in browser dev tools before submitting checkout — confirm the server ignores it and uses its own calculation
-- [ ] Manually resend a webhook test event (most providers offer this in their dashboard) and confirm it doesn't create a duplicate order
-- [ ] Send a fake/unsigned webhook request and confirm it's rejected
-- [ ] Search your application logs for any card number, CVV, or full payment payload — confirm none appear
-
----
-
-## AI Review Prompt
-
-```
-Review the payment implementation in this e-commerce store. Specifically
-check for:
-
-1. Any path where raw card data could touch the server or get logged
-2. Any point where checkout total or price is trusted from the client
-   rather than recalculated server-side
-3. Missing or incorrect webhook signature verification
-4. Missing idempotency that could let a duplicate webhook create a
-   duplicate order or charge
-
-Treat any of these as a critical issue, not a style suggestion — these
-are the failure modes that cost real money.
+Act as a Principal Payment Security Engineer:
+1. Explain the architectural flow of Stripe Elements to demonstrate exactly how it removes my Node.js servers from PCI-DSS Level 1 scope.
+2. Write the Node.js API code required to cryptographically verify a Stripe Webhook signature using the raw request body. Include the error handling for invalid signatures.
+3. Provide the frontend implementation logic (using the Stripe React SDK) for handling a 3D Secure `requires_action` challenge during the checkout flow.
+4. Demonstrate how to implement an Idempotency Key strategy on the backend to guarantee a customer is never double-charged during a network timeout.
 ```
 
 ---
 
-## What Comes Next
+## Payment Security Checklist
 
-Payment handling is now hardened against the most common, realistic attack patterns. Next: **Fraud Prevention** — patterns specific to detecting and slowing down bad actors beyond what rate limiting and payment security already cover.
+- [ ] Hosted Fields (e.g., Stripe Elements iframes) utilized to completely isolate raw card data from internal servers
+- [ ] 3D Secure (SCA) authentication flow implemented to shift fraud liability to the issuing banks
+- [ ] Cryptographic signature verification strictly enforced on all payment webhooks to prevent spoofing attacks
+- [ ] Raw body parsing configured exclusively for webhook endpoints to ensure signature verification succeeds
+- [ ] Idempotency Keys generated and passed to the payment gateway to categorically prevent double-charges

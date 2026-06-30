@@ -1,519 +1,119 @@
 ---
-title: Frontend
+title: Frontend Implementation
 slug: frontend
 phase: Phase 3
 mode: production
 projectType: e-commerce
-estimatedTime: 35–50 min
+estimatedTime: 45–60 min
 ---
 
-# Frontend
+# Frontend Implementation
 
-The frontend is what customers actually experience. Every architectural decision you've made — cart logic, checkout flow, product variants — now becomes UI. This module covers how to structure your component tree, manage state, fetch data efficiently, and build a storefront that feels fast and coherent.
+At production scale, the frontend of an e-commerce store is a high-stakes performance engineering challenge. 
 
----
+A 1-second delay in mobile page load time can drop conversion rates by up to 20%. If your frontend is bloated with heavy JavaScript bundles, unoptimized images, or Layout Shifts (CLS), you are burning marketing dollars on traffic that will bounce before the "Add to Cart" button even renders.
 
-## Technology Assumptions
-
-This module assumes:
-- **Next.js** (App Router)
-- **TypeScript**
-- **Tailwind CSS**
-- **shadcn/ui** for base components (or equivalent)
-- **TanStack Query** (React Query) for server state
-- **Zustand** for client state (cart UI)
-
-If your stack differs, the patterns translate — the library names change, not the thinking.
+This module covers the enterprise rendering patterns and performance optimizations required to build a world-class e-commerce frontend.
 
 ---
 
-## Folder Structure
+## 1. The Rendering Strategy (Edge & Caching)
 
-Organise by feature, not by file type. Flat folders full of `components/Button.tsx`, `components/Card.tsx` scale badly. Feature folders scale well.
+You cannot render a product catalog dynamically on every request. It is too slow. 
+You cannot render a product catalog purely statically. It will show outdated inventory and prices.
 
-```
-app/
-├── (store)/                    ← customer-facing pages
-│   ├── layout.tsx              ← store shell (header, footer)
-│   ├── page.tsx                ← homepage
-│   ├── products/
-│   │   ├── page.tsx            ← product listing
-│   │   └── [slug]/
-│   │       └── page.tsx        ← product detail
-│   ├── cart/
-│   │   └── page.tsx
-│   ├── checkout/
-│   │   └── page.tsx
-│   ├── orders/
-│   │   ├── page.tsx            ← order history
-│   │   └── [id]/page.tsx       ← order detail
-│   └── account/
-│       └── page.tsx
-├── (admin)/                    ← admin-only pages
-│   ├── layout.tsx              ← admin shell + auth guard
-│   └── admin/
-│       ├── page.tsx            ← dashboard
-│       ├── products/page.tsx
-│       └── orders/page.tsx
-└── api/                        ← backend (already built)
+**The Production Compromise: ISR (Incremental Static Regeneration) + Edge Computing**
 
-components/
-├── ui/                         ← shadcn/ui primitives (Button, Input, etc.)
-├── store/                      ← store-specific components
-│   ├── ProductCard.tsx
-│   ├── ProductGrid.tsx
-│   ├── ProductImages.tsx
-│   ├── VariantSelector.tsx
-│   ├── AddToCartButton.tsx
-│   ├── CartDrawer.tsx
-│   ├── CartItem.tsx
-│   └── PriceDisplay.tsx
-├── checkout/
-│   ├── AddressForm.tsx
-│   ├── ShippingSelector.tsx
-│   └── PaymentForm.tsx
-├── layout/
-│   ├── Header.tsx
-│   ├── Footer.tsx
-│   ├── Nav.tsx
-│   └── CartIcon.tsx
-└── shared/
-    ├── LoadingSpinner.tsx
-    ├── EmptyState.tsx
-    └── ErrorBoundary.tsx
+If you are using Next.js or a modern framework, you must implement ISR.
+- The `Product Detail Page` (PDP) and `Collection Pages` are generated statically at build time.
+- They are cached globally at the Edge (CDN).
+- You set a `revalidate` window (e.g., 60 seconds). Or, better yet, use **On-Demand Revalidation**: when a webhook fires from your backend indicating inventory dropped to 0, your frontend purges that specific URL's cache instantly.
 
-lib/
-├── api/                        ← typed fetch wrappers for each endpoint
-│   ├── products.ts
-│   ├── cart.ts
-│   ├── orders.ts
-│   └── checkout.ts
-├── store/                      ← Zustand stores
-│   └── cart.ts
-└── utils/
-    ├── price.ts                ← formatPrice, formatCurrency
-    └── cn.ts                   ← Tailwind class merging
-```
+**Client-Side Hydration (The Price/Inventory Override):**
+To guarantee zero overselling, static pages can be dangerous. The ultimate pattern is to serve a cached static HTML page for maximum SEO and LCP (Largest Contentful Paint) speed, but immediately fetch the *real-time price and inventory* via a fast client-side fetch (`SWR` or `React Query`) the millisecond the page loads, swapping out the cached data before the user can click Buy.
 
 ---
 
-## Data Fetching Strategy
+## 2. Core Web Vitals (The SEO & Conversion Killers)
 
-The App Router gives you two distinct data fetching contexts. Use each for what it's good at.
+Google ranks e-commerce sites heavily based on Core Web Vitals. Your engineering must protect these three metrics ruthlessly.
 
-```
-Server Components (default)           Client Components (opt-in)
-────────────────────────────          ──────────────────────────
-Runs on the server                    Runs in the browser
-Direct DB access or fetch             Must use fetch / API calls
-No client-side state                  Can use useState, useEffect
-Fast initial load, SEO-friendly       Necessary for interactivity
-No hydration cost                     Requires hydration
+### LCP (Largest Contentful Paint)
+The time it takes for the main product image (or hero image) to load.
+- **Rule:** Never lazy-load the LCP image.
+- **Rule:** Preload the main product image in the `<head>` of the document.
+- **Rule:** Serve images via a dedicated Image CDN (Cloudinary, imgix, Next.js Image) in WebP or AVIF formats, strictly sized to the user's viewport.
 
-Use for:                              Use for:
-  Product listings                      Cart drawer
-  Product detail pages                  Variant selection
-  Order history                         Add to cart button
-  Homepage                              Search input
-                                        Checkout form
-                                        Payment form
-```
+### CLS (Cumulative Layout Shift)
+The amount the page "jumps" while loading. A jumping layout causes accidental clicks (or missed Add to Cart clicks).
+- **Rule:** Always define explicit `width` and `height` attributes on every single image.
+- **Rule:** Reserve space for promotional banners, reviews widgets, and dynamically loaded pricing using CSS `min-height` or skeleton loaders.
 
-**Default to Server Components.** Add `'use client'` only when you need interactivity or browser APIs. Every unnecessary client component increases bundle size and hydration cost.
+### INP (Interaction to Next Paint)
+The delay between a user clicking a button and the UI visually responding.
+- **Rule:** Never block the main thread with heavy analytics tracking scripts. Use Web Workers (like Partytown) to offload GTM, Facebook Pixel, and Hotjar scripts.
+- **Rule:** Use Optimistic UI for cart additions. Visually update the cart counter instantly, *then* await the network response.
 
-```tsx
-// app/(store)/products/[slug]/page.tsx
-// Server Component — no 'use client'
+---
 
-import { db } from '@/lib/db'
-import { notFound } from 'next/navigation'
-import { ProductImages } from '@/components/store/ProductImages'
-import { AddToCartButton } from '@/components/store/AddToCartButton'
+## 3. The Cart & State Management
 
-export default async function ProductPage({ params }: { params: { slug: string } }) {
-  const product = await db.product.findUnique({
-    where: { slug: params.slug, isActive: true },
-    include: {
-      images: { orderBy: { position: 'asc' } },
-      variants: { where: { isActive: true } },
-      category: true,
-    }
-  })
+The shopping cart state must be synchronized globally across the application, across browser tabs, and ideally, across devices.
 
-  if (!product) notFound()
+- **State Tooling:** Do not use heavy tools like Redux for simple cart state. Use lightweight state managers like Zustand, Jotai, or React Context.
+- **Persistence:** Sync the state to `localStorage` (via `zustand/middleware/persist`) so if the user refreshes, their cart survives.
+- **Cross-Tab Sync:** Listen for the `storage` event in the browser. If a user adds an item in Tab A, the cart icon in Tab B must instantly update without a refresh.
 
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <ProductImages images={product.images} />       {/* Server Component */}
-      <div>
-        <h1>{product.name}</h1>
-        <PriceDisplay price={product.basePrice} />
-        <AddToCartButton product={product} />          {/* Client Component */}
-      </div>
-    </div>
-  )
-}
+---
+
+## 4. UI Architecture: Design Systems & Tokens
+
+A production store requires a strict Design System. Ad-hoc CSS values lead to broken UIs during major promotional campaigns.
+
+- Use CSS Variables (Design Tokens) for all colors, spacing, and typography.
+- **Headless UI:** Do not use bloated component libraries (like Material UI) that inject massive JS bundles. Use unstyled, accessible primitives (Radix UI, React Aria, shadcn/ui) and style them with Tailwind CSS. This guarantees perfect WAI-ARIA accessibility (crucial for legal compliance) while keeping bundle sizes microscopic.
+
+---
+
+## 5. Third-Party Script Management (The Silent Killer)
+
+Marketing teams will ask you to install Yotpo (reviews), Klaviyo (popups), Algolia (search), Hotjar (heatmaps), and 5 different ad pixels. 
+
+If you just drop these in the `<head>`, your store will take 8 seconds to load.
+
+**The Strict Engineering Policy:**
+1. **Defer everything non-critical:** Only load the absolute minimum JS required to paint the product and add it to the cart.
+2. **Partytown:** Use Partytown to run heavy third-party scripts in a Web Worker, off the main thread.
+3. **Intersection Observers:** Only load the Reviews widget (Yotpo/Okendo) when the user actually scrolls down to the reviews section. Do not load it on initial page load.
+
+---
+
+## AI Prompt — Audit Your Frontend Performance Strategy
+
+```prompt
+I am architecting the frontend for a production e-commerce store.
+
+Tech Stack:
+- Framework: [e.g., Next.js App Router / Remix / Nuxt]
+- Styling: [e.g., Tailwind + shadcn/ui]
+- Commerce Engine: [e.g., Headless Shopify / Custom Backend]
+
+Act as a Principal Frontend Engineer specializing in Web Performance:
+1. Outline the exact caching and rendering strategy (Static vs SSR vs ISR) I should use for my Homepage, Collection Pages, and Product Pages to maximize Core Web Vitals.
+2. Provide the code architecture for implementing "On-Demand Revalidation" via Webhooks to keep my statically cached product pages up-to-date with backend inventory changes.
+3. Write a strict policy for handling third-party marketing scripts (Pixels, Reviews, Popups) to ensure they do not destroy my Interaction to Next Paint (INP) score.
+4. Detail the React state management pattern I should use for my Cart to ensure it persists across page reloads and synchronizes across multiple browser tabs.
+5. Provide a code example of an Optimistic UI update for an "Add to Cart" button.
 ```
 
 ---
 
-## Cart State: The Critical Decision
-
-The cart is the most stateful part of your UI. It must:
-- Be accessible from any page (header icon, drawer)
-- Update instantly on add/remove without full page reload
-- Stay in sync with the server
-
-**Recommended approach: Zustand for optimistic UI + React Query for server sync.**
-
-```ts
-// lib/store/cart.ts
-import { create } from 'zustand'
-
-interface CartItem {
-  id: string
-  productId: string
-  variantId?: string
-  name: string
-  price: number
-  quantity: number
-  imageUrl: string
-}
-
-interface CartStore {
-  items: CartItem[]
-  isOpen: boolean
-  openCart: () => void
-  closeCart: () => void
-  setItems: (items: CartItem[]) => void
-  optimisticAdd: (item: CartItem) => void
-  optimisticRemove: (itemId: string) => void
-  optimisticUpdateQty: (itemId: string, quantity: number) => void
-}
-
-export const useCartStore = create<CartStore>((set) => ({
-  items: [],
-  isOpen: false,
-  openCart: () => set({ isOpen: true }),
-  closeCart: () => set({ isOpen: false }),
-  setItems: (items) => set({ items }),
-  optimisticAdd: (item) =>
-    set((state) => ({ items: [...state.items, item] })),
-  optimisticRemove: (itemId) =>
-    set((state) => ({ items: state.items.filter((i) => i.id !== itemId) })),
-  optimisticUpdateQty: (itemId, quantity) =>
-    set((state) => ({
-      items: state.items.map((i) => i.id === itemId ? { ...i, quantity } : i)
-    })),
-}))
-```
-
-```tsx
-// components/store/AddToCartButton.tsx
-'use client'
-
-import { useCartStore } from '@/lib/store/cart'
-import { addToCart } from '@/lib/api/cart'
-
-export function AddToCartButton({ product, variantId }: Props) {
-  const { optimisticAdd, openCart } = useCartStore()
-  const [isPending, setIsPending] = useState(false)
-
-  async function handleAdd() {
-    setIsPending(true)
-
-    // Optimistic update — feels instant
-    optimisticAdd({
-      id: 'temp-' + Date.now(),
-      productId: product.id,
-      variantId,
-      name: product.name,
-      price: product.basePrice,
-      quantity: 1,
-      imageUrl: product.images[0]?.url ?? ''
-    })
-    openCart()
-
-    try {
-      // Actual server call
-      const updatedCart = await addToCart({ productId: product.id, variantId, quantity: 1 })
-      // Replace optimistic data with real server data
-      useCartStore.getState().setItems(updatedCart.items)
-    } catch (e) {
-      // Rollback on failure
-      useCartStore.getState().optimisticRemove('temp-' + Date.now())
-      toast.error('Failed to add to cart')
-    } finally {
-      setIsPending(false)
-    }
-  }
-
-  return (
-    <button onClick={handleAdd} disabled={isPending}>
-      {isPending ? 'Adding...' : 'Add to Cart'}
-    </button>
-  )
-}
-```
-
-Optimistic updates make your UI feel instant. Always roll back on failure.
-
----
-
-## Price Formatting
-
-Money is stored as integers (paise). Always format it before display. Never format it in-line across the codebase.
-
-```ts
-// lib/utils/price.ts
-
-export function formatPrice(paise: number, currency = 'INR'): string {
-  return new Intl.NumberFormat('en-IN', {
-    style: 'currency',
-    currency,
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 2,
-  }).format(paise / 100)
-}
-
-// Usage
-formatPrice(149900)  // → ₹1,499
-formatPrice(9900)    // → ₹99
-```
-
-Create a `<PriceDisplay>` component that wraps this. Every price in your UI goes through this single function. When you add discount logic later, you change one place.
-
----
-
-## Typed API Client
-
-Every frontend API call goes through a typed wrapper. No raw `fetch` calls scattered across components.
-
-```ts
-// lib/api/cart.ts
-
-import type { Cart } from '@prisma/client'
-
-const BASE = '/api'
-
-export async function fetchCart(): Promise<Cart> {
-  const res = await fetch(`${BASE}/cart`)
-  if (!res.ok) throw new Error('Failed to fetch cart')
-  return res.json()
-}
-
-export async function addToCart(input: {
-  productId: string
-  variantId?: string
-  quantity: number
-}): Promise<Cart> {
-  const res = await fetch(`${BASE}/cart/items`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(input),
-  })
-  if (!res.ok) {
-    const err = await res.json()
-    throw new Error(err.error ?? 'Failed to add to cart')
-  }
-  return res.json()
-}
-
-export async function removeCartItem(itemId: string): Promise<void> {
-  const res = await fetch(`${BASE}/cart/items/${itemId}`, { method: 'DELETE' })
-  if (!res.ok) throw new Error('Failed to remove item')
-}
-```
-
-This gives you one place to handle auth headers, error parsing, and base URL changes.
-
----
-
-## Key Pages to Build
-
-### Product Listing (`/products`)
-
-- Server Component — fetch products with filters
-- URL-driven filters: `?category=apparel&sort=price-asc&page=2`
-- Filter sidebar (category, price range, in-stock)
-- ProductGrid renders ProductCards
-- Pagination or infinite scroll
-- Search input — client-side, debounced, hits `/api/products?q=`
-
-### Product Detail (`/products/[slug]`)
-
-- Server Component for product data
-- `<ProductImages>` — image gallery, client component for interaction
-- `<VariantSelector>` — colour/size picker, updates selected variant in state
-- `<AddToCartButton>` — client component
-- Stock status display (In Stock / Low Stock / Out of Stock)
-- Related products (same category, server-rendered)
-
-### Cart (`/cart` or drawer)
-
-- Full cart page for desktop fallback
-- CartDrawer component — slides in from right, triggered by header icon
-- Item list with quantity controls and remove buttons
-- Subtotal, free shipping progress bar
-- "Proceed to Checkout" CTA
-- Empty state with "Continue Shopping" link
-
-### Checkout (`/checkout`)
-
-- Client Component — multi-step form, heavy interactivity
-- Step 1: Address form (validate with Zod on submit)
-- Step 2: Shipping selector (fetch options after address)
-- Step 3: Payment (Stripe Elements)
-- Order summary sidebar stays visible throughout
-- Never navigate away on payment — handle all states in-place
-
-### Order Confirmation (`/orders/[id]`)
-
-- Server Component
-- Full order detail: items, address, total
-- Order number prominently displayed
-- "Continue Shopping" CTA
-
----
-
-## Loading and Error States
-
-Every async operation needs three states: loading, error, data. Build these once as reusable components.
-
-```tsx
-// components/shared/EmptyState.tsx
-export function EmptyState({ title, description, action }: Props) {
-  return (
-    <div className="flex flex-col items-center justify-center py-16 text-center">
-      <h3 className="text-lg font-semibold">{title}</h3>
-      <p className="mt-2 text-sm text-muted-foreground">{description}</p>
-      {action && <div className="mt-4">{action}</div>}
-    </div>
-  )
-}
-
-// Usage: empty cart
-<EmptyState
-  title="Your cart is empty"
-  description="Add something to get started."
-  action={<Link href="/products">Browse products</Link>}
-/>
-```
-
-Design empty states as invitations to act, not apologies for having nothing.
-
----
-
-## Performance Defaults
-
-These cost nothing to implement and prevent common performance problems:
-
-**Image optimisation:** Use Next.js `<Image>` for all product images. It handles lazy loading, WebP conversion, and responsive sizes automatically.
-
-```tsx
-import Image from 'next/image'
-
-<Image
-  src={image.url}
-  alt={image.altText ?? product.name}
-  width={600}
-  height={800}
-  className="object-cover"
-  priority={isFirstImage}   // ← only for above-the-fold images
-/>
-```
-
-**Metadata for SEO:** Add `generateMetadata` to product and category pages.
-
-```ts
-export async function generateMetadata({ params }: Props) {
-  const product = await getProduct(params.slug)
-  return {
-    title: product.name,
-    description: product.description,
-    openGraph: {
-      images: [product.images[0]?.url],
-    }
-  }
-}
-```
-
-**Skeleton loading:** Use Suspense boundaries with skeleton UIs rather than full-page spinners.
-
-```tsx
-// app/(store)/products/page.tsx
-import { Suspense } from 'react'
-import { ProductGridSkeleton } from '@/components/store/ProductGrid'
-
-export default function ProductsPage() {
-  return (
-    <Suspense fallback={<ProductGridSkeleton />}>
-      <ProductGrid />
-    </Suspense>
-  )
-}
-```
-
----
-
-## AI Prompt: Frontend Architecture Review
-
-```
-You are a senior frontend engineer reviewing a storefront implementation for a personal e-commerce project.
-
-FRAMEWORK: Next.js App Router
-STYLING: Tailwind CSS + shadcn/ui
-STATE: Zustand (cart) + React Query (server state)
-
-COMPONENT STRUCTURE:
-[paste your component folder structure]
-
-CART STATE APPROACH:
-[describe how cart state is managed and synced with the server]
-
-DATA FETCHING PATTERN:
-[describe how you split server vs client components]
-
-KEY PAGES:
-[list your main pages and their rendering strategy]
-
-Review for:
-1. Unnecessary client components that should be server components
-2. Missing loading / error / empty states
-3. Cart state sync problems (optimistic update gaps, stale data)
-4. N+1 data fetching (components that fetch individually instead of together)
-5. Missing SEO metadata on product pages
-6. Performance issues (unoptimised images, missing Suspense boundaries)
-
-Be specific. Flag critical issues first.
-```
-
----
-
-## Validation Checklist
-
-- [ ] Server Components used by default; `'use client'` only where necessary
-- [ ] Product listing and detail pages are Server Components
-- [ ] Cart UI is client-side with optimistic updates and server sync
-- [ ] Zustand cart store initialised from server on first load
-- [ ] All API calls go through typed wrappers in `lib/api/`
-- [ ] `formatPrice()` used for every price display — no inline division by 100
-- [ ] `<Image>` used for all product images with `alt` text
-- [ ] `priority` set only on above-the-fold images
-- [ ] `generateMetadata` added to product and category pages
-- [ ] Suspense boundaries wrapping async Server Components
-- [ ] Skeleton UIs built for product grid and product detail
-- [ ] Empty states designed for: empty cart, no search results, no orders
-- [ ] Checkout form validates client-side before submitting
-- [ ] Payment form uses Stripe Elements — no custom card input fields
-- [ ] Admin pages protected by layout-level auth guard
-
----
-
-## What to Build Next
-
-**Payments** — the payment form and Stripe Elements integration lives at the boundary of frontend and backend. The payments module walks through the exact Stripe.js implementation, 3DS handling, and the success/failure UI states your checkout needs.
-
----
-
-> **Filename:** `frontend-personal-e-commerce.md`
+## Frontend Implementation Checklist
+
+- [ ] Rendering strategy (ISR/Static caching) implemented for catalog pages to guarantee sub-second TTFB
+- [ ] On-demand revalidation webhooks configured to purge stale cache when prices/inventory change
+- [ ] Explicit width/heights and skeleton fallbacks implemented to guarantee zero Layout Shift (CLS)
+- [ ] Critical LCP images preloaded; lazy-loading strictly disabled for above-the-fold assets
+- [ ] Cart state persisted to `localStorage` and synchronized across browser tabs
+- [ ] Third-party scripts (analytics, reviews) offloaded via Web Workers (Partytown) or lazy-loaded via Intersection Observers
+- [ ] Optimistic UI patterns implemented for Add-to-Cart and wishlist interactions

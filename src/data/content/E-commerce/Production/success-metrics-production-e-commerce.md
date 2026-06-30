@@ -9,171 +9,69 @@ estimatedTime: 20–30 min
 
 # Success Metrics
 
-Production stores fail silently in one of two ways: either the builder had no idea what success looked like until it was too late to change anything, or they tracked so many metrics that no single number drove action.
+In production e-commerce, tracking "Revenue" is a dangerous vanity metric. If you make $1,000,000 in revenue but your shipping, returns, and ad costs equal $1,100,000, the business will fold.
 
-You need to define what winning means before you write a single line of code — and build the analytics infrastructure to measure it from day one.
-
----
-
-## Why This Matters Before Development
-
-Metrics defined after launch are rationalisations. Metrics defined before launch are decisions.
-
-When you know your success criteria upfront:
-
-- You build features that move those numbers, not features that feel interesting
-- You know when to stop adding and start shipping
-- You know whether your store is working or just existing
-- You can justify technical tradeoffs using real data goals
-- You have a baseline for every A/B test and optimisation experiment you will run post-launch
+Success is defined by the strict mathematical relationship between **Acquisition Cost**, **Order Profitability**, and **Lifetime Value**. Your engineering decisions (like caching, database schema, and payment integrations) must directly optimize these three pillars.
 
 ---
 
-## The Production Store Framework
+## 1. The Core Metrics Hierarchy
 
-At production scale, tracking too few metrics means missing failure signals. Tracking too many means no one takes action on any of them.
+Every production team must monitor these metrics on a live dashboard.
 
-The right structure is a small number of North Star metrics — the ones that tell you if the business is healthy — plus a supporting layer of diagnostic metrics that explain *why* the North Star is moving.
+**Tier 1: The Survival Metrics (Unit Economics)**
+1. **Contribution Margin (CM):** The actual dollar amount left over from a sale after deducting Cost of Goods Sold (COGS), Payment Processing (Stripe), Fulfillment (Pick/Pack), Shipping costs, and a buffer for Returns. (e.g., $100 Order - $70 variable costs = $30 CM).
+2. **Customer Acquisition Cost (CAC):** The fully blended cost to acquire a customer. (Total Marketing Spend / Total New Customers).
+3. **LTV:CAC Ratio:** Your Lifetime Value compared to your CAC. A ratio of `3:1` means for every $1 you spend on ads, you generate $3 in gross profit over the customer's lifetime. If this ratio drops below `1:1`, the business is bleeding cash.
 
-> [!NOTE]
-> A 20-metric dashboard is noise. A focused dashboard of 5–8 metrics that are causally connected to your business model is enough to make sharp decisions.
-
-Do not track vanity metrics. Track signal metrics.
-
-| Vanity Metric | Signal Metric |
-|---|---|
-| Total page views | Unique visitors who reached product page |
-| Total sessions | Sessions that added to cart |
-| Social followers | Returning customers (30/60/90 day) |
-| Orders created | Orders completed and paid |
-| Email list size | Email open rate + click-to-purchase rate |
+**Tier 2: The Conversion Metrics (Engineering Impact)**
+1. **Conversion Rate (CVR):** The percentage of visitors who complete a purchase. In production, this is heavily influenced by Site Speed (Core Web Vitals) and Frictionless Checkout (Apple Pay).
+2. **Average Order Value (AOV):** The average dollar amount spent per checkout. This metric is driven by algorithmic Upsells and Free Shipping thresholds.
+3. **Cart Abandonment Rate:** High abandonment usually points to a UI failure, unexpected shipping costs, or a bug in the payment gateway.
 
 ---
 
-## The Metric Tiers
+## 2. Engineering the Analytics Stack
 
-### Tier 1 — North Star Metrics
+You cannot rely on Google Analytics 4 (GA4) for Tier 1 Survival Metrics. Ad blockers and Apple's Intelligent Tracking Prevention (ITP) will block 20-30% of your data.
 
-The primary indicators of store health. These get reviewed weekly.
-
-| Metric | What It Tells You | Production Benchmark |
-|---|---|---|
-| **Conversion Rate** | % of visitors who purchase | 1–3% (category-dependent) |
-| **Cart Abandonment Rate** | % who add to cart but do not buy | 65–80% is normal; above 85% is a problem |
-| **Average Order Value (AOV)** | Revenue per completed order | Depends on your catalog — set your own baseline |
-| **Return Customer Rate** | % of buyers who come back within 90 days | 25–35%+ is healthy at scale |
-| **Gross Merchandise Value (GMV)** | Total revenue before returns and refunds | Your primary growth indicator |
-
-### Tier 2 — Funnel Health Metrics
-
-These explain *why* your North Star metrics are at their current levels.
-
-| Metric | What It Tells You |
-|---|---|
-| **Product Page Conversion Rate** | Are your product pages convincing people to add to cart? |
-| **Cart-to-Checkout Rate** | Are people abandoning between cart and checkout? |
-| **Checkout Completion Rate** | Are people dropping off during checkout? |
-| **Email Capture Rate** | Are visitors opting into your list? |
-| **Search Usage + Zero-Result Rate** | Are people searching, finding things, or hitting dead ends? |
-
-### Tier 3 — Business Health Metrics
-
-Track these from launch to understand long-term viability.
-
-| Metric | What It Tells You |
-|---|---|
-| **Customer Acquisition Cost (CAC)** | What does it cost to get one buyer? |
-| **Customer Lifetime Value (LTV)** | What is one customer worth over 12 months? |
-| **LTV:CAC Ratio** | Is your acquisition model sustainable? (Target: 3:1 or better) |
-| **Month-over-Month GMV Growth** | Is the store growing? |
-| **Refund and Return Rate** | Are customers satisfied with what they receive? |
-| **Stock-out Rate** | Are you losing sales due to inventory gaps? |
+**The Production Standard:**
+You must build a true "Source of Truth" analytics pipeline using your backend database.
+- **Data Warehouse:** Sync your Postgres database, Stripe API data, and Shopify/Commerce API data into a central data warehouse (e.g., Google BigQuery or Snowflake).
+- **BI Tools:** Use tools like Metabase or Looker to query this data warehouse directly. This guarantees 100% accuracy for Contribution Margin and LTV calculations because the data comes directly from the payment gateway, bypassing frontend ad blockers completely.
 
 ---
 
-## Define Your Targets
+## 3. The Negative Metrics (Risk Monitoring)
 
-Do not copy generic benchmarks. Define targets grounded in your specific store, your catalog economics, and your acquisition model.
+Success is also defined by minimizing failure.
 
-Use this framework:
-
-**Minimum Viable** — the floor. If you hit this, the store is working at a basic level.
-
-**Target** — what you are genuinely optimising for in the first 90 days post-launch.
-
-**Stretch Goal** — aspirational but grounded in your market research.
-
-Fill this out before moving to Phase 1:
-
-```
-Metric: Conversion Rate
-Minimum Viable: _____%
-Target: _____%
-Stretch: _____%
-
-Metric: Return Customer Rate (90-day)
-Minimum Viable: _____%
-Target: _____%
-Stretch: _____%
-
-Metric: LTV:CAC Ratio (by month 6)
-Minimum Viable: 2:1
-Target: 3:1
-Stretch: 5:1
-```
+1. **Return Rate (%):** If this spikes above 15% (depending on the category), it destroys your Contribution Margin. It often indicates a manufacturing defect or wildly inaccurate Product Descriptions.
+2. **Chargeback Ratio:** If a customer disputes a charge with their credit card company, you get penalized. If your Chargeback ratio exceeds 1% of total transactions, Stripe will flag your account and potentially freeze your funds.
+3. **API Latency (p99):** If the 99th percentile of your Cart API requests takes longer than 500ms, you are actively losing sales.
 
 ---
 
-## Analytics Infrastructure Decision
-
-Getting this right at launch is far cheaper than retrofitting it later. Choose your stack based on your compliance requirements, technical setup, and reporting needs.
-
-| Tool | Best For | Cost |
-|---|---|---|
-| **Google Analytics 4** | E-commerce funnel tracking, free, industry standard | Free |
-| **Mixpanel** | Event-level tracking, cohort analysis, user-level data | Free tier → $20/mo+ |
-| **PostHog** | Self-hosted option, open source, feature flags, session replay | Free (self-hosted) |
-| **Plausible** | Simple, privacy-first, GDPR-compliant | ~$9/mo |
-| **Segment** | Data pipeline layer — routes events to multiple destinations | Free tier → $120/mo+ |
-
-> [!IMPORTANT]
-> For a production store, implement GA4 e-commerce tracking **from day one**. This includes purchase events, add-to-cart events, begin-checkout events, and refund events. Retrofitting full e-commerce event tracking after launch is painful and means losing early-stage data that will never be recoverable.
-
----
-
-## AI Prompt — Define Your Success Metrics
+## AI Prompt — Define Your Telemetry
 
 ```prompt
-I am building a production e-commerce store selling [product type] targeting [audience].
+I am establishing the core success metrics and telemetry infrastructure for a production e-commerce store.
 
-My store will have approximately [number] products at launch.
-My primary traffic sources: [organic search / paid social / email / referral / marketplace]
-My acquisition model: [paid-first / organic-first / hybrid]
-My target market: [domestic-only / regional / international]
+Tech Stack:
+- Database: [e.g., Postgres / BigQuery]
+- BI Tool: [e.g., Metabase]
 
-Help me define:
-1. The 5 most important metrics I should track for this specific store, with benchmarks
-2. Realistic targets for each metric in the first 90 days post-launch
-3. The funnel breakpoints I should instrument in my analytics (the events that explain why conversion moves)
-4. A LTV model structure appropriate for my product category
-5. The one leading indicator metric that would predict conversion rate problems before they become revenue problems
-
-Structure the output as a metrics dashboard spec I can hand to a developer.
+Act as a Principal Data Engineer:
+1. Provide the exact SQL logic required to calculate the "Contribution Margin" of a single order, joining the Orders table with the COGS, Shipping, and Payment Fees tables.
+2. Explain why frontend analytics (like Google Analytics) are fundamentally flawed for calculating LTV:CAC, and why we must rely on a backend Data Warehouse architecture.
+3. Define the alerting thresholds for "Chargeback Ratio" and "Return Rate", and outline the automated alerts we should configure in our BI tool if those thresholds are breached.
 ```
-
-> [!NOTE]
-> Use the output to define your analytics event taxonomy before you build Phase 3. The events your analytics needs to track must be designed into the codebase from the start — they cannot be tacked on afterwards.
 
 ---
 
-## What Comes Next
+## Success Metrics Checklist
 
-Once your success metrics are defined, every decision in Phase 1 and beyond has a testable hypothesis attached to it.
-
-When you are designing your checkout flow: *this decision should reduce cart abandonment rate*.
-
-When you are choosing a product page layout: *this should improve add-to-cart rate for this category*.
-
-That is the shift from guessing to engineering. At production scale, every major feature decision should be tied to a metric hypothesis and measured against it after shipping.
-
-**Next: Store Fundamentals →**
+- [ ] Core Unit Economics (Contribution Margin, CAC, LTV:CAC) defined and understood by the engineering team
+- [ ] Backend Data Warehouse architecture (e.g., BigQuery + Metabase) established to bypass frontend ad blockers
+- [ ] Real-time dashboards configured for Tier 2 Conversion Metrics (CVR, AOV, Cart Abandonment)
+- [ ] Negative Risk Metrics (Return Rate, Chargeback Ratio, p99 Latency) actively monitored with automated alerting

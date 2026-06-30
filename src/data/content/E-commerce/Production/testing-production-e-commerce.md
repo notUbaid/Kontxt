@@ -1,281 +1,103 @@
 ---
-title: Testing
+title: Testing Implementation
 slug: testing
 phase: Phase 3
 mode: production
 projectType: e-commerce
-estimatedTime: 25-30 min
+estimatedTime: 35–45 min
 ---
 
-# Testing
+# Testing Implementation
 
-You're handling real payments now. A bug that's annoying in a to-do app is expensive in a store — a broken checkout means lost money, a broken inventory sync means overselling, a broken discount code means giving away free products. This module is about testing the parts of your store where bugs actually cost something, and skipping the parts where they don't.
+In a personal project, you test by clicking around the UI. In a production e-commerce store, clicking around is insufficient. 
 
----
-
-## The Personal-Project Testing Trap
-
-Most beginners do one of two things, both wrong:
-
-1. **Test nothing** — ship and hope, find out from angry customers
-2. **Test everything** — chase 100% coverage on a solo project, burn weeks on tests for a button color
-
-Neither is right. The goal is **targeted testing**: cover the paths where a bug costs you money or trust, skip exhaustive coverage everywhere else.
-
-> **Reframe:** You're not trying to prove your code is correct. You're trying to make sure the few things that would actually hurt you — wrong charges, lost orders, broken checkout — can't silently break without you knowing.
+A single bug in the promotion logic or a regression in the payment gateway integration will cost thousands of dollars per minute during a traffic spike. Production testing requires a rigorous, automated pipeline that tests the critical path continuously.
 
 ---
 
-## Decision: What Actually Needs Tests?
+## 1. The E-Commerce Testing Pyramid
 
-<table>
-<tr><th>Area</th><th>Test it?</th><th>Why</th></tr>
-<tr><td>Checkout & payment flow</td><td><strong>Yes — critical</strong></td><td>Bugs here cost real money and trust</td></tr>
-<tr><td>Cart logic (totals, quantities, discounts)</td><td><strong>Yes — critical</strong></td><td>Wrong math = wrong charges</td></tr>
-<tr><td>Inventory updates after purchase</td><td><strong>Yes — critical</strong></td><td>Bugs here cause overselling</td></tr>
-<tr><td>Order status transitions</td><td>Yes — important</td><td>Customers and you both rely on accurate status</td></tr>
-<tr><td>Auth (signup/login)</td><td>Yes — important</td><td>Security-adjacent, worth covering</td></tr>
-<tr><td>Product display/filtering UI</td><td>Light/manual testing</td><td>Visual bugs are easy to spot manually</td></tr>
-<tr><td>Admin dashboard UI</td><td>Manual testing</td><td>You're the only user — you'll notice if it breaks</td></tr>
-<tr><td>Marketing pages, static content</td><td>No automated tests needed</td><td>Low risk, low complexity</td></tr>
-</table>
+Do not try to write UI tests for every single pixel. Focus your automated testing budget where the financial risk is highest.
 
----
+### Tier 1: End-to-End (E2E) Testing (The Critical Path)
+You must guarantee that a user can give you money.
+- **Tools:** Playwright or Cypress.
+- **The Critical Flow:** Write an E2E test that programmatically visits the homepage, searches for an item, adds it to the cart, fills out the shipping address, and submits a test credit card (e.g., Stripe's `4242` test card).
+- **Execution:** This test must run on *every single Pull Request* in your CI/CD pipeline (GitHub Actions). If it fails, the code cannot be merged.
 
-## The Three Layers (And How Much of Each You Need)
+### Tier 2: Integration Testing (The APIs)
+You must guarantee that your backend communicates with third-party APIs correctly.
+- **Tools:** Jest or Vitest + Supertest.
+- **The Focus:** Mock the Stripe API, the Tax API, and the Shipping API. Write tests asserting that your backend gracefully degrades (returns a fallback flat-rate shipping) if the Shipping API times out.
+- **Webhooks:** Write tests that simulate receiving a `payment_intent.succeeded` webhook *twice*, asserting that your idempotency logic prevents a duplicate order creation.
 
-```
-        ╱╲
-       ╱  ╲      E2E Tests
-      ╱----╲     Few. Slow. Test the full purchase journey.
-     ╱      ╲
-    ╱--------╲   Integration Tests  
-   ╱          ╲  Some. Test API routes + DB together.
-  ╱------------╲
- ╱              ╲ Unit Tests
-╱----------------╲ Most. Fast. Test pure logic (cart math, etc).
-```
-
-This is the standard testing pyramid — but for a personal store, weight it even more toward the bottom. You don't need dozens of E2E tests. You need a handful that cover the purchase journey, and solid unit tests around money-related logic.
+### Tier 3: Unit Testing (The Math)
+You must guarantee that your financial math is perfect.
+- **The Focus:** Promotions engines, tax calculations, and DIM weight algorithms.
+- If you have a function `calculateCartTotal(items, discounts)`, you must write dozens of unit tests covering edge cases (e.g., BOGO discounts overlapping with percentage discounts).
 
 ---
 
-## Layer 1: Unit Tests — Cart & Pricing Logic
+## 2. Load Testing (Surviving Black Friday)
 
-This is your highest-value testing investment. Cart and pricing math is pure logic (no database, no network), fast to test, and exactly where silent bugs cost you money.
+You will not know your database connection limits or API bottlenecks until they break under load.
 
-**What to unit test:**
-- Cart subtotal calculation
-- Discount/coupon application
-- Tax calculation
-- Shipping cost calculation
-- Total calculation (subtotal + tax + shipping - discount)
-- Quantity limits / stock validation logic
+**The Implementation:**
+Use a load testing tool like **k6 (by Grafana)** or **Artillery**.
+Write a script that simulates 10,000 virtual users (VUs) executing the Critical Path (Search → Add to Cart → Checkout) over 5 minutes.
 
-```javascript
-// Example using Vitest
-import { describe, it, expect } from 'vitest';
-import { calculateCartTotal } from '../lib/cart';
+*What to watch for during the load test:*
+1. **Database Exhaustion:** Does your connection pooler (PgBouncer) hold up, or do you get `Too many connections`?
+2. **Third-Party Rate Limits:** Do your API keys for search (Algolia) or emails (Resend) get rate-limited?
+3. **Memory Leaks:** Does the RAM usage of your serverless functions or Node.js containers steadily climb until they crash?
 
-describe('calculateCartTotal', () => {
-  it('calculates subtotal correctly for multiple items', () => {
-    const items = [
-      { price: 25.00, quantity: 2 },
-      { price: 10.00, quantity: 1 },
-    ];
-    expect(calculateCartTotal(items).subtotal).toBe(60.00);
-  });
+---
 
-  it('applies percentage discount correctly', () => {
-    const items = [{ price: 100.00, quantity: 1 }];
-    const result = calculateCartTotal(items, { type: 'percent', value: 10 });
-    expect(result.total).toBe(90.00);
-  });
+## 3. Synthetic Monitoring (Testing in Production)
 
-  it('does not apply discount below zero', () => {
-    const items = [{ price: 5.00, quantity: 1 }];
-    const result = calculateCartTotal(items, { type: 'flat', value: 50 });
-    expect(result.total).toBe(0);
-  });
+Tests in staging are great, but production environments drift. API keys expire, domain SSLs lapse, and third-party services go down.
 
-  it('handles empty cart without error', () => {
-    expect(calculateCartTotal([]).total).toBe(0);
-  });
-});
+**The Implementation:**
+Set up Synthetic Monitoring using tools like **Datadog Synthetics** or **Checkly**.
+- These services run a headless browser (Playwright) against your live production site every 5 minutes.
+- They execute the Add-to-Cart flow.
+- If the "Checkout" button fails to render, or the API returns a 500, they immediately page the engineering team via PagerDuty.
+
+---
+
+## 4. Visual Regression Testing
+
+Marketing teams frequently update CSS, deploy new banners, or inject third-party popups. These changes often accidentally obscure the "Add to Cart" button on mobile devices.
+
+**The Implementation:**
+Integrate a visual regression tool (like Percy or Chromatic) into your CI pipeline. It takes a screenshot of your PDP and Checkout on every PR and highlights any pixel-level changes compared to the `main` branch. A human must approve the visual diff before it merges.
+
+---
+
+## AI Prompt — Architect Your Testing Pipeline
+
+```prompt
+I am implementing the automated testing pipeline for a production e-commerce store.
+
+Tech Stack:
+- Frontend: [e.g., Next.js]
+- Backend: [e.g., Node.js / Postgres]
+- Critical APIs: [Stripe, TaxJar, Shippo]
+
+Act as a Principal QA Engineer:
+1. Write a complete Playwright (E2E) test script that executes the "Critical Path" (Home -> Search -> Add to Cart -> Checkout with Stripe test card).
+2. Provide the Jest/Vitest code required to test Webhook Idempotency (asserting that sending the same webhook payload twice results in only one database insertion).
+3. Write a `k6` load testing script to simulate a flash-sale spike of 5,000 concurrent users hitting the Add-to-Cart endpoint.
+4. Outline the exact GitHub Actions workflow required to block PR merges if the Playwright or Jest tests fail.
 ```
 
-> **Why this matters more than it seems:** A coupon bug that lets totals go negative, or a tax calculation that's off by a rounding error, won't show up in a quick manual click-through — you'll only notice when a customer either complains or you reconcile your Stripe payouts and the numbers don't add up.
-
 ---
 
-## Layer 2: Integration Tests — API Routes + Database
+## Testing Implementation Checklist
 
-Test that your backend logic correctly talks to your database for the flows that change state.
-
-**Priority integration tests:**
-- Creating an order correctly decrements inventory
-- Placing an order with insufficient stock is rejected
-- Order status updates correctly when a webhook fires
-- Duplicate webhook events don't create duplicate orders (idempotency)
-
-```javascript
-// Example: testing inventory decrement on order creation
-describe('POST /api/orders', () => {
-  it('decrements product stock when an order is placed', async () => {
-    const product = await createTestProduct({ stock: 5 });
-    await createTestOrder({ productId: product.id, quantity: 2 });
-
-    const updated = await getProduct(product.id);
-    expect(updated.stock).toBe(3);
-  });
-
-  it('rejects an order if requested quantity exceeds stock', async () => {
-    const product = await createTestProduct({ stock: 1 });
-    const response = await createTestOrder({ productId: product.id, quantity: 5 });
-
-    expect(response.status).toBe(400);
-  });
-
-  it('does not double-process the same Stripe webhook event', async () => {
-    const event = createTestWebhookEvent({ type: 'checkout.session.completed' });
-    await processWebhook(event);
-    await processWebhook(event); // same event, sent twice
-
-    const orders = await getOrdersByPaymentIntent(event.payment_intent);
-    expect(orders.length).toBe(1);
-  });
-});
-```
-
-> **Critical concept — Webhook idempotency:** Payment providers (Stripe included) can and do send the same webhook event more than once. If your handler isn't idempotent, a retried webhook can create duplicate orders or double-decrement inventory. This is one of the most common production bugs in e-commerce apps built quickly. Test for it explicitly.
-
----
-
-## Layer 3: End-to-End Tests — The Purchase Journey
-
-A small number of E2E tests that simulate a real customer, browser and all. Use a tool like **Playwright**.
-
-**The E2E tests actually worth writing:**
-1. Browse → add to cart → checkout → complete payment (happy path)
-2. Apply a valid discount code → total updates correctly
-3. Attempt checkout with an out-of-stock item → blocked with a clear message
-4. Failed payment (use Stripe's test card for declines) → user sees an error, isn't charged, isn't shown a false success page
-
-That's typically enough. You don't need E2E coverage of every page — just the path where money changes hands.
-
-```javascript
-// Example using Playwright
-import { test, expect } from '@playwright/test';
-
-test('customer can complete a purchase end-to-end', async ({ page }) => {
-  await page.goto('/products/sample-product');
-  await page.click('text=Add to Cart');
-  await page.click('text=Checkout');
-
-  await page.fill('[name="email"]', 'test@example.com');
-  await page.fill('[name="cardNumber"]', '4242424242424242'); // Stripe test card
-  await page.fill('[name="expiry"]', '12/30');
-  await page.fill('[name="cvc"]', '123');
-  await page.click('text=Place Order');
-
-  await expect(page.locator('text=Order Confirmed')).toBeVisible();
-});
-
-test('declined card shows error, not false success', async ({ page }) => {
-  await page.goto('/products/sample-product');
-  await page.click('text=Add to Cart');
-  await page.click('text=Checkout');
-
-  await page.fill('[name="cardNumber"]', '4000000000000002'); // Stripe decline test card
-  await page.click('text=Place Order');
-
-  await expect(page.locator('text=Payment failed')).toBeVisible();
-  await expect(page.locator('text=Order Confirmed')).not.toBeVisible();
-});
-```
-
-> **Tip:** Stripe provides a full set of test card numbers for simulating declines, insufficient funds, expired cards, and fraud flags. Use them. Never test payment flows against your own real card.
-
----
-
-## AI Prompt: Generate a Test Suite
-
-```
-I'm building tests for the critical paths of a personal e-commerce store using [Vitest/Jest + Playwright].
-
-Stack: [your stack]
-
-Generate tests for these specific areas, in priority order:
-1. Unit tests for cart total calculation (subtotal, discount, tax, shipping) — including edge cases like empty cart, discount exceeding total, zero quantity
-2. Integration tests for order creation: stock decrement, rejection on insufficient stock, webhook idempotency (same event processed twice should not duplicate the order)
-3. One E2E test for the full happy-path purchase journey
-4. One E2E test for a declined payment, verifying no false success state is shown
-
-My relevant code:
-[paste your cart logic, order creation endpoint, and webhook handler]
-
-Use realistic test data. Flag any edge cases in my existing code that you notice aren't currently handled.
-```
-
-> **Token efficiency tip:** Ask AI to generate tests in priority order and stop after the highest-value ones if you're short on time. A complete test suite for your cart logic is worth more than partial coverage spread thin across everything.
-
----
-
-## Validating AI-Generated Tests
-
-Tests are code too — and AI-generated tests have a specific failure mode worth watching for: **tests that pass but don't actually test anything meaningful.**
-
-- [ ] Does the test actually assert something specific, or just check that no error was thrown?
-- [ ] Are edge cases covered (empty cart, zero stock, negative discount, duplicate webhook) or only the happy path?
-- [ ] Do tests use isolated test data, or could they pollute your real database?
-- [ ] Would this test actually fail if you reintroduced the bug it's supposed to catch? (Mentally break the code and check.)
-- [ ] Are payment tests using Stripe's official test card numbers, not made-up ones?
-
-> **Common AI mistake:** AI sometimes writes tests that check `expect(response.status).not.toBe(500)` instead of asserting the actual expected behavior. This technically passes but proves almost nothing. Push back and ask for specific value assertions.
-
----
-
-## What "Good Enough" Looks Like Here
-
-You are not shipping a payments company. A reasonable bar for a personal store:
-
-- Cart/pricing logic: well-covered with unit tests
-- Order creation + webhook handling: covered with integration tests, including idempotency
-- One full happy-path E2E test, one failure-path E2E test
-- Everything else: tested manually before launch, then as you go
-
-If you hit that bar, you're in better shape than most production e-commerce side projects.
-
----
-
-## What You're Skipping (On Purpose)
-
-In Personal Mode, deliberately skip:
-
-- Visual regression testing (screenshot diffing)
-- Load/performance testing
-- Cross-browser E2E test matrices (test in one browser; Playwright supports more later if needed)
-- 100% code coverage targets
-- Mutation testing
-- Testing third-party library internals (trust Stripe's SDK works — test your usage of it)
-
----
-
-## Implementation Checklist
-
-- [ ] Vitest (or Jest) installed and configured
-- [ ] Unit tests written for cart subtotal, discount, tax, shipping, and total calculation
-- [ ] Edge cases tested: empty cart, discount exceeding total, zero/negative quantity
-- [ ] Integration test: order creation decrements stock correctly
-- [ ] Integration test: order rejected when stock is insufficient
-- [ ] Integration test: duplicate webhook event does not create duplicate order
-- [ ] Playwright installed and configured
-- [ ] E2E test: full happy-path purchase using Stripe test card
-- [ ] E2E test: declined payment shows error, not false success
-- [ ] All tests passing in CI (or at minimum, run before every deploy)
-
----
-
-## What's Next
-
-With your critical paths protected by tests, it's time to write down how your store actually works — for future-you, and for AI tools that need context — that's **Documentation**, next in this phase.
+- [ ] Playwright/Cypress E2E test written for the critical path (Search → Add to Cart → Checkout)
+- [ ] Unit tests written with 100% coverage on financial math (Cart totals, Discounts, Tax)
+- [ ] Integration tests written to verify Idempotency on webhook handlers
+- [ ] CI/CD pipeline configured to block merges if tests fail
+- [ ] Load testing (e.g., k6) executed to verify database connection pool limits
+- [ ] Synthetic Monitoring (Checkly/Datadog) configured to ping production every 5 minutes

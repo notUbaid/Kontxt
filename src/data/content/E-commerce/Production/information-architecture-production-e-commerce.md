@@ -4,331 +4,78 @@ slug: information-architecture
 phase: Phase 1
 mode: production
 projectType: e-commerce
-estimatedTime: 20–25 min
+estimatedTime: 25–35 min
 ---
 
-# Information Architecture
+# Information Architecture (IA)
 
-Information Architecture (IA) is the structural skeleton of your store. It defines what pages exist, how they connect, what lives on each page, and how customers navigate from first visit to completed order.
+If a user cannot find a product within 3 clicks or 5 seconds, they will leave. In production e-commerce, Information Architecture (IA) is the structural foundation of your database schema, your SEO strategy, and your user navigation.
 
-Get this right before designing anything. A beautiful UI built on a broken IA will still lose customers at every navigation decision.
-
----
-
-## What IA Answers
-
-- What are all the pages in this store?
-- How does a customer move between them?
-- What is the primary navigation?
-- What content belongs on each page?
-- What are the entry points into the purchase flow?
-- Where can the flow break, and what happens when it does?
+IA is not about designing a pretty header menu. It is about organizing a catalog of 10,000 SKUs into a mathematically logical, hierarchical graph that both humans and Googlebot can traverse instantly.
 
 ---
 
-## The Store Navigation Model
+## 1. The Global Taxonomy (The Category Tree)
 
-A personal e-commerce store has two distinct navigation systems operating simultaneously.
+You must define the parent-child relationships of your entire catalog before writing code.
 
-### Primary Navigation
-The persistent header/nav. Present on every page. Anchors the customer's mental model of the store.
+**The Implementation:**
+Establish a strict, mutually exclusive taxonomy.
+- **Root:** `Apparel`
+  - **Node 1:** `Mens`
+    - **Node 2:** `Tops`
+      - **Leaf:** `T-Shirts`
 
-```
-Logo → Homepage
-Products (or your catalog name)
-About
-Contact
-Cart icon (with item count)
-```
-
-Keep it to 4–5 items maximum. Every item added to primary nav reduces the weight of every other item.
-
-### Contextual Navigation
-Page-level navigation that guides the customer deeper into a specific flow. Not persistent.
-
-Examples:
-- Breadcrumbs on product detail pages (`Home > Candles > Cedar & Smoke`)
-- Category filters on the product listing page
-- Step indicators in checkout (`Shipping → Payment → Review`)
-- Order status on the confirmation page
+**The Engineering Impact:**
+This exact tree structure must dictate your URL routing (e.g., `/collections/apparel/mens/tops/t-shirts`). This provides Google with structural breadcrumbs (JSON-LD), massively improving your SEO rankings, while allowing the backend to execute highly optimized SQL indexing queries (e.g., fetching all products where `category_path LIKE 'apparel/mens/%'`).
 
 ---
 
-## The Full Page Map
+## 2. Faceted Search vs Hierarchical Navigation
 
-Every page your store needs. Organized by zone.
+Do not confuse Categories with Attributes.
 
-### Public Store
+**The Anti-Pattern:** Creating a category called "Red Shirts" or "Large Shirts". This creates thousands of redundant, empty categories that destroy your crawl budget and confuse users.
 
-```
-/                           Homepage
-├── /products               Product listing (all products)
-│   └── /products/[slug]    Product detail page
-├── /about                  Brand story and trust signals
-└── /contact                Contact form or email
-```
-
-### Purchase Flow
-
-```
-/cart                       Cart review
-/checkout                   Checkout (can be multi-step or single page)
-/order/[id]/confirmation    Order confirmation
-```
-
-### Customer Account (deferred — post-MVP)
-
-```
-/account/login
-/account/register
-/account/orders
-/account/orders/[id]
-/account/profile
-```
-
-### Admin (internal — not customer-facing)
-
-```
-/admin                      Dashboard overview
-/admin/orders               Order list
-/admin/orders/[id]          Order detail
-/admin/products             Product list
-/admin/products/new         Add product
-/admin/products/[id]        Edit product
-/admin/inventory            Inventory overview
-```
-
-> 💡 **Tip: Admin Scope at MVP**
->
-> Your admin at launch needs exactly three things: view orders, view inventory, update order status. Everything else can be done directly in your database until order volume justifies building more. Don't build a full CMS before you have customers.
+**The Production Standard:**
+- **Categories (The Hierarchy):** "What is it?" (e.g., A T-Shirt). This lives in the URL path.
+- **Facets (The Attributes):** "What are its properties?" (e.g., Red, Size Large, Cotton). These live in the URL query string (e.g., `?color=red&size=L`).
+- Your IA must explicitly separate the two. The frontend renders the Categories in the top navigation bar, and renders the Facets in the left-hand sidebar on the collection page.
 
 ---
 
-## Page-Level Content Architecture
+## 3. The "Mega Menu" Architecture
 
-What lives on each critical page. This is the input to your wireframes in the next module.
+For large catalogs, a standard dropdown menu is insufficient. Users need to see the breadth of the catalog at a glance.
 
-### Homepage `/`
+**The Implementation:**
+Design a Mega Menu.
+- **Performance Constraint:** Do not fetch the entire 1,000-node category tree from the database on every page load. The Mega Menu JSON payload must be heavily cached at the CDN Edge, or pre-rendered into the static HTML at build time via Next.js `getStaticProps` / App Router caching.
+- **UX Constraint:** Use "hover intents" (delays of ~300ms) before opening the mega menu. If it opens instantly upon the mouse brushing past it, it creates a chaotic, frustrating user experience known as a "diagonal cursor problem."
 
-**Job:** Convert a first-time visitor into a product browser.
+---
 
-```
-Hero section
-  └── Brand statement or featured product
-  └── Primary CTA → /products or featured /products/[slug]
+## AI Prompt — Architect Your Taxonomy
 
-Featured products or collections (3–6 items)
-  └── Each links to /products/[slug]
+```prompt
+I am defining the Information Architecture and Catalog Taxonomy for a production e-commerce store with 5,000 SKUs.
 
-Brand story (condensed)
-  └── Links to /about
+Business Context:
+- Vertical: [e.g., Home Goods / Apparel / Electronics]
+- Tech Stack: [e.g., Next.js App Router, Postgres]
 
-Trust signals
-  └── Shipping info, return policy snippet, handmade/local signals
-
-Optional: Email capture (newsletter)
-```
-
-### Product Listing `/products`
-
-**Job:** Help the customer find what they want and create desire to click.
-
-```
-Page header (catalog name or category title)
-
-Filter/sort controls (if catalog > 15 items)
-  └── By category, price, availability
-
-Product grid
-  └── Product card: image, name, price, variant hint (e.g. "3 scents")
-  └── Sold-out state on card level
-
-Pagination or infinite scroll (if catalog > 20 items)
-```
-
-### Product Detail `/products/[slug]`
-
-**Job:** Give the customer enough information and confidence to add to cart.
-
-```
-Product images (gallery)
-  └── Main image + thumbnails
-  └── Zoom on hover/tap
-
-Product info
-  └── Name
-  └── Price (and compare_at_price if on sale)
-  └── Short description (1–3 sentences)
-  └── Variant selector (size, color, scent, etc.)
-  └── Inventory signal ("Only 3 left" if stock ≤ 5)
-  └── Add to Cart button
-  └── Sold Out state (when applicable)
-
-Full description / details
-  └── Materials, dimensions, care instructions, etc.
-
-Shipping and returns snippet
-  └── Inline, not a link — customers need this before buying
-
-Trust signals
-  └── Handmade note, maker info, production time if made-to-order
-```
-
-### Cart `/cart`
-
-**Job:** Review and confirm before committing to checkout.
-
-```
-Line items
-  └── Image, name, variant, quantity control, line total
-  └── Remove item
-
-Order summary
-  └── Subtotal
-  └── Shipping estimate or "calculated at checkout"
-  └── Total
-
-Checkout CTA button
-
-Optional: Cross-sell / upsell block (post-MVP)
-Optional: Coupon code field (if in scope)
-```
-
-### Checkout `/checkout`
-
-**Job:** Collect payment with minimum friction.
-
-```
-Step 1 — Contact + Shipping
-  └── Email address
-  └── Full name
-  └── Shipping address
-  └── Shipping method selector (if multiple options)
-
-Step 2 — Payment
-  └── Payment form (handled by payment provider UI)
-  └── Order summary sidebar (always visible)
-
-Step 3 — Review and Place Order
-  └── Final total with shipping and tax
-  └── Place Order button
-```
-
-> ⚠️ **Warning: Don't Build a Custom Payment Form**
->
-> Your payment provider (Razorpay, Stripe) provides a hosted or embedded payment UI that handles PCI compliance for you. Never build your own card input fields. The security liability is not worth it for any personal store.
-
-### Order Confirmation `/order/[id]/confirmation`
-
-**Job:** Eliminate post-purchase anxiety. Create confidence the order is real.
-
-```
-Success signal (prominent)
-  └── "Order confirmed" heading
-
-Order summary
-  └── Order number (for customer reference)
-  └── Items purchased
-  └── Shipping address
-  └── Total paid
-
-Next steps
-  └── "You'll receive a confirmation email at [email]"
-  └── Estimated fulfillment time (if known)
-
-Optional: Social sharing prompt (if brand has strong social presence)
+Act as a Principal Information Architect:
+1. Design the core Category Tree (up to 3 levels deep) for our primary product lines, ensuring it is logically structured for optimal SEO URL routing.
+2. Differentiate between our proposed Categories and our Facets (Attributes). Provide a JSON schema example of how a product should store its Facets (e.g., material, color) separately from its Category ID.
+3. Outline the frontend engineering constraints required to build a high-performance Mega Menu, specifically addressing Edge caching strategies and UX "hover intent" delays.
 ```
 
 ---
 
-## Navigation Flow Diagram
+## Information Architecture Checklist
 
-The critical path from landing to purchase:
-
-```
-Entry (direct / social / search)
-          ↓
-     Homepage
-          ↓
-  Product Listing
-          ↓
-  Product Detail ←──────────────┐
-          ↓                     │
-      Add to Cart               │
-          ↓                     │
-        Cart ──── Continue Shopping
-          ↓
-      Checkout
-     (Contact)
-          ↓
-     Checkout
-     (Payment)
-          ↓
-   Order Placed
-          ↓
-  Confirmation Page
-          +
-  Confirmation Email
-```
-
-Every step in this path is a potential drop-off point. Your IA should minimize unnecessary steps and ensure there is always one obvious next action.
-
----
-
-## IA Failure Patterns to Avoid
-
-| Failure | What Happens |
-|---|---|
-| No breadcrumbs on product pages | Customer loses context, bounces to homepage instead of back to listing |
-| Cart hidden behind icon with no visual feedback | Customer doesn't know item was added, adds it again or leaves |
-| Checkout in a separate domain or tab | Breaks browser history, destroys trust |
-| Order confirmation behind login wall | Guest customers can't see their confirmation |
-| Admin mixed into public store routing | Security risk, accidental exposure |
-| 404 on deleted products with no redirect | SEO loss, broken links from social |
-
----
-
-## ✅ Information Architecture Checklist
-
-- [ ] I have a complete page map covering all public, checkout, and admin pages
-- [ ] I have defined primary navigation (max 5 items)
-- [ ] I have mapped the content hierarchy for all critical pages
-- [ ] The path from homepage to order confirmation has no unnecessary steps
-- [ ] Every page has one clear primary action
-- [ ] Admin routes are separate from public store routes
-- [ ] I have accounted for error states (sold out, out of stock, payment failed)
-- [ ] Guest checkout confirmation is accessible without login
-
----
-
-## AI Prompt — Review and Extend Your IA
-
-```
-I am designing the information architecture for a personal e-commerce store.
-
-My store:
-[Paste your PRD Section 1 store overview paragraph]
-
-My planned page map:
-[List your pages]
-
-My primary navigation:
-[List your nav items]
-
-Review my IA:
-1. Are there any pages I'm missing that would break the customer journey?
-2. Are there any pages I've included that are unnecessary at MVP?
-3. Is my primary navigation scoped correctly — nothing missing, nothing redundant?
-4. What is the most likely navigation failure point where customers will drop off?
-5. What URL structure do you recommend for my product and category pages?
-
-Then generate a content hierarchy outline for my product detail page specific to [your product type].
-```
-
----
-
-## What Comes Next
-
-Your IA is the input to wireframing. Every wireframe you create in the next module maps to a page defined here. Without a complete IA, wireframes become speculative — you design pages you don't need and miss pages you do.
-
-**Next: Wireframes →**
+- [ ] Global Category Taxonomy defined hierarchically (Root > Node > Leaf)
+- [ ] SEO-optimized URL structure mapped directly to the category hierarchy
+- [ ] Strict separation enforced between Categories (Hierarchy) and Facets (Filterable Attributes)
+- [ ] Mega Menu UX designed to handle large catalogs with "hover intent" delays to prevent diagonal cursor issues
+- [ ] Backend caching strategy defined to prevent expensive database queries for global navigation trees

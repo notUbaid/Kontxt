@@ -4,260 +4,140 @@ slug: cart-architecture
 phase: Phase 2
 mode: production
 projectType: e-commerce
-estimatedTime: 25–35 min
+estimatedTime: 30–40 min
 ---
 
 # Cart Architecture
 
-The cart is the most technically interesting part of an e-commerce store. It bridges anonymous browsing and authenticated purchasing. It has to work offline, survive page refreshes, handle stock changes in real-time, and eventually convert into an order worth real money.
+The shopping cart is the most frequently updated, highly concurrent data structure in an e-commerce store. 
 
-Get this wrong and you either lose sales (cart disappears on refresh) or create fraud surface (price manipulation). Neither is acceptable.
+At a small scale, storing a cart in local storage or a Postgres table is fine. At production scale, the cart is a critical performance bottleneck. It must handle rapid mutation, complex promotional logic (BOGO, tier pricing), and cross-device synchronization without slowing down the user experience.
 
----
-
-## The Core Problem
-
-A cart exists in a strange state: it belongs to a user who might not exist yet.
-
-This means you need to answer three questions before writing a single line of code:
-
-> **Where does the cart live?**
-> **Who does it belong to?**
-> **How long does it survive?**
-
-Every cart decision flows from these three answers.
+If your cart architecture is slow, your conversion rate dies.
 
 ---
 
-## Where the Cart Lives
+## The Three Tiers of Cart Architecture
 
-There are three real options:
+How you store the cart dictates the speed and capabilities of your store.
 
-| Storage | Pros | Cons | Use When |
-|---|---|---|---|
-| **Client only** (localStorage) | Zero backend cost, instant | Lost on device switch, no cross-device sync | Prototypes only |
-| **Server only** (database) | Persistent, cross-device, trustworthy | Requires auth or guest session, DB reads on every page | Production standard |
-| **Hybrid** (client + server sync) | Fast UX, reliable persistence | Complex sync logic, conflict resolution | Mature stores |
+### 1. Client-Side Only (Local Storage / Cookies)
+The cart state lives entirely in the user's browser until they hit checkout.
+- **Pros:** Zero database load. Instant updates.
+- **Cons:** You cannot track abandoned carts (because the server doesn't know what's in them). You cannot sync the cart if the user switches from their phone to their laptop.
+- **Verdict:** Unacceptable for a production store. Abandoned cart recovery accounts for 10-15% of total revenue in mature e-commerce businesses.
 
-**For a personal project: start server-only with a guest session system.**
+### 2. Relational Database (PostgreSQL / MySQL)
+Every add-to-cart inserts a row into a `cart_items` table.
+- **Pros:** Persistent, easy to query, highly structured.
+- **Cons:** Slow. Database connections become a major bottleneck during high-traffic events (e.g., Black Friday). Calculating complex cart totals with joins across product, variant, and discount tables is computationally expensive.
+- **Verdict:** Acceptable for low-to-medium traffic, but creates major scalability ceilings.
 
-Client-only carts lose sales the moment a user switches devices. Hybrid carts introduce sync conflicts that are genuinely difficult to resolve correctly. Server-only is the industry default and the right default for you.
-
----
-
-## Guest Sessions
-
-Most visitors never create accounts. If your cart requires authentication, most users will never add a single item.
-
-The solution is a **guest session**: a temporary identity that allows anyone to have a cart without registering.
-
-```
-User visits store
-  → No auth token? Create guest session (UUID)
-  → Store session ID in cookie (httpOnly, 7-day expiry)
-  → Link cart to session ID
-  → On checkout: optionally convert guest → account
-```
-
-> **Important:** Guest sessions must be stored in **httpOnly cookies**, not localStorage. This prevents XSS attacks from stealing cart data and prevents client-side JavaScript from tampering with session identity.
+### 3. Edge-Cached Key-Value Store (Redis / Upstash)
+The cart lives in a highly available, in-memory datastore, keyed by a session ID or User ID.
+- **Pros:** Blistering fast (sub-millisecond reads/writes). Absorbs massive concurrency spikes effortlessly. Handles TTL (Time-To-Live) automatically to purge abandoned carts after 30 days.
+- **Cons:** Requires managing a separate infrastructure piece.
+- **Verdict:** **The standard for headless production commerce.**
 
 ---
 
-## Cart Data Model
+## The Cart Payload: What to Store
 
-Design this before touching your database. The shape of your cart determines everything downstream.
+A bloated cart object slows down every page transition. A lean cart object requires too many subsequent database queries. The balance is critical.
 
-**Recommended schema:**
+**Do NOT store:**
+- Full product descriptions
+- Deep category taxonomies
+- High-res image arrays
 
-```
-Cart
-├── id (uuid)
-├── sessionId or userId (foreign key)
-├── status (active | merged | abandoned | converted)
-├── currency (ISO 4217, e.g. "INR")
-├── createdAt
-└── updatedAt
-
-CartItem
-├── id (uuid)
-├── cartId (foreign key)
-├── productId (foreign key)
-├── variantId (foreign key, nullable)
-├── quantity (integer, min 1)
-├── priceAtAdd (decimal — snapshot of price when added)
-├── createdAt
-└── updatedAt
-```
-
-### Why `priceAtAdd` matters
-
-Always snapshot the price when a user adds to cart. If you change a product price after someone added it, they should see the price they committed to — not the new price.
-
-This also closes a common attack vector: price manipulation via direct API calls. Your checkout must always verify price server-side against the current product price, but `priceAtAdd` gives you an audit trail.
-
----
-
-## The Quantity Problem
-
-Stock can run out between add-to-cart and checkout. You have to decide how aggressively to validate stock.
-
-| Strategy | Behaviour | Tradeoff |
-|---|---|---|
-| **Validate at checkout only** | Show cart freely, reject at payment | Simple, but frustrating UX |
-| **Validate on add** | Check stock when item is added | Can miss concurrent adds |
-| **Soft reserve** | Hold stock for 15–30 min, release if no purchase | Best UX, requires a reservation table and background job |
-| **Real-time sync** | Websocket pushes stock changes | Complex, overkill for personal project |
-
-**For a personal project: validate at checkout + show "low stock" warnings on the cart page.**
-
-Soft reservation is worth implementing if your products have genuinely limited inventory and real traffic. Otherwise it's overengineering.
-
----
-
-## Cart Merge: The Authentication Problem
-
-What happens when a guest adds items, then logs in?
-
-You have two carts: the guest cart and the (possibly non-empty) account cart.
-
-**Recommended merge strategy:**
-
-```
-User logs in
-  → Find guest cart by session ID
-  → Find account cart by user ID
-  → If guest cart is empty: use account cart, delete guest cart
-  → If account cart is empty: transfer guest cart to account
-  → If both have items: merge, summing quantities for shared products,
-    then take the lower of quantity vs. available stock
-  → Delete the old guest cart
-  → Associate session with authenticated user
-```
-
-> **Do not silently overwrite.** If both carts have different items, merging gives the user what they added. Overwriting is a guaranteed support ticket.
-
----
-
-## API Endpoints
-
-Keep your cart API surface minimal and intentional.
-
-```
-GET    /api/cart               → fetch current cart (guest or authed)
-POST   /api/cart/items         → add item to cart
-PATCH  /api/cart/items/:id     → update quantity
-DELETE /api/cart/items/:id     → remove item
-DELETE /api/cart               → clear entire cart
-POST   /api/cart/merge         → merge guest cart on login
-```
-
-### What each endpoint must do server-side
-
-- **All routes:** resolve identity from session cookie or auth token
-- **GET:** join cart + items + products (name, image, current price, stock)
-- **POST add:** validate product exists, is active, has stock; apply quantity limits
-- **PATCH:** re-validate stock for new quantity
-- **DELETE item:** verify item belongs to caller's cart (IDOR protection)
-
----
-
-## IDOR: The Silent Vulnerability
-
-**Insecure Direct Object Reference** is the most common cart security flaw.
-
-If your DELETE endpoint looks like:
-
-```
-DELETE /api/cart/items/42
-```
-
-And your handler does:
-
-```js
-// Vulnerable
-await db.cartItems.delete({ where: { id: 42 } })
-```
-
-Any logged-in user can delete any cart item on your entire platform by guessing item IDs.
-
-The fix:
-
-```js
-// Secure
-await db.cartItems.delete({
-  where: {
-    id: 42,
-    cart: { userId: session.userId }  // always scope to caller
-  }
-})
-```
-
-Every cart operation must verify ownership. Always.
-
----
-
-## Abandoned Cart Strategy
-
-A cart with `status: active` and no activity for 24+ hours is abandoned. You have two options:
-
-- **Keep indefinitely:** Simple. Never delete active carts. Storage cost is negligible.
-- **Clean up:** Run a nightly job that marks carts `abandoned` after 7 days and deletes them after 30.
-
-For a personal project: keep them indefinitely and only add cleanup if your DB storage becomes a concern. Premature cleanup loses the ability to analyse abandonment patterns.
-
----
-
-## AI Prompt: Cart Architecture Review
-
-Use this after you've drafted your schema and API routes.
-
-```
-You are a senior backend engineer reviewing a cart architecture for a personal e-commerce project.
-
-Here is my current design:
-
-SCHEMA:
-[paste your Cart and CartItem table definitions]
-
-API ROUTES:
-[paste your endpoint list with descriptions]
-
-GUEST SESSION STRATEGY:
-[describe how you're handling guest sessions]
-
-Review for:
-1. Security vulnerabilities (especially IDOR, price manipulation, session theft)
-2. Missing edge cases (concurrent adds, stock validation, cart merge)
-3. Schema problems (missing fields, wrong data types, normalisation issues)
-4. Unnecessary complexity for a personal project
-5. Anything a solo developer would commonly forget
-
-Be specific and direct. Flag critical issues first.
+**DO store (The Cart Snapshot):**
+```json
+{
+  "cart_id": "cart_12345",
+  "user_id": "user_789" // Null if guest
+  "items": [
+    {
+      "variant_id": "var_999",
+      "sku": "TSHIRT-RED-M",
+      "quantity": 2,
+      "price_at_add": 2500, // In cents. Used to detect price changes.
+      "metadata": { "engraving": "Happy Bday" }
+    }
+  ],
+  "applied_discounts": ["SUMMER20"],
+  "subtotal": 5000,
+  "expires_at": "2024-12-31T00:00:00Z"
+}
 ```
 
 ---
 
-## Validation Checklist
+## The Cross-Device Synchronization Problem
 
-Before building, confirm you've made every decision:
+Production stores must gracefully handle the "Guest-to-Authenticated" merge.
 
-- [ ] Guest sessions stored in httpOnly cookies (not localStorage)
-- [ ] Price snapshotted at add-to-cart (`priceAtAdd`)
-- [ ] Checkout validates current price server-side regardless of `priceAtAdd`
-- [ ] All cart mutations verify item ownership before acting
-- [ ] Cart merge strategy is defined for guest → authenticated flow
-- [ ] Stock validation strategy is chosen (validate at checkout is fine)
-- [ ] `status` field distinguishes active, abandoned, and converted carts
-- [ ] Currency stored on the cart, not inferred per request
+**The Scenario:**
+1. A user browses on their phone as a Guest and adds a $100 jacket to their cart (Cart A).
+2. Later, they open their laptop, log into their account, and add a $50 shirt to their cart (Cart B).
+3. They open the app on their phone and log in.
 
----
-
-## What to Build Next
-
-Once your architecture decisions are made and reviewed, the natural sequence is:
-
-**Checkout Architecture** — cart converts to order here. Payment intent is created, stock is reserved or verified, and the cart is marked `converted`. The checkout step depends entirely on the cart decisions you just made.
+**The Resolution Strategy:**
+When a user logs in, the system must intercept their active Guest Session Cart and merge it with their Persistent User Cart.
+- *Merge Strategy:* Combine the items. If the same item exists in both, sum the quantities (or respect a max inventory limit). 
+- *Orphan Strategy:* The old Guest Cart ID is deleted from Redis to prevent dangling data.
 
 ---
 
-> **Filename:** `cart-architecture-personal-e-commerce.md`
+## The Promotions Engine (The Hardest Part)
+
+Adding items to a list is easy. Calculating the total is exceptionally hard at scale.
+
+If a cart has a "Buy One Get One 50% Off" rule, a "10% off Orders over $100" rule, and a specific variant is on clearance, calculating the total requires a **Promotions Engine**.
+
+- **Do not calculate discounts on the client.** The client can be manipulated.
+- **Do not hardcode discount logic.** Marketing teams need to create promotions via an Admin UI without requiring code deployments.
+- **The Engine Pattern:** The cart service sends the raw cart payload to a Rules Engine (e.g., Shopify Scripts, Talon.One, or a custom microservice). The engine applies the rules in a strict priority order and returns the mutated cart with the final line-item prices.
+
+---
+
+## The Abandoned Cart Pipeline
+
+The primary reason server-side carts exist is for recovery marketing.
+
+**The Architecture:**
+1. The Cart lives in Redis.
+2. When the user enters their email at the first step of checkout, the Cart object is updated with their email address.
+3. If the Cart is not converted to an Order within 4 hours, a cron job (or an event stream like Kafka/Inngest) detects the stagnant cart.
+4. The system fires a webhook to your marketing automation tool (Klaviyo/Iterable) containing the cart URL and the abandoned items.
+
+---
+
+## AI Prompt — Architect Your Cart System
+
+```prompt
+I am architecting the cart system for a highly concurrent production e-commerce store.
+
+Store Profile:
+- Tech Stack: [e.g., Next.js / Redis / Postgres]
+- Traffic Profile: [e.g., High concurrency flash sales]
+- Promotional Complexity: [e.g., Simple percentage discounts / Complex tier-based BOGO logic]
+- Target Checkout: [e.g., Stripe Hosted / Custom UI]
+
+Act as a Principal Engineer and design the cart architecture:
+1. Recommend the exact data store (Postgres vs Redis vs Platform API) for the cart and justify it based on my traffic profile.
+2. Write the JSON schema for the cart object, keeping it optimized for edge delivery.
+3. Define the exact logic for merging a Guest Cart with an Authenticated Cart upon user login, including conflict resolution for duplicate SKUs.
+4. Explain how the system will safely calculate complex promotions without exposing pricing logic to the client.
+5. Outline the event-driven architecture required to pipe abandoned carts to my marketing tool (e.g., Klaviyo) reliably.
+```
+
+---
+
+## Cart Architecture Checklist
+
+- [ ] High-performance storage mechanism selected (Redis or native Headless API)
+- [ ] Cart payload optimized to prevent network bloat (storing only necessary identifiers and pricing)
+- [ ] Guest-to-Authenticated cart merge logic explicitly defined
+- [ ] Promotions engine abstraction defined (never trust client-side discount calculations)
+- [ ] Cart abandonment event pipeline architected (integrating email capture with marketing tooling)
+- [ ] TTL (Time-To-Live) configured to automatically purge stale guest carts and prevent database bloat

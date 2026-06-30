@@ -3,149 +3,93 @@ title: Launch Checklist
 slug: launch-checklist
 phase: Phase 5
 mode: production
-projectType: ecommerce
-estimatedTime: 20-30 min
+projectType: e-commerce
+estimatedTime: 40–50 min
 ---
 
 # Launch Checklist
 
-This is the gate, not a new lesson. Every module from Phase 0 through this point built toward a single moment: a stranger gives your store real money and trusts you to deliver. This checklist is the final pass across all of it before that happens.
+In production e-commerce, launching is not just pointing a DNS record to a new server. It is the coordinated flip of financial, logistical, and technical switches.
 
-Treat the categories below differently — some are **hard blockers** (don't launch without them), others are **strongly recommended** but not launch-blocking on day one.
+If you launch with test API keys in your production code, every order will process successfully in the UI, but your bank account will receive zero dollars, and you will have to manually email every customer asking them to re-enter their credit card.
 
----
-
-## Where This Fits
-
-Nothing new is built here. This module is verification across everything: Phase 1 design, Phase 2 architecture, Phase 3 implementation, Phase 4 production readiness, and the Phase 5 launch work that came before this checklist.
+You must run this checklist 48 hours before the public launch.
 
 ---
 
-## How to Use This Module
+## 1. The Financial Audit (The Money Path)
 
-Don't just read the checklist — execute it. For each section, actually perform the test described, on your real, deployed store, not just in local development. A checklist you've mentally agreed with but never physically tested isn't a launch check, it's a hope.
+The most critical path is the flow of money from the customer to your bank.
 
-> **⚠️ Warning:** Test on your production deployment, with a real (small, refundable) test transaction if your payment provider supports test mode on production, or a careful real transaction you immediately refund. Local/development environments routinely behave differently from production in ways that matter most at exactly this moment.
-
----
-
-## Hard Blockers — Do Not Launch Without These
-
-### Core Purchase Flow
-- [ ] A full guest checkout completes successfully on production: browse → add to cart → checkout → payment → order confirmation
-- [ ] A full account-based checkout completes successfully, including order appearing in account order history
-- [ ] Order confirmation email actually arrives (check spam folder too)
-- [ ] Stock count decrements correctly after a real purchase
-
-### Payments
-- [ ] Live payment keys are active (not test keys) in production
-- [ ] A real (or provider test-mode-on-live) transaction completes and the money/test confirmation actually appears in your payment provider dashboard
-- [ ] Webhook events are verified working in production, not just locally — confirm in your provider's dashboard that recent webhook deliveries succeeded
-- [ ] Server-side price calculation confirmed working, not trusting client-sent totals (from Payment Security module)
-
-### Security
-- [ ] All `/account` and order-detail routes confirmed protected server-side, not just hidden in the UI
-- [ ] Rate limiting confirmed active on login, checkout, and password reset in production
-- [ ] No card data, payment secrets, or API keys appear anywhere in production logs
-- [ ] `.env` / secrets confirmed not committed to git history
-
-### Legal
-- [ ] Privacy Policy, Terms of Service, Refund Policy, and Return Policy are all live and linked from the footer
-- [ ] Cookie consent (if required in your jurisdiction) is functioning, not just present as unenforced text
-- [ ] Tax calculation confirmed accurate for at least one real test order
-
-> **⚠️ Warning:** If any item in this "Hard Blockers" section fails, treat that as launch-blocking regardless of how minor it feels. These are specifically the categories where a failure costs real money, real legal exposure, or real customer trust on day one — not just a degraded experience.
+- [ ] **Live API Keys:** Verify that Stripe (or your gateway) is using production keys (`sk_live_...` not `sk_test_...`).
+- [ ] **Webhook Endpoints:** Ensure Stripe webhooks are pointing to your production URL (`https://api.yourstore.com/webhooks/stripe`), not a local ngrok tunnel.
+- [ ] **Tax API Live Mode:** Ensure TaxJar/Avalara is in production mode. If it remains in sandbox mode, you will not collect legally required sales tax.
+- [ ] **The Real Money Test:** Buy a product on the production site using your actual, personal credit card. Do not skip this.
+- [ ] **The Refund Test:** Refund your real order via the Admin Dashboard. Verify the money returns to your credit card and the database state updates correctly.
 
 ---
 
-## Strongly Recommended — Fix Soon, Not Necessarily Before Launch
+## 2. The Logistics Audit (The Physical Path)
 
-### Performance & Reliability
-- [ ] Caching confirmed working correctly (stock/price not stale, product pages fast)
-- [ ] Database backups confirmed enabled and tested restorable
-- [ ] CI/CD pipeline blocks broken builds from reaching production
+If an order is placed, it must successfully route to the warehouse.
 
-### Discoverability
-- [ ] Sitemap submitted and pages confirmed indexing in Search Console
-- [ ] Product structured data validated with Google's Rich Results Test
-- [ ] Page titles and meta descriptions are unique, not framework defaults
-
-### Operations
-- [ ] Real shipping rates verified against actual carrier costs (from Shipping Setup)
-- [ ] At least one full fulfillment workflow walked through, start to finish
-- [ ] Fraud detection confirmed enabled with your payment provider
-
-### Monitoring
-- [ ] Error tracking is active and you've confirmed it actually captures a deliberately triggered test error
-- [ ] You have a way to be notified of new orders in near-real-time, not just by checking the admin manually
+- [ ] **Shipping API Live Keys:** Ensure Shippo/EasyPost is using production keys to generate real, paid shipping labels.
+- [ ] **3PL Webhook Connections:** Verify that your backend can push JSON payloads to your warehouse's WMS, and that you have tested receiving a simulated "Shipped" payload back from them.
+- [ ] **Inventory Sync:** Confirm the live database inventory exactly matches the physical warehouse count. (If you launch with "Test Item: 9,999 in stock," you will oversell instantly).
 
 ---
 
-## The Full End-to-End Smoke Test
+## 3. The Infrastructure Audit (The Scalability Path)
 
-Run this exact sequence on production before announcing launch:
+If your marketing goes viral, your infrastructure must hold.
 
+- [ ] **Database Connection Pooling:** Verify PgBouncer (or equivalent) is active and configured correctly to prevent connection exhaustion.
+- [ ] **Cache Purging:** Clear all staging data from Redis and the CDN Edge cache. Ensure the CDN is configured to cache HTML pages, not just static assets.
+- [ ] **Domain & SSL:** Verify the primary domain is resolving perfectly and the SSL certificate is valid and enforcing HTTPS strictly.
+- [ ] **Load Testing:** Review the final k6 load test results to confirm the checkout API can handle the expected concurrent user volume.
+
+---
+
+## 4. The Security & Compliance Audit (The Liability Path)
+
+Ensure you are legally protected before exposing the store to the public.
+
+- [ ] **PCI Compliance:** Verify no raw credit card data is ever logged, printed, or saved in the database.
+- [ ] **Terms & Privacy Linked:** Ensure the Terms of Service, Privacy Policy, and Refund Policy are visibly linked in the footer and the checkout flow.
+- [ ] **Fraud Engine Active:** Ensure Stripe Radar (or equivalent) rules are enabled (e.g., blocking high-risk IP addresses and velocity attacks).
+- [ ] **Admin RBAC Verified:** Ensure developers and marketing staff do not have "God Mode" access to the production database; enforce Role-Based Access Control.
+
+---
+
+## 5. The Analytics Audit (The Marketing Path)
+
+If marketing spends $10,000 on launch day, they need to know if it worked.
+
+- [ ] **Server-Side Tracking (CAPI):** Verify the backend is successfully pushing purchase events to the Meta Conversions API.
+- [ ] **Consent Mode:** Verify Google Consent Mode v2 is blocking analytics cookies until the user clicks "Accept" on the cookie banner.
+- [ ] **Data Layer Check:** Open Chrome DevTools, complete a test purchase, and verify the `window.dataLayer` outputs the correct `purchase` event with the exact monetary value.
+
+---
+
+## 6. The 48-Hour Freeze
+
+**The Final Rule:**
+48 hours before launch, you must enact a total **Code Freeze**.
+Absolutely zero deployments are allowed to the `main` branch unless they are fixing a critical, show-stopping bug. No CSS tweaks. No typo fixes in the footer. Every deployment carries risk, and you must stabilize the environment before the traffic hits.
+
+---
+
+## AI Prompt — Finalizing the Launch
+
+```prompt
+I am executing the final launch protocol for a production e-commerce store.
+
+Tech Stack:
+- Infrastructure: [e.g., Vercel / Postgres]
+- Integrations: [e.g., Stripe, EasyPost, Klaviyo, Meta CAPI]
+
+Act as a Principal E-commerce Architect:
+1. Provide a script or checklist for safely verifying that all 15 third-party API keys in our `.env.production` file are valid live keys and not sandbox keys.
+2. Draft the exact execution steps for the "Real Money Test" and the "Refund Test" to validate the entire financial state machine end-to-end.
+3. Outline the emergency rollback procedure if we launch and immediately discover a catastrophic bug in the checkout flow.
 ```
-1. Visit store as a fresh, logged-out visitor (use incognito/private mode)
-2. Browse to a product, confirm images and description load correctly
-3. Add to cart, confirm cart total (including any tax/shipping preview) is correct
-4. Proceed through checkout as a guest
-5. Complete a real or test-mode payment
-6. Confirm order confirmation page and email both arrive
-7. Log in as that customer (or create account), confirm order appears in history
-8. As the store owner, confirm the order appears in your admin
-9. Process the order through your real fulfillment workflow, including
-   generating a shipping label
-10. Mark the order shipped, confirm the customer-facing status and any
-    notification update correctly
-```
-
-> **✅ Best Practice:** Do this entire sequence yourself, in one sitting, on the actual live store — not split across team members or spread across days where context gets lost. One person, one focused pass, catches integration gaps that piecemeal testing misses.
-
----
-
-## AI Review Prompt
-
-This is the highest-value prompt in this module — run it last, after working through the checklist above.
-
-```
-I'm about to launch a personal e-commerce store. Here's a summary of
-what I've verified: [paste your completed checklist, noting anything
-unchecked or uncertain]
-
-Review this for launch readiness. Specifically:
-
-1. Are any of the "Hard Blocker" items I've left unchecked actually
-   safe to launch without, or genuinely blocking?
-2. Based on what I've described, is there anything in my payment,
-   security, or legal setup that sounds incomplete or risky, even if
-   I marked it as done?
-3. What's the single highest-risk gap in what I've described?
-
-Be direct about what would stop you from launching this store yourself.
-```
-
----
-
-## Common Mistakes at This Stage
-
-- Testing thoroughly in development, then launching without re-running the same tests against the actual production deployment
-- Treating "it built successfully" (CI passing) as equivalent to "the checkout flow actually works" — they test different things
-- Launching with test payment keys still active, meaning no real transactions can complete at all
-- Skipping the full end-to-end smoke test because individual pieces were each tested separately during their own modules
-- Announcing launch before confirming order notification/fulfillment actually works — the first real order is a bad time to discover a gap
-
----
-
-## Final Validation
-
-- [ ] Every "Hard Blocker" item above is checked, tested on production, not assumed
-- [ ] The full end-to-end smoke test has been run successfully, start to finish, in one sitting
-- [ ] The AI Review Prompt above has been run with an honest, complete summary of your actual state
-- [ ] You have a plan for what you'll personally do in the first hour after a real order comes in
-
----
-
-## What Comes Next
-
-Your store is live. Phase 5 — Store Launch — is complete. Next: **Phase 6 — Growth**, starting with **Retention** — turning a first-time buyer into a repeat customer, which costs far less than acquiring a new one.

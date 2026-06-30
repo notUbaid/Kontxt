@@ -3,234 +3,98 @@ title: Account Implementation
 slug: account-implementation
 phase: Phase 3
 mode: production
-projectType: ecommerce
-estimatedTime: 25-35 min
+projectType: e-commerce
+estimatedTime: 30–40 min
 ---
 
 # Account Implementation
 
-In Phase 2 you decided *how* customer accounts should work in your store — optional vs required, what data they hold, how they relate to orders. This module is where that decision becomes working code.
+At production scale, a customer account is not just a login barrier. It is the centralized hub for user identity, subscription management, order history, and B2B role-based access control (RBAC).
 
-If you skipped or don't remember your Phase 2 Customer Accounts decisions, that's fine — the defaults below are the right call for a personal store either way.
-
----
-
-## Where This Fits
-
-Accounts touch almost everything else you've built so far:
-
-- **Cart** needs to know if a session belongs to a logged-in user or a guest
-- **Checkout** needs to optionally pre-fill saved addresses
-- **Orders** need to be linked to a customer so order history works
-- **Admin Dashboard** (later) needs to distinguish real customers from guests
-
-Build accounts *after* cart and checkout are working, but *before* order history and wishlist — which is exactly where this sits in your sequence.
+Implementing a custom authentication system (hashing passwords with bcrypt) is an unacceptable liability for a production store. You must outsource identity to an Enterprise Identity Provider (IdP) and focus your engineering efforts on data synchronization.
 
 ---
 
-## What You're Building Today
+## 1. Integrating the Identity Provider (IdP)
 
-- Sign up / log in / log out
-- A session that persists across page loads
-- A protected `/account` area guests can't access
-- Profile basics (name, email, password change)
-- A saved address book (reused at checkout)
-- Order history pulled from the `orders` table
-- Account deletion (even solo projects should have this — it's good practice and takes 20 minutes)
+Use a managed provider like **Auth0**, **Clerk**, or **Shopify Multipass**.
 
-You are **not** building: social login, 2FA, magic links, or role-based admin permissions. Those are real features, but they're scope creep for a personal store. Skip them unless you have a specific reason not to.
+**The Implementation Flow:**
+1. User clicks "Login" on your Next.js storefront.
+2. They are redirected to the IdP's secure, branded login portal (or use a secure SDK modal).
+3. The IdP handles the OAuth flow (Google, Apple) or the Magic Link email sending.
+4. The user is redirected back to your site with a JWT (JSON Web Token).
+5. Your Next.js middleware verifies the JWT signature on every protected route.
 
----
-
-## Choosing Your Auth Approach
-
-This is the one real decision in this module. Don't build auth from scratch — rolling your own password hashing, session tokens, and reset-flow security is a well-known source of beginner vulnerabilities, and it teaches you very little that a managed provider doesn't teach you faster.
-
-| Approach | Setup Time | Security Risk | Cost | Best For |
-|---|---|---|---|---|
-| Build it yourself (bcrypt + sessions) | High | High — easy to get subtly wrong | Free | Learning auth internals specifically |
-| **Supabase Auth** | Low | Low — managed, audited | Free tier generous | Most personal stores (recommended) |
-| Clerk | Low | Low — managed | Free tier limited | Apps wanting prebuilt UI components |
-
-> **✅ Best Practice:** If your store's database is already on Supabase (common for personal e-commerce builds), use **Supabase Auth**. It shares the same Postgres instance, so linking `auth.users` to your `customers`/`orders` tables is a foreign key, not an integration project.
-
-If you're on a different stack, the same logic applies — use whatever managed auth your database provider already gives you before reaching for a third-party service.
-
-> **⚠️ Warning:** Do not store passwords, even hashed ones, in your own `users` table if you're using a managed provider. That's the provider's job. Your job is storing *profile* data (name, addresses, preferences) linked by `user_id`.
+**The Webhook Sync (Critical):**
+Your database must know the user exists so it can attach orders to them.
+- You must configure a webhook in your IdP (e.g., Auth0 `user.created` event).
+- When the webhook hits your backend, insert the new UUID and Email into your Postgres `users` table. Do *not* store the password hash.
 
 ---
 
-## Data You Need to Store
+## 2. Passwordless Login (Increasing Conversion)
 
-Your auth provider handles credentials. You still need your own tables for store-specific data:
+Every password reset email sent during checkout is a lost sale.
 
-```sql
--- Extends the auth provider's user record — never duplicates it
-create table profiles (
-  id uuid references auth.users(id) primary key,
-  full_name text,
-  created_at timestamptz default now()
-);
+**The Production Standard:** Implement Passwordless Authentication via Magic Links or OTPs (One-Time Passwords).
+- When a user enters their email at checkout, the backend checks if an account exists.
+- If yes, do not redirect them to a login screen. Send a 6-digit OTP to their email or phone.
+- They enter the code in the checkout flow, authenticate instantly, and complete the purchase. This friction-reduction strategy is standard for massive brands (e.g., Shop Pay).
 
-create table addresses (
-  id uuid primary key default gen_random_uuid(),
-  user_id uuid references auth.users(id) not null,
-  label text, -- "Home", "Work"
-  line1 text not null,
-  line2 text,
-  city text not null,
-  state text,
-  postal_code text not null,
-  country text not null,
-  is_default boolean default false
-);
-```
+---
 
-`orders` should already have a `user_id` column (nullable, to support guest checkout) from your Phase 3 Orders module. If it doesn't, add it now:
+## 3. The Guest Order Migration Strategy
 
-```sql
-alter table orders add column user_id uuid references auth.users(id);
+A common e-commerce edge case: A user buys as a guest 3 times. Later, they decide to create an account. They expect to see those 3 past orders in their history.
+
+**The Implementation:**
+1. During the Auth0 `user.created` webhook event, extract the user's verified email.
+2. Query the Postgres `Orders` table: `SELECT id FROM orders WHERE email = $1 AND user_id IS NULL`.
+3. Update those orders to link to the newly created User UUID.
+4. *Security Warning:* This is only safe because the IdP verified the email address during sign-up. If you implement this without email verification, an attacker can create an account with a stranger's email and view their historical shipping addresses.
+
+---
+
+## 4. Subscription Management (The Customer Portal)
+
+If your store sells subscriptions, the Customer Account dashboard is an operational tool.
+
+Customers must be able to cancel, pause, skip, or swap subscription items without contacting support. If they have to email support to cancel, they will issue a chargeback instead.
+
+**The Implementation:**
+Do not build the subscription logic yourself. Integrate an API like **Recharge**, **Skio**, or **Stripe Billing**.
+- When the user visits the `/account/subscriptions` route, your backend generates a secure, short-lived session URL via the Subscription Provider's API.
+- Redirect the user to that URL, or render the provider's pre-built portal inside an iframe.
+- This offloads the immense complexity of PCI-compliant credit card updating and proration math.
+
+---
+
+## AI Prompt — Architect Your Identity & Account System
+
+```prompt
+I am implementing the Customer Account portal for a production e-commerce store.
+
+Tech Stack:
+- Frontend: [e.g., Next.js App Router]
+- Database: [e.g., Postgres]
+- Identity Provider (IdP): [e.g., Clerk / Auth0]
+- Subscription Tool (Optional): [e.g., Stripe Billing / Skio]
+
+Act as a Principal Identity Engineer:
+1. Write the backend webhook handler (TypeScript) that receives the `user.created` event from the IdP, inserts the user into Postgres, and securely runs the "Guest Order Migration" logic to retroactively assign past guest orders.
+2. Provide the Next.js Middleware configuration required to verify the IdP's JWT token and protect the `/account/*` routes from unauthorized access.
+3. Outline the security implementation for Passwordless Login (OTP) during the checkout flow to maximize conversion rates.
+4. If implementing B2B accounts, define the exact database schema (Prisma) required to link multiple Users to a single Company, and enforce Role-Based Access Control (e.g., Buyer vs. Approver).
 ```
 
 ---
 
-## The Account Experience
+## Account Implementation Checklist
 
-```
-Guest browsing
-   │
-   ├─ Checks out as guest → order saved with user_id = null
-   │
-   └─ Signs up / logs in
-         │
-         ▼
-   Protected /account area
-         │
-   ┌─────┼─────────┬──────────────┐
-   ▼     ▼         ▼              ▼
-Profile  Addresses  Order History  Delete Account
-```
-
-Keep guest checkout available even after accounts exist. Forcing account creation before purchase is one of the most well-documented causes of cart abandonment in e-commerce — there's no reason to import that mistake into a personal project.
-
----
-
-## Implementation Steps
-
-### Step 1 — Auth Provider Setup & Protected Routes
-
-This is the highest-leverage prompt in this module. Get this right and everything downstream (dashboard, addresses, order history) just queries an already-authenticated user.
-
-**Copy Prompt:**
-
-```
-I'm building a personal e-commerce store with [Next.js App Router / your framework]
-and Supabase Auth. I need:
-
-1. Email/password sign up and login forms with client-side validation
-2. A server-side check that protects all routes under /account — unauthenticated
-   users should be redirected to /login, not just hidden via CSS or client checks
-3. A logout action that clears the session properly
-4. Password reset flow using Supabase's built-in reset email
-
-Show me the middleware/route protection first, since that's the part most
-beginners get wrong by only checking auth status in the browser.
-
-Stack: [your exact framework + version]
-```
-
-> **⚠️ Common Mistake:** Hiding the `/account` link in the navbar for guests is not the same as protecting the route. If a guest can type `/account/orders` into the URL bar and see data, your "protection" is cosmetic. Always verify the session server-side, on every protected request.
-
-### Step 2 — Account Dashboard with Order History
-
-Once auth and protected routes exist, build the dashboard as one cohesive prompt rather than three separate ones — it shares context (the authenticated user object) that's wasteful to re-explain three times.
-
-**Copy Prompt:**
-
-```
-Build an /account dashboard with three sections, all reading from the
-authenticated user's session (no client-side user_id passing):
-
-1. Profile — display name and email, with a form to update name and
-   trigger a password change email
-2. Addresses — list saved addresses from the `addresses` table, with
-   add/edit/delete, and a way to mark one as default
-3. Order History — list orders from the `orders` table filtered by
-   user_id, showing date, status, total, and a link to order detail
-
-Use [your UI library]. Keep each section as a separate component.
-Order history should paginate after 10 orders.
-```
-
-### Step 3 — Account Deletion
-
-Skip the temptation to skip this. It's a small addition now and a painful retrofit later if you ever onboard real users.
-
-> **💡 Tip:** Don't hard-delete a customer's row if they have order history — you'll break your own sales records and any future analytics. Soft-delete (`deleted_at` timestamp) or anonymize (`full_name = 'Deleted User'`) instead, and let the auth provider's account remove the login credentials.
-
----
-
-## Security Checklist
-
-- [ ] All `/account/*` routes verified server-side, not just hidden in the UI
-- [ ] Passwords never touch your own database — handled entirely by the auth provider
-- [ ] Address and order queries always filter by the *session's* user ID, never a user ID passed from the client (URL, form field, etc.)
-- [ ] Password reset emails use the provider's built-in expiring tokens — never roll your own
-- [ ] Login error messages don't reveal whether an email exists ("Invalid email or password," not "No account found")
-- [ ] Account deletion soft-deletes or anonymizes rather than breaking order history
-
-> **⚠️ Warning:** The most common real vulnerability in beginner-built account systems is an **insecure direct object reference** — fetching `/api/orders/:id` and returning the order without checking it belongs to the requesting user. Always add the `user_id` filter, even when it feels redundant.
-
----
-
-## Common AI Mistakes to Watch For
-
-When AI generates account/auth code, it tends to:
-
-- Default to client-side-only route protection unless explicitly told to check server-side
-- Forget to filter by `user_id` on list endpoints (orders, addresses), returning all rows instead of the current user's
-- Suggest storing a copy of the password hash in your own table "for convenience" — never do this with a managed auth provider
-- Skip token expiry on password reset links if not explicitly asked for it
-- Use `confirm()` dialogs for account deletion instead of a proper confirmation step with re-typed email — fine for personal projects, but flag it as a shortcut, not a standard
-
-None of these are reasons to avoid AI for this work. They're reasons to read the auth-related code it gives you more carefully than you'd read a button component.
-
----
-
-## Validation Checklist
-
-Before moving to Shipping, confirm:
-
-- [ ] A guest can still complete checkout without an account
-- [ ] A logged-in user can view, but not edit, another user's data (test by guessing a different order URL)
-- [ ] Logging out actually invalidates the session — back button shouldn't restore access
-- [ ] Order history correctly shows orders placed both before and after the account was created (if `user_id` was added to an existing order via email match — optional but nice)
-- [ ] Deleting an account doesn't throw foreign-key errors on existing orders
-
----
-
-## AI Review Prompt
-
-Once implementation is done, paste this into a fresh AI conversation along with your auth and dashboard code — not the whole codebase, just these files:
-
-```
-Review this account implementation for an e-commerce store. Specifically check:
-
-1. Is every protected route verified server-side?
-2. Are there any queries that trust a user_id from the client instead of
-   the authenticated session?
-3. Is there any place a password, token, or session secret could leak
-   into logs, error messages, or client-side state?
-4. Does account deletion handle existing order references safely?
-
-Flag anything that would fail a basic security review, even if it works
-correctly in normal use.
-```
-
-A fresh conversation matters here — the AI that wrote the code is biased toward defending its own decisions. A clean context reviews more critically.
-
----
-
-## What Comes Next
-
-With accounts working, your store can recognize repeat customers and give them a faster checkout. Next: **Shipping** — calculating rates, defining zones, and deciding what "shipped" actually means for a one-person operation.
+- [ ] Custom password hashing abandoned in favor of a managed Identity Provider (Auth0/Clerk/Shopify)
+- [ ] JWT verification middleware implemented on all `/account` routes
+- [ ] Passwordless authentication (OTP / Magic Links) offered to reduce login friction at checkout
+- [ ] IdP webhook integrated to sync User UUIDs into the primary database
+- [ ] Guest Order Migration logic implemented securely (only after strict email verification)
+- [ ] Self-serve Subscription Portal integrated (via Stripe Billing/Recharge) to deflect support tickets

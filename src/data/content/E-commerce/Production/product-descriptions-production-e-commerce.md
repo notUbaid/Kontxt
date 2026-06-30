@@ -3,144 +3,92 @@ title: Product Descriptions
 slug: product-descriptions
 phase: Phase 5
 mode: production
-projectType: ecommerce
-estimatedTime: 15-20 min
+projectType: e-commerce
+estimatedTime: 20–30 min
 ---
 
 # Product Descriptions
 
-Photography earns attention. Description earns the decision. This is the copy that answers the questions a customer can't ask in person: what's it made of, what's it for, will it work for me, what happens if it doesn't.
+At production scale, product descriptions are not just marketing copy. They are heavily structured metadata used to power internal search algorithms, filter faceting, and Google SEO.
+
+If you write descriptions as raw HTML blobs (`<p>Great shirt!</p>`), you cannot filter by material, care instructions, or warranty length. The architecture of a product description must be strictly componentized.
 
 ---
 
-## Where This Fits
+## 1. Structured Attributes (PIM Architecture)
 
-This fills the content fields your Product Architecture (Phase 2) already defined. If your schema doesn't yet have a clear place for structured details (materials, dimensions, care instructions) separate from a free-text description, that's worth fixing before writing copy for dozens of products.
+A Product Information Management (PIM) system (like Akeneo, Salsify, or Sanity) is required for large catalogs.
 
----
-
-## Why This Matters for a Store Specifically
-
-Generic, thin product descriptions do two kinds of damage:
-
-- **Conversion** — customers who can't picture using the product, or who have an unanswered question, leave instead of buying
-- **SEO** — search engines (and AI shopping assistants, increasingly) rely on description text to understand and surface your products; copy-pasted manufacturer text ranks worse and may not be unique enough to index well
-
-> **💡 Tip:** Returns are frequently caused by description gaps, not product defects — a customer orders based on incomplete information, and the product technically matches the listing but doesn't match what they assumed. Specific, complete descriptions reduce returns, not just increase conversion.
-
----
-
-## What You're Building Today
-
-- A consistent description structure used across every product
-- Descriptions that answer real pre-purchase questions, not just adjectives
-- Structured details (materials, dimensions, care) separated from narrative copy
-- SEO-aware copy that's still written for humans first
-
-You're **not** writing marketing-agency-grade brand copywriting or A/B testing description variants — that's a Phase 6 growth concern, once you have traffic to test against.
-
----
-
-## The Structure That Works
-
-| Section | Purpose | Length |
-|---|---|---|
-| Headline/title | Clear, specific product name | Short — no marketing fluff |
-| One-line hook | The single most useful thing to know | 1 sentence |
-| Description body | What it is, what it's for, who it's for | 2-4 short paragraphs |
-| Structured specs | Materials, dimensions, weight, care | Bullet list, not prose |
-| Shipping/returns note | Brief, links to full policy | 1 sentence + link |
-
-> **⚠️ Warning:** Don't bury structured specs (dimensions, materials) inside paragraph text. Customers scan for this information specifically — if it's not in a scannable list, many won't find it at all, and will assume it's missing rather than search for it.
-
----
-
-## What Actually Answers a Buying Question
-
-Before writing, list the real questions a customer has for *this specific product* — not generic copywriting advice. For a physical product, that's usually some mix of:
-
-- What's it made of, and is that material durable/washable/breathable/etc.?
-- What size is it, and how do I know it'll fit my situation?
-- What's it good for — and just as usefully, what's it *not* good for?
-- What happens if I don't like it (ties to your Return Policy)?
-
-> **✅ Best Practice:** Write the one-line hook last, after the full description. It's easier to find the single most compelling, specific fact about a product once you've already written the full picture, rather than trying to invent a hook first.
-
----
-
-## Implementation
-
-**Copy Prompt:**
-
+**The Implementation:**
+Do not store descriptions as a single text block. Break them into strictly typed JSON attributes:
+```json
+{
+  "marketing_copy": "The ultimate heavyweight tee for everyday wear.",
+  "material": "100% Organic Cotton",
+  "care_instructions": "Machine wash cold, tumble dry low.",
+  "fit_profile": "Oversized",
+  "weight_gsm": 220
+}
 ```
-Write a product description for my e-commerce store using this
-structure: headline, one-line hook, 2-4 short paragraphs, then a
-structured bullet list of specs.
-
-Product: [name]
-Key facts: [materials, dimensions, weight, color options — whatever
-you actually know about the product]
-Who it's for: [intended use/customer]
-What makes it different from similar products: [if anything]
-
-Write for a customer who has 10 seconds to decide whether to keep
-reading. Avoid generic adjectives ("amazing," "premium," "high-quality")
-unless backed by a specific fact in the same sentence. Don't invent
-specs or claims I haven't given you — flag anything you're unsure
-about instead of guessing.
-```
-
-> **⚠️ Warning:** Always explicitly tell AI not to invent specs, materials, or claims it wasn't given. A confidently written but inaccurate description ("100% organic cotton" for a blend you never specified) creates a real liability and a near-certain return or complaint when the customer notices the mismatch.
+**Why this matters:** When a user checks the "Oversized" filter on your Category Page, your search engine (Algolia) can instantly query the `fit_profile` attribute. If the fit profile was buried inside a paragraph of marketing text, filtering would be impossible.
 
 ---
 
-## SEO Without Sounding Like SEO Copy
+## 2. Dynamic Content Injection
 
-- Use the product's actual common search terms naturally in the headline and first paragraph (the material, the use case, the type of item) — don't force-repeat keywords unnaturally
-- Write a unique description for every product, even near-identical variants — duplicate or templated text across products is treated as lower-quality by search engines and gives customers nothing new to read
-- Structured specs (materials, dimensions) double as content search engines can match against specific buyer searches ("waterproof canvas tote," not just "tote")
+Production catalogs change constantly. If you hardcode shipping policies into 5,000 product descriptions, what happens when FedEx raises their rates and your shipping policy changes? You have to manually edit 5,000 files.
 
----
-
-## Common Mistakes
-
-- Copy-pasting manufacturer or supplier description text verbatim — thin, often poorly written, and identical to dozens of other stores selling the same product
-- Generic adjective stacking ("amazing," "must-have," "premium quality") with no specific fact backing any of it
-- Burying dimensions/materials in paragraph text instead of a scannable list
-- Letting AI invent plausible-sounding specs you never actually provided
-- Writing one strong description for the flagship product, then thin one-liners for the rest of the catalog — consistency matters as much in copy as in photography
+**The Production Standard:**
+Descriptions must support dynamic variables or headless content references.
+- Create a global "Shipping Policy" document in your CMS.
+- In the frontend Product Detail Page code, render the specific product data, and then dynamically inject the global Shipping Policy block at the bottom.
+- Update the global block once, and all 5,000 products update instantly.
 
 ---
 
-## Validation Checklist
+## 3. SEO Optimization & Readability
 
-- [ ] Every product follows the same structural pattern (headline, hook, body, specs)
-- [ ] No description contains a claim or spec you didn't personally verify
-- [ ] Structured specs are in a scannable list, not buried in prose
-- [ ] Spot-check 3-5 descriptions for generic adjectives with no supporting fact — rewrite or remove them
-- [ ] Each product's description is meaningfully unique, not a templated swap of one or two words
+Google penalizes duplicate content. If you sell the same TV as Best Buy and you copy the manufacturer's description exactly, you will not rank in search results.
+
+**The SEO Strategy:**
+- **Primary Keywords:** Ensure the `h1` matches the exact term users search for (e.g., not "The Apollo", but "The Apollo - Mens Waterproof Winter Jacket").
+- **F-Pattern Readability:** Users do not read; they scan. Use bullet points for the top 5 technical features immediately below the "Add to Cart" button. Keep long-form paragraphs below the fold.
 
 ---
 
-## AI Review Prompt
+## 4. LLM Generation (With Guardrails)
 
-```
-Review these product descriptions for an e-commerce store:
+Writing 10,000 unique descriptions is impossible without AI. But raw LLM outputs often contain hallucinations, which creates legal liability (e.g., claiming a jacket is "flame retardant" when it is not).
 
-[paste 2-3 descriptions]
+**The Implementation:**
+If using an LLM pipeline to generate copy:
+1. Provide the LLM with a strict JSON schema of the product's actual technical specs.
+2. Provide a strict "Brand Voice" system prompt.
+3. **The Guardrail:** Force the LLM to output a boolean flag `requires_legal_review` if the copy includes words like "waterproof", "hypoallergenic", or "guaranteed". Route those specific outputs to a human for approval before pushing to the CMS.
 
-Check for:
-1. Any claim or spec that sounds invented rather than grounded in
-   specific facts I provided
-2. Generic adjectives with no supporting detail in the same sentence
-3. Whether structured specs (materials, dimensions) are scannable or
-   buried in paragraph text
-4. Whether descriptions are differentiated enough between products, or
-   read as templated copies of each other
+---
+
+## AI Prompt — Architect Your Description Pipeline
+
+```prompt
+I am architecting the Product Information Management (PIM) structure for a production e-commerce store with 10,000 SKUs.
+
+Tech Stack:
+- Headless CMS: [e.g., Sanity / Contentful]
+- Search Engine: [e.g., Algolia]
+
+Act as a Principal Data Architect:
+1. Design the JSON schema for a Product document, explicitly separating `marketing_copy` from filterable technical attributes (e.g., `material`, `fit`, `care`).
+2. Write a Sanity GROQ query (or equivalent) that fetches a specific product AND dynamically joins a global "Shipping Policy" document to render on the PDP.
+3. Outline a safe LLM prompt pipeline for generating unique SEO descriptions at scale, including strict guardrails to prevent the AI from hallucinating technical specifications.
 ```
 
 ---
 
-## What Comes Next
+## Product Descriptions Checklist
 
-Your products are presented and described. Next: **SEO Setup** — making sure all of this is actually discoverable by search engines, not just well-written.
+- [ ] Product descriptions broken down into strict, filterable JSON attributes (PIM Architecture)
+- [ ] Global content blocks (shipping, returns) decoupled from product data and dynamically injected on the frontend
+- [ ] Unique SEO copy written (avoiding manufacturer copy-paste) to prevent search penalties
+- [ ] F-pattern readability enforced (bullet points prioritized over long paragraphs above the fold)
+- [ ] LLM generation pipelines configured with strict technical guardrails and human-review routing for high-liability claims

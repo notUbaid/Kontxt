@@ -4,291 +4,116 @@ slug: customer-accounts
 phase: Phase 2
 mode: production
 projectType: e-commerce
-estimatedTime: 20–30 min
+estimatedTime: 30–40 min
 ---
 
 # Customer Accounts
 
-Customer accounts are optional infrastructure that unlocks order history, saved addresses, wishlists, and re-ordering. Done well, they improve retention. Done poorly, they add friction and become a security liability.
+At production scale, a customer account is not just an email and a password. It is the connective tissue that links a user's identity across your storefront, your CRM, your customer support desk, and your marketing automation platform.
 
-The key decision: **build accounts around your customers, not around your convenience.**
-
----
-
-## The Core Question: What Do Accounts Actually Unlock?
-
-Before designing anything, list what authenticated customers can do that guests cannot.
-
-For a personal e-commerce store, the realistic list is:
-
-| Feature | Guest | Account Holder |
-|---|---|---|
-| Browse and purchase | ✓ | ✓ |
-| Order confirmation email | ✓ | ✓ |
-| View order history | — | ✓ |
-| Track current orders | — | ✓ |
-| Save shipping addresses | — | ✓ |
-| Wishlist | — | ✓ |
-| Faster re-checkout | — | ✓ |
-| Return / refund requests | Email only | Self-serve |
-
-If your store has fewer than 3 meaningful account features, don't build accounts yet. Add them when customers actually ask for them.
+A poorly architected identity system fragments customer data, making it impossible to calculate accurate Customer Lifetime Value (LTV) or provide personalized support. It also introduces massive security liabilities.
 
 ---
 
-## Authentication Strategy
+## 1. The Identity Provider (IdP)
 
-Do not build authentication from scratch. The attack surface is too large and the maintenance burden is permanent.
+Do not build a bespoke username/password authentication system. Security patching, password hashing upgrades, and compliance (GDPR/CCPA "Right to be Forgotten" requests) make custom auth a massive liability.
 
-**Recommended options for personal projects:**
+**Production Architectures:**
+- **Managed Auth Platforms:** Use Auth0, Clerk, or Supabase Auth. They handle password resets, MFA, and OAuth (Google/Apple login) out of the box.
+- **Commerce Platform Native:** If using Headless Shopify, utilize Shopify's Customer API or Shopify Multipass. This ensures the commerce engine acts as the absolute Source of Truth for identity, preventing divergence between your database and the e-commerce backend.
 
-| Option | Best For | Tradeoff |
-|---|---|---|
-| **NextAuth.js / Auth.js** | Next.js projects, full control | Self-hosted, more config |
-| **Clerk** | Fastest setup, best UX | Paid after free tier, vendor lock-in |
-| **Supabase Auth** | Already using Supabase | Tied to Supabase ecosystem |
-| **Firebase Auth** | Already using Firebase | Tied to Firebase ecosystem |
-
-**Do not roll your own password hashing, session management, or token handling.** These are solved problems with serious consequences when done wrong.
-
-Whatever you choose, it must support:
-- Email + password login
-- Email verification
-- Password reset via email
-- Session expiry and refresh
-- Secure httpOnly session cookies
+**The Golden Rule of E-Commerce Auth:** The friction of creating an account kills conversion.
+- **Always allow Guest Checkout.**
+- Implement **Passwordless Login** (Magic Links or OTPs) to eliminate password fatigue.
+- Adopt **Passkeys** for high-LTV customers to provide biometric, zero-friction logins.
 
 ---
 
-## Account Data Model
+## 2. B2C vs B2B Account Architecture
 
-Keep the account model lean. Only store what you actively use.
+The structure of a user account changes drastically depending on your business model.
 
-```
-User
-├── id (uuid)
-├── email (unique, indexed)
-├── emailVerified (boolean)
-├── name
-├── passwordHash (if managing auth yourself — otherwise omit)
-├── role (customer | admin)
-├── createdAt
-└── updatedAt
+### B2C (Direct to Consumer)
+A flat hierarchy. One User = One Account.
+- Data required: Email, Order History, Saved Addresses, Wishlist, Loyalty Points.
+- The user is the final decision maker and payer.
 
-Address
-├── id (uuid)
-├── userId (foreign key)
-├── label (e.g. "Home", "Office" — optional)
-├── fullName
-├── phone
-├── line1
-├── line2 (nullable)
-├── city
-├── state
-├── postalCode
-├── country (ISO 3166-1 alpha-2)
-├── isDefault (boolean)
-└── createdAt
+### B2B (Business to Business)
+A nested hierarchy. One Company = Many Users.
+- Data required: Company Name, Tax ID / VAT Number, Net 30 Terms, Contract Pricing Tiers.
+- **Roles:** The system must support Role-Based Access Control (RBAC). 
+  - *Buyer:* Can add items to a cart.
+  - *Approver:* Must approve the cart before it becomes an order.
+  - *Finance:* Can view and pay past invoices, but cannot buy products.
 
-Order (already designed — add userId foreign key)
-├── userId (nullable — null for guest orders)
-├── guestEmail (nullable — set for guest orders)
-```
-
-### Linking guest orders to accounts
-
-When a guest creates an account after purchasing, link their historical orders by email:
-
-```js
-// On account creation
-await db.orders.updateMany({
-  where: { guestEmail: newUser.email, userId: null },
-  data: { userId: newUser.id }
-})
-```
-
-This gives new account holders immediate access to their order history without any manual support ticket.
+If your database schema cannot represent a Company entity that "owns" multiple User entities, you cannot build a true B2B platform.
 
 ---
 
-## Session Architecture
+## 3. The "Guest to Account" Migration
 
-Sessions are how your server knows who is making a request.
+A major architectural challenge in e-commerce is handling the lifecycle of a guest.
 
-**Use httpOnly cookies for session tokens.** Never store session tokens in localStorage — they are readable by any JavaScript on the page, including injected scripts.
+**Scenario:** A user buys as a guest 3 times using `jane@example.com`. Six months later, she creates an account using `jane@example.com`. 
 
-```
-User logs in
-    ↓
-Server verifies credentials
-    ↓
-Server creates session (JWT or opaque token)
-    ↓
-Server sets httpOnly, Secure, SameSite=Strict cookie
-    ↓
-Every subsequent request automatically sends the cookie
-    ↓
-Server reads cookie, verifies session, identifies user
-```
-
-**Session expiry:** Set a reasonable expiry — 30 days with sliding renewal is standard for e-commerce. Financial apps use shorter windows. Match the sensitivity to the context.
-
-**Admin sessions:** If you have an admin role, give admin sessions a shorter expiry and consider requiring re-authentication for destructive actions.
+**The Architecture:**
+Your backend must automatically retroactively associate those 3 guest orders with her new authenticated account.
+1. When the account is created, the system queries the `Orders` table for any records where `email == jane@example.com` and `user_id == NULL`.
+2. The system runs an update job to assign those historical orders to the newly created UUID.
+3. *Security Note:* This is only safe if you verified her email during account creation (e.g., via a Magic Link or OTP). Otherwise, an attacker could create an account with a stranger's email to view their order history and addresses.
 
 ---
 
-## What the Account Dashboard Shows
+## 4. Subscriptions and The Customer Portal
 
-Design the account area around tasks, not data dumps.
+If you sell subscriptions (recurring revenue), the Customer Account becomes an operational portal, not just an order history page.
 
-**Recommended account pages:**
+A production Subscription Portal must allow the user to:
+- Swap out a product (e.g., change coffee flavor).
+- Skip the next delivery (drastically reduces churn compared to forcing a full cancellation).
+- Update the credit card on file securely (via a Stripe Billing Portal redirect or secure iframe).
+- Cancel immediately (preventing customer service bottlenecks and chargebacks).
 
-```
-/account
-    ├── /orders              → order history, status, tracking
-    ├── /orders/:id          → order detail, items, invoice
-    ├── /addresses           → saved addresses, add/edit/delete
-    ├── /profile             → name, email, password change
-    └── /wishlist            → saved items (if implemented)
-```
-
-### Order history page
-
-Show the minimum needed to recognise an order:
-
-- Order number
-- Date placed
-- Status (paid, shipped, delivered, cancelled)
-- Total
-- Thumbnail of first item
-- Link to order detail
-
-Do not show 15 columns of data. Customers want to find their order and check its status.
-
-### Order detail page
-
-Show everything relevant to that order:
-
-- All items with images, names, quantities, prices
-- Shipping address used
-- Payment method summary (last 4 digits, card brand)
-- Order timeline (placed → paid → shipped → delivered)
-- Tracking number / link if available
-- Return / refund request option
+Do not build this logic from scratch. Integrate specialized subscription APIs (like Skio, Recharge, or Stripe Billing) and securely expose their portal interfaces within your authenticated account area.
 
 ---
 
-## Password Security
+## 5. CRM Synchronization
 
-If you manage passwords yourself (not using a third-party auth provider):
+At scale, the storefront is not the only system reading customer data. Your customer support agents (Zendesk/Gorgias) and sales teams (Salesforce/HubSpot) need access.
 
-- Hash with **bcrypt** (cost factor 12) or **Argon2id**
-- Never store plaintext passwords
-- Never store reversible encrypted passwords
-- Never log passwords, even accidentally
-- Rate limit login attempts (5 attempts, then 15-minute lockout)
-- Require email verification before allowing login
-- Password reset links must expire (15–60 minutes is standard)
-- Password reset links must be single-use
-
-If you are using Clerk, NextAuth, Supabase Auth, or Firebase Auth — they handle all of this. Trust the library. Do not add your own password layer on top.
+- **The Architecture:** Your backend must act as an event publisher. When a user updates their shipping address or creates an account, fire an event (e.g., via Amazon EventBridge or webhooks) to update the central CRM.
+- Ensure there is a globally unique identifier (a central UUID) shared across all systems so that a support agent looking at Zendesk sees the exact same data the customer sees on the storefront.
 
 ---
 
-## Email Verification
+## AI Prompt — Architect Your Identity System
 
-Unverified email addresses are a spam and fraud vector. Require verification before:
+```prompt
+I am designing the customer account architecture for a production e-commerce store.
 
-- Allowing checkout (prevents fake account creation)
-- Showing order history (prevents account enumeration)
-- Sending marketing emails
+Business Profile:
+- Business Model: [B2C / B2B / Hybrid]
+- Login Strategy: [Traditional / Passwordless / Social OAuth]
+- Subscriptions: [Yes / No]
+- Support / CRM Stack: [e.g., Zendesk + Klaviyo]
 
-```
-User registers
-    ↓
-Account created with emailVerified: false
-    ↓
-Verification email sent with signed token (expires in 24h)
-    ↓
-User clicks link → token verified → emailVerified: true
-    ↓
-User can now access account features
-```
-
-If a user tries to log in with an unverified email, show a clear message with a "Resend verification email" option. Do not silently block them.
-
----
-
-## Security Considerations
-
-**Account enumeration:** When a user enters an email for password reset, always respond with "If this email exists, you'll receive a reset link" — even if the email is not in your database. Responding differently for found vs. not-found emails lets attackers discover which emails are registered.
-
-**IDOR on account data:** Every account API route must verify the requesting user owns the resource:
-
-```js
-// Vulnerable
-GET /api/addresses/42  → returns address 42 regardless of who asks
-
-// Secure
-GET /api/addresses/42  → verifies address 42.userId === session.userId
-```
-
-**Admin role protection:** Any route or page that requires admin must verify `user.role === 'admin'` server-side. Never gate admin features only on the frontend — frontend checks are trivially bypassed.
-
----
-
-## AI Prompt: Account Architecture Review
-
-```
-You are a senior backend engineer reviewing a customer account system for a personal e-commerce project.
-
-Here is my design:
-
-AUTH PROVIDER: [Clerk / NextAuth / Supabase Auth / custom]
-
-DATA MODEL:
-[paste your User and Address schema]
-
-SESSION STRATEGY:
-[describe how sessions are stored and how expiry works]
-
-GUEST ORDER LINKING:
-[describe how guest orders connect to new accounts]
-
-ACCOUNT PAGES:
-[list your planned account routes and what each shows]
-
-Review for:
-1. Security vulnerabilities (account enumeration, IDOR, session handling)
-2. Missing features customers will definitely ask for
-3. Over-engineering for a personal project
-4. Auth provider misuse or unnecessary custom implementation
-5. Schema problems
-
-Be specific. Flag critical issues first.
+Act as a Principal Identity Architect:
+1. Define the exact database schema (User, Company, Roles) required to support my business model.
+2. Provide the logic flow and security constraints for securely migrating past Guest Orders to a newly created account.
+3. If I am offering subscriptions, map out the API architecture for the self-serve Customer Portal, including how credit card updates will be handled without violating PCI compliance.
+4. Explain the event-driven architecture required to keep the customer's profile synced in real-time with my support and marketing tools.
+5. Recommend a managed Auth provider (e.g., Auth0, Clerk, Shopify Native) and justify the choice based on my stack.
 ```
 
 ---
 
-## Validation Checklist
+## Customer Accounts Checklist
 
-- [ ] Auth provider chosen — not rolling custom auth
-- [ ] Sessions stored in httpOnly, Secure, SameSite cookies
-- [ ] Email verification required before account features are accessible
-- [ ] Password reset links expire and are single-use (if managing auth yourself)
-- [ ] Login attempts rate limited (if managing auth yourself)
-- [ ] Guest orders linked to account on registration by email
-- [ ] All account API routes verify ownership before returning data
-- [ ] Admin role verified server-side on every admin route
-- [ ] Account enumeration prevented on password reset endpoint
-- [ ] Account dashboard focused on order history and address management
-
----
-
-## What to Build Next
-
-**Shipping Architecture** — shipping costs, zones, and carrier integration need to be designed before development. Your checkout depends on knowing how shipping options are calculated and presented at the right moment.
-
----
-
-> **Filename:** `customer-accounts-personal-e-commerce.md`
+- [ ] Managed Identity Provider (IdP) selected to offload security and compliance
+- [ ] B2C vs B2B hierarchical data model defined (User vs Company)
+- [ ] Secure "Guest Order to Authenticated Account" merging logic defined with email verification
+- [ ] Self-serve Subscription Portal scoped (integrating skipping, swapping, and cancelling)
+- [ ] PCI-compliant mechanism established for users to update saved credit cards
+- [ ] Real-time CRM/Marketing synchronization pipeline architected

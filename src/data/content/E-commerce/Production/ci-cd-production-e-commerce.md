@@ -1,163 +1,101 @@
 ---
-title: CI/CD
+title: CI/CD Implementation
 slug: ci-cd
 phase: Phase 4
 mode: production
-projectType: ecommerce
-estimatedTime: 15-20 min
+projectType: e-commerce
+estimatedTime: 30–40 min
 ---
 
-# CI/CD
+# CI/CD Implementation
 
-Right now, shipping a change probably means editing code and pushing to a branch your host auto-deploys. That's fine until the day you push something broken straight to your live store — wrong env variable, a typo in checkout logic, a migration that doesn't match production data. CI/CD is what catches that *before* a customer does.
+Continuous Integration and Continuous Deployment (CI/CD) is the safety net that prevents broken code from reaching your customers. 
 
----
-
-## Where This Fits
-
-You're wrapping a process around everything you've built — not adding a feature, but adding a safety check between "I wrote this" and "customers are using this."
+In e-commerce, if a developer accidentally introduces a bug that breaks the checkout button, and that code is deployed directly to production, the business loses money immediately. A rigorous CI/CD pipeline ensures that every code change is automatically built, tested, and previewed before it ever touches live traffic.
 
 ---
 
-## Why This Matters for a Store Specifically
+## 1. The CI Pipeline (Automated Testing)
 
-A broken deploy on a personal blog means a typo is visible for an hour. A broken deploy on a store can mean:
+Continuous Integration (CI) runs automatically every time a developer pushes code to a Pull Request (PR). 
 
-- Checkout silently failing — no errors, just lost sales you may not notice for hours
-- A database migration that doesn't match what's actually in production, corrupting or losing order data
-- An exposed environment variable (API key, payment secret) pushed by accident in a config change
-
-> **⚠️ Warning:** "I tested it locally and it worked" is not the same guarantee for a store as it is for most side projects, because the cost of a silent checkout failure is direct, measurable lost revenue — even at personal scale.
-
----
-
-## What You're Building Today
-
-- An automated check that runs on every push: does the app actually build?
-- A basic automated test for your most critical path — checkout completing successfully
-- A required step before deploy: tests pass, build succeeds
-- A staging environment (or at minimum, preview deployments) so you see changes before they hit real customers
-- Environment variables managed through your host's secrets system, never committed to git
-
-You're **not** building a full test suite with 100% coverage, blue-green deployments, or canary releases. That's real infrastructure for real scale. For a personal store, "it builds, the critical path is tested, and I can preview before going live" is the right bar.
+**The Implementation:**
+Use a tool like **GitHub Actions** or **GitLab CI**.
+When a PR is opened, the pipeline must execute the following gates. If any gate fails, the PR cannot be merged into `main`.
+1. **Linting & Formatting:** Enforce ESLint and Prettier. (Prevents syntax errors).
+2. **Type Checking:** Run `tsc --noEmit`. (Ensures strict TypeScript compliance).
+3. **Unit & Integration Tests:** Run Vitest/Jest. (Verifies tax math, webhook idempotency).
+4. **End-to-End (E2E) Tests:** Run Playwright. (A headless browser navigates the site, adds to cart, and checks out using a Stripe test card. This is the ultimate critical path test).
 
 ---
 
-## Choosing Your Approach
+## 2. Preview Environments (The QA Phase)
 
-| Tool | What It Does | Cost |
-|---|---|---|
-| **GitHub Actions** | Runs build + tests on every push, blocks merge if failing | Free for personal repos |
-| Vercel/Netlify Preview Deployments | Auto-creates a live preview URL per pull request | Included on most hosting plans |
-| Host's built-in CI (e.g., Vercel build checks) | Confirms the production build succeeds before going live | Included |
+Merchandising and QA teams must be able to test features visually before they go live.
 
-For a personal store, **GitHub Actions + your host's preview deployments** covers everything you need without adding a new platform to manage.
-
----
-
-## The Pipeline You're Building
-
-```
-Push code
-   │
-   ▼
-GitHub Actions runs
-   │
-   ├─ Install dependencies
-   ├─ Run build
-   ├─ Run tests (especially checkout flow)
-   │
-   ▼
-Pass? ──No──→ Block merge, fix before continuing
-   │
-  Yes
-   ▼
-Merge to main
-   │
-   ▼
-Host auto-deploys to production
-```
-
-Preview deployments fit *before* the merge — every pull request gets its own live URL, so you can click through checkout on the actual deployed version before it ever reaches main.
+**The Implementation:**
+If you use platforms like **Vercel** or **Netlify**, this is built-in.
+- When a PR is opened, the platform automatically builds the branch and generates a unique URL (e.g., `pr-123.yourstore.com`).
+- The developer shares this URL with the QA team.
+- The QA team can verify the new banner design or the new promotion logic on a live URL without affecting the production database (ensure preview environments point to a Staging Database, never Production).
 
 ---
 
-## Implementation
+## 3. Blue/Green Deployments (Zero-Downtime)
 
-**Copy Prompt:**
+When you merge code to `main`, the deployment to production must be instantaneous and invisible to users. 
 
-```
-I'm setting up CI/CD for a personal e-commerce store built with
-[your framework], hosted on [your host], using GitHub for version
-control.
+**The Anti-Pattern:** Taking down the server, uploading new files, and restarting Node.js. If a user is mid-checkout during those 30 seconds, their payment will fail.
 
-Set up a GitHub Actions workflow that, on every push and pull request:
-1. Installs dependencies and runs the build — fails the workflow if
-   the build doesn't succeed
-2. Runs the test suite, especially any tests covering checkout
-3. Blocks merging to main if either step fails
-
-Also confirm whether [your host] already provides preview deployments
-for pull requests, and if not, show me how to enable that — I want to
-be able to click through a real checkout flow on a preview URL before
-anything reaches production.
-```
-
-> **💡 Tip:** If you don't have a test for checkout yet, that's the one test worth writing before anything else in this module. Ask AI for a single end-to-end test that adds an item to cart, goes through checkout with test payment details, and confirms an order is created — that one test catches the failure mode that actually costs you money.
+**The Production Pattern (Blue/Green):**
+1. The server infrastructure spins up the new version of the code (the "Green" environment) behind the scenes.
+2. The current version (the "Blue" environment) continues serving live traffic.
+3. The load balancer runs a quick health check on the Green environment.
+4. If healthy, the load balancer instantly switches traffic to the Green environment. The transition takes 0 milliseconds.
+5. If the new code contains a critical bug, you can instantly rollback by switching the load balancer back to the Blue environment.
 
 ---
 
-## Environment Variables: The Part Most Often Done Wrong
+## 4. Database Migrations in CI/CD
 
-- [ ] Secrets (payment keys, database URLs) are set in your host's environment variable settings, never hardcoded or committed to git
-- [ ] `.env` files are in `.gitignore` from day one
-- [ ] Production and preview/staging use *different* payment provider keys — test keys for previews, live keys only for production
-- [ ] If a secret was ever accidentally committed, it's been rotated (changed), not just deleted from the latest commit — git history still holds it otherwise
+Deploying code is easy. Deploying database changes without downtime is incredibly hard.
 
-> **⚠️ Warning:** Using live payment keys in a preview/staging environment means test transactions during development can charge real cards. Always confirm preview deployments use test-mode payment keys.
+If your PR renames a column from `userId` to `customer_id`, and you deploy the code before the database migration finishes running, the live app will crash.
 
----
-
-## Common Mistakes
-
-- Treating "the build succeeded" as proof the app works — a build can succeed while checkout is completely broken
-- No test at all on the checkout path, so CI passes while the one flow that makes money is silently failing
-- Committing a `.env` file once, "just to test," and forgetting it's now in git history permanently
-- Using the same payment keys across preview and production, risking real charges from test runs
-- Skipping preview deployments and testing changes directly against production "just this once"
+**The Safe Migration Pattern (Expand & Contract):**
+Never rename or drop columns in a single deployment.
+- *Deployment 1 (Expand):* Add the new `customer_id` column. Update the code to write to *both* columns, but continue reading from `userId`.
+- *Background Task:* Run a script to backfill old data from `userId` to `customer_id`.
+- *Deployment 2 (Transition):* Update the code to read from `customer_id`.
+- *Deployment 3 (Contract):* Drop the old `userId` column.
 
 ---
 
-## Validation Checklist
+## AI Prompt — Architect Your CI/CD Pipeline
 
-- [ ] Push a deliberately broken change (e.g., a syntax error) and confirm the CI workflow catches it and blocks merge
-- [ ] Confirm a pull request generates a working preview URL you can click through
-- [ ] Run a full test checkout on a preview deployment using test payment details — confirm it completes and creates an order
-- [ ] Confirm `.env` is git-ignored and no secrets appear in your repository's history
-- [ ] Confirm production and preview environments use different payment provider keys
+```prompt
+I am building the CI/CD pipeline for a production e-commerce store.
 
----
+Tech Stack:
+- Repository: [e.g., GitHub]
+- Hosting: [e.g., Vercel / AWS ECS]
+- Database: [e.g., Postgres + Prisma]
+- Testing: [e.g., Playwright + Jest]
 
-## AI Review Prompt
-
-```
-Review my CI/CD setup for a personal e-commerce store. Check:
-
-1. Does the pipeline actually test the checkout flow, or only confirm
-   the app builds?
-2. Are production and preview/staging environments using separate
-   payment provider keys?
-3. Is there any chance secrets have been committed to git history,
-   even if removed from the latest commit?
-4. Would a broken checkout flow actually be caught before reaching
-   production, based on what's currently automated?
-
-Flag anything that would let a broken checkout ship without being
-caught first.
+Act as a Principal DevOps Engineer:
+1. Write the exact `.github/workflows/ci.yml` file required to run ESLint, TypeScript compilation, Jest unit tests, and Playwright E2E tests on every Pull Request.
+2. Explain the strategy for managing environment variables (Secrets) securely across Preview (Staging) and Production deployments.
+3. Provide a strict policy for deploying database schema changes (Prisma migrations) in a Zero-Downtime CI/CD environment using the "Expand and Contract" pattern.
+4. Outline the Rollback procedure if a critical bug is discovered 5 minutes after a deployment reaches the `main` branch.
 ```
 
 ---
 
-## What Comes Next
+## CI/CD Checklist
 
-Shipping changes is now a checked, repeatable process instead of a leap of faith. Next: **Payment Security** — hardening the part of your store that handles money directly, beyond the rate limits and tests already in place.
+- [ ] Automated CI pipeline (GitHub Actions) configured to block PR merges on test failure
+- [ ] E2E tests (Playwright) executed on every PR to verify the critical checkout path
+- [ ] Preview/Staging environments automatically generated for PRs to allow visual QA
+- [ ] Zero-Downtime deployments (Blue/Green or Edge) configured for the `main` branch
+- [ ] Strict "Expand and Contract" pattern adopted for all database migrations to prevent lock-ups
+- [ ] Instant rollback mechanism tested and documented for emergency recoveries

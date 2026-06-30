@@ -1,196 +1,111 @@
 ---
-title: Build vs Buy (Shopify)
+title: Build vs Buy (Commerce Engines)
 slug: build-vs-buy-shopify
 phase: Phase 2
 mode: production
 projectType: e-commerce
-estimatedTime: 20–25 min
+estimatedTime: 25–35 min
 ---
 
-# Build vs Buy (Shopify)
+# Build vs Buy: Commerce Engines
 
-This is the most consequential decision in Phase 2. Everything downstream — your tech stack, your timeline, your cost structure, your learning outcome — depends on it.
+At production scale, the "Build vs. Buy" decision is rarely a binary choice between coding everything from scratch and using a monolithic platform. It is a spectrum of composability.
 
-Most developers default to building because it feels more legitimate. Most product people default to Shopify because it ships faster. Both instincts are sometimes wrong.
+How much of the e-commerce backend—inventory allocation, tax calculation, payment gateways, and merchandising admin—should you own, and how much should you rent?
 
-This module gives you a framework to make the right call for your actual situation.
-
----
-
-## What You're Actually Choosing Between
-
-| | Custom Build | Shopify |
-|---|---|---|
-| **What you own** | Everything | Your storefront theme and content |
-| **What you control** | Every pixel and every system | Frontend only (unless headless) |
-| **Time to first sale** | Weeks to months | Hours to days |
-| **Monthly cost** | $0–25 (infrastructure) | $39–399 (plan) + 0–2% transaction fee |
-| **Payment flexibility** | Any processor | Stripe via Shopify Payments or 0.5–2% surcharge |
-| **Technical complexity** | High | Low |
-| **Learning value** | High | Low |
-| **Ongoing maintenance** | You own it | Shopify owns it |
+This module breaks down the realistic commerce engine architectures for production stores doing $1M–$100M+ in GMV.
 
 ---
 
-## The Honest Case for Shopify
+## The Three Production Architectures
 
-Shopify has solved problems that will take you weeks to solve yourself:
+### 1. Hosted Monolith (Shopify Plus / BigCommerce Enterprise)
+You rent both the backend and the frontend. You customize the frontend using platform-specific templating languages (Liquid for Shopify) and manage everything through their admin panel.
 
-- Checkout conversion optimization (Shopify's checkout converts better than most custom builds)
-- PCI compliance and payment security
-- Inventory management with multi-location support
-- Tax calculation in 170+ countries
-- Fraud detection
-- Mobile-optimized checkout out of the box
-- Abandoned cart recovery
-- Shipping carrier integrations
-- App ecosystem for features you'd otherwise build
+- **Best for:** High-volume brands where marketing velocity is more important than bespoke technical features (e.g., standard apparel, CPG).
+- **Pros:** Zero infrastructure maintenance. Massive app ecosystem. Immediate PCI compliance.
+- **Cons:** You are locked into their API rate limits, their URL structures, and their checkout flow. High GMV percentage fees.
 
-**If your goal is to sell things**, Shopify is the professional choice. Companies doing $10M/year use Shopify. The ceiling is not the platform — it's your marketing.
+### 2. Headless / Composable (Shopify Storefront API / Swell)
+You rent the backend (inventory, payments, admin) but build and host a custom frontend (Next.js/Remix) deployed on edge infrastructure (Vercel).
 
-> **Warning:** Shopify's transaction fee (0.5–2% on non-Shopify Payments) is a hidden cost most people miss. On a $50,000/month store using a third-party processor at 1% surcharge, that's $500/month — $6,000/year — purely for the privilege of not using Stripe via Shopify Payments. Always use Shopify Payments where available.
+- **Best for:** Brands needing sub-second edge performance, complex multi-region routing, or rich interactive experiences (e.g., 3D configurators) that monolithic frontends cannot support.
+- **Pros:** Ultimate frontend freedom. Incredible performance. Can merge content (Sanity CMS) and commerce seamlessly.
+- **Cons:** High engineering overhead. You now have two systems to monitor. You still pay Shopify's platform fees.
 
----
+### 3. Open Source / API-First (Medusa.js / Commerce Layer)
+You host the backend (often on AWS/GCP) and build the frontend. The commerce engine is entirely API-driven and deeply extensible via code, not just webhooks.
 
-## The Honest Case for Custom Build
-
-Custom build makes sense when:
-
-- **Learning is the primary goal.** Building your own store teaches you payment architecture, inventory systems, webhook handling, and order management that no tutorial covers. This is career-valuable.
-- **You need functionality Shopify can't support.** Custom pricing logic, complex B2B workflows, unusual product types, deep third-party integrations.
-- **You need full data ownership.** Shopify owns your store's data. If you ever migrate off, exporting is painful. With Supabase, you own everything.
-- **You're building a platform, not just a store.** If your store is the product — a marketplace, a rental platform, a subscription box — Shopify is the wrong foundation.
+- **Best for:** B2B companies with complex pricing tiers, multi-vendor marketplaces, or companies with highly non-standard fulfillment (e.g., digital-physical hybrids).
+- **Pros:** Zero GMV percentage fees. Full control over the database and core logic. 
+- **Cons:** Highest operational burden. You are responsible for uptime, database scaling, and security patches.
 
 ---
 
-## The Headless Middle Ground
+## The True Cost of Building Custom
 
-Shopify as backend, your own frontend.
+When engineering teams advocate for a fully custom e-commerce backend (writing their own `orders` and `inventory` tables from scratch), they severely underestimate the long-tail complexity.
 
+If you build custom, you are committing to building and maintaining:
+1. **PCI Compliance:** If you touch raw credit card data, you need Level 1 PCI DSS compliance (annual audits costing $20k+).
+2. **Global Tax Logic:** Keeping up with changing economic nexus laws across 50 US states and the EU.
+3. **The Admin Dashboard:** Your operations and merchandising teams need a UI to refund orders, update tracking numbers, and manage variants. Building an internal CMS for this takes as much time as building the storefront.
+
+> [!CAUTION]
+> **The Engineering Trap:** Do not build a custom commerce backend just to save on Shopify's $2,000/month Plus fee. The engineering time required to maintain a custom admin dashboard and integration layer will cost 10x that amount in salaries alone. Build custom *only* if the platform's core data model cannot support your business model.
+
+---
+
+## Why Headless is the Modern Default
+
+For most mid-market to enterprise engineering teams, **Headless Shopify** or a similar headless provider (BigCommerce, Swell) is the sweet spot.
+
+1. **Operations gets the Admin:** The fulfillment and merchandising teams get the mature, battle-tested Shopify admin dashboard they already know how to use.
+2. **Engineering gets the Edge:** Engineers get to build in Next.js/React, utilizing edge caching, custom routing, and modern CI/CD pipelines.
+3. **Security is Outsourced:** The platform handles the checkout (often via a redirect or hosted elements), absorbing all PCI compliance and fraud liability.
+
+---
+
+## Replatforming at Scale
+
+If you are migrating an existing production store to a new architecture, note these critical risks:
+
+- **SEO Migration:** URLs will change. A botched 301 redirect mapping plan can destroy organic traffic overnight.
+- **Customer Password Migration:** If migrating away from Shopify, you cannot export customer passwords (they are hashed). You must force a password reset for all legacy users, which causes massive customer service friction.
+- **Order History:** Migrating millions of historical orders into a new schema is complex and often unnecessary. Consider storing historical data in a data warehouse (Snowflake/BigQuery) and starting fresh on the new platform.
+
+---
+
+## AI Prompt — Evaluate Your Commerce Engine Strategy
+
+```prompt
+I am evaluating the commerce engine architecture for a production e-commerce store.
+
+Business Profile:
+- Business Model: [B2C / B2B / Marketplace / Digital]
+- Annual GMV: [e.g., $5 Million]
+- Product Complexity: [Simple variants vs. Complex configurable bundles]
+- Technical Team: [Number of frontend and backend engineers]
+- Primary Pain Point with Current System (if replatforming): [e.g., Page speed, checkout limitations, B2B pricing]
+
+I am deciding between:
+Option A: [e.g., Headless Shopify Plus with Next.js]
+Option B: [e.g., Medusa.js fully custom build]
+
+Act as a Principal E-Commerce Architect and evaluate this decision:
+1. Which option aligns better with my team size and business model?
+2. What are the hidden operational costs of Option B that my team is likely underestimating?
+3. If I choose Option A, what are the strict limitations I will hit within the next 2 years of scaling?
+4. How should I handle the Admin UI/Dashboard requirement for my merchandising team under both options?
+5. Make a definitive recommendation based on minimizing operational risk while maximizing frontend flexibility.
 ```
-Your Next.js frontend
-        ↕  (Shopify Storefront API)
-Shopify backend
-(products, inventory, cart, checkout, orders, payments)
-```
-
-**What you get:**
-- Full frontend control — your design, your UX, your performance
-- Shopify handles every backend concern (payments, inventory, orders, taxes)
-- Shopify Payments — no transaction surcharge
-
-**What you give up:**
-- Shopify's built-in checkout UX (you'll build your own or use Shopify's hosted checkout)
-- Simpler architecture
-
-**When headless makes sense:**
-- You want to learn frontend e-commerce without building a backend from scratch
-- You want design freedom but don't want to build payment and inventory systems
-- You're comfortable with GraphQL (Shopify Storefront API is GraphQL-only)
-
-**Monthly cost:** Shopify Basic ($39/month) + Vercel free tier + your domain.
-
----
-
-## Decision Framework
-
-Answer these four questions:
-
-**1. Is learning the goal or is selling the goal?**
-- Learning → custom build
-- Selling → Shopify
-- Both → headless Shopify or Medusa.js
-
-**2. How complex is your product catalog?**
-- Standard products with variants → Shopify handles this perfectly
-- Unusual product types, custom pricing, complex bundles → custom build
-
-**3. What is your runway before you need revenue?**
-- Weeks → Shopify
-- Months → custom build is viable
-
-**4. Will you maintain this yourself long-term?**
-- Yes, solo → custom build means you own every bug
-- Yes, with help → doesn't change the calculus much
-- No, handing off → Shopify is more maintainable for non-developers
-
----
-
-## Feature Comparison for Personal Store Needs
-
-| Feature | Custom Build | Shopify Basic | Headless Shopify |
-|---|---|---|---|
-| Product management | Build it | ✓ Included | ✓ Via admin |
-| Inventory tracking | Build it | ✓ Included | ✓ Via API |
-| Variant support | Build it | ✓ Up to 100 variants | ✓ Via API |
-| Checkout | Build it | ✓ Optimized | Build it or use hosted |
-| Payment processing | Stripe integration | ✓ Shopify Payments | ✓ Shopify Payments |
-| Tax calculation | Stripe Tax or manual | ✓ Automatic | ✓ Automatic |
-| Email notifications | Resend integration | ✓ Built-in templates | ✓ Built-in |
-| Abandoned cart | Build it | ✓ Included | ✓ Via webhook |
-| Analytics | PostHog or manual | ✓ Basic included | ✓ Basic included |
-| Custom domain | Vercel | ✓ $39+/month | ✓ $39+/month |
-| App ecosystem | NPM | ✓ 8,000+ apps | Partial |
-
----
-
-## Medusa.js — The Third Option
-
-If you want to build but don't want to architect everything from scratch, Medusa.js is worth knowing.
-
-Medusa is an open-source commerce engine — essentially a self-hosted Shopify backend. It gives you:
-- Pre-built product, inventory, order, and cart APIs
-- Stripe and PayPal integrations out of the box
-- A React-based storefront starter
-- Full data ownership
-
-**When Medusa makes sense:**
-- You want to learn e-commerce architecture without building every subsystem
-- You want a portfolio project that shows real engineering judgment
-- You want Shopify-like functionality at infrastructure cost only
-
-**When Medusa doesn't make sense:**
-- You want maximum learning from first principles (build custom)
-- You want zero maintenance and fast shipping (use Shopify)
-
----
-
-## AI Prompt — Make Your Decision
-
-<copy-prompt>
-I'm deciding between building a custom e-commerce store vs. using Shopify (or a headless approach) for my personal project.
-
-My situation:
-- What I'm selling: [describe products]
-- Primary goal: [learning / selling / both]
-- Timeline to first sale: [your target]
-- Monthly infrastructure budget: [amount]
-- Technical skills: [your stack experience]
-- Long-term plan for the store: [grow it / portfolio project / experiment]
-- Special requirements: [any unusual product types, pricing logic, or integrations]
-
-Evaluate my three options:
-1. Custom build (Next.js + Supabase + Stripe)
-2. Shopify (hosted, Shopify Payments)
-3. Headless Shopify (Next.js frontend + Shopify backend)
-
-For each option, tell me:
-- Whether it fits my situation and why
-- The top 2 risks for my specific goals
-- The realistic time to a working store
-- Total cost at 0 orders/month and at 100 orders/month
-
-Give me a clear recommendation with your reasoning. Don't hedge — tell me what you'd choose.
-</copy-prompt>
 
 ---
 
 ## Build vs Buy Checklist
 
-- [ ] Primary goal clarified — learning vs. selling vs. both
-- [ ] Shopify transaction fee calculated for your expected volume
-- [ ] Headless option evaluated if you want Shopify backend + custom frontend
-- [ ] Medusa.js evaluated if you want open-source backend
-- [ ] Decision made and documented — including the reason
-- [ ] Timeline to first sale estimated against chosen approach
-- [ ] Monthly cost model updated based on chosen approach (from Cost Estimation module)
+- [ ] Technical capability vs. business model complexity mapped
+- [ ] Operational burden of an internal Admin dashboard accounted for in the engineering budget
+- [ ] Compliance liability (PCI, Tax, GDPR) accounted for in the custom-build evaluation
+- [ ] Hidden GMV fees calculated for platform options over a 3-year horizon
+- [ ] Replatforming risks (SEO, user passwords) assessed if migrating an existing store

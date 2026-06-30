@@ -4,270 +4,138 @@ slug: e-commerce-fundamentals
 phase: Phase 2
 mode: production
 projectType: e-commerce
-estimatedTime: 25–35 min
+estimatedTime: 40–50 min
 ---
 
 # E-Commerce Fundamentals
 
-Before you touch a database schema or payment integration, you need a working mental model of how e-commerce actually functions as a system.
+Before you architect database schemas or payment integrations, you must understand how e-commerce functions as a distributed system. 
 
-Most beginners think of an online store as "a website that sells things." That framing leads to missing entire subsystems — inventory state, order lifecycle, payment webhooks, tax obligations — until they become production problems.
+At production scale, a store is not "a website that sells things." It is a complex state machine managing money, physical inventory, and compliance obligations across multiple third-party systems concurrently. When you process 100 orders an hour, the naive assumptions of a side project—that payments always succeed instantly, that inventory is a static number, that webhooks arrive in order—will cause catastrophic financial errors.
 
-This module builds the mental model that makes every architectural decision in Phase 2 make sense.
-
----
-
-## The Core Loop
-
-Every e-commerce transaction is the same loop, regardless of what you're selling:
-
-```
-Product exists in catalog
-        ↓
-Customer discovers it
-        ↓
-Customer adds to cart (intent, no commitment)
-        ↓
-Customer initiates checkout (soft commitment)
-        ↓
-Payment is captured (hard commitment)
-        ↓
-Inventory is decremented
-        ↓
-Order is created
-        ↓
-Fulfillment begins
-        ↓
-Customer receives goods
-        ↓
-(Optional) Return / refund
-```
-
-Each arrow in this diagram is a system transition. Each transition can fail. Your store's reliability is measured by how gracefully it handles failures at each step.
+This module builds the production mental model required for Phase 2 architecture.
 
 ---
 
-## Money Flow
+## The Distributed Transaction Problem
 
-Understanding how money actually moves tells you where to put your error handling.
+A single customer purchase touches at least three independent systems: your database, the payment processor (e.g., Stripe), and the fulfillment provider (e.g., a 3PL). 
 
-```
-Customer's bank
-      ↓  (authorization — money held, not moved)
-Stripe
-      ↓  (capture — money moves, usually same time)
-Stripe balance
-      ↓  (payout — 2 business days by default)
-Your bank account
-```
+Because these systems are separate, **there is no such thing as a single database transaction for an e-commerce order.** 
 
-**Authorization vs. Capture:**
+You must design for partial failures:
+- What happens if the payment succeeds, but your database crashes before saving the order?
+- What happens if the order saves, but the inventory decrement fails?
+- What happens if Stripe sends the webhook twice?
 
-| Term | What It Means | When It Happens |
+**The Production Solution: Idempotency & Webhooks**
+You cannot rely on client-side API calls to finalize orders. The client can close their browser or lose connection. 
+1. The client initiates the intent.
+2. The payment provider processes the charge.
+3. The payment provider fires an asynchronous webhook to your server.
+4. Your server processes the webhook **idempotently** (ensuring that processing the same webhook twice does not create two orders or double-decrement inventory).
+
+---
+
+## Money Flow & Fraud
+
+Understanding how money actually moves dictates your risk exposure.
+
+| State | What It Means | Risk Level |
 |---|---|---|
-| Authorization | Card is valid, funds are held | At checkout |
-| Capture | Money actually moves | At checkout (usually instant) or at fulfillment |
-| Settlement | Funds reach your account | 2 business days after capture |
+| **Authorization** | Card is valid, funds are held by the issuing bank. | Low. No money has moved yet. |
+| **Capture** | Funds are moved from the issuing bank to the payment processor. | High. You are now liable for chargebacks. |
+| **Settlement** | Funds reach your actual bank account. | Zero. The money is yours (barring disputes). |
 
-For a standard store, authorization and capture happen together. You only split them if you're charging after fulfillment (e.g. pre-orders, made-to-order products).
+**Auth vs. Capture Strategies:**
+- **Standard (Auto-Capture):** Money is captured immediately at checkout. Best for digital goods or items that ship instantly.
+- **Delayed Capture (Auth-and-Capture):** You authorize the card at checkout, but only *capture* the funds when the item actually ships. **This is mandatory for high-volume physical goods.** If you capture funds for backordered items and fail to ship, you will face massive chargeback ratios and processor bans.
 
-**Refunds move money backwards through this chain.** Stripe returns funds to the customer's bank but keeps its transaction fee. Processing time for refunds: 5–10 business days to appear on the customer's card statement.
+**Card Testing Fraud:**
+Botnets will use your checkout to test stolen credit cards by making hundreds of $1 purchases. At production scale, you *must* implement rate-limiting on your checkout endpoints and use fraud detection (like Stripe Radar) to block high-risk IPs.
 
 ---
 
-## Inventory as a State Machine
+## Inventory: Hard vs. Soft Allocation
 
-Inventory is not just a number. It's a state that multiple concurrent users can affect simultaneously.
+Inventory is not just an integer column in a database. It is a highly concurrent state machine.
 
-```
-in_stock (qty > 0)
-      ↓ customer adds to cart
-reserved (qty decremented in cart)
-      ↓ payment captured
-sold (qty permanently decremented)
-
-      OR
-
-reserved (qty decremented in cart)
-      ↓ cart abandoned / payment fails
-in_stock (qty restored)
-```
-
-**The race condition problem:**
-
-Two customers simultaneously view the last unit of a product. Both add to cart. Both proceed to checkout. Both attempt payment at the same time.
-
-If you decrement inventory only after payment:
-- Both payments succeed
-- You've sold one item twice
-- One customer is disappointed, you issue a refund, you pay a Stripe fee
-
-**Solutions:**
+**The Race Condition:**
+If you have 1 unit left, and 50 people add it to their cart during a flash sale, who gets it?
 
 | Approach | How It Works | Tradeoff |
 |---|---|---|
-| **Reserve on add-to-cart** | Decrement immediately, restore on abandonment | Complex — requires cart expiry logic |
-| **Reserve on checkout start** | Decrement when checkout begins | Simpler — short reservation window |
-| **First-payment-wins** | Decrement only on payment success, refund the loser | Simplest code, worst UX |
-| **Supabase row-level locking** | Database transaction ensures atomicity | Right answer for most personal stores |
+| **Soft Allocation (First to Pay)** | Inventory is only decremented upon successful payment. | High oversell risk if two payments process at the exact same millisecond. Results in forced refunds. |
+| **Hard Allocation (Cart Reservation)** | Inventory is locked for 10 minutes when added to the cart. | Requires a complex Redis layer to handle expirations. Can be abused by bots locking up all stock. |
+| **Checkout Reservation** | Inventory is locked only when the user enters the payment step. | The best production compromise. Short lock window, prevents double-charging. |
 
-For a personal store with low concurrent traffic, Supabase transactions with `SELECT FOR UPDATE` give you safe inventory decrement without complex reservation systems.
+**The Production Standard:**
+Use a database transaction with a row-level lock (`SELECT FOR UPDATE` in Postgres) or an atomic Redis decrement script to verify and deduct inventory at the exact moment the payment intent is created, *not* when the user adds to cart.
 
-```sql
-BEGIN;
-SELECT inventory_quantity FROM product_variants
-  WHERE id = $variant_id FOR UPDATE;
--- Check quantity > 0
-UPDATE product_variants
-  SET inventory_quantity = inventory_quantity - $quantity
-  WHERE id = $variant_id AND inventory_quantity >= $quantity;
-COMMIT;
+---
+
+## Order State Machines
+
+An order is a workflow with strictly enforced, unidirectional transitions. 
+
+```text
+pending_payment → processing → fulfilled → shipped → delivered
+                      ↘ payment_failed       ↘ returned
+                                 ↘ refunded (post-shipment)
 ```
 
----
+**Why strict transitions matter:**
+A `refunded` order cannot move back to `processing`. A `shipped` order cannot move back to `pending_payment`. If your API allows arbitrary updates to the `status` column, a race condition or a customer service rep's mistake will create impossible states. This destroys financial reporting and breaks ERP integrations.
 
-## Order States — Why They Matter
-
-An order is not just a database row. It's a workflow with defined valid transitions.
-
-```
-pending → confirmed → processing → shipped → delivered
-                    ↘ cancelled
-           ↘ cancelled (payment failed)
-                                  ↘ refunded (post-shipment)
-```
-
-**Why invalid transitions matter:**
-
-A `delivered` order should never move back to `processing`. A `refunded` order should never move to `shipped`. If your code doesn't enforce valid transitions, customer service mistakes and automation bugs will create impossible order states that break your reporting, your accounting, and your customer communications.
-
-Enforce transitions in your business logic layer, not just in your UI.
+Your backend must enforce valid state transitions using a state machine pattern, rejecting any invalid updates with a 400 Bad Request.
 
 ---
 
-## Webhooks — The Event System You Cannot Skip
+## Tax Nexus & Compliance
 
-Stripe does not call your API and wait. It fires events and expects your server to handle them asynchronously.
+At production scale, tax is a legal liability, not a UI feature.
 
-**Critical Stripe webhooks for a personal store:**
+**Economic Nexus:**
+In the US, if you sell more than $100,000 (or 200 transactions) into a specific state within a year, you establish "Economic Nexus" and are legally required to collect and remit sales tax for that state. Similar rules (VAT thresholds) exist in the EU and UK.
 
-| Event | When It Fires | What You Must Do |
-|---|---|---|
-| `payment_intent.succeeded` | Payment captured | Create order, decrement inventory, send confirmation email |
-| `payment_intent.payment_failed` | Payment declined | Notify customer, restore reserved inventory |
-| `charge.dispute.created` | Customer filed chargeback | Flag order, gather evidence |
-| `charge.refunded` | Refund processed | Update order status, notify customer |
-
-> **Warning:** Never fulfill an order based on a client-side success callback. A user can fake a client-side success. Only fulfill orders when your webhook receives `payment_intent.succeeded` from Stripe's servers. This is not optional — it's the difference between a secure store and one that can be exploited to get free products.
-
-**Webhook verification:**
-
-Every Stripe webhook comes with a signature. Verify it before processing:
-
-```ts
-const sig = request.headers['stripe-signature'];
-const event = stripe.webhooks.constructEvent(
-  rawBody,        // must be raw bytes, not parsed JSON
-  sig,
-  process.env.STRIPE_WEBHOOK_SECRET
-);
-```
-
-If signature verification fails, return 400 and do nothing. Unverified webhooks could be forged.
-
----
-
-## Tax Obligations
-
-Tax is the most ignored e-commerce topic until it becomes a legal problem.
-
-**The basics:**
-
-| Situation | Obligation |
-|---|---|
-| Selling within your home country | Charge and remit VAT/GST/sales tax per local law |
-| Selling internationally | Varies by country and order value (EU VAT thresholds, etc.) |
-| Digital products | Often taxed differently from physical goods |
-
-**For a personal store at launch:**
-
-- If selling domestically only: configure Stripe Tax (free, adds ~0.5% per transaction for automatic calculation and filing assistance) or handle manually per your local rules
-- If selling internationally: start with Stripe Tax enabled; consult a tax professional when revenue is meaningful
-
-> **Warning:** "I'll figure out taxes later" is how people get unexpected tax bills. The longer you operate without proper tax collection, the larger the liability you're building. Stripe Tax is the lowest-effort solution — enable it before your first sale.
-
----
-
-## The Admin Layer
-
-Your store needs two user-facing systems: the customer storefront and the admin interface.
-
-**What admin needs to handle:**
-
-| Function | Complexity |
-|---|---|
-| View / search orders | Low |
-| Update order status | Low |
-| Manage inventory | Medium |
-| Add / edit products | Medium |
-| Process refunds | Low (via Stripe dashboard initially) |
-| View revenue analytics | Medium |
-
-For a personal project, start with Supabase's built-in table editor for data management and Stripe's dashboard for payment/refund management. Build a custom admin UI only when the built-in tools create a real operational bottleneck.
-
----
-
-## What E-Commerce Is Not
-
-These are common beginner misconceptions:
-
-> **Cart = order.** It isn't. A cart is intent. An order is a completed transaction. Never treat cart data as fulfillment data.
-
-> **Client-side payment success = payment success.** The client can be manipulated. Only trust Stripe's webhook.
-
-> **Price shown = price stored.** Always re-validate price server-side at payment time. A user could manipulate a client-side cart to send a lower price to your API. Fetch the real price from your database at checkout.
-
-> **Inventory decrement is simple.** Under concurrent load, naive decrement logic causes overselling. Use database transactions.
-
-> **Fulfillment is automatic.** Orders need to be picked, packed, and shipped. This is a manual workflow unless you're using a 3PL (third-party logistics provider). Budget time for it.
+**Production Requirements:**
+1. **Never calculate tax manually.** Use an API like TaxJar, Avalara, or Stripe Tax.
+2. **Validate addresses.** A typo in a ZIP code can change the local tax rate. Use an address validation API (like Lob or Google Maps) before calculating tax.
+3. **Store the tax snapshot.** When an order is placed, store the exact tax rate and amount calculated *at that millisecond*. Do not rely on dynamic recalculation for past orders.
 
 ---
 
 ## AI Prompt — Map Your E-Commerce System
 
-<copy-prompt>
-I'm building a personal e-commerce store and want to understand the complete system I need to build.
+```prompt
+I am architecting the core state machines for a production e-commerce store.
 
-My store:
-- Products: [what you sell]
-- Fulfillment: [you ship yourself / dropship / print-on-demand / digital]
-- Payment processor: Stripe
-- Stack: Next.js + Supabase + Vercel
+Store Profile:
+- Business Model: [Physical Goods / Digital / Subscription / Dropshipping]
+- Average Order Value: [$XXX]
+- Peak Concurrency: [e.g., 500 simultaneous checkouts during drops]
+- Payment Processor: [Stripe / Adyen / Braintree]
 
 Map out the complete system I need to build:
 
-1. Every subsystem my store requires (not just frontend pages — include backend logic, webhooks, emails, admin)
-2. The data that flows between each subsystem
-3. The failure points most likely to cause a real customer problem
-4. Which Stripe webhooks I must handle and exactly what each one should trigger
-5. How I should handle inventory for my fulfillment model
-6. The minimum viable admin interface I need before launch
-7. What I can skip entirely at launch and add later without a rewrite
+1. **Order State Machine:** List all exact order statuses, the strict valid transitions between them, and what triggers each transition.
+2. **Inventory Strategy:** Recommend an inventory allocation strategy (Soft, Checkout, or Hard) based on my peak concurrency, and write the pseudocode/SQL for the decrement logic.
+3. **Auth & Capture:** Should I use Auto-Capture or Delayed Capture based on my fulfillment model? Why?
+4. **Webhook Idempotency:** Write the exact architecture for how I should process webhooks to guarantee an order is never created twice, even if the webhook is received three times simultaneously.
+5. **Tax Strategy:** What are my immediate compliance risks based on this model, and what tooling should I integrate?
 
-Be specific to my fulfillment model. A store I ship myself has different operational needs than a print-on-demand store.
-</copy-prompt>
+Be specific to my high-concurrency needs. Do not provide generic advice.
+```
 
 ---
 
 ## Fundamentals Checklist
 
-- [ ] Core transaction loop understood (discovery → cart → checkout → payment → fulfillment)
-- [ ] Authorization vs. capture distinction understood
-- [ ] Inventory race condition risk understood — database transaction strategy chosen
-- [ ] Order states defined with valid transitions enforced in code (not just UI)
-- [ ] Stripe webhook handling planned — `payment_intent.succeeded` as the fulfillment trigger
-- [ ] Webhook signature verification implemented (not optional)
-- [ ] Price re-validated server-side at payment time (never trust client-side price)
-- [ ] Tax strategy decided — Stripe Tax enabled before first sale
-- [ ] Admin workflow planned — Supabase table editor + Stripe dashboard sufficient at launch
-- [ ] Cart vs. order distinction clear in data model
+- [ ] Webhook idempotency strategy defined (using unique event IDs)
+- [ ] Auth vs. Capture payment strategy selected based on fulfillment timelines
+- [ ] Inventory race condition risk mitigated via atomic database locks or Redis
+- [ ] Order states defined as a strict state machine with enforced transitions
+- [ ] Tax calculation outsourced to a certified API (Stripe Tax, Avalara, TaxJar)
+- [ ] Card testing fraud mitigation planned (rate limiting + fraud scoring)
+- [ ] Price re-validated server-side before payment intent creation
+- [ ] Historical data immutability planned (snapshotting prices and taxes on the order record)

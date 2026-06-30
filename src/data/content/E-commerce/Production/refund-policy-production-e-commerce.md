@@ -3,138 +3,94 @@ title: Refund Policy
 slug: refund-policy
 phase: Phase 5
 mode: production
-projectType: ecommerce
-estimatedTime: 10-15 min
+projectType: e-commerce
+estimatedTime: 20–30 min
 ---
 
 # Refund Policy
 
-This is one of the first things a hesitant customer checks before buying from a store they've never heard of. A clear, fair refund policy is a trust signal as much as a legal document — and for a new store with no reviews yet, trust signals matter more than usual.
+In e-commerce, the Refund Policy is not a customer service guideline—it is a financial and operational contract. 
 
-Refund Policy and Return Policy are closely related but answer different questions: Refund Policy covers *getting money back*; Return Policy (next module) covers *the physical process of sending an item back*. Many stores combine them into one page — that's fine, as long as both questions are clearly answered.
-
----
-
-## Where This Fits
-
-This connects to your actual payment processing setup (Phase 4) and order management (Phase 3). The policy needs to describe a refund process your code can actually execute — not an aspirational one.
+If your backend engineers, support staff, and legal terms do not share the exact same understanding of your Refund Policy, the business will bleed money through algorithmic errors (e.g., refunding shipping costs when they are non-refundable) or customer chargebacks.
 
 ---
 
-## Why This Matters for a Store Specifically
+## 1. Financial Engineering (The Proration Problem)
 
-> **💡 Tip:** A visible, fair refund policy measurably reduces purchase hesitation, especially for first-time customers on an unfamiliar store. Customers assume the *absence* of a clear policy means refunds will be difficult, even if that's not true — silence reads as risk.
+If a user buys 3 shirts for $30 each and uses a "20% off total order" discount code, they paid $72.00 total.
+If they return 1 shirt, how much do you refund them?
 
-Beyond trust, most payment providers and many jurisdictions expect refund terms to be disclosed before purchase, not improvised after a complaint.
+**The Anti-Pattern:** A naive codebase sees the item price is $30 and executes a $30.00 refund via Stripe. The business just lost $6.00 in margin because the discount wasn't factored into the partial refund.
 
----
-
-## What You're Building Today
-
-- A clear, specific refund policy: what qualifies, what timeframe, how it's processed
-- A refund policy that matches what your actual payment/order system can do
-- Clarity on partial vs full refunds, and shipping cost handling
-- A policy that's visible *before* purchase, not just discoverable after a complaint
-
-You're **not** writing custom legal language for complex dispute scenarios — a clear, reasonable, generator-assisted policy is the right scope for a personal store.
+**The Production Rule:**
+Your Refund Policy must strictly define how discounts and taxes are prorated.
+- Your backend API must algorithmically calculate the *exact weighted value* of the returned SKU relative to the discounted order total.
+- Your API must also query the Tax Engine (e.g., Stripe Tax) to calculate the exact fractional amount of sales tax to refund for that specific line item.
 
 ---
 
-## The Questions a Refund Policy Must Answer
+## 2. Shipping Cost Liability
 
-| Question | Why It's Asked |
-|---|---|
-| What qualifies for a refund? | Defective item, wrong item, simple change of mind — each may have different terms |
-| What's the time window? | Customers check this before buying, not just after a problem |
-| Full or partial refund? | Does shipping cost get refunded too? |
-| How is the refund issued? | Original payment method, store credit, or both? |
-| How long does processing take? | Sets expectations and reduces "where's my refund" follow-ups |
+Shipping is a hard cost to the business. If FedEx charges you $10 to ship a box, and you refund the customer the $10 shipping fee when they return the item, you have lost $10 cash on a canceled sale.
 
-> **⚠️ Warning:** Don't promise a refund timeframe your payment provider can't actually support. Card refunds typically take several business days to appear on a customer's statement after you issue them — your policy should reflect that processing reality, not an idealized instant turnaround.
+**The Implementation:**
+Your Refund Policy must explicitly state whether original shipping fees are refundable.
+- **Standard Practice:** "Original shipping charges are non-refundable."
+- Your backend API must explicitly separate `item_total` from `shipping_total`.
+- The UI in your Admin Dashboard must have a toggle: `[ ] Refund Shipping Cost`. By default, this must be unchecked to protect business margins.
 
 ---
 
-## Choosing Your Approach
+## 3. The Stripe Refund Flow (Idempotency)
 
-| Policy Style | Customer Trust Impact | Operational Cost | Best For |
-|---|---|---|---|
-| No stated policy / case-by-case only | Lowest trust, highest hesitation | Unpredictable | Not recommended |
-| **Clear, moderately generous policy (e.g., 30-day, full refund minus original shipping)** | High trust, predictable | Low, predictable | Most personal stores (recommended) |
-| Strict, narrow policy | Lower trust, more disputes | Lower direct cost, higher dispute/chargeback risk | Higher-risk or custom/made-to-order goods only |
+When a customer service agent clicks "Refund" in the dashboard, the backend makes a `POST /v1/refunds` call to Stripe.
 
-> **✅ Best Practice:** A more generous, clearly stated policy often costs less in practice than a strict one — strict policies tend to push frustrated customers toward payment disputes/chargebacks instead, which usually cost more (in fees and account risk) than the refund would have.
+**The Danger:** If the internet connection drops and the agent clicks "Refund" again, your server might send a second API call. You just refunded the customer twice for the same item.
 
----
-
-## Implementation
-
-**Copy Prompt:**
-
-```
-Help me write a refund policy for my e-commerce store, matching how my
-actual systems work:
-
-Payment provider: [Stripe / etc.]
-Order/refund processing: [describe how refunds are actually issued in
-your admin — manual, automated, etc.]
-Product type: [physical goods, made-to-order, digital, etc. — affects
-what's reasonable]
-
-Write a clear policy covering:
-1. What qualifies for a refund and the time window
-2. Whether shipping costs are refunded
-3. How and when the refund is issued, accurate to real payment
-   processing timelines (several business days for card refunds, not
-   instant)
-4. Any reasonable exceptions (e.g., final sale items, if applicable)
-
-Keep it specific and customer-readable, not legal boilerplate.
-```
-
-> **⚠️ Common Mistake:** Don't let AI default to a generic "30 days, no questions asked" policy without checking it against what's actually reasonable for your specific products — made-to-order or perishable goods, for instance, often warrant different terms than standard retail items, and the policy should say so explicitly rather than overpromising.
+**The Engineering Fix:**
+Refunds must be Idempotent.
+- Generate a unique `UUID` for every refund attempt.
+- Send this as the `Idempotency-Key` header in the Stripe API request.
+- Stripe will recognize the duplicate key and block the second refund, ensuring absolute financial safety regardless of how many times the UI button is mashed.
 
 ---
 
-## Common Mistakes
+## 4. Policy Visibility (Defeating Chargebacks)
 
-- No refund policy at all, leaving customers to assume the worst and hesitate at checkout
-- Promising instant refunds when card processing realistically takes several business days
-- Refund policy that doesn't match what the actual order/payment system supports — e.g., promising partial refunds the admin dashboard has no way to issue
-- Burying the policy somewhere customers won't find it before purchase, rather than linking it from product or checkout pages
-- A policy so strict it pushes customers toward payment disputes instead of direct refund requests — often the costlier outcome
+If a customer is angry that you didn't refund their shipping fee, they will initiate a chargeback with their credit card company.
 
----
+Visa/Mastercard will ask you for proof that the customer agreed to the policy. If the Refund Policy was hidden in tiny text at the bottom of the homepage, Visa will rule in favor of the customer.
 
-## Validation Checklist
-
-- [ ] Refund policy is linked from checkout and/or product pages, not just buried in the footer
-- [ ] Stated refund timeframe matches real payment provider processing time
-- [ ] Policy matches what your admin/order system can actually execute (full vs partial refunds, shipping cost handling)
-- [ ] Any product-specific exceptions (made-to-order, final sale) are explicitly stated, not assumed
-- [ ] You've personally walked through issuing a test refund in your admin to confirm the process matches what the policy describes
+**The Implementation:**
+- The Refund Policy MUST be linked directly inside the checkout flow, right next to the "Submit Order" button.
+- For high-risk items (e.g., "Final Sale - No Refunds"), you must implement a hard UI block: a required checkbox stating "I understand this item is final sale and cannot be refunded" before the payment intent can be generated.
 
 ---
 
-## AI Review Prompt
+## AI Prompt — Architect Your Refund Operations
 
-```
-Review this refund policy against my actual store setup:
+```prompt
+I am defining the Refund Policy and backend architecture for a production e-commerce store.
 
-Payment provider: [provider]
-Refund processing capability: [describe]
-Product types: [describe]
+Tech Stack:
+- Backend: [e.g., Node.js]
+- Payment Gateway: [e.g., Stripe]
+- Tax Engine: [e.g., TaxJar]
 
-Check for:
-1. Any promised timeframe that doesn't match realistic payment
-   processing speed
-2. Any capability promised (partial refunds, specific refund methods)
-   that my actual system might not support
-3. Whether the policy is reasonable enough to reduce chargeback risk,
-   or strict enough to encourage disputes instead
+Act as a Principal Financial Engineer:
+1. Write the backend algorithm (TypeScript) to correctly calculate the prorated refund amount for a single returned item when a 15% order-level discount code was applied to the original purchase.
+2. Outline the exact Stripe API request required to issue a partial refund, demonstrating the strict usage of an `Idempotency-Key` to prevent double-refunding.
+3. Draft the legal text for the public-facing Refund Policy regarding "Original Shipping Costs" and "Final Sale Items" to ensure we win any related chargeback disputes.
+4. Explain how the frontend React checkout should force active consent (checkboxes) for Final Sale items to satisfy Visa/Mastercard dispute evidence requirements.
 ```
 
 ---
 
-## What Comes Next
+## Refund Policy Checklist
 
-Refunds are about money. Next: **Return Policy** — the physical process of how an item actually gets back to you before that refund is issued.
+- [ ] Financial algorithms implemented to accurately prorate order-level discounts during partial refunds
+- [ ] Tax calculation engines integrated to calculate the exact fractional tax to refund per line item
+- [ ] Idempotency Keys enforced on all payment gateway refund requests to prevent double-refunds
+- [ ] Original shipping cost refund logic explicitly disabled by default in the Admin dashboard UI
+- [ ] Legal Refund Policy drafted and prominently linked inside the checkout flow
+- [ ] Mandatory "Active Consent" checkboxes implemented in UI for high-risk "Final Sale" items

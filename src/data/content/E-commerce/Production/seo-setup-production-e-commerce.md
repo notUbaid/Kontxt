@@ -3,151 +3,97 @@ title: SEO Setup
 slug: seo-setup
 phase: Phase 5
 mode: production
-projectType: ecommerce
-estimatedTime: 15-20 min
+projectType: e-commerce
+estimatedTime: 40–50 min
 ---
 
 # SEO Setup
 
-Good photos and descriptions only help once someone finds the page. This module is the technical and structural layer that makes your store discoverable — by search engines, and increasingly, by AI shopping assistants that read structured product data directly.
+In e-commerce, SEO is not about writing blog posts. It is a technical engineering discipline. 
+
+If Google cannot crawl your 50,000 product pages, or if you create infinite spider traps via your filtering faceted navigation, your organic traffic will flatline. At production scale, Technical SEO is the foundation of customer acquisition.
 
 ---
 
-## Where This Fits
+## 1. Dynamic Sitemaps (Scale Problem)
 
-This is mostly configuration on top of pages and content you've already built — product pages, category pages, descriptions. You're not writing new content here; you're making the content you have legible to search engines.
+A static `sitemap.xml` file is useless when your inventory changes daily.
 
----
-
-## Why This Matters for a Store Specifically
-
-A new store has zero accumulated search authority. Without correct technical SEO, you're invisible from day one, and the gap between "live" and "findable" can be the difference between zero organic traffic and a slow, real trickle of it.
-
-> **💡 Tip:** SEO for a new personal store is mostly about not blocking discovery, not about competing for #1 rankings on competitive terms. Get the fundamentals correct and let time and content do the rest — don't expect immediate ranking wins.
+**The Implementation:**
+Your backend must dynamically generate the sitemap. 
+- If you have over 50,000 URLs (the Google limit for a single sitemap), you must implement a **Sitemap Index**.
+- `sitemap-index.xml` links to `sitemap-products-1.xml`, `sitemap-products-2.xml`, and `sitemap-categories.xml`.
+- **Performance:** Do not query Postgres to generate the sitemap on every bot request. Generate the XML files during the nightly CI/CD build, or cache the dynamically generated route heavily at the Edge.
 
 ---
 
-## What You're Building Today
+## 2. Faceted Navigation (Spider Traps)
 
-- Unique, accurate page titles and meta descriptions for every product and category page
-- Structured data (schema.org Product markup) so search engines understand price, availability, and reviews directly
-- A submitted, correct sitemap and confirmed indexing in Google Search Console
-- Clean, descriptive URLs
-- Image alt text already done in the Photography module, now confirmed it's actually rendering
+This is the #1 SEO killer for custom e-commerce stores. 
 
-You're **not** doing keyword research at an agency level, building backlink campaigns, or chasing competitive head terms. That's Phase 6 growth territory, once you have a baseline to optimize from.
+If you have a category page for "Shirts", and users can filter by Color (10), Size (5), and Brand (20), you just created 1,000 unique URLs (e.g., `/shirts?color=red&size=m&brand=nike`). If Google crawls all combinations, it wastes your "Crawl Budget," and Google will stop indexing your actual product pages.
 
----
-
-## The Technical Checklist
-
-| Element | What It Should Look Like | Why |
-|---|---|---|
-| Page title | `Navy Canvas Tote Bag — [Store Name]` | Unique per page, includes product name, not generic |
-| Meta description | One sentence, specific, under ~155 characters | Shown in search results, drives click-through |
-| URL | `/products/navy-canvas-tote` | Descriptive, not `/products/sku-48213` |
-| Structured data | `Product` schema with price, availability, image | Lets Google show price/stock directly in results |
-| Sitemap | Auto-generated, submitted to Search Console | Ensures pages are actually discovered and crawled |
-| Canonical tags | Set correctly on variant/duplicate pages | Prevents near-duplicate pages from competing with each other |
-
-> **⚠️ Warning:** Auto-generated SKU-based URLs or default framework-generated titles ("Product - MyStore") are the most common technical SEO gap in beginner-built stores. If you haven't explicitly set page titles and URLs, check now — frameworks often default to something unhelpful.
+**The Implementation:**
+1. **Canonical Tags:** Ensure every filtered URL has a `<link rel="canonical" href="/shirts" />` pointing back to the root category. This tells Google to ignore the filter variations.
+2. **Robots.txt:** Explicitly block query parameters that do not add SEO value.
+   ```text
+   User-agent: *
+   Disallow: /*?sort_by=*
+   Disallow: /*?price_min=*
+   ```
 
 ---
 
-## Structured Data: The Highest-Leverage Item Here
+## 3. Structured Data (JSON-LD)
 
-`Product` schema markup is what lets search engines (and AI assistants pulling shopping results) understand your price, availability, and ratings without guessing from page text. This is the single highest-leverage SEO item for a store specifically, more than general content SEO advice.
+Getting on page 1 of Google is good. Getting the "Rich Snippet" (showing the price, rating, and green "In Stock" badge directly in the search results) increases Click-Through Rate (CTR) by 30%.
 
-**Copy Prompt:**
-
-```
-Add schema.org Product structured data (JSON-LD) to my product pages,
-built with [your framework].
-
-Include: product name, description, image, price, currency, availability
-(in stock / out of stock), and brand — pulled dynamically from the
-actual product data, not hardcoded.
-
-Show me how to verify this renders correctly using Google's Rich
-Results Test, and confirm it updates automatically when a product's
-price or stock status changes — it should never go stale relative to
-what's shown on the page itself.
-```
-
-> **⚠️ Warning:** Structured data must match what's actually displayed on the page. If your schema markup says a product is in stock while the page shows "Sold Out," that mismatch can get the page penalized or your rich results suppressed entirely — don't hardcode static schema values.
+**The Implementation:**
+You must dynamically inject `Product` schema into the `<head>` of every Product Detail Page.
+- The schema MUST update when the price changes. If your schema says $50, but the page says $60, Google will penalize you for mismatched data.
+- Ensure you include the `AggregateRating` schema if you have a reviews integration (like Yotpo or Okendo).
 
 ---
 
-## Sitemap & Indexing
+## 4. Internationalization (hreflang)
 
-**Copy Prompt:**
+If you sell in the US, UK, and Canada, you likely have three URLs for the same product (e.g., `/en-us/shirt`, `/en-uk/shirt`, `/en-ca/shirt`).
 
-```
-Set up an automatically generated XML sitemap for my e-commerce store
-built with [your framework], covering all product and category pages,
-and excluding cart/checkout/account pages.
+Without intervention, Google views this as duplicate content and penalizes all three.
 
-Then walk me through submitting it to Google Search Console and
-confirming pages are actually being indexed, not just submitted.
-```
-
-> **💡 Tip:** Submitting a sitemap doesn't guarantee indexing — check Search Console's coverage report a few days later to confirm pages are actually indexed, not just crawled. New stores sometimes have pages crawled but excluded for thin-content or duplicate-content reasons worth catching early.
-
----
-
-## Titles & Meta Descriptions
-
-**Copy Prompt:**
-
-```
-Generate unique page titles and meta descriptions for these products:
-
-[list product names + one key fact about each]
-
-Title format: [Product Name] — [Store Name], under 60 characters.
-Meta description: one specific, accurate sentence under 155 characters
-that reflects something real about the product — not generic
-boilerplate repeated across products.
+**The Implementation:**
+Inject `hreflang` tags to explicitly define the geographic targeting.
+```html
+<link rel="alternate" hreflang="en-US" href="https://store.com/en-us/shirt" />
+<link rel="alternate" hreflang="en-GB" href="https://store.com/en-uk/shirt" />
+<link rel="alternate" hreflang="x-default" href="https://store.com/en-us/shirt" />
 ```
 
 ---
 
-## Common Mistakes
+## AI Prompt — Architect Your Technical SEO
 
-- Leaving framework-default page titles unset across the entire catalog
-- Hardcoding "in stock" in structured data regardless of actual inventory, causing search engines to show stale availability
-- Duplicate or near-duplicate content across product variant pages with no canonical tag set, splitting search relevance between them
-- Submitting a sitemap once and never checking whether pages are actually getting indexed
-- SKU-based or auto-generated URLs that give search engines and customers no information about the page's content
+```prompt
+I am implementing the Technical SEO architecture for a production e-commerce store with 100,000 SKUs.
 
----
+Tech Stack:
+- Framework: [e.g., Next.js App Router]
+- Database: [e.g., Postgres]
 
-## Validation Checklist
-
-- [ ] Spot-check 5 product pages — titles and meta descriptions are unique, specific, not framework defaults
-- [ ] Run Google's Rich Results Test on a product page and confirm Product schema is detected and valid
-- [ ] Change a product's stock status and confirm the structured data updates accordingly, not just the visible page text
-- [ ] Sitemap is submitted in Search Console and shows as successfully processed
-- [ ] Search Console's coverage report, checked a few days after launch, shows pages actually indexed, not excluded
-
----
-
-## AI Review Prompt
-
-```
-Review the SEO setup for my e-commerce store. Check:
-
-1. Are page titles and meta descriptions unique per product, or using
-   a framework default/template with no real content?
-2. Does Product structured data stay in sync with actual price/stock,
-   or could it go stale?
-3. Are URLs descriptive, or auto-generated SKU/ID based?
-4. Is there any risk of duplicate content across variant or near-
-   identical product pages without canonical tags?
+Act as a Principal SEO Engineer:
+1. Write the Next.js `route.ts` code required to dynamically generate a Sitemap Index and paginate through 100,000 product URLs efficiently.
+2. Provide a strict `robots.txt` configuration that prevents Googlebot from falling into an infinite spider trap caused by faceted URL filtering (e.g., blocking `?color=` and `?size=`).
+3. Generate the exact JSON-LD `Product` schema snippet required to earn Google Rich Results, including nested `Offer` and `AggregateRating` structures.
+4. Explain how to implement `hreflang` tags correctly across a Next.js application that supports US, UK, and Canadian markets to prevent duplicate content penalties.
 ```
 
 ---
 
-## What Comes Next
+## SEO Setup Checklist
 
-Your store is discoverable. Next: **Analytics Setup** — measuring what happens once people actually arrive.
+- [ ] Dynamic Sitemap Index implemented to handle large catalogs (>50,000 URLs) without timing out
+- [ ] Canonical tags strictly implemented on all faceted navigation (filter) URLs to consolidate page authority
+- [ ] `robots.txt` configured to block crawl-wasting parameters (e.g., sorting, pricing filters)
+- [ ] JSON-LD `Product` and `AggregateRating` schemas dynamically injected into every PDP
+- [ ] `hreflang` tags implemented (if operating internationally) to resolve duplicate content issues
+- [ ] Meta Title and Description generation automated to include dynamic variables (e.g., "Buy [Product Name] for $[Price]")

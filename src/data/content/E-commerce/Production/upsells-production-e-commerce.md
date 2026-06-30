@@ -1,145 +1,99 @@
 ---
-title: Upsells
+title: Upsells Strategy
 slug: upsells
 phase: Phase 6
 mode: production
-projectType: ecommerce
-estimatedTime: 15-20 min
+projectType: e-commerce
+estimatedTime: 25–35 min
 ---
 
-# Upsells
+# Upsells Strategy
 
-Conversion Optimization made sure more visitors complete a purchase. Upsells make each purchase worth more — offering a better, larger, or upgraded version of what a customer already decided to buy, at the moment they're most receptive to it.
+An upsell is convincing the user to buy a *better, more expensive* version of the item they are currently looking at (e.g., upgrading from a 256GB laptop to a 512GB laptop). 
 
-This is distinct from the next module, Cross-Sells: an upsell improves the *same* purchase decision; a cross-sell adds a *different*, complementary item.
-
----
-
-## Where This Fits
-
-This builds on your existing Product Architecture and Checkout/Cart flow — no new infrastructure, just a deliberate offer placed at the right moment in a flow that already works.
+In production e-commerce, the base product often covers the cost of goods and the customer acquisition cost (CAC), meaning the business breaks even. The upsell represents pure net profit. If you do not engineer aggressive, algorithmic upselling into your architecture, you are leaving massive margins on the table.
 
 ---
 
-## Why This Matters for a Store Specifically
+## 1. Algorithmic Recommendations (The API)
 
-> **💡 Tip:** An upsell converts at a meaningfully higher rate than a cold product recommendation to a new visitor, because the customer has already cleared the hardest psychological step — deciding to buy something. A relevant upgrade offered at that moment requires far less convincing than starting a new purchase decision from zero.
+Do not hardcode upsells. If you manually link Product A to Product B, and Product B goes out of stock, your UI will break or show an error.
 
-For a personal store without big marketing spend, this is one of the few growth levers that increases revenue without needing a single additional visitor.
-
----
-
-## What You're Building Today
-
-- One well-chosen upsell offer per relevant product (not a generic offer applied uniformly)
-- Correct placement — at the moment of highest receptiveness, not interrupting the core purchase flow
-- A simple way to measure whether the upsell is actually being accepted
-
-You're **not** building a sophisticated recommendation engine. For a personal-scale catalog, manually chosen, deliberate upsell pairings outperform automated suggestions that haven't been curated.
+**The Implementation:**
+Use a dedicated Recommendation Engine API (e.g., Algolia Recommend, AWS Personalize, or Rebuy).
+- Send the user's current `variantId` to the API.
+- The API analyzes thousands of past transaction histories and returns an array of recommended "Upgrades".
+- **Business Rule Configuration:** Configure the API to only return products that are actively in stock AND have a higher price point than the current item.
 
 ---
 
-## What Makes a Good Upsell
+## 2. In-Cart Upgrades (The Modal)
 
-| Good Upsell | Why It Works |
-|---|---|
-| A better/larger version of the exact item already in cart | Directly relevant, no new decision required |
-| An add-on that meaningfully improves the original purchase (e.g., extended warranty, premium material option) | Logical extension of the same decision |
-| Priced as a reasonable increment, not a dramatically higher tier | Stays within the customer's already-established willingness to spend |
+The most effective time to upsell is the exact moment the user demonstrates intent (clicking "Add to Cart").
 
-> **⚠️ Warning:** An upsell that's unrelated to the original item functions as a distraction, not an upsell — it competes with the checkout completion itself rather than enhancing it. If the offer requires a new, separate purchase decision, it belongs in Cross-Sells (or isn't a good fit at all), not here.
+**The UX Implementation:**
+Instead of a simple "Added!" toast notification, intercept the Add to Cart action and display a slide-out Cart Drawer or a Modal.
+- The Modal displays the base item they just added.
+- Immediately below it, display the premium version with a one-click "Upgrade for only $20 more" button.
+- **The API Action:** If they click upgrade, your backend must atomically remove the base item from the Redis cart and insert the premium item to prevent them from accidentally buying both.
 
 ---
 
-## Where to Place the Offer
+## 3. Post-Purchase Upsells (One-Click)
 
+Once a user enters their credit card and clicks "Submit Order", they are in a state of high trust and high dopamine. Asking them to buy one more thing *right now* has an incredibly high conversion rate (often 5-10%).
+
+**The Architecture (Stripe Vaulting):**
+To execute a true One-Click Post-Purchase Upsell, you must hold the payment state open.
+1. User clicks "Pay" at checkout.
+2. The backend securely saves the customer's payment method (Tokenization/Vaulting via Stripe) but only *Authorizes* the charge. It does not Capture it yet.
+3. The user is redirected to a special OTO (One-Time Offer) page: "Wait! Add Premium Shipping for $5?"
+4. The user clicks "Yes". Because the card is vaulted, they do not need to re-enter their CVV.
+5. The backend updates the total order value and finally *Captures* the full amount from Stripe.
+
+---
+
+## 4. Volume Pricing (Tiered Upsells)
+
+The easiest way to increase Average Order Value (AOV) is to incentivize bulk buying.
+
+**The Implementation:**
+Your database pricing model must support tiers, not just a single `price` integer.
+```json
+// Pricing Array
+[
+  { "min_qty": 1, "price": 2000 },
+  { "min_qty": 3, "price": 1800 },
+  { "min_qty": 5, "price": 1500 }
+]
 ```
-Add to Cart
-   │
-   ▼
-[Upsell offer shown here — before checkout begins]
-   │
-   ▼
-Checkout (no further upsell interruptions)
-```
-
-> **⚠️ Common Mistake:** Placing an upsell offer *during* the checkout form itself, rather than before it begins, adds friction at exactly the stage your Conversion Optimization work was trying to streamline. Show the offer once, clearly, before checkout starts — never mid-form.
+The frontend UI must dynamically calculate the delta and display the exact savings: "Add 1 more to unlock 10% off your entire order." The Cart API validates this logic securely on the backend before checkout.
 
 ---
 
-## Implementation
+## AI Prompt — Architect Your Upsell Engine
 
-**Copy Prompt:**
+```prompt
+I am implementing the Upsell architecture for a production e-commerce store to maximize Average Order Value (AOV).
 
-```
-Help me design an upsell offer for my e-commerce store. Here's a
-product and a possible upgrade/larger version: [describe both]
+Tech Stack:
+- Frontend: [e.g., Next.js React]
+- Cart API: [e.g., Redis + Node.js]
+- Payments: [e.g., Stripe]
 
-Build:
-1. A one-time offer shown after "Add to Cart," before checkout begins
-   — not interrupting the checkout form itself
-2. Clear, honest framing of the price difference and what's actually
-   better about the upgrade — no manufactured urgency or fake scarcity
-3. A simple way to accept (swap the cart item) or decline (continue
-   with original) without friction either way
-4. Tracking so I can see, over time, what percentage of customers who
-   see this offer accept it
-```
-
-> **✅ Best Practice:** Make declining the offer as frictionless as accepting it — a single, clear "No thanks, continue with my order" option. An upsell that feels like it's blocking checkout creates resentment that outweighs the revenue gain.
-
----
-
-## Measuring Whether It's Working
-
-Use the same approach as Conversion Optimization: isolate the specific metric.
-
-| Metric | What to Track |
-|---|---|
-| Upsell acceptance rate | % of customers shown the offer who accept it |
-| Average order value, upsell-shown vs not | Confirms actual revenue impact, not just acceptance rate |
-| Checkout completion rate, before vs after adding upsell | Confirms the offer isn't accidentally hurting conversion |
-
-> **⚠️ Warning:** Always check checkout completion rate after adding an upsell step, not just acceptance rate and AOV. An upsell that meaningfully increases average order value but also reduces how many customers complete checkout at all can be a net loss — measure both together.
-
----
-
-## Common Mistakes
-
-- Offering an upsell unrelated to the original item, which competes with checkout completion instead of complementing it
-- Placing the offer inside the checkout form itself instead of as a single, clear step before checkout begins
-- Making "decline" harder to find or click than "accept," creating a dark-pattern feel that damages trust in a store with no reputation cushion yet
-- Not tracking checkout completion impact, only acceptance rate, missing a possible net-negative effect on total conversions
-- Applying the same generic upsell to every product instead of a specific, genuinely relevant pairing per product
-
----
-
-## Validation Checklist
-
-- [ ] The upsell offer is a genuine upgrade or extension of the original item, not an unrelated product
-- [ ] The offer appears once, clearly, before checkout begins — not mid-form
-- [ ] Declining is as easy and frictionless as accepting
-- [ ] Acceptance rate, AOV impact, and checkout completion rate are all being tracked, not just one
-- [ ] No manufactured urgency or false scarcity is used in the offer copy
-
----
-
-## AI Review Prompt
-
-```
-Review my upsell implementation for an e-commerce store. Check:
-
-1. Is the offer genuinely relevant to the original item, or could it
-   be perceived as a distraction?
-2. Is declining as frictionless as accepting?
-3. Am I tracking checkout completion impact alongside acceptance rate,
-   to catch any net-negative effect on conversions?
-4. Is the offer placement creating friction in the checkout flow I
-   already optimized?
+Act as a Principal Growth Engineer:
+1. Explain the Redis Cart API logic required to safely execute an "In-Cart Upgrade" (atomically swapping a base SKU for a premium SKU without the risk of adding both).
+2. Write the Stripe API sequence (Authorize vs Capture) required to implement a true One-Click Post-Purchase Upsell page without forcing the user to re-enter their credit card details.
+3. Outline the database schema required to support Volume Pricing Tiers, and explain how the Cart API securely calculates the total based on those tiers.
+4. Provide the integration strategy for using Algolia Recommend (or AWS Personalize) to dynamically generate the UI for "Upgrade to Premium" modules on the Product Detail Page.
 ```
 
 ---
 
-## What Comes Next
+## Upsells Checklist
 
-With the same purchase made more valuable, the next opportunity is adding a complementary one. Next: **Cross-Sells** — recommending genuinely useful additional products alongside the primary purchase.
+- [ ] Algorithmic Recommendation API (Algolia/Rebuy) integrated to dynamically suggest higher-tier products
+- [ ] In-Cart Upsell Modals engineered to atomically swap base SKUs for premium SKUs
+- [ ] One-Click Post-Purchase Upsell flow architected via Stripe Payment Method vaulting (Auth then Capture)
+- [ ] Volume Pricing (Tiered Discounts) implemented securely in the database and Cart API
+- [ ] Fallback logic implemented to hide Upsell UI elements if the premium recommendation is out of stock

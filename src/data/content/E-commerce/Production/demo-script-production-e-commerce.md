@@ -3,142 +3,70 @@ title: Demo Script
 slug: demo-script
 phase: Phase 6
 mode: production
-projectType: ecommerce
-estimatedTime: 15-20 min
-filename: demo-script-personal-e-commerce.md
+projectType: e-commerce
+estimatedTime: 15–25 min
 ---
 
 # Demo Script
 
-A deck tells people what you built. A demo script is what makes them believe it actually works. This is the part where your project either feels real because they watched it run, or feels like a slideshow that might be vaporware.
+A technical demo for a production e-commerce store is not a screen-share of you slowly clicking through a website. It is a orchestrated performance designed to prove that the architecture is robust, secure, and capable of handling complex edge cases at scale.
 
-This module is about writing the actual words and actions for that moment — not the slides, not the architecture, just what happens and what you say while it happens.
-
----
-
-## How This Differs From What You've Already Built
-
-If you completed Presentation Prep, you may already have a recorded walkthrough. A demo script is related but distinct:
-
-- **Recorded walkthrough** — a finished, edited artifact you share asynchronously
-- **Demo script** — the plan you follow when presenting **live**, in real time, possibly with questions interrupting it
-
-You need this module specifically if you'll ever present live — to a mentor, a panel, a single interested person over a call. If you'll only ever share a recording, your Presentation Prep walkthrough already covers this; you can stop here.
+If you only demo the "Happy Path" (a user buys a shirt and it works), stakeholders will assume it is a toy app. You must demo the "Hard Paths."
 
 ---
 
-## Decision 1: Live or Pre-Recorded Fallback
+## 1. The "Happy Path" (Speed & UX)
 
-> **Warning:** Live demos fail at the worst possible moment — flaky wifi, a seed-data bug you've never hit before, a payment webhook that times out because Stripe test mode hiccups. This isn't pessimism, it's the single most common reason a strong project loses credibility in the room.
+Start with the core purchasing loop, but frame it entirely around engineering achievements.
 
-| Approach | Risk | Recommendation |
-|---|---|---|
-| Fully live, no backup | High | Only if you've rehearsed the exact flow 3+ times on the exact environment you'll use |
-| Live with a recorded fallback ready | Low | Best default — switch to the recording the moment something breaks |
-| Fully pre-recorded, narrated live | Lowest | Fine for high-stakes moments where reliability matters more than spontaneity |
-
-> **Best Practice:** Have a 60-90 second recorded backup of your core flow ready on your machine, queued up, before any live demo. Treat it like a parachute — you hope not to need it, but the cost of having it is a few minutes of recording, and the cost of not having it is your demo collapsing in front of your audience.
+**The Script Flow:**
+1. **The PDP:** "Notice how this Product page loaded instantly. We are fetching real-time Postgres inventory data, but we are serving the HTML from the Edge CDN. We achieve a 1.2-second Largest Contentful Paint (LCP)."
+2. **The Cart:** Add an item to the cart. "Here, the Cart Flyout opens. This data is hitting a Redis in-memory cache, not the primary database, ensuring sub-50ms response times even under heavy load."
+3. **The Checkout:** "We implemented Stripe Digital Wallets. With one click of Apple Pay, we bypass the 15-field checkout form entirely, reducing cart abandonment by 20%."
 
 ---
 
-## The Script Structure
+## 2. The "Hard Path" (Financial Logic)
 
-A demo script is a two-column document: what you **do**, and what you **say** while doing it. Writing only one of these is the most common reason demos feel either silent and awkward, or narrated but visually static.
+This is where you prove the system is production-ready to the Finance and Operations teams.
 
-| Time | Action (what you click/show) | Talk track (what you say) |
-|---|---|---|
-| 0:00-0:10 | Land on homepage | One sentence: who this is for, what problem it solves |
-| 0:10-0:30 | Browse to a product, add to cart | Narrate one real decision here — not "and here's the product page," but why it's built the way it is |
-| 0:30-0:55 | Go through checkout | This is your strongest technical moment — say so explicitly: "this is where I handled [specific hard problem]" |
-| 0:55-1:15 | Show order confirmation / admin view | Prove the order actually landed somewhere real, not just a frontend illusion |
-| 1:15-1:35 | Show one growth mechanic (referral link, email trigger) | Connects the demo to business thinking, not just CRUD |
-| 1:35-1:50 | Close | Restate the one thing you want them to remember |
-
-> **Tip:** 90 seconds to 2 minutes is the right length for most live demo contexts. Longer than that and you're relying on the audience's patience instead of your content's strength.
+**The Script Flow:**
+1. **Tax Math:** "Let's look at the backend calculation for this order. We are passing the destination ZIP code to the Tax API. Notice how the tax is applied to the Item, but *not* to the Shipping Cost, because this specific state exempts shipping from sales tax."
+2. **Idempotency (The Double-Click Test):** "Now, I am going to intentionally mash the 'Submit Order' button 5 times rapidly to simulate a network stutter." *(Do it)*. "Notice that only one charge went through. Our backend enforces Idempotency Keys on all Stripe requests, guaranteeing we never accidentally double-charge a customer."
 
 ---
 
-## Writing the Talk Track
+## 3. The "Admin Path" (Operations)
 
-The biggest gap between a flat demo and a compelling one is whether you narrate **decisions** or just **actions**.
+Stakeholders need to see that the business can actually be operated by non-engineers.
 
-**Weak:** "So here's the product page, and if I click add to cart, it goes to the cart, and then I click checkout..."
-
-**Strong:** "Here's the product page — notice the price updates instantly when you change variants, no page reload. I built that with optimistic UI updates so it feels instant even before the server confirms the change."
-
-The weak version narrates what's already visible on screen — wasted breath. The strong version tells the audience something they couldn't see just by looking, which is the entire reason you're talking instead of sending a silent screen recording.
-
-> **Common Mistake:** Clicking through the flow in total silence and only talking at the start and end. If you're not saying something the audience couldn't infer from the screen, you're wasting the live format's only advantage over a recording.
+**The Script Flow:**
+1. **The Refund (Proration):** Log into the Admin Dashboard. "Customer Service needs to process a partial refund for this order which used a 20% discount code." Click refund on a single item. "Notice that the backend automatically prorates the discount and calculates the exact fraction of tax to return. Customer Service cannot make a mathematical error here."
+2. **The Feature Flag:** "Marketing wants to turn on the new 'Free Shipping Banner'." Go to the LaunchDarkly/Edge Config dashboard. Toggle the flag. Refresh the live site. "The banner is live instantly, globally, without requiring an engineering deployment or server restart."
 
 ---
 
-## Demo Environment Prep
+## AI Prompt — Generate Your Technical Demo Script
 
-This is unglamorous but determines whether your script survives contact with reality.
+```prompt
+I am preparing a 10-minute live technical demo of a production e-commerce architecture for senior leadership.
 
-- [ ] Seed your store with realistic test data beforehand — real-looking product names and images, not "Test Product 1"
-- [ ] Use a payment test mode (e.g. Stripe test cards) you've personally run through end-to-end at least twice
-- [ ] Clear your browser of unrelated tabs, notifications, and dev tools before you start
-- [ ] Know your fallback if a step fails: do you have a recorded clip ready, or do you skip ahead and explain verbally?
-- [ ] Time yourself once, out loud, before the real thing — scripts always run longer than they look on paper
+Tech Stack:
+- Infrastructure: [e.g., Next.js Edge / Redis]
+- Integrations: [e.g., Stripe, TaxJar, LaunchDarkly]
 
-> **Warning:** Never demo against your real production payment flow with real cards in front of an audience. Test mode exists for exactly this. A failed real charge live is far worse than a smooth test-mode flow.
-
----
-
-## Using AI Effectively Here
-
-Use AI to convert your feature list and key decisions into a tight two-column script — not to invent a flow you haven't actually built and tested.
-
-**📋 Copy this prompt:**
-
-```
-I'm writing a 90-second live demo script for a solo e-commerce project.
-
-The flow I'll actually demo, in order: [list the real screens/actions, e.g. "homepage → product page → add to cart → checkout → order confirmation → referral link"]
-
-Technical decisions worth narrating at the right moment: [list 2-3, e.g. "optimistic UI updates on variant selection," "Stripe webhook idempotency on checkout," "referral fraud guardrails"]
-
-My one-sentence problem statement: [your hook from Presentation Prep, if you have one]
-
-Write a two-column script: timestamp + action in one column, talk track in the other. Keep total runtime under 2 minutes. For each action, only add a talk track line if it conveys something the audience can't already see on screen — don't narrate obvious UI actions.
+Act as a Principal Developer Advocate:
+1. Draft a 2-minute script demonstrating the speed of the Edge caching and Redis cart implementation, highlighting the specific latency metrics stakeholders care about.
+2. Outline a 3-minute script demonstrating the "Idempotency Test," explaining exactly how the backend prevents double-charging during a simulated network failure at checkout.
+3. Write a 3-minute script showcasing the Admin Dashboard, specifically demoing how a Customer Support agent executes a complex partial refund with automated tax proration, proving operational safety.
 ```
 
-This prompt works because it forces AI to work from your actual flow instead of guessing one — and explicitly tells it not to pad silent screen actions with narration, which is the single biggest quality gap in generic demo scripts.
-
 ---
 
-## Validating the Output
+## Demo Script Checklist
 
-- [ ] Does every talk-track line say something the screen doesn't already show?
-- [ ] Is there at least one moment narrating a real technical decision, not just an action?
-- [ ] Does the total runtime fit your actual time slot, timed out loud — not estimated on paper?
-- [ ] Is there a fallback plan if any single step fails live?
-- [ ] Does the script open with the problem, not "let me show you my app"?
-- [ ] Does it close with one clear takeaway, not a trailing "...and that's basically it"?
-
-> **Tip:** Rehearse this out loud at least twice before presenting it live, ideally once in front of another person. A script that reads fine silently often reveals awkward pacing the moment you actually speak it.
-
----
-
-## Quick Reference: Common Failure Patterns
-
-| Symptom | Likely Cause | Fix |
-|---|---|---|
-| Demo feels long and boring | Narrating obvious actions instead of decisions | Cut narration that just describes what's visible |
-| Audience looks confused at the start | No problem statement before diving into the product | Add a one-sentence hook before any clicking |
-| Demo breaks live, no recovery | No fallback prepared | Always have a 60-90s recorded backup ready |
-| Demo runs over time | Never timed out loud beforehand | Rehearse with a timer, cut to fit |
-
----
-
-## Before You Continue
-
-- [ ] Decided live, live-with-fallback, or pre-recorded
-- [ ] Two-column script written: actions and talk track, not just one or the other
-- [ ] Every talk-track line earns its place by saying something the screen doesn't
-- [ ] Demo environment seeded with realistic data, tested end-to-end at least twice
-- [ ] Timed out loud at least once, fits the actual time slot
-- [ ] Fallback recording ready if presenting live
-
-**Next up in Growth:** Submission Checklist — the final pass before you actually send this project out into the world.
+- [ ] "Happy Path" script defined, emphasizing Edge speed, Redis caching, and Apple Pay UX
+- [ ] "Hard Path" script defined, proving complex financial logic (Tax API routing, Idempotency keys)
+- [ ] "Admin Path" script defined, demonstrating operational safety (Automated refund proration, Feature Flags)
+- [ ] Local database seeded with realistic test data (Orders, Products, Users) to avoid live-typing errors
+- [ ] Hardcoded backup videos recorded for all API-dependent flows (Stripe/Tax) in case of live internet failure

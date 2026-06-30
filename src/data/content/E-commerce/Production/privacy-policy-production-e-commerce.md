@@ -3,139 +3,84 @@ title: Privacy Policy
 slug: privacy-policy
 phase: Phase 5
 mode: production
-projectType: ecommerce
-estimatedTime: 15-20 min
+projectType: e-commerce
+estimatedTime: 20–30 min
 ---
 
 # Privacy Policy
 
-Phase 4 made your store fast, protected, and reliable. Phase 5 makes it legally launchable. A privacy policy is the first piece, because every other launch step — analytics, email marketing, even checkout itself — depends on having one in place first.
+In a production e-commerce business, your Privacy Policy is not a boilerplate document you copy-paste from a free generator. It is a legally binding contract that dictates how you manage customer data, and it is actively enforced by regulatory bodies.
 
-This module is not legal advice, and nothing here substitutes for a lawyer if your store grows into something with real legal exposure. The goal is getting a real, accurate, store-specific policy live before you accept your first order — not a perfect one.
-
----
-
-## Where This Fits
-
-This connects directly to decisions you've already made throughout the build: what data you collect at signup, what you store for orders and addresses, which third parties you send data to (payment provider, email service, analytics). A privacy policy describes what your store *actually does* — it has to be written after the architecture, not before.
+If you operate globally, you must comply with strict frameworks like the GDPR (Europe), CCPA/CPRA (California), and LGPD (Brazil). Fines for non-compliance can reach €20 million or 4% of your global revenue.
 
 ---
 
-## Why This Matters for a Store Specifically
+## 1. Data Mapping & Disclosure
 
-A store collects more personal data than most personal projects: names, emails, shipping addresses, order history, and indirectly, payment information (even if you never touch the card number yourself, your payment provider does, on your behalf). Most jurisdictions require disclosure of this regardless of store size — there is generally no "too small to need a privacy policy" exemption.
+You cannot write an accurate Privacy Policy until you know exactly what data your systems are touching.
 
-> **⚠️ Warning:** Payment providers themselves often require a privacy policy and terms of service to be live on your site before they'll let you go from test mode to live transactions. This isn't optional groundwork — it can be a literal blocker to accepting real payments.
-
----
-
-## What You're Building Today
-
-- A privacy policy page, accurate to what your store actually collects and does
-- A clear list of every third party that receives customer data (payment provider, email service, hosting/analytics)
-- Plain-language explanation of what data is collected, why, and how long it's kept
-- A way for customers to request account/data deletion, consistent with the account deletion you already built in Phase 3
-
-You're **not** writing a custom legal document from scratch, and you're **not** trying to cover every possible jurisdiction's specific requirements. A solid generator-based policy, accurately filled in, is the right scope here.
+**The Implementation:**
+You must map and explicitly disclose:
+- **What you collect:** Names, emails, physical addresses, IP addresses, browsing behavior, and payment tokens.
+- **Why you collect it:** Order fulfillment, fraud prevention, marketing, or analytics.
+- **Who you share it with:** You must list the categories of third-party processors. (e.g., "We share your data with payment processors like Stripe, logistics partners like FedEx, and marketing platforms like Klaviyo").
+- **How long you keep it:** You cannot keep data forever. You must define a retention schedule (e.g., "We retain order histories for 7 years to comply with IRS tax laws, and marketing data for 2 years after last engagement").
 
 ---
 
-## What Actually Needs to Be Disclosed
+## 2. Cookie Consent & Data Governance
 
-Walk through your own store and list every place customer data goes:
+A Privacy Policy is meaningless if your website violates it the millisecond a user loads the page.
 
-| Data | Collected Where | Sent To |
-|---|---|---|
-| Name, email | Signup, checkout | Your database, auth provider |
-| Shipping/billing address | Checkout, address book | Your database, shipping carrier (at fulfillment) |
-| Payment details | Checkout | Payment provider only — never your own server |
-| Order history | Every purchase | Your database |
-| Browsing/analytics data | Site visits | Analytics provider, if used |
-| Marketing email opt-in | Checkout or account | Email service provider, if used |
-
-> **💡 Tip:** This table *is* most of the content your privacy policy needs to cover. Fill it in accurately for your actual stack before writing anything — a generic privacy policy that doesn't match what your store actually does is arguably worse than none, since it's inaccurate.
+**The Engineering Constraint:**
+If your Privacy Policy states that users can opt-out of tracking, your Next.js frontend must actually enforce that.
+- You must implement a strict Cookie Consent Manager (e.g., OneTrust, Cookiebot, or Ketch).
+- **The Rule:** The Facebook Pixel, Google Analytics, and Klaviyo scripts **cannot** load until the user explicitly clicks "Accept" (if they are in the EU or UK). Loading them by default violates GDPR.
 
 ---
 
-## Choosing Your Approach
+## 3. Data Subject Access Requests (DSARs)
 
-| Approach | Accuracy | Effort | Best For |
-|---|---|---|---|
-| Generic copy-pasted template | Low — likely wrong for your specific stack | None | Not recommended |
-| **Privacy policy generator (Termly, GetTerms, similar) filled in accurately** | High, if filled in correctly | Low | Most personal stores (recommended) |
-| Custom-drafted with a lawyer | Highest | High cost | Stores with real legal/financial exposure |
+Under GDPR and CCPA, customers have the legal right to ask for a copy of all their data, or request that you delete them entirely (The Right to be Forgotten).
 
-For a personal store, a reputable generator filled in with your actual data table above gives you an accurate, reasonably compliant policy without overbuilding.
-
----
-
-## Implementation
-
-**Copy Prompt:**
-
-```
-Help me prepare an accurate privacy policy for a personal e-commerce
-store. Here's exactly what my store collects and where it goes:
-
-[paste your filled-in data table from above]
-
-I'm using a privacy policy generator and need to fill it in correctly.
-Walk me through:
-1. Which sections of a standard e-commerce privacy policy apply to
-   my specific setup, based on the table above
-2. What to write for data retention (how long I keep order/account
-   data) given I [describe your actual retention plan, or ask for a
-   reasonable default for a personal store]
-3. How to describe the account deletion process I already built, in
-   plain language a customer would understand
-4. Whether anything in my setup (e.g., specific analytics or email
-   tools) requires a specific disclosure I might not know about
-```
-
-> **⚠️ Warning:** Don't let AI invent your data retention period, third-party list, or deletion process from assumptions — feed it the actual table of what your store does. A privacy policy describing data handling that doesn't match reality is a liability, not a protection.
+**The Operational Implementation:**
+Your Privacy Policy must include an explicit contact method (e.g., `privacy@yourstore.com`) for submitting DSARs.
+- When a request is received, you legally have 30 to 45 days to comply.
+- **Engineering Reality:** Deleting a user is complex in e-commerce. You must delete them from your Postgres DB, Klaviyo, Zendesk, and Algolia. However, you *must not* delete their financial transaction history in Stripe, as financial compliance laws override the Right to be Forgotten.
 
 ---
 
-## Common Mistakes
+## 4. International Data Transfers
 
-- Copy-pasting a competitor's or template's privacy policy without changing it to match your actual data collection
-- Listing third parties generically ("we may share data with partners") instead of naming the actual services used (specific payment provider, specific email service)
-- Promising a data deletion process in the policy that doesn't actually exist in the product yet
-- Forgetting to mention the payment provider at all, since payment data feels like it "isn't really collected" by you — it still needs disclosure, since the customer is still trusting your checkout flow
-- Publishing the policy but never linking to it from checkout, signup, or the site footer, where it's actually required to be visible
+If you are a US company selling to EU citizens, you are transferring their data out of the EU.
 
----
-
-## Validation Checklist
-
-- [ ] Every third party from your data table is named specifically in the policy
-- [ ] The account deletion section matches what your account deletion feature actually does (no over-promising)
-- [ ] Data retention period stated matches your actual backup/database retention from the Backups module
-- [ ] Policy is linked from the site footer, checkout page, and signup form — not just published on an unlinked URL
-- [ ] You've read the full generated policy once yourself — not just generated and published unread
+- You must state the legal mechanism you use for this transfer (e.g., Standard Contractual Clauses (SCCs) or the EU-US Data Privacy Framework).
+- If your database is hosted on AWS in `us-east-1`, your European customers' PII is crossing borders, and your policy must declare this.
 
 ---
 
-## AI Review Prompt
+## AI Prompt — Draft Your Production Privacy Policy
 
-```
-Review this privacy policy against what my e-commerce store actually
-does, based on this data table:
+```prompt
+I am drafting the Privacy Policy for a production e-commerce store operating internationally.
 
-[paste your filled-in data table]
+Business Context:
+- Tech Stack: [e.g., Next.js, Postgres, Stripe, Klaviyo, Google Analytics]
+- Target Markets: [e.g., US, Canada, EU, UK]
 
-Check specifically:
-1. Does the policy mention every third party in the table, by name?
-2. Does it promise any capability (deletion, data export, opt-out)
-   that the product doesn't actually have yet?
-3. Is the data retention statement consistent with the actual backup
-   retention from my Backups setup?
-4. Is anything vague or generic in a way that doesn't reflect my
-   specific stack?
+Act as a Principal Privacy Attorney:
+1. Generate the foundational structure for a GDPR and CCPA-compliant Privacy Policy tailored to an e-commerce data flow.
+2. Draft the specific disclosure clause that explains how we use Stripe for payment processing and why we do not directly store credit card numbers.
+3. Write the exact instructions a user must follow to submit a Data Subject Access Request (DSAR) or request deletion of their account.
+4. Detail the legal nuance of "The Right to be Forgotten" as it applies to an e-commerce order: explain why we must delete their marketing profile, but are legally required to retain their tax/purchase history for 7 years.
 ```
 
 ---
 
-## What Comes Next
+## Privacy Policy Checklist
 
-With your privacy policy accurate and live, next: **Terms of Service** — the agreement that governs what customers can expect from your store, returns, and acceptable use.
+- [ ] Complete data mapping conducted to identify all third-party processors (Stripe, 3PLs, Klaviyo)
+- [ ] CCPA and GDPR-compliant Privacy Policy drafted and linked in the global footer
+- [ ] Cookie Consent Manager (OneTrust/Cookiebot) integrated to block tracking scripts prior to user consent
+- [ ] Dedicated privacy email alias (`privacy@`) created to receive DSAR and deletion requests
+- [ ] Internal engineering protocol established for safely executing a "Right to be Forgotten" database deletion without breaking financial audit logs
