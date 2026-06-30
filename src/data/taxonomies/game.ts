@@ -155,7 +155,7 @@ export const gameHackathonTaxonomy: Category[] = filterTaxonomy(
     'Demo Script', 'Submission Checklist',
     // Mapped aliases
     'Demo Data', 'UI/UX Design', 'Gameplay'
-  ],
+  , 'Presentation Prep'],
   [
     'Multiplayer Architecture', 'Multiplayer', 'Analytics', 'Live Operations', 'Anti-Cheat', 
     'Cloud Infrastructure', 'Steam Setup', 'App Store Setup'

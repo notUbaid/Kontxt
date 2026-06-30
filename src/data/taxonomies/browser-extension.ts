@@ -155,7 +155,7 @@ export const extensionHackathonTaxonomy: Category[] = filterTaxonomy(
     'Pitch Deck', 'Demo Script', 'Submission Checklist',
     // Mapping requested terms to taxonomy items where they might not perfectly match
     'Manifest Setup', 'Demo Dataset'
-  ],
+  , 'Presentation Prep'],
   [
     'Monitoring', 'CI/CD', 'Privacy Review', 'Store Optimization', 'Analytics', 'Extension Analytics', 
     'Advanced Security', 'Listing Optimization', 'Security'

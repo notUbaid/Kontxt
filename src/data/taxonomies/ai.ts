@@ -179,6 +179,10 @@ export const aiPersonalTaxonomy: Category[] = [
       createTopic('Growth Analytics', BarChart, [], 'aigrowthanalytics'),
       createTopic('Prompt Analytics', BarChart, [], 'aipromptanalytics'),
       createTopic('Model Upgrades', Cpu, [], 'aimodelupgrades'),
+      createTopic('Presentation Prep', Presentation, [], 'aipresentationprep'),
+      createTopic('Pitch Deck', Presentation, [], 'aipitchdeck'),
+      createTopic('Demo Script', FileText, [], 'aidemoscript'),
+      createTopic('Submission Checklist', CheckSquare, [], 'aisubmissionchecklist'),
     ]
   }
 ];
@@ -231,6 +235,7 @@ export const aiHackathonTaxonomy: Category[] = [
       createTopic('Pitch Deck', Presentation, [], 'aipitchdeck'),
       createTopic('Demo Script', FileText, [], 'aidemoscript'),
       createTopic('Submission Checklist', CheckSquare, [], 'aisubmissionchecklist'),
+      createTopic('Presentation Prep', Presentation, [], 'aipresentationprep'),
     ]
   }
 ];

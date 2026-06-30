@@ -96,7 +96,7 @@ export const dataPipelineHackathonTaxonomy: Category[] = filterTaxonomy(
     'Welcome',
     'Pipeline Objective', 'Source Identification', 'Target Destination',
     'API Ingestion', 'Web Scraping', 'Data Cleaning', 'Deployment Strategy',
-    'Presentation Prep', 'Demo Script', 'Submission Checklist',],
+    'Presentation Prep', 'Demo Script', 'Submission Checklist',, 'Pitch Deck'],
   []
 );
 

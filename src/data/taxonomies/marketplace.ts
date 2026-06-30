@@ -162,7 +162,7 @@ export const marketplaceHackathonTaxonomy: Category[] = filterTaxonomy(
     'Pitch Deck', 'Demo Script', 'Submission Checklist',
     'Demo Marketplace Data', 'Fake Messaging', 'Marketplace UI Polish',
     'Marketplace Fundamentals', 'Architecture Fundamentals', 'Tech Stack'
-  ],
+  , 'Presentation Prep'],
   []
 );
 

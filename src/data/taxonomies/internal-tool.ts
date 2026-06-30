@@ -144,7 +144,7 @@ export const internalToolHackathonTaxonomy: Category[] = filterTaxonomy(
     'Dashboard Design', 'Pitch Deck', 'Demo Script', 'Submission Checklist',
     // Aliases mapped from user prompt
     'Demo Data', 'Current Workflow'
-  ],
+  , 'Presentation Prep'],
   [
     'Audit Logs', 'Audit Logging Setup', 'Monitoring', 'Disaster Recovery', 'Employee Training', 'Advanced Security', 'Training Materials', 'Security'
   ]

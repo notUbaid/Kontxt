@@ -251,6 +251,10 @@ export const mobilePersonalTaxonomy: Category[] = [
       createTopic('Analytics', BarChart, [], 'mobileanalytics'),
       createTopic('Feedback', MessageSquare, [], 'mobilefeedback'),
       createTopic('Roadmap', Globe, [], 'mobileroadmap'),
+      createTopic('Presentation Prep', Presentation, [], 'mobilepresentationprep'),
+      createTopic('Pitch Deck', Presentation, [], 'mobilepitchdeck'),
+      createTopic('Demo Script', FileText, [], 'mobiledemoscript'),
+      createTopic('Submission Checklist', CheckSquare, [], 'mobilesubmissionchecklist'),
     ]
   }
 ];

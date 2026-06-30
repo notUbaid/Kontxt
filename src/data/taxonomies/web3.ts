@@ -110,7 +110,7 @@ export const web3HackathonTaxonomy: Category[] = filterTaxonomy(
     'Development Environment', 'Writing Contracts', 'Local Testnet Deployment', 
     'Provider Setup', 'Reading Contract State', 'Writing Transactions',
     'Testnet Deployment',
-    'Presentation Prep', 'Demo Script', 'Submission Checklist',],
+    'Presentation Prep', 'Demo Script', 'Submission Checklist',, 'Pitch Deck'],
   []
 );
 

@@ -178,7 +178,7 @@ export const cyberDevSecOpsHackathonTaxonomy: Category[] = filterTaxonomy(
     'Welcome',
     'Compliance Framework (SOC2/HIPAA)', 'CI/CD Integration Hooks', 'Static Code Analysis (SAST)',
     'Software Composition (SCA)', 'Container Vulnerability Scanning', 'Dashboarding & Reporting',
-    'Presentation Prep', 'Demo Script', 'Submission Checklist',],
+    'Presentation Prep', 'Demo Script', 'Submission Checklist',, 'Pitch Deck'],
   []
 );
 

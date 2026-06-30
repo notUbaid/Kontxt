@@ -174,7 +174,7 @@ export const apiHackathonTaxonomy: Category[] = filterTaxonomy(
     'Pitch Deck', 'Demo Script', 'Submission Checklist',
     // Aliases mapped from user prompt
     'Authentication', 'Auth Implementation', 'API Documentation'
-  ],
+  , 'Presentation Prep'],
   [
     'Billing', 'SDKs', 'Load Testing', 'Disaster Recovery', 'Monitoring Architecture',
     'Logs', 'Metrics', 'Tracing', 'Monitoring'

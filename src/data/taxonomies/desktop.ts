@@ -151,7 +151,7 @@ export const desktopHackathonTaxonomy: Category[] = filterTaxonomy(
     'Idea Definition', 'MVP Features', 'PRD', 'User Flows', 'Framework Selection', 
     'Local Storage', 'UI Development', 'Core Features', 'Packaging', 
     'Demo Script', 'Pitch Deck', 'Submission Checklist'
-  ],
+  , 'Presentation Prep'],
   [
     'Code Signing', 'Code Signing Process', 'Auto Updates', 'Monitoring', 'Crash Reporting', 'Analytics', 'Scalability'
   ]

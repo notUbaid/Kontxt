@@ -212,7 +212,7 @@ export const cyberRedHackathonTaxonomy: Category[] = filterTaxonomy(
     'Welcome',
     'Target Selection', 'Threat Modeling', 'Execution Flow', 'Language Selection',
     'OSINT Aggregation', 'Port Scanning', 'Vulnerability Matching', 'Documentation', 'Ethical Disclaimers',
-    'Presentation Prep', 'Demo Script', 'Submission Checklist',],
+    'Presentation Prep', 'Demo Script', 'Submission Checklist',, 'Pitch Deck'],
   [
     'C2 Architecture', 'Memory Exploitation', 'Privilege Escalation', 'Lateral Movement', 'Log Wiping'
   ]
