@@ -154,7 +154,7 @@ const filterTaxonomy = (keep: string[], hide: string[]) => {
 export const internalToolHackathonTaxonomy: Category[] = filterTaxonomy(
   [
     'Welcome', 'Problem Definition', 'Current Workflow Analysis', 'MVP Scope', 'PRD', 
-    'User Roles', 'Database Schema', 'Frontend', 'Backend', 'CRUD Operations', 
+    'User Roles', 'Database Schema', 'Forms', 'Tables', 'CRUD Operations', 
     'Dashboard Strategy', 'Fake Business Data', 'Bulk Operations',
     // Mapped from user requests / presentation
     'Presentation Prep', 'Pitch Deck', 'Demo Script', 'Submission Checklist'
