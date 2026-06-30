@@ -176,7 +176,7 @@ export const aiPersonalTaxonomy: Category[] = [
     id: 'growth',
     name: 'PHASE 5 — GROWTH',
     topics: [
-      createTopic('Analytics', BarChart, [], 'aianalytics'),
+      createTopic('Growth Analytics', BarChart, [], 'aigrowthanalytics'),
       createTopic('Prompt Analytics', BarChart, [], 'aipromptanalytics'),
       createTopic('Model Upgrades', Cpu, [], 'aimodelupgrades'),
     ]

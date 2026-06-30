@@ -158,10 +158,10 @@ export const marketplaceHackathonTaxonomy: Category[] = filterTaxonomy(
   baseMarketplaceTaxonomy,
   [
     'Marketplace Type', 'MVP Scope', 'PRD', 'Buyer Journey', 'Seller Journey', 
-    'Database', 'Listings', 'Search', 'Authentication', 'Demo Transactions', 
+    'Database', 'Listings', 'Search', 'Authentication', 'Auth Implementation', 'Demo Transactions', 
     'Pitch Deck', 'Demo Script', 'Submission Checklist',
     'Demo Marketplace Data', 'Fake Messaging', 'Marketplace UI Polish',
-    'Marketplace Fundamentals', 'Tech Stack'
+    'Marketplace Fundamentals', 'Architecture Fundamentals', 'Tech Stack'
   ],
   []
 );

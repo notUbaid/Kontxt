@@ -168,15 +168,15 @@ export const mobileHackathonTaxonomy: Category[] = [
     name: 'PHASE 2',
     topics: [
       createTopic('Tech Stack', Settings, [{name:'Expo CNG',url:'https://docs.expo.dev/workflow/continuous-native-generation/'}], 'mobiletechstack'),
-      createTopic('Database', Database, [{name:'PostgREST',url:'https://postgrest.org/'}], 'mobiledatabase'),
-      createTopic('Authentication', Key, [{name:'Expo Apple Auth',url:'https://docs.expo.dev/versions/latest/sdk/apple-authentication/'}], 'mobileauthentication'),
+      createTopic('Database Setup', Database, [{name:'PostgREST',url:'https://postgrest.org/'}], 'mobiledatabasesetup'),
+      createTopic('Auth Implementation', Key, [{name:'Expo Apple Auth',url:'https://docs.expo.dev/versions/latest/sdk/apple-authentication/'}], 'mobileauthimplementation'),
     ]
   },
   {
     id: 'phase-3',
     name: 'PHASE 3',
     topics: [
-      createTopic('Backend', Server, [{name:'PgBouncer',url:'https://www.pgbouncer.org/'}], 'mobilebackend'),
+      createTopic('Backend Integration', Server, [{name:'PgBouncer',url:'https://www.pgbouncer.org/'}], 'mobilebackendintegration'),
       createTopic('Frontend', Box, [{name:'FlashList (Shopify)',url:'https://shopify.github.io/flash-list/'}], 'mobilefrontend'),
       createTopic('Native Device Features', Smartphone, [], 'mobilenativedevicefeatures'),
       createTopic('App Permissions Strategy', Lock, [], 'mobileapppermissionsstrategy'),
@@ -215,7 +215,7 @@ export const mobilePersonalTaxonomy: Category[] = [
     name: 'PHASE 2 — ARCHITECTURE',
     topics: [
       createTopic('Tech Stack', Settings, [], 'mobiletechstack'),
-      createTopic('State Management', Layers, [], 'mobilestatemanagement'),
+      createTopic('State Management Impl', Layers, [], 'mobilestatemanagementimpl'),
       createTopic('Database', Database, [], 'mobiledatabase'),
       createTopic('Authentication', Key, [], 'mobileauthentication'),
       createTopic('Offline Strategy', Cloud, [], 'mobileofflinestrategy'),

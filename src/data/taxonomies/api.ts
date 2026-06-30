@@ -85,14 +85,14 @@ export const apiProductionTaxonomy: Category[] = [
     id: 'phase-3-development',
     name: 'PHASE 3 — DEVELOPMENT',
     topics: [
-      createTopic('Auth Implementation', Lock, [{name:'OAuth 2.0 Docs',url:'https://oauth.net/2/'},{name:'Clerk Auth',url:'https://clerk.com/'}], 'apiauthentication'),
+      createTopic('Auth Implementation', Lock, [{name:'OAuth 2.0 Docs',url:'https://oauth.net/2/'},{name:'Clerk Auth',url:'https://clerk.com/'}], 'apiauthimplementation'),
       createTopic('Database', Database, [{name:'Supabase',url:'https://supabase.com/'},{name:'Prisma ORM',url:'https://www.prisma.io/'}], 'apidatabase'),
       createTopic('Testing', CheckSquare, [{name:'OpenAPI Spec',url:'https://swagger.io/specification/'},{name:'Postman Docs',url:'https://learning.postman.com/docs/getting-started/introduction/'}], 'apitesting'),
       createTopic('Documentation', BookOpen, [{name:'Mintlify',url:'https://mintlify.com/'},{name:'ReadMe',url:'https://readme.com/'}], 'apidocumentation'),
-      createTopic('Rate Limiting', Activity, [{name:'Upstash Ratelimit',url:'https://upstash.com/docs/redis/features/ratelimit'}], 'apiratelimiting'),
+      createTopic('Rate Limiting', Activity, [{name:'Upstash Ratelimit',url:'https://upstash.com/docs/redis/features/ratelimit'}], 'apiratelimitingstrategy'),
       createTopic('API Implementation', Code, [{name: 'Hexagonal Architecture', url: 'https://alistair.cockburn.us/hexagonal-architecture/'}, {name: 'Domain Driven Design API', url: 'https://martinfowler.com/tags/domain%20driven%20design.html'}], 'apiapiimplementation'),
       createTopic('Authorization', Shield, [{name:'OAuth 2.0 Docs',url:'https://oauth.net/2/'},{name:'Clerk Auth',url:'https://clerk.com/'}], 'apiauthorization'),
-      createTopic('API Keys Management', KeyRound, [{name:'OAuth 2.0 Docs',url:'https://oauth.net/2/'},{name:'Clerk Auth',url:'https://clerk.com/'}], 'apiapikeys'),
+      createTopic('API Keys Management', KeyRound, [{name:'OAuth 2.0 Docs',url:'https://oauth.net/2/'},{name:'Clerk Auth',url:'https://clerk.com/'}], 'apiapikeysmanagement'),
       createTopic('Billing', DollarSign, [{name:'OpenAPI Spec',url:'https://swagger.io/specification/'},{name:'Postman Docs',url:'https://learning.postman.com/docs/getting-started/introduction/'}], 'apibilling'),
       createTopic('Webhooks', Share2, [{name: 'Svix (Webhook as a Service)', url: 'https://www.svix.com/'}, {name: 'Stripe Webhook Signatures', url: 'https://stripe.com/docs/webhooks/signatures'}], 'apiwebhooks'),
       createTopic('Background Jobs', Settings, [{name: 'Temporal.io', url: 'https://temporal.io/'}, {name: 'BullMQ', url: 'https://docs.bullmq.io/'}], 'apibackgroundjobs'),
@@ -173,7 +173,7 @@ export const apiHackathonTaxonomy: Category[] = filterTaxonomy(
     'Database', 'API Implementation', 'Documentation', 'Demo App', 
     'Pitch Deck', 'Demo Script', 'Submission Checklist',
     // Aliases mapped from user prompt
-    'Authentication', 'API Documentation'
+    'Authentication', 'Auth Implementation', 'API Documentation'
   ],
   [
     'Billing', 'SDKs', 'Load Testing', 'Disaster Recovery', 'Monitoring Architecture',

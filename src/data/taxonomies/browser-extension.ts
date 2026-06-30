@@ -76,10 +76,10 @@ export const extensionProductionTaxonomy: Category[] = [
       createTopic('Analytics', BarChart, [{name:'PostHog',url:'https://posthog.com/'},{name:'Mixpanel',url:'https://mixpanel.com/'}], 'extanalytics'),
       createTopic('Testing', CheckSquare, [{name:'Playwright',url:'https://playwright.dev/'},{name:'Jest',url:'https://jestjs.io/'},{name:'TestFlight',url:'https://developer.apple.com/testflight/'}], 'exttesting'),
       createTopic('Manifest Configuration', Settings, [{name:'Chrome Ext MV3',url:'https://developer.chrome.com/docs/extensions/mv3/intro/'},{name:'MDN WebExtensions',url:'https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions'}], 'extmanifestconfiguration'),
-      createTopic('Popup UI Design', Layout, [{name:'Extension UI Architecture',url:'https://developer.chrome.com/docs/extensions/develop/ui'}], 'extpopupui'),
-      createTopic('Content Scripts Logic', Code, [{name:'Content Scripts Overview',url:'https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts'}], 'extcontentscripts'),
+      createTopic('Popup UI Design', Layout, [{name:'Extension UI Architecture',url:'https://developer.chrome.com/docs/extensions/develop/ui'}], 'extpopupuidesign'),
+      createTopic('Content Scripts Logic', Code, [{name:'Content Scripts Overview',url:'https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts'}], 'extcontentscriptslogic'),
       createTopic('Background Service Worker', Settings, [{name:'tRPC',url:'https://trpc.io/'},{name:'GraphQL',url:'https://graphql.org/'},{name:'Postman',url:'https://www.postman.com/'}], 'extbackgroundserviceworker'),
-      createTopic('Messaging Architecture', MessageCircle, [{name:'Chrome Ext MV3',url:'https://developer.chrome.com/docs/extensions/mv3/intro/'},{name:'MDN WebExtensions',url:'https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions'}], 'extmessagingsystem'),
+      createTopic('Messaging Architecture', MessageCircle, [{name:'Chrome Ext MV3',url:'https://developer.chrome.com/docs/extensions/mv3/intro/'},{name:'MDN WebExtensions',url:'https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions'}], 'extmessagingarchitecture'),
       createTopic('Storage', Database, [{name:'chrome.storage API',url:'https://developer.chrome.com/docs/extensions/reference/api/storage'},{name:'Dexie.js (IndexedDB)',url:'https://dexie.org/'}], 'extstorage'),
       createTopic('AI Integration', Zap, [{name:'Chrome Ext MV3',url:'https://developer.chrome.com/docs/extensions/mv3/intro/'},{name:'MDN WebExtensions',url:'https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions'}], 'extaiintegration'),
       createTopic('Settings Page', Settings, [{name:'Chrome Ext MV3',url:'https://developer.chrome.com/docs/extensions/mv3/intro/'},{name:'MDN WebExtensions',url:'https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions'}], 'extsettingspage'),
@@ -121,7 +121,7 @@ export const extensionProductionTaxonomy: Category[] = [
     id: 'phase-6-growth',
     name: 'PHASE 6 — GROWTH',
     topics: [
-      createTopic('Extension Analytics', BarChart, [{name:'PostHog',url:'https://posthog.com/'},{name:'Mixpanel',url:'https://mixpanel.com/'}], 'extanalytics'),
+      createTopic('Extension Analytics', BarChart, [{name:'PostHog',url:'https://posthog.com/'},{name:'Mixpanel',url:'https://mixpanel.com/'}], 'extextensionanalytics'),
       createTopic('User Feedback', MessageSquare, [{name:'Whimsical',url:'https://whimsical.com/'},{name:'FigJam',url:'https://www.figma.com/figjam/'},{name:'Mobbin UX Patterns',url:'https://mobbin.com/'}], 'extuserfeedback'),
       createTopic('Scaling Strategy', TrendingUp, [{name:'Chrome Ext MV3',url:'https://developer.chrome.com/docs/extensions/mv3/intro/'},{name:'MDN WebExtensions',url:'https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions'}], 'extscalingstrategy'),
       createTopic('Store Reviews', Target, [{name:'Zustand',url:'https://docs.pmnd.rs/zustand/getting-started/introduction'},{name:'React Query',url:'https://tanstack.com/query/latest'}], 'extstorereviews'),
@@ -151,13 +151,13 @@ export const extensionHackathonTaxonomy: Category[] = filterTaxonomy(
   [
     'Welcome',
     'Idea Definition', 'MVP Features', 'PRD', 'User Flows', 'Manifest Configuration', 
-    'Popup UI', 'Content Scripts', 'APIs', 'AI Integration', 'Demo Data', 
+    'Popup UI', 'Popup UI Design', 'Content Scripts', 'Content Scripts Logic', 'APIs', 'AI Integration', 'Demo Data', 
     'Pitch Deck', 'Demo Script', 'Submission Checklist',
     // Mapping requested terms to taxonomy items where they might not perfectly match
     'Manifest Setup', 'Demo Dataset'
   ],
   [
-    'Monitoring', 'CI/CD', 'Privacy Review', 'Store Optimization', 'Analytics', 
+    'Monitoring', 'CI/CD', 'Privacy Review', 'Store Optimization', 'Analytics', 'Extension Analytics', 
     'Advanced Security', 'Listing Optimization', 'Security'
   ]
 );

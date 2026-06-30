@@ -58,7 +58,7 @@ export const internalToolProductionTaxonomy: Category[] = [
     id: 'phase-3-development',
     name: 'PHASE 3 — DEVELOPMENT',
     topics: [
-      createTopic('Auth Implementation', Lock, [{name: 'Lucia Auth', url: 'https://lucia-auth.com/'}, {name: 'Auth.js (NextAuth)', url: 'https://authjs.dev/'}, {name: 'Clerk B2B SaaS', url: 'https://clerk.com/docs/organizations/overview'}], 'internalauthentication'),
+      createTopic('Auth Implementation', Lock, [{name: 'Lucia Auth', url: 'https://lucia-auth.com/'}, {name: 'Auth.js (NextAuth)', url: 'https://authjs.dev/'}, {name: 'Clerk B2B SaaS', url: 'https://clerk.com/docs/organizations/overview'}], 'internalauthimplementation'),
       createTopic('Database', DatabaseZap, [{name: 'Drizzle ORM', url: 'https://orm.drizzle.team/'}, {name: 'Neon Serverless Postgres', url: 'https://neon.tech/'}], 'internaldatabase'),
       createTopic('Backend', Server, [{name: 'Hono.js', url: 'https://hono.dev/'}, {name: 'tRPC', url: 'https://trpc.io/'}, {name: 'NestJS', url: 'https://nestjs.com/'}], 'internalbackend'),
       createTopic('Frontend', Code, [{name: 'React Hook Form', url: 'https://react-hook-form.com/'}, {name: 'Zod Validation', url: 'https://zod.dev/'}, {name: 'TanStack Query', url: 'https://tanstack.com/query/latest'}], 'internalfrontend'),
@@ -89,7 +89,7 @@ export const internalToolProductionTaxonomy: Category[] = [
       createTopic('Infrastructure', Cloud, [{name: 'Railway', url: 'https://railway.app/'}, {name: 'Fly.io', url: 'https://fly.io/'}, {name: 'Pulumi', url: 'https://www.pulumi.com/'}], 'internalinfrastructure'),
       createTopic('Scalability', TrendingUp, [{name: 'Redis Caching Patterns', url: 'https://redis.io/docs/manual/patterns/'}, {name: 'Cloudflare Workers', url: 'https://workers.cloudflare.com/'}], 'internalscalability'),
       createTopic('RBAC Validation', KeyRound, [{name: 'JSON Web Token Decoder', url: 'https://jwt.io/'}, {name: 'OWASP Authorization Cheat Sheet', url: 'https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Testing_Automation_Cheat_Sheet.html'}], 'internalrbacvalidation'),
-      createTopic('Audit Logging Setup', FileText, [{name: 'Stripe Idempotency', url: 'https://stripe.com/docs/api/idempotent_requests'}, {name: 'Bitemporal Data History', url: 'https://martinfowler.com/articles/bitemporal-history.html'}], 'internalauditlogs'),
+      createTopic('Audit Logging Setup', FileText, [{name: 'Stripe Idempotency', url: 'https://stripe.com/docs/api/idempotent_requests'}, {name: 'Bitemporal Data History', url: 'https://martinfowler.com/articles/bitemporal-history.html'}], 'internalauditloggingsetup'),
       createTopic('Disaster Recovery', ShieldAlert, [{name: 'AWS Disaster Recovery Architecture', url: 'https://aws.amazon.com/disaster-recovery/'}, {name: 'Chaos Engineering (Gremlin)', url: 'https://www.gremlin.com/'}], 'internaldisasterrecovery'),
     ]
   },
@@ -97,7 +97,7 @@ export const internalToolProductionTaxonomy: Category[] = [
     id: 'phase-5-deployment',
     name: 'PHASE 5 — DEPLOYMENT',
     topics: [
-      createTopic('User Documentation', BookOpen, [{name: 'Mintlify', url: 'https://mintlify.com/'}, {name: 'Docusaurus', url: 'https://docusaurus.io/'}, {name: 'Diátaxis Framework', url: 'https://diataxis.fr/'}], 'internaldocumentation'),
+      createTopic('User Documentation', BookOpen, [{name: 'Mintlify', url: 'https://mintlify.com/'}, {name: 'Docusaurus', url: 'https://docusaurus.io/'}, {name: 'Diátaxis Framework', url: 'https://diataxis.fr/'}], 'internaluserdocumentation'),
       createTopic('Hosting', Cloud, [{name: 'Render', url: 'https://render.com/'}, {name: 'AWS ECS Fargate', url: 'https://aws.amazon.com/fargate/'}, {name: 'DigitalOcean App Platform', url: 'https://www.digitalocean.com/products/app-platform'}], 'internalhosting'),
       createTopic('Domain Setup', Globe, [{name: 'Cloudflare DNS', url: 'https://www.cloudflare.com/dns/'}, {name: 'Tailscale (Internal VPN)', url: 'https://tailscale.com/'}], 'internaldomainsetup'),
       createTopic('Employee Onboarding', Users, [{name: 'Intro.js', url: 'https://introjs.com/'}, {name: 'Shepherd.js', url: 'https://shepherdjs.dev/'}, {name: 'Appcues', url: 'https://www.appcues.com/'}], 'internalemployeeonboarding'),
@@ -146,7 +146,7 @@ export const internalToolHackathonTaxonomy: Category[] = filterTaxonomy(
     'Demo Data', 'Current Workflow'
   ],
   [
-    'Audit Logs', 'Monitoring', 'Disaster Recovery', 'Employee Training', 'Advanced Security', 'Training Materials', 'Security'
+    'Audit Logs', 'Audit Logging Setup', 'Monitoring', 'Disaster Recovery', 'Employee Training', 'Advanced Security', 'Training Materials', 'Security'
   ]
 );
 
