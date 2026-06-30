@@ -169,7 +169,12 @@ export const internalToolPersonalTaxonomy: Category[] = filterTaxonomy(
     'Infrastructure', 'Scalability', 'Disaster Recovery', 'Domain Setup',
     'Security & Compliance', 'Change Management', 'Permissions Rollout',
     'Presentation Prep', 'Pitch Deck', 'Demo Script', 'Submission Checklist',
-    'Fake Business Data'
+    'Fake Business Data',
+    // Corporate/Enterprise overhead hidden from Personal
+    'Stakeholder Mapping', 'Feature Prioritization', 'Success Metrics',
+    'User Types', 'User Roles', 'Data Ownership', 'Audit Strategy',
+    'Audit Logs', 'Training Materials', 'User Adoption', 'Launch Checklist',
+    'Adoption Metrics', 'Business Impact', 'Roadmap', 'Feature Requests'
   ]
 );
 
