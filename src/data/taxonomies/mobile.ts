@@ -7,6 +7,21 @@ import {
 } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
+const filterTaxonomy = (baseTaxonomy: Category[], keep: string[], hide: string[]) => {
+  return baseTaxonomy.map(cat => {
+    return {
+      ...cat,
+      topics: cat.topics.filter(t => {
+        if (hide.includes(t.name)) return false;
+        if (keep.length > 0 && !keep.includes(t.name)) return false;
+        return true;
+      })
+    };
+  }).filter(cat => cat.topics.length > 0);
+};
+
+
+
 export const mobileProductionTaxonomy: Category[] = [
   {
     id: 'phase-0',
@@ -141,123 +156,9 @@ export const mobileProductionTaxonomy: Category[] = [
   }
 ];
 
-export const mobileHackathonTaxonomy: Category[] = [
-  {
-    id: 'phase-0',
-    name: 'PHASE 0',
-    topics: [
-      createTopic('Welcome', HelpCircle),
-      createTopic('Idea Definition', Rocket, [{name:'Apple HIG',url:'https://developer.apple.com/design/human-interface-guidelines/'},{name:'YC RFS',url:'https://www.ycombinator.com/rfs'}], 'mobileideadefinition'),
-      createTopic('MVP', CheckSquare, [{name:'WatermelonDB Sync',url:'https://nozbe.github.io/WatermelonDB/Advanced/Sync.html'}], 'mobilemvp'),
-    ]
-  },
-  {
-    id: 'phase-1',
-    name: 'PHASE 1',
-    topics: [
-      createTopic('PRD', FileText, [{name:'System Design Primer',url:'https://github.com/donnemartin/system-design-primer'}], 'mobileprd'),
-      createTopic('Design System', PenTool, [{name:'NativeWind (Tailwind)',url:'https://www.nativewind.dev/'},{name:'UI Kitten',url:'https://akveo.github.io/react-native-ui-kitten/'}], 'mobiledesignsystem'),
-      createTopic('UI Polish', Zap, [], 'mobileuipolish'),
-      createTopic('Animations', Activity, [], 'mobileanimations'),
-      createTopic('Loading', RefreshCw, [], 'mobileloadingstates'),
-      createTopic('Microinteractions', MonitorSmartphone, [], 'mobilemicrointeractions'),
-    ]
-  },
-  {
-    id: 'phase-2',
-    name: 'PHASE 2',
-    topics: [
-      createTopic('Tech Stack', Settings, [{name:'Expo CNG',url:'https://docs.expo.dev/workflow/continuous-native-generation/'}], 'mobiletechstack'),
-      createTopic('Database Setup', Database, [{name:'PostgREST',url:'https://postgrest.org/'}], 'mobiledatabasesetup'),
-      createTopic('Auth Implementation', Key, [{name:'Expo Apple Auth',url:'https://docs.expo.dev/versions/latest/sdk/apple-authentication/'}], 'mobileauthimplementation'),
-    ]
-  },
-  {
-    id: 'phase-3',
-    name: 'PHASE 3',
-    topics: [
-      createTopic('Backend Integration', Server, [{name:'PgBouncer',url:'https://www.pgbouncer.org/'}], 'mobilebackendintegration'),
-      createTopic('Frontend', Box, [{name:'FlashList (Shopify)',url:'https://shopify.github.io/flash-list/'}], 'mobilefrontend'),
-      createTopic('Native Device Features', Smartphone, [], 'mobilenativedevicefeatures'),
-      createTopic('App Permissions Strategy', Lock, [], 'mobileapppermissionsstrategy'),
-      createTopic('Demo Data', Database, [{name:'Falso (Mock Data)',url:'https://ngneat.github.io/falso/'}], 'mobiledemodata'),
-      createTopic('Play Store Mockups', Smartphone, [{name:'Figma Store Templates',url:'https://www.figma.com/community/tag/app-store'}], 'mobileplaystoremockups'),
-    ]
-  },
-  {
-    id: 'phase-5',
-    name: 'PHASE 5',
-    topics: [
-      createTopic('Pitch Deck', Presentation, [{name:'Sequoia Pitch Deck',url:'https://www.sequoiacap.com/article/writing-a-business-plan-pitch-deck/'}], 'mobilepitchdeck'),
-      createTopic('Demo Script', FileText, [{name:'Loom',url:'https://www.loom.com/'}], 'mobiledemoscript'),
-      createTopic('Submission Checklist', CheckSquare, [{name:'Devpost Guides',url:'https://devpost.com/'}], 'mobilesubmissionchecklist'),
-      createTopic('Presentation Prep', Presentation),
-    ]
-  }
-];
+export const mobileHackathonTaxonomy: Category[] = filterTaxonomy(mobileProductionTaxonomy, ['Welcome', 'Idea Definition', 'MVP', 'PRD', 'Design System', 'UI Polish', 'Animations', 'Loading', 'Microinteractions', 'Tech Stack', 'Database Setup', 'Auth Implementation', 'Backend Integration', 'Frontend', 'Native Device Features', 'App Permissions Strategy', 'Demo Data', 'Play Store Mockups', 'Pitch Deck', 'Demo Script', 'Submission Checklist', 'Presentation Prep'], []);
 
-export const mobilePersonalTaxonomy: Category[] = [
-  {
-    id: 'discovery',
-    name: 'PHASE 1 — DISCOVERY & DESIGN',
-    topics: [
-      createTopic('Welcome', HelpCircle),
-      createTopic('Idea Definition', Rocket, [], 'mobileideadefinition'),
-      createTopic('PRD', FileText, [], 'mobileprd'),
-      createTopic('Platform Guidelines', Smartphone, [], 'mobileplatformguidelines'),
-      createTopic('Design System', PenTool, [], 'mobiledesignsystem'),
-      createTopic('Responsive Layouts', MonitorSmartphone, [], 'mobileresponsivelayouts'),
-      createTopic('App Navigation', Navigation, [], 'appnavigation'),
-    ]
-  },
-  {
-    id: 'architecture',
-    name: 'PHASE 2 — ARCHITECTURE',
-    topics: [
-      createTopic('Tech Stack', Settings, [], 'mobiletechstack'),
-      createTopic('State Management Impl', Layers, [], 'mobilestatemanagementimpl'),
-      createTopic('Database', Database, [], 'mobiledatabase'),
-      createTopic('Authentication', Key, [], 'mobileauthentication'),
-      createTopic('Offline Strategy', Cloud, [], 'mobileofflinestrategy'),
-    ]
-  },
-  {
-    id: 'development',
-    name: 'PHASE 3 — DEVELOPMENT',
-    topics: [
-      createTopic('Frontend', Box, [], 'mobilefrontend'),
-      createTopic('App Lifecycle', RefreshCw, [], 'mobileapplifecycle'),
-      createTopic('Backend', Server, [], 'mobilebackendimplementation'),
-      createTopic('App Permissions Strategy', Lock, [], 'mobileapppermissionsstrategy'),
-      createTopic('Push Notifications', Bell, [], 'mobilepushnotificationsimplementation'),
-      createTopic('Testing', CheckSquare, [], 'mobiletesting'),
-    ]
-  },
-  {
-    id: 'production',
-    name: 'PHASE 4 — DEPLOYMENT',
-    topics: [
-      createTopic('Security', Shield, [], 'mobilesecurity'),
-      createTopic('Performance Optimization', Zap, [], 'mobileperformanceoptimization'),
-      createTopic('Play Store Setup', Smartphone, [], 'mobileplaystoresetup'),
-      createTopic('App Store Setup', Smartphone, [], 'mobileappstoresetup'),
-      createTopic('Privacy Policy', FileText, [], 'mobileprivacypolicy'),
-    ]
-  },
-  {
-    id: 'growth',
-    name: 'PHASE 5 — GROWTH',
-    topics: [
-      createTopic('Analytics', BarChart, [], 'mobileanalytics'),
-      createTopic('Feedback', MessageSquare, [], 'mobilefeedback'),
-      createTopic('Roadmap', Globe, [], 'mobileroadmap'),
-      createTopic('Presentation Prep', Presentation, [], 'mobilepresentationprep'),
-      createTopic('Pitch Deck', Presentation, [], 'mobilepitchdeck'),
-      createTopic('Demo Script', FileText, [], 'mobiledemoscript'),
-      createTopic('Submission Checklist', CheckSquare, [], 'mobilesubmissionchecklist'),
-    ]
-  }
-];
+export const mobilePersonalTaxonomy: Category[] = filterTaxonomy(mobileProductionTaxonomy, ['Welcome', 'Idea Definition', 'PRD', 'Platform Guidelines', 'Design System', 'Responsive Layouts', 'App Navigation', 'Tech Stack', 'State Management Impl', 'Database', 'Authentication', 'Offline Strategy', 'Frontend', 'App Lifecycle', 'Backend', 'App Permissions Strategy', 'Push Notifications', 'Testing', 'Security', 'Performance Optimization', 'Play Store Setup', 'App Store Setup', 'Privacy Policy', 'Analytics', 'Feedback', 'Roadmap', 'Presentation Prep', 'Pitch Deck', 'Demo Script', 'Submission Checklist'], []);
 
 export const mobileCustomTaxonomy: Category[] = [
   ...mobileProductionTaxonomy.map(cat => {
@@ -271,8 +172,7 @@ export const mobileCustomTaxonomy: Category[] = [
           createTopic('Play Store Mockups', Smartphone, [{name:'Figma Store Templates',url:'https://www.figma.com/community/tag/app-store'}], 'mobileplaystoremockups'),
           createTopic('Multi-language', Globe, [{name:'Expo Docs',url:'https://docs.expo.dev/'},{name:'React Native Directory',url:'https://reactnative.directory/'}], 'mobilemultilanguage'),
           createTopic('Subscription Billing', DollarSign, [{name:'Expo Docs',url:'https://docs.expo.dev/'},{name:'React Native Directory',url:'https://reactnative.directory/'}], 'mobilesubscriptionbilling'),
-          createTopic('Referral Programs', Users, [{name:'Branch Deep Linking',url:'https://branch.io/'}], 'mobilereferralprograms'),
-          createTopic('Wearables', Watch, [{name:'Expo Docs',url:'https://docs.expo.dev/'},{name:'React Native Directory',url:'https://reactnative.directory/'}], 'mobilewearables'),
+                    createTopic('Wearables', Watch, [{name:'Expo Docs',url:'https://docs.expo.dev/'},{name:'React Native Directory',url:'https://reactnative.directory/'}], 'mobilewearables'),
           createTopic('Widgets', Box, [{name:'Expo Docs',url:'https://docs.expo.dev/'},{name:'React Native Directory',url:'https://reactnative.directory/'}], 'mobilewidgets'),
           createTopic('Background Services', Settings, [{name:'tRPC',url:'https://trpc.io/'},{name:'GraphQL',url:'https://graphql.org/'},{name:'Postman',url:'https://www.postman.com/'}], 'mobilebackgroundservices'),
           createTopic('Bluetooth', Bluetooth, [{name:'Expo Docs',url:'https://docs.expo.dev/'},{name:'React Native Directory',url:'https://reactnative.directory/'}], 'mobilebluetooth'),

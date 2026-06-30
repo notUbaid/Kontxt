@@ -6,6 +6,21 @@ import {
 } from 'lucide-react';
 import { type Category, createTopic } from './types';
 
+const filterTaxonomy = (baseTaxonomy: Category[], keep: string[], hide: string[]) => {
+  return baseTaxonomy.map(cat => {
+    return {
+      ...cat,
+      topics: cat.topics.filter(t => {
+        if (hide.includes(t.name)) return false;
+        if (keep.length > 0 && !keep.includes(t.name)) return false;
+        return true;
+      })
+    };
+  }).filter(cat => cat.topics.length > 0);
+};
+
+
+
 export const aiProductionTaxonomy: Category[] = [
   {
     id: 'phase-0-ai-discovery',
@@ -110,7 +125,7 @@ export const aiProductionTaxonomy: Category[] = [
       createTopic('Privacy Policy', Shield, [{name:'OpenAI API Docs',url:'https://platform.openai.com/docs/introduction'},{name:'HuggingFace',url:'https://huggingface.co/docs'}], 'aiprivacypolicy'),
       createTopic('AI Disclosure', Shield, [{name:'OpenAI API Docs',url:'https://platform.openai.com/docs/introduction'},{name:'HuggingFace',url:'https://huggingface.co/docs'}], 'aiaidisclosure'),
       createTopic('Launch Checklist', CheckSquare, [{name:'Vercel',url:'https://vercel.com/'},{name:'GitHub Actions',url:'https://github.com/features/actions'},{name:'Product Hunt Launch',url:'https://www.producthunt.com/'}], 'ailaunchchecklist'),
-      createTopic('Growth Analytics', BarChart, [{name:'LangSmith',url:'https://smith.langchain.com/'},{name:'Helicone',url:'https://www.helicone.ai/'}], 'aianalytics'),
+      createTopic('Growth Analytics', BarChart, [{name:'LangSmith',url:'https://smith.langchain.com/'},{name:'Helicone',url:'https://www.helicone.ai/'}], 'aigrowthanalytics'),
     ]
   },
   {
@@ -128,116 +143,8 @@ export const aiProductionTaxonomy: Category[] = [
   }
 ];
 
-export const aiPersonalTaxonomy: Category[] = [
-  {
-    id: 'discovery',
-    name: 'PHASE 1 — DISCOVERY & DESIGN',
-    topics: [
-      createTopic('Welcome', HelpCircle),
-      createTopic('Problem Definition', AlertCircle, [], 'aiproblemdefinition'),
-      createTopic('AI Suitability', Lightbulb, [], 'aiaijustification'),
-      createTopic('Conversation Design', MessageSquare, [], 'aiconversationdesign'),
-      createTopic('Trust & Transparency', Shield, [], 'aitrustandtransparency'),
-    ]
-  },
-  {
-    id: 'architecture',
-    name: 'PHASE 2 — ARCHITECTURE',
-    topics: [
-      createTopic('Model Selection', Cpu, [], 'aimodelselection'),
-      createTopic('Prompt Engineering', MessageSquare, [], 'aipromptengineering'),
-      createTopic('Conversation Memory', Database, [], 'aiconversationmemory'),
-      createTopic('Structured Outputs', FileText, [], 'aistructuredoutputs'),
-      createTopic('Retrieval Pipeline', Search, [], 'airetrievalpipeline'),
-    ]
-  },
-  {
-    id: 'development',
-    name: 'PHASE 3 — DEVELOPMENT',
-    topics: [
-      createTopic('Frontend', Box, [], 'aifrontend'),
-      createTopic('Backend', Server, [], 'aibackend'),
-      createTopic('AI Integration', Bot, [], 'aiaiintegration'),
-      createTopic('Streaming UX', Zap, [], 'aistreamingux'),
-      createTopic('AI Failure States', ShieldAlert, [], 'aiaifailurestates'),
-    ]
-  },
-  {
-    id: 'production',
-    name: 'PHASE 4 — DEPLOYMENT',
-    topics: [
-      createTopic('Security', Shield, [], 'aisecurity'),
-      createTopic('Cost Controls', DollarSign, [], 'aicostcontrols'),
-      createTopic('Hosting', Cloud, [], 'aihosting'),
-      createTopic('User Documentation', BookOpen, [], 'aidocumentation'),
-    ]
-  },
-  {
-    id: 'growth',
-    name: 'PHASE 5 — GROWTH',
-    topics: [
-      createTopic('Growth Analytics', BarChart, [], 'aigrowthanalytics'),
-      createTopic('Prompt Analytics', BarChart, [], 'aipromptanalytics'),
-      createTopic('Model Upgrades', Cpu, [], 'aimodelupgrades'),
-      createTopic('Presentation Prep', Presentation, [], 'aipresentationprep'),
-      createTopic('Pitch Deck', Presentation, [], 'aipitchdeck'),
-      createTopic('Demo Script', FileText, [], 'aidemoscript'),
-      createTopic('Submission Checklist', CheckSquare, [], 'aisubmissionchecklist'),
-    ]
-  }
-];
+export const aiPersonalTaxonomy: Category[] = filterTaxonomy(aiProductionTaxonomy, ['Welcome', 'Problem Definition', 'AI Suitability', 'Conversation Design', 'Trust & Transparency', 'Model Selection', 'Prompt Engineering', 'Conversation Memory', 'Structured Outputs', 'Retrieval Pipeline', 'Frontend', 'Backend', 'AI Integration', 'Streaming UX', 'AI Failure States', 'Security', 'Cost Controls', 'Hosting', 'User Documentation', 'Growth Analytics', 'Prompt Analytics', 'Model Upgrades', 'Presentation Prep', 'Pitch Deck', 'Demo Script', 'Submission Checklist'], []);
 
-export const aiHackathonTaxonomy: Category[] = [
-  {
-    id: 'phase-0',
-    name: 'PHASE 0',
-    topics: [
-      createTopic('Welcome', HelpCircle),
-      createTopic('Problem Definition', AlertCircle, [], 'aiproblemdefinition'),
-      createTopic('Target Users', Users, [], 'aiuserpersonas'),
-    ]
-  },
-  {
-    id: 'phase-1',
-    name: 'PHASE 1',
-    topics: [
-      createTopic('PRD', FileText, [], 'aiprd'),
-      createTopic('Conversation Design', MessageSquare, [], 'aiconversationdesign'),
-      createTopic('AI Interaction Flows', Bot, [], 'aiaiinteractionflows'),
-      createTopic('Trust & Transparency', Shield, [], 'aitrustandtransparency'),
-    ]
-  },
-  {
-    id: 'phase-2',
-    name: 'PHASE 2',
-    topics: [
-      createTopic('Model Selection', Cpu, [], 'aimodelselection'),
-      createTopic('Prompt Engineering', MessageSquare, [], 'aipromptengineering'),
-      createTopic('Structured Outputs', FileText, [], 'aistructuredoutputs'),
-      createTopic('RAG', Search, [], 'airagimplementation'),
-    ]
-  },
-  {
-    id: 'phase-3',
-    name: 'PHASE 3',
-    topics: [
-      createTopic('Backend', Server, [], 'aibackend'),
-      createTopic('Frontend', Box, [], 'aifrontend'),
-      createTopic('AI Integration', Bot, [], 'aiaiintegration'),
-      createTopic('Streaming UX', Zap, [], 'aistreamingux'),
-      createTopic('AI Failure States', ShieldAlert, [], 'aiaifailurestates'),
-    ]
-  },
-  {
-    id: 'phase-5',
-    name: 'PHASE 5',
-    topics: [
-      createTopic('Pitch Deck', Presentation, [], 'aipitchdeck'),
-      createTopic('Demo Script', FileText, [], 'aidemoscript'),
-      createTopic('Submission Checklist', CheckSquare, [], 'aisubmissionchecklist'),
-      createTopic('Presentation Prep', Presentation, [], 'aipresentationprep'),
-    ]
-  }
-];
+export const aiHackathonTaxonomy: Category[] = filterTaxonomy(aiProductionTaxonomy, ['Welcome', 'Problem Definition', 'Target Users', 'PRD', 'Conversation Design', 'AI Interaction Flows', 'Trust & Transparency', 'Model Selection', 'Prompt Engineering', 'Structured Outputs', 'RAG', 'Backend', 'Frontend', 'AI Integration', 'Streaming UX', 'AI Failure States', 'Pitch Deck', 'Demo Script', 'Submission Checklist', 'Presentation Prep'], []);
 
 export const aiCustomTaxonomy = aiProductionTaxonomy;
