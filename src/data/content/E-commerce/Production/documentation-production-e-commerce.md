@@ -1,92 +1,121 @@
 ---
-title: Documentation Implementation
+title: Documentation
 slug: documentation
-phase: Phase 3
+phase: Phase 3 E Commerce Development
 mode: production
 projectType: e-commerce
-estimatedTime: 25–35 min
+estimatedTime: 30-45 min
 ---
 
-# Documentation Implementation
+# Enterprise Documentation & CI/CD
 
-At production scale, undocumented code is a financial liability. 
-When your store goes down at 2 AM on Black Friday, the on-call engineer needs to know exactly how the payment webhooks are routed, where the database connection pool is configured, and how to safely trigger a manual fulfillment sync.
+**Estimated Time:** 45 Minutes
 
-If this information is trapped in the head of the lead developer, recovery will take hours instead of minutes.
+A beginner writes their code, pushes it directly to the `main` branch, and assumes they will just remember how it all works 6 months from now.
 
----
+In a production environment, if you do not document your architecture, your codebase becomes a toxic wasteland. When you hire your first freelance developer to help you, they will spend 40 hours trying to figure out how your undocumented Zustand cart works, costing you thousands of dollars in wasted hourly rates.
 
-## 1. System Architecture Documentation
+Furthermore, if you push code manually from your laptop, you bypass all the automated testing we just built in the previous module. 
 
-You must maintain a living document that explains *how* the systems talk to each other.
-
-**What to Include:**
-- **The Data Flow Diagram:** A visual map (e.g., Mermaid.js or Excalidraw) showing the flow from the Frontend → BFF → Commerce Engine → Payment Gateway → OMS (Order Management System).
-- **The Source of Truth Matrix:** Explicitly state which system owns which data. 
-  - *Example:* "Product Titles live in Akeneo (PIM). Prices live in Shopify. Customer Emails live in Auth0."
-- **Webhook Map:** A comprehensive table of every webhook you consume (Stripe, Shippo, Klaviyo), the exact endpoint it hits, what it triggers, and how idempotency is handled.
-
-*Where to store this:* In your repository as a `ARCHITECTURE.md` file, or in a centralized engineering wiki (Notion/Confluence).
+As an AI-Assisted Architect, you must engineer a **CI/CD Pipeline (Continuous Integration / Continuous Deployment)** and a strict Documentation standard.
 
 ---
 
-## 2. API Documentation (OpenAPI / Swagger)
+## 1. The CI/CD Pipeline (GitHub Actions)
 
-If you are building a custom backend or a BFF (Backend for Frontend), your frontend engineers and mobile app developers need strict API contracts.
+You must physically prevent yourself (and your AI) from pushing broken code to production. 
 
-**The Implementation:**
-Do not write API docs manually in a Google Doc. They will be outdated in a week.
-- Use a framework that generates documentation from your code (e.g., tRPC, Swagger/OpenAPI, or GraphQL introspection).
-- If building REST APIs, use tools like Swagger UI or Stoplight to expose an interactive playground where engineers can test the endpoints.
+**The Production Solution:**
+You will configure a **GitHub Action**. When you push code to a `staging` branch (or create a Pull Request), GitHub spins up a remote server in the cloud, installs your dependencies, builds the Next.js app, and runs your Playwright tests.
 
----
+```yaml
+# .github/workflows/production-gatekeeper.yml
+name: Production Gatekeeper
+on:
+  pull_request:
+    branches: [ main ]
 
-## 3. Runbooks (Disaster Recovery)
-
-A Runbook is a step-by-step guide on what to do when something breaks.
-
-**Critical Runbooks Required for E-Commerce:**
-1. **The Database is Locked / Max Connections:** Exactly which dashboard to open (Vercel/AWS) and the exact command to kill hanging connections or scale the pooler.
-2. **Payment Gateway is Down:** Instructions on how to flip the feature flag to disable the broken APM (e.g., Klarna) while keeping primary credit cards active.
-3. **The 3PL Sync Failed:** The exact manual curl command or admin button to press to replay stuck orders to the warehouse.
-4. **Card Testing Attack:** How to immediately tighten the rate limit parameters in Cloudflare/Upstash.
-
-*Rule:* Runbooks must be written for an engineer who has never seen this specific code before, because the person on-call might not be the person who wrote the feature.
-
----
-
-## 4. Operational Playbooks (For Merchandising/Support)
-
-Documentation is not just for engineers. Non-technical teams will destroy your database if you do not give them safe operating procedures.
-
-- **Merchandising:** Document exactly how to launch a flash sale (e.g., "Do not update 50,000 prices via CSV at 9 AM, the database will lock. Use the bulk API script located at `scripts/bulk-price.ts`").
-- **Customer Support:** Document the exact procedure for issuing a partial refund without breaking the tax calculations in the ERP.
-
----
-
-## AI Prompt — Generate Your Technical Documentation
-
-```prompt
-I need to generate the technical documentation for my production e-commerce store.
-
-Tech Stack:
-- Commerce Engine: [e.g., Headless Shopify / Medusa]
-- Third Parties: [e.g., Stripe, Algolia, SendGrid, TaxJar]
-- Hosting: [e.g., Vercel + Supabase]
-
-Act as a Principal Staff Engineer:
-1. Generate the markdown for a comprehensive `ARCHITECTURE.md` file, including a Mermaid.js diagram showing the data flow of a successful checkout.
-2. Provide a "Source of Truth" matrix for my Tech Stack, defining exactly which system owns Inventory, Pricing, Content, and Identity.
-3. Write a high-stress Runbook for resolving a "Stripe Webhook Processing Delay" where orders have been paid for but are stuck in a pending state in the database.
-4. Outline a 5-step playbook for the Merchandising team on how to safely execute a Black Friday catalog update without taking the site offline.
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install Dependencies
+        run: npm ci
+        
+      - name: Typecheck (Prisma & TypeScript)
+        run: npx tsc --noEmit
+        
+      - name: Run Playwright E2E Tests
+        run: npx playwright test
+        
+      - name: Attempt Next.js Build
+        run: npm run build
 ```
 
+If the TypeScript compiler finds a type error, or Playwright fails, GitHub automatically blocks the Pull Request. The code cannot be merged into `main`. The Vercel deployment is halted. Your production store remains perfectly safe.
+
+## 2. Architectural Decision Records (ADRs)
+
+Why did you choose Algolia instead of Typesense? Why are you using Stripe Elements instead of Stripe Checkout? 
+
+If you don't document *why* a decision was made, a future developer will try to "optimize" it by ripping it out, destroying weeks of careful engineering.
+
+**The Production Solution:**
+You must maintain a `/docs/architecture` folder in your repository containing **ADRs (Architectural Decision Records)**.
+
+An ADR is a simple markdown file that states:
+1. **The Context:** "We need a search engine that can handle typos."
+2. **The Decision:** "We selected Algolia over a raw SQL LIKE query."
+3. **The Consequences:** "This means we must maintain a Webhook Sync route to keep Shopify and Algolia in sync."
+
+Every time your AI generates a massive architectural feature, ask it to output an ADR and commit it to the repository.
+
+## 3. The Auto-Generated API Contract (Swagger/OpenAPI)
+
+If you are building custom Next.js API routes (like `/api/checkout` or `/api/webhooks`), you must document the exact JSON payload they expect. 
+
+**The Production Solution:**
+Because you are using **Zod** (as mandated in the Backend module), you can use libraries like `zod-to-openapi` to automatically generate beautiful Swagger API documentation. If you change the Zod validation schema in your code, the API documentation updates automatically. Your documentation can never fall out of sync with your codebase.
+
 ---
 
-## Documentation Implementation Checklist
+## ✅ Documentation & CI/CD Checklist
 
-- [ ] `ARCHITECTURE.md` created, detailing the data flow and Source of Truth for all systems
-- [ ] Webhook routing map documented (endpoints, payloads, idempotency keys)
-- [ ] API contracts generated automatically (via OpenAPI, tRPC, or GraphQL)
-- [ ] Disaster Recovery Runbooks written for Database Exhaustion, Payment Outages, and Card Testing Attacks
-- [ ] Operational Playbooks provided to Merchandising and Customer Support teams
+- [ ] Forbid direct pushes to the `main` branch. Mandate Pull Requests.
+- [ ] Implement a GitHub Action CI/CD pipeline that runs TypeScript and Playwright before allowing a merge.
+- [ ] Create an ADR (Architectural Decision Record) folder to document the *why* behind your tech stack.
+- [ ] Use the AI prompt below to generate the CI/CD pipeline.
+
+---
+
+## AI Prompt — Engineer the CI/CD Pipeline
+
+Copy this prompt into your AI to have it generate the defensive deployment pipeline.
+
+````prompt
+I am building a headless e-commerce store with Next.js (App Router). I need you to act as my Principal DevOps Engineer. We are establishing our Continuous Integration (CI) pipeline and Documentation standards.
+
+I need you to generate the following engineering implementations:
+
+**1. The GitHub Action Gatekeeper:**
+Write a robust `.github/workflows/ci.yml` file. 
+- It must trigger on any Pull Request to the `main` branch.
+- It must execute `npm ci`.
+- It must run the TypeScript compiler (`tsc --noEmit`) to catch type errors.
+- It must run our ESLint configuration to enforce code quality.
+- It must run our Playwright E2E tests.
+- Explain how this file mathematically prevents me from accidentally deploying a broken UI to Vercel.
+
+**2. The Architectural Decision Record (ADR) Template:**
+Write a clean, standardized Markdown template for an ADR. It should include sections for Status, Context, Decision, and Consequences. 
+
+**3. JSDoc Standard Enforcement:**
+Write a strict rule block that I can paste into my `CONTRIBUTING.md` file. It must mandate that every shared utility function (e.g., in the `/lib` folder) must be preceded by a strict JSDoc comment block explaining its parameters, return types, and potential side-effects (like triggering external API calls).
+````
+
+**Next: Product Engineering →**
