@@ -1,77 +1,66 @@
 ---
-title: Product Requirements Document (PRD)
+title: PRD
 slug: prd
-phase: Phase 1
+phase: Phase 1 E Commerce Design
 mode: production
 projectType: e-commerce
-estimatedTime: 30–40 min
+estimatedTime: 25-35 min
 ---
 
-# Product Requirements Document (PRD)
+# The Engineering PRD (Product Requirements Document)
 
-In a production environment, jumping straight into Figma or VS Code without a Product Requirements Document (PRD) guarantees scope creep, misaligned engineering teams, and catastrophic launch delays.
+**Estimated Time:** 30 Minutes
 
-The PRD is the single source of truth. It translates abstract business goals ("We need a fast store") into deterministic, testable engineering constraints ("The Next.js storefront must achieve a Largest Contentful Paint under 2.0s, measured via Lighthouse, fetching data from the Headless CMS").
+In enterprise engineering, the traditional PRD (often a bloated Google Doc filled with vague marketing wishes like "make the checkout fast") is a severe liability. For a mass-production headless e-commerce build, the PRD must evolve into a strict **Engineering RFC (Request for Comments)**. 
 
----
+The PRD is the foundational contract between Product, Design, and Engineering. It must explicitly define API boundaries, latency Service Level Agreements (SLAs), state management architectures, and exact fallback behaviors when systems inevitably fail under Black Friday loads.
 
-## 1. Defining the Core Constraints
+## 1. Defining the Hard Constraints
 
-A production PRD does not just list features; it explicitly lists what you *cannot* do.
+Before a single line of code is written or a wireframe drawn, the PRD must lock in the immutable technical constraints. If these are not defined, scope creep will destroy your unit economics.
 
-**The Implementation:**
-Your PRD must include a strict "Non-Goals" or "Out of Scope" section.
-- **Example In-Scope:** "Implement Stripe Apple Pay and Google Pay for frictionless 1-click checkout."
-- **Example Out-of-Scope (Non-Goal):** "Implement multi-currency support and dynamic localization for European markets." 
+- **Performance SLA:** "The P95 Largest Contentful Paint (LCP) must not exceed 1.5 seconds on a throttled 3G mobile connection. Any feature that pushes LCP above this threshold will be reverted."
+- **Infrastructure Cost Ceiling:** "The Server Cost per 1,000 Sessions must remain below $X. Therefore, heavy Server-Side Rendering (SSR) is forbidden for product catalog pages; Incremental Static Regeneration (ISR) is mandatory."
+- **Accessibility Mandate:** "The entire application must pass WCAG 2.1 AA automated testing in CI/CD. The PR will fail if focus management or contrast ratios degrade."
 
-By forcing the stakeholders to agree to the Non-Goals, the engineering team is legally protected when the marketing team inevitably asks for complex features three days before launch.
+## 2. API Contracts and State Management
 
----
+A headless PRD must define the flow of data. Product Managers must understand that data is not magically instantaneous.
 
-## 2. Technical and Logistical Requirements
+### The Source of Truth Matrix
+You must document exactly which system owns which piece of data. Mixing state is the primary cause of headless e-commerce bugs.
+- **Product Metadata (Titles, Descriptions, Images):** Owned by the PIM/CMS (e.g., Sanity, Akeneo).
+- **Search & Discovery (Facets, Filtering):** Owned strictly by the Search Index (e.g., Algolia). The database is never queried directly for category pages.
+- **Transactional State (Inventory, Prices, Cart, Taxes):** Owned strictly by the Commerce Engine (e.g., Shopify Plus, Commercetools).
 
-An e-commerce PRD must bridge the gap between software and the physical supply chain.
+### State Synchronization
+The PRD must outline the Webhook topography. 
+> [!IMPORTANT]
+> How long is the acceptable TTL (Time to Live) for cached data? If the PIM updates a product description, the PRD must dictate the exact webhook path required to trigger an ISR revalidation on the Next.js edge nodes, ensuring cache invalidation happens within 500ms.
 
-**The Implementation:**
-You must define the exact API boundaries.
-- **Inventory Sourcing:** Does the frontend read inventory counts directly from Postgres, or from a cached Redis instance? How long is the cache TTL? (e.g., "Inventory must be accurate to within 60 seconds").
-- **Fulfillment Routing:** When an order is placed, what is the exact webhook payload sent to the 3PL? (e.g., "The system will push an `Order.Created` JSON payload to ShipBob via REST API, expecting a 200 OK response within 3000ms").
+## 3. Failover States and Graceful Degradation
 
----
+Enterprise systems fail. A robust PRD defines exactly how the UI behaves during partial systemic failure. This is called **Graceful Degradation**.
 
-## 3. Success Metrics (The Definition of Done)
+- **Scenario A: The Search Index (Algolia) goes down.**
+  - *PRD Requirement:* The global search bar disables itself with a passive error state ("Search is temporarily unavailable. Browse our categories below."). The application does not crash.
+- **Scenario B: The Primary Payment Gateway (Stripe) experiences 502 errors.**
+  - *PRD Requirement:* The checkout mutation catches the 502, automatically rotates to the secondary gateway (e.g., Braintree/PayPal), and attempts the capture without exposing the error to the user.
+- **Scenario C: The Personalization/Recommendation Engine API times out.**
+  - *PRD Requirement:* The UI aborts the fetch after a strict 300ms timeout and falls back to a statically cached "Best Sellers" JSON file. The user never sees a loading spinner indefinitely.
 
-A feature is not "Done" when the code merges to `main`. It is "Done" when it achieves the mathematical business goal.
+## 4. The MVP "Cut Line"
 
-**The Implementation:**
-Bind every major feature in the PRD to a specific success metric.
-- *Feature:* "Redesigned Cart Flyout with Algolia cross-sells."
-- *Metric:* "This feature is considered successful if Average Order Value (AOV) increases by 10% within 30 days of deployment, without negatively impacting the baseline checkout conversion rate."
+A strict production PRD draws a ruthless line in the sand for V1 (The Minimum Viable Transaction Engine). It must explicitly document what is **OUT of scope**.
+- Native mobile applications (iOS/Android wrappers).
+- Complex user profiles and order history dashboards (Guest Checkout only for V1).
+- Wishlists and gamified loyalty point systems.
+- Multi-tier B2B pricing matrices.
 
----
+By defining what you are *not* building, you protect the engineering team's ability to stress-test the critical path (Cart -> Checkout) effectively.
 
-## AI Prompt — Generate Your Production PRD
-
-```prompt
-I am writing the formal Product Requirements Document (PRD) for a production-grade e-commerce application build.
-
-Business Context:
-- Tech Stack: [e.g., Next.js, Postgres, Stripe, MedusaJS]
-- Core Objective: [e.g., Launching a new D2C channel with high-performance metrics]
-
-Act as a Principal Product Manager:
-1. Outline a standard PRD structure (Objectives, Non-Goals, User Stories, Technical Constraints, Success Metrics).
-2. Draft 3 critical "Non-Goals" that we should explicitly exclude from the v1.0 scope to protect engineering velocity (e.g., excluding complex bespoke loyalty systems).
-3. Define the strict Technical Requirements for the checkout flow, detailing the API interactions required between the frontend, the commerce engine, and the payment gateway.
-4. Establish the mathematical "Success Metrics" that will dictate if this launch is considered a technical and financial success.
-```
-
----
-
-## PRD Checklist
-
-- [ ] Core business objectives and target user segments clearly defined
-- [ ] Strict "Non-Goals" (Out-of-Scope features) documented to prevent scope creep
-- [ ] Technical constraints mapped out (e.g., API latency budgets, Cache TTL limits)
-- [ ] Logistical API boundaries defined (how the software talks to the physical warehouse)
-- [ ] Quantitative Success Metrics (AOV, LCP, CVR) established as the "Definition of Done"
+## Checklist:
+- [ ] Convert generic business requirements into strict, measurable technical SLAs (Latency, CLS, Core Web Vitals).
+- [ ] Document the "Source of Truth Matrix" defining which API owns which piece of data to prevent state collisions.
+- [ ] Define the specific Webhook architectures required for instant cache invalidation (ISR).
+- [ ] Write explicit fallback scenarios for the top 3 most likely third-party API failures (Payment, Search, CMS).
