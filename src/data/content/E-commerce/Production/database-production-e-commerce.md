@@ -1,159 +1,183 @@
 ---
-title: Database Implementation
+title: Database
 slug: database
-phase: Phase 3
+phase: Phase 3 E Commerce Development
 mode: production
 projectType: e-commerce
-estimatedTime: 45–60 min
+estimatedTime: 45-60 min
 ---
 
-# Database Implementation
+# Enterprise Database Engineering
 
-At production scale, your database is not just a place to store rows. It is the absolute Source of Truth for financial data, inventory concurrency, and order state machines.
+**Estimated Time:** 60 Minutes
 
-If you architect the application layer poorly, you can rewrite it. If you implement the database layer poorly, you will lose money, oversell inventory during high-traffic drops, and face catastrophic data migrations when you attempt to scale.
+Welcome to Phase 3. Here, we transition from architectural theory into hard, unyielding code. 
 
----
+If you are using a Headless Commerce Engine (like Shopify or Swell), that engine acts as your primary database for products and orders. However, a production Next.js frontend always requires a secondary **Application Database** to store user-specific state that the Commerce Engine does not handle:
+- User Profiles & Preferences
+- Product Reviews & UGC (User Generated Content)
+- Wishlists & Saved Items
+- Analytics & Telemetry Data
 
-## 1. The Concurrency Problem (Inventory)
-
-The most critical database operation in e-commerce is the inventory decrement. If two users check out simultaneously for the last item in stock, your database must enforce atomicity.
-
-### The Naive (Dangerous) Approach
-```javascript
-// DO NOT DO THIS
-const variant = await db.variant.findUnique({ id });
-if (variant.inventory > 0) {
-  await db.variant.update({ 
-    where: { id }, 
-    data: { inventory: variant.inventory - 1 } 
-  });
-}
-```
-*Why this fails:* A race condition. Between the `find` and the `update`, another thread can read the same `inventory` value. Both threads decrement from `1`, resulting in `-1` inventory and a forced refund.
-
-### The Production Approach (Atomic Decrement)
-You must push the math down to the database level so the decrement happens within a single atomic operation.
-```typescript
-// Prisma example
-const updatedVariant = await prisma.variant.update({
-  where: { 
-    id: variantId,
-    inventoryCount: { gte: quantityRequested } // Optimistic concurrency check
-  },
-  data: {
-    inventoryCount: {
-      decrement: quantityRequested
-    }
-  }
-});
-```
-If you are using raw Postgres, use row-level locking:
-```sql
-BEGIN;
-SELECT inventory FROM variants WHERE id = '123' FOR UPDATE;
-UPDATE variants SET inventory = inventory - 1 WHERE id = '123' AND inventory > 0;
-COMMIT;
-```
+In this module, we will engineer a highly resilient, globally distributed Application Database using **PostgreSQL** and **Prisma ORM**, specifically optimized for Serverless Next.js edge functions.
 
 ---
 
-## 2. Financial Precision (The Float Problem)
+## 1. The Connection Pooling Crisis
 
-Never, ever store money as a floating-point number (`DECIMAL`, `FLOAT`, or `REAL`). 
-Floating-point math in programming languages introduces rounding errors (`0.1 + 0.2 = 0.30000000000000004`). In e-commerce, a rounding error on a 10% discount across 50,000 orders is an accounting disaster.
+A beginner connects Next.js to PostgreSQL using a standard connection string (`postgres://user:pass@host:5432/db`). 
 
-**The Rule:** Store all monetary values as integers representing the smallest currency unit (e.g., cents in USD, paise in INR, pence in GBP).
+When a Next.js Serverless Function scales up to handle Black Friday traffic, it might spin up 1,000 parallel Vercel Edge nodes. If each node opens a direct connection to your PostgreSQL database, the database will instantly hit its connection limit (`max_connections = 100`) and crash, resulting in a `500 Internal Server Error` for 90% of your customers.
+
+**The Production Solution:**
+You must implement a **Connection Pooler** (like PgBouncer or Supabase Supavisor). 
+
+```mermaid
+sequenceDiagram
+    participant Edge as Next.js Serverless Function
+    participant Pooler as Connection Pooler (PgBouncer)
+    participant DB as PostgreSQL Database
+
+    Edge->>Pooler: Request Connection (1,000 concurrent)
+    Note over Pooler: Pooler holds 1,000 Edge connections...
+    Pooler->>DB: Multiplex onto 50 physical DB connections
+    DB-->>Pooler: Return Query Results
+    Pooler-->>Edge: Distribute Results to Serverless Nodes
+```
+
+By placing a Pooler in front of your database, you allow the serverless functions to scale infinitely without overwhelming the physical database hardware.
+
+---
+
+## 2. Prisma ORM Architecture
+
+You will use Prisma as your Object-Relational Mapper (ORM). It provides mathematical type safety. If your database schema changes, Prisma will throw a TypeScript error in your Next.js code before you can deploy a broken build to production.
+
+### The Schema Topography
+
+Below is the required Prisma schema to support the Application Database layer, bridging the gap between your local users and your Shopify backend.
 
 ```prisma
-// Correct Database Schema
-model OrderItem {
-  id             String  @id @default(uuid())
-  unitPriceCents Int     // e.g., 2999 for $29.99
-  taxCents       Int
-  discountCents  Int
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
 }
-```
-Only format the integer back into a decimal string when rendering it to the UI (`(price / 100).toFixed(2)`).
 
----
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL") // Used for migrations, bypassing the pooler
+}
 
-## 3. Data Immutability (The Snapshot Pattern)
-
-A massive mistake beginners make is relying purely on foreign keys for historical data.
-
-Imagine this schema:
-`Order` → has many `OrderItems` → belongs to `Product`.
-
-A customer buys a "Red T-Shirt" for $20. Six months later, the merchandising team changes the `Product` title to "Vintage Red Tee" and updates the price to $25. 
-Because your `OrderItem` relies on a relation to the `Product` table, the customer's historical receipt now shows they paid $25 for a "Vintage Red Tee." You have falsified financial records.
-
-**The Snapshot Pattern:**
-When an order is created, you must take a snapshot of the product data and store it statically on the `OrderItem` row.
-
-```prisma
-model OrderItem {
-  id              String   @id @default(uuid())
-  orderId         String
-  variantId       String?  // Can be null if variant is later deleted!
+model User {
+  id               String     @id @default(uuid())
+  email            String     @unique
+  shopifyId        String?    @unique // The Identity Bridge to the Commerce Engine
+  name             String?
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
   
-  // Statically captured at the exact moment of checkout
-  titleSnapshot   String
-  skuSnapshot     String
-  priceSnapshot   Int
-  taxSnapshot     Int
+  // Relations
+  reviews          Review[]
+  wishlistItems    Wishlist[]
+  
+  @@index([shopifyId])
+}
+
+model Review {
+  id               String   @id @default(uuid())
+  rating           Int      @db.SmallInt // 1-5 constraint enforced in API
+  headline         String   @db.VarChar(100)
+  content          String   @db.Text
+  isVerifiedBuyer  Boolean  @default(false)
+  
+  // Relations
+  productId        String   // The Shopify Product ID (External Reference)
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  createdAt        DateTime @default(now())
+
+  // Compound index for fast querying by product
+  @@index([productId, rating])
+}
+
+model Wishlist {
+  id               String   @id @default(uuid())
+  
+  // Relations
+  productId        String   // The Shopify Product ID (External Reference)
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  addedAt          DateTime @default(now())
+
+  // Ensure a user cannot add the same product twice
+  @@unique([userId, productId])
 }
 ```
 
----
-
-## 4. Database Connection Pooling
-
-Serverless environments (like Vercel functions or AWS Lambdas) scale infinitely by spinning up new instances. Every instance opens a new connection to your database. 
-
-If you get hit by a bot attack or a Black Friday spike, Vercel will spin up 1,000 functions. Postgres can typically only handle ~100 direct connections. Your database will crash with a `Too many connections` error, taking your store offline exactly when you have the most traffic.
-
-**The Solution:**
-You must route your database traffic through a Connection Pooler (like PgBouncer, Supabase Supavisor, or Prisma Accelerate). The pooler maintains a small number of persistent connections to the database, and multiplexes the thousands of serverless requests through them.
+### Edge Case Analysis: The Orphaned Product
+What happens if you delete a product in Shopify, but it still exists in your Application Database's `Wishlist` table?
+Because `productId` is just a string (an external reference), Prisma cannot enforce a foreign key constraint.
+**Solution:** Your Next.js frontend must gracefully handle missing products. When fetching the Wishlist, if Shopify returns a `404` for a `productId`, your Next.js code must silently delete the orphaned row from your Prisma database and hide the error from the user.
 
 ---
 
-## 5. Soft Deletes
+## 3. The Singleton Client (Preventing Memory Leaks)
 
-In e-commerce, you rarely `DELETE` records.
-- If you delete a user, you orphan their historical orders.
-- If you delete a product, you break the returns process.
-- If you delete a discount code, you break analytics reporting.
+In development mode (`npm run dev`), Next.js clears the Node.js cache on every file change (Hot Module Replacement). If you instantiate a new `PrismaClient` on every hot reload, you will create a massive memory leak and exhaust your database connections instantly.
 
-Implement soft deletes across all critical tables. Add a `deletedAt DateTime?` column. When a merchandising manager "deletes" a product, set the timestamp. Your queries must then filter `WHERE deletedAt IS NULL` for active storefront rendering, but backend financial queries can still access the data.
+You must mandate the **Singleton Pattern** for your Prisma Client.
 
----
+```typescript
+// lib/prisma.ts
+import { PrismaClient } from '@prisma/client';
 
-## AI Prompt — Generate Your Production Database Schema
+const globalForPrisma = global as unknown as { prisma: PrismaClient };
 
-```prompt
-I am implementing the database schema for a production e-commerce store using [Prisma / Drizzle / Raw SQL].
+export const prisma =
+  globalForPrisma.prisma ||
+  new PrismaClient({
+    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
+  });
 
-Business Profile:
-- DB Engine: [e.g., PostgreSQL]
-- Product Complexity: [e.g., Multi-tier variants, digital goods, physical goods]
-- Order Volume: [e.g., 5,000+ orders/month]
-
-Act as a Principal Database Architect:
-1. Generate the exact schema models (DDL/Prisma schema) for the core E-Commerce loop: Products, Variants, Users, Orders, OrderItems, and Discounts.
-2. Implement the "Snapshot Pattern" explicitly on the OrderItems model.
-3. Use integers (cents) for all financial fields.
-4. Add the necessary indexes (`@@index` or `CREATE INDEX`) required to ensure fast reads for the Storefront (e.g., indexing Product handle/slug, Order user_id).
-5. Provide the exact Typescript/SQL code for safely decrementing inventory atomically to prevent race conditions during a flash sale.
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 ```
 
 ---
 
-## Database Implementation Checklist
+## ✅ Database Engineering Checklist
 
-- [ ] Atomic decrement logic implemented for all inventory updates
-- [ ] All financial fields stored strictly as integers (cents/smallest unit)
-- [ ] Snapshot pattern implemented on Orders/OrderItems to guarantee historical immutability
-- [ ] Database connection pooling configured (PgBouncer/Supavisor) to survive serverless traffic spikes
-- [ ] Soft deletes (`deletedAt`) implemented for Users, Products, and Orders
-- [ ] Indexes applied to all frequently queried storefront fields (e.g., product handles, category IDs)
+- [ ] Connect via a Transaction Pooler (PgBouncer) to prevent serverless connection exhaustion.
+- [ ] Implement the Singleton pattern for your Prisma client to prevent memory leaks in development.
+- [ ] Use `@@index` in your Prisma schema for foreign keys (like `productId`) to guarantee fast reads.
+- [ ] Use the AI prompt below to generate your specific schema extensions.
+
+---
+
+## AI Prompt — Engineer the Production Database
+
+Copy this prompt into your AI to have it write the highly optimized database layer for your application.
+
+````prompt
+I am building a headless e-commerce store with Next.js (App Router). I need you to act as my Principal Database Engineer. We are establishing our PostgreSQL Application Database using Prisma.
+
+Our primary transactional data lives in Shopify. This PostgreSQL database is strictly for User Profiles, Wishlists, and Reviews.
+
+I need you to generate the following engineering implementations:
+
+**1. The Resilient Prisma Client:**
+Write the `lib/prisma.ts` file implementing the global Singleton pattern to prevent hot-reload connection exhaustion in development. Explain the difference between the pooled `DATABASE_URL` and the non-pooled `DIRECT_URL` for migrations.
+
+**2. The Extended Prisma Schema:**
+Write the `schema.prisma` file. It must include the `User`, `Review`, and `Wishlist` models. 
+- You MUST enforce a `@@unique([userId, productId])` constraint on the Wishlist to prevent duplicate saves.
+- You MUST include a `@@index` on `productId` in the Reviews table to ensure our `WHERE productId = X` queries execute in < 10ms.
+
+**3. The Orphaned Reference Handler:**
+Write a Next.js Server Action (`getUserWishlist.ts`). Show how it queries Prisma for the user's saved `productIds`, and then executes a parallel `Promise.all` fetch to the Shopify Storefront API. Demonstrate the exact `catch` block logic required to silently delete an orphaned `Wishlist` row if Shopify returns a 404 (indicating the product was deleted in the backend).
+````
+
+**Next: Backend Engineering →**
