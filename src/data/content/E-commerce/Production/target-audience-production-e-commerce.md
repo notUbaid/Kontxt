@@ -9,6 +9,11 @@ estimatedTime: 20-25 min
 
 # Target Audience Engineering
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 25 Minutes
 
 When beginners think of a "Target Audience," they usually think of marketing personas: *"My customer is Sarah, a 30-year-old yoga instructor who loves organic tea."*

@@ -9,6 +9,11 @@ estimatedTime: 30-45 min
 
 # High-Fidelity Asset Pipeline (Photography)
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 45 Minutes
 
 A beginner takes a photo of their product on their kitchen counter with an iPhone, uploads a 6MB raw JPEG to their website, and wonders why no one is buying their product and why their website takes 10 seconds to load.

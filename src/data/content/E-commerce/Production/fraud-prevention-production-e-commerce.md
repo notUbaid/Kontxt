@@ -9,6 +9,11 @@ estimatedTime: 30-45 min
 
 # Fraud Prevention & Card Testing Defense
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 45 Minutes
 
 A beginner wakes up to an email from Stripe: *"Your account has been terminated due to excessive fraud."* 

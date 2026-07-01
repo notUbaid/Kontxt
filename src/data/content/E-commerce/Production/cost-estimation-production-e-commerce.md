@@ -9,6 +9,11 @@ estimatedTime: 15-20 min
 
 # Architecture Economics (Cost Estimation)
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 20 Minutes
 
 Beginners calculate their e-commerce costs linearly: *"Shopify costs $39/month, my domain is $10/year, so my store costs $49 to run."*

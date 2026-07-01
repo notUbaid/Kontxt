@@ -9,6 +9,11 @@ estimatedTime: 45-60 min
 
 # Investment & Stakeholder Narrative
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 60 Minutes
 
 A beginner builds a 20-slide pitch deck listing every single feature of their website: *"Here is our login screen. Here is our cart. Here is our blue button."*

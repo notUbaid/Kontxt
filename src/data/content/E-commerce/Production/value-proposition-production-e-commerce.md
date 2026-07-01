@@ -9,6 +9,11 @@ estimatedTime: 15-20 min
 
 # Engineering the Value Proposition
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 20 Minutes
 
 A beginner views a value proposition as a marketing slogan: *"We sell high-quality, ethically sourced apparel at a fair price."*

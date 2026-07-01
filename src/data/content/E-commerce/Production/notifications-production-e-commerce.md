@@ -9,6 +9,11 @@ estimatedTime: 30-45 min
 
 # Notification & Event Routing
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 45 Minutes
 
 A beginner checks their e-commerce store by manually logging into the Shopify dashboard every three hours and hitting "Refresh" to see if they got an order. If a high-value customer's credit card fails, the beginner doesn't know until they manually check the logs two days later.

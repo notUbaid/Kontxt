@@ -9,6 +9,11 @@ estimatedTime: 30-45 min
 
 # Distributed Wishlist Architecture
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 45 Minutes
 
 A beginner builds a wishlist by adding a "Heart" button that sends a `POST` request to the database. If a user isn't logged in, the button throws an error, forcing them to create an account. The user gets annoyed, closes the tab, and the intent-to-buy is lost forever.

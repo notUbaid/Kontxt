@@ -9,6 +9,11 @@ estimatedTime: 30-45 min
 
 # Legal Compliance: GDPR & CCPA (Privacy Policy)
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 45 Minutes
 
 A beginner copies and pastes a free Privacy Policy template they found on Google, changes the company name, and thinks they are protected. 

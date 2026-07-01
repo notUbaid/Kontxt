@@ -9,6 +9,11 @@ estimatedTime: 30-45 min
 
 # Terms of Service & Legal Shielding
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 45 Minutes
 
 A beginner launches an e-commerce store selling protein powder. A customer buys it, uses it, gets a stomach ache, and sues the beginner for $500,000 for medical damages. Because the beginner didn't have a strict **Terms of Service (ToS)** with a "Limitation of Liability" clause, the beginner goes bankrupt.

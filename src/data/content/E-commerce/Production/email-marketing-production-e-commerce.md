@@ -9,6 +9,11 @@ estimatedTime: 45-60 min
 
 # Automated Lifecycle Workflows
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 60 Minutes
 
 A beginner exports a CSV of 1,000 emails from their database, uploads it to Mailchimp, and sends a single "15% OFF EVERYTHING" blast on Friday morning. 

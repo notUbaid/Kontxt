@@ -9,6 +9,11 @@ estimatedTime: 30-45 min
 
 # Advanced Payment Security & Compliance
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 45 Minutes
 
 A beginner builds a checkout form by adding an HTML `<input>` for the user's credit card number, saving it to a React state variable, and sending it to their Next.js backend to process the charge.

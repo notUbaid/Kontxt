@@ -9,6 +9,11 @@ estimatedTime: 20-30 min
 
 # Product Catalog Planning & Search Indexing
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 25 Minutes
 
 For a beginner building a small store, a product catalog is simple: You create a table in your database called `Products`, give it a title and a price, and when a user visits the site, you query the database to show the items.

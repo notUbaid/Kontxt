@@ -9,6 +9,11 @@ estimatedTime: 30-45 min
 
 # Warehouse & Logistics Operations
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 45 Minutes
 
 A beginner gets their first 50 orders, prints the PDF labels on a standard inkjet printer, cuts them out with scissors, and tapes them to the boxes. It takes them 4 hours to pack the orders.

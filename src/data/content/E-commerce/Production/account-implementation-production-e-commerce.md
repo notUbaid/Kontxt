@@ -9,6 +9,11 @@ estimatedTime: 45-60 min
 
 # Secure Identity & Account Engineering
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 60 Minutes
 
 In Phase 2, you learned the theory of the Passwordless Identity Bridge. You learned that storing raw passwords in your own database is a liability, and that Shopify requires a Multipass token to merge user sessions.

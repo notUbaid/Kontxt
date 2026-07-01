@@ -9,6 +9,11 @@ estimatedTime: 20-30 min
 
 # The Commerce Engine: Build vs. Buy
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 25 Minutes
 
 A beginner developer looks at a shopping cart and thinks: *"I can build that in a weekend. I'll just make a PostgreSQL `Orders` table and connect it to Stripe."*

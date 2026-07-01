@@ -9,6 +9,11 @@ estimatedTime: 45-60 min
 
 # Dynamic Shipping & Logistics API
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 60 Minutes
 
 A beginner sets a "Flat Rate Shipping" fee of $10 in their database. When a customer from Hawaii orders a massive 50lb dumbbell, the beginner goes to the post office and discovers the actual shipping cost is $85. They just lost $75 on a single order.

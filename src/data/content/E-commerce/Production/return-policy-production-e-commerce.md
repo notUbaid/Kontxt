@@ -9,6 +9,11 @@ estimatedTime: 45-60 min
 
 # Automated RMA Architecture (Return Merchandise Authorization)
 
+> [!TIP]
+> **For Beginners:** If you are reading this and feeling overwhelmed by terms like "Redis", "PgBouncer", or "Idempotency", do not panic. 
+> At the bottom of this document, there is an **AI Prompt**. You do not need to write this complex code yourself. You simply need to understand *why* this architecture is required, copy the AI Prompt, and paste it into Claude or ChatGPT to have it generate the production-ready code for you.
+
+
 **Estimated Time:** 60 Minutes
 
 A beginner manages returns via email. A customer emails them: *"I want to return this."* The beginner manually logs into EasyPost, buys a $10 return label, emails the PDF back to the customer, and hopes the customer actually ships the item. 
