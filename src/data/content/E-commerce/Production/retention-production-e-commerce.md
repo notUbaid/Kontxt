@@ -1,90 +1,161 @@
 ---
-title: Retention Strategy
+title: Retention
 slug: retention
-phase: Phase 6
+phase: Phase 6 Growth
 mode: production
 projectType: e-commerce
-estimatedTime: 30–40 min
+estimatedTime: 45-60 min
 ---
 
-# Retention Strategy
+# Subscriptions & Recurring Revenue Architecture
 
-In a production e-commerce business, acquiring a new customer costs 5x to 25x more than retaining an existing one. If your Customer Acquisition Cost (CAC) is $40 and your Average Order Value (AOV) is $50, you are losing money on the first sale. 
+**Estimated Time:** 60 Minutes
 
-Profitability in e-commerce is almost entirely dependent on Customer Lifetime Value (LTV). Retention is the engineering and marketing discipline of maximizing LTV.
+A beginner spends $50 on Facebook ads to acquire a single customer. The customer buys a $40 bag of coffee. The beginner loses $10 on the transaction and assumes e-commerce is a scam.
 
----
+In a production environment, you do not optimize for the first sale. You optimize for **Lifetime Value (LTV)**. If that customer buys that $40 bag of coffee every month for 2 years, they are worth $960. You gladly spend $50 to acquire $960.
 
-## 1. Subscription Architecture (Subscribe & Save)
-
-The most effective retention strategy is turning a one-off purchase into recurring revenue.
-
-**The Implementation:**
-You must integrate a Subscription Billing API (e.g., Stripe Billing, Recharge, or Skio).
-- **The Data Model:** A standard order is a single database row. A subscription is an ongoing contract. Your database must track `Subscription Status` (Active, Past Due, Canceled), `Billing Interval` (e.g., 30 days), and the `Stripe Subscription ID`.
-- **Dunning Management:** When a recurring credit card fails (which happens ~10% of the time), you cannot just cancel the subscription. You must implement a Dunning flow: automatic retries over 7 days, coupled with automated emails asking the customer to update their card via a secure Stripe Customer Portal link.
+In Phase 6, you must engineer a mathematical **Recurring Billing Engine (Subscriptions)**, implement **Dunning Management**, and architect a **Customer Portal**.
 
 ---
 
-## 2. Cohort Analysis (The Retention Metric)
+## 1. The Stripe Billing Architecture (Subscriptions)
 
-You cannot improve retention if you measure it incorrectly. Looking at a blended "Returning Customer Rate" is mathematically flawed because it mixes customers who bought yesterday with customers who bought 3 years ago.
+You must never store credit card numbers and attempt to run a `cron` job that manually creates a charge every 30 days. This violates PCI compliance, and if your server goes down, you lose the monthly revenue.
 
-**The Implementation:**
-You must build or integrate **Cohort Analysis** (via tools like Mixpanel, Amplitude, or Metabase).
-- Group users by the month they made their *first* purchase (e.g., "The January Cohort").
-- Track exactly what percentage of the January Cohort made a second purchase in February, March, and April.
-- If the January Cohort has 30% retention at Month 3, but the June Cohort only has 10% retention at Month 3, your engineering/marketing teams know that something broke in June (e.g., a drop in product quality, or a broken automated email sequence).
+**The Production Solution:**
+You must use **Stripe Billing** (or specialized tools like Skio/Recharge). Stripe's servers manage the calendar, handle leap years, and automatically execute the charge.
 
----
+When a customer checks out, you create a Stripe `Subscription` instead of a one-time `PaymentIntent`.
 
-## 3. Account Creation Friction
+```typescript
+// app/api/checkout/subscribe/route.ts
+import { stripe } from '@/lib/stripe';
 
-Customers hate creating passwords. If you require an account to check out, you kill conversion. If you only allow guest checkout, you kill retention (because the user cannot easily view their order history or reorder).
+export async function POST(req: Request) {
+  const { customerId, priceId } = await req.json();
 
-**The Solution:**
-Implement "Seamless Account Claiming."
-1. Allow the user to check out entirely as a Guest.
-2. After the payment succeeds, on the "Thank You" page, display a single button: "Save my details for next time."
-3. The user clicks it, enters a password (or uses a Magic Link), and your backend instantly upgrades the Guest session to an Authenticated User, attaching the order they just placed to their new profile.
+  // 1. Create the Subscription on Stripe's mathematical clock
+  const subscription = await stripe.subscriptions.create({
+    customer: customerId,
+    items: [{ price: priceId }],
+    payment_behavior: 'default_incomplete',
+    payment_settings: { save_default_payment_method: 'on_subscription' },
+    expand: ['latest_invoice.payment_intent'],
+  });
 
----
+  // 2. Return the Client Secret so the frontend can securely collect the credit card
+  const invoice = subscription.latest_invoice as Stripe.Invoice;
+  const paymentIntent = invoice.payment_intent as Stripe.PaymentIntent;
 
-## 4. The Replenishment Flow
-
-If you sell consumable goods (e.g., coffee, skincare, supplements), you know exactly when the customer will run out.
-
-**The Implementation:**
-Do not wait for them to remember to buy more.
-- If a bag of coffee lasts 30 days, configure an automated background job (e.g., using Inngest or Klaviyo).
-- On Day 25, automatically trigger a "Replenishment Email".
-- **Frictionless UI:** The email should contain a magic link that automatically rebuilds their exact previous cart, applies a 5% "Welcome Back" discount, and drops them directly on the checkout page, skipping the product browsing phase entirely.
-
----
-
-## AI Prompt — Architect Your Retention Engine
-
-```prompt
-I am building the customer retention architecture for a production e-commerce store.
-
-Tech Stack:
-- Subscriptions: [e.g., Stripe Billing / Skio]
-- Analytics: [e.g., Mixpanel / Postgres Metabase]
-- Backend: [e.g., Node.js]
-
-Act as a Principal Growth Engineer:
-1. Outline the database schema required to track Subscriptions separately from one-off Orders, including the fields necessary to manage Dunning (failed payment retries).
-2. Write a SQL query (or Prisma aggregate) that generates a basic Cohort Analysis, showing the percentage of users who made a second purchase within 30 days of their first purchase.
-3. Design the architectural flow for "Seamless Account Claiming" on the order confirmation page, explaining how the backend merges the guest cart data into a newly created user profile.
-4. Detail the background job logic required to trigger a "Replenishment Flow" email exactly 25 days after an order is marked as `DELIVERED` in the database.
+  return NextResponse.json({
+    subscriptionId: subscription.id,
+    clientSecret: paymentIntent.client_secret,
+  });
+}
 ```
 
+By offloading the recurring logic to Stripe, your Next.js application simply waits for Webhooks to know when a payment succeeds.
+
+## 2. Webhook State Machine (Fulfillment)
+
+When Stripe charges the customer on Day 30, it sends a webhook to your Next.js server. 
+You must intercept this webhook and mathematically insert a new `Order` into your database, triggering the warehouse to ship the new bag of coffee.
+
+```typescript
+// app/api/webhooks/stripe/route.ts
+export async function POST(req: Request) {
+  const event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
+
+  if (event.type === 'invoice.payment_succeeded') {
+    const invoice = event.data.object as Stripe.Invoice;
+    
+    // Check if this invoice belongs to a subscription
+    if (invoice.subscription) {
+      // 1. Mathematically generate a new Order for the warehouse
+      await prisma.order.create({
+        data: {
+          userId: invoice.customer as string,
+          stripeInvoiceId: invoice.id,
+          totalAmount: invoice.amount_paid,
+          status: 'PROCESSING', // Triggers the Inngest 3PL Worker!
+          // ...
+        }
+      });
+      
+      // 2. Log the retention success
+      logger.info({ event: 'SUBSCRIPTION_RENEWAL', invoiceId: invoice.id });
+    }
+  }
+}
+```
+
+## 3. Dunning Management (Involuntary Churn)
+
+What happens on Month 4 when the customer's credit card expires? The Stripe charge fails.
+
+A beginner loses the customer forever (Involuntary Churn).
+A production system uses **Dunning Management**.
+
+**The Production Solution:**
+When Stripe fails to charge the card, it emits an `invoice.payment_failed` webhook. 
+Your Next.js server catches this webhook and triggers a sophisticated retry schedule.
+
+1. **Day 0:** Stripe declines. Next.js emails the user: *"Your card expired. Please update it."*
+2. **Day 3:** Stripe automatically retries the charge. If it fails, Next.js emails them again.
+3. **Day 7:** Stripe retries. If it fails, Stripe mathematically cancels the subscription. Next.js updates the database to `status: CANCELLED`.
+
+## 4. The Self-Service Customer Portal
+
+If a customer wants to skip a month, swap their coffee flavor, or cancel their subscription, they will email you. If you have 10,000 subscribers, you will need to hire 5 full-time support reps just to handle cancellations.
+
+**The Production Solution:**
+You must generate a **Stripe Customer Portal** session.
+
+```typescript
+// app/api/account/portal/route.ts
+const session = await stripe.billingPortal.sessions.create({
+  customer: user.stripeCustomerId,
+  return_url: 'https://yourstore.com/account',
+});
+// Redirect the user to this secure URL.
+```
+
+Stripe provides a hosted, fully-secure UI where the user can update their credit card, pause their subscription, or cancel it entirely. This reduces your customer support overhead to absolute zero.
+
 ---
 
-## Retention Checklist
+## ✅ Retention Engineering Checklist
 
-- [ ] Subscription Billing API (Stripe/Recharge) integrated for consumable products
-- [ ] Automated Dunning flows configured to recover failed recurring payments
-- [ ] Cohort Analysis dashboards built to accurately track LTV over 3, 6, and 12-month periods
-- [ ] "Seamless Account Claiming" implemented on the post-purchase Thank You page
-- [ ] Replenishment background jobs configured to trigger automated reorder flows for consumable goods
+- [ ] Ban manual cron-job recurring billing. Architect Stripe Subscriptions to offload the calendar logic to Stripe's servers.
+- [ ] Engineer an `invoice.payment_succeeded` webhook handler to automatically generate new Database Orders for the warehouse every month.
+- [ ] Configure strict Dunning Management (Smart Retries) in Stripe to combat Involuntary Churn (expired credit cards).
+- [ ] Implement the Stripe Customer Portal to allow 100% self-service subscription management, eliminating support tickets.
+- [ ] Use the AI prompt below to generate the rigorous subscription architecture.
+
+---
+
+## AI Prompt — Engineer the Retention Engine
+
+Copy this prompt into your AI to have it generate the mathematical subscription layer.
+
+````prompt
+I am building a headless e-commerce store with Next.js (App Router). I need you to act as my Principal Growth Engineer. We are engineering our Subscription (Stripe Billing) architecture.
+
+I need you to generate the following strict backend implementations:
+
+**1. The Subscription Checkout Route:**
+Write the Next.js API Route (`/api/checkout/subscribe`).
+- It must create a `stripe.subscriptions.create` object, rather than a standard PaymentIntent.
+- Expand the `latest_invoice.payment_intent` to return the `clientSecret` to the React frontend.
+- Explain in Markdown why we must use `payment_behavior: 'default_incomplete'` to enforce Strong Customer Authentication (3DS) on the very first payment.
+
+**2. The Renewal Webhook Handler:**
+Write the exact `invoice.payment_succeeded` switch-case block inside our Stripe Webhook handler.
+- Show the Prisma query to mathematically generate a new `Order` row so our Inngest warehouse worker knows to ship a new physical product.
+
+**3. The Dunning Configuration Protocol:**
+Provide a Markdown checklist detailing exactly how to configure the "Smart Retries" schedule inside the Stripe Dashboard (Settings > Billing > Subscriptions and emails). Explain why waiting 3 days between retries is mathematically optimal for capturing delayed bank funds.
+````
+
+**Next: Growth Analytics Engineering →**
