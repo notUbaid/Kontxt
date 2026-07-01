@@ -1,150 +1,91 @@
 ---
 title: Tech Stack Selection
 slug: tech-stack-selection
-phase: Phase 2
+phase: Phase 2 E Commerce Development
 mode: production
 projectType: e-commerce
-estimatedTime: 40–50 min
+estimatedTime: 20-30 min
 ---
 
-# Tech Stack Selection
+# Enforcing the Production Tech Stack
 
-Phase 1 was about what to build. Phase 2 is about how to build it.
+**Estimated Time:** 25 Minutes
 
-At production scale, tech stack selection is the highest-leverage decision you will make. It determines your hosting costs, your deployment velocity, your hiring pool, and your store's ceiling. A personal project can afford to rewrite its stack; a production store with active customers and orders cannot. 
+Beginners often let their AI choose the tech stack. If you ask an AI to "build an e-commerce site," it might randomly choose Vue.js, Firebase, and a messy REST API simply because that is what it saw in a 2019 tutorial.
 
-This module gives you a clear framework for making this decision, opinionated recommendations for high-volume production stores, and the tradeoffs you accept with each architectural pattern.
+In a mass-production environment, tech stack selection is about **Ecosystem Gravity and Developer Velocity**. You must choose a stack that has massive community support, flawless documentation, and native edge-computing capabilities.
 
----
-
-## The Real Question
-
-Stack selection at production scale is not about what is trendiest. It is about:
-
-> *What allows a professional engineering team to ship a highly available, secure, and performant store that scales during peak traffic events (like Black Friday)?*
-
-Complexity in production is a liability. Every service you add is another point of failure. The best stack is the one that provides the exact degree of control you need, while outsourcing undifferentiated heavy lifting (like CDN management, PCI compliance, and basic CMS capabilities) to managed platforms.
+As an AI-Assisted Architect, you must explicitly lock in the Tech Stack and forbid the AI from deviating or importing random NPM packages that bloat the bundle size.
 
 ---
 
-## The Core Architectural Decision
+## 1. The Core Stack Mandate
 
-Before choosing a framework, you must choose an architectural pattern.
+You must enforce the following strict technologies. This specific combination is the absolute gold standard for modern headless commerce, providing the highest performance and the lowest server costs.
 
-| Architecture | Description | Use When | Engineering Cost |
-|---|---|---|---|
-| **Hosted Platform** | Shopify Plus, BigCommerce. Frontend and backend are tightly coupled. | You want to focus 100% on marketing and logistics, not engineering. | Low |
-| **Headless (Composable)** | Shopify/BigCommerce Backend + Custom Frontend (Next.js/Remix). | You need a bespoke user experience, edge speed, or multi-region routing, but want a managed backend. | Medium |
-| **Fully Custom Build** | Next.js + Stripe + Postgres (Medusa.js / Custom API). | You are building complex B2B features, custom multi-vendor logic, or have unique digital fulfillment models. | High |
-
-> [!WARNING]
-> Building a fully custom e-commerce backend (inventory, tax compliance, promotions engine, order state machines) is a massive undertaking. Unless your core business model *requires* a custom backend, **Headless Commerce** is the recommended default for modern production stores.
-
----
-
-## Recommended Stack — Headless Production Store
-
-This stack balances extreme performance (edge delivery), developer velocity, and robust backend reliability.
-
-```
-Frontend        →  Next.js 14 (App Router) + TypeScript
-Styling         →  Tailwind CSS + shadcn/ui
-E-commerce Core →  Shopify Storefront API (or Medusa.js)
-Database (App)  →  PostgreSQL (Supabase / Neon) for custom app data
-Cart State      →  Redis (Upstash) or Client-side cookies
-Payments        →  Stripe (via platform or direct) / Shopify Payments
-Search          →  Algolia / Typesense
-Deployment      →  Vercel / AWS Amplify
-```
-
-**Why this combination:**
-
-| Layer | Choice | Reason |
+| Layer | The Technology | Why We Enforce It |
 |---|---|---|
-| Next.js | App Router + RSC | Server Components provide unmatched SEO and initial load speed. Edge routing handles multi-region logic. |
-| Commerce API | Shopify Storefront API | Outsourcing inventory, admin UI, and PCI compliance saves months of engineering. |
-| PostgreSQL | Supabase / Neon | For custom features (e.g., user profiles, custom wishlists, reviews) that don't belong in the e-commerce engine. |
-| Redis | Upstash | Essential for high-performance session carts and rate-limiting at scale. |
-| Tailwind | Utility CSS | Prevents CSS bloat at scale. Standardizes design tokens across large engineering teams. |
-| Vercel | Edge Network | Zero-downtime deployments, automatic global CDN, and built-in edge caching. |
+| **Framework** | Next.js (App Router) | Native Server Components (RSC) drastically reduce JavaScript payload sizes sent to the browser. Native edge-caching via ISR. |
+| **Styling** | Tailwind CSS | Utility-first CSS completely eliminates dead code. The CSS file will never grow larger than ~10kb, regardless of how massive the store gets. |
+| **Type Safety** | Strict TypeScript | Mathematical proof that your code works before you deploy it. If the AI writes a bug, the compiler catches it. |
+| **Database/Backend** | Shopify / Swell | (As decided in the previous module). |
+
+## 2. Global State Management (Zustand)
+
+Next.js is fantastic for server-side routing, but an e-commerce store has highly complex client-side state: the Cart Drawer, the active Search Filters, and the User Session.
+
+If you let the AI use Redux, you will drown in thousands of lines of boilerplate code. If you let the AI use simple React Context, the entire app will re-render every time the cart updates, causing massive performance lag.
+
+**The Production Solution:**
+You must mandate the use of **Zustand**. It is a tiny, atomic state manager that allows components to subscribe to specific pieces of state without triggering global re-renders. It also supports `persist` middleware, automatically saving the cart to `localStorage` so it survives page refreshes.
+
+## 3. The NPM Bloat Prohibition
+
+AI assistants love to import heavy NPM packages to solve simple problems (e.g., importing `moment.js` just to format a date, which adds 300kb of bloat to the browser).
+
+**The Production Solution:**
+You must establish a strict **Zero-Bloat Rule**. 
+- The AI must use native browser APIs (like `Intl.DateTimeFormat`) instead of heavy libraries.
+- The AI must use Headless UI primitives (Radix) instead of bloated component libraries (like Material UI) which inject massive amounts of unnecessary CSS.
 
 ---
 
-## Next.js Rendering Strategy for E-Commerce
+## ✅ Tech Stack Checklist
 
-At production scale, rendering strategy dictates both infrastructure cost and TTFB (Time to First Byte).
-
-| Page | Rendering | Strategy |
-|---|---|---|
-| Homepage | SSG / ISR | Cache heavily at the edge. Revalidate on demand when CMS changes. |
-| Product Detail (PDP) | ISR | Statically generate with a 60s revalidation window. Fetch real-time price/inventory client-side if highly volatile. |
-| Collection Pages | SSR / ISR | Use SSR if relying on complex, user-specific filtering. Use ISR with URL search params for standard facets. |
-| Cart | CSR | Never cache. Fetch client-side or use a lightweight API route. |
-| Checkout | CSR / External | Must be dynamic. Often handled entirely by the commerce platform's hosted checkout. |
-| Account | SSR | Authenticated routes must never be cached. |
-
-> [!TIP]
-> **The Golden Rule of E-Commerce Rendering:** Cache the catalog, but never cache the cart, the price, or the inventory count. Stale product copy is fine; overselling out-of-stock items is a disaster.
+- [ ] Lock in Next.js (App Router) as the non-negotiable frontend framework.
+- [ ] Enforce strict TypeScript; ban the AI from using `any` types.
+- [ ] Mandate Zustand for atomic, performant global state management.
+- [ ] Enforce the "Zero-Bloat Rule" to protect the Core Web Vitals.
+- [ ] Use the AI prompt below to generate the foundational repository configuration.
 
 ---
 
-## The Composable Edge: When to Add Services
+## AI Prompt — Architect the Strict Tech Stack
 
-In a production composable architecture, you wire together best-in-class APIs. Do not add these on Day 1 unless required. Add them as you hit scale limits.
+Copy this prompt into your AI to lock in the technology choices and generate the foundational configuration files.
 
-| Service Category | Launch Stack | Scale Stack (Add when...) |
-|---|---|---|
-| **Search** | Native database ILIKE | **Algolia** (When typo-tolerance and merchandising matter) |
-| **CMS** | Hardcoded / Platform native | **Sanity / Contentful** (When marketing needs daily layout control) |
-| **Images** | Vercel Image Optimization | **Cloudinary / imgix** (When you need dynamic transformations at scale) |
-| **Email** | Resend / Postmark | **Klaviyo** (When marketing needs complex lifecycle flows) |
+````prompt
+I am building a production-grade headless e-commerce store. I need you to act as my Principal Architect. We are locking in our Tech Stack and establishing the repository rules.
 
----
+**The Mandated Tech Stack:**
+- Framework: Next.js (App Router)
+- Styling: Tailwind CSS
+- Language: Strict TypeScript (No `any` types allowed)
+- State Management: Zustand
 
-## Handling the "Black Friday" Problem
+I need you to generate the following foundational configurations and code:
 
-Production tech stacks must survive traffic spikes. 
+**1. The Strict `tsconfig.json`:**
+Provide a highly strict TypeScript configuration file. Ensure `strictNullChecks` and `noImplicitAny` are enabled to force maximum safety.
 
-1. **Edge Caching:** Ensure all catalog pages are served from a CDN. Your origin server should only see traffic for checkouts and cache misses.
-2. **Database Connection Pooling:** Serverless environments (like Vercel) can exhaust database connections during traffic spikes. You *must* use a connection pooler (like PgBouncer or Supabase's built-in pooler).
-3. **Queue-Based Processing:** Do not process heavy tasks synchronously. If a user places an order, push a message to a queue (e.g., Inngest, AWS SQS) to send the email and update downstream inventory.
+**2. The Zustand Cart Store:**
+Write the boilerplate Zustand store (`useCartStore.ts`). 
+- Include state for `items` (array) and `isOpen` (boolean). 
+- Include actions for `addItem`, `removeItem`, and `toggleCart`.
+- You MUST utilize the Zustand `persist` middleware to automatically sync the cart state to browser `localStorage`.
 
----
+**3. The Zero-Bloat Mandate:**
+Write a strict 3-point rule document that I will save in the repository as `CONTRIBUTING.md`. This document must explicitly forbid the use of heavy legacy libraries (like `moment.js` or `lodash`) and mandate the use of native JavaScript APIs (like `Intl`) to protect our Core Web Vitals.
+````
 
-## AI Prompt — Validate Your Production Stack
-
-```prompt
-I am architecting a production e-commerce store with the following requirements:
-
-- Business model: [B2C / B2B / Subscription / Digital]
-- Expected SKU count: [e.g., 500 SKUs]
-- Traffic profile: [Steady / Highly seasonal with massive spikes]
-- Team size: [Number of engineers]
-- Multi-region: [Yes/No - which regions?]
-- Existing systems: [Any legacy ERP or PIM systems we must integrate with?]
-
-I am proposing the following stack:
-- Frontend: [Framework]
-- Commerce Engine: [Shopify / Medusa / Custom]
-- Database: [Database]
-- Search: [Search Engine]
-- Hosting: [Hosting Provider]
-
-Act as a Principal Staff Engineer. Critique this stack:
-1. What is the single biggest operational risk with this architecture at scale?
-2. How will this stack handle a 10x traffic spike on Black Friday? Where is the bottleneck?
-3. What data synchronization issues will I face between the commerce engine and my database?
-4. Are there any over-engineered components I should swap for managed services?
-5. Outline the CI/CD pipeline required to deploy this stack safely with zero downtime.
-```
-
----
-
-## Stack Decision Checklist
-
-- [ ] Architecture pattern selected (Headless vs. Custom vs. Hosted) and documented in ADR
-- [ ] Rendering strategy explicitly mapped per page type
-- [ ] Database connection pooling strategy defined for serverless environments
-- [ ] Checkout PCI compliance boundary clearly defined (using hosted elements/checkout)
-- [ ] Third-party service integrations (CMS, Search, Email) scoped and budget-approved
-- [ ] Tech stack validated against team expertise and hiring goals
+**Next: Cost Estimation →**
