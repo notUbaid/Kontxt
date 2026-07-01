@@ -1,99 +1,176 @@
 ---
 title: SEO Setup
 slug: seo-setup
-phase: Phase 5
+phase: Phase 5 Store Launch
 mode: production
 projectType: e-commerce
-estimatedTime: 40–50 min
+estimatedTime: 45-60 min
 ---
 
-# SEO Setup
+# Technical SEO & Schema Architecture
 
-In e-commerce, SEO is not about writing blog posts. It is a technical engineering discipline. 
+**Estimated Time:** 60 Minutes
 
-If Google cannot crawl your 50,000 product pages, or if you create infinite spider traps via your filtering faceted navigation, your organic traffic will flatline. At production scale, Technical SEO is the foundation of customer acquisition.
+A beginner believes SEO is just about putting the keyword "Blue T-Shirt" in the title of their page and hoping Google ranks them #1.
 
----
+When Google's crawler visits a beginner's Next.js Single Page Application, it often sees a blank white screen because the JavaScript hasn't loaded yet. Or, it sees a disorganized jumble of `<div>` tags. Google doesn't know if the page is a blog post, a contact form, or a product.
 
-## 1. Dynamic Sitemaps (Scale Problem)
-
-A static `sitemap.xml` file is useless when your inventory changes daily.
-
-**The Implementation:**
-Your backend must dynamically generate the sitemap. 
-- If you have over 50,000 URLs (the Google limit for a single sitemap), you must implement a **Sitemap Index**.
-- `sitemap-index.xml` links to `sitemap-products-1.xml`, `sitemap-products-2.xml`, and `sitemap-categories.xml`.
-- **Performance:** Do not query Postgres to generate the sitemap on every bot request. Generate the XML files during the nightly CI/CD build, or cache the dynamically generated route heavily at the Edge.
+In a production environment, you must engineer **Semantic HTML Architecture**, **Dynamic XML Sitemaps**, and inject mathematical **JSON-LD Schema Markup** directly into the `<head>` of your document.
 
 ---
 
-## 2. Faceted Navigation (Spider Traps)
+## 1. JSON-LD Product Schema (The Mathematical SEO)
 
-This is the #1 SEO killer for custom e-commerce stores. 
+You must explicitly tell Google what your page is. JSON-LD (JavaScript Object Notation for Linked Data) is the industry standard for this.
 
-If you have a category page for "Shirts", and users can filter by Color (10), Size (5), and Brand (20), you just created 1,000 unique URLs (e.g., `/shirts?color=red&size=m&brand=nike`). If Google crawls all combinations, it wastes your "Crawl Budget," and Google will stop indexing your actual product pages.
+When you inject a Product Schema, Google reads it and instantly understands the price, the exact stock level, and the aggregate review score. This allows Google to generate **Rich Snippets** (the shiny product cards with gold stars) directly in the search results.
 
-**The Implementation:**
-1. **Canonical Tags:** Ensure every filtered URL has a `<link rel="canonical" href="/shirts" />` pointing back to the root category. This tells Google to ignore the filter variations.
-2. **Robots.txt:** Explicitly block query parameters that do not add SEO value.
-   ```text
-   User-agent: *
-   Disallow: /*?sort_by=*
-   Disallow: /*?price_min=*
-   ```
+**The Production Solution:**
+You must generate this script dynamically on the server in your Next.js Product Page.
 
----
+```tsx
+// app/product/[slug]/page.tsx
+import { Product } from '@/types';
 
-## 3. Structured Data (JSON-LD)
+export default async function ProductPage({ params }: { params: { slug: string } }) {
+  const product = await getProduct(params.slug);
 
-Getting on page 1 of Google is good. Getting the "Rich Snippet" (showing the price, rating, and green "In Stock" badge directly in the search results) increases Click-Through Rate (CTR) by 30%.
+  // 1. The Mathematical Schema
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    image: product.images[0].url,
+    description: product.seoDescription,
+    sku: product.sku,
+    brand: {
+      '@type': 'Brand',
+      name: 'Your Awesome Store'
+    },
+    offers: {
+      '@type': 'Offer',
+      url: `https://yourstore.com/product/${product.slug}`,
+      priceCurrency: 'USD',
+      price: product.price,
+      // CRITICAL: Tells Google if they should show "In Stock" in search results
+      availability: product.inventoryCount > 0 
+        ? 'https://schema.org/InStock' 
+        : 'https://schema.org/OutOfStock', 
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: product.averageRating,
+      reviewCount: product.reviewCount,
+    }
+  };
 
-**The Implementation:**
-You must dynamically inject `Product` schema into the `<head>` of every Product Detail Page.
-- The schema MUST update when the price changes. If your schema says $50, but the page says $60, Google will penalize you for mismatched data.
-- Ensure you include the `AggregateRating` schema if you have a reviews integration (like Yotpo or Okendo).
+  return (
+    <section>
+      {/* 2. Injecting the Schema into the DOM invisibly */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {/* 3. The actual visual UI */}
+      <h1>{product.name}</h1>
+      {/* ... */}
+    </section>
+  );
+}
+```
 
----
+## 2. Dynamic XML Sitemaps
 
-## 4. Internationalization (hreflang)
+If you have 10,000 products, Google's bot might only discover 500 of them by clicking random links on your homepage. 
 
-If you sell in the US, UK, and Canada, you likely have three URLs for the same product (e.g., `/en-us/shirt`, `/en-uk/shirt`, `/en-ca/shirt`).
+**The Production Solution:**
+You must build a dynamic XML sitemap that updates instantly every time you add a new product to your database. Next.js App Router makes this mathematically precise with the `sitemap.ts` file.
 
-Without intervention, Google views this as duplicate content and penalizes all three.
+```typescript
+// app/sitemap.ts
+import { MetadataRoute } from 'next';
+import { prisma } from '@/lib/prisma';
 
-**The Implementation:**
-Inject `hreflang` tags to explicitly define the geographic targeting.
-```html
-<link rel="alternate" hreflang="en-US" href="https://store.com/en-us/shirt" />
-<link rel="alternate" hreflang="en-GB" href="https://store.com/en-uk/shirt" />
-<link rel="alternate" hreflang="x-default" href="https://store.com/en-us/shirt" />
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const products = await prisma.product.findMany({
+    select: { slug: true, updatedAt: true }
+  });
+
+  const productUrls = products.map((product) => ({
+    url: `https://yourstore.com/product/${product.slug}`,
+    lastModified: product.updatedAt,
+    changeFrequency: 'daily' as const,
+    priority: 0.8, // Tells Google products are very important
+  }));
+
+  return [
+    {
+      url: 'https://yourstore.com',
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 1, // Homepage is the most important
+    },
+    ...productUrls,
+  ];
+}
+```
+
+Every time Google hits `https://yourstore.com/sitemap.xml`, Next.js executes this SQL query and returns a perfectly formatted XML map of your entire database.
+
+## 3. Canonical URLs (Duplicate Content Defense)
+
+If a user navigates to `yourstore.com/product/shirt` and another navigates to `yourstore.com/product/shirt?color=red&ref=twitter`, Google sees two different URLs with the exact same content. 
+
+Google will penalize your site for "Duplicate Content."
+
+**The Production Solution:**
+You must inject a **Canonical URL** tag in your Next.js metadata. This tells Google: *"Ignore the ?color=red tracking parameters. The true, mathematical URL of this page is exactly `/product/shirt`."*
+
+```typescript
+// Inside generateMetadata()
+export async function generateMetadata({ params }) {
+  return {
+    alternates: {
+      canonical: `https://yourstore.com/product/${params.slug}`,
+    },
+  };
+}
 ```
 
 ---
 
-## AI Prompt — Architect Your Technical SEO
+## ✅ SEO Engineering Checklist
 
-```prompt
-I am implementing the Technical SEO architecture for a production e-commerce store with 100,000 SKUs.
-
-Tech Stack:
-- Framework: [e.g., Next.js App Router]
-- Database: [e.g., Postgres]
-
-Act as a Principal SEO Engineer:
-1. Write the Next.js `route.ts` code required to dynamically generate a Sitemap Index and paginate through 100,000 product URLs efficiently.
-2. Provide a strict `robots.txt` configuration that prevents Googlebot from falling into an infinite spider trap caused by faceted URL filtering (e.g., blocking `?color=` and `?size=`).
-3. Generate the exact JSON-LD `Product` schema snippet required to earn Google Rich Results, including nested `Offer` and `AggregateRating` structures.
-4. Explain how to implement `hreflang` tags correctly across a Next.js application that supports US, UK, and Canadian markets to prevent duplicate content penalties.
-```
+- [ ] Inject dynamic JSON-LD `Product` and `Offer` schema into every Product Detail Page (PDP) to unlock Rich Snippets in Google Search.
+- [ ] Implement a dynamic `sitemap.ts` file that queries the database to map 100% of your product catalog for search engine crawlers.
+- [ ] Enforce strict Canonical URLs via `generateMetadata` to mathematically immunize your store against duplicate content penalties caused by query parameters.
+- [ ] Use the AI prompt below to generate the rigorous SEO architecture.
 
 ---
 
-## SEO Setup Checklist
+## AI Prompt — Engineer Technical SEO
 
-- [ ] Dynamic Sitemap Index implemented to handle large catalogs (>50,000 URLs) without timing out
-- [ ] Canonical tags strictly implemented on all faceted navigation (filter) URLs to consolidate page authority
-- [ ] `robots.txt` configured to block crawl-wasting parameters (e.g., sorting, pricing filters)
-- [ ] JSON-LD `Product` and `AggregateRating` schemas dynamically injected into every PDP
-- [ ] `hreflang` tags implemented (if operating internationally) to resolve duplicate content issues
-- [ ] Meta Title and Description generation automated to include dynamic variables (e.g., "Buy [Product Name] for $[Price]")
+Copy this prompt into your AI to have it generate the mathematical SEO architecture.
+
+````prompt
+I am building a headless e-commerce store with Next.js (App Router). I need you to act as my Principal SEO Engineer. We are engineering our Technical SEO and Metadata layer.
+
+I need you to generate the following strict architectural implementations:
+
+**1. The JSON-LD Product Schema Injector:**
+Write the `<ProductPage />` Server Component.
+- Show how to construct the `@type: 'Product'` JSON object.
+- It MUST include `offers` (price, currency, availability) and `aggregateRating` (if reviews exist).
+- Show exactly how to inject this into the DOM using a `<script type="application/ld+json">` tag with `dangerouslySetInnerHTML`.
+
+**2. The Dynamic Database Sitemap:**
+Write the `app/sitemap.ts` file. 
+- Show how it uses Prisma to query all `Products` and `Categories`.
+- Show how it constructs the `MetadataRoute.Sitemap` array, defining strict `priority` weights (e.g., Homepage = 1.0, Categories = 0.9, Products = 0.8) to instruct Google's crawler correctly.
+
+**3. The Canonical Metadata Generator:**
+Write a robust `generateMetadata` function. 
+- Explain why we must hardcode the `alternates.canonical` string using the base URL + the `slug` parameter to mathematically strip out utm_tags or query strings before Google parses the page.
+````
+
+**Next: Analytics Setup Engineering →**
