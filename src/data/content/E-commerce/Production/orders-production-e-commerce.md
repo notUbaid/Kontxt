@@ -1,122 +1,158 @@
 ---
-title: Orders Implementation
+title: Orders
 slug: orders
-phase: Phase 3
+phase: Phase 3 E Commerce Development
 mode: production
 projectType: e-commerce
-estimatedTime: 35–45 min
+estimatedTime: 45-60 min
 ---
 
-# Orders Implementation
+# Order Processing & State Machines
 
-An order in an e-commerce database is not a static receipt. It is a highly active State Machine that dictates the movement of physical goods, financial reconciliation, and customer communications.
+**Estimated Time:** 60 Minutes
 
-If you allow your application to update an order's status arbitrarily (e.g., changing it from `refunded` back to `processing`), you will break integrations with your warehouse and your accounting software.
+A beginner views an "Order" as a simple row in a database with a boolean flag: `isShipped: false`.
+
+In a production environment, an order is a living, breathing entity that transitions through dozens of states. What happens if an order is paid, but the fraud system flags it as highly suspicious? What happens if the warehouse prints the label, but then the customer emails asking for a refund?
+
+If you just use simple booleans (`isRefunded: true`), your codebase will become an unmaintainable disaster of `if/else` statements.
+
+In Phase 3, you must engineer a **Finite State Machine (FSM)** to govern your Order lifecycle, implement **Idempotent Fulfillment**, and engineer an **Order Mutation API** for your admin dashboard.
 
 ---
 
-## 1. The Strict State Machine
+## 1. The Finite State Machine (FSM)
 
-You must enforce strict, unidirectional state transitions at the database level.
+An Order State Machine mathematically prevents an order from entering an impossible state. 
+For example, an order cannot transition from `PENDING` directly to `DELIVERED` without first being `SHIPPED`. An order cannot be `REFUNDED` if it was never `PAID`.
 
-**The Implementation:**
-Define an Enum for the Order Status. Your backend must enforce that transitions only move forward.
+**The Production Solution:**
+You must enforce strict state transitions using an Enum in Prisma, and a State Machine logic layer in your Next.js backend.
+
 ```prisma
+// schema.prisma
 enum OrderStatus {
-  PENDING_PAYMENT // Created, waiting for Stripe webhook
-  UNFULFILLED     // Payment secured, waiting for warehouse
-  PARTIALLY_FULFILLED // Split shipment (e.g., 1 of 2 items shipped)
-  FULFILLED       // All items shipped
-  CANCELED        // Canceled before shipping
-  RETURNED        // Canceled after shipping
+  PENDING
+  PAID
+  FRAUD_HOLD
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  REFUNDED
+  CANCELED
+}
+
+model Order {
+  id          String      @id @default(uuid())
+  status      OrderStatus @default(PENDING)
+  // ...
 }
 ```
 
-**The Transition Logic:**
-In your API route that handles status updates (e.g., receiving a webhook from the warehouse):
+When your webhook attempts to update an order, it must route through the State Machine:
+
 ```typescript
-function transitionOrder(order, newStatus) {
-  const allowedTransitions = {
-    'UNFULFILLED': ['PARTIALLY_FULFILLED', 'FULFILLED', 'CANCELED'],
-    'FULFILLED': ['RETURNED'],
-    // RETURNED cannot transition to anything. It is a terminal state.
-  };
+// lib/orderState.ts
+const validTransitions = {
+  PENDING: ['PAID', 'CANCELED'],
+  PAID: ['PROCESSING', 'FRAUD_HOLD', 'REFUNDED'],
+  FRAUD_HOLD: ['PROCESSING', 'CANCELED'],
+  PROCESSING: ['SHIPPED', 'REFUNDED'],
+  SHIPPED: ['DELIVERED', 'REFUNDED'],
+};
 
-  if (!allowedTransitions[order.status].includes(newStatus)) {
-    throw new Error(`Invalid state transition from ${order.status} to ${newStatus}`);
+export async function transitionOrderStatus(orderId: string, newStatus: OrderStatus) {
+  const order = await prisma.order.findUnique({ where: { id: orderId } });
+  
+  // Mathematically block impossible logic
+  if (!validTransitions[order.status].includes(newStatus)) {
+    throw new Error(`Cannot transition from ${order.status} to ${newStatus}`);
   }
+
+  await prisma.order.update({ where: { id: orderId }, data: { status: newStatus } });
+}
+```
+
+This prevents a rogue API call from accidentally marking a canceled order as "Shipped", which would cause your 3PL warehouse to illegally mail out a product to a refunded customer.
+
+## 2. Idempotent Fulfillment (3PL Integration)
+
+When an order enters the `PAID` state, your Event Bus (Inngest) fires a worker to send the order JSON to your 3PL Warehouse (e.g., ShipStation).
+
+If your Next.js server sends the request, but the internet drops before ShipStation can respond, your server will retry. If you don't use Idempotency, ShipStation receives two identical requests and mails the customer *two boxes of inventory*.
+
+**The Production Solution:**
+You must send your internal `orderId` as the unique external reference ID to the warehouse API.
+
+```typescript
+// Background Worker
+await fetch('https://ssapi.shipstation.com/orders/createorder', {
+  method: 'POST',
+  headers: { 'Authorization': `Basic ${token}` },
+  body: JSON.stringify({
+    orderNumber: order.id, // THE IDEMPOTENCY KEY
+    orderDate: order.createdAt,
+    orderStatus: 'awaiting_shipment',
+    // ...
+  })
+});
+```
+
+Because `orderNumber` must be unique in ShipStation, the second retry request will simply be rejected as a duplicate. You are protected from double-shipping.
+
+## 3. The Mutation Audit Log
+
+If an order is suddenly refunded, and you have a team of three customer service agents, how do you know *who* clicked the refund button in your Admin dashboard?
+
+**The Production Solution:**
+Every time an order transitions state, you must write an entry to an `OrderEventLog` table. This provides an immutable paper trail for legal compliance and debugging.
+
+```prisma
+model OrderEventLog {
+  id        String   @id @default(uuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id])
+  oldStatus String
+  newStatus String
+  userId    String   // The Admin who made the change, or 'SYSTEM' for webhooks
+  createdAt DateTime @default(now())
 }
 ```
 
 ---
 
-## 2. Immutability (The Snapshot Pattern)
+## ✅ Orders Engineering Checklist
 
-As covered in the Database architecture, **an Order is a historical artifact.** It must never change just because upstream data changed.
-
-**The Implementation:**
-When the `UNFULFILLED` state is reached, the order row must contain hardcoded snapshots:
-- `shipping_address_snapshot`: If the user moves to a new house next year and updates their profile, their old order receipts must still show their old address.
-- `tax_rate_snapshot`: If the government changes the VAT rate from 20% to 22% next month, your past orders must still calculate mathematically using the 20% rate.
-- `product_title_snapshot`: If the merchandising team renames a product, the old receipt must show the old name.
+- [ ] Abandon boolean flags for order states. Engineer a strict Finite State Machine (FSM).
+- [ ] Prevent double-shipping by enforcing Idempotency Keys when communicating with external 3PL warehouse APIs.
+- [ ] Engineer an immutable `OrderEventLog` in your database to track exactly who changed an order's status and when.
+- [ ] Use the AI prompt below to generate the Order FSM architecture.
 
 ---
 
-## 3. Split Fulfillments
+## AI Prompt — Engineer the Order Processing Layer
 
-At production scale, customers will buy items that cannot ship together. 
-- Example: A pre-order item (shipping in 2 months) and an in-stock item (shipping today).
-- Example: An item shipping from the East Coast warehouse, and an item shipping from the West Coast warehouse.
+Copy this prompt into your AI to have it generate the fault-tolerant order state machine.
 
-**The Implementation:**
-Your database must support a `Fulfillment` table that sits between the `Order` and the `OrderItem`.
-1. An `Order` has many `Fulfillments`.
-2. A `Fulfillment` contains specific `OrderItems` and a unique `tracking_number`.
-3. If an order has 3 items, and 2 are shipped today, the system creates `Fulfillment A` and marks the main Order as `PARTIALLY_FULFILLED`. 
-4. The backend sends an email to the customer: "Some items in your order have shipped!" containing only the items in `Fulfillment A`.
+````prompt
+I am building a headless e-commerce store with Next.js (App Router). I need you to act as my Principal Backend Engineer. We are engineering our Order Processing and State Machine architecture.
 
----
+I need you to generate the following strict, mathematical implementations:
 
-## 4. The Idempotent Creation Flow
+**1. The FSM Validator:**
+Write a highly robust TypeScript utility (`lib/fsm.ts`). 
+- It must contain the valid transition mapping object for an order (Pending -> Paid -> Processing -> Shipped -> Delivered).
+- Write a function `updateOrderStatus(orderId, newStatus, adminUserId)`.
+- Show the exact code that checks the mapping, throws an HTTP 400 error if the transition is illegal, and executes a Prisma `$transaction`.
 
-When the `payment_intent.succeeded` webhook arrives from Stripe, you must create the order idempotently.
+**2. The Audit Log Transaction:**
+Inside the `updateOrderStatus` transaction, show how Prisma updates the main `Order` row, AND simultaneously creates a new row in an `OrderEventLog` table. Ensure the `oldStatus` and `newStatus` are captured, along with the `adminUserId` making the change.
 
-**The Implementation:**
-1. Transaction Start.
-2. Check if an Order with `transaction_id == stripe_intent_id` exists. If yes, return 200 OK and abort.
-3. Fetch the Cart from Redis using the metadata attached to the Stripe intent.
-4. Decrement the Inventory atomically in Postgres. (If this fails due to a race condition, issue an automatic refund via Stripe API).
-5. Insert the Order and OrderItems (with snapshots) into Postgres.
-6. Publish `order.created` to the Event Queue (for emails and warehouse syncing).
-7. Delete the Cart from Redis.
-8. Transaction Commit.
+**3. The Idempotent 3PL Worker:**
+Write the background Event Worker (e.g., using Inngest) that triggers when the `order.paid` event fires.
+- Show a mock `fetch` call to a generic Warehouse API (like ShipStation).
+- Explicitly highlight how you are mapping our internal `order.id` to the external `orderNumber` field to guarantee idempotency and prevent double-shipping.
+- Write the logic that updates our database `status` to `PROCESSING` only after the 3PL API returns a 200 Success.
+````
 
----
-
-## AI Prompt — Architect Your Order System
-
-```prompt
-I am implementing the Order Management layer for a production e-commerce store.
-
-Tech Stack:
-- Database: [e.g., Postgres + Prisma]
-- Fulfillment Model: [e.g., In-house / Multi-Warehouse 3PL]
-- Backend: [e.g., Node.js / TypeScript]
-
-Act as a Principal Backend Engineer:
-1. Provide the TypeScript implementation of a strict State Machine class for Order Statuses, explicitly defining allowed transitions and throwing errors for invalid updates.
-2. Write the Prisma schema required to support Split Fulfillments (an Order that has multiple shipments, each with their own tracking numbers and subsets of OrderItems).
-3. Draft the exact database transaction (or Prisma `$transaction`) required to safely convert a Redis Cart into a Postgres Order upon receiving a Stripe Webhook, ensuring the "Snapshot Pattern" is strictly enforced for pricing and addresses.
-4. Explain how the system should automatically issue a Stripe Refund if the atomic inventory decrement fails during order creation.
-```
-
----
-
-## Orders Implementation Checklist
-
-- [ ] Strict State Machine enforced in backend code for all order status transitions
-- [ ] Snapshot Pattern implemented to freeze addresses, prices, and taxes permanently on the order record
-- [ ] Database schema built to support multiple `Fulfillments` per `Order` (for split shipments)
-- [ ] Order creation logic wrapped in a database transaction to ensure atomicity
-- [ ] Automatic refund logic implemented if inventory decrement fails after payment capture
-- [ ] `order.created` event published to an asynchronous queue to decouple email/WMS syncing from the webhook response
+**Next: Account Implementation →**

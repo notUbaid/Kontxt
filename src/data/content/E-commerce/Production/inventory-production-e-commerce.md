@@ -1,105 +1,165 @@
 ---
-title: Inventory Implementation
+title: Inventory
 slug: inventory
-phase: Phase 3
+phase: Phase 3 E Commerce Development
 mode: production
 projectType: e-commerce
-estimatedTime: 35–45 min
+estimatedTime: 45-60 min
 ---
 
-# Inventory Implementation
+# Inventory Synchronization & Allocation
 
-Implementing inventory at production scale requires solving one core computer science problem: high-concurrency state mutation.
+**Estimated Time:** 60 Minutes
 
-If 1,000 users attempt to buy the last 10 pairs of limited-edition sneakers at the exact same millisecond, your application layer and database must orchestrate the queue perfectly. If it fails, you sell 1,000 pairs, cancel 990 orders, refund thousands of dollars, and destroy your brand's reputation.
+In Phase 2, you architected the theory behind inventory allocation (preventing overselling). Now, in Phase 3, we write the code.
 
----
+If a beginner builds an e-commerce store, they fetch the inventory count once when the page loads. If the page says "1 Left in Stock", User A and User B both see it. If they both click "Checkout" at the same time, the beginner's Next.js API simply runs `UPDATE inventory SET count = count - 1`. 
 
-## 1. The Atomic Decrement (Database Layer)
+Because they didn't use mathematically sound concurrency controls, both checkouts succeed. The database drops to `-1`. You have just oversold your inventory. User B's credit card is charged, but you have no product to ship them.
 
-You cannot trust application-level math for inventory.
-
-**The Failure Pattern:**
-1. Node.js reads: `inventory = 10`
-2. Node.js subtracts 1: `new_inventory = 9`
-3. Node.js writes: `UPDATE variants SET inventory = 9`
-If 10 requests hit Node.js simultaneously, they all read `10`, they all subtract `1`, and they all write `9`. You just sold 10 items, but the database says you have 9 left.
-
-**The Production Implementation:**
-The decrement must happen atomically inside the database engine.
-```sql
--- PostgreSQL Atomic Update
-UPDATE variants 
-SET available_to_promise = available_to_promise - 1 
-WHERE sku = 'SNKRS-RED-10' 
-  AND available_to_promise >= 1
-RETURNING id;
-```
-If this query returns `0` rows, the item is sold out, and your application layer immediately aborts the checkout and returns an `Out of Stock` error.
+As an AI-Assisted Architect, you must engineer **Pessimistic Locking**, **Real-Time Edge Validation**, and **Webhook Deduplication**.
 
 ---
 
-## 2. Flash Sales and Queueing (Redis)
+## 1. Pessimistic Locking (The Concurrency Fix)
 
-Atomic database decrements work fine for normal traffic. During a massive flash sale (e.g., a hyped product drop or Black Friday), hammering Postgres with thousands of concurrent `UPDATE` locks will exhaust your connection pool and crash the database.
+You cannot trust basic math operations in a distributed system where multiple users interact with the same database row simultaneously.
 
-**The Flash Sale Implementation:**
-You must protect the relational database using an in-memory datastore like **Redis**.
+**The Production Solution:**
+When your Next.js route begins the checkout process, it must tell PostgreSQL to "Lock" the inventory row. 
+If User A's checkout function grabs the lock, User B's checkout function must *pause and wait* until User A finishes.
 
-1. **Pre-warm Redis:** 5 minutes before the sale, sync the inventory counts from Postgres to Redis.
-2. **The LUA Script:** When a user clicks "Checkout", execute a Redis LUA script. LUA scripts in Redis are single-threaded and atomic.
-```lua
--- Redis LUA Script to reserve inventory
-local inventory = tonumber(redis.call('get', KEYS[1]))
-if inventory and inventory >= 1 then
-    redis.call('decr', KEYS[1])
-    return 1 -- Success
-else
-    return 0 -- Sold out
-end
-```
-3. **The Handoff:** If the LUA script returns `1`, allow the user into the checkout flow. If it returns `0`, reject them instantly without ever touching Postgres.
-4. **The Settlement:** When the payment actually succeeds, asynchronously update the persistent Postgres database.
+```typescript
+// app/api/checkout/capture/route.ts
+import { prisma } from '@/lib/prisma';
 
----
+export async function POST(req: Request) {
+  const { productId, quantity } = await req.json();
 
-## 3. Webhooks & ERP Syncing
+  try {
+    // 1. Begin a Transaction. Either everything succeeds, or everything rolls back.
+    const order = await prisma.$transaction(async (tx) => {
+      
+      // 2. PESSIMISTIC LOCK: Fetch the inventory, but lock the row so no one else can read it.
+      // This mathematically prevents race conditions.
+      const inventory = await tx.$queryRaw`
+        SELECT count FROM "Inventory" 
+        WHERE "productId" = ${productId} 
+        FOR UPDATE
+      `;
 
-Your e-commerce database is not the ultimate source of physical inventory truth; the warehouse is. 
+      if (inventory[0].count < quantity) {
+        throw new Error('Insufficient Stock');
+      }
 
-If a forklift crushes a pallet of goods, the Warehouse Management System (WMS) will update its count. Your e-commerce system must sync this change immediately.
+      // 3. Decrement the stock safely
+      await tx.inventory.update({
+        where: { productId },
+        data: { count: { decrement: quantity } }
+      });
 
-**The Implementation:**
-1. Your backend must expose a secured `/api/webhooks/inventory` endpoint.
-2. The WMS/ERP pushes inventory adjustments here.
-3. **Safety Check:** The webhook payload should include the *delta* (e.g., `-50 units`), not just the *absolute total*. If the WMS pushes an absolute total based on old data, it will overwrite sales that happened in the last 5 minutes.
-4. **Cache Invalidation:** The instant the database inventory is updated, your backend must fire a cache invalidation request to your frontend (Next.js On-Demand ISR) to ensure the PDP reflects the new stock level immediately.
+      // 4. Create the Order
+      return await tx.order.create({ /* ... */ });
+    });
 
----
-
-## AI Prompt — Implement Your Inventory Concurrency
-
-```prompt
-I am implementing the inventory decrement logic for a production e-commerce store facing high-concurrency traffic spikes.
-
-Tech Stack:
-- Database: [e.g., Postgres + Prisma]
-- Cache/Queue: [e.g., Redis / Upstash]
-- Backend: [e.g., Next.js Route Handlers]
-
-Act as a Principal Backend Engineer:
-1. Write the exact database query (Raw SQL or Prisma) required to atomically decrement inventory and prevent race conditions.
-2. Provide the Redis LUA script implementation required to protect the primary database during a massive flash sale, acting as a high-speed reservation queue.
-3. Explain the fallback logic: if a user reserves inventory in Redis but their credit card is declined 2 minutes later, how is the inventory restored to the pool?
-4. Write the webhook handler architecture for receiving inventory reconciliation updates from a third-party Warehouse Management System (WMS), ensuring it doesn't overwrite recent sales.
+    return NextResponse.json({ success: true, order });
+  } catch (error) {
+    // If it fails, the transaction rolls back, and the lock is released instantly.
+    return NextResponse.json({ error: error.message }, { status: 409 });
+  }
+}
 ```
 
+By using `FOR UPDATE` in SQL (which Prisma supports via raw queries or specific extensions), you mathematically eliminate the possibility of overselling.
+
 ---
 
-## Inventory Implementation Checklist
+## 2. Real-Time Edge Validation (SWR Polling)
 
-- [ ] All inventory decrements strictly enforced as atomic database operations
-- [ ] Redis (or similar memory store) queue implemented for flash sale concurrency protection
-- [ ] Cart reservation TTLs (Time-To-Live) configured to release locked inventory if checkout is abandoned
-- [ ] Webhook endpoints configured and secured for external WMS/ERP inventory syncing
-- [ ] Cache invalidation webhooks implemented to purge stale frontend PDPs on inventory changes
+If a product is highly anticipated (e.g., a sneaker drop), the user might sit on the Product Page for 10 minutes. If you fetched the inventory count statically during Build Time (`getStaticProps`), the user thinks the item is in stock when it sold out 9 minutes ago.
+
+**The Production Solution:**
+You must use **SWR Polling** inside your Client Component.
+
+```tsx
+'use client';
+import useSWR from 'swr';
+import { fetcher } from '@/lib/fetcher';
+
+export function AddToCartButton({ productId }: { productId: string }) {
+  // 1. Poll the Edge Network every 5 seconds (5000ms) for real-time inventory
+  const { data, isLoading } = useSWR(`/api/inventory/${productId}`, fetcher, {
+    refreshInterval: 5000,
+    revalidateOnFocus: true, // Instantly check stock if they switch tabs and come back
+  });
+
+  if (isLoading) return <Button disabled>Loading...</Button>;
+  
+  // 2. If it sold out while they were looking at the screen, immediately disable the button
+  if (data?.stockCount === 0) {
+    return <Button variant="destructive" disabled>Sold Out</Button>;
+  }
+
+  return <Button>Add to Cart</Button>;
+}
+```
+
+Because your `/api/inventory` route should be deployed to the **Vercel Edge Network**, polling it every 5 seconds takes 10ms and costs practically nothing. The user's screen will instantly update to "Sold Out" the millisecond the last item is purchased by someone else.
+
+---
+
+## 3. Webhook Deduplication (Shopify Sync)
+
+If your main inventory source of truth is Shopify (because you use a 3PL Warehouse that updates Shopify directly), Shopify will send a Webhook to your Next.js application whenever the inventory changes (`inventory_levels/update`).
+
+However, webhook delivery is "At Least Once", not "Exactly Once". 
+If the internet stutters, Shopify might send the *exact same webhook* three times. If your code blindly processes it three times, your database becomes corrupted.
+
+**The Production Solution:**
+You must use the `x-shopify-webhook-id` header to deduplicate requests.
+
+```mermaid
+graph TD
+    A[Shopify Webhook Arrives] --> B{Does Webhook ID exist in Redis?}
+    B -->|Yes| C[Return 200 OK - Drop Request]
+    B -->|No| D[Save Webhook ID to Redis (Expires in 24h)]
+    D --> E[Process Inventory Update safely]
+```
+
+---
+
+## ✅ Inventory Engineering Checklist
+
+- [ ] Implement `FOR UPDATE` Pessimistic Locking in your PostgreSQL transactions to prevent checkout race conditions.
+- [ ] Implement SWR Polling (`refreshInterval`) on the Product Page to ensure real-time "Sold Out" button states.
+- [ ] Implement Redis-backed Webhook Deduplication to prevent corrupted inventory counts from Shopify API retries.
+- [ ] Use the AI prompt below to generate the rigorous concurrency code.
+
+---
+
+## AI Prompt — Engineer the Inventory System
+
+Copy this prompt into your AI to have it generate the mathematical concurrency systems for your inventory.
+
+````prompt
+I am building a headless e-commerce store with Next.js (App Router). I need you to act as my Principal Backend Engineer. We are engineering our Inventory Concurrency and Validation layer.
+
+I need you to generate the following rigorous engineering implementations:
+
+**1. The Pessimistic Lock Transaction:**
+Write a Next.js Server Action (`captureOrder.ts`) that uses Prisma to decrement inventory and create an order. 
+- You MUST use Prisma's interactive transaction (`$transaction`).
+- You MUST use `$queryRaw` to execute a `SELECT ... FOR UPDATE` lock on the inventory row.
+- Show the exact `catch` block logic that detects the "Insufficient Stock" throw, cleanly rolls back the transaction, and returns a 409 Conflict status.
+
+**2. The Edge Network SWR Poller:**
+Write the React Client Component `<StockIndicator productId={id} />`. 
+- Use `useSWR` configured with `refreshInterval: 5000` to ping the edge API.
+- Use Tailwind to render a flashing red dot and "Only 2 left!" text if the returned stock is less than 5.
+- If the stock is 0, render a disabled "Sold Out" badge.
+
+**3. The Redis Webhook Deduplicator:**
+Write a utility function `isDuplicateWebhook(webhookId: string)` using Upstash Redis (`@upstash/redis`). Show how to use the Redis `SET` command with the `NX` (Not Exists) and `EX` (Expire in 24h) flags to mathematically guarantee a Shopify webhook is only processed once, even if Shopify fires it three times simultaneously.
+````
+
+**Next: Cart Engineering →**
