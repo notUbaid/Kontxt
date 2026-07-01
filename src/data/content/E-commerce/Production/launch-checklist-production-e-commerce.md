@@ -1,95 +1,96 @@
 ---
 title: Launch Checklist
 slug: launch-checklist
-phase: Phase 5
+phase: Phase 5 Store Launch
 mode: production
 projectType: e-commerce
-estimatedTime: 40–50 min
+estimatedTime: 45-60 min
 ---
 
-# Launch Checklist
+# The Mission Control Launch Sequence
 
-In production e-commerce, launching is not just pointing a DNS record to a new server. It is the coordinated flip of financial, logistical, and technical switches.
+**Estimated Time:** 60 Minutes
 
-If you launch with test API keys in your production code, every order will process successfully in the UI, but your bank account will receive zero dollars, and you will have to manually email every customer asking them to re-enter their credit card.
+A beginner clicks "Deploy" on Vercel, sends a link to their friends, and calls it a launch. 
+When actual users arrive, the Stripe keys are in "Test Mode", the emails aren't sending because the DKIM records are broken, and the database crashes because they forgot to upgrade from the free tier. 
 
-You must run this checklist 48 hours before the public launch.
-
----
-
-## 1. The Financial Audit (The Money Path)
-
-The most critical path is the flow of money from the customer to your bank.
-
-- [ ] **Live API Keys:** Verify that Stripe (or your gateway) is using production keys (`sk_live_...` not `sk_test_...`).
-- [ ] **Webhook Endpoints:** Ensure Stripe webhooks are pointing to your production URL (`https://api.yourstore.com/webhooks/stripe`), not a local ngrok tunnel.
-- [ ] **Tax API Live Mode:** Ensure TaxJar/Avalara is in production mode. If it remains in sandbox mode, you will not collect legally required sales tax.
-- [ ] **The Real Money Test:** Buy a product on the production site using your actual, personal credit card. Do not skip this.
-- [ ] **The Refund Test:** Refund your real order via the Admin Dashboard. Verify the money returns to your credit card and the database state updates correctly.
+In a production environment, launching is a **Mission Control Sequence**. It is a strict, mathematical checklist that verifies every single component of the distributed architecture before live traffic is permitted.
 
 ---
 
-## 2. The Logistics Audit (The Physical Path)
+## 1. The Pre-Flight Diagnostic (Dry Run)
 
-If an order is placed, it must successfully route to the warehouse.
+Before you announce your store to the public, you must execute a full "Dry Run" in the live production environment.
 
-- [ ] **Shipping API Live Keys:** Ensure Shippo/EasyPost is using production keys to generate real, paid shipping labels.
-- [ ] **3PL Webhook Connections:** Verify that your backend can push JSON payloads to your warehouse's WMS, and that you have tested receiving a simulated "Shipped" payload back from them.
-- [ ] **Inventory Sync:** Confirm the live database inventory exactly matches the physical warehouse count. (If you launch with "Test Item: 9,999 in stock," you will oversell instantly).
+**The Production Solution:**
+You must place a real order using a real credit card on the live `yourdomain.com` URL.
 
----
+If you skip this and rely on `localhost` testing, you will miss catastrophic edge-case failures (e.g., your Vercel Edge functions timing out after 10 seconds, or your Upstash Redis cache rejecting connections due to IP whitelisting).
 
-## 3. The Infrastructure Audit (The Scalability Path)
+**The Dry Run Trace:**
+1. Did the Cloudflare Turnstile CAPTCHA pass on production?
+2. Did Stripe process the real charge without throwing a CORS error?
+3. Did the Inngest Event Bus successfully trigger the `order.paid` webhook?
+4. Did Resend physically deliver the "Order Confirmation" email, or did it go to Spam?
+5. Did the Checkly Synthetic Monitor report a 200 OK across the entire flow?
 
-If your marketing goes viral, your infrastructure must hold.
+If the answer to *any* of these is No, you abort the launch.
 
-- [ ] **Database Connection Pooling:** Verify PgBouncer (or equivalent) is active and configured correctly to prevent connection exhaustion.
-- [ ] **Cache Purging:** Clear all staging data from Redis and the CDN Edge cache. Ensure the CDN is configured to cache HTML pages, not just static assets.
-- [ ] **Domain & SSL:** Verify the primary domain is resolving perfectly and the SSL certificate is valid and enforcing HTTPS strictly.
-- [ ] **Load Testing:** Review the final k6 load test results to confirm the checkout API can handle the expected concurrent user volume.
+## 2. Infrastructure Scaling (Pre-Provisioning)
 
----
+If you expect a massive spike in traffic on Launch Day, you cannot rely entirely on auto-scaling.
 
-## 4. The Security & Compliance Audit (The Liability Path)
+**The Production Solution:**
+1. **Database Connections:** You must verify your PgBouncer pool size. If you are on the Supabase Free Tier (limited to 60 connections), your database will crash in 30 seconds. You must upgrade to the Pro tier and mathematically allocate 200+ connections.
+2. **Vercel Compute:** Ensure your Vercel Edge functions are not artificially constrained by hobby-tier timeout limits.
+3. **Redis Caching:** Verify your Upstash Redis instance has enough memory allocated to hold the massive influx of `session` and `cart` data.
 
-Ensure you are legally protected before exposing the store to the public.
+## 3. The Production Environment Variable Audit
 
-- [ ] **PCI Compliance:** Verify no raw credit card data is ever logged, printed, or saved in the database.
-- [ ] **Terms & Privacy Linked:** Ensure the Terms of Service, Privacy Policy, and Refund Policy are visibly linked in the footer and the checkout flow.
-- [ ] **Fraud Engine Active:** Ensure Stripe Radar (or equivalent) rules are enabled (e.g., blocking high-risk IP addresses and velocity attacks).
-- [ ] **Admin RBAC Verified:** Ensure developers and marketing staff do not have "God Mode" access to the production database; enforce Role-Based Access Control.
+The #1 cause of Launch Day failures is a misconfigured `.env` variable.
 
----
+If you accidentally leave `NEXT_PUBLIC_STRIPE_KEY=pk_test_...` in your Vercel dashboard, customers will check out using fake credit cards, and you will give away free products.
 
-## 5. The Analytics Audit (The Marketing Path)
-
-If marketing spends $10,000 on launch day, they need to know if it worked.
-
-- [ ] **Server-Side Tracking (CAPI):** Verify the backend is successfully pushing purchase events to the Meta Conversions API.
-- [ ] **Consent Mode:** Verify Google Consent Mode v2 is blocking analytics cookies until the user clicks "Accept" on the cookie banner.
-- [ ] **Data Layer Check:** Open Chrome DevTools, complete a test purchase, and verify the `window.dataLayer` outputs the correct `purchase` event with the exact monetary value.
-
----
-
-## 6. The 48-Hour Freeze
-
-**The Final Rule:**
-48 hours before launch, you must enact a total **Code Freeze**.
-Absolutely zero deployments are allowed to the `main` branch unless they are fixing a critical, show-stopping bug. No CSS tweaks. No typo fixes in the footer. Every deployment carries risk, and you must stabilize the environment before the traffic hits.
+**The Production Solution:**
+You must execute a strict mathematical audit of your Vercel Environment Variables.
+- **Stripe:** Ensure `pk_live` and `sk_live` are set. Ensure the Stripe Webhook Signing Secret is the production secret, not the CLI local secret.
+- **NextAuth:** Ensure `NEXTAUTH_URL` is set to `https://yourdomain.com`, not `localhost:3000`, or users will be unable to log in.
+- **Sentry/Axiom:** Ensure telemetry tokens are active so you aren't flying blind when the traffic hits.
 
 ---
 
-## AI Prompt — Finalizing the Launch
+## 🚀 The Ultimate Launch Checklist
 
-```prompt
-I am executing the final launch protocol for a production e-commerce store.
+This is the final sequence. Execute it with military precision.
 
-Tech Stack:
-- Infrastructure: [e.g., Vercel / Postgres]
-- Integrations: [e.g., Stripe, EasyPost, Klaviyo, Meta CAPI]
+- [ ] **The Real Money Test:** Complete a full end-to-end checkout on the live domain using a real credit card. Verify the Stripe dashboard registers the live charge.
+- [ ] **Environment Variable Audit:** Mathematically verify that zero `_test_` keys exist in the Vercel Production environment block.
+- [ ] **Infrastructure Upgrade:** Upgrade the PostgreSQL database to a paid tier with Point-In-Time Recovery (PITR) and expanded PgBouncer connection limits.
+- [ ] **Telemetry Verification:** Cause a deliberate error on the live site (e.g., navigate to a broken route) and verify the error appears in Sentry within 5 seconds.
+- [ ] **Email Reputation Check:** Send a test order confirmation email to a Gmail address and mathematically verify it passes DKIM/SPF checks and avoids the Spam folder.
+- [ ] **Data Deletion Cascade:** Create a test user, execute the GDPR Account Deletion API, and verify the user is deleted but the Order is anonymized.
+- [ ] **Cache Purge:** Execute a global cache purge in Vercel to ensure no stale staging data bleeds into the production launch.
 
-Act as a Principal E-commerce Architect:
-1. Provide a script or checklist for safely verifying that all 15 third-party API keys in our `.env.production` file are valid live keys and not sandbox keys.
-2. Draft the exact execution steps for the "Real Money Test" and the "Refund Test" to validate the entire financial state machine end-to-end.
-3. Outline the emergency rollback procedure if we launch and immediately discover a catastrophic bug in the checkout flow.
-```
+---
+
+## AI Prompt — Engineer the Final Audit
+
+Copy this prompt into your AI to have it generate the final diagnostic script.
+
+````prompt
+I am building a headless e-commerce store with Next.js (App Router). I need you to act as my Principal Site Reliability Engineer (SRE). We are 24 hours away from our Production Launch.
+
+I need you to generate the following strict diagnostic implementations:
+
+**1. The Health Check Script:**
+Write a Node.js script (`scripts/pre-flight-check.ts`) that can be executed via the CLI.
+- It must physically ping our `/api/health` endpoint.
+- It must verify the PostgreSQL database is reachable.
+- It must verify the Redis cache is reachable.
+- It must execute a mock request to the Stripe API using the production secret key to verify authentication is valid.
+
+**2. The Webhook Signature Audit:**
+Explain in Markdown why using the Stripe CLI Webhook Secret (`whsec_...`) in the Vercel Production environment will catastrophically fail to validate live webhooks. Detail the exact steps required to extract the true Live Webhook Signing Secret from the Stripe Dashboard and inject it into Vercel.
+````
+
+**Phase 5 is Complete. Proceed to Phase 6 (Growth) to scale your empire.**
