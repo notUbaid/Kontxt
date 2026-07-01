@@ -1,124 +1,85 @@
 ---
 title: Payment Architecture
 slug: payment-architecture
-phase: Phase 2
+phase: Phase 2 E Commerce Development
 mode: production
 projectType: e-commerce
-estimatedTime: 35–45 min
+estimatedTime: 20-30 min
 ---
 
-# Payment Architecture
+# Secure Payment & Gateway Architecture
 
-At a small scale, payments are a "Buy Now" button connected to a Stripe account. At production scale, payment architecture is a complex matrix of international compliance, fraud prevention, alternative payment methods (APMs), and accounting reconciliation.
+**Estimated Time:** 25 Minutes
 
-If your payment architecture is poorly designed, you will suffer from high cart abandonment in international markets, devastating chargeback ratios, and a finance team that cannot reconcile the bank account with the database.
+Beginners often ask their AI to "add credit card payment." The AI generates an HTML form with `<input type="text" name="cardNumber" />`. 
 
----
+If you deploy this in a production environment, you have committed a massive legal violation. If raw credit card numbers hit your Next.js server, you are subject to extreme **PCI-DSS Level 1** compliance audits. If your database is ever hacked, you are personally liable for the stolen credit cards.
 
-## 1. Localized Payment Methods (APMs)
-
-Credit cards are the default in the US. They are *not* the default globally. 
-
-If you are expanding internationally, your payment architecture must dynamically present the correct Alternative Payment Methods (APMs) based on the customer's IP or billing address.
-
-- **Europe:** iDEAL (Netherlands), Bancontact (Belgium), SEPA Direct Debit (Germany).
-- **Buy Now, Pay Later (BNPL):** Klarna, Afterpay, Affirm. BNPL can increase AOV (Average Order Value) by 20-30%, but processors charge higher transaction fees (up to 6%).
-- **Digital Wallets:** Apple Pay, Google Pay, Shop Pay. These bypass manual data entry and are critical for mobile conversion.
-
-**The Architecture:**
-Do not hardcode payment methods. Use a unified integration (like Stripe Payment Element or Adyen Drop-in) that automatically renders the localized APMs based on the `currency` and `country` passed to the PaymentIntent.
+As an AI-Assisted Architect, you must completely **offload PCI liability**. Your Next.js server must never, under any circumstances, see or touch raw credit card data.
 
 ---
 
-## 2. Strong Customer Authentication (SCA) & 3D Secure
+## 1. The Tokenization Mandate (Stripe Elements)
 
-If you sell into the European Economic Area (EEA) or the UK, you are legally required to comply with **Strong Customer Authentication (SCA)** under PSD2 regulations.
+You must instruct your AI to integrate **Tokenized iFrames** (e.g., Stripe Elements, Braintree Drop-in, or Shopify Web Pixels).
 
-This means customers must authenticate their transaction via a second factor (e.g., a push notification to their banking app).
+**The Production Architecture:**
+1. Your React frontend renders the checkout page.
+2. The AI imports the Stripe Elements SDK. Stripe injects a secure `<iframe>` directly into your React component.
+3. The user types their credit card into the iFrame. Because it is an iFrame, the keystrokes go directly to Stripe's servers. Your Next.js app literally cannot see them.
+4. Stripe validates the card and returns a secure, encrypted **Token** (e.g., `tok_12345`) back to your frontend.
+5. Your frontend sends this safe Token to your Next.js API route to finalize the charge.
 
-**The Architectural Impact:**
-- Payments are no longer a synchronous "pass/fail".
-- The state machine becomes: `requires_payment_method` → `requires_action` (user must verify in banking app) → `processing` → `succeeded`.
-- If you build a custom API integration, you must build the UI to handle the `requires_action` redirect securely. Failing to do this means 100% of your European transactions will be declined.
+You have successfully processed a payment without ever touching the toxic payload.
 
----
+## 2. Webhook Event Reconciliations
 
-## 3. Webhook Idempotency & The Double-Charge Risk
+Just because your frontend receives a "Success" token doesn't mean the payment is actually finalized. Some payments (like SEPA Direct Debit or 3D Secure authentications in Europe) are asynchronous. They might take 2 hours to clear.
 
-When you charge a customer $1,000, you cannot afford to charge them twice because a server timed out.
+**The Production Solution:**
+You cannot rely on the frontend to tell your database an order is paid. A hacker can easily spoof a frontend "Success" signal. 
 
-**The Golden Rule of Payments:** All payment actions must be idempotent.
+You must instruct your AI to build a **Backend Webhook Listener**. 
+Your Next.js API route (`/api/webhooks/stripe`) listens for events directly from Stripe's servers (e.g., `payment_intent.succeeded`). Only when this secure, cryptographically verified webhook arrives does your backend officially mark the order as "Paid" and trigger the fulfillment process.
 
-When you create a PaymentIntent or a Charge, you must pass an **Idempotency Key** (usually the Order ID or a unique UUID generated at the start of checkout). If the network drops and your server retries the exact same request with the same Idempotency Key, the payment processor will recognize it and *not* charge the customer a second time.
+## 3. Fraud Prevention & 3D Secure (3DS)
 
-**Webhook Idempotency:**
-Stripe guarantees "at least once" delivery of webhooks. This means they might send the `payment_intent.succeeded` event twice.
-Your webhook handler must:
-1. Verify the signature.
-2. Check if `order_id` is already marked as `paid`.
-3. If yes, return `200 OK` and do nothing.
-4. If no, update the database and trigger fulfillment.
+Credit card fraud is rampant in e-commerce. If you accept a stolen credit card, the true owner will issue a chargeback. You lose the product, you refund the money, and the bank hits you with a $15 penalty fee.
 
----
-
-## 4. B2B Payments: Net Terms and Invoicing
-
-If you operate a B2B or hybrid B2B/B2C store, credit cards are insufficient. B2B buyers expect **Net 30 / Net 60** terms (pay 30 days after the invoice).
-
-**Architectural Requirements for B2B:**
-- **Customer Segmentation:** The commerce engine must recognize the authenticated user as a B2B account.
-- **Payment Method Override:** At checkout, the system must bypass the credit card requirement and allow the user to check out using a "Purchase Order (PO)" or "Invoice" method.
-- **Credit Limits:** The database must track the customer's available credit limit and reject the PO if they are overextended.
-- **Reconciliation:** The ERP or accounting system (NetSuite, QuickBooks) must generate the invoice and track the wire transfer/ACH payment asynchronously 30 days later.
+**The Production Solution:**
+You must instruct your AI to explicitly enable **3D Secure (3DS)** in the checkout flow.
+When a high-risk transaction is detected, the Stripe SDK will automatically pop up a modal asking the user to authenticate the purchase via a text message or their banking app (e.g., "Verified by Visa"). 
+If a transaction passes 3DS, liability for fraud shifts from you to the bank. You are mathematically protected from chargebacks.
 
 ---
 
-## 5. Multi-Currency Architecture
+## ✅ Payment Architecture Checklist
 
-Selling in multiple currencies introduces massive accounting and UI complexity.
-
-**Approach A: Presentational Multi-Currency**
-The storefront detects the user's IP and displays prices in Euros, based on a daily API exchange rate. However, at checkout, the user is charged in USD. 
-*Result:* High cart abandonment when the user sees a foreign currency at the final step, plus angry customers who get hit with foreign transaction fees by their bank.
-
-**Approach B: Native Multi-Currency (The Production Standard)**
-The user sees Euros. The checkout charges Euros. The payment processor settles in Euros (or converts to USD at a locked rate).
-*Architectural Requirement:* Your database must decouple the integer `price` from the `currency_code`. 
-```json
-{ "price": 10000, "currency": "USD" } // vs { "price": 9500, "currency": "EUR" }
-```
-You must maintain specific Price Books for specific regions rather than relying on live FX conversions, allowing you to set psychologically attractive prices (e.g., €99.00 instead of €97.34).
+- [ ] **CRITICAL:** Forbid the creation of custom HTML inputs for credit cards; mandate iFrames (Stripe Elements) to offload PCI liability.
+- [ ] Enforce the use of Backend Webhooks (not frontend signals) as the sole Source of Truth for marking orders as "Paid."
+- [ ] Ensure 3D Secure (3DS) flow handling is included in your frontend React logic to prevent chargebacks.
+- [ ] Use the AI prompt below to generate the secure payment infrastructure.
 
 ---
 
-## AI Prompt — Architect Your Payment Infrastructure
+## AI Prompt — Architect Secure Payments
 
-```prompt
-I am designing the payment architecture for a production e-commerce store.
+Copy this prompt into your AI to have it generate the PCI-compliant infrastructure required to capture revenue safely.
 
-Business Profile:
-- Business Model: [B2C / B2B / Hybrid]
-- Average Order Value: [$XXX]
-- Primary Markets: [e.g., US, UK, EU, Australia]
-- Payment Processor: [e.g., Stripe / Adyen / Braintree]
-- Subscription / Recurring Billing: [Yes / No]
+````prompt
+I am building a production-grade headless e-commerce store with Next.js. I need you to act as my Principal Payment Architect. We are integrating our Payment Gateway [e.g., Stripe / Braintree].
 
-Act as a Principal Fintech Architect:
-1. Outline the exact payment methods I must enable to maximize conversion in my specific primary markets.
-2. Provide the technical architecture for ensuring SCA/3D Secure compliance for my European customers.
-3. Write the pseudocode for an ultra-resilient Webhook Handler that guarantees idempotency and prevents double-fulfillment.
-4. If I am handling B2B customers, explain the architecture required to support Net 30 invoices and PO numbers at checkout.
-5. Detail how my database should store prices and currencies to support Native Multi-Currency seamlessly.
-```
+Under no circumstances is our Next.js server allowed to touch raw credit card data. We must completely offload PCI compliance.
 
----
+I need you to generate the following architectural code:
 
-## Payment Architecture Checklist
+**1. The Tokenized React Component:**
+Write the React component utilizing the SDK (e.g., `@stripe/react-stripe-js`). Show exactly how to render the secure `CardElement` iFrame. Write the `handleSubmit` function that securely passes the data to Stripe, handles 3D Secure (3DS) authentication challenges if required, and retrieves the secure Payment Token.
 
-- [ ] Localized payment methods (APMs) mapped to target geographic markets
-- [ ] 3D Secure / SCA logic implemented to handle `requires_action` states
-- [ ] Idempotency keys explicitly passed on all mutation requests to the payment processor
-- [ ] Webhook handlers verified for idempotency (safely discarding duplicate events)
-- [ ] Native multi-currency strategy defined (Price Books vs. Live FX conversion)
-- [ ] B2B payment flows (Net Terms / POs) architected if serving enterprise customers
-- [ ] Financial reconciliation data (transaction IDs, exact tax collected, processing fees) stored securely on the Order record
+**2. The Webhook Listener (Source of Truth):**
+Write the Next.js Route Handler (`/api/webhooks/payment`) that acts as our true Source of Truth.
+- You MUST implement the cryptographic signature verification (e.g., `stripe.webhooks.constructEvent`) to ensure hackers cannot spoof a fake "paid" webhook.
+- Show the `switch` statement that listens specifically for the `payment_intent.succeeded` event, and explain how this triggers our background Event Bus to fulfill the order.
+````
+
+**Next: Inventory Architecture →**
