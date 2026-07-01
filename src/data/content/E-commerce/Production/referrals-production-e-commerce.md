@@ -1,89 +1,148 @@
 ---
-title: Referrals Strategy
+title: Referrals
 slug: referrals
-phase: Phase 6
+phase: Phase 6 Growth
 mode: production
 projectType: e-commerce
-estimatedTime: 25–35 min
+estimatedTime: 45-60 min
 ---
 
-# Referrals Strategy
+# Viral Loops & Acquisition Arbitrage
 
-A referral program is the only marketing channel where you pay a Customer Acquisition Cost (CAC) *after* the conversion happens. 
+**Estimated Time:** 60 Minutes
 
-If you spend $50 on Facebook to acquire a customer, and they do not buy, you lose $50. If you offer a "$20 for you, $20 for a friend" referral bounty, you only pay the $40 when the friend actually completes a purchase. At production scale, an automated referral engine drives high-margin, viral growth.
+A beginner gives their customers a generic link like `yourstore.com/invite` and says, *"Tell your friends about us!"* 
 
----
+Nobody tells their friends. Why? Because there is no mathematical incentive. There is no tracking. There is no double-sided reward.
 
-## 1. The Double-Sided Reward (The Incentive)
-
-If you only reward the referrer ("Invite a friend, get $10"), the friend has no incentive to use the link. If you only reward the friend ("Give a friend $10"), the referrer has no incentive to share it.
-
-**The Production Standard:** The Double-Sided Reward.
-- "Give your friends 20% off their first order. When they buy, you get $20 in store credit."
-- This creates mutual incentive and removes the social stigma of "profiting off your friends."
+In a production environment, you must engineer a **Viral Loop** (K-Factor) and a **Double-Sided Referral Architecture**.
 
 ---
 
-## 2. Referral Tracking Architecture
+## 1. The Double-Sided Reward (Give $20, Get $20)
 
-You must track exactly who referred whom, and ensure the reward is only paid out when the transaction is finalized.
+If you only reward the referrer, they feel guilty spamming their friends. If you only reward the friend, the referrer has no motivation to share.
 
-**The Implementation:**
-Use a dedicated Referral API (e.g., **ReferralCandy**, **Friendbuy**, or **Yotpo**).
-1. **The Link:** User A is generated a unique link (`store.com/r/user_A_hash`).
-2. **The Session:** User B clicks the link. The Next.js frontend reads the query parameter and stores the referrer hash in an HTTP-only cookie.
-3. **The Purchase:** User B completes checkout. Your backend passes the order data AND the referrer cookie to the Referral API.
-4. **The Payout Delay (Crucial):** Do not issue the $20 reward to User A immediately. If you do, User B can cancel their order 5 minutes later, resulting in User A walking away with free money. The backend must configure a "Holding Period" (e.g., 14 days to clear the return window) before the Referral API generates the $20 discount code for User A.
+**The Production Solution:**
+You must engineer a system where both parties receive mathematical value. *"Give your friend $20 off their first order. When they buy, you get $20 in store credit."*
 
----
+## 2. The Referral API Architecture
 
-## 3. Self-Referral Fraud Prevention
+You cannot track referrals using manual promo codes (e.g., `JOHN20`). You will run out of codes, and users will post them on coupon websites, destroying your margins.
 
-The moment you launch a referral program, malicious users will attempt to game it. User A will create a fake email account (User B), refer themselves, get the 20% discount on the new account, and earn the $20 reward on the main account.
+**The Production Solution:**
+You must generate a mathematically unique, cryptographic referral hash for every user in your database.
 
-**The Defense Mechanisms:**
-Your Referral API must enforce strict fraud logic:
-- **IP Blocking:** If User A and User B check out from the exact same IP address, flag the referral as fraudulent and block the reward.
-- **Address Matching:** If the shipping address for User B matches the historical shipping address of User A, block the reward.
-- **Device Fingerprinting:** Use browser fingerprinting (if supported by your provider) to ensure the referral link wasn't clicked on the exact same device that generated it.
+```prisma
+model User {
+  id              String   @id @default(uuid())
+  email           String   @unique
+  // CRITICAL: The unique shareable code
+  referralCode    String   @unique @default(dbgenerated("substr(md5(random()::text), 0, 8)"))
+  storeCredit     Int      @default(0) // Stored in cents
+}
 
----
-
-## 4. The Post-Purchase Activation Loop
-
-Users do not wake up thinking about referring your brand. You must catch them at peak excitement.
-
-**The Implementation:**
-- Embed the referral link generation directly on the **Order Confirmation (Thank You) Page**.
-- Do not ask them to create an account to get their link. The backend should generate the unique link based on their email address and render it instantly on the page.
-- "Your order is confirmed! Want $20 off your next order? Share this link with a friend."
-
----
-
-## AI Prompt — Architect Your Referral Engine
-
-```prompt
-I am building an automated Referral engine for a production e-commerce store.
-
-Tech Stack:
-- Referral Platform: [e.g., Friendbuy / ReferralCandy]
-- Frontend: [e.g., Next.js React]
-- Backend: [e.g., Node.js]
-
-Act as a Principal Growth Engineer:
-1. Outline the exact cookie-tracking logic required in the Next.js frontend to capture a referral query parameter and persist it safely across a multi-day checkout journey.
-2. Explain the "Holding Period" architecture. How does the backend communicate with the Referral API to ensure rewards are only issued AFTER the 14-day return window has expired?
-3. Define the top 3 fraud vectors for self-referrals (e.g., IP matching, address matching) and how our backend logic should detect and block them before issuing rewards.
-4. Provide the UI/UX strategy for embedding a frictionless, one-click referral link generator directly on the post-purchase Thank You page.
+model Order {
+  id              String   @id
+  userId          String
+  // CRITICAL: Tracks who referred this specific order
+  referredById    String?  
+}
 ```
 
+When User A (John) creates an account, he receives the code `john_a8f9`. He sends the link `yourstore.com/invite/john_a8f9` to User B (Sarah).
+
+## 3. The Cookie Attribution Pipeline
+
+If Sarah clicks John's link on her iPhone, but doesn't buy the shirt until 3 days later on her laptop, the referral is lost.
+
+**The Production Solution:**
+You must engineer strict **Cookie Attribution** in your Next.js Middleware.
+
+```typescript
+// middleware.ts
+export function middleware(req) {
+  const url = req.nextUrl;
+  
+  // 1. Intercept the referral link
+  if (url.pathname.startsWith('/invite/')) {
+    const code = url.pathname.split('/')[2]; // Extract 'john_a8f9'
+    
+    // 2. Set a 30-day strict attribution cookie
+    const res = NextResponse.redirect(new URL('/', req.url));
+    res.cookies.set('referral_attribution', code, {
+      maxAge: 60 * 60 * 24 * 30, // 30 Days
+      httpOnly: true, // Prevents XSS tampering
+      secure: true
+    });
+    
+    return res;
+  }
+}
+```
+
+When Sarah finally checks out 3 days later, your Checkout API reads the `referral_attribution` cookie. It applies the $20 discount to Sarah's cart instantly.
+
+## 4. The Fulfillment Webhook (Preventing Fraud)
+
+If you give John his $20 store credit the moment Sarah clicks "Pay", you are vulnerable to massive fraud. John and Sarah could be the same person. They place the order, get the $20 credit, and then immediately cancel/refund the first order.
+
+**The Production Solution:**
+You must tie the referral payout strictly to the **Fulfillment** or **Delivery** webhook, NOT the payment webhook.
+
+```typescript
+// app/api/webhooks/inngest/route.ts (Listens for Shipment Delivery)
+export const payoutReferral = inngest.createFunction(
+  { id: "payout-referral-credit" },
+  { event: "order.delivered" }, // Only fires when USPS physically drops the box
+  async ({ event }) => {
+    const order = await prisma.order.findUnique({ where: { id: event.data.orderId } });
+
+    if (order.referredById) {
+      // 1. Mathematically issue the payout ONLY after the refund window is closed or item is shipped
+      await prisma.user.update({
+        where: { id: order.referredById },
+        data: { storeCredit: { increment: 2000 } } // Give John his $20
+      });
+      
+      // 2. Email John: "Your friend bought! Here is your $20."
+      await sendReferralSuccessEmail(order.referredById);
+    }
+  }
+);
+```
+
+By delaying the payout until the physical item is delivered, you mathematically eliminate 99% of referral fraud.
+
 ---
 
-## Referrals Checklist
+## ✅ Referrals Engineering Checklist
 
-- [ ] Double-Sided Reward structure designed to incentivize both the referrer and the referee
-- [ ] Cookie-based tracking implemented to accurately attribute referrals across multi-day sessions
-- [ ] Payout Holding Period (e.g., 14 days) enforced to prevent rewards from being issued for canceled/returned orders
-- [ ] Self-referral fraud prevention rules (IP blocking, address matching) aggressively configured
-- [ ] Referral widget integrated natively into the post-purchase Order Confirmation page to maximize virality
+- [ ] Engineer a double-sided reward system to incentivize both the referrer and the referee.
+- [ ] Implement Vercel Middleware to parse `/invite/:code` URLs and set a cryptographically secure 30-day HTTP-only attribution cookie.
+- [ ] Protect against Referral Fraud by delaying the payout (store credit increment) until the `order.delivered` or `order.shipped` webhook fires.
+- [ ] Use the AI prompt below to generate the rigorous attribution architecture.
+
+---
+
+## AI Prompt — Engineer the Referral Engine
+
+Copy this prompt into your AI to have it generate the mathematical viral loop.
+
+````prompt
+I am building a headless e-commerce store with Next.js (App Router). I need you to act as my Principal Growth Engineer. We are engineering our Double-Sided Referral Architecture.
+
+I need you to generate the following strict backend implementations:
+
+**1. The Next.js Middleware Attribution:**
+Write the `middleware.ts` logic to intercept `/invite/:code` paths.
+- Show how to extract the code and inject it into an `httpOnly` cookie valid for 30 days.
+- Explain why `httpOnly` is legally/mathematically required to prevent a malicious user from editing their `document.cookie` via the browser console to steal another user's referral payouts.
+
+**2. The Fraud-Proof Payout Worker:**
+Write an Inngest (or standard Next.js API) worker that handles the Referral Payout.
+- Show the Prisma logic to grant $20 (`2000` cents) in `storeCredit` to the Referrer.
+- Explain in Markdown why executing this payout during the initial Stripe `checkout.session.completed` event opens a massive vulnerability to return fraud, and why delaying it to the 3PL `order.shipped` webhook is the only production-ready solution.
+````
+
+**Next: Presentation Prep Engineering →**

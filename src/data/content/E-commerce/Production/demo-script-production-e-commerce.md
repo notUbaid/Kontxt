@@ -1,72 +1,113 @@
 ---
 title: Demo Script
 slug: demo-script
-phase: Phase 6
+phase: Phase 6 Growth
 mode: production
 projectType: e-commerce
-estimatedTime: 15–25 min
+estimatedTime: 30-45 min
 ---
 
-# Demo Script
+# Live Execution & Disaster Recovery
 
-A technical demo for a production e-commerce store is not a screen-share of you slowly clicking through a website. It is a orchestrated performance designed to prove that the architecture is robust, secure, and capable of handling complex edge cases at scale.
+**Estimated Time:** 45 Minutes
 
-If you only demo the "Happy Path" (a user buys a shirt and it works), stakeholders will assume it is a toy app. You must demo the "Hard Paths."
+A beginner starts their live demo by saying, *"Okay, let me refresh the page... wait, why is it loading so slow? Hang on, let me log in... oh, the password reset is broken. Let me just show you the codebase instead."*
 
----
+The presentation is instantly dead. The stakeholder has lost all confidence in the engineer.
 
-## 1. The "Happy Path" (Speed & UX)
-
-Start with the core purchasing loop, but frame it entirely around engineering achievements.
-
-**The Script Flow:**
-1. **The PDP:** "Notice how this Product page loaded instantly. We are fetching real-time Postgres inventory data, but we are serving the HTML from the Edge CDN. We achieve a 1.2-second Largest Contentful Paint (LCP)."
-2. **The Cart:** Add an item to the cart. "Here, the Cart Flyout opens. This data is hitting a Redis in-memory cache, not the primary database, ensuring sub-50ms response times even under heavy load."
-3. **The Checkout:** "We implemented Stripe Digital Wallets. With one click of Apple Pay, we bypass the 15-field checkout form entirely, reducing cart abandonment by 20%."
+In a production environment, a Live Demo is a tightly choreographed, mathematically timed execution. You must engineer **Happy Path Choreography**, **Mocked Fallbacks**, and **Data Reset Scripts**.
 
 ---
 
-## 2. The "Hard Path" (Financial Logic)
+## 1. The Choreographed Happy Path
 
-This is where you prove the system is production-ready to the Finance and Operations teams.
+You never randomly click around your application during a demo. You must script the exact, golden "Happy Path" that highlights your highest-value engineering decisions.
 
-**The Script Flow:**
-1. **Tax Math:** "Let's look at the backend calculation for this order. We are passing the destination ZIP code to the Tax API. Notice how the tax is applied to the Item, but *not* to the Shipping Cost, because this specific state exempts shipping from sales tax."
-2. **Idempotency (The Double-Click Test):** "Now, I am going to intentionally mash the 'Submit Order' button 5 times rapidly to simulate a network stutter." *(Do it)*. "Notice that only one charge went through. Our backend enforces Idempotency Keys on all Stripe requests, guaranteeing we never accidentally double-charge a customer."
+**The Production Choreography:**
+1. **The Edge Speed Test:** Start by demonstrating the sub-100ms load time of the Homepage. Explicitly state: *"Notice how fast this loaded. This is because Vercel Edge Middleware is serving cached static HTML, bypassing the PostgreSQL database entirely."*
+2. **The Semantic Search:** Search for a complex term like *"Summer beach outfit."* When the correct items appear, state: *"This is not a basic keyword match. This is hitting our Pinecone Vector Database to perform a semantic Cosine Similarity search based on OpenAI embeddings."*
+3. **The 3DS Checkout:** Add an item to the cart and process the payment. Point out the Stripe Tokenization: *"Notice the card input. This is an iframe injected directly by Stripe. Our Next.js servers never touch the raw credit card, ensuring total PCI-DSS SAQ-A compliance."*
+4. **The Post-Purchase Upsell:** Show the One-Click Upsell firing immediately after payment.
 
----
+## 2. Hardcoded Fallbacks (The Disconnect Defense)
 
-## 3. The "Admin Path" (Operations)
+If the venue Wi-Fi goes down, or the Stripe API has a rare outage during your demo, you cannot freeze. 
 
-Stakeholders need to see that the business can actually be operated by non-engineers.
+**The Production Solution:**
+You must have a mocked, hardcoded fallback branch ready to deploy locally. 
 
-**The Script Flow:**
-1. **The Refund (Proration):** Log into the Admin Dashboard. "Customer Service needs to process a partial refund for this order which used a 20% discount code." Click refund on a single item. "Notice that the backend automatically prorates the discount and calculates the exact fraction of tax to return. Customer Service cannot make a mathematical error here."
-2. **The Feature Flag:** "Marketing wants to turn on the new 'Free Shipping Banner'." Go to the LaunchDarkly/Edge Config dashboard. Toggle the flag. Refresh the live site. "The banner is live instantly, globally, without requiring an engineering deployment or server restart."
+If the Stripe API fails, your code should have a `process.env.DEMO_MODE` flag that bypasses the actual `stripe.paymentIntents.create` network request and instantly returns a mock success payload.
 
----
+```typescript
+// app/api/checkout/route.ts
+if (process.env.DEMO_MODE === 'true') {
+  return NextResponse.json({ 
+    clientSecret: 'mock_secret_123',
+    status: 'succeeded' 
+  });
+}
 
-## AI Prompt — Generate Your Technical Demo Script
+// Actual Stripe Logic follows...
+```
 
-```prompt
-I am preparing a 10-minute live technical demo of a production e-commerce architecture for senior leadership.
+You flip the environment variable in your terminal, the demo continues flawlessly, and the stakeholder never knows the Wi-Fi dropped.
 
-Tech Stack:
-- Infrastructure: [e.g., Next.js Edge / Redis]
-- Integrations: [e.g., Stripe, TaxJar, LaunchDarkly]
+## 3. The Data Reset Script (Idempotent Demos)
 
-Act as a Principal Developer Advocate:
-1. Draft a 2-minute script demonstrating the speed of the Edge caching and Redis cart implementation, highlighting the specific latency metrics stakeholders care about.
-2. Outline a 3-minute script demonstrating the "Idempotency Test," explaining exactly how the backend prevents double-charging during a simulated network failure at checkout.
-3. Write a 3-minute script showcasing the Admin Dashboard, specifically demoing how a Customer Support agent executes a complex partial refund with automated tax proration, proving operational safety.
+If you practice your demo 5 times before the meeting, your database will be filled with "Test User", "Test Order 1", and "Test Order 2". When you do the live demo, it looks unprofessional and messy.
+
+**The Production Solution:**
+You must engineer a `teardown.ts` script that mathematically wipes your staging database and reseeds it to a pristine state 5 minutes before you walk into the room.
+
+```typescript
+// prisma/seed-demo.ts
+async function resetDemoState() {
+  // 1. Wipe all transactional data, but keep the Product catalog intact
+  await prisma.order.deleteMany({});
+  await prisma.user.deleteMany({ where: { role: 'CUSTOMER' } });
+
+  // 2. Insert a perfect mock user for the demo login
+  await prisma.user.create({
+    data: {
+      email: 'demo@investor.com',
+      name: 'Jane Doe',
+      tier: 'GOLD',
+      pointsBalance: 500
+    }
+  });
+
+  console.log("✅ Demo State Pristine. Ready to Present.");
+}
 ```
 
 ---
 
-## Demo Script Checklist
+## ✅ Demo Script Engineering Checklist
 
-- [ ] "Happy Path" script defined, emphasizing Edge speed, Redis caching, and Apple Pay UX
-- [ ] "Hard Path" script defined, proving complex financial logic (Tax API routing, Idempotency keys)
-- [ ] "Admin Path" script defined, demonstrating operational safety (Automated refund proration, Feature Flags)
-- [ ] Local database seeded with realistic test data (Orders, Products, Users) to avoid live-typing errors
-- [ ] Hardcoded backup videos recorded for all API-dependent flows (Stripe/Tax) in case of live internet failure
+- [ ] Choreograph a strict 4-step Happy Path that highlights the technical architecture (Edge Caching, Vector Search, PCI Compliance).
+- [ ] Implement a `DEMO_MODE` environment variable to mock third-party network requests (Stripe, EasyPost) to survive venue Wi-Fi outages.
+- [ ] Write a `seed-demo.ts` script to idempotently wipe and reset the staging database to a pristine, professional state before the presentation.
+- [ ] Use the AI prompt below to generate the rigorous demo script.
+
+---
+
+## AI Prompt — Engineer the Live Demo
+
+Copy this prompt into your AI to have it generate the mathematical presentation script.
+
+````prompt
+I am preparing to execute a live 5-minute demo of my headless Next.js E-Commerce platform for a panel of Senior Engineers. I need you to act as my Principal Developer Advocate and write the exact spoken script and click-path.
+
+I need you to generate the following strict choreography:
+
+**1. The Spoken Demo Script:**
+Write a 4-step script (Search -> Cart -> Checkout -> Post-Purchase Upsell).
+- For each step, provide the exact **Action** (e.g., "Type 'warm jacket' into the search bar") and the exact **Spoken Words** (e.g., "Because we use Pinecone Vector Embeddings, the system understands 'warm' semantically and returns wool products, even if the word 'warm' isn't in the title").
+
+**2. The Teardown Script:**
+Write the Node.js/Prisma script required to reset the database.
+- Show the Prisma syntax to `deleteMany` orders and customers while preserving the core product catalog.
+- Explain in Markdown why presenting a UI filled with `test_order_123` destroys credibility, and why automated teardown scripts are mandatory for professional SaaS demos.
+````
+
+**Next: The Final Submission Checklist →**
