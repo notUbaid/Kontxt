@@ -1,90 +1,136 @@
 ---
 title: Performance Optimization
 slug: performance-optimization
-phase: Phase 4
+phase: Phase 4 Production Readiness
 mode: production
 projectType: e-commerce
-estimatedTime: 40–50 min
+estimatedTime: 45-60 min
 ---
 
-# Performance Optimization
+# Core Web Vitals & Edge Performance
 
-At production scale, performance is directly tied to revenue. Amazon famously found that every 100ms of latency cost them 1% in sales. 
+**Estimated Time:** 60 Minutes
 
-If your frontend is bloated, mobile users on 3G connections will abandon your site. If your backend is slow, checkout drops off. Production performance optimization requires surgical interventions at the Edge, the Browser, and the Database.
+Google strictly penalizes e-commerce stores with poor "Core Web Vitals." If your Largest Contentful Paint (LCP) takes longer than 2.5 seconds, Google will bury your store on Page 5 of the search results, destroying your organic traffic.
 
----
+A beginner ruins performance by:
+1. Uploading massive 5MB raw images to their homepage.
+2. Forcing the Next.js server to fetch data sequentially (Waterfall fetching).
+3. Importing heavy NPM libraries (like `moment.js` or `lodash`) into Client Components, bloating the JavaScript bundle to 2MB.
 
-## 1. Edge Caching & CDNs
-
-The fastest database query is the one you never make.
-
-**The Architecture:**
-- **Static Assets:** All images, CSS, and JS bundles must be served via a Content Delivery Network (CDN) like Cloudflare or AWS CloudFront.
-- **HTML Caching:** Your Product Detail Pages (PDPs) must be cached at the Edge. If a user in Tokyo requests a PDP, they should receive the HTML from a CDN node in Tokyo (TTFB < 50ms), not from your origin server in Virginia (TTFB > 200ms).
-- **Cache Invalidation:** Use Stale-While-Revalidate (SWR) or Incremental Static Regeneration (ISR). When a product's price changes, your backend must fire an On-Demand Revalidation webhook to purge the edge cache for that specific URL.
+In Phase 4, you must engineer strict **Image Optimization**, eliminate **Render Blocking JavaScript**, and implement **Dynamic Import Splitting**.
 
 ---
 
-## 2. Image Optimization (The Payload Killer)
+## 1. The Next/Image Optimization Engine
 
-E-commerce sites are image-heavy. Serving unoptimized 4MB JPEGs will destroy your Largest Contentful Paint (LCP) score and your conversion rate.
+You must never use a standard HTML `<img>` tag in Next.js. 
 
-**The Implementation:**
-1. **Format:** Serve images in WebP or AVIF formats. They are 30-50% smaller than JPEGs with no quality loss.
-2. **Sizing (Srcset):** Never serve a 2000px image to a mobile phone screen. Use HTML `<picture>` or `srcset` attributes to serve exact sizes based on the user's device width.
-3. **Dedicated Image CDN:** Do not serve images directly from your S3 bucket. Put an Image CDN (e.g., Cloudinary, Imgix, or Next.js Image component) in front of S3. It will automatically detect the user's browser support and serve the optimal format and size dynamically.
+If you render `<img src="/hero.jpg" />`, the browser downloads the raw 5MB file, even on a mobile phone with a 4G connection. 
 
----
+**The Production Solution:**
+You must use the `next/image` component. Next.js has a built-in image optimization server. When a mobile phone requests the image, Next.js intercepts it, converts the image to the ultra-efficient `WebP` or `AVIF` format, resizes it mathematically to fit the phone's screen, and serves a 30KB file instead.
 
-## 3. Third-Party Script Offloading (Partytown)
+```tsx
+import Image from 'next/image';
 
-Marketing teams rely on third-party scripts: Facebook Pixel, Google Tag Manager, Yotpo Reviews, Klaviyo Popups, Intercom Chat.
-
-If you load these synchronously on the main thread, the browser will freeze for 3 seconds while parsing them. The user will click "Add to Cart" and nothing will happen (Interaction to Next Paint failure).
-
-**The Solution: Web Workers**
-Use a tool like **Partytown**. It moves resource-intensive scripts off the main thread and into a background Web Worker. The main thread remains 100% dedicated to your UI code, ensuring the site feels instantly responsive while the analytics load silently in the background.
-
----
-
-## 4. Database Query Optimization (The N+1 Problem)
-
-If your frontend is fast but your backend is slow, you likely have an N+1 query problem.
-
-**The Anti-Pattern:**
-You query 50 orders on the admin page. Then, for *each* order, you run a query to fetch the user's email. You just executed 51 database queries. At 1,000 concurrent users, your database will collapse.
-
-**The Production Fix:**
-1. Use SQL `JOIN`s or Prisma `include` to fetch all related data in a single query.
-2. Ensure you have explicit indexes on foreign keys. If you frequently query `SELECT * FROM orders WHERE user_id = X`, you must have an index on `user_id`. Without an index, the database executes a full table scan, checking every single row in the millions-large table.
-
----
-
-## AI Prompt — Audit Your Performance Metrics
-
-```prompt
-I am auditing the performance architecture for a production e-commerce store.
-
-Tech Stack:
-- Frontend: [e.g., Next.js]
-- Database: [e.g., Postgres]
-- Third-Parties: [e.g., Klaviyo, GTM, Yotpo, Algolia]
-
-Act as a Principal Performance Engineer:
-1. Write the Next.js `next/image` configuration (or Cloudinary URL parameters) required to automatically serve AVIF images sized perfectly for mobile viewports.
-2. Provide the Webpack/Next.js configuration required to implement Partytown to offload Google Tag Manager and the Facebook Pixel to a Web Worker.
-3. Show the Prisma query to fetch 50 Orders with their nested OrderItems and User details in a single query (avoiding N+1), and write the SQL `CREATE INDEX` command for the `user_id` column to ensure it is performant.
-4. Explain how to implement a stale-while-revalidate (SWR) cache strategy for the Cart total, ensuring the UI feels instant but the server truth is respected.
+export function HeroBanner() {
+  return (
+    <div className="relative w-full h-[600px]">
+      <Image
+        src="https://cdn.shopify.com/s/files/hero.jpg"
+        alt="Summer Sale Banner"
+        fill
+        priority // CRITICAL: Tells the browser to download this FIRST, fixing LCP.
+        className="object-cover"
+        sizes="(max-width: 768px) 100vw, 50vw" // Prevents the server from sending a 4K image to an iPhone
+      />
+    </div>
+  );
+}
 ```
 
+**The `priority` Flag:** Any image that is "above the fold" (visible on the screen immediately when the page loads) MUST have the `priority` flag. Any image "below the fold" must NOT have it, so the browser lazy-loads it only when the user scrolls down.
+
+## 2. Dynamic Import Splitting (Code Splitting)
+
+If you have a massive, heavy component (like a complex 3D Product Viewer using Three.js, or a heavy Date Picker for scheduling delivery), and you `import` it normally at the top of the file, the user has to download that massive JavaScript library even if they never click the button to open it.
+
+**The Production Solution:**
+You must use `next/dynamic` to split the code. 
+
+```tsx
+'use client';
+import { useState } from 'react';
+import dynamic from 'next/dynamic';
+
+// 1. The browser DOES NOT download this component until it is rendered.
+const Heavy3DViewer = dynamic(() => import('@/components/Heavy3DViewer'), {
+  loading: () => <p>Loading 3D Engine...</p>, // Fallback UI while downloading
+  ssr: false, // Do not attempt to render Three.js on the Node server
+});
+
+export function ProductGallery() {
+  const [show3D, setShow3D] = useState(false);
+
+  return (
+    <div>
+      <img src="/static-shirt.jpg" alt="Shirt" />
+      
+      <button onClick={() => setShow3D(true)}>View in 3D</button>
+      
+      {/* 2. The 2MB library is fetched over the network ONLY when show3D is true */}
+      {show3D && <Heavy3DViewer />}
+    </div>
+  );
+}
+```
+
+This cuts your initial JavaScript payload by hundreds of kilobytes, drastically improving the Time to Interactive (TTI).
+
+## 3. Bundle Analysis
+
+You cannot optimize what you cannot measure. Before deploying to production, you must mathematically analyze your webpack bundle to see which NPM libraries are secretly destroying your performance.
+
+**The Production Solution:**
+You must configure `@next/bundle-analyzer`. When you run `npm run build`, it generates a visual heatmap of your JavaScript chunks. 
+
+If you see `moment.js` taking up 300kb of space, you rip it out and replace it with the native browser `Intl.DateTimeFormat` API (which costs 0kb).
+
 ---
 
-## Performance Optimization Checklist
+## ✅ Performance Engineering Checklist
 
-- [ ] Edge Caching (CDN) configured for all static assets and HTML pages
-- [ ] On-Demand Cache Invalidation configured for inventory and price updates
-- [ ] Images served via a dedicated Image CDN (Cloudinary/Next.js Image) in WebP/AVIF formats
-- [ ] Third-party marketing scripts offloaded to Web Workers (e.g., via Partytown) to protect the main thread
-- [ ] Database queries audited for N+1 vulnerabilities
-- [ ] Indexes applied to all foreign keys and frequently filtered database columns
+- [ ] Ban HTML `<img>` tags. Mandate `next/image`.
+- [ ] Enforce the `priority` flag on all Above-the-Fold images to fix Largest Contentful Paint (LCP) scores.
+- [ ] Utilize `next/dynamic` to lazy-load massive client-side libraries (like 3D viewers or heavy modal forms) only when interacted with.
+- [ ] Run `@next/bundle-analyzer` before launch to eliminate toxic NPM packages.
+- [ ] Use the AI prompt below to generate the optimization architecture.
+
+---
+
+## AI Prompt — Engineer Core Web Vitals
+
+Copy this prompt into your AI to have it optimize your application for a 100/100 Lighthouse score.
+
+````prompt
+I am building a headless e-commerce store with Next.js (App Router). I need you to act as my Principal Frontend Performance Engineer. We must optimize our Core Web Vitals.
+
+I need you to generate the following strict optimization implementations:
+
+**1. The LCP-Optimized Hero Component:**
+Write the `<HomepageHero />` component. 
+- You MUST use `next/image`. 
+- Explain exactly why the `priority` flag is required here to fix the Largest Contentful Paint (LCP).
+- Write the exact `sizes` attribute string that tells the browser to fetch an 800px image for mobile devices, and a 1600px image for desktop devices, saving massive amounts of bandwidth.
+
+**2. The Dynamic Code Splitter:**
+Write a `<ProductReviewModal />` component. 
+- Assume this modal contains a massive rich-text editor library (like TipTap or Draft.js). 
+- Show how the parent `<ProductPage />` component uses `next/dynamic` to ensure the rich-text library is strictly omitted from the initial JavaScript bundle, and is only downloaded over the network when the user clicks the "Write a Review" button.
+
+**3. Next.js Bundle Analyzer Config:**
+Write the exact `next.config.js` wrapper code required to implement `@next/bundle-analyzer`, including the cross-env script needed in `package.json` (e.g., `ANALYZE=true npm run build`).
+````
+
+**Next: Monitoring Engineering →**
