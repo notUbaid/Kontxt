@@ -1,86 +1,49 @@
 ---
 title: Design System
 slug: design-system
-phase: Phase 1
+phase: Phase 1 E Commerce Design
 mode: production
 projectType: e-commerce
-estimatedTime: 30–40 min
+estimatedTime: 20-30 min
 ---
 
-# Design System
+# Enterprise Design Systems
 
-In a production e-commerce team, developers should never write raw CSS to define the padding on a button. If they do, your UI will fracture. You will end up with 15 different shades of gray and 12 different button sizes, making the site feel cheap and breaking user trust.
+**Estimated Time:** 25 Minutes
 
-A **Design System** is a strict, programmatic collection of reusable components (React) and design tokens (Tailwind/CSS Variables) that guarantees absolute visual consistency across the entire application.
+In a production environment, a "Design System" is not a Figma file containing button colors. It is a strictly typed, version-controlled, and tested software library that enforces visual consistency and accessibility across all edge nodes of your storefront.
 
----
+When you have multiple engineering pods working concurrently on the checkout flow, the product listing pages (PLPs), and the user account dashboards, relying on ad-hoc CSS or inline styles will result in catastrophic technical debt. A true design system guarantees that a button looks and behaves identically across every micro-frontend.
 
-## 1. Design Tokens (The Variables)
+## 1. Tokenization and The Theming Engine
 
-A Design Token is a named entity that stores a visual design attribute. Instead of hardcoding `#FF0000`, you use the token `var(--color-destructive)`.
+You must completely decouple your core component logic from your visual branding. This is achieved through strict **Design Tokenization**.
 
-**The Implementation (Tailwind CSS):**
-You must map your entire brand palette into the `tailwind.config.js`.
-- **Colors:** Primary, Secondary, Accent, Destructive, Success, and a precise grayscale scale (100 to 900).
-- **Typography:** Map your brand fonts to `font-sans` and `font-serif`. Define strict leading (line-height) and tracking (letter-spacing) rules.
-- **Spacing:** E-commerce requires massive amounts of whitespace. Define a strict spacing scale (e.g., `4px`, `8px`, `16px`, `24px`) and never deviate from it.
+- **CSS Variables / Tailwind Config:** Do not hardcode `#FF5733`. Define a semantic token hierarchy: `primitive` -> `semantic` -> `component`.
+  - *Primitive:* `--color-orange-500: #FF5733`
+  - *Semantic:* `--color-brand-primary: var(--color-orange-500)`
+  - *Component:* `--button-bg-hover: var(--color-brand-primary)`
+- **Dynamic Theming:** This architecture allows you to instantly spin up localized "sub-brands" or execute A/B tests on button colors globally simply by overriding the semantic variables at the root `<html>` layer via Edge Middleware.
 
----
+## 2. Headless Component Libraries (Radix / React Aria)
 
-## 2. The Core Component Library
+Building accessible components from scratch (Dropdowns, Dialog modals, Comboboxes) is a massive waste of engineering resources and a liability for ADA compliance.
 
-Once the tokens are defined, you must build the core React components.
+> [!WARNING]
+> Never build custom dropdowns or modals using native `<div>` elements and manual `onClick` handlers. You will inevitably fail to manage focus trapping, keyboard navigation (`Esc` to close), and screen reader logic (`aria-expanded`).
 
-**The Production Rule (Radix / Shadcn):**
-Do not build complex interactive components (like Modals, Accordions, or Dropdowns) from scratch. You will fail to make them accessible (ARIA compliance) and keyboard navigable.
-- Use a headless UI library like **Radix UI** or **Headless UI**.
-- Wrap these headless primitives in your own custom Tailwind classes (e.g., using a system like `shadcn/ui`).
-- This guarantees that your `Accordion` component looks exactly like your brand, but behaves perfectly for screen readers and keyboard users.
+Instead, construct your design system on top of headless, unstyled primitives like **Radix UI** or **React Aria**. These libraries handle the brutal complexities of state management and accessibility (WAI-ARIA) natively. You simply wrap them in your specific Tailwind CSS classes or styled-components to apply the brand visual layer.
 
----
+## 3. Storybook & Component Driven Development (CDD)
 
-## 3. The "Product Card" Component
+Your design system must be developed in total isolation from the Next.js application logic. 
 
-The most critical, heavily reused component in e-commerce is the `ProductCard`. It appears on the homepage, category pages, search results, and cross-sell rails.
+- **Storybook as the Source of Truth:** Every single component (from a `PrimaryButton` to a `ProductCard`) must be documented in Storybook.
+- **Visual Regression Testing:** Integrate tools like Chromatic directly into your CI/CD pipeline. When an engineer submits a Pull Request that slightly alters the padding of the `CartIcon`, Chromatic will automatically capture screenshots, compare them against the `main` branch baseline, and block the PR if the UI shift is unintended.
+- **NPM Distribution:** In highly decoupled architectures, the design system is often published as an internal private NPM package (e.g., `@yourbrand/ui`). This allows the main storefront and the internal admin dashboard to import the exact same components, ensuring absolute consistency.
 
-**The Engineering Architecture:**
-- The `ProductCard` must accept a strict TypeScript interface (e.g., `title`, `price`, `imageSrc`, `inventoryCount`).
-- **Performance:** The image inside the card must use Next.js `<Image />` with strict `sizes` attributes for responsive loading.
-- **Interactivity:** It must support a quick "Add to Cart" button (often revealed on hover for desktop) that fires a mutation to the Cart API without forcing a full page reload.
-
----
-
-## 4. Dark Mode (Financial Risk)
-
-Supporting Dark Mode is a massive engineering overhead.
-
-**The Production Reality:**
-For e-commerce, Dark Mode often *decreases* conversion rates if poorly implemented, because product photography (which is usually shot on pure white backgrounds) looks jarring against a dark UI.
-- **The Recommendation:** For v1.0 of an e-commerce launch, force Light Mode. Focus engineering hours on checkout speed, not maintaining two separate color palettes.
-
----
-
-## AI Prompt — Architect Your Component Library
-
-```prompt
-I am establishing the React Design System for a production e-commerce store using Tailwind CSS.
-
-Tech Stack:
-- Framework: [e.g., Next.js React]
-- Styling: [e.g., Tailwind CSS + Radix UI]
-
-Act as a Principal UI/UX Engineer:
-1. Provide the specific `tailwind.config.js` configuration required to map our primary brand colors and typography into usable Design Tokens.
-2. Write the strict TypeScript interface for a highly reusable `ProductCard` component, ensuring it supports necessary data like `compareAtPrice` (for discounts) and `variantOptions` (e.g., color swatches).
-3. Explain the architectural benefit of using a Headless UI library (like Radix) instead of building a custom Dropdown or Modal component from scratch in React.
-```
-
----
-
-## Design System Checklist
-
-- [ ] Design Tokens (Colors, Typography, Spacing) strictly mapped into `tailwind.config.js`
-- [ ] Headless UI primitives (Radix/HeadlessUI) selected for complex interactive components to ensure ADA compliance
-- [ ] Core `ProductCard` component engineered with a strict TypeScript interface and optimized Next.js `<Image />` loading
-- [ ] Decision made on Dark Mode support (Recommendation: Force Light Mode for v1.0 to protect photography consistency)
-- [ ] Reusable Button variants (Primary, Secondary, Outline, Destructive) built and standardized across the app
+## Checklist:
+- [ ] Define the exact semantic design token hierarchy (Primitives -> Semantics -> Components) in your Tailwind/CSS configuration.
+- [ ] Adopt a headless UI primitive library (Radix UI, React Aria, Headless UI) to guarantee WCAG accessibility for complex interactive components.
+- [ ] Set up Storybook to develop and document components in strict isolation from application state.
+- [ ] Implement Visual Regression Testing (e.g., Chromatic) in your CI/CD pipeline to automatically block UI regressions.
