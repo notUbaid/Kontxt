@@ -1,76 +1,85 @@
 ---
 title: Customer Journey
 slug: customer-journey
-phase: Phase 1
+phase: Phase 1 E Commerce Design
 mode: production
 projectType: e-commerce
-estimatedTime: 20–30 min
+estimatedTime: 20-30 min
 ---
 
-# Customer Journey
+# Algorithmic Customer Journeys
 
-In e-commerce, the Customer Journey is a deterministic funnel. It is the exact sequence of HTTP requests, UI interactions, and database writes required to turn a stranger on Instagram into a profitable recurring customer.
+**Estimated Time:** 25 Minutes
 
-If you architect the journey as a linear path (Homepage -> Category -> Product -> Cart -> Checkout), you are failing to account for how modern users actually browse.
+A beginner designs a customer journey like a static map: *Homepage -> Category Page -> Product Page -> Cart -> Checkout.* 
 
----
+In a mass-production headless environment, assuming every customer follows a single linear path will destroy your conversion rates. Customers arrive from hundreds of different entry points (TikTok ads, Google Shopping, email newsletters). If a user clicks a highly targeted Instagram ad for a specific red shoe, forcing them through your generic homepage is a massive point of friction.
 
-## 1. The Landing Page Bypass (Advertorials)
-
-The highest-converting traffic does not go to your Homepage. 
-
-**The Production Strategy:**
-If marketing is spending $10,000 a day on TikTok ads for a specific Vitamin C serum, routing that traffic to the Homepage is a guaranteed way to waste $9,000.
-- **The Journey:** Ad Click -> Dedicated Advertorial Landing Page -> Cart Flyout -> Checkout.
-- **The Architecture:** The engineering team must build a headless CMS architecture (e.g., Sanity or Builder.io) that allows the marketing team to dynamically spin up single-product Landing Pages (LPs) in 5 minutes without a code deployment. These LPs strip away the global navigation bar to force the user into a single conversion action.
+As an AI-Assisted Architect, you must instruct your AI to build **Dynamic Routing and State Injection**. The journey must adapt algorithmically to the user's specific entry vector.
 
 ---
 
-## 2. The Omnichannel Entry Points
+## 1. The "Cold Start" Entry Vector
 
-A customer journey rarely happens in a single session on a single device.
+If a user arrives via a generic Google Search to your Homepage, you have zero data on their intent. This is a "Cold Start."
 
-1. **Session 1 (Mobile):** User clicks a Meta ad on their phone while commuting. They add an item to the cart, but drop off when their train arrives.
-2. **Session 2 (Desktop):** User sits at their laptop 3 hours later and types in your URL to complete the purchase.
+**The Production Solution:**
+You must instruct your AI to implement **Edge-Level Personalization**. 
+1. The Next.js Edge Middleware intercepts the request.
+2. It reads the user's Geo-IP (e.g., detecting they are in Miami, Florida).
+3. The AI must inject this Geo-data into the static HTML. Instead of showing winter coats, the Homepage instantly re-arranges its Algolia search query to prioritize "Summer Swimwear." 
 
-**The Engineering Challenge:**
-If the Cart State is saved to `localStorage` on the iPhone, the cart will be empty on the laptop. The user will not bother finding the product again.
-- **The Fix:** Implement persistent cloud carts. If the user was logged in (or identified via an early email capture hook), the Cart API must sync the active cart state to Postgres/Redis. When they log in on the laptop, the cart instantly hydrates.
+By engineering the journey at the Edge, the user feels like the store was built specifically for them, without sacrificing cache speeds.
 
----
+## 2. The "High-Intent" Entry Vector (Bypassing the Funnel)
 
-## 3. The Post-Purchase Activation (The Second Journey)
+If a user clicks a Google Shopping ad, they have incredibly high intent. They already saw the price and the image on Google. They want to buy.
 
-The journey does not end when the Stripe webhook fires. It immediately pivots into the LTV (Lifetime Value) generation journey.
+Do not force them into a long, drawn-out funnel.
 
-**The Implementation:**
-- **The Confirmation Page:** Do not just show an Order ID. Show a referral link widget: "Give 15%, Get $15".
-- **The Tracking Page:** Customers check the tracking page an average of 4.5 times per order. Do not send them to the generic FedEx website. Host the tracking page on your own domain (e.g., using AfterShip APIs) and inject high-margin cross-sells directly onto the page.
-- **The Replenishment Email:** If they bought a 30-day supply of coffee, Klaviyo must trigger an exact reorder email on Day 25.
+**The Production Solution:**
+You must instruct your AI to build **Deep Linking and URL Parameter State Injection**.
+- If the ad link is `domain.com/products/red-shoe?variant=size10&action=buy_now`
+- The Next.js router must parse the `action=buy_now` parameter.
+- The React code must instantly hydrate the Cart Zustand store, add the item, and automatically slide open the Cart Drawer (or redirect straight to Checkout) the millisecond the page loads. 
+- You have algorithmically eliminated three clicks from the journey.
 
----
+## 3. The "Cart Abandonment" Re-Entry Vector
 
-## AI Prompt — Map Your Funnel Architecture
+When a user abandons a cart and returns three days later via an email reminder, their state must be perfectly preserved.
 
-```prompt
-I am architecting the digital Customer Journey for a production e-commerce brand to maximize conversion and LTV.
-
-Business Context:
-- Primary Acquisition Channel: [e.g., Meta/TikTok Ads]
-- Tech Stack: [e.g., Next.js, Sanity CMS, Redis]
-
-Act as a Principal Growth Architect:
-1. Explain the technical integration required between a Headless CMS (Sanity) and Next.js to allow the marketing team to deploy high-converting, single-product Landing Pages (Advertorials) without requiring a developer deployment.
-2. Outline the API architecture for maintaining a "Persistent Cloud Cart" in Redis that can seamlessly hydrate across a user's mobile device and desktop browser to recover multi-session drop-offs.
-3. Design the Post-Purchase journey loop. How do we technically hijack the "Order Tracking" experience to host it on our own domain and inject algorithmic cross-sells into that high-traffic page?
-```
+**The Production Solution:**
+You must command your AI to use **Remote State Synchronization**. 
+When the user clicked "Add to Cart" three days ago, the frontend sent a background mutation to your Commerce Engine (e.g., Shopify API) to save the cart ID to their email/session. When they click the email link, the URL contains a secure hash of their Cart ID. The frontend instantly fetches the remote cart and restores their session exactly as they left it.
 
 ---
 
-## Customer Journey Checklist
+## ✅ Customer Journey Checklist
 
-- [ ] Headless CMS architecture integrated to support dynamic, single-product Landing Pages (bypassing the Homepage)
-- [ ] Persistent Cloud Carts engineered to sync state across devices for logged-in or identified users
-- [ ] Omnichannel entry points accounted for in the analytics data layer (Multi-Touch Attribution)
-- [ ] Order Tracking experience hijacked and hosted on-domain to serve post-purchase cross-sells
-- [ ] Replenishment and Referral loops explicitly designed into the post-purchase UI
+- [ ] Stop thinking of the journey as a linear path; treat it as a matrix of entry vectors.
+- [ ] Understand how URL parameters (`?action=buy`) can be used to programmatically skip steps in the funnel.
+- [ ] Ensure Cart IDs are synchronized with the backend to enable seamless cross-device cart recovery.
+- [ ] Use the AI prompt below to generate the state-injection routing logic.
+
+---
+
+## AI Prompt — Architect Dynamic Journey Routing
+
+Copy this prompt into your AI to have it generate the intelligent routing logic required to manipulate the customer journey programmatically.
+
+````prompt
+I am building a production-grade headless e-commerce store with Next.js (App Router). I need you to act as my Principal Frontend Architect. We are engineering dynamic, algorithmic customer journeys based on entry vectors.
+
+I need you to generate the following architectural implementations:
+
+**1. URL Parameter State Injection:**
+Write a Next.js Client Component (e.g., `<JourneyInterceptor />`) that runs on the Product Detail Page (PDP). It must use `useSearchParams` to check for `?action=buy_now` or `?apply_discount=10OFF`. Show exactly how it triggers a mutation in our global Zustand cart store to instantly add the item and open the cart drawer on load, skipping the manual "Add to Cart" click.
+
+**2. Geo-Targeted Cold Start (Edge Middleware):**
+Write the Next.js `middleware.ts` logic to detect the user's `x-vercel-ip-city` or `country`. Show how to inject this data securely so our Hero component can dynamically request localized "Trending" products from Algolia, without breaking our static ISR cache.
+
+**3. Cart Recovery Hydration:**
+Explain the architectural flow for handling a "Cart Recovery" email link. If the URL is `domain.com/recover?cartId=123xyz`, write the SWR or React Query fetch logic that securely hydrates the local Zustand store with the remote cart data from our Commerce Engine.
+````
+
+**Next: Wireframes →**

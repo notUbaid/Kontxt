@@ -1,81 +1,85 @@
 ---
 title: Wireframes
 slug: wireframes
-phase: Phase 1
+phase: Phase 1 E Commerce Design
 mode: production
 projectType: e-commerce
-estimatedTime: 20–30 min
+estimatedTime: 15-20 min
 ---
 
-# Wireframes
+# Wireframing for Component Architecture
 
-In production e-commerce, Wireframes are not used to debate aesthetics, colors, or fonts. They are low-fidelity blueprints used to aggressively optimize the user flow and maximize conversion rates (CVR) before a single line of React is written.
+**Estimated Time:** 20 Minutes
 
-Wireframing forces the product team to establish the spatial priority of UI elements. If the "Add to Cart" button is below the fold, or if the Apple Pay button is hidden behind a secondary menu, the wireframe has failed.
+Beginners wireframe to decide what a website *looks* like. They draw boxes on a piece of paper or in Figma to arrange the logo, the buttons, and the images.
 
----
+In a headless production environment, wireframing has almost nothing to do with aesthetics. Wireframing is the process of **defining your React Component Hierarchy and Data Boundaries**. If you hand a visual wireframe to an AI without defining the data boundaries, the AI will build a monolithic, un-reusable mess of code.
 
-## 1. The F-Pattern (Visual Hierarchy)
-
-Eye-tracking studies in e-commerce consistently prove that users scan screens in an "F-Pattern" (Top-Left to Top-Right, then down the left side).
-
-**The Wireframe Implementation (PDP):**
-- **Top Left:** Product Image Gallery (The highest engagement zone).
-- **Top Right:** Product Title, Price, Reviews (The trust zone).
-- **Middle Right:** The Buy Box (Variant Selectors and a massive Add to Cart button).
-- **Bottom Left:** Technical Specs and Long-form descriptions (The validation zone).
-
-If you put the long-form marketing description above the Add to Cart button, you force users to scroll to buy, instantly killing your conversion rate.
+As an AI-Assisted Architect, you must translate visual boxes into strict `Parent -> Child` React components, explicitly defining which component fetches data and which component is "dumb."
 
 ---
 
-## 2. The Mobile-First Mandate
+## 1. The Container vs. Presentational Pattern
 
-In modern e-commerce, 70% to 85% of your traffic (especially from Meta/TikTok ads) will be on mobile devices. If you wireframe the desktop view first, you are designing for the minority.
+When looking at a wireframe of a Product Listing Page (PLP), you will see a grid of 12 products. 
 
-**The Implementation:**
-- Start with a 390x844 artboard (iPhone 14 size).
-- **The "Thumb Zone":** The bottom 30% of a mobile screen is the most accessible area for a user holding a phone with one hand.
-- Wireframe the "Add to Cart" button as a "Sticky Footer" that remains pinned to the bottom of the screen as the user scrolls down to read reviews. This ensures the primary conversion action is always exactly under their thumb.
+A beginner's AI will write one massive component that fetches the 12 products from Algolia and renders all 12 images and titles in the exact same file. This makes the code impossible to test or reuse.
 
----
+**The Production Solution:**
+You must enforce the **Container vs. Presentational (Smart vs. Dumb) Pattern**.
+- **The Container (`<ProductGridContainer />`):** This is the "Smart" box in your wireframe. It has zero CSS. Its only job is to communicate with the Algolia API, handle the loading state, and manage the error boundary.
+- **The Presentational (`<ProductCard />`):** This is the "Dumb" box. It has no idea what Algolia is. It simply receives data via React `props` (title, price, image) and applies Tailwind CSS to make it look beautiful. 
 
-## 3. The Cart Flyout (Bypassing the /cart page)
+By wireframing the *boundaries* of these components, you can reuse the exact same `<ProductCard />` in the checkout cart, the search results, and the homepage.
 
-Forcing a user to navigate to a dedicated `/cart` page just to see what they added introduces massive friction and page-load latency.
+## 2. Wireframing State Boundaries
 
-**The Implementation:**
-Wireframe a slide-out Cart Drawer.
-- When the user taps "Add to Cart", the drawer slides in from the right.
-- It must explicitly wireframe three zones:
-  1. **The Core:** The item they just added (with quantity toggles).
-  2. **The Growth Lever:** A progress bar indicating how close they are to Free Shipping.
-  3. **The Upsell:** A horizontally scrolling list of 1-click add-on items.
-- A massive "Proceed to Checkout" button is pinned to the bottom.
+If your wireframe includes a "Filter Sidebar" (Size, Color, Price) on the left, and a "Product Grid" on the right, you must define where the state lives.
 
----
+If you let the AI guess, it might put the active filters inside the Sidebar component. But if the filters live in the Sidebar, how does the Product Grid know which products to show?
 
-## AI Prompt — Generate Your Wireframe Structure
+**The Production Solution:**
+You must instruct the AI to hoist the state to the nearest common parent (the URL URL Parameters). 
+Your wireframe notes must explicitly state: *"The Sidebar is a Dumb component. When a user clicks 'Size Large', the Sidebar pushes `?size=L` to the URL. The Product Grid Container listens to the URL and fetches the new data."* 
 
-```prompt
-I am building the UX wireframes for a production e-commerce store, prioritizing mobile conversion rates.
+This ensures the user can copy/paste the URL and send it to a friend, and the friend will see the exact same filtered results.
 
-Business Context:
-- Target Device: [Mobile First (80% of traffic)]
-- Key Views: [Product Detail Page (PDP), Cart Flyout]
+## 3. Server Components vs. Client Components (RSC)
 
-Act as a Principal UX Architect:
-1. Outline the exact visual hierarchy (Top to Bottom) for the mobile Product Detail Page (PDP), explaining why the "Sticky Add to Cart Footer" is mathematically superior to a static button.
-2. Draft the layout zones for the Cart Flyout drawer, detailing how to visually integrate a "Delta to Free Shipping" progress bar without cluttering the UI.
-3. Identify 3 common e-commerce UX anti-patterns (e.g., hiding reviews behind tabs) that we must explicitly avoid in our wireframes to protect conversion rates.
-```
+In Next.js App Router, you must wireframe which boxes are rendered on the server, and which require JavaScript on the client.
+
+- **Static Content (Server Components):** The Header, the Footer, the Product Description. These ship as pure HTML for maximum speed.
+- **Interactive Content (Client Components):** The "Add to Cart" button, the Image Carousel. These require `onClick` handlers.
+
+You must wireframe these boundaries to force the AI to keep Client Components as small as possible, minimizing the JavaScript bundle size.
 
 ---
 
-## Wireframes Checklist
+## ✅ Component Wireframing Checklist
 
-- [ ] Wireframes designed strictly Mobile-First (ignoring desktop until mobile UX is perfected)
-- [ ] Visual Hierarchy adheres to the F-Pattern, prioritizing the "Buy Box" above long-form copy
-- [ ] Sticky "Add to Cart" button implemented in the mobile "Thumb Zone"
-- [ ] Cart Flyout (Drawer) wireframed to include Free Shipping thresholds and algorithmic Upsells
-- [ ] High-friction anti-patterns (like forced account creation before checkout) explicitly removed from the flow
+- [ ] Stop wireframing for aesthetics; wireframe to define React component boundaries.
+- [ ] Enforce the "Smart Container vs. Dumb Presentational" pattern for all complex UIs.
+- [ ] Mandate that all filtering state must be stored in the URL (`useSearchParams`), never in local component state.
+- [ ] Use the AI prompt below to generate the strict component hierarchy.
+
+---
+
+## AI Prompt — Architect the Component Hierarchy
+
+Copy this prompt into your AI to have it translate a generic layout into a strict, production-grade React Component architecture.
+
+````prompt
+I am building a headless e-commerce store with Next.js (App Router). I need you to act as my Principal Frontend Architect. We are defining our Component Wireframes for the Category Page (PLP).
+
+Do not write the CSS layout yet. I need you to define the strict React architecture, separating logic from presentation.
+
+**Generate the Component Hierarchy Map for the Category Page:**
+
+1. **Server vs. Client Boundaries:** Explicitly define which components will be Server Components (`layout.tsx`, `page.tsx`) and which must be Client Components (e.g., `"use client"` for the filter checkboxes).
+2. **Container/Presentational Split:** Detail the exact prop contract between the smart `<CategoryAlgoliaContainer />` and the dumb `<ProductCard />`. 
+3. **URL State Management:** Write the strict rule explaining how the `<SidebarFilters />` component will mutate the URL parameters (using Next.js `useRouter` or `nuqs`), and how the `<CategoryAlgoliaContainer />` will consume those parameters to trigger a new NoSQL fetch.
+
+Output this as a structured architectural blueprint.
+````
+
+**Next: Mobile Responsiveness →**
