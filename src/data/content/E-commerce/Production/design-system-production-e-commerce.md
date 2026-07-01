@@ -11,39 +11,73 @@ estimatedTime: 20-30 min
 
 **Estimated Time:** 25 Minutes
 
-In a production environment, a "Design System" is not a Figma file containing button colors. It is a strictly typed, version-controlled, and tested software library that enforces visual consistency and accessibility across all edge nodes of your storefront.
+For beginners, a "Design System" is usually just a Figma file with a few brand colors and a logo. When they start coding, they write messy, inline CSS or random Tailwind classes everywhere. 
 
-When you have multiple engineering pods working concurrently on the checkout flow, the product listing pages (PLPs), and the user account dashboards, relying on ad-hoc CSS or inline styles will result in catastrophic technical debt. A true design system guarantees that a button looks and behaves identically across every micro-frontend.
+In a production environment, if you do not have a strictly typed, code-based design system, your codebase will turn into spaghetti. If you have 5 different developers (or one AI generating thousands of lines of code) working on the checkout, the product page, and the user dashboard, a true design system guarantees that a button looks and behaves identically across every page.
 
-## 1. Tokenization and The Theming Engine
+As an AI-Assisted Architect, you must explicitly forbid your AI from writing custom CSS for every component. 
 
-You must completely decouple your core component logic from your visual branding. This is achieved through strict **Design Tokenization**.
+---
 
-- **CSS Variables / Tailwind Config:** Do not hardcode `#FF5733`. Define a semantic token hierarchy: `primitive` -> `semantic` -> `component`.
-  - *Primitive:* `--color-orange-500: #FF5733`
-  - *Semantic:* `--color-brand-primary: var(--color-orange-500)`
-  - *Component:* `--button-bg-hover: var(--color-brand-primary)`
-- **Dynamic Theming:** This architecture allows you to instantly spin up localized "sub-brands" or execute A/B tests on button colors globally simply by overriding the semantic variables at the root `<html>` layer via Edge Middleware.
+## 1. Tokenization (The Foundation)
 
-## 2. Headless Component Libraries (Radix / React Aria)
+You must decouple your core logic from your visual branding. We do this through **Design Tokenization**.
 
-Building accessible components from scratch (Dropdowns, Dialog modals, Comboboxes) is a massive waste of engineering resources and a liability for ADA compliance.
+If your brand color is orange, you do not let the AI hardcode `#FF5733` into 50 different React components. If you decide to rebrand to blue next year, you would have to manually find and replace 50 instances.
+
+Instead, instruct your AI to define a semantic hierarchy in your `tailwind.config.js`:
+- **Primitive:** `colors: { orange: { 500: '#FF5733' } }`
+- **Semantic:** `colors: { brand: { primary: 'var(--color-orange-500)' } }`
+
+Now, your AI only uses `bg-brand-primary`. If you rebrand, you change one variable, and the entire store updates instantly.
+
+## 2. Headless UI Libraries (The Secret Weapon)
+
+Building complex interactive components (Dropdowns, Dialog modals, Comboboxes) from scratch is a massive waste of time and highly prone to accessibility bugs.
 
 > [!WARNING]
-> Never build custom dropdowns or modals using native `<div>` elements and manual `onClick` handlers. You will inevitably fail to manage focus trapping, keyboard navigation (`Esc` to close), and screen reader logic (`aria-expanded`).
+> Never let your AI build custom dropdowns or modals using basic `<div>` tags and `onClick` handlers. The AI will inevitably fail to manage focus trapping, keyboard navigation (`Esc` to close), and screen reader logic (`aria-expanded`).
 
-Instead, construct your design system on top of headless, unstyled primitives like **Radix UI** or **React Aria**. These libraries handle the brutal complexities of state management and accessibility (WAI-ARIA) natively. You simply wrap them in your specific Tailwind CSS classes or styled-components to apply the brand visual layer.
+Instead, you will instruct the AI to build your design system using **Headless UI Primitives** (like Radix UI, React Aria, or Shadcn/UI). These libraries handle all the brutal complexities of state management and ADA compliance natively. The AI simply wraps them in your specific Tailwind CSS classes to apply the visual layer.
 
-## 3. Storybook & Component Driven Development (CDD)
+## 3. Storybook & Component Driven Development
 
-Your design system must be developed in total isolation from the Next.js application logic. 
+In production, you do not build a button directly inside the checkout page. You build it in isolation.
 
-- **Storybook as the Source of Truth:** Every single component (from a `PrimaryButton` to a `ProductCard`) must be documented in Storybook.
-- **Visual Regression Testing:** Integrate tools like Chromatic directly into your CI/CD pipeline. When an engineer submits a Pull Request that slightly alters the padding of the `CartIcon`, Chromatic will automatically capture screenshots, compare them against the `main` branch baseline, and block the PR if the UI shift is unintended.
-- **NPM Distribution:** In highly decoupled architectures, the design system is often published as an internal private NPM package (e.g., `@yourbrand/ui`). This allows the main storefront and the internal admin dashboard to import the exact same components, ensuring absolute consistency.
+You must instruct your AI to use **Storybook**. Storybook is a sandbox where you can view every single component (from a `PrimaryButton` to a `ProductCard`) independent of the main app. This allows you to verify that the component is flawless before injecting it into the complex routing of the Next.js app.
 
-## Checklist:
-- [ ] Define the exact semantic design token hierarchy (Primitives -> Semantics -> Components) in your Tailwind/CSS configuration.
-- [ ] Adopt a headless UI primitive library (Radix UI, React Aria, Headless UI) to guarantee WCAG accessibility for complex interactive components.
-- [ ] Set up Storybook to develop and document components in strict isolation from application state.
-- [ ] Implement Visual Regression Testing (e.g., Chromatic) in your CI/CD pipeline to automatically block UI regressions.
+---
+
+## ✅ Design System Checklist
+
+- [ ] Stop thinking of a Design System as a Figma file; treat it as a strictly typed NPM package/library.
+- [ ] Mandate strict Semantic Tokenization in Tailwind (never hardcode hex colors).
+- [ ] Choose a Headless UI library (Radix UI or Shadcn/UI is highly recommended for React/Next.js).
+- [ ] Understand that Storybook is the required sandbox for testing components in isolation.
+- [ ] Use the AI prompt below to generate the foundation of your coded design system.
+
+---
+
+## AI Prompt — Architect the Headless Design System
+
+Copy this prompt into your AI to have it generate the strict Tailwind tokenization and the first headless components.
+
+````prompt
+I am building a production-grade headless e-commerce store with Next.js and Tailwind CSS. I need you to act as my Principal Frontend Architect. We are establishing our strict, code-based Design System.
+
+Do not write messy, inline CSS. We must use strict Tokenization and Headless UI primitives.
+
+**Generate the following architectural files:**
+
+1. **The Tailwind Token Configuration:**
+Write the `tailwind.config.js` file. Establish a semantic token hierarchy mapping primitive colors (e.g., specific hex codes) to semantic brand variables (`brand-primary`, `bg-surface`, `text-muted`).
+
+2. **The Headless Modal Component:**
+I want to use Radix UI (or Shadcn/UI) for our complex interactive components. Write a reusable `<DialogModal />` component. 
+Demonstrate exactly how you wrap the unstyled Radix primitive with our semantic Tailwind tokens. Ensure you explain how Radix natively handles focus trapping and the `Esc` key to close.
+
+3. **The Storybook Setup:**
+Write the boilerplate `.storybook/main.ts` and `preview.ts` configuration required to integrate Tailwind CSS into our isolated Storybook environment.
+````
+
+**Next: Branding →**

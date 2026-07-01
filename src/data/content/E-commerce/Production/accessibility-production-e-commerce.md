@@ -11,36 +11,67 @@ estimatedTime: 20-30 min
 
 **Estimated Time:** 25 Minutes
 
-In mass-production environments, accessibility (a11y) is not an afterthought or a "nice to have" feature pushed to a Phase 2 backlog. It is a strict engineering mandate. 
+Beginners often treat Accessibility (a11y) as an afterthought—something to fix in "Phase 2" if someone complains. 
 
-Failing to comply with WCAG (Web Content Accessibility Guidelines) 2.1 AA standards alienates roughly 15-20% of your potential customer base (users relying on screen readers, keyboard navigation, or high-contrast interfaces). Furthermore, in regions like the US and EU, non-compliance invites massive, expensive ADA (Americans with Disabilities Act) lawsuits against the enterprise.
+In a mass-production environment, failing to comply with WCAG (Web Content Accessibility Guidelines) 2.1 AA standards is a fatal error. 
+1. You instantly alienate 15-20% of your customer base (users relying on screen readers or keyboard navigation).
+2. In regions like the US and EU, non-compliance invites massive, expensive ADA (Americans with Disabilities Act) lawsuits against the enterprise.
+
+As an AI-Assisted Architect, you must instruct your AI that accessibility is a strict engineering mandate. If the AI writes inaccessible code, the build must fail.
+
+---
 
 ## 1. Focus Management and Keyboard Navigation
 
-A production storefront must be 100% navigable without a mouse. Users relying on keyboards or sip-and-puff devices must be able to seamlessly add items to their cart and checkout.
+A production storefront must be 100% navigable without a mouse. Users relying on keyboards must be able to add items to their cart and checkout seamlessly.
 
-- **The Focus Trap:** When a user opens a modal (e.g., a "Quick View" product modal or the slide-out Cart Drawer), keyboard focus MUST be programmatically trapped inside that modal. If the user presses `Tab`, focus should cycle through the modal's buttons, not the hidden webpage underneath. When the modal closes (via `Esc` or the close button), focus must be elegantly returned to the exact button the user clicked to open it.
-- **Skip Links:** The very first focusable element in your DOM (visually hidden until focused) must be a "Skip to Main Content" link. This allows keyboard users to bypass the 50-link Mega Menu on every single page load.
+- **The Focus Trap:** When a user opens a modal (e.g., the slide-out Cart Drawer), keyboard focus MUST be programmatically trapped inside that drawer. If the user presses `Tab`, focus should cycle through the checkout buttons, not the hidden webpage underneath. When the drawer closes, focus must be returned exactly to the button they clicked to open it.
+- **Skip Links:** The very first focusable element in your DOM (visually hidden until focused) must be a "Skip to Main Content" link, allowing keyboard users to bypass your massive Mega Menu on every single page load.
 
 > [!WARNING]
-> Never use `outline: none` in your CSS unless you are explicitly replacing it with a custom, highly visible `:focus-visible` state. Removing focus outlines renders your site completely unusable for keyboard navigators.
+> Never let your AI use `outline: none` in CSS unless it is explicitly replacing the outline with a custom, highly visible `:focus-visible` state. Removing focus outlines renders your site completely unusable for keyboard navigators.
 
 ## 2. Dynamic State and ARIA Live Regions
 
-Modern headless e-commerce is highly dynamic (items are added to carts via AJAX, prices update via SWR, inventory counters decrement instantly). A sighted user sees these visual changes, but a blind user relying on a screen reader (VoiceOver, NVDA) is completely unaware unless the DOM explicitly announces the change.
+Modern headless e-commerce is highly dynamic. Items are added to carts instantly, and prices update in the background. A sighted user sees these changes, but a blind user relying on a screen reader (VoiceOver, NVDA) is completely unaware unless the DOM tells them.
 
-- **`aria-live` Regions:** You must implement visually hidden ARIA live regions. When a user clicks "Add to Cart", the JavaScript must inject text like *"Blue Oxford Shirt added to your cart. You have 3 items total."* into the `aria-live="polite"` region. The screen reader will then announce this crucial state change.
-- **Form Error States:** During checkout, if a user submits an invalid credit card, the focus must immediately jump to the error summary, and the specific input must be tagged with `aria-invalid="true"` and linked to the error message ID via `aria-describedby`.
+**The Production Solution:** 
+You must instruct your AI to implement visually hidden **ARIA Live Regions** (`aria-live="polite"`). When a user clicks "Add to Cart", the JavaScript must inject text like *"Blue Oxford Shirt added to your cart"* into the live region so the screen reader announces it immediately.
 
 ## 3. Automated Enforcement
 
-Do not rely on developers remembering to add `alt` tags. You must programmatically enforce accessibility in your build pipeline.
+Do not rely on yourself to remember to ask the AI for `alt` tags. You must force the AI to set up **Automated Linting**.
 
-- **Linting:** Add `eslint-plugin-jsx-a11y` to your repository. It will automatically fail the build if developers write inaccessible code (e.g., using `onClick` on a non-interactive `<div>` without keyboard handlers).
-- **Automated CI/CD Testing:** Integrate tools like `cypress-axe` or `@axe-core/playwright`. During the E2E testing phase in GitHub Actions, these tools will scan the rendered DOM of your critical flows (Home, PDP, Checkout) and block the Pull Request if contrast ratios or semantic ARIA rules are violated.
+You will instruct the AI to add `eslint-plugin-jsx-a11y` to your repository. If the AI later tries to write inaccessible code (e.g., an `onClick` on a `<div>`), the linter will throw a fatal error, and the code will refuse to compile.
 
-## Checklist:
-- [ ] Implement robust Focus Trapping (`focus-trap-react`) for all modals, cart drawers, and mobile navigation menus.
-- [ ] Ensure all dynamic cart mutations (add, remove, update) are announced to screen readers via visually hidden `aria-live` regions.
-- [ ] Configure `eslint-plugin-jsx-a11y` in the repository to block inaccessible DOM structures at the code-authoring level.
-- [ ] Integrate automated Axe-core accessibility audits into the CI/CD pipeline to block PRs that violate WCAG 2.1 AA standards.
+---
+
+## ✅ Accessibility Checklist
+
+- [ ] Accept that WCAG 2.1 AA Compliance is a legal and ethical mandate, not a "nice-to-have."
+- [ ] Ensure all modals and cart drawers utilize Focus Trapping so keyboard users do not get lost in the DOM.
+- [ ] Understand the necessity of ARIA Live regions for announcing headless cart mutations.
+- [ ] Use the AI prompt below to generate the automated enforcement linting rules.
+
+---
+
+## AI Prompt — Enforce WCAG 2.1 AA Compliance
+
+Copy this prompt into your AI to have it set up the strict accessibility guardrails for your repository.
+
+````prompt
+I am setting up a production-grade Next.js e-commerce repository. I need you to act as a Principal Frontend Architect. Accessibility (WCAG 2.1 AA) is a strict legal and architectural mandate for this project.
+
+I need you to generate the following implementations to programmatically enforce accessibility:
+
+**1. ESLint Accessibility Guardrails:**
+Provide the exact `.eslintrc.json` configuration utilizing `eslint-plugin-jsx-a11y`. Ensure that any missing `alt` tags, improper ARIA roles, or invalid keyboard interactions throw FATAL errors (not just warnings) to block the build.
+
+**2. The ARIA Live Region Announcer:**
+Headless cart mutations are invisible to screen readers. Write a reusable React component (e.g., `<A11yAnnouncer />`) that uses `aria-live="polite"`. Explain how our global Zustand cart store will push string messages (e.g., "Item added to cart") to this component so screen readers announce dynamic state changes instantly.
+
+**3. The Skip-to-Content Link:**
+Write the Tailwind CSS code for a "Skip to Main Content" link that is visually hidden by default but becomes visible when a keyboard user presses the Tab key. Explain exactly where this must be placed in the Next.js `app/layout.tsx`.
+````
+
+**Next: Empty States →**
