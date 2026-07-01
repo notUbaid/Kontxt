@@ -1,106 +1,148 @@
 ---
 title: Error Tracking
 slug: error-tracking
-phase: Phase 4
+phase: Phase 4 Production Readiness
 mode: production
 projectType: e-commerce
-estimatedTime: 30–40 min
+estimatedTime: 45-60 min
 ---
 
-# Error Tracking
+# Global Error Tracking & Diagnostics
 
-In a production e-commerce store, silent errors are the most expensive bugs. 
+**Estimated Time:** 60 Minutes
 
-If a user tries to add an item to their cart and a JavaScript exception crashes the UI silently, they will leave. They will not email support. You simply lose the revenue, and you have no idea why.
+A beginner pushes their code to Vercel and assumes that if the build succeeds, the website is perfect. 
 
-Error tracking ensures that the exact stack trace, the user's browser details, and the API payload are captured and alerted on immediately.
+Then, a customer on an outdated Android phone tries to checkout. The JavaScript engine on their specific phone doesn't support the `Array.prototype.at()` function. The checkout screen goes completely blank. The customer leaves. The beginner checks their Next.js server logs, but sees nothing, because the error happened *in the user's browser*, not on the server.
 
----
-
-## 1. Frontend Exception Tracking
-
-When React code crashes on a user's mobile browser, you cannot access their DevTools console.
-
-**The Implementation:**
-Integrate a frontend error tracker like **Sentry**, **Bugsnag**, or **Datadog RUM**.
-- Configure React Error Boundaries to catch UI crashes and prevent the entire page from going white (the "White Screen of Death").
-- The Error Boundary renders a graceful fallback (e.g., "Something went wrong, please refresh") and sends the stack trace to Sentry.
-
-**Session Replay (The Silver Bullet):**
-For e-commerce, stack traces are often not enough to understand *why* a user failed to checkout. Tools like **LogRocket** or Sentry Session Replay record a video-like reproduction of the user's screen. If a customer complains "I can't check out," you can watch the exact session replay, see where they clicked, and watch the exact API failure happen in real-time.
+In a production environment, you must engineer a **Global Error Boundary** and implement **Session Replay Diagnostics** to catch silent client-side failures.
 
 ---
 
-## 2. Backend Exception Tracking
+## 1. Client-Side Error Tracking (Sentry)
 
-Backend errors dictate your store's reliability.
+You must capture every single JavaScript exception that occurs on your customers' devices.
 
-**The Implementation:**
-Wrap all API routes and background queue handlers in an error-tracking SDK (e.g., Sentry for Node.js).
-- Ensure the SDK captures the exact HTTP Request payload (minus PII/credit cards).
-- **Tagging (Critical):** Always tag the error with the `user_id` and the `order_id` (if they exist in the context). When an error fires, you need to know exactly which customer was affected so your support team can proactively email them.
+**The Production Solution:**
+You will use **Sentry**. When an error occurs in the browser, Sentry catches it, packages the stack trace, and sends it to your dashboard. It even tells you exactly what browser and OS the user was on.
 
-```javascript
-try {
-  await capturePayment(orderId);
-} catch (error) {
-  Sentry.withScope((scope) => {
-    scope.setTag("order_id", orderId);
-    scope.setTag("user_id", user.id);
+```tsx
+// app/global-error.tsx
+'use client';
+
+import * as Sentry from '@sentry/nextjs';
+import { useEffect } from 'react';
+
+// This is Next.js's ultimate fallback error boundary
+export default function GlobalError({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
+  useEffect(() => {
+    // 1. Send the silent client-side error to Sentry immediately
     Sentry.captureException(error);
-  });
-  throw error; // Re-throw to ensure the HTTP response is a 500
+  }, [error]);
+
+  return (
+    <html>
+      <body>
+        <div className="flex flex-col items-center justify-center min-h-screen">
+          <h2>Something went catastrophically wrong!</h2>
+          <p>Our engineering team has been notified.</p>
+          <button onClick={() => reset()}>Try again</button>
+        </div>
+      </body>
+    </html>
+  );
 }
 ```
 
----
+By placing this in `global-error.tsx`, you guarantee that if a React component crashes violently, the user sees a graceful fallback UI instead of a terrifying blank white screen.
 
-## 3. Alert Fatigue (Signal vs Noise)
+## 2. Session Replay (LogRocket / Sentry)
 
-If your error tracker emails your engineering team 500 times a day for benign 404 errors (like a bot searching for `wp-admin`), the team will stop reading the emails. When the checkout actually breaks, nobody will notice.
+Sometimes an error isn't a crash. Sometimes the UI just looks broken. A user emails you: *"I clicked the button and nothing happened."*
 
-**The Production Rule:** Tune out the noise.
-- **Ignore Expected Errors:** Do not send alerts for standard `400 Bad Request` errors (e.g., a user enters an invalid zip code). These are user errors, not system failures.
-- **Set Velocity Alerts:** If a specific `TypeError` fires once, log it. If it fires 100 times in 5 minutes, page the on-call engineer via PagerDuty.
-- **Alert on Unhandled Exceptions:** Any 500 Internal Server Error in the checkout flow must be treated as a Severity 1 incident.
+If you check Sentry, there is no error. The button was just misaligned by CSS, and the user clicked the empty space next to it. How do you debug something you can't see?
 
----
+**The Production Solution:**
+You must implement **Session Replay** (via LogRocket or Sentry Replay). 
 
-## 4. Third-Party API Degradation
+Session Replay mathematically records the DOM mutations (HTML/CSS changes) of the user's browser session. When the user emails support, you can look up their session and physically watch a video of their screen, tracing their exact mouse movements.
 
-E-commerce relies on APIs (TaxJar, Stripe, Shippo) that you do not control.
+```typescript
+// Sentry Initialization (sentry.client.config.ts)
+import * as Sentry from "@sentry/nextjs";
 
-When Stripe goes down, Sentry will suddenly flood with `StripeConnectionError`. You must separate internal bugs (your fault) from external API outages (their fault).
+Sentry.init({
+  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+  
+  // Enable Session Replay
+  integrations: [
+    Sentry.replayIntegration({
+      // 1. Mathematically scrub all passwords, credit cards, and PII from the video
+      maskAllText: true, 
+      blockAllMedia: true,
+    }),
+  ],
 
-**Implementation:**
-Create distinct error classes in your code (`StripeError`, `TaxApiError`, `InternalDatabaseError`). Group your Sentry alerts based on these classes. If a `StripeError` spikes, your team knows to check the Stripe Status page rather than debugging your own codebase.
-
----
-
-## AI Prompt — Architect Your Error Tracking Strategy
-
-```prompt
-I am implementing error tracking for a production e-commerce store.
-
-Tech Stack:
-- Frontend: [e.g., Next.js React]
-- Backend: [e.g., Node.js / Serverless]
-- Error Tooling: [e.g., Sentry / LogRocket]
-
-Act as a Principal Software Engineer:
-1. Provide the React Error Boundary implementation required to gracefully handle a UI crash on the Product Detail Page and send the stack trace to Sentry.
-2. Write the backend Node.js configuration to automatically capture all 500 errors, ensuring that PII (like email addresses) is redacted before the error leaves the server.
-3. Outline the Alerting Rules (Velocity vs Volume) I should configure in Sentry to ensure my on-call engineers are paged for critical checkout failures, but not annoyed by 404 bot traffic.
-4. Explain how to implement Session Replay safely (e.g., via LogRocket) without accidentally recording user credit card keystrokes on the checkout page.
+  // 2. Only record 1% of normal sessions (to save money)
+  replaysSessionSampleRate: 0.01,
+  
+  // 3. Record 100% of sessions that encountered an error
+  replaysOnErrorSampleRate: 1.0,
+});
 ```
 
+**Privacy Mandate:** You MUST configure `maskAllText: true`. If a user types their password, Session Replay will record the keystrokes. By enabling masking, Sentry transforms the HTML text into `***` before it ever leaves the user's browser, preventing a massive GDPR privacy violation.
+
+## 3. Source Map Obfuscation
+
+When you compile your Next.js application, Webpack generates "Source Maps." These map the minified, unreadable production code back to your original, highly readable TypeScript code.
+
+Sentry needs these Source Maps to tell you exactly which line of code failed (`checkout.tsx:42`). However, if you accidentally upload your Source Maps to the public internet, a hacker can download your entire original source code, exposing your proprietary algorithms.
+
+**The Production Solution:**
+You must instruct your AI to configure Webpack to generate Source Maps, upload them securely to Sentry via an auth token during the GitHub Action build step, and then *delete them* before the code is deployed to Vercel.
+
 ---
 
-## Error Tracking Checklist
+## ✅ Error Tracking Engineering Checklist
 
-- [ ] Frontend Error Boundaries implemented to catch React crashes and prevent white screens
-- [ ] Backend error SDK (Sentry/Bugsnag) installed and capturing all unhandled 500 exceptions
-- [ ] Session Replay tooling (LogRocket/Sentry) configured with strict redaction rules on password and credit card inputs
-- [ ] Context tagging (`user_id`, `order_id`) applied to backend errors for proactive customer support
-- [ ] Alerting thresholds tuned to filter out expected 400 errors and bot traffic (preventing alert fatigue)
-- [ ] Escalation policies defined (e.g., PagerDuty) for velocity spikes on critical path errors
+- [ ] Implement a Next.js `global-error.tsx` boundary to catch fatal React crashes and present a graceful fallback UI.
+- [ ] Configure Sentry to capture client-side and edge-side exceptions, reporting the user's OS and Browser natively.
+- [ ] Implement Session Replay to physically watch the user's DOM interactions during silent UI failures.
+- [ ] Strictly mandate text-masking in Session Replay to prevent GDPR violations regarding PII.
+- [ ] Use the AI prompt below to generate the exact Sentry integration.
+
+---
+
+## AI Prompt — Engineer Error Tracking
+
+Copy this prompt into your AI to have it generate the comprehensive error boundary architecture.
+
+````prompt
+I am building a headless e-commerce store with Next.js (App Router). I need you to act as my Principal Reliability Engineer. We are engineering our Global Error Tracking and Session Replay architecture using Sentry.
+
+I need you to generate the following strict diagnostic implementations:
+
+**1. The Sentry Client Configuration:**
+Write the `sentry.client.config.ts` file. 
+- Initialize the SDK.
+- Configure the `replayIntegration`. You MUST explicitly set the privacy rules to mask all text and block all media.
+- Explain the financial and diagnostic difference between `replaysSessionSampleRate` and `replaysOnErrorSampleRate`.
+
+**2. The Next.js Global Error Boundary:**
+Write the `app/global-error.tsx` file. 
+- Show how it uses the `use client` directive.
+- Show how it intercepts the fatal error and passes it directly to `Sentry.captureException(error)`.
+- Write a highly polished Tailwind CSS fallback UI that allows the user to click a "Reload" button via the `reset()` function.
+
+**3. The Webpack Source Map Hider:**
+Write the exact Next.js configuration code (inside `next.config.js` using `@sentry/nextjs`) required to generate source maps, upload them to Sentry securely during the CI build process, and ensure they are NOT served publicly to the browser.
+````
+
+**Next: Rate Limiting Engineering →**
