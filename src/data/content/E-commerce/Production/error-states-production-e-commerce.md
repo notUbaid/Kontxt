@@ -1,80 +1,86 @@
 ---
 title: Error States
 slug: error-states
-phase: Phase 1
+phase: Phase 1 E Commerce Design
 mode: production
 projectType: e-commerce
-estimatedTime: 20–30 min
+estimatedTime: 20-30 min
 ---
 
-# Error States
+# Global Error State Topography
 
-In production e-commerce, errors are guaranteed. The Stripe API will timeout. The 3PL will run out of stock during a checkout sequence. The user will type a letter into the ZIP code field.
+**Estimated Time:** 25 Minutes
 
-If your UI handles these errors gracefully, the user will try again. If your UI crashes, freezes, or throws a cryptic `500 Server Error`, the user will abandon their cart forever. Engineering robust Error States is the most critical defensive measure in front-end development.
+Beginners assume that if they write good code, errors won't happen. 
 
----
+In a decoupled, headless production environment, errors are a mathematical certainty. Your Next.js frontend relies on a Shopify backend, an Algolia search index, a Stripe payment gateway, and a SendGrid email API. If *any* of those third-party services experience an outage, your UI will break.
 
-## 1. Checkout Validation (The Inline Rule)
+If a beginner's site encounters a Stripe timeout, the whole screen goes white, the browser console flashes red, and the user thinks they were just scammed out of $100. 
 
-The checkout form is where 80% of data-entry errors occur. 
-
-**The Anti-Pattern:** A user fills out a 15-field form, clicks "Submit", the page reloads, and a generic red banner at the top says "Please correct your errors." The user has no idea which field failed.
-
-**The Production Standard:**
-Implement strict, real-time Inline Validation (using a library like `React Hook Form` and `Zod`).
-- As the user types their credit card, the UI instantly verifies the Luhn algorithm. If invalid, the specific input field border turns red and a helper text appears *immediately below it*: "Invalid Card Number."
-- **Focus Management:** If a user clicks "Submit" and there is a hidden error, the browser must programmatically scroll the user up to the exact field that failed and apply `:focus` to it.
+As an AI-Assisted Architect, you must instruct your AI to build **Fault-Tolerant Error Boundaries**. The user must never see a broken screen.
 
 ---
 
-## 2. API Failure (Graceful Degradation)
+## 1. Next.js Error Boundaries (`error.tsx`)
 
-If your external Product Recommendation API (e.g., Algolia Recommend) goes down, it should not crash the Product Detail Page (PDP).
+In the Next.js App Router, you can isolate failures so they don't crash the entire page.
 
-**The Implementation:**
-Use **Error Boundaries** in React and **Graceful Degradation** logic.
-- Wrap the `<RelatedProducts />` component in a React Error Boundary.
-- If the Algolia API returns a `503 Service Unavailable`, the Error Boundary catches the exception.
-- Instead of showing a crash screen, the component silently fails and hides itself. The user can still buy the main product, completely unaware that a secondary system is currently broken.
+If the "Product Reviews" API goes down and throws a 500 Error, the entire Product Detail Page (PDP) should not crash. 
+You must instruct your AI to wrap the `<ReviewsWidget />` in a React `ErrorBoundary` (or Next.js `error.tsx` file for specific routes). 
 
----
+If the fetch fails, only that specific widget crashes. The AI will render a localized fallback UI (e.g., *"Reviews temporarily unavailable"*), while the rest of the page (the Add to Cart button, the images, the description) continues functioning perfectly.
 
-## 3. The "Out of Stock" Cart Collision
+## 2. Mutational Error Handling (The Checkout)
 
-This is the most complex edge case in e-commerce.
-1. User A and User B both have the last 1 pair of shoes in their cart.
-2. User A clicks "Pay" 500ms before User B. User A gets the shoes.
-3. User B clicks "Pay". The database rejects the transaction.
+When a user clicks "Pay", they are executing a **Mutation**. This is the most dangerous moment in e-commerce.
 
-**The UX Implementation:**
-You cannot just show a generic "Error." You must explain exactly what happened.
-- The UI must intercept the `409 Conflict` from the backend API.
-- The UI must render a specific Modal: "We're sorry! Another customer just purchased the last pair of [Product Name] while it was in your cart. We have removed it from your total. Do you wish to proceed with the rest of your order?"
-- If you do not explain this clearly, User B will assume your payment gateway is broken and will not attempt to buy the other items in their cart.
+If the Stripe API times out, you cannot simply show a generic *"Something went wrong"* popup. The user will panic, refresh the page, and try to pay again, resulting in a duplicate charge.
 
----
+**The Production Solution:**
+You must instruct your AI to implement highly specific, state-aware error handling for the checkout mutation:
+1. **Disable the Button:** The instant the user clicks "Pay", the button MUST be mathematically disabled (`disabled={isSubmitting}`) to prevent double-clicks.
+2. **Specific Feedback:** If the API returns a `402 Payment Required` (card declined), the UI must highlight the exact field (e.g., the CVC code) that failed.
+3. **Idempotency Keys:** The AI must generate a unique UUID for the transaction. If the user's internet drops and their browser sends the checkout request twice, Stripe will recognize the duplicate UUID and only charge them once.
 
-## AI Prompt — Architect Your Error Handling
+## 3. Global Toast Notifications
 
-```prompt
-I am engineering the Error State and validation architecture for a production e-commerce checkout flow.
+For non-critical background errors (e.g., a user clicks a "Wishlist" button but they are offline), you do not want to interrupt their shopping experience with a massive modal.
 
-Tech Stack:
-- Frontend: [e.g., Next.js, React Hook Form, Zod]
-- Backend API: [e.g., Node.js / Stripe]
-
-Act as a Principal UI/UX Engineer:
-1. Provide a TypeScript Zod schema for validating a standard US Shipping Address and Credit Card (Luhn check), and explain how React Hook Form uses this to trigger inline error messages instantly.
-2. Draft the specific React Error Boundary implementation required to wrap a non-critical component (like a Reviews Widget) so that a third-party API outage does not crash the entire Product Detail Page.
-3. Outline the UX flow and exact error messaging required to handle an "Out of Stock Collision" (where an item sells out while sitting in the user's cart before they click pay).
-```
+You must instruct your AI to use a **Global Toast System** (like Sonner or React Hot Toast). The UI will gracefully slide a small notification into the corner of the screen: *"Failed to add to wishlist. Please check your connection."*
 
 ---
 
-## Error States Checklist
+## ✅ Error States Checklist
 
-- [ ] Strict Inline Validation (Zod + React Hook Form) implemented for all checkout and account creation inputs
-- [ ] Programmatic Focus Management implemented to automatically scroll users to the exact field that caused a submission error
-- [ ] React Error Boundaries deployed around all non-critical components (Reviews, Cross-sells) for graceful degradation during API outages
-- [ ] Complex edge-case messaging engineered for "Out of Stock Cart Collisions" to salvage partial orders
+- [ ] Enforce the use of Next.js `error.tsx` and React Error Boundaries to prevent full-page crashes.
+- [ ] Understand the concept of Idempotency Keys to prevent duplicate charges during checkout network failures.
+- [ ] Implement a Global Toast system for non-critical, background errors.
+- [ ] Use the AI prompt below to generate the fault-tolerant error boundaries.
+
+---
+
+## AI Prompt — Architect Fault-Tolerant Error Boundaries
+
+Copy this prompt into your AI to have it generate the complex, fault-tolerant infrastructure required to protect your users from third-party API outages.
+
+````prompt
+I am building a production-grade headless e-commerce store with Next.js (App Router). I need you to act as my Principal Frontend Architect. We are engineering our Global Error State Topography.
+
+Third-party APIs will fail. We must build fault-tolerant boundaries so the user never sees a white screen or a generic crash.
+
+I need you to generate the following architectural implementations:
+
+**1. The Localized Error Boundary (`error.tsx`):**
+Write the Next.js `error.tsx` component. Explain exactly how this file works in the App Router to catch errors within specific nested layouts (e.g., catching a failed CMS fetch on the Product Page) while allowing the global navigation and footer to remain interactive. Include a "Try Again" button that utilizes the `reset()` function.
+
+**2. The Idempotent Checkout Mutation:**
+Write the client-side submit handler function for our Checkout form. 
+- You MUST include `isSubmitting` state to disable the button instantly.
+- You MUST generate a unique `Idempotency-Key` (UUID) in the headers of the fetch request to prevent duplicate charges if the network stutters.
+- Show how to parse a `402` or `500` error response and display it safely to the user without crashing the app.
+
+**3. The Global Toast System:**
+Show the exact configuration for integrating a toast library (e.g., `sonner`) into the root `layout.tsx` for handling non-fatal background errors gracefully.
+````
+
+**Next: Loading States →**

@@ -1,79 +1,94 @@
 ---
 title: Loading States
 slug: loading-states
-phase: Phase 1
+phase: Phase 1 E Commerce Design
 mode: production
 projectType: e-commerce
-estimatedTime: 15–25 min
+estimatedTime: 20-30 min
 ---
 
-# Loading States
+# Loading States & Perceived Performance
 
-In e-commerce, perception of speed is often more important than actual speed. If a user clicks "Add to Cart" and the UI freezes for 800ms while the backend API processes the request, the user assumes the site is broken and will frantically click the button 5 more times. 
+**Estimated Time:** 25 Minutes
 
-Production Loading States are engineered to manage user anxiety and prevent catastrophic edge cases (like double-charging a credit card).
+A beginner looks at a slow website and says, *"Let's add a spinning wheel so they know it's loading."*
 
----
+A Principal Architect looks at a slow website and says, *"Let's manipulate human psychology so they don't even realize it's loading."*
 
-## 1. Optimistic UI (The Instant Cart)
+In a mass-production headless environment, true performance is measured by Core Web Vitals (like Time to First Byte). But **Perceived Performance**—how fast the site *feels* to the human brain—is managed entirely through Loading States. 
 
-You cannot wait for the database to confirm a standard action before updating the UI.
-
-**The Implementation:**
-When a user clicks "Add to Cart", implement **Optimistic Updates** (using a data-fetching library like React Query or SWR).
-1. The user clicks "Add to Cart".
-2. The UI instantly updates the Cart counter from `0` to `1` and opens the Cart Drawer.
-3. In the background, the API request is sent to Redis/Postgres.
-4. If the API succeeds (99% of the time), the UI remains as is. If the API fails (e.g., item out of stock), the UI rolls back the cart counter to `0` and displays an Error Toast.
-
-This makes the site feel 100x faster than traditional server-rendered architectures.
+As an AI-Assisted Architect, you must completely ban the use of generic full-page "Spinners" and instruct your AI to engineer predictive, optimistic UIs.
 
 ---
 
-## 2. Skeleton Screens vs Spinners
+## 1. Skeleton Loaders (Layout Stability)
 
-A full-page loading spinner is a massive UX failure. It tells the user: "I have no idea what is about to load, please wait."
+If you use a spinning wheel while fetching data, the DOM (Document Object Model) is empty. When the data finally arrives, the entire page jumps as images and text are suddenly injected. This causes severe Cumulative Layout Shift (CLS).
 
-**The Production Standard:**
-Use **Skeleton Screens**.
-- When navigating to a Category page, do not show a spinning circle.
-- Instantly render the layout structure (Header, Sidebar, and a grid of gray boxes where the Product Cards will eventually appear).
-- This creates the psychological illusion that the page has already loaded, and only the specific data is missing. It reduces perceived latency by up to 30%.
+**The Production Solution:**
+You must instruct your AI to use **Skeleton Loaders**. 
+If a product grid is fetching 12 items, the AI must instantly render 12 grey, pulsating rectangles that perfectly match the dimensions of the final product cards. 
+- The user's brain perceives the site as "ready."
+- The layout is mathematically locked in place, so when the real data arrives, it swaps seamlessly with zero layout shift.
 
----
+In Next.js, this is achieved effortlessly using the `loading.tsx` file in the App Router.
 
-## 3. The Payment Gateway "Lock"
+## 2. Optimistic UI Mutations (The Magic Trick)
 
-Optimistic UI is strictly banned for payments. You cannot tell a user their order succeeded before Stripe actually captures the funds.
+When a user clicks "Add to Cart", a beginner's app will show a spinner on the button, wait 500ms for the Shopify API to respond, and then update the cart icon from `0` to `1`. 
 
-**The Engineering Constraint:**
-When a user clicks "Submit Order", the UI must enter a locked, definitive loading state.
-- **Visual Feedback:** The button text must change from "Pay $100" to a spinning indicator with the text "Processing Securely...".
-- **The Lock:** The button MUST be dynamically disabled (`<button disabled={isProcessing}>`) the exact millisecond it is clicked. This prevents the user from double-clicking the button during the 2 seconds it takes Stripe to process the API request, which would otherwise result in a double-charge.
+That 500ms delay makes the site feel sluggish.
 
----
+**The Production Solution:**
+You must instruct your AI to implement an **Optimistic UI Mutation**.
+When the user clicks the button, the Next.js frontend instantly updates the cart icon from `0` to `1` on the screen, assuming the API call will succeed. It feels instantaneous.
+- In the background, the actual network request is sent. 
+- If the request succeeds, nothing changes (the UI is already correct).
+- If the request fails (e.g., the item sold out), the UI instantly reverts back to `0` and fires a Toast Error: *"Sorry, this item just sold out!"*
 
-## AI Prompt — Architect Your Loading UX
+By predicting the success, you engineer a 0ms perceived latency.
 
-```prompt
-I am engineering the loading states and perceived performance architecture for a production e-commerce application.
+## 3. Pre-Fetching on Hover
 
-Tech Stack:
-- Frontend: [e.g., Next.js, React Query]
-- Cart API: [e.g., Redis]
-- Payments: [e.g., Stripe]
+Why wait for a user to click a link before you start loading the data?
 
-Act as a Principal Frontend Engineer:
-1. Explain the exact mechanism of an Optimistic Update in React Query. How do we instantly update the Cart UI when a user clicks "Add to Cart" while simultaneously managing a rollback if the Redis API request fails?
-2. Design the Skeleton Screen architecture for a Product Category page. Why is this mathematically superior to a full-page loading spinner in reducing bounce rates?
-3. Detail the strict React state management required for the "Submit Order" button to ensure the button is instantly disabled on click, preventing double-charge API collisions during the Stripe latency window.
-```
+You must instruct your AI to leverage Next.js `<Link prefetch={true}>` and SWR's `preload` capabilities. When the user's cursor simply *hovers* over the "Mens Apparel" category link, the frontend silently fires the API request in the background. 
+
+By the time their finger clicks the mouse 300 milliseconds later, the data is already in the cache, and the page transition is instant.
 
 ---
 
-## Loading States Checklist
+## ✅ Loading States Checklist
 
-- [ ] Optimistic UI Updates implemented for low-risk actions (Add to Cart, Wishlist toggles) to make the site feel instantaneous
-- [ ] Skeleton Screens integrated for all heavy data-fetching routes (Category grids, Search results) instead of full-page spinners
-- [ ] Strict Button-Locking state management enforced on the Checkout "Submit" button to prevent double-charging
-- [ ] Clear micro-copy ("Processing Securely...") engineered into payment loading states to reduce user anxiety
+- [ ] Ban the use of full-page loading spinners; commit entirely to Skeleton Loaders.
+- [ ] Understand the psychological power of Optimistic UI mutations for adding items to the cart.
+- [ ] Ensure pre-fetching is enabled on all critical navigation links to achieve near-zero latency page transitions.
+- [ ] Use the AI prompt below to generate the exact Next.js loading architectures.
+
+---
+
+## AI Prompt — Architect Perceived Performance
+
+Copy this prompt into your AI to have it generate the complex state management required to make your store feel instantaneous.
+
+````prompt
+I am building a production-grade headless e-commerce store with Next.js (App Router). I need you to act as my Principal Frontend Architect. We are engineering our Loading States to maximize "Perceived Performance."
+
+Full-page loading spinners are strictly forbidden.
+
+I need you to generate the following architectural implementations:
+
+**1. The Next.js Skeleton Router (`loading.tsx`):**
+Write the Next.js `loading.tsx` file for our main Product Listing Page (PLP). It must render a CSS Grid of `<SkeletonCard />` components that perfectly match the dimensions of our actual product cards to ensure zero Cumulative Layout Shift (CLS) while the server fetches the Algolia index.
+
+**2. The Optimistic UI Cart Mutation:**
+Write the client-side submit handler for the "Add to Cart" button. You MUST use an Optimistic UI pattern. 
+- Show exactly how we update the global Zustand cart state to visually add the item instantly (0ms latency).
+- Show how the background `fetch` to the Commerce Engine (e.g., Shopify) is executed.
+- Show the rollback logic: If the `fetch` fails (e.g., 500 Error), how does the code revert the Zustand state and trigger a global error Toast?
+
+**3. Intent-Driven Pre-fetching:**
+Explain the exact Next.js `<Link>` configuration and SWR pre-fetching techniques we must use to begin downloading a Product Detail Page (PDP) the moment a user's cursor hovers over the link on desktop.
+````
+
+**Next: Cart Architecture →**
