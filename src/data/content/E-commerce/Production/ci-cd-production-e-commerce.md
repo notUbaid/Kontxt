@@ -1,101 +1,131 @@
 ---
-title: CI/CD Implementation
+title: CI/CD
 slug: ci-cd
-phase: Phase 4
+phase: Phase 4 Production Readiness
 mode: production
 projectType: e-commerce
-estimatedTime: 30–40 min
+estimatedTime: 45-60 min
 ---
 
-# CI/CD Implementation
+# Advanced Deployment Architectures (Blue/Green)
 
-Continuous Integration and Continuous Deployment (CI/CD) is the safety net that prevents broken code from reaching your customers. 
+**Estimated Time:** 60 Minutes
 
-In e-commerce, if a developer accidentally introduces a bug that breaks the checkout button, and that code is deployed directly to production, the business loses money immediately. A rigorous CI/CD pipeline ensures that every code change is automatically built, tested, and previewed before it ever touches live traffic.
+A beginner launches an update to their store by typing `git push origin main` and waiting for Vercel to overwrite the live website. 
 
----
+What happens if the new code contains a critical bug that disables the checkout button? The live website is instantly broken. You scramble to find the bug, type `git revert`, and wait 5 minutes for Vercel to rebuild the old code. During those 5 minutes, 100 customers tried to buy something and failed. You just lost thousands of dollars.
 
-## 1. The CI Pipeline (Automated Testing)
-
-Continuous Integration (CI) runs automatically every time a developer pushes code to a Pull Request (PR). 
-
-**The Implementation:**
-Use a tool like **GitHub Actions** or **GitLab CI**.
-When a PR is opened, the pipeline must execute the following gates. If any gate fails, the PR cannot be merged into `main`.
-1. **Linting & Formatting:** Enforce ESLint and Prettier. (Prevents syntax errors).
-2. **Type Checking:** Run `tsc --noEmit`. (Ensures strict TypeScript compliance).
-3. **Unit & Integration Tests:** Run Vitest/Jest. (Verifies tax math, webhook idempotency).
-4. **End-to-End (E2E) Tests:** Run Playwright. (A headless browser navigates the site, adds to cart, and checks out using a Stripe test card. This is the ultimate critical path test).
+In a production environment, you never overwrite the live website blindly. You must engineer **Blue/Green Deployments**, **Canary Releases**, and **Automated Rollbacks**.
 
 ---
 
-## 2. Preview Environments (The QA Phase)
+## 1. Blue/Green Deployments
 
-Merchandising and QA teams must be able to test features visually before they go live.
+Blue/Green deployment is a technique where you maintain two identical production environments: "Blue" (the currently live version) and "Green" (the new version).
 
-**The Implementation:**
-If you use platforms like **Vercel** or **Netlify**, this is built-in.
-- When a PR is opened, the platform automatically builds the branch and generates a unique URL (e.g., `pr-123.yourstore.com`).
-- The developer shares this URL with the QA team.
-- The QA team can verify the new banner design or the new promotion logic on a live URL without affecting the production database (ensure preview environments point to a Staging Database, never Production).
+**The Production Solution:**
+When you merge code into `main`, Vercel (or AWS) automatically builds the "Green" environment. It does *not* send any customer traffic to it yet. 
 
----
+Your automated testing suite (Playwright) runs against the Green environment. Your QA team manually logs into the Green environment via a secret URL (`green.yourstore.com`) and tests the checkout.
 
-## 3. Blue/Green Deployments (Zero-Downtime)
+Once the Green environment is verified to be 100% mathematically perfect, you press a button to swap the DNS router. 
 
-When you merge code to `main`, the deployment to production must be instantaneous and invisible to users. 
-
-**The Anti-Pattern:** Taking down the server, uploading new files, and restarting Node.js. If a user is mid-checkout during those 30 seconds, their payment will fail.
-
-**The Production Pattern (Blue/Green):**
-1. The server infrastructure spins up the new version of the code (the "Green" environment) behind the scenes.
-2. The current version (the "Blue" environment) continues serving live traffic.
-3. The load balancer runs a quick health check on the Green environment.
-4. If healthy, the load balancer instantly switches traffic to the Green environment. The transition takes 0 milliseconds.
-5. If the new code contains a critical bug, you can instantly rollback by switching the load balancer back to the Blue environment.
-
----
-
-## 4. Database Migrations in CI/CD
-
-Deploying code is easy. Deploying database changes without downtime is incredibly hard.
-
-If your PR renames a column from `userId` to `customer_id`, and you deploy the code before the database migration finishes running, the live app will crash.
-
-**The Safe Migration Pattern (Expand & Contract):**
-Never rename or drop columns in a single deployment.
-- *Deployment 1 (Expand):* Add the new `customer_id` column. Update the code to write to *both* columns, but continue reading from `userId`.
-- *Background Task:* Run a script to backfill old data from `userId` to `customer_id`.
-- *Deployment 2 (Transition):* Update the code to read from `customer_id`.
-- *Deployment 3 (Contract):* Drop the old `userId` column.
-
----
-
-## AI Prompt — Architect Your CI/CD Pipeline
-
-```prompt
-I am building the CI/CD pipeline for a production e-commerce store.
-
-Tech Stack:
-- Repository: [e.g., GitHub]
-- Hosting: [e.g., Vercel / AWS ECS]
-- Database: [e.g., Postgres + Prisma]
-- Testing: [e.g., Playwright + Jest]
-
-Act as a Principal DevOps Engineer:
-1. Write the exact `.github/workflows/ci.yml` file required to run ESLint, TypeScript compilation, Jest unit tests, and Playwright E2E tests on every Pull Request.
-2. Explain the strategy for managing environment variables (Secrets) securely across Preview (Staging) and Production deployments.
-3. Provide a strict policy for deploying database schema changes (Prisma migrations) in a Zero-Downtime CI/CD environment using the "Expand and Contract" pattern.
-4. Outline the Rollback procedure if a critical bug is discovered 5 minutes after a deployment reaches the `main` branch.
+```mermaid
+graph TD
+    User((Customers)) --> Router{DNS Load Balancer}
+    
+    subgraph Vercel Infrastructure
+    Router -->|100% Traffic| Blue[Blue Environment v1.0]
+    Router -.->|0% Traffic| Green[Green Environment v1.1]
+    end
+    
+    QA[QA Engineer] -->|Private URL| Green
 ```
 
+When you swap the router, 100% of traffic instantly shifts to Green. If a bug is discovered 10 seconds later, you click "Swap" again, and traffic instantly reverts back to Blue. **Zero downtime. Zero risk.**
+
+## 2. Canary Releases (Gradual Rollouts)
+
+What if you redesigned the entire checkout flow, and you aren't sure if customers will like it? Even if it works perfectly in QA, it might lower your conversion rate.
+
+**The Production Solution:**
+You must engineer a **Canary Release**. Instead of shifting 100% of traffic to the new Green environment, you configure your Vercel Edge Router (or LaunchDarkly feature flags) to shift exactly **5% of traffic**.
+
+```typescript
+// middleware.ts (Vercel Edge)
+import { NextResponse } from 'next/server';
+
+export function middleware(req) {
+  // 1. Generate a random number between 1 and 100
+  const random = Math.floor(Math.random() * 100) + 1;
+
+  // 2. If the user doesn't already have a variant cookie...
+  let variant = req.cookies.get('checkout_variant')?.value;
+  
+  if (!variant) {
+    // 5% of users get the 'canary' checkout
+    variant = random <= 5 ? 'canary' : 'control';
+  }
+
+  // 3. Rewrite the URL to the hidden Canary route
+  const res = variant === 'canary' 
+    ? NextResponse.rewrite(new URL('/checkout-v2', req.url))
+    : NextResponse.next();
+
+  // 4. Set the cookie so the user doesn't bounce between versions
+  res.cookies.set('checkout_variant', variant);
+  
+  return res;
+}
+```
+
+You monitor the conversion rate of that 5% for 24 hours. If the conversion rate increases, you dial the router up to 25%, then 50%, then 100%. If the conversion rate tanks, you dial it back to 0%.
+
+## 3. Database Migrations (The Breaking Change)
+
+If your Green environment requires a new database column (e.g., `user.phoneNumber`), and you run Prisma `db push` to add it, you might accidentally break the Blue environment if it wasn't expecting that column.
+
+**The Production Solution:**
+Database migrations in a Blue/Green environment must be **Backward Compatible**.
+
+**Phase 1:** You run the Prisma migration to add the column, but you do NOT require it (`phoneNumber String?`). Both Blue and Green environments run perfectly.
+**Phase 2:** You swap traffic to Green. Green starts writing to the `phoneNumber` column. Blue is offline.
+**Phase 3:** Weeks later, when Blue is permanently destroyed, you run a second migration to make the column mandatory (`phoneNumber String`).
+
+You must never rename or drop a column in a single deployment.
+
 ---
 
-## CI/CD Checklist
+## ✅ CI/CD Engineering Checklist
 
-- [ ] Automated CI pipeline (GitHub Actions) configured to block PR merges on test failure
-- [ ] E2E tests (Playwright) executed on every PR to verify the critical checkout path
-- [ ] Preview/Staging environments automatically generated for PRs to allow visual QA
-- [ ] Zero-Downtime deployments (Blue/Green or Edge) configured for the `main` branch
-- [ ] Strict "Expand and Contract" pattern adopted for all database migrations to prevent lock-ups
-- [ ] Instant rollback mechanism tested and documented for emergency recoveries
+- [ ] Disable automatic production promotion in Vercel. Utilize Preview Deployments (Green) as staging grounds.
+- [ ] Implement Vercel Edge Middleware or LaunchDarkly to execute Canary Releases for high-risk UI updates.
+- [ ] Enforce backward-compatible database migrations (Expand and Contract pattern) to prevent Prisma crashes during Blue/Green swaps.
+- [ ] Use the AI prompt below to generate the rigorous deployment architecture.
+
+---
+
+## AI Prompt — Engineer the CI/CD Pipeline
+
+Copy this prompt into your AI to have it generate the mathematical deployment strategies.
+
+````prompt
+I am building a headless e-commerce store with Next.js (App Router). I need you to act as my Principal Release Engineer. We are engineering our Blue/Green Deployment and Canary Release architecture.
+
+I need you to generate the following strict DevOps implementations:
+
+**1. The Canary Edge Middleware:**
+Write the exact `middleware.ts` code required to route 10% of new traffic to a rewritten `/checkout-v2` path. 
+- You MUST show the logic for reading and setting a `visitor_group` cookie so that a user who receives the Canary version continues to receive it on subsequent page loads (sticky sessions).
+
+**2. The Backward-Compatible Prisma Migration:**
+Provide a Markdown tutorial explaining the "Expand and Contract" database migration pattern. 
+- Show a `schema.prisma` file where we want to rename `userId` to `accountId`. 
+- Explain why doing this in one step will instantly crash the Blue environment. 
+- Provide the exact two-phase step-by-step process required to rename a column with zero downtime.
+
+**3. Automated Playwright Rollbacks:**
+Write a mock GitHub Action script showing how to trigger a Vercel Rollback API call if a post-deployment Checkly ping fails, mathematically ensuring the site heals itself if a broken Green deployment slips through.
+````
+
+**Next: Payment Security →**
