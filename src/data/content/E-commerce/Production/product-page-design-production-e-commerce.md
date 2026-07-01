@@ -1,75 +1,88 @@
 ---
-title: Product Page Design (PDP)
+title: Product Page Design
 slug: product-page-design
-phase: Phase 1
+phase: Phase 1 E Commerce Design
 mode: production
 projectType: e-commerce
-estimatedTime: 25–35 min
+estimatedTime: 20-30 min
 ---
 
-# Product Page Design (PDP)
+# Product Detail Page (PDP) Architecture
 
-The Product Detail Page (PDP) is the single most important screen in your entire architecture. This is where 90% of your visitors make the binary decision: Buy or Bounce. 
+**Estimated Time:** 25 Minutes
 
-In production, the PDP is not designed by graphic artists; it is engineered by conversion rate optimizers. Every pixel on this page must be ruthlessly designed to reduce anxiety, answer objections, and force the user into the checkout funnel.
+Beginners design a Product Detail Page (PDP) by arranging a big image, a title, a price, and a "Buy" button. 
 
----
+In a mass-production headless environment, the PDP is the most dangerous page on the site. It is a highly volatile mix of **Static Content** (the description, which rarely changes) and **Dynamic State** (the inventory, the selected variant, the localized price, which change constantly).
 
-## 1. The Buy Box Architecture
-
-The "Buy Box" is the container holding the Product Title, Price, Variant Selectors, and the Add to Cart button. It must be mathematically optimized.
-
-**The Implementation Constraints:**
-1. **The Price Proximity:** The Price must be immediately adjacent to the Title. If you use strike-through pricing for a discount (`~~$100~~ $75`), the math (`Save 25%`) must be automatically calculated and displayed in a high-contrast success color (e.g., Green). Do not make the user do math.
-2. **The Variant Selector:** Never use a standard HTML `<select>` dropdown for colors. Users must see the options instantly. Use interactive visual swatches for colors and pill-buttons for sizes. 
-3. **The Add to Cart Button (ATC):** It must be the largest element on the screen. It must use your absolute highest-contrast brand color. There can be no other competing buttons of the same visual weight (e.g., if you have a "Add to Wishlist" button, it must be a subdued, secondary outline style).
+If you instruct your AI to render the entire page dynamically on the server on every request (SSR), your site will crash under Black Friday traffic. 
+As an AI-Assisted Architect, you must instruct your AI to engineer a **Hybrid Rendering Strategy** that perfectly isolates dynamic state from static HTML.
 
 ---
 
-## 2. Dynamic Media and Trust Defenses
+## 1. The Hybrid Rendering Mandate (ISR + SWR)
 
-Users cannot touch the product. Your media is the only proxy for quality.
+The core shell of the PDP (the layout, the title, the main product description) must be statically generated using Next.js **ISR (Incremental Static Regeneration)**. 
+- When a user clicks a product on Google, Vercel serves the pre-built HTML from the Edge in 50 milliseconds.
 
-**The Engineering Requirements:**
-- **Image Architecture:** The hero image must be high-resolution but aggressively compressed (WebP/AVIF) to load in under 1.5 seconds.
-- **Video Fallbacks:** 360-degree spins or short video loops drastically increase conversion. However, `<video>` tags are heavy. You must implement lazy-loading and ensure `autoplay muted playsinline` attributes are set so the video doesn't block the main thread or blast sound on a mobile device.
-- **Trust Badges:** Right below the ATC button, you must inject trust primitives: "Free Shipping & Returns", "Secure SSL Checkout", or "2-Year Warranty." This explicitly counters the subconscious anxiety of clicking the buy button.
+However, if you statically cache the *inventory* or the *price*, a user might see "In Stock" when the item sold out 5 seconds ago.
 
----
+**The Production Solution:**
+You must force the AI to use **Client-Side Hydration (SWR/React Query)** for volatile data.
+1. The static HTML loads instantly, displaying a Skeleton Loader where the price and inventory should be.
+2. The browser silently pings your Commerce API in the background.
+3. The real-time price and inventory count replaces the skeleton instantly.
 
-## 3. SEO and JSON-LD Structured Data
+This achieves a 0ms Time to First Byte (TTFB) while guaranteeing mathematically perfect inventory accuracy.
 
-If your PDP does not rank on Google, your Customer Acquisition Cost (CAC) will bleed you dry. The design must accommodate strict SEO technical requirements.
+## 2. Managing Variant State Topography
 
-**The Implementation:**
-You must dynamically inject `Product` JSON-LD schema into the `<head>` of every single PDP.
-- Googlebot cannot reliably parse your React state to find the price.
-- You must output a JSON object containing the exact `name`, `image`, `description`, `sku`, `brand`, and most importantly, the `offers` (Price, Currency, and `InStock` status).
-- If you have Yotpo or Okendo reviews, you must also inject the `aggregateRating` schema. This is what generates the gold stars in Google Search results, which can increase Organic Click-Through Rate (CTR) by up to 35%.
+When a user selects "Size Large" and "Color Blue", the browser must recalculate the price, swap the image, and verify the inventory for that specific SKU.
 
----
+If you let your AI store the selected variant solely in React local state (`useState`), you break the internet. If the user copies the URL and sends it to their friend, the friend will open the link and see the default "Size Small, Red" variant.
 
-## AI Prompt — Engineer Your PDP Layout
+**The Production Solution:**
+You must mandate that the AI pushes all variant state to the **URL Parameters**.
+- When the user clicks "Large", the URL instantly changes to `?size=L&color=blue` (using shallow routing to prevent a page reload).
+- The React component listens to the URL to determine which image to show. 
+- This makes the exact variant state perfectly shareable and book-markable.
 
-```prompt
-I am engineering the layout and API architecture for a production e-commerce Product Detail Page (PDP).
+## 3. SEO and Rich Snippets (Schema.org)
 
-Tech Stack:
-- Frontend: [e.g., Next.js React]
-- Media: [e.g., Cloudinary / Next/Image]
+If your PDP does not inject valid `Product` schema into the `<head>`, Google will not display your product's price, rating, or stock status directly in the search results (Rich Snippets).
 
-Act as a Principal Conversion Engineer:
-1. Provide the exact JSON-LD Structured Data payload required in the `<head>` of the PDP to guarantee Google indexes the Product's Price, Stock Status, and Aggregate Review Stars.
-2. Design the React component structure for the "Buy Box." How do we handle state management when a user clicks a "Red" color swatch, ensuring the URL updates, the hero image swaps, and the price dynamically adjusts if the Red variant is more expensive?
-3. Explain the technical implementation of lazy-loading heavy video assets within the product carousel to ensure the Core Web Vitals (Largest Contentful Paint) remain under 2.5 seconds on a 3G mobile connection.
-```
+You must explicitly command your AI to write the Next.js `generateMetadata` function to automatically construct `application/ld+json` structured data for every product.
 
 ---
 
-## Product Page Design Checklist
+## ✅ Product Page Architecture Checklist
 
-- [ ] "Buy Box" mathematically optimized (Strike-through pricing auto-calculated, highest contrast reserved exclusively for ATC button)
-- [ ] Visual swatches implemented for variants (Color/Size) rather than hidden HTML `<select>` dropdowns
-- [ ] Product imagery aggressively optimized (WebP/AVIF via CDN) with lazy-loaded video fallbacks
-- [ ] Trust Badges ("Free Returns", "Secure Checkout") placed directly below the primary conversion button
-- [ ] Valid JSON-LD `Product` and `aggregateRating` structured data injected into every PDP for Google Search indexing
+- [ ] Enforce the Hybrid Rendering Strategy: Statically generate the shell, dynamically fetch the volatile data (inventory/price).
+- [ ] Forbid local state for variant selection; mandate URL Parameter state tracking.
+- [ ] Ensure valid Schema.org structured data is generated for every PDP to capture Google Rich Snippets.
+- [ ] Use the AI prompt below to generate the exact PDP React architecture.
+
+---
+
+## AI Prompt — Architect the Hybrid PDP
+
+Copy this prompt into your AI to have it generate the highly complex, fault-tolerant rendering strategy for your Product Detail Page.
+
+````prompt
+I am building a headless e-commerce store with Next.js (App Router). I need you to act as my Principal Frontend Architect. We are designing the architectural blueprint for the Product Detail Page (PDP).
+
+Do NOT write a monolithic Server-Side Rendered (SSR) page. We must use a Hybrid Rendering Strategy (ISR + Client Fetching).
+
+**Generate the following architectural implementations:**
+
+1. **The Static Shell (`page.tsx`):**
+Write the Next.js Server Component that fetches the static product data (title, description) from our CMS/PIM and uses `generateStaticParams` to build the pages at the Edge. Include the `generateMetadata` function that injects valid `Product` Schema.org `application/ld+json` for Google Rich Snippets.
+
+2. **The Volatile Data Boundary (`<DynamicPriceInventory />`):**
+Write the Client Component that sits inside the static shell. It must use SWR (or React Query) to fetch the real-time inventory and localized pricing from our Commerce API (e.g., Shopify) on the client side. Include the Skeleton Loader fallback.
+
+3. **URL-Driven Variant Selection (`<VariantSelector />`):**
+Write the Client Component for selecting sizes/colors. You MUST use Next.js `useRouter` and `useSearchParams` (or `nuqs`) to push the selected variant to the URL parameters (e.g., `?size=L`) using shallow routing. The component must derive its active state from the URL, not from `useState`.
+````
+
+**Next: Checkout Flow →**
