@@ -11,56 +11,84 @@ estimatedTime: 25-35 min
 
 **Estimated Time:** 30 Minutes
 
-In enterprise engineering, the traditional PRD (often a bloated Google Doc filled with vague marketing wishes like "make the checkout fast") is a severe liability. For a mass-production headless e-commerce build, the PRD must evolve into a strict **Engineering RFC (Request for Comments)**. 
+For beginners, a PRD (Product Requirements Document) is usually a bloated Google Doc filled with vague wishes like, *"Make the checkout fast"* or *"It should look modern."*
 
-The PRD is the foundational contract between Product, Design, and Engineering. It must explicitly define API boundaries, latency Service Level Agreements (SLAs), state management architectures, and exact fallback behaviors when systems inevitably fail under Black Friday loads.
+When you are building a mass-production headless storefront, a vague PRD is a catastrophic liability. If you feed vague wishes into your AI (like Claude or Antigravity), it will write bad, unoptimized code. 
+
+As an AI-Assisted Architect, your PRD must evolve into a strict **Engineering Contract**. It must explicitly define API boundaries, performance limits, and exactly how the UI behaves when the system inevitably crashes under Black Friday traffic.
+
+---
 
 ## 1. Defining the Hard Constraints
 
-Before a single line of code is written or a wireframe drawn, the PRD must lock in the immutable technical constraints. If these are not defined, scope creep will destroy your unit economics.
+Before your AI writes a single line of React code or spins up a database, you must feed it the immutable technical constraints. 
 
-- **Performance SLA:** "The P95 Largest Contentful Paint (LCP) must not exceed 1.5 seconds on a throttled 3G mobile connection. Any feature that pushes LCP above this threshold will be reverted."
-- **Infrastructure Cost Ceiling:** "The Server Cost per 1,000 Sessions must remain below $X. Therefore, heavy Server-Side Rendering (SSR) is forbidden for product catalog pages; Incremental Static Regeneration (ISR) is mandatory."
-- **Accessibility Mandate:** "The entire application must pass WCAG 2.1 AA automated testing in CI/CD. The PR will fail if focus management or contrast ratios degrade."
+If these are not defined, the AI will invent its own logic, and your server costs will skyrocket.
 
-## 2. API Contracts and State Management
+| Constraint | The Production Rule | Why We Enforce It |
+|---|---|---|
+| **Performance Limit** | P95 LCP under 1.5 seconds | Any new feature that slows the site down beyond 1.5 seconds will be immediately deleted. Speed is more important than features. |
+| **Rendering Rule** | ISR (Incremental Static Regeneration) | We forbid the AI from using heavy SSR (Server-Side Rendering) for catalog pages to prevent massive Vercel/AWS bills. |
+| **Accessibility** | WCAG 2.1 AA Compliant | The AI must write semantic HTML. If a user cannot navigate the checkout with a keyboard, the PR is rejected. |
 
-A headless PRD must define the flow of data. Product Managers must understand that data is not magically instantaneous.
+## 2. The Source of Truth Matrix
 
-### The Source of Truth Matrix
-You must document exactly which system owns which piece of data. Mixing state is the primary cause of headless e-commerce bugs.
-- **Product Metadata (Titles, Descriptions, Images):** Owned by the PIM/CMS (e.g., Sanity, Akeneo).
-- **Search & Discovery (Facets, Filtering):** Owned strictly by the Search Index (e.g., Algolia). The database is never queried directly for category pages.
-- **Transactional State (Inventory, Prices, Cart, Taxes):** Owned strictly by the Commerce Engine (e.g., Shopify Plus, Commercetools).
+Headless e-commerce means your data is scattered across multiple systems. If your AI gets confused about where to fetch the price of a t-shirt, it might query the wrong API, resulting in a customer paying the wrong amount.
 
-### State Synchronization
-The PRD must outline the Webhook topography. 
-> [!IMPORTANT]
-> How long is the acceptable TTL (Time to Live) for cached data? If the PIM updates a product description, the PRD must dictate the exact webhook path required to trigger an ISR revalidation on the Next.js edge nodes, ensuring cache invalidation happens within 500ms.
+You must explicitly define the **Source of Truth** for the AI:
+- **Product Metadata (Titles, Images, Descriptions):** Owned by the PIM/CMS (e.g., Sanity).
+- **Search & Filtering:** Owned by the NoSQL Search Index (e.g., Algolia). The Next.js frontend NEVER queries the main database for category lists.
+- **Transactional State (Inventory, Final Price):** Owned strictly by the Commerce Backend (e.g., Shopify/Swell). 
 
-## 3. Failover States and Graceful Degradation
+## 3. Graceful Degradation (Failover States)
 
-Enterprise systems fail. A robust PRD defines exactly how the UI behaves during partial systemic failure. This is called **Graceful Degradation**.
+Enterprise systems fail. What happens when your Search API goes down? Does the entire website crash to a white screen with a 500 Error?
 
-- **Scenario A: The Search Index (Algolia) goes down.**
-  - *PRD Requirement:* The global search bar disables itself with a passive error state ("Search is temporarily unavailable. Browse our categories below."). The application does not crash.
-- **Scenario B: The Primary Payment Gateway (Stripe) experiences 502 errors.**
-  - *PRD Requirement:* The checkout mutation catches the 502, automatically rotates to the secondary gateway (e.g., Braintree/PayPal), and attempts the capture without exposing the error to the user.
-- **Scenario C: The Personalization/Recommendation Engine API times out.**
-  - *PRD Requirement:* The UI aborts the fetch after a strict 300ms timeout and falls back to a statically cached "Best Sellers" JSON file. The user never sees a loading spinner indefinitely.
+**Graceful Degradation** means planning for failure.
+- If Algolia goes down, the AI must code a fallback UI: *"Search is temporarily unavailable. Browse our categories below."*
+- If the Personalization API times out after 300ms, the AI must instantly abort the fetch and display a statically cached "Best Sellers" list. 
+No infinite loading spinners. Ever.
 
-## 4. The MVP "Cut Line"
+---
 
-A strict production PRD draws a ruthless line in the sand for V1 (The Minimum Viable Transaction Engine). It must explicitly document what is **OUT of scope**.
-- Native mobile applications (iOS/Android wrappers).
-- Complex user profiles and order history dashboards (Guest Checkout only for V1).
-- Wishlists and gamified loyalty point systems.
-- Multi-tier B2B pricing matrices.
+## ✅ PRD Checklist
 
-By defining what you are *not* building, you protect the engineering team's ability to stress-test the critical path (Cart -> Checkout) effectively.
+- [ ] Transition your mindset from "writing features" to "writing technical constraints" for your AI.
+- [ ] Understand the Source of Truth Matrix so you know exactly which API owns which data.
+- [ ] Define the Graceful Degradation rules for your top 3 most critical APIs.
+- [ ] Use the AI prompt below to generate your strict, production-grade PRD.
 
-## Checklist:
-- [ ] Convert generic business requirements into strict, measurable technical SLAs (Latency, CLS, Core Web Vitals).
-- [ ] Document the "Source of Truth Matrix" defining which API owns which piece of data to prevent state collisions.
-- [ ] Define the specific Webhook architectures required for instant cache invalidation (ISR).
-- [ ] Write explicit fallback scenarios for the top 3 most likely third-party API failures (Payment, Search, CMS).
+---
+
+## AI Prompt — Generate the Engineering PRD
+
+Copy this prompt into your AI to have it generate the ultimate architectural contract for your store. This document will serve as the master context for all future coding prompts.
+
+````prompt
+I am building a decoupled, headless e-commerce store. You will act as my Principal Architect. We need to write the master Engineering PRD (Product Requirements Document). 
+
+This PRD will serve as the strict contract for all code generation moving forward.
+
+Here is my basic context:
+- Commerce Backend: [e.g., Shopify Plus / Medusa]
+- Search Index: [e.g., Algolia / Typesense]
+- CMS: [e.g., Sanity / Contentful]
+
+Generate a strict Engineering PRD formatted in Markdown. Include the following sections:
+
+**1. The Source of Truth Matrix:**
+Map exactly which system owns Product Metadata, Search/Faceted Filtering, and Transactional State (Cart/Checkout). 
+
+**2. Hard Constraints:**
+Write strict, unbreakable rules for the frontend rendering strategy (mandating ISR over SSR for catalog pages) and performance (P95 Core Web Vitals limits).
+
+**3. Graceful Degradation SLAs:**
+Write out three specific failover scenarios. Explicitly define how the Next.js UI must behave if:
+A) The Search Index API returns a 502 error.
+B) The primary payment gateway experiences extreme latency.
+C) The CMS webhooks fail to update the cache.
+
+Keep the tone authoritative and the rules immutable.
+````
+
+**Next: Information Architecture →**
