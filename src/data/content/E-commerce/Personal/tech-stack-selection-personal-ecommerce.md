@@ -1,0 +1,12 @@
+---
+title: Tech Stack Selection
+slug: tech-stack-selection
+phase: Phase 2 Architecture
+mode: personal
+projectType: e-commerce
+estimatedTime: 15-25 min
+---
+
+# Tech Stack Selection
+
+(Content coming soon)

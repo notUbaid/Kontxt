@@ -1,0 +1,12 @@
+---
+title: Request Design
+slug: request-design
+phase: Phase 1 Design
+mode: production
+projectType: api-product
+estimatedTime: 15-25 min
+---
+
+# Request Design
+
+(Content coming soon)
