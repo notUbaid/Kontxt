@@ -1,124 +1,137 @@
 ---
-title: Wishlist Implementation
+title: Wishlist
 slug: wishlist
-phase: Phase 3
+phase: Phase 3 E Commerce Development
 mode: production
 projectType: e-commerce
-estimatedTime: 25–35 min
+estimatedTime: 30-45 min
 ---
 
-# Wishlist Implementation
+# Distributed Wishlist Architecture
 
-A wishlist is not just a secondary cart. In a production environment, the wishlist is a high-signal data asset used for inventory forecasting and personalized marketing automation.
+**Estimated Time:** 45 Minutes
 
-If you implement the wishlist purely in `localStorage`, you lose this data the moment the user clears their cache, and you cannot use it to drive revenue.
+A beginner builds a wishlist by adding a "Heart" button that sends a `POST` request to the database. If a user isn't logged in, the button throws an error, forcing them to create an account. The user gets annoyed, closes the tab, and the intent-to-buy is lost forever.
 
----
+In a production environment, the Wishlist is the most powerful tool for capturing high-intent leads. You must allow anonymous users to build massive wishlists frictionlessly.
 
-## 1. The Data Architecture
-
-A production wishlist must be persistent, synchronized across devices, and tied to a user's identity.
-
-**The Database Schema:**
-```prisma
-model Wishlist {
-  id        String   @id @default(uuid())
-  userId    String   @unique // 1:1 relation with User
-  items     WishlistItem[]
-}
-
-model WishlistItem {
-  id        String   @id @default(uuid())
-  wishlistId String
-  variantId String   // Direct link to the sellable SKU
-  addedAt   DateTime @default(now())
-}
-```
-
-**The Guest Problem:**
-Like the cart, users often add items to a wishlist before logging in.
-- **Implementation:** Store a temporary `guest_wishlist_id` in a secure cookie. When the user logs in, execute a merge operation to combine their guest wishlist items with their persistent database wishlist.
+In Phase 3, you must engineer an **Optimistic UI Heart Button**, build an **Anonymous LocalStore Cache**, and implement a **Post-Login Merge Conflict Resolver**.
 
 ---
 
-## 2. Marketing Automation Hooks (The Revenue Driver)
+## 1. Optimistic UI (The 0ms Heart Button)
 
-The primary ROI of a wishlist feature is the ability to send triggered emails.
+When a user clicks the "Heart" button on a product, they expect instant visual feedback. If your React component waits 500ms for the Next.js server to confirm the database save before turning the heart red, the UI feels sluggish and broken.
 
-**Trigger 1: Price Drop Alerts**
-If a product goes on sale (e.g., from $100 to $80), your backend must query the `WishlistItem` table to find every user who saved that `variantId`.
-- **Implementation:** Push an event to your marketing tool (e.g., Klaviyo) containing the user emails and the product data.
-- **Result:** An automated email goes out: *"An item on your wishlist is now 20% off."* This has an incredibly high conversion rate.
+**The Production Solution:**
+You must implement **Optimistic UI** using SWR or React `useOptimistic`.
 
-**Trigger 2: Back in Stock Alerts**
-If a sold-out item is restocked, execute the same query to notify users who wishlisted it.
-- **Important Constraint:** If 5,000 people wishlisted an item, but you only received 50 units in the restock, do not email all 5,000 people. You will create 4,950 angry customers. Your backend must chunk the notifications (e.g., email 100 people, wait an hour, check inventory, email 100 more).
+```tsx
+'use client';
+import useSWR from 'swr';
+import { Heart } from 'lucide-react';
 
----
+export function WishlistButton({ productId }: { productId: string }) {
+  const { data: wishlist, mutate } = useSWR('/api/wishlist');
+  const isHearted = wishlist?.includes(productId);
 
-## 3. Frontend Optimistic UI
+  const toggleWishlist = async () => {
+    // 1. OPTIMISTIC UPDATE: Instantly turn the heart red/gray in the UI without waiting
+    mutate(
+      isHearted ? wishlist.filter(id => id !== productId) : [...(wishlist || []), productId],
+      false // Do not revalidate yet
+    );
 
-The "Heart" icon must feel instantaneous.
+    // 2. BACKGROUND FETCH: Actually save to the database
+    await fetch('/api/wishlist/toggle', {
+      method: 'POST',
+      body: JSON.stringify({ productId })
+    });
 
-**The Anti-Pattern:** A user clicks the heart, a loading spinner appears for 2 seconds while the database updates, and then the heart turns red.
+    // 3. REVALIDATE: Sync the UI with the final database truth
+    mutate();
+  };
 
-**The Production Pattern: Optimistic UI**
-1. The user clicks the heart.
-2. The UI *instantly* turns red (optimistically assuming success).
-3. The background fetch (`POST /api/wishlist/add`) executes.
-4. If the fetch fails (e.g., network error), the UI reverts back to an empty heart and displays a toast notification: "Failed to save item."
-
-```typescript
-// React/SWR Optimistic UI example
-const toggleWishlist = async () => {
-  mutate('/api/wishlist', (currentData) => [...currentData, newVariant], false); // Update UI instantly
-  
-  try {
-    await fetch('/api/wishlist/add', { method: 'POST', body: JSON.stringify({ variantId }) });
-    mutate('/api/wishlist'); // Revalidate with server truth
-  } catch (error) {
-    mutate('/api/wishlist'); // Revert on failure
-    toast.error('Failed to add to wishlist');
-  }
+  return (
+    <button onClick={toggleWishlist}>
+      <Heart className={isHearted ? 'fill-red-500' : 'fill-none'} />
+    </button>
+  );
 }
 ```
 
----
+The user sees the heart turn red in exactly **0 milliseconds**. The network request happens invisibly in the background.
 
-## 4. Shareable Wishlists (Social Proof)
+## 2. The Anonymous Local Cache
 
-Users want to share their wishlists for birthdays and holidays.
+You must allow users who are not logged in to use the wishlist.
 
-**Implementation:**
-- Add a boolean field `isPublic` to the `Wishlist` model.
-- Generate a unique, unguessable slug (e.g., `/wishlist/u_aB8x9Y2z`).
-- When a third-party views this URL, the frontend must hide the "Remove" buttons and instead display "Add to My Cart" buttons.
+**The Production Solution:**
+Your `useWishlistStore` must use Zustand with `localStorage` persistence (exactly like the Cart). When an anonymous user clicks the Heart button, the `productId` is saved directly to their browser. 
 
----
+If they leave the site and come back three days later, the heart on that product is still red. They have built an emotional attachment to the curation of their list.
 
-## AI Prompt — Architect Your Wishlist System
+## 3. The Post-Login Merge Resolver
 
-```prompt
-I am implementing a persistent Wishlist feature for a production e-commerce store.
+When the anonymous user finally decides to log in (perhaps triggered by a "Save your wishlist" prompt), you now have two disparate states:
+1. The 5 items they just added to their anonymous `localStorage`.
+2. The 3 items they had saved in the PostgreSQL database from a previous session a month ago.
 
-Tech Stack:
-- Frontend: [e.g., React / Next.js]
-- Database: [e.g., Postgres]
-- Marketing Tool: [e.g., Klaviyo]
+**The Production Solution:**
+You must engineer a **Merge Strategy** in your NextAuth login callback or post-login redirect.
 
-Act as a Principal Full-Stack Engineer:
-1. Write the React component logic (using SWR or React Query) to implement an Optimistic UI for the Wishlist "Heart" button.
-2. Provide the database schema and the Node.js API logic required to merge a temporary cookie-based Guest Wishlist with a permanent User Wishlist upon login.
-3. Design the background job architecture required to execute a "Price Drop Alert". When a price changes in the DB, how do we efficiently query the wishlist table and push those events to Klaviyo without blocking the main thread?
+```mermaid
+sequenceDiagram
+    participant Browser
+    participant NextJS as Next.js API
+    participant DB as PostgreSQL
+
+    Browser->>NextJS: User Logs In via NextAuth
+    NextJS-->>Browser: Session Token Granted
+    Note over Browser: Browser detects login event
+    Browser->>NextJS: POST /api/wishlist/sync (Send LocalStorage items)
+    NextJS->>DB: Upsert Local Items into DB (Ignore Duplicates)
+    DB-->>NextJS: Return Unified Wishlist (8 items total)
+    NextJS-->>Browser: Sync Success
+    Note over Browser: Clear LocalStorage, switch to DB Source of Truth
 ```
 
+The backend API handles the deduplication (relying on the `@@unique([userId, productId])` constraint we built in the Database module) and returns a perfectly unified list. The user loses nothing.
+
 ---
 
-## Wishlist Implementation Checklist
+## ✅ Wishlist Engineering Checklist
 
-- [ ] Wishlist state persisted in the primary database (not just local storage)
-- [ ] Guest-to-Authenticated merge logic implemented to preserve pre-login intent
-- [ ] Optimistic UI patterns applied to all wishlist interactions for instant visual feedback
-- [ ] Backend hooks established to trigger Price Drop and Back in Stock alerts
-- [ ] Throttle logic implemented for Back in Stock emails to prevent overselling limited inventory
-- [ ] Public sharing URLs securely generated (read-only mode) if social sharing is required
+- [ ] Implement Optimistic UI using SWR mutations to guarantee a 0ms visual response when the Heart button is clicked.
+- [ ] Build an anonymous `localStorage` cache (via Zustand) to capture intent before the user logs in.
+- [ ] Engineer a Post-Login Merge API route that upserts the local cache into PostgreSQL upon authentication.
+- [ ] Use the AI prompt below to generate the complete architecture.
+
+---
+
+## AI Prompt — Engineer the Wishlist
+
+Copy this prompt into your AI to have it generate the complex optimistic state management code.
+
+````prompt
+I am building a headless e-commerce store with Next.js (App Router). I need you to act as my Principal Frontend Engineer. We are engineering our Wishlist architecture.
+
+I need you to generate the following strict React and API implementations:
+
+**1. The Optimistic Heart Component:**
+Write the `<WishlistButton productId={id} />` Client Component. 
+- You MUST use `useSWR` to fetch the user's active wishlist array.
+- Write the `toggleWishlist` function showing exactly how to use the SWR `mutate(optimisticData, false)` function to instantly turn the Heart icon red without waiting for the network response.
+
+**2. The Zustand Local Cache:**
+Write the `store/useWishlistStore.ts` file using Zustand and the `persist` middleware. 
+- It should store an array of `productIds`. 
+- This will act as the fallback for anonymous users.
+
+**3. The Post-Login Merge API:**
+Write the Next.js API Route (`/api/wishlist/sync`). 
+- It must accept an array of `productIds` from the frontend's local storage.
+- Show how to use a Prisma transaction with a `createMany` query and `skipDuplicates: true` to merge these new items into the user's existing PostgreSQL wishlist without crashing on unique constraint violations.
+````
+
+**Next: Admin Dashboard Engineering →**

@@ -1,97 +1,129 @@
 ---
-title: Admin Dashboard Implementation
+title: Admin Dashboard
 slug: admin-dashboard
-phase: Phase 3
+phase: Phase 3 E Commerce Development
 mode: production
 projectType: e-commerce
-estimatedTime: 40–50 min
+estimatedTime: 45-60 min
 ---
 
-# Admin Dashboard Implementation
+# Admin Dashboard & RBAC Engineering
 
-At a small scale, an admin dashboard is a CRUD interface for adding products. At production scale, the admin dashboard is an Enterprise Resource Planning (ERP) tool.
+**Estimated Time:** 60 Minutes
 
-Your merchandising, fulfillment, and customer support teams will spend 8 hours a day in this dashboard. If it is slow, confusing, or lacks bulk-action capabilities, your operational costs will skyrocket as teams waste time fighting the software.
+A beginner builds their Admin Dashboard inside the exact same Next.js repository as their customer-facing storefront. They add an `isAdmin: true` flag to their database and wrap a few pages in a basic `if (isAdmin)` check.
 
-If you are using Shopify Plus, use their admin. Do not rebuild it. If you are building a custom headless backend (e.g., Medusa or custom Postgres), you must build the Admin UI with extreme care.
+If a hacker finds an XSS vulnerability in the storefront, they can hijack an admin's cookie and gain full write-access to your database, changing prices or refunding orders. Furthermore, placing massive data-visualization charts inside your storefront repository slows down your build times and bloats your deployment.
 
----
-
-## 1. Access Control (RBAC & Audit Logs)
-
-In a production environment, not everyone gets full access to the database.
-
-**Role-Based Access Control (RBAC):**
-- **Support Agents:** Can view orders, issue partial refunds up to $50, and update shipping addresses. They *cannot* delete products or change prices.
-- **Fulfillment Staff:** Can view unfulfilled orders, print packing slips, and input tracking numbers. They *cannot* view financial margins or customer credit card data.
-- **Merchandisers:** Can update products, prices, and launch promotions.
-
-**Audit Logs (Mandatory for Compliance):**
-When a product's price drops from $100 to $10 accidentally, resulting in thousands of dollars in losses, you must know who did it.
-- **Implementation:** Every mutating API call (`POST`, `PUT`, `DELETE`) in the admin panel must write a record to an `audit_logs` table: `[Timestamp] | [User Email] | [Action: UPDATE_PRICE] | [Target: SKU123] | [Old: $100] | [New: $10]`.
+In Phase 3, you must engineer **Total Separation of Concerns** by building a decoupled Admin Portal (often using low-code tools like Retool) and enforcing strict **Role-Based Access Control (RBAC)** at the API level.
 
 ---
 
-## 2. Bulk Operations & Concurrency
+## 1. The Decoupled Portal Strategy
 
-Merchandising teams do not update one product at a time. They update 5,000 prices at 2 AM before a Black Friday sale.
+You should not waste time building a custom React table for your orders. Shopify handles the core operations, but for custom data (Reviews, Wishlist analytics, custom User profiles), you need a dashboard.
 
-**The Anti-Pattern (Synchronous Loops):**
-If the Admin UI sends an array of 5,000 products to a Next.js API route, and the route uses a `for` loop to update Postgres, the request will time out after 10 seconds, leaving the catalog in a half-updated, corrupted state.
+**The Production Solution:**
+You must use a tool like **Retool** or deploy a completely separate Next.js application strictly for internal tools (`admin.yourdomain.com`). 
 
-**The Production Pattern (Asynchronous Batches):**
-1. The Admin UI submits a CSV upload or a Bulk Action intent.
-2. The API route returns a `202 Accepted` and an `import_job_id` immediately.
-3. The actual database updates are pushed to a background queue (e.g., Inngest or AWS SQS).
-4. The Admin UI polls a status endpoint `GET /api/jobs/status` and displays a progress bar (e.g., "Updated 2,400 / 5,000 products").
-
----
-
-## 3. Safe Financial Operations (Refunds)
-
-Refunds are the most dangerous action in the admin panel. 
-
-**The Implementation Constraints:**
-- **Never allow a refund to exceed the original order amount.** (This sounds obvious, but custom admin panels frequently have a bug that allows support agents to refund $150 on a $100 order).
-- **Tax Proration:** If a user returns 1 shirt from a 3-shirt order, you must calculate the exact proportion of tax applied to that specific shirt and refund it. Do not just refund the item cost.
-- **Inventory Restock:** The Admin UI must provide a checkbox during the refund process: `[ ] Restock Inventory`. If the item was broken, it should be refunded but *not* added back to the Available to Promise (ATP) inventory.
-
----
-
-## 4. The UI Architecture (Speed is Everything)
-
-Do not build the Admin UI with heavy, bloated CSS. It needs to feel like a desktop application.
-
-- **Data Grids:** Use an enterprise-grade data grid (e.g., **AG Grid** or **TanStack Table**). Merchandisers need to sort, filter, and pin columns across tables with 10,000+ rows instantly.
-- **State Management:** Use `React Query` (or `SWR`) heavily to cache API responses. If a support agent clicks between 5 different orders, the data should cache so the "Back" button is instantaneous.
-- **Design System:** Use dense, data-heavy UI components (like **shadcn/ui** or **Mantine**). Do not use consumer-facing UI spacing. Information density is key.
-
----
-
-## AI Prompt — Architect Your Admin Dashboard
-
-```prompt
-I am building the Admin Dashboard for a production custom e-commerce backend.
-
-Tech Stack:
-- Frontend: [e.g., React / Next.js Admin]
-- Backend: [e.g., Node.js / Postgres]
-- Data Grid: [e.g., TanStack Table]
-
-Act as a Principal Full-Stack Engineer:
-1. Define the exact Postgres database schema for an `audit_logs` table to track every mutation made by staff, and write a middleware function that intercepts admin API calls to populate it.
-2. Design the asynchronous background architecture (Queue + Polling) required to safely execute a bulk price update on 10,000 SKUs without crashing the Node.js API.
-3. Write the validation logic for a `POST /api/admin/refund` endpoint, ensuring the refund never exceeds the captured amount and handles tax proration correctly.
-4. Detail the strict RBAC (Role-Based Access Control) matrix required for Support Agents vs. Merchandisers, and how to enforce it at the API route level.
+```mermaid
+graph TD
+    A[Customer Next.js App] -->|Reads via public API| B[(PostgreSQL DB)]
+    C[Retool / Admin Next.js] -->|Writes via Secure VPN/Tunnel| B
 ```
 
+By decoupling the Admin UI, you guarantee that a vulnerability in the storefront's React code cannot physically access the Admin interfaces. 
+
+## 2. API-Level RBAC (Role-Based Access Control)
+
+If you do build custom Admin API routes in your Next.js backend (e.g., `/api/admin/refund`), you cannot just check if the user is an "Admin". What if the user is a Junior Customer Support Rep? Should they be allowed to refund a $5,000 order?
+
+**The Production Solution:**
+You must implement mathematical Role-Based Access Control using an Enum.
+
+```typescript
+// types/rbac.ts
+export enum Role {
+  CUSTOMER = 'CUSTOMER',
+  SUPPORT_TIER_1 = 'SUPPORT_TIER_1', // Can view orders, cannot refund
+  SUPPORT_TIER_2 = 'SUPPORT_TIER_2', // Can refund up to $500
+  SUPER_ADMIN = 'SUPER_ADMIN'        // Can do anything
+}
+```
+
+In your Next.js API route, the validation must happen before the database is ever touched:
+
+```typescript
+// app/api/admin/refund/route.ts
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
+export async function POST(req: Request) {
+  const session = await getServerSession(authOptions);
+
+  // 1. Strict RBAC Gate
+  if (!session || (session.user.role !== 'SUPER_ADMIN' && session.user.role !== 'SUPPORT_TIER_2')) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
+  }
+
+  const { orderId, amount } = await req.json();
+
+  // 2. Specific Rule Validation
+  if (session.user.role === 'SUPPORT_TIER_2' && amount > 500) {
+    // Write to the Audit Log: "Junior rep attempted illegal high-value refund"
+    return NextResponse.json({ error: "Amount exceeds tier limits" }, { status: 403 });
+  }
+
+  // 3. Execute Refund...
+}
+```
+
+This logic guarantees that even if a junior rep figures out how to send an HTTP POST request via Postman, the server will block it.
+
+## 3. The Audit Log Architecture
+
+As covered in the Orders module, you must log every mutation made by an admin.
+
+If an admin updates a product description or deletes a malicious user review, you must record it. If a disgruntled employee tries to sabotage the database before quitting, the Audit Log is your only method of restoring the data.
+
+**The Production Solution:**
+Ensure every custom mutation API route writes a row to an `AdminAuditLog` table containing:
+- `adminId`
+- `action` (e.g., `DELETE_REVIEW`)
+- `targetId` (e.g., the review UUID)
+- `previousPayload` (a JSON snapshot of the data *before* they deleted it).
+
 ---
 
-## Admin Dashboard Checklist
+## ✅ Admin Engineering Checklist
 
-- [ ] Role-Based Access Control (RBAC) enforced on all backend API routes
-- [ ] Audit logs implemented to track all data mutations (who, what, when, old_value, new_value)
-- [ ] Bulk actions (CSV imports, mass price updates) offloaded to asynchronous background queues with progress polling
-- [ ] Refund endpoints secured against over-refunding and tied to inventory restock logic
-- [ ] Enterprise data grids (e.g., TanStack Table) utilized for high-density, fast sorting of orders and products
-- [ ] Tax and shipping proration math validated in the partial refund flows
+- [ ] Decouple the Admin Dashboard from the main storefront repository. Use tools like Retool to save hundreds of engineering hours.
+- [ ] Enforce strict Role-Based Access Control (RBAC) at the Next.js API level.
+- [ ] Maintain an immutable Audit Log of all admin actions, including JSON snapshots of deleted data for safe recovery.
+- [ ] Use the AI prompt below to generate the RBAC middleware logic.
+
+---
+
+## AI Prompt — Engineer the RBAC System
+
+Copy this prompt into your AI to have it generate the mathematical security gates for your admin tools.
+
+````prompt
+I am building a headless e-commerce store with Next.js (App Router). I need you to act as my Principal Security Engineer. We are engineering our Role-Based Access Control (RBAC) system for custom internal API routes.
+
+I need you to generate the following strict security implementations:
+
+**1. The RBAC Enum & Types:**
+Define a TypeScript Enum for `UserRole` containing `CUSTOMER`, `SUPPORT`, and `ADMIN`. Show how to update our Prisma `schema.prisma` `User` model to include this role, defaulting to `CUSTOMER`.
+
+**2. The NextAuth Session Injector:**
+Show the exact NextAuth callback code required to pull the user's `role` from Prisma and securely embed it into the JWT, so that `session.user.role` is accessible in our API routes.
+
+**3. The Secure API Gate:**
+Write a Next.js Server Action (`deleteProductReview.ts`). 
+- It must read the session to verify the user is an `ADMIN`. 
+- If unauthorized, throw a strict error.
+- If authorized, show a Prisma transaction that deletes the review AND simultaneously creates a row in an `AdminAuditLog` table. The audit log must record the `adminId`, the `reviewId`, and a JSON snapshot of the review text that was deleted in case we need to restore it.
+````
+
+**Phase 3 is complete. Prepare for Phase 4 (Production Readiness).**
