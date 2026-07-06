@@ -17,7 +17,7 @@ This module is about structuring that exposure deliberately, instead of either s
 
 ## Why Skipping This Step Is the Most Common Personal-Project Mistake
 
-> **🔑 Core rule:** every module before this one optimized for *correctness as you understand it*. Beta testing is the only step that tests *correctness as your actual users experience it* — and those are reliably different, because you can't fully predict how someone unfamiliar with your assumptions will behave.
+> ** Core rule:** every module before this one optimized for *correctness as you understand it*. Beta testing is the only step that tests *correctness as your actual users experience it* — and those are reliably different, because you can't fully predict how someone unfamiliar with your assumptions will behave.
 
 A marketplace is especially exposed here because it has two distinct user types (buyers and sellers) whose journeys you've built somewhat separately — beta testing is often the first time you observe the *actual interaction* between a real buyer and a real seller, which surfaces gaps neither side's individual flow exposed.
 
@@ -25,7 +25,7 @@ A marketplace is especially exposed here because it has two distinct user types 
 
 ## Decision: Beta Structure
 
-> **🧩 Decision Card — Beta Approach**
+> ** Decision Card — Beta Approach**
 >
 > **Option A: Closed beta with people you know**
 > Fast to start, feedback is honest but possibly too forgiving — friends often won't report friction they'd complain about from a stranger's product.
@@ -44,7 +44,7 @@ A marketplace is especially exposed here because it has two distinct user types 
 
 Beta testing isn't "let people use it and see what happens" — that produces vague feedback ("it felt slow," "it was confusing") that's hard to act on. Structure it around specific things you genuinely don't know yet.
 
-> **✅ Validation Checklist — What you can't learn from solo testing**
+> ** Validation Checklist — What you can't learn from solo testing**
 > - [ ] Can a real buyer complete a full purchase flow without you explaining anything?
 > - [ ] Does a real seller understand how to create a listing without your guidance?
 > - [ ] Does the buyer-seller messaging flow make sense to two people who've never talked to each other before?
@@ -59,7 +59,7 @@ This list directly tests assumptions baked into earlier modules — your PRD, yo
 
 For a personal project, this doesn't need to be formal. It needs to produce honest signal from people who aren't you.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Do you have at least 5-10 testers — enough to see patterns, not just one person's individual quirks?
 > - [ ] Do testers represent both sides of the marketplace — at least some acting purely as buyers, some purely as sellers, ideally a few completing a real transaction with each other?
 > - [ ] Have you given testers a goal, not just access? ("Try to list an item and complete a sale" produces more useful behavior than "check out my app")
@@ -68,7 +68,7 @@ For a personal project, this doesn't need to be formal. It needs to produce hone
 
 ## Structuring Feedback Collection
 
-> **🧩 Decision Card — Feedback Method**
+> ** Decision Card — Feedback Method**
 >
 > **Option A: Open-ended ("let me know what you think")**
 > Easiest to set up, produces the least actionable feedback — people report what's top of mind, not what's actually broken.
@@ -87,18 +87,18 @@ For a personal project, this doesn't need to be formal. It needs to produce hone
 
 Beta testing will surface a mix of real bugs, edge cases, and subjective opinions. Triaging this correctly matters as much as collecting it.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Does the report describe something broken (a bug) or something the tester would simply prefer differently (an opinion)? Treat these very differently — bugs are usually must-fix, opinions are optional
 > - [ ] If multiple testers independently hit the same point of confusion, that's a design problem worth fixing, not an individual misunderstanding
 > - [ ] Did a tester find an authorization or fraud gap your earlier modules should have caught? (This happens — beta testing is a real second check on Security, Authorization Rules, and Fraud Prevention, not just a UX exercise)
 
-> **⚠️ Warning:** Don't dismiss a security-relevant bug report as "just a UX issue" because it surfaced during beta testing rather than a security review. A tester accidentally accessing another user's data is exactly the kind of bug this curriculum's earlier modules were designed to prevent — treat it with the same urgency as if you'd found it yourself in a code review.
+> **️ Warning:** Don't dismiss a security-relevant bug report as "just a UX issue" because it surfaced during beta testing rather than a security review. A tester accidentally accessing another user's data is exactly the kind of bug this curriculum's earlier modules were designed to prevent — treat it with the same urgency as if you'd found it yourself in a code review.
 
 ---
 
 ## AI Prompt: Turn Feedback Into an Action Plan
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Help me triage beta tester feedback for my personal marketplace project.
@@ -126,7 +126,7 @@ Beta testing will surface a mix of real bugs, edge cases, and subjective opinion
 
 ## Validating This Process
 
-> **🚩 Common Hallucination:** AI triaging feedback will sometimes downgrade vague-sounding reports ("it was weird when I tried to message someone") to low priority by default, when vague descriptions of unexpected behavior are often exactly how testers describe real bugs they don't have the technical vocabulary to name precisely. Read the raw feedback yourself before fully trusting an AI triage — don't let imprecise language be the reason something real gets deprioritized.
+> ** Common Hallucination:** AI triaging feedback will sometimes downgrade vague-sounding reports ("it was weird when I tried to message someone") to low priority by default, when vague descriptions of unexpected behavior are often exactly how testers describe real bugs they don't have the technical vocabulary to name precisely. Read the raw feedback yourself before fully trusting an AI triage — don't let imprecise language be the reason something real gets deprioritized.
 
 ---
 

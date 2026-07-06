@@ -19,7 +19,7 @@ Authentication (Phase 2) decided your role model, your managed auth provider, an
 
 Your Architecture Fundamentals dependency chain was User → Listing → Transaction → Review. Auth Implementation is the literal first step in that chain — nothing else can be meaningfully tested without a real, working way to identify who's making a request.
 
-> ✅ **Best practice:** Resist the urge to start with something more visually satisfying, like the listing form. Without working auth, you'll be faking user identity to test everything else, which hides exactly the authorization bugs you'll need to catch later. Build this first, for real.
+>  **Best practice:** Resist the urge to start with something more visually satisfying, like the listing form. Without working auth, you'll be faking user identity to test everything else, which hides exactly the authorization bugs you'll need to catch later. Build this first, for real.
 
 ---
 
@@ -34,7 +34,7 @@ This is the concrete version of the auth flow specified in Phase 2's Authenticat
 - [ ] Wire account status (active/suspended/banned) into your auth middleware — every authenticated request should carry this
 - [ ] Implement the SellerProfile creation trigger — created on first listing attempt, not at signup
 
-> ⚠️ **Common mistake:** Treating signup as "done" once a user record exists, without verifying account status flows through to every subsequent request. If a banned user's session token still authenticates successfully because your middleware only checks "is this token valid" and not "is this account active," you've built authentication without authorization — the exact gap flagged in the Authorization module.
+> ️ **Common mistake:** Treating signup as "done" once a user record exists, without verifying account status flows through to every subsequent request. If a banned user's session token still authenticates successfully because your middleware only checks "is this token valid" and not "is this account active," you've built authentication without authorization — the exact gap flagged in the Authorization module.
 
 ---
 
@@ -47,7 +47,7 @@ This is the concrete version of the auth flow specified in Phase 2's Authenticat
 | Banned account attempts login | Login itself is blocked |
 | Expired/invalid session token used | Request rejected, user prompted to re-authenticate |
 
-> 💡 **Tip:** This table is your literal test plan. Each row maps directly to a decision made in Phase 2 — if a row fails, trace it back to whether the Authentication or Authorization module's rule was actually implemented, not just designed.
+>  **Tip:** This table is your literal test plan. Each row maps directly to a decision made in Phase 2 — if a row fails, trace it back to whether the Authentication or Authorization module's rule was actually implemented, not just designed.
 
 ---
 
@@ -55,7 +55,7 @@ This is the concrete version of the auth flow specified in Phase 2's Authenticat
 
 Don't hand-roll session/token logic even at the implementation level — your managed auth provider almost certainly has this solved with sensible defaults (token expiry, refresh handling, secure cookie settings). Spend your implementation time wiring your application logic to these defaults, not reinventing them.
 
-> ⚠️ If you find yourself writing custom JWT validation logic, token refresh logic, or password comparison code, stop — this is very likely the hand-rolled auth anti-pattern flagged in Phase 2. Your provider's SDK should be handling this.
+> ️ If you find yourself writing custom JWT validation logic, token refresh logic, or password comparison code, stop — this is very likely the hand-rolled auth anti-pattern flagged in Phase 2. Your provider's SDK should be handling this.
 
 ---
 
@@ -88,7 +88,7 @@ account attempting login.
 
 ## Common Mistake: Skipping Email Verification "For Now"
 
-> ⚠️ It's tempting to defer email verification to "make signup faster" during early development. Don't ship past this module without it — your Trust & Safety module identified it as baseline fraud prevention, and retrofitting a verification requirement after real accounts exist (some verified, some not) is messier than building it correctly from the start.
+> ️ It's tempting to defer email verification to "make signup faster" during early development. Don't ship past this module without it — your Trust & Safety module identified it as baseline fraud prevention, and retrofitting a verification requirement after real accounts exist (some verified, some not) is messier than building it correctly from the start.
 
 ---
 

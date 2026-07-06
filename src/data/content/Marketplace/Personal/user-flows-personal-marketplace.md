@@ -129,9 +129,9 @@ where a decision is missing.
 
 ## Validating What AI Generates
 
-- [ ] **Walk through every flow yourself, step by step, imagining you're the user** — this catches gaps faster than re-reading text, since acting it out exposes "wait, what happens here" moments AI-generated text can gloss over
-- [ ] **Confirm flows reference only features in your MVP Scope** — AI sometimes adds steps for features (save for later, share listing, related items) that aren't actually in scope yet
-- [ ] **Check that flagged ambiguous steps actually get resolved**, not just listed — a flagged gap with no decision attached is still a gap
+- **Walk through every flow yourself, step by step, imagining you're the user** — this catches gaps faster than re-reading text, since acting it out exposes "wait, what happens here" moments AI-generated text can gloss over
+- **Confirm flows reference only features in your MVP Scope** — AI sometimes adds steps for features (save for later, share listing, related items) that aren't actually in scope yet
+- **Check that flagged ambiguous steps actually get resolved**, not just listed — a flagged gap with no decision attached is still a gap
 
 ---
 

@@ -23,7 +23,7 @@ Not "how do we handle more traffic." That's largely covered by the technical Sca
 | Servers handle 10x the traffic | Can you still personally answer support requests at 10x volume? |
 | Payment processor handles 10x the transactions | Can you still personally catch a fraud pattern by noticing it manually? |
 
-> **⚠️ Warning:** A solo-built marketplace's real scaling ceiling is usually the founder's personal attention, not the technology. Growth that outpaces your ability to monitor trust & safety, respond to disputes, or notice fraud patterns is growth that's actively making the product worse for users, even while the numbers look like success.
+> **️ Warning:** A solo-built marketplace's real scaling ceiling is usually the founder's personal attention, not the technology. Growth that outpaces your ability to monitor trust & safety, respond to disputes, or notice fraud patterns is growth that's actively making the product worse for users, even while the numbers look like success.
 
 ## Decision: What to Automate vs What to Keep Manual
 
@@ -34,17 +34,17 @@ Not "how do we handle more traffic." That's largely covered by the technical Sca
 | Manually checking for refund/dispute patterns | You only notice a pattern after multiple complaints | Basic dashboard tracking dispute rate over time |
 | Personally onboarding each new seller | Onboarding takes meaningfully long per seller | A self-serve onboarding flow with clear guardrails |
 
-> **✅ Best Practice:** Automate the parts of your workload that are repetitive and low-judgment first (FAQ deflection, basic flagging rules), and keep the parts requiring real judgment (final dispute decisions, ambiguous trust & safety calls) manual longer. This preserves quality where it matters most while freeing your time where automation genuinely works as well as you would.
+> ** Best Practice:** Automate the parts of your workload that are repetitive and low-judgment first (FAQ deflection, basic flagging rules), and keep the parts requiring real judgment (final dispute decisions, ambiguous trust & safety calls) manual longer. This preserves quality where it matters most while freeing your time where automation genuinely works as well as you would.
 
 ## Designing Trust & Safety to Scale With You, Not Against You
 
 This is the area most likely to break silently as a marketplace grows, because problems don't announce themselves — they just slowly stop getting caught.
 
-- [ ] Set a personal threshold: if your moderation queue exceeds a specific size for more than a day, that's a signal to invest in automation or a review process change
-- [ ] Track dispute rate as a percentage of transactions, not just an absolute count — a rising percentage is a real signal even if absolute volume looks manageable
-- [ ] Revisit your enforcement tiers from the Legal Policies module — do they still hold up at higher volume, or were they designed assuming a small, easily-overseen community?
+- Set a personal threshold: if your moderation queue exceeds a specific size for more than a day, that's a signal to invest in automation or a review process change
+- Track dispute rate as a percentage of transactions, not just an absolute count — a rising percentage is a real signal even if absolute volume looks manageable
+- Revisit your enforcement tiers from the Legal Policies module — do they still hold up at higher volume, or were they designed assuming a small, easily-overseen community?
 
-> **⚠️ Warning:** A rule that worked fine when you personally knew most active users by their listing history breaks down anonymously at scale. Don't assume your original trust & safety approach still works just because nothing has visibly broken yet — check the actual dispute rate trend, not just the absence of a crisis so far.
+> **️ Warning:** A rule that worked fine when you personally knew most active users by their listing history breaks down anonymously at scale. Don't assume your original trust & safety approach still works just because nothing has visibly broken yet — check the actual dispute rate trend, not just the absence of a crisis so far.
 
 ## Decision: When to Bring in Help
 
@@ -54,7 +54,7 @@ This is the area most likely to break silently as a marketplace grows, because p
 | Moderation backlog growing despite automation | Time to bring in a second reviewer, even informally |
 | You're the single point of failure for payment/dispute decisions | Document your decision process well enough someone else could follow it |
 
-> **💡 Tip:** Documenting your own decision-making process (how you actually resolve a dispute, what you actually check before approving a flagged listing) is valuable even before you bring in help — it forces you to notice when your own judgment has been inconsistent, and it's the foundation for anyone else stepping in later.
+> ** Tip:** Documenting your own decision-making process (how you actually resolve a dispute, what you actually check before approving a flagged listing) is valuable even before you bring in help — it forces you to notice when your own judgment has been inconsistent, and it's the foundation for anyone else stepping in later.
 
 ## Use AI to Identify Your Personal Bottleneck
 
@@ -74,15 +74,15 @@ Based on this:
    requires my personal judgment at this scale?
 ```
 
-> **💡 Token Efficiency:** Give actual rough time estimates, even imprecise ones, rather than asking generically "how do I scale operations" — the goal is identifying your specific bottleneck, and that requires your specific numbers, not generic operational scaling advice.
+> ** Token Efficiency:** Give actual rough time estimates, even imprecise ones, rather than asking generically "how do I scale operations" — the goal is identifying your specific bottleneck, and that requires your specific numbers, not generic operational scaling advice.
 
 ## Validate Before Scaling Further
 
-- [ ] You've identified which personal-capacity bottleneck (support, moderation, disputes) is closest to its limit
-- [ ] At least one repetitive, low-judgment task has been automated or deflected (FAQ, basic flagging rules)
-- [ ] Dispute rate is tracked as a trend, not just monitored anecdotally
-- [ ] Your trust & safety enforcement approach has been re-checked against current scale, not just inherited from launch
-- [ ] You have a documented (even informal) decision process for disputes, in case you ever need to hand part of this off
+- You've identified which personal-capacity bottleneck (support, moderation, disputes) is closest to its limit
+- At least one repetitive, low-judgment task has been automated or deflected (FAQ, basic flagging rules)
+- Dispute rate is tracked as a trend, not just monitored anecdotally
+- Your trust & safety enforcement approach has been re-checked against current scale, not just inherited from launch
+- You have a documented (even informal) decision process for disputes, in case you ever need to hand part of this off
 
 ## Common Mistakes
 

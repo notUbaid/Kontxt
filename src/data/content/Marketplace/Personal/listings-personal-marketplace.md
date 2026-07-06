@@ -25,21 +25,21 @@ draft → active → (paused) → sold/completed → archived
                   removed (by admin/moderation)
 ```
 
-> **🔑 Why this matters:** Each state changes what's allowed. A `sold` listing shouldn't accept new messages asking "is this available?" A `draft` listing shouldn't appear in search. If you only have a boolean `isActive`, you can't express this — you need a proper status field.
+> ** Why this matters:** Each state changes what's allowed. A `sold` listing shouldn't accept new messages asking "is this available?" A `draft` listing shouldn't appear in search. If you only have a boolean `isActive`, you can't express this — you need a proper status field.
 
 | Status | Visible in search | Buyer can message | Buyer can purchase |
 |---|---|---|---|
-| `draft` | ❌ | ❌ | ❌ |
-| `active` | ✅ | ✅ | ✅ |
-| `paused` | ❌ | ✅ (existing threads only) | ❌ |
-| `sold` | ❌ | ❌ | ❌ |
-| `removed` | ❌ | ❌ | ❌ |
+| `draft` |  |  |  |
+| `active` |  |  |  |
+| `paused` |  |  (existing threads only) |  |
+| `sold` |  |  |  |
+| `removed` |  |  |  |
 
 ---
 
 ## Decision: Data Model Shape
 
-> **🧩 Decision Card — Listing Schema**
+> ** Decision Card — Listing Schema**
 >
 > **Option A: One flat `listings` table**
 > Simple, fast to build. Works well when every listing type (physical goods, services, digital items) shares roughly the same fields.
@@ -77,7 +77,7 @@ enum ListingStatus {
 }
 ```
 
-> **⚠️ Warning:** Always store price as an integer (cents), never a float. `0.1 + 0.2` famously doesn't equal `0.3` in floating point — and in a marketplace, rounding errors mean either you or your users lose money.
+> **️ Warning:** Always store price as an integer (cents), never a float. `0.1 + 0.2` famously doesn't equal `0.3` in floating point — and in a marketplace, rounding errors mean either you or your users lose money.
 
 ---
 
@@ -94,7 +94,7 @@ PATCH  /listings/:id/status   status transition (owner/admin only)
 DELETE /listings/:id          soft delete → status = removed
 ```
 
-> **🚩 Common Hallucination:** AI often implements `DELETE` as a hard delete (`DB.delete()`). For marketplaces, prefer a soft delete (set status to `removed`) so order history, reviews, and message threads referencing that listing don't break with dangling foreign keys.
+> ** Common Hallucination:** AI often implements `DELETE` as a hard delete (`DB.delete()`). For marketplaces, prefer a soft delete (set status to `removed`) so order history, reviews, and message threads referencing that listing don't break with dangling foreign keys.
 
 ---
 
@@ -102,7 +102,7 @@ DELETE /listings/:id          soft delete → status = removed
 
 This is where most beginner marketplaces get exploited or break in production. Validate on the server — client-side validation is UX, not security.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Title and description have sane length limits (prevents UI breakage and storage abuse)
 > - [ ] Price is a positive integer within a realistic range (catch `-50` or `99999999` typos/abuse)
 > - [ ] Category is restricted to an enum/allowlist, not free text (keeps search and filtering reliable)
@@ -128,7 +128,7 @@ function canTransition(from, to) {
 
 ## AI Prompt: Generate the Listing CRUD Layer
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Build the CRUD API for a "Listing" resource in a personal marketplace project.

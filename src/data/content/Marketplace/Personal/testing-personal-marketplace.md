@@ -28,7 +28,7 @@ Not everything deserves equal testing effort. Prioritize based on where this cur
 | Medium | Notification triggers firing correctly | Notifications flagged silent gaps as easy to miss |
 | Lower | UI polish, copy, visual details | Real, but lower-stakes than the above |
 
-> 💡 **Tip:** This priority order isn't generic testing advice — it's a direct readout of which earlier modules used the word "common mistake" or "critical" about a specific failure mode. Test what you've already been warned about first.
+>  **Tip:** This priority order isn't generic testing advice — it's a direct readout of which earlier modules used the word "common mistake" or "critical" about a specific failure mode. Test what you've already been warned about first.
 
 ---
 
@@ -40,7 +40,7 @@ Not everything deserves equal testing effort. Prioritize based on where this cur
 | **Integration tests** | One domain working correctly against the database (e.g. "creating a listing actually enforces required fields") | Medium effort |
 | **End-to-end tests** | The full flows from Demo Transactions, automated instead of manual | Higher effort, but highest confidence |
 
-> ✅ **Best practice for personal mode:** Don't aim for exhaustive coverage across all three layers. Write unit tests for your status-transition guards and fee calculations specifically (cheap, catches real bugs). Automate the core Demo Transactions flow as a single end-to-end test you can re-run before any deploy. Skip extensive integration testing of straightforward CRUD — the value-to-effort ratio is low at this scale.
+>  **Best practice for personal mode:** Don't aim for exhaustive coverage across all three layers. Write unit tests for your status-transition guards and fee calculations specifically (cheap, catches real bugs). Automate the core Demo Transactions flow as a single end-to-end test you can re-run before any deploy. Skip extensive integration testing of straightforward CRUD — the value-to-effort ratio is low at this scale.
 
 ---
 
@@ -54,7 +54,7 @@ message sent → checkout completes → fee split correct →
 dispute flagged → resolved → review created
 ```
 
-> ⚠️ **Common mistake:** Treating Demo Transactions as a one-time pre-launch ritual rather than something worth automating. Every feature you add in Phase 4 (rate limiting, caching, monitoring) risks subtly breaking this core flow. An automated version you can run in seconds, before every deploy, is far cheaper than re-discovering an integration bug manually after it's already live.
+> ️ **Common mistake:** Treating Demo Transactions as a one-time pre-launch ritual rather than something worth automating. Every feature you add in Phase 4 (rate limiting, caching, monitoring) risks subtly breaking this core flow. An automated version you can run in seconds, before every deploy, is far cheaper than re-discovering an integration bug manually after it's already live.
 
 ---
 
@@ -62,12 +62,12 @@ dispute flagged → resolved → review created
 
 Pull these directly from the "common mistake" callouts across Phase 2 and 3 — each is a concrete, scriptable test case, not a vague "test edge cases" instruction.
 
-- [ ] Suspended account cannot create a listing or send a message (Authorization, Auth Implementation)
-- [ ] Listing cannot skip from Draft directly to Active (Listing System, Backend)
-- [ ] Search never returns a Pending Approval or Removed listing (Search Architecture, Search)
-- [ ] Review creation fails without a verified completed transaction (Reviews & Ratings)
-- [ ] A second identical Stripe webhook event doesn't double-process a transaction (Backend's idempotency requirement)
-- [ ] Error responses for "no such user" and "wrong password" are identical (Backend)
+- Suspended account cannot create a listing or send a message (Authorization, Auth Implementation)
+- Listing cannot skip from Draft directly to Active (Listing System, Backend)
+- Search never returns a Pending Approval or Removed listing (Search Architecture, Search)
+- Review creation fails without a verified completed transaction (Reviews & Ratings)
+- A second identical Stripe webhook event doesn't double-process a transaction (Backend's idempotency requirement)
+- Error responses for "no such user" and "wrong password" are identical (Backend)
 
 ---
 
@@ -97,7 +97,7 @@ tests — I'm intentionally not aiming for exhaustive coverage.
 
 ## Common Mistake: Testing in Production-Like Isolation From Real Money Flows
 
-> ⚠️ Don't let your test suite run against live Stripe keys, ever, even accidentally. Confirm test mode keys are used in CI/automated runs specifically — a misconfigured test suite that fires real charges is a far worse outcome than a missing test. This is a configuration check worth verifying explicitly, not assuming.
+> ️ Don't let your test suite run against live Stripe keys, ever, even accidentally. Confirm test mode keys are used in CI/automated runs specifically — a misconfigured test suite that fires real charges is a far worse outcome than a missing test. This is a configuration check worth verifying explicitly, not assuming.
 
 ---
 

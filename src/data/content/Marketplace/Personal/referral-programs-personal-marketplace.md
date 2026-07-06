@@ -25,7 +25,7 @@ This is a sequencing decision as much as a feature decision. Referrals are a mul
 | Value is in using the product more | Value is in adding to liquidity — a referred seller adds supply, a referred buyer adds demand |
 | One referral mechanic usually suffices | May need separate mechanics or messaging for buyer-side and seller-side referrals |
 
-> **⚠️ Warning:** A referral program that only thinks about "refer a friend" generically often defaults to buyer-side framing (discount on your next purchase), which does nothing to solve a supply-side liquidity problem. If your actual bottleneck is sellers, design the referral mechanic around bringing in supply, not just more buyers chasing the same limited inventory.
+> **️ Warning:** A referral program that only thinks about "refer a friend" generically often defaults to buyer-side framing (discount on your next purchase), which does nothing to solve a supply-side liquidity problem. If your actual bottleneck is sellers, design the referral mechanic around bringing in supply, not just more buyers chasing the same limited inventory.
 
 ## Decision: What Should the Incentive Actually Be?
 
@@ -36,24 +36,24 @@ This is a sequencing decision as much as a feature decision. Referrals are a mul
 | Priority placement/visibility for active referrers | Engaged, established users | Less appealing to brand-new users with nothing to gain yet |
 | Simple social recognition (no monetary cost) | Very early-stage, low-budget personal projects | Weaker pull than monetary incentives |
 
-> **✅ Best Practice:** For a personal project with real budget constraints, a modest credit or fee discount tied specifically to the side of the marketplace you need most (usually supply, early on) is more effective than a generic cash-for-both-sides program you can't actually afford to scale.
+> ** Best Practice:** For a personal project with real budget constraints, a modest credit or fee discount tied specifically to the side of the marketplace you need most (usually supply, early on) is more effective than a generic cash-for-both-sides program you can't actually afford to scale.
 
 ## Designing Around Fraud From Day One
 
 Referral programs are one of the most commonly abused features in any product with monetary incentive — self-referrals, fake accounts, and farming are predictable, not edge cases.
 
-- [ ] Referral reward only triggers after a real transaction completes, not just signup
-- [ ] Basic checks prevent the same payment method or device from claiming multiple referral bonuses
-- [ ] Reward caps exist per user, per time period, to limit damage from any abuse that slips through
-- [ ] You've connected this to your existing Abuse Detection work from Phase 4 — this is the same threat model, applied to a new feature
+- Referral reward only triggers after a real transaction completes, not just signup
+- Basic checks prevent the same payment method or device from claiming multiple referral bonuses
+- Reward caps exist per user, per time period, to limit damage from any abuse that slips through
+- You've connected this to your existing Abuse Detection work from Phase 4 — this is the same threat model, applied to a new feature
 
-> **⚠️ Warning:** Tying a referral reward to signup alone, with no transaction requirement, is close to an open invitation for fake-account farming. Require a completed, real transaction before any reward is issued — this single rule eliminates most low-effort abuse without needing sophisticated fraud detection.
+> **️ Warning:** Tying a referral reward to signup alone, with no transaction requirement, is close to an open invitation for fake-account farming. Require a completed, real transaction before any reward is issued — this single rule eliminates most low-effort abuse without needing sophisticated fraud detection.
 
 ## Keep It Simple for a Personal Project
 
 A referral program doesn't need a dedicated dashboard, complex tier system, or real-time tracking UI to be effective at small scale.
 
-> **💡 Tip:** A unique referral code or link, a manual or lightly-automated reward process, and a simple "you referred 3 people, here's your credit" email is entirely sufficient for a personal project's early scale. Build the elaborate self-service referral dashboard only once manual tracking genuinely becomes a bottleneck — not before.
+> ** Tip:** A unique referral code or link, a manual or lightly-automated reward process, and a simple "you referred 3 people, here's your credit" email is entirely sufficient for a personal project's early scale. Build the elaborate self-service referral dashboard only once manual tracking genuinely becomes a bottleneck — not before.
 
 ## Use AI to Design the Mechanic for Your Specific Bottleneck
 
@@ -75,15 +75,15 @@ Keep this simple enough to build and manage manually or with minimal
 automation.
 ```
 
-> **💡 Token Efficiency:** State your specific bottleneck (from the Retention module's diagnosis) directly in the prompt — this is the single input that changes the entire design, and skipping it produces a generic two-sided referral program that may not target your actual problem.
+> ** Token Efficiency:** State your specific bottleneck (from the Retention module's diagnosis) directly in the prompt — this is the single input that changes the entire design, and skipping it produces a generic two-sided referral program that may not target your actual problem.
 
 ## Validate Before Launching a Referral Program
 
-- [ ] You've confirmed retention is solid enough that referred users are likely to stick, not churn immediately
-- [ ] The incentive specifically targets your actual bottleneck (buyer or seller side), not generic growth
-- [ ] Reward triggers on a completed transaction, not just signup
-- [ ] Basic abuse limits exist (caps, device/payment checks) before real incentives are live
-- [ ] You can realistically administer the reward process yourself at expected volume
+- You've confirmed retention is solid enough that referred users are likely to stick, not churn immediately
+- The incentive specifically targets your actual bottleneck (buyer or seller side), not generic growth
+- Reward triggers on a completed transaction, not just signup
+- Basic abuse limits exist (caps, device/payment checks) before real incentives are live
+- You can realistically administer the reward process yourself at expected volume
 
 ## Common Mistakes
 

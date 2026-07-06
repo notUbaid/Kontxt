@@ -78,11 +78,11 @@ Even your "Must Build (Real)" list needs a hard ceiling. As a working rule for a
 
 Use this checklist as a ceiling, not a target — fewer is safer:
 
-- [ ] One way for sellers to create a listing
-- [ ] One way for buyers to discover listings (search or browse, not both)
-- [ ] One transaction action that closes the loop
-- [ ] One confirmation state both sides can see
-- [ ] (Optional, only if time allows) One additional feature that's genuinely your differentiator
+- One way for sellers to create a listing
+- One way for buyers to discover listings (search or browse, not both)
+- One transaction action that closes the loop
+- One confirmation state both sides can see
+- (Optional, only if time allows) One additional feature that's genuinely your differentiator
 
 ---
 
@@ -90,7 +90,7 @@ Use this checklist as a ceiling, not a target — fewer is safer:
 
 Use AI to sort your feature list ruthlessly — this is exactly the kind of task where a second, less emotionally attached opinion catches scope creep you can't see in your own idea.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 My marketplace concept: [your one-sentence definition from the previous module]
@@ -113,10 +113,10 @@ This prompt works because it gives AI explicit permission to be aggressive about
 
 ## Validating the Output
 
-- [ ] Does your Must Build (Real) list contain 5-6 items or fewer?
-- [ ] Does every item on that list serve the single core loop (listing → discovery → transaction → confirmation)?
-- [ ] Is everything else explicitly assigned to Fake It or Cut Entirely — nothing left unsorted or "maybe"?
-- [ ] Would a judge directly see and interact with every single Must Build item during your demo?
+- Does your Must Build (Real) list contain 5-6 items or fewer?
+- Does every item on that list serve the single core loop (listing → discovery → transaction → confirmation)?
+- Is everything else explicitly assigned to Fake It or Cut Entirely — nothing left unsorted or "maybe"?
+- Would a judge directly see and interact with every single Must Build item during your demo?
 
 > **Common Mistake:** Treating "Fake It" items as lower priority and leaving them for last. They're not lower priority — a marketplace with a real transaction loop but zero fake trust signals (ratings, messaging, populated listings) still reads as hollow. Budget real time for Fake It items; don't treat them as an afterthought.
 
@@ -124,9 +124,9 @@ This prompt works because it gives AI explicit permission to be aggressive about
 
 ## Before You Continue
 
-- [ ] One core loop defined end to end, in the exact order a judge will see it demoed
-- [ ] Every feature sorted into Must Build (Real), Fake It, or Cut Entirely — no ambiguous items
-- [ ] Must Build (Real) list capped at 5-6 items
-- [ ] Confirmed every Must Build item is something a judge will directly interact with
+- One core loop defined end to end, in the exact order a judge will see it demoed
+- Every feature sorted into Must Build (Real), Fake It, or Cut Entirely — no ambiguous items
+- Must Build (Real) list capped at 5-6 items
+- Confirmed every Must Build item is something a judge will directly interact with
 
 **Next up — Phase 1, Product Design:** PRD — turning this scoped concept into a concrete spec your team can build from without re-litigating these decisions mid-build.

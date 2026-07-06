@@ -17,7 +17,7 @@ The goal isn't to build for scale now. It's to remove the panic from the moment 
 
 ## The Honest Starting Point
 
-> **🔑 Core rule:** for a personal project, premature scaling work is a worse use of your time than the scaling problems it claims to prevent. Almost no personal marketplace project fails because it couldn't handle traffic. Many fail because the developer spent their limited time on infrastructure instead of features users actually wanted.
+> ** Core rule:** for a personal project, premature scaling work is a worse use of your time than the scaling problems it claims to prevent. Almost no personal marketplace project fails because it couldn't handle traffic. Many fail because the developer spent their limited time on infrastructure instead of features users actually wanted.
 
 This module is deliberately about *planning*, not *building*. You're identifying your bottlenecks in advance so that when one shows up, you recognize it immediately and have a known next step — not scrambling to diagnose a brand-new problem under live pressure.
 
@@ -35,13 +35,13 @@ Marketplaces have a fairly predictable scaling order. Knowing this sequence tell
 | 4. Image/asset storage and delivery | Slow page loads, bandwidth costs | Already addressed via CDN in Performance Optimization, but cost scales with usage |
 | 5. Database write contention | Order/payment race conditions under concurrent load | Two buyers trying to purchase the same listing simultaneously |
 
-> **🔑 Why order matters:** you'll hit #1 and #2 long before #3, #4, or #5 become relevant at personal-project scale. Spend your attention proportionally — don't solve problem 5 while problem 1 is still unaddressed.
+> ** Why order matters:** you'll hit #1 and #2 long before #3, #4, or #5 become relevant at personal-project scale. Spend your attention proportionally — don't solve problem 5 while problem 1 is still unaddressed.
 
 ---
 
 ## Decision: When to Actually Act
 
-> **🧩 Decision Card — Scaling Triggers**
+> ** Decision Card — Scaling Triggers**
 >
 > Don't scale on a feeling. Scale on a measured signal. Define your own thresholds now, while you're calm, so you recognize them later:
 >
@@ -59,13 +59,13 @@ Marketplaces have a fairly predictable scaling order. Knowing this sequence tell
 Most scaling concerns can wait. One can't: **two buyers purchasing the same listing at the same moment.** This isn't a high-traffic problem — it can happen with just two users, on day one, and it's a correctness bug, not a performance one.
 
 ```js
-// ❌ Race condition: both requests can pass this check before either updates status
+//  Race condition: both requests can pass this check before either updates status
 const listing = await db.listing.findUnique({ where: { id: listingId } });
 if (listing.status !== "active") throw new Error("No longer available");
 await db.order.create({ data: { listingId, buyerId } });
 await db.listing.update({ where: { id: listingId }, data: { status: "sold" } });
 
-// ✅ Atomic conditional update prevents both from succeeding
+//  Atomic conditional update prevents both from succeeding
 const result = await db.listing.updateMany({
   where: { id: listingId, status: "active" }, // only matches if still active
   data: { status: "sold" },
@@ -78,7 +78,7 @@ if (result.count === 0) {
 await db.order.create({ data: { listingId, buyerId } });
 ```
 
-> **⚠️ Warning:** this is the one item on this page that isn't optional or deferrable by scale. Unlike caching or read replicas, this bug doesn't require traffic to manifest — it requires two people clicking "buy" within milliseconds of each other, which can happen on a project with ten total users. Fix this regardless of your current scale.
+> **️ Warning:** this is the one item on this page that isn't optional or deferrable by scale. Unlike caching or read replicas, this bug doesn't require traffic to manifest — it requires two people clicking "buy" within milliseconds of each other, which can happen on a project with ten total users. Fix this regardless of your current scale.
 
 ---
 
@@ -86,7 +86,7 @@ await db.order.create({ data: { listingId, buyerId } });
 
 This is the actual deliverable of this module: not code, but a short reference you can return to when a trigger above fires.
 
-> **✅ Validation Checklist — Your scaling playbook**
+> ** Validation Checklist — Your scaling playbook**
 > - [ ] Database slow → check for missing indexes and N+1 queries first (cheapest fix, usually the actual cause)
 > - [ ] Connection errors → check your connection pool size/limits before assuming you need a bigger database tier
 > - [ ] Server CPU maxed → before adding servers, confirm it's not one inefficient endpoint dragging everything down
@@ -99,7 +99,7 @@ The order here matters: it's the same principle from Performance Optimization �
 
 ## AI Prompt: Audit for Scale-Sensitive Bugs
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Review my marketplace code for correctness bugs that would surface under concurrent
@@ -128,7 +128,7 @@ The order here matters: it's the same principle from Performance Optimization �
 
 ## Validating AI Output
 
-> **🚩 Common Hallucination:** AI sometimes suggests fixing race conditions by simply "adding a check before the write" — which is exactly the pattern that's already broken (see the warning above). A real fix uses an atomic database operation (conditional update, unique constraint, or transaction with proper isolation), not an earlier check in application code. If the suggested fix is still two separate steps, it hasn't actually solved the problem.
+> ** Common Hallucination:** AI sometimes suggests fixing race conditions by simply "adding a check before the write" — which is exactly the pattern that's already broken (see the warning above). A real fix uses an atomic database operation (conditional update, unique constraint, or transaction with proper isolation), not an earlier check in application code. If the suggested fix is still two separate steps, it hasn't actually solved the problem.
 
 ---
 

@@ -116,9 +116,9 @@ just showing different text.
 
 ## Validating What AI Generates
 
-- [ ] **Confirm buttons are actually disabled during loading**, not just relabeled — this is the single most common gap, explicitly check it rather than assuming the generated code handles it
-- [ ] **Verify skeleton shapes roughly match the real content layout** — a skeleton that doesn't resemble the eventual content (wrong proportions, wrong count) creates a jarring transition rather than a smooth one
-- [ ] **Test loading states on a throttled connection**, not just locally where requests resolve instantly — most browser devtools have a network throttling option; a loading state that's never actually visible during normal local development is one you haven't really verified
+- **Confirm buttons are actually disabled during loading**, not just relabeled — this is the single most common gap, explicitly check it rather than assuming the generated code handles it
+- **Verify skeleton shapes roughly match the real content layout** — a skeleton that doesn't resemble the eventual content (wrong proportions, wrong count) creates a jarring transition rather than a smooth one
+- **Test loading states on a throttled connection**, not just locally where requests resolve instantly — most browser devtools have a network throttling option; a loading state that's never actually visible during normal local development is one you haven't really verified
 
 ---
 

@@ -27,7 +27,7 @@ If you chose single-account dual-role in Authentication, here's where that decis
 | Boolean flags (`is_seller`, `is_buyer`) | Independent true/false fields | Workable, simple |
 | Separate `SellerProfile` relation | A User optionally has an attached SellerProfile | Better — keeps seller-specific fields (payout info, listing stats) out of the core User table |
 
-> ✅ **Best practice for personal mode:** Use a `SellerProfile` relation, created the first time a user lists something. Every user starts as a buyer by default (just a User record); the moment they create their first listing, a linked SellerProfile is created. This keeps your core User table clean and means seller-specific data (payout details, seller-specific trust fields) doesn't bloat every account that never sells anything.
+>  **Best practice for personal mode:** Use a `SellerProfile` relation, created the first time a user lists something. Every user starts as a buyer by default (just a User record); the moment they create their first listing, a linked SellerProfile is created. This keeps your core User table clean and means seller-specific data (payout details, seller-specific trust fields) doesn't bloat every account that never sells anything.
 
 ---
 
@@ -41,7 +41,7 @@ If you chose single-account dual-role in Authentication, here's where that decis
 | Join date | Listing count, response time stats |
 | Verification status (email confirmed, etc.) | — |
 
-> 💡 **Tip:** Account status and verification belong on the core User record, not the seller profile, because they apply to behavior as a buyer too — a banned user shouldn't be able to buy, message, or browse just because the ban logic only lived on their seller profile.
+>  **Tip:** Account status and verification belong on the core User record, not the seller profile, because they apply to behavior as a buyer too — a banned user shouldn't be able to buy, message, or browse just because the ban logic only lived on their seller profile.
 
 ---
 
@@ -70,7 +70,7 @@ Account status values: active → suspended → banned
 - **Suspended**: temporary — can browse, cannot list, message, or transact; should include a reason and an end date or manual-review flag
 - **Banned**: permanent — cannot log in to take action, though historical data (past transactions, reviews) should be preserved, not deleted
 
-> ⚠️ **Common mistake:** Deleting a user's account on ban instead of changing their status. Deleting breaks every transaction, review, and message they were ever part of — other users' order history shouldn't disappear because someone got banned. Status change preserves data integrity; deletion destroys it.
+> ️ **Common mistake:** Deleting a user's account on ban instead of changing their status. Deleting breaks every transaction, review, and message they were ever part of — other users' order history shouldn't disappear because someone got banned. Status change preserves data integrity; deletion destroys it.
 
 ---
 
@@ -101,7 +101,7 @@ matches my reasoning.
 
 ## Common Mistake: Modeling for Roles You Decided Against
 
-> ⚠️ If you chose single-account dual-role in Authentication, don't also build separate buyer and seller authentication flows "just in case." That decision is made — building both models simultaneously doubles your schema complexity for a flexibility you explicitly decided you don't need. Revisit Authentication if you're second-guessing this, but don't hedge by building both.
+> ️ If you chose single-account dual-role in Authentication, don't also build separate buyer and seller authentication flows "just in case." That decision is made — building both models simultaneously doubles your schema complexity for a flexibility you explicitly decided you don't need. Revisit Authentication if you're second-guessing this, but don't hedge by building both.
 
 ---
 

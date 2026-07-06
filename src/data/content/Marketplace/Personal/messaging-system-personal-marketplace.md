@@ -26,7 +26,7 @@ Treat it as that constrained thing. Most of the complexity in "real" chat apps �
 | Notification on new message | Sellers need to know promptly — slow replies kill the Seller Journey's "worth my time" calculation |
 | Basic text only | Rich media, attachments, etc. are scope you don't need yet |
 
-> ✅ **Best practice for personal mode:** Don't build real-time WebSocket infrastructure for this. Polling (checking for new messages every few seconds while a thread is open) or even simple page-refresh-based delivery is sufficient at your scale, and dramatically simpler to build and debug solo. Real WebSocket infrastructure is exactly the kind of premature scaling Architecture Fundamentals warned about.
+>  **Best practice for personal mode:** Don't build real-time WebSocket infrastructure for this. Polling (checking for new messages every few seconds while a thread is open) or even simple page-refresh-based delivery is sufficient at your scale, and dramatically simpler to build and debug solo. Real WebSocket infrastructure is exactly the kind of premature scaling Architecture Fundamentals warned about.
 
 ---
 
@@ -39,7 +39,7 @@ A common beginner mistake is modeling messages as flat rows with no grouping con
 | Thread | Listing ID (optional but recommended), buyer ID, seller ID, created_at, last_message_at |
 | Message | Thread ID, sender ID, content, sent_at, read status |
 
-> 💡 **Tip:** Linking a Thread to a Listing isn't optional polish — it's what lets a seller with multiple active listings tell which conversation is about which item without reading every message. It also directly supports the authorization check from the previous module: "is the current user one of the two parties to this thread."
+>  **Tip:** Linking a Thread to a Listing isn't optional polish — it's what lets a seller with multiple active listings tell which conversation is about which item without reading every message. It also directly supports the authorization check from the previous module: "is the current user one of the two parties to this thread."
 
 ---
 
@@ -51,7 +51,7 @@ This is the ownership/party-to-transaction pattern from Authorization, applied d
 - A user can only send a Message into a Thread they're a party to
 - Account status gates this too — a suspended or banned user cannot send new messages, per the table in Authorization
 
-> ⚠️ Don't build messaging-specific authorization logic separately from the rest of your app. Reuse the exact same check. Divergent authorization logic across features is how gaps get introduced — one feature gets the security review attention, another quietly doesn't.
+> ️ Don't build messaging-specific authorization logic separately from the rest of your app. Reuse the exact same check. Divergent authorization logic across features is how gaps get introduced — one feature gets the security review attention, another quietly doesn't.
 
 ---
 
@@ -63,7 +63,7 @@ This is the ownership/party-to-transaction pattern from Authorization, applied d
 | Push notifications | Overkill unless you have a mobile app, which is out of scope here |
 | In-app notification badge only (no external alert) | Risky — sellers won't open the app proactively just to check, especially early when usage habits aren't formed yet |
 
-> 💡 Email notification on new message is cheap to build, doesn't require new infrastructure, and directly supports the response-time expectation buyers form during their Decision stage in the Buyer Journey. A seller who doesn't see a message for three days because there was no notification is a churned seller, by the logic from your Seller Journey module.
+>  Email notification on new message is cheap to build, doesn't require new infrastructure, and directly supports the response-time expectation buyers form during their Decision stage in the Buyer Journey. A seller who doesn't see a message for three days because there was no notification is a churned seller, by the logic from your Seller Journey module.
 
 ---
 
@@ -104,7 +104,7 @@ real-time later, so I know what I'm trading off.
 
 ## Common Mistake: Building Messaging Before Listings Are Stable
 
-> ⚠️ Since Threads link to Listings, building messaging against a Listing schema that's still changing means redoing the relationship later. Confirm Listing System is genuinely finalized before starting this module — if you're still adjusting listing fields, that instability will ripple into your Thread schema too.
+> ️ Since Threads link to Listings, building messaging against a Listing schema that's still changing means redoing the relationship later. Confirm Listing System is genuinely finalized before starting this module — if you're still adjusting listing fields, that instability will ripple into your Thread schema too.
 
 ---
 

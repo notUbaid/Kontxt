@@ -97,9 +97,9 @@ deferred.
 
 ## Validating What AI Generates
 
-- [ ] **Don't accept "take rate" as the default answer without it being justified for your specific transaction frequency and value** — AI tends to recommend take rate generically since it's the most common model, not necessarily because it fits your case
-- [ ] **Treat any payment implementation complexity estimate as a floor, not a ceiling** — payment edge cases (failed charges, disputes, partial refunds) are reliably underestimated; if AI says it's simple, get a second, more skeptical pass
-- [ ] **Confirm any compliance/tax claim is generic guidance, not legal advice** — real compliance requirements vary by location and transaction type; don't treat an AI summary as sufficient research if you do move real money
+- **Don't accept "take rate" as the default answer without it being justified for your specific transaction frequency and value** — AI tends to recommend take rate generically since it's the most common model, not necessarily because it fits your case
+- **Treat any payment implementation complexity estimate as a floor, not a ceiling** — payment edge cases (failed charges, disputes, partial refunds) are reliably underestimated; if AI says it's simple, get a second, more skeptical pass
+- **Confirm any compliance/tax claim is generic guidance, not legal advice** — real compliance requirements vary by location and transaction type; don't treat an AI summary as sufficient research if you do move real money
 
 ---
 

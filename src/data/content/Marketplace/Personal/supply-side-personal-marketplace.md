@@ -119,9 +119,9 @@ without a marketing budget, as a solo builder.
 
 ## Validating What AI Generates
 
-- [ ] **Reject generic recruitment suggestions** like "post on social media" or "run ads" — for a solo project with no budget, you need specific, named communities or channels, not generic marketing advice
-- [ ] **Confirm any suggested community actually fits your niche** — verify by visiting it yourself before counting on it; AI can suggest a plausible-sounding forum that's actually inactive or off-topic
-- [ ] **Make sure the professional vs. casual seller classification matches reality you can verify**, not an assumption — if unsure, this is worth asking a few real potential sellers directly
+- **Reject generic recruitment suggestions** like "post on social media" or "run ads" — for a solo project with no budget, you need specific, named communities or channels, not generic marketing advice
+- **Confirm any suggested community actually fits your niche** — verify by visiting it yourself before counting on it; AI can suggest a plausible-sounding forum that's actually inactive or off-topic
+- **Make sure the professional vs. casual seller classification matches reality you can verify**, not an assumption — if unsure, this is worth asking a few real potential sellers directly
 
 ---
 

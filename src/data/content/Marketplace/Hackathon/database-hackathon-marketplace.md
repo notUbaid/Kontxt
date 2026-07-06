@@ -247,11 +247,11 @@ in 48 hours — flag only things that will visibly break a demo.
 
 AI-generated schemas look correct and frequently aren't. Check these before running a migration:
 
-- [ ] **Money fields are `Int`, never `Float` or `Decimal` without a reason** — floats are the single most common AI schema mistake
-- [ ] **Every status field is an enum**, not a free-text string
-- [ ] **Foreign keys point the right direction** — `sellerId` on `Listing`, not a `listingId` array on `User`
-- [ ] **No table you can't explain in one sentence** — AI tends to add `Review`, `Wishlist`, `Notification` tables unprompted. Delete anything you didn't ask for and won't demo.
-- [ ] **Relations have explicit names** when a model relates to the same other model twice (like `buyer`/`seller` both pointing to `User`) — Prisma errors without this, and AI sometimes forgets it
+- **Money fields are `Int`, never `Float` or `Decimal` without a reason** — floats are the single most common AI schema mistake
+- **Every status field is an enum**, not a free-text string
+- **Foreign keys point the right direction** — `sellerId` on `Listing`, not a `listingId` array on `User`
+- **No table you can't explain in one sentence** — AI tends to add `Review`, `Wishlist`, `Notification` tables unprompted. Delete anything you didn't ask for and won't demo.
+- **Relations have explicit names** when a model relates to the same other model twice (like `buyer`/`seller` both pointing to `User`) — Prisma errors without this, and AI sometimes forgets it
 
 > **Common hallucination:** AI models frequently generate a `@@unique([buyerId, listingId])` constraint "to prevent duplicate purchases," which breaks any marketplace where the same buyer can legitimately buy the same listing type twice (e.g. multiple units, repeat services). Only add uniqueness constraints you can justify from your actual product.
 

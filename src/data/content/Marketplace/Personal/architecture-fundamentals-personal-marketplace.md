@@ -29,13 +29,13 @@ Almost everything you build maps back to one of these. Knowing this map now mean
 | **Review** | Trust signal tied to a transaction | Transaction |
 | **Message** | Communication between two users | User (sender + recipient), often Listing |
 
-> 💡 **Tip:** Notice the dependency order: User → Listing → Transaction → Review. This is also roughly the order you should build your database schema in. Building Reviews before Transactions exist, for example, leaves you with no real data to attach reviews to — exactly the trap flagged in the Reviews & Ratings module.
+>  **Tip:** Notice the dependency order: User → Listing → Transaction → Review. This is also roughly the order you should build your database schema in. Building Reviews before Transactions exist, for example, leaves you with no real data to attach reviews to — exactly the trap flagged in the Reviews & Ratings module.
 
 ---
 
 ## The One Architectural Truth Specific to Marketplaces
 
-> ⚠️ **Every other app type has one "side." A marketplace has two.** In a normal app, a user does things to their own data. In a marketplace, every transaction involves two different users' data interacting — a buyer's payment touching a seller's payout, a buyer's message reaching a seller's inbox, a buyer's review affecting a seller's reputation. This is why authorization (next-but-one module) is harder here than in a typical CRUD app: almost every permission check has to ask "is this user *one of the two parties* to this specific record," not just "does this user own this record."
+> ️ **Every other app type has one "side." A marketplace has two.** In a normal app, a user does things to their own data. In a marketplace, every transaction involves two different users' data interacting — a buyer's payment touching a seller's payout, a buyer's message reaching a seller's inbox, a buyer's review affecting a seller's reputation. This is why authorization (next-but-one module) is harder here than in a typical CRUD app: almost every permission check has to ask "is this user *one of the two parties* to this specific record," not just "does this user own this record."
 
 ---
 
@@ -49,7 +49,7 @@ A listing isn't just "exists" or "doesn't exist." It moves through states, and a
 | Transaction | Initiated → Payment held → Completed → Refunded/Disputed |
 | User account | Active → Suspended → Banned |
 
-> ✅ **Best practice:** Model these as an explicit status field with a defined, limited set of allowed values — not a collection of boolean flags (`is_sold`, `is_removed`, `is_pending` as separate columns). Boolean flags can contradict each other (`is_sold = true` and `is_removed = false` at the same time, which shouldn't be possible). A single status field makes invalid states structurally impossible.
+>  **Best practice:** Model these as an explicit status field with a defined, limited set of allowed values — not a collection of boolean flags (`is_sold`, `is_removed`, `is_pending` as separate columns). Boolean flags can contradict each other (`is_sold = true` and `is_removed = false` at the same time, which shouldn't be possible). A single status field makes invalid states structurally impossible.
 
 This single decision — status field vs. scattered booleans — is one of the most common sources of "how did this listing end up in a weird state" bugs in marketplace projects. Decide it now, consistently, across all three entities above.
 
@@ -67,7 +67,7 @@ This is the payoff of the planning work you already did. Each Phase 1 decision m
 | Trust & Safety reporting flow | A report/flag relationship between Users and Listings |
 | Trust & Safety enforcement ladder | Account status field on User, with suspended/banned states |
 
-> ⚠️ **Common mistake:** Treating Phase 1 as "done" once the documents are written, then designing Phase 2 architecture from scratch as if those decisions don't constrain it. Every module from here forward should be checked against your Phase 1 decisions, not designed independently of them.
+> ️ **Common mistake:** Treating Phase 1 as "done" once the documents are written, then designing Phase 2 architecture from scratch as if those decisions don't constrain it. Every module from here forward should be checked against your Phase 1 decisions, not designed independently of them.
 
 ---
 
@@ -81,7 +81,7 @@ For a solo builder, a single, well-organized codebase (a "modular monolith") bea
 | No team coordination overhead | No service-to-service complexity |
 | Fast iteration needs | Fast local development, not distributed systems |
 
-> 💡 Organize your monolith by *domain* (users/, listings/, transactions/, reviews/), not by technical layer alone. This gives you the organizational clarity of microservices without any of the operational cost — and makes a future split easier if you ever actually need one.
+>  Organize your monolith by *domain* (users/, listings/, transactions/, reviews/), not by technical layer alone. This gives you the organizational clarity of microservices without any of the operational cost — and makes a future split easier if you ever actually need one.
 
 ---
 

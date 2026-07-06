@@ -19,7 +19,7 @@ The core challenge: messaging in a marketplace isn't a generic chat feature. It'
 
 Two common mistakes happen here: storing messages without a thread concept (impossible to group conversations), or building a fully generic chat system (overkill for a marketplace).
 
-> **🔑 Core rule:** A thread is always tied to exactly one listing and exactly two participants (buyer + seller). This constraint simplifies almost everything downstream.
+> ** Core rule:** A thread is always tied to exactly one listing and exactly two participants (buyer + seller). This constraint simplifies almost everything downstream.
 
 ```prisma
 model Thread {
@@ -55,7 +55,7 @@ The `@@unique([listingId, buyerId, sellerId])` constraint does real work: it pre
 
 ## Decision: Real-Time or Polling?
 
-> **🧩 Decision Card — Message Delivery**
+> ** Decision Card — Message Delivery**
 >
 > **Option A: Polling** (`GET /threads/:id/messages` every few seconds)
 > Trivial to build, works everywhere, slightly delayed delivery.
@@ -88,7 +88,7 @@ async function requireThreadParticipant(req, res, next) {
 }
 ```
 
-> **🚩 Common Hallucination:** AI frequently writes message-fetching logic that checks `if (req.user)` (any logged-in user) instead of checking thread participation. This is the messaging equivalent of the authorization mistake covered earlier — and it's just as common when AI generates this feature in isolation, without being shown your existing participant-check pattern.
+> ** Common Hallucination:** AI frequently writes message-fetching logic that checks `if (req.user)` (any logged-in user) instead of checking thread participation. This is the messaging equivalent of the authorization mistake covered earlier — and it's just as common when AI generates this feature in isolation, without being shown your existing participant-check pattern.
 
 ---
 
@@ -96,7 +96,7 @@ async function requireThreadParticipant(req, res, next) {
 
 The entry point matters more than it seems. "Message Seller" should never let a buyer message themselves, and should reuse an existing thread instead of creating duplicates.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Does starting a thread check `listing.sellerId !== req.user.id`? (sellers shouldn't message their own listings)
 > - [ ] Does it check for an existing thread first, using the unique constraint, before creating a new one?
 > - [ ] Is the listing status checked — can buyers start new threads on `sold` or `removed` listings? (Usually: no for new threads, yes to view existing ones)
@@ -134,7 +134,7 @@ router.post("/listings/:listingId/message", requireAuth, async (req, res) => {
 
 ## AI Prompt: Generate the Messaging Layer
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Build a marketplace messaging system for a personal project.

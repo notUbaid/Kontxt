@@ -17,7 +17,7 @@ For a marketplace specifically, this last point matters more than almost any oth
 
 ## Why Marketplaces Need Different Terms Than a Typical App
 
-> **🔑 Core distinction:** most apps have one relationship to manage — you and the user. A marketplace has three: you and the buyer, you and the seller, and the buyer-seller relationship that you're *facilitating but not party to*. Your Terms of Service exists largely to make that third relationship's boundaries explicit.
+> ** Core distinction:** most apps have one relationship to manage — you and the user. A marketplace has three: you and the buyer, you and the seller, and the buyer-seller relationship that you're *facilitating but not party to*. Your Terms of Service exists largely to make that third relationship's boundaries explicit.
 
 This is the structural reason marketplace platforms (eBay, Etsy, Airbnb) all have extensive language about being an "intermediary" rather than a party to the actual transaction — it's not boilerplate, it's the core of how marketplace liability works.
 
@@ -25,7 +25,7 @@ This is the structural reason marketplace platforms (eBay, Etsy, Airbnb) all hav
 
 ## What This Document Actually Needs to Cover
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] **Platform role** — you facilitate listings, payments, and messaging; you are not the seller, and you don't guarantee the quality or legitimacy of listings (connects directly to the moderation limits you'll set below)
 > - [ ] **Acceptable use** — what's prohibited: fraudulent listings, harassment, scraping, ban evasion (mirrors what you built in Fraud Prevention and Abuse Detection — the terms are the user-facing statement of rules your code already enforces)
 > - [ ] **Account suspension/termination rights** — your right to suspend accounts for violations, and on what basis
@@ -40,7 +40,7 @@ This is the structural reason marketplace platforms (eBay, Etsy, Airbnb) all hav
 
 This single distinction shapes almost every other clause, so it's worth understanding directly rather than just copying language.
 
-> **⚠️ Warning:** If your Terms of Service is vague about whether you're a party to transactions, you risk being treated — legally and practically — as responsible for things you have no actual control over, like whether a seller ships a real product. Be explicit: you provide the platform, payment processing, and dispute tools; the actual sale is between buyer and seller.
+> **️ Warning:** If your Terms of Service is vague about whether you're a party to transactions, you risk being treated — legally and practically — as responsible for things you have no actual control over, like whether a seller ships a real product. Be explicit: you provide the platform, payment processing, and dispute tools; the actual sale is between buyer and seller.
 
 ```
 Example structure (not copy-paste legal text — illustrative of the shape):
@@ -55,7 +55,7 @@ communication tools, and enforcing these Terms."
 
 ## Decision: How Much Liability Protection to Build In
 
-> **🧩 Decision Card — Liability Posture**
+> ** Decision Card — Liability Posture**
 >
 > **Option A: Minimal terms, mostly acceptable-use rules**
 > Faster to draft, leaves more legal exposure if a transaction dispute escalates.
@@ -79,7 +79,7 @@ Your Terms of Service should be a true reflection of mechanisms you've already i
 | "We do not guarantee delivery or item quality" | The buyer-seller intermediary distinction above |
 | "Fees are [X]% per transaction" | Whatever you actually decided in Payments |
 
-> **🚩 Common Hallucination:** AI will sometimes draft terms describing a formal dispute resolution process, an appeals system, or moderation guarantees more elaborate than what you've actually built. Read your draft against the table above — if a clause promises a process your code doesn't implement, either build the mechanism or soften the language to match reality.
+> ** Common Hallucination:** AI will sometimes draft terms describing a formal dispute resolution process, an appeals system, or moderation guarantees more elaborate than what you've actually built. Read your draft against the table above — if a clause promises a process your code doesn't implement, either build the mechanism or soften the language to match reality.
 
 ---
 
@@ -87,7 +87,7 @@ Your Terms of Service should be a true reflection of mechanisms you've already i
 
 Generic "don't do illegal things" language is necessary but insufficient. Be specific to the abuse patterns you already designed defenses for — this also gives you clear contractual grounds to act when your detection systems flag something.
 
-> **✅ Validation Checklist — Specific prohibitions worth naming explicitly**
+> ** Validation Checklist — Specific prohibitions worth naming explicitly**
 > - [ ] Creating fraudulent or misleading listings
 > - [ ] Attempting to complete transactions outside the platform to avoid fees or buyer protections
 > - [ ] Harassment or abusive communication through the messaging system
@@ -99,7 +99,7 @@ Generic "don't do illegal things" language is necessary but insufficient. Be spe
 
 ## AI Prompt: Draft Terms Matching Your Actual Platform
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Draft Terms of Service for my personal marketplace project, reflecting what the

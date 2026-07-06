@@ -102,7 +102,7 @@ Run through this in your first hour, in order, before any feature work begins:
 
 Use AI to scaffold the initial project setup fast, using your team's actual familiar tools rather than what's trendy.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 I'm setting up the architecture for a hackathon marketplace project.
@@ -125,19 +125,19 @@ This prompt works because it explicitly constrains AI to your team's existing kn
 
 ## Validating the Output
 
-- [ ] Is the architecture a single monolithic codebase, with no unnecessary service separation?
-- [ ] Does the data layer match your team's actual familiarity, not an unfamiliar "better" option?
-- [ ] Is there a plan to deploy within the first few hours, not just at the end?
-- [ ] Does the database schema map directly to your core loop's actual data needs — no speculative extra tables?
+- Is the architecture a single monolithic codebase, with no unnecessary service separation?
+- Does the data layer match your team's actual familiarity, not an unfamiliar "better" option?
+- Is there a plan to deploy within the first few hours, not just at the end?
+- Does the database schema map directly to your core loop's actual data needs — no speculative extra tables?
 
 ---
 
 ## Before You Continue
 
-- [ ] Monolith architecture confirmed
-- [ ] Data layer chosen and matched to team familiarity
-- [ ] Initial deployment planned for within the first 2-3 hours, not the final hours
-- [ ] Schema sketched for users/roles, listings, and transactions
-- [ ] Team has explicit agreement on state ownership to avoid mid-build conflicts
+- Monolith architecture confirmed
+- Data layer chosen and matched to team familiarity
+- Initial deployment planned for within the first 2-3 hours, not the final hours
+- Schema sketched for users/roles, listings, and transactions
+- Team has explicit agreement on state ownership to avoid mid-build conflicts
 
 **Next up:** Demo Transactions — deciding exactly how much of your transaction logic is real vs. simulated.

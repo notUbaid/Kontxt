@@ -36,7 +36,7 @@ Draft → Pending Approval → Active → Sold/Completed
 | Rejected | You declined it during review | Seller + You, with a reason |
 | Removed | Taken down after being active (policy violation, seller choice) | Seller + You, with a reason |
 
-> ⚠️ **Common mistake:** Allowing a listing to skip straight from Draft to Active, bypassing Pending Approval. If you decided on pre-approval in Marketplace Policies, this transition needs to be enforced in code — not just assumed because the UI doesn't expose a shortcut. Authorization, from the previous module, is exactly where this gets enforced: only your admin action can move a listing from Pending Approval to Active.
+> ️ **Common mistake:** Allowing a listing to skip straight from Draft to Active, bypassing Pending Approval. If you decided on pre-approval in Marketplace Policies, this transition needs to be enforced in code — not just assumed because the UI doesn't expose a shortcut. Authorization, from the previous module, is exactly where this gets enforced: only your admin action can move a listing from Pending Approval to Active.
 
 ---
 
@@ -56,13 +56,13 @@ This maps directly to the friction table from Seller Journey — required fields
 | Condition/availability specifics | No, start optional | Add only once buyers keep asking — per Seller Journey guidance |
 | Created/updated timestamps | Yes | Needed for sorting, and for the "join date"-style trust signals |
 
-> 💡 **Tip:** Resist adding fields because they "seem useful." Every required field is friction your Seller Journey module told you to minimize. Add optional fields reactively, based on actual buyer messages asking sellers questions — that data doesn't exist yet until you have real listings, so don't pre-guess it.
+>  **Tip:** Resist adding fields because they "seem useful." Every required field is friction your Seller Journey module told you to minimize. Add optional fields reactively, based on actual buyer messages asking sellers questions — that data doesn't exist yet until you have real listings, so don't pre-guess it.
 
 ---
 
 ## Categories: Manual List, Not User-Generated
 
-> ✅ **Best practice:** Define a fixed, short list of categories yourself rather than letting sellers type free-text categories. Free-text categories fragment immediately ("Electronics" vs "electronics" vs "Tech") and break search/filtering before you've even launched. A manually curated list of 5-15 categories, specific to your niche, is both easier to build and easier for buyers to browse.
+>  **Best practice:** Define a fixed, short list of categories yourself rather than letting sellers type free-text categories. Free-text categories fragment immediately ("Electronics" vs "electronics" vs "Tech") and break search/filtering before you've even launched. A manually curated list of 5-15 categories, specific to your niche, is both easier to build and easier for buyers to browse.
 
 ---
 
@@ -119,7 +119,7 @@ which fields I should treat as deferred/optional rather than required.
 
 ## Common Mistake: Building Search Before the Listing Schema Is Stable
 
-> ⚠️ It's tempting to jump straight into search/filtering once a basic listing form exists. Don't — your category list, required fields, and status values are exactly what search will filter and index against. Changing the Listing schema after search is built means rebuilding search too. Finalize this module fully before starting Search Architecture.
+> ️ It's tempting to jump straight into search/filtering once a basic listing form exists. Don't — your category list, required fields, and status values are exactly what search will filter and index against. Changing the Listing schema after search is built means rebuilding search too. Finalize this module fully before starting Search Architecture.
 
 ---
 

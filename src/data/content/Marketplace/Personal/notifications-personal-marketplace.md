@@ -28,7 +28,7 @@ Each of these was already specified in an earlier module. This is the checklist 
 | Dispute flagged | You (founder) + the other party | Dispute Resolution |
 | Dispute resolved | Both parties | Dispute Resolution |
 
-> ⚠️ **Common mistake:** Implementing notifications feature-by-feature as you build each one, resulting in inconsistent formatting, inconsistent tone, and — easiest to miss — some events that quietly never got a notification trigger wired up at all. Use this table as your audit checklist against actual code, not memory.
+> ️ **Common mistake:** Implementing notifications feature-by-feature as you build each one, resulting in inconsistent formatting, inconsistent tone, and — easiest to miss — some events that quietly never got a notification trigger wired up at all. Use this table as your audit checklist against actual code, not memory.
 
 ---
 
@@ -47,7 +47,7 @@ Messaging System already established this principle for message notifications; i
 
 ## One Notification Service, Not Scattered Send Calls
 
-> ✅ **Best practice:** Build a single, central notification function (or small service) that every domain calls — `notify(event_type, recipient, context)` — rather than each domain (messaging, payments, disputes) independently calling your email provider's SDK. This mirrors the domain-organized backend principle from the Backend module, but for cross-cutting concerns: one place to manage templates, one place to add a delivery channel later, one place to debug a missing email.
+>  **Best practice:** Build a single, central notification function (or small service) that every domain calls — `notify(event_type, recipient, context)` — rather than each domain (messaging, payments, disputes) independently calling your email provider's SDK. This mirrors the domain-organized backend principle from the Backend module, but for cross-cutting concerns: one place to manage templates, one place to add a delivery channel later, one place to debug a missing email.
 
 ---
 
@@ -62,13 +62,13 @@ Every notification should tell the recipient exactly what happened and, where re
 | Dispute flagged | What was flagged, a link to the relevant thread, the 48-hour expectation from Marketplace Policies |
 | Funds released | The net amount, matching what was shown in the pre-listing fee preview from Payments |
 
-> 💡 **Tip:** A generic "Something happened on YourMarketplace" email forces the recipient to log in just to find out what — adding exactly the friction your Seller Journey module spent effort removing elsewhere. Specificity in the notification itself is what makes email a sufficient channel without needing push notifications.
+>  **Tip:** A generic "Something happened on YourMarketplace" email forces the recipient to log in just to find out what — adding exactly the friction your Seller Journey module spent effort removing elsewhere. Specificity in the notification itself is what makes email a sufficient channel without needing push notifications.
 
 ---
 
 ## Don't Over-Notify
 
-> ⚠️ Every notification sent that the recipient doesn't actually need trains them to ignore your emails — including the ones that matter, like a dispute flag. Only send notifications for the events in the table above; resist adding "nice to know" notifications (e.g. "someone viewed your listing") that add noise without adding the kind of trust or urgency your Phase 1 planning was built around.
+> ️ Every notification sent that the recipient doesn't actually need trains them to ignore your emails — including the ones that matter, like a dispute flag. Only send notifications for the events in the table above; resist adding "nice to know" notifications (e.g. "someone viewed your listing") that add noise without adding the kind of trust or urgency your Phase 1 planning was built around.
 
 ---
 
@@ -99,7 +99,7 @@ notification yet.
 
 ## Common Mistake: Treating This as Low-Priority Polish
 
-> ⚠️ Notifications often get pushed to "later" because the core feature (messaging, payments) technically works without them — you can always go check manually. But manual-checking-as-the-default is exactly what your Seller Journey module identified as a churn risk for early sellers. This module isn't polish; it's the difference between a system that works and a system people actually use.
+> ️ Notifications often get pushed to "later" because the core feature (messaging, payments) technically works without them — you can always go check manually. But manual-checking-as-the-default is exactly what your Seller Journey module identified as a churn risk for early sellers. This module isn't polish; it's the difference between a system that works and a system people actually use.
 
 ---
 

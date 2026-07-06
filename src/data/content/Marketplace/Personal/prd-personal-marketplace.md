@@ -128,9 +128,9 @@ inconsistent, don't rewrite my decisions.
 
 ## Validating What AI Generates
 
-- [ ] **Confirm no new features were added during consolidation** — explicitly check the MVP feature list against your original MVP Scope module; AI sometimes "helpfully" adds features while organizing
-- [ ] **Verify the problem statement still matches your actual competitor research**, not a more dramatic or generic version AI may default toward
-- [ ] **Read the full consolidated document yourself, start to finish** — a PRD you haven't personally read in full isn't one you can rely on as a reference later
+- **Confirm no new features were added during consolidation** — explicitly check the MVP feature list against your original MVP Scope module; AI sometimes "helpfully" adds features while organizing
+- **Verify the problem statement still matches your actual competitor research**, not a more dramatic or generic version AI may default toward
+- **Read the full consolidated document yourself, start to finish** — a PRD you haven't personally read in full isn't one you can rely on as a reference later
 
 ---
 

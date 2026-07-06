@@ -45,10 +45,10 @@ If you're not using a payment provider at all (a valid, common choice for many m
 
 ### What Makes It Feel Real
 
-- [ ] The transaction actually writes to your database — not just a client-side animation
-- [ ] The listing's status genuinely changes (e.g. `available` → `sold` or `reserved`) and that change is visible to other users browsing
-- [ ] Refreshing the page after a "purchase" still shows the correct state — this is the single test that separates real persistence from UI theater
-- [ ] The seller's view reflects the change too — this is your buyer/seller connection point from Seller Journey, proven live
+- The transaction actually writes to your database — not just a client-side animation
+- The listing's status genuinely changes (e.g. `available` → `sold` or `reserved`) and that change is visible to other users browsing
+- Refreshing the page after a "purchase" still shows the correct state — this is the single test that separates real persistence from UI theater
+- The seller's view reflects the change too — this is your buyer/seller connection point from Seller Journey, proven live
 
 > **Best Practice:** Test this exact scenario before your demo: complete a transaction, then open the listing in a second browser tab or incognito window. If the status hasn't changed there too, your transaction isn't actually persisting — it's UI theater, and a judge who happens to refresh or check will see through it immediately.
 
@@ -89,7 +89,7 @@ Regardless of which level of the spectrum you choose, these are consistently the
 
 Use AI to implement whichever level you've chosen cleanly, with explicit attention to the persistence test above.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 I'm implementing the transaction step for a hackathon marketplace.
@@ -111,11 +111,11 @@ After implementing, tell me exactly how to test that this isn't just UI theater 
 
 ## Validating the Output
 
-- [ ] Does the transaction write to the database, not just update client-side state?
-- [ ] Does a second browser session (or incognito window) show the updated listing status after a "purchase"?
-- [ ] Does the seller's view reflect the transaction, proving the buyer/seller connection works?
-- [ ] If using a payment provider, are you certain you're using test/sandbox keys, not live keys?
-- [ ] Have you avoided building payout, refund, or subscription logic that serves no demo purpose?
+- Does the transaction write to the database, not just update client-side state?
+- Does a second browser session (or incognito window) show the updated listing status after a "purchase"?
+- Does the seller's view reflect the transaction, proving the buyer/seller connection works?
+- If using a payment provider, are you certain you're using test/sandbox keys, not live keys?
+- Have you avoided building payout, refund, or subscription logic that serves no demo purpose?
 
 > **Tip:** Run the refresh-and-second-session test described above at least once, deliberately, before considering this feature done. It's the fastest way to catch the difference between a real transaction and convincing-looking theater.
 
@@ -123,10 +123,10 @@ After implementing, tell me exactly how to test that this isn't just UI theater 
 
 ## Before You Continue
 
-- [ ] Transaction level explicitly chosen (test-mode payment or simulated) — not left ambiguous or accidentally built as UI theater
-- [ ] Transaction persists to the database and survives a page refresh
-- [ ] Buyer and seller views both reflect the transaction outcome
-- [ ] No payout, refund, or subscription logic built
-- [ ] If using a payment provider, test/sandbox keys confirmed, not live keys
+- Transaction level explicitly chosen (test-mode payment or simulated) — not left ambiguous or accidentally built as UI theater
+- Transaction persists to the database and survives a page refresh
+- Buyer and seller views both reflect the transaction outcome
+- No payout, refund, or subscription logic built
+- If using a payment provider, test/sandbox keys confirmed, not live keys
 
 **Next up:** Demo Marketplace Data — populating the marketplace so it feels alive before a single real user touches it.

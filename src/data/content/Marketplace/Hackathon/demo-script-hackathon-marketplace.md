@@ -118,10 +118,10 @@ in the live demo.
 
 ## Validating What AI Generates
 
-- [ ] **Every "say" line is something you'd actually say out loud** — AI-drafted scripts can sound like marketing copy; rewrite anything that doesn't match how your team naturally talks
-- [ ] **Timing adds up to under your actual limit**, not just close to it — leave margin, nerves slow people down
-- [ ] **The script assumes pre-staged state** (logged-in tabs, bookmarked pages) rather than scripting around live navigation delays
-- [ ] **No step depends on something fragile** (typing a long unique search term from memory, precise mouse positioning) that's likely to go wrong under pressure
+- **Every "say" line is something you'd actually say out loud** — AI-drafted scripts can sound like marketing copy; rewrite anything that doesn't match how your team naturally talks
+- **Timing adds up to under your actual limit**, not just close to it — leave margin, nerves slow people down
+- **The script assumes pre-staged state** (logged-in tabs, bookmarked pages) rather than scripting around live navigation delays
+- **No step depends on something fragile** (typing a long unique search term from memory, precise mouse positioning) that's likely to go wrong under pressure
 
 ---
 

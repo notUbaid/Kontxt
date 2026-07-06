@@ -13,7 +13,7 @@ Authentication answers "who is this?" Authorization answers "what are they allow
 
 In a marketplace, this isn't optional. Buyers, sellers, and admins all share the same database tables. Without solid authorization, a logged-in buyer can edit someone else's listing just by changing an ID in the URL. This is called **IDOR** (Insecure Direct Object Reference), and it's the most common vulnerability in marketplace apps built fast.
 
-> **🔑 Core rule:** Authentication happens once, at login. Authorization happens on *every single request* that touches a resource.
+> ** Core rule:** Authentication happens once, at login. Authorization happens on *every single request* that touches a resource.
 
 ---
 
@@ -23,12 +23,12 @@ Map this out before writing any middleware. Every marketplace has roughly the sa
 
 | Resource | Guest | Buyer | Seller (non-owner) | Owner | Admin |
 |---|---|---|---|---|---|
-| View active listing | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Edit/delete listing | ❌ | ❌ | ❌ | ✅ | ✅ |
-| Send message in thread | ❌ | Participant only | ❌ | Participant only | ✅ |
-| Leave review | ❌ | After completed order only | ❌ | ❌ | ✅ |
-| View dispute | ❌ | Party only | ❌ | Party only | ✅ |
-| Suspend a user | ❌ | ❌ | ❌ | ❌ | ✅ |
+| View active listing |  |  |  |  |  |
+| Edit/delete listing |  |  |  |  |  |
+| Send message in thread |  | Participant only |  | Participant only |  |
+| Leave review |  | After completed order only |  |  |  |
+| View dispute |  | Party only |  | Party only |  |
+| Suspend a user |  |  |  |  |  |
 
 Notice the pattern: most rules aren't really about *role*. They're about **ownership** or **participation**. "Seller" alone doesn't grant edit access — being *the* seller on *that specific listing* does. This distinction is the most important decision on this topic.
 
@@ -36,7 +36,7 @@ Notice the pattern: most rules aren't really about *role*. They're about **owner
 
 ## Decision: How to Model This in Personal Mode
 
-> **🧩 Decision Card — Authorization Strategy**
+> ** Decision Card — Authorization Strategy**
 >
 > **Option A: Role-only checks** (`if user.role === 'seller'`)
 > Fast to write, wrong for marketplaces. A seller could edit *any* listing, not just their own.
@@ -81,7 +81,7 @@ async function requireListingOwner(req, res, next) {
 router.put("/listings/:id", requireAuth, requireListingOwner, updateListing);
 ```
 
-> **⚠️ Warning:** Never trust an `ownerId` or `sellerId` sent from the client in the request body. Always fetch the resource from the database and compare server-side. Client data is a suggestion, not a fact.
+> **️ Warning:** Never trust an `ownerId` or `sellerId` sent from the client in the request body. Always fetch the resource from the database and compare server-side. Client data is a suggestion, not a fact.
 
 ---
 
@@ -128,7 +128,7 @@ async function requireCompletedOrder(req, res, next) {
 
 ## AI Prompt: Generate Your Authorization Middleware
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > I'm building authorization middleware for a personal marketplace project.
@@ -155,7 +155,7 @@ async function requireCompletedOrder(req, res, next) {
 
 AI-generated auth middleware looks correct far more often than it *is* correct. Check for these specific failure patterns before merging:
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Does every check fetch the resource from the **database**, not trust client-sent IDs?
 > - [ ] Does the admin override actually work, or did AI forget to add it?
 > - [ ] Are 401 (not logged in) and 403 (logged in, not allowed) used correctly — not just always 403?
@@ -163,7 +163,7 @@ AI-generated auth middleware looks correct far more often than it *is* correct. 
 > - [ ] Does the thread/message check verify *participation*, not just authentication?
 > - [ ] Did AI accidentally check `role === 'seller'` instead of `listing.sellerId === user.id`? (The single most common AI mistake on this exact topic.)
 
-> **🚩 Common Hallucination:** AI frequently writes `if (user.role === 'seller')` when you asked for ownership-based authorization. This compiles, looks reasonable, and is completely wrong for a multi-seller marketplace. Always read the diff line by line on auth code — this is not a place to skim.
+> ** Common Hallucination:** AI frequently writes `if (user.role === 'seller')` when you asked for ownership-based authorization. This compiles, looks reasonable, and is completely wrong for a multi-seller marketplace. Always read the diff line by line on auth code — this is not a place to skim.
 
 ---
 

@@ -17,7 +17,7 @@ You already made the core authorization decision for this back in Authorization 
 
 ## The Data Shape
 
-> **🔑 Core rule:** A review belongs to an **order**, not just a user pair. This is what makes "one review per completed transaction" enforceable at the database level instead of relying on application logic you might forget to check somewhere.
+> ** Core rule:** A review belongs to an **order**, not just a user pair. This is what makes "one review per completed transaction" enforceable at the database level instead of relying on application logic you might forget to check somewhere.
 
 ```prisma
 model Review {
@@ -41,7 +41,7 @@ The `@unique` on `orderId` is doing the real enforcement. Without it, "one revie
 
 ## Decision: Aggregate Rating — Computed or Stored?
 
-> **🧩 Decision Card — Seller Rating**
+> ** Decision Card — Seller Rating**
 >
 > **Option A: Compute on read** (`AVG(rating) WHERE sellerId = ?` every time a profile loads)
 > Always accurate, simple, no extra writes. Slight cost: a query + aggregation on every profile view.
@@ -66,14 +66,14 @@ const result = await db.review.aggregate({
 
 This is the part beginners skip and regret. A review system with no abuse protection becomes useless within weeks of real users.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Can a seller review themself? (Block: `reviewerId !== sellerId`, redundant with the completed-order check but worth asserting explicitly)
 > - [ ] Can a buyer leave multiple reviews for one order? (Blocked by the `@unique` constraint on `orderId`)
 > - [ ] Can a review be left before the order is marked `completed`? (Must check order status, not just existence)
 > - [ ] Is there an edit window, or are reviews permanent? (Recommend: editable for 48 hours, then locked — prevents both regret-deletion of legitimate negative reviews and indefinite tampering)
 > - [ ] Can a seller respond to a review? (Worth adding — gives sellers recourse without enabling them to delete/hide criticism)
 
-> **⚠️ Warning:** Never let sellers delete reviews on their own listings, even negative ones. This is the fastest way to make your review system meaningless — and meaningless reviews are worse than no reviews, because they create false trust.
+> **️ Warning:** Never let sellers delete reviews on their own listings, even negative ones. This is the fastest way to make your review system meaningless — and meaningless reviews are worse than no reviews, because they create false trust.
 
 ---
 
@@ -114,7 +114,7 @@ Note this reuses `requireCompletedOrder` from the prior module rather than rewri
 
 ## AI Prompt: Generate the Review System
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Build a review system for a personal marketplace project.
@@ -139,7 +139,7 @@ Note this reuses `requireCompletedOrder` from the prior module rather than rewri
 
 ## Validating AI Output Here
 
-> **🚩 Common Hallucination:** AI will often add a `DELETE /reviews/:id` route accessible to the listing/seller owner by default, mirroring the CRUD pattern used elsewhere in your app (like listings). Reviews are the one resource in your marketplace where the "owner can delete" pattern should NOT apply to the seller — only to the original reviewer (within the edit window) or an admin (for moderation). Check this specifically; it's an easy miss in review.
+> ** Common Hallucination:** AI will often add a `DELETE /reviews/:id` route accessible to the listing/seller owner by default, mirroring the CRUD pattern used elsewhere in your app (like listings). Reviews are the one resource in your marketplace where the "owner can delete" pattern should NOT apply to the seller — only to the original reviewer (within the edit window) or an admin (for moderation). Check this specifically; it's an easy miss in review.
 
 ---
 

@@ -26,7 +26,7 @@ The single most common mistake here is solving for a scale you don't have. Use t
 | Up to a few thousand listings | Postgres full-text search — genuinely sufficient |
 | Tens of thousands+, with complex relevance needs | Consider a dedicated search service (Algolia, Meilisearch, Elasticsearch) |
 
-> ✅ **Best practice for personal mode:** Build on Postgres full-text search. You are almost certainly in the first row of this table, possibly for your entire personal-mode lifetime. A dedicated search engine adds an entire new service to operate, monitor, and keep in sync with your database — operational overhead with no payoff until you're well past thousands of active listings.
+>  **Best practice for personal mode:** Build on Postgres full-text search. You are almost certainly in the first row of this table, possibly for your entire personal-mode lifetime. A dedicated search engine adds an entire new service to operate, monitor, and keep in sync with your database — operational overhead with no payoff until you're well past thousands of active listings.
 
 ---
 
@@ -57,13 +57,13 @@ Postgres full-text search needs an index on the fields buyers actually search by
 | Status | Standard index — every search query filters to `Active` listings only |
 | Price | Standard index, supports range queries |
 
-> ⚠️ **Common mistake:** Forgetting to filter search results by listing status. If your search query doesn't explicitly exclude Draft, Pending Approval, and Removed listings, you've just leaked unapproved or removed content into public search — a direct violation of the visibility table you built in the Listing System module. This is an authorization concern wearing a search-feature costume; test it explicitly.
+> ️ **Common mistake:** Forgetting to filter search results by listing status. If your search query doesn't explicitly exclude Draft, Pending Approval, and Removed listings, you've just leaked unapproved or removed content into public search — a direct violation of the visibility table you built in the Listing System module. This is an authorization concern wearing a search-feature costume; test it explicitly.
 
 ---
 
 ## Search Performance: What to Watch, Not What to Pre-Optimize
 
-> 💡 **Tip:** Don't add caching, search result pre-computation, or query optimization before you've measured an actual slow query. Postgres full-text search on a few thousand rows is fast by default. Premature optimization here is time spent solving a problem you don't have, taken from time you could spend on a problem you do have — like getting your first sellers onboarded.
+>  **Tip:** Don't add caching, search result pre-computation, or query optimization before you've measured an actual slow query. Postgres full-text search on a few thousand rows is fast by default. Premature optimization here is time spent solving a problem you don't have, taken from time you could spend on a problem you do have — like getting your first sellers onboarded.
 
 If you do hit real slowness later, the fix path is: add missing indexes first, then consider caching popular queries, and only reach for a dedicated search service if both of those are insufficient.
 
@@ -96,7 +96,7 @@ about my schema would make this approach genuinely insufficient.
 
 ## Common Mistake: Reaching for Algolia Because It's the "Proper" Choice
 
-> ⚠️ Dedicated search services are excellent products solving a real problem — at scale. Adding one to a personal-mode marketplace with a few hundred listings adds a recurring cost, an external dependency, and a sync-keeping-data-fresh problem, in exchange for search quality improvements your users won't perceive at this volume. This is the same trap as premature microservices from Architecture Fundamentals — sophisticated infrastructure solving a scale problem you don't have.
+> ️ Dedicated search services are excellent products solving a real problem — at scale. Adding one to a personal-mode marketplace with a few hundred listings adds a recurring cost, an external dependency, and a sync-keeping-data-fresh problem, in exchange for search quality improvements your users won't perceive at this volume. This is the same trap as premature microservices from Architecture Fundamentals — sophisticated infrastructure solving a scale problem you don't have.
 
 ---
 

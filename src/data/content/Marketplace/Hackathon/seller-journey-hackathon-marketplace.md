@@ -79,7 +79,7 @@ This is the single most important thing to verify before moving on: **does a lis
 
 Use AI to keep your seller-side build minimal and correctly prioritized — the risk here is over-building, not under-specifying.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 Here's my planned seller journey for a hackathon marketplace: [list your actual screens/steps]
@@ -98,19 +98,19 @@ Be aggressive about flagging over-building here specifically — the seller jour
 
 ## Validating the Output
 
-- [ ] Does the listing creation form collect exactly the fields your buyer journey displays — no mismatch, no excess?
-- [ ] Is there a visible confirmation when a listing is created?
-- [ ] Is "activity awareness" planned as a Fake It item, not real-time infrastructure?
-- [ ] Have you identified the specific, testable connection point between seller-created listings and buyer-visible listings?
-- [ ] Does your seller dashboard avoid analytics, charts, or management features a judge will never see?
+- Does the listing creation form collect exactly the fields your buyer journey displays — no mismatch, no excess?
+- Is there a visible confirmation when a listing is created?
+- Is "activity awareness" planned as a Fake It item, not real-time infrastructure?
+- Have you identified the specific, testable connection point between seller-created listings and buyer-visible listings?
+- Does your seller dashboard avoid analytics, charts, or management features a judge will never see?
 
 ---
 
 ## Before You Continue
 
-- [ ] Listing creation form fields match buyer-facing display fields exactly
-- [ ] Visible confirmation state designed for successful listing creation
-- [ ] Activity awareness confirmed as Fake It, not real build scope
-- [ ] Connection point between seller and buyer journeys identified as a specific thing to test, not assumed to work
+- Listing creation form fields match buyer-facing display fields exactly
+- Visible confirmation state designed for successful listing creation
+- Activity awareness confirmed as Fake It, not real build scope
+- Connection point between seller and buyer journeys identified as a specific thing to test, not assumed to work
 
 **Next up — Phase 2, Marketplace Architecture:** Authentication — deciding how much of a real auth system this marketplace actually needs.

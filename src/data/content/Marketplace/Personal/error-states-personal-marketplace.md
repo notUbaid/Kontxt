@@ -133,9 +133,9 @@ at all. Flag gaps specifically.
 
 ## Validating What AI Generates
 
-- [ ] **Confirm no raw technical error text reaches the user-facing message** — check generated error handling for accidentally surfaced stack traces or status codes
-- [ ] **Verify conflict error handling actually exists**, not just validation and network errors — this is the category most likely to be missed since it's marketplace-specific and not part of generic error-handling advice
-- [ ] **Read every generated error message out loud** — if it sounds like something a real person would find confusing or alarming, rewrite it; this is a fast, reliable check that catches more than reviewing silently
+- **Confirm no raw technical error text reaches the user-facing message** — check generated error handling for accidentally surfaced stack traces or status codes
+- **Verify conflict error handling actually exists**, not just validation and network errors — this is the category most likely to be missed since it's marketplace-specific and not part of generic error-handling advice
+- **Read every generated error message out loud** — if it sounds like something a real person would find confusing or alarming, rewrite it; this is a fast, reliable check that catches more than reviewing silently
 
 ---
 

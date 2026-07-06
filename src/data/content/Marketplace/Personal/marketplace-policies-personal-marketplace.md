@@ -27,7 +27,7 @@ Every policy decision here directly shapes what you build in Phase 2 and 3. If y
 | **Cancellation/refunds** | What happens when a deal falls through? | Defines your dispute and payments architecture |
 | **Enforcement** | What happens when someone breaks the rules? | Defines your moderation tooling needs |
 
-> ⚠️ **Common mistake:** Founders write a Terms of Service template found online, change the company name, and consider policy "done." Then in Phase 3 they realize the database has no field for tracking listing approval status, because nobody decided whether approval was required.
+> ️ **Common mistake:** Founders write a Terms of Service template found online, change the company name, and consider policy "done." Then in Phase 3 they realize the database has no field for tracking listing approval status, because nobody decided whether approval was required.
 
 ---
 
@@ -43,7 +43,7 @@ You are not Etsy. You don't need a 40-page policy document, an automated content
 | Enforcement | You personally remove violating listings and can ban a user — no automated system needed yet |
 | Dispute escalation | A documented manual process: how a user contacts you, what you do, how fast |
 
-> ✅ **Best practice:** Write your prohibited-items list as a literal checklist a person could use, not legal prose. "No weapons, no counterfeit goods, no items requiring age verification" beats "Users shall not list any item deemed inappropriate by the Company in its sole discretion." The second version doesn't tell *you* what to enforce either.
+>  **Best practice:** Write your prohibited-items list as a literal checklist a person could use, not legal prose. "No weapons, no counterfeit goods, no items requiring age verification" beats "Users shall not list any item deemed inappropriate by the Company in its sole discretion." The second version doesn't tell *you* what to enforce either.
 
 ---
 
@@ -57,7 +57,7 @@ This single decision changes your entire listing flow architecture.
 | **Post-moderation** | Listings go live immediately, you review after/on report | Fits if volume is low enough to review daily, lower-risk categories |
 | **Open with reporting** | No active review, users flag problems | Only viable once you have more sellers than you can personally vet — usually too early for Phase 1 |
 
-> 💡 **Tip:** Pre-approval feels slow, but at your current scale (a handful of sellers) it's the cheapest trust mechanism you have. It doubles as quality control and lets you personally learn what bad listings look like before you ever need to automate detection.
+>  **Tip:** Pre-approval feels slow, but at your current scale (a handful of sellers) it's the cheapest trust mechanism you have. It doubles as quality control and lets you personally learn what bad listings look like before you ever need to automate detection.
 
 ---
 
@@ -101,7 +101,7 @@ This produces an operating draft, not a legal document — Phase 5 covers the ac
 
 ## Common Mistake: Copy-Pasting Another Marketplace's Policy
 
-> ⚠️ A policy copied from a marketplace 1000x your size will reference enforcement mechanisms you don't have (automated fraud detection, support teams, escalation tiers) and miss the specific risks of your actual niche. A short, honest, manually-enforceable policy beats an impressive-looking one you can't actually uphold.
+> ️ A policy copied from a marketplace 1000x your size will reference enforcement mechanisms you don't have (automated fraud detection, support teams, escalation tiers) and miss the specific risks of your actual niche. A short, honest, manually-enforceable policy beats an impressive-looking one you can't actually uphold.
 
 ---
 

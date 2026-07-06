@@ -122,9 +122,9 @@ option to mine?
 
 ## Validating What AI Generates
 
-- [ ] **Verify every competitor AI names actually exists and does what's claimed** — AI sometimes invents plausible-sounding competitor names or misattributes features; spot-check 2-3 directly
-- [ ] **Treat "why competitors failed" claims as a starting hypothesis, not fact** — search for the actual reported reason before repeating it as research
-- [ ] **Don't accept a flattering read of your own angle** — if AI's pressure-test comes back too easily validating your idea, ask it again more bluntly, or get a second opinion from a real person
+- **Verify every competitor AI names actually exists and does what's claimed** — AI sometimes invents plausible-sounding competitor names or misattributes features; spot-check 2-3 directly
+- **Treat "why competitors failed" claims as a starting hypothesis, not fact** — search for the actual reported reason before repeating it as research
+- **Don't accept a flattering read of your own angle** — if AI's pressure-test comes back too easily validating your idea, ask it again more bluntly, or get a second opinion from a real person
 
 ---
 

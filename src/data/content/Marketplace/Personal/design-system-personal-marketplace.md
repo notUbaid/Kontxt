@@ -131,9 +131,9 @@ tokens I provided — don't introduce new colors or sizes.
 
 ## Validating What AI Generates
 
-- [ ] **Check generated components actually use your defined tokens**, not new ad-hoc values — AI sometimes introduces a slightly different shade of blue or a new spacing value instead of reusing what you specified
-- [ ] **Confirm color contrast is readable** — a generated palette can look fine in isolation but fail basic readability (light gray text on white background is a common AI suggestion that looks subtle but is hard to read); this gets formal treatment in the next module, Accessibility, but catch obvious cases now
-- [ ] **Verify the component set stays small** — if AI generates 10 component variants when you asked for one button style, consolidate back down; variety here undermines the consistency this module exists to create
+- **Check generated components actually use your defined tokens**, not new ad-hoc values — AI sometimes introduces a slightly different shade of blue or a new spacing value instead of reusing what you specified
+- **Confirm color contrast is readable** — a generated palette can look fine in isolation but fail basic readability (light gray text on white background is a common AI suggestion that looks subtle but is hard to read); this gets formal treatment in the next module, Accessibility, but catch obvious cases now
+- **Verify the component set stays small** — if AI generates 10 component variants when you asked for one button style, consolidate back down; variety here undermines the consistency this module exists to create
 
 ---
 

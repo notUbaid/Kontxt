@@ -19,13 +19,13 @@ This is the difference between having error tracking and *using* it.
 
 Most personal projects don't fail at error capture. They fail at error **response**. Six months in, the dashboard has 400 unresolved issues, most of them noise, and the one error that actually matters is buried on page 4.
 
-> **🔑 Core rule:** an error tracker is only useful if you have a habit of triaging it. Capturing errors you never look at is barely better than not capturing them.
+> ** Core rule:** an error tracker is only useful if you have a habit of triaging it. Capturing errors you never look at is barely better than not capturing them.
 
 ---
 
 ## Triage: Not Every Error Is Equally Urgent
 
-> **🧩 Decision Card — Triage Categories**
+> ** Decision Card — Triage Categories**
 >
 > **Critical — fix same day**
 > Payment/checkout failures, auth failures blocking login, data corruption risks (e.g. an order created with no listing reference).
@@ -45,14 +45,14 @@ Most personal projects don't fail at error capture. They fail at error **respons
 Sentry and similar tools group errors by stack trace signature automatically — but the grouping is only as good as your error messages and context.
 
 ```js
-// ❌ Generic — every different failure groups into one bucket, or doesn't group at all
+//  Generic — every different failure groups into one bucket, or doesn't group at all
 throw new Error("Something went wrong");
 
-// ✅ Specific — groups correctly, and the message alone tells you what broke
+//  Specific — groups correctly, and the message alone tells you what broke
 throw new Error(`Failed to create order: listing ${listingId} not found or inactive`);
 ```
 
-> **⚠️ Warning:** Vague error messages don't just hurt you when reading the dashboard — they actively break grouping. "Something went wrong" thrown from five different places either collapses into one misleading bucket or fragments randomly, depending on stack trace details. Specific messages group reliably and tell you what happened without opening the stack trace.
+> **️ Warning:** Vague error messages don't just hurt you when reading the dashboard — they actively break grouping. "Something went wrong" thrown from five different places either collapses into one misleading bucket or fragments randomly, depending on stack trace details. Specific messages group reliably and tell you what happened without opening the stack trace.
 
 ---
 
@@ -71,7 +71,7 @@ Sentry.withScope((scope) => {
 });
 ```
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Does every captured exception include the relevant user ID (when authenticated)?
 > - [ ] Do payment/order errors include the listing or order ID being acted on?
 > - [ ] Are you attaching context without leaking sensitive data (no full payment details, no password fields — same rule as the Logging module)?
@@ -82,7 +82,7 @@ Sentry.withScope((scope) => {
 
 An error that's been triaged and fixed but never marked resolved will keep cluttering your view and may re-alert you on every future occurrence, training you to ignore alerts entirely.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] When you fix a bug, do you mark the corresponding error as resolved in your tracker?
 > - [ ] Does your tracker re-open an issue automatically if it recurs after being marked resolved? (Most do by default — confirm yours does, this is the signal that your fix didn't actually work)
 > - [ ] Are recurring "resolved" errors treated as a signal the original fix was incomplete, not just re-dismissed?
@@ -104,7 +104,7 @@ This builds directly on the alert-worthy list from Monitoring — error tracking
 
 ## AI Prompt: Improve Error Messages and Context
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Review my error handling for tracking quality, not just correctness. This is a
@@ -127,10 +127,10 @@ This builds directly on the alert-worthy list from Monitoring — error tracking
 
 ## Validating AI Output Here
 
-> **🚩 Common Hallucination:** AI frequently wraps entire route handlers in a single broad `try/catch` that calls `Sentry.captureException` on anything, including expected 400-level validation errors. This means a user typing an invalid price triggers the same alert as a real database failure. Separate expected client errors (return a 400, log at `info`/`warn`, don't alert) from genuine exceptions (capture, alert per your triage rules).
+> ** Common Hallucination:** AI frequently wraps entire route handlers in a single broad `try/catch` that calls `Sentry.captureException` on anything, including expected 400-level validation errors. This means a user typing an invalid price triggers the same alert as a real database failure. Separate expected client errors (return a 400, log at `info`/`warn`, don't alert) from genuine exceptions (capture, alert per your triage rules).
 
 ```js
-// ✅ Distinguishing expected vs. unexpected
+//  Distinguishing expected vs. unexpected
 try {
   await createOrder(req.body);
 } catch (err) {

@@ -108,8 +108,8 @@ that have for how often I need sellers to engage with the platform?
 
 ## Validating What AI Generates
 
-- [ ] **Treat suggested liquidity numbers as a starting estimate, not a guarantee** — AI has no real data on your specific niche's behavior; use the number as a planning target, then adjust based on actual early user feedback
-- [ ] **Confirm the flow vs. stock classification matches your own intuition about the niche** — if it disagrees with what you already know about how your specific goods/services behave, trust your domain knowledge over the AI's generic reasoning
+- **Treat suggested liquidity numbers as a starting estimate, not a guarantee** — AI has no real data on your specific niche's behavior; use the number as a planning target, then adjust based on actual early user feedback
+- **Confirm the flow vs. stock classification matches your own intuition about the niche** — if it disagrees with what you already know about how your specific goods/services behave, trust your domain knowledge over the AI's generic reasoning
 
 ---
 

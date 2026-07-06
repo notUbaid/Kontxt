@@ -15,7 +15,7 @@ Fraud Prevention covered dishonest *transactions* — fake listings, non-deliver
 
 ## Abuse vs. Fraud: A Quick Distinction
 
-> **🔑 Core rule:** fraud targets money and transactions. Abuse targets *people and the platform itself* — your other users' experience, your infrastructure, your moderation capacity. A harassing message costs no one a cent, but it can drive a user off your marketplace permanently.
+> ** Core rule:** fraud targets money and transactions. Abuse targets *people and the platform itself* — your other users' experience, your infrastructure, your moderation capacity. A harassing message costs no one a cent, but it can drive a user off your marketplace permanently.
 
 | Pattern | Category | Where it's handled |
 |---|---|---|
@@ -30,7 +30,7 @@ Fraud Prevention covered dishonest *transactions* — fake listings, non-deliver
 
 ## Decision: Detection Approach
 
-> **🧩 Decision Card — Abuse Detection Strategy**
+> ** Decision Card — Abuse Detection Strategy**
 >
 > **Option A: Reactive — respond to user reports only**
 > Zero proactive infrastructure, relies entirely on your reporting tools from Fraud Prevention. Works at low volume, but misses abuse no one reports (e.g. a user scraping silently).
@@ -49,7 +49,7 @@ Fraud Prevention covered dishonest *transactions* — fake listings, non-deliver
 
 You already rate-limited message sending in Rate Limiting — that throttles volume but doesn't catch *content*. A user can harass someone slowly, well within rate limits.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Can a recipient block a sender, preventing further messages without needing to report and wait for admin action?
 > - [ ] Does reporting a message (from Fraud Prevention's `Report` model) surface the message content to you, not just a reference ID — you need to actually see what was said to act on it?
 > - [ ] Is there a simple keyword/pattern flag for obviously abusive content (slurs, threats) that surfaces a report automatically, even before the recipient reports it themselves?
@@ -67,7 +67,7 @@ function flagIfAbusive(messageBody) {
 }
 ```
 
-> **⚠️ Warning:** auto-flagging should surface content for your review, not auto-delete or auto-block. False positives on keyword matching are common and frustrating for legitimate users — treat this as triage assistance, not enforcement.
+> **️ Warning:** auto-flagging should surface content for your review, not auto-delete or auto-block. False positives on keyword matching are common and frustrating for legitimate users — treat this as triage assistance, not enforcement.
 
 ---
 
@@ -89,7 +89,7 @@ async function checkForSpamListing(sellerId, title, description) {
 }
 ```
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Does listing creation check for near-duplicate recent listings from the same seller?
 > - [ ] Is the threshold for flagging set conservatively (favoring missed detection over false positives), appropriate for a personal project where you'd rather under-flag than annoy legitimate sellers re-listing similar items?
 > - [ ] Are flagged listings still published (not blocked), just surfaced for your review?
@@ -100,12 +100,12 @@ async function checkForSpamListing(sellerId, title, description) {
 
 Suspending an account is meaningless if the same person creates a new one in minutes. This is genuinely hard to solve completely — but a few low-cost signals catch the common case without building serious fingerprinting infrastructure.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Is email verification required before an account can create listings or send messages? (The single cheapest ban-evasion deterrent — raises the cost of creating throwaway accounts)
 > - [ ] When suspending a user, do you log identifying signals available to you (IP at signup, IP at time of suspension) so a clear repeat pattern is visible if it happens again?
 > - [ ] Are you avoiding building invasive device fingerprinting? (Disproportionate for a personal project, and a real privacy concern — simple signals are enough at this scale)
 
-> **🔑 Rule of thumb:** perfect ban evasion prevention isn't achievable even for large platforms. Your goal is raising the cost of evasion enough that casual bad actors don't bother — not building a forensic-grade detection system.
+> ** Rule of thumb:** perfect ban evasion prevention isn't achievable even for large platforms. Your goal is raising the cost of evasion enough that casual bad actors don't bother — not building a forensic-grade detection system.
 
 ---
 
@@ -113,7 +113,7 @@ Suspending an account is meaningless if the same person creates a new one in min
 
 Partially addressed in Security (pagination caps, hiding contact info) — this section is about *detecting* scraping in progress, not just limiting its damage.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Are you logging request patterns that suggest scraping — e.g. one IP making hundreds of sequential `GET /listings/:id` requests in a short window?
 > - [ ] Does your rate limiting on search/browse endpoints (from Rate Limiting) actually catch this, or is the limit too generous to matter?
 > - [ ] If scraping is detected, is the response a clear rate-limit message, not a silent block that leaves you wondering if your own monitoring broke?
@@ -122,7 +122,7 @@ Partially addressed in Security (pagination caps, hiding contact info) — this 
 
 ## AI Prompt: Add Abuse Flagging
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Add lightweight abuse detection to my marketplace project. This is a personal
@@ -150,7 +150,7 @@ Partially addressed in Security (pagination caps, hiding contact info) — this 
 
 ## Validating AI Output Here
 
-> **🚩 Common Hallucination:** AI will sometimes implement keyword-based abuse detection as an opaque scoring system with thresholds that auto-act (e.g. "score > 5, auto-suspend"). Insist on a transparent, editable pattern list and confirm the action taken is always "flag for review," not an automatic consequence — opaque auto-enforcement is exactly what creates the false-positive disasters that erode trust in moderation systems, even well-intentioned ones.
+> ** Common Hallucination:** AI will sometimes implement keyword-based abuse detection as an opaque scoring system with thresholds that auto-act (e.g. "score > 5, auto-suspend"). Insist on a transparent, editable pattern list and confirm the action taken is always "flag for review," not an automatic consequence — opaque auto-enforcement is exactly what creates the false-positive disasters that erode trust in moderation systems, even well-intentioned ones.
 
 ---
 

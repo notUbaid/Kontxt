@@ -19,13 +19,13 @@ Backups are boring until the one day they're the only thing that matters. Set th
 
 A marketplace's database isn't just your data — it's every user's transaction history, every conversation, every review. Losing it isn't an inconvenience to you; it's a trust-destroying event for anyone who used the product.
 
-> **🔑 Core rule:** if you can't say exactly how you'd restore your database to a working state right now, your backup strategy doesn't exist yet — regardless of whether backups are technically being taken.
+> ** Core rule:** if you can't say exactly how you'd restore your database to a working state right now, your backup strategy doesn't exist yet — regardless of whether backups are technically being taken.
 
 ---
 
 ## Decision: Backup Strategy
 
-> **🧩 Decision Card — Backup Approach**
+> ** Decision Card — Backup Approach**
 >
 > **Option A: Rely on your hosting provider's automatic backups**
 > Zero setup if your database host (Railway, Render, Supabase, Neon, PlanetScale, RDS) offers it — most do, often even on free tiers with shorter retention.
@@ -50,7 +50,7 @@ Don't evaluate a backup setup vaguely — pin down these three numbers, because 
 | **RTO** (Recovery Time Objective) | How long until you're back up? | A few hours is acceptable for a personal project |
 | **Retention** | How far back can you restore from? | 7-30 days is reasonable; longer if storage cost is trivial |
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Do you know your actual RPO — i.e., the maximum data loss window — for your current setup? (Check your provider's docs, don't assume)
 > - [ ] Have you confirmed backup *frequency* matches your tolerance for data loss? (Weekly backups means losing up to a week of orders/messages/reviews in the worst case)
 > - [ ] Is retention long enough to catch a problem that wasn't noticed immediately? (A corrupted migration discovered three days later needs more than a 24-hour retention window)
@@ -59,9 +59,9 @@ Don't evaluate a backup setup vaguely — pin down these three numbers, because 
 
 ## The Step Everyone Skips: Testing the Restore
 
-> **⚠️ Warning:** A backup you've never restored from is a backup you don't actually have — you have an unverified file. The single most common backup failure isn't "no backups were taken," it's discovering during a real incident that the backup is corrupted, incomplete, or that you don't actually know the restore procedure.
+> **️ Warning:** A backup you've never restored from is a backup you don't actually have — you have an unverified file. The single most common backup failure isn't "no backups were taken," it's discovering during a real incident that the backup is corrupted, incomplete, or that you don't actually know the restore procedure.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Have you actually run a test restore — not just confirmed a backup file exists?
 > - [ ] Does the restored database have the data you expect, at the row level, not just "the restore command didn't error"?
 > - [ ] Is the restore procedure written down somewhere you'd find it during a stressful incident, not just remembered?
@@ -84,7 +84,7 @@ psql marketplace_restore_test -c "SELECT count(*) FROM listings;"
 
 ## Point-in-Time Recovery vs. Snapshot Backups
 
-> **🔑 Core distinction:** a daily snapshot only protects you to yesterday's state. Point-in-time recovery (PITR), offered by most managed Postgres providers, lets you restore to *any specific moment* — critical when the mistake isn't discovered until hours after it happened.
+> ** Core distinction:** a daily snapshot only protects you to yesterday's state. Point-in-time recovery (PITR), offered by most managed Postgres providers, lets you restore to *any specific moment* — critical when the mistake isn't discovered until hours after it happened.
 
 For a marketplace specifically: if a bad migration silently corrupts order records at 2pm and isn't noticed until 6pm, a daily snapshot from midnight loses an entire day of legitimate transactions. PITR lets you restore to 1:59pm instead. Check whether your database provider offers this — many do, even on affordable tiers — and prefer it over snapshot-only backups if available at reasonable cost.
 
@@ -94,7 +94,7 @@ For a marketplace specifically: if a bad migration silently corrupts order recor
 
 Automated backups protect against ongoing disaster. They don't replace a manual snapshot before you do something deliberately risky.
 
-> **✅ Validation Checklist — Take a manual backup before:**
+> ** Validation Checklist — Take a manual backup before:**
 > - [ ] Running a schema migration in production
 > - [ ] A bulk data operation (mass status update, data cleanup script)
 > - [ ] Any operation involving a raw `DELETE` or `UPDATE` without first testing it as a `SELECT`
@@ -105,7 +105,7 @@ This single habit — snapshot before anything destructive — prevents the most
 
 ## AI Prompt: Set Up and Verify Backups
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Help me set up and verify backups for my marketplace project.
@@ -129,7 +129,7 @@ This single habit — snapshot before anything destructive — prevents the most
 
 ## Validating AI Output Here
 
-> **🚩 Common Hallucination:** AI will sometimes generate a backup script confidently without verifying whether your specific hosting provider already handles this automatically — leading to redundant, unmaintained custom infrastructure for a problem that was already solved. Always check your provider's actual dashboard/docs yourself before implementing a custom solution AI suggests.
+> ** Common Hallucination:** AI will sometimes generate a backup script confidently without verifying whether your specific hosting provider already handles this automatically — leading to redundant, unmaintained custom infrastructure for a problem that was already solved. Always check your provider's actual dashboard/docs yourself before implementing a custom solution AI suggests.
 
 ---
 

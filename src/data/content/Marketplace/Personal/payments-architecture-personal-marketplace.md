@@ -39,7 +39,7 @@ This is a foundational choice — switching later means re-onboarding every sell
 | **Express** | Lightweight onboarding, Stripe-hosted dashboard, you control more of the experience | Best fit for most personal-mode peer-to-peer marketplaces |
 | **Custom** | You build the entire seller-facing payment UI yourself | Avoid at personal-mode scale — significant engineering and compliance overhead |
 
-> ✅ **Best practice for personal mode:** Use **Express accounts**. Onboarding is fast (a few minutes), Stripe handles the compliance-heavy parts, and it matches the low-friction seller onboarding goal from your Seller Journey module. Custom accounts solve a problem — full UI control — that you don't have a use case for yet.
+>  **Best practice for personal mode:** Use **Express accounts**. Onboarding is fast (a few minutes), Stripe handles the compliance-heavy parts, and it matches the low-friction seller onboarding goal from your Seller Journey module. Custom accounts solve a problem — full UI control — that you don't have a use case for yet.
 
 ---
 
@@ -55,7 +55,7 @@ This is a foundational choice — switching later means re-onboarding every sell
 6. Listing status updates: Active → Sold/Completed
 ```
 
-> 💡 **Tip:** Notice this touches three entities from your Architecture Fundamentals map at once — Transaction, Listing, and the User/SellerProfile holding the Connect account ID. This is exactly the kind of multi-entity operation that needs to succeed or fail as a single unit (a database transaction), not partially complete. If the Listing status updates but the payment fails, you have a sold-but-unpaid listing — a real bug class to explicitly test for.
+>  **Tip:** Notice this touches three entities from your Architecture Fundamentals map at once — Transaction, Listing, and the User/SellerProfile holding the Connect account ID. This is exactly the kind of multi-entity operation that needs to succeed or fail as a single unit (a database transaction), not partially complete. If the Listing status updates but the payment fails, you have a sold-but-unpaid listing — a real bug class to explicitly test for.
 
 ---
 
@@ -68,7 +68,7 @@ This decision directly implements the cancellation/refund rule from your Marketp
 | **Immediate release** | Seller gets funds as soon as payment clears | Low-risk, digital, or low-value transactions |
 | **Delayed/held release** | Funds held until buyer confirms receipt or a time window passes | Physical goods, services, or any transaction where "buyer received nothing" disputes are realistic |
 
-> ⚠️ **Common mistake:** Releasing funds immediately on a marketplace where physical handoff or service delivery happens after payment. If a transaction goes wrong, you have no funds left to refund from — you'd be refunding the buyer out of your own pocket while the seller already has the money. Match this decision to your Trust & Safety risk profile: physical/in-person transactions should default to held release.
+> ️ **Common mistake:** Releasing funds immediately on a marketplace where physical handoff or service delivery happens after payment. If a transaction goes wrong, you have no funds left to refund from — you'd be refunding the buyer out of your own pocket while the seller already has the money. Match this decision to your Trust & Safety risk profile: physical/in-person transactions should default to held release.
 
 ---
 
@@ -76,9 +76,9 @@ This decision directly implements the cancellation/refund rule from your Marketp
 
 Your Cost Estimation module already calculated your net take rate after Stripe's cut. This is where that number becomes code, not just a spreadsheet line.
 
-- [ ] Confirm your platform fee percentage (decided in Revenue Model, validated in Cost Estimation)
-- [ ] Configure Stripe Connect's application fee parameter to take this cut automatically at the point of charge
-- [ ] Never calculate and transfer the fee manually after the fact — let Stripe split it atomically at charge time
+- Confirm your platform fee percentage (decided in Revenue Model, validated in Cost Estimation)
+- Configure Stripe Connect's application fee parameter to take this cut automatically at the point of charge
+- Never calculate and transfer the fee manually after the fact — let Stripe split it atomically at charge time
 
 ---
 
@@ -92,7 +92,7 @@ Your Marketplace Policies module defined the rule ("resolve directly within 48 h
 | Dispute, unresolved after 48 hours | A flag/status that surfaces it to you for manual mediation — doesn't need automation, just visibility |
 | Stripe-side chargeback | A webhook handler that updates your Transaction status when Stripe notifies you — don't let your database silently disagree with Stripe's record |
 
-> ⚠️ Webhooks aren't optional. Stripe is the source of truth for payment state — if your app doesn't listen for and handle Stripe webhook events, your database can drift out of sync with what actually happened to the money. Build webhook handling now, not as a "later" item.
+> ️ Webhooks aren't optional. Stripe is the source of truth for payment state — if your app doesn't listen for and handle Stripe webhook events, your database can drift out of sync with what actually happened to the money. Build webhook handling now, not as a "later" item.
 
 ---
 
@@ -125,7 +125,7 @@ would be safer given my risk profile.
 
 ## Common Mistake: Testing Only the Happy Path
 
-> ⚠️ It's easy to test "payment succeeds, everything works" and call payments done. The dangerous bugs live in the failure paths: payment fails after listing is marked sold, webhook arrives out of order, seller's Express account isn't fully verified yet when a sale happens. Explicitly test what happens when each step in the flow fails, not just when it all goes right — this is the one area of your marketplace where an untested edge case has a direct financial cost.
+> ️ It's easy to test "payment succeeds, everything works" and call payments done. The dangerous bugs live in the failure paths: payment fails after listing is marked sold, webhook arrives out of order, seller's Express account isn't fully verified yet when a sale happens. Explicitly test what happens when each step in the flow fails, not just when it all goes right — this is the one area of your marketplace where an untested edge case has a direct financial cost.
 
 ---
 

@@ -33,18 +33,18 @@ The distinction matters. A unit test checks one function in isolation. A demo tr
 
 Use Stripe's test mode for this — never real money during this phase. Walk every step yourself, switching between a buyer account and a seller account.
 
-- [ ] Create a seller account, complete Stripe Connect Express onboarding (test mode)
-- [ ] Create a listing, submit it, and verify it correctly sits in "Pending Approval" — not visible publicly
-- [ ] Approve it as yourself (admin), verify it becomes visible and searchable
-- [ ] As a buyer, find it via search, open it, message the seller with a question
-- [ ] Verify the seller receives an email notification for that message
-- [ ] Complete a checkout with a Stripe test card, verify the platform fee split is correct
-- [ ] Verify Transaction and Listing statuses update correctly and atomically
-- [ ] Flag a dispute on that transaction, verify it notifies you and links to the message thread
-- [ ] Resolve the dispute (test both a refund and a release on separate runs)
-- [ ] Leave a review tied to the completed transaction, verify it's rejected if attempted without a transaction
+- Create a seller account, complete Stripe Connect Express onboarding (test mode)
+- Create a listing, submit it, and verify it correctly sits in "Pending Approval" — not visible publicly
+- Approve it as yourself (admin), verify it becomes visible and searchable
+- As a buyer, find it via search, open it, message the seller with a question
+- Verify the seller receives an email notification for that message
+- Complete a checkout with a Stripe test card, verify the platform fee split is correct
+- Verify Transaction and Listing statuses update correctly and atomically
+- Flag a dispute on that transaction, verify it notifies you and links to the message thread
+- Resolve the dispute (test both a refund and a release on separate runs)
+- Leave a review tied to the completed transaction, verify it's rejected if attempted without a transaction
 
-> ⚠️ **Common mistake:** Only testing the happy path once and calling it done. Run this twice — once where everything goes smoothly, and once where you deliberately trigger a failure (decline the test payment, flag a dispute, try to message about a Removed listing). The failure path is where the real bugs live, exactly as Payments Architecture warned.
+> ️ **Common mistake:** Only testing the happy path once and calling it done. Run this twice — once where everything goes smoothly, and once where you deliberately trigger a failure (decline the test payment, flag a dispute, try to message about a Removed listing). The failure path is where the real bugs live, exactly as Payments Architecture warned.
 
 ---
 
@@ -62,7 +62,7 @@ A step passing isn't just "didn't crash." Check it against the specific rule eac
 | Dispute flag | Notifies you, links to the thread — per Dispute Resolution's flow |
 | Review | Rejected without a verified transaction — per Reviews & Ratings' core rule |
 
-> 💡 **Tip:** This table is effectively a checklist version of every rule you designed across Phase 2. If a step fails here, it's not just "a bug" — it's a specific earlier decision that didn't make it into the actual implementation. Trace it back to the module that defined the rule, not just the code that broke.
+>  **Tip:** This table is effectively a checklist version of every rule you designed across Phase 2. If a step fails here, it's not just "a bug" — it's a specific earlier decision that didn't make it into the actual implementation. Trace it back to the module that defined the rule, not just the code that broke.
 
 ---
 
@@ -95,7 +95,7 @@ Stripe test mode.
 
 ## Common Mistake: Skipping This Because "It Should Work"
 
-> ⚠️ Every module in Phase 2 was a sound decision in isolation. Integration bugs aren't usually about any single decision being wrong — they're about the handoff between two correct decisions being mismatched (e.g. the Listing status update and the Payment status update not being wrapped in the same atomic operation, exactly as flagged in Payments Architecture). The only way to find these is to actually run the full path, not to reason about it in your head.
+> ️ Every module in Phase 2 was a sound decision in isolation. Integration bugs aren't usually about any single decision being wrong — they're about the handoff between two correct decisions being mismatched (e.g. the Listing status update and the Payment status update not being wrapped in the same atomic operation, exactly as flagged in Payments Architecture). The only way to find these is to actually run the full path, not to reason about it in your head.
 
 ---
 

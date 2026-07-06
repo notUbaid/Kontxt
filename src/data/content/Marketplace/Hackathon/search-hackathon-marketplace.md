@@ -164,10 +164,10 @@ two number inputs for min/max price. On any change, call this function:
 
 ## Validating What AI Generates
 
-- [ ] **`status: 'ACTIVE'` is actually in the `where` clause** — AI sometimes drops this when asked to "keep it simple," and it's the bug least likely to be noticed until you're live
-- [ ] **Search is case-insensitive** — `mode: 'insensitive'` is easy to forget and "Jacket" not matching "jacket" is an embarrassing live-demo bug
-- [ ] **Price filters convert dollars to cents correctly** — a swapped `* 100` / `/ 100` silently returns zero results for any real price range
-- [ ] **The query doesn't N+1** — if AI adds `include: { seller: true }` inside a loop instead of in the main query, fix it before it's a problem; at hackathon scale it won't be visible, but it's a one-line fix now versus a habit to unlearn later
+- **`status: 'ACTIVE'` is actually in the `where` clause** — AI sometimes drops this when asked to "keep it simple," and it's the bug least likely to be noticed until you're live
+- **Search is case-insensitive** — `mode: 'insensitive'` is easy to forget and "Jacket" not matching "jacket" is an embarrassing live-demo bug
+- **Price filters convert dollars to cents correctly** — a swapped `* 100` / `/ 100` silently returns zero results for any real price range
+- **The query doesn't N+1** — if AI adds `include: { seller: true }` inside a loop instead of in the main query, fix it before it's a problem; at hackathon scale it won't be visible, but it's a one-line fix now versus a habit to unlearn later
 
 ---
 

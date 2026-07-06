@@ -153,7 +153,7 @@ Run this exact test before considering auth "done," regardless of which path you
 
 Use AI to implement your specific chosen path quickly and correctly, including the persistence behavior that's easy to overlook.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 I'm implementing auth for a hackathon marketplace.
@@ -175,19 +175,19 @@ Keep it minimal — no password reset, email verification, or MFA. Flag anything
 
 ## Validating the Output
 
-- [ ] Does the selected role/session survive a page refresh?
-- [ ] Can you switch between buyer and seller views cleanly, without errors or flicker?
-- [ ] If real auth was used, is role/profile data stored in your own table, not assumed from the provider alone?
-- [ ] Have you confirmed no password reset, email verification, or MFA was built?
-- [ ] Did this take less time than your core loop implementation? If not, reconsider scope.
+- Does the selected role/session survive a page refresh?
+- Can you switch between buyer and seller views cleanly, without errors or flicker?
+- If real auth was used, is role/profile data stored in your own table, not assumed from the provider alone?
+- Have you confirmed no password reset, email verification, or MFA was built?
+- Did this take less time than your core loop implementation? If not, reconsider scope.
 
 ---
 
 ## Before You Continue
 
-- [ ] Chosen auth path implemented and matches the Authentication module's decision exactly
-- [ ] Role/session persists across a page refresh — explicitly tested
-- [ ] Buyer and seller views render correctly based on current role
-- [ ] No unnecessary auth features (password reset, MFA, email verification) built
+- Chosen auth path implemented and matches the Authentication module's decision exactly
+- Role/session persists across a page refresh — explicitly tested
+- Buyer and seller views render correctly based on current role
+- No unnecessary auth features (password reset, MFA, email verification) built
 
 **Next up:** Database — implementing the schema sketched out in Architecture Fundamentals.

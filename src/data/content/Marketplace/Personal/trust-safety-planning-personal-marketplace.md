@@ -28,7 +28,7 @@ Before deciding what mechanisms you need, identify where your actual risk lives.
 | Reversibility | Digital goods, easy refund | Physical goods, services already rendered |
 | Identity stakes | Anonymous is fine | Real identity matters (e.g. trades, services in someone's home) |
 
-> ⚠️ **Common mistake:** Copying the trust mechanisms of a marketplace that doesn't share your risk profile. A digital goods marketplace doesn't need in-person safety features. A local services marketplace where strangers enter people's homes needs far more identity verification than a marketplace for selling used books.
+> ️ **Common mistake:** Copying the trust mechanisms of a marketplace that doesn't share your risk profile. A digital goods marketplace doesn't need in-person safety features. A local services marketplace where strangers enter people's homes needs far more identity verification than a marketplace for selling used books.
 
 Answer this before continuing: **where on this table does your marketplace actually sit?** Your mechanism choices below should map directly to this.
 
@@ -48,7 +48,7 @@ Build top to bottom. Stop once your risk profile is covered — don't keep addin
 | Identity verification (ID upload) | High | Only justified for high-stakes, in-person, or high-value categories |
 | Automated fraud detection | High | Not appropriate until you have volume and transaction history to detect patterns from |
 
-> ✅ **Best practice:** At launch, most personal-mode marketplaces only need the first three rows. You're not protecting against sophisticated fraud rings yet — you're protecting against obvious bad listings and giving honest users a way to flag problems.
+>  **Best practice:** At launch, most personal-mode marketplaces only need the first three rows. You're not protecting against sophisticated fraud rings yet — you're protecting against obvious bad listings and giving honest users a way to flag problems.
 
 ---
 
@@ -61,7 +61,7 @@ A workable personal-mode version:
 - It sends you (the founder) a notification — email is fine, no dashboard required at v1
 - You personally review and act within a stated timeframe (be honest about what's achievable — 24-48 hours is realistic solo)
 
-> 💡 **Tip:** Don't promise instant moderation if you can't deliver it. A clear "we review reports within 48 hours" sets honest expectations and is something one person can actually keep.
+>  **Tip:** Don't promise instant moderation if you can't deliver it. A clear "we review reports within 48 hours" sets honest expectations and is something one person can actually keep.
 
 ---
 
@@ -80,7 +80,7 @@ Verification is a trade: every step you add reduces bad actors but also reduces 
 
 ## Common Mistake: Designing for Adversaries You Don't Have Yet
 
-> ⚠️ It's easy to spiral into designing defenses against sophisticated fraud, coordinated bad actors, and scaled abuse. At a handful of users you personally recruited, your actual risk is closer to "an honest disagreement between two people" than "an organized fraud ring." Build for the risk you have, not the risk a 10,000-user platform has. You can add layers later — Phase 4 covers fraud prevention and abuse detection at production scale.
+> ️ It's easy to spiral into designing defenses against sophisticated fraud, coordinated bad actors, and scaled abuse. At a handful of users you personally recruited, your actual risk is closer to "an honest disagreement between two people" than "an organized fraud ring." Build for the risk you have, not the risk a 10,000-user platform has. You can add layers later — Phase 4 covers fraud prevention and abuse detection at production scale.
 
 ---
 
@@ -108,9 +108,9 @@ catch?
 
 ## Validating Before You Build
 
-- [ ] Walk through your own reporting flow as if you were a user — is it actually findable on a listing page?
-- [ ] Write down your real response time commitment for reports/disputes — can you actually keep it solo?
-- [ ] Check your verification requirements against your Seller Journey friction map — does anything here contradict the low-friction onboarding you designed there?
+- Walk through your own reporting flow as if you were a user — is it actually findable on a listing page?
+- Write down your real response time commitment for reports/disputes — can you actually keep it solo?
+- Check your verification requirements against your Seller Journey friction map — does anything here contradict the low-friction onboarding you designed there?
 
 ---
 

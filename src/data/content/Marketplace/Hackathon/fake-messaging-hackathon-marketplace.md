@@ -55,10 +55,10 @@ The strong version responds as if it actually read the buyer's message and addre
 
 Build the conversation UI to the same visual standard as a real messaging app — this is where polish matters more than backend complexity:
 
-- [ ] Message bubbles styled distinctly for buyer vs. seller
-- [ ] Timestamps on messages (can be simulated/relative)
-- [ ] A "typing..." indicator before the scripted reply appears — this single detail does enormous work in selling the illusion of a live exchange
-- [ ] The conversation tied to a specific listing, not a generic chat screen — reinforces that this is marketplace-specific communication, not a bolted-on feature
+- Message bubbles styled distinctly for buyer vs. seller
+- Timestamps on messages (can be simulated/relative)
+- A "typing..." indicator before the scripted reply appears — this single detail does enormous work in selling the illusion of a live exchange
+- The conversation tied to a specific listing, not a generic chat screen — reinforces that this is marketplace-specific communication, not a bolted-on feature
 
 > **Warning:** Don't let the messaging UI feel disconnected from the rest of your marketplace. If it doesn't reference the specific listing being discussed, it reads as a generic chat demo rather than something genuinely built for this product.
 
@@ -86,7 +86,7 @@ Connect fake messaging to your buyer journey naturally — typically from the li
 
 Use AI to write the scripted replies with the specificity this module emphasizes, and to scaffold the lightweight UI.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 I need a fake messaging feature for a hackathon marketplace demo.
@@ -106,11 +106,11 @@ Also help me scaffold a simple UI: message bubbles (buyer vs seller styled diffe
 
 ## Validating the Output
 
-- [ ] Do the scripted replies reference the specific listing, not generic placeholder language?
-- [ ] Is there a "typing..." delay before replies appear, rather than an instant response that breaks the illusion?
-- [ ] Is the conversation UI visually tied to a specific listing, not a standalone generic chat screen?
-- [ ] Have you avoided building inbox management, real-time delivery, or attachments that won't appear in your demo?
-- [ ] Does the messaging entry point connect naturally from the listing detail page (your buyer journey)?
+- Do the scripted replies reference the specific listing, not generic placeholder language?
+- Is there a "typing..." delay before replies appear, rather than an instant response that breaks the illusion?
+- Is the conversation UI visually tied to a specific listing, not a standalone generic chat screen?
+- Have you avoided building inbox management, real-time delivery, or attachments that won't appear in your demo?
+- Does the messaging entry point connect naturally from the listing detail page (your buyer journey)?
 
 > **Tip:** Test this exactly as you'll demo it — type a real, slightly unexpected message and see if the scripted reply still feels plausible. If your keyword matching is too rigid, an off-script question during a live demo could trigger an obviously mismatched reply.
 
@@ -118,10 +118,10 @@ Also help me scaffold a simple UI: message bubbles (buyer vs seller styled diffe
 
 ## Before You Continue
 
-- [ ] Messaging level decided (scripted exchange is the default recommendation) — not left as static or under-built
-- [ ] At least 2-3 scripted replies written with specific, contextual language
-- [ ] Typing indicator and delay implemented for realism
-- [ ] Messaging UI tied to specific listings, not a generic chat screen
-- [ ] No real-time infrastructure, inbox management, or attachments built
+- Messaging level decided (scripted exchange is the default recommendation) — not left as static or under-built
+- At least 2-3 scripted replies written with specific, contextual language
+- Typing indicator and delay implemented for realism
+- Messaging UI tied to specific listings, not a generic chat screen
+- No real-time infrastructure, inbox management, or attachments built
 
 **Next up:** Marketplace UI Polish — the visual layer that ties everything from this phase together into something that looks intentionally designed.

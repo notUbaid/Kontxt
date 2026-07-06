@@ -19,7 +19,7 @@ This is the last module of Phase 3 for a reason — document the system as it ac
 
 ## What's Actually Worth Documenting at This Scale
 
-> ⚠️ Don't write comprehensive documentation covering every function and endpoint — that goes stale almost immediately and nobody, including you, will maintain it. Document the things that are expensive to re-derive if forgotten: decisions, not implementation details your code already shows.
+> ️ Don't write comprehensive documentation covering every function and endpoint — that goes stale almost immediately and nobody, including you, will maintain it. Document the things that are expensive to re-derive if forgotten: decisions, not implementation details your code already shows.
 
 | Document This | Skip This |
 |---|---|
@@ -34,11 +34,11 @@ This is the last module of Phase 3 for a reason — document the system as it ac
 
 Across this entire curriculum, you've made dozens of "not yet, defer until X" decisions — dedicated search until thousands of listings, RBAC until a second admin, read receipts, automated dispute rules. These are easy to forget and easy to accidentally re-litigate later without remembering you already made the call.
 
-- [ ] Compile every "defer until ___" decision from Phase 2 and 3 into one list
-- [ ] For each, note the specific trigger condition (not just "later" — "once listing volume exceeds X")
-- [ ] Revisit this list, not your memory, when you're tempted to add complexity later
+- Compile every "defer until ___" decision from Phase 2 and 3 into one list
+- For each, note the specific trigger condition (not just "later" — "once listing volume exceeds X")
+- Revisit this list, not your memory, when you're tempted to add complexity later
 
-> ✅ **Best practice:** This single document prevents the most common form of scope creep in personal-mode projects — re-adding complexity you specifically and correctly decided to avoid, simply because you forgot you'd already made that call deliberately.
+>  **Best practice:** This single document prevents the most common form of scope creep in personal-mode projects — re-adding complexity you specifically and correctly decided to avoid, simply because you forgot you'd already made that call deliberately.
 
 ---
 
@@ -56,7 +56,7 @@ Transaction: Initiated → Payment Held → Completed
                             Disputed → Resolved (Refunded/Released/Partial)
 ```
 
-> 💡 **Tip:** A diagram like this, kept in a single README or architecture doc, answers "wait, can a Disputed transaction go back to Payment Held?" in two seconds instead of requiring you to re-read the Dispute Resolution and Backend modules to reconstruct the answer.
+>  **Tip:** A diagram like this, kept in a single README or architecture doc, answers "wait, can a Disputed transaction go back to Payment Held?" in two seconds instead of requiring you to re-read the Dispute Resolution and Backend modules to reconstruct the answer.
 
 ---
 
@@ -64,10 +64,10 @@ Transaction: Initiated → Payment Held → Completed
 
 A short, practical doc covering exactly what's needed to run this project locally and understand its current state — not a polished onboarding guide for hypothetical future hires.
 
-- [ ] Environment variables needed (Stripe keys, auth provider keys, database URL) — names only, never actual secrets
-- [ ] How to run the project locally
-- [ ] Current state: what's built, what's explicitly not built yet (link to your deferred-features list)
-- [ ] Where the test suite lives and how to run the core end-to-end test from Testing
+- Environment variables needed (Stripe keys, auth provider keys, database URL) — names only, never actual secrets
+- How to run the project locally
+- Current state: what's built, what's explicitly not built yet (link to your deferred-features list)
+- Where the test suite lives and how to run the core end-to-end test from Testing
 
 ---
 
@@ -100,7 +100,7 @@ three months, not for external readers.
 
 ## Common Mistake: Documenting Before You're Done Iterating
 
-> ⚠️ Writing detailed documentation mid-build, before a feature has stabilized, means redoing the documentation every time the implementation shifts — a cost compounding with every change. This module sits at the end of Phase 3 specifically because the core system is now stable enough that documenting it won't immediately go stale.
+> ️ Writing detailed documentation mid-build, before a feature has stabilized, means redoing the documentation every time the implementation shifts — a cost compounding with every change. This module sits at the end of Phase 3 specifically because the core system is now stable enough that documenting it won't immediately go stale.
 
 ---
 

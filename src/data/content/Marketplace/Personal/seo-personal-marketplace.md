@@ -17,7 +17,7 @@ This isn't general SEO theory — it's the specific patterns that matter for a m
 
 ## Why Marketplace SEO Is Different
 
-> **🔑 Core rule:** most SEO advice is written for blogs and marketing sites with a handful of pages you write by hand. A marketplace has potentially thousands of pages, generated automatically from user content (listings) that you don't fully control the quality of. The technical foundation matters more here than content strategy.
+> ** Core rule:** most SEO advice is written for blogs and marketing sites with a handful of pages you write by hand. A marketplace has potentially thousands of pages, generated automatically from user content (listings) that you don't fully control the quality of. The technical foundation matters more here than content strategy.
 
 | Page type | SEO opportunity |
 |---|---|
@@ -30,9 +30,9 @@ This isn't general SEO theory — it's the specific patterns that matter for a m
 
 ## The Foundation: Server-Side Rendering or Static Generation
 
-> **⚠️ Warning:** If your listing pages are rendered entirely client-side (a React app that fetches data after the page loads with no content in the initial HTML), search engines may index an empty or incomplete page. This is the single most common SEO mistake in marketplace projects built with modern JS frameworks, and it silently undermines every other SEO effort in this module.
+> **️ Warning:** If your listing pages are rendered entirely client-side (a React app that fetches data after the page loads with no content in the initial HTML), search engines may index an empty or incomplete page. This is the single most common SEO mistake in marketplace projects built with modern JS frameworks, and it silently undermines every other SEO effort in this module.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Does viewing your listing page's source HTML (not the rendered DOM, the actual response) show the listing title, description, and price — or just an empty `<div id="root">`?
 > - [ ] If using React, are you using a framework with server-side rendering or static generation (Next.js, Remix) for listing pages specifically, even if other parts of the app are client-rendered?
 > - [ ] Test this directly: `curl` your own listing page URL and check whether the content is actually present in the response
@@ -46,7 +46,7 @@ curl -s https://yourapp.com/listings/some-listing-id | grep -i "listing title te
 
 ## Decision: Rendering Strategy for Listing Pages
 
-> **🧩 Decision Card — Rendering Approach**
+> ** Decision Card — Rendering Approach**
 >
 > **Option A: Full client-side rendering (CSR)**
 > Simplest to build if you're already deep into a client-rendered SPA, but genuinely risks poor indexing — don't choose this if SEO matters to your launch strategy.
@@ -87,7 +87,7 @@ Beyond having content in the HTML, structured data (Schema.org markup) tells sea
 </script>
 ```
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Does each listing page include `Product` structured data with name, price, and availability?
 > - [ ] Does `availability` correctly reflect your listing status (`InStock` for active, `OutOfStock` or removed entirely once `sold`)? A sold listing showing `InStock` in structured data is misleading and can hurt trust with search engines over time
 > - [ ] Is `aggregateRating` populated from your actual Reviews aggregate calculation, not hardcoded or omitted entirely when a seller has reviews?
@@ -96,7 +96,7 @@ Beyond having content in the HTML, structured data (Schema.org markup) tells sea
 
 ## URL Structure and Metadata
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Are listing URLs human-readable and descriptive (`/listings/vintage-leather-jacket-m-a1b2c3`), not just a raw ID (`/listings/a1b2c3d4e5f6`)? Descriptive slugs help both users and search engines understand the page before clicking
 > - [ ] Does each listing page have a unique `<title>` and meta description generated from the actual listing content, not a generic site-wide title repeated on every page?
 > - [ ] Do removed/sold listings either redirect cleanly or return a proper 404/410 status, rather than staying indexed and frustrating searchers who click through to a dead listing?
@@ -113,7 +113,7 @@ Beyond having content in the HTML, structured data (Schema.org markup) tells sea
 
 With potentially thousands of listing pages, you can't rely on search engines discovering them all through link-crawling alone — especially newly published listings.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Is there a dynamically generated `sitemap.xml` that includes all active listing URLs, regenerated as listings are created/removed?
 > - [ ] Does `robots.txt` correctly allow crawling of listing/search pages while excluding anything that shouldn't be indexed (user dashboards, message threads, checkout flows)?
 
@@ -138,13 +138,13 @@ router.get("/sitemap.xml", async (req, res) => {
 
 ## What to Deliberately Skip
 
-> **🚩 Common Hallucination:** AI SEO advice often recommends content marketing strategies (blog posts, link building campaigns) appropriate for marketing sites but largely irrelevant to a personal marketplace's actual SEO opportunity, which is overwhelmingly about technical indexability of your listing pages. Don't let blog-post suggestions distract from the rendering and structured-data fundamentals above — they're the actual leverage point.
+> ** Common Hallucination:** AI SEO advice often recommends content marketing strategies (blog posts, link building campaigns) appropriate for marketing sites but largely irrelevant to a personal marketplace's actual SEO opportunity, which is overwhelmingly about technical indexability of your listing pages. Don't let blog-post suggestions distract from the rendering and structured-data fundamentals above — they're the actual leverage point.
 
 ---
 
 ## AI Prompt: Audit and Fix Listing Page SEO
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Audit my marketplace listing page for SEO issues, focused on technical indexability,

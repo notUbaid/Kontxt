@@ -31,7 +31,7 @@ This module covers the screens a personal-mode marketplace actually needs, mappe
 | Dispute flag/status | Dispute Resolution's flow |
 | Profile (own + public view) | User Architecture's public vs. private fields |
 
-> 💡 **Tip:** Don't build screens for entities or actions you don't have yet. If there's no admin role beyond "you," don't build a full admin dashboard UI — Admin Panel, later in Phase 3, covers exactly how minimal that should be. Building ahead of need here is the same premature-scope trap flagged throughout Phase 2.
+>  **Tip:** Don't build screens for entities or actions you don't have yet. If there's no admin role beyond "you," don't build a full admin dashboard UI — Admin Panel, later in Phase 3, covers exactly how minimal that should be. Building ahead of need here is the same premature-scope trap flagged throughout Phase 2.
 
 ---
 
@@ -46,7 +46,7 @@ Every status field you built — Listing, Transaction — needs a corresponding,
 | Transaction: Payment Held | Explicitly state funds are held, and what triggers release — matches the Payments Architecture decision |
 | Transaction: Disputed | Visible to both parties, with the 48-hour expectation stated, per Marketplace Policies |
 
-> ⚠️ **Common mistake:** Building the happy-path UI thoroughly (browse, list, checkout) and treating "edge case" states like Rejected or Disputed as low priority, shown with generic or missing copy. These are exactly the moments a user's trust is most fragile — under-investing here undermines the careful Trust & Safety design from Phase 1.
+> ️ **Common mistake:** Building the happy-path UI thoroughly (browse, list, checkout) and treating "edge case" states like Rejected or Disputed as low priority, shown with generic or missing copy. These are exactly the moments a user's trust is most fragile — under-investing here undermines the careful Trust & Safety design from Phase 1.
 
 ---
 
@@ -58,7 +58,7 @@ These three states are listed as their own dedicated curriculum topics later in 
 - Every async action (checkout, sending a message, flagging a dispute) needs a loading state — an unresponsive button reads as broken, not busy
 - Every form needs inline validation errors tied to the specific field, not a generic banner
 
-> ✅ A buyer staring at a blank "browse" screen with zero listings, and no explanation, will assume the marketplace is broken or dead — directly undermining the Discovery stage of the Buyer Journey you designed in Phase 1.
+>  A buyer staring at a blank "browse" screen with zero listings, and no explanation, will assume the marketplace is broken or dead — directly undermining the Discovery stage of the Buyer Journey you designed in Phase 1.
 
 ---
 
@@ -104,7 +104,7 @@ hide UI elements for UX clarity only; the backend enforces real rules.
 
 ## Common Mistake: Re-Implementing Backend Logic in the Frontend
 
-> ⚠️ Calculating whether a user "should" be able to edit a listing using frontend-side logic that duplicates backend authorization rules creates two sources of truth that can drift out of sync. Let the backend's response (success, or a specific error) drive what the UI shows — don't have the frontend independently decide permissions and then separately call an API that re-checks them. One source of truth, always the backend.
+> ️ Calculating whether a user "should" be able to edit a listing using frontend-side logic that duplicates backend authorization rules creates two sources of truth that can drift out of sync. Let the backend's response (success, or a specific error) drive what the UI shows — don't have the frontend independently decide permissions and then separately call an API that re-checks them. One source of truth, always the backend.
 
 ---
 

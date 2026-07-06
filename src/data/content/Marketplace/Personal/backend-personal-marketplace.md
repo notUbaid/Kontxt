@@ -30,7 +30,7 @@ Architecture Fundamentals recommended a modular monolith organized by domain. Th
 /reviews      → creation (gated on transaction), retrieval
 ```
 
-> ✅ **Best practice:** Each domain folder should own its own authorization checks, status transition logic, and validation — not share a single global "permissions" file that every domain reaches into inconsistently. This is what makes the ownership/party-to-transaction pattern from Authorization actually maintainable as the app grows.
+>  **Best practice:** Each domain folder should own its own authorization checks, status transition logic, and validation — not share a single global "permissions" file that every domain reaches into inconsistently. This is what makes the ownership/party-to-transaction pattern from Authorization actually maintainable as the app grows.
 
 ---
 
@@ -46,7 +46,7 @@ This is the single most important pattern in your entire backend. Every endpoint
 4. Execute (perform the actual operation)
 ```
 
-> ⚠️ **Common mistake:** Writing business logic first and adding authorization checks as an afterthought, scattered wherever they're remembered. This ordering — auth, then authz, then validation, then execution — should be a habit applied identically across every endpoint, not something you reconstruct from memory each time. Inconsistent ordering is exactly how the authorization gaps flagged in the Authorization module get introduced at the code level.
+> ️ **Common mistake:** Writing business logic first and adding authorization checks as an afterthought, scattered wherever they're remembered. This ordering — auth, then authz, then validation, then execution — should be a habit applied identically across every endpoint, not something you reconstruct from memory each time. Inconsistent ordering is exactly how the authorization gaps flagged in the Authorization module get introduced at the code level.
 
 ---
 
@@ -60,7 +60,7 @@ Your status fields (Listing, Transaction) define valid states, but the database 
 | Transaction | Reject "Completed" status update unless payment confirmation actually succeeded |
 | Review | Reject creation unless a Completed transaction between these two specific users exists |
 
-> 💡 **Tip:** Write these guards as a single reusable "valid transitions" map per entity — current status → list of allowed next statuses — rather than scattered if-statements across different endpoints. This makes the state machine from Architecture Fundamentals enforceable in one place, and easy to audit.
+>  **Tip:** Write these guards as a single reusable "valid transitions" map per entity — current status → list of allowed next statuses — rather than scattered if-statements across different endpoints. This makes the state machine from Architecture Fundamentals enforceable in one place, and easy to audit.
 
 ---
 
@@ -68,11 +68,11 @@ Your status fields (Listing, Transaction) define valid states, but the database 
 
 Your Payments Architecture module flagged Stripe webhooks as non-optional. In backend implementation terms, this means:
 
-- [ ] A dedicated, unauthenticated (but signature-verified) webhook endpoint, separate from your normal authenticated API routes
-- [ ] Idempotency handling — the same webhook event arriving twice should not double-process (e.g. don't mark a transaction "Completed" twice, don't send duplicate notifications)
-- [ ] Webhook signature verification using Stripe's SDK, never trusting payload contents without it
+- A dedicated, unauthenticated (but signature-verified) webhook endpoint, separate from your normal authenticated API routes
+- Idempotency handling — the same webhook event arriving twice should not double-process (e.g. don't mark a transaction "Completed" twice, don't send duplicate notifications)
+- Webhook signature verification using Stripe's SDK, never trusting payload contents without it
 
-> ⚠️ Webhook endpoints are a common overlooked attack surface — they're necessarily unauthenticated in the normal sense (Stripe is calling you, not a logged-in user), which makes signature verification the entire security boundary. Skipping it means anyone could forge a "payment succeeded" event.
+> ️ Webhook endpoints are a common overlooked attack surface — they're necessarily unauthenticated in the normal sense (Stripe is calling you, not a logged-in user), which makes signature verification the entire security boundary. Skipping it means anyone could forge a "payment succeeded" event.
 
 ---
 
@@ -84,7 +84,7 @@ Your Payments Architecture module flagged Stripe webhooks as non-optional. In ba
 | Stack traces in API responses | Stack traces in your logs only |
 | Different error messages for "user doesn't exist" vs "wrong password" | Identical generic message for both — prevents account enumeration |
 
-> ✅ This last row matters more than it looks: distinguishing "no such user" from "wrong password" in your error responses lets an attacker enumerate which emails have accounts on your platform. A single generic "invalid credentials" message closes this off at near-zero cost.
+>  This last row matters more than it looks: distinguishing "no such user" from "wrong password" in your error responses lets an attacker enumerate which emails have accounts on your platform. A single generic "invalid credentials" message closes this off at near-zero cost.
 
 ---
 
@@ -114,7 +114,7 @@ inconsistent, and be specific about what's missing.
 
 ## Common Mistake: Treating the Backend as "Just CRUD"
 
-> ⚠️ A marketplace backend is not generic CRUD with extra steps. The authorization complexity from the two-sided nature of every transaction (flagged repeatedly since Architecture Fundamentals) means almost no endpoint here is a simple "fetch and return" — nearly all of them need a real authorization decision first. Treating this as routine CRUD work is how authorization gets shortchanged under time pressure.
+> ️ A marketplace backend is not generic CRUD with extra steps. The authorization complexity from the two-sided nature of every transaction (flagged repeatedly since Architecture Fundamentals) means almost no endpoint here is a simple "fetch and return" — nearly all of them need a real authorization decision first. Treating this as routine CRUD work is how authorization gets shortchanged under time pressure.
 
 ---
 

@@ -100,11 +100,11 @@ Use this to settle disagreements quickly rather than debating at length:
 
 Once chosen, write it down somewhere the whole team can see — a pinned message, a README header, a shared doc. This prevents the costly mid-hackathon moment where one teammate starts building in a different framework than the rest of the team assumed.
 
-- [ ] Frontend/fullstack framework: ___________
-- [ ] Database: ___________
-- [ ] Auth approach: ___________ (or "role switcher, no real auth")
-- [ ] Hosting: ___________
-- [ ] Decision shared with full team, no ambiguity remaining
+- Frontend/fullstack framework: ___________
+- Database: ___________
+- Auth approach: ___________ (or "role switcher, no real auth")
+- Hosting: ___________
+- Decision shared with full team, no ambiguity remaining
 
 ---
 
@@ -112,7 +112,7 @@ Once chosen, write it down somewhere the whole team can see — a pinned message
 
 Use AI to finalize the stack decision quickly if your team is genuinely undecided, and to scaffold the initial setup the moment it's locked.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 My team is deciding our hackathon marketplace tech stack.
@@ -129,18 +129,18 @@ Recommend a single, specific stack (frontend/fullstack framework, database, host
 
 ## Validating the Output
 
-- [ ] Does the chosen stack match what your team already knows, not what's newest or most impressive?
-- [ ] Is it a single monolithic setup, with no unnecessary service separation?
-- [ ] Has the decision been written down and shared with the whole team, with zero ambiguity?
-- [ ] Can you scaffold a working "hello world" in this stack within the next hour?
+- Does the chosen stack match what your team already knows, not what's newest or most impressive?
+- Is it a single monolithic setup, with no unnecessary service separation?
+- Has the decision been written down and shared with the whole team, with zero ambiguity?
+- Can you scaffold a working "hello world" in this stack within the next hour?
 
 ---
 
 ## Before You Continue
 
-- [ ] Stack finalized across all five components (frontend/fullstack, database, auth, hosting) — no open questions remaining
-- [ ] Decision based on team familiarity, not novelty or impressiveness
-- [ ] Decision documented and visible to the whole team
-- [ ] Initial project scaffolded and ready for Phase 3 development to begin
+- Stack finalized across all five components (frontend/fullstack, database, auth, hosting) — no open questions remaining
+- Decision based on team familiarity, not novelty or impressiveness
+- Decision documented and visible to the whole team
+- Initial project scaffolded and ready for Phase 3 development to begin
 
 **Next up — Phase 3, Development:** Auth Implementation — turning your Authentication decision into working code.

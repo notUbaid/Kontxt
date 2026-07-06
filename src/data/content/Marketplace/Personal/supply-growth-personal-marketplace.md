@@ -25,7 +25,7 @@ Undifferentiated supply growth — just "more sellers" — can make a liquidity 
 | Which categories have lots of listings but low sell-through rate? | Where adding more supply would just add more unsold inventory |
 | Are existing sellers' items selling reasonably well, or sitting unsold? | Whether your existing supply quality is the actual constraint, not quantity |
 
-> **⚠️ Warning:** Growing total seller count without checking category-level demand can make your marketplace look more active while actually making it worse — buyers see more unsold, stale listings cluttering search results, which erodes trust in exactly the categories you most need to look credible.
+> **️ Warning:** Growing total seller count without checking category-level demand can make your marketplace look more active while actually making it worse — buyers see more unsold, stale listings cluttering search results, which erodes trust in exactly the categories you most need to look credible.
 
 ## Decision: Which Supply Growth Lever to Pull
 
@@ -36,24 +36,24 @@ Undifferentiated supply growth — just "more sellers" — can make a liquidity 
 | Incentivize first listings (reduced fees, featured placement for new sellers) | Activating sellers who signed up but never listed | Can attract low-commitment sellers chasing the incentive alone |
 | Outbound recruitment from adjacent platforms/communities | Cold-starting a specific category from zero | Highest effort per seller acquired, but most targeted |
 
-> **✅ Best Practice:** For a personal project, manually recruiting a handful of strong sellers in your most underserved, highest-demand category usually beats a broad incentive program. A handful of good sellers who buyers can actually find and trust does more for liquidity than a larger number of low-quality or mismatched listings.
+> ** Best Practice:** For a personal project, manually recruiting a handful of strong sellers in your most underserved, highest-demand category usually beats a broad incentive program. A handful of good sellers who buyers can actually find and trust does more for liquidity than a larger number of low-quality or mismatched listings.
 
 ## The Highest-Leverage Move: Reduce Friction for Sellers Already Inside
 
 People who already trust you enough to create one listing are your cheapest source of more supply — easier to convert than a stranger you have to recruit from scratch.
 
-- [ ] How many clicks/fields does relisting a similar item require, compared to the first listing?
-- [ ] Do sellers get a clear, specific nudge when it's a good time to list again (item sold, similar items trending)?
-- [ ] Is there friction in the payout or fee structure that makes a seller hesitate before listing more?
+- How many clicks/fields does relisting a similar item require, compared to the first listing?
+- Do sellers get a clear, specific nudge when it's a good time to list again (item sold, similar items trending)?
+- Is there friction in the payout or fee structure that makes a seller hesitate before listing more?
 
-> **💡 Tip:** This connects directly back to the Retention module — if you diagnosed seller relisting friction as a leak there, fixing it serves both retention and supply growth simultaneously. Don't treat them as separate projects if the root cause and the fix are the same.
+> ** Tip:** This connects directly back to the Retention module — if you diagnosed seller relisting friction as a leak there, fixing it serves both retention and supply growth simultaneously. Don't treat them as separate projects if the root cause and the fix are the same.
 
 ## Seller Quality vs Seller Quantity
 
-> **⚠️ Warning:** A surge of low-quality, low-trust new sellers can actively hurt your marketplace — buyers who have one bad experience with a low-quality seller may not give the platform a second chance, even if most sellers are good. Growing supply without any quality bar trades short-term listing-count growth for long-term buyer trust, which is a bad trade for a marketplace specifically, where trust is the product.
+> **️ Warning:** A surge of low-quality, low-trust new sellers can actively hurt your marketplace — buyers who have one bad experience with a low-quality seller may not give the platform a second chance, even if most sellers are good. Growing supply without any quality bar trades short-term listing-count growth for long-term buyer trust, which is a bad trade for a marketplace specifically, where trust is the product.
 
-- [ ] Define a minimal quality bar for new sellers (clear photos, complete descriptions) even if enforcement is light at small scale
-- [ ] Watch early review/rating signals on new sellers closely — this is your earliest warning of a quality problem before it affects broader trust
+- Define a minimal quality bar for new sellers (clear photos, complete descriptions) even if enforcement is light at small scale
+- Watch early review/rating signals on new sellers closely — this is your earliest warning of a quality problem before it affects broader trust
 
 ## Use AI to Find Your Specific Supply Gap
 
@@ -73,14 +73,14 @@ Identify:
    or friction reduction for existing sellers?
 ```
 
-> **💡 Token Efficiency:** Provide category-level data, even rough estimates, rather than asking generically about supply growth — undifferentiated supply advice ("partner with influencers," "run ads") is far less useful than a targeted answer about your specific demand/supply mismatch.
+> ** Token Efficiency:** Provide category-level data, even rough estimates, rather than asking generically about supply growth — undifferentiated supply advice ("partner with influencers," "run ads") is far less useful than a targeted answer about your specific demand/supply mismatch.
 
 ## Validate Before Investing in Supply Growth
 
-- [ ] You know which specific category has the clearest supply gap relative to demand, not just "we need more sellers overall"
-- [ ] You've distinguished a quantity gap from a quality/sell-through gap in that category
-- [ ] Relisting friction for existing sellers has been addressed before investing heavily in new seller acquisition
-- [ ] A minimal quality bar exists for new sellers, even if lightly enforced
+- You know which specific category has the clearest supply gap relative to demand, not just "we need more sellers overall"
+- You've distinguished a quantity gap from a quality/sell-through gap in that category
+- Relisting friction for existing sellers has been addressed before investing heavily in new seller acquisition
+- A minimal quality bar exists for new sellers, even if lightly enforced
 
 ## Common Mistakes
 

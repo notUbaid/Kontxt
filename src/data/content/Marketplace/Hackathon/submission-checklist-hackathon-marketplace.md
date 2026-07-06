@@ -90,20 +90,20 @@ This is enough. A long architecture write-up belongs in a separate `/docs` file 
 
 Many hackathon platforms require a short video regardless of live judging — as a backup if live demos fall through, or for asynchronous review.
 
-- [ ] **Length matches the platform's stated limit** — going over often gets auto-cut or rejected by the upload tool
-- [ ] **Recorded in the actual format requested** (some require unlisted YouTube links specifically, not raw file uploads)
-- [ ] **Captures the same script from the Demo Script module** — don't improvise a different, untested version for the video
-- [ ] **Audio is audible** — test with headphones, not just laptop speakers, before calling it done
+- **Length matches the platform's stated limit** — going over often gets auto-cut or rejected by the upload tool
+- **Recorded in the actual format requested** (some require unlisted YouTube links specifically, not raw file uploads)
+- **Captures the same script from the Demo Script module** — don't improvise a different, untested version for the video
+- **Audio is audible** — test with headphones, not just laptop speakers, before calling it done
 
 ---
 
 ## Submission Form Details
 
-- [ ] **Every required field filled**, none left as placeholder or "TBD"
-- [ ] **Project name matches across deck, repo, and submission form** — inconsistent naming reads as sloppy and can confuse judges scanning a long list of projects
-- [ ] **Category/track selected correctly** if the hackathon has multiple tracks — submitting to the wrong track can mean judges in the right category never see it
-- [ ] **All team members listed with correct names/emails** — affects individual credit and any post-event communication
-- [ ] **Links open without requiring a login or special permission** — double-check Google Drive/Docs links are set to "anyone with the link"
+- **Every required field filled**, none left as placeholder or "TBD"
+- **Project name matches across deck, repo, and submission form** — inconsistent naming reads as sloppy and can confuse judges scanning a long list of projects
+- **Category/track selected correctly** if the hackathon has multiple tracks — submitting to the wrong track can mean judges in the right category never see it
+- **All team members listed with correct names/emails** — affects individual credit and any post-event communication
+- **Links open without requiring a login or special permission** — double-check Google Drive/Docs links are set to "anyone with the link"
 
 ---
 
@@ -146,8 +146,8 @@ to verify before I submit.
 
 ## Validating What AI Generates
 
-- [ ] **Don't blindly trust an AI "looks good" on your README** — actually run the install steps yourself, since AI reviews text plausibility, not whether the commands work in your specific environment
-- [ ] **Confirm any AI-suggested checklist matches your specific hackathon's actual submission requirements** — generic advice can miss a platform-specific quirk (a required field, a specific video host) that only your hackathon's rules page has
+- **Don't blindly trust an AI "looks good" on your README** — actually run the install steps yourself, since AI reviews text plausibility, not whether the commands work in your specific environment
+- **Confirm any AI-suggested checklist matches your specific hackathon's actual submission requirements** — generic advice can miss a platform-specific quirk (a required field, a specific video host) that only your hackathon's rules page has
 
 ---
 

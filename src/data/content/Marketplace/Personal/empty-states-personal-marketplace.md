@@ -93,9 +93,9 @@ and an optional primary action button. Should work for both the
 
 ## Validating What AI Generates
 
-- [ ] **Confirm copy distinguishes "nothing exists" from "no results found"** — AI sometimes generates one generic message reused everywhere, which loses the distinction that matters most here
-- [ ] **Check tone matches your marketplace's actual voice** — generated copy can default to overly cheerful or generic startup language; adjust to fit how you'd actually talk to your specific niche's users
-- [ ] **Verify the component actually uses your design tokens**, not new colors or spacing introduced during generation — same check as the Design System module, worth repeating here
+- **Confirm copy distinguishes "nothing exists" from "no results found"** — AI sometimes generates one generic message reused everywhere, which loses the distinction that matters most here
+- **Check tone matches your marketplace's actual voice** — generated copy can default to overly cheerful or generic startup language; adjust to fit how you'd actually talk to your specific niche's users
+- **Verify the component actually uses your design tokens**, not new colors or spacing introduced during generation — same check as the Design System module, worth repeating here
 
 ---
 

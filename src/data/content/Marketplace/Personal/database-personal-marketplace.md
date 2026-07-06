@@ -29,7 +29,7 @@ This is implementation, not new design. If you find yourself making a genuinely 
 | Message | Messaging System | Belongs to Thread, sender (User) |
 | Review | Reviews & Ratings | References Transaction, reviewer (User), reviewee (User) |
 
-> 💡 **Tip:** This table is your literal entity-relationship diagram in words. Before writing migrations, draw this out visually — even a rough sketch — and check it against every "depends on" arrow from your Architecture Fundamentals module. A consolidated schema is where missing foreign keys get caught cheaply, before they're caught by a production bug.
+>  **Tip:** This table is your literal entity-relationship diagram in words. Before writing migrations, draw this out visually — even a rough sketch — and check it against every "depends on" arrow from your Architecture Fundamentals module. A consolidated schema is where missing foreign keys get caught cheaply, before they're caught by a production bug.
 
 ---
 
@@ -37,11 +37,11 @@ This is implementation, not new design. If you find yourself making a genuinely 
 
 Architecture Fundamentals argued for explicit status fields over scattered booleans. Across five modules of design, verify that discipline was actually applied consistently — this is exactly the kind of thing that drifts when decisions are made in separate sessions.
 
-- [ ] Listing: single `status` field (Draft, Pending Approval, Active, Sold/Completed, Rejected, Removed) — not separate booleans
-- [ ] Transaction: single `status` field (Initiated, Payment Held, Completed, Disputed, Resolved-*) — not separate booleans
-- [ ] User: single `account_status` field (Active, Suspended, Banned) — not separate booleans
+- Listing: single `status` field (Draft, Pending Approval, Active, Sold/Completed, Rejected, Removed) — not separate booleans
+- Transaction: single `status` field (Initiated, Payment Held, Completed, Disputed, Resolved-*) — not separate booleans
+- User: single `account_status` field (Active, Suspended, Banned) — not separate booleans
 
-> ⚠️ **Common mistake:** Discovering at this stage that one entity quietly became boolean-based while you were focused on a different module's logic. Fix this now, in the schema, before any code is written against it — migrating away from booleans after the application layer exists is significantly more painful.
+> ️ **Common mistake:** Discovering at this stage that one entity quietly became boolean-based while you were focused on a different module's logic. Fix this now, in the schema, before any code is written against it — migrating away from booleans after the application layer exists is significantly more painful.
 
 ---
 
@@ -57,7 +57,7 @@ Every "soft delete, not hard delete" decision from earlier modules depends on yo
 | Review.transaction_id → Transaction.id | Required — enforces the "must have transacted" rule from Reviews & Ratings |
 | Message.thread_id → Thread.id | Required |
 
-> ✅ **Best practice:** Enforce these as actual database-level foreign key constraints, not just application-level checks. Application code has bugs; database constraints don't have exceptions. This is your last line of defense against the exact orphaned-record problems that "soft delete" was designed to prevent.
+>  **Best practice:** Enforce these as actual database-level foreign key constraints, not just application-level checks. Application code has bugs; database constraints don't have exceptions. This is your last line of defense against the exact orphaned-record problems that "soft delete" was designed to prevent.
 
 ---
 
@@ -65,16 +65,16 @@ Every "soft delete, not hard delete" decision from earlier modules depends on yo
 
 You already decided most of these individually. This is the checklist that confirms none were missed in implementation.
 
-- [ ] Listing: full-text index on title+description, standard index on category, status, price (per Search Architecture)
-- [ ] Transaction: index on buyer_id, seller_id, status (for "my transactions" queries and the disputed-past-48h check)
-- [ ] Thread: index on buyer_id, seller_id (for "my conversations" queries)
-- [ ] User: unique index on email/identity field
+- Listing: full-text index on title+description, standard index on category, status, price (per Search Architecture)
+- Transaction: index on buyer_id, seller_id, status (for "my transactions" queries and the disputed-past-48h check)
+- Thread: index on buyer_id, seller_id (for "my conversations" queries)
+- User: unique index on email/identity field
 
 ---
 
 ## Migrations: Write Them as You Go, Not All at Once
 
-> ⚠️ Don't write one giant initial migration covering every entity and call it done. Build incrementally — User and auth first (matching your build order from Auth Implementation), then Listing, then Transaction, and so on. This mirrors your actual development order and means each migration is small enough to actually review before running it against real data.
+> ️ Don't write one giant initial migration covering every entity and call it done. Build incrementally — User and auth first (matching your build order from Auth Implementation), then Listing, then Transaction, and so on. This mirrors your actual development order and means each migration is small enough to actually review before running it against real data.
 
 ---
 
@@ -108,7 +108,7 @@ status that's only sometimes explicit, a missing foreign key.
 
 ## Common Mistake: Skipping the Consolidation Step Entirely
 
-> ⚠️ Going straight from individual module decisions to scattered migrations, written as each feature is built in isolation, is how cross-entity inconsistencies survive into production. The five minutes spent reviewing the consolidated table above, before writing any migration, is the cheapest bug prevention in this entire phase.
+> ️ Going straight from individual module decisions to scattered migrations, written as each feature is built in isolation, is how cross-entity inconsistencies survive into production. The five minutes spent reviewing the consolidated table above, before writing any migration, is the cheapest bug prevention in this entire phase.
 
 ---
 

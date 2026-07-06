@@ -31,7 +31,7 @@ Forget complex role-based permission systems for now. Most marketplace authoriza
 | Review | Anyone (once published) | Only the author, and only before publishing if you allow drafts |
 | User profile | Anyone (public fields only) | Only the account owner |
 
-> ✅ **Best practice:** Write this as a single reusable check — "is current_user_id one of [owner_id] or [party_ids] for this record" — and apply it consistently, rather than writing custom permission logic per feature. Inconsistent authorization logic across different parts of your app is one of the most common sources of real security bugs in solo-built marketplaces.
+>  **Best practice:** Write this as a single reusable check — "is current_user_id one of [owner_id] or [party_ids] for this record" — and apply it consistently, rather than writing custom permission logic per feature. Inconsistent authorization logic across different parts of your app is one of the most common sources of real security bugs in solo-built marketplaces.
 
 ---
 
@@ -45,7 +45,7 @@ Before any ownership/party check even runs, account status (from User Architectu
 | Suspended | Yes | No | No | No |
 | Banned | No (cannot log in) | No | No | No |
 
-> ⚠️ **Common mistake:** Implementing account status as a field that exists but isn't actually checked everywhere it should be. A suspended seller who can still technically create a listing because the listing-creation code path never checks account status isn't a documentation gap — it's a real bypass of your Trust & Safety enforcement ladder. Every action listed in your Marketplace Policies enforcement section needs a corresponding status check in code, not just in the schema.
+> ️ **Common mistake:** Implementing account status as a field that exists but isn't actually checked everywhere it should be. A suspended seller who can still technically create a listing because the listing-creation code path never checks account status isn't a documentation gap — it's a real bypass of your Trust & Safety enforcement ladder. Every action listed in your Marketplace Policies enforcement section needs a corresponding status check in code, not just in the schema.
 
 ---
 
@@ -60,7 +60,7 @@ This connects directly to the approval model you chose in Marketplace Policies. 
 | Active | Yes | Yes | Yes |
 | Removed | No | Yes (with reason shown) | Yes |
 
-> 💡 If your approval model from Phase 1 was pre-approval, this table is non-negotiable — a pending listing leaking into public search results defeats the entire point of manual review.
+>  If your approval model from Phase 1 was pre-approval, this table is non-negotiable — a pending listing leaking into public search results defeats the entire point of manual review.
 
 ---
 
@@ -72,7 +72,7 @@ Echoing the point from Authentication: at personal-mode scale, "admin" isn't a r
 
 ## Where to Enforce Authorization: Never Just the Frontend
 
-> ⚠️ **This is a hard rule, not a preference:** every authorization check must exist on the backend, regardless of what the frontend hides or disables. Hiding an "edit" button for non-owners is a UX nicety — it is not security. Anyone can call your API directly, bypassing your UI entirely. If the backend doesn't independently verify the user is the listing owner before processing an edit, your authorization doesn't actually exist, no matter how the frontend looks.
+> ️ **This is a hard rule, not a preference:** every authorization check must exist on the backend, regardless of what the frontend hides or disables. Hiding an "edit" button for non-owners is a UX nicety — it is not security. Anyone can call your API directly, bypassing your UI entirely. If the backend doesn't independently verify the user is the listing owner before processing an edit, your authorization doesn't actually exist, no matter how the frontend looks.
 
 ---
 
@@ -103,7 +103,7 @@ gaps, don't soften findings.
 
 ## Common Mistake: Role-Based Permissions Before You Need Them
 
-> ⚠️ Granular role-based access control (RBAC) with custom permission sets is solving a problem you don't have yet — multiple admin-tier users with different responsibilities. At personal-mode scale, the ownership/party-to-transaction pattern above covers nearly everything. Add RBAC complexity only when a second person actually needs admin-level access with boundaries.
+> ️ Granular role-based access control (RBAC) with custom permission sets is solving a problem you don't have yet — multiple admin-tier users with different responsibilities. At personal-mode scale, the ownership/party-to-transaction pattern above covers nearly everything. Add RBAC complexity only when a second person actually needs admin-level access with boundaries.
 
 ---
 

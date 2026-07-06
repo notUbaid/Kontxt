@@ -92,7 +92,7 @@ Use this as a sanity check against your own concept, not a menu to pick from bli
 
 Use AI to stress-test your one-sentence definition against the dimensions above, and to catch scope creep before it costs you build time.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 My marketplace concept, in one sentence: "[your sentence using the buyer/transaction/exchange/scope format above]"
@@ -109,18 +109,18 @@ Give me a tightened version of my one-sentence definition if you see a way to re
 
 ## Validating the Output
 
-- [ ] Can you state your marketplace type in one sentence, with no hedging or "sort of like X but Y"?
-- [ ] Is your transaction model the simplest one that still serves the concept?
-- [ ] Is your scope narrow enough that a realistic amount of seeded demo data will feel complete, not sparse?
-- [ ] Does your curation model avoid requiring real moderation workflow you don't have time to build?
+- Can you state your marketplace type in one sentence, with no hedging or "sort of like X but Y"?
+- Is your transaction model the simplest one that still serves the concept?
+- Is your scope narrow enough that a realistic amount of seeded demo data will feel complete, not sparse?
+- Does your curation model avoid requiring real moderation workflow you don't have time to build?
 
 ---
 
 ## Before You Continue
 
-- [ ] One-sentence marketplace definition written and tested against the buyer/transaction/exchange/scope format
-- [ ] Transaction model chosen, with complexity risk consciously accepted or avoided
-- [ ] Scope narrowed enough to demo convincingly with a small dataset
-- [ ] Curation approach decided, faked with UI/copy if full workflow isn't justified
+- One-sentence marketplace definition written and tested against the buyer/transaction/exchange/scope format
+- Transaction model chosen, with complexity risk consciously accepted or avoided
+- Scope narrowed enough to demo convincingly with a small dataset
+- Curation approach decided, faked with UI/copy if full workflow isn't justified
 
 **Next up:** MVP Scope — turning this definition into the specific, minimal feature set you'll actually build before the clock runs out.

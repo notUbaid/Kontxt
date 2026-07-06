@@ -17,7 +17,7 @@ This module isn't legal advice (you'll see that disclaimer again below, delibera
 
 ## Why This Can't Just Be a Generic Template
 
-> **⚠️ Warning:** A privacy policy that doesn't match what your app actually does is worse than no policy at all — it's a binding statement you can be held to, and a mismatch (e.g. claiming you don't share data with third parties when your payment processor clearly receives it) is a real liability, not just an oversight.
+> **️ Warning:** A privacy policy that doesn't match what your app actually does is worse than no policy at all — it's a binding statement you can be held to, and a mismatch (e.g. claiming you don't share data with third parties when your payment processor clearly receives it) is a real liability, not just an oversight.
 
 Your marketplace has specific data flows a generic template won't capture correctly:
 
@@ -30,7 +30,7 @@ Your marketplace has specific data flows a generic template won't capture correc
 
 ## What a Marketplace Privacy Policy Actually Needs to Cover
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] **What data you collect** — account info, listing content, messages, payment metadata (not full card numbers — your processor handles those), IP addresses logged for security/abuse purposes
 > - [ ] **Why you collect it** — tie each category to an actual purpose (fraud prevention, enabling transactions, platform safety) rather than vague language
 > - [ ] **Who you share it with** — your payment processor, your hosting/database provider, your error tracking service (Sentry sees real user data when exceptions are captured — this is genuinely worth disclosing)
@@ -42,7 +42,7 @@ Your marketplace has specific data flows a generic template won't capture correc
 
 ## Decision: Building vs. Buying Your Policy
 
-> **🧩 Decision Card — Privacy Policy Approach**
+> ** Decision Card — Privacy Policy Approach**
 >
 > **Option A: Generic free template, lightly edited**
 > Fast, but risks the mismatch problem above — generic templates often claim practices (or omissions) that don't match what you built.
@@ -59,9 +59,9 @@ Your marketplace has specific data flows a generic template won't capture correc
 
 ## Data You Should NOT Be Collecting (If You Are, Fix the Code First)
 
-> **🚩 Common Hallucination:** AI sometimes drafts a privacy policy that *describes* careful data handling your code doesn't actually implement — e.g. claiming "we never store full payment details" while your code does exactly that. Before finalizing your policy, re-verify against the Security and Payments modules: confirm card numbers genuinely never touch your database, confirm passwords are hashed not stored plaintext, confirm message bodies aren't logged in full (per the Logging module).
+> ** Common Hallucination:** AI sometimes drafts a privacy policy that *describes* careful data handling your code doesn't actually implement — e.g. claiming "we never store full payment details" while your code does exactly that. Before finalizing your policy, re-verify against the Security and Payments modules: confirm card numbers genuinely never touch your database, confirm passwords are hashed not stored plaintext, confirm message bodies aren't logged in full (per the Logging module).
 
-> **✅ Validation Checklist — Verify before writing the policy, don't just write the policy**
+> ** Validation Checklist — Verify before writing the policy, don't just write the policy**
 > - [ ] No full payment card numbers in your database (your processor should handle this entirely)
 > - [ ] Passwords are hashed (bcrypt/argon2), never stored or logged in plaintext
 > - [ ] Message content isn't logged in full anywhere (per Logging module's rules)
@@ -71,7 +71,7 @@ Your marketplace has specific data flows a generic template won't capture correc
 
 ## Jurisdiction: Know What Applies to You
 
-> **🔑 Core rule:** you don't need to comply with every privacy law globally on day one, but you do need to know which ones plausibly apply, based on where your users actually are.
+> ** Core rule:** you don't need to comply with every privacy law globally on day one, but you do need to know which ones plausibly apply, based on where your users actually are.
 
 | Law | Applies if | What it generally requires |
 |---|---|---|
@@ -85,7 +85,7 @@ This table is a starting orientation, not a compliance checklist — actual appl
 
 ## AI Prompt: Draft a Policy Matching Your Actual App
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Draft a privacy policy for my personal marketplace project, based on what it actually

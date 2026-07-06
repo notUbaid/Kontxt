@@ -32,16 +32,16 @@ Generic apps get slow from generic causes. Marketplaces have a predictable shape
 
 This is the single most common performance bug in marketplace listing pages, and AI-generated code produces it constantly because it looks correct.
 
-> **🚩 Common Hallucination:** AI will often generate code that fetches listings, then loops over them fetching seller data and rating per listing — looking clean in isolation, but producing 1 + N database queries for a page of N listings. At 20 listings per page, that's 21 queries where 1-2 would do.
+> ** Common Hallucination:** AI will often generate code that fetches listings, then loops over them fetching seller data and rating per listing — looking clean in isolation, but producing 1 + N database queries for a page of N listings. At 20 listings per page, that's 21 queries where 1-2 would do.
 
 ```js
-// ❌ N+1: one query per listing
+//  N+1: one query per listing
 const listings = await db.listing.findMany({ where: { status: "active" } });
 for (const listing of listings) {
   listing.seller = await db.user.findUnique({ where: { id: listing.sellerId } });
 }
 
-// ✅ One query, joined
+//  One query, joined
 const listings = await db.listing.findMany({
   where: { status: "active" },
   include: {
@@ -50,7 +50,7 @@ const listings = await db.listing.findMany({
 });
 ```
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Does the listing browse/search query use a single `include`/join, not a loop with per-row fetches?
 > - [ ] Does the seller rating calculation (from the Reviews module) get batched, not computed per-listing in a loop?
 > - [ ] If you display "X messages" or "X active listings" counts anywhere in a list, are those counts batched too?
@@ -59,7 +59,7 @@ const listings = await db.listing.findMany({
 
 ## Decision: Indexing Strategy
 
-> **🧩 Decision Card — Database Indexes**
+> ** Decision Card — Database Indexes**
 >
 > **Option A: Index everything that's filterable**
 > Covers every query path, but slows down writes and bloats storage — wasteful for fields rarely filtered on.
@@ -81,7 +81,7 @@ model Listing {
 }
 ```
 
-> **🔑 Rule of thumb:** if a field appears in a `WHERE` or `ORDER BY` clause on a frequently-hit query, it needs an index. If it only ever appears in a `SELECT`, it doesn't.
+> ** Rule of thumb:** if a field appears in a `WHERE` or `ORDER BY` clause on a frequently-hit query, it needs an index. If it only ever appears in a `SELECT`, it doesn't.
 
 ---
 
@@ -89,7 +89,7 @@ model Listing {
 
 Listing photos are almost always the largest payload on your highest-traffic pages (browse, search results). This is the highest-leverage performance fix available to you, and it's cheap.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Are uploaded images resized/compressed before storage, or stored at original upload size?
 > - [ ] Does the listing grid use a thumbnail size, not the full-resolution image?
 > - [ ] Are images served via a CDN or platform with automatic optimization (most storage providers like Cloudinary, S3+CloudFront, or even Vercel's image handling do this), rather than served raw from your own server?
@@ -130,13 +130,13 @@ Respecting your time matters as much as respecting the server's. Skip these at p
 - **Read replicas / database sharding** — solves a scale problem you don't have yet
 - **Server-side rendering optimization** — only chase this if you've actually measured slow page loads, not preemptively
 
-> **⚠️ Warning:** The most common performance mistake in personal projects isn't being too slow — it's spending a weekend building caching infrastructure for a problem that pagination and an index would have solved in twenty minutes.
+> **️ Warning:** The most common performance mistake in personal projects isn't being too slow — it's spending a weekend building caching infrastructure for a problem that pagination and an index would have solved in twenty minutes.
 
 ---
 
 ## AI Prompt: Find N+1 Queries
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Review this code for N+1 query patterns and missing indexes. This is a personal

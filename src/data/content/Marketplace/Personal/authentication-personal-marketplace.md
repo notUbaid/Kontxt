@@ -26,13 +26,13 @@ This is the first real architecture decision of Phase 2, and it shapes your data
 | **Single account, dual role** | One user account, a flag or relation marking "can sell" | Most peer-to-peer marketplaces — same person often buys and sells |
 | **Separate buyer/seller accounts** | Two distinct account types, no overlap | Marketplaces where buyers and sellers are genuinely different populations (e.g. B2B supply vs. retail buyers) |
 
-> ✅ **Best practice for personal mode:** Default to single account, dual role, unless your niche has a clear reason buyers and sellers are different people entirely. It's simpler to build, simpler to reason about, and matches how most peer-to-peer marketplaces actually behave — someone selling today may want to buy tomorrow.
+>  **Best practice for personal mode:** Default to single account, dual role, unless your niche has a clear reason buyers and sellers are different people entirely. It's simpler to build, simpler to reason about, and matches how most peer-to-peer marketplaces actually behave — someone selling today may want to buy tomorrow.
 
 ---
 
 ## Don't Hand-Roll This
 
-> ⚠️ Building your own password hashing, session management, and token refresh logic is one of the most common ways solo builders introduce a critical security flaw into an otherwise solid project. Auth bugs aren't like UI bugs — they're invisible until someone exploits them. Use a managed auth provider. This isn't a "best practices" suggestion, it's a hard rule for a project without a dedicated security review.
+> ️ Building your own password hashing, session management, and token refresh logic is one of the most common ways solo builders introduce a critical security flaw into an otherwise solid project. Auth bugs aren't like UI bugs — they're invisible until someone exploits them. Use a managed auth provider. This isn't a "best practices" suggestion, it's a hard rule for a project without a dedicated security review.
 
 | You Build Custom Auth | You Use Managed Auth |
 |---|---|
@@ -46,13 +46,13 @@ This is the first real architecture decision of Phase 2, and it shapes your data
 
 Regardless of single- or dual-role, your user record needs to support the trust mechanisms you designed in Phase 1. Build these fields now, not as an afterthought.
 
-- [ ] Unique identity (email or phone, verified)
-- [ ] Profile completeness fields (the ones your Buyer Journey module identified as minimum credibility signals)
-- [ ] A role/permission marker (buyer, seller, or both — per your decision above)
-- [ ] Account status (active, suspended, banned — needed for your Trust & Safety enforcement ladder)
-- [ ] Created/joined date (you used "join date" as a trust signal in Phase 1 — make sure it's captured)
+- Unique identity (email or phone, verified)
+- Profile completeness fields (the ones your Buyer Journey module identified as minimum credibility signals)
+- A role/permission marker (buyer, seller, or both — per your decision above)
+- Account status (active, suspended, banned — needed for your Trust & Safety enforcement ladder)
+- Created/joined date (you used "join date" as a trust signal in Phase 1 — make sure it's captured)
 
-> 💡 **Tip:** Account status as a first-class field, not an afterthought, is what makes your Trust & Safety enforcement ladder ("warning → listing removal → ban") actually executable. If banning someone means manually deleting their account, you've made enforcement painful enough that you'll avoid doing it.
+>  **Tip:** Account status as a first-class field, not an afterthought, is what makes your Trust & Safety enforcement ladder ("warning → listing removal → ban") actually executable. If banning someone means manually deleting their account, you've made enforcement painful enough that you'll avoid doing it.
 
 ---
 
@@ -66,7 +66,7 @@ Social login (Google, etc.) reduces signup friction, which matters for the cold-
 | Email/password + one social provider | Slightly more setup, meaningfully lower signup friction |
 | Multiple social providers | Diminishing returns at personal-mode scale — pick one well-known provider, not three |
 
-> ✅ Add one social login option if your managed auth provider makes it nearly free to add (most do). Don't treat it as a v2 feature — friction reduction matters most when you have the fewest users to lose.
+>  Add one social login option if your managed auth provider makes it nearly free to add (most do). Don't treat it as a v2 feature — friction reduction matters most when you have the fewest users to lose.
 
 ---
 
@@ -102,7 +102,7 @@ enterprise auth system.
 
 ## Common Mistake: Designing Roles You Don't Need Yet
 
-> ⚠️ It's tempting to add an "admin" role, a "moderator" role, and granular permissions now because "production" marketplaces have them. At personal-mode scale, you are the admin and the moderator — there's no one else to assign that role to. Add a real admin role when you have a second person who needs one, not before. Over-modeling roles now adds complexity to every query you write for the rest of the build.
+> ️ It's tempting to add an "admin" role, a "moderator" role, and granular permissions now because "production" marketplaces have them. At personal-mode scale, you are the admin and the moderator — there's no one else to assign that role to. Add a real admin role when you have a second person who needs one, not before. Over-modeling roles now adds complexity to every query you write for the rest of the build.
 
 ---
 

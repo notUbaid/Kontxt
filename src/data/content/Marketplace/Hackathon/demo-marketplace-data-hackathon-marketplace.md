@@ -73,10 +73,10 @@ A convincing dataset has intentional variation, not just volume. Plan for variet
 
 Building on Marketplace Fundamentals — decide which fake-but-plausible trust signals belong in your seed data:
 
-- [ ] Seller ratings (e.g. "4.8 ★, 23 reviews") — static, not a real review system
-- [ ] "Verified" or "Top Seller" badges on a subset of listings, not all
-- [ ] Response time indicators ("Usually responds within an hour")
-- [ ] A small number of listings marked "Sold" or "Reserved" — proves the marketplace has real transaction history, not just standing inventory
+- Seller ratings (e.g. "4.8 , 23 reviews") — static, not a real review system
+- "Verified" or "Top Seller" badges on a subset of listings, not all
+- Response time indicators ("Usually responds within an hour")
+- A small number of listings marked "Sold" or "Reserved" — proves the marketplace has real transaction history, not just standing inventory
 
 > **Best Practice:** Include a few sold/reserved listings in your seed data, not just active ones. A marketplace where every single listing is available makes the activity feel suspiciously frozen — a few completed transactions in the history communicates "this has been running for a while" more efficiently than almost anything else.
 
@@ -98,7 +98,7 @@ Building on Marketplace Fundamentals — decide which fake-but-plausible trust s
 
 Use AI to generate a varied, specific dataset — but give it explicit instructions to avoid the genericness failure mode described above.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 Generate seed data for a hackathon marketplace: [one-sentence definition from MVP Scope]
@@ -126,11 +126,11 @@ This prompt works because it explicitly names the failure mode (uniform, templat
 
 ## Validating the Output
 
-- [ ] Do listing titles and descriptions read as specific and plausible, not generic or templated?
-- [ ] Is pricing varied and realistic, not suspiciously round?
-- [ ] Are there multiple distinct sellers represented, not one account posting everything?
-- [ ] Does the dataset include a few sold/reserved listings, not only active ones?
-- [ ] Read 4-5 listings back to back — do they sound distinct from each other, or does the pattern repeat noticeably?
+- Do listing titles and descriptions read as specific and plausible, not generic or templated?
+- Is pricing varied and realistic, not suspiciously round?
+- Are there multiple distinct sellers represented, not one account posting everything?
+- Does the dataset include a few sold/reserved listings, not only active ones?
+- Read 4-5 listings back to back — do they sound distinct from each other, or does the pattern repeat noticeably?
 
 > **Tip:** Have a teammate who didn't write the seed data browse it cold and tell you honestly whether it feels real. You're too close to your own data to judge this objectively — a fresh pair of eyes catches synthetic-feeling patterns faster than re-reading your own output.
 
@@ -138,10 +138,10 @@ This prompt works because it explicitly names the failure mode (uniform, templat
 
 ## Before You Continue
 
-- [ ] 8-15 listings seeded, each specific and varied, not generic or templated
-- [ ] Multiple distinct sellers represented
-- [ ] A few listings marked sold/reserved alongside active ones
-- [ ] Trust signals (ratings, badges) included on a realistic subset, not uniformly applied
-- [ ] Seed data confirmed stable and not regenerated right before the live demo
+- 8-15 listings seeded, each specific and varied, not generic or templated
+- Multiple distinct sellers represented
+- A few listings marked sold/reserved alongside active ones
+- Trust signals (ratings, badges) included on a realistic subset, not uniformly applied
+- Seed data confirmed stable and not regenerated right before the live demo
 
 **Next up:** Fake Messaging — applying this same "convincingly real, deliberately simulated" approach to buyer-seller communication.

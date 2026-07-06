@@ -30,7 +30,7 @@ Every marketplace buyer, regardless of niche, passes through the same four stage
 | **Decision** | "What happens if this goes wrong?" | Unclear refund/dispute process | Visible payment protection |
 | **Post-Purchase** | "Was this worth coming back for?" | No follow-up, no easy reorder path | Confirmation, easy repeat action |
 
-> ⚠️ **Common mistake:** Founders obsess over Discovery (marketing, SEO, landing pages) and Decision (checkout flow) because those feel like "real product work." Evaluation is where most personal-mode marketplaces actually lose buyers — and it's the cheapest stage to fix.
+> ️ **Common mistake:** Founders obsess over Discovery (marketing, SEO, landing pages) and Decision (checkout flow) because those feel like "real product work." Evaluation is where most personal-mode marketplaces actually lose buyers — and it's the cheapest stage to fix.
 
 ---
 
@@ -38,12 +38,12 @@ Every marketplace buyer, regardless of niche, passes through the same four stage
 
 Answer these before moving to architecture. Each answer should be one sentence — this is a decision record, not an essay.
 
-- [ ] **Who is the buyer, specifically?** (Not "anyone who needs X" — name the persona: budget, urgency, expertise level)
-- [ ] **What triggers them to start looking?** (A problem, an event, a recurring need)
-- [ ] **Where would they naturally search first** if your marketplace didn't exist?
-- [ ] **What's the one thing that would make them bounce immediately** on landing?
-- [ ] **What's the smallest piece of proof** that makes a listing feel credible to them?
-- [ ] **What do they expect to happen** if a transaction goes wrong?
+- **Who is the buyer, specifically?** (Not "anyone who needs X" — name the persona: budget, urgency, expertise level)
+- **What triggers them to start looking?** (A problem, an event, a recurring need)
+- **Where would they naturally search first** if your marketplace didn't exist?
+- **What's the one thing that would make them bounce immediately** on landing?
+- **What's the smallest piece of proof** that makes a listing feel credible to them?
+- **What do they expect to happen** if a transaction goes wrong?
 
 If you can't answer one of these confidently, that's a research gap — not a reason to guess and build anyway. See the Validation section below.
 
@@ -62,13 +62,13 @@ You do not need Stripe Connect, KYC verification, and a dispute-resolution team 
 | Verified ID / KYC | High | Regulated categories, or once volume justifies the cost |
 | Dispute resolution system | High | Once manual mediation (you, by email) becomes unsustainable |
 
-> ✅ **Best practice for Phase 1:** Pick exactly one trust mechanism beyond "detailed profiles" to launch with. Manual curation — you personally approving every seller — is a legitimate, professional strategy at low volume. Airbnb's founders manually photographed early listings. This doesn't scale, and it isn't supposed to yet.
+>  **Best practice for Phase 1:** Pick exactly one trust mechanism beyond "detailed profiles" to launch with. Manual curation — you personally approving every seller — is a legitimate, professional strategy at low volume. Airbnb's founders manually photographed early listings. This doesn't scale, and it isn't supposed to yet.
 
 ---
 
 ## Common Mistake: Optimizing for Sellers First
 
-> ⚠️ It's tempting to build seller onboarding first because it feels like "supply." But a marketplace with great seller tools and zero buyer trust has zero transactions. Buyers are the harder side to convince because they're risking money on something they can't physically inspect. Design the buyer's confidence path before you design the seller's listing form.
+> ️ It's tempting to build seller onboarding first because it feels like "supply." But a marketplace with great seller tools and zero buyer trust has zero transactions. Buyers are the harder side to convince because they're risking money on something they can't physically inspect. Design the buyer's confidence path before you design the seller's listing form.
 
 ---
 
@@ -104,11 +104,11 @@ This is a single focused prompt rather than a back-and-forth brainstorm — it c
 
 Don't write a line of code to test these assumptions. Test them this week:
 
-- [ ] Talk to 5 people who match your buyer persona — ask what they currently do instead of using a marketplace like yours
-- [ ] Build a single landing page describing the offer, no functionality — see if anyone tries to act on it
-- [ ] Manually match one real buyer to one real seller yourself, by hand (DMs, spreadsheet, whatever) — this reveals trust gaps no survey will
+- Talk to 5 people who match your buyer persona — ask what they currently do instead of using a marketplace like yours
+- Build a single landing page describing the offer, no functionality — see if anyone tries to act on it
+- Manually match one real buyer to one real seller yourself, by hand (DMs, spreadsheet, whatever) — this reveals trust gaps no survey will
 
-> 💡 **Tip:** If you can't manually broker even one transaction by hand, automating that process won't fix the underlying problem. The manual version is your cheapest possible prototype.
+>  **Tip:** If you can't manually broker even one transaction by hand, automating that process won't fix the underlying problem. The manual version is your cheapest possible prototype.
 
 ---
 

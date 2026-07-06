@@ -27,7 +27,7 @@ This is a closed list, not a starting point to brainstorm from. Every row traces
 | View and resolve disputed transactions | Dispute Resolution's mediation flow |
 | View core business metrics | Analytics' four direct-database metrics |
 
-> ✅ **Best practice:** If an admin action isn't directly traceable to an earlier module's requirement, don't build it yet. This mirrors the exact discipline applied to listing fields, search capabilities, and notification events throughout this curriculum — scope to what's actually needed, not what "admin panels" generically include.
+>  **Best practice:** If an admin action isn't directly traceable to an earlier module's requirement, don't build it yet. This mirrors the exact discipline applied to listing fields, search capabilities, and notification events throughout this curriculum — scope to what's actually needed, not what "admin panels" generically include.
 
 ---
 
@@ -35,11 +35,11 @@ This is a closed list, not a starting point to brainstorm from. Every row traces
 
 Given your approval model from Marketplace Policies, this is likely the screen you'll open most often early on. Keep it efficient for repeated daily use, not just functionally correct.
 
-- [ ] A list of all listings with status = "Pending Approval," sorted oldest-first
-- [ ] Enough detail visible to make a decision without clicking into each one individually — title, category, price, photos, seller
-- [ ] One-click approve and reject actions, with a required reason field on reject (so the seller-facing rejection notification, from Notifications, has real content)
+- A list of all listings with status = "Pending Approval," sorted oldest-first
+- Enough detail visible to make a decision without clicking into each one individually — title, category, price, photos, seller
+- One-click approve and reject actions, with a required reason field on reject (so the seller-facing rejection notification, from Notifications, has real content)
 
-> 💡 **Tip:** A rejection without a reason creates exactly the kind of frustrated, churned seller your Seller Journey module warned about. The few extra seconds to type a reason pays for itself in seller trust — and you already built the notification template to surface it.
+>  **Tip:** A rejection without a reason creates exactly the kind of frustrated, churned seller your Seller Journey module warned about. The few extra seconds to type a reason pays for itself in seller trust — and you already built the notification template to surface it.
 
 ---
 
@@ -47,19 +47,19 @@ Given your approval model from Marketplace Policies, this is likely the screen y
 
 This is the literal UI for the manual mediation flow specified in Dispute Resolution — nothing new to design here, just to build.
 
-- [ ] A list of transactions with status = "Disputed," with time-since-flagged visible (to track against your 48-hour commitment)
-- [ ] A link into the relevant message thread for context, per the Messaging System integration already planned
-- [ ] Resolution actions: refund, release, or partial split — each recorded with your reasoning, exactly as specified in Dispute Resolution
+- A list of transactions with status = "Disputed," with time-since-flagged visible (to track against your 48-hour commitment)
+- A link into the relevant message thread for context, per the Messaging System integration already planned
+- Resolution actions: refund, release, or partial split — each recorded with your reasoning, exactly as specified in Dispute Resolution
 
 ---
 
 ## Account Status Controls: Simple, Not Granular
 
-- [ ] A way to search/find a specific user
-- [ ] Actions to set account status: active, suspended, banned — directly writing to the field already defined in User Architecture
-- [ ] A required reason field when suspending or banning, for your own future reference if patterns emerge
+- A way to search/find a specific user
+- Actions to set account status: active, suspended, banned — directly writing to the field already defined in User Architecture
+- A required reason field when suspending or banning, for your own future reference if patterns emerge
 
-> ⚠️ **Common mistake:** Building this as a full user-management system with editable profile fields, role assignment, or bulk actions. You need exactly three state transitions on exactly one field. Anything more is solving a team-of-multiple-admins problem you don't have.
+> ️ **Common mistake:** Building this as a full user-management system with editable profile fields, role assignment, or bulk actions. You need exactly three state transitions on exactly one field. Anything more is solving a team-of-multiple-admins problem you don't have.
 
 ---
 
@@ -81,7 +81,7 @@ Don't rebuild query logic here — this screen displays the same direct-database
 
 This entire panel needs exactly one gate: is the current user you, specifically. At personal-mode scale, this can be as simple as checking the logged-in user's ID or email against a single hardcoded value or environment variable — not a role system.
 
-> ✅ A hardcoded founder-check is not a hack at this scale, it's correctly-scoped engineering. Building a roles table, permission assignments, and an admin-invite flow for a panel only you will ever use is solving for a future team that doesn't exist yet.
+>  A hardcoded founder-check is not a hack at this scale, it's correctly-scoped engineering. Building a roles table, permission assignments, and an admin-invite flow for a panel only you will ever use is solving for a future team that doesn't exist yet.
 
 ---
 
@@ -111,7 +111,7 @@ or permissions system.
 
 ## Common Mistake: Building This Before You've Used the System Manually
 
-> ⚠️ If you haven't yet manually approved a real listing, mediated a real dispute, or banned a real user (even in test mode via Demo Transactions), you're designing this panel from theory rather than from what you actually needed to do. If you skipped ahead to this module, go back and run through Demo Transactions first — the friction you feel doing those actions manually is exactly what this panel should remove.
+> ️ If you haven't yet manually approved a real listing, mediated a real dispute, or banned a real user (even in test mode via Demo Transactions), you're designing this panel from theory rather than from what you actually needed to do. If you skipped ahead to this module, go back and run through Demo Transactions first — the friction you feel doing those actions manually is exactly what this panel should remove.
 
 ---
 

@@ -19,11 +19,11 @@ This is the same diagnostic discipline as the previous module, applied to the ot
 
 ## Check Supply Readiness Before Investing in Demand
 
-- [ ] In your target categories, is current supply sufficient to handle meaningfully more buyer traffic without running dry?
-- [ ] What's your current sell-through rate — are existing listings actually converting, or sitting unsold even with current buyer volume?
-- [ ] If you doubled buyer traffic tomorrow, would search results still look credible, or sparse?
+- In your target categories, is current supply sufficient to handle meaningfully more buyer traffic without running dry?
+- What's your current sell-through rate — are existing listings actually converting, or sitting unsold even with current buyer volume?
+- If you doubled buyer traffic tomorrow, would search results still look credible, or sparse?
 
-> **⚠️ Warning:** Running a demand-growth push (ads, content marketing, a launch announcement) into thin supply wastes the acquisition effort and burns the first impression of every new buyer it brings in. A buyer who arrives, searches, and finds nothing rarely comes back to check again later — they form their opinion of your marketplace in that first visit.
+> **️ Warning:** Running a demand-growth push (ads, content marketing, a launch announcement) into thin supply wastes the acquisition effort and burns the first impression of every new buyer it brings in. A buyer who arrives, searches, and finds nothing rarely comes back to check again later — they form their opinion of your marketplace in that first visit.
 
 ## Where Buyer Demand Actually Comes From, Realistically
 
@@ -34,17 +34,17 @@ This is the same diagnostic discipline as the previous module, applied to the ot
 | Paid ads | Fast but costs real money, ongoing | Once you know your unit economics support the spend |
 | Existing buyers referring others | Compounds with good retention (see Referral Programs) | Once retention and referral mechanics are already working |
 
-> **✅ Best Practice:** For a personal project, prioritize channels that compound over time (SEO, genuine community participation) over channels that require continuous spend (paid ads) — a solo builder's budget rarely sustains paid acquisition long enough to be the primary growth engine, while organic channels keep working with less ongoing effort.
+> ** Best Practice:** For a personal project, prioritize channels that compound over time (SEO, genuine community participation) over channels that require continuous spend (paid ads) — a solo builder's budget rarely sustains paid acquisition long enough to be the primary growth engine, while organic channels keep working with less ongoing effort.
 
 ## SEO Specifically Matters More for Marketplaces
 
 Marketplace listings are often individually indexable content — each listing can be a landing page that brings in search traffic for very specific, long-tail queries a buyer might search.
 
-- [ ] Are individual listing pages indexable and structured with clear, descriptive titles and content?
-- [ ] Does your URL structure and page content reflect what a buyer would actually search for, not just an internal ID?
-- [ ] Are category/browse pages also indexable, capturing broader searches beyond specific listings?
+- Are individual listing pages indexable and structured with clear, descriptive titles and content?
+- Does your URL structure and page content reflect what a buyer would actually search for, not just an internal ID?
+- Are category/browse pages also indexable, capturing broader searches beyond specific listings?
 
-> **💡 Tip:** Each listing on a marketplace is effectively free content marketing if structured well for search — a well-titled, well-described listing for "vintage leather armchair, mid-century" can bring in buyer traffic from a Google search with zero ongoing ad spend, long after the listing itself is created.
+> ** Tip:** Each listing on a marketplace is effectively free content marketing if structured well for search — a well-titled, well-described listing for "vintage leather armchair, mid-century" can bring in buyer traffic from a Google search with zero ongoing ad spend, long after the listing itself is created.
 
 ## Decision: Broad Demand vs Targeted Demand
 
@@ -53,7 +53,7 @@ Marketplace listings are often individually indexable content — each listing c
 | Broad awareness push (general marketing, broad audience) | Once supply is diverse and deep enough to satisfy varied interests |
 | Targeted demand into a specific category where you know supply is strong | When you have concentrated, high-quality supply in one area and want to prove liquidity there first |
 
-> **✅ Best Practice:** For most personal-project marketplaces, targeted demand into your strongest category is the better early move. Proving that one category has real, repeatable liquidity (buyers reliably find and buy from a healthy set of sellers) is more valuable than spreading thin demand across many categories where nothing reaches critical mass.
+> ** Best Practice:** For most personal-project marketplaces, targeted demand into your strongest category is the better early move. Proving that one category has real, repeatable liquidity (buyers reliably find and buy from a healthy set of sellers) is more valuable than spreading thin demand across many categories where nothing reaches critical mass.
 
 ## Use AI to Match Demand Strategy to Your Actual Supply
 
@@ -72,14 +72,14 @@ Based on this:
    realistic to sustain without ongoing ad spend?
 ```
 
-> **💡 Token Efficiency:** Pair this with the same supply data you used in the previous module's prompt — these two modules are diagnosing two sides of one system, and reusing the conversation context produces more consistent, connected recommendations than starting fresh.
+> ** Token Efficiency:** Pair this with the same supply data you used in the previous module's prompt — these two modules are diagnosing two sides of one system, and reusing the conversation context produces more consistent, connected recommendations than starting fresh.
 
 ## Validate Before Investing in Demand Growth
 
-- [ ] You've confirmed current supply can credibly absorb increased buyer interest, at least in your target category
-- [ ] You've picked a primary channel based on sustainability for a solo builder, not just what's fastest
-- [ ] Listing pages are structured to capture organic search traffic, not just relying on internal browse/search
-- [ ] You're focusing demand growth on a specific strong category first, not spreading effort thin across all categories
+- You've confirmed current supply can credibly absorb increased buyer interest, at least in your target category
+- You've picked a primary channel based on sustainability for a solo builder, not just what's fastest
+- Listing pages are structured to capture organic search traffic, not just relying on internal browse/search
+- You're focusing demand growth on a specific strong category first, not spreading effort thin across all categories
 
 ## Common Mistakes
 

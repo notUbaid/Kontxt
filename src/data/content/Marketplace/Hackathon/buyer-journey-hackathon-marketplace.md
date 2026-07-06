@@ -80,7 +80,7 @@ Use this as a working template — fill in your actual screens, not generic plac
 
 Use AI to pressure-test your specific screen sequence against these five moments, and to catch where your plan might create dead time in the demo.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 Here's my planned buyer journey for a hackathon marketplace: [list your actual screens/steps in order]
@@ -100,19 +100,19 @@ Be specific about what you'd actually flag while watching, not generic UX advice
 
 ## Validating the Output
 
-- [ ] Does the buyer see real-feeling listings within the first few seconds, with no login wall in front of browsing?
-- [ ] Is discovery (search or browse — pick one) implemented well rather than both implemented halfway?
-- [ ] Does the listing detail page include at least one trust signal beyond price and title?
-- [ ] Does the transaction step respond visibly within 1-2 seconds?
-- [ ] Is the confirmation state unambiguous — would a judge instantly know it succeeded?
+- Does the buyer see real-feeling listings within the first few seconds, with no login wall in front of browsing?
+- Is discovery (search or browse — pick one) implemented well rather than both implemented halfway?
+- Does the listing detail page include at least one trust signal beyond price and title?
+- Does the transaction step respond visibly within 1-2 seconds?
+- Is the confirmation state unambiguous — would a judge instantly know it succeeded?
 
 ---
 
 ## Before You Continue
 
-- [ ] All five moments (landing, discovery, detail, transaction, confirmation) mapped to actual screens
-- [ ] No login wall blocking the initial browsing experience
-- [ ] At least one trust signal planned for the listing detail moment
-- [ ] Confirmation state designed with the same priority as the transaction logic itself
+- All five moments (landing, discovery, detail, transaction, confirmation) mapped to actual screens
+- No login wall blocking the initial browsing experience
+- At least one trust signal planned for the listing detail moment
+- Confirmation state designed with the same priority as the transaction logic itself
 
 **Next up:** Seller Journey — the other half of the loop, and where it needs to connect back to what you just mapped.

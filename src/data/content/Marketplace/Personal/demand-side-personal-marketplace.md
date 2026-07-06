@@ -124,9 +124,9 @@ as a solo-built platform with a handful of early users?
 
 ## Validating What AI Generates
 
-- [ ] **Don't accept a demand-side description that's just the inverse of your supply side without independent thought** — buyers often have meaningfully different motivations than "the people who'd also sell," even in the same niche
-- [ ] **Check that suggested trust-gap mitigations are things you can actually do as one person** — "build a buyer protection program" is not realistic at this stage; personal vetting and transparency usually are
-- [ ] **Verify any claimed buyer behavior pattern** ("buyers in this niche typically...") against your own competitor research from earlier, rather than taking it as given
+- **Don't accept a demand-side description that's just the inverse of your supply side without independent thought** — buyers often have meaningfully different motivations than "the people who'd also sell," even in the same niche
+- **Check that suggested trust-gap mitigations are things you can actually do as one person** — "build a buyer protection program" is not realistic at this stage; personal vetting and transparency usually are
+- **Verify any claimed buyer behavior pattern** ("buyers in this niche typically...") against your own competitor research from earlier, rather than taking it as given
 
 ---
 

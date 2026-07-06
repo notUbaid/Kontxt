@@ -28,7 +28,7 @@ You've already generated the inputs across this phase — don't start from a bla
 | Support requests / direct user feedback | Specific, concrete pain points real users hit |
 | Reviews & ratings data | Recurring complaints or praise patterns across multiple listings/sellers |
 
-> **✅ Best Practice:** Before adding anything new to the roadmap, revisit your retention diagnosis from earlier in this phase. If you identified a specific leak and haven't fully addressed it yet, that fix outranks any new feature — a marketplace that doesn't retain users won't benefit from more features, only from fixing why people leave.
+> ** Best Practice:** Before adding anything new to the roadmap, revisit your retention diagnosis from earlier in this phase. If you identified a specific leak and haven't fully addressed it yet, that fix outranks any new feature — a marketplace that doesn't retain users won't benefit from more features, only from fixing why people leave.
 
 ## A Simple Prioritization Framework for a Solo Builder
 
@@ -48,7 +48,7 @@ For each roadmap item, ask:
 | Evidence-backed but large effort | Break into a smaller version, or defer |
 | No evidence, just an interesting idea | Park it — revisit only if evidence appears later |
 
-> **⚠️ Warning:** The most common roadmap mistake for solo builders is prioritizing the feature that's most fun to build over the one that's most supported by evidence. Building what's interesting to you, rather than what your retention and referral data actually points to, is how personal projects accumulate unused features while the real leak stays unfixed.
+> **️ Warning:** The most common roadmap mistake for solo builders is prioritizing the feature that's most fun to build over the one that's most supported by evidence. Building what's interesting to you, rather than what your retention and referral data actually points to, is how personal projects accumulate unused features while the real leak stays unfixed.
 
 ## Decision: Depth vs Breadth at This Stage
 
@@ -58,18 +58,18 @@ For each roadmap item, ask:
 | Broaden into new categories/features | Only once core liquidity is genuinely healthy on both sides |
 | Polish existing core flows | If retention data shows friction, not a missing-feature problem |
 
-> **💡 Tip:** For most marketplaces still building initial liquidity, "polish and fix the core loop" beats "add new features" almost every time. New features add more surface area to maintain without addressing why the existing surface area isn't retaining people yet.
+> ** Tip:** For most marketplaces still building initial liquidity, "polish and fix the core loop" beats "add new features" almost every time. New features add more surface area to maintain without addressing why the existing surface area isn't retaining people yet.
 
 ## Keep the Roadmap Honest About Time
 
 A roadmap that lists fifteen things you'll "get to eventually" isn't a plan — it's an aspiration. For a personal project, smaller and real beats large and theoretical.
 
-- [ ] Limit the active roadmap to 3-5 items at a time, not a long backlog
-- [ ] Each item has a rough time estimate based on your actual available hours, not best-case assumptions
-- [ ] Completed items are removed, not just marked done and left cluttering the list
-- [ ] Revisit the roadmap after each shipped item — does new data change what should come next?
+- Limit the active roadmap to 3-5 items at a time, not a long backlog
+- Each item has a rough time estimate based on your actual available hours, not best-case assumptions
+- Completed items are removed, not just marked done and left cluttering the list
+- Revisit the roadmap after each shipped item — does new data change what should come next?
 
-> **✅ Best Practice:** Treat the roadmap as a living document you revise after every ship, not a fixed plan set once and followed rigidly. The whole value of building in public, with real users, is that you get new evidence constantly — a roadmap that ignores that evidence wastes the most useful thing a personal project has going for it: tight, fast feedback loops.
+> ** Best Practice:** Treat the roadmap as a living document you revise after every ship, not a fixed plan set once and followed rigidly. The whole value of building in public, with real users, is that you get new evidence constantly — a roadmap that ignores that evidence wastes the most useful thing a personal project has going for it: tight, fast feedback loops.
 
 ## Use AI to Stress-Test Your Priorities
 
@@ -90,14 +90,14 @@ Be direct about which items look like they're based on what's fun to
 build rather than what the data supports.
 ```
 
-> **💡 Token Efficiency:** Include your actual retention/referral numbers from earlier modules in this prompt rather than re-explaining your marketplace from scratch — this lets AI ground its prioritization in real evidence instead of generic roadmap advice that could apply to any marketplace.
+> ** Token Efficiency:** Include your actual retention/referral numbers from earlier modules in this prompt rather than re-explaining your marketplace from scratch — this lets AI ground its prioritization in real evidence instead of generic roadmap advice that could apply to any marketplace.
 
 ## Validate Before Committing to the Roadmap
 
-- [ ] Every active roadmap item is tied to either evidence or a known leak, not just an idea you liked
-- [ ] The list is short (3-5 items), not an aspirational backlog
-- [ ] You've explicitly deprioritized at least one idea you find personally exciting but lacks evidence
-- [ ] Time estimates reflect your real available hours as a solo builder, not best-case scenarios
+- Every active roadmap item is tied to either evidence or a known leak, not just an idea you liked
+- The list is short (3-5 items), not an aspirational backlog
+- You've explicitly deprioritized at least one idea you find personally exciting but lacks evidence
+- Time estimates reflect your real available hours as a solo builder, not best-case scenarios
 
 ## Common Mistakes
 

@@ -114,8 +114,8 @@ still worth building.
 
 ## Validating What AI Generates
 
-- [ ] **Don't accept "both sides are equally hard" as an answer** — push back if AI gives a noncommittal answer; one side is almost always harder for any specific niche, and you need a real answer to plan around
-- [ ] **Check that a suggested narrower vertical is actually narrower**, not just renamed — "marketplace for handmade goods" narrowed to "marketplace for handmade jewelry" is a real narrowing; "marketplace for crafts" is not meaningfully different
+- **Don't accept "both sides are equally hard" as an answer** — push back if AI gives a noncommittal answer; one side is almost always harder for any specific niche, and you need a real answer to plan around
+- **Check that a suggested narrower vertical is actually narrower**, not just renamed — "marketplace for handmade goods" narrowed to "marketplace for handmade jewelry" is a real narrowing; "marketplace for crafts" is not meaningfully different
 
 ---
 

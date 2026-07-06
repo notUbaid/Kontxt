@@ -34,7 +34,7 @@ Initiated → Payment Held → Completed
 | Resolved – Released | You decided seller keeps the funds | You, after mediation |
 | Resolved – Partial | Split outcome | You, manually, via Stripe's partial refund capability |
 
-> ✅ **Best practice for personal mode:** A dispute is just a Transaction with status = "Disputed" plus a linked reason/note field. Don't build a separate dispute-ticket system — extend what you already have.
+>  **Best practice for personal mode:** A dispute is just a Transaction with status = "Disputed" plus a linked reason/note field. Don't build a separate dispute-ticket system — extend what you already have.
 
 ---
 
@@ -48,7 +48,7 @@ This is the literal implementation of the 48-hour rule from Marketplace Policies
 4. You review the message thread, transaction details, and listing — then make a call
 5. You execute the outcome: refund via Stripe, release held funds, or a partial split
 
-> 💡 **Tip:** Because Threads are already linked to transactions through the Listing relationship, you don't need new tooling to "see the conversation" during mediation — your existing Messaging System data is the dispute evidence. This is exactly why building these modules in dependency order pays off.
+>  **Tip:** Because Threads are already linked to transactions through the Listing relationship, you don't need new tooling to "see the conversation" during mediation — your existing Messaging System data is the dispute evidence. This is exactly why building these modules in dependency order pays off.
 
 ---
 
@@ -62,7 +62,7 @@ At personal-mode scale, this can be genuinely simple — you don't need an autom
 | A scheduled check for transactions stuck in "Disputed" past 48 hours | Low-medium — a simple query you can run manually or on a basic schedule |
 | Manual review during a daily check-in | Zero build cost, viable while volume is genuinely low |
 
-> ⚠️ **Common mistake:** Building automated dispute resolution rules (e.g. "auto-refund if X") before you've personally mediated even a handful of real disputes. You don't yet know what your actual dispute patterns look like. Mediate manually first — the patterns you observe should inform any automation later, not the reverse.
+> ️ **Common mistake:** Building automated dispute resolution rules (e.g. "auto-refund if X") before you've personally mediated even a handful of real disputes. You don't yet know what your actual dispute patterns look like. Mediate manually first — the patterns you observe should inform any automation later, not the reverse.
 
 ---
 
@@ -70,9 +70,9 @@ At personal-mode scale, this can be genuinely simple — you don't need an autom
 
 Every dispute resolution should leave a record: what happened, what you decided, why. This isn't bureaucracy — it's what lets you spot patterns (a specific seller with repeat disputes, a specific listing type that causes confusion) that should feed back into your Trust & Safety enforcement ladder or your Listing System's required fields.
 
-- [ ] Reason for the dispute, recorded at flag time
-- [ ] Resolution outcome and your reasoning, recorded at close time
-- [ ] A link from this record back to the User's account status, in case a pattern justifies a Trust & Safety action (suspension)
+- Reason for the dispute, recorded at flag time
+- Resolution outcome and your reasoning, recorded at close time
+- A link from this record back to the User's account status, in case a pattern justifies a Trust & Safety action (suspension)
 
 ---
 
@@ -102,7 +102,7 @@ to me for manual review at this stage.
 
 ## Common Mistake: No Defined Timeframe, Just "We'll Handle It"
 
-> ⚠️ A dispute process without a stated response commitment frustrates both buyer and seller more than the original problem does. Even a simple, honestly-achievable commitment ("flagged disputes reviewed within 48 hours") sets expectations you can actually meet solo — silence is what erodes trust fastest, not slowness itself.
+> ️ A dispute process without a stated response commitment frustrates both buyer and seller more than the original problem does. Even a simple, honestly-achievable commitment ("flagged disputes reviewed within 48 hours") sets expectations you can actually meet solo — silence is what erodes trust fastest, not slowness itself.
 
 ---
 

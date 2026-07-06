@@ -25,16 +25,16 @@ Marketplaces have two distinct retention problems, not one. Solving the wrong si
 | What makes them leave | Couldn't find what they wanted, bad experience with a seller, payment friction | Item didn't sell, payout was slow/confusing, relisting felt like starting over |
 | Where to look for the leak | Search/browse usage after first purchase, repeat purchase rate | Time between listings, listing abandonment rate, re-engagement after a sale |
 
-> **⚠️ Warning:** Don't assume buyer churn and seller churn have the same root cause just because they're both "retention." A buyer who leaves because search didn't surface relevant items has nothing to do with a seller who leaves because payouts felt slow — treating them as one problem means your fix helps neither.
+> **️ Warning:** Don't assume buyer churn and seller churn have the same root cause just because they're both "retention." A buyer who leaves because search didn't surface relevant items has nothing to do with a seller who leaves because payouts felt slow — treating them as one problem means your fix helps neither.
 
 ## Find the Actual Leak Before Designing a Fix
 
-- [ ] What percentage of buyers who complete one purchase return within 30 days?
-- [ ] What percentage of sellers who list once, list again within 30 days?
-- [ ] Of buyers who don't return, did they search and find nothing, or did they never search again at all?
-- [ ] Of sellers who don't relist, did their first item sell, or sit unsold?
+- What percentage of buyers who complete one purchase return within 30 days?
+- What percentage of sellers who list once, list again within 30 days?
+- Of buyers who don't return, did they search and find nothing, or did they never search again at all?
+- Of sellers who don't relist, did their first item sell, or sit unsold?
 
-> **✅ Best Practice:** A seller whose first item never sold has a completely different problem than a seller whose item sold quickly and who simply never came back to list again. The first is a liquidity/demand problem; the second might be a UX friction problem in the relisting flow. Don't design a single "seller retention fix" without knowing which one you actually have.
+> ** Best Practice:** A seller whose first item never sold has a completely different problem than a seller whose item sold quickly and who simply never came back to list again. The first is a liquidity/demand problem; the second might be a UX friction problem in the relisting flow. Don't design a single "seller retention fix" without knowing which one you actually have.
 
 ## Decision: What to Build First
 
@@ -45,16 +45,16 @@ Marketplaces have two distinct retention problems, not one. Solving the wrong si
 | Sellers' items aren't selling | Demand-side problem — more buyers, better discovery, not a seller-facing fix |
 | Sellers' items sell but they don't relist | Relisting friction — make posting a second item dramatically easier than the first |
 
-> **💡 Tip:** "Make relisting one click" is one of the highest-leverage retention features for the supply side of a marketplace — a seller who already knows your platform works shouldn't have to fill out a full listing form from scratch a second time. Pre-fill from their previous listing and let them adjust, not start over.
+> ** Tip:** "Make relisting one click" is one of the highest-leverage retention features for the supply side of a marketplace — a seller who already knows your platform works shouldn't have to fill out a full listing form from scratch a second time. Pre-fill from their previous listing and let them adjust, not start over.
 
 ## Notifications: The Cheapest Retention Lever You Likely Haven't Maximized
 
-- [ ] Buyer gets notified when an item similar to a past purchase or search is newly listed
-- [ ] Seller gets notified promptly when their item sells (this alone often drives the fastest relist)
-- [ ] Seller gets a gentle nudge if a listing has had views but no sale, with a clear next action (lower price, improve photos)
-- [ ] Neither side is over-notified to the point of disabling notifications entirely
+- Buyer gets notified when an item similar to a past purchase or search is newly listed
+- Seller gets notified promptly when their item sells (this alone often drives the fastest relist)
+- Seller gets a gentle nudge if a listing has had views but no sale, with a clear next action (lower price, improve photos)
+- Neither side is over-notified to the point of disabling notifications entirely
 
-> **⚠️ Warning:** It's easy to over-correct into notification fatigue. A user who mutes all notifications because you sent too many low-value ones loses access to the few high-value ones (sold! someone messaged you!) that actually drive retention. Be deliberately sparing — every notification should justify its own existence.
+> **️ Warning:** It's easy to over-correct into notification fatigue. A user who mutes all notifications because you sent too many low-value ones loses access to the few high-value ones (sold! someone messaged you!) that actually drive retention. Be deliberately sparing — every notification should justify its own existence.
 
 ## Use AI to Diagnose Your Specific Retention Pattern
 
@@ -77,14 +77,14 @@ Don't suggest generic retention tactics — reason from the specific
 numbers provided.
 ```
 
-> **💡 Token Efficiency:** Bring real numbers, even rough ones, rather than asking for general retention advice — vague prompts produce a generic "send more emails, add gamification" list that doesn't tell you what's actually wrong with your specific marketplace.
+> ** Token Efficiency:** Bring real numbers, even rough ones, rather than asking for general retention advice — vague prompts produce a generic "send more emails, add gamification" list that doesn't tell you what's actually wrong with your specific marketplace.
 
 ## Validate Before Investing Further
 
-- [ ] You know your actual buyer and seller 30-day return rates, not a guess
-- [ ] You've identified which side is leaking more severely
-- [ ] You've distinguished a liquidity problem from a friction problem before building a fix
-- [ ] Any new notification you add has a clear, specific reason tied to a known retention leak
+- You know your actual buyer and seller 30-day return rates, not a guess
+- You've identified which side is leaking more severely
+- You've distinguished a liquidity problem from a friction problem before building a fix
+- Any new notification you add has a clear, specific reason tied to a known retention leak
 
 ## Common Mistakes
 

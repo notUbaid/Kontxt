@@ -25,13 +25,13 @@ Your Trust & Safety module flagged reviews as a Medium-effort mechanism you add 
 | **Review the seller** | The person/account overall | Marketplaces where trust is primarily about the person, not the specific item |
 | **Both** | Listing quality + seller reliability separately | More complex but more accurate — appropriate once you have the engineering budget for it |
 
-> ✅ **Best practice for personal mode:** Start with reviewing the **seller**, not the listing. It directly reinforces the trust signal your Buyer Journey module identified as a credibility factor, it's simpler to build (one rating per transaction, attached to a user), and it avoids fragmenting reputation across many low-volume listings where a single review would swing the average wildly.
+>  **Best practice for personal mode:** Start with reviewing the **seller**, not the listing. It directly reinforces the trust signal your Buyer Journey module identified as a credibility factor, it's simpler to build (one rating per transaction, attached to a user), and it avoids fragmenting reputation across many low-volume listings where a single review would swing the average wildly.
 
 ---
 
 ## Reviews Must Be Tied to a Real Transaction
 
-> ⚠️ **Critical rule:** Never allow reviews without a verified completed transaction between the two parties. Open reviews (anyone can review anyone) are immediately exploitable — fake reviews, competitor sabotage, review manipulation. This single constraint eliminates most review fraud risk without any additional moderation tooling.
+> ️ **Critical rule:** Never allow reviews without a verified completed transaction between the two parties. Open reviews (anyone can review anyone) are immediately exploitable — fake reviews, competitor sabotage, review manipulation. This single constraint eliminates most review fraud risk without any additional moderation tooling.
 
 This means your review system has a hard dependency: it can't be built before your transaction/order model exists, because every review needs to reference a specific completed transaction. Sequence this after Payments Architecture, not before.
 
@@ -57,7 +57,7 @@ This means your review system has a hard dependency: it can't be built before yo
 | **One-way** | Only buyers review sellers | Simpler; matches the asymmetric trust need from your Buyer Journey |
 | **Two-way** | Buyers and sellers review each other | More complete picture, but adds complexity and a retaliation-review risk |
 
-> 💡 **Tip:** If you do implement two-way reviews, don't reveal either party's review until both have submitted or a time window expires. Visible-immediately reviews create retaliation dynamics — a seller who got a bad review can retaliate with one of their own, which discourages honest buyer feedback. This is a well-known failure mode; design around it from the start rather than patching it after launch.
+>  **Tip:** If you do implement two-way reviews, don't reveal either party's review until both have submitted or a time window expires. Visible-immediately reviews create retaliation dynamics — a seller who got a bad review can retaliate with one of their own, which discourages honest buyer feedback. This is a well-known failure mode; design around it from the start rather than patching it after launch.
 
 ---
 
@@ -107,7 +107,7 @@ photo reviews, response threads) I'm correctly deferring.
 
 ## Common Mistake: Launching Without Any Reviews Visible
 
-> ⚠️ A reverse mistake also happens: founders build the review system but don't surface it anywhere visible on listings or profiles, because it feels like a "backend feature." If reviews exist but buyers can't see them at the point of decision, you've built the trust signal and then hidden it. Surface average rating and review count directly on listings and seller profiles — this is exactly the credibility signal your Buyer Journey module said buyers need.
+> ️ A reverse mistake also happens: founders build the review system but don't surface it anywhere visible on listings or profiles, because it feels like a "backend feature." If reviews exist but buyers can't see them at the point of decision, you've built the trust signal and then hidden it. Surface average rating and review count directly on listings and seller profiles — this is exactly the credibility signal your Buyer Journey module said buyers need.
 
 ---
 

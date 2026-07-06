@@ -25,13 +25,13 @@ Personal projects don't need full observability stacks. They need three specific
 | Uptime monitoring | If your API goes down, you want to know before a user tells you | Very low — free tier services exist |
 | Key business events | "Did anyone actually complete a purchase today?" is invisible without logging it | Low — a few log lines |
 
-> **🔑 Rule of thumb:** if a failure would cost you a real transaction or a real user's trust, it needs monitoring. If it's a cosmetic bug, it doesn't need real-time alerting — your normal testing will catch it.
+> ** Rule of thumb:** if a failure would cost you a real transaction or a real user's trust, it needs monitoring. If it's a cosmetic bug, it doesn't need real-time alerting — your normal testing will catch it.
 
 ---
 
 ## Decision: Monitoring Stack
 
-> **🧩 Decision Card — Monitoring Setup**
+> ** Decision Card — Monitoring Setup**
 >
 > **Option A: Build custom logging + a dashboard**
 > Full control, meaningfully more setup time, more to maintain — usually not worth it solo.
@@ -47,7 +47,7 @@ Personal projects don't need full observability stacks. They need three specific
 
 Alert fatigue is real even solo — if everything pages you, you'll start ignoring all of it. Be deliberate:
 
-> **✅ Validation Checklist — Alert-worthy**
+> ** Validation Checklist — Alert-worthy**
 > - [ ] Server is down / API unreachable
 > - [ ] Payment/checkout flow throws an error (directly costs a transaction)
 > - [ ] Error rate spikes above a baseline (e.g. 5x normal in 10 minutes)
@@ -76,7 +76,7 @@ logEvent("review_submitted", { reviewId, sellerId, rating });
 logEvent("thread_started", { threadId, listingId });
 ```
 
-> **🔑 Why this matters:** A full Analytics module comes later in your roadmap — this is just enough structured logging now to answer "did anything happen today?" without waiting to build a dashboard. These same log lines become the foundation your future Analytics module builds on.
+> ** Why this matters:** A full Analytics module comes later in your roadmap — this is just enough structured logging now to answer "did anything happen today?" without waiting to build a dashboard. These same log lines become the foundation your future Analytics module builds on.
 
 ---
 
@@ -98,7 +98,7 @@ app.use(Sentry.Handlers.requestHandler());
 app.use(Sentry.Handlers.errorHandler()); // must be after routes, before your own error handler
 ```
 
-> **⚠️ Warning:** Make sure Sentry's error handler is registered *after* your routes but *before* your own custom error-handling middleware, or errors won't be captured. This ordering mistake is the most common reason "I set up Sentry but it's not catching anything."
+> **️ Warning:** Make sure Sentry's error handler is registered *after* your routes but *before* your own custom error-handling middleware, or errors won't be captured. This ordering mistake is the most common reason "I set up Sentry but it's not catching anything."
 
 ---
 
@@ -106,7 +106,7 @@ app.use(Sentry.Handlers.errorHandler()); // must be after routes, before your ow
 
 A free external uptime checker pings your API on an interval and alerts you (email/SMS) the moment it stops responding — something you can't detect from inside your own app if the whole server is down.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Is there a lightweight `/health` endpoint that checks the database connection, not just "the server process is running"?
 > - [ ] Is the uptime checker pointed at `/health`, not just the homepage (which might serve cached/static content even when the backend is broken)?
 > - [ ] Is the alert going somewhere you'll actually see promptly (email is often too slow — consider SMS or a push notification for a personal project you're actively monitoring)?
@@ -126,7 +126,7 @@ app.get("/health", async (req, res) => {
 
 ## AI Prompt: Add Monitoring to an Existing App
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Add monitoring to my existing marketplace project. This is a personal project —
@@ -152,7 +152,7 @@ app.get("/health", async (req, res) => {
 
 ## Validating This Setup
 
-> **🚩 Common Hallucination:** AI-generated logging often logs the full `req.body` "for debugging," which is convenient until it logs a password or payment token in plaintext into a third-party logging service. Always review what's actually being logged, field by field — don't accept `logEvent("error", { req })` as a shortcut.
+> ** Common Hallucination:** AI-generated logging often logs the full `req.body` "for debugging," which is convenient until it logs a password or payment token in plaintext into a third-party logging service. Always review what's actually being logged, field by field — don't accept `logEvent("error", { req })` as a shortcut.
 
 ---
 

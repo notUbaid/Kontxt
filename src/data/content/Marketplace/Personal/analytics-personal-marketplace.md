@@ -30,7 +30,7 @@ Don't start analytics with a blank slate — your curriculum already defined wha
 | Is the cold-start offer working? (Seller Journey) | Conversion rate of manually-recruited sellers who actually list |
 | Are disputes a rare exception or a pattern? (Dispute Resolution) | Dispute rate as % of completed transactions |
 
-> 💡 **Tip:** Each row in this table isn't a metric you're choosing because it's common in marketplace analytics tutorials — it's a direct, traceable answer to a question your own earlier planning raised. If a metric you're tempted to add doesn't trace back to a question like this, reconsider whether you actually need it yet.
+>  **Tip:** Each row in this table isn't a metric you're choosing because it's common in marketplace analytics tutorials — it's a direct, traceable answer to a question your own earlier planning raised. If a metric you're tempted to add doesn't trace back to a question like this, reconsider whether you actually need it yet.
 
 ---
 
@@ -43,13 +43,13 @@ Listing created → Listing approved → Listing viewed →
 Message sent → Checkout started → Checkout completed
 ```
 
-> ✅ **Best practice:** Track this as an actual funnel with drop-off rates at each step, not just final conversion. A marketplace where listings get plenty of views but few messages has a different problem (evaluation/trust) than one where messages happen but checkouts don't start (decision/friction). The funnel tells you *where* to focus, not just *that* something's wrong.
+>  **Best practice:** Track this as an actual funnel with drop-off rates at each step, not just final conversion. A marketplace where listings get plenty of views but few messages has a different problem (evaluation/trust) than one where messages happen but checkouts don't start (decision/friction). The funnel tells you *where* to focus, not just *that* something's wrong.
 
 ---
 
 ## Privacy: What You Track, and What You Don't
 
-> ⚠️ A marketplace handles real names, real transactions, and real money — treat analytics data with the same care as any other personal data. Track behavioral events (searches, views, clicks) without attaching more personal detail than necessary. Don't log full message content into your analytics tool just because it's convenient; message content belongs in your Messaging System's database, governed by the access rules from Authorization — not duplicated into a third-party analytics service with different access controls.
+> ️ A marketplace handles real names, real transactions, and real money — treat analytics data with the same care as any other personal data. Track behavioral events (searches, views, clicks) without attaching more personal detail than necessary. Don't log full message content into your analytics tool just because it's convenient; message content belongs in your Messaging System's database, governed by the access rules from Authorization — not duplicated into a third-party analytics service with different access controls.
 
 ---
 
@@ -61,13 +61,13 @@ Message sent → Checkout started → Checkout completed
 | A managed product analytics tool (event tracking + funnels built in) | Yes — fast to integrate, funnel analysis is often a built-in feature |
 | Database queries against your own Transaction/Listing tables for core business metrics | Yes, alongside a managed tool — some numbers (revenue, take rate, dispute rate) are simplest to compute directly from your own data |
 
-> 💡 Some of your most important numbers — total transaction volume, actual take-home revenue after fees, dispute rate — are best computed directly from your own Transaction table, not from a third-party analytics tool. Reserve the managed analytics tool for behavioral funnel data (views, clicks, search patterns) that your own database wasn't designed to capture.
+>  Some of your most important numbers — total transaction volume, actual take-home revenue after fees, dispute rate — are best computed directly from your own Transaction table, not from a third-party analytics tool. Reserve the managed analytics tool for behavioral funnel data (views, clicks, search patterns) that your own database wasn't designed to capture.
 
 ---
 
 ## Don't Let Analytics Delay Launch
 
-> ⚠️ It's possible to spend real time building a comprehensive analytics setup before you have any users to generate data worth analyzing. At personal-mode scale, with a handful of early users, a simple event-tracking integration and a few direct database queries are enough. A polished analytics dashboard with zero real traffic teaches you nothing — ship first, refine measurement as real usage starts.
+> ️ It's possible to spend real time building a comprehensive analytics setup before you have any users to generate data worth analyzing. At personal-mode scale, with a handful of early users, a simple event-tracking integration and a few direct database queries are enough. A polished analytics dashboard with zero real traffic teaches you nothing — ship first, refine measurement as real usage starts.
 
 ---
 
@@ -99,7 +99,7 @@ per seller.
 
 ## Common Mistake: Tracking Everything "Just in Case"
 
-> ⚠️ Tracking every possible event from day one, without a specific question each one answers, produces a wall of data nobody reviews. Start with the funnel and the four core business metrics above — add a new tracked event only when you have a specific question it would answer, mirroring the same discipline applied to required listing fields back in Listing System.
+> ️ Tracking every possible event from day one, without a specific question each one answers, produces a wall of data nobody reviews. Start with the funnel and the four core business metrics above — add a new tracked event only when you have a specific question it would answer, mirroring the same discipline applied to required listing fields back in Listing System.
 
 ---
 

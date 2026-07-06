@@ -84,7 +84,7 @@ One sentence per Must Build item, stating exactly what "working" means. This sin
 
 Use AI to convert your MVP Scope decisions into this structure quickly — not to invent new scope, which the previous module already locked down.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 I've already scoped my marketplace hackathon project. Here's what I have:
@@ -106,11 +106,11 @@ This prompt explicitly forbids scope expansion, which matters — without that c
 
 ## Validating the Output
 
-- [ ] Does the one-sentence definition match MVP Scope exactly, with no drift?
-- [ ] Does the buyer/seller journey table show a clear connection point, not two disconnected lists?
-- [ ] Is every Must Build item paired with a specific, testable Definition of Done?
-- [ ] Does the Must Build/Fake It/Cut Entirely section match the previous module exactly — no new features snuck back in?
-- [ ] Could a teammate who wasn't in the scoping conversation read this and know exactly what to build?
+- Does the one-sentence definition match MVP Scope exactly, with no drift?
+- Does the buyer/seller journey table show a clear connection point, not two disconnected lists?
+- Is every Must Build item paired with a specific, testable Definition of Done?
+- Does the Must Build/Fake It/Cut Entirely section match the previous module exactly — no new features snuck back in?
+- Could a teammate who wasn't in the scoping conversation read this and know exactly what to build?
 
 > **Warning:** If AI added anything not present in your MVP Scope output — a new feature, an extra journey step, a "nice to have" section — cut it before sharing this with your team. Scope creep at the PRD stage is exactly as costly as scope creep anywhere else, just earlier.
 
@@ -118,10 +118,10 @@ This prompt explicitly forbids scope expansion, which matters — without that c
 
 ## Before You Continue
 
-- [ ] PRD written, 1-2 pages, readable in under 5 minutes
-- [ ] Buyer and seller journeys shown side by side with a visible connection point
-- [ ] Every Must Build item has a specific, testable Definition of Done
-- [ ] Whole team has actually read it — not just the person who wrote it
-- [ ] No scope beyond what MVP Scope already decided
+- PRD written, 1-2 pages, readable in under 5 minutes
+- Buyer and seller journeys shown side by side with a visible connection point
+- Every Must Build item has a specific, testable Definition of Done
+- Whole team has actually read it — not just the person who wrote it
+- No scope beyond what MVP Scope already decided
 
 **Next up:** Buyer Journey — going one level deeper on the buyer side specifically, before doing the same for sellers.

@@ -21,7 +21,7 @@ Generic web security advice ("use HTTPS", "hash passwords") applies, but won't c
 
 | Threat | Where it lives | Already covered? |
 |---|---|---|
-| IDOR (accessing others' resources via ID guessing) | Listings, threads, orders, reviews | ✅ Authorization Rules |
+| IDOR (accessing others' resources via ID guessing) | Listings, threads, orders, reviews |  Authorization Rules |
 | Price/amount tampering | Checkout, order creation | Covered in Payments module |
 | Mass listing scraping | Search/browse endpoints | This module |
 | Account takeover via weak session handling | Auth | This module |
@@ -34,7 +34,7 @@ Generic web security advice ("use HTTPS", "hash passwords") applies, but won't c
 
 You sanitized message bodies in the Messaging module. Listing descriptions need the same treatment — and it's commonly forgotten because "it's just a product description."
 
-> **⚠️ Warning:** Any field a user controls that another user later *views* is a stored XSS risk: listing title, description, review comments, seller bio. If you render these as raw HTML anywhere, a malicious seller can inject a script that runs in every buyer's browser who views their listing.
+> **️ Warning:** Any field a user controls that another user later *views* is a stored XSS risk: listing title, description, review comments, seller bio. If you render these as raw HTML anywhere, a malicious seller can inject a script that runs in every buyer's browser who views their listing.
 
 ```js
 import sanitizeHtml from "sanitize-html";
@@ -47,13 +47,13 @@ function cleanUserContent(input) {
 }
 ```
 
-> **🔑 Rule of thumb:** sanitize on write (before storing), and your renderer should still escape on output by default (React does this automatically — never use `dangerouslySetInnerHTML` on user content).
+> ** Rule of thumb:** sanitize on write (before storing), and your renderer should still escape on output by default (React does this automatically — never use `dangerouslySetInnerHTML` on user content).
 
 ---
 
 ## Decision: Session Strategy
 
-> **🧩 Decision Card — Session Handling**
+> ** Decision Card — Session Handling**
 >
 > **Option A: JWT in localStorage**
 > Simple to implement, but vulnerable to XSS-based token theft — if any XSS gap exists anywhere in your app, an attacker can steal the token directly from JS-accessible storage.
@@ -69,7 +69,7 @@ function cleanUserContent(input) {
 
 Full rate limiting infrastructure comes in a later module — but two endpoints need basic protection now, because they're the most commonly abused in marketplaces specifically:
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Login endpoint — limit failed attempts per IP/account to prevent credential stuffing
 > - [ ] Listing creation — limit listings created per account per hour to prevent spam/scraper-bot flooding
 > - [ ] Message sending — limit per thread per minute to prevent harassment via message flooding
@@ -101,7 +101,7 @@ Your `GET /listings` endpoint is public by design — but public doesn't mean un
 
 ## AI Prompt: Security Review of Existing Code
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Review this code for marketplace-specific security issues. I'm building a personal
@@ -127,9 +127,9 @@ Your `GET /listings` endpoint is public by design — but public doesn't mean un
 
 ## Validating AI Security Reviews
 
-> **🚩 Common Hallucination:** AI security reviews often flag *theoretical* issues (e.g. "consider adding 2FA," "consider a WAF") at the same severity as *real* exploitable bugs in your actual code (e.g. an endpoint with no ownership check). Don't treat the output as a flat priority list — triage it yourself: anything that lets one user access or modify another user's data is critical; anything that's general hardening advice is optional for a personal project.
+> ** Common Hallucination:** AI security reviews often flag *theoretical* issues (e.g. "consider adding 2FA," "consider a WAF") at the same severity as *real* exploitable bugs in your actual code (e.g. an endpoint with no ownership check). Don't treat the output as a flat priority list — triage it yourself: anything that lets one user access or modify another user's data is critical; anything that's general hardening advice is optional for a personal project.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] For every flagged issue, can you describe the exact request an attacker would send to exploit it?
 > - [ ] Does the fix actually address the root cause, or just patch the specific example shown?
 > - [ ] Did the review check write endpoints (`POST`/`PUT`/`PATCH`/`DELETE`), not just `GET`?

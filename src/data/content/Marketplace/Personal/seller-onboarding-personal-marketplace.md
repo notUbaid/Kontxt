@@ -17,7 +17,7 @@ This module is narrower than it sounds: not a general "improve your UX" exercise
 
 ## Why Seller Onboarding Is Disproportionately Important
 
-> **🔑 Core rule:** in a marketplace, buyer experience is downstream of seller experience. A confusing buyer flow loses one buyer. A confusing seller flow loses the listings that every future buyer would have seen. Fix friction on the supply side first — it compounds.
+> ** Core rule:** in a marketplace, buyer experience is downstream of seller experience. A confusing buyer flow loses one buyer. A confusing seller flow loses the listings that every future buyer would have seen. Fix friction on the supply side first — it compounds.
 
 This connects directly back to your Phase 0 decisions about supply-side strategy and Chicken & Egg Strategy — onboarding is where that strategy either works or quietly fails.
 
@@ -35,7 +35,7 @@ Beta testing (previous module) likely already surfaced some of these directly �
 | Pricing | Uncertainty about what to charge — no reference point provided |
 | Publishing | Listing goes live but seller doesn't know what happens next |
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Does your signup ask for only what's needed to get a seller to their first listing, deferring optional profile details to later?
 > - [ ] Is there a single, obvious next action after signup — not a dashboard with five equally-weighted options?
 > - [ ] Does the listing creation form give in-context guidance (not a separate help doc) on what makes a listing effective?
@@ -44,7 +44,7 @@ Beta testing (previous module) likely already surfaced some of these directly �
 
 ## Decision: Guided vs. Self-Serve Onboarding
 
-> **🧩 Decision Card — Onboarding Style**
+> ** Decision Card — Onboarding Style**
 >
 > **Option A: Fully self-serve** — sign up, land on a form, figure it out
 > Fastest to build, works fine for sellers who are already comfortable with similar platforms, but loses less-experienced sellers at the first ambiguous moment.
@@ -63,7 +63,7 @@ Beta testing (previous module) likely already surfaced some of these directly �
 
 This is the single highest-leverage screen in your entire onboarding flow — get a seller through their first successful listing, and most of the rest of the relationship takes care of itself.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Does the listing form show a live preview of how the listing will actually appear to buyers? (Removes the "what will this actually look like" uncertainty)
 > - [ ] Is there a minimum viable example shown — a sample title/description — so sellers aren't staring at a blank field with no reference point?
 > - [ ] Does the form validate and give feedback inline (per your Listings module's validation rules), rather than only on submit — catching issues before the seller has invested effort filling out the whole form?
@@ -75,7 +75,7 @@ This is the single highest-leverage screen in your entire onboarding flow — ge
 
 Connecting a payout method (via your payment processor, from the Payments module) is necessary before a seller can actually get paid — but forcing it before they've even created a listing adds friction before any value has been demonstrated.
 
-> **🔑 Rule of thumb:** let sellers create and preview a listing before requiring payout setup, but require it before the listing can actually go *live* and be visible to buyers. This sequencing shows value first, then asks for the slightly more sensitive step (bank/payout details).
+> ** Rule of thumb:** let sellers create and preview a listing before requiring payout setup, but require it before the listing can actually go *live* and be visible to buyers. This sequencing shows value first, then asks for the slightly more sensitive step (bank/payout details).
 
 ```
 Sign up → Create listing (draft) → Preview → Connect payout → Listing goes live
@@ -89,7 +89,7 @@ This sequencing decision should reflect back into your Listing status flow from 
 
 You want good listings without making sellers feel graded or judged on their first attempt.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Are quality tips presented as helpful suggestions ("Listings with 3+ photos sell faster") rather than blocking requirements?
 > - [ ] Is there a clear minimum bar that *is* enforced (per your Listings validation rules — title/description length, at least one photo) vs. soft suggestions that aren't?
 > - [ ] Does the guidance come from real signal if you have any (e.g. "Listings with photos get more views" — only claim this if you can actually back it once you have data; don't fabricate a stat)?
@@ -98,7 +98,7 @@ You want good listings without making sellers feel graded or judged on their fir
 
 ## AI Prompt: Design the Onboarding Checklist Flow
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Design a seller onboarding flow for my personal marketplace project.
@@ -125,9 +125,9 @@ You want good listings without making sellers feel graded or judged on their fir
 
 ## Validating Against Beta Testing Data
 
-> **🚩 Common Hallucination:** AI will design onboarding flows based on generic marketplace best practices, which may not match what your *actual* beta testers struggled with. If your Beta Testing module surfaced a specific drop-off point (e.g. testers got confused at photo upload, not pricing), prioritize fixing that specific friction over implementing generic onboarding patterns AI suggests by default.
+> ** Common Hallucination:** AI will design onboarding flows based on generic marketplace best practices, which may not match what your *actual* beta testers struggled with. If your Beta Testing module surfaced a specific drop-off point (e.g. testers got confused at photo upload, not pricing), prioritize fixing that specific friction over implementing generic onboarding patterns AI suggests by default.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Does the onboarding flow specifically address the drop-off points your beta testers actually hit?
 > - [ ] Did AI's suggested checklist order match your actual payout-before-publish sequencing, or did it default to a different order that doesn't match your decision above?
 

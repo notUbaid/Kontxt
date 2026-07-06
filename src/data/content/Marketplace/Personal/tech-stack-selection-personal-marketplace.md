@@ -35,7 +35,7 @@ If a stack can't comfortably do all five without exotic workarounds, it's the wr
 
 ## Personal-Mode Stack Philosophy
 
-> ✅ **The rule for Phase 2 in personal mode:** choose boring, well-documented technology you can actually debug alone, over trendy technology with a smaller community. You are your own support team. When something breaks at 11pm, Stack Overflow answer count matters more than how impressive the tech sounds on a resume.
+>  **The rule for Phase 2 in personal mode:** choose boring, well-documented technology you can actually debug alone, over trendy technology with a smaller community. You are your own support team. When something breaks at 11pm, Stack Overflow answer count matters more than how impressive the tech sounds on a resume.
 
 | Optimize For | Don't Optimize For |
 |---|---|
@@ -44,7 +44,7 @@ If a stack can't comfortably do all five without exotic workarounds, it's the wr
 | Fast iteration speed | Theoretical "best practice" architecture |
 | Strong AI-tool familiarity (more training data = better AI help) | Niche frameworks with thin documentation |
 
-> 💡 **Tip:** When you ask Claude, ChatGPT, or Cursor for help, the quality of that help is directly proportional to how much of that framework exists in the training data. Choosing a mainstream stack isn't just safer for you — it makes your AI tools meaningfully more useful for the rest of this build.
+>  **Tip:** When you ask Claude, ChatGPT, or Cursor for help, the quality of that help is directly proportional to how much of that framework exists in the training data. Choosing a mainstream stack isn't just safer for you — it makes your AI tools meaningfully more useful for the rest of this build.
 
 ---
 
@@ -63,7 +63,7 @@ This is a default, not a mandate — but deviating from it should be a deliberat
 | Search | Postgres full-text search initially | A dedicated search service is overkill until your listing volume actually requires it |
 | Hosting | A managed platform (Vercel, Railway, Render, etc.) | Removes server management entirely — your time goes into product, not DevOps |
 
-> ⚠️ **Common mistake:** Reaching for a dedicated search engine (Elasticsearch, Algolia) or a microservices split before you have enough listings for either to matter. Postgres full-text search comfortably handles thousands of listings. Don't pre-optimize for scale you don't have — see Search Architecture for exactly where that threshold sits.
+> ️ **Common mistake:** Reaching for a dedicated search engine (Elasticsearch, Algolia) or a microservices split before you have enough listings for either to matter. Postgres full-text search comfortably handles thousands of listings. Don't pre-optimize for scale you don't have — see Search Architecture for exactly where that threshold sits.
 
 ---
 
@@ -120,7 +120,7 @@ getting stuck — not changes that are merely "more modern."
 
 ## Common Mistake: Stack Shopping as Procrastination
 
-> ⚠️ Researching tech stacks feels productive and is genuinely fun — it's also the easiest way to spend three weeks not building anything. If the recommended stack above fits your situation, that research is already done. Deviate only for a specific, named reason, write that reason down, and move to Authentication.
+> ️ Researching tech stacks feels productive and is genuinely fun — it's also the easiest way to spend three weeks not building anything. If the recommended stack above fits your situation, that research is already done. Deviate only for a specific, named reason, write that reason down, and move to Authentication.
 
 ---
 

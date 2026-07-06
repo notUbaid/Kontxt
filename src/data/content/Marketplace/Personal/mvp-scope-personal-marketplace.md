@@ -137,9 +137,9 @@ being a real, complete marketplace.
 
 ## Validating What AI Generates
 
-- [ ] **Don't accept an MVP list that's still too large** — AI tends to be generous with feature inclusion when asked to scope something; if the list is longer than 6-8 items, push back and ask specifically what could be cut
-- [ ] **Verify every MVP feature traces to a real need you documented earlier**, not a plausible-sounding addition — if you can't point to which Phase 0 module justified it, cut it
-- [ ] **Confirm trust/safety baseline wasn't entirely cut** — AI sometimes drops the "report a problem" / basic identity signal items when aggressively minimizing scope; these stay even at minimum viable scope
+- **Don't accept an MVP list that's still too large** — AI tends to be generous with feature inclusion when asked to scope something; if the list is longer than 6-8 items, push back and ask specifically what could be cut
+- **Verify every MVP feature traces to a real need you documented earlier**, not a plausible-sounding addition — if you can't point to which Phase 0 module justified it, cut it
+- **Confirm trust/safety baseline wasn't entirely cut** — AI sometimes drops the "report a problem" / basic identity signal items when aggressively minimizing scope; these stay even at minimum viable scope
 
 ---
 

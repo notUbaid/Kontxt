@@ -29,7 +29,7 @@ Each layer from your Tech Stack Selection module has a free tier and a point whe
 | Object storage (images) | Free tier covers low storage/bandwidth | Storage volume and bandwidth from image-heavy listings |
 | Stripe Connect | No platform fee to integrate | Stripe's per-transaction fee, which you'll factor into your Revenue Model |
 
-> ⚠️ **Common mistake:** Assuming "free tier" means free forever. Free tiers are usage-gated, not feature-gated — you don't lose functionality when you cross the line, you start getting billed. Know your specific provider's threshold numbers, not just that a free tier exists.
+> ️ **Common mistake:** Assuming "free tier" means free forever. Free tiers are usage-gated, not feature-gated — you don't lose functionality when you cross the line, you start getting billed. Know your specific provider's threshold numbers, not just that a free tier exists.
 
 ---
 
@@ -40,7 +40,7 @@ Each layer from your Tech Stack Selection module has a free tier and a point whe
 | Unbounded AI API usage (if your marketplace uses AI features) | Token costs scale with usage in ways that are easy to lose track of | Set hard usage caps and monitor early, don't wait for a surprise bill |
 | Image storage/bandwidth | Listings accumulate photos fast, and bandwidth costs compound with traffic | Compress images on upload, set reasonable size limits per listing |
 
-> 💡 **Tip:** If your marketplace doesn't use AI at runtime (most don't need to — AI is for *you building it*, not necessarily a runtime feature), skip the AI cost row entirely. Don't add AI-powered features just because they're trendy; every runtime AI call is a recurring cost with no flat free tier.
+>  **Tip:** If your marketplace doesn't use AI at runtime (most don't need to — AI is for *you building it*, not necessarily a runtime feature), skip the AI cost row entirely. Don't add AI-powered features just because they're trendy; every runtime AI call is a recurring cost with no flat free tier.
 
 ---
 
@@ -54,7 +54,7 @@ This isn't a guarantee — costs depend on your specific choices — but it sets
 | First 10–50 real users | $0–25 | Still mostly within free tiers; Stripe fees are per-transaction, not flat |
 | 50–500 active users | $25–100 | Database/hosting tiers start scaling; image storage grows |
 
-> ✅ **Best practice:** If your estimate for "building, no real users" is already above $10/month, you've likely over-provisioned something — go back to Tech Stack Selection and check whether you picked a paid tier you didn't need yet.
+>  **Best practice:** If your estimate for "building, no real users" is already above $10/month, you've likely over-provisioned something — go back to Tech Stack Selection and check whether you picked a paid tier you didn't need yet.
 
 ---
 
@@ -62,11 +62,11 @@ This isn't a guarantee — costs depend on your specific choices — but it sets
 
 Every transaction through Stripe Connect costs a percentage plus a flat fee. This isn't a hosting cost, it's a cost of doing business that directly affects your Revenue Model decisions from Phase 0.
 
-- [ ] Look up your current Stripe Connect fee structure (it varies by transaction type and region)
-- [ ] Calculate what a typical transaction on your marketplace nets after Stripe's cut
-- [ ] Revisit your Revenue Model module — does your take rate still make sense once Stripe's fee is subtracted?
+- Look up your current Stripe Connect fee structure (it varies by transaction type and region)
+- Calculate what a typical transaction on your marketplace nets after Stripe's cut
+- Revisit your Revenue Model module — does your take rate still make sense once Stripe's fee is subtracted?
 
-> ⚠️ A marketplace charging a 5% platform fee that doesn't account for Stripe also taking ~3% is effectively keeping much less than founders assume. Do this math before you commit to a take rate publicly.
+> ️ A marketplace charging a 5% platform fee that doesn't account for Stripe also taking ~3% is effectively keeping much less than founders assume. Do this math before you commit to a take rate publicly.
 
 ---
 
@@ -98,7 +98,7 @@ net take rate if I charge [your planned %] platform fee?
 
 ## Common Mistake: Over-Provisioning "Just In Case"
 
-> ⚠️ Paying for a production-tier database or premium hosting plan before you have users isn't caution, it's wasted budget. Free and starter tiers exist specifically for this stage. Upgrade when usage data tells you to, not in anticipation of growth that hasn't happened. You can always upgrade in minutes; you can't easily get a refund on months of unused capacity.
+> ️ Paying for a production-tier database or premium hosting plan before you have users isn't caution, it's wasted budget. Free and starter tiers exist specifically for this stage. Upgrade when usage data tells you to, not in anticipation of growth that hasn't happened. You can always upgrade in minutes; you can't easily get a refund on months of unused capacity.
 
 ---
 

@@ -121,9 +121,9 @@ fit my niche.
 
 ## Validating What AI Generates
 
-- [ ] **Reject any suggested outreach method you can't actually execute** — "partner with influencers" or "run a launch campaign" isn't realistic for a solo project with no budget; insist on direct, personal, zero-cost methods
-- [ ] **Confirm the week-by-week plan's numbers are grounded in your actual liquidity target**, not a generic "get 100 users" goal disconnected from what you defined earlier
-- [ ] **Be skeptical of a "single player mode" feature suggestion that's actually a significant build effort** — it should be small and quick, or it's not worth doing before you have any users at all
+- **Reject any suggested outreach method you can't actually execute** — "partner with influencers" or "run a launch campaign" isn't realistic for a solo project with no budget; insist on direct, personal, zero-cost methods
+- **Confirm the week-by-week plan's numbers are grounded in your actual liquidity target**, not a generic "get 100 users" goal disconnected from what you defined earlier
+- **Be skeptical of a "single player mode" feature suggestion that's actually a significant build effort** — it should be small and quick, or it's not worth doing before you have any users at all
 
 ---
 

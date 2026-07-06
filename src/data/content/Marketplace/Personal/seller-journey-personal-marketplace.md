@@ -27,7 +27,7 @@ In a personal-mode marketplace, you have no supply yet. This module exists to ma
 | "How much effort does listing take?" | Is the time cost worth the expected payoff? | Long forms, unclear requirements, no save-and-resume |
 | "Will I actually get paid, reliably?" | Is the payout mechanism trustworthy and fast? | Vague payout terms, no visibility into transaction status |
 
-> ⚠️ **The cold-start trap:** Your first sellers are joining a marketplace with no buyers yet. They can't see proof it works because the proof doesn't exist. Your job in Phase 1 isn't to convince them the marketplace is thriving — it's to make the cost of trying it low enough that "no buyers yet" isn't a dealbreaker.
+> ️ **The cold-start trap:** Your first sellers are joining a marketplace with no buyers yet. They can't see proof it works because the proof doesn't exist. Your job in Phase 1 isn't to convince them the marketplace is thriving — it's to make the cost of trying it low enough that "no buyers yet" isn't a dealbreaker.
 
 ---
 
@@ -35,12 +35,12 @@ In a personal-mode marketplace, you have no supply yet. This module exists to ma
 
 Same format as the buyer exercise — one sentence per answer, this is a decision record.
 
-- [ ] **Who is the seller, specifically?** (Hobbyist vs. professional changes everything about tolerance for friction)
-- [ ] **What are they currently doing instead** to sell/offer this? (Another platform, word of mouth, nothing)
-- [ ] **What's the real cost of listing** — time, photos, information they need to gather?
-- [ ] **What would make them list once and never come back?**
-- [ ] **What would make them list and actively recommend the platform to peers?**
-- [ ] **How do they expect to get paid**, and how fast?
+- **Who is the seller, specifically?** (Hobbyist vs. professional changes everything about tolerance for friction)
+- **What are they currently doing instead** to sell/offer this? (Another platform, word of mouth, nothing)
+- **What's the real cost of listing** — time, photos, information they need to gather?
+- **What would make them list once and never come back?**
+- **What would make them list and actively recommend the platform to peers?**
+- **How do they expect to get paid**, and how fast?
 
 ---
 
@@ -56,7 +56,7 @@ Founders default to "fewer form fields = less friction." That's only half true. 
 | Availability/condition specifics | Optional at launch — add only if buyers keep asking in messages |
 | Seller verification | Skip for v1 — see Trust & Safety in the next module |
 
-> ✅ **Best practice:** Watch what questions buyers actually ask sellers in your first 10 manually-brokered transactions (from the Buyer Journey validation step). Those questions tell you exactly which optional fields to add — not guesses, not competitor research.
+>  **Best practice:** Watch what questions buyers actually ask sellers in your first 10 manually-brokered transactions (from the Buyer Journey validation step). Those questions tell you exactly which optional fields to add — not guesses, not competitor research.
 
 ---
 
@@ -71,13 +71,13 @@ Since you can't yet offer "lots of buyers," offer something you *can* deliver at
 | Direct line to you for issues | Time only | Builds trust no automated system can replicate at this stage |
 | Featured placement / first-mover visibility | Free, you control placement | Reward for taking the early risk |
 
-> 💡 **Tip:** Promising "we'll have lots of buyers soon" is a claim you can't back up yet. Promising concrete, deliverable-today value (no fees, your direct help) is a claim you can keep.
+>  **Tip:** Promising "we'll have lots of buyers soon" is a claim you can't back up yet. Promising concrete, deliverable-today value (no fees, your direct help) is a claim you can keep.
 
 ---
 
 ## Common Mistake: Building the Full Seller Dashboard First
 
-> ⚠️ Seller analytics, payout history, bulk listing tools, performance graphs — none of this matters when you have three sellers you personally know. Build the dashboard once sellers ask for it, not because professional marketplaces have one. Every hour here is an hour not spent getting your first transaction to happen.
+> ️ Seller analytics, payout history, bulk listing tools, performance graphs — none of this matters when you have three sellers you personally know. Build the dashboard once sellers ask for it, not because professional marketplaces have one. Every hour here is an hour not spent getting your first transaction to happen.
 
 ---
 
@@ -111,9 +111,9 @@ One prompt, fully specified — avoid running this multiple times with vague ans
 
 ## Validating Before You Build
 
-- [ ] Personally recruit 3-5 real sellers by hand (DM, ask people you know) — don't build a seller signup flow yet
-- [ ] List their item/service for them yourself, manually — note every question you had to ask them that a form should've captured
-- [ ] Ask directly: "What would make you stop using this after one listing?" — write down the literal answer, don't paraphrase it into something more flattering
+- Personally recruit 3-5 real sellers by hand (DM, ask people you know) — don't build a seller signup flow yet
+- List their item/service for them yourself, manually — note every question you had to ask them that a form should've captured
+- Ask directly: "What would make you stop using this after one listing?" — write down the literal answer, don't paraphrase it into something more flattering
 
 ---
 

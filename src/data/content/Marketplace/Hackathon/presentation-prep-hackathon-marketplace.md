@@ -125,9 +125,9 @@ without losing the core value proposition.
 
 ## Validating What AI Generates
 
-- [ ] **The suggested pitch sentence actually matches what your app does** — AI sometimes makes the pitch sound more ambitious than the build supports, which backfires in Q&A
-- [ ] **Suggested cuts don't remove the part that makes your marketplace specific** — generic "buy and sell stuff" framing loses to a clearly-scoped niche every time
-- [ ] **Any suggested stat or claim is one you can actually defend if asked** — don't repeat an AI-generated statistic you can't source
+- **The suggested pitch sentence actually matches what your app does** — AI sometimes makes the pitch sound more ambitious than the build supports, which backfires in Q&A
+- **Suggested cuts don't remove the part that makes your marketplace specific** — generic "buy and sell stuff" framing loses to a clearly-scoped niche every time
+- **Any suggested stat or claim is one you can actually defend if asked** — don't repeat an AI-generated statistic you can't source
 
 ---
 

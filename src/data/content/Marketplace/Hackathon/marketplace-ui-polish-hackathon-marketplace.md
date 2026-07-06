@@ -42,11 +42,11 @@ Not all UI surfaces deserve equal effort. Prioritize in this order, based on wha
 
 Since buyers browse a grid or list of these repeatedly, small inconsistencies compound visibly.
 
-- [ ] Consistent card dimensions — no cards stretching or shrinking based on content length
-- [ ] Consistent image aspect ratio across all listings, even if source images vary
-- [ ] Clear price hierarchy — price should be visually prominent, not the same weight as secondary text
-- [ ] Trust signal (rating, badge) visible without cluttering the card
-- [ ] Hover/interaction state, even a subtle one — static, lifeless cards read as unfinished
+- Consistent card dimensions — no cards stretching or shrinking based on content length
+- Consistent image aspect ratio across all listings, even if source images vary
+- Clear price hierarchy — price should be visually prominent, not the same weight as secondary text
+- Trust signal (rating, badge) visible without cluttering the card
+- Hover/interaction state, even a subtle one — static, lifeless cards read as unfinished
 
 > **Warning:** Inconsistent image sizing is one of the most common and most visible hackathon UI mistakes. A grid where some images are tall, some wide, and some stretched looks broken even if every other part of the feature works correctly. Use consistent `object-fit: cover` (or your framework's equivalent) and fixed aspect-ratio containers — this is a five-minute fix with outsized visual impact.
 
@@ -96,7 +96,7 @@ Even in a hackathon, these moments will likely appear at least once during a liv
 
 Use AI to establish and apply a consistent design system quickly, rather than styling each screen independently as you build it.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 I'm polishing the UI for a hackathon marketplace built with [your stack/framework, e.g. "Next.js + Tailwind"].
@@ -116,11 +116,11 @@ For the listing card grid specifically, make sure image sizing is consistent acr
 
 ## Validating the Output
 
-- [ ] Are listing card images consistently sized, with no stretching or inconsistent aspect ratios?
-- [ ] Is there one clear type scale and spacing system applied consistently across screens, not ad-hoc per component?
-- [ ] Does the confirmation moment feel like a genuine payoff, not just a text message?
-- [ ] Have you deliberately triggered and checked loading, empty, and error states at least once?
-- [ ] Looking at your top 3 priority surfaces (cards, detail page, confirmation) — do they look like they belong to the same product?
+- Are listing card images consistently sized, with no stretching or inconsistent aspect ratios?
+- Is there one clear type scale and spacing system applied consistently across screens, not ad-hoc per component?
+- Does the confirmation moment feel like a genuine payoff, not just a text message?
+- Have you deliberately triggered and checked loading, empty, and error states at least once?
+- Looking at your top 3 priority surfaces (cards, detail page, confirmation) — do they look like they belong to the same product?
 
 > **Tip:** Step away for 10 minutes, then look at your app fresh, screen by screen, in the priority order from this module. Inconsistencies you've stopped noticing while building become obvious again with even a short break.
 
@@ -128,10 +128,10 @@ For the listing card grid specifically, make sure image sizing is consistent acr
 
 ## Before You Continue
 
-- [ ] Listing cards polished first — consistent sizing, clear price hierarchy, visible trust signals
-- [ ] One type scale, spacing system, and accent color applied consistently across the app
-- [ ] Confirmation moment designed with genuine visual payoff, not just plain text
-- [ ] Loading, empty, and error states deliberately checked at least once
-- [ ] Polish effort allocated in priority order, with seller-side screens last
+- Listing cards polished first — consistent sizing, clear price hierarchy, visible trust signals
+- One type scale, spacing system, and accent color applied consistently across the app
+- Confirmation moment designed with genuine visual payoff, not just plain text
+- Loading, empty, and error states deliberately checked at least once
+- Polish effort allocated in priority order, with seller-side screens last
 
 **Next up:** Tech Stack — finalizing the specific tools and libraries behind everything decided in this phase.

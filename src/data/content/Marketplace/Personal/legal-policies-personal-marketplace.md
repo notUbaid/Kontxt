@@ -26,7 +26,7 @@ Policies written in advance, when you're calm and thinking clearly, are dramatic
 | Enforcement Policy | What happens when a rule is broken — warning, removal, ban | Without this, enforcement looks arbitrary, even when it isn't |
 | Refund & Cancellation Policy | Specific, concrete rules for money-back situations | Generic "contact support" isn't a policy, it's a deferral |
 
-> **⚠️ Warning:** A policy that only exists in your head isn't a policy — it's a precedent you haven't told anyone about yet. The first time you enforce an unwritten rule, a user can reasonably say they had no way of knowing it existed. Write it down before you need to enforce it.
+> **️ Warning:** A policy that only exists in your head isn't a policy — it's a precedent you haven't told anyone about yet. The first time you enforce an unwritten rule, a user can reasonably say they had no way of knowing it existed. Write it down before you need to enforce it.
 
 ## Decision: How Strict Should Your Listing Policy Be?
 
@@ -36,18 +36,18 @@ Policies written in advance, when you're calm and thinking clearly, are dramatic
 | Broad allowlist with explicit exclusions | More flexible, but requires you to anticipate edge cases |
 | Anything goes, moderate after the fact | Fastest to launch, but invites the worst listings before you catch them |
 
-> **✅ Best Practice:** For a personal project, start with a broad allowlist plus a short, explicit list of hard exclusions (illegal goods, counterfeit items, anything requiring age verification you can't actually perform). This gives you room to grow without requiring you to predict every possible listing category in advance — and it's far easier to write five clear exclusions than an exhaustive list of what's allowed.
+> ** Best Practice:** For a personal project, start with a broad allowlist plus a short, explicit list of hard exclusions (illegal goods, counterfeit items, anything requiring age verification you can't actually perform). This gives you room to grow without requiring you to predict every possible listing category in advance — and it's far easier to write five clear exclusions than an exhaustive list of what's allowed.
 
 ## Writing Enforcement Rules You Can Actually Follow
 
 A policy that's harsher than you're willing to enforce undermines trust the first time you don't enforce it. A policy that's vague gives you no defensible basis for any action.
 
-- [ ] Define a small number of severity tiers (e.g. warning → temporary suspension → permanent ban)
-- [ ] Specify which violations map to which tier — not every violation deserves the same response
-- [ ] Decide whether first offenses get a warning by default, or whether some violations skip straight to removal
-- [ ] Write down what evidence or threshold you need before taking action — protects you if a decision is challenged
+- Define a small number of severity tiers (e.g. warning → temporary suspension → permanent ban)
+- Specify which violations map to which tier — not every violation deserves the same response
+- Decide whether first offenses get a warning by default, or whether some violations skip straight to removal
+- Write down what evidence or threshold you need before taking action — protects you if a decision is challenged
 
-> **💡 Tip:** As a solo builder, write enforcement rules you can realistically apply consistently by yourself. An elaborate multi-tier system that requires significant manual review time per case will either not get followed or will consume time you don't have — match the policy's complexity to your actual capacity to enforce it.
+> ** Tip:** As a solo builder, write enforcement rules you can realistically apply consistently by yourself. An elaborate multi-tier system that requires significant manual review time per case will either not get followed or will consume time you don't have — match the policy's complexity to your actual capacity to enforce it.
 
 ## Refund Policy: Specificity Beats Generosity
 
@@ -62,7 +62,7 @@ requests must include photo evidence. Approved refunds are processed
 within 5 business days."
 ```
 
-> **✅ Best Practice:** Specificity protects both sides. A buyer knows exactly what qualifies; a seller knows exactly what they're exposed to. The vague version above generates a negotiation every single time; the specific version generates a clear yes or no most of the time.
+> ** Best Practice:** Specificity protects both sides. A buyer knows exactly what qualifies; a seller knows exactly what they're exposed to. The vague version above generates a negotiation every single time; the specific version generates a clear yes or no most of the time.
 
 ## Where Trust & Safety Planning Becomes a Written Policy
 
@@ -89,15 +89,15 @@ Keep enforcement realistic for one person to apply consistently, not
 an elaborate system requiring a moderation team.
 ```
 
-> **💡 Token Efficiency:** Reuse the same conversation where you drafted your Terms of Service and Privacy Policy in the previous module — these policies need to be consistent with those documents, and AI holding that context produces aligned output instead of policies that accidentally contradict your legal documents.
+> ** Token Efficiency:** Reuse the same conversation where you drafted your Terms of Service and Privacy Policy in the previous module — these policies need to be consistent with those documents, and AI holding that context produces aligned output instead of policies that accidentally contradict your legal documents.
 
 ## Validate Before Launch
 
-- [ ] Listing policy has explicit hard exclusions, not just vague "use good judgment" language
-- [ ] Enforcement tiers are realistic for you, alone, to apply consistently
-- [ ] Refund policy specifies exact timeframes and evidence requirements, not vague discretion
-- [ ] All policies are linked from somewhere a user will actually see before listing or buying
-- [ ] You've mentally tested each policy against a real awkward scenario you can imagine happening
+- Listing policy has explicit hard exclusions, not just vague "use good judgment" language
+- Enforcement tiers are realistic for you, alone, to apply consistently
+- Refund policy specifies exact timeframes and evidence requirements, not vague discretion
+- All policies are linked from somewhere a user will actually see before listing or buying
+- You've mentally tested each policy against a real awkward scenario you can imagine happening
 
 ## Common Mistakes
 

@@ -123,10 +123,10 @@ for judges with mixed technical backgrounds.
 
 ## Validating What AI Generates
 
-- [ ] **The problem statement is specific to your niche**, not a generic version AI defaults to — check it passes the "could this apply to any marketplace" test
-- [ ] **No invented statistics** — if AI suggests a market-size number, verify it or cut it; an unsourced stat that gets questioned in Q&A is worse than no stat at all
-- [ ] **Slide text is actually as short as you asked for** — AI tends to drift back toward full sentences; trim anything over ~20 words per slide
-- [ ] **The "what's next" slide is realistic**, not a feature list that implicitly admits the current build is incomplete
+- **The problem statement is specific to your niche**, not a generic version AI defaults to — check it passes the "could this apply to any marketplace" test
+- **No invented statistics** — if AI suggests a market-size number, verify it or cut it; an unsourced stat that gets questioned in Q&A is worse than no stat at all
+- **Slide text is actually as short as you asked for** — AI tends to drift back toward full sentences; trim anything over ~20 words per slide
+- **The "what's next" slide is realistic**, not a feature list that implicitly admits the current build is incomplete
 
 ---
 

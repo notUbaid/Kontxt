@@ -79,7 +79,7 @@ You don't need to solve cold start for real — but you do need to understand it
 
 Use AI to pressure-test your specific marketplace concept against these fundamentals before you commit to a direction in the next module.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 I'm scoping a marketplace concept for a hackathon: [describe your idea in 2-3 sentences].
@@ -99,18 +99,18 @@ This prompt works because it asks AI to evaluate against a fixed framework inste
 
 ## Validating the Output
 
-- [ ] Does your concept clearly identify one buyer type and one seller type, not an ambiguous multi-sided structure?
-- [ ] Have you identified what's actually being exchanged, and does that match something you can demo convincingly in your time budget?
-- [ ] Have you identified at least one trust signal you can fake with static data?
-- [ ] Do you understand why later phases include explicit "fake this" modules, rather than treating that as a shortcut you should feel bad about?
+- Does your concept clearly identify one buyer type and one seller type, not an ambiguous multi-sided structure?
+- Have you identified what's actually being exchanged, and does that match something you can demo convincingly in your time budget?
+- Have you identified at least one trust signal you can fake with static data?
+- Do you understand why later phases include explicit "fake this" modules, rather than treating that as a shortcut you should feel bad about?
 
 ---
 
 ## Before You Continue
 
-- [ ] Two-sided structure confirmed (or a deliberate, justified exception)
-- [ ] Exchange type identified, with its complexity implications understood
-- [ ] At least one trust signal idea noted for later use
-- [ ] Cold-start problem understood as the reason demo data will matter later, not skipped over
+- Two-sided structure confirmed (or a deliberate, justified exception)
+- Exchange type identified, with its complexity implications understood
+- At least one trust signal idea noted for later use
+- Cold-start problem understood as the reason demo data will matter later, not skipped over
 
 **Next up:** Marketplace Type — narrowing your concept into a specific, well-scoped category before you write a single PRD line.

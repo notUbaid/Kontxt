@@ -68,9 +68,9 @@ A buyer-side flow with zero listings, or a seller dashboard with zero activity, 
 
 ## Before You Continue
 
-- [ ] You understand this track deliberately skips production-hardening phases — that's correct, not incomplete
-- [ ] You're thinking in two user journeys (buyer and seller), not one
-- [ ] You've internalized that a populated, alive-feeling demo beats a technically perfect but empty one
-- [ ] You're ready to lock a tight MVP scope next — the single biggest cause of hackathon failure is scope that's too wide to finish
+- You understand this track deliberately skips production-hardening phases — that's correct, not incomplete
+- You're thinking in two user journeys (buyer and seller), not one
+- You've internalized that a populated, alive-feeling demo beats a technically perfect but empty one
+- You're ready to lock a tight MVP scope next — the single biggest cause of hackathon failure is scope that's too wide to finish
 
 **Next up:** Marketplace Fundamentals — the core mechanics every marketplace needs to get right, regardless of what you're matching buyers and sellers around.

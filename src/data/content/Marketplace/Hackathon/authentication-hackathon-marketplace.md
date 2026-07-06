@@ -83,7 +83,7 @@ Whichever approach you choose, decide explicitly how a user becomes "a buyer" vs
 
 Use AI to scaffold whichever approach you've chosen quickly, and to sanity-check that you're not over-building.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 I'm building auth for a hackathon marketplace.
@@ -104,10 +104,10 @@ Flag if anything I'm asking for is more complex than my time budget justifies, a
 
 ## Validating the Output
 
-- [ ] Can a judge distinguish buyer view from seller view within seconds, without confusion?
-- [ ] If you built real auth, did you skip password reset, email verification, and MFA — none of which a demo needs?
-- [ ] Is there zero risk of an auth bug (expired session, failed login) interrupting your live demo?
-- [ ] Did you spend less time on this than on your core loop? If not, that's a signal to simplify.
+- Can a judge distinguish buyer view from seller view within seconds, without confusion?
+- If you built real auth, did you skip password reset, email verification, and MFA — none of which a demo needs?
+- Is there zero risk of an auth bug (expired session, failed login) interrupting your live demo?
+- Did you spend less time on this than on your core loop? If not, that's a signal to simplify.
 
 > **Common Mistake:** Discovering a session-expiry bug or a login failure mid-demo because real auth was tested once and never again under demo conditions. If you went with real auth, re-test the exact login flow you'll use on stage, right before presenting — not just once during development.
 
@@ -115,9 +115,9 @@ Flag if anything I'm asking for is more complex than my time budget justifies, a
 
 ## Before You Continue
 
-- [ ] Auth approach explicitly decided (role switcher, mock login, or real provider-based auth) — not left ambiguous
-- [ ] Role assignment model chosen (dual role + switcher is the default recommendation)
-- [ ] If real auth was used, password reset/email verification/MFA explicitly excluded as out of scope
-- [ ] Time spent here is proportionate — less than your core loop, not more
+- Auth approach explicitly decided (role switcher, mock login, or real provider-based auth) — not left ambiguous
+- Role assignment model chosen (dual role + switcher is the default recommendation)
+- If real auth was used, password reset/email verification/MFA explicitly excluded as out of scope
+- Time spent here is proportionate — less than your core loop, not more
 
 **Next up:** Architecture Fundamentals — the broader technical decisions for the rest of your stack.

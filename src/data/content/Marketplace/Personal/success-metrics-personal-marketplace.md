@@ -112,9 +112,9 @@ back if they're too ambitious or too easy to be meaningful.
 
 ## Validating What AI Generates
 
-- [ ] **Reject metrics that are generic SaaS metrics renamed** — "DAU/MAU" and "engagement score" aren't marketplace-specific; insist on supply/demand/match framing
-- [ ] **Check suggested target numbers against your actual reach**, not industry benchmarks — AI sometimes anchors to numbers appropriate for a funded startup with a marketing budget you don't have
-- [ ] **Make sure the "successful match" metric is actually measurable with what you're realistically building** — don't accept a metric that requires instrumentation you won't have until much later
+- **Reject metrics that are generic SaaS metrics renamed** — "DAU/MAU" and "engagement score" aren't marketplace-specific; insist on supply/demand/match framing
+- **Check suggested target numbers against your actual reach**, not industry benchmarks — AI sometimes anchors to numbers appropriate for a funded startup with a marketing budget you don't have
+- **Make sure the "successful match" metric is actually measurable with what you're realistically building** — don't accept a metric that requires instrumentation you won't have until much later
 
 ---
 

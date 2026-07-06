@@ -38,13 +38,13 @@ logger.error({ orderId, error: err.message }, "payment webhook failed");
 logger.debug({ filters: req.query }, "search query received");
 ```
 
-> **🔑 Why this matters:** Setting the production log level to `info` automatically silences `debug` noise without deleting a single line of code — you keep the detail for local development without paying for it (in log volume and readability) in production.
+> ** Why this matters:** Setting the production log level to `info` automatically silences `debug` noise without deleting a single line of code — you keep the detail for local development without paying for it (in log volume and readability) in production.
 
 ---
 
 ## Decision: Where Logs Go
 
-> **🧩 Decision Card — Log Destination**
+> ** Decision Card — Log Destination**
 >
 > **Option A: `console.log`, captured by your hosting platform**
 > Zero setup — most platforms (Render, Railway, Vercel, Fly.io) capture stdout automatically and give you a basic searchable view.
@@ -60,30 +60,30 @@ logger.debug({ filters: req.query }, "search query received");
 
 This is the highest-leverage part of this module, because logging the wrong thing is actively harmful, not just wasteful.
 
-> **✅ Validation Checklist — Safe to log**
+> ** Validation Checklist — Safe to log**
 > - [ ] User IDs, listing IDs, order IDs (reference data, not secrets)
 > - [ ] Error messages and stack traces
 > - [ ] Request method, path, status code, duration
 > - [ ] Business event names and their associated IDs (from your Monitoring module)
 
-> **🚫 Never log**
+> ** Never log**
 > - [ ] Passwords, even hashed ones
 > - [ ] Full payment details (card numbers, even partial — your payment provider's webhook payloads often contain more than you need to store)
 > - [ ] Session tokens or API keys
 > - [ ] Full message bodies between buyers and sellers (this is private correspondence — log that a message was sent, not its content)
 > - [ ] Raw `req.body` or `req.headers` without explicit field selection
 
-> **⚠️ Warning:** It's tempting to log `req.body` wholesale "just in case" during debugging, then forget to remove it. Get in the habit of destructuring only the fields you need: `logger.info({ listingId: req.body.listingId })`, never `logger.info({ body: req.body })`.
+> **️ Warning:** It's tempting to log `req.body` wholesale "just in case" during debugging, then forget to remove it. Get in the habit of destructuring only the fields you need: `logger.info({ listingId: req.body.listingId })`, never `logger.info({ body: req.body })`.
 
 ---
 
 ## Structured Logging > String Concatenation
 
 ```js
-// ❌ Hard to search, hard to parse later
+//  Hard to search, hard to parse later
 console.log(`Order ${orderId} completed for $${amount} by user ${userId}`);
 
-// ✅ Queryable as data, not just text
+//  Queryable as data, not just text
 logger.info({ orderId, amount, userId }, "order completed");
 ```
 
@@ -114,7 +114,7 @@ function requestLogger(req, res, next) {
 }
 ```
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Does request logging fire on response `finish`, capturing the actual status code — not logged before the response is known?
 > - [ ] Is `userId` included when available, so you can filter "everything this user did" during debugging?
 > - [ ] Are health-check pings (`/health`) excluded or logged at `debug` level, so they don't drown out real traffic in your log viewer?
@@ -123,13 +123,13 @@ function requestLogger(req, res, next) {
 
 ## Retention: You Don't Need Forever
 
-> **🔑 Rule of thumb:** for a personal project, 7-14 days of searchable logs is enough to debug almost anything a user reports — most bug reports come in within days, not months. Longer retention costs storage and money for diminishing value at this stage. Most hosting platforms default to something reasonable here; check the setting rather than assuming.
+> ** Rule of thumb:** for a personal project, 7-14 days of searchable logs is enough to debug almost anything a user reports — most bug reports come in within days, not months. Longer retention costs storage and money for diminishing value at this stage. Most hosting platforms default to something reasonable here; check the setting rather than assuming.
 
 ---
 
 ## AI Prompt: Add Structured Logging
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Add structured logging to my existing marketplace project using [pino/winston/your choice].
@@ -153,7 +153,7 @@ function requestLogger(req, res, next) {
 
 ## Validating AI Output
 
-> **🚩 Common Hallucination:** AI will often add `logger.info({ req })` or `logger.debug(JSON.stringify(req.body))` as a "helpful" catch-all for debugging, directly reintroducing the sensitive-data risk this module exists to prevent. Treat any log call that includes a whole `req` or `body` object, rather than explicitly named fields, as a finding to fix — not as acceptable debug convenience.
+> ** Common Hallucination:** AI will often add `logger.info({ req })` or `logger.debug(JSON.stringify(req.body))` as a "helpful" catch-all for debugging, directly reintroducing the sensitive-data risk this module exists to prevent. Treat any log call that includes a whole `req` or `body` object, rather than explicitly named fields, as a finding to fix — not as acceptable debug convenience.
 
 ---
 

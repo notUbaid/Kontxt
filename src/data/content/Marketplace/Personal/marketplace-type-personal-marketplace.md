@@ -119,8 +119,8 @@ work each complex choice creates.
 
 ## Validating What AI Generates
 
-- [ ] **Don't accept a classification that avoids picking a side** — if your idea is genuinely ambiguous on a dimension, that's useful information about your idea, not a reason to leave it unresolved
-- [ ] **Verify any complexity warning is specific**, not generic — "dynamic pricing is complex" should come with what specifically gets harder (state management, expiration logic, UI), not just a vague caution
+- **Don't accept a classification that avoids picking a side** — if your idea is genuinely ambiguous on a dimension, that's useful information about your idea, not a reason to leave it unresolved
+- **Verify any complexity warning is specific**, not generic — "dynamic pricing is complex" should come with what specifically gets harder (state management, expiration logic, UI), not just a vague caution
 
 ---
 

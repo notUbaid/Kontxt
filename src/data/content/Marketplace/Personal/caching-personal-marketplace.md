@@ -19,22 +19,22 @@ Caching's reputation for being dangerous is earned: stale data in a marketplace 
 
 Before caching anything, ask one question: **what's the cost of this data being briefly wrong?**
 
-> **🔑 Core rule:** cache aggressively where staleness is harmless or cosmetic. Never cache where staleness causes a buyer to act on wrong information — pricing, availability, payment status.
+> ** Core rule:** cache aggressively where staleness is harmless or cosmetic. Never cache where staleness causes a buyer to act on wrong information — pricing, availability, payment status.
 
 | Data | Safe to cache? | Why |
 |---|---|---|
-| Seller average rating | ✅ Yes, briefly | A rating that's a few minutes stale has no real consequence |
-| Category list / static filters | ✅ Yes, aggressively | Changes rarely, identical for all users |
-| Listing search results | ⚠️ Cache briefly (seconds, not minutes) | Staleness risk is low but real — a sold item lingering in cached search results is a bad experience |
-| Listing detail page (price, status) | ❌ No, or very short TTL with explicit invalidation | Directly affects purchase decisions |
-| Order/payment status | ❌ Never | Must always be current — this is the one place staleness is unacceptable |
-| Authenticated user session/profile | ❌ Don't cache server-side past the session itself | Permission and identity must always be current |
+| Seller average rating |  Yes, briefly | A rating that's a few minutes stale has no real consequence |
+| Category list / static filters |  Yes, aggressively | Changes rarely, identical for all users |
+| Listing search results | ️ Cache briefly (seconds, not minutes) | Staleness risk is low but real — a sold item lingering in cached search results is a bad experience |
+| Listing detail page (price, status) |  No, or very short TTL with explicit invalidation | Directly affects purchase decisions |
+| Order/payment status |  Never | Must always be current — this is the one place staleness is unacceptable |
+| Authenticated user session/profile |  Don't cache server-side past the session itself | Permission and identity must always be current |
 
 ---
 
 ## Decision: What Kind of Cache
 
-> **🧩 Decision Card — Caching Approach**
+> ** Decision Card — Caching Approach**
 >
 > **Option A: In-memory cache** (e.g. a simple `Map` with TTL, or `node-cache`)
 > Zero infrastructure, resets on restart, doesn't share across multiple server instances — fine for a single-server personal project.
@@ -74,7 +74,7 @@ async function getSellerRating(sellerId) {
 }
 ```
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Is there a TTL, not an indefinite cache? (Indefinite caches are the most common source of "why is this showing old data" bugs)
 > - [ ] Is the cache invalidated (or just left to expire naturally) when a new review is submitted?
 > - [ ] Does the cache key correctly scope to the entity (per `sellerId`), not a single global value?
@@ -85,7 +85,7 @@ async function getSellerRating(sellerId) {
 
 There's a well-known saying that cache invalidation is one of the genuinely hard problems in computer science — not because the code is complex, but because it's easy to forget an invalidation path exists and silently ship stale data.
 
-> **🚩 Common Hallucination:** AI will often add a cache with a TTL but skip explicit invalidation entirely, relying purely on expiry. For low-stakes data (ratings) that's an acceptable tradeoff. For anything closer to "is this still purchasable," relying on TTL alone instead of invalidating immediately on the relevant write (e.g. when a listing's status changes to `sold`) means a real window where buyers can see incorrect availability.
+> ** Common Hallucination:** AI will often add a cache with a TTL but skip explicit invalidation entirely, relying purely on expiry. For low-stakes data (ratings) that's an acceptable tradeoff. For anything closer to "is this still purchasable," relying on TTL alone instead of invalidating immediately on the relevant write (e.g. when a listing's status changes to `sold`) means a real window where buyers can see incorrect availability.
 
 ```js
 // When a listing status changes, invalidate immediately — don't wait for TTL
@@ -95,7 +95,7 @@ async function updateListingStatus(listingId, newStatus) {
 }
 ```
 
-> **⚠️ Warning:** if you can't cleanly invalidate a cache when the underlying data changes, that's a signal the data shouldn't be cached at all — or needs a much shorter TTL than you'd otherwise choose. Don't reach for complex invalidation logic to justify caching something that's safer left uncached.
+> **️ Warning:** if you can't cleanly invalidate a cache when the underlying data changes, that's a signal the data shouldn't be cached at all — or needs a much shorter TTL than you'd otherwise choose. Don't reach for complex invalidation logic to justify caching something that's safer left uncached.
 
 ---
 
@@ -110,13 +110,13 @@ router.get("/categories", (req, res) => {
 });
 ```
 
-> **🔑 Why this matters:** this requires zero backend caching infrastructure and offloads the work to browsers and any CDN in front of your app. It's the cheapest possible caching win, and it's available right now with no new dependencies.
+> ** Why this matters:** this requires zero backend caching infrastructure and offloads the work to browsers and any CDN in front of your app. It's the cheapest possible caching win, and it's available right now with no new dependencies.
 
 ---
 
 ## What NOT to Cache
 
-> **✅ Validation Checklist — Never cache these**
+> ** Validation Checklist — Never cache these**
 > - [ ] Order status / payment confirmation
 > - [ ] Listing price or availability on the detail page where a purchase happens
 > - [ ] Anything inside an authenticated, per-user response (messages, "my listings," account settings)
@@ -126,7 +126,7 @@ router.get("/categories", (req, res) => {
 
 ## AI Prompt: Add Safe Caching
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Add caching to my marketplace project, but only where staleness is safe.
@@ -150,7 +150,7 @@ router.get("/categories", (req, res) => {
 
 ## Validating AI Output
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Does every cached value have a TTL — no indefinite caches?
 > - [ ] Is order/payment/price data confirmed as explicitly excluded from caching?
 > - [ ] Where invalidation is shown, does it trigger on the actual write path (e.g. listing status update), not just rely on expiry?

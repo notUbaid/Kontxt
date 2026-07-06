@@ -17,7 +17,7 @@ The goal isn't to rate-limit everything equally. It's to match the limit to what
 
 ## Rate Limiting Is Risk-Based, Not Uniform
 
-> **🔑 Core rule:** the right limit for an endpoint depends on what abusing it gets the attacker, not on a single global number. A search endpoint and a checkout endpoint have completely different abuse profiles.
+> ** Core rule:** the right limit for an endpoint depends on what abusing it gets the attacker, not on a single global number. A search endpoint and a checkout endpoint have completely different abuse profiles.
 
 | Endpoint type | Abuse scenario | Suggested limit |
 |---|---|---|
@@ -35,7 +35,7 @@ This table is a starting point, not a rulebook — the right numbers depend on y
 
 ## Decision: Where to Enforce Limits
 
-> **🧩 Decision Card — Rate Limit Layer**
+> ** Decision Card — Rate Limit Layer**
 >
 > **Option A: In-memory, per-process** (e.g. `express-rate-limit` with default memory store)
 > Zero extra infrastructure, works great for a single-server personal project. Resets if the server restarts, and doesn't share state across multiple server instances.
@@ -64,7 +64,7 @@ router.post("/orders", requireAuth, checkoutLimiter, createOrder);
 
 This distinction trips people up constantly, and the wrong choice either fails to stop abuse or breaks legitimate shared-network users.
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Does login limiting key on IP (since the account isn't authenticated yet)?
 > - [ ] Does listing creation / checkout key on account ID, not IP? (Multiple legitimate users on the same network — office, university, shared NAT — shouldn't share one limit)
 > - [ ] For unauthenticated endpoints (public search), is IP-based limiting generous enough to not break normal browsing, but tight enough to deter scraping?
@@ -73,7 +73,7 @@ This distinction trips people up constantly, and the wrong choice either fails t
 
 ## Response Behavior: Don't Just Block Silently
 
-> **⚠️ Warning:** Returning a bare `429` with no explanation, or worse, silently dropping the request, makes debugging "why isn't this working" miserable for legitimate users who hit a limit accidentally (e.g. a buyer double-clicking "send message" a few times). Always return a clear error and, where practical, a `Retry-After` header.
+> **️ Warning:** Returning a bare `429` with no explanation, or worse, silently dropping the request, makes debugging "why isn't this working" miserable for legitimate users who hit a limit accidentally (e.g. a buyer double-clicking "send message" a few times). Always return a clear error and, where practical, a `Retry-After` header.
 
 ```js
 const messageLimiter = rateLimit({
@@ -92,13 +92,13 @@ const messageLimiter = rateLimit({
 
 ## Rate Limiting Isn't a Substitute for Authorization
 
-> **🚩 Common Hallucination:** AI sometimes suggests rate limiting as a fix for what's actually an authorization gap — e.g. "rate limit the listing edit endpoint to prevent abuse" when the real issue is that endpoint doesn't check ownership at all. Rate limiting slows down abuse of a properly-secured endpoint; it does nothing to fix a missing authorization check. If an endpoint lets anyone edit anyone's listing, no rate limit fixes that — go back to your Authorization Rules middleware.
+> ** Common Hallucination:** AI sometimes suggests rate limiting as a fix for what's actually an authorization gap — e.g. "rate limit the listing edit endpoint to prevent abuse" when the real issue is that endpoint doesn't check ownership at all. Rate limiting slows down abuse of a properly-secured endpoint; it does nothing to fix a missing authorization check. If an endpoint lets anyone edit anyone's listing, no rate limit fixes that — go back to your Authorization Rules middleware.
 
 ---
 
 ## AI Prompt: Apply Rate Limiting Systematically
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Add rate limiting across my marketplace API. I already have basic limits on login,
@@ -127,7 +127,7 @@ const messageLimiter = rateLimit({
 
 ## Validating AI Output
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Does each limit's `keyGenerator` match the IP-vs-account decision appropriate for that endpoint? (Login → IP; checkout → account)
 > - [ ] Are the suggested numbers actually justified, or just copy-pasted defaults across every route?
 > - [ ] Does the response include a clear error message, not a bare status code?

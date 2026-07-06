@@ -225,11 +225,11 @@ accepting an optional `initial` prop. Tailwind styling, no UI library.
 
 ## Validating What AI Generates
 
-- [ ] **The ownership check exists on every mutating route** (edit, archive, delete) — not just on create
-- [ ] **Server-side validation matches client-side validation** — AI sometimes generates one and forgets the other
-- [ ] **Price conversion direction is correct** — confirm dollars-to-cents happens once, not twice (a doubled conversion silently makes every listing 100x too expensive)
-- [ ] **The edit route uses `PATCH` with partial validation**, not a full `PUT` that requires re-sending every field — partial edits are how real users behave
-- [ ] **No listing can be created without a `sellerId`** tied to the authenticated user — never trust a `sellerId` passed in the request body
+- **The ownership check exists on every mutating route** (edit, archive, delete) — not just on create
+- **Server-side validation matches client-side validation** — AI sometimes generates one and forgets the other
+- **Price conversion direction is correct** — confirm dollars-to-cents happens once, not twice (a doubled conversion silently makes every listing 100x too expensive)
+- **The edit route uses `PATCH` with partial validation**, not a full `PUT` that requires re-sending every field — partial edits are how real users behave
+- **No listing can be created without a `sellerId`** tied to the authenticated user — never trust a `sellerId` passed in the request body
 
 ---
 

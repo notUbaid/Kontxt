@@ -21,12 +21,12 @@ If you find yourself reconsidering account type or payout timing here, stop and 
 
 Stripe's Express onboarding is hosted by Stripe, which means your job is mostly orchestration: generating the onboarding link, tracking completion status, and handling the return flow.
 
-- [ ] Generate an Express account onboarding link when a user creates their first listing (the SellerProfile creation trigger from Auth Implementation)
-- [ ] Store the Connect account ID on SellerProfile once created
-- [ ] Track onboarding completion status — a seller with an incomplete Express account shouldn't be able to receive payouts yet
-- [ ] Handle the return redirect from Stripe gracefully, with clear UI feedback either way
+- Generate an Express account onboarding link when a user creates their first listing (the SellerProfile creation trigger from Auth Implementation)
+- Store the Connect account ID on SellerProfile once created
+- Track onboarding completion status — a seller with an incomplete Express account shouldn't be able to receive payouts yet
+- Handle the return redirect from Stripe gracefully, with clear UI feedback either way
 
-> ⚠️ **Common mistake:** Letting a listing go live before the seller's Express account onboarding is actually complete. If a sale happens before the account can receive funds, you've created exactly the kind of payment-succeeds-but-money-has-nowhere-to-go bug flagged in Demo Transactions. Gate "Active" listing status, or at minimum checkout availability, on Express onboarding completion.
+> ️ **Common mistake:** Letting a listing go live before the seller's Express account onboarding is actually complete. If a sale happens before the account can receive funds, you've created exactly the kind of payment-succeeds-but-money-has-nowhere-to-go bug flagged in Demo Transactions. Gate "Active" listing status, or at minimum checkout availability, on Express onboarding completion.
 
 ---
 
@@ -45,7 +45,7 @@ Payments Architecture specified that Transaction and Listing status updates must
    listing remains Active and purchasable
 ```
 
-> 💡 **Tip:** Never show a "purchase successful" UI state optimistically before the backend confirms the entire atomic operation completed. A frontend that shows success while the backend is still processing — or worse, failed — directly causes the confusion Demo Transactions was designed to catch before launch.
+>  **Tip:** Never show a "purchase successful" UI state optimistically before the backend confirms the entire atomic operation completed. A frontend that shows success while the backend is still processing — or worse, failed — directly causes the confusion Demo Transactions was designed to catch before launch.
 
 ---
 
@@ -58,7 +58,7 @@ Your Cost Estimation module calculated your real take rate after Stripe's cut. T
 | Buyer | Total charge (listing price + any buyer-facing fees, if applicable) |
 | Seller | Listing price, platform fee deducted, net payout amount |
 
-> ✅ **Best practice:** Show the seller's net payout amount before they list, not just at sale time. A seller surprised by the fee deduction after a sale damages exactly the trust your Seller Journey module worked to establish during onboarding.
+>  **Best practice:** Show the seller's net payout amount before they list, not just at sale time. A seller surprised by the fee deduction after a sale damages exactly the trust your Seller Journey module worked to establish during onboarding.
 
 ---
 
@@ -79,9 +79,9 @@ Per the held-vs-immediate decision from Payments Architecture, sellers need to a
 
 Continue using Stripe test mode through this entire implementation — only switch to live mode once Demo Transactions-style testing has been re-run against the finished checkout and payout UI.
 
-- [ ] Use Stripe test cards for every checkout test during development
-- [ ] Verify webhook events fire correctly in test mode before considering this module complete
-- [ ] Do not switch to live keys until Security (Phase 4) and a final pass of testing are complete
+- Use Stripe test cards for every checkout test during development
+- Verify webhook events fire correctly in test mode before considering this module complete
+- Do not switch to live keys until Security (Phase 4) and a final pass of testing are complete
 
 ---
 
@@ -114,7 +114,7 @@ to change before going live.
 
 ## Common Mistake: Confusing "Payment Succeeded" With "Transaction Complete"
 
-> ⚠️ A Stripe charge succeeding is one event among several that need to happen together — fee split, status updates, notification. Showing the buyer a success screen the moment Stripe confirms the charge, before your backend has finished updating Transaction and Listing status, risks a UI that says "success" while your database briefly (or permanently, if something fails) disagrees. Wait for your own backend's confirmation, not just Stripe's.
+> ️ A Stripe charge succeeding is one event among several that need to happen together — fee split, status updates, notification. Showing the buyer a success screen the moment Stripe confirms the charge, before your backend has finished updating Transaction and Listing status, risks a UI that says "success" while your database briefly (or permanently, if something fails) disagrees. Wait for your own backend's confirmation, not just Stripe's.
 
 ---
 

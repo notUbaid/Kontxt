@@ -17,15 +17,15 @@ This is the last line of defense before real money and real reputation are on th
 
 ## Fraud Is Different From the Security You've Already Built
 
-> **🔑 Core distinction:** Security (your earlier module) stops someone from accessing data they shouldn't. Fraud prevention stops someone from *legitimately* using features exactly as designed, for a dishonest purpose. A scammer creating a real account, posting a real listing for a fake product, isn't bypassing any authorization check — they're using your marketplace correctly.
+> ** Core distinction:** Security (your earlier module) stops someone from accessing data they shouldn't. Fraud prevention stops someone from *legitimately* using features exactly as designed, for a dishonest purpose. A scammer creating a real account, posting a real listing for a fake product, isn't bypassing any authorization check — they're using your marketplace correctly.
 
 | Attack | Security gap? | Fraud pattern |
 |---|---|---|
-| Editing someone else's listing via ID manipulation | ✅ Yes — IDOR | No |
-| Listing a product that doesn't exist to collect payment and never ship | No | ✅ Yes |
-| Buyer claims "item not received" after receiving it, to get a refund | No | ✅ Yes |
-| Account takeover via stolen credentials | ✅ Yes | Sometimes overlaps |
-| Fake reviews to inflate seller reputation | Partially (already blocked structurally in Reviews) | ✅ Yes |
+| Editing someone else's listing via ID manipulation |  Yes — IDOR | No |
+| Listing a product that doesn't exist to collect payment and never ship | No |  Yes |
+| Buyer claims "item not received" after receiving it, to get a refund | No |  Yes |
+| Account takeover via stolen credentials |  Yes | Sometimes overlaps |
+| Fake reviews to inflate seller reputation | Partially (already blocked structurally in Reviews) |  Yes |
 
 ---
 
@@ -43,7 +43,7 @@ This is the last line of defense before real money and real reputation are on th
 
 ## Decision: How Much Fraud Tooling to Build
 
-> **🧩 Decision Card — Fraud Prevention Investment**
+> ** Decision Card — Fraud Prevention Investment**
 >
 > **Option A: Rely on your payment processor's built-in fraud tools**
 > Stripe, PayPal, and similar processors already run sophisticated fraud detection (Stripe Radar, for example) on every transaction — meaningful protection with zero custom code.
@@ -70,7 +70,7 @@ Buyer confirms receipt → Order: "completed" → Seller payout released
 No confirmation within N days → Order auto-completes (with buyer notification first)
 ```
 
-> **🔑 Why this matters:** without a confirmation step, payment capture and fund release happen at the same moment — meaning a non-delivering seller has already been paid before the buyer even knows something's wrong. A confirmation step (even a simple one) gives buyers a structural way to flag non-delivery before money is fully released.
+> ** Why this matters:** without a confirmation step, payment capture and fund release happen at the same moment — meaning a non-delivering seller has already been paid before the buyer even knows something's wrong. A confirmation step (even a simple one) gives buyers a structural way to flag non-delivery before money is fully released.
 
 ```js
 async function autoCompleteStaleOrders() {
@@ -92,7 +92,7 @@ async function autoCompleteStaleOrders() {
 
 ## Reporting Tools: Cheap, High-Leverage
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] Can a user report a listing as suspicious/fraudulent, with a short reason field?
 > - [ ] Can a user report another user (not tied to a specific listing — e.g. suspicious messages)?
 > - [ ] Does a report notify you (the admin) somewhere you'll actually see it — not just write silently to a database table you forget to check?
@@ -118,19 +118,19 @@ This connects to the Admin Panel you'll build later — reports need a place to 
 
 You don't need a fraud-scoring model. A few simple signals, reviewed manually, catch most personal-project-scale fraud:
 
-> **✅ Validation Checklist**
+> ** Validation Checklist**
 > - [ ] New account + immediately listing high-value items → worth a second look, not an automatic block
 > - [ ] Multiple accounts from the same email pattern or rapid signup bursts from one IP → possible fake account farming
 > - [ ] A seller with many `non-delivery` reports across different buyers → pattern, not coincidence
 > - [ ] Price significantly below market for the category → classic scam-listing signal, but also sometimes a genuinely great deal — flag for review, don't auto-remove
 
-> **⚠️ Warning:** Resist the urge to auto-block based on these signals at personal-project scale. False positives (banning a legitimate user) cost you more in trust than letting one borderline case through to manual review. Flag, don't punish automatically, until you have enough data to be confident.
+> **️ Warning:** Resist the urge to auto-block based on these signals at personal-project scale. False positives (banning a legitimate user) cost you more in trust than letting one borderline case through to manual review. Flag, don't punish automatically, until you have enough data to be confident.
 
 ---
 
 ## AI Prompt: Build Reporting and Order Confirmation
 
-> **📋 Copy Prompt**
+> ** Copy Prompt**
 >
 > ```
 > Add fraud prevention tooling to my marketplace project. This is a personal project —
@@ -154,7 +154,7 @@ You don't need a fraud-scoring model. A few simple signals, reviewed manually, c
 
 ## Validating AI Output Here
 
-> **🚩 Common Hallucination:** AI sometimes suggests automatically suspending accounts or listings based on report count thresholds (e.g. "auto-ban after 3 reports"). At low volume, this is trivially abusable — a small group of bad-faith users can coordinate reports to take down a legitimate competitor's listings. Reports should queue for human review, not trigger automatic punitive action, until you have enough volume and pattern data to trust automation.
+> ** Common Hallucination:** AI sometimes suggests automatically suspending accounts or listings based on report count thresholds (e.g. "auto-ban after 3 reports"). At low volume, this is trivially abusable — a small group of bad-faith users can coordinate reports to take down a legitimate competitor's listings. Reports should queue for human review, not trigger automatic punitive action, until you have enough volume and pattern data to trust automation.
 
 ---
 

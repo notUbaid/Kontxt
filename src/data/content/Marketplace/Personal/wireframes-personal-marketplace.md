@@ -115,9 +115,9 @@ that should be split into two, or simplified, and explain why.
 
 ## Validating What AI Generates
 
-- [ ] **Cross-check every wireframed screen against your MVP Scope feature list** — cut anything (related listings, saved searches, advanced filters) that snuck in but isn't actually in MVP scope
-- [ ] **Confirm each screen really has one primary action**, not a generated spec that lists three "important" actions without picking one
-- [ ] **Verify the listing form field list matches what you actually need for your marketplace type** — a generic AI-suggested field list may include fields irrelevant to your specific goods/services (e.g., "condition" doesn't apply to a services marketplace)
+- **Cross-check every wireframed screen against your MVP Scope feature list** — cut anything (related listings, saved searches, advanced filters) that snuck in but isn't actually in MVP scope
+- **Confirm each screen really has one primary action**, not a generated spec that lists three "important" actions without picking one
+- **Verify the listing form field list matches what you actually need for your marketplace type** — a generic AI-suggested field list may include fields irrelevant to your specific goods/services (e.g., "condition" doesn't apply to a services marketplace)
 
 ---
 

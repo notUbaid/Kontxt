@@ -124,9 +124,9 @@ and missing visible focus states. List specific fixes, not general advice.
 
 ## Validating What AI Generates
 
-- [ ] **Actually test suggested contrast fixes visually**, not just trust the pass/fail report — a technically passing color can still look wrong against your specific design; eyeball it after adjusting
-- [ ] **Confirm suggested label fixes are visually acceptable to you** — AI may suggest a fully visible label when you wanted something more minimal (like a floating label pattern); ask for alternatives if the first suggestion doesn't fit your design system
-- [ ] **Manually keyboard-test after any AI-suggested fix**, don't just trust that the code change worked — confirm it yourself with the Tab-key test described above
+- **Actually test suggested contrast fixes visually**, not just trust the pass/fail report — a technically passing color can still look wrong against your specific design; eyeball it after adjusting
+- **Confirm suggested label fixes are visually acceptable to you** — AI may suggest a fully visible label when you wanted something more minimal (like a floating label pattern); ask for alternatives if the first suggestion doesn't fit your design system
+- **Manually keyboard-test after any AI-suggested fix**, don't just trust that the code change worked — confirm it yourself with the Tab-key test described above
 
 ---
 
