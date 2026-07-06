@@ -176,18 +176,22 @@ const HIGH_RISK_WARNINGS: Partial<Record<AppType, { title: string; message: stri
 
 // App types that are fully disabled (no content ready for any mode)
 const COMING_SOON_TYPES: Set<AppType> = new Set([
-  'Browser Extension',
   'Cyber Security (Defensive)',
   'Cyber Security (DevSecOps)',
   'Cyber Security (Offensive)',
   'Data Pipeline',
-  'Desktop App',
   'Game',
   'Web3 dApp',
   'CLI',
   'IoT',
   'Open Source',
   'Custom',
+]);
+
+// App types that are clickable but marked as Under Work
+const UNDER_WORK_TYPES: Set<AppType> = new Set([
+  'Browser Extension',
+  'Desktop App',
 ]);
 
 // Specific modes disabled per app type (partial availability)
@@ -395,6 +399,7 @@ export const Onboarding = ({ projects, onCreateProject, onSelectProject, isAuthe
                 const meta = TYPE_META[type];
                 const Icon = meta.icon;
                 const isComingSoon = COMING_SOON_TYPES.has(type);
+                const isUnderWork = UNDER_WORK_TYPES.has(type);
                 return (
                   <button
                     key={type}
@@ -403,12 +408,19 @@ export const Onboarding = ({ projects, onCreateProject, onSelectProject, isAuthe
                     className={`p-4 rounded-xl border-2 text-left transition-all bg-background shadow-sm group relative ${
                       isComingSoon
                         ? 'border-muted/40 opacity-50 cursor-not-allowed grayscale'
+                        : isUnderWork
+                        ? 'border-primary/10 hover:border-primary/50 hover:bg-primary/5 hover:scale-[1.02]'
                         : 'border-primary/10 hover:border-primary/50 hover:bg-primary/5 hover:scale-[1.02]'
                     }`}
                   >
                     {isComingSoon && (
                       <span className="absolute top-2 right-2 text-[9px] font-bold uppercase tracking-widest text-muted-foreground/70 bg-muted/60 px-1.5 py-0.5 rounded-full">
                         Soon
+                      </span>
+                    )}
+                    {isUnderWork && (
+                      <span className="absolute top-2 right-2 text-[9px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-1.5 py-0.5 rounded-full">
+                        WIP
                       </span>
                     )}
                     <div className={`p-2.5 rounded-lg inline-block mb-3 transition-colors ${
