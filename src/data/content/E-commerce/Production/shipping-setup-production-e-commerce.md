@@ -97,7 +97,7 @@ You run your massive e-commerce empire from a laptop on the beach. You never tou
 
 ---
 
-## ✅ Shipping Operations Checklist
+##  Shipping Operations Checklist
 
 - [ ] Implement ShipStation (or similar) to centralize, batch, and optimize carrier rate purchasing.
 - [ ] Eliminate inkjet bottlenecks. Mandate the use of a 4x6 Direct Thermal Printer (e.g., Rollo) for smudge-proof, zero-ink operations.

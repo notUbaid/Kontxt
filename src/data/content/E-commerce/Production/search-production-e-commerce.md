@@ -115,7 +115,7 @@ By flattening the payload, you drastically reduce Algolia indexing costs and inc
 
 ---
 
-## ✅ Search Engineering Checklist
+##  Search Engineering Checklist
 
 - [ ] Implement a strict 300ms Debounce hook on the search input to protect your API quotas.
 - [ ] Enforce URL-Driven State for all Faceted Filters (Size, Color, Price) so results are bookmarkable.

@@ -148,7 +148,7 @@ export async function POST(req: Request) {
 
 ---
 
-## ✅ Payments Engineering Checklist
+##  Payments Engineering Checklist
 
 - [ ] Ensure the frontend generates a UUID (`uuidv4()`) on mount to use as the Idempotency Key.
 - [ ] Pass the `idempotencyKey` in the exact headers of your Stripe SDK server request.

@@ -131,7 +131,7 @@ The Canadian user instantly sees a highly targeted Canadian offer. Their convers
 
 ---
 
-## ✅ CRO Engineering Checklist
+##  CRO Engineering Checklist
 
 - [ ] Ban client-side A/B testing libraries (Google Optimize/Optimizely) that cause visual flicker and ruin Core Web Vitals.
 - [ ] Engineer A/B tests inside Vercel Edge Middleware, using Cookies to assign 50/50 buckets with zero latency.

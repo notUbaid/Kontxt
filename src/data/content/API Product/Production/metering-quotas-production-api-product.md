@@ -26,7 +26,7 @@ Metering and rate limiting look similar but solve different problems. Confusing 
 | **Failure mode** | Quota exceeded — blocked until reset or upgrade | Too many requests — blocked briefly, retry shortly |
 | **Where it lives** | Often a separate service, can tolerate slight lag | Must be fast, usually at the gateway/edge |
 
-> **⚠️ Warning:** These need separate systems with separate semantics. A customer can be well within their monthly quota but still hit a rate limit from a request burst — and a request that's well within rate limits can still get rejected for exceeding a monthly quota. Returning the same error for both confuses developers debugging your API.
+> **️ Warning:** These need separate systems with separate semantics. A customer can be well within their monthly quota but still hit a rate limit from a request burst — and a request that's well within rate limits can still get rejected for exceeding a monthly quota. Returning the same error for both confuses developers debugging your API.
 
 ## Decision: Hard Quota vs Soft Quota
 
@@ -36,7 +36,7 @@ Metering and rate limiting look similar but solve different problems. Confusing 
 | Soft limit + overage billing | Requests continue, billed at overage rate | Paid tiers where you want usage growth, not friction |
 | Grace buffer + warning | Allow a small overshoot, notify before hard cutoff | Reducing support tickets from customers surprised by a sudden cutoff |
 
-> **✅ Best Practice:** Use hard cutoffs on free tiers (protects your costs) and soft limits with overage billing on paid tiers (protects revenue growth and customer experience). A paying customer's request failing because of an unexpected hard quota is a support ticket and a trust hit; let them go over and bill for it instead.
+> ** Best Practice:** Use hard cutoffs on free tiers (protects your costs) and soft limits with overage billing on paid tiers (protects revenue growth and customer experience). A paying customer's request failing because of an unexpected hard quota is a support ticket and a trust hit; let them go over and bill for it instead.
 
 ## Where Enforcement Actually Happens
 
@@ -50,7 +50,7 @@ Request → API Gateway (rate limit check) → Application (quota check) → Han
 | Application middleware | Quota status (monthly usage vs limit) | Needs access to current usage data, which is slower to compute |
 | Async (post-response) | Usage event recording | Never blocks the response — happens after the customer already has their data |
 
-> **⚠️ Warning:** Don't query your full usage aggregation on every single request to check quota — that turns every API call into a database read against potentially millions of usage events. Cache current usage counts (e.g. in Redis) and reconcile against the source of truth periodically, not on the hot path of every request.
+> **️ Warning:** Don't query your full usage aggregation on every single request to check quota — that turns every API call into a database read against potentially millions of usage events. Cache current usage counts (e.g. in Redis) and reconcile against the source of truth periodically, not on the hot path of every request.
 
 ## Designing the Quota Check Itself
 
@@ -60,7 +60,7 @@ The pattern that scales: maintain a fast-access counter (Redis `INCR` with a TTL
 - [ ] Counter TTL/reset aligns exactly with the customer's actual billing cycle, not a fixed calendar month for everyone
 - [ ] A counter failure (Redis down) has a defined fallback — fail open (allow requests) or fail closed (block requests)?
 
-> **💡 Tip:** For most APIs, fail open on quota-checking infrastructure failures, not fail closed. A few minutes of allowed-but-unbilled usage during an outage costs you a small, bounded amount. Blocking every paying customer's requests because your quota cache is briefly down costs you significantly more in trust and support load.
+> ** Tip:** For most APIs, fail open on quota-checking infrastructure failures, not fail closed. A few minutes of allowed-but-unbilled usage during an outage costs you a small, bounded amount. Blocking every paying customer's requests because your quota cache is briefly down costs you significantly more in trust and support load.
 
 ## Communicating Quota State to Developers
 
@@ -74,7 +74,7 @@ X-Quota-Used: 45230
 X-Quota-Limit: 50000
 ```
 
-> **✅ Best Practice:** Put quota and rate limit state in response headers on every request, not just in error responses. This lets well-built client code anticipate a limit before hitting it, instead of discovering it via a failed request — this is the same pattern GitHub and Stripe both use, and SDKs built against your API can surface this proactively to developers.
+> ** Best Practice:** Put quota and rate limit state in response headers on every request, not just in error responses. This lets well-built client code anticipate a limit before hitting it, instead of discovering it via a failed request — this is the same pattern GitHub and Stripe both use, and SDKs built against your API can surface this proactively to developers.
 
 ## Use AI to Find Race Conditions in Your Design
 
@@ -95,7 +95,7 @@ Focus only on:
 Do not suggest pricing or business model changes — architecture only.
 ```
 
-> **💡 Token Efficiency:** This review works well as a follow-up in the same conversation where you discussed Billing Architecture — quota enforcement directly depends on those decisions, and re-establishing that context from scratch wastes tokens you don't need to spend.
+> ** Token Efficiency:** This review works well as a follow-up in the same conversation where you discussed Billing Architecture — quota enforcement directly depends on those decisions, and re-establishing that context from scratch wastes tokens you don't need to spend.
 
 ## Validate Before Moving On
 

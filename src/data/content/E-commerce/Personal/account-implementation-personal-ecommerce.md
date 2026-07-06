@@ -52,11 +52,11 @@ This is the one real decision in this module. Don't build auth from scratch — 
 | **Supabase Auth** | Low | Low — managed, audited | Free tier generous | Most personal stores (recommended) |
 | Clerk | Low | Low — managed | Free tier limited | Apps wanting prebuilt UI components |
 
-> **✅ Best Practice:** If your store's database is already on Supabase (common for personal e-commerce builds), use **Supabase Auth**. It shares the same Postgres instance, so linking `auth.users` to your `customers`/`orders` tables is a foreign key, not an integration project.
+> ** Best Practice:** If your store's database is already on Supabase (common for personal e-commerce builds), use **Supabase Auth**. It shares the same Postgres instance, so linking `auth.users` to your `customers`/`orders` tables is a foreign key, not an integration project.
 
 If you're on a different stack, the same logic applies — use whatever managed auth your database provider already gives you before reaching for a third-party service.
 
-> **⚠️ Warning:** Do not store passwords, even hashed ones, in your own `users` table if you're using a managed provider. That's the provider's job. Your job is storing *profile* data (name, addresses, preferences) linked by `user_id`.
+> **️ Warning:** Do not store passwords, even hashed ones, in your own `users` table if you're using a managed provider. That's the provider's job. Your job is storing *profile* data (name, addresses, preferences) linked by `user_id`.
 
 ---
 
@@ -139,7 +139,7 @@ beginners get wrong by only checking auth status in the browser.
 Stack: [your exact framework + version]
 ```
 
-> **⚠️ Common Mistake:** Hiding the `/account` link in the navbar for guests is not the same as protecting the route. If a guest can type `/account/orders` into the URL bar and see data, your "protection" is cosmetic. Always verify the session server-side, on every protected request.
+> **️ Common Mistake:** Hiding the `/account` link in the navbar for guests is not the same as protecting the route. If a guest can type `/account/orders` into the URL bar and see data, your "protection" is cosmetic. Always verify the session server-side, on every protected request.
 
 ### Step 2 — Account Dashboard with Order History
 
@@ -166,7 +166,7 @@ Order history should paginate after 10 orders.
 
 Skip the temptation to skip this. It's a small addition now and a painful retrofit later if you ever onboard real users.
 
-> **💡 Tip:** Don't hard-delete a customer's row if they have order history — you'll break your own sales records and any future analytics. Soft-delete (`deleted_at` timestamp) or anonymize (`full_name = 'Deleted User'`) instead, and let the auth provider's account remove the login credentials.
+> ** Tip:** Don't hard-delete a customer's row if they have order history — you'll break your own sales records and any future analytics. Soft-delete (`deleted_at` timestamp) or anonymize (`full_name = 'Deleted User'`) instead, and let the auth provider's account remove the login credentials.
 
 ---
 
@@ -179,7 +179,7 @@ Skip the temptation to skip this. It's a small addition now and a painful retrof
 - [ ] Login error messages don't reveal whether an email exists ("Invalid email or password," not "No account found")
 - [ ] Account deletion soft-deletes or anonymizes rather than breaking order history
 
-> **⚠️ Warning:** The most common real vulnerability in beginner-built account systems is an **insecure direct object reference** — fetching `/api/orders/:id` and returning the order without checking it belongs to the requesting user. Always add the `user_id` filter, even when it feels redundant.
+> **️ Warning:** The most common real vulnerability in beginner-built account systems is an **insecure direct object reference** — fetching `/api/orders/:id` and returning the order without checking it belongs to the requesting user. Always add the `user_id` filter, even when it feels redundant.
 
 ---
 

@@ -38,8 +38,8 @@ You have three options. Pick one and move.
 
 Do not spend more than 30 minutes choosing a tool. The wireframe is not the output — the layout decision is.
 
-> 💡 **Tip**
->
+> [!TIP]
+> >
 > For a personal store, Excalidraw is the pragmatic choice. It's fast, shareable, and produces rough enough output that you won't waste time polishing boxes instead of thinking about layout.
 
 ---
@@ -71,7 +71,7 @@ The homepage has one job: get the customer to a product. Measure every layout de
 
 ```
 ┌─────────────────────────────────────────────────┐
-│  LOGO              Products  About  Contact  🛒  │  ← Nav
+│  LOGO              Products  About  Contact    │  ← Nav
 ├─────────────────────────────────────────────────┤
 │                                                 │
 │         HERO IMAGE or BRAND STATEMENT           │  ← Full width
@@ -101,7 +101,7 @@ The homepage has one job: get the customer to a product. Measure every layout de
 
 ```
 ┌──────────────────────┐
-│ LOGO           🛒 ☰  │  ← Hamburger nav
+│ LOGO              │  ← Hamburger nav
 ├──────────────────────┤
 │                      │
 │   HERO IMAGE         │  ← Full bleed
@@ -137,7 +137,7 @@ This is your highest-stakes layout. It converts browsers into buyers.
 
 ```
 ┌─────────────────────────────────────────────────┐
-│  NAV                                       🛒 2 │
+│  NAV                                        2 │
 ├─────────────────────────────────────────────────┤
 │  Home > Candles > Cedar & Smoke                  │  ← Breadcrumb
 ├──────────────────────┬──────────────────────────┤
@@ -152,9 +152,9 @@ This is your highest-stakes layout. It converts browsers into buyers.
 │  ┌──┐ ┌──┐ ┌──┐     │                           │
 │  │  │ │  │ │  │     │  [ Add to Cart ────────── ]│  ← Primary CTA
 │  └──┘ └──┘ └──┘     │                           │
-│  Thumbnails          │  ✓ Free shipping over ₹999│
-│                      │  ✓ Handmade in Ahmedabad  │
-│                      │  ✓ 7-day returns           │
+│  Thumbnails          │   Free shipping over ₹999│
+│                      │   Handmade in Ahmedabad  │
+│                      │   7-day returns           │
 │                      │                           │
 │                      │  ── Description ──────    │
 │                      │  Full product details...   │
@@ -190,9 +190,9 @@ This is your highest-stakes layout. It converts browsers into buyers.
 ├──────────────────────┤
 │ [ Add to Cart ────── ]│  ← Sticky bottom bar
 ├──────────────────────┤
-│ ✓ Free ship over ₹999│
-│ ✓ Handmade           │
-│ ✓ 7-day returns      │
+│  Free ship over ₹999│
+│  Handmade           │
+│  7-day returns      │
 ├──────────────────────┤
 │ Description          │
 │ Details              │
@@ -201,7 +201,7 @@ This is your highest-stakes layout. It converts browsers into buyers.
 └──────────────────────┘
 ```
 
-> ⚠️ **Warning: Sticky Add-to-Cart on Mobile**
+> ️ **Warning: Sticky Add-to-Cart on Mobile**
 >
 > On mobile, the Add to Cart button should remain accessible without scrolling back up. A sticky bottom bar or a floating button is standard practice. If the customer has to scroll back to add to cart, you will lose conversions.
 
@@ -211,7 +211,7 @@ This is your highest-stakes layout. It converts browsers into buyers.
 
 ```
 ┌─────────────────────────────────────────────────┐
-│  NAV                                       🛒 2 │
+│  NAV                                        2 │
 ├──────────────────────────┬──────────────────────┤
 │  Your Cart               │  Order Summary        │
 │                          │  ──────────────────   │
@@ -262,7 +262,7 @@ Checkout is not the place for brand expression. It is the place for friction eli
 └──────────────────────┴──────────────────────────┘
 ```
 
-> ⚠️ **The Order Summary Must Always Be Visible**
+> ️ **The Order Summary Must Always Be Visible**
 >
 > Customers need to see what they're paying for throughout checkout. Hiding the summary behind a toggle (especially on desktop) increases abandonment. On mobile, a collapsible summary is acceptable — but it should default to expanded.
 
@@ -285,7 +285,7 @@ These decisions affect your component architecture in Phase 3. Lock them in now.
 
 ---
 
-## ✅ Wireframes Checklist
+##  Wireframes Checklist
 
 - [ ] Homepage wireframe complete (desktop + mobile)
 - [ ] Product detail page wireframe complete (desktop + mobile)

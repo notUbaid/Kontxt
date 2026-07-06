@@ -23,12 +23,12 @@ You do not need a full brand identity system. You need:
 
 | Asset | Required at Launch | Notes |
 |---|---|---|
-| Wordmark or logo | ✅ Yes | What appears in your nav and emails |
-| Favicon | ✅ Yes | 32×32px, often just an icon or initial |
-| Open Graph image | ✅ Yes | 1200×630px, appears in social link previews |
+| Wordmark or logo |  Yes | What appears in your nav and emails |
+| Favicon |  Yes | 32×32px, often just an icon or initial |
+| Open Graph image |  Yes | 1200×630px, appears in social link previews |
 | Brand mark / icon | Optional | Useful for favicon and app icon if distinct from wordmark |
 | Brand pattern or texture | Optional | Background detail, packaging, email header |
-| Product photography style guide | ✅ Yes | Not a graphic asset — a set of rules for consistency |
+| Product photography style guide |  Yes | Not a graphic asset — a set of rules for consistency |
 
 Nothing else is required for a personal store launch.
 
@@ -47,8 +47,8 @@ These are different things. Understand what you're building.
 
 For a personal store at launch: **a wordmark is enough**. Brand marks require significant design effort to work at all sizes and look intentional. A well-set wordmark in your display typeface, with thoughtful letter-spacing and weight, is clean, professional, and takes an hour to produce.
 
-> 💡 **Tip**
->
+> [!TIP]
+> >
 > If your store name is long (4+ words), consider a short-form version for the favicon and small-format use. "The Small Batch Candle Co." becomes "SBCC" or just "S" at 32×32px.
 
 ---
@@ -88,7 +88,7 @@ The favicon appears in browser tabs, bookmarks, and mobile home screens.
 - Test it at 16×16 before finalizing — most detail is invisible at that size
 - Use your primary brand color as the background if the symbol is light, or leave transparent if the symbol reads clearly without it
 
-> ⚠️ **Don't Skip the Favicon**
+> ️ **Don't Skip the Favicon**
 >
 > A missing favicon sends a professional signal failure. Every browser tab without one shows a blank grey square. It takes 15 minutes to produce and implement. Do it before launch.
 
@@ -155,7 +155,7 @@ At minimum:
 3. Scale reference (product next to a familiar object or in-use)
 4. Variant shots (if color or material variants exist, one per variant)
 
-> ⚠️ **Inconsistent Photography Destroys Brand Perception**
+> ️ **Inconsistent Photography Destroys Brand Perception**
 >
 > A grid with five products shot in five different lighting conditions, backgrounds, and zoom levels looks like a marketplace aggregator, not a store. Shoot everything in one session under the same conditions. If you cannot reshoot, edit to match. This is not optional.
 
@@ -184,7 +184,7 @@ Organize your brand assets so they're usable across the store and email template
 
 ---
 
-## ✅ Branding Checklist
+##  Branding Checklist
 
 - [ ] Wordmark designed in three versions: full color, black, white
 - [ ] Wordmark tested at nav size (approx. 120–160px wide) and email header size

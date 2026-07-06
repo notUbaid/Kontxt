@@ -27,7 +27,7 @@ A broken deploy on a personal blog means a typo is visible for an hour. A broken
 - A database migration that doesn't match what's actually in production, corrupting or losing order data
 - An exposed environment variable (API key, payment secret) pushed by accident in a config change
 
-> **⚠️ Warning:** "I tested it locally and it worked" is not the same guarantee for a store as it is for most side projects, because the cost of a silent checkout failure is direct, measurable lost revenue — even at personal scale.
+> **️ Warning:** "I tested it locally and it worked" is not the same guarantee for a store as it is for most side projects, because the cost of a silent checkout failure is direct, measurable lost revenue — even at personal scale.
 
 ---
 
@@ -103,7 +103,7 @@ be able to click through a real checkout flow on a preview URL before
 anything reaches production.
 ```
 
-> **💡 Tip:** If you don't have a test for checkout yet, that's the one test worth writing before anything else in this module. Ask AI for a single end-to-end test that adds an item to cart, goes through checkout with test payment details, and confirms an order is created — that one test catches the failure mode that actually costs you money.
+> ** Tip:** If you don't have a test for checkout yet, that's the one test worth writing before anything else in this module. Ask AI for a single end-to-end test that adds an item to cart, goes through checkout with test payment details, and confirms an order is created — that one test catches the failure mode that actually costs you money.
 
 ---
 
@@ -114,7 +114,7 @@ anything reaches production.
 - [ ] Production and preview/staging use *different* payment provider keys — test keys for previews, live keys only for production
 - [ ] If a secret was ever accidentally committed, it's been rotated (changed), not just deleted from the latest commit — git history still holds it otherwise
 
-> **⚠️ Warning:** Using live payment keys in a preview/staging environment means test transactions during development can charge real cards. Always confirm preview deployments use test-mode payment keys.
+> **️ Warning:** Using live payment keys in a preview/staging environment means test transactions during development can charge real cards. Always confirm preview deployments use test-mode payment keys.
 
 ---
 

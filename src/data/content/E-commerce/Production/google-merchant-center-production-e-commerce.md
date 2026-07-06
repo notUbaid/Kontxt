@@ -96,7 +96,7 @@ When a customer buys the last item in your store, your Event Bus (Inngest) inter
 
 ---
 
-## ✅ Merchant Center Engineering Checklist
+##  Merchant Center Engineering Checklist
 
 - [ ] Engineer a dynamic `/api/feed/google` Next.js route to generate a real-time RSS 2.0 XML product feed.
 - [ ] Enforce strict mapping of required fields: `id`, `title`, `description`, `link`, `image_link`, `price`, `availability`.

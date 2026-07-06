@@ -17,7 +17,7 @@ The goal isn't a precise number. It's catching the decision that looks fine at p
 
 ## Why This Belongs in Architecture, Not After Launch
 
-> ⚠️ Cost is an architecture property, not an operations afterthought. Two systems that behave identically to users can have wildly different cost curves depending on whether reads hit a cache or your database, whether files are served from origin or a CDN, and whether you send push notifications one-at-a-time or batched. Estimating cost now is how you catch a bad architectural choice while it's still cheap to change.
+> ️ Cost is an architecture property, not an operations afterthought. Two systems that behave identically to users can have wildly different cost curves depending on whether reads hit a cache or your database, whether files are served from origin or a CDN, and whether you send push notifications one-at-a-time or batched. Estimating cost now is how you catch a bad architectural choice while it's still cheap to change.
 
 ---
 
@@ -27,7 +27,7 @@ The goal isn't a precise number. It's catching the decision that looks fine at p
 
 **Layer 2 — Variable costs.** Things that scale with usage: database reads/writes, file storage + egress, push notification volume, analytics events, compute for background workers. This is the layer that determines whether your unit economics work, and it's the one worth modeling carefully.
 
-> 💡 The question that matters isn't "what will this cost at launch" — it's "what does this cost **per active user**, and does that number make sense against your monetization model." A free app supported by ads needs a very different cost-per-user ceiling than a $20/month subscription product.
+>  The question that matters isn't "what will this cost at launch" — it's "what does this cost **per active user**, and does that number make sense against your monetization model." A free app supported by ads needs a very different cost-per-user ceiling than a $20/month subscription product.
 
 ---
 
@@ -45,7 +45,7 @@ Go through your earlier Phase 2 decisions and identify the variable that drives 
 | Analytics | Event volume | Analytics Strategy module |
 | Deep linking platform (if using Branch/AppsFlyer) | Monthly active users / link clicks | Deep Linking module |
 
-> ⚠️ **The cost driver that surprises teams most often is egress (data transfer out), not storage.** Storing 100GB of video is cheap on almost every provider. Serving that 100GB to users repeatedly is where the bill grows — which is exactly why the File Storage module steered you toward a provider with low/zero egress fees and a CDN in front of it. If you skipped that reasoning, revisit it now with real numbers.
+> ️ **The cost driver that surprises teams most often is egress (data transfer out), not storage.** Storing 100GB of video is cheap on almost every provider. Serving that 100GB to users repeatedly is where the bill grows — which is exactly why the File Storage module steered you toward a provider with low/zero egress fees and a CDN in front of it. If you skipped that reasoning, revisit it now with real numbers.
 
 ---
 
@@ -61,7 +61,7 @@ Don't estimate for one number. Estimate for three, so you know where the curve b
 
 For each scale point, estimate: backend compute, database, auth MAU fees, push send volume, storage + egress, analytics events. Most providers publish pricing calculators — use them rather than guessing.
 
-> 💡 Pay special attention to which costs are **linear** (predictable, e.g. $X per 1,000 events) versus which have **step-function cliffs** (a free tier that ends and jumps to a much higher tier). Step-function pricing is what causes "we were fine, then suddenly weren't" billing shocks — know exactly where those cliffs sit for every provider you've chosen.
+>  Pay special attention to which costs are **linear** (predictable, e.g. $X per 1,000 events) versus which have **step-function cliffs** (a free tier that ends and jumps to a much higher tier). Step-function pricing is what causes "we were fine, then suddenly weren't" billing shocks — know exactly where those cliffs sit for every provider you've chosen.
 
 ---
 
@@ -74,7 +74,7 @@ For most mobile apps, it's one of:
 - **Third-party API costs**, if you're calling an LLM, maps API, or other metered external service per-request
 - **Push notification infrastructure**, rarely the dominant cost itself, but the queue/worker compute behind it can add up at scale
 
-> 💡 Once you know your dominant cost driver, that's the one component worth the most architectural scrutiny. A 20% efficiency improvement on your dominant cost driver matters more than optimizing every other line item combined.
+>  Once you know your dominant cost driver, that's the one component worth the most architectural scrutiny. A 20% efficiency improvement on your dominant cost driver matters more than optimizing every other line item combined.
 
 ---
 

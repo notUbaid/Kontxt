@@ -28,7 +28,7 @@ For the overwhelming majority of API products, the database is the first real sc
 | Database (reads) | Medium — read replicas help significantly | Second bottleneck, after writes |
 | Cache layer | Easy to add, hard to retrofit cleanly later | Often missing until it's urgently needed |
 
-> **⚠️ Warning:** Don't spend early scaling effort on application server architecture (microservices, complex orchestration) when your actual constraint will be the database. This is one of the most common premature-optimization patterns in API products — solving the easy-to-scale part elaborately while ignoring the part that will actually break first.
+> **️ Warning:** Don't spend early scaling effort on application server architecture (microservices, complex orchestration) when your actual constraint will be the database. This is one of the most common premature-optimization patterns in API products — solving the easy-to-scale part elaborately while ignoring the part that will actually break first.
 
 ## Decision: Scale Up vs Scale Out, and When Each Applies
 
@@ -37,7 +37,7 @@ For the overwhelming majority of API products, the database is the first real sc
 | Vertical (scale up) | Bigger database/server instance | Fast, simple, buys real time — almost always the right first move |
 | Horizontal (scale out) | More instances, read replicas, sharding | Needed once vertical scaling hits a ceiling or cost curve |
 
-> **✅ Best Practice:** Scale vertically first, every time, until it genuinely stops working or becomes cost-prohibitive. A bigger database instance is a five-minute change with no architectural risk. Horizontal scaling (read replicas, sharding) introduces real complexity — consistency concerns, routing logic, operational overhead — that you should only take on once vertical scaling is actually insufficient, not preemptively.
+> ** Best Practice:** Scale vertically first, every time, until it genuinely stops working or becomes cost-prohibitive. A bigger database instance is a five-minute change with no architectural risk. Horizontal scaling (read replicas, sharding) introduces real complexity — consistency concerns, routing logic, operational overhead — that you should only take on once vertical scaling is actually insufficient, not preemptively.
 
 ## Designing Now for Cheap Insurance Later
 
@@ -49,7 +49,7 @@ Some scalability decisions are nearly free if made early and expensive if retrof
 - [ ] Stateless application servers — no in-memory session state that prevents horizontal scaling later
 - [ ] Database connections are pooled, not opened fresh per request
 
-> **💡 Tip:** Stateless application servers cost nothing extra to design correctly from the start, but retrofitting a stateful application to be horizontally scalable later often requires a significant rewrite. This is the cheapest insurance policy in this entire module — get it right now regardless of current scale.
+> ** Tip:** Stateless application servers cost nothing extra to design correctly from the start, but retrofitting a stateful application to be horizontally scalable later often requires a significant rewrite. This is the cheapest insurance policy in this entire module — get it right now regardless of current scale.
 
 ## What to Deliberately Defer
 
@@ -60,13 +60,13 @@ Some scalability decisions are nearly free if made early and expensive if retrof
 | Microservices decomposition | Until a monolith's deploy/team-coordination pain is real, not hypothetical |
 | Custom-built caching infrastructure | Until off-the-shelf Redis/Memcached patterns are proven insufficient |
 
-> **⚠️ Warning:** Sharding a database before you need to is one of the most expensive mistakes in API engineering — it adds permanent complexity (cross-shard queries, rebalancing, routing logic) to every future feature, for a scale problem you may never actually reach. Don't shard until vertical scaling and read replicas are both demonstrably insufficient.
+> **️ Warning:** Sharding a database before you need to is one of the most expensive mistakes in API engineering — it adds permanent complexity (cross-shard queries, rebalancing, routing logic) to every future feature, for a scale problem you may never actually reach. Don't shard until vertical scaling and read replicas are both demonstrably insufficient.
 
 ## Identifying Your Actual Bottleneck Before It Hits
 
 Don't guess where scaling problems will appear — load testing (covered in the prior module) and production monitoring (covered earlier in this phase) tell you directly.
 
-> **✅ Best Practice:** Treat your load testing results as the actual scalability plan input, not a separate exercise. If load testing shows your database connection pool exhausting at a specific concurrency level, that's not a hypothetical future bottleneck — it's a known, measured one, and it tells you exactly what to fix first.
+> ** Best Practice:** Treat your load testing results as the actual scalability plan input, not a separate exercise. If load testing shows your database connection pool exhausting at a specific concurrency level, that's not a hypothetical future bottleneck — it's a known, measured one, and it tells you exactly what to fix first.
 
 ## Designing for Graceful Degradation, Not Just Capacity
 
@@ -76,7 +76,7 @@ Scalability planning isn't only "handle more load" — it's also "fail in a cont
 - [ ] Circuit breakers exist on calls to third-party dependencies, so their slowness doesn't cascade into your own outage
 - [ ] Queue-based processing for non-time-critical operations, so a traffic spike queues work instead of dropping or timing it out
 
-> **💡 Tip:** A system that gracefully returns "temporarily degraded, core features still work" under extreme load is far better than one that returns 500s for everything once any single component is overwhelmed. Decide your degradation priority list before a spike forces an improvised decision.
+> ** Tip:** A system that gracefully returns "temporarily degraded, core features still work" under extreme load is far better than one that returns 500s for everything once any single component is overwhelmed. Decide your degradation priority list before a spike forces an improvised decision.
 
 ## Use AI to Find Your Likely First Bottleneck
 
@@ -96,7 +96,7 @@ Based on this, identify:
 Be specific about reasoning, not just a generic scalability checklist.
 ```
 
-> **💡 Token Efficiency:** Include actual or projected traffic numbers in the prompt. Without real numbers, the response defaults to generic "add caching, add replicas" advice that doesn't tell you what's actually worth doing now versus later for your specific situation.
+> ** Token Efficiency:** Include actual or projected traffic numbers in the prompt. Without real numbers, the response defaults to generic "add caching, add replicas" advice that doesn't tell you what's actually worth doing now versus later for your specific situation.
 
 ## Validate Before Moving On
 

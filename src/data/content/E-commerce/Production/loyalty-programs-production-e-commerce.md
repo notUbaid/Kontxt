@@ -112,7 +112,7 @@ You must write a Next.js Cron Job that scans the database every night. If a user
 
 ---
 
-## ✅ Loyalty Engineering Checklist
+##  Loyalty Engineering Checklist
 
 - [ ] Execute strict point economics. Enforce a 1% to 3% value-back ratio to protect Net Margins.
 - [ ] Architect a VIP Tier database schema that relies on `lifetimeSpend` rather than `pointsBalance`, ensuring customers don't lose their VIP status when they spend their points.

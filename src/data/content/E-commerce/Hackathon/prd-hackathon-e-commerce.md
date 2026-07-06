@@ -35,11 +35,11 @@ These are the non-negotiable pages for a credible e-commerce demo:
 
 | Page | Purpose | Priority |
 |---|---|---|
-| **Homepage** | First impression, hero product, brand identity | 🔴 Critical |
-| **Product Listing / Shop** | Browsable catalog with filters | 🔴 Critical |
-| **Product Detail Page** | Individual product with images, description, add-to-cart | 🔴 Critical |
-| **Cart** | Items selected, quantity control, subtotal | 🔴 Critical |
-| **Checkout** | Form, order summary, payment trigger | 🔴 Critical |
+| **Homepage** | First impression, hero product, brand identity |  Critical |
+| **Product Listing / Shop** | Browsable catalog with filters |  Critical |
+| **Product Detail Page** | Individual product with images, description, add-to-cart |  Critical |
+| **Cart** | Items selected, quantity control, subtotal |  Critical |
+| **Checkout** | Form, order summary, payment trigger |  Critical |
 | **Order Confirmation** | Post-purchase success state | 🟠 High |
 | **About** | Brand story, builds trust during demo | 🟡 Medium |
 | **404** | Signals production quality | 🟡 Medium |
@@ -98,9 +98,9 @@ You have three options:
 
 | Option | Effort | Demo quality | Recommendation |
 |---|---|---|---|
-| **Stripe test mode** | Medium | Excellent — real payment flow | ✅ Best choice if you have the time |
-| **Simulated checkout** | Low | Good — fake it convincingly | ✅ Valid for most hackathons |
-| **No checkout at all** | None | Poor — judges notice | ❌ Avoid |
+| **Stripe test mode** | Medium | Excellent — real payment flow |  Best choice if you have the time |
+| **Simulated checkout** | Low | Good — fake it convincingly |  Valid for most hackathons |
+| **No checkout at all** | None | Poor — judges notice |  Avoid |
 
 **Simulated checkout** means: the form is real, the button works, the confirmation page appears — but no actual payment is processed. For most hackathon judges, this is sufficient. State it clearly in your pitch.
 
@@ -154,10 +154,10 @@ Format it as a clean markdown document I can share with my team.
 ```
 
 > **Review the output for:**
-> - [ ] Build order is logical (don't build checkout before cart)
-> - [ ] No feature listed that takes more than 2–3 hours solo
-> - [ ] Payment approach matches your earlier decision
-> - [ ] Out-of-scope list is genuinely out of scope — no creep
+- [ ] Build order is logical (don't build checkout before cart)
+- [ ] No feature listed that takes more than 2–3 hours solo
+- [ ] Payment approach matches your earlier decision
+- [ ] Out-of-scope list is genuinely out of scope — no creep
 
 ---
 

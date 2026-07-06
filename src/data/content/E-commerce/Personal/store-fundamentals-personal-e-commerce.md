@@ -69,7 +69,7 @@ Every variant has:
 - Its own inventory count
 - Its own weight/dimensions (for shipping)
 
-> ⚠️ **Warning: The Variant Trap**
+> ️ **Warning: The Variant Trap**
 >
 > Skipping variants because your store starts with "simple products" is a technical debt trap. The moment you add sizes, colors, or bundles, you'll need to retrofit variant support into your entire codebase — products, cart, checkout, inventory, and orders all change. Model variants from day one.
 
@@ -111,7 +111,7 @@ For a personal store with moderate traffic, **Reserve on Checkout Start** is the
 
 ## Money Is Not a Float
 
-> ⚠️ **Critical**
+> ️ **Critical**
 >
 > Never store prices or monetary amounts as floating-point numbers.
 >
@@ -120,10 +120,10 @@ For a personal store with moderate traffic, **Reserve on Checkout Start** is the
 > Store all money as **integers in the smallest currency unit** (cents for USD, paise for INR). Display by dividing. Calculate by multiplying.
 
 ```
-// ❌ Wrong
+//  Wrong
 price: 29.99
 
-// ✅ Correct
+//  Correct
 price: 2999  // stored as paise/cents, displayed as ₹29.99 / $29.99
 ```
 
@@ -166,7 +166,7 @@ Invalid transitions (e.g., jumping from `pending_payment` to `delivered`) should
 
 ---
 
-## ✅ Fundamentals Checklist
+##  Fundamentals Checklist
 
 Before moving to Phase 1, confirm you understand these:
 

@@ -101,7 +101,7 @@ You must never rename or drop a column in a single deployment.
 
 ---
 
-## ✅ CI/CD Engineering Checklist
+##  CI/CD Engineering Checklist
 
 - [ ] Disable automatic production promotion in Vercel. Utilize Preview Deployments (Green) as staging grounds.
 - [ ] Implement Vercel Edge Middleware or LaunchDarkly to execute Canary Releases for high-risk UI updates.

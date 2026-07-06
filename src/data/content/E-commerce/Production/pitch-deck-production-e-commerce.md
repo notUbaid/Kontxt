@@ -65,7 +65,7 @@ You must highlight the architectural and operational moats you engineered:
 
 ---
 
-## ✅ Pitch Deck Engineering Checklist
+##  Pitch Deck Engineering Checklist
 
 - [ ] Discard feature-heavy slide decks. Adopt the strict 10-slide Sequoia Capital framework.
 - [ ] Formulate a rigorous "Unit Economics" slide detailing CAC, AOV, COGS, and LTV. Prove mathematically that the business is highly profitable on a per-unit basis.

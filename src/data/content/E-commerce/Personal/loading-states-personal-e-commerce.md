@@ -136,7 +136,7 @@ function AddToCartButton({ productId }) {
     >
       {status === 'idle' && 'Add to Cart'}
       {status === 'loading' && <Spinner size="sm" />}
-      {status === 'success' && '✓ Added'}
+      {status === 'success' && ' Added'}
       {status === 'error' && 'Failed — Try Again'}
     </button>
   );

@@ -93,7 +93,7 @@ This mathematically guarantees that Man-in-the-Middle (MitM) downgrade attacks w
 
 ---
 
-## ✅ Payment Security Checklist
+##  Payment Security Checklist
 
 - [ ] Mathematically guarantee you never touch raw PAN (Primary Account Number) data. Use Stripe Elements iFrames exclusively.
 - [ ] Enforce 3D Secure (3DS) in your PaymentIntent logic to shift chargeback liability to the issuing banks.

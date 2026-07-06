@@ -23,7 +23,7 @@ This is the decision that matters more than which library you picked. Conflating
 | **Client/UI state** | State that only exists on-device and has no server source of truth (modal open/closed, selected tab, form input before submit) | Your state management library (Zustand, Redux, Jotai, etc.) |
 | **Persisted local state** | Client state that should survive app restarts (theme preference, onboarding-completed flag, draft form data) | Same store, with a persistence middleware layer |
 
-> ⚠️ **The single most common state management mistake in apps built with AI assistance:** fetching server data with `useEffect` + manual loading/error state, then dumping the result into a global store. This throws away caching, automatic refetch-on-reconnect, and request deduplication — and then requires you to manually keep that cached copy in sync with the server, which is the bug factory itself. Server state needs a tool built for server state.
+> ️ **The single most common state management mistake in apps built with AI assistance:** fetching server data with `useEffect` + manual loading/error state, then dumping the result into a global store. This throws away caching, automatic refetch-on-reconnect, and request deduplication — and then requires you to manually keep that cached copy in sync with the server, which is the bug factory itself. Server state needs a tool built for server state.
 
 ---
 
@@ -48,7 +48,7 @@ What this gives you for free, that hand-rolled `useEffect` fetching doesn't:
 - Request deduplication — two components requesting the same data in the same render cycle trigger one network call, not two
 - Built-in loading/error states, feeding directly into the `AsyncBoundary` pattern from the Frontend module
 
-> 💡 **Mutations** (creating/updating/deleting server data) belong here too, not as manual API calls scattered through components. Use the library's mutation hooks with optimistic updates where the UX benefits (e.g. a "like" button should feel instant, then reconcile with the server response).
+>  **Mutations** (creating/updating/deleting server data) belong here too, not as manual API calls scattered through components. Use the library's mutation hooks with optimistic updates where the UX benefits (e.g. a "like" button should feel instant, then reconcile with the server response).
 
 ---
 
@@ -72,7 +72,7 @@ const useUIStore = create<UIStore>((set) => ({
 }));
 ```
 
-> ⚠️ **Don't put everything in one global store.** A single `useAppStore` with 40 unrelated fields becomes impossible to reason about and causes unnecessary re-renders across unrelated components. Split stores by domain — `useUIStore`, `useOnboardingStore`, `useCartStore` — the same boundary discipline as your feature-based folder structure from the Frontend module.
+> ️ **Don't put everything in one global store.** A single `useAppStore` with 40 unrelated fields becomes impossible to reason about and causes unnecessary re-renders across unrelated components. Split stores by domain — `useUIStore`, `useOnboardingStore`, `useCartStore` — the same boundary discipline as your feature-based folder structure from the Frontend module.
 
 ---
 
@@ -92,7 +92,7 @@ const useSettingsStore = create(
 );
 ```
 
-> ⚠️ Never persist server state through this mechanism — that's what your React Query cache (with its own optional persistence) is for, and it already handles staleness correctly. Manually persisting a snapshot of server data into your client store creates exactly the stale-data-drift problem the server state layer exists to prevent.
+> ️ Never persist server state through this mechanism — that's what your React Query cache (with its own optional persistence) is for, and it already handles staleness correctly. Manually persisting a snapshot of server data into your client store creates exactly the stale-data-drift problem the server state layer exists to prevent.
 
 ---
 
@@ -101,13 +101,13 @@ const useSettingsStore = create(
 - **Local component state (`useState`) is still correct for state that's genuinely local** — a single input's focus state, an animation value. Not everything needs to go in a global store. Reaching for global state by default, for things only one component cares about, adds indirection without benefit.
 - **Lift state only as high as the components that actually need it** — if two sibling components in the same screen need to share state, that often belongs in their shared parent or a feature-scoped store, not your global app-wide store.
 
-> 💡 **Decision test:** "does more than one feature need this state, or does it need to survive a screen unmount?" If no to both, `useState` is the right answer, not a global store entry.
+>  **Decision test:** "does more than one feature need this state, or does it need to survive a screen unmount?" If no to both, `useState` is the right answer, not a global store entry.
 
 ---
 
 ## Decision 5 — Derived State
 
-> ⚠️ Don't store computed values in state and try to keep them in sync manually. If `cartTotal` can be calculated from `cartItems`, derive it at read time (in a selector or a `useMemo`), don't store it as its own state field that you remember to update on every cart mutation. Storing derived state is a recurring source of subtle desync bugs — the derived value drifts from its source whenever an update path forgets to recompute it.
+> ️ Don't store computed values in state and try to keep them in sync manually. If `cartTotal` can be calculated from `cartItems`, derive it at read time (in a selector or a `useMemo`), don't store it as its own state field that you remember to update on every cart mutation. Storing derived state is a recurring source of subtle desync bugs — the derived value drifts from its source whenever an update path forgets to recompute it.
 
 ```typescript
 // Avoid: storing cartTotal as separate state

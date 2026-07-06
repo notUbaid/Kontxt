@@ -76,10 +76,10 @@ Not every step deserves automation. Walk your map and mark each rectangle with o
 - ** Leave alone** — this step is fine as-is; don't build for it
 
 > **Example marking**
-> - Log amount + due date →  Automate (currently manual entry, error-prone)
-> - Repeat client? →  Assist (tool can flag it, you still confirm)
-> - Send follow-up →  Automate (this is the step you currently forget)
-> - Wait for payment →  Leave alone (nothing to build here — it's just time passing)
+- Log amount + due date →  Automate (currently manual entry, error-prone)
+- Repeat client? →  Assist (tool can flag it, you still confirm)
+- Send follow-up →  Automate (this is the step you currently forget)
+- Wait for payment →  Leave alone (nothing to build here — it's just time passing)
 
 This labeling does real work: it stops you from building a screen for every single step, which is the single most common way personal internal tools become bloated and never ship.
 

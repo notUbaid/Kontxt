@@ -105,7 +105,7 @@ Your public `/policies/refund` page must explicitly define the mathematical rule
 
 ---
 
-## ✅ Refund Policy Engineering Checklist
+##  Refund Policy Engineering Checklist
 
 - [ ] Engineer strict Idempotency Keys (`refund_${orderId}`) into all Stripe Refund API calls to mathematically prevent double-refunds.
 - [ ] Encode your legal time windows (e.g., 30 days) directly into the Next.js API route logic to physically block policy violations by human admins.

@@ -56,7 +56,7 @@ You must instruct your AI to check the array length of the returned products. If
 
 ---
 
-## ✅ Empty States Checklist
+##  Empty States Checklist
 
 - [ ] Audit the 3 critical Empty States: Cart, Search, and Category pages.
 - [ ] Forbid your AI from creating "Dead Ends." Every empty state must have a clear Call to Action (CTA).

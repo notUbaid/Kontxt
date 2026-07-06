@@ -53,7 +53,7 @@ You must instruct the AI to integrate **Stripe Elements** (or your gateway's equ
 
 ---
 
-## ✅ Checkout Architecture Checklist
+##  Checkout Architecture Checklist
 
 - [ ] Mandate a Single-Page Application (SPA) checkout flow to eliminate multi-page load times.
 - [ ] Enforce Pre-Flight Validation to prevent pricing and inventory race conditions.

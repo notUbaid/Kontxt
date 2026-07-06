@@ -143,10 +143,10 @@ I'll do my own primary research after this — I just want a starting framework 
 ```
 
 > **Important:** AI will give you a starting framework, not ground truth. After getting the output:
-> - [ ] Visit every competitor URL it names — verify the claims
-> - [ ] Check actual review sites (Trustpilot, Google Reviews, Reddit threads) for real complaints
-> - [ ] Ignore any competitor AI names that you can't find or that don't seem relevant
-> - [ ] Add competitors AI missed that you already know about
+- [ ] Visit every competitor URL it names — verify the claims
+- [ ] Check actual review sites (Trustpilot, Google Reviews, Reddit threads) for real complaints
+- [ ] Ignore any competitor AI names that you can't find or that don't seem relevant
+- [ ] Add competitors AI missed that you already know about
 
 ---
 

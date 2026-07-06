@@ -30,7 +30,7 @@ Without terms of service, you have no stated boundaries around:
 - Limitation of liability if a product causes damage or doesn't perform as expected
 - Rules around account use, fraud, and abuse — backing up the technical protections from Phase 4
 
-> **💡 Tip:** Terms of Service is also where you formally state things you've already built protections for — like your right to cancel an order you suspect is fraudulent (from your Fraud Prevention module). The technical capability and the stated right to use it should match.
+> ** Tip:** Terms of Service is also where you formally state things you've already built protections for — like your right to cancel an order you suspect is fraudulent (from your Fraud Prevention module). The technical capability and the stated right to use it should match.
 
 ---
 
@@ -56,7 +56,7 @@ You're **not** drafting custom liability clauses for a complex business, handlin
 | Account terms | Brief reference to acceptable use, consistent with your account system |
 | Intellectual property | Product photos/descriptions are yours — basic protection against scraping |
 
-> **⚠️ Warning:** Don't state a stronger commitment than your store can actually fulfill — for example, promising same-day cancellation processing if your fulfillment process doesn't actually support that. Terms should describe real operational capability, not aspirational service levels.
+> **️ Warning:** Don't state a stronger commitment than your store can actually fulfill — for example, promising same-day cancellation processing if your fulfillment process doesn't actually support that. Terms should describe real operational capability, not aspirational service levels.
 
 ---
 
@@ -94,7 +94,7 @@ accurately, and confirming I'm not promising anything my actual
 operations can't support.
 ```
 
-> **⚠️ Warning:** Don't let AI generate liability or cancellation language from generic defaults without checking it against your actual fulfillment process. If your terms say "orders ship within 24 hours" but your real process doesn't guarantee that, you've created a commitment your operations can't reliably meet.
+> **️ Warning:** Don't let AI generate liability or cancellation language from generic defaults without checking it against your actual fulfillment process. If your terms say "orders ship within 24 hours" but your real process doesn't guarantee that, you've created a commitment your operations can't reliably meet.
 
 ---
 

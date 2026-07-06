@@ -31,7 +31,7 @@ This is a coverage check across decisions you've already made: cookies/analytics
 | **Business Disclosure / Imprint** | Required in some jurisdictions (notably much of the EU) | Basic legal identity of who operates the store — business name, contact, registration info if applicable |
 | **Intellectual Property / DMCA Notice** | You have original content (photos, descriptions) others could copy, or want a path to report copied content | Protects your content and gives you a formal process if someone copies your store |
 
-> **💡 Tip:** Not every store needs every document on this list — a Business Disclosure/Imprint is far more commonly required in the EU than in the US, for example. Check this list against your specific operating location rather than implementing all of it by default.
+> ** Tip:** Not every store needs every document on this list — a Business Disclosure/Imprint is far more commonly required in the EU than in the US, for example. Check this list against your specific operating location rather than implementing all of it by default.
 
 ---
 
@@ -68,7 +68,7 @@ Help me determine:
    is given, if that's required for my situation
 ```
 
-> **⚠️ Warning:** If consent is required in your jurisdiction, the cookie banner needs to actually block tracking scripts until consent is given — a banner that's purely cosmetic while analytics fires regardless doesn't meet the requirement it's meant to satisfy.
+> **️ Warning:** If consent is required in your jurisdiction, the cookie banner needs to actually block tracking scripts until consent is given — a banner that's purely cosmetic while analytics fires regardless doesn't meet the requirement it's meant to satisfy.
 
 ---
 

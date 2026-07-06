@@ -91,7 +91,7 @@ You must configure Stripe to strictly decline any charge where the CVC (the 3 di
 
 ---
 
-## ✅ Fraud Engineering Checklist
+##  Fraud Engineering Checklist
 
 - [ ] Engineer a strict Redis Velocity Check to mathematically block IP addresses that fail more than 5 payments, defeating Card Testing botnets.
 - [ ] Configure custom Stripe Radar rules to block transactions where the IP country does not match the Card Issuing country.

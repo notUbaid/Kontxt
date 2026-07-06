@@ -97,10 +97,10 @@ async function requireThreadParticipant(req, res, next) {
 The entry point matters more than it seems. "Message Seller" should never let a buyer message themselves, and should reuse an existing thread instead of creating duplicates.
 
 > ** Validation Checklist**
-> - [ ] Does starting a thread check `listing.sellerId !== req.user.id`? (sellers shouldn't message their own listings)
-> - [ ] Does it check for an existing thread first, using the unique constraint, before creating a new one?
-> - [ ] Is the listing status checked — can buyers start new threads on `sold` or `removed` listings? (Usually: no for new threads, yes to view existing ones)
-> - [ ] Are message bodies length-limited and stripped of any HTML/script content before storage?
+- [ ] Does starting a thread check `listing.sellerId !== req.user.id`? (sellers shouldn't message their own listings)
+- [ ] Does it check for an existing thread first, using the unique constraint, before creating a new one?
+- [ ] Is the listing status checked — can buyers start new threads on `sold` or `removed` listings? (Usually: no for new threads, yes to view existing ones)
+- [ ] Are message bodies length-limited and stripped of any HTML/script content before storage?
 
 ```js
 router.post("/listings/:listingId/message", requireAuth, async (req, res) => {
@@ -144,14 +144,14 @@ router.post("/listings/:listingId/message", requireAuth, async (req, res) => {
 > [PASTE YOUR THREAD AND MESSAGE SCHEMA HERE]
 >
 > Requirements:
-> - A thread is always tied to one listing + one buyer + one seller (unique constraint already enforces this)
-> - POST /listings/:id/message — starts or reuses a thread, blocks sellers messaging their own listing
-> - GET /threads — list threads for the current user (as buyer or seller)
-> - GET /threads/:id/messages — fetch messages, MUST verify requester is buyer or seller on that thread
-> - POST /threads/:id/messages — send a message, same participant check
-> - Use polling-friendly design: GET /threads/:id/messages should support a `since` timestamp param for incremental fetching
-> - Reuse my existing requireAuth middleware — don't recreate it
-> - Sanitize message body input (strip HTML/script tags) before storage
+- A thread is always tied to one listing + one buyer + one seller (unique constraint already enforces this)
+- POST /listings/:id/message — starts or reuses a thread, blocks sellers messaging their own listing
+- GET /threads — list threads for the current user (as buyer or seller)
+- GET /threads/:id/messages — fetch messages, MUST verify requester is buyer or seller on that thread
+- POST /threads/:id/messages — send a message, same participant check
+- Use polling-friendly design: GET /threads/:id/messages should support a `since` timestamp param for incremental fetching
+- Reuse my existing requireAuth middleware — don't recreate it
+- Sanitize message body input (strip HTML/script tags) before storage
 > ```
 >
 > **Why this prompt works:** it specifies the `since` parameter upfront, which prevents AI from generating a naive polling implementation that re-fetches the entire message history every few seconds — a real performance problem once threads grow long.

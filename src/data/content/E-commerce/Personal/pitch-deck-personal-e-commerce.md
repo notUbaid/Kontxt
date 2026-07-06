@@ -104,7 +104,7 @@ You do not need a design system for a 10-slide personal-project deck. You need t
 
 Use AI to turn your raw decisions and numbers into tight slide copy — not to invent content you don't actually have.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 I'm building a 10-slide pitch deck for a solo e-commerce project: [one-sentence description].

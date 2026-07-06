@@ -4,12 +4,14 @@ import type { Category } from './taxonomies/types';
 import { 
   saasProductionTaxonomy, 
   saasHackathonTaxonomy, 
-  saasPersonalTaxonomy
+  saasPersonalTaxonomy,
+  saasCustomTaxonomy
 } from './taxonomies/saas';
 import {
   mobileProductionTaxonomy,
   mobileHackathonTaxonomy,
-  mobilePersonalTaxonomy
+  mobilePersonalTaxonomy,
+  mobileCustomTaxonomy
 } from './taxonomies/mobile';
 import {
   aiProductionTaxonomy,
@@ -81,6 +83,26 @@ import {
   dataPipelineHackathonTaxonomy,
   dataPipelinePersonalTaxonomy
 } from './taxonomies/data-pipeline';
+import {
+  cliProductionTaxonomy,
+  cliHackathonTaxonomy,
+  cliPersonalTaxonomy
+} from './taxonomies/cli';
+import {
+  iotProductionTaxonomy,
+  iotHackathonTaxonomy,
+  iotPersonalTaxonomy
+} from './taxonomies/iot';
+import {
+  openSourceProductionTaxonomy,
+  openSourceHackathonTaxonomy,
+  openSourcePersonalTaxonomy
+} from './taxonomies/open-source';
+import {
+  customProductionTaxonomy,
+  customHackathonTaxonomy,
+  customPersonalTaxonomy
+} from './taxonomies/custom';
 
 export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] => {
   const resolvedMode = mode;
@@ -90,9 +112,9 @@ export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] =
       switch (resolvedMode) {
         case 'Hackathon': return saasHackathonTaxonomy;
         case 'Personal': return saasPersonalTaxonomy;
-        case 'Production': return saasProductionTaxonomy;
+        case 'Production': return saasCustomTaxonomy;
 
-        default: return saasProductionTaxonomy;
+        default: return saasCustomTaxonomy;
       }
     
     // As the 12 new types are provided, they will be registered here.
@@ -102,7 +124,7 @@ export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] =
         case 'Personal': return mobilePersonalTaxonomy;
 
         case 'Production':
-        default: return mobileProductionTaxonomy;
+        default: return mobileCustomTaxonomy;
       }
     case 'AI Tool':
       switch (mode) {
@@ -210,6 +232,34 @@ export const getTaxonomy = (appType: AppType | string, mode: Mode): Category[] =
         case 'Personal': return dataPipelinePersonalTaxonomy;
         case 'Production': return dataPipelineProductionTaxonomy;
         default: return dataPipelineProductionTaxonomy;
+      }
+    case 'CLI':
+      switch (resolvedMode) {
+        case 'Hackathon': return cliHackathonTaxonomy;
+        case 'Personal': return cliPersonalTaxonomy;
+        case 'Production': return cliProductionTaxonomy;
+        default: return cliProductionTaxonomy;
+      }
+    case 'IoT':
+      switch (resolvedMode) {
+        case 'Hackathon': return iotHackathonTaxonomy;
+        case 'Personal': return iotPersonalTaxonomy;
+        case 'Production': return iotProductionTaxonomy;
+        default: return iotProductionTaxonomy;
+      }
+    case 'Open Source':
+      switch (resolvedMode) {
+        case 'Hackathon': return openSourceHackathonTaxonomy;
+        case 'Personal': return openSourcePersonalTaxonomy;
+        case 'Production': return openSourceProductionTaxonomy;
+        default: return openSourceProductionTaxonomy;
+      }
+    case 'Custom':
+      switch (resolvedMode) {
+        case 'Hackathon': return customHackathonTaxonomy;
+        case 'Personal': return customPersonalTaxonomy;
+        case 'Production': return customProductionTaxonomy;
+        default: return customProductionTaxonomy;
       }
     default:
       return saasProductionTaxonomy;

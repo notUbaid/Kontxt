@@ -11,7 +11,7 @@ estimatedTime: 20-30 min
 
 In the Push Notifications module, you designed a payload shape with a `type` and `entityId`. This module decides what happens next: how a URL — from a notification tap, an email, a QR code, or a share link — routes a user to the right screen inside your app, even if they don't have it installed yet.
 
-> ⚠️ **Before you research this topic elsewhere:** Firebase Dynamic Links was fully shut down on August 25, 2025. If any tutorial, AI output, or Stack Overflow answer you encounter recommends it, that's stale information — the service returns 404 on every link now. Don't build on it.
+> ️ **Before you research this topic elsewhere:** Firebase Dynamic Links was fully shut down on August 25, 2025. If any tutorial, AI output, or Stack Overflow answer you encounter recommends it, that's stale information — the service returns 404 on every link now. Don't build on it.
 
 ---
 
@@ -25,7 +25,7 @@ These get used interchangeably in casual conversation but are architecturally di
 | **Universal Link (iOS) / App Link (Android)** | A real `https://` URL that opens your app if installed, falls back to a web page if not | No — degrades gracefully |
 | **Deferred deep link** | Same as above, but if the app *wasn't* installed, it remembers the intended destination through the App Store/Play Store install and routes there on first open | No — and survives the install gap |
 
-> 💡 **Decision shortcut:** if your product has any acquisition flow where someone might click a link before installing the app (marketing emails, referral links, social shares, ads), you need deferred deep linking. If every link you'll ever generate assumes the app is already installed (in-app notifications, authenticated user-to-user shares), Universal/App Links alone are enough — and they're free.
+>  **Decision shortcut:** if your product has any acquisition flow where someone might click a link before installing the app (marketing emails, referral links, social shares, ads), you need deferred deep linking. If every link you'll ever generate assumes the app is already installed (in-app notifications, authenticated user-to-user shares), Universal/App Links alone are enough — and they're free.
 
 ---
 
@@ -33,10 +33,10 @@ These get used interchangeably in casual conversation but are architecturally di
 
 | Approach | Setup Cost | Deferred Linking | Analytics/Attribution | Cost |
 |---|---|---|---|---|
-| **Universal Links + App Links (DIY)** | Medium — domain verification, `apple-app-site-association` + `assetlinks.json` files, hosting | ❌ Not supported natively | None built-in | Free |
-| **Branch** | Low — SDK handles both platforms + deferred linking | ✅ | ✅ Strong | Free tier, then usage-based |
-| **AppsFlyer OneLink** | Low | ✅ | ✅ Strong, leans marketing/attribution-heavy | Free tier, then usage-based |
-| **Adjust** | Low | ✅ | ✅ | Usage-based |
+| **Universal Links + App Links (DIY)** | Medium — domain verification, `apple-app-site-association` + `assetlinks.json` files, hosting |  Not supported natively | None built-in | Free |
+| **Branch** | Low — SDK handles both platforms + deferred linking |  |  Strong | Free tier, then usage-based |
+| **AppsFlyer OneLink** | Low |  |  Strong, leans marketing/attribution-heavy | Free tier, then usage-based |
+| **Adjust** | Low |  |  | Usage-based |
 
 > **Recommendation:** If you only need links to route within an already-installed app (the common case for transactional/notification-driven links), implement **Universal Links + App Links directly** — it's free, you own the infrastructure, and there's no third-party SDK or data-sharing tradeoff.
 >
@@ -56,7 +56,7 @@ https://yourapp.com/profile/u_223
 https://yourapp.com/invite/abc123
 ```
 
-> ⚠️ **Common mistake:** using custom URI schemes (`myapp://...`) as your only link format and putting them directly in emails or SMS. Custom schemes aren't clickable in most email clients and look untrustworthy to users. Always use real `https://` URLs as the outward-facing format — they degrade gracefully to a web page if the app isn't installed, and they're clickable everywhere.
+> ️ **Common mistake:** using custom URI schemes (`myapp://...`) as your only link format and putting them directly in emails or SMS. Custom schemes aren't clickable in most email clients and look untrustworthy to users. Always use real `https://` URLs as the outward-facing format — they degrade gracefully to a web page if the app isn't installed, and they're clickable everywhere.
 
 Keep the URL structure flat and resource-based. Map it to entities you already have IDs for (the same `entityId` from your push payload) — don't invent a second ID scheme just for links.
 
@@ -75,7 +75,7 @@ Two states you must design for explicitly:
 - **Cold start** (app wasn't running): the link arrives before your navigation stack, auth check, and initial data fetch have completed. You need a "pending deep link" holding pattern — store the intended destination, let normal app boot finish, then navigate once the user is authenticated and your router is mounted.
 - **Warm start** (app already running): the link can navigate immediately, but you still need to handle "user is mid-flow doing something else" — don't yank them out of an unsaved form to honor a link.
 
-> 💡 **Tip:** Keep deep link resolution as a single, testable function — `resolveDeepLink(url) → { route, params } | null`. This is the function you'll unit test, and it's the function any AI tool should generate when you ask for deep link handling, not scattered `if` checks across your navigation code.
+>  **Tip:** Keep deep link resolution as a single, testable function — `resolveDeepLink(url) → { route, params } | null`. This is the function you'll unit test, and it's the function any AI tool should generate when you ask for deep link handling, not scattered `if` checks across your navigation code.
 
 ---
 
@@ -86,7 +86,7 @@ Decide this now, because it changes your routing logic:
 - **Public content** (e.g. a shared product page): link should work even if the user isn't logged in — show the content, prompt login only for the action (e.g. "Sign in to add to cart").
 - **Private content** (e.g. a specific order, a DM thread): the link should redirect through your login flow first, then resume to the original destination after auth succeeds.
 
-> ⚠️ A surprisingly common production bug: a deep link to private content silently fails or dumps the user on a generic home screen when they're not logged in, instead of completing the redirect after login. If you're testing deep links, explicitly test the logged-out path for every private route, not just the happy path.
+> ️ A surprisingly common production bug: a deep link to private content silently fails or dumps the user on a generic home screen when they're not logged in, instead of completing the redirect after login. If you're testing deep links, explicitly test the logged-out path for every private route, not just the happy path.
 
 ---
 

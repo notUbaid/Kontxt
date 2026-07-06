@@ -23,7 +23,7 @@ Don't default to the most permissive option. Match the request to the actual fea
 | **Background location** | Continuous tracking needed even when the app isn't open (delivery tracking, fitness tracking during a workout) | The feature is fundamentally impossible without it — this is a high-friction permission with extra App Store/Play Store review scrutiny |
 | **Precise vs. approximate** (iOS 14+, Android 12+) | Precise: navigation, exact delivery location. Approximate: weather, regional content, nearby-city search | Default to requesting only what the feature needs — approximate is sufficient far more often than apps assume |
 
-> ⚠️ **Background location requires additional App Store review justification** and is one of the more common rejection/scrutiny points — Apple and Google both expect a clear, user-visible reason background tracking is happening (e.g. an active visible indicator), not silent background collection. Don't request it as a default "just in case" — it adds review friction, battery cost, and user trust cost for a capability most apps don't actually need.
+> ️ **Background location requires additional App Store review justification** and is one of the more common rejection/scrutiny points — Apple and Google both expect a clear, user-visible reason background tracking is happening (e.g. an active visible indicator), not silent background collection. Don't request it as a default "just in case" — it adds review friction, battery cost, and user trust cost for a capability most apps don't actually need.
 
 ---
 
@@ -31,7 +31,7 @@ Don't default to the most permissive option. Match the request to the actual fea
 
 Same principle as push notification permissions: don't ask on launch.
 
-> 💡 Request location permission at the exact moment the user takes an action that requires it (tapping "find nearby," starting a delivery order) — not during onboarding, before they understand why you want it. A contextual request tied to a clear action has a meaningfully higher acceptance rate, and on iOS a denial is hard to recover from without sending the user to Settings manually.
+>  Request location permission at the exact moment the user takes an action that requires it (tapping "find nearby," starting a delivery order) — not during onboarding, before they understand why you want it. A contextual request tied to a clear action has a meaningfully higher acceptance rate, and on iOS a denial is hard to recover from without sending the user to Settings manually.
 
 ```typescript
 async function requestLocationForNearbySearch() {
@@ -44,7 +44,7 @@ async function requestLocationForNearbySearch() {
 }
 ```
 
-> 💡 **Always have a fallback for denied permission.** A "find nearby" feature that becomes entirely unusable without location access is a worse experience than one that falls back to manual location entry. Treat permission denial as an expected, designed-for path, not an error state.
+>  **Always have a fallback for denied permission.** A "find nearby" feature that becomes entirely unusable without location access is a worse experience than one that falls back to manual location entry. Treat permission denial as an expected, designed-for path, not an error state.
 
 ---
 
@@ -64,7 +64,7 @@ async function requestLocationForNearbySearch() {
 
 This is the line item that surprises teams: address autocomplete and reverse geocoding are billed per-request, and a naive implementation can burn through free tier in days.
 
-> ⚠️ **Never call a geocoding/places API on every keystroke of an address search field without debouncing.** A user typing a 20-character address can trigger 20 billed API calls instead of 1-3. Debounce input (300-500ms after the user stops typing) before firing the request, and consider client-side caching of recent results within a session.
+> ️ **Never call a geocoding/places API on every keystroke of an address search field without debouncing.** A user typing a 20-character address can trigger 20 billed API calls instead of 1-3. Debounce input (300-500ms after the user stops typing) before firing the request, and consider client-side caching of recent results within a session.
 
 ```typescript
 const debouncedSearch = useMemo(

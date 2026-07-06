@@ -29,7 +29,7 @@ Write it as two columns — action and words — not prose. You should be able t
 | Point at the response | "This came back in under 200ms, fully validated." |
 | Switch to demo UI (if built) | "Here's what that looks like for an actual user." |
 
-> **✅ Best Practice:** Build in one deliberate pause after the response appears. Silence while judges read the result is more persuasive than narrating over it — let the working API speak for itself for two seconds before you continue.
+> ** Best Practice:** Build in one deliberate pause after the response appears. Silence while judges read the result is more persuasive than narrating over it — let the working API speak for itself for two seconds before you continue.
 
 ## What to Pre-Stage Before You Ever Stand Up
 
@@ -39,13 +39,13 @@ Write it as two columns — action and words — not prose. You should be able t
 - [ ] Demo UI (if you built one) already loaded with a clean starting state
 - [ ] Notifications, Slack, email — everything that could pop up on screen — closed or silenced
 
-> **⚠️ Warning:** Typing a curl command live, character by character, is the single most common way hackathon API demos lose time and composure. A typo under pressure costs you 20 seconds you don't have. Have it ready to paste, every time.
+> **️ Warning:** Typing a curl command live, character by character, is the single most common way hackathon API demos lose time and composure. A typo under pressure costs you 20 seconds you don't have. Have it ready to paste, every time.
 
 ## Pick One Path Through Your API, Not a Tour
 
 Resist the urge to show multiple endpoints. One coherent user story — create something, then immediately show its effect — is more convincing than five disconnected calls.
 
-> **💡 Tip:** A "create → read it back" pair is the strongest two-call demo: it proves both that your API accepts input correctly and that it persists and returns it correctly. That's a complete proof of a working system in two requests.
+> ** Tip:** A "create → read it back" pair is the strongest two-call demo: it proves both that your API accepts input correctly and that it persists and returns it correctly. That's a complete proof of a working system in two requests.
 
 ## Decision: Live Call vs Pre-Recorded Backup
 
@@ -55,7 +55,7 @@ Resist the urge to show multiple endpoints. One coherent user story — create s
 | Pre-recorded video as primary | Looks less impressive, feels safer | Only if you've had repeated wifi failures in rehearsal |
 | Live attempt, recorded backup ready | Best of both | Recommended — try live, fall back instantly if needed |
 
-> **⚠️ Warning:** Decide your fallback trigger *before* you're on stage — for example, "if no response in 5 seconds, switch to backup video" — not in the moment. Deciding under pressure wastes exactly the time you don't have.
+> **️ Warning:** Decide your fallback trigger *before* you're on stage — for example, "if no response in 5 seconds, switch to backup video" — not in the moment. Deciding under pressure wastes exactly the time you don't have.
 
 ## Use AI to Tighten the Script
 
@@ -71,7 +71,7 @@ Total time budget: [X] seconds. Flag:
 3. Redundant narration that repeats what the audience can already see
 ```
 
-> **💡 Token Efficiency:** Include your timing estimates directly in the script you paste — asking AI to flag realistic overruns only works if it has your actual time budget to check against.
+> ** Token Efficiency:** Include your timing estimates directly in the script you paste — asking AI to flag realistic overruns only works if it has your actual time budget to check against.
 
 ## Validate Before You Present
 

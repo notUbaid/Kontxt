@@ -27,7 +27,7 @@ Pricing changes driven by real usage data and real cost structure are sound engi
 | Free tier usage that never converts to paid | Free tier may be too generous, or paid tiers don't justify the jump |
 | Competitor pricing shift | Worth knowing, but not sufficient justification alone — see below |
 
-> **⚠️ Warning:** Reacting to a competitor's pricing change without checking it against your own cost and usage data is how API products end up pricing below their actual infrastructure cost per customer. Let your own metering and billing data (from Phase 2) drive the decision — use competitor pricing as context, not as the trigger.
+> **️ Warning:** Reacting to a competitor's pricing change without checking it against your own cost and usage data is how API products end up pricing below their actual infrastructure cost per customer. Let your own metering and billing data (from Phase 2) drive the decision — use competitor pricing as context, not as the trigger.
 
 ## Decision: How to Change Pricing Without Burning Existing Customers
 
@@ -37,7 +37,7 @@ Pricing changes driven by real usage data and real cost structure are sound engi
 | Grandfather for a defined period, then migrate | Medium — manageable if communicated early | When old pricing is genuinely unsustainable long-term |
 | Change pricing for everyone immediately | Low — significant trust risk | Only for early-stage products with very few customers and clear advance notice |
 
-> **✅ Best Practice:** Grandfather existing customers by default. A customer who built their business on your stated price, then has that price changed without warning, has every reason to question whether anything else about your API is stable. The cost of grandfathering (some lost revenue upside) is almost always smaller than the cost of a trust failure that triggers churn or public complaint.
+> ** Best Practice:** Grandfather existing customers by default. A customer who built their business on your stated price, then has that price changed without warning, has every reason to question whether anything else about your API is stable. The cost of grandfathering (some lost revenue upside) is almost always smaller than the cost of a trust failure that triggers churn or public complaint.
 
 ## Communicating a Pricing Change
 
@@ -48,13 +48,13 @@ How you announce it matters as much as the change itself.
 - [ ] Clear explanation of what's changing and why, not just the new number
 - [ ] A migration path if tiers are being restructured, not just renamed
 
-> **⚠️ Warning:** Never let a customer discover a pricing change via their invoice. Silent price changes, even small ones, read as a trust violation regardless of how justified the change actually is — the surprise itself is the damage, independent of the amount.
+> **️ Warning:** Never let a customer discover a pricing change via their invoice. Silent price changes, even small ones, read as a trust violation regardless of how justified the change actually is — the surprise itself is the damage, independent of the amount.
 
 ## Designing Pricing Changes That Don't Require Engineering Sprints
 
 If your Billing Architecture (Phase 2) hardcoded pricing logic into application code, every pricing experiment becomes a deploy. If pricing rules live as configurable data, evolution becomes routine.
 
-> **✅ Best Practice:** Revisit whether your billing engine treats pricing as data (tiers, rates, and quotas stored in a database or config, adjustable without a code deploy) rather than as logic baked into application code. This is the single architectural decision that determines whether "let's test a new tier" takes an afternoon or a sprint.
+> ** Best Practice:** Revisit whether your billing engine treats pricing as data (tiers, rates, and quotas stored in a database or config, adjustable without a code deploy) rather than as logic baked into application code. This is the single architectural decision that determines whether "let's test a new tier" takes an afternoon or a sprint.
 
 ## Using Real Usage Data to Design the Next Tier
 
@@ -65,7 +65,7 @@ Your metering and usage tracking (Phase 2/3) is the actual input for pricing evo
 - [ ] Compare actual infrastructure cost per customer at each tier against what that tier charges
 - [ ] Look for a natural gap — a price/usage point with no tier serving it well
 
-> **💡 Tip:** A tier that almost nobody is in usually means the price-to-value jump to reach it is too steep, not that customers don't want more usage. Look at the size of the jump between tiers as closely as the price points themselves.
+> ** Tip:** A tier that almost nobody is in usually means the price-to-value jump to reach it is too steep, not that customers don't want more usage. Look at the size of the jump between tiers as closely as the price points themselves.
 
 ## Use AI to Analyze Pricing Tier Performance
 
@@ -87,7 +87,7 @@ Identify:
 Be specific to the numbers provided, not general best practices.
 ```
 
-> **💡 Token Efficiency:** Provide real anonymized numbers, not a description of your pricing philosophy. This analysis is only useful if grounded in your actual data — a prompt without real numbers just returns generic pricing strategy content you already know.
+> ** Token Efficiency:** Provide real anonymized numbers, not a description of your pricing philosophy. This analysis is only useful if grounded in your actual data — a prompt without real numbers just returns generic pricing strategy content you already know.
 
 ## Validate Before Rolling Out a Change
 

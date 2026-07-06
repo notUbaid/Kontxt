@@ -100,7 +100,7 @@ During the test, it takes a screenshot of the Cart Drawer. It compares that scre
 
 ---
 
-## ✅ Testing Engineering Checklist
+##  Testing Engineering Checklist
 
 - [ ] Abandon manual testing for critical revenue paths. Mandate Playwright E2E testing.
 - [ ] Write a script that tests the "Critical User Journey" (Search -> Add to Cart -> Checkout).

@@ -86,7 +86,7 @@ Generic advice fails here because e-commerce has specific, legible signals of co
 
 Use AI to pressure-test your narrative structure, not to write your story for you in someone else's voice — a presentation that doesn't sound like you is easy to spot and undermines exactly the credibility you're trying to build.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 I built a solo e-commerce project: [one-sentence description of what it does and who it's for].

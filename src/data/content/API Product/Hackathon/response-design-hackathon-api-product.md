@@ -35,8 +35,8 @@ Requests are what callers send you. Responses are what you promise back — and 
 ## Pick One Response Envelope
 
 > **Decision Card — Wrapped or raw?**
-> - **Wrapped:** `{ "data": {...} }` — easier to add metadata later (pagination, request IDs)
-> - **Raw:** `{...}` directly — slightly simpler for callers, harder to extend later
+- **Wrapped:** `{ "data": {...} }` — easier to add metadata later (pagination, request IDs)
+- **Raw:** `{...}` directly — slightly simpler for callers, harder to extend later
 >
 > Either is fine. What's not fine is mixing them — one endpoint returning a raw object and another wrapping it in `data` is the kind of inconsistency that makes an API feel unfinished.
 
@@ -90,11 +90,11 @@ If any part of your core loop involves processing time (like transcript analysis
 > Response envelope choice: [raw / wrapped in "data"]
 >
 > For each core loop route, define:
-> - the success response shape (status code + fields included)
-> - explicitly state which fields are excluded for security reasons
-> - the error response shape, using one consistent error envelope
+- the success response shape (status code + fields included)
+- explicitly state which fields are excluded for security reasons
+- the error response shape, using one consistent error envelope
 >   across all endpoints
-> - if any route involves processing time, design the status field
+- if any route involves processing time, design the status field
 >   and polling pattern
 >
 > Flag any endpoint where I'm at risk of leaking internal-only fields.

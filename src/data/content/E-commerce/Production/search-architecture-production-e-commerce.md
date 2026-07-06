@@ -59,7 +59,7 @@ When you update a product in Shopify, Shopify fires a webhook to your Next.js `/
 
 ---
 
-## ✅ Search Architecture Checklist
+##  Search Architecture Checklist
 
 - [ ] Ban SQL `LIKE` queries for product discovery.
 - [ ] Select a NoSQL Search provider (Algolia is the industry standard; Typesense is the best open-source alternative).

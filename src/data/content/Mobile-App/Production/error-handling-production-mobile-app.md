@@ -15,7 +15,7 @@ You designed error *states* in Phase 1 (what the UI looks like) and a normalized
 
 ## Decision 1 — Error Categories Require Different Handling
 
-> ⚠️ Treating all errors identically is the most common error-handling mistake — a generic try/catch that shows the same alert for everything throws away information the user actually needs. A validation error needs inline field feedback. A network error needs a retry action. A server error needs an apology and a fallback. An unexpected crash needs to not happen again silently.
+> ️ Treating all errors identically is the most common error-handling mistake — a generic try/catch that shows the same alert for everything throws away information the user actually needs. A validation error needs inline field feedback. A network error needs a retry action. A server error needs an apology and a fallback. An unexpected crash needs to not happen again silently.
 
 | Category | User-Facing Treatment | Logged? |
 |---|---|---|
@@ -50,7 +50,7 @@ class ScreenErrorBoundary extends React.Component<Props, State> {
 }
 ```
 
-> 💡 **Place boundaries at the screen level, not just one global boundary at the app root.** A single root-level boundary means any rendering error anywhere takes down the entire app to a fallback screen. Per-screen boundaries contain the failure — one broken screen shows its own fallback while the rest of the app (navigation, tab bar) keeps working, which is a meaningfully better experience and easier to recover from.
+>  **Place boundaries at the screen level, not just one global boundary at the app root.** A single root-level boundary means any rendering error anywhere takes down the entire app to a fallback screen. Per-screen boundaries contain the failure — one broken screen shows its own fallback while the rest of the app (navigation, tab bar) keeps working, which is a meaningfully better experience and easier to recover from.
 
 ---
 
@@ -68,7 +68,7 @@ Connects directly to the `AsyncBoundary` pattern from your Frontend module — t
 </AsyncBoundary>
 ```
 
-> ⚠️ Don't let individual screens silently swallow errors (`catch (e) { console.log(e) }` with no user-facing feedback) — a failed action that gives the user no signal reads as the app being broken or unresponsive, which is often worse than an explicit error message.
+> ️ Don't let individual screens silently swallow errors (`catch (e) { console.log(e) }` with no user-facing feedback) — a failed action that gives the user no signal reads as the app being broken or unresponsive, which is often worse than an explicit error message.
 
 ---
 
@@ -89,13 +89,13 @@ Sentry.init({
 });
 ```
 
-> ⚠️ Wire this in now rather than deferring to Phase 4. The most valuable crash data is what happens during real early testing and beta distribution — if reporting isn't in place yet, you lose visibility into exactly the period where bugs are most common and cheapest to fix.
+> ️ Wire this in now rather than deferring to Phase 4. The most valuable crash data is what happens during real early testing and beta distribution — if reporting isn't in place yet, you lose visibility into exactly the period where bugs are most common and cheapest to fix.
 
 ---
 
 ## Decision 5 — Don't Leak Sensitive Data Into Error Reports
 
-> ⚠️ Crash reports and error logs commonly capture local variable state, request payloads, and stack traces — any of which can contain PII, auth tokens, or payment details if you're not deliberate about scrubbing. Configure your error reporting tool's `beforeSend` (or equivalent) hook to strip known-sensitive fields before anything leaves the device, rather than trusting that sensitive data simply won't end up in an error context.
+> ️ Crash reports and error logs commonly capture local variable state, request payloads, and stack traces — any of which can contain PII, auth tokens, or payment details if you're not deliberate about scrubbing. Configure your error reporting tool's `beforeSend` (or equivalent) hook to strip known-sensitive fields before anything leaves the device, rather than trusting that sensitive data simply won't end up in an error context.
 
 ```typescript
 function scrubPII(event: Sentry.Event): Sentry.Event {

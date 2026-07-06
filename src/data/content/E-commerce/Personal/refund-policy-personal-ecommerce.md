@@ -23,7 +23,7 @@ This connects to your actual payment processing setup (Phase 4) and order manage
 
 ## Why This Matters for a Store Specifically
 
-> **💡 Tip:** A visible, fair refund policy measurably reduces purchase hesitation, especially for first-time customers on an unfamiliar store. Customers assume the *absence* of a clear policy means refunds will be difficult, even if that's not true — silence reads as risk.
+> ** Tip:** A visible, fair refund policy measurably reduces purchase hesitation, especially for first-time customers on an unfamiliar store. Customers assume the *absence* of a clear policy means refunds will be difficult, even if that's not true — silence reads as risk.
 
 Beyond trust, most payment providers and many jurisdictions expect refund terms to be disclosed before purchase, not improvised after a complaint.
 
@@ -50,7 +50,7 @@ You're **not** writing custom legal language for complex dispute scenarios — a
 | How is the refund issued? | Original payment method, store credit, or both? |
 | How long does processing take? | Sets expectations and reduces "where's my refund" follow-ups |
 
-> **⚠️ Warning:** Don't promise a refund timeframe your payment provider can't actually support. Card refunds typically take several business days to appear on a customer's statement after you issue them — your policy should reflect that processing reality, not an idealized instant turnaround.
+> **️ Warning:** Don't promise a refund timeframe your payment provider can't actually support. Card refunds typically take several business days to appear on a customer's statement after you issue them — your policy should reflect that processing reality, not an idealized instant turnaround.
 
 ---
 
@@ -62,7 +62,7 @@ You're **not** writing custom legal language for complex dispute scenarios — a
 | **Clear, moderately generous policy (e.g., 30-day, full refund minus original shipping)** | High trust, predictable | Low, predictable | Most personal stores (recommended) |
 | Strict, narrow policy | Lower trust, more disputes | Lower direct cost, higher dispute/chargeback risk | Higher-risk or custom/made-to-order goods only |
 
-> **✅ Best Practice:** A more generous, clearly stated policy often costs less in practice than a strict one — strict policies tend to push frustrated customers toward payment disputes/chargebacks instead, which usually cost more (in fees and account risk) than the refund would have.
+> ** Best Practice:** A more generous, clearly stated policy often costs less in practice than a strict one — strict policies tend to push frustrated customers toward payment disputes/chargebacks instead, which usually cost more (in fees and account risk) than the refund would have.
 
 ---
 
@@ -91,7 +91,7 @@ Write a clear policy covering:
 Keep it specific and customer-readable, not legal boilerplate.
 ```
 
-> **⚠️ Common Mistake:** Don't let AI default to a generic "30 days, no questions asked" policy without checking it against what's actually reasonable for your specific products — made-to-order or perishable goods, for instance, often warrant different terms than standard retail items, and the policy should say so explicitly rather than overpromising.
+> **️ Common Mistake:** Don't let AI default to a generic "30 days, no questions asked" policy without checking it against what's actually reasonable for your specific products — made-to-order or perishable goods, for instance, often warrant different terms than standard retail items, and the policy should say so explicitly rather than overpromising.
 
 ---
 

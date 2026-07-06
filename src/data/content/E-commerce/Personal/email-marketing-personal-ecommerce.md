@@ -21,7 +21,7 @@ This uses the transactional email infrastructure from Phase 3 and the customer/o
 
 ## Why This Matters for a Solo Store
 
-> **💡 Tip:** Email remains one of the highest-return channels available to a personal store specifically because it's nearly free to send and you already own the list — unlike social media reach, which can change or disappear based on a platform's algorithm. A list of even a few hundred genuinely engaged subscribers is a durable asset.
+> ** Tip:** Email remains one of the highest-return channels available to a personal store specifically because it's nearly free to send and you already own the list — unlike social media reach, which can change or disappear based on a platform's algorithm. A list of even a few hundred genuinely engaged subscribers is a durable asset.
 
 The trade-off: email is also the channel most likely to be revoked (unsubscribe) if used carelessly. Respect for the customer's inbox matters more here than almost any other growth channel.
 
@@ -47,7 +47,7 @@ You're **not** building complex multi-branch automation flows or daily sending c
 | On-site signup form (e.g., for a discount) | Explicit | Clear value exchange improves signup rate |
 | Adding every customer automatically, no opt-in | **Not compliant in most jurisdictions** | Transactional emails (order confirmation) are fine without marketing opt-in; marketing emails are not |
 
-> **⚠️ Warning:** Marketing emails require explicit opt-in in most jurisdictions — placing a customer on a marketing list automatically because they made a purchase, without a separate, clear opt-in, risks violating consent requirements already disclosed in your Privacy Policy. Transactional emails (order confirmation, shipping update) are a separate category and don't require marketing consent.
+> **️ Warning:** Marketing emails require explicit opt-in in most jurisdictions — placing a customer on a marketing list automatically because they made a purchase, without a separate, clear opt-in, risks violating consent requirements already disclosed in your Privacy Policy. Transactional emails (order confirmation, shipping update) are a separate category and don't require marketing consent.
 
 ---
 
@@ -67,7 +67,7 @@ Welcome email (1, immediately)
    └─ Genuinely useful content (how-to, behind-the-scenes)
 ```
 
-> **⚠️ Common Mistake:** Sending too frequently in an initial burst of enthusiasm, then stopping entirely a month later. A modest, consistent cadence (every 2-4 weeks) sustained over time outperforms an intense initial push that fizzles — and avoids the unsubscribe spike that high-frequency sending tends to cause.
+> **️ Common Mistake:** Sending too frequently in an initial burst of enthusiasm, then stopping entirely a month later. A modest, consistent cadence (every 2-4 weeks) sustained over time outperforms an intense initial push that fizzles — and avoids the unsubscribe spike that high-frequency sending tends to cause.
 
 ---
 
@@ -91,7 +91,7 @@ Build:
    that unsubscribed contacts are excluded from all future sends
 ```
 
-> **✅ Best Practice:** Segment customers from non-customer subscribers from day one, even with a small list. A non-customer subscriber benefits from a different message (why buy at all) than an existing customer (what's new, loyalty-relevant content) — sending identical content to both wastes the more valuable signal you have on actual customers.
+> ** Best Practice:** Segment customers from non-customer subscribers from day one, even with a small list. A non-customer subscriber benefits from a different message (why buy at all) than an existing customer (what's new, loyalty-relevant content) — sending identical content to both wastes the more valuable signal you have on actual customers.
 
 ---
 
@@ -104,7 +104,7 @@ Build:
 | Seasonal/relevant promotion | All, segmented if relevant | Drive timely purchases |
 | Genuinely useful content (how-to, care tips, behind-the-scenes) | All | Builds relationship beyond pure sales asks, improves long-term engagement |
 
-> **💡 Tip:** Not every email needs to sell something directly. A mix that includes genuinely useful or interesting content (not just promotions) keeps engagement and open rates healthier over time than a purely promotional cadence.
+> ** Tip:** Not every email needs to sell something directly. A mix that includes genuinely useful or interesting content (not just promotions) keeps engagement and open rates healthier over time than a purely promotional cadence.
 
 ---
 

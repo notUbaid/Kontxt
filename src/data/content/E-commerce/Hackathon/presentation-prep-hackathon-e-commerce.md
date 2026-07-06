@@ -187,10 +187,10 @@ Write it to be spoken aloud, not read. No filler. No corporate language. Sound l
 ```
 
 > **After you get the script:**
-> - [ ] Read it aloud — does it sound natural?
-> - [ ] Time it — is it under the limit?
-> - [ ] Cut any sentence that doesn't make the project sound better
-> - [ ] Memorise the opening and closing lines — everything else can be improvised
+- [ ] Read it aloud — does it sound natural?
+- [ ] Time it — is it under the limit?
+- [ ] Cut any sentence that doesn't make the project sound better
+- [ ] Memorise the opening and closing lines — everything else can be improvised
 
 ---
 

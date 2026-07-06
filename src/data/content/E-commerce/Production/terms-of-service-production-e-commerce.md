@@ -95,7 +95,7 @@ Your ToS must include a **DMCA (Digital Millennium Copyright Act) Safe Harbor** 
 
 ---
 
-## ✅ Terms of Service Engineering Checklist
+##  Terms of Service Engineering Checklist
 
 - [ ] Implement a Clickwrap agreement (mandatory checkbox or explicit text) in your Next.js checkout flow before the payment is executed.
 - [ ] Ensure your Zod validation schema strictly rejects the checkout payload if `agreedToTerms` is false.

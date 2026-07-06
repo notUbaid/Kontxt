@@ -21,7 +21,7 @@ This is the last module of Phase 4. Everything here builds directly on Rate Limi
 
 ## Why This Matters Even at Personal Scale
 
-> **⚠️ Warning:** Fraudsters don't target stores based on size or popularity — they target stores based on how unprotected they are. A personal store with no fraud signals in place is, from an attacker's perspective, indistinguishable from an easy target. The most common consequence isn't a dramatic loss — it's your payment provider account getting flagged or suspended for unusual activity, which can interrupt your entire store, not just one order.
+> **️ Warning:** Fraudsters don't target stores based on size or popularity — they target stores based on how unprotected they are. A personal store with no fraud signals in place is, from an attacker's perspective, indistinguishable from an easy target. The most common consequence isn't a dramatic loss — it's your payment provider account getting flagged or suspended for unusual activity, which can interrupt your entire store, not just one order.
 
 The goal here is not building a fraud-detection company. It's recognizing the handful of patterns that actually show up against small stores, and putting cheap, simple checks in place for them.
 
@@ -50,7 +50,7 @@ Before adding anything yourself, know what's already covered:
 | Velocity of attempts *on the provider's side* | Partially | Provider sees attempts across all their merchants, not just yours |
 | Velocity of attempts *on your specific store* | **No — this is yours to build** | Your rate limiting from earlier covers most of this already |
 
-> **✅ Best Practice:** Check whether your payment provider's built-in fraud detection (e.g., Stripe Radar) is actually enabled — many beginners integrate payments without realizing fraud detection is a setting, not an automatic default. This is often a five-minute dashboard change that covers more ground than anything you'd build yourself.
+> ** Best Practice:** Check whether your payment provider's built-in fraud detection (e.g., Stripe Radar) is actually enabled — many beginners integrate payments without realizing fraud detection is a setting, not an automatic default. This is often a five-minute dashboard change that covers more ground than anything you'd build yourself.
 
 ---
 
@@ -88,7 +88,7 @@ I want flags, not blocks — I'd rather review a handful of orders by
 hand than risk rejecting real customers automatically.
 ```
 
-> **⚠️ Warning:** Auto-blocking orders based on simple heuristics like address mismatch will reject real customers far more often than it stops real fraud. For a personal store, flag for manual review instead of auto-rejecting — you have the time to check a handful of flagged orders by hand, and the cost of a false block (a lost real sale) is often worse than a small fraud loss.
+> **️ Warning:** Auto-blocking orders based on simple heuristics like address mismatch will reject real customers far more often than it stops real fraud. For a personal store, flag for manual review instead of auto-rejecting — you have the time to check a handful of flagged orders by hand, and the cost of a false block (a lost real sale) is often worse than a small fraud loss.
 
 ---
 
@@ -101,7 +101,7 @@ A simple, low-effort manual review process:
 3. If still unsure, your payment provider's dashboard often shows its own risk score for the transaction — check it before deciding
 4. When genuinely uncertain, it's reasonable to delay fulfillment and reach out to the customer to confirm — legitimate customers will respond
 
-> **💡 Tip:** Don't build an automated email or SMS verification system for this at personal scale. A manual check on the rare flagged order is faster to build and just as effective until your order volume makes manual review impractical.
+> ** Tip:** Don't build an automated email or SMS verification system for this at personal scale. A manual check on the rare flagged order is faster to build and just as effective until your order volume makes manual review impractical.
 
 ---
 

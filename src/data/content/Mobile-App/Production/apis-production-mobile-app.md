@@ -15,7 +15,7 @@ Your previous module built the client-side integration layer. This one is about 
 
 ## The Constraint That Makes Mobile APIs Different From Web APIs
 
-> ⚠️ On web, you control both client and server deployment — ship a breaking API change and the browser fetches the new frontend on next page load. On mobile, **you don't control when users update the app.** A breaking API change can break every user still on the old version, and some meaningful fraction of your user base will be on an old version for a long time. Every endpoint decision in this module exists because of this one constraint.
+> ️ On web, you control both client and server deployment — ship a breaking API change and the browser fetches the new frontend on next page load. On mobile, **you don't control when users update the app.** A breaking API change can break every user still on the old version, and some meaningful fraction of your user base will be on an old version for a long time. Every endpoint decision in this module exists because of this one constraint.
 
 ---
 
@@ -40,7 +40,7 @@ Bake these rules into how every endpoint is designed, not just at version-bump t
 - **New required fields in requests are breaking** for old app versions that don't send them — make new fields optional with sensible defaults, or gate them behind a version bump.
 - **Track minimum supported app version server-side**, and have a real plan for what happens when a request comes from a version below it (forced update prompt, not a confusing generic error).
 
-> 💡 This is the kind of decision that's invisible until it isn't — nobody notices backward-incompatible API design until a support ticket arrives from a user who hasn't updated in three months. Decide the discipline now, while it costs nothing, instead of discovering the gap in production.
+>  This is the kind of decision that's invisible until it isn't — nobody notices backward-incompatible API design until a support ticket arrives from a user who hasn't updated in three months. Decide the discipline now, while it costs nothing, instead of discovering the gap in production.
 
 ---
 
@@ -59,7 +59,7 @@ interface ProductResponse {
 }
 ```
 
-> 💡 If your backend and mobile app are both TypeScript, share types via a package/workspace rather than maintaining duplicate interfaces by hand — drift between client and server type definitions is a recurring, avoidable bug source. If they're different languages, consider OpenAPI/Swagger as the source of truth, with codegen producing typed clients on the mobile side.
+>  If your backend and mobile app are both TypeScript, share types via a package/workspace rather than maintaining duplicate interfaces by hand — drift between client and server type definitions is a recurring, avoidable bug source. If they're different languages, consider OpenAPI/Swagger as the source of truth, with codegen producing typed clients on the mobile side.
 
 ---
 

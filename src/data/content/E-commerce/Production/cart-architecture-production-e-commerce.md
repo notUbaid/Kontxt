@@ -59,7 +59,7 @@ The page loads instantly from the Edge Cache (showing an empty cart or a Skeleto
 
 ---
 
-## ✅ Cart Architecture Checklist
+##  Cart Architecture Checklist
 
 - [ ] Enforce the Server-Authoritative rule: The frontend never calculates totals or prices.
 - [ ] Implement Optimistic UI using Zustand to hide network latency from the user.

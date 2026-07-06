@@ -23,13 +23,13 @@ For a personal e-commerce store, the realistic list is:
 
 | Feature | Guest | Account Holder |
 |---|---|---|
-| Browse and purchase | ✓ | ✓ |
-| Order confirmation email | ✓ | ✓ |
-| View order history | — | ✓ |
-| Track current orders | — | ✓ |
-| Save shipping addresses | — | ✓ |
-| Wishlist | — | ✓ |
-| Faster re-checkout | — | ✓ |
+| Browse and purchase |  |  |
+| Order confirmation email |  |  |
+| View order history | — |  |
+| Track current orders | — |  |
+| Save shipping addresses | — |  |
+| Wishlist | — |  |
+| Faster re-checkout | — |  |
 | Return / refund requests | Email only | Self-serve |
 
 If your store has fewer than 3 meaningful account features, don't build accounts yet. Add them when customers actually ask for them.

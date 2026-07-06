@@ -43,7 +43,7 @@ A robust, blazing-fast site with 3 core features will infinitely outperform a bu
 
 ---
 
-## ✅ MVP Scope Checklist
+##  MVP Scope Checklist
 
 - [ ] Strip all non-essential features (wishlists, loyalty programs, complex user profiles, blog architecture) from the V1 requirements.
 - [ ] Enforce Guest Checkout as the default, frictionless path in the transaction engine.

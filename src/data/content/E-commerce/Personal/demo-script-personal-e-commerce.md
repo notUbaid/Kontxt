@@ -90,7 +90,7 @@ This is unglamorous but determines whether your script survives contact with rea
 
 Use AI to convert your feature list and key decisions into a tight two-column script — not to invent a flow you haven't actually built and tested.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 I'm writing a 90-second live demo script for a solo e-commerce project.

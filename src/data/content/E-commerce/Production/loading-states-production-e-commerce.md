@@ -63,7 +63,7 @@ By the time their finger clicks the mouse 300 milliseconds later, the data is al
 
 ---
 
-## ✅ Loading States Checklist
+##  Loading States Checklist
 
 - [ ] Ban the use of full-page loading spinners; commit entirely to Skeleton Loaders.
 - [ ] Understand the psychological power of Optimistic UI mutations for adding items to the cart.

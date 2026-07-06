@@ -153,7 +153,7 @@ if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 
 ---
 
-## ✅ Database Engineering Checklist
+##  Database Engineering Checklist
 
 - [ ] Connect via a Transaction Pooler (PgBouncer) to prevent serverless connection exhaustion.
 - [ ] Implement the Singleton pattern for your Prisma client to prevent memory leaks in development.

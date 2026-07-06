@@ -126,7 +126,7 @@ This guarantees hyper-relevant recommendations on Day 1, without requiring a sin
 
 ---
 
-## ✅ Cross-Sells Engineering Checklist
+##  Cross-Sells Engineering Checklist
 
 - [ ] Ban randomized "Related Products" algorithms. 
 - [ ] Use BigQuery SQL to analyze historical cart data to mathematically identify true product affinities.

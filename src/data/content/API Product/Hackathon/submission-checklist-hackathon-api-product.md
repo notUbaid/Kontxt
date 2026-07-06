@@ -25,7 +25,7 @@ Submission day is not the time to discover your demo link is dead or your repo i
 - [ ] Demo API key in the README is current and actually works
 - [ ] Submission form fields match your actual project name, not a placeholder from earlier
 
-> **⚠️ Warning:** A private repo is the single most common cause of a strong project scoring zero — judges can't request access mid-review, and most won't ask. Set it to public and verify by opening it in an incognito browser, logged out of GitHub entirely.
+> **️ Warning:** A private repo is the single most common cause of a strong project scoring zero — judges can't request access mid-review, and most won't ask. Set it to public and verify by opening it in an incognito browser, logged out of GitHub entirely.
 
 ## What Your README Needs, At Minimum
 
@@ -38,7 +38,7 @@ Submission day is not the time to discover your demo link is dead or your repo i
 | Tech stack (brief, not a slide) | Quick technical context, not the headline |
 | Team name / hackathon name | Required by most submission systems |
 
-> **✅ Best Practice:** Put the live URL and Quick Start near the top of the README, not buried after a long tech stack and architecture section. Judges decide whether to keep reading in the first 10 seconds — lead with what they can act on.
+> ** Best Practice:** Put the live URL and Quick Start near the top of the README, not buried after a long tech stack and architecture section. Judges decide whether to keep reading in the first 10 seconds — lead with what they can act on.
 
 ## Final Verification Pass
 
@@ -50,7 +50,7 @@ Run through every artifact you built across this phase, fresh, as if you're a ju
 - [ ] Pitch deck — open the file format judges will actually use (PDF, not editable slides, unless specified)
 - [ ] Demo script — confirm it still works against the current deployed URL
 
-> **⚠️ Warning:** The most common late-stage failure is a last-minute code change that breaks something documented hours earlier — a renamed field, a changed status code, an expired key. Run this full pass *after* your last commit, not before it.
+> **️ Warning:** The most common late-stage failure is a last-minute code change that breaks something documented hours earlier — a renamed field, a changed status code, an expired key. Run this full pass *after* your last commit, not before it.
 
 ## Use AI for a Final Cold Read
 
@@ -67,7 +67,7 @@ no context beyond what's in this README. Read it and tell me:
 [paste your full README]
 ```
 
-> **💡 Token Efficiency:** Run this once, at the very end, against your final README — not repeatedly during drafting. This prompt is a final gate check, not an editing tool; using it earlier just re-surfaces issues you'll fix again anyway before submission.
+> ** Token Efficiency:** Run this once, at the very end, against your final README — not repeatedly during drafting. This prompt is a final gate check, not an editing tool; using it earlier just re-surfaces issues you'll fix again anyway before submission.
 
 ## Submission-Day Mistakes That Cost Real Points
 

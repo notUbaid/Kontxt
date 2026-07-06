@@ -23,7 +23,7 @@ This is mostly configuration on top of pages and content you've already built �
 
 A new store has zero accumulated search authority. Without correct technical SEO, you're invisible from day one, and the gap between "live" and "findable" can be the difference between zero organic traffic and a slow, real trickle of it.
 
-> **💡 Tip:** SEO for a new personal store is mostly about not blocking discovery, not about competing for #1 rankings on competitive terms. Get the fundamentals correct and let time and content do the rest — don't expect immediate ranking wins.
+> ** Tip:** SEO for a new personal store is mostly about not blocking discovery, not about competing for #1 rankings on competitive terms. Get the fundamentals correct and let time and content do the rest — don't expect immediate ranking wins.
 
 ---
 
@@ -50,7 +50,7 @@ You're **not** doing keyword research at an agency level, building backlink camp
 | Sitemap | Auto-generated, submitted to Search Console | Ensures pages are actually discovered and crawled |
 | Canonical tags | Set correctly on variant/duplicate pages | Prevents near-duplicate pages from competing with each other |
 
-> **⚠️ Warning:** Auto-generated SKU-based URLs or default framework-generated titles ("Product - MyStore") are the most common technical SEO gap in beginner-built stores. If you haven't explicitly set page titles and URLs, check now — frameworks often default to something unhelpful.
+> **️ Warning:** Auto-generated SKU-based URLs or default framework-generated titles ("Product - MyStore") are the most common technical SEO gap in beginner-built stores. If you haven't explicitly set page titles and URLs, check now — frameworks often default to something unhelpful.
 
 ---
 
@@ -74,7 +74,7 @@ price or stock status changes — it should never go stale relative to
 what's shown on the page itself.
 ```
 
-> **⚠️ Warning:** Structured data must match what's actually displayed on the page. If your schema markup says a product is in stock while the page shows "Sold Out," that mismatch can get the page penalized or your rich results suppressed entirely — don't hardcode static schema values.
+> **️ Warning:** Structured data must match what's actually displayed on the page. If your schema markup says a product is in stock while the page shows "Sold Out," that mismatch can get the page penalized or your rich results suppressed entirely — don't hardcode static schema values.
 
 ---
 
@@ -91,7 +91,7 @@ Then walk me through submitting it to Google Search Console and
 confirming pages are actually being indexed, not just submitted.
 ```
 
-> **💡 Tip:** Submitting a sitemap doesn't guarantee indexing — check Search Console's coverage report a few days later to confirm pages are actually indexed, not just crawled. New stores sometimes have pages crawled but excluded for thin-content or duplicate-content reasons worth catching early.
+> ** Tip:** Submitting a sitemap doesn't guarantee indexing — check Search Console's coverage report a few days later to confirm pages are actually indexed, not just crawled. New stores sometimes have pages crawled but excluded for thin-content or duplicate-content reasons worth catching early.
 
 ---
 

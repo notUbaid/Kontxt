@@ -27,7 +27,7 @@ A Postman (or Bruno/Insomnia, same idea) collection beats a markdown doc here be
 | Auth already configured at the collection level | Per-request auth setup |
 | A `/health` check as the first request | Edge-case/error-trigger requests |
 
-> **✅ Best Practice:** Set auth once at the collection level (e.g. an API key in a collection variable), not on every individual request. One judge clicking "Send" on request #1 should not have to configure anything to make request #5 work.
+> ** Best Practice:** Set auth once at the collection level (e.g. an API key in a collection variable), not on every individual request. One judge clicking "Send" on request #1 should not have to configure anything to make request #5 work.
 
 ## Structure That Makes Sense at a Glance
 
@@ -41,7 +41,7 @@ Organize requests in the order someone would naturally use your API, not alphabe
 6. **Core resource — Delete**
 7. Secondary resources, same pattern
 
-> **💡 Tip:** Name requests as actions, not routes — `"Create a Task"` reads faster under time pressure than `"POST /api/v1/tasks"`. Judges scan, they don't read carefully.
+> ** Tip:** Name requests as actions, not routes — `"Create a Task"` reads faster under time pressure than `"POST /api/v1/tasks"`. Judges scan, they don't read carefully.
 
 ## Use Collection Variables, Not Hardcoded Values
 
@@ -49,7 +49,7 @@ Organize requests in the order someone would naturally use your API, not alphabe
 - [ ] API key stored as `{{apiKey}}` — never pasted directly into request headers
 - [ ] IDs returned from a "Create" request saved as variables for use in later requests
 
-> **⚠️ Warning:** A collection that only works against `localhost` is useless to a judge testing after your laptop is closed. Point `{{baseUrl}}` at your deployed URL before sharing — and double-check it after every redeploy, since this is the single most common reason a "working" collection fails in front of someone else.
+> **️ Warning:** A collection that only works against `localhost` is useless to a judge testing after your laptop is closed. Point `{{baseUrl}}` at your deployed URL before sharing — and double-check it after every redeploy, since this is the single most common reason a "working" collection fails in front of someone else.
 
 ## Generate the Collection with AI
 
@@ -69,7 +69,7 @@ Endpoints:
 [paste your route list or OpenAPI spec here]
 ```
 
-> **💡 Token Efficiency:** Paste a route list or OpenAPI spec, not your full source code. AI needs the contract (method, path, body shape), not the implementation — sending implementation code here burns tokens without improving the output.
+> ** Token Efficiency:** Paste a route list or OpenAPI spec, not your full source code. AI needs the contract (method, path, body shape), not the implementation — sending implementation code here burns tokens without improving the output.
 
 ## Validate Before You Share It
 
@@ -78,7 +78,7 @@ Endpoints:
 - [ ] Test against the deployed URL, not localhost
 - [ ] Remove any request that hits a route you've since deleted or renamed
 
-> **⚠️ Warning:** AI-generated example values are a common source of silent failure — a fake email format, a string where you need a number. Run every request yourself once before sharing; don't assume the generated body is valid just because it looks plausible.
+> **️ Warning:** AI-generated example values are a common source of silent failure — a fake email format, a string where you need a number. Run every request yourself once before sharing; don't assume the generated body is valid just because it looks plausible.
 
 ## Common Mistakes
 

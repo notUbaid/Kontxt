@@ -31,9 +31,9 @@ If any of these aren't actually confirmed, stop here and fix them before continu
 Required-field checks (Request Design) confirm a field exists. They don't confirm it's *reasonable*. A few cheap additions matter:
 
 > **Quick Reference — Input checks worth adding**
-> - **Length limits** on text fields — an unbounded text field accepting megabytes of input is both a performance risk and an easy way to break your demo accidentally
-> - **Type checks** — confirm a field that should be a number isn't silently accepted as a string that breaks downstream logic
-> - **If any API output gets rendered as HTML anywhere** (your demo app, for instance) — escape it properly; raw user input rendered directly into HTML is how XSS happens
+- **Length limits** on text fields — an unbounded text field accepting megabytes of input is both a performance risk and an easy way to break your demo accidentally
+- **Type checks** — confirm a field that should be a number isn't silently accepted as a string that breaks downstream logic
+- **If any API output gets rendered as HTML anywhere** (your demo app, for instance) — escape it properly; raw user input rendered directly into HTML is how XSS happens
 
 > **Tip — This matters more if your core logic passes user input to an external API.**
 > If your input goes straight into a prompt for an LLM API or another third-party service, a malicious or malformed input could cause unexpected behavior downstream. A basic length limit and type check is cheap insurance.
@@ -63,8 +63,8 @@ Quick check: confirm your `.env` is in `.gitignore`, and confirm `git log -p` (o
 If you configured CORS in Routing, revisit it briefly:
 
 > **Decision Card — CORS scope**
-> - **Wildcard (`*`)** — acceptable for a hackathon demo if your audience needs to test from arbitrary origins
-> - **Scoped to your specific demo app's origin** — slightly more correct, worth doing if it's a 2-minute change and won't risk breaking your demo right before presenting
+- **Wildcard (`*`)** — acceptable for a hackathon demo if your audience needs to test from arbitrary origins
+- **Scoped to your specific demo app's origin** — slightly more correct, worth doing if it's a 2-minute change and won't risk breaking your demo right before presenting
 
 Don't risk a working demo to tighten this further than your remaining time safely allows.
 
@@ -100,10 +100,10 @@ Naming these explicitly isn't avoidance — it's the same scope discipline from 
 > be inaccessible to another? [yes/no, describe if yes]
 >
 > Review for:
-> - input validation gaps (missing length/type checks) beyond required-field checks
-> - any place user input reaches an external API or gets rendered without escaping
-> - broken object-level authorization, if relevant to my ownership model
-> - anything that looks like a hardcoded secret
+- input validation gaps (missing length/type checks) beyond required-field checks
+- any place user input reaches an external API or gets rendered without escaping
+- broken object-level authorization, if relevant to my ownership model
+- anything that looks like a hardcoded secret
 >
 > Don't flag production-scale concerns (WAFs, compliance, key rotation) —
 > focus only on what's realistic to fix in a hackathon timeline.

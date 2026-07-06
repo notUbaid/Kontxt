@@ -102,7 +102,7 @@ You must mandate the use of **Cloudflare Turnstile**. It is an invisible, mathem
 
 ---
 
-## ✅ Rate Limiting Engineering Checklist
+##  Rate Limiting Engineering Checklist
 
 - [ ] Configure the Vercel (or Cloudflare) Edge WAF to drop massive IP spikes before they incur serverless compute costs.
 - [ ] Implement Upstash Redis Sliding Window rate limiting on expensive mutation routes (Checkout, Search, Login).

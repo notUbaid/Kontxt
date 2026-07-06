@@ -88,7 +88,7 @@ Your physical Return Policy document (and your backend architecture) must explic
 
 ---
 
-## ✅ Return Policy Engineering Checklist
+##  Return Policy Engineering Checklist
 
 - [ ] Build a Self-Service RMA portal in Next.js to eliminate manual customer support emails and enforce 30-day eligibility rules at the API level.
 - [ ] Utilize 3PL APIs (Shippo/EasyPost) to generate Scan-Based Return labels, ensuring you are never charged for unused labels.

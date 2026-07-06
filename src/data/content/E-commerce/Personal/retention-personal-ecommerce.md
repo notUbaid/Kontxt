@@ -21,7 +21,7 @@ This uses infrastructure you already have: the email system from Phase 3, the an
 
 ## Why This Matters More Than New Customer Acquisition
 
-> **💡 Tip:** Acquiring a new customer is consistently more expensive than retaining an existing one — commonly cited estimates put new acquisition at five to seven times the cost of a repeat sale, since a returning customer requires no ad spend, no SEO ranking, no cold discovery at all. For a personal store with no marketing budget, retention isn't just cheaper — it may be your only realistic growth lever early on.
+> ** Tip:** Acquiring a new customer is consistently more expensive than retaining an existing one — commonly cited estimates put new acquisition at five to seven times the cost of a repeat sale, since a returning customer requires no ad spend, no SEO ranking, no cold discovery at all. For a personal store with no marketing budget, retention isn't just cheaper — it may be your only realistic growth lever early on.
 
 A repeat customer also typically has a higher average order value and lower price sensitivity than a first-time buyer, since trust is already established.
 
@@ -62,7 +62,7 @@ Each step already has supporting infrastructure except the last two — those ar
 
 ## Review/Feedback Request
 
-> **⚠️ Warning:** Timing matters more than wording here. Requesting a review immediately at delivery, before the customer has actually used the product, produces lower response rates and lower-quality reviews than waiting a few days. For most physical goods, 3-7 days after delivery is a reasonable default — adjust based on what you actually sell.
+> **️ Warning:** Timing matters more than wording here. Requesting a review immediately at delivery, before the customer has actually used the product, produces lower response rates and lower-quality reviews than waiting a few days. For most physical goods, 3-7 days after delivery is a reasonable default — adjust based on what you actually sell.
 
 **Copy Prompt:**
 
@@ -100,7 +100,7 @@ Write:
    (avoid deep discounting that erodes margin unnecessarily)
 ```
 
-> **⚠️ Common Mistake:** A win-back email sent too soon (before a customer would realistically need to repurchase) reads as generic spam rather than a relevant nudge. Base the timing on your actual product's realistic repurchase cycle, not an arbitrary default like "30 days for everyone."
+> **️ Common Mistake:** A win-back email sent too soon (before a customer would realistically need to repurchase) reads as generic spam rather than a relevant nudge. Base the timing on your actual product's realistic repurchase cycle, not an arbitrary default like "30 days for everyone."
 
 ---
 
@@ -114,7 +114,7 @@ Your Phase 5 Analytics Setup already captures `purchase` events with order value
 | How long between first and second purchase, typically? | Average the gap between order 1 and order 2 timestamps for repeat customers |
 | Which products get repeat purchases vs one-time only? | Group repeat purchase rate by product |
 
-> **✅ Best Practice:** Before adding new tools, check whether your existing order and analytics data already answers the question. A personal store with a few hundred orders can compute meaningful repeat-purchase metrics with a single database query — no dedicated retention-analytics platform needed yet.
+> ** Best Practice:** Before adding new tools, check whether your existing order and analytics data already answers the question. A personal store with a few hundred orders can compute meaningful repeat-purchase metrics with a single database query — no dedicated retention-analytics platform needed yet.
 
 ---
 

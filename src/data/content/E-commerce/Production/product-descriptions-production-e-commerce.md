@@ -134,7 +134,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 
 ---
 
-## ✅ Product Copy Engineering Checklist
+##  Product Copy Engineering Checklist
 
 - [ ] Ban raw HTML strings in the database. Mandate JSON Block Structures (TipTap/Sanity format) for all product descriptions.
 - [ ] Build a React Block Renderer to safely map JSON blocks to bespoke Tailwind UI components, eliminating XSS vulnerabilities.

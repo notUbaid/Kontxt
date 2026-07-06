@@ -17,7 +17,7 @@ This module covers structure and conventions. Navigation, lifecycle handling, an
 
 ## Why Structure Gets Decided Before Code
 
-> ⚠️ AI coding tools are excellent at generating individual components and genuinely bad at maintaining a consistent project structure across a long session. Without an explicit convention, you'll end up with three different folder patterns by the time you're 20 screens in — because each AI conversation invents its own structure if you don't supply one. Decide the structure once, write it down, and paste it into every AI conversation for the rest of this phase.
+> ️ AI coding tools are excellent at generating individual components and genuinely bad at maintaining a consistent project structure across a long session. Without an explicit convention, you'll end up with three different folder patterns by the time you're 20 screens in — because each AI conversation invents its own structure if you don't supply one. Decide the structure once, write it down, and paste it into every AI conversation for the rest of this phase.
 
 ---
 
@@ -54,7 +54,7 @@ src/
   app/                  ← app entry, providers, root config
 ```
 
-> 💡 **The test for "does this belong in `shared/`":** would at least two unrelated features need it unchanged? If a component is only used by `profile` and `settings`, it's not shared yet — leave it in whichever feature owns it until a third feature genuinely needs it. Premature sharing creates tightly-coupled "shared" components that secretly assume one feature's behavior.
+>  **The test for "does this belong in `shared/`":** would at least two unrelated features need it unchanged? If a component is only used by `profile` and `settings`, it's not shared yet — leave it in whichever feature owns it until a third feature genuinely needs it. Premature sharing creates tightly-coupled "shared" components that secretly assume one feature's behavior.
 
 ---
 
@@ -78,7 +78,7 @@ export function ProductCard({ product, onPress, variant = 'default' }: ProductCa
 }
 ```
 
-> ⚠️ **Common mistake:** letting components grow past ~150-200 lines by accumulating conditional rendering branches. When a component needs more than 2-3 layout variants, split it into separate components composed by a parent, rather than branching internally on a `variant` prop with deeply nested conditionals. AI tools will happily keep extending a large component instead of suggesting a split — you have to make that call.
+> ️ **Common mistake:** letting components grow past ~150-200 lines by accumulating conditional rendering branches. When a component needs more than 2-3 layout variants, split it into separate components composed by a parent, rather than branching internally on a `variant` prop with deeply nested conditionals. AI tools will happily keep extending a large component instead of suggesting a split — you have to make that call.
 
 ---
 
@@ -106,7 +106,7 @@ Before building screens, build your primitive component set — this is what kee
 - `Avatar`
 - Typography components (`Heading`, `Body`, `Caption`) instead of raw `<Text>` with inline styles everywhere
 
-> 💡 Every one of these should be driven by your design tokens from Phase 1, not hardcoded values. If your design system defined a spacing scale of `4, 8, 12, 16, 24, 32`, your components should only ever use those values — never an arbitrary `17px`. This is what makes a UI feel deliberately designed instead of assembled ad hoc.
+>  Every one of these should be driven by your design tokens from Phase 1, not hardcoded values. If your design system defined a spacing scale of `4, 8, 12, 16, 24, 32`, your components should only ever use those values — never an arbitrary `17px`. This is what makes a UI feel deliberately designed instead of assembled ad hoc.
 
 ---
 

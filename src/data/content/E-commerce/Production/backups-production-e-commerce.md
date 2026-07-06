@@ -87,7 +87,7 @@ If New York fails, your connection pooler (PgBouncer) automatically reroutes all
 
 ---
 
-## ✅ Disaster Recovery Engineering Checklist
+##  Disaster Recovery Engineering Checklist
 
 - [ ] Upgrade your database hosting plan to explicitly enable Point-In-Time Recovery (PITR) with WAL logging.
 - [ ] Implement an automated `pg_dump` cron job that pushes encrypted backups to a secondary, air-gapped cloud provider.

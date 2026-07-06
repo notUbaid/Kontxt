@@ -31,9 +31,9 @@ This connects directly back to the Marketplace Liquidity concept from Phase 0 �
 | **Buyer funnel** | Visit → search/browse → listing viewed → message sent or purchase started → purchase completed → review left |
 
 > ** Validation Checklist**
-> - [ ] Can you currently answer: what percentage of sellers who sign up actually publish a listing?
-> - [ ] Can you currently answer: what percentage of buyers who view a listing take any action (message or buy)?
-> - [ ] Can you currently answer: what percentage of started purchases actually complete?
+- [ ] Can you currently answer: what percentage of sellers who sign up actually publish a listing?
+- [ ] Can you currently answer: what percentage of buyers who view a listing take any action (message or buy)?
+- [ ] Can you currently answer: what percentage of started purchases actually complete?
 >
 > If the honest answer to any of these is "I don't know," that's the gap this module closes — not a failure, just an unmeasured area.
 
@@ -92,9 +92,9 @@ GROUP BY event;
 > ** Common Hallucination:** AI-suggested analytics setups often default to tracking everything — every click, every hover, every page view — which produces a flood of data that's expensive to store and genuinely harder to extract insight from, not easier. For a personal marketplace, the handful of funnel events above tell you almost everything that matters.
 
 > ** Validation Checklist — Resist tracking**
-> - [ ] Granular UI interactions (button hovers, scroll depth) — rarely actionable at personal-project scale
-> - [ ] Anything that duplicates what your error tracker (Sentry) already captures
-> - [ ] Personally identifiable details beyond what you need for the funnel question being asked — analytics should answer "what fraction of users do X," not build a detailed profile of each individual
+- [ ] Granular UI interactions (button hovers, scroll depth) — rarely actionable at personal-project scale
+- [ ] Anything that duplicates what your error tracker (Sentry) already captures
+- [ ] Personally identifiable details beyond what you need for the funnel question being asked — analytics should answer "what fraction of users do X," not build a detailed profile of each individual
 
 ---
 
@@ -103,8 +103,8 @@ GROUP BY event;
 Whatever you track here needs to be consistent with what your Privacy Policy already describes — don't add new tracked events without checking that connection.
 
 > ** Validation Checklist**
-> - [ ] Does your Privacy Policy's description of "data we collect" already cover behavioral/usage analytics, or does adding this require an update to that document?
-> - [ ] If using a third-party analytics tool (Option B above), is it added to the "who we share data with" list from your Privacy Policy?
+- [ ] Does your Privacy Policy's description of "data we collect" already cover behavioral/usage analytics, or does adding this require an update to that document?
+- [ ] If using a third-party analytics tool (Option B above), is it added to the "who we share data with" list from your Privacy Policy?
 
 ---
 
@@ -137,9 +137,9 @@ Whatever you track here needs to be consistent with what your Privacy Policy alr
 ## Validating AI Output
 
 > ** Validation Checklist**
-> - [ ] Do the suggested queries match events you're actually logging, not events AI assumed exist?
-> - [ ] Are funnel percentages calculated correctly (each stage as a fraction of the *previous* stage, not all as a fraction of total signups, which exaggerates later-stage drop-off)?
-> - [ ] Did AI flag the specific events you're missing, rather than just working around the gap silently?
+- [ ] Do the suggested queries match events you're actually logging, not events AI assumed exist?
+- [ ] Are funnel percentages calculated correctly (each stage as a fraction of the *previous* stage, not all as a fraction of total signups, which exaggerates later-stage drop-off)?
+- [ ] Did AI flag the specific events you're missing, rather than just working around the gap silently?
 
 ---
 

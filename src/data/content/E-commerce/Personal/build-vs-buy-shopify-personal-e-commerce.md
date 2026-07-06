@@ -120,17 +120,17 @@ Answer these four questions:
 
 | Feature | Custom Build | Shopify Basic | Headless Shopify |
 |---|---|---|---|
-| Product management | Build it | ✓ Included | ✓ Via admin |
-| Inventory tracking | Build it | ✓ Included | ✓ Via API |
-| Variant support | Build it | ✓ Up to 100 variants | ✓ Via API |
-| Checkout | Build it | ✓ Optimized | Build it or use hosted |
-| Payment processing | Stripe integration | ✓ Shopify Payments | ✓ Shopify Payments |
-| Tax calculation | Stripe Tax or manual | ✓ Automatic | ✓ Automatic |
-| Email notifications | Resend integration | ✓ Built-in templates | ✓ Built-in |
-| Abandoned cart | Build it | ✓ Included | ✓ Via webhook |
-| Analytics | PostHog or manual | ✓ Basic included | ✓ Basic included |
-| Custom domain | Vercel | ✓ $39+/month | ✓ $39+/month |
-| App ecosystem | NPM | ✓ 8,000+ apps | Partial |
+| Product management | Build it |  Included |  Via admin |
+| Inventory tracking | Build it |  Included |  Via API |
+| Variant support | Build it |  Up to 100 variants |  Via API |
+| Checkout | Build it |  Optimized | Build it or use hosted |
+| Payment processing | Stripe integration |  Shopify Payments |  Shopify Payments |
+| Tax calculation | Stripe Tax or manual |  Automatic |  Automatic |
+| Email notifications | Resend integration |  Built-in templates |  Built-in |
+| Abandoned cart | Build it |  Included |  Via webhook |
+| Analytics | PostHog or manual |  Basic included |  Basic included |
+| Custom domain | Vercel |  $39+/month |  $39+/month |
+| App ecosystem | NPM |  8,000+ apps | Partial |
 
 ---
 

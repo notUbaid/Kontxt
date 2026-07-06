@@ -94,7 +94,7 @@ A user can still view the product catalog and read reviews. Only the actual chec
 
 ---
 
-## ✅ Scalability Engineering Checklist
+##  Scalability Engineering Checklist
 
 - [ ] Mathematically calculate your PgBouncer throughput based on your API latency to ensure your database can survive Black Friday.
 - [ ] Enforce strict `concurrency` and `rateLimit` configurations on all Event Bus workers to protect third-party APIs from 429 errors.

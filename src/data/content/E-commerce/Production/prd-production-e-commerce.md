@@ -56,7 +56,7 @@ No infinite loading spinners. Ever.
 
 ---
 
-## ✅ PRD Checklist
+##  PRD Checklist
 
 - [ ] Transition your mindset from "writing features" to "writing technical constraints" for your AI.
 - [ ] Understand the Source of Truth Matrix so you know exactly which API owns which data.

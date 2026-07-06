@@ -25,7 +25,7 @@ This feeds directly into the Product Architecture and Product Page Design work f
 
 A new, unfamiliar store has no brand reputation to lean on. Customers decide trustworthiness fast, and inconsistent or low-quality photos read as "this might not be a real, reliable store" even if everything else — checkout, security, policies — is solid.
 
-> **💡 Tip:** Consistency matters more than individual photo quality. Five products shot with the same background, lighting, and angle look more professional as a set than five individually excellent but mismatched photos.
+> ** Tip:** Consistency matters more than individual photo quality. Five products shot with the same background, lighting, and angle look more professional as a set than five individually excellent but mismatched photos.
 
 ---
 
@@ -50,7 +50,7 @@ You're **not** hiring a photographer, building a lightbox studio, or learning pr
 | Background | Plain white or neutral surface (poster board, foam board) | Keeps focus on the product, easy to replicate every time |
 | Tripod/stabilization | Cheap phone tripod or stack of books | Sharper images, consistent framing across shots |
 
-> **✅ Best Practice:** Shoot near a large window on an overcast day or with indirect light, not direct sun. Diffused natural light is the cheapest, most reliable lighting source available and consistently outperforms a phone's flash.
+> ** Best Practice:** Shoot near a large window on an overcast day or with indirect light, not direct sun. Diffused natural light is the cheapest, most reliable lighting source available and consistently outperforms a phone's flash.
 
 ---
 
@@ -63,7 +63,7 @@ For each product, capture:
 3. **Context/scale shot** — shows size relative to something familiar, or in use
 4. **Variant shots** — one per color/size variant, same angle as the hero shot for easy comparison
 
-> **⚠️ Warning:** Don't only photograph the hero shot. Customers who can't see texture, scale, or how a product looks in context are more likely to abandon checkout from uncertainty, and more likely to return what they do buy because reality didn't match expectations.
+> **️ Warning:** Don't only photograph the hero shot. Customers who can't see texture, scale, or how a product looks in context are more likely to abandon checkout from uncertainty, and more likely to return what they do buy because reality didn't match expectations.
 
 ---
 
@@ -85,7 +85,7 @@ a [white / neutral] background. Help me:
    storefront, since these get resized down rather than upscaled later
 ```
 
-> **⚠️ Warning:** Don't color-correct a product to look better than it actually is — slightly enhancing a flat photo is fine, but a photo that misrepresents the actual color or condition of a product directly causes returns and complaints. Accuracy beats appeal here.
+> **️ Warning:** Don't color-correct a product to look better than it actually is — slightly enhancing a flat photo is fine, but a photo that misrepresents the actual color or condition of a product directly causes returns and complaints. Accuracy beats appeal here.
 
 ---
 
@@ -98,7 +98,7 @@ This connects back to the accessibility work from Phase 1 — every product imag
 | File name | `IMG_4821.jpg` | `navy-canvas-tote-front.jpg` |
 | Alt text | `product image` | `Navy canvas tote bag, front view, on white background` |
 
-> **💡 Tip:** Write alt text the same way you'd describe the photo to someone over the phone who can't see it. If it wouldn't help that person picture the product, it's not doing its job.
+> ** Tip:** Write alt text the same way you'd describe the photo to someone over the phone who can't see it. If it wouldn't help that person picture the product, it's not doing its job.
 
 ---
 

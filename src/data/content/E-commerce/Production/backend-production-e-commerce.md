@@ -128,7 +128,7 @@ try {
 
 ---
 
-## ✅ Backend Engineering Checklist
+##  Backend Engineering Checklist
 
 - [ ] Mandate Zod for strict validation of all incoming API JSON payloads to prevent injection attacks.
 - [ ] Decouple complex workflows (like checkout fulfillment) using an Event Bus (Inngest or Upstash QStash).

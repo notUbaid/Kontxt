@@ -76,11 +76,11 @@ A single unhandled promise rejection or uncaught exception can crash your entire
 > layer, and centralized error handler]
 >
 > Audit this for:
-> - any place a raw error/stack trace could leak to the API caller
+- any place a raw error/stack trace could leak to the API caller
 >   instead of my locked error shape
-> - any external/async call not wrapped in a try/catch
-> - whether an unhandled rejection would crash the whole process
-> - any endpoint where the wrong status code category would be returned
+- any external/async call not wrapped in a try/catch
+- whether an unhandled rejection would crash the whole process
+- any endpoint where the wrong status code category would be returned
 >   for a given failure type
 >
 > List every issue found, with the specific line or function affected.

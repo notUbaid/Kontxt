@@ -32,7 +32,7 @@ Generic "prevent abuse" advice undersells the real risk here:
 - **Coupon code guessing** — if discount codes are short or predictable, an unprotected "apply coupon" endpoint can be brute-forced.
 - **Search/API scraping** — competitors or bots can hit your search or product API repeatedly, inflating your hosting costs for no real traffic value.
 
-> **💡 Tip:** Payment and checkout endpoints deserve the tightest limits in your entire store. A login brute-force attempt is annoying; unmonitored card testing can get your payment processor account flagged or suspended.
+> ** Tip:** Payment and checkout endpoints deserve the tightest limits in your entire store. A login brute-force attempt is annoying; unmonitored card testing can get your payment processor account flagged or suspended.
 
 ---
 
@@ -57,7 +57,7 @@ You're **not** building a custom fraud-scoring system, IP reputation database, o
 | Cloudflare Rate Limiting | Yes | Free tier available | Stores already proxied through Cloudflare |
 | Vercel Firewall rules | Yes | Included on some plans | Stores deployed on Vercel wanting infra-level limits |
 
-> **⚠️ Warning:** If you're deployed on a serverless platform (Vercel, Netlify, most modern hosts), an in-memory counter does not work reliably — each request can hit a different server instance with its own separate counter. You need a shared store like Redis. This is the single most common mistake in beginner rate-limiting implementations.
+> **️ Warning:** If you're deployed on a serverless platform (Vercel, Netlify, most modern hosts), an in-memory counter does not work reliably — each request can hit a different server instance with its own separate counter. You need a shared store like Redis. This is the single most common mistake in beginner rate-limiting implementations.
 
 For a personal store, **Upstash Redis** is the right default: it's built for serverless, has a generous free tier, and the official SDK handles the sliding-window logic for you.
 
@@ -104,7 +104,7 @@ Show me the reusable rate-limit utility first, then how to apply it to
 one endpoint as an example I can replicate.
 ```
 
-> **💡 Tip:** Ask for one example endpoint, not all six implemented at once. Apply the pattern yourself to the remaining five — it's mechanical once you've seen it done correctly, and you'll burn far fewer tokens than asking AI to touch every route file in one pass.
+> ** Tip:** Ask for one example endpoint, not all six implemented at once. Apply the pattern yourself to the remaining five — it's mechanical once you've seen it done correctly, and you'll burn far fewer tokens than asking AI to touch every route file in one pass.
 
 ---
 

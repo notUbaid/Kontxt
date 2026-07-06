@@ -85,7 +85,7 @@ These matter even for a personal project that processes real or test payments �
 
 Use AI as a second pair of eyes against this exact checklist — not to write new content, but to systematically check what you might be too close to the project to see.
 
-**📋 Copy this prompt:**
+** Copy this prompt:**
 
 ```
 I'm doing a final pre-submission review of a solo e-commerce project before [your context: portfolio / job application / course submission / public showcase].

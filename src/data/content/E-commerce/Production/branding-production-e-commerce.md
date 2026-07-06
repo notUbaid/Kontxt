@@ -49,7 +49,7 @@ You will instruct the AI to integrate an automated image transformation layer (l
 
 ---
 
-## ✅ Brand Enforcement Checklist
+##  Brand Enforcement Checklist
 
 - [ ] Understand that "Janky Layouts" = "Cheap Brand."
 - [ ] Commit to zero Cumulative Layout Shift (CLS) by utilizing CSS aspect ratios and Skeleton Loaders.

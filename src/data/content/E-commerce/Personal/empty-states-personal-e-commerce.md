@@ -245,7 +245,7 @@ One component. Configured per context. No duplicated markup.
 
 ---
 
-## ✅ Empty States Checklist
+##  Empty States Checklist
 
 - [ ] Cart empty state designed with CTA and optional featured products
 - [ ] Search no-results state designed with query echo and CTA

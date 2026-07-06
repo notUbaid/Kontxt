@@ -21,8 +21,8 @@ Build it once, build it correctly, and every other page becomes straightforward.
 
 | Approach | Complexity | Persists on refresh | Recommended if... |
 |---|---|---|---|
-| **React Context + useState** | Low | ❌ No | Fast to build, sufficient for most hackathons |
-| **React Context + localStorage** | Low-medium | ✅ Yes | Judges might refresh — adds 15 minutes of work |
+| **React Context + useState** | Low |  No | Fast to build, sufficient for most hackathons |
+| **React Context + localStorage** | Low-medium |  Yes | Judges might refresh — adds 15 minutes of work |
 | **Zustand** | Low | Optional | You're already using it or prefer a store library |
 | **Redux** | High | Optional | Never for a hackathon |
 
@@ -175,7 +175,7 @@ const handleAddToCart = () => {
 const buttonLabels = {
   idle: 'Add to Cart',
   adding: 'Adding...',
-  added: 'Added ✓',
+  added: 'Added ',
 };
 
 <button

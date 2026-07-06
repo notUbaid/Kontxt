@@ -144,7 +144,7 @@ Examples:
 
 ---
 
-## ✅ PRD Checklist
+##  PRD Checklist
 
 - [ ] Section 1: Store overview paragraph is written and reusable as AI context
 - [ ] Section 2: Goals and Non-Goals are explicitly listed — no ambiguity

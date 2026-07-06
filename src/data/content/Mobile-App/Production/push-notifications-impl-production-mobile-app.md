@@ -38,7 +38,7 @@ async function registerForPushNotifications() {
 }
 ```
 
-> ⚠️ **Don't request notification permission on app launch.** This is one of the most common avoidable causes of permanently-denied notification access — a permission prompt before the user understands why they'd want it gets reflexively denied, and on iOS, a denial requires the user to manually re-enable it in Settings (you can't re-prompt). Request permission at the moment its value is obvious — after the user completes the action it relates to (e.g. right after they place an order, ask for shipping-update notifications), not during onboarding.
+> ️ **Don't request notification permission on app launch.** This is one of the most common avoidable causes of permanently-denied notification access — a permission prompt before the user understands why they'd want it gets reflexively denied, and on iOS, a denial requires the user to manually re-enable it in Settings (you can't re-prompt). Request permission at the moment its value is obvious — after the user completes the action it relates to (e.g. right after they place an order, ask for shipping-update notifications), not during onboarding.
 
 **Token refresh listener** — required, not optional, given the token rotation behavior decided in Phase 2:
 
@@ -66,7 +66,7 @@ Notifications.setNotificationHandler({
 });
 ```
 
-> 💡 Per the App Lifecycle module's decision: foreground notifications generally shouldn't force-navigate the user away from what they're doing. Use this handler to show an in-app toast/banner instead of (or in addition to) the system alert, and let the user choose to act on it.
+>  Per the App Lifecycle module's decision: foreground notifications generally shouldn't force-navigate the user away from what they're doing. Use this handler to show an in-app toast/banner instead of (or in addition to) the system alert, and let the user choose to act on it.
 
 ---
 
@@ -82,7 +82,7 @@ Notifications.addNotificationResponseReceivedListener((response) => {
 });
 ```
 
-> ⚠️ Test this specifically in the killed-app state, not just while developing with the app already running. The cold-start pending-link holding pattern from the Deep Linking module is exactly what this path depends on — it's the scenario most likely to be skipped in casual testing and most likely to be how real users actually encounter your notifications.
+> ️ Test this specifically in the killed-app state, not just while developing with the app already running. The cold-start pending-link holding pattern from the Deep Linking module is exactly what this path depends on — it's the scenario most likely to be skipped in casual testing and most likely to be how real users actually encounter your notifications.
 
 ---
 
@@ -113,13 +113,13 @@ async function sendPushNotification(job: PushJob) {
 }
 ```
 
-> 💡 The `DeviceNotRegistered`-style error handling here is the practical implementation of the token cleanup decision from Phase 2 — react to it immediately rather than letting dead tokens accumulate. A token table that's never pruned slowly inflates your send costs and skews delivery-rate metrics.
+>  The `DeviceNotRegistered`-style error handling here is the practical implementation of the token cleanup decision from Phase 2 — react to it immediately rather than letting dead tokens accumulate. A token table that's never pruned slowly inflates your send costs and skews delivery-rate metrics.
 
 ---
 
 ## Backend: Idempotency
 
-> ⚠️ Queue-based systems can occasionally deliver a job more than once (depends on your queue's guarantees). Make the send operation idempotent — include a unique job/notification ID and check it hasn't already been processed before sending, or you risk double-notifying users on retry, which reads as a bug even when the underlying cause is infrastructure-level, not application-level.
+> ️ Queue-based systems can occasionally deliver a job more than once (depends on your queue's guarantees). Make the send operation idempotent — include a unique job/notification ID and check it hasn't already been processed before sending, or you risk double-notifying users on retry, which reads as a bug even when the underlying cause is infrastructure-level, not application-level.
 
 ---
 

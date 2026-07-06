@@ -72,9 +72,9 @@ Sentry.withScope((scope) => {
 ```
 
 > ** Validation Checklist**
-> - [ ] Does every captured exception include the relevant user ID (when authenticated)?
-> - [ ] Do payment/order errors include the listing or order ID being acted on?
-> - [ ] Are you attaching context without leaking sensitive data (no full payment details, no password fields — same rule as the Logging module)?
+- [ ] Does every captured exception include the relevant user ID (when authenticated)?
+- [ ] Do payment/order errors include the listing or order ID being acted on?
+- [ ] Are you attaching context without leaking sensitive data (no full payment details, no password fields — same rule as the Logging module)?
 
 ---
 
@@ -83,9 +83,9 @@ Sentry.withScope((scope) => {
 An error that's been triaged and fixed but never marked resolved will keep cluttering your view and may re-alert you on every future occurrence, training you to ignore alerts entirely.
 
 > ** Validation Checklist**
-> - [ ] When you fix a bug, do you mark the corresponding error as resolved in your tracker?
-> - [ ] Does your tracker re-open an issue automatically if it recurs after being marked resolved? (Most do by default — confirm yours does, this is the signal that your fix didn't actually work)
-> - [ ] Are recurring "resolved" errors treated as a signal the original fix was incomplete, not just re-dismissed?
+- [ ] When you fix a bug, do you mark the corresponding error as resolved in your tracker?
+- [ ] Does your tracker re-open an issue automatically if it recurs after being marked resolved? (Most do by default — confirm yours does, this is the signal that your fix didn't actually work)
+- [ ] Are recurring "resolved" errors treated as a signal the original fix was incomplete, not just re-dismissed?
 
 ---
 

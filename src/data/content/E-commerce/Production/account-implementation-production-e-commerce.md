@@ -132,7 +132,7 @@ When the user is redirected to Shopify with this encrypted token, Shopify decryp
 
 ---
 
-## ✅ Account Engineering Checklist
+##  Account Engineering Checklist
 
 - [ ] Ban raw passwords. Implement NextAuth.js with a Magic Link (Email) provider.
 - [ ] Enforce route protection using Next.js Edge Middleware (`middleware.ts`) to prevent XSS flashes of private content.

@@ -103,12 +103,12 @@ DELETE /listings/:id          soft delete → status = removed
 This is where most beginner marketplaces get exploited or break in production. Validate on the server — client-side validation is UX, not security.
 
 > ** Validation Checklist**
-> - [ ] Title and description have sane length limits (prevents UI breakage and storage abuse)
-> - [ ] Price is a positive integer within a realistic range (catch `-50` or `99999999` typos/abuse)
-> - [ ] Category is restricted to an enum/allowlist, not free text (keeps search and filtering reliable)
-> - [ ] Image URLs are validated as actual uploaded assets, not arbitrary external URLs (prevents hotlinking/abuse)
-> - [ ] Status transitions are restricted — a listing can't jump from `draft` straight to `sold` (build a transition map, don't allow any-to-any)
-> - [ ] `sellerId` is taken from the authenticated session, never from the request body
+- [ ] Title and description have sane length limits (prevents UI breakage and storage abuse)
+- [ ] Price is a positive integer within a realistic range (catch `-50` or `99999999` typos/abuse)
+- [ ] Category is restricted to an enum/allowlist, not free text (keeps search and filtering reliable)
+- [ ] Image URLs are validated as actual uploaded assets, not arbitrary external URLs (prevents hotlinking/abuse)
+- [ ] Status transitions are restricted — a listing can't jump from `draft` straight to `sold` (build a transition map, don't allow any-to-any)
+- [ ] `sellerId` is taken from the authenticated session, never from the request body
 
 ```js
 const ALLOWED_TRANSITIONS = {
@@ -138,14 +138,14 @@ function canTransition(from, to) {
 > [PASTE YOUR LISTING SCHEMA HERE]
 >
 > Requirements:
-> - Routes: POST /listings, GET /listings (search/browse), GET /listings/:id,
+- Routes: POST /listings, GET /listings (search/browse), GET /listings/:id,
 >   PUT /listings/:id, PATCH /listings/:id/status, DELETE /listings/:id (soft delete)
-> - sellerId always comes from the authenticated session, never the request body
-> - Server-side validation: price as positive integer, title/description length limits,
+- sellerId always comes from the authenticated session, never the request body
+- Server-side validation: price as positive integer, title/description length limits,
 >   category restricted to an allowlist
-> - Status transitions restricted to a defined transition map (draft → active → paused/sold → archived)
-> - GET routes only return `active` listings unless the requester is the owner or an admin
-> - Use the existing requireAuth and requireListingOwner middleware if I've shared it — don't recreate auth logic
+- Status transitions restricted to a defined transition map (draft → active → paused/sold → archived)
+- GET routes only return `active` listings unless the requester is the owner or an admin
+- Use the existing requireAuth and requireListingOwner middleware if I've shared it — don't recreate auth logic
 > ```
 >
 > **Why this prompt works:** it explicitly tells AI to reuse existing middleware instead of duplicating authorization logic inline — a frequent source of drift where two different auth checks slowly diverge over time.

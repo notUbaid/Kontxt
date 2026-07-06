@@ -30,7 +30,7 @@ A blog losing a week of posts is annoying. A store losing a week of data means:
 - Lost product catalog — hours of work re-entering products and descriptions
 - Potential compliance exposure — order records are often expected to be retained for tax/accounting purposes, not just convenience
 
-> **⚠️ Warning:** Even a personal, low-traffic store can have real orders and real customer data the moment it goes live. "It's just a personal project" doesn't reduce the cost of losing someone's order or address — treat backups as required, not optional, once real data exists.
+> **️ Warning:** Even a personal, low-traffic store can have real orders and real customer data the moment it goes live. "It's just a personal project" doesn't reduce the cost of losing someone's order or address — treat backups as required, not optional, once real data exists.
 
 ---
 
@@ -54,7 +54,7 @@ You're **not** building a multi-region, point-in-time-recovery, enterprise disas
 | Self-hosted Postgres | `pg_dump` via scheduled job | Free, but you own the reliability |
 | Image storage (Supabase Storage, S3, Cloudinary) | Versioning or separate periodic export | Usually free at low volume |
 
-> **💡 Tip:** If your database provider already includes automated backups (most managed Postgres providers do), your job is mostly *verification*, not setup — confirm backups are actually enabled and check when the last one ran. Don't assume "managed" means "already protected."
+> ** Tip:** If your database provider already includes automated backups (most managed Postgres providers do), your job is mostly *verification*, not setup — confirm backups are actually enabled and check when the last one ran. Don't assume "managed" means "already protected."
 
 ---
 
@@ -76,7 +76,7 @@ e-commerce store. Walk me through:
 I want a real, tested process — not just "backups are on by default."
 ```
 
-> **✅ Best Practice:** A backup you've never restored from is a guess, not a backup. Once, deliberately, spin up a throwaway database, restore your latest backup into it, and confirm your product and order data actually comes back correctly. This takes 20 minutes and removes all doubt.
+> ** Best Practice:** A backup you've never restored from is a guess, not a backup. Once, deliberately, spin up a throwaway database, restore your latest backup into it, and confirm your product and order data actually comes back correctly. This takes 20 minutes and removes all doubt.
 
 ---
 

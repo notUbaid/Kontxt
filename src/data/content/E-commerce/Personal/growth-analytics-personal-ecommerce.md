@@ -21,7 +21,7 @@ No new tracking is added here. This module is the analytical layer on top of Pha
 
 ## Why More Data Isn't the Answer
 
-> **⚠️ Warning:** The most common mistake at this stage isn't too little data — it's too many dashboards nobody checks. A personal store owner has limited time; a dashboard with thirty metrics gets opened once and abandoned. Five numbers, checked weekly, beats thirty numbers checked never.
+> **️ Warning:** The most common mistake at this stage isn't too little data — it's too many dashboards nobody checks. A personal store owner has limited time; a dashboard with thirty metrics gets opened once and abandoned. Five numbers, checked weekly, beats thirty numbers checked never.
 
 The goal of this module is narrowing, not expanding.
 
@@ -48,7 +48,7 @@ You're **not** building a custom BI tool or a real-time dashboard. A scheduled q
 | Repeat purchase rate | Whether retention efforts are working | Order data, from the Retention module's query |
 | Revenue by traffic source | Where to spend limited time/budget | Analytics tool, channel attribution |
 
-> **💡 Tip:** Write these five numbers down somewhere — a spreadsheet, a notes doc, doesn't matter — every week, even informally. The trend across weeks is more valuable than any single week's number; a static dashboard you glance at doesn't build that trend the way a recorded log does.
+> ** Tip:** Write these five numbers down somewhere — a spreadsheet, a notes doc, doesn't matter — every week, even informally. The trend across weeks is more valuable than any single week's number; a static dashboard you glance at doesn't build that trend the way a recorded log does.
 
 ---
 
@@ -72,7 +72,7 @@ customers versus just traffic, so I can prioritize where to spend
 limited time on marketing efforts in upcoming growth work.
 ```
 
-> **⚠️ Common Mistake:** Treating all traffic sources as equally valuable based on visitor count alone. A channel with fewer visitors but a much higher conversion rate is often a better use of limited time than a high-traffic, low-conversion one — the revenue-by-source view catches this, visitor count alone doesn't.
+> **️ Common Mistake:** Treating all traffic sources as equally valuable based on visitor count alone. A channel with fewer visitors but a much higher conversion rate is often a better use of limited time than a high-traffic, low-conversion one — the revenue-by-source view catches this, visitor count alone doesn't.
 
 ---
 
@@ -93,7 +93,7 @@ or declining as my store matures and as I add retention efforts from
 the Retention module.
 ```
 
-> **✅ Best Practice:** A single repeat-purchase percentage tells you where you are. A cohort view — tracked monthly — tells you whether your retention efforts are actually working, which is the more useful question once you've started acting on them.
+> ** Best Practice:** A single repeat-purchase percentage tells you where you are. A cohort view — tracked monthly — tells you whether your retention efforts are actually working, which is the more useful question once you've started acting on them.
 
 ---
 

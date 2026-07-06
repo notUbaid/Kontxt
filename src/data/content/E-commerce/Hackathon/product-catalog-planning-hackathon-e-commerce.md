@@ -52,7 +52,7 @@ Every product in your catalog needs these fields defined before you start buildi
 
 Generic names break immersion. Specific names build brand credibility.
 
-| ❌ Generic | ✅ Specific |
+|  Generic |  Specific |
 |---|---|
 | Blue Ceramic Mug | Matte Slate Pour-Over Mug |
 | Desk Mat | The Founder — Full-Desk Leather Mat |
@@ -140,10 +140,10 @@ Return the output as a markdown table followed by full descriptions for each pro
 ```
 
 > **Validation checklist for AI output:**
-> - [ ] No two products have the same structure sentence ("This [product] is perfect for...")
-> - [ ] Prices feel consistent with the tier you defined
-> - [ ] At least one product has a "low stock" angle baked into the description
-> - [ ] Featured products are genuinely the most compelling ones
+- [ ] No two products have the same structure sentence ("This [product] is perfect for...")
+- [ ] Prices feel consistent with the tier you defined
+- [ ] At least one product has a "low stock" angle baked into the description
+- [ ] Featured products are genuinely the most compelling ones
 
 ---
 

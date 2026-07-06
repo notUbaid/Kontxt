@@ -117,9 +117,9 @@ export function CartIcon() {
   // If hydration hasn't finished, this returns undefined
   const items = useStore(useCartStore, (state) => state.items);
   
-  if (!items) return <span>🛒 (0)</span>; // Server HTML (Matches perfectly)
+  if (!items) return <span> (0)</span>; // Server HTML (Matches perfectly)
   
-  return <span>🛒 ({items.length})</span>; // Client HTML (Updates safely)
+  return <span> ({items.length})</span>; // Client HTML (Updates safely)
 }
 ```
 
@@ -136,7 +136,7 @@ When the user opens the Cart Drawer, the Next.js server must intercept those `va
 
 ---
 
-## ✅ Cart Engineering Checklist
+##  Cart Engineering Checklist
 
 - [ ] Utilize Zustand with the `persist` middleware to ensure the cart survives page refreshes.
 - [ ] Implement a strict Hydration Hook (`useStore`) to prevent Next.js SSR crashes.

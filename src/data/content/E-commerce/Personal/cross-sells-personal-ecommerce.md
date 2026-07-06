@@ -23,7 +23,7 @@ Like Upsells, this uses existing cart and product infrastructure. The only new w
 
 A genuinely useful cross-sell isn't just a revenue tactic — it solves a real problem: a customer buying a product often needs something else to use it properly, and might not think to look for it themselves. Surfacing that at the right moment is a service, not just a sales tactic, when done with real product knowledge.
 
-> **💡 Tip:** The best cross-sells come from genuine product expertise, not generic "frequently bought together" automation. As the store owner, you likely know which products are actually complementary better than any automated suggestion engine would, especially at personal-store catalog size.
+> ** Tip:** The best cross-sells come from genuine product expertise, not generic "frequently bought together" automation. As the store owner, you likely know which products are actually complementary better than any automated suggestion engine would, especially at personal-store catalog size.
 
 ---
 
@@ -45,7 +45,7 @@ You're **not** building a "customers who bought X also bought Y" automated recom
 | A frequently-paired item based on your own knowledge of the catalog, not guesswork | Reflects genuine product expertise |
 | Modest in price relative to the main item | Low-friction "yes" decision |
 
-> **⚠️ Warning:** A cross-sell that's only tangentially related, chosen mainly because it's higher-margin rather than genuinely useful, reads as a sales tactic rather than a helpful suggestion — and customers notice the difference, especially on a repeat visit.
+> **️ Warning:** A cross-sell that's only tangentially related, chosen mainly because it's higher-margin rather than genuinely useful, reads as a sales tactic rather than a helpful suggestion — and customers notice the difference, especially on a repeat visit.
 
 ---
 
@@ -63,7 +63,7 @@ Cart
       duplicate, more aggressive version of the product-page offer
 ```
 
-> **⚠️ Common Mistake:** Showing the same cross-sell offer aggressively in both the product page and cart, then again at checkout, creates the feeling of being upsold repeatedly rather than helpfully informed once. Pick one primary placement; use the second only as a light, easy-to-ignore reminder.
+> **️ Common Mistake:** Showing the same cross-sell offer aggressively in both the product page and cart, then again at checkout, creates the feeling of being upsold repeatedly rather than helpfully informed once. Pick one primary placement; use the second only as a light, easy-to-ignore reminder.
 
 ---
 
@@ -87,7 +87,7 @@ Build:
 3. Tracking for how often the cross-sell is shown vs added to cart
 ```
 
-> **✅ Best Practice:** Include the one-line reason the items pair well, not just the product side by side. "Pairs with the canvas care kit to keep color from fading" converts better than an unexplained product thumbnail, because it restates the genuine usefulness rather than assuming the customer will infer it.
+> ** Best Practice:** Include the one-line reason the items pair well, not just the product side by side. "Pairs with the canvas care kit to keep color from fading" converts better than an unexplained product thumbnail, because it restates the genuine usefulness rather than assuming the customer will infer it.
 
 ---
 

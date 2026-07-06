@@ -101,7 +101,7 @@ This is the most important interactive element on the page.
 - **Full width or prominently wide** — not a small inline button
 - **High contrast** — should stand out from every other element on the page
 - **Clear label:** "Add to Cart" — don't be clever here
-- **Loading/success state:** button changes on click — "Adding..." then "Added ✓" or triggers a toast
+- **Loading/success state:** button changes on click — "Adding..." then "Added " or triggers a toast
 
 **Never:**
 - Disable the button without explanation
@@ -205,10 +205,10 @@ Write in the tone of a premium DTC brand. Avoid generic phrases like "high quali
 ```
 
 > **Validate the output:**
-> - [ ] Short description leads with a benefit, not a feature
-> - [ ] No sentence starts with "This product..."
-> - [ ] Bullet points are specific, not generic ("Matte ceramic exterior, dishwasher safe" not "High quality materials")
-> - [ ] Trust signals are plausible for your product type
+- [ ] Short description leads with a benefit, not a feature
+- [ ] No sentence starts with "This product..."
+- [ ] Bullet points are specific, not generic ("Matte ceramic exterior, dishwasher safe" not "High quality materials")
+- [ ] Trust signals are plausible for your product type
 
 ---
 
@@ -225,7 +225,7 @@ Generate a complete product detail page component with:
 - Single column stacked on mobile
 - Product image with aspect ratio 1:1, object-fit cover
 - Name, price, short description, quantity selector, Add to Cart button
-- Add to Cart button with loading state (changes text to "Adding..." on click, then "Added ✓")
+- Add to Cart button with loading state (changes text to "Adding..." on click, then "Added ")
 - 3 trust signal items below the button with small icons
 - Long description section below the fold
 - Related products row (3 cards) at the bottom
@@ -234,10 +234,10 @@ Use placeholder props for product data. Make it production-quality, not a rough 
 ```
 
 > **Review the generated code for:**
-> - [ ] Responsive layout actually works (check at 375px width)
-> - [ ] Add to Cart state management doesn't break on rapid clicks
-> - [ ] Images don't distort at unexpected sizes
-> - [ ] No hardcoded product data — uses props or passed-in data
+- [ ] Responsive layout actually works (check at 375px width)
+- [ ] Add to Cart state management doesn't break on rapid clicks
+- [ ] Images don't distort at unexpected sizes
+- [ ] No hardcoded product data — uses props or passed-in data
 
 ---
 

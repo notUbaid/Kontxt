@@ -60,7 +60,7 @@ The Cart state (items, quantities) must be persisted instantly to `localStorage`
 
 ---
 
-## ✅ Store Architecture Checklist
+##  Store Architecture Checklist
 
 - [ ] Memorize the 3 Tiers of Edge Topology (CDN, Middleware, Origin).
 - [ ] Enforce the "No Synchronous Side-Effects" rule for the main checkout API.

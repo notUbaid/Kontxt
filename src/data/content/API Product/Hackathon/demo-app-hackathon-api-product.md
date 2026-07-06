@@ -18,10 +18,10 @@ You've heard this warning twice already, and it's worth a third time because it'
 It is not your second product. It's a single page, or a single script, whose only job is to call your real endpoints and show the real result clearly. The bar is "makes the transformation visible," not "looks like a funded startup's frontend."
 
 > **Decision Card — Pick the format that proves your purpose statement fastest**
-> - **HTML + vanilla JS page** → best default for most API products: visual, no build tooling, deployable as a single static file
-> - **Postman/Insomnia collection** → fastest to set up, but less visually compelling for a live audience watching a screen
-> - **CLI script with formatted output** → fits if your target developer (Phase 0) is explicitly backend/CLI-oriented
-> - **Minimal frontend framework** → only if you have real time to spare and a UI-heavy story to tell
+- **HTML + vanilla JS page** → best default for most API products: visual, no build tooling, deployable as a single static file
+- **Postman/Insomnia collection** → fastest to set up, but less visually compelling for a live audience watching a screen
+- **CLI script with formatted output** → fits if your target developer (Phase 0) is explicitly backend/CLI-oriented
+- **Minimal frontend framework** → only if you have real time to spare and a UI-heavy story to tell
 
 For most teams, a single HTML file with `fetch()` calls is the sweet spot: visual enough for a room of judges, fast enough to build in well under an hour.
 
@@ -77,11 +77,11 @@ This module has almost no new decisions — it's assembly of locked work:
 > API base URL: [your local or deployed URL]
 >
 > Build a single-page demo app that:
-> - has a simple form or input matching my core loop's request shape
-> - calls my real API endpoint(s) on submit, no mocked data
-> - renders the response in a clear, human-readable way that shows
+- has a simple form or input matching my core loop's request shape
+- calls my real API endpoint(s) on submit, no mocked data
+- renders the response in a clear, human-readable way that shows
 >   the transformation my purpose statement promises — not raw JSON
-> - shows a clear error message if the API call fails, instead of
+- shows a clear error message if the API call fails, instead of
 >   breaking silently
 > ```
 

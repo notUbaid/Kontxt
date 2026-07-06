@@ -42,7 +42,7 @@ These are the screens where mobile UX directly determines whether you make a sal
 **Mobile:**
 ```
 ┌─────────────────────┐
-│ [☰]   BRAND    [🛒] │  ← Hamburger + cart icon only
+│ []   BRAND    [] │  ← Hamburger + cart icon only
 ├─────────────────────┤
 │                     │
 │   [Hero image]      │  ← Full width, 60vh max

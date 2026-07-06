@@ -20,9 +20,9 @@ A huge share of hackathon API teams build something that should've been a web ap
 > **Decision Card — Ask this before anything else**
 > Would a *developer* — not an end user — want to call this from their own code?
 >
-> - **Yes, clearly** → You're building the right kind of product. Continue.
-> - **Maybe, with a UI wrapped around it** → You might actually be scoping a web app. Reconsider the track.
-> - **Only if forced** → The problem is too thin. Pick a sharper one.
+- **Yes, clearly** → You're building the right kind of product. Continue.
+- **Maybe, with a UI wrapped around it** → You might actually be scoping a web app. Reconsider the track.
+- **Only if forced** → The problem is too thin. Pick a sharper one.
 
 An API product's customer is code, not a person clicking buttons. If your idea only makes sense with a polished frontend doing the heavy lifting, the API is incidental — and judges in this track are scoring the API itself.
 

@@ -54,7 +54,7 @@ Instruct your AI to build a single, abstract analytics utility function (`trackE
 
 ---
 
-## ✅ Analytics Architecture Checklist
+##  Analytics Architecture Checklist
 
 - [ ] Acknowledge that client-side pixels are dead; AdBlockers will destroy your attribution data.
 - [ ] Enforce Server-Side Tracking (Conversions API) for all critical revenue events (Purchases, Add to Cart).

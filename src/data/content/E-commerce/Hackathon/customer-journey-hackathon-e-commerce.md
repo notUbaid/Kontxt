@@ -172,9 +172,9 @@ Review this journey as a UX designer preparing for a 3-minute demo:
 ```
 
 > **What to watch for in the output:**
-> - If AI flags your cart as a friction point → add a persistent cart icon in the nav
-> - If AI suggests a micro-interaction you can't build in time → note it for the pitch ("we'd add X in the next iteration")
-> - Use the recommended CTA text directly — don't workshop it
+- If AI flags your cart as a friction point → add a persistent cart icon in the nav
+- If AI suggests a micro-interaction you can't build in time → note it for the pitch ("we'd add X in the next iteration")
+- Use the recommended CTA text directly — don't workshop it
 
 ---
 

@@ -58,7 +58,7 @@ You must force the AI to architect the mobile UI around the "Thumb Zone" (the bo
 
 ---
 
-## ✅ Mobile Infrastructure Checklist
+##  Mobile Infrastructure Checklist
 
 - [ ] Forbid the use of CSS `display: none` for hiding massive desktop assets (videos, heavy JS components) on mobile.
 - [ ] Enforce conditional React rendering or `<picture>` elements to protect mobile network bandwidth.

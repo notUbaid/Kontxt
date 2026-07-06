@@ -56,7 +56,7 @@ Inspect the HTTP Response Headers of the competitor's initial document request.
 
 ---
 
-## ✅ Competitor Analysis Checklist
+##  Competitor Analysis Checklist
 
 - [ ] Open the Network tab on 3 top competitors and identify their backend infrastructure (Shopify API, Swell, CommerceTools).
 - [ ] Run a CPU-throttled Lighthouse audit on their Product Pages to document their JavaScript bloat and Core Web Vitals failures.

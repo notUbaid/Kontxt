@@ -23,7 +23,7 @@ This builds on your existing Product Architecture and Checkout/Cart flow — no 
 
 ## Why This Matters for a Store Specifically
 
-> **💡 Tip:** An upsell converts at a meaningfully higher rate than a cold product recommendation to a new visitor, because the customer has already cleared the hardest psychological step — deciding to buy something. A relevant upgrade offered at that moment requires far less convincing than starting a new purchase decision from zero.
+> ** Tip:** An upsell converts at a meaningfully higher rate than a cold product recommendation to a new visitor, because the customer has already cleared the hardest psychological step — deciding to buy something. A relevant upgrade offered at that moment requires far less convincing than starting a new purchase decision from zero.
 
 For a personal store without big marketing spend, this is one of the few growth levers that increases revenue without needing a single additional visitor.
 
@@ -47,7 +47,7 @@ You're **not** building a sophisticated recommendation engine. For a personal-sc
 | An add-on that meaningfully improves the original purchase (e.g., extended warranty, premium material option) | Logical extension of the same decision |
 | Priced as a reasonable increment, not a dramatically higher tier | Stays within the customer's already-established willingness to spend |
 
-> **⚠️ Warning:** An upsell that's unrelated to the original item functions as a distraction, not an upsell — it competes with the checkout completion itself rather than enhancing it. If the offer requires a new, separate purchase decision, it belongs in Cross-Sells (or isn't a good fit at all), not here.
+> **️ Warning:** An upsell that's unrelated to the original item functions as a distraction, not an upsell — it competes with the checkout completion itself rather than enhancing it. If the offer requires a new, separate purchase decision, it belongs in Cross-Sells (or isn't a good fit at all), not here.
 
 ---
 
@@ -63,7 +63,7 @@ Add to Cart
 Checkout (no further upsell interruptions)
 ```
 
-> **⚠️ Common Mistake:** Placing an upsell offer *during* the checkout form itself, rather than before it begins, adds friction at exactly the stage your Conversion Optimization work was trying to streamline. Show the offer once, clearly, before checkout starts — never mid-form.
+> **️ Common Mistake:** Placing an upsell offer *during* the checkout form itself, rather than before it begins, adds friction at exactly the stage your Conversion Optimization work was trying to streamline. Show the offer once, clearly, before checkout starts — never mid-form.
 
 ---
 
@@ -86,7 +86,7 @@ Build:
    see this offer accept it
 ```
 
-> **✅ Best Practice:** Make declining the offer as frictionless as accepting it — a single, clear "No thanks, continue with my order" option. An upsell that feels like it's blocking checkout creates resentment that outweighs the revenue gain.
+> ** Best Practice:** Make declining the offer as frictionless as accepting it — a single, clear "No thanks, continue with my order" option. An upsell that feels like it's blocking checkout creates resentment that outweighs the revenue gain.
 
 ---
 
@@ -100,7 +100,7 @@ Use the same approach as Conversion Optimization: isolate the specific metric.
 | Average order value, upsell-shown vs not | Confirms actual revenue impact, not just acceptance rate |
 | Checkout completion rate, before vs after adding upsell | Confirms the offer isn't accidentally hurting conversion |
 
-> **⚠️ Warning:** Always check checkout completion rate after adding an upsell step, not just acceptance rate and AOV. An upsell that meaningfully increases average order value but also reduces how many customers complete checkout at all can be a net loss — measure both together.
+> **️ Warning:** Always check checkout completion rate after adding an upsell step, not just acceptance rate and AOV. An upsell that meaningfully increases average order value but also reduces how many customers complete checkout at all can be a net loss — measure both together.
 
 ---
 

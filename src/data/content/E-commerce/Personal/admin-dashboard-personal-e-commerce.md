@@ -91,7 +91,7 @@ async function getDashboardSummary() {
 ```
 ┌─────────────────────────────────────┐
 │  Today: 3 orders · $142.50           │
-│  ⚠ 2 products low on stock            │
+│   2 products low on stock            │
 ├─────────────────────────────────────┤
 │  Recent Orders                       │
 │  ORD-1042  Jane D.   $45.00  paid    │

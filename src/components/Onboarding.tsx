@@ -3,7 +3,7 @@ import {
   Rocket, User, Building2, FolderOpen, Plus, ArrowRight,
   Cloud, Smartphone, Globe, Brain, Puzzle, Monitor, Server, Wrench,
   Store, ShoppingCart, Gamepad2, AlertTriangle, Skull, Shield, Lock,
-  Hexagon, Database
+  Hexagon, Database, Terminal, Cpu, Code, Wand2
 } from 'lucide-react';
 import type { Mode } from './TopNav';
 import type { Project, AppType } from '../App';
@@ -36,6 +36,10 @@ const TYPE_META: Record<AppType, { icon: React.ElementType; description: string 
   'Cyber Security (DevSecOps)': { icon: Lock, description: 'Compliance, CI/CD scanning, & GRC' },
   'Web3 dApp': { icon: Hexagon, description: 'Decentralized application & smart contracts' },
   'Data Pipeline': { icon: Database, description: 'ETL, scrapers, and data warehouses' },
+  'CLI': { icon: Terminal, description: 'Command Line Interfaces & Developer Tools' },
+  'IoT': { icon: Cpu, description: 'Embedded systems & smart home hardware' },
+  'Open Source': { icon: Code, description: 'Libraries, npm packages, & community repos' },
+  'Custom': { icon: Wand2, description: 'A fully custom app type and project structure' },
 };
 
 // Contextual mode descriptions per type
@@ -120,6 +124,26 @@ const MODE_DESCRIPTIONS: Partial<Record<AppType, Record<Mode, string>>> = {
     'Personal': 'Clean ETL scripts, basic orchestration, error logging.',
     'Production': 'Airflow/Dagster, data validation, scalable warehouses, robust alerting.'
   },
+  'CLI': {
+    'Hackathon': 'Quick bash/python script, local execution.',
+    'Personal': 'Published package, basic CLI args, clean output.',
+    'Production': 'Cross-platform binaries, analytics, CI/CD publishing.'
+  },
+  'IoT': {
+    'Hackathon': 'Breadboard prototype, direct Wi-Fi/Bluetooth connections.',
+    'Personal': 'Custom PCB, basic OTA updates, stable sensors.',
+    'Production': 'Fleet management, secure boot, robust MQTT infrastructure.'
+  },
+  'Open Source': {
+    'Hackathon': 'Public repo, basic README, working prototype.',
+    'Personal': 'Comprehensive docs, CI/CD tests, semantic versioning.',
+    'Production': 'Community guidelines, monorepo, robust governance model.'
+  },
+  'Custom': {
+    'Hackathon': 'Rapid experimental prototyping tailored to your custom needs.',
+    'Personal': 'A custom project structured for individual maintenance.',
+    'Production': 'Enterprise-ready custom architecture and deployment.'
+  },
 };
 
 const HIGH_RISK_WARNINGS: Partial<Record<AppType, { title: string; message: string; icon: React.ElementType }>> = {
@@ -160,7 +184,8 @@ export const Onboarding = ({ projects, onCreateProject, onSelectProject, isAuthe
     'SaaS', 'Web App', 'Mobile App', 'AI Tool',
     'E-commerce', 'Marketplace', 'Internal Tool', 'API Product',
     'Web3 dApp', 'Data Pipeline', 'Browser Extension', 'Desktop App',
-    'Game', 'Cyber Security (Offensive)', 'Cyber Security (Defensive)', 'Cyber Security (DevSecOps)'
+    'Game', 'Cyber Security (Offensive)', 'Cyber Security (Defensive)', 'Cyber Security (DevSecOps)',
+    'CLI', 'IoT', 'Open Source', 'Custom'
   ];
 
   const handleTypeSelect = (type: AppType) => {

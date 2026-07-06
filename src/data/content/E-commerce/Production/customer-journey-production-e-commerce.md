@@ -59,7 +59,7 @@ When the user clicked "Add to Cart" three days ago, the frontend sent a backgrou
 
 ---
 
-## ✅ Customer Journey Checklist
+##  Customer Journey Checklist
 
 - [ ] Stop thinking of the journey as a linear path; treat it as a matrix of entry vectors.
 - [ ] Understand how URL parameters (`?action=buy`) can be used to programmatically skip steps in the funnel.

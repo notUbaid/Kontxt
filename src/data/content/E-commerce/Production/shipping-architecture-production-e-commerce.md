@@ -58,7 +58,7 @@ You must command your AI to use an **Event Bus** (like Inngest or Upstash Kafka)
 
 ---
 
-## ✅ Shipping Architecture Checklist
+##  Shipping Architecture Checklist
 
 - [ ] Enforce Volumetric Data (L x W x H) for every SKU to prevent catastrophic shipping margin loss.
 - [ ] Mandate Fallback Rate Injection so third-party courier outages never crash your checkout flow.

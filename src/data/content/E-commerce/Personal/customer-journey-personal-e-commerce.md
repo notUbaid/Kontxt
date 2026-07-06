@@ -78,7 +78,7 @@ Scanning, not reading. They're forming an impression of your catalog before comm
 │ Product Name        │
 │ Short descriptor    │
 │ $XX.XX              │
-│ ★★★★☆ (42)         │
+│  (42)         │
 └─────────────────────┘
 ```
 

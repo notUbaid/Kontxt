@@ -24,7 +24,7 @@ This is one of the most under-designed areas in apps built primarily with AI too
 | **Background** | App is not visible but still in memory | What pauses, what keeps running, how long before the OS may suspend it |
 | **Killed/Terminated** | OS reclaimed the app's memory entirely | What state must be restored on next cold launch |
 
-> ⚠️ **The mistake that causes the most production bugs here:** treating "backgrounded" and "killed" as the same thing, or not distinguishing them at all. They require different recovery strategies — backgrounded apps can often resume in-memory state instantly; killed apps need to reconstruct state from persisted storage on a full cold start.
+> ️ **The mistake that causes the most production bugs here:** treating "backgrounded" and "killed" as the same thing, or not distinguishing them at all. They require different recovery strategies — backgrounded apps can often resume in-memory state instantly; killed apps need to reconstruct state from persisted storage on a full cold start.
 
 ---
 
@@ -50,7 +50,7 @@ When the app returns from background, decide what needs refreshing versus what c
 | Push notification permission state | Re-check; the user may have changed it in OS settings while backgrounded |
 | Deep link queued during background | Process now if one's pending |
 
-> 💡 Don't refetch everything on every foreground transition reflexively — that's wasteful and can cause visible loading flickers on screens where nothing changed. Tie refresh decisions to actual staleness (e.g. "refetch if more than N minutes since last fetch") rather than refreshing unconditionally on every resume.
+>  Don't refetch everything on every foreground transition reflexively — that's wasteful and can cause visible loading flickers on screens where nothing changed. Tie refresh decisions to actual staleness (e.g. "refetch if more than N minutes since last fetch") rather than refreshing unconditionally on every resume.
 
 ---
 
@@ -64,7 +64,7 @@ This is the hardest case: the OS killed your app, and the user reopens it expect
 - **In-progress form data** — for anything longer than a quick form (multi-step onboarding, a draft post), persist to local storage as the user types, not just on submit. Losing a half-written post to a backgrounding event is one of the most common user complaints in apps that skip this.
 - **Scroll position** — usually not worth the complexity to persist; most users don't expect this preserved across a full kill.
 
-> ⚠️ **Don't persist everything by default.** Indiscriminately dumping full app state to disk on every change has real performance and storage cost, and risks restoring stale/invalid state (e.g. resuming into a checkout flow for a cart that's since changed server-side). Persist deliberately, scoped to what genuinely improves the resume experience, and validate restored state against the server before trusting it for anything transactional.
+> ️ **Don't persist everything by default.** Indiscriminately dumping full app state to disk on every change has real performance and storage cost, and risks restoring stale/invalid state (e.g. resuming into a checkout flow for a cart that's since changed server-side). Persist deliberately, scoped to what genuinely improves the resume experience, and validate restored state against the server before trusting it for anything transactional.
 
 ---
 
@@ -78,7 +78,7 @@ This connects directly to your Push Notifications and Deep Linking modules:
 | Background | App resumes from background → process deep link immediately, navigator already mounted |
 | Foreground (notification received while app open) | Don't auto-navigate — show an in-app banner/toast instead; auto-navigating away from what the user is actively doing is jarring |
 
-> 💡 This is exactly why your Deep Linking module's "pending deep link holding pattern" matters — it's the mechanism that makes the killed-state row of this table work correctly.
+>  This is exactly why your Deep Linking module's "pending deep link holding pattern" matters — it's the mechanism that makes the killed-state row of this table work correctly.
 
 ---
 

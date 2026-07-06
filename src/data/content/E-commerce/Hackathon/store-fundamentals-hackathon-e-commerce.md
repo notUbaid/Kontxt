@@ -44,8 +44,8 @@ Judges respond to focus. A store that sells handmade ceramic mugs is more believ
 
 One sentence. One person.
 
-❌ "Young people who like fashion"
-✅ "Remote developers who want a minimal, distraction-free desk setup"
+ "Young people who like fashion"
+ "Remote developers who want a minimal, distraction-free desk setup"
 
 The more specific your customer, the easier every design and copy decision becomes. You won't be debating fonts — you'll know what your customer expects.
 
@@ -86,9 +86,9 @@ Be direct. Don't soften the feedback.
 ```
 
 > **What to look for in the response:**
-> - If AI says your customer is too broad → it's right, narrow it
-> - If AI struggles to identify a weakness → your concept is solid
-> - If AI suggests a sharper angle → seriously consider it
+- If AI says your customer is too broad → it's right, narrow it
+- If AI struggles to identify a weakness → your concept is solid
+- If AI suggests a sharper angle → seriously consider it
 
 ---
 

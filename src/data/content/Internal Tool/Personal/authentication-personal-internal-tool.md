@@ -81,11 +81,11 @@ If you do add any login step, make sure it doesn't reintroduce the friction Phas
 > module].
 >
 > Requirements:
-> - [Single password stored securely, not hardcoded] or
+- [Single password stored securely, not hardcoded] or
 >   [describe your actual chosen approach]
-> - Session should persist reasonably long, since I'm the only
+- Session should persist reasonably long, since I'm the only
 >   trusted user on my own device
-> - Must use HTTPS and avoid storing secrets in source code
+- Must use HTTPS and avoid storing secrets in source code
 >
 > Show me the simplest correct implementation for my stack. Flag
 > anything in your suggestion that would require a paid service or

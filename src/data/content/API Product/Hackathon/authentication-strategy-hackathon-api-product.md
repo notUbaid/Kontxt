@@ -86,9 +86,9 @@ These aren't "production polish" — they're table stakes regardless of timeline
 > Recommend the simplest auth method that fits this target developer —
 > default to API key auth unless there's a specific reason OAuth or
 > per-user tokens are required. Outline:
-> - where the key is sent (header) and validated
-> - the exact 401 error response, matching my locked error shape
-> - what NOT to build (be specific about what would be over-engineering
+- where the key is sent (header) and validated
+- the exact 401 error response, matching my locked error shape
+- what NOT to build (be specific about what would be over-engineering
 >   for this scope)
 > ```
 

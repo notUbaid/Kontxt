@@ -28,11 +28,11 @@ Your core loop is built and tested. This module is about the rest of your locked
 The good news at this stage: your middleware, error handling, and data access patterns are already established and tested. Adding a nice-to-have endpoint should be mostly mechanical — not a new design exercise.
 
 > **Quick Reference — Checklist for each new endpoint**
-> - [ ] Matches the locked route table exactly (method, path)
-> - [ ] Uses an existing data access function, or a new one following the exact same pattern (parameterized queries, thin, no business logic)
-> - [ ] Auth middleware applied if the route is protected
-> - [ ] Validation matches the rigor of your core loop endpoints — not a shortcut version
-> - [ ] Errors return your exact locked error shape
+- [ ] Matches the locked route table exactly (method, path)
+- [ ] Uses an existing data access function, or a new one following the exact same pattern (parameterized queries, thin, no business logic)
+- [ ] Auth middleware applied if the route is protected
+- [ ] Validation matches the rigor of your core loop endpoints — not a shortcut version
+- [ ] Errors return your exact locked error shape
 
 ---
 

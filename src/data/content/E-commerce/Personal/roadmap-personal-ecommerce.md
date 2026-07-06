@@ -21,7 +21,7 @@ This is a planning module, not an implementation one. It uses the five metrics a
 
 ## Why Generic Growth Advice Fails Here
 
-> **⚠️ Warning:** "Add a loyalty program" or "send more emails" is generic advice that works for some stores and is a waste of limited solo time for others, depending entirely on where your actual funnel is leaking. A store with a conversion problem doesn't get fixed by upsells — there's nothing to upsell if visitors aren't completing checkout in the first place.
+> **️ Warning:** "Add a loyalty program" or "send more emails" is generic advice that works for some stores and is a waste of limited solo time for others, depending entirely on where your actual funnel is leaking. A store with a conversion problem doesn't get fixed by upsells — there's nothing to upsell if visitors aren't completing checkout in the first place.
 
 The right next growth tactic is the one that addresses your store's specific, current bottleneck — not the one a generic article ranked first.
 
@@ -51,7 +51,7 @@ Pull up your funnel from the Analytics module and find where the biggest relativ
 | First purchase happens, but repeat-purchase rate (from Retention/cohort data) is flat or low | Customers aren't coming back | **Loyalty Programs**, deepen **Email Marketing** |
 | Conversion and AOV are both healthy, but growth has plateaued | Existing customers are satisfied but not bringing new ones | **Referrals** |
 
-> **✅ Best Practice:** Pick the single largest relative drop-off, not the one that feels most interesting to work on. A 60% cart abandonment rate is a bigger lever than a slightly underperforming referral rate, even if upsells sound more exciting to build.
+> ** Best Practice:** Pick the single largest relative drop-off, not the one that feels most interesting to work on. A 60% cart abandonment rate is a bigger lever than a slightly underperforming referral rate, even if upsells sound more exciting to build.
 
 ---
 
@@ -67,7 +67,7 @@ For whatever bottleneck you've identified, weigh the relevant tactic against you
 | Loyalty Programs | Medium-High | Medium, slower to show results |
 | Referrals | Low-Medium | High, but requires an existing satisfied customer base first |
 
-> **💡 Tip:** Referrals and loyalty programs both depend on already having satisfied repeat customers — building them before retention is healthy means asking customers to refer or stay loyal to an experience that hasn't earned it yet. Sequence matters, not just individual tactic quality.
+> ** Tip:** Referrals and loyalty programs both depend on already having satisfied repeat customers — building them before retention is healthy means asking customers to refer or stay loyal to an experience that hasn't earned it yet. Sequence matters, not just individual tactic quality.
 
 ---
 

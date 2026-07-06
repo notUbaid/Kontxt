@@ -60,7 +60,7 @@ You must wireframe these boundaries to force the AI to keep Client Components as
 
 ---
 
-## ✅ Component Wireframing Checklist
+##  Component Wireframing Checklist
 
 - [ ] Stop wireframing for aesthetics; wireframe to define React component boundaries.
 - [ ] Enforce the "Smart Container vs. Dumb Presentational" pattern for all complex UIs.

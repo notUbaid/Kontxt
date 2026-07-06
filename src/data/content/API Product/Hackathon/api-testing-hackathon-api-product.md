@@ -52,9 +52,9 @@ This is the highest-value exercise in this module: a fresh AI conversation, with
 > You are a developer encountering this API for the first time. Try to
 > figure out how to make a successful request to the core endpoint(s).
 > Report:
-> - any point where the docs are ambiguous or you'd have to guess
-> - any field name, type, or example that seems unclear or missing
-> - what you'd expect to happen vs. what the docs actually tell you
+- any point where the docs are ambiguous or you'd have to guess
+- any field name, type, or example that seems unclear or missing
+- what you'd expect to happen vs. what the docs actually tell you
 > ```
 
 > **Tip — Run this in a brand-new conversation, not one that already has your project's context.**

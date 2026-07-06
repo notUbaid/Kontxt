@@ -108,7 +108,7 @@ export async function GET(req: Request) {
 
 ---
 
-## ✅ Monitoring Engineering Checklist
+##  Monitoring Engineering Checklist
 
 - [ ] Configure a 60-second Synthetic Ping monitor (Better Stack/UptimeRobot) to verify global DNS and server uptime.
 - [ ] Configure an Active E2E Playwright script (Checkly) to physically test the "Add to Cart" button in a real browser every 10 minutes.

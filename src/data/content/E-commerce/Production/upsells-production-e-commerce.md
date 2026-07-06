@@ -122,7 +122,7 @@ export function CartDrawer({ cart }) {
         </div>
       ) : (
         <div className="bg-green-50 p-4 font-bold text-green-700">
-          🎉 You unlocked Free Shipping!
+           You unlocked Free Shipping!
         </div>
       )}
       
@@ -136,7 +136,7 @@ By querying for an upsell that precisely fills the `$delta`, you remove cognitiv
 
 ---
 
-## ✅ Upsells Engineering Checklist
+##  Upsells Engineering Checklist
 
 - [ ] Ban pre-checkout popup interruptions. Engineer Post-Purchase One-Click Upsells (OCU) to secure the baseline revenue first.
 - [ ] Utilize Stripe's `off_session: true` PaymentIntents to legally execute a secondary charge without forcing the customer to re-authenticate or re-enter their CVV.

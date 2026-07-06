@@ -116,7 +116,7 @@ You can instantly see that your biggest drop-off is between "Added to Cart" and 
 
 ---
 
-## ✅ Growth Analytics Engineering Checklist
+##  Growth Analytics Engineering Checklist
 
 - [ ] Mathematically isolate your live Transactional Database (PostgreSQL) from analytical queries by replicating data to a Data Warehouse (BigQuery/Snowflake) via Fivetran.
 - [ ] Write SQL models to calculate LTV : CAC ratios and perform Cohort Analysis based on registration month.

@@ -96,7 +96,7 @@ Without these 3 records, Google's algorithmic filters will instantly flag your m
 
 ---
 
-## ✅ Email Marketing Engineering Checklist
+##  Email Marketing Engineering Checklist
 
 - [ ] Ban manual CSV exports. Engineer real-time API event tracking (`Added to Cart`, `Placed Order`) from Next.js directly into Klaviyo.
 - [ ] Configure the 3 Core Automated Flows (Abandoned Cart, Post-Purchase Nurture, Win-Back) to generate mathematical recurring revenue with zero human intervention.

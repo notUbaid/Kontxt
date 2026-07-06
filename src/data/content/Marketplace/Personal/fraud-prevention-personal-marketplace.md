@@ -93,10 +93,10 @@ async function autoCompleteStaleOrders() {
 ## Reporting Tools: Cheap, High-Leverage
 
 > ** Validation Checklist**
-> - [ ] Can a user report a listing as suspicious/fraudulent, with a short reason field?
-> - [ ] Can a user report another user (not tied to a specific listing — e.g. suspicious messages)?
-> - [ ] Does a report notify you (the admin) somewhere you'll actually see it — not just write silently to a database table you forget to check?
-> - [ ] Is there a simple way to act on a report — suspend a listing or user — without needing direct database access?
+- [ ] Can a user report a listing as suspicious/fraudulent, with a short reason field?
+- [ ] Can a user report another user (not tied to a specific listing — e.g. suspicious messages)?
+- [ ] Does a report notify you (the admin) somewhere you'll actually see it — not just write silently to a database table you forget to check?
+- [ ] Is there a simple way to act on a report — suspend a listing or user — without needing direct database access?
 
 ```prisma
 model Report {
@@ -119,10 +119,10 @@ This connects to the Admin Panel you'll build later — reports need a place to 
 You don't need a fraud-scoring model. A few simple signals, reviewed manually, catch most personal-project-scale fraud:
 
 > ** Validation Checklist**
-> - [ ] New account + immediately listing high-value items → worth a second look, not an automatic block
-> - [ ] Multiple accounts from the same email pattern or rapid signup bursts from one IP → possible fake account farming
-> - [ ] A seller with many `non-delivery` reports across different buyers → pattern, not coincidence
-> - [ ] Price significantly below market for the category → classic scam-listing signal, but also sometimes a genuinely great deal — flag for review, don't auto-remove
+- [ ] New account + immediately listing high-value items → worth a second look, not an automatic block
+- [ ] Multiple accounts from the same email pattern or rapid signup bursts from one IP → possible fake account farming
+- [ ] A seller with many `non-delivery` reports across different buyers → pattern, not coincidence
+- [ ] Price significantly below market for the category → classic scam-listing signal, but also sometimes a genuinely great deal — flag for review, don't auto-remove
 
 > **️ Warning:** Resist the urge to auto-block based on these signals at personal-project scale. False positives (banning a legitimate user) cost you more in trust than letting one borderline case through to manual review. Flag, don't punish automatically, until you have enough data to be confident.
 

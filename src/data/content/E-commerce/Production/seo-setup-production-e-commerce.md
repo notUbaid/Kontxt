@@ -144,7 +144,7 @@ export async function generateMetadata({ params }) {
 
 ---
 
-## ✅ SEO Engineering Checklist
+##  SEO Engineering Checklist
 
 - [ ] Inject dynamic JSON-LD `Product` and `Offer` schema into every Product Detail Page (PDP) to unlock Rich Snippets in Google Search.
 - [ ] Implement a dynamic `sitemap.ts` file that queries the database to map 100% of your product catalog for search engine crawlers.

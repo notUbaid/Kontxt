@@ -135,7 +135,7 @@ In your Next.js Edge Middleware (`middleware.ts`), you can mathematically interc
 
 ---
 
-## ✅ Analytics Engineering Checklist
+##  Analytics Engineering Checklist
 
 - [ ] Wrap all client-side pixel scripts (Google/Meta) in a `try/catch` block to prevent AdBlocker crashes.
 - [ ] Implement the Universal Data Layer (`lib/analytics.ts`) to decouple React components from tracking SDKs.

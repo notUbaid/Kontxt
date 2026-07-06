@@ -71,7 +71,7 @@ If the AI suggests taking a shortcut (like "Let's just fetch all the products di
 
 ---
 
-## ✅ Welcome Checklist
+##  Welcome Checklist
 
 - [ ] I understand the difference between a monolithic template and a decoupled headless architecture.
 - [ ] I am prepared to act as the Architect, using the provided AI Prompts to command my AI assistant.

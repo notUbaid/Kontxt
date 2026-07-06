@@ -120,7 +120,7 @@ You should use a tool like **Termly** or **Shopify Legal Generator**. Your polic
 
 ---
 
-## ✅ Privacy Policy Engineering Checklist
+##  Privacy Policy Engineering Checklist
 
 - [ ] Write a Next.js `/api/user/delete` route that anonymizes order data and deletes third-party records to comply with the Right to be Forgotten.
 - [ ] Ensure financial records (Orders) are anonymized rather than deleted to comply with IRS 7-year retention laws.

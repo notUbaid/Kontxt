@@ -15,7 +15,7 @@ Phase 2 chose your auth provider and approach. This module is where that becomes
 
 ## The Core Mobile-Specific Constraint
 
-> ⚠️ On web, tokens commonly live in memory or an HTTP-only cookie the browser manages. On mobile, **you are responsible for secure token storage yourself** — and the wrong choice here is invisible until someone inspects the device or a security review flags it. This module exists primarily to prevent that class of mistake.
+> ️ On web, tokens commonly live in memory or an HTTP-only cookie the browser manages. On mobile, **you are responsible for secure token storage yourself** — and the wrong choice here is invisible until someone inspects the device or a security review flags it. This module exists primarily to prevent that class of mistake.
 
 ---
 
@@ -27,7 +27,7 @@ Phase 2 chose your auth provider and approach. This module is where that becomes
 | **AsyncStorage / plain device storage** | No — unencrypted, readable if device storage is accessed | Never for tokens |
 | **In-memory only** | Yes, by virtue of not persisting | Access tokens, if you're comfortable re-authenticating on every cold start (usually not the right tradeoff for UX) |
 
-> ⚠️ **The single most common mobile auth mistake:** storing tokens in AsyncStorage because it's the first thing that shows up when searching "react native store token." AsyncStorage is unencrypted plain storage — acceptable for non-sensitive preferences, never acceptable for auth tokens. Use the platform's secure storage from the start; retrofitting this after tokens have been stored insecurely means forcing a re-auth for your entire user base when you fix it.
+> ️ **The single most common mobile auth mistake:** storing tokens in AsyncStorage because it's the first thing that shows up when searching "react native store token." AsyncStorage is unencrypted plain storage — acceptable for non-sensitive preferences, never acceptable for auth tokens. Use the platform's secure storage from the start; retrofitting this after tokens have been stored insecurely means forcing a re-auth for your entire user base when you fix it.
 
 ```typescript
 import * as SecureStore from 'expo-secure-store';
@@ -47,7 +47,7 @@ Standard production pattern, implement it fully rather than a simplified version
 
 This connects directly to the Backend Integration module's response interceptor — that's where the actual refresh-on-401 flow executes. This module is about what's being stored and how it's protected; that module is about when it gets used.
 
-> 💡 If your auth provider (Firebase Auth, Auth0, Clerk, Supabase Auth, custom) handles this rotation for you via SDK, use the SDK's built-in session management rather than reimplementing token refresh by hand — most production auth bugs in this area come from teams rebuilding what their provider's SDK already does correctly.
+>  If your auth provider (Firebase Auth, Auth0, Clerk, Supabase Auth, custom) handles this rotation for you via SDK, use the SDK's built-in session management rather than reimplementing token refresh by hand — most production auth bugs in this area come from teams rebuilding what their provider's SDK already does correctly.
 
 ---
 
@@ -59,7 +59,7 @@ If your app handles sensitive data (financial, health, private messaging), decid
 - **Action-level gate:** require biometric confirmation only for specific sensitive actions (confirming a payment, viewing a specific record) — appropriate for apps where most content is fine to view freely but specific actions warrant extra confirmation.
 - **Neither:** appropriate for apps without sensitive data — don't add biometric friction without a reason; it's a real UX cost.
 
-> 💡 Biometric auth is a local device check, not a server-side authorization mechanism — it confirms "this is the device owner," not "this request is authorized." Don't treat a successful biometric check as a substitute for actual backend authorization on sensitive actions; pair it with, not instead of, server-side checks.
+>  Biometric auth is a local device check, not a server-side authorization mechanism — it confirms "this is the device owner," not "this request is authorized." Don't treat a successful biometric check as a substitute for actual backend authorization on sensitive actions; pair it with, not instead of, server-side checks.
 
 ---
 

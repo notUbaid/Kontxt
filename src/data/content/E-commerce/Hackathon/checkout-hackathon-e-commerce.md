@@ -178,7 +178,7 @@ export default function CheckoutPage() {
             {status === 'processing' ? 'Processing...' : `Pay $${subtotal.toFixed(2)}`}
           </button>
 
-          <p className="secure-note">🔒 Secure checkout — SSL encrypted</p>
+          <p className="secure-note"> Secure checkout — SSL encrypted</p>
         </div>
 
         {/* RIGHT: Order Summary */}
@@ -303,7 +303,7 @@ export default function OrderConfirmationPage() {
 
   return (
     <div className="confirmation-page">
-      <div className="confirmation-icon">✓</div>
+      <div className="confirmation-icon"></div>
       <h1>Order Confirmed</h1>
       <p className="order-id">Order {orderId}</p>
       <p className="confirmation-message">
@@ -324,7 +324,7 @@ export default function OrderConfirmationPage() {
 
 > **The random order ID** (`ORD-X7K2M9`) is a small detail that makes the page feel like a real system. Takes 1 minute to add.
 
-> **The animated checkmark** is worth 30 minutes if you have them. A CSS or Framer Motion circle-draw animation on the ✓ icon makes the confirmation moment feel genuinely satisfying.
+> **The animated checkmark** is worth 30 minutes if you have them. A CSS or Framer Motion circle-draw animation on the  icon makes the confirmation moment feel genuinely satisfying.
 
 ---
 

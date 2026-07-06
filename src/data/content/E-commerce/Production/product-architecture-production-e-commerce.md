@@ -58,7 +58,7 @@ You must mandate the use of the `next/image` component with strict **Priority Ca
 
 ---
 
-## ✅ Product Architecture Checklist
+##  Product Architecture Checklist
 
 - [ ] Enforce the Parent-Variant relational schema; never let the AI build a "flat" product table.
 - [ ] Utilize Metafields in your Commerce Engine for custom data, avoiding external databases.

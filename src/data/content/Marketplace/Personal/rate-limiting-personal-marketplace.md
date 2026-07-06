@@ -65,9 +65,9 @@ router.post("/orders", requireAuth, checkoutLimiter, createOrder);
 This distinction trips people up constantly, and the wrong choice either fails to stop abuse or breaks legitimate shared-network users.
 
 > ** Validation Checklist**
-> - [ ] Does login limiting key on IP (since the account isn't authenticated yet)?
-> - [ ] Does listing creation / checkout key on account ID, not IP? (Multiple legitimate users on the same network — office, university, shared NAT — shouldn't share one limit)
-> - [ ] For unauthenticated endpoints (public search), is IP-based limiting generous enough to not break normal browsing, but tight enough to deter scraping?
+- [ ] Does login limiting key on IP (since the account isn't authenticated yet)?
+- [ ] Does listing creation / checkout key on account ID, not IP? (Multiple legitimate users on the same network — office, university, shared NAT — shouldn't share one limit)
+- [ ] For unauthenticated endpoints (public search), is IP-based limiting generous enough to not break normal browsing, but tight enough to deter scraping?
 
 ---
 
@@ -107,11 +107,11 @@ const messageLimiter = rateLimit({
 >
 > For each endpoint below, suggest an appropriate limit and whether it should key on
 > IP or account ID, with a one-sentence justification based on the abuse scenario:
-> - POST /orders (checkout)
-> - GET /listings (search/browse)
-> - POST /listings/:id/review
-> - POST /auth/password-reset-request
-> - PATCH /listings/:id/status
+- POST /orders (checkout)
+- GET /listings (search/browse)
+- POST /listings/:id/review
+- POST /auth/password-reset-request
+- PATCH /listings/:id/status
 >
 > Use express-rate-limit with custom keyGenerator functions. Return clear 429 error
 > messages, not silent drops. Don't suggest Redis — single-server in-memory limiting
@@ -128,10 +128,10 @@ const messageLimiter = rateLimit({
 ## Validating AI Output
 
 > ** Validation Checklist**
-> - [ ] Does each limit's `keyGenerator` match the IP-vs-account decision appropriate for that endpoint? (Login → IP; checkout → account)
-> - [ ] Are the suggested numbers actually justified, or just copy-pasted defaults across every route?
-> - [ ] Does the response include a clear error message, not a bare status code?
-> - [ ] Did AI suggest rate limiting as a workaround for a missing authorization check anywhere? (Reject that suggestion — fix the auth gap instead)
+- [ ] Does each limit's `keyGenerator` match the IP-vs-account decision appropriate for that endpoint? (Login → IP; checkout → account)
+- [ ] Are the suggested numbers actually justified, or just copy-pasted defaults across every route?
+- [ ] Does the response include a clear error message, not a bare status code?
+- [ ] Did AI suggest rate limiting as a workaround for a missing authorization check anywhere? (Reject that suggestion — fix the auth gap instead)
 
 ---
 

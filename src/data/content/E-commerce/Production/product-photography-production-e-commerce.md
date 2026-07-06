@@ -122,7 +122,7 @@ By enforcing `aspect-[4/5]` on the parent `div`, the browser paints a gray recta
 
 ---
 
-## ✅ Photography Asset Checklist
+##  Photography Asset Checklist
 
 - [ ] Ban local storage of product images in the Git repository. Mandate an external CDN/DAM like Cloudinary or S3.
 - [ ] Implement dynamic URL transformations to request WebP (`f_auto`) and lossless compression (`q_auto`) directly from the CDN edge.

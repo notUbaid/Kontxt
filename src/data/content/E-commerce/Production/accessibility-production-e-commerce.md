@@ -51,7 +51,7 @@ You will instruct the AI to add `eslint-plugin-jsx-a11y` to your repository. If 
 
 ---
 
-## ✅ Accessibility Checklist
+##  Accessibility Checklist
 
 - [ ] Accept that WCAG 2.1 AA Compliance is a legal and ethical mandate, not a "nice-to-have."
 - [ ] Ensure all modals and cart drawers utilize Focus Trapping so keyboard users do not get lost in the DOM.

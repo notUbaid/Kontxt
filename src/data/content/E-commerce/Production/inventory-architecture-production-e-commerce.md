@@ -53,7 +53,7 @@ You use **Soft Allocation**. The item is only hard-reserved the absolute millise
 
 ---
 
-## ✅ Inventory Architecture Checklist
+##  Inventory Architecture Checklist
 
 - [ ] Accept that frontend inventory counts are "hints," not mathematical truths.
 - [ ] Ensure your database or Commerce Engine uses strict row-locking (Pessimistic Locking) to prevent race conditions.

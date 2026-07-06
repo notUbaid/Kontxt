@@ -436,7 +436,7 @@ const ERROR_CONFIG: Record<AIError["type"], {
   retryable: boolean
 }> = {
   timeout:          { icon: "⏱", defaultMessage: "Response timed out.", retryable: true },
-  rate_limit:       { icon: "⏳", defaultMessage: "Too many requests. Wait a moment.", retryable: true },
+  rate_limit:       { icon: "", defaultMessage: "Too many requests. Wait a moment.", retryable: true },
   refusal:          { icon: "", defaultMessage: "I can't help with that.", retryable: false },
   context_overflow: { icon: "", defaultMessage: "Conversation too long.", retryable: false },
   empty_response:   { icon: "", defaultMessage: "No response generated.", retryable: true },

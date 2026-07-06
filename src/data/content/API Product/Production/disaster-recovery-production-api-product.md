@@ -24,7 +24,7 @@ Every disaster recovery architecture decision flows from two numbers you have to
 | **RTO** (Recovery Time Objective) | How long can we be down? | "API must be back within 1 hour" |
 | **RPO** (Recovery Point Objective) | How much recent data can we afford to lose? | "We can lose up to 15 minutes of writes" |
 
-> **⚠️ Warning:** Teams that skip setting explicit RTO/RPO numbers don't avoid the decision — they just make it accidentally, during the incident, under pressure, usually arriving at a worse answer than they would have chosen calmly in advance. Set these numbers now, even if the answer is an imperfect estimate.
+> **️ Warning:** Teams that skip setting explicit RTO/RPO numbers don't avoid the decision — they just make it accidentally, during the incident, under pressure, usually arriving at a worse answer than they would have chosen calmly in advance. Set these numbers now, even if the answer is an imperfect estimate.
 
 ## Decision: What RTO/RPO Does Your API Actually Need?
 
@@ -34,7 +34,7 @@ Every disaster recovery architecture decision flows from two numbers you have to
 | Paid API with customer integrations depending on it | Under 1 hour | Minutes | Customer's own product breaks when yours is down |
 | API handling financial/health/critical data | Minutes | Near-zero | Data loss has legal/compliance consequences, not just inconvenience |
 
-> **✅ Best Practice:** Don't default to "as close to zero as possible" for both numbers without checking the cost. Near-zero RPO typically requires synchronous multi-region replication, which adds real latency and infrastructure cost to every write. Match your RTO/RPO to what your actual customers and contracts require — not to an abstract ideal of "perfect."
+> ** Best Practice:** Don't default to "as close to zero as possible" for both numbers without checking the cost. Near-zero RPO typically requires synchronous multi-region replication, which adds real latency and infrastructure cost to every write. Match your RTO/RPO to what your actual customers and contracts require — not to an abstract ideal of "perfect."
 
 ## The Failure Modes Disaster Recovery Actually Covers
 
@@ -45,7 +45,7 @@ Every disaster recovery architecture decision flows from two numbers you have to
 | Entire cloud region outage | No — backups in the same region are also down | Yes — need cross-region failover |
 | Bad deploy that corrupts data before anyone notices | No — by the time you notice, recent backups may also be corrupted | Yes — need detection + rollback plan |
 
-> **⚠️ Warning:** A backup stored in the same region as your primary database doesn't protect you from a regional outage — it fails at exactly the moment you need it. If your RTO/RPO targets require regional resilience, your backups must live in a genuinely separate region, verified, not assumed.
+> **️ Warning:** A backup stored in the same region as your primary database doesn't protect you from a regional outage — it fails at exactly the moment you need it. If your RTO/RPO targets require regional resilience, your backups must live in a genuinely separate region, verified, not assumed.
 
 ## Designing for the Failure You're Least Prepared For
 
@@ -56,7 +56,7 @@ Most teams have *some* answer for "database server crashes" (restore from backup
 - [ ] What's the plan if your DNS provider, not your infrastructure, is the thing that's down?
 - [ ] Who is authorized to declare a disaster and trigger failover, and are they reachable at 3am?
 
-> **💡 Tip:** The "bad deploy corrupts data silently" scenario is the one most teams are least prepared for, because it doesn't look like an outage at first — the API stays up and returns 200s while writing wrong data. Point-in-time recovery (not just periodic snapshots) is what saves you here, letting you restore to the exact moment before the bad deploy, not just the last nightly backup.
+> ** Tip:** The "bad deploy corrupts data silently" scenario is the one most teams are least prepared for, because it doesn't look like an outage at first — the API stays up and returns 200s while writing wrong data. Point-in-time recovery (not just periodic snapshots) is what saves you here, letting you restore to the exact moment before the bad deploy, not just the last nightly backup.
 
 ## Failover Architecture Options
 
@@ -66,7 +66,7 @@ Most teams have *some* answer for "database server crashes" (restore from backup
 | Warm standby in a second region, manual cutover | Tens of minutes | Medium | Medium |
 | Active-active multi-region with automated failover | Minutes or less | High | High |
 
-> **✅ Best Practice:** Most API products at early-to-mid scale should choose warm standby with manual (but rehearsed) cutover, not full active-active. Active-active multi-region is expensive and operationally complex — appropriate once you have the scale and customer commitments (and revenue) to justify it, not as a default starting point.
+> ** Best Practice:** Most API products at early-to-mid scale should choose warm standby with manual (but rehearsed) cutover, not full active-active. Active-active multi-region is expensive and operationally complex — appropriate once you have the scale and customer commitments (and revenue) to justify it, not as a default starting point.
 
 ## A Disaster Recovery Plan You've Never Tested Isn't a Plan
 
@@ -77,7 +77,7 @@ This is the single biggest gap between teams that recover quickly and teams that
 - [ ] Document exactly what broke during the drill that the written plan didn't account for
 - [ ] Repeat regularly — a plan that worked a year ago may not reflect your current architecture
 
-> **⚠️ Warning:** An untested DR plan tends to fail in ways nobody anticipated — a runbook step that assumes access someone doesn't have, a script that breaks on a schema that's since changed, a contact who's left the company. The only way to find these gaps before a real disaster is to deliberately simulate one.
+> **️ Warning:** An untested DR plan tends to fail in ways nobody anticipated — a runbook step that assumes access someone doesn't have, a script that breaks on a schema that's since changed, a contact who's left the company. The only way to find these gaps before a real disaster is to deliberately simulate one.
 
 ## Use AI to Pressure-Test Your DR Plan
 
@@ -97,7 +97,7 @@ For each scenario, flag any step in the plan that's vague, untested,
 or depends on an assumption that might not hold during a real incident.
 ```
 
-> **💡 Token Efficiency:** Run this as a single focused review after your DR plan is drafted, rather than iterating scenario-by-scenario across multiple separate conversations — the tabletop format benefits from AI holding all three scenarios in context at once to spot plan-wide gaps, not just per-scenario ones.
+> ** Token Efficiency:** Run this as a single focused review after your DR plan is drafted, rather than iterating scenario-by-scenario across multiple separate conversations — the tabletop format benefits from AI holding all three scenarios in context at once to spot plan-wide gaps, not just per-scenario ones.
 
 ## Validate Before Moving On
 

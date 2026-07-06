@@ -38,8 +38,8 @@ Most beginner stores only track `on_hand` and decrement it at purchase. This wor
 ```
 inventory_quantity = 1
 
-User A adds to cart → reads quantity: 1 ✓
-User B adds to cart → reads quantity: 1 ✓ (read before A's decrement)
+User A adds to cart → reads quantity: 1 
+User B adds to cart → reads quantity: 1  (read before A's decrement)
 
 User A completes payment → quantity becomes 0
 User B completes payment → quantity becomes -1

@@ -100,7 +100,7 @@ Ensure every custom mutation API route writes a row to an `AdminAuditLog` table 
 
 ---
 
-## ✅ Admin Engineering Checklist
+##  Admin Engineering Checklist
 
 - [ ] Decouple the Admin Dashboard from the main storefront repository. Use tools like Retool to save hundreds of engineering hours.
 - [ ] Enforce strict Role-Based Access Control (RBAC) at the Next.js API level.

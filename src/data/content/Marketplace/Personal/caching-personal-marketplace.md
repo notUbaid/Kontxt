@@ -75,9 +75,9 @@ async function getSellerRating(sellerId) {
 ```
 
 > ** Validation Checklist**
-> - [ ] Is there a TTL, not an indefinite cache? (Indefinite caches are the most common source of "why is this showing old data" bugs)
-> - [ ] Is the cache invalidated (or just left to expire naturally) when a new review is submitted?
-> - [ ] Does the cache key correctly scope to the entity (per `sellerId`), not a single global value?
+- [ ] Is there a TTL, not an indefinite cache? (Indefinite caches are the most common source of "why is this showing old data" bugs)
+- [ ] Is the cache invalidated (or just left to expire naturally) when a new review is submitted?
+- [ ] Does the cache key correctly scope to the entity (per `sellerId`), not a single global value?
 
 ---
 
@@ -117,10 +117,10 @@ router.get("/categories", (req, res) => {
 ## What NOT to Cache
 
 > ** Validation Checklist — Never cache these**
-> - [ ] Order status / payment confirmation
-> - [ ] Listing price or availability on the detail page where a purchase happens
-> - [ ] Anything inside an authenticated, per-user response (messages, "my listings," account settings)
-> - [ ] Search results beyond a few seconds — long enough to deduplicate identical rapid requests, not long enough to show meaningfully outdated availability
+- [ ] Order status / payment confirmation
+- [ ] Listing price or availability on the detail page where a purchase happens
+- [ ] Anything inside an authenticated, per-user response (messages, "my listings," account settings)
+- [ ] Search results beyond a few seconds — long enough to deduplicate identical rapid requests, not long enough to show meaningfully outdated availability
 
 ---
 
@@ -151,10 +151,10 @@ router.get("/categories", (req, res) => {
 ## Validating AI Output
 
 > ** Validation Checklist**
-> - [ ] Does every cached value have a TTL — no indefinite caches?
-> - [ ] Is order/payment/price data confirmed as explicitly excluded from caching?
-> - [ ] Where invalidation is shown, does it trigger on the actual write path (e.g. listing status update), not just rely on expiry?
-> - [ ] Are cache keys scoped correctly (per-seller, per-listing), not accidentally shared/global?
+- [ ] Does every cached value have a TTL — no indefinite caches?
+- [ ] Is order/payment/price data confirmed as explicitly excluded from caching?
+- [ ] Where invalidation is shown, does it trigger on the actual write path (e.g. listing status update), not just rely on expiry?
+- [ ] Are cache keys scoped correctly (per-seller, per-listing), not accidentally shared/global?
 
 ---
 

@@ -55,7 +55,7 @@ You must establish a strict **Zero-Bloat Rule**.
 
 ---
 
-## ✅ Tech Stack Checklist
+##  Tech Stack Checklist
 
 - [ ] Lock in Next.js (App Router) as the non-negotiable frontend framework.
 - [ ] Enforce strict TypeScript; ban the AI from using `any` types.

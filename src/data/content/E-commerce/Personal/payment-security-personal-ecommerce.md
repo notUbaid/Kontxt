@@ -23,7 +23,7 @@ You're auditing, not rebuilding, your Phase 3 payment integration. If you used S
 
 ## The One Rule That Matters Most
 
-> **⚠️ Warning:** Your server should never see, log, or store a raw card number, CVV, or full card details — ever. If your code has a variable holding a card number at any point, something is wrong. Use your payment provider's hosted fields, Elements, or Checkout, which send card data directly from the customer's browser to the provider, never through your server.
+> **️ Warning:** Your server should never see, log, or store a raw card number, CVV, or full card details — ever. If your code has a variable holding a card number at any point, something is wrong. Use your payment provider's hosted fields, Elements, or Checkout, which send card data directly from the customer's browser to the provider, never through your server.
 
 This single rule eliminates the vast majority of payment-related compliance burden (PCI DSS) and most realistic attack surface. Everything else in this module is secondary to getting this right.
 
@@ -45,7 +45,7 @@ You're **not** building your own PCI-compliant card vault, your own fraud-scorin
 
 This is the most commonly missed item in beginner checkout implementations.
 
-> **⚠️ Common Mistake:** If your checkout flow sends the cart total from the client to create the payment, a customer can modify that number in their browser before submitting. The server must independently calculate the total from the actual product prices and quantities in the database — never trust a price or total sent from the client.
+> **️ Common Mistake:** If your checkout flow sends the cart total from the client to create the payment, a customer can modify that number in their browser before submitting. The server must independently calculate the total from the actual product prices and quantities in the database — never trust a price or total sent from the client.
 
 ```
 Client sends: cart items (product IDs + quantities) — NOT prices, NOT totals
@@ -79,7 +79,7 @@ missing verification or idempotency if generated without being asked
 explicitly.
 ```
 
-> **💡 Tip:** Ask specifically about idempotency keys, even if you're not sure what they are yet. Payment providers retry webhook delivery if they don't get a fast response from your server, which means your handler *will* receive the same "payment succeeded" event more than once in normal operation, not just in edge cases.
+> ** Tip:** Ask specifically about idempotency keys, even if you're not sure what they are yet. Payment providers retry webhook delivery if they don't get a fast response from your server, which means your handler *will* receive the same "payment succeeded" event more than once in normal operation, not just in edge cases.
 
 ---
 

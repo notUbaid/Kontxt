@@ -26,7 +26,7 @@ Every billing architecture decision traces back to one tension: metering accurat
 | Hybrid (base + overage) | Subscription includes a quota, overages billed per-unit | Most production APIs — predictable floor, scales with usage |
 | Seat-based | Priced per user/team member, not API usage | APIs that are a feature of a larger product, not the product itself |
 
-> **✅ Best Practice:** Default to hybrid (base + overage) unless you have a specific reason not to. It gives customers predictable budgeting (the thing finance teams actually need to approve a purchase) while still letting revenue scale with the value heavy users get from your API.
+> ** Best Practice:** Default to hybrid (base + overage) unless you have a specific reason not to. It gives customers predictable budgeting (the thing finance teams actually need to approve a purchase) while still letting revenue scale with the value heavy users get from your API.
 
 ## The Core Architectural Components
 
@@ -41,7 +41,7 @@ Request → Usage Event → Metering Pipeline → Aggregation → Billing Engine
 | Aggregation | Rolls up events into billing periods | Recomputing totals from raw events on every dashboard load |
 | Billing Engine | Applies pricing rules, generates invoices | Hardcoding pricing logic instead of treating it as configurable data |
 
-> **⚠️ Warning:** Never meter usage synchronously inside the request/response cycle. If your billing system is slow or briefly down, it should never be able to slow down or fail the actual API call a customer is paying for. Decouple metering from serving — usage events should be fire-and-forget, queued for async processing.
+> **️ Warning:** Never meter usage synchronously inside the request/response cycle. If your billing system is slow or briefly down, it should never be able to slow down or fail the actual API call a customer is paying for. Decouple metering from serving — usage events should be fire-and-forget, queued for async processing.
 
 ## Decision: Where Does Usage Get Recorded?
 
@@ -51,13 +51,13 @@ Request → Usage Event → Metering Pipeline → Aggregation → Billing Engine
 | Derive from infrastructure logs (gateway/proxy) | Medium — depends on log fidelity | None on app | Low |
 | Third-party metering/billing platform (Stripe Billing, Orb, Metronome) | High | Minimal | Low — but adds a dependency |
 
-> **💡 Tip:** For a new API product, a third-party metering platform is usually the right call. Building accurate, race-condition-free usage aggregation from scratch is a genuinely hard distributed systems problem — and it's not the part of your product that creates differentiated value. Buy this, build your actual API.
+> ** Tip:** For a new API product, a third-party metering platform is usually the right call. Building accurate, race-condition-free usage aggregation from scratch is a genuinely hard distributed systems problem — and it's not the part of your product that creates differentiated value. Buy this, build your actual API.
 
 ## Idempotency Is Not Optional Here
 
 If a usage event gets recorded twice — due to a retry, a queue redelivery, a network blip — a customer gets billed twice for one request. This is the single most damaging class of billing bug, because customers notice immediately and trust erodes fast.
 
-> **⚠️ Warning:** Every usage event must carry an idempotency key (e.g. the request ID) and your metering pipeline must deduplicate on it. Without this, *any* retry logic anywhere in your stack — yours or your infrastructure provider's — becomes a double-billing risk.
+> **️ Warning:** Every usage event must carry an idempotency key (e.g. the request ID) and your metering pipeline must deduplicate on it. Without this, *any* retry logic anywhere in your stack — yours or your infrastructure provider's — becomes a double-billing risk.
 
 ## Designing for the Disputes You Will Get
 
@@ -66,7 +66,7 @@ If a usage event gets recorded twice — due to a retry, a queue redelivery, a n
 - [ ] Can a customer (or your support team) see real-time usage against their quota, not just at billing-cycle end?
 - [ ] Is there a defined grace period or soft-limit behavior before hard cutoffs, or does usage just stop working at the quota line?
 
-> **✅ Best Practice:** Expose usage-to-date via your own API (e.g. `GET /v1/usage`). Customers who can self-serve "how much have I used this month" generate far fewer support tickets than customers who have to guess or email you — and it's the same pattern Stripe and Twilio both expose publicly for this exact reason.
+> ** Best Practice:** Expose usage-to-date via your own API (e.g. `GET /v1/usage`). Customers who can self-serve "how much have I used this month" generate far fewer support tickets than customers who have to guess or email you — and it's the same pattern Stripe and Twilio both expose publicly for this exact reason.
 
 ## Use AI to Stress-Test Your Billing Design
 
@@ -86,7 +86,7 @@ Focus only on:
 Do not suggest pricing strategy changes — only architectural correctness.
 ```
 
-> **💡 Token Efficiency:** Describe the flow in prose and a diagram rather than pasting full implementation code at this stage — architecture review needs the shape of the system, not every line, and costs far fewer tokens to iterate on.
+> ** Token Efficiency:** Describe the flow in prose and a diagram rather than pasting full implementation code at this stage — architecture review needs the shape of the system, not every line, and costs far fewer tokens to iterate on.
 
 ## Validate Before Moving On
 

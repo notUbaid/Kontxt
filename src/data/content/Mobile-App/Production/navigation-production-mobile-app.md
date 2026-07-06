@@ -42,13 +42,13 @@ RootNavigator (Stack)
               └── Checkout
 ```
 
-> 💡 **Why each tab gets its own nested stack:** if `HomeStack` and `ProfileStack` shared one flat navigator, navigating from Home into a detail screen would visually replace the tab bar, and switching tabs would lose your place in whatever flow you were in. Nesting a stack inside each tab keeps each tab's navigation history independent — switching tabs and back returns you exactly where you left off.
+>  **Why each tab gets its own nested stack:** if `HomeStack` and `ProfileStack` shared one flat navigator, navigating from Home into a detail screen would visually replace the tab bar, and switching tabs would lose your place in whatever flow you were in. Nesting a stack inside each tab keeps each tab's navigation history independent — switching tabs and back returns you exactly where you left off.
 
 ---
 
 ## Decision 2 — Auth-Gated Navigation Switching
 
-> ⚠️ **Common mistake:** checking auth state inside individual screens and redirecting manually (`if (!user) navigation.navigate('Login')`). This scatters auth logic across every protected screen and creates race conditions where a screen briefly renders before the redirect fires.
+> ️ **Common mistake:** checking auth state inside individual screens and redirecting manually (`if (!user) navigation.navigate('Login')`). This scatters auth logic across every protected screen and creates race conditions where a screen briefly renders before the redirect fires.
 
 **Correct pattern:** the root navigator itself switches between `AuthStack` and `AppStack` based on a single auth state source, decided once, at the top.
 
@@ -85,13 +85,13 @@ const linking = {
 };
 ```
 
-> 💡 Map deep link paths to **screens inside the authenticated stack structure**, and let your auth-gating from Decision 2 handle redirecting through login first if needed — don't build a separate, parallel deep-link-specific navigation path. One navigation tree, multiple ways to enter it.
+>  Map deep link paths to **screens inside the authenticated stack structure**, and let your auth-gating from Decision 2 handle redirecting through login first if needed — don't build a separate, parallel deep-link-specific navigation path. One navigation tree, multiple ways to enter it.
 
 ---
 
 ## Decision 4 — Type Safety on Navigation Params
 
-> ⚠️ Untyped navigation (`navigation.navigate('ProductDetail', { id: product.id })` with no type checking) is a common source of runtime crashes — a typo in a screen name or a missing param doesn't surface until that exact navigation path is triggered in testing or production.
+> ️ Untyped navigation (`navigation.navigate('ProductDetail', { id: product.id })` with no type checking) is a common source of runtime crashes — a typo in a screen name or a missing param doesn't surface until that exact navigation path is triggered in testing or production.
 
 Type your entire navigation tree:
 

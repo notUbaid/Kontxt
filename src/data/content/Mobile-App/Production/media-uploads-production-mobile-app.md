@@ -25,13 +25,13 @@ const result = await ImagePicker.launchImageLibraryAsync({
 });
 ```
 
-> 💡 Request camera/library permission contextually — at the moment the user taps "add photo," not earlier. Same principle as location and notification permissions: a permission prompt with no immediate context gets denied more often.
+>  Request camera/library permission contextually — at the moment the user taps "add photo," not earlier. Same principle as location and notification permissions: a permission prompt with no immediate context gets denied more often.
 
 ---
 
 ## Decision 2 — Client-Side Compression Before Upload
 
-> ⚠️ **Never upload a raw, unprocessed photo or video straight from the camera.** Modern phone cameras produce images in the 10-30MB range and 4K video in the hundreds of MB — uploading that directly wastes the user's bandwidth (often cellular, often metered), wastes your storage/egress cost, and makes upload time noticeably worse on slower connections. Compress and resize client-side before the upload even starts.
+> ️ **Never upload a raw, unprocessed photo or video straight from the camera.** Modern phone cameras produce images in the 10-30MB range and 4K video in the hundreds of MB — uploading that directly wastes the user's bandwidth (often cellular, often metered), wastes your storage/egress cost, and makes upload time noticeably worse on slower connections. Compress and resize client-side before the upload even starts.
 
 ```typescript
 const compressed = await ImageManipulator.manipulateAsync(
@@ -65,7 +65,7 @@ async function uploadMedia(fileUri: string, fileType: string) {
 }
 ```
 
-> 💡 Use your HTTP client's native upload progress callback (most support this for multipart/binary uploads) rather than estimating progress — accurate progress feedback meaningfully improves perceived reliability for anything larger than a quick image, and its absence is one of the more noticeable gaps users report.
+>  Use your HTTP client's native upload progress callback (most support this for multipart/binary uploads) rather than estimating progress — accurate progress feedback meaningfully improves perceived reliability for anything larger than a quick image, and its absence is one of the more noticeable gaps users report.
 
 ---
 
@@ -79,7 +79,7 @@ Uploads on mobile get interrupted more than on web — backgrounding, connection
 | Connection drops mid-upload | Retry with backoff; for large files, prefer a resumable/chunked upload approach over restarting from zero |
 | User navigates away from the upload screen | Decide whether the upload continues in the background (preferred for UX) or is cancelled — don't let it silently continue consuming bandwidth indefinitely without the user knowing |
 
-> ⚠️ For large files (video, multi-photo uploads), implement **chunked/resumable upload** rather than a single large request — most storage providers support multipart upload APIs designed exactly for this. A 200MB single-request upload that fails at 95% and must restart from zero is a real, frustrating production experience that resumable upload avoids.
+> ️ For large files (video, multi-photo uploads), implement **chunked/resumable upload** rather than a single large request — most storage providers support multipart upload APIs designed exactly for this. A 200MB single-request upload that fails at 95% and must restart from zero is a real, frustrating production experience that resumable upload avoids.
 
 ---
 

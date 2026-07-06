@@ -59,7 +59,7 @@ You must instruct your AI to use a GraphQL Code Generator (like `graphql-codegen
 
 ---
 
-## ✅ Commerce Engine Checklist
+##  Commerce Engine Checklist
 
 - [ ] Accept the "Buy Mandate": Do not attempt to build a custom PostgreSQL commerce backend from scratch.
 - [ ] Select your Headless Commerce Engine (Shopify Storefront API is recommended for V1).

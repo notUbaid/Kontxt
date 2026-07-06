@@ -48,7 +48,7 @@ Only there can you see the Absolute Truth:
 
 ---
 
-## ✅ Success Metrics Checklist
+##  Success Metrics Checklist
 
 - [ ] Accept that client-side Google Analytics is flawed and cannot be the single source of truth for your business.
 - [ ] Determine which APM tool (e.g., Sentry, Datadog) you will use to track API latency.

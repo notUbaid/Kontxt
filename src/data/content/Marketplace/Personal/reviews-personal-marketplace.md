@@ -67,11 +67,11 @@ const result = await db.review.aggregate({
 This is the part beginners skip and regret. A review system with no abuse protection becomes useless within weeks of real users.
 
 > ** Validation Checklist**
-> - [ ] Can a seller review themself? (Block: `reviewerId !== sellerId`, redundant with the completed-order check but worth asserting explicitly)
-> - [ ] Can a buyer leave multiple reviews for one order? (Blocked by the `@unique` constraint on `orderId`)
-> - [ ] Can a review be left before the order is marked `completed`? (Must check order status, not just existence)
-> - [ ] Is there an edit window, or are reviews permanent? (Recommend: editable for 48 hours, then locked — prevents both regret-deletion of legitimate negative reviews and indefinite tampering)
-> - [ ] Can a seller respond to a review? (Worth adding — gives sellers recourse without enabling them to delete/hide criticism)
+- [ ] Can a seller review themself? (Block: `reviewerId !== sellerId`, redundant with the completed-order check but worth asserting explicitly)
+- [ ] Can a buyer leave multiple reviews for one order? (Blocked by the `@unique` constraint on `orderId`)
+- [ ] Can a review be left before the order is marked `completed`? (Must check order status, not just existence)
+- [ ] Is there an edit window, or are reviews permanent? (Recommend: editable for 48 hours, then locked — prevents both regret-deletion of legitimate negative reviews and indefinite tampering)
+- [ ] Can a seller respond to a review? (Worth adding — gives sellers recourse without enabling them to delete/hide criticism)
 
 > **️ Warning:** Never let sellers delete reviews on their own listings, even negative ones. This is the fastest way to make your review system meaningless — and meaningless reviews are worse than no reviews, because they create false trust.
 
@@ -124,13 +124,13 @@ Note this reuses `requireCompletedOrder` from the prior module rather than rewri
 > [PASTE YOUR REVIEW SCHEMA HERE]
 >
 > Requirements:
-> - POST /orders/:orderId/review — reuse my existing requireCompletedOrder middleware, don't recreate the check
-> - One review per order, enforced at the database level via a unique constraint on orderId
-> - Rating must be an integer 1-5, comment capped at 1000 characters
-> - GET /sellers/:id/rating — compute average rating and count on read (no cached/stored average field)
-> - Reviews are editable by the original reviewer for 48 hours after creation, then locked
-> - Sellers cannot delete reviews on their own listings under any circumstance
-> - Add a sellerResponse field sellers can set once, so they can publicly respond without hiding the review
+- POST /orders/:orderId/review — reuse my existing requireCompletedOrder middleware, don't recreate the check
+- One review per order, enforced at the database level via a unique constraint on orderId
+- Rating must be an integer 1-5, comment capped at 1000 characters
+- GET /sellers/:id/rating — compute average rating and count on read (no cached/stored average field)
+- Reviews are editable by the original reviewer for 48 hours after creation, then locked
+- Sellers cannot delete reviews on their own listings under any circumstance
+- Add a sellerResponse field sellers can set once, so they can publicly respond without hiding the review
 > ```
 >
 > **Why this prompt works:** it explicitly forbids a behavior (sellers deleting reviews) instead of just listing what to build. AI defaults toward giving resource owners full CRUD control unless told otherwise — naming the restriction prevents that default from leaking into a feature where it would undermine the entire point of reviews.

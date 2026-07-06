@@ -70,10 +70,10 @@ function cleanUserContent(input) {
 Full rate limiting infrastructure comes in a later module — but two endpoints need basic protection now, because they're the most commonly abused in marketplaces specifically:
 
 > ** Validation Checklist**
-> - [ ] Login endpoint — limit failed attempts per IP/account to prevent credential stuffing
-> - [ ] Listing creation — limit listings created per account per hour to prevent spam/scraper-bot flooding
-> - [ ] Message sending — limit per thread per minute to prevent harassment via message flooding
-> - [ ] Review submission — already constrained by one-per-order, but verify the order-completion check can't be raced (two simultaneous requests both passing the check before either writes)
+- [ ] Login endpoint — limit failed attempts per IP/account to prevent credential stuffing
+- [ ] Listing creation — limit listings created per account per hour to prevent spam/scraper-bot flooding
+- [ ] Message sending — limit per thread per minute to prevent harassment via message flooding
+- [ ] Review submission — already constrained by one-per-order, but verify the order-completion check can't be raced (two simultaneous requests both passing the check before either writes)
 
 ```js
 import rateLimit from "express-rate-limit";
@@ -130,9 +130,9 @@ Your `GET /listings` endpoint is public by design — but public doesn't mean un
 > ** Common Hallucination:** AI security reviews often flag *theoretical* issues (e.g. "consider adding 2FA," "consider a WAF") at the same severity as *real* exploitable bugs in your actual code (e.g. an endpoint with no ownership check). Don't treat the output as a flat priority list — triage it yourself: anything that lets one user access or modify another user's data is critical; anything that's general hardening advice is optional for a personal project.
 
 > ** Validation Checklist**
-> - [ ] For every flagged issue, can you describe the exact request an attacker would send to exploit it?
-> - [ ] Does the fix actually address the root cause, or just patch the specific example shown?
-> - [ ] Did the review check write endpoints (`POST`/`PUT`/`PATCH`/`DELETE`), not just `GET`?
+- [ ] For every flagged issue, can you describe the exact request an attacker would send to exploit it?
+- [ ] Does the fix actually address the root cause, or just patch the specific example shown?
+- [ ] Did the review check write endpoints (`POST`/`PUT`/`PATCH`/`DELETE`), not just `GET`?
 
 ---
 

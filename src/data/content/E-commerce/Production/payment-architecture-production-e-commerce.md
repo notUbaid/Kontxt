@@ -58,7 +58,7 @@ If a transaction passes 3DS, liability for fraud shifts from you to the bank. Yo
 
 ---
 
-## ✅ Payment Architecture Checklist
+##  Payment Architecture Checklist
 
 - [ ] **CRITICAL:** Forbid the creation of custom HTML inputs for credit cards; mandate iFrames (Stripe Elements) to offload PCI liability.
 - [ ] Enforce the use of Backend Webhooks (not frontend signals) as the sole Source of Truth for marking orders as "Paid."

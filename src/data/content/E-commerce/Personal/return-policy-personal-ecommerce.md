@@ -23,7 +23,7 @@ This connects directly to your Shipping Setup module — return shipping is, mec
 
 A refund policy with no clear return process creates exactly the kind of back-and-forth email exchange a solo store owner has the least capacity to handle well. A defined process — same one, every time — is what keeps returns from eating disproportionate time relative to how rarely they actually happen.
 
-> **💡 Tip:** Returns are typically a small percentage of total orders for most product categories. The cost of a clear, repeatable process is mostly upfront (writing it once); the cost of *not* having one is paid repeatedly, in ad-hoc time, every single time a return happens.
+> ** Tip:** Returns are typically a small percentage of total orders for most product categories. The cost of a clear, repeatable process is mostly upfront (writing it once); the cost of *not* having one is paid repeatedly, in ad-hoc time, every single time a return happens.
 
 ---
 
@@ -48,7 +48,7 @@ You're **not** building automated return-label generation or a self-service retu
 | How do you confirm the item arrived back before refunding? | Protects against refunding before the item is actually returned |
 | What's explicitly non-returnable? | Perishables, made-to-order, opened intimate goods, digital downloads |
 
-> **⚠️ Warning:** Don't promise to refund before confirming the returned item has actually arrived back in acceptable condition. Your policy and your actual process (and your code, if return status is tracked in your order system) should require confirmed receipt before the refund is issued.
+> **️ Warning:** Don't promise to refund before confirming the returned item has actually arrived back in acceptable condition. Your policy and your actual process (and your code, if return status is tracked in your order system) should require confirmed receipt before the refund is issued.
 
 ---
 
@@ -60,7 +60,7 @@ You're **not** building automated return-label generation or a self-service retu
 | **You provide a prepaid return label, deducted from refund or absorbed** | Higher trust, standard expectation in many categories | Moderate, predictable |
 | Free returns, no deduction | Highest trust signal | Highest cost — usually only sustainable at scale or higher margins |
 
-> **✅ Best Practice:** For a personal store with tight margins, "customer pays return shipping, or it's deducted from the refund" is a reasonable, common middle ground — it doesn't damage trust the way "no returns accepted" does, while staying sustainable at low volume.
+> ** Best Practice:** For a personal store with tight margins, "customer pays return shipping, or it's deducted from the refund" is a reasonable, common middle ground — it doesn't damage trust the way "no returns accepted" does, while staying sustainable at low volume.
 
 ---
 
@@ -96,7 +96,7 @@ A return shouldn't require re-deciding the process each time:
 4. You confirm receipt and inspect condition
 5. Refund is issued per your Refund Policy, referencing the confirmed return
 
-> **💡 Tip:** Track return status on the order record itself (requested → approved → received → refunded), even if your admin tooling is simple. A return with no tracked status is the easiest kind of request to lose track of when you're running the store solo.
+> ** Tip:** Track return status on the order record itself (requested → approved → received → refunded), even if your admin tooling is simple. A return with no tracked status is the easiest kind of request to lose track of when you're running the store solo.
 
 ---
 

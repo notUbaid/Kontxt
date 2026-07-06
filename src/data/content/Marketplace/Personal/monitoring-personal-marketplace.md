@@ -48,15 +48,15 @@ Personal projects don't need full observability stacks. They need three specific
 Alert fatigue is real even solo — if everything pages you, you'll start ignoring all of it. Be deliberate:
 
 > ** Validation Checklist — Alert-worthy**
-> - [ ] Server is down / API unreachable
-> - [ ] Payment/checkout flow throws an error (directly costs a transaction)
-> - [ ] Error rate spikes above a baseline (e.g. 5x normal in 10 minutes)
-> - [ ] Database connection failures
+- [ ] Server is down / API unreachable
+- [ ] Payment/checkout flow throws an error (directly costs a transaction)
+- [ ] Error rate spikes above a baseline (e.g. 5x normal in 10 minutes)
+- [ ] Database connection failures
 
 > **Not alert-worthy (log, but don't page yourself):**
-> - A single 404 on a bad URL
-> - A validation error from bad user input (that's the system working correctly)
-> - Expected auth failures from unauthenticated requests
+- A single 404 on a bad URL
+- A validation error from bad user input (that's the system working correctly)
+- Expected auth failures from unauthenticated requests
 
 ---
 
@@ -107,9 +107,9 @@ app.use(Sentry.Handlers.errorHandler()); // must be after routes, before your ow
 A free external uptime checker pings your API on an interval and alerts you (email/SMS) the moment it stops responding — something you can't detect from inside your own app if the whole server is down.
 
 > ** Validation Checklist**
-> - [ ] Is there a lightweight `/health` endpoint that checks the database connection, not just "the server process is running"?
-> - [ ] Is the uptime checker pointed at `/health`, not just the homepage (which might serve cached/static content even when the backend is broken)?
-> - [ ] Is the alert going somewhere you'll actually see promptly (email is often too slow — consider SMS or a push notification for a personal project you're actively monitoring)?
+- [ ] Is there a lightweight `/health` endpoint that checks the database connection, not just "the server process is running"?
+- [ ] Is the uptime checker pointed at `/health`, not just the homepage (which might serve cached/static content even when the backend is broken)?
+- [ ] Is the alert going somewhere you'll actually see promptly (email is often too slow — consider SMS or a push notification for a personal project you're actively monitoring)?
 
 ```js
 app.get("/health", async (req, res) => {

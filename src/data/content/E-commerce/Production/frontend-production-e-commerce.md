@@ -85,10 +85,10 @@ In e-commerce, product images are the primary cause of CLS.
 You must explicitly define the **Aspect Ratio** of every image container before the image even begins downloading. 
 
 ```tsx
-// ❌ BAD: The browser doesn't know the height until the image downloads. The page will jump.
+//  BAD: The browser doesn't know the height until the image downloads. The page will jump.
 <img src="/shirt.jpg" className="w-full h-auto" />
 
-// ✅ GOOD: The container reserves a perfect square in the DOM instantly. Zero layout shift.
+//  GOOD: The container reserves a perfect square in the DOM instantly. Zero layout shift.
 <div className="relative w-full aspect-square bg-gray-100">
   <Image 
     src="/shirt.jpg" 
@@ -102,7 +102,7 @@ You must explicitly define the **Aspect Ratio** of every image container before 
 
 ---
 
-## ✅ Frontend Engineering Checklist
+##  Frontend Engineering Checklist
 
 - [ ] Maximally leverage React Server Components (RSC) to strip JavaScript from the browser bundle.
 - [ ] Push `"use client"` boundaries as far down the component tree as possible (e.g., wrap only the button, not the whole section).

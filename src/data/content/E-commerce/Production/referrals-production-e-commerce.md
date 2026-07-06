@@ -121,7 +121,7 @@ By delaying the payout until the physical item is delivered, you mathematically 
 
 ---
 
-## ✅ Referrals Engineering Checklist
+##  Referrals Engineering Checklist
 
 - [ ] Engineer a double-sided reward system to incentivize both the referrer and the referee.
 - [ ] Implement Vercel Middleware to parse `/invite/:code` URLs and set a cryptographically secure 30-day HTTP-only attribution cookie.

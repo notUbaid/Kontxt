@@ -16,8 +16,8 @@ You decided on API key auth in Phase 1. This module builds the actual middleware
 ## How Many Keys Do You Actually Need?
 
 > **Decision Card — Single key vs. key table**
-> - **Single static key** (stored in an environment variable) — correct if you're the only real caller: your demo app and your own testing. Fastest to build, nothing to manage.
-> - **Key table in your database** — only needed if your demo specifically involves multiple distinct callers with different keys (e.g. showing per-caller rate limits as a feature).
+- **Single static key** (stored in an environment variable) — correct if you're the only real caller: your demo app and your own testing. Fastest to build, nothing to manage.
+- **Key table in your database** — only needed if your demo specifically involves multiple distinct callers with different keys (e.g. showing per-caller rate limits as a feature).
 
 For most hackathon API products, a single static key is the right call. Don't build key issuance and management infrastructure for a capability your demo won't actually show.
 
@@ -89,10 +89,10 @@ Go back to your route files. Every protected route needs `requireApiKey` (or you
 > Key storage: [single static key in env var / key table]
 >
 > Implement the auth middleware:
-> - extract the key from the Authorization header
-> - validate it against [env var / database], return 401 with my exact
+- extract the key from the Authorization header
+- validate it against [env var / database], return 401 with my exact
 >   error shape if invalid or missing
-> - show me exactly which of my routes need this applied
+- show me exactly which of my routes need this applied
 > ```
 
 > **Tip — Ask explicitly which routes need it.**

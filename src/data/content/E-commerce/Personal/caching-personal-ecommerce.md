@@ -23,10 +23,10 @@ You're optimizing endpoints and pages you already built: product listings, produ
 
 Split everything in your store into two categories before you cache anything:
 
-> **✅ Safe to cache (changes rarely, low cost of being briefly stale):**
+> ** Safe to cache (changes rarely, low cost of being briefly stale):**
 > Product descriptions, images, category pages, store pages (About, Returns Policy), blog/SEO content.
 
-> **⚠️ Never cache without care (changes often, high cost of being wrong):**
+> **️ Never cache without care (changes often, high cost of being wrong):**
 > Stock/inventory counts, prices, cart contents, checkout state, order status, anything tied to a logged-in user's account.
 
 Most beginner caching mistakes come from treating these two categories the same way. A product page can be cached for an hour with no real harm. A "12 left in stock" badge cached for an hour can sell a product you don't have.
@@ -55,7 +55,7 @@ You're **not** building a custom caching layer, a CDN, or a Redis cache for ever
 | Account / order history | Never cached | — |
 | Homepage (featured products) | Cached, revalidated on product change | Minutes to hours |
 
-> **💡 Tip:** A common pattern that resolves the "static page, live stock" tension cleanly: render the product page itself as static/cached, but fetch the live stock count client-side or via a fast, uncached API call. The page loads instantly; the number that actually changes stays accurate.
+> ** Tip:** A common pattern that resolves the "static page, live stock" tension cleanly: render the product page itself as static/cached, but fetch the live stock count client-side or via a fast, uncached API call. The page loads instantly; the number that actually changes stays accurate.
 
 ---
 
@@ -82,7 +82,7 @@ updates in the admin/database actually invalidate the cached page,
 since that's the part most likely to be wrong if left implicit.
 ```
 
-> **⚠️ Warning:** Time-based cache expiry alone ("just cache it for an hour") is not enough for product data. If you update a price or mark something out of stock, the cached page should invalidate *immediately*, not whenever the timer happens to expire. Ask explicitly for on-demand/event-based revalidation, not just a duration.
+> **️ Warning:** Time-based cache expiry alone ("just cache it for an hour") is not enough for product data. If you update a price or mark something out of stock, the cached page should invalidate *immediately*, not whenever the timer happens to expire. Ask explicitly for on-demand/event-based revalidation, not just a duration.
 
 ---
 
@@ -95,7 +95,7 @@ Caching is easy. Knowing *when to throw the cache away* is the actual engineerin
 - An order is placed that affects stock count
 - A coupon/discount is created, edited, or expired
 
-> **✅ Best Practice:** Tie invalidation directly to the write action that changes the data — when the admin saves a product edit, that same code path should trigger the revalidation. Don't rely on a separate cron job to "eventually" catch up; that reintroduces the staleness you were trying to avoid.
+> ** Best Practice:** Tie invalidation directly to the write action that changes the data — when the admin saves a product edit, that same code path should trigger the revalidation. Don't rely on a separate cron job to "eventually" catch up; that reintroduces the staleness you were trying to avoid.
 
 ---
 

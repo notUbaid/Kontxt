@@ -80,7 +80,7 @@ Features that sound important but rarely move the needle for a personal store at
 | Mobile app | Web is your store. App is a later problem. |
 | AI product recommendations | No data to train on yet. |
 
-> ⚠️ **Warning: Scope Creep Disguised as Quality**
+> ️ **Warning: Scope Creep Disguised as Quality**
 >
 > "I just want to do it properly" is the most common reason personal stores never launch. Bucket 2 and 3 features feel like quality improvements. They are actually scope creep. Build Bucket 1. Ship. Then build Bucket 2 features one at a time, driven by actual customer behavior.
 
@@ -139,7 +139,7 @@ If your target is faster, compress Phase 1 (use a UI kit, skip custom design sys
 
 ---
 
-## ✅ MVP Scope Checklist
+##  MVP Scope Checklist
 
 - [ ] I have listed every feature I initially planned and sorted each into Bucket 1, 2, or 3
 - [ ] My Bucket 1 list has no features that belong in Bucket 2
@@ -180,14 +180,14 @@ Be direct. Challenge my assumptions.
 
 You have now defined:
 
-- ✅ Who you're building for and what success looks like
-- ✅ What your store is mechanically and how it works
-- ✅ What you sell, who buys it, and why they buy from you
-- ✅ What your brand signals and how it speaks
-- ✅ What your catalog contains and how it's structured
-- ✅ Whether your economics are viable
-- ✅ How you've priced your products and why
-- ✅ Exactly what you're building and what you're not
+-  Who you're building for and what success looks like
+-  What your store is mechanically and how it works
+-  What you sell, who buys it, and why they buy from you
+-  What your brand signals and how it speaks
+-  What your catalog contains and how it's structured
+-  Whether your economics are viable
+-  How you've priced your products and why
+-  Exactly what you're building and what you're not
 
 This is the foundation. Everything built in Phase 1 through Phase 5 stands on these decisions.
 

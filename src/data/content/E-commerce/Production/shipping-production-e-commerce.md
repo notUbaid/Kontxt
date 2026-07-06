@@ -119,7 +119,7 @@ This guarantees that even if the EasyPost API is down for an hour, the worker wi
 
 ---
 
-## ✅ Shipping Engineering Checklist
+##  Shipping Engineering Checklist
 
 - [ ] Execute real-time dynamic rating via EasyPost/Shippo, passing exact volumetric dimensions (LxWxH) to protect margins.
 - [ ] Implement a strict Fallback Matrix (`catch` block) to ensure the checkout never crashes if the carrier API goes down.

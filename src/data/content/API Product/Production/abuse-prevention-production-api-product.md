@@ -27,7 +27,7 @@ This is a real tradeoff, not a free win. Every abuse-prevention measure has a fa
 | Calls an expensive third-party (AI inference) | Cost exhaustion — running up your bill via free-tier accounts |
 | Creates content/accounts on behalf of users | Bot account creation, fake engagement |
 
-> **⚠️ Warning:** Don't design generic "abuse prevention" — design for *your* specific abuse vector. A payment API and a content-generation API face completely different threats, and generic rate limiting alone stops neither effectively.
+> **️ Warning:** Don't design generic "abuse prevention" — design for *your* specific abuse vector. A payment API and a content-generation API face completely different threats, and generic rate limiting alone stops neither effectively.
 
 ## Rate Limiting Is Necessary, Not Sufficient
 
@@ -41,7 +41,7 @@ A sophisticated actor doesn't violate your rate limit — they create 500 free-t
 | Usage pattern mismatched to stated use case | An account claiming "personal project" generating production-scale traffic |
 | Geographic/network anomalies (datacenter IPs on a consumer-facing API) | Automated, non-human traffic |
 
-> **✅ Best Practice:** Layer signals instead of relying on any single one. A datacenter IP alone isn't proof of abuse — plenty of legitimate developers test from cloud servers. Combine multiple weak signals into a confidence score rather than hard-blocking on one signal alone.
+> ** Best Practice:** Layer signals instead of relying on any single one. A datacenter IP alone isn't proof of abuse — plenty of legitimate developers test from cloud servers. Combine multiple weak signals into a confidence score rather than hard-blocking on one signal alone.
 
 ## Decision: Where to Add Friction
 
@@ -53,7 +53,7 @@ A sophisticated actor doesn't violate your rate limit — they create 500 free-t
 | CAPTCHA on signup only | Low if done once | Moderate — modern bots increasingly solve these |
 | Require payment method even for free tier | Medium-high — filters out low-intent users entirely | Strong — most abuse doesn't want to attach a real card |
 
-> **💡 Tip:** Requiring a payment method (charged $0, or a small refundable hold) for free-tier access is one of the highest-leverage anti-abuse measures available, because it raises the cost of mass account creation significantly while adding minimal friction for genuine developers who intend to actually use your product.
+> ** Tip:** Requiring a payment method (charged $0, or a small refundable hold) for free-tier access is one of the highest-leverage anti-abuse measures available, because it raises the cost of mass account creation significantly while adding minimal friction for genuine developers who intend to actually use your product.
 
 ## Designing the Response to Detected Abuse
 
@@ -64,13 +64,13 @@ How you respond matters as much as how you detect. A binary "ban immediately" ap
 - [ ] Log every abuse-prevention action with the reasoning, for later review and tuning
 - [ ] Avoid telling a blocked actor exactly which signal triggered the block — this teaches them what to change
 
-> **⚠️ Warning:** Immediate hard bans on first detection create two problems: legitimate users with no recourse, and confirmed abusers who simply learn your detection logic and route around it next time. A graduated response is harder to build but performs better against both failure modes.
+> **️ Warning:** Immediate hard bans on first detection create two problems: legitimate users with no recourse, and confirmed abusers who simply learn your detection logic and route around it next time. A graduated response is harder to build but performs better against both failure modes.
 
 ## Don't Let Abuse Prevention Become a New Attack Surface
 
 Abuse-detection systems that use user-controllable signals can themselves be exploited.
 
-> **⚠️ Warning:** An attacker who learns your system flags datacenter IPs will simply route through residential proxies. An attacker who learns your system flags rapid signups will space them out. Treat your abuse-detection logic itself as sensitive — don't document specific thresholds anywhere a customer or attacker could read them, including in public API docs or error messages.
+> **️ Warning:** An attacker who learns your system flags datacenter IPs will simply route through residential proxies. An attacker who learns your system flags rapid signups will space them out. Treat your abuse-detection logic itself as sensitive — don't document specific thresholds anywhere a customer or attacker could read them, including in public API docs or error messages.
 
 ## Use AI to Threat-Model Your Specific API
 
@@ -88,7 +88,7 @@ does. For each vector, suggest:
 3. Any abuse pattern specific to this category that's easy to miss
 ```
 
-> **💡 Token Efficiency:** Be specific about what your API actually does — "an API" gets generic rate-limiting advice you already know; "an API that sends SMS on behalf of users" gets you the actual relevant threat (spam/phishing routing) worth designing against.
+> ** Token Efficiency:** Be specific about what your API actually does — "an API" gets generic rate-limiting advice you already know; "an API that sends SMS on behalf of users" gets you the actual relevant threat (spam/phishing routing) worth designing against.
 
 ## Validate Before Moving On
 

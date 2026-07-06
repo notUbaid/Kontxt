@@ -75,7 +75,7 @@ You must prove that your architecture can handle a 100x traffic spike (e.g., a v
 
 ---
 
-## ✅ Presentation Prep Checklist
+##  Presentation Prep Checklist
 
 - [ ] Generate a comprehensive System Design diagram (Mermaid/Excalidraw) mapping the exact boundaries between Vercel, PostgreSQL, Redis, Stripe, and the Event Bus.
 - [ ] Master the verbal defense of your Financial Pipeline, explicitly understanding Idempotency, PCI Compliance, and Dynamic Tax Calculation.

@@ -57,8 +57,8 @@ An idempotent operation produces the same result no matter how many times you ru
 Middleware is logic that runs before your route handlers, shared across multiple (or all) routes — auth checks, request body parsing, and error formatting are the three you'll actually need.
 
 > **Decision Card — What belongs in middleware vs. in your handler**
-> - **Middleware:** auth key validation, JSON body parsing, catching unhandled errors and formatting them per your locked error shape
-> - **Handler:** the logic specific to *this* endpoint — reading the validated request, calling business logic, returning the response
+- **Middleware:** auth key validation, JSON body parsing, catching unhandled errors and formatting them per your locked error shape
+- **Handler:** the logic specific to *this* endpoint — reading the validated request, calling business logic, returning the response
 
 Putting auth checks in every individual handler instead of one shared middleware is a common beginner pattern — it works at 3 endpoints and becomes a maintenance problem at 6, exactly when you have the least time to deal with it.
 

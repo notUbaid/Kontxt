@@ -27,7 +27,7 @@ The settings screen is one of the least glamorous parts of an app and one of the
 | Support/feedback contact | |
 | App version/build info | |
 
-> 💡 If you're unsure whether something belongs in settings, ask: would a user go looking for this, or does it make more sense surfaced at the point of use? A "default sort order" preference belongs in settings; a "sort by price" toggle on a specific list screen belongs on that screen, not buried in a settings menu the user won't think to check.
+>  If you're unsure whether something belongs in settings, ask: would a user go looking for this, or does it make more sense surfaced at the point of use? A "default sort order" preference belongs in settings; a "sort by price" toggle on a specific list screen belongs on that screen, not buried in a settings menu the user won't think to check.
 
 ---
 
@@ -50,7 +50,7 @@ const useSettingsStore = create(
 );
 ```
 
-> ⚠️ **Decide explicitly which settings sync to the server (and across the user's devices) versus which stay purely local.** Theme preference might reasonably be local-only; notification preferences likely should sync server-side, since your Push Notifications backend needs to know whether to send at all, not just whether the local UI shows a toggle. A setting that's only stored locally but is supposed to control server behavior is a common, confusing bug.
+> ️ **Decide explicitly which settings sync to the server (and across the user's devices) versus which stay purely local.** Theme preference might reasonably be local-only; notification preferences likely should sync server-side, since your Push Notifications backend needs to know whether to send at all, not just whether the local UI shows a toggle. A setting that's only stored locally but is supposed to control server behavior is a common, confusing bug.
 
 ---
 
@@ -66,7 +66,7 @@ This is usually the most complex part of a settings screen, and it should connec
 
 ## Decision 4 — Account Deletion (Don't Skip This)
 
-> ⚠️ Both the App Store and Play Store require apps that support account creation to provide account deletion within the app itself, not just via a support email — this is checked during review, and missing it is a real rejection reason. Build this now rather than discovering the requirement during submission in Phase 5.
+> ️ Both the App Store and Play Store require apps that support account creation to provide account deletion within the app itself, not just via a support email — this is checked during review, and missing it is a real rejection reason. Build this now rather than discovering the requirement during submission in Phase 5.
 
 - Deletion should be genuinely reachable — not buried behind multiple unnecessary steps designed to discourage it (this is explicitly against store guidelines, and it's also just bad practice).
 - Decide what "delete account" actually does server-side: hard delete vs. anonymization vs. soft-delete-with-grace-period — this connects back to your Database Setup module's soft/hard delete decisions per table, applied here to the user's full data footprint.

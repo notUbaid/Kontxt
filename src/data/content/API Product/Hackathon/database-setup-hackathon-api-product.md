@@ -85,10 +85,10 @@ Go back to the core logic you built and verified in API Implementation. It was t
 > e.g. createTranscript, getTranscriptById, createActionItems]
 >
 > Implement these as isolated data access functions:
-> - parameterized queries only, no string concatenation
-> - appropriate connection handling for [serverless / traditional server]
-> - each function does one operation, no business logic mixed in
-> - throw clear errors on failure rather than silently returning null
+- parameterized queries only, no string concatenation
+- appropriate connection handling for [serverless / traditional server]
+- each function does one operation, no business logic mixed in
+- throw clear errors on failure rather than silently returning null
 > ```
 
 > **Tip — List the exact functions you need rather than asking for "a database layer."**

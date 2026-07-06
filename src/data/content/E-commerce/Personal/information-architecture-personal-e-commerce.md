@@ -98,7 +98,7 @@ Every page your store needs. Organized by zone.
 /admin/inventory            Inventory overview
 ```
 
-> 💡 **Tip: Admin Scope at MVP**
+>  **Tip: Admin Scope at MVP**
 >
 > Your admin at launch needs exactly three things: view orders, view inventory, update order status. Everything else can be done directly in your database until order volume justifies building more. Don't build a full CMS before you have customers.
 
@@ -214,7 +214,7 @@ Step 3 — Review and Place Order
   └── Place Order button
 ```
 
-> ⚠️ **Warning: Don't Build a Custom Payment Form**
+> ️ **Warning: Don't Build a Custom Payment Form**
 >
 > Your payment provider (Razorpay, Stripe) provides a hosted or embedded payment UI that handles PCI compliance for you. Never build your own card input fields. The security liability is not worth it for any personal store.
 
@@ -288,7 +288,7 @@ Every step in this path is a potential drop-off point. Your IA should minimize u
 
 ---
 
-## ✅ Information Architecture Checklist
+##  Information Architecture Checklist
 
 - [ ] I have a complete page map covering all public, checkout, and admin pages
 - [ ] I have defined primary navigation (max 5 items)

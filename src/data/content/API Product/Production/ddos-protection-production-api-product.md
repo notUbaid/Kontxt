@@ -25,7 +25,7 @@ This is one of the few areas in API engineering where building it yourself is al
 | Protocol-level (exploiting TCP/TLS handshakes) | Network/transport layer, before requests reach your app |
 | Application-layer (high volume of legitimate-looking requests) | Can require app-layer logic, but still benefits enormously from edge filtering first |
 
-> **⚠️ Warning:** If a volumetric attack is reaching your application servers at all, your DDoS protection is already failing — by the time your app code is processing the flood, the damage to availability is done. The defense has to happen at the network edge, before traffic reaches infrastructure you control directly.
+> **️ Warning:** If a volumetric attack is reaching your application servers at all, your DDoS protection is already failing — by the time your app code is processing the flood, the damage to availability is done. The defense has to happen at the network edge, before traffic reaches infrastructure you control directly.
 
 ## Decision: Which Layer Handles What
 
@@ -35,7 +35,7 @@ This is one of the few areas in API engineering where building it yourself is al
 | API Gateway | Kong, AWS API Gateway, your reverse proxy | Application-layer rate limiting, request validation |
 | Application | Your code | Business-logic abuse (covered in Abuse Prevention) — last line, not first |
 
-> **✅ Best Practice:** Put a CDN/edge provider with built-in DDoS protection in front of every production API, with no exceptions, regardless of current traffic scale. This isn't a "we'll add it when we're bigger" decision — Cloudflare and AWS Shield's free/standard tiers already provide meaningful volumetric protection from day one, at effectively zero marginal engineering cost.
+> ** Best Practice:** Put a CDN/edge provider with built-in DDoS protection in front of every production API, with no exceptions, regardless of current traffic scale. This isn't a "we'll add it when we're bigger" decision — Cloudflare and AWS Shield's free/standard tiers already provide meaningful volumetric protection from day one, at effectively zero marginal engineering cost.
 
 ## What "Production-Ready" DDoS Protection Actually Requires
 
@@ -45,7 +45,7 @@ This is one of the few areas in API engineering where building it yourself is al
 - [ ] Auto-scaling or absorption capacity exists for legitimate traffic spikes that look attack-like (e.g. a viral launch)
 - [ ] An incident response plan exists for what happens if an attack does get through
 
-> **⚠️ Warning:** A surprisingly common gap: teams configure Cloudflare correctly, but their origin server's IP is still directly reachable because it was never firewalled to only accept traffic from the CDN. An attacker who finds the origin IP bypasses your entire edge protection layer completely. Lock origin access down to the edge provider's IP ranges only.
+> **️ Warning:** A surprisingly common gap: teams configure Cloudflare correctly, but their origin server's IP is still directly reachable because it was never firewalled to only accept traffic from the CDN. An attacker who finds the origin IP bypasses your entire edge protection layer completely. Lock origin access down to the edge provider's IP ranges only.
 
 ## Application-Layer Attacks Need Different Thinking
 
@@ -58,7 +58,7 @@ The hardest DDoS variant to stop is application-layer — traffic that looks lik
 | Caching aggressively at the edge | Reduces what fraction of an attack flood actually reaches your origin |
 | Circuit breakers on downstream dependencies | Prevents a flood from cascading into your database or third-party API limits |
 
-> **💡 Tip:** Application-layer DDoS defense overlaps heavily with good rate limiting and abuse prevention generally — there usually isn't a separate system to build. The distinction matters for monitoring and response, not necessarily for the underlying mechanism.
+> ** Tip:** Application-layer DDoS defense overlaps heavily with good rate limiting and abuse prevention generally — there usually isn't a separate system to build. The distinction matters for monitoring and response, not necessarily for the underlying mechanism.
 
 ## Defining Your Incident Response Before You Need It
 
@@ -69,7 +69,7 @@ Deciding your response plan during an active attack is too slow. Decide it now.
 - [ ] Is there a "lockdown mode" — temporarily requiring stricter auth or blocking entire regions — and who's authorized to enable it?
 - [ ] How do you communicate an active incident to customers (status page, see Phase 5)?
 
-> **✅ Best Practice:** Write this as a short runbook, not a mental plan. During an actual attack, with alerts firing and a team under pressure, a written checklist with exact steps and contact paths performs far better than relying on someone remembering the plan correctly under stress.
+> ** Best Practice:** Write this as a short runbook, not a mental plan. During an actual attack, with alerts firing and a team under pressure, a written checklist with exact steps and contact paths performs far better than relying on someone remembering the plan correctly under stress.
 
 ## Use AI to Audit Your Edge Configuration
 
@@ -92,7 +92,7 @@ Do not suggest abuse-prevention or fraud-detection logic —
 infrastructure-layer DDoS resilience only.
 ```
 
-> **💡 Token Efficiency:** This review needs your infrastructure configuration, not your application code — keep the prompt scoped to network/edge setup so the response stays focused on what's actually relevant to this specific threat model.
+> ** Token Efficiency:** This review needs your infrastructure configuration, not your application code — keep the prompt scoped to network/edge setup so the response stays focused on what's actually relevant to this specific threat model.
 
 ## Validate Before Moving On
 

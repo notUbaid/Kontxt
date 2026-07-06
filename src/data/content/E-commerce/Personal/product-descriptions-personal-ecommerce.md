@@ -26,7 +26,7 @@ Generic, thin product descriptions do two kinds of damage:
 - **Conversion** — customers who can't picture using the product, or who have an unanswered question, leave instead of buying
 - **SEO** — search engines (and AI shopping assistants, increasingly) rely on description text to understand and surface your products; copy-pasted manufacturer text ranks worse and may not be unique enough to index well
 
-> **💡 Tip:** Returns are frequently caused by description gaps, not product defects — a customer orders based on incomplete information, and the product technically matches the listing but doesn't match what they assumed. Specific, complete descriptions reduce returns, not just increase conversion.
+> ** Tip:** Returns are frequently caused by description gaps, not product defects — a customer orders based on incomplete information, and the product technically matches the listing but doesn't match what they assumed. Specific, complete descriptions reduce returns, not just increase conversion.
 
 ---
 
@@ -51,7 +51,7 @@ You're **not** writing marketing-agency-grade brand copywriting or A/B testing d
 | Structured specs | Materials, dimensions, weight, care | Bullet list, not prose |
 | Shipping/returns note | Brief, links to full policy | 1 sentence + link |
 
-> **⚠️ Warning:** Don't bury structured specs (dimensions, materials) inside paragraph text. Customers scan for this information specifically — if it's not in a scannable list, many won't find it at all, and will assume it's missing rather than search for it.
+> **️ Warning:** Don't bury structured specs (dimensions, materials) inside paragraph text. Customers scan for this information specifically — if it's not in a scannable list, many won't find it at all, and will assume it's missing rather than search for it.
 
 ---
 
@@ -64,7 +64,7 @@ Before writing, list the real questions a customer has for *this specific produc
 - What's it good for — and just as usefully, what's it *not* good for?
 - What happens if I don't like it (ties to your Return Policy)?
 
-> **✅ Best Practice:** Write the one-line hook last, after the full description. It's easier to find the single most compelling, specific fact about a product once you've already written the full picture, rather than trying to invent a hook first.
+> ** Best Practice:** Write the one-line hook last, after the full description. It's easier to find the single most compelling, specific fact about a product once you've already written the full picture, rather than trying to invent a hook first.
 
 ---
 
@@ -90,7 +90,7 @@ specs or claims I haven't given you — flag anything you're unsure
 about instead of guessing.
 ```
 
-> **⚠️ Warning:** Always explicitly tell AI not to invent specs, materials, or claims it wasn't given. A confidently written but inaccurate description ("100% organic cotton" for a blend you never specified) creates a real liability and a near-certain return or complaint when the customer notices the mismatch.
+> **️ Warning:** Always explicitly tell AI not to invent specs, materials, or claims it wasn't given. A confidently written but inaccurate description ("100% organic cotton" for a blend you never specified) creates a real liability and a near-certain return or complaint when the customer notices the mismatch.
 
 ---
 

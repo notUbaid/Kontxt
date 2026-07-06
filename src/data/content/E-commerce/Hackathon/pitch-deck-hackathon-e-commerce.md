@@ -155,9 +155,9 @@ Simple comparison table if you want:
 
 | | Your Store | Etsy | Amazon |
 |---|---|---|---|
-| Curated products | ✓ | ✗ | ✗ |
-| Niche focus | ✓ | ✗ | ✗ |
-| Branded packaging | ✓ | Varies | ✗ |
+| Curated products |  |  |  |
+| Niche focus |  |  |  |
+| Branded packaging |  | Varies |  |
 
 Keep it honest. Don't claim advantages you don't have. Judges notice.
 
@@ -226,10 +226,10 @@ Write for slides, not documents. No bullets unless the slide specifically calls 
 ```
 
 > **Review the output for:**
-> - [ ] No slide has more than 3 lines of text
-> - [ ] Every headline makes sense without the surrounding slide content
-> - [ ] The problem and solution slides could be read in the same breath
-> - [ ] The tech slide uses real product names, not category names
+- [ ] No slide has more than 3 lines of text
+- [ ] Every headline makes sense without the surrounding slide content
+- [ ] The problem and solution slides could be read in the same breath
+- [ ] The tech slide uses real product names, not category names
 
 ---
 

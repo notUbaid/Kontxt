@@ -229,11 +229,11 @@ Use placeholder image paths in the format: /images/[product-id]-1.jpg
 ```
 
 > **Validate the output:**
-> - [ ] All IDs are URL-safe (no spaces, lowercase, hyphens only)
-> - [ ] No two products have the same ID
-> - [ ] Featured is true for no more than 2 products
-> - [ ] At least one product has a `compareAtPrice` for demo polish
-> - [ ] At least one product has a low `stockCount` for urgency signaling
+- [ ] All IDs are URL-safe (no spaces, lowercase, hyphens only)
+- [ ] No two products have the same ID
+- [ ] Featured is true for no more than 2 products
+- [ ] At least one product has a `compareAtPrice` for demo polish
+- [ ] At least one product has a low `stockCount` for urgency signaling
 
 ---
 

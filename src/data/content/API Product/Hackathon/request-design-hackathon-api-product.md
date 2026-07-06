@@ -18,8 +18,8 @@ Your route table says *where* callers send data. This module decides *what* they
 JSON APIs split roughly between `camelCase` (common in JS-native ecosystems) and `snake_case` (used by Stripe, GitHub, Twilio). Neither is objectively correct — but switching between them mid-API is an instant signal of an unplanned design.
 
 > **Decision Card — Choose one now**
-> - `camelCase` → natural fit if your target developer is JS/TS-heavy
-> - `snake_case` → natural fit if you're matching an existing ecosystem convention (e.g. integrating alongside Stripe-style tools)
+- `camelCase` → natural fit if your target developer is JS/TS-heavy
+- `snake_case` → natural fit if you're matching an existing ecosystem convention (e.g. integrating alongside Stripe-style tools)
 >
 > Whichever you pick, apply it to every field, in every request and response, for the rest of the build.
 
@@ -86,9 +86,9 @@ If a field only makes sense to your database, it doesn't belong in the request b
 > Naming convention: [camelCase / snake_case]
 >
 > For each core loop POST/PATCH route, define the request body:
-> - field name, type, required or optional
-> - for optional fields, the default behavior if omitted
-> - flag any field that looks like an internal implementation detail
+- field name, type, required or optional
+- for optional fields, the default behavior if omitted
+- flag any field that looks like an internal implementation detail
 >   rather than something a real caller would naturally provide
 >
 > Keep field counts minimal — only what's needed for the endpoint to work.

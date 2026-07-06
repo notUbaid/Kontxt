@@ -89,9 +89,9 @@ jobs:
 ```
 
 > ** Validation Checklist**
-> - [ ] Does CI run on every pull request, not just pushes to `main`? (Catching issues before merge is the entire point)
-> - [ ] Does it spin up a real test database, not mock the database layer entirely? (Marketplace bugs — constraint violations, missing indexes — often only show up against a real database)
-> - [ ] Does a failing test or lint check actually block the merge, via branch protection rules — or does CI just run and get ignored?
+- [ ] Does CI run on every pull request, not just pushes to `main`? (Catching issues before merge is the entire point)
+- [ ] Does it spin up a real test database, not mock the database layer entirely? (Marketplace bugs — constraint violations, missing indexes — often only show up against a real database)
+- [ ] Does a failing test or lint check actually block the merge, via branch protection rules — or does CI just run and get ignored?
 
 > **️ Warning:** Setting up CI without enabling branch protection ("require status checks to pass before merging" in GitHub settings) means CI runs, fails, and you merge anyway under deadline pressure. The automation only protects you if it can actually block you.
 
@@ -102,9 +102,9 @@ jobs:
 Beyond generic tests and linting, a few marketplace-specific checks are worth automating because they catch the exact mistakes covered earlier in this phase:
 
 > ** Validation Checklist**
-> - [ ] **Migration check** — does `prisma migrate deploy` (or equivalent) run cleanly against a fresh database? Catches broken migrations before they hit production
-> - [ ] **Type checking** — if using TypeScript, does `tsc --noEmit` run as a separate step? Catches type errors that tests might not exercise
-> - [ ] **Secret scanning** — is there a check (many CI providers offer this built-in) preventing an accidentally committed `.env` file or API key from ever reaching `main`?
+- [ ] **Migration check** — does `prisma migrate deploy` (or equivalent) run cleanly against a fresh database? Catches broken migrations before they hit production
+- [ ] **Type checking** — if using TypeScript, does `tsc --noEmit` run as a separate step? Catches type errors that tests might not exercise
+- [ ] **Secret scanning** — is there a check (many CI providers offer this built-in) preventing an accidentally committed `.env` file or API key from ever reaching `main`?
 
 ---
 
@@ -121,9 +121,9 @@ Once CI passes, deployment itself should be the least interesting part of your w
 CI needs access to things like `DATABASE_URL` and API keys, but never the same way your local `.env` file does.
 
 > ** Validation Checklist**
-> - [ ] Are secrets stored in your CI provider's encrypted secrets store (e.g. GitHub Actions secrets), never committed to the repo or hardcoded in the workflow file?
-> - [ ] Does CI use a separate test database/API keys, not production credentials? (A bug in a test run should never be able to touch real production data)
-> - [ ] Is `.env` actually in `.gitignore`? (Worth re-confirming — this is exactly the kind of thing that gets accidentally reverted during a merge)
+- [ ] Are secrets stored in your CI provider's encrypted secrets store (e.g. GitHub Actions secrets), never committed to the repo or hardcoded in the workflow file?
+- [ ] Does CI use a separate test database/API keys, not production credentials? (A bug in a test run should never be able to touch real production data)
+- [ ] Is `.env` actually in `.gitignore`? (Worth re-confirming — this is exactly the kind of thing that gets accidentally reverted during a merge)
 
 ---
 

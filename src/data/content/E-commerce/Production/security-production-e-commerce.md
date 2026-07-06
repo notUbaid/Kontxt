@@ -114,11 +114,11 @@ A hacker might pass a complex JSON object like `{"$ne": null}` (NoSQL injection)
 You must force ALL incoming data through a Zod schema before it touches your database.
 
 ```typescript
-// ❌ DANGEROUS: Trusting user input
+//  DANGEROUS: Trusting user input
 const { id } = await req.json(); 
 const user = await prisma.user.findUnique({ where: { id } }); 
 
-// ✅ SECURE: Mathematical validation
+//  SECURE: Mathematical validation
 import { z } from 'zod';
 const Schema = z.object({ id: z.string().uuid() }); // GUARANTEES it is a UUID string, not an object or SQL statement
 
@@ -129,7 +129,7 @@ const user = await prisma.user.findUnique({ where: { id: validated.id } });
 
 ---
 
-## ✅ Security Engineering Checklist
+##  Security Engineering Checklist
 
 - [ ] Implement a strict Content Security Policy (CSP) in `next.config.js` to mathematically prevent XSS and Clickjacking.
 - [ ] Lock down CORS headers on all public API routes, denying access to unauthorized origins.

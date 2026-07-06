@@ -23,7 +23,11 @@ export type AppType =
   | 'Cyber Security (Defensive)'
   | 'Cyber Security (DevSecOps)'
   | 'Web3 dApp'
-  | 'Data Pipeline';
+  | 'Data Pipeline'
+  | 'CLI'
+  | 'IoT'
+  | 'Open Source'
+  | 'Custom';
 
 export interface Project {
   id: string;

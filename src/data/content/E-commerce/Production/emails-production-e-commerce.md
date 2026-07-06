@@ -111,7 +111,7 @@ You must configure these in your DNS provider (Vercel/Cloudflare) before sending
 
 ---
 
-## ✅ Email Engineering Checklist
+##  Email Engineering Checklist
 
 - [ ] Ban raw HTML email templates. Mandate React Email for perfect cross-client rendering.
 - [ ] Never `await` email sends in critical paths. Delegate all emails to an asynchronous Event Bus worker.

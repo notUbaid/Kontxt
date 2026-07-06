@@ -52,7 +52,7 @@ Failing to do so alienates users who rely on screen readers and invites massive 
 
 ---
 
-## ✅ Brand Enforcement Checklist
+##  Brand Enforcement Checklist
 
 - [ ] Commit to zero Cumulative Layout Shift (CLS) by utilizing CSS aspect ratios and Skeleton Loaders for all dynamic content.
 - [ ] Audit your custom fonts and plan to preload critical weights to eliminate FOIT/FOUT.

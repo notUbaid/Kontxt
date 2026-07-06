@@ -63,7 +63,7 @@ The highest-stakes error in your store. A customer has committed to buying, ente
 
 ```
 ┌────────────────────────────────────────────┐
-│  ⚠  Payment unsuccessful                  │
+│    Payment unsuccessful                  │
 │                                            │
 │  Your card was declined. Your order        │
 │  has not been placed and you have          │
@@ -93,7 +93,7 @@ Race condition: the customer added the last unit to cart, began checkout, and by
 
 ```
 ┌────────────────────────────────────────────┐
-│  ⚠  One item is no longer available       │
+│    One item is no longer available       │
 │                                            │
 │  Cedar & Smoke (200ml) sold out while      │
 │  your order was being processed.           │
@@ -120,7 +120,7 @@ This is a critical design problem: if the customer clicks again, they might be c
 **Frontend handling:**
 ```
 ┌────────────────────────────────────────────┐
-│  ⚠  Connection interrupted                │
+│    Connection interrupted                │
 │                                            │
 │  We couldn't confirm your order.           │
 │  Please check your email before trying     │
@@ -145,13 +145,13 @@ Inline validation is the correct pattern for checkout forms. Errors appear immed
 │  ┌────────────────────────────────┐    │
 │  │ ubaid@                         │    │
 │  └────────────────────────────────┘    │
-│  ✕ Please enter a valid email address  │  ← Red, beneath field
+│   Please enter a valid email address  │  ← Red, beneath field
 │                                        │
 │  Phone number                          │
 │  ┌────────────────────────────────┐    │
 │  │ 98765                          │    │
 │  └────────────────────────────────┘    │
-│  ✕ Enter a 10-digit mobile number      │
+│   Enter a 10-digit mobile number      │
 └────────────────────────────────────────┘
 ```
 
@@ -274,7 +274,7 @@ Two components. Every error state in your store is a configuration of one of the
 
 ---
 
-## ✅ Error States Checklist
+##  Error States Checklist
 
 - [ ] Payment declined state designed: no charge confirmed, form preserved, specific recovery options
 - [ ] Payment gateway timeout state designed: warns about duplicate submission risk

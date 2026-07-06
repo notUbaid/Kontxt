@@ -118,11 +118,11 @@ You don't need a migration framework with rollback history for a hackathon build
 > Database: Postgres
 >
 > Generate the full schema as CREATE TABLE statements:
-> - UUID primary keys
-> - foreign keys for any nested resources
-> - created_at (and updated_at if the resource is ever modified)
-> - indexes only on foreign keys and any field used in filtering
-> - flag if any field should be hashed rather than stored as plaintext
+- UUID primary keys
+- foreign keys for any nested resources
+- created_at (and updated_at if the resource is ever modified)
+- indexes only on foreign keys and any field used in filtering
+- flag if any field should be hashed rather than stored as plaintext
 >
 > Don't over-normalize — keep this to the minimum tables needed.
 > ```

@@ -51,9 +51,9 @@ Don't evaluate a backup setup vaguely — pin down these three numbers, because 
 | **Retention** | How far back can you restore from? | 7-30 days is reasonable; longer if storage cost is trivial |
 
 > ** Validation Checklist**
-> - [ ] Do you know your actual RPO — i.e., the maximum data loss window — for your current setup? (Check your provider's docs, don't assume)
-> - [ ] Have you confirmed backup *frequency* matches your tolerance for data loss? (Weekly backups means losing up to a week of orders/messages/reviews in the worst case)
-> - [ ] Is retention long enough to catch a problem that wasn't noticed immediately? (A corrupted migration discovered three days later needs more than a 24-hour retention window)
+- [ ] Do you know your actual RPO — i.e., the maximum data loss window — for your current setup? (Check your provider's docs, don't assume)
+- [ ] Have you confirmed backup *frequency* matches your tolerance for data loss? (Weekly backups means losing up to a week of orders/messages/reviews in the worst case)
+- [ ] Is retention long enough to catch a problem that wasn't noticed immediately? (A corrupted migration discovered three days later needs more than a 24-hour retention window)
 
 ---
 
@@ -62,9 +62,9 @@ Don't evaluate a backup setup vaguely — pin down these three numbers, because 
 > **️ Warning:** A backup you've never restored from is a backup you don't actually have — you have an unverified file. The single most common backup failure isn't "no backups were taken," it's discovering during a real incident that the backup is corrupted, incomplete, or that you don't actually know the restore procedure.
 
 > ** Validation Checklist**
-> - [ ] Have you actually run a test restore — not just confirmed a backup file exists?
-> - [ ] Does the restored database have the data you expect, at the row level, not just "the restore command didn't error"?
-> - [ ] Is the restore procedure written down somewhere you'd find it during a stressful incident, not just remembered?
+- [ ] Have you actually run a test restore — not just confirmed a backup file exists?
+- [ ] Does the restored database have the data you expect, at the row level, not just "the restore command didn't error"?
+- [ ] Is the restore procedure written down somewhere you'd find it during a stressful incident, not just remembered?
 
 Do this once now, while there's no pressure. It's the cheapest insurance available to you in this entire phase.
 
@@ -95,9 +95,9 @@ For a marketplace specifically: if a bad migration silently corrupts order recor
 Automated backups protect against ongoing disaster. They don't replace a manual snapshot before you do something deliberately risky.
 
 > ** Validation Checklist — Take a manual backup before:**
-> - [ ] Running a schema migration in production
-> - [ ] A bulk data operation (mass status update, data cleanup script)
-> - [ ] Any operation involving a raw `DELETE` or `UPDATE` without first testing it as a `SELECT`
+- [ ] Running a schema migration in production
+- [ ] A bulk data operation (mass status update, data cleanup script)
+- [ ] Any operation involving a raw `DELETE` or `UPDATE` without first testing it as a `SELECT`
 
 This single habit — snapshot before anything destructive — prevents the most common cause of real data loss in solo projects: not infrastructure failure, but a developer's own migration or script.
 

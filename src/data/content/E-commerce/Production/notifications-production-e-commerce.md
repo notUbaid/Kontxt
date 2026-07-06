@@ -93,7 +93,7 @@ You will instruct your AI to write an Error Boundary utility that traps unhandle
 
 ---
 
-## ✅ Notifications Engineering Checklist
+##  Notifications Engineering Checklist
 
 - [ ] Set up a Slack Incoming Webhook to pump operational visibility directly into your chat workspace.
 - [ ] Utilize the Fan-Out pattern in your Event Bus to execute multiple independent notifications from a single event.

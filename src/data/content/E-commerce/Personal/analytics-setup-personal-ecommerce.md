@@ -23,7 +23,7 @@ This is separate from the Analytics *Architecture* you designed back in Phase 2 
 
 Generic web analytics (page views, sessions) tells you traffic exists. Store-specific analytics tells you whether that traffic converts, and exactly where it stops converting — product page, cart, or checkout. Those three failure points have completely different fixes, and you can't tell them apart without funnel data.
 
-> **💡 Tip:** A store with low traffic and a 40% checkout abandonment rate has a different, more fixable problem than a store with high traffic and a 2% product-page-to-cart rate. Set up analytics specifically to tell these apart, not just to count visitors.
+> ** Tip:** A store with low traffic and a 40% checkout abandonment rate has a different, more fixable problem than a store with high traffic and a 2% product-page-to-cart rate. Set up analytics specifically to tell these apart, not just to count visitors.
 
 ---
 
@@ -46,7 +46,7 @@ You're **not** building a custom analytics platform or tracking every possible m
 | Plausible / Fathom | Basic, lighter e-commerce tracking | Privacy-friendly, often no consent banner needed | Paid, low cost |
 | PostHog | Full funnel + session replay | Self-hostable for full control | Free tier generous |
 
-> **✅ Best Practice:** Whatever you choose, it must match what your Privacy Policy already discloses. If you add a new analytics tool after publishing your privacy policy, go back and update the policy's third-party list — don't let the two drift out of sync.
+> ** Best Practice:** Whatever you choose, it must match what your Privacy Policy already discloses. If you add a new analytics tool after publishing your privacy policy, go back and update the policy's third-party list — don't let the two drift out of sync.
 
 ---
 
@@ -93,7 +93,7 @@ jurisdiction, and if so, set that up too, consistent with what my
 Privacy Policy already discloses.
 ```
 
-> **⚠️ Warning:** A common implementation mistake is firing `purchase` events on every visit to the order confirmation page, including page refreshes — this inflates revenue numbers with duplicate counts. Make sure the purchase event fires once per actual completed order, not once per page load.
+> **️ Warning:** A common implementation mistake is firing `purchase` events on every visit to the order confirmation page, including page refreshes — this inflates revenue numbers with duplicate counts. Make sure the purchase event fires once per actual completed order, not once per page load.
 
 ---
 

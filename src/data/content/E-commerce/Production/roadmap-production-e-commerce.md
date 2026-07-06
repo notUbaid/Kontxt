@@ -87,7 +87,7 @@ You mathematically build the 360 feature first, even if the 144 feature sounds "
 
 ---
 
-## ✅ Roadmap Engineering Checklist
+##  Roadmap Engineering Checklist
 
 - [ ] Integrate an Issue Tracker (Linear) and enforce strict ICE scoring to mathematically prioritize engineering resources.
 - [ ] Enforce Trunk-Based Development. All branches must be merged into `main` within 48 hours to prevent catastrophic merge conflicts.

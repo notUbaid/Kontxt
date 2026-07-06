@@ -26,7 +26,7 @@ Not every endpoint needs a full writeup. Prioritize ruthlessly.
 | Read (GET) for your core resource | Bulk operations | Deprecated/legacy routes |
 | One realistic error response | Optional fields | Every possible error code |
 
-> **💡 Tip:** Three excellent examples beat twelve mediocre ones. A judge skimming your README in 90 seconds reads the first three and forms their entire opinion of your API's quality from those.
+> ** Tip:** Three excellent examples beat twelve mediocre ones. A judge skimming your README in 90 seconds reads the first three and forms their entire opinion of your API's quality from those.
 
 ## Anatomy of a Good Example
 
@@ -56,7 +56,7 @@ curl -X POST https://your-api.com/v1/tasks \
 }
 ```
 
-> **✅ Best Practice:** Use realistic values everywhere — real-sounding titles, valid date formats, plausible IDs. Generic placeholders (`"string"`, `"test123"`) make a reader guess at the actual shape and constraints of your data instead of seeing them directly.
+> ** Best Practice:** Use realistic values everywhere — real-sounding titles, valid date formats, plausible IDs. Generic placeholders (`"string"`, `"test123"`) make a reader guess at the actual shape and constraints of your data instead of seeing them directly.
 
 ## Always Include One Error Example
 
@@ -72,7 +72,7 @@ Most API docs only show the happy path. Showing one realistic failure builds mor
 }
 ```
 
-> **⚠️ Warning:** If your error response shape is inconsistent across endpoints (some return `{ error: "..." }`, others `{ message: "..." }`), fix that before writing examples — don't document the inconsistency, eliminate it. It's a five-minute fix that prevents an obvious red flag during code review.
+> **️ Warning:** If your error response shape is inconsistent across endpoints (some return `{ error: "..." }`, others `{ message: "..." }`), fix that before writing examples — don't document the inconsistency, eliminate it. It's a five-minute fix that prevents an obvious red flag during code review.
 
 ## Generate Examples with AI — Then Verify Every One
 
@@ -88,9 +88,9 @@ Base every field name and type strictly on this code — do not invent
 fields that don't exist in the implementation.
 ```
 
-> **⚠️ Warning:** AI will confidently invent fields, wrong status codes, or response shapes that don't match your actual implementation if given only a vague description. Always generate examples from the real route code, then run each one yourself before publishing — an unverified AI-generated example is worse than no example, because it actively misleads.
+> **️ Warning:** AI will confidently invent fields, wrong status codes, or response shapes that don't match your actual implementation if given only a vague description. Always generate examples from the real route code, then run each one yourself before publishing — an unverified AI-generated example is worse than no example, because it actively misleads.
 
-> **💡 Token Efficiency:** Generate examples in the same conversation where you already discussed the routes, rather than starting fresh and re-explaining the API shape — reusing context here costs far fewer tokens than re-establishing it.
+> ** Token Efficiency:** Generate examples in the same conversation where you already discussed the routes, rather than starting fresh and re-explaining the API shape — reusing context here costs far fewer tokens than re-establishing it.
 
 ## Validate Before You Publish
 

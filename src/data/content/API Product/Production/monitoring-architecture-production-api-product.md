@@ -25,7 +25,7 @@ Monitoring architecture is fundamentally about choosing that number deliberately
 | **Logs** | What exactly happened on this specific request? | Structured logging + a log aggregator (Datadog, Better Stack) |
 | **Traces** | Where did time go across services for one request? | OpenTelemetry, Honeycomb |
 
-> **⚠️ Warning:** Logs alone are not monitoring. Searching logs after a customer reports a problem is debugging, not observability — by definition it only happens after someone already noticed the failure. Metrics and alerting are what catch problems before a customer does.
+> **️ Warning:** Logs alone are not monitoring. Searching logs after a customer reports a problem is debugging, not observability — by definition it only happens after someone already noticed the failure. Metrics and alerting are what catch problems before a customer does.
 
 ## What an API Product Specifically Must Monitor
 
@@ -37,7 +37,7 @@ Monitoring architecture is fundamentally about choosing that number deliberately
 | Webhook delivery success rate | Silent webhook failures break downstream systems with zero visibility for you |
 | Third-party dependency latency | If you call out to other APIs, their slowness becomes your latency, invisibly |
 
-> **✅ Best Practice:** Track latency as percentiles (p95, p99), never as an average. An average can look perfectly healthy while 5% of your customers experience multi-second delays — averages hide exactly the tail behavior that erodes developer trust fastest.
+> ** Best Practice:** Track latency as percentiles (p95, p99), never as an average. An average can look perfectly healthy while 5% of your customers experience multi-second delays — averages hide exactly the tail behavior that erodes developer trust fastest.
 
 ## Decision: Build vs Buy Your Monitoring Stack
 
@@ -47,7 +47,7 @@ Monitoring architecture is fundamentally about choosing that number deliberately
 | Managed platform (Datadog, New Relic, Better Stack) | Low — running in hours | Most production API products, especially pre-scale |
 | Cloud-native (CloudWatch, GCP Monitoring) | Low if already on that cloud | Teams already committed to a single cloud provider |
 
-> **💡 Tip:** Start managed. The engineering time saved by not running your own metrics infrastructure is almost always worth more than the subscription cost, especially before you know your actual traffic patterns. Migrate to self-hosted only once cost at scale becomes a real, measured problem — not a hypothetical one.
+> ** Tip:** Start managed. The engineering time saved by not running your own metrics infrastructure is almost always worth more than the subscription cost, especially before you know your actual traffic patterns. Migrate to self-hosted only once cost at scale becomes a real, measured problem — not a hypothetical one.
 
 ## Alerting: The Part Teams Get Wrong Most Often
 
@@ -58,7 +58,7 @@ Monitoring without alerting is a dashboard nobody's watching. But alerting badly
 - [ ] Non-urgent anomalies go to a dashboard or async channel, not a 2am page
 - [ ] Alert thresholds are based on customer-impacting symptoms (error rate, latency), not internal implementation details (CPU usage) as the primary trigger
 
-> **⚠️ Warning:** Alert fatigue is a security and reliability risk, not just an annoyance. A team that's been paged 40 times this month for non-issues will be slow to react on the 41st page — the one that's a real outage. Tune alert thresholds aggressively; an alert that doesn't require action shouldn't exist.
+> **️ Warning:** Alert fatigue is a security and reliability risk, not just an annoyance. A team that's been paged 40 times this month for non-issues will be slow to react on the 41st page — the one that's a real outage. Tune alert thresholds aggressively; an alert that doesn't require action shouldn't exist.
 
 ## What "Healthy" Means for an API Has to Be Explicit
 
@@ -72,7 +72,7 @@ Healthy =
   AND no dependency degraded beyond its own SLA
 ```
 
-> **✅ Best Practice:** Write this definition down explicitly before launch, and build your `/health` and `/status` endpoints to reflect it — not just "process is running." A health check that only confirms the server process exists misses the failures that actually matter to a developer calling your API.
+> ** Best Practice:** Write this definition down explicitly before launch, and build your `/health` and `/status` endpoints to reflect it — not just "process is running." A health check that only confirms the server process exists misses the failures that actually matter to a developer calling your API.
 
 ## Use AI to Design Your Alert Thresholds
 
@@ -94,7 +94,7 @@ sustained over before alerting (to avoid noise from brief blips),
 and whether it should page immediately or go to a dashboard.
 ```
 
-> **💡 Token Efficiency:** Give AI your actual SLA commitments or latency targets if you have them — vague prompts produce vague generic thresholds. Specific inputs produce thresholds you can actually implement and defend, not placeholder numbers you'll have to redo.
+> ** Token Efficiency:** Give AI your actual SLA commitments or latency targets if you have them — vague prompts produce vague generic thresholds. Specific inputs produce thresholds you can actually implement and defend, not placeholder numbers you'll have to redo.
 
 ## Validate Before Moving On
 

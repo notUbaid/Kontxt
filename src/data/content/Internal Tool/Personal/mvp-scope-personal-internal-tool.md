@@ -73,15 +73,15 @@ once you've used it for a few weeks]
 > **Solves:** I lose track of which clients haven't paid and find out too late to follow up politely.
 >
 > **Included:**
-> - Store invoice: client name, amount, due date
-> - Flag invoices overdue by 7+ days
-> - Mark an invoice as paid
-> - Check status in under 30 seconds, works on my phone
+- Store invoice: client name, amount, due date
+- Flag invoices overdue by 7+ days
+- Mark an invoice as paid
+- Check status in under 30 seconds, works on my phone
 >
 > **Explicitly excluded from v1:**
-> - Auto-detecting repeat clients
-> - Exporting monthly PDF summaries
-> - Sending follow-up emails automatically
+- Auto-detecting repeat clients
+- Exporting monthly PDF summaries
+- Sending follow-up emails automatically
 >
 > **Success looks like:** After 4 weeks, I haven't missed a follow-up on any invoice overdue by more than 7 days.
 

@@ -133,7 +133,7 @@ graph TD
 
 ---
 
-## ✅ Inventory Engineering Checklist
+##  Inventory Engineering Checklist
 
 - [ ] Implement `FOR UPDATE` Pessimistic Locking in your PostgreSQL transactions to prevent checkout race conditions.
 - [ ] Implement SWR Polling (`refreshInterval`) on the Product Page to ensure real-time "Sold Out" button states.

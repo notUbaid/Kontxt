@@ -23,7 +23,7 @@ This connects to your Checkout and Payment architecture — tax is calculated an
 
 ## Why This Matters for a Store Specifically
 
-> **⚠️ Warning:** Sales tax obligations are typically based on *where your customer is*, not just where your business is located, once you sell across multiple regions. Many beginners assume "I'm not registered for tax anywhere, so I don't need to charge it" — this assumption can be incorrect even for small stores, depending on your jurisdiction's specific thresholds and rules.
+> **️ Warning:** Sales tax obligations are typically based on *where your customer is*, not just where your business is located, once you sell across multiple regions. Many beginners assume "I'm not registered for tax anywhere, so I don't need to charge it" — this assumption can be incorrect even for small stores, depending on your jurisdiction's specific thresholds and rules.
 
 This isn't about scaring you into inaction — most personal stores, especially early on, have very manageable tax obligations. It's about not finding out the requirement existed only after a year of unremitted tax has accumulated.
 
@@ -49,7 +49,7 @@ You're **not** becoming a tax expert or building custom tax-calculation logic fr
 | Have you registered for a sales tax permit/VAT number where required? | Required before legally collecting tax in most jurisdictions |
 | Are your products tax-exempt in any category (in some regions, certain goods are)? | Affects what rate applies, if any |
 
-> **💡 Tip:** Most jurisdictions require you to register for a tax permit *before* you start collecting tax, not after. Don't add tax collection to checkout before confirming you're actually registered where required — collecting tax you're not registered to collect creates its own problem.
+> ** Tip:** Most jurisdictions require you to register for a tax permit *before* you start collecting tax, not after. Don't add tax collection to checkout before confirming you're actually registered where required — collecting tax you're not registered to collect creates its own problem.
 
 ---
 
@@ -61,7 +61,7 @@ You're **not** becoming a tax expert or building custom tax-calculation logic fr
 | **Payment provider's built-in tax tool (e.g., Stripe Tax)** | High — calculates real, current rates by location | Low-Medium | Most personal stores (recommended) |
 | Dedicated tax service (TaxJar, Avalara) | High | Medium | Stores with more complex, multi-jurisdiction needs |
 
-> **✅ Best Practice:** If you're already using a payment provider like Stripe, check whether it has a built-in tax calculation product before adding a separate service — it often integrates with the checkout flow you've already built, with far less configuration than a standalone tax tool.
+> ** Best Practice:** If you're already using a payment provider like Stripe, check whether it has a built-in tax calculation product before adding a separate service — it often integrates with the checkout flow you've already built, with far less configuration than a standalone tax tool.
 
 ---
 
@@ -88,7 +88,7 @@ Help me:
    a given period for filing purposes
 ```
 
-> **⚠️ Warning:** Don't let a product's displayed price differ from what's actually charged due to tax being silently added only at the final checkout step with no warning. If your pricing is tax-exclusive, say so clearly near the price — an unexpected total at the last step is a well-documented cause of checkout abandonment.
+> **️ Warning:** Don't let a product's displayed price differ from what's actually charged due to tax being silently added only at the final checkout step with no warning. If your pricing is tax-exclusive, say so clearly near the price — an unexpected total at the last step is a well-documented cause of checkout abandonment.
 
 ---
 
@@ -97,7 +97,7 @@ Help me:
 - **Tax-exclusive** (common in the US): displayed price excludes tax, added at checkout based on location
 - **Tax-inclusive** (common in many other regions, e.g., VAT-based systems): displayed price already includes tax
 
-> **⚠️ Common Mistake:** Mixing the two — showing a price that looks tax-inclusive but isn't, or vice versa — creates a pricing display that's misleading regardless of intent. Decide explicitly which model your store uses based on your region's norms, and apply it consistently everywhere a price is shown.
+> **️ Common Mistake:** Mixing the two — showing a price that looks tax-inclusive but isn't, or vice versa — creates a pricing display that's misleading regardless of intent. Decide explicitly which model your store uses based on your region's norms, and apply it consistently everywhere a price is shown.
 
 ---
 

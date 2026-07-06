@@ -124,7 +124,7 @@ If you've concluded a custom build is justified, here's the minimum viable archi
 
 Use AI to scaffold the attribution logic and reward rules — not to "build me a referral program," which is too vague and will produce generic, unverified code.
 
-**📋 Copy this prompt** (use only if you've decided to build custom):
+** Copy this prompt** (use only if you've decided to build custom):
 
 ```
 I'm building a referral system for a solo-run e-commerce store on [your stack, e.g. Next.js + Postgres + Stripe].

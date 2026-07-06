@@ -63,7 +63,7 @@ Instruct the AI to statically render *only* the top-level categories (`Mens`, `W
 
 ---
 
-## ✅ Information Architecture Checklist
+##  Information Architecture Checklist
 
 - [ ] Enforce the "Shallow URL Rule" for all product pages to protect your SEO.
 - [ ] Ensure category pages define the hierarchy (e.g., `domain.com/collections/mens`).

@@ -26,13 +26,13 @@ A simple table, run manually or via a quick script, covers almost everything you
 
 | Scenario | Expected result | Tested? |
 |---|---|---|
-| Valid request, core loop | `201`/`200`, correct response shape | ☐ |
-| Missing required field | `422`, matches your error shape | ☐ |
-| No API key | `401` | ☐ |
-| Invalid API key | `401` | ☐ |
-| Nonexistent resource ID | `404` | ☐ |
-| Async endpoint, check status before complete | `processing` status shown | ☐ |
-| Rate limit boundary (if time permits) | `429` past your set limit | ☐ |
+| Valid request, core loop | `201`/`200`, correct response shape |  |
+| Missing required field | `422`, matches your error shape |  |
+| No API key | `401` |  |
+| Invalid API key | `401` |  |
+| Nonexistent resource ID | `404` |  |
+| Async endpoint, check status before complete | `processing` status shown |  |
+| Rate limit boundary (if time permits) | `429` past your set limit |  |
 
 > **Warning — Skipping the error-case rows is the single most common testing gap.**
 > Teams reliably test the happy path because that's what they've been building and re-running. The first time anyone tests a missing field or bad auth is often when a judge does it live — and an unhandled error there reads far worse than a clean `422` would have.
@@ -65,10 +65,10 @@ This doesn't need to be sophisticated — a script that fires 4-5 requests and c
 > API base URL: [local or deployed]
 >
 > Write a short script that tests:
-> - the full core loop happy path
-> - a request with a missing required field (expect 422 matching my error shape)
-> - a request with no API key (expect 401)
-> - a request for a nonexistent resource ID (expect 404)
+- the full core loop happy path
+- a request with a missing required field (expect 422 matching my error shape)
+- a request with no API key (expect 401)
+- a request for a nonexistent resource ID (expect 404)
 >
 > Print clear pass/fail output for each check so I can run this in
 > under 10 seconds before a demo.

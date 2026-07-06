@@ -84,7 +84,7 @@ You must calculate tax in the background the exact millisecond the user finishes
 
 ---
 
-## ✅ Checkout Engineering Checklist
+##  Checkout Engineering Checklist
 
 - [ ] Architect the checkout UI as a Multi-Step Single Page Application to reduce cognitive overload and eliminate page load times.
 - [ ] Enforce CASS-certified Address Validation via API to prevent carrier correction fees.

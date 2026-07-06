@@ -47,7 +47,7 @@ When a user adds an item to their cart, the frontend sends the payload to the ba
 
 ---
 
-## ✅ Pricing Strategy Checklist
+##  Pricing Strategy Checklist
 
 - [ ] Commit to using Edge Middleware for IP detection and currency injection to protect your static caching layer.
 - [ ] Enforce strict backend validation for all cart calculations; never allow the AI to write discount logic directly in the React frontend.

@@ -141,10 +141,10 @@ async function requireCompletedOrder(req, res, next) {
 > 4. requireCompletedOrder — user must have a completed order with the target seller before reviewing
 >
 > Requirements:
-> - Always fetch the resource from the database; never trust IDs from the request body
-> - Return 401 for missing auth, 403 for valid auth but insufficient permission, 404 if resource doesn't exist
-> - Keep functions composable so I can chain them in route definitions
-> - Add a short comment above each function explaining what it protects against
+- Always fetch the resource from the database; never trust IDs from the request body
+- Return 401 for missing auth, 403 for valid auth but insufficient permission, 404 if resource doesn't exist
+- Keep functions composable so I can chain them in route definitions
+- Add a short comment above each function explaining what it protects against
 > ```
 >
 > **Why this prompt works:** it names the exact rules instead of asking AI to "add authorization," which prevents generic, incomplete output. It also forces correct HTTP status codes (401 vs 403 vs 404), a detail beginners often get wrong and that affects how your frontend handles errors.
@@ -156,12 +156,12 @@ async function requireCompletedOrder(req, res, next) {
 AI-generated auth middleware looks correct far more often than it *is* correct. Check for these specific failure patterns before merging:
 
 > ** Validation Checklist**
-> - [ ] Does every check fetch the resource from the **database**, not trust client-sent IDs?
-> - [ ] Does the admin override actually work, or did AI forget to add it?
-> - [ ] Are 401 (not logged in) and 403 (logged in, not allowed) used correctly — not just always 403?
-> - [ ] Is there a check on *every* mutating route (`POST`, `PUT`, `PATCH`, `DELETE`), not just the obvious ones?
-> - [ ] Does the thread/message check verify *participation*, not just authentication?
-> - [ ] Did AI accidentally check `role === 'seller'` instead of `listing.sellerId === user.id`? (The single most common AI mistake on this exact topic.)
+- [ ] Does every check fetch the resource from the **database**, not trust client-sent IDs?
+- [ ] Does the admin override actually work, or did AI forget to add it?
+- [ ] Are 401 (not logged in) and 403 (logged in, not allowed) used correctly — not just always 403?
+- [ ] Is there a check on *every* mutating route (`POST`, `PUT`, `PATCH`, `DELETE`), not just the obvious ones?
+- [ ] Does the thread/message check verify *participation*, not just authentication?
+- [ ] Did AI accidentally check `role === 'seller'` instead of `listing.sellerId === user.id`? (The single most common AI mistake on this exact topic.)
 
 > ** Common Hallucination:** AI frequently writes `if (user.role === 'seller')` when you asked for ownership-based authorization. This compiles, looks reasonable, and is completely wrong for a multi-seller marketplace. Always read the diff line by line on auth code — this is not a place to skim.
 

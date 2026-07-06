@@ -59,7 +59,7 @@ You must command your AI to implement the **Backend-for-Frontend (BFF)** pattern
 
 ---
 
-## ✅ Development Fundamentals Checklist
+##  Development Fundamentals Checklist
 
 - [ ] Memorize the Tripartite Topology: Frontend, Commerce Engine, Headless CMS.
 - [ ] Understand that Webhooks are the only way to keep a headless cache in sync.

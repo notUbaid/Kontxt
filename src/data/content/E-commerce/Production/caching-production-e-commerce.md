@@ -99,7 +99,7 @@ The Server Component serves the heavily cached layout, but the Client Component 
 
 ---
 
-## ✅ Caching Engineering Checklist
+##  Caching Engineering Checklist
 
 - [ ] Utilize Next.js ISR (`revalidate: 3600`) to statically cache massive category/collection queries.
 - [ ] Implement Tag-Based Revalidation (`tags: ['id']`) to allow webhooks to surgically purge cached products when their price changes.

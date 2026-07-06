@@ -105,7 +105,7 @@ The backend API handles the deduplication (relying on the `@@unique([userId, pro
 
 ---
 
-## ✅ Wishlist Engineering Checklist
+##  Wishlist Engineering Checklist
 
 - [ ] Implement Optimistic UI using SWR mutations to guarantee a 0ms visual response when the Heart button is clicked.
 - [ ] Build an anonymous `localStorage` cache (via Zustand) to capture intent before the user logs in.

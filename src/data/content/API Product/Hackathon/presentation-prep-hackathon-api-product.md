@@ -25,7 +25,7 @@ APIs are the hardest hackathon category to present, because the product is invis
 | Visual proof something happened | A request/response that means nothing on a screen by itself |
 | Immediate "I get it" | Requires translation into a visible outcome |
 
-> **⚠️ Warning:** Never present raw JSON as your demo's centerpiece. Even a technical judge needs three seconds to parse it, and you don't have three seconds to spare in a pitch. JSON is for the docs page, not the stage.
+> **️ Warning:** Never present raw JSON as your demo's centerpiece. Even a technical judge needs three seconds to parse it, and you don't have three seconds to spare in a pitch. JSON is for the docs page, not the stage.
 
 ## Decision: How Do You Make an API Visible?
 
@@ -36,7 +36,7 @@ APIs are the hardest hackathon category to present, because the product is invis
 | Pre-recorded screen capture of real calls | Low | Medium — safe fallback, less impressive live |
 | Architecture diagram only, no live call | Very low | Low — feels like you're hiding something |
 
-> **✅ Best Practice:** If you have any time left, build the smallest possible frontend — even a single page with one button and one result box — that calls your real API. A visible before/after (click → real data appears) does more for judge comprehension than any amount of explanation.
+> ** Best Practice:** If you have any time left, build the smallest possible frontend — even a single page with one button and one result box — that calls your real API. A visible before/after (click → real data appears) does more for judge comprehension than any amount of explanation.
 
 ## What to Show, In Order
 
@@ -45,7 +45,7 @@ APIs are the hardest hackathon category to present, because the product is invis
 3. **Why it's hard** — the one technical decision you're proud of (rate limiting, schema design, auth strategy — pick exactly one)
 4. **What's next** — one sentence on what you'd build with more time
 
-> **💡 Tip:** Pick exactly one technical decision to highlight. Trying to explain your auth strategy *and* your database schema *and* your rate limiting in a three-minute pitch means judges retain none of them. One well-explained decision beats four rushed ones.
+> ** Tip:** Pick exactly one technical decision to highlight. Trying to explain your auth strategy *and* your database schema *and* your rate limiting in a three-minute pitch means judges retain none of them. One well-explained decision beats four rushed ones.
 
 ## Use AI to Pressure-Test Your Pitch
 
@@ -61,7 +61,7 @@ ask after this pitch. Then tell me, in one sentence each, what's
 unclear to someone who has never seen this project before.
 ```
 
-> **💡 Token Efficiency:** Run this prompt once your outline is close to final, not on a rough draft — iterating on a fully-formed pitch gets you sharper, more specific pushback than asking AI to react to fragments.
+> ** Token Efficiency:** Run this prompt once your outline is close to final, not on a rough draft — iterating on a fully-formed pitch gets you sharper, more specific pushback than asking AI to react to fragments.
 
 ## Validate Before You Present
 
@@ -70,7 +70,7 @@ unclear to someone who has never seen this project before.
 - [ ] Confirm your demo doesn't depend on a third-party API that could rate-limit or go down mid-pitch
 - [ ] Have a non-technical friend watch once — if they're lost, judges who aren't engineers will be too
 
-> **⚠️ Warning:** Never demo against `localhost` or a tunnel like ngrok in front of judges. If your laptop sleeps, your wifi drops, or the tunnel expires mid-sentence, the whole pitch stalls. Demo against your real deployed URL, and have the recorded backup from your deployment checklist ready regardless.
+> **️ Warning:** Never demo against `localhost` or a tunnel like ngrok in front of judges. If your laptop sleeps, your wifi drops, or the tunnel expires mid-sentence, the whole pitch stalls. Demo against your real deployed URL, and have the recorded backup from your deployment checklist ready regardless.
 
 ## Common Mistakes
 

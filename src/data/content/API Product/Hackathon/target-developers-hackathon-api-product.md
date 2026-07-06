@@ -71,9 +71,9 @@ Answer in one or two sentences:
 > My API's purpose: "[paste your purpose statement from the previous module]"
 >
 > Based on this purpose, propose ONE specific target developer persona:
-> - What are they building that calls this API?
-> - What's the simplest auth method that fits their use case (not the most secure — the simplest that's still reasonable)?
-> - What would make them abandon integration in the first 5 minutes?
+- What are they building that calls this API?
+- What's the simplest auth method that fits their use case (not the most secure — the simplest that's still reasonable)?
+- What would make them abandon integration in the first 5 minutes?
 >
 > Keep the persona narrow and concrete. Do not propose multiple personas.
 > ```

@@ -34,7 +34,7 @@ Your product page design either resolves that question in your favor or it doesn
 │  [Breadcrumb: Home > Wallets > Slim Bifold]         │
 ├───────────────────┬─────────────────────────────────┤
 │                   │  Product Title                  │
-│                   │  ★★★★☆ 4.8 (127 reviews) ←link  │
+│                   │   4.8 (127 reviews) ←link  │
 │  [Primary Image]  │                                 │
 │                   │  $89.00   ~~$110.00~~            │
 │  [Thumb] [Thumb]  │                                 │
@@ -44,9 +44,9 @@ Your product page design either resolves that question in your favor or it doesn
 │                   │  [  Add to Cart  ]              │
 │                   │  [  Buy Now      ]              │
 │                   │                                 │
-│                   │  ✓ Free shipping over $75       │
-│                   │  ✓ Free returns within 30 days  │
-│                   │  ✓ Ships in 1–3 business days   │
+│                   │   Free shipping over $75       │
+│                   │   Free returns within 30 days  │
+│                   │   Ships in 1–3 business days   │
 └───────────────────┴─────────────────────────────────┘
 
 [Description]   [Shipping]   [Returns]   [Reviews]
@@ -142,9 +142,9 @@ Place these directly below the Add to Cart button. This is where hesitation live
 **The three that matter most:**
 
 ```
-✓ Free shipping over $X       ← removes cost surprise
-✓ Free returns within 30 days ← removes purchase risk
-✓ Ships in 1–3 business days  ← removes delivery uncertainty
+ Free shipping over $X       ← removes cost surprise
+ Free returns within 30 days ← removes purchase risk
+ Ships in 1–3 business days  ← removes delivery uncertainty
 ```
 
 Don't bury these in the footer. A customer reading the price is simultaneously calculating risk — answer that calculation immediately.

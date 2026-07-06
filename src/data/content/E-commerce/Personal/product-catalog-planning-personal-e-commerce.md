@@ -81,7 +81,7 @@ Option: Material   → Values: Cotton, Linen
 
 A variant is one combination of option values: `[M, Black, Cotton]`.
 
-> ⚠️ **Warning: Combinatorial Explosion**
+> ️ **Warning: Combinatorial Explosion**
 >
 > 3 sizes × 4 colors × 2 materials = 24 variants per product. You do not need to create all combinations — only the ones that actually exist. But you do need to model the system to support them.
 
@@ -103,8 +103,8 @@ For a personal store at launch:
 - Collections are high-value for homepage merchandising
 - Tags enable flexible filtering without category proliferation
 
-> 💡 **Tip**
->
+> [!TIP]
+> >
 > If you have fewer than 30 products, a flat list with collections is almost always better than a category hierarchy. Category trees create navigation complexity without adding discoverability for small catalogs.
 
 ---
@@ -192,7 +192,7 @@ This is a sketch, not a final schema. Phase 2 will refine it. But if this sketch
 
 ---
 
-## ✅ Product Catalog Planning Checklist
+##  Product Catalog Planning Checklist
 
 - [ ] I have listed all products I plan to launch with
 - [ ] I know which products have variants and what their option dimensions are

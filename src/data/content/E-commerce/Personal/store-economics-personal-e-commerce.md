@@ -62,7 +62,7 @@ Map a single transaction completely.
 Gross Profit = Revenue − COGS − Packaging − Shipping − Payment Fee − Returns Provision
 ```
 
-> ⚠️ **Warning: Free Shipping Math**
+> ️ **Warning: Free Shipping Math**
 >
 > Offering free shipping means your shipping cost comes entirely out of margin. For low-AOV stores, free shipping can reduce gross profit by 20–40%. Run the numbers before making it your default.
 
@@ -95,7 +95,7 @@ Monthly Platform Cost ÷ Gross Profit Per Order = Orders needed to break even on
 
 At that level, a personal store can be profitable on very low volume. If your numbers look like this — great. If platform costs are ₹8,000/month and gross profit is ₹200/order, you need 40 orders a month just to cover hosting.
 
-> 💡 **Tip: Start on Free Tiers**
+>  **Tip: Start on Free Tiers**
 >
 > At launch, most personal stores can run entirely on free tiers — Vercel hobby, Supabase free, Resend free, Cloudflare R2 free. Your real platform cost at launch can be ₹0–₹300/month. Plan for scale, but don't pay for it before you need it.
 
@@ -143,7 +143,7 @@ Before Phase 2, you need to understand how platform choice affects economics.
 | Ongoing maintenance | Low | High |
 | Break-even order volume | ~10–15 orders/month | ~2–5 orders/month |
 
-> ⚠️ **The Hidden Shopify Cost**
+> ️ **The Hidden Shopify Cost**
 >
 > Shopify's 2% transaction fee (when not using Shopify Payments, which isn't available in India) compounds at scale. At ₹1,00,000/month GMV, that's ₹2,000/month in additional fees on top of the subscription — before payment gateway fees. For Indian stores, this matters.
 
@@ -151,7 +151,7 @@ This is covered in depth in Phase 2's Build vs. Buy module. For now, factor the 
 
 ---
 
-## ✅ Store Economics Checklist
+##  Store Economics Checklist
 
 - [ ] I have calculated gross profit per order including COGS, packaging, shipping, and payment fees
 - [ ] I know my gross margin percentage

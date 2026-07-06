@@ -25,7 +25,7 @@ This connects directly to decisions you've already made throughout the build: wh
 
 A store collects more personal data than most personal projects: names, emails, shipping addresses, order history, and indirectly, payment information (even if you never touch the card number yourself, your payment provider does, on your behalf). Most jurisdictions require disclosure of this regardless of store size — there is generally no "too small to need a privacy policy" exemption.
 
-> **⚠️ Warning:** Payment providers themselves often require a privacy policy and terms of service to be live on your site before they'll let you go from test mode to live transactions. This isn't optional groundwork — it can be a literal blocker to accepting real payments.
+> **️ Warning:** Payment providers themselves often require a privacy policy and terms of service to be live on your site before they'll let you go from test mode to live transactions. This isn't optional groundwork — it can be a literal blocker to accepting real payments.
 
 ---
 
@@ -53,7 +53,7 @@ Walk through your own store and list every place customer data goes:
 | Browsing/analytics data | Site visits | Analytics provider, if used |
 | Marketing email opt-in | Checkout or account | Email service provider, if used |
 
-> **💡 Tip:** This table *is* most of the content your privacy policy needs to cover. Fill it in accurately for your actual stack before writing anything — a generic privacy policy that doesn't match what your store actually does is arguably worse than none, since it's inaccurate.
+> ** Tip:** This table *is* most of the content your privacy policy needs to cover. Fill it in accurately for your actual stack before writing anything — a generic privacy policy that doesn't match what your store actually does is arguably worse than none, since it's inaccurate.
 
 ---
 
@@ -92,7 +92,7 @@ Walk me through:
    tools) requires a specific disclosure I might not know about
 ```
 
-> **⚠️ Warning:** Don't let AI invent your data retention period, third-party list, or deletion process from assumptions — feed it the actual table of what your store does. A privacy policy describing data handling that doesn't match reality is a liability, not a protection.
+> **️ Warning:** Don't let AI invent your data retention period, third-party list, or deletion process from assumptions — feed it the actual table of what your store does. A privacy policy describing data handling that doesn't match reality is a liability, not a protection.
 
 ---
 

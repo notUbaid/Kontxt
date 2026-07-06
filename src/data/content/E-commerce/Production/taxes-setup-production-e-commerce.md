@@ -113,7 +113,7 @@ When you query the database to build the cart payload, you pass this exact `taxC
 
 ---
 
-## ✅ Taxes Setup Engineering Checklist
+##  Taxes Setup Engineering Checklist
 
 - [ ] Ban hardcoded tax percentages. Mandate the use of Stripe Tax or TaxJar APIs for dynamic, Zip-Code-level calculation.
 - [ ] Ensure the Prisma database schema requires a strict `taxCode` for all products to correctly handle state-level exemptions (e.g., apparel).

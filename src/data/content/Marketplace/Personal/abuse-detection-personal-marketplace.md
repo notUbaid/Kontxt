@@ -50,9 +50,9 @@ Fraud Prevention covered dishonest *transactions* — fake listings, non-deliver
 You already rate-limited message sending in Rate Limiting — that throttles volume but doesn't catch *content*. A user can harass someone slowly, well within rate limits.
 
 > ** Validation Checklist**
-> - [ ] Can a recipient block a sender, preventing further messages without needing to report and wait for admin action?
-> - [ ] Does reporting a message (from Fraud Prevention's `Report` model) surface the message content to you, not just a reference ID — you need to actually see what was said to act on it?
-> - [ ] Is there a simple keyword/pattern flag for obviously abusive content (slurs, threats) that surfaces a report automatically, even before the recipient reports it themselves?
+- [ ] Can a recipient block a sender, preventing further messages without needing to report and wait for admin action?
+- [ ] Does reporting a message (from Fraud Prevention's `Report` model) surface the message content to you, not just a reference ID — you need to actually see what was said to act on it?
+- [ ] Is there a simple keyword/pattern flag for obviously abusive content (slurs, threats) that surfaces a report automatically, even before the recipient reports it themselves?
 
 ```js
 // Simple, transparent content flagging — not a black-box ML model
@@ -90,9 +90,9 @@ async function checkForSpamListing(sellerId, title, description) {
 ```
 
 > ** Validation Checklist**
-> - [ ] Does listing creation check for near-duplicate recent listings from the same seller?
-> - [ ] Is the threshold for flagging set conservatively (favoring missed detection over false positives), appropriate for a personal project where you'd rather under-flag than annoy legitimate sellers re-listing similar items?
-> - [ ] Are flagged listings still published (not blocked), just surfaced for your review?
+- [ ] Does listing creation check for near-duplicate recent listings from the same seller?
+- [ ] Is the threshold for flagging set conservatively (favoring missed detection over false positives), appropriate for a personal project where you'd rather under-flag than annoy legitimate sellers re-listing similar items?
+- [ ] Are flagged listings still published (not blocked), just surfaced for your review?
 
 ---
 
@@ -101,9 +101,9 @@ async function checkForSpamListing(sellerId, title, description) {
 Suspending an account is meaningless if the same person creates a new one in minutes. This is genuinely hard to solve completely — but a few low-cost signals catch the common case without building serious fingerprinting infrastructure.
 
 > ** Validation Checklist**
-> - [ ] Is email verification required before an account can create listings or send messages? (The single cheapest ban-evasion deterrent — raises the cost of creating throwaway accounts)
-> - [ ] When suspending a user, do you log identifying signals available to you (IP at signup, IP at time of suspension) so a clear repeat pattern is visible if it happens again?
-> - [ ] Are you avoiding building invasive device fingerprinting? (Disproportionate for a personal project, and a real privacy concern — simple signals are enough at this scale)
+- [ ] Is email verification required before an account can create listings or send messages? (The single cheapest ban-evasion deterrent — raises the cost of creating throwaway accounts)
+- [ ] When suspending a user, do you log identifying signals available to you (IP at signup, IP at time of suspension) so a clear repeat pattern is visible if it happens again?
+- [ ] Are you avoiding building invasive device fingerprinting? (Disproportionate for a personal project, and a real privacy concern — simple signals are enough at this scale)
 
 > ** Rule of thumb:** perfect ban evasion prevention isn't achievable even for large platforms. Your goal is raising the cost of evasion enough that casual bad actors don't bother — not building a forensic-grade detection system.
 
@@ -114,9 +114,9 @@ Suspending an account is meaningless if the same person creates a new one in min
 Partially addressed in Security (pagination caps, hiding contact info) — this section is about *detecting* scraping in progress, not just limiting its damage.
 
 > ** Validation Checklist**
-> - [ ] Are you logging request patterns that suggest scraping — e.g. one IP making hundreds of sequential `GET /listings/:id` requests in a short window?
-> - [ ] Does your rate limiting on search/browse endpoints (from Rate Limiting) actually catch this, or is the limit too generous to matter?
-> - [ ] If scraping is detected, is the response a clear rate-limit message, not a silent block that leaves you wondering if your own monitoring broke?
+- [ ] Are you logging request patterns that suggest scraping — e.g. one IP making hundreds of sequential `GET /listings/:id` requests in a short window?
+- [ ] Does your rate limiting on search/browse endpoints (from Rate Limiting) actually catch this, or is the limit too generous to matter?
+- [ ] If scraping is detected, is the response a clear rate-limit message, not a silent block that leaves you wondering if your own monitoring broke?
 
 ---
 

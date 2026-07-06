@@ -27,7 +27,7 @@ Every extra step between those two points loses readers. A Quick Start is not a 
 
 If a reader can't answer all five in under a minute of reading, the guide has too much in it.
 
-> **⚠️ Warning:** Don't open with installation instructions, architecture, or your tech stack. Nobody cares what you built your API with until after they've confirmed it does what they need.
+> **️ Warning:** Don't open with installation instructions, architecture, or your tech stack. Nobody cares what you built your API with until after they've confirmed it does what they need.
 
 ## Structure That Works
 
@@ -49,7 +49,7 @@ One sentence describing what this API does.
 [Links to full endpoint docs / Postman collection]
 ```
 
-> **✅ Best Practice:** For a hackathon demo, provide a working shared API key directly in the Quick Start. Don't make a judge sign up for an account to evaluate your project — that's friction that costs you the demo, not security you actually need at this stage.
+> ** Best Practice:** For a hackathon demo, provide a working shared API key directly in the Quick Start. Don't make a judge sign up for an account to evaluate your project — that's friction that costs you the demo, not security you actually need at this stage.
 
 ## One Command, One Response, Zero Ambiguity
 
@@ -69,7 +69,7 @@ curl -X GET https://your-api.com/v1/tasks \
 }
 ```
 
-> **💡 Tip:** Pick your simplest GET endpoint for this first example — not your most impressive feature. The goal here is proving the API works at all, not showcasing complexity. Save the impressive endpoint for the pitch demo.
+> ** Tip:** Pick your simplest GET endpoint for this first example — not your most impressive feature. The goal here is proving the API works at all, not showcasing complexity. Save the impressive endpoint for the pitch demo.
 
 ## Decision: README vs Hosted Docs Page
 
@@ -79,7 +79,7 @@ curl -X GET https://your-api.com/v1/tasks \
 | Hosted docs site (Docusaurus, Mintlify) | Hours | Overkill unless your product *is* developer docs |
 | Notion/Google Doc link | Minutes | Acceptable, but a README is more discoverable |
 
-> **⚠️ Warning:** Don't spend hackathon hours standing up a documentation site. A clean, well-formatted `README.md` does the job a judge actually needs and costs a fraction of the time.
+> **️ Warning:** Don't spend hackathon hours standing up a documentation site. A clean, well-formatted `README.md` does the job a judge actually needs and costs a fraction of the time.
 
 ## Generate It with AI
 
@@ -99,7 +99,7 @@ architecture explanation, or tech stack section.
 [paste your existing endpoint docs and example responses here]
 ```
 
-> **💡 Token Efficiency:** Reuse the examples you already generated and verified in earlier modules — paste them in directly rather than asking AI to regenerate from scratch. You already paid the verification cost once; don't pay it again.
+> ** Token Efficiency:** Reuse the examples you already generated and verified in earlier modules — paste them in directly rather than asking AI to regenerate from scratch. You already paid the verification cost once; don't pay it again.
 
 ## Validate Before You Share It
 
@@ -108,7 +108,7 @@ architecture explanation, or tech stack section.
 - [ ] Confirm the API key in the guide is the same one that's actually live and working
 - [ ] Check that the single curl example still matches your current deployed API
 
-> **⚠️ Warning:** This is the page most likely to go stale in the final hours before submission, when routes change but docs don't. Re-verify it after your last deploy, not before.
+> **️ Warning:** This is the page most likely to go stale in the final hours before submission, when routes change but docs don't. Re-verify it after your last deploy, not before.
 
 ## Common Mistakes
 

@@ -33,7 +33,7 @@ function track<E extends keyof typeof EVENT_SCHEMA>(
 }
 ```
 
-> 💡 Defining your schema as a typed object like this means **mistyped event names and missing required properties become compile-time errors**, not silent gaps discovered months later when someone tries to build a funnel report and finds half the events missing a property. This is the highest-leverage thing you can do to keep the Phase 2 taxonomy intact as the codebase grows.
+>  Defining your schema as a typed object like this means **mistyped event names and missing required properties become compile-time errors**, not silent gaps discovered months later when someone tries to build a funnel report and finds half the events missing a property. This is the highest-leverage thing you can do to keep the Phase 2 taxonomy intact as the codebase grows.
 
 Every feature module calls `track()`, never the raw provider SDK directly — this is the same centralization principle as your API client and permission handling.
 
@@ -41,7 +41,7 @@ Every feature module calls `track()`, never the raw provider SDK directly — th
 
 ## Decision 2 — Where Tracking Calls Live in Component Code
 
-> ⚠️ Don't scatter `track()` calls inline inside JSX event handlers across dozens of components — it works, but it makes events easy to miss when refactoring and hard to audit against your taxonomy. Prefer colocating tracking calls with the action they describe, ideally in the same hook/function that performs the underlying action, so the event fires exactly once, exactly when the real thing happens.
+> ️ Don't scatter `track()` calls inline inside JSX event handlers across dozens of components — it works, but it makes events easy to miss when refactoring and hard to audit against your taxonomy. Prefer colocating tracking calls with the action they describe, ideally in the same hook/function that performs the underlying action, so the event fires exactly once, exactly when the real thing happens.
 
 ```typescript
 // Good: tracking lives next to the actual mutation
@@ -90,7 +90,7 @@ async function handlePaymentSucceeded(event: StripeEvent) {
 }
 ```
 
-> 💡 If both client and server emit the same event (common for events you also want immediate client-side UX feedback from), make sure your analytics provider can deduplicate, or only treat the server-side event as the source of truth for anything used in revenue reporting.
+>  If both client and server emit the same event (common for events you also want immediate client-side UX feedback from), make sure your analytics provider can deduplicate, or only treat the server-side event as the source of truth for anything used in revenue reporting.
 
 ---
 
@@ -110,7 +110,7 @@ await analyticsProvider.identify(user.id, {
 await analyticsProvider.reset();
 ```
 
-> ⚠️ Confirm `reset()` (or equivalent) is called as part of your logout flow from the Auth Implementation module — a missed reset means the next user on a shared/handed-off device gets attributed events under the previous user's identity, corrupting both users' data.
+> ️ Confirm `reset()` (or equivalent) is called as part of your logout flow from the Auth Implementation module — a missed reset means the next user on a shared/handed-off device gets attributed events under the previous user's identity, corrupting both users' data.
 
 ---
 

@@ -25,7 +25,7 @@ Re-check your Phase 2 Offline Strategy decision before implementing anything her
 | **Optimistic local writes, synced later** | User can take actions offline (e.g. draft a post, mark something read); changes queue and sync when connectivity returns |
 | **Full offline-first** | App is fully functional offline as the primary mode, with sync as a background concern, not a blocking one |
 
-> 💡 Most production mobile apps land on the middle tier — read-only offline for browsing, queued writes for a deliberately scoped set of actions (not everything). Full offline-first is significant engineering investment, usually only justified for apps where connectivity is unreliable by the nature of their use case (field work apps, apps for areas with poor coverage).
+>  Most production mobile apps land on the middle tier — read-only offline for browsing, queued writes for a deliberately scoped set of actions (not everything). Full offline-first is significant engineering investment, usually only justified for apps where connectivity is unreliable by the nature of their use case (field work apps, apps for areas with poor coverage).
 
 ---
 
@@ -44,7 +44,7 @@ persistQueryClient({
 });
 ```
 
-> ⚠️ Don't persist everything indiscriminately — large or rapidly-changing queries (a real-time feed) shouldn't be cached for offline access indefinitely; stale offline data presented as current can be more misleading than an honest "you're offline, here's what we last had" state. Scope persistence to specifically the queries that benefit from offline availability, not the entire query cache by default.
+> ️ Don't persist everything indiscriminately — large or rapidly-changing queries (a real-time feed) shouldn't be cached for offline access indefinitely; stale offline data presented as current can be more misleading than an honest "you're offline, here's what we last had" state. Scope persistence to specifically the queries that benefit from offline availability, not the entire query cache by default.
 
 ---
 
@@ -74,7 +74,7 @@ User takes action while offline
   → on failure: retry with backoff, or surface to user if unrecoverable
 ```
 
-> 💡 **Process the queue in order, not in parallel** — if a user offline-edits the same record twice, replaying those mutations out of order can produce a different final state than what the user actually did. Sequential processing preserves intent.
+>  **Process the queue in order, not in parallel** — if a user offline-edits the same record twice, replaying those mutations out of order can produce a different final state than what the user actually did. Sequential processing preserves intent.
 
 ---
 
@@ -89,7 +89,7 @@ The genuinely hard part: what happens when a queued offline mutation conflicts w
 | **Field-level merge** | Only the specific fields that were actually changed offline get applied, rather than overwriting the whole record | Better UX, meaningfully more implementation complexity |
 | **Explicit conflict prompt** | User is shown both versions and picks, or merges manually | Necessary for genuinely high-stakes collisions (e.g. collaborative editing) |
 
-> ⚠️ **Don't pick this by default — decide it per data type.** A user's own draft post overwriting itself with last-write-wins is fine. An inventory count conflicting across two offline devices needs something more careful, or you'll silently lose data integrity. Match the strategy to the actual collision risk and stakes of each entity, not one global policy for everything.
+> ️ **Don't pick this by default — decide it per data type.** A user's own draft post overwriting itself with last-write-wins is fine. An inventory count conflicting across two offline devices needs something more careful, or you'll silently lose data integrity. Match the strategy to the actual collision risk and stakes of each entity, not one global policy for everything.
 
 ---
 
@@ -101,7 +101,7 @@ Decide when the queue attempts to flush, not just that it eventually does:
 - **On app foreground** — connectivity may have returned while backgrounded; check on resume, not just via the listener.
 - **Periodically while online**, if mutations can be queued even while nominally connected (e.g. a request failed mid-flight) — don't assume "queued" only happens during full offline periods.
 
-> 💡 Surface sync state to the user when it's relevant — a small "syncing 3 changes..." indicator is often enough to prevent confusion ("did my edit actually save?") without needing a heavyweight UI. Silence here reads as data loss to an anxious user, even when the queue is working correctly in the background.
+>  Surface sync state to the user when it's relevant — a small "syncing 3 changes..." indicator is often enough to prevent confusion ("did my edit actually save?") without needing a heavyweight UI. Silence here reads as data loss to an anxious user, even when the queue is working correctly in the background.
 
 ---
 

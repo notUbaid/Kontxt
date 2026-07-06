@@ -30,8 +30,8 @@ For most hackathon API products, the answer is almost always the same:
 You usually can't make a third-party API faster. You can make the wait feel intentional instead of broken:
 
 > **Quick Reference — Two real options**
-> - **You already designed for this** — if your core loop has processing time, the `202` + polling pattern from Response Design exists exactly to handle this. Make sure your demo app actually shows a loading state during that wait, not a frozen, unexplained pause.
-> - **If you didn't design for async and the call is fast enough to wait on** — a visible loading indicator in your demo app turns a 2-3 second wait from "is this broken?" into "it's working."
+- **You already designed for this** — if your core loop has processing time, the `202` + polling pattern from Response Design exists exactly to handle this. Make sure your demo app actually shows a loading state during that wait, not a frozen, unexplained pause.
+- **If you didn't design for async and the call is fast enough to wait on** — a visible loading indicator in your demo app turns a 2-3 second wait from "is this broken?" into "it's working."
 
 A clearly-communicated wait reads as intentional engineering. A silent one reads as a bug, even if it's actually fine.
 

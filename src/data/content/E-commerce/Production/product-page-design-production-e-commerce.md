@@ -60,7 +60,7 @@ You must explicitly command your AI to write the Next.js `generateMetadata` func
 
 ---
 
-## ✅ Product Page Architecture Checklist
+##  Product Page Architecture Checklist
 
 - [ ] Enforce the Hybrid Rendering Strategy: Statically generate the shell, dynamically fetch the volatile data (inventory/price).
 - [ ] Forbid local state for variant selection; mandate URL Parameter state tracking.

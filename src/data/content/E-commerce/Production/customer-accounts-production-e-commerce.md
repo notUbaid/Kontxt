@@ -56,7 +56,7 @@ Instruct your AI to build a component on the Thank You page that says: *"Save yo
 
 ---
 
-## ✅ Identity Architecture Checklist
+##  Identity Architecture Checklist
 
 - [ ] Ban traditional passwords. Mandate OAuth (Google/Apple) and Magic Links/OTPs.
 - [ ] Understand the "Identity Bridge" required to sync Next.js users with your headless Commerce Engine.

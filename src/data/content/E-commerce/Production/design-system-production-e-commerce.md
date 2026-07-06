@@ -53,7 +53,7 @@ You must instruct your AI to use **Storybook**. Storybook is a sandbox where you
 
 ---
 
-## ✅ Design System Checklist
+##  Design System Checklist
 
 - [ ] Stop thinking of a Design System as a Figma file; treat it as a strictly typed NPM package/library.
 - [ ] Mandate strict Semantic Tokenization in Tailwind (never hardcode hex colors).

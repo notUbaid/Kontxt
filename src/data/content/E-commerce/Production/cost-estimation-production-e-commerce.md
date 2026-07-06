@@ -56,7 +56,7 @@ Instruct your AI to write intelligent webhook debouncing. Only update Algolia wh
 
 ---
 
-## ✅ Cost Estimation Checklist
+##  Cost Estimation Checklist
 
 - [ ] Acknowledge that Egress (Bandwidth) is the silent killer of headless profitability.
 - [ ] Enforce strict Image Optimization pipelines (Cloudinary/Next.js Image) to crush Egress costs.

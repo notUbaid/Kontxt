@@ -129,9 +129,9 @@ Be direct. Tell me what's weak and how to fix it.
 ```
 
 > **What to look for:**
-> - [ ] If "specificity" gets flagged, you're still being generic — narrow it further
-> - [ ] If "credibility" gets flagged, you're over-promising — scale it back to what you can actually deliver on day one
-> - [ ] Use the headline suggestions as raw material, not final copy — rewrite until one feels genuinely yours
+- [ ] If "specificity" gets flagged, you're still being generic — narrow it further
+- [ ] If "credibility" gets flagged, you're over-promising — scale it back to what you can actually deliver on day one
+- [ ] Use the headline suggestions as raw material, not final copy — rewrite until one feels genuinely yours
 
 ---
 

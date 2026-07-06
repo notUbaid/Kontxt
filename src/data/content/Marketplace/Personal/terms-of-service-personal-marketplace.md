@@ -26,13 +26,13 @@ This is the structural reason marketplace platforms (eBay, Etsy, Airbnb) all hav
 ## What This Document Actually Needs to Cover
 
 > ** Validation Checklist**
-> - [ ] **Platform role** — you facilitate listings, payments, and messaging; you are not the seller, and you don't guarantee the quality or legitimacy of listings (connects directly to the moderation limits you'll set below)
-> - [ ] **Acceptable use** — what's prohibited: fraudulent listings, harassment, scraping, ban evasion (mirrors what you built in Fraud Prevention and Abuse Detection — the terms are the user-facing statement of rules your code already enforces)
-> - [ ] **Account suspension/termination rights** — your right to suspend accounts for violations, and on what basis
-> - [ ] **Payment and fee terms** — how payments flow, what fees (if any) you take, refund handling
-> - [ ] **Dispute process** — what happens when a buyer and seller disagree (ties to your order confirmation flow from Fraud Prevention)
-> - [ ] **Limitation of liability** — you're not liable for the conduct of users, the quality of listed items, or losses from transactions between users
-> - [ ] **Content ownership** — who owns listing content/images (the seller does, but grants you a license to display it)
+- [ ] **Platform role** — you facilitate listings, payments, and messaging; you are not the seller, and you don't guarantee the quality or legitimacy of listings (connects directly to the moderation limits you'll set below)
+- [ ] **Acceptable use** — what's prohibited: fraudulent listings, harassment, scraping, ban evasion (mirrors what you built in Fraud Prevention and Abuse Detection — the terms are the user-facing statement of rules your code already enforces)
+- [ ] **Account suspension/termination rights** — your right to suspend accounts for violations, and on what basis
+- [ ] **Payment and fee terms** — how payments flow, what fees (if any) you take, refund handling
+- [ ] **Dispute process** — what happens when a buyer and seller disagree (ties to your order confirmation flow from Fraud Prevention)
+- [ ] **Limitation of liability** — you're not liable for the conduct of users, the quality of listed items, or losses from transactions between users
+- [ ] **Content ownership** — who owns listing content/images (the seller does, but grants you a license to display it)
 
 ---
 
@@ -88,12 +88,12 @@ Your Terms of Service should be a true reflection of mechanisms you've already i
 Generic "don't do illegal things" language is necessary but insufficient. Be specific to the abuse patterns you already designed defenses for — this also gives you clear contractual grounds to act when your detection systems flag something.
 
 > ** Validation Checklist — Specific prohibitions worth naming explicitly**
-> - [ ] Creating fraudulent or misleading listings
-> - [ ] Attempting to complete transactions outside the platform to avoid fees or buyer protections
-> - [ ] Harassment or abusive communication through the messaging system
-> - [ ] Creating multiple accounts to evade suspension or manipulate reviews
-> - [ ] Scraping or automated data collection from the platform
-> - [ ] Posting fake reviews or manipulating the review system
+- [ ] Creating fraudulent or misleading listings
+- [ ] Attempting to complete transactions outside the platform to avoid fees or buyer protections
+- [ ] Harassment or abusive communication through the messaging system
+- [ ] Creating multiple accounts to evade suspension or manipulate reviews
+- [ ] Scraping or automated data collection from the platform
+- [ ] Posting fake reviews or manipulating the review system
 
 ---
 
@@ -106,16 +106,16 @@ Generic "don't do illegal things" language is necessary but insufficient. Be spe
 > platform actually does — not generic marketplace boilerplate.
 >
 > Platform facts:
-> - We are an intermediary connecting buyers and sellers; we are not a party to
+- We are an intermediary connecting buyers and sellers; we are not a party to
 >   transactions and don't guarantee listing accuracy or item quality
-> - Payments are processed via [your processor]; we [do/don't] take a platform fee of [X]%
-> - Orders move through this status flow: [paste your order status flow from
+- Payments are processed via [your processor]; we [do/don't] take a platform fee of [X]%
+- Orders move through this status flow: [paste your order status flow from
 >   Fraud Prevention/Payments]
-> - We can suspend accounts for: fraudulent listings, harassment, ban evasion,
+- We can suspend accounts for: fraudulent listings, harassment, ban evasion,
 >   review manipulation, scraping
-> - Reviews require a completed order (per our Reviews system) and cannot be deleted
+- Reviews require a completed order (per our Reviews system) and cannot be deleted
 >   by sellers
-> - Dispute handling: [describe your actual process — e.g. buyer confirmation window,
+- Dispute handling: [describe your actual process — e.g. buyer confirmation window,
 >   reporting tools, manual review]
 >
 > Cover: platform role/liability limitation, acceptable use (specific to the

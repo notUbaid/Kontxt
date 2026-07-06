@@ -17,7 +17,7 @@ This module is about the storage architecture — provider choice, upload patter
 
 ## The Mistake This Module Prevents
 
-> ⚠️ **Never route file bytes through your own API server.** A common first instinct is: client uploads to your backend → backend saves to disk or forwards to storage. This means every file upload consumes your server's bandwidth and compute, doubles the transfer time, and turns a 50MB video upload into a request your API has to hold open. Production architecture uploads **directly from the client to object storage**, with your backend only issuing permission to do so.
+> ️ **Never route file bytes through your own API server.** A common first instinct is: client uploads to your backend → backend saves to disk or forwards to storage. This means every file upload consumes your server's bandwidth and compute, doubles the transfer time, and turns a 50MB video upload into a request your API has to hold open. Production architecture uploads **directly from the client to object storage**, with your backend only issuing permission to do so.
 
 ---
 
@@ -54,7 +54,7 @@ This is the core architecture decision. Three approaches exist; only one is corr
 5. Backend verifies the object exists in storage, writes the reference to your database
 ```
 
-> 💡 **Why step 5 matters:** never trust the client's "upload succeeded" claim alone. Confirm the object actually exists in storage (a HEAD request to the storage API) before writing it into your database as if it's real. Otherwise a flaky upload leaves you with database rows pointing at files that don't exist.
+>  **Why step 5 matters:** never trust the client's "upload succeeded" claim alone. Confirm the object actually exists in storage (a HEAD request to the storage API) before writing it into your database as if it's real. Otherwise a flaky upload leaves you with database rows pointing at files that don't exist.
 
 ---
 
@@ -68,7 +68,7 @@ Decide this per file type — not every upload needs the same visibility model.
 | Private (documents, private message attachments) | Pre-signed read URLs, generated per-request | Backend checks authorization, then mints a short-lived signed GET URL |
 | Semi-private (content visible to specific users, e.g. shared folders) | Pre-signed URLs gated by your own authorization logic | Same as private, but authorization check is more complex (team/group membership) |
 
-> ⚠️ **Common mistake:** making a bucket fully public "to keep things simple," then later realizing private documents are sitting in it too. Separate public and private content into different buckets/prefixes from day one — retrofitting access control onto a bucket with mixed content is a painful migration.
+> ️ **Common mistake:** making a bucket fully public "to keep things simple," then later realizing private documents are sitting in it too. Separate public and private content into different buckets/prefixes from day one — retrofitting access control onto a bucket with mixed content is a painful migration.
 
 ---
 
@@ -89,7 +89,7 @@ If your app accepts images or video, decide where transformation happens:
 - **On-the-fly transformation** (e.g. Cloudflare Images, imgix, S3 + Lambda@Edge): request a resized/optimized version via URL parameters, provider generates and caches it. Less upfront work, costs scale with usage.
 - **Pre-processing on upload** (a worker triggered on object-created event generates thumbnails/compressed versions immediately): more upfront complexity, but predictable serving cost and works offline-friendly for apps that need guaranteed-available thumbnails.
 
-> 💡 For most production mobile apps, on-the-fly transformation (Cloudflare Images or equivalent) is the better default — it avoids building and maintaining a processing pipeline, and you only pay for formats actually requested.
+>  For most production mobile apps, on-the-fly transformation (Cloudflare Images or equivalent) is the better default — it avoids building and maintaining a processing pipeline, and you only pay for formats actually requested.
 
 ---
 

@@ -15,7 +15,7 @@ Payments is the part of your app where mistakes cost real money — yours, or yo
 
 ## The Rule That Overrides Everything Else Here
 
-> ⚠️ **Never let your app or backend touch raw card numbers, CVVs, or full payment credentials.** Use your payment provider's SDK to tokenize payment details directly on-device — your backend should only ever see a token/payment method ID, never the underlying card data. Handling raw card data yourself pulls you into full PCI-DSS compliance scope, which is a serious, ongoing compliance burden almost no app needs to take on. Every reputable payment provider's mobile SDK is designed specifically to keep you out of that scope — use it as designed.
+> ️ **Never let your app or backend touch raw card numbers, CVVs, or full payment credentials.** Use your payment provider's SDK to tokenize payment details directly on-device — your backend should only ever see a token/payment method ID, never the underlying card data. Handling raw card data yourself pulls you into full PCI-DSS compliance scope, which is a serious, ongoing compliance burden almost no app needs to take on. Every reputable payment provider's mobile SDK is designed specifically to keep you out of that scope — use it as designed.
 
 ---
 
@@ -35,7 +35,7 @@ Payments is the part of your app where mistakes cost real money — yours, or yo
 
 This is a platform policy decision, not a technical one, and getting it wrong can mean app store rejection:
 
-> ⚠️ **Apple requires In-App Purchase (and takes its commission) for digital content, subscriptions, and virtual goods consumed within the app.** You cannot route around this with Stripe for a subscription unlocking in-app features — this is one of the most common App Store rejection reasons for apps with a paid tier. Physical goods, in-person services, and most B2B/marketplace transactions are generally exempt and can use Stripe or similar directly. If you're unsure which category your product falls into, this is worth resolving before building the payment flow, not after submission.
+> ️ **Apple requires In-App Purchase (and takes its commission) for digital content, subscriptions, and virtual goods consumed within the app.** You cannot route around this with Stripe for a subscription unlocking in-app features — this is one of the most common App Store rejection reasons for apps with a paid tier. Physical goods, in-person services, and most B2B/marketplace transactions are generally exempt and can use Stripe or similar directly. If you're unsure which category your product falls into, this is worth resolving before building the payment flow, not after submission.
 
 Android has a similar Play Billing requirement for digital goods, with somewhat more flexibility depending on category — verify current policy for your specific product type before committing to an implementation.
 
@@ -43,7 +43,7 @@ Android has a similar Play Billing requirement for digital goods, with somewhat 
 
 ## Decision 3 — Idempotency on Every Payment Operation
 
-> ⚠️ Network failures on mobile are common — a payment request can time out on the client after it actually succeeded server-side, and a naive retry creates a duplicate charge. Every payment-creating request must include an idempotency key, generated client-side, that your backend (and most payment providers natively) uses to guarantee the same logical request is never processed twice, no matter how many times the client retries it.
+> ️ Network failures on mobile are common — a payment request can time out on the client after it actually succeeded server-side, and a naive retry creates a duplicate charge. Every payment-creating request must include an idempotency key, generated client-side, that your backend (and most payment providers natively) uses to guarantee the same logical request is never processed twice, no matter how many times the client retries it.
 
 ```typescript
 const idempotencyKey = generateUUID(); // generated once per attempt, reused across retries
@@ -70,13 +70,13 @@ Most providers (Stripe included) support idempotency keys natively on their char
 5. Backend returns success/failure; client updates UI accordingly
 ```
 
-> 💡 Use the provider's pre-built UI components (Stripe's `PaymentSheet`, for example) rather than building custom card input forms — they handle a meaningful amount of validation, formatting, and platform-specific UX (Apple Pay/Google Pay sheet integration) that's not worth reimplementing, and keeps you further from any PCI scope.
+>  Use the provider's pre-built UI components (Stripe's `PaymentSheet`, for example) rather than building custom card input forms — they handle a meaningful amount of validation, formatting, and platform-specific UX (Apple Pay/Google Pay sheet integration) that's not worth reimplementing, and keeps you further from any PCI scope.
 
 ---
 
 ## Decision 5 — Webhook-Driven State, Not Client-Reported Success
 
-> ⚠️ **Never mark a payment as successful in your database based solely on the client telling you it succeeded.** A client can lie (maliciously or through a bug), lose connectivity right after a successful charge, or crash before reporting back. The authoritative source of truth for payment state is your provider's webhook — listen for `payment_intent.succeeded` (or equivalent) server-side, and treat that as the actual confirmation. The client-side success response is for UX (showing a confirmation screen immediately); the webhook is for truth (actually fulfilling the order, granting access, etc.).
+> ️ **Never mark a payment as successful in your database based solely on the client telling you it succeeded.** A client can lie (maliciously or through a bug), lose connectivity right after a successful charge, or crash before reporting back. The authoritative source of truth for payment state is your provider's webhook — listen for `payment_intent.succeeded` (or equivalent) server-side, and treat that as the actual confirmation. The client-side success response is for UX (showing a confirmation screen immediately); the webhook is for truth (actually fulfilling the order, granting access, etc.).
 
 ```
 Client confirms payment → shows optimistic "Processing..." UI

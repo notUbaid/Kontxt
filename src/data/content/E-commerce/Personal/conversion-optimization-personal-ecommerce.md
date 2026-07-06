@@ -21,7 +21,7 @@ This revisits work from across the curriculum — Product Photography, Product D
 
 ## Why This Is Usually the Highest-Leverage Growth Work
 
-> **💡 Tip:** Every other growth tactic — email marketing, referrals, ads — sends more traffic into the same funnel. If that funnel leaks, you're paying (in time or money) to lose a percentage of every new visitor you work hard to bring in. Fixing conversion first makes every later growth effort more effective, which is why the Roadmap module weighs it so heavily.
+> ** Tip:** Every other growth tactic — email marketing, referrals, ads — sends more traffic into the same funnel. If that funnel leaks, you're paying (in time or money) to lose a percentage of every new visitor you work hard to bring in. Fixing conversion first makes every later growth effort more effective, which is why the Roadmap module weighs it so heavily.
 
 ---
 
@@ -44,7 +44,7 @@ You're **not** running formal A/B tests with statistical significance testing �
 | Begin checkout → Purchase | Checkout form friction, payment failures, trust concerns at the final step | Checkout Architecture, Payment Security |
 | High bounce on landing/category pages | Visitors aren't finding relevant products quickly | Store Architecture, Information Architecture, Search |
 
-> **⚠️ Warning:** Don't apply checkout-flow fixes if your actual leak is at product view → add-to-cart, or vice versa. Mismatched fixes consume real time and rarely move the metric that's actually broken — always confirm the stage from your funnel data before deciding what to change.
+> **️ Warning:** Don't apply checkout-flow fixes if your actual leak is at product view → add-to-cart, or vice versa. Mismatched fixes consume real time and rarely move the metric that's actually broken — always confirm the stage from your funnel data before deciding what to change.
 
 ---
 
@@ -78,7 +78,7 @@ or made optional without losing necessary order/shipping information.
 ### Weak Product Page Conviction
 If the leak is earlier — product view to add-to-cart — the fix usually isn't code, it's the content already covered in Photography and Descriptions.
 
-> **✅ Best Practice:** Before writing new code for this stage of the funnel, re-open your Product Photography and Product Descriptions modules and apply their checklists to your 3-5 best-selling or most-viewed products specifically — concentrated improvement on high-traffic products usually outperforms a uniform pass across the entire catalog.
+> ** Best Practice:** Before writing new code for this stage of the funnel, re-open your Product Photography and Product Descriptions modules and apply their checklists to your 3-5 best-selling or most-viewed products specifically — concentrated improvement on high-traffic products usually outperforms a uniform pass across the entire catalog.
 
 ---
 
@@ -89,7 +89,7 @@ If the leak is earlier — product view to add-to-cart — the fix usually isn't
 3. Wait a meaningful period (at least 1-2 weeks at typical personal-store traffic, longer if traffic is low) before judging the result
 4. Compare the same funnel-stage metric, not overall revenue, which is affected by too many other factors to isolate the fix's impact
 
-> **⚠️ Common Mistake:** Judging a fix's success by total revenue change instead of the specific funnel-stage conversion rate it targeted. Revenue moves for many reasons (traffic volume, seasonality, day of week); the funnel-stage rate isolates whether your specific change actually worked.
+> **️ Common Mistake:** Judging a fix's success by total revenue change instead of the specific funnel-stage conversion rate it targeted. Revenue moves for many reasons (traffic volume, seasonality, day of week); the funnel-stage rate isolates whether your specific change actually worked.
 
 ---
 

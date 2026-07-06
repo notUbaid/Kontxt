@@ -70,7 +70,7 @@ Define your palette as named tokens, not raw hex values. When you reference a co
 | `--color-success` | Order confirmation. Green is convention. Don't be clever here. |
 | `--color-text-secondary` | Price metadata, shipping estimates, variant labels. Must be readable but clearly subordinate. |
 
-> ⚠️ **Warning: Brand Color as Primary CTA**
+> ️ **Warning: Brand Color as Primary CTA**
 >
 > If your brand color is light, pastel, or low-contrast, do not use it as your primary button color. CTA buttons must be instantly identifiable and pass accessibility contrast. Use a darker shade or a separate action color.
 
@@ -116,7 +116,7 @@ line-height: 1.0   /* Precise vertical centering */
 letter-spacing: 0.02em  /* Slight tracking on uppercase labels */
 ```
 
-> 💡 **Font Loading Performance**
+>  **Font Loading Performance**
 >
 > Every font weight is a separate network request. At launch, load a maximum of two weights per typeface — typically Regular (400) and Medium or Semibold (500/600). Add Bold (700) only if your design explicitly requires it. Use `font-display: swap` to prevent invisible text during load.
 
@@ -159,7 +159,7 @@ Pick one radius scale and apply it consistently to card types.
 --radius-full: 9999px /* Pills, avatar circles */
 ```
 
-> 💡 **Tip: Radius Communicates Personality**
+>  **Tip: Radius Communicates Personality**
 >
 > Sharp corners (0–4px) feel editorial, minimal, premium. Rounded corners (8–16px) feel approachable, consumer, friendly. Ultra-rounded (16px+) feels playful or modern. Choose based on your Brand Vision adjectives from Phase 0.
 
@@ -285,7 +285,7 @@ Every component imports from this file. Nothing hardcodes a value.
 
 ---
 
-## ✅ Design System Checklist
+##  Design System Checklist
 
 - [ ] Color palette defined as named tokens (minimum 14 tokens)
 - [ ] Primary CTA color passes 4.5:1 contrast ratio on page background

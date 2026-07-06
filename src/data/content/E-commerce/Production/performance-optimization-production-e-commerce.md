@@ -104,7 +104,7 @@ If you see `moment.js` taking up 300kb of space, you rip it out and replace it w
 
 ---
 
-## ✅ Performance Engineering Checklist
+##  Performance Engineering Checklist
 
 - [ ] Ban HTML `<img>` tags. Mandate `next/image`.
 - [ ] Enforce the `priority` flag on all Above-the-Fold images to fix Largest Contentful Paint (LCP) scores.

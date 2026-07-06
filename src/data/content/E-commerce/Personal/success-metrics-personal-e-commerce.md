@@ -30,7 +30,7 @@ When you know your success criteria upfront:
 
 ## The Personal Store Reality Check
 
-> ⚠️ **Warning**
+> ️ **Warning**
 >
 > Personal projects don't need enterprise KPI frameworks. A 20-metric dashboard is noise. Tracking 3–5 meaningful numbers is enough to know if your store is alive and growing.
 
@@ -99,13 +99,13 @@ Use this framework:
 
 ---
 
-> 💡 **Tip: Start With One Conversion Rate Goal**
+>  **Tip: Start With One Conversion Rate Goal**
 >
 > If you track nothing else, track your store's overall conversion rate. It compresses the health of your product pages, checkout flow, pricing, and trust signals into a single number. If that number is moving up, you're improving. If it's stuck or falling, something is broken.
 
 ---
 
-## ✅ Your Metrics Decision Checklist
+##  Your Metrics Decision Checklist
 
 Work through this before moving to the next phase.
 
@@ -150,7 +150,7 @@ Help me define:
 Keep the output concise. I want signal, not a dashboard.
 ```
 
-> 📋 Copy this prompt, fill in your details, and paste into your AI tool of choice. Use the output to complete the checklist above.
+>  Copy this prompt, fill in your details, and paste into your AI tool of choice. Use the output to complete the checklist above.
 
 ---
 

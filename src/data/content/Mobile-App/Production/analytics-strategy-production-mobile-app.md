@@ -52,7 +52,7 @@ object_action format:
   upload_completed
 ```
 
-> ⚠️ **Common mistake:** letting event names accumulate organically as features ship — `SignUp`, `user-login`, `ProductView`, `add_to_cart_clicked`. Inconsistent casing and tense makes querying and aggregation painful, and nobody will go back and rename thousands of historical events. Lock the convention in a shared reference doc before Phase 3 implementation starts, and treat it as a contract every contributor (including AI-generated code) must follow.
+> ️ **Common mistake:** letting event names accumulate organically as features ship — `SignUp`, `user-login`, `ProductView`, `add_to_cart_clicked`. Inconsistent casing and tense makes querying and aggregation painful, and nobody will go back and rename thousands of historical events. Lock the convention in a shared reference doc before Phase 3 implementation starts, and treat it as a contract every contributor (including AI-generated code) must follow.
 
 **Decide your event properties schema alongside the event itself**, not ad hoc per call site:
 
@@ -78,7 +78,7 @@ Tie tracking to questions you'll actually ask:
 | Are users finding core value? | The 1-3 actions that define "activated" for your product specifically — not every button tap |
 | Where do users drop off before converting? | Funnel steps for your core conversion flow, explicitly, not inferred from screen views |
 
-> 💡 If you can't articulate what decision an event will inform, don't add it yet. You can always add an event later; you can't retroactively recover data you never captured for events you do end up needing — so the real discipline is being deliberate about the handful that matter, not maximizing coverage.
+>  If you can't articulate what decision an event will inform, don't add it yet. You can always add an event later; you can't retroactively recover data you never captured for events you do end up needing — so the real discipline is being deliberate about the handful that matter, not maximizing coverage.
 
 ---
 
@@ -88,7 +88,7 @@ Tie tracking to questions you'll actually ask:
 - **PII discipline:** never put email addresses, names, or free-text content (message bodies, search queries) directly into event properties. Use IDs and let your backend join to PII-containing tables only when needed, behind proper access control. Analytics tools are not built with the same data protection rigor as your primary database, and event data often has weaker deletion guarantees.
 - **Respect platform-level tracking consent.** iOS requires App Tracking Transparency (ATT) prompts for any tracking that crosses apps/websites for advertising purposes — first-party product analytics within your own app generally doesn't require ATT, but cross-app attribution (e.g. ad attribution SDKs) does. Know which category each SDK you add falls into.
 
-> ⚠️ A GDPR/CCPA deletion request means deleting the user's data in your analytics provider too, not just your primary database. Confirm your provider supports user-level deletion via API before committing to it — retrofitting this after launch, across millions of events, is painful.
+> ️ A GDPR/CCPA deletion request means deleting the user's data in your analytics provider too, not just your primary database. Confirm your provider supports user-level deletion via API before committing to it — retrofitting this after launch, across millions of events, is painful.
 
 ---
 

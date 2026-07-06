@@ -31,12 +31,12 @@ Your marketplace has specific data flows a generic template won't capture correc
 ## What a Marketplace Privacy Policy Actually Needs to Cover
 
 > ** Validation Checklist**
-> - [ ] **What data you collect** — account info, listing content, messages, payment metadata (not full card numbers — your processor handles those), IP addresses logged for security/abuse purposes
-> - [ ] **Why you collect it** — tie each category to an actual purpose (fraud prevention, enabling transactions, platform safety) rather than vague language
-> - [ ] **Who you share it with** — your payment processor, your hosting/database provider, your error tracking service (Sentry sees real user data when exceptions are captured — this is genuinely worth disclosing)
-> - [ ] **How long you retain it** — connects directly to your Logging and Backups decisions; if you said 7-14 days of logs, your policy should reflect that, not claim indefinite retention or vice versa
-> - [ ] **User rights** — ability to request account deletion, data export, message/data access
-> - [ ] **How buyers and sellers see each other's information** — this is marketplace-specific: does a buyer see a seller's real name? Email? Only through your messaging system?
+- [ ] **What data you collect** — account info, listing content, messages, payment metadata (not full card numbers — your processor handles those), IP addresses logged for security/abuse purposes
+- [ ] **Why you collect it** — tie each category to an actual purpose (fraud prevention, enabling transactions, platform safety) rather than vague language
+- [ ] **Who you share it with** — your payment processor, your hosting/database provider, your error tracking service (Sentry sees real user data when exceptions are captured — this is genuinely worth disclosing)
+- [ ] **How long you retain it** — connects directly to your Logging and Backups decisions; if you said 7-14 days of logs, your policy should reflect that, not claim indefinite retention or vice versa
+- [ ] **User rights** — ability to request account deletion, data export, message/data access
+- [ ] **How buyers and sellers see each other's information** — this is marketplace-specific: does a buyer see a seller's real name? Email? Only through your messaging system?
 
 ---
 
@@ -62,10 +62,10 @@ Your marketplace has specific data flows a generic template won't capture correc
 > ** Common Hallucination:** AI sometimes drafts a privacy policy that *describes* careful data handling your code doesn't actually implement — e.g. claiming "we never store full payment details" while your code does exactly that. Before finalizing your policy, re-verify against the Security and Payments modules: confirm card numbers genuinely never touch your database, confirm passwords are hashed not stored plaintext, confirm message bodies aren't logged in full (per the Logging module).
 
 > ** Validation Checklist — Verify before writing the policy, don't just write the policy**
-> - [ ] No full payment card numbers in your database (your processor should handle this entirely)
-> - [ ] Passwords are hashed (bcrypt/argon2), never stored or logged in plaintext
-> - [ ] Message content isn't logged in full anywhere (per Logging module's rules)
-> - [ ] You actually know what your error tracker (Sentry) captures by default — it may include more user data than you'd assume unless configured otherwise
+- [ ] No full payment card numbers in your database (your processor should handle this entirely)
+- [ ] Passwords are hashed (bcrypt/argon2), never stored or logged in plaintext
+- [ ] Message content isn't logged in full anywhere (per Logging module's rules)
+- [ ] You actually know what your error tracker (Sentry) captures by default — it may include more user data than you'd assume unless configured otherwise
 
 ---
 
@@ -92,20 +92,20 @@ This table is a starting orientation, not a compliance checklist — actual appl
 > does — not a generic template.
 >
 > Data we collect:
-> - Account info: [email, name, etc. — list what you actually collect at signup]
-> - Listing content: title, description, images, price
-> - Messages between buyers and sellers (stored in our database)
-> - Payment metadata via [Stripe/your processor] — we never store full card numbers
-> - IP addresses, logged for rate limiting and abuse prevention
-> - Error tracking via Sentry, which may capture user ID and request context on errors
+- Account info: [email, name, etc. — list what you actually collect at signup]
+- Listing content: title, description, images, price
+- Messages between buyers and sellers (stored in our database)
+- Payment metadata via [Stripe/your processor] — we never store full card numbers
+- IP addresses, logged for rate limiting and abuse prevention
+- Error tracking via Sentry, which may capture user ID and request context on errors
 >
 > Data retention:
-> - Logs retained for [N] days (per your Logging module decision)
-> - Account data retained until deletion is requested
-> - [Your actual backup retention from the Backups module]
+- Logs retained for [N] days (per your Logging module decision)
+- Account data retained until deletion is requested
+- [Your actual backup retention from the Backups module]
 >
 > Third parties we share data with:
-> - [Payment processor], [hosting provider], [Sentry/error tracking]
+- [Payment processor], [hosting provider], [Sentry/error tracking]
 >
 > Write this in plain language, not dense legalese, while covering: what we collect,
 > why, who we share it with, retention periods, and how users can request deletion

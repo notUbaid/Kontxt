@@ -45,10 +45,10 @@ Marketplaces have a fairly predictable scaling order. Knowing this sequence tell
 >
 > Don't scale on a feeling. Scale on a measured signal. Define your own thresholds now, while you're calm, so you recognize them later:
 >
-> - **Database CPU consistently above 70-80%** → time to look at query optimization or upgrading your database tier, not before
-> - **API response times (p95) creeping past ~1 second** on core flows (search, checkout) → investigate before users start to feel it
-> - **Connection pool exhaustion errors appearing in your error tracker** → immediate action needed, not a "someday" item
-> - **Hosting bill growing faster than user/transaction growth** → re-evaluate architecture, not just throw more resources at it
+- **Database CPU consistently above 70-80%** → time to look at query optimization or upgrading your database tier, not before
+- **API response times (p95) creeping past ~1 second** on core flows (search, checkout) → investigate before users start to feel it
+- **Connection pool exhaustion errors appearing in your error tracker** → immediate action needed, not a "someday" item
+- **Hosting bill growing faster than user/transaction growth** → re-evaluate architecture, not just throw more resources at it
 >
 > Until you hit one of these, building ahead of the signal is speculative work, not preparation.
 
@@ -87,11 +87,11 @@ await db.order.create({ data: { listingId, buyerId } });
 This is the actual deliverable of this module: not code, but a short reference you can return to when a trigger above fires.
 
 > ** Validation Checklist — Your scaling playbook**
-> - [ ] Database slow → check for missing indexes and N+1 queries first (cheapest fix, usually the actual cause)
-> - [ ] Connection errors → check your connection pool size/limits before assuming you need a bigger database tier
-> - [ ] Server CPU maxed → before adding servers, confirm it's not one inefficient endpoint dragging everything down
-> - [ ] Costs growing faster than usage → audit what's actually consuming resources before architectural changes
-> - [ ] Only after the above are ruled out → consider horizontal scaling (multiple server instances), Redis-backed caching/rate limiting, or a managed database tier upgrade
+- [ ] Database slow → check for missing indexes and N+1 queries first (cheapest fix, usually the actual cause)
+- [ ] Connection errors → check your connection pool size/limits before assuming you need a bigger database tier
+- [ ] Server CPU maxed → before adding servers, confirm it's not one inefficient endpoint dragging everything down
+- [ ] Costs growing faster than usage → audit what's actually consuming resources before architectural changes
+- [ ] Only after the above are ruled out → consider horizontal scaling (multiple server instances), Redis-backed caching/rate limiting, or a managed database tier upgrade
 
 The order here matters: it's the same principle from Performance Optimization — cheap, targeted fixes before infrastructure investment.
 

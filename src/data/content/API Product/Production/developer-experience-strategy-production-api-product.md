@@ -15,7 +15,7 @@ Developers don't adopt the API with the best feature set. They adopt the one tha
 
 Every DX problem you ship gets expensive to fix later, because by then real integrations depend on the thing you'd need to change. A confusing error format, an inconsistent pagination pattern, an auth flow with too many steps — these are architectural decisions wearing a UX costume. Fixing them after launch means breaking someone's production code.
 
-> **⚠️ Warning:** "We'll improve the docs later" is the most common DX mistake in API products. Docs can't fix a fundamentally confusing API surface — they can only describe it more politely. Get the surface right first.
+> **️ Warning:** "We'll improve the docs later" is the most common DX mistake in API products. Docs can't fix a fundamentally confusing API surface — they can only describe it more politely. Get the surface right first.
 
 ## The Four Pillars of API Developer Experience
 
@@ -26,7 +26,7 @@ Every DX problem you ship gets expensive to fix later, because by then real inte
 | **Error legibility** | Errors tell you exactly what's wrong and how to fix it | Developers debug your API instead of building their product |
 | **Escape hatches** | Sandbox, test keys, dry-run modes | Developers fear breaking something real while learning |
 
-> **✅ Best Practice:** Measure time-to-first-call as a real metric, not a vibe. Companies like Stripe treat "time from signup to first successful API call" as a core product metric, tracked and optimized like any other conversion funnel — because it directly predicts whether a developer becomes a customer.
+> ** Best Practice:** Measure time-to-first-call as a real metric, not a vibe. Companies like Stripe treat "time from signup to first successful API call" as a core product metric, tracked and optimized like any other conversion funnel — because it directly predicts whether a developer becomes a customer.
 
 ## Decision: How Much DX Investment Does Your API Need?
 
@@ -37,7 +37,7 @@ Every DX problem you ship gets expensive to fix later, because by then real inte
 | Public API, broad audience, self-serve signup | High | Interactive playground, multiple SDKs, exceptional Quick Start |
 | Developer platform as the core product | Maximum | DX *is* the product — invest like it's your primary feature |
 
-> **💡 Tip:** Most teams over-invest in SDKs early and under-invest in error message quality. A well-designed REST API with excellent errors and one good doc page often beats a mediocre API with five SDKs nobody asked for.
+> ** Tip:** Most teams over-invest in SDKs early and under-invest in error message quality. A well-designed REST API with excellent errors and one good doc page often beats a mediocre API with five SDKs nobody asked for.
 
 ## Designing for Time-to-First-Call
 
@@ -48,7 +48,7 @@ The single highest-leverage DX decision is what a brand-new developer experience
 - [ ] Does your Quick Start use a pre-filled test key, or make them generate one first?
 - [ ] Is the first example the *simplest* endpoint, not the most "impressive" one?
 
-> **⚠️ Warning:** Gating API access behind manual approval or a sales conversation kills self-serve adoption before it starts. If your business model genuinely requires that gate (enterprise data access, compliance reasons), say so explicitly — don't let it happen by default because nobody decided otherwise.
+> **️ Warning:** Gating API access behind manual approval or a sales conversation kills self-serve adoption before it starts. If your business model genuinely requires that gate (enterprise data access, compliance reasons), say so explicitly — don't let it happen by default because nobody decided otherwise.
 
 ## Designing for Predictability
 
@@ -61,7 +61,7 @@ Predictability means a developer who learns one endpoint can correctly guess how
 | Some resources use `snake_case`, others `camelCase` | One casing convention across the entire API |
 | Some endpoints require trailing slashes, others reject them | Strict, consistent URL conventions |
 
-> **✅ Best Practice:** Write these conventions down as an internal style guide before implementation starts, not after the third inconsistency ships. This is a five-minute decision now versus a breaking-change migration later.
+> ** Best Practice:** Write these conventions down as an internal style guide before implementation starts, not after the third inconsistency ships. This is a five-minute decision now versus a breaking-change migration later.
 
 ## Designing Errors That Teach, Not Just Fail
 
@@ -82,7 +82,7 @@ A good error response answers three questions without requiring a support ticket
 }
 ```
 
-> **💡 Tip:** Link directly to the relevant docs section from inside the error response itself. This turns every failed request into a self-service debugging path instead of a support ticket — and it scales infinitely, unlike your support team.
+> ** Tip:** Link directly to the relevant docs section from inside the error response itself. This turns every failed request into a self-service debugging path instead of a support ticket — and it scales infinitely, unlike your support team.
 
 ## Use AI to Audit Your Planned DX
 
@@ -103,7 +103,7 @@ Do not suggest new features or endpoints — only consistency and
 clarity issues in what's already planned.
 ```
 
-> **💡 Token Efficiency:** Run this review against your endpoint plan before implementation, not your finished code. Catching a naming inconsistency in a planning doc costs one edit; catching it in shipped code costs a versioned migration.
+> ** Token Efficiency:** Run this review against your endpoint plan before implementation, not your finished code. Catching a naming inconsistency in a planning doc costs one edit; catching it in shipped code costs a versioned migration.
 
 ## Validate Your DX Strategy Before Moving On
 

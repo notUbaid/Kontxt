@@ -115,7 +115,7 @@ You must instruct your AI to configure Webpack to generate Source Maps, upload t
 
 ---
 
-## ✅ Error Tracking Engineering Checklist
+##  Error Tracking Engineering Checklist
 
 - [ ] Implement a Next.js `global-error.tsx` boundary to catch fatal React crashes and present a graceful fallback UI.
 - [ ] Configure Sentry to capture client-side and edge-side exceptions, reporting the user's OS and Browser natively.

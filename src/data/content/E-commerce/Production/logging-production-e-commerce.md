@@ -98,7 +98,7 @@ The logging library will mathematically scan the JSON payload before it prints i
 
 ---
 
-## ✅ Logging Engineering Checklist
+##  Logging Engineering Checklist
 
 - [ ] Ban text-based `console.log`. Mandate Structured JSON logging via `pino` or `winston`.
 - [ ] Configure a Log Drain (e.g., Axiom) to pull logs out of the ephemeral serverless environment and into permanent storage.

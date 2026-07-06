@@ -130,7 +130,7 @@ Stripe provides a hosted, fully-secure UI where the user can update their credit
 
 ---
 
-## ✅ Retention Engineering Checklist
+##  Retention Engineering Checklist
 
 - [ ] Ban manual cron-job recurring billing. Architect Stripe Subscriptions to offload the calendar logic to Stripe's servers.
 - [ ] Engineer an `invoice.payment_succeeded` webhook handler to automatically generate new Database Orders for the warehouse every month.

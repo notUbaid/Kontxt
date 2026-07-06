@@ -126,7 +126,7 @@ model OrderEventLog {
 
 ---
 
-## ✅ Orders Engineering Checklist
+##  Orders Engineering Checklist
 
 - [ ] Abandon boolean flags for order states. Engineer a strict Finite State Machine (FSM).
 - [ ] Prevent double-shipping by enforcing Idempotency Keys when communicating with external 3PL warehouse APIs.

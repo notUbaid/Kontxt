@@ -15,7 +15,7 @@ You designed your API strategy in Phase 2 and your server-state layer in the pre
 
 ## Why a Centralized API Client, Not Scattered Fetch Calls
 
-> ⚠️ Scattered `fetch()`/`axios` calls inside components is the most common production liability in apps built quickly with AI assistance. Each call site tends to handle auth headers, errors, and retries slightly differently — because each was generated independently, in a separate conversation, with no shared contract. The fix isn't discipline going forward; it's removing the possibility by routing everything through one client.
+> ️ Scattered `fetch()`/`axios` calls inside components is the most common production liability in apps built quickly with AI assistance. Each call site tends to handle auth headers, errors, and retries slightly differently — because each was generated independently, in a separate conversation, with no shared contract. The fix isn't discipline going forward; it's removing the possibility by routing everything through one client.
 
 ```
 screens/components
@@ -83,7 +83,7 @@ interface ApiError {
 }
 ```
 
-> 💡 This is what makes your error states (Phase 1) implementable consistently — a single `ApiError.type` is what your `AsyncBoundary` component (Frontend module) can switch on to show the right UI: a retry button for `network`, a redirect-to-login for `unauthorized`, inline field errors for `validation`.
+>  This is what makes your error states (Phase 1) implementable consistently — a single `ApiError.type` is what your `AsyncBoundary` component (Frontend module) can switch on to show the right UI: a retry button for `network`, a redirect-to-login for `unauthorized`, inline field errors for `validation`.
 
 ---
 
@@ -95,7 +95,7 @@ This connects directly to your Authentication module from Phase 2 — implementa
 - **Token refresh on 401 happens in the response interceptor**, transparently — the original failed request should be retried automatically after a successful refresh, so calling code doesn't need to handle "might need to retry" logic itself.
 - **Concurrent request handling during refresh:** if five requests fail with 401 simultaneously (common after a token expires while several queries are in flight), don't trigger five separate refresh attempts — queue the refresh as a single in-flight promise that all five await.
 
-> ⚠️ Missing the concurrent-refresh case is a subtle but common production bug: multiple simultaneous refresh calls can race, sometimes invalidating a token that a different request just received, causing a logout loop under normal multi-query usage (e.g. a screen that fires three queries on mount, all hitting 401 at once).
+> ️ Missing the concurrent-refresh case is a subtle but common production bug: multiple simultaneous refresh calls can race, sometimes invalidating a token that a different request just received, causing a logout loop under normal multi-query usage (e.g. a screen that fires three queries on mount, all hitting 401 at once).
 
 ---
 
@@ -110,7 +110,7 @@ Decide retry behavior deliberately, not by leaving library defaults unexamined:
 | 4xx client error (bad request, validation) | No — retrying an invalid request just repeats the failure |
 | 401 unauthorized | No direct retry — goes through the token refresh flow above instead |
 
-> 💡 React Query's default retry behavior is reasonable for queries but **should generally be disabled or tightly limited for mutations** — silently retrying a "create order" call after an ambiguous failure risks creating a duplicate order if the original request actually succeeded server-side but the response was lost. Pair any retryable mutation with idempotency keys on the backend if duplicate submission risk is real for that action.
+>  React Query's default retry behavior is reasonable for queries but **should generally be disabled or tightly limited for mutations** — silently retrying a "create order" call after an ambiguous failure risks creating a duplicate order if the original request actually succeeded server-side but the response was lost. Pair any retryable mutation with idempotency keys on the backend if duplicate submission risk is real for that action.
 
 ---
 

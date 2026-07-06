@@ -53,7 +53,7 @@ If the "Size Large" child node sells out, a webhook updates only that specific n
 
 ---
 
-## ✅ Product Catalog Checklist
+##  Product Catalog Checklist
 
 - [ ] Accept that your frontend will never query the main database directly to render category lists.
 - [ ] Choose your NoSQL Search Index provider (Algolia or Typesense are highly recommended for Next.js).

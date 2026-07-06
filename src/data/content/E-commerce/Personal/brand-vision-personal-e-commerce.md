@@ -91,8 +91,8 @@ Examples:
 - Sounds like an insider speaking to insiders, not a store addressing customers
 - Sounds like dry wit, not enthusiasm
 
-> 💡 **Tip**
->
+> [!TIP]
+> >
 > The fastest way to find your voice is to write three versions of the same product description — one generic, one over-branded, one authentic. The authentic version is usually the one that would feel slightly embarrassing to post publicly. That discomfort is signal.
 
 ---
@@ -113,7 +113,7 @@ If your brand vision requires a feature that isn't in your MVP scope, note it. D
 
 ---
 
-## ✅ Brand Vision Checklist
+##  Brand Vision Checklist
 
 - [ ] I have chosen 3 adjectives that accurately describe my store's personality today
 - [ ] I have written a specific visual direction paragraph (not vague, not a list of vibes)

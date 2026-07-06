@@ -151,10 +151,10 @@ Be direct. If my audience definition is too broad, tell me exactly how to narrow
 ```
 
 > **Evaluate the output critically:**
-> - [ ] Does the psychographic portrait feel like a real person, not a marketing persona?
-> - [ ] Are the online communities named ones you can actually find and verify?
-> - [ ] Is the "thing existing stores don't give them" something your store could credibly deliver?
-> - [ ] Are the flagged assumptions ones you've actually tested — or just believed?
+- [ ] Does the psychographic portrait feel like a real person, not a marketing persona?
+- [ ] Are the online communities named ones you can actually find and verify?
+- [ ] Is the "thing existing stores don't give them" something your store could credibly deliver?
+- [ ] Are the flagged assumptions ones you've actually tested — or just believed?
 
 ---
 

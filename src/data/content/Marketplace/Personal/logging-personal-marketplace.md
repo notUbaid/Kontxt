@@ -61,17 +61,17 @@ logger.debug({ filters: req.query }, "search query received");
 This is the highest-leverage part of this module, because logging the wrong thing is actively harmful, not just wasteful.
 
 > ** Validation Checklist — Safe to log**
-> - [ ] User IDs, listing IDs, order IDs (reference data, not secrets)
-> - [ ] Error messages and stack traces
-> - [ ] Request method, path, status code, duration
-> - [ ] Business event names and their associated IDs (from your Monitoring module)
+- [ ] User IDs, listing IDs, order IDs (reference data, not secrets)
+- [ ] Error messages and stack traces
+- [ ] Request method, path, status code, duration
+- [ ] Business event names and their associated IDs (from your Monitoring module)
 
 > ** Never log**
-> - [ ] Passwords, even hashed ones
-> - [ ] Full payment details (card numbers, even partial — your payment provider's webhook payloads often contain more than you need to store)
-> - [ ] Session tokens or API keys
-> - [ ] Full message bodies between buyers and sellers (this is private correspondence — log that a message was sent, not its content)
-> - [ ] Raw `req.body` or `req.headers` without explicit field selection
+- [ ] Passwords, even hashed ones
+- [ ] Full payment details (card numbers, even partial — your payment provider's webhook payloads often contain more than you need to store)
+- [ ] Session tokens or API keys
+- [ ] Full message bodies between buyers and sellers (this is private correspondence — log that a message was sent, not its content)
+- [ ] Raw `req.body` or `req.headers` without explicit field selection
 
 > **️ Warning:** It's tempting to log `req.body` wholesale "just in case" during debugging, then forget to remove it. Get in the habit of destructuring only the fields you need: `logger.info({ listingId: req.body.listingId })`, never `logger.info({ body: req.body })`.
 
@@ -115,9 +115,9 @@ function requestLogger(req, res, next) {
 ```
 
 > ** Validation Checklist**
-> - [ ] Does request logging fire on response `finish`, capturing the actual status code — not logged before the response is known?
-> - [ ] Is `userId` included when available, so you can filter "everything this user did" during debugging?
-> - [ ] Are health-check pings (`/health`) excluded or logged at `debug` level, so they don't drown out real traffic in your log viewer?
+- [ ] Does request logging fire on response `finish`, capturing the actual status code — not logged before the response is known?
+- [ ] Is `userId` included when available, so you can filter "everything this user did" during debugging?
+- [ ] Are health-check pings (`/health`) excluded or logged at `debug` level, so they don't drown out real traffic in your log viewer?
 
 ---
 

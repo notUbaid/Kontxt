@@ -58,7 +58,7 @@ You must build **WAF (Web Application Firewall)** rules (via Cloudflare or AWS) 
 
 ---
 
-## ✅ Value Proposition Checklist
+##  Value Proposition Checklist
 
 - [ ] Map your core business offering to a specific technical feature (e.g., Fast checkouts = Edge Caching architecture).
 - [ ] Commit to treating "Speed" as a non-negotiable feature, not an afterthought.

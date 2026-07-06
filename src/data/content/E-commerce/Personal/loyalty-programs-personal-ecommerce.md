@@ -23,7 +23,7 @@ This only makes sense once retention is genuinely working — if your Analytics 
 
 ## Why This Matters Once Retention Exists
 
-> **💡 Tip:** A loyalty program's real value for a personal store isn't the discount mechanics — it's making your best customers feel specifically recognized, which reinforces the relationship a generic marketing email can't. The emotional signal matters as much as the financial incentive.
+> ** Tip:** A loyalty program's real value for a personal store isn't the discount mechanics — it's making your best customers feel specifically recognized, which reinforces the relationship a generic marketing email can't. The emotional signal matters as much as the financial incentive.
 
 ---
 
@@ -45,7 +45,7 @@ You're **not** building a complex tiered system with multiple reward levels, par
 | Points-per-dollar system, redeemable later | Medium | Stores with enough order volume to make redemption meaningful |
 | Tiered program (bronze/silver/gold) | High | Not recommended yet — revisit if the store scales meaningfully |
 
-> **✅ Best Practice:** Start with the simplest mechanic that still feels rewarding. A clear "every 3rd order, 15% off" is easier to build, easier for customers to understand, and easier for you to honor accurately than a points system — added complexity should be earned by actual demand, not assumed upfront.
+> ** Best Practice:** Start with the simplest mechanic that still feels rewarding. A clear "every 3rd order, 15% off" is easier to build, easier for customers to understand, and easier for you to honor accurately than a points system — added complexity should be earned by actual demand, not assumed upfront.
 
 ---
 
@@ -57,7 +57,7 @@ You're **not** building a complex tiered system with multiple reward levels, par
 | Reward meaningfully tied to actual repeat behavior | A discount available to literally everyone, mislabeled as "loyalty" |
 | Honored reliably, every time, without the customer needing to ask | Requires the customer to remember and claim it themselves |
 
-> **⚠️ Warning:** A loyalty program that's really just a permanent discount available to anyone undermines its own purpose and trains customers to expect a lower price by default. The reward should genuinely require the repeat behavior it's meant to encourage.
+> **️ Warning:** A loyalty program that's really just a permanent discount available to anyone undermines its own purpose and trains customers to expect a lower price by default. The reward should genuinely require the repeat behavior it's meant to encourage.
 
 ---
 
@@ -81,7 +81,7 @@ Build:
    per customer if the mechanic is meant to be one-time or periodic
 ```
 
-> **⚠️ Common Mistake:** Requiring the customer to remember a code or manually claim a reward they technically qualify for. The entire value of a loyalty program is the customer feeling recognized without effort — friction here defeats the purpose.
+> **️ Common Mistake:** Requiring the customer to remember a code or manually claim a reward they technically qualify for. The entire value of a loyalty program is the customer feeling recognized without effort — friction here defeats the purpose.
 
 ---
 
@@ -92,7 +92,7 @@ Build:
 | Repeat-purchase rate, before vs after launching the program | Confirms it's actually influencing behavior, not just rewarding behavior that would have happened anyway |
 | Customer feedback/response to the program | Qualitative signal that's easy to gather at personal-store scale — just ask |
 
-> **💡 Tip:** It's genuinely hard to know whether a loyalty program causes more repeat purchases or simply rewards customers who were already going to return. At personal-store scale, don't over-invest in trying to isolate this statistically — directional cohort trend plus customer feedback is a reasonable, proportionate bar.
+> ** Tip:** It's genuinely hard to know whether a loyalty program causes more repeat purchases or simply rewards customers who were already going to return. At personal-store scale, don't over-invest in trying to isolate this statistically — directional cohort trend plus customer feedback is a reasonable, proportionate bar.
 
 ---
 

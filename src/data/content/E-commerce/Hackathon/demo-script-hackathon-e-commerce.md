@@ -181,11 +181,11 @@ Also provide 3 dead-air filler lines for loading moments.
 ```
 
 > **After you get the script:**
-> - [ ] Read it aloud — does it flow naturally?
-> - [ ] Time it — is it 75–100 seconds?
-> - [ ] Every line is tied to a specific action on screen
-> - [ ] No line requires the judge to read something on the screen while you're talking
-> - [ ] The opening and closing lines are memorised verbatim
+- [ ] Read it aloud — does it flow naturally?
+- [ ] Time it — is it 75–100 seconds?
+- [ ] Every line is tied to a specific action on screen
+- [ ] No line requires the judge to read something on the screen while you're talking
+- [ ] The opening and closing lines are memorised verbatim
 
 ---
 

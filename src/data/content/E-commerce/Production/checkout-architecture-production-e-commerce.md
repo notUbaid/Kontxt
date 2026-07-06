@@ -55,7 +55,7 @@ When the final `fetch` request is sent to capture the payment, this UUID is incl
 
 ---
 
-## ✅ Checkout Architecture Checklist
+##  Checkout Architecture Checklist
 
 - [ ] Consolidate the entire checkout flow into a single React component (SPA) to prevent browser reloads.
 - [ ] Enforce a Finite State Machine (`useReducer` or Zustand) to manage the complex checkout states safely.

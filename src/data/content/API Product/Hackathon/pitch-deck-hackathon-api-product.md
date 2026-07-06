@@ -29,13 +29,13 @@ For a 2-3 minute hackathon pitch, more slides than this is working against you:
 | 4. Technical highlight | The one decision worth explaining | 20-30 sec |
 | 5. What's next | Shows ambition beyond the hackathon | 10-15 sec |
 
-> **⚠️ Warning:** Six or more content slides for a 3-minute pitch means you will either rush incomprehensibly or get cut off before your strongest point. Cut slides, not your speaking pace.
+> **️ Warning:** Six or more content slides for a 3-minute pitch means you will either rush incomprehensibly or get cut off before your strongest point. Cut slides, not your speaking pace.
 
 ## API Products Need a Different Slide 3 Than Web Apps
 
 A web app's "solution" slide is a screenshot. An API's solution slide has to show *integration* — because the product isn't something you stare at, it's something other software calls.
 
-> **✅ Best Practice:** On your solution slide, show a before/after: a tiny snippet of the request a developer sends, next to the response they get back, next to one sentence on what that unlocks for them. This is more convincing than a feature list, because it shows the actual value exchange instead of describing it abstractly.
+> ** Best Practice:** On your solution slide, show a before/after: a tiny snippet of the request a developer sends, next to the response they get back, next to one sentence on what that unlocks for them. This is more convincing than a feature list, because it shows the actual value exchange instead of describing it abstractly.
 
 ## Decision: What Goes on the Technical Highlight Slide
 
@@ -46,7 +46,7 @@ A web app's "solution" slide is a screenshot. An API's solution slide has to sho
 | A specific hard bug you solved | If it reveals genuine technical depth, not just effort |
 | Schema/data model decision | If your API's value comes from how it models the domain |
 
-> **💡 Tip:** Pick the one that's true, not the one that sounds most impressive. Judges who are engineers themselves can tell the difference between a real technical decision and a slide that's there to look technical.
+> ** Tip:** Pick the one that's true, not the one that sounds most impressive. Judges who are engineers themselves can tell the difference between a real technical decision and a slide that's there to look technical.
 
 ## What to Leave Off Every Slide
 
@@ -71,7 +71,7 @@ For each slide, write the exact on-screen text (max 15 words per slide)
 and a one-sentence speaker note for what I say while it's shown.
 ```
 
-> **💡 Token Efficiency:** Ask for on-screen text and speaker notes in the same response, in this structure, rather than two separate prompts — you need them together to actually rehearse, and generating them separately doubles your iteration cost for no benefit.
+> ** Token Efficiency:** Ask for on-screen text and speaker notes in the same response, in this structure, rather than two separate prompts — you need them together to actually rehearse, and generating them separately doubles your iteration cost for no benefit.
 
 ## Validate Before You Present
 
@@ -80,7 +80,7 @@ and a one-sentence speaker note for what I say while it's shown.
 - [ ] Check slide 3 actually shows a request/response, not just a description of one
 - [ ] Time a full run-through with the deck, not just the talking points
 
-> **⚠️ Warning:** A deck that only makes sense with your narration isn't a deck a judge can later recall from memory or notes — and many judging processes involve panel discussion after you've left the room, working from exactly what's on the slides.
+> **️ Warning:** A deck that only makes sense with your narration isn't a deck a judge can later recall from memory or notes — and many judging processes involve panel discussion after you've left the room, working from exactly what's on the slides.
 
 ## Common Mistakes
 

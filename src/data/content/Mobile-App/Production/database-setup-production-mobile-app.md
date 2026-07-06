@@ -15,7 +15,7 @@ Phase 2 chose your database engine and sketched your schema. This module is wher
 
 ## Decision 1 — Migrations From Day One
 
-> ⚠️ Never hand-edit a production (or shared dev/staging) database schema directly. Every schema change — even early in development — should go through a migration file, checked into version control. The cost of skipping this feels small on day one and becomes a real problem the first time two contributors (or you and an AI session) make conflicting schema assumptions, or the first time you need to reproduce the schema on a new environment.
+> ️ Never hand-edit a production (or shared dev/staging) database schema directly. Every schema change — even early in development — should go through a migration file, checked into version control. The cost of skipping this feels small on day one and becomes a real problem the first time two contributors (or you and an AI session) make conflicting schema assumptions, or the first time you need to reproduce the schema on a new environment.
 
 Use your ORM/framework's migration tooling (Prisma Migrate, Drizzle Kit, Rails-style migrations, etc.) — don't hand-write raw SQL migrations unless your stack doesn't provide tooling for it.
 
@@ -42,7 +42,7 @@ Indexes aren't an optimization to defer — design them alongside the schema, ba
 | Columns used for cursor pagination (the Decision 4 pattern from the APIs module) | Cursor pagination requires an efficient sort+filter, which needs a matching index |
 | Unique constraints (email, username, slugs) | Both data integrity and free query performance |
 
-> 💡 **Don't index everything reflexively** — every index has a write-cost (slower inserts/updates) and storage cost. Index based on actual query patterns from your API design, not speculatively on every column. If you're unsure, start with foreign keys and uniqueness constraints; add others once you see real query patterns from testing or early usage.
+>  **Don't index everything reflexively** — every index has a write-cost (slower inserts/updates) and storage cost. Index based on actual query patterns from your API design, not speculatively on every column. If you're unsure, start with foreign keys and uniqueness constraints; add others once you see real query patterns from testing or early usage.
 
 ---
 
@@ -57,7 +57,7 @@ ALTER TABLE order_items ADD CONSTRAINT fk_order
   FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE;
 ```
 
-> ⚠️ **Decide your `ON DELETE` behavior explicitly for every foreign key**, don't accept whatever your ORM defaults to without checking. `CASCADE` (delete children automatically), `RESTRICT` (block deletion if children exist), and `SET NULL` (orphan the reference) have very different implications — a default `CASCADE` on a relationship that should `RESTRICT` can silently delete data you needed to keep.
+> ️ **Decide your `ON DELETE` behavior explicitly for every foreign key**, don't accept whatever your ORM defaults to without checking. `CASCADE` (delete children automatically), `RESTRICT` (block deletion if children exist), and `SET NULL` (orphan the reference) have very different implications — a default `CASCADE` on a relationship that should `RESTRICT` can silently delete data you needed to keep.
 
 ---
 
@@ -70,7 +70,7 @@ Decide per table, not globally — this should have been flagged conceptually in
 | **Hard delete** | Data with no compliance/audit need, and no risk of accidental permanent loss mattering (e.g. a draft a user explicitly discards) |
 | **Soft delete** (`deleted_at` timestamp) | User-generated content, financial records, anything with audit/recovery requirements, anything connected to other records that shouldn't break |
 
-> 💡 If you choose soft delete for a table, every query against it needs a `WHERE deleted_at IS NULL` filter — bake this into your ORM's default scope/middleware rather than remembering to add it manually to every query. A missed filter on one query path is exactly how "deleted" data quietly reappears in production.
+>  If you choose soft delete for a table, every query against it needs a `WHERE deleted_at IS NULL` filter — bake this into your ORM's default scope/middleware rather than remembering to add it manually to every query. A missed filter on one query path is exactly how "deleted" data quietly reappears in production.
 
 ---
 
@@ -84,7 +84,7 @@ await db.user.createMany({ data: generateTestUsers(50) });
 await db.product.createMany({ data: generateTestProducts(200) });
 ```
 
-> ⚠️ Make seed scripts explicitly environment-gated — add a hard check that refuses to run against anything that looks like a production connection string. A seed script accidentally run against production is a real, recoverable-but-painful incident category.
+> ️ Make seed scripts explicitly environment-gated — add a hard check that refuses to run against anything that looks like a production connection string. A seed script accidentally run against production is a real, recoverable-but-painful incident category.
 
 ---
 

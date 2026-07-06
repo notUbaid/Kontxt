@@ -23,7 +23,7 @@ Your Shipping Architecture and implementation already calculate a shipping cost 
 
 Shipping is where a store's promises become physical commitments. A bug in a product description is embarrassing; a shipping promise you can't actually fulfill (wrong rate charged, no real carrier account, no idea how to pack a fragile item) directly produces angry customers and refund requests on your very first real orders.
 
-> **⚠️ Warning:** Test your shipping setup with a real, physical test shipment before your first live sale if at all possible — not just a code-level test order. The gap between "the checkout calculated $6.50 for shipping" and "the actual carrier charged me $11 to send this box" is a real, recurring cost if your rates aren't grounded in reality.
+> **️ Warning:** Test your shipping setup with a real, physical test shipment before your first live sale if at all possible — not just a code-level test order. The gap between "the checkout calculated $6.50 for shipping" and "the actual carrier charged me $11 to send this box" is a real, recurring cost if your rates aren't grounded in reality.
 
 ---
 
@@ -47,7 +47,7 @@ You're **not** setting up multi-carrier rate shopping, international customs aut
 | Shipping aggregator (Shippo, EasyPost, Pirate Ship) | Low-Medium | Stores wanting discounted rates and one dashboard across carriers |
 | Manual post-office drop-off, no online account | Very low, but slow per-order | Very low order volume, testing the waters |
 
-> **💡 Tip:** A shipping aggregator (Shippo, Pirate Ship, similar) is usually worth the small setup effort even for a personal store — they typically offer discounted commercial rates versus walking into a post office, and centralize label printing and tracking in one place.
+> ** Tip:** A shipping aggregator (Shippo, Pirate Ship, similar) is usually worth the small setup effort even for a personal store — they typically offer discounted commercial rates versus walking into a post office, and centralize label printing and tracking in one place.
 
 ---
 
@@ -60,7 +60,7 @@ This is the most important check in this module:
 3. Compare those real numbers against what your checkout currently calculates or charges
 4. Adjust your shipping architecture's rate logic to match reality, not the other way around
 
-> **⚠️ Common Mistake:** Development and testing often use round, made-up shipping numbers ("flat $5 shipping") that never get revisited against real carrier rates before launch. If your actual cost is $8.50 and you're charging $5, you're losing money on every order — silently, until it adds up.
+> **️ Common Mistake:** Development and testing often use round, made-up shipping numbers ("flat $5 shipping") that never get revisited against real carrier rates before launch. If your actual cost is $8.50 and you're charging $5, you're losing money on every order — silently, until it adds up.
 
 ---
 
@@ -87,7 +87,7 @@ Help me:
    for these specific products
 ```
 
-> **💡 Tip:** If your product line is small (under ~10 SKUs), it's often simpler and more accurate to manually verify rates for each one individually rather than building complex dynamic rate-calculation logic. Don't over-engineer this for a small personal catalog.
+> ** Tip:** If your product line is small (under ~10 SKUs), it's often simpler and more accurate to manually verify rates for each one individually rather than building complex dynamic rate-calculation logic. Don't over-engineer this for a small personal catalog.
 
 ---
 
@@ -109,7 +109,7 @@ Once an order comes in, you need a process you don't have to re-figure out each 
 4. Mark the order as shipped in your admin, triggering the customer notification and tracking number
 5. Hand off to the carrier (drop-off or pickup)
 
-> **✅ Best Practice:** Write this down, even briefly, even though you're the only one doing it. The first time you're fulfilling 10 orders in a day instead of 1, a written checklist prevents mistakes far better than memory.
+> ** Best Practice:** Write this down, even briefly, even though you're the only one doing it. The first time you're fulfilling 10 orders in a day instead of 1, a written checklist prevents mistakes far better than memory.
 
 ---
 

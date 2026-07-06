@@ -54,7 +54,7 @@ You will instruct your AI to use **ISR (Incremental Static Regeneration)** via W
 
 ---
 
-## ✅ Fundamentals Checklist
+##  Fundamentals Checklist
 
 - [ ] Choose your Frontend Framework (Next.js is highly recommended for AI-assisted builds).
 - [ ] Choose your Headless Commerce Engine (Shopify API, Swell, Medusa.js).

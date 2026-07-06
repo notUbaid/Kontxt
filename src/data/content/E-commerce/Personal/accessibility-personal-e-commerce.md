@@ -43,7 +43,7 @@ Your Add to Cart button, price text, form labels, and error messages must all pa
 
 **Tool:** Use the WebAIM Contrast Checker (webaim.org/resources/contrastchecker) or Figma's built-in contrast plugin before finalizing your color tokens.
 
-> ⚠️ **Warning: Light Gray Text**
+> ️ **Warning: Light Gray Text**
 >
 > Light gray on white is the most common contrast failure in e-commerce. Secondary text like variant labels, shipping estimates, and metadata frequently fails. Check every instance of `--color-text-secondary` against its background.
 
@@ -83,11 +83,11 @@ The critical keyboard flows for e-commerce:
 Every product image must have descriptive alt text. Screen readers read alt text aloud to visually impaired users.
 
 ```html
-<!-- ❌ Wrong -->
+<!--  Wrong -->
 <img src="candle.jpg" alt="image" />
 <img src="candle.jpg" alt="" />  <!-- Only acceptable for purely decorative images -->
 
-<!-- ✅ Correct -->
+<!--  Correct -->
 <img src="candle.jpg" alt="Cedar and Smoke soy candle in a matte black ceramic vessel, 200ml" />
 ```
 
@@ -104,10 +104,10 @@ Every product image must have descriptive alt text. Screen readers read alt text
 Every input in your checkout and contact forms must have a visible, associated label.
 
 ```html
-<!-- ❌ Wrong — placeholder is not a label -->
+<!--  Wrong — placeholder is not a label -->
 <input type="email" placeholder="Email address" />
 
-<!-- ✅ Correct -->
+<!--  Correct -->
 <label for="email">Email address</label>
 <input type="email" id="email" name="email" placeholder="you@example.com" />
 ```
@@ -135,7 +135,7 @@ Use the right HTML element for the right purpose. Screen readers navigate by ele
 | `<ul>/<ol>` | Product lists, navigation menus |
 | `<img alt="">` | Images with description |
 
-> ⚠️ **The `<div>` Trap**
+> ️ **The `<div>` Trap**
 >
 > AI-generated code frequently uses `<div onClick={...}>` for buttons and clickable cards. This is an accessibility failure — div elements are not keyboard-accessible by default and are not announced correctly by screen readers. Always use `<button>` for actions and `<a>` for navigation. If you must use a div, add `role="button"`, `tabIndex={0}`, and keyboard event handlers — but just use a `<button>`.
 
@@ -147,7 +147,7 @@ The cart and checkout flow require specific ARIA (Accessible Rich Internet Appli
 
 ```html
 <!-- Cart item count in nav — announce updates -->
-<span aria-label="Cart, 3 items">🛒 3</span>
+<span aria-label="Cart, 3 items"> 3</span>
 
 <!-- "Added to cart" confirmation — announce to screen readers without visual flash -->
 <div role="status" aria-live="polite" aria-atomic="true">
@@ -176,19 +176,19 @@ The cart and checkout flow require specific ARIA (Accessible Rich Internet Appli
 Mobile introduces additional accessibility requirements.
 
 **Touch target size:** Every tappable element must be at least 44×44px. This includes:
-- Add to Cart button ✅ (usually large enough)
-- Quantity increment/decrement buttons ⚠️ (frequently too small)
-- Remove item from cart ⚠️ (frequently too small)
-- Variant swatches ⚠️ (frequently too small)
-- Navigation close buttons ⚠️ (frequently too small)
+- Add to Cart button  (usually large enough)
+- Quantity increment/decrement buttons ️ (frequently too small)
+- Remove item from cart ️ (frequently too small)
+- Variant swatches ️ (frequently too small)
+- Navigation close buttons ️ (frequently too small)
 
 **Zoom:** Never set `user-scalable=no` in your viewport meta tag. Visually impaired users rely on pinch-to-zoom.
 
 ```html
-<!-- ❌ Wrong -->
+<!--  Wrong -->
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-<!-- ✅ Correct -->
+<!--  Correct -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 
@@ -214,7 +214,7 @@ You do not need to be an accessibility expert. You need a repeatable testing wor
 
 ---
 
-## ✅ Accessibility Checklist
+##  Accessibility Checklist
 
 - [ ] All text and UI components pass WCAG AA contrast (4.5:1 for body, 3:1 for large/UI)
 - [ ] `--color-text-secondary` checked against its specific background color

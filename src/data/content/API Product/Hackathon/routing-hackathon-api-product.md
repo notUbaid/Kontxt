@@ -73,8 +73,8 @@ A request to a path that doesn't exist should still return your locked error sha
 If your API will be called directly from a browser-based demo client (not just curl, Postman, or a server-side client), you need CORS configured — otherwise the browser will silently block the request.
 
 > **Decision Card — Do you need CORS?**
-> - Demo client is a browser app calling your API directly → yes, configure CORS
-> - Demo is curl, Postman, or a server-side script → skip it, you don't need it
+- Demo client is a browser app calling your API directly → yes, configure CORS
+- Demo is curl, Postman, or a server-side script → skip it, you don't need it
 
 Don't add CORS configuration you don't need — it's one more thing to debug if it's misconfigured, with zero benefit if nothing's calling you from a browser.
 
@@ -90,11 +90,11 @@ Don't add CORS configuration you don't need — it's one more thing to debug if 
 > My locked error response shape: [paste]
 >
 > Generate the routing setup:
-> - one route file per resource, methods matching my route table exactly
-> - auth middleware applied before protected routes
-> - centralized error-handling middleware using my exact error shape
-> - a catch-all 404 handler using the same error shape
-> - flag whether I need CORS based on [browser client / server-side client]
+- one route file per resource, methods matching my route table exactly
+- auth middleware applied before protected routes
+- centralized error-handling middleware using my exact error shape
+- a catch-all 404 handler using the same error shape
+- flag whether I need CORS based on [browser client / server-side client]
 > ```
 
 > **Tip — This prompt should produce structure, not business logic.**

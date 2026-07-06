@@ -55,7 +55,7 @@ You cannot store credit card data directly in your database (that violates PCI c
 
 ---
 
-## ✅ Business Definition Checklist
+##  Business Definition Checklist
 
 - [ ] Map out whether you will use a single warehouse or multi-node 3PLs (determining if you need order-splitting logic).
 - [ ] Decide if you will sell internationally. If yes, mandate the integration of a DDP tax calculation API at checkout.

@@ -50,8 +50,8 @@ What comparable products sell for, from sellers with comparable positioning.
 
 Not Amazon. Not Alibaba. The comparable: same product category, similar quality tier, similar brand positioning.
 
-> 💡 **Tip**
->
+> [!TIP]
+> >
 > Market rate research is not about matching competitors. It is about understanding the price range your customer already has in their head before they visit your store. Your price needs to feel consistent with that range — or you need a clear reason why it doesn't.
 
 ### Anchor 3 — Perceived Value
@@ -80,7 +80,7 @@ Perceived value allows you to price above market rate without friction — if yo
 | **Drop pricing** | Limited-run items priced at a premium for exclusivity | Creator stores, limited editions |
 | **Made-to-order** | Price set per configuration | Customization-heavy stores |
 
-> ⚠️ **Warning: Discount-First Stores**
+> ️ **Warning: Discount-First Stores**
 >
 > If your launch strategy depends on discounts — "20% off everything this week" — you are starting a race you cannot win. Discounts train customers to wait. Reserve discounts for deliberate, time-bounded campaigns, not as a permanent conversion crutch.
 
@@ -141,7 +141,7 @@ Variant fields:
 
 ---
 
-## ✅ Pricing Strategy Checklist
+##  Pricing Strategy Checklist
 
 - [ ] I have calculated my cost floor per product (minimum viable price)
 - [ ] I have researched market rate for comparable products at my positioning level

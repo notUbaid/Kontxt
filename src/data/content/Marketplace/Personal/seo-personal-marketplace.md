@@ -33,9 +33,9 @@ This isn't general SEO theory — it's the specific patterns that matter for a m
 > **️ Warning:** If your listing pages are rendered entirely client-side (a React app that fetches data after the page loads with no content in the initial HTML), search engines may index an empty or incomplete page. This is the single most common SEO mistake in marketplace projects built with modern JS frameworks, and it silently undermines every other SEO effort in this module.
 
 > ** Validation Checklist**
-> - [ ] Does viewing your listing page's source HTML (not the rendered DOM, the actual response) show the listing title, description, and price — or just an empty `<div id="root">`?
-> - [ ] If using React, are you using a framework with server-side rendering or static generation (Next.js, Remix) for listing pages specifically, even if other parts of the app are client-rendered?
-> - [ ] Test this directly: `curl` your own listing page URL and check whether the content is actually present in the response
+- [ ] Does viewing your listing page's source HTML (not the rendered DOM, the actual response) show the listing title, description, and price — or just an empty `<div id="root">`?
+- [ ] If using React, are you using a framework with server-side rendering or static generation (Next.js, Remix) for listing pages specifically, even if other parts of the app are client-rendered?
+- [ ] Test this directly: `curl` your own listing page URL and check whether the content is actually present in the response
 
 ```bash
 # Quick test — does the raw HTML contain your listing content?
@@ -88,18 +88,18 @@ Beyond having content in the HTML, structured data (Schema.org markup) tells sea
 ```
 
 > ** Validation Checklist**
-> - [ ] Does each listing page include `Product` structured data with name, price, and availability?
-> - [ ] Does `availability` correctly reflect your listing status (`InStock` for active, `OutOfStock` or removed entirely once `sold`)? A sold listing showing `InStock` in structured data is misleading and can hurt trust with search engines over time
-> - [ ] Is `aggregateRating` populated from your actual Reviews aggregate calculation, not hardcoded or omitted entirely when a seller has reviews?
+- [ ] Does each listing page include `Product` structured data with name, price, and availability?
+- [ ] Does `availability` correctly reflect your listing status (`InStock` for active, `OutOfStock` or removed entirely once `sold`)? A sold listing showing `InStock` in structured data is misleading and can hurt trust with search engines over time
+- [ ] Is `aggregateRating` populated from your actual Reviews aggregate calculation, not hardcoded or omitted entirely when a seller has reviews?
 
 ---
 
 ## URL Structure and Metadata
 
 > ** Validation Checklist**
-> - [ ] Are listing URLs human-readable and descriptive (`/listings/vintage-leather-jacket-m-a1b2c3`), not just a raw ID (`/listings/a1b2c3d4e5f6`)? Descriptive slugs help both users and search engines understand the page before clicking
-> - [ ] Does each listing page have a unique `<title>` and meta description generated from the actual listing content, not a generic site-wide title repeated on every page?
-> - [ ] Do removed/sold listings either redirect cleanly or return a proper 404/410 status, rather than staying indexed and frustrating searchers who click through to a dead listing?
+- [ ] Are listing URLs human-readable and descriptive (`/listings/vintage-leather-jacket-m-a1b2c3`), not just a raw ID (`/listings/a1b2c3d4e5f6`)? Descriptive slugs help both users and search engines understand the page before clicking
+- [ ] Does each listing page have a unique `<title>` and meta description generated from the actual listing content, not a generic site-wide title repeated on every page?
+- [ ] Do removed/sold listings either redirect cleanly or return a proper 404/410 status, rather than staying indexed and frustrating searchers who click through to a dead listing?
 
 ```js
 // Title and meta description generated per-listing, not static
@@ -114,8 +114,8 @@ Beyond having content in the HTML, structured data (Schema.org markup) tells sea
 With potentially thousands of listing pages, you can't rely on search engines discovering them all through link-crawling alone — especially newly published listings.
 
 > ** Validation Checklist**
-> - [ ] Is there a dynamically generated `sitemap.xml` that includes all active listing URLs, regenerated as listings are created/removed?
-> - [ ] Does `robots.txt` correctly allow crawling of listing/search pages while excluding anything that shouldn't be indexed (user dashboards, message threads, checkout flows)?
+- [ ] Is there a dynamically generated `sitemap.xml` that includes all active listing URLs, regenerated as listings are created/removed?
+- [ ] Does `robots.txt` correctly allow crawling of listing/search pages while excluding anything that shouldn't be indexed (user dashboards, message threads, checkout flows)?
 
 ```js
 // Dynamically generated sitemap — not a static file you maintain by hand

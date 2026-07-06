@@ -32,7 +32,7 @@ This checklist exists to eliminate exactly those three.
 | Fly.io | ~5 min | Yes | Rare if always-on | Apps needing a specific region |
 | Vercel | ~1 min | Yes | Yes, per function | Already-serverless route handlers |
 
-> **✅ Best Practice:** If your API is a traditional server (Express, FastAPI, Flask), use Railway or Render. Don't refactor into serverless functions just to use Vercel — that's wasted hours for zero judge-visible benefit.
+> ** Best Practice:** If your API is a traditional server (Express, FastAPI, Flask), use Railway or Render. Don't refactor into serverless functions just to use Vercel — that's wasted hours for zero judge-visible benefit.
 
 ## Pre-Deploy Checklist
 
@@ -45,7 +45,7 @@ This checklist exists to eliminate exactly those three.
 - [ ] Basic rate limiting on any expensive route (AI calls, DB writes)
 - [ ] API versioned in the URL path (`/v1/...`)
 
-> **💡 Tip:** Versioning costs you one line of router config now. It signals engineering maturity to any judge who actually opens your routes — and it's the kind of detail teams from companies like Stripe or GitHub never skip, even in a prototype.
+> ** Tip:** Versioning costs you one line of router config now. It signals engineering maturity to any judge who actually opens your routes — and it's the kind of detail teams from companies like Stripe or GitHub never skip, even in a prototype.
 
 ## Decision: Do You Need Real Auth for the Demo?
 
@@ -55,7 +55,7 @@ This checklist exists to eliminate exactly those three.
 | Single shared API key via header | Minutes | Yes — sufficient for judging |
 | No auth at all | 0 min | Only if there's nothing sensitive to protect |
 
-> **⚠️ Warning:** "No auth" is a real tradeoff, not a shortcut you get to hide. State it out loud in your README: *"Auth is intentionally simplified for the hackathon timeline."* Judges respect an explicit tradeoff far more than a silent gap they discover themselves.
+> **️ Warning:** "No auth" is a real tradeoff, not a shortcut you get to hide. State it out loud in your README: *"Auth is intentionally simplified for the hackathon timeline."* Judges respect an explicit tradeoff far more than a silent gap they discover themselves.
 
 ## Use AI to Catch What You'd Miss Under Time Pressure
 
@@ -78,7 +78,7 @@ required params, and example response. This will serve as the API
 reference for judges — keep it factual, no marketing language.
 ```
 
-> **💡 Token Efficiency:** Paste only the route and middleware files into these prompts, not the whole repo. A focused 200-line file gets a sharper review than a 3,000-line dump — and costs a fraction of the tokens.
+> ** Token Efficiency:** Paste only the route and middleware files into these prompts, not the whole repo. A focused 200-line file gets a sharper review than a 3,000-line dump — and costs a fraction of the tokens.
 
 ## Validate Before You Walk Away
 
@@ -87,7 +87,7 @@ reference for judges — keep it factual, no marketing language.
 - [ ] If on a free tier with cold starts, time the first request after 5 minutes of inactivity
 - [ ] Check the platform's logs, not just your terminal output
 
-> **⚠️ Warning:** "Works on my machine" is not a deployment. The single most common silent demo-killer is CORS configured against `localhost` instead of the real deployed frontend origin.
+> **️ Warning:** "Works on my machine" is not a deployment. The single most common silent demo-killer is CORS configured against `localhost` instead of the real deployed frontend origin.
 
 ## Common Hackathon Deployment Mistakes
 

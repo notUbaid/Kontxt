@@ -27,7 +27,7 @@ That means showing real structure: nesting, arrays, pagination, nulls — not ju
 | `null` shown where a field can legitimately be null | Otherwise they don't handle it, and it breaks in production |
 | The actual HTTP status code | `200` vs `201` vs `204` changes how clients should behave |
 
-> **✅ Best Practice:** If a field can be `null` or absent, show one example where it is. A developer who never sees that case won't defensively check for it, and their integration breaks the first time your API legitimately returns it.
+> ** Best Practice:** If a field can be `null` or absent, show one example where it is. A developer who never sees that case won't defensively check for it, and their integration breaks the first time your API legitimately returns it.
 
 ## Lists Need Pagination Shown, Not Just Items
 
@@ -57,7 +57,7 @@ A single-item example doesn't teach someone how to page through 500 results. Sho
 }
 ```
 
-> **💡 Tip:** Showing `hasMore: true` with `total: 47` against a `limit: 20` teaches the pagination math implicitly — no separate paragraph explaining how paging works is needed.
+> ** Tip:** Showing `hasMore: true` with `total: 47` against a `limit: 20` teaches the pagination math implicitly — no separate paragraph explaining how paging works is needed.
 
 ## Show One Response Per Status Code Your API Actually Returns
 
@@ -70,7 +70,7 @@ A single-item example doesn't teach someone how to page through 500 results. Sho
 | 429 | Rate limited | If you implemented rate limiting |
 | 500 | Server error | Skip — don't document a bug as a feature |
 
-> **⚠️ Warning:** Don't include a `500` example. Documenting a server error as expected behavior signals you expect your API to crash — it undermines confidence rather than building it. If it happens, fix it; don't normalize it in your docs.
+> **️ Warning:** Don't include a `500` example. Documenting a server error as expected behavior signals you expect your API to crash — it undermines confidence rather than building it. If it happens, fix it; don't normalize it in your docs.
 
 ## Generate Responses with AI — Anchored to Real Code
 
@@ -88,9 +88,9 @@ If a status code or field isn't handled in this code, do not invent it.
 [paste route handler code]
 ```
 
-> **⚠️ Warning:** This is the highest-risk place for AI hallucination in your whole docs set — it will generate "typical REST API" responses that don't match your actual code. Every field name, every status code, every error shape must be checked directly against your implementation, not assumed correct because it looks idiomatic.
+> **️ Warning:** This is the highest-risk place for AI hallucination in your whole docs set — it will generate "typical REST API" responses that don't match your actual code. Every field name, every status code, every error shape must be checked directly against your implementation, not assumed correct because it looks idiomatic.
 
-> **💡 Token Efficiency:** Paste the handler function, not the whole file. The response shape is determined by a handful of lines (the `res.json(...)` or `return` statements) — surrounding middleware and imports add tokens without adding accuracy.
+> ** Token Efficiency:** Paste the handler function, not the whole file. The response shape is determined by a handful of lines (the `res.json(...)` or `return` statements) — surrounding middleware and imports add tokens without adding accuracy.
 
 ## Validate Before You Publish
 

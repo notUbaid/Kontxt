@@ -89,7 +89,7 @@ Because you are using **Zod** (as mandated in the Backend module), you can use l
 
 ---
 
-## ✅ Documentation & CI/CD Checklist
+##  Documentation & CI/CD Checklist
 
 - [ ] Forbid direct pushes to the `main` branch. Mandate Pull Requests.
 - [ ] Implement a GitHub Action CI/CD pipeline that runs TypeScript and Playwright before allowing a merge.

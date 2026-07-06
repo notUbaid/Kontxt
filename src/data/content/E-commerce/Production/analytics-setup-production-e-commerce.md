@@ -116,7 +116,7 @@ You must pass a unique `event_id` (usually the `order.id`) to both the Browser P
 
 ---
 
-## ✅ Analytics Engineering Checklist
+##  Analytics Engineering Checklist
 
 - [ ] Implement strict GA4 `dataLayer` pushes for all critical e-commerce events (`view_item`, `add_to_cart`, `purchase`).
 - [ ] Prevent duplicate `purchase` events on the Thank You page using a `sessionStorage` guard block.

@@ -66,8 +66,8 @@ A useful archetype answers:
 - What makes them trust a store enough to pay?
 - Are they buying once, or is there a reason to return?
 
-> 💡 **Tip**
->
+> [!TIP]
+> >
 > If your target customer is "anyone who likes [category]," you have not defined a customer. You have defined a market. Markets don't buy things — people do.
 
 **Repurchase potential matters for architecture.** A store whose customers have strong reasons to return needs customer accounts, order history, and email flows from day one. A store with primarily one-time buyers can defer those features safely.
@@ -89,7 +89,7 @@ Common defensible differentiators for personal stores:
 | **Local/regional** | Geographic proximity or cultural specificity |
 | **Customization** | Buyers get something made for them |
 
-> ⚠️ **Warning**
+> ️ **Warning**
 >
 > "Better quality" and "made with love" are not differentiators. Every seller says this. A differentiator is something that is **structurally true about your business** that competitors cannot easily replicate.
 
@@ -132,7 +132,7 @@ If the margin doesn't support the business, this is the cheapest possible moment
 
 ---
 
-## ✅ Business Definition Checklist
+##  Business Definition Checklist
 
 - [ ] I can describe what I sell in one specific sentence
 - [ ] I have identified one primary customer archetype with a clear purchase motivation

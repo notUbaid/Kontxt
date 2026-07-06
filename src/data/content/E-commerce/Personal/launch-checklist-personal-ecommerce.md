@@ -25,7 +25,7 @@ Nothing new is built here. This module is verification across everything: Phase 
 
 Don't just read the checklist — execute it. For each section, actually perform the test described, on your real, deployed store, not just in local development. A checklist you've mentally agreed with but never physically tested isn't a launch check, it's a hope.
 
-> **⚠️ Warning:** Test on your production deployment, with a real (small, refundable) test transaction if your payment provider supports test mode on production, or a careful real transaction you immediately refund. Local/development environments routinely behave differently from production in ways that matter most at exactly this moment.
+> **️ Warning:** Test on your production deployment, with a real (small, refundable) test transaction if your payment provider supports test mode on production, or a careful real transaction you immediately refund. Local/development environments routinely behave differently from production in ways that matter most at exactly this moment.
 
 ---
 
@@ -54,7 +54,7 @@ Don't just read the checklist — execute it. For each section, actually perform
 - [ ] Cookie consent (if required in your jurisdiction) is functioning, not just present as unenforced text
 - [ ] Tax calculation confirmed accurate for at least one real test order
 
-> **⚠️ Warning:** If any item in this "Hard Blockers" section fails, treat that as launch-blocking regardless of how minor it feels. These are specifically the categories where a failure costs real money, real legal exposure, or real customer trust on day one — not just a degraded experience.
+> **️ Warning:** If any item in this "Hard Blockers" section fails, treat that as launch-blocking regardless of how minor it feels. These are specifically the categories where a failure costs real money, real legal exposure, or real customer trust on day one — not just a degraded experience.
 
 ---
 
@@ -100,7 +100,7 @@ Run this exact sequence on production before announcing launch:
     notification update correctly
 ```
 
-> **✅ Best Practice:** Do this entire sequence yourself, in one sitting, on the actual live store — not split across team members or spread across days where context gets lost. One person, one focused pass, catches integration gaps that piecemeal testing misses.
+> ** Best Practice:** Do this entire sequence yourself, in one sitting, on the actual live store — not split across team members or spread across days where context gets lost. One person, one focused pass, catches integration gaps that piecemeal testing misses.
 
 ---
 

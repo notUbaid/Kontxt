@@ -123,7 +123,7 @@ Instruct your AI to write the Next.js `generateMetadata` function to explicitly 
 
 ---
 
-## ✅ Product Data Engineering Checklist
+##  Product Data Engineering Checklist
 
 - [ ] Enforce the use of GraphQL Fragments (`...ProductCardData`) to ensure data consistency and minimize over-fetching.
 - [ ] Decouple rich media from transactional data by implementing a parallel fetch to a headless CMS (Sanity).

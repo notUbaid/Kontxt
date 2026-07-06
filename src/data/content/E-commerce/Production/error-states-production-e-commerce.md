@@ -55,7 +55,7 @@ You must instruct your AI to use a **Global Toast System** (like Sonner or React
 
 ---
 
-## ✅ Error States Checklist
+##  Error States Checklist
 
 - [ ] Enforce the use of Next.js `error.tsx` and React Error Boundaries to prevent full-page crashes.
 - [ ] Understand the concept of Idempotency Keys to prevent duplicate charges during checkout network failures.

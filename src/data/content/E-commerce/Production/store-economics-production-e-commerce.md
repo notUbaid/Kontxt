@@ -45,7 +45,7 @@ If you inject dynamic prompts (e.g., *"Add $12 more to unlock Free Next-Day Ship
 
 ---
 
-## ✅ Store Economics Checklist
+##  Store Economics Checklist
 
 - [ ] Audit your rendering strategy: Mandate ISR (Static Caching) instead of SSR to minimize server compute costs.
 - [ ] Ensure all images are routed through a dedicated optimization CDN to minimize egress (bandwidth) bills.

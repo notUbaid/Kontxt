@@ -51,9 +51,9 @@ const listings = await db.listing.findMany({
 ```
 
 > ** Validation Checklist**
-> - [ ] Does the listing browse/search query use a single `include`/join, not a loop with per-row fetches?
-> - [ ] Does the seller rating calculation (from the Reviews module) get batched, not computed per-listing in a loop?
-> - [ ] If you display "X messages" or "X active listings" counts anywhere in a list, are those counts batched too?
+- [ ] Does the listing browse/search query use a single `include`/join, not a loop with per-row fetches?
+- [ ] Does the seller rating calculation (from the Reviews module) get batched, not computed per-listing in a loop?
+- [ ] If you display "X messages" or "X active listings" counts anywhere in a list, are those counts batched too?
 
 ---
 
@@ -68,9 +68,9 @@ const listings = await db.listing.findMany({
 > Leaner, requires you to track what your search/filter UI actually uses and revisit when it changes.
 >
 > **For Personal Mode: use Option B**, but be deliberate about it. At minimum, index:
-> - `status` + `category` together (your search module already needs this — confirm it's there)
-> - `sellerId` on listings (for "my listings" views)
-> - `createdAt` if you sort by "newest" (very common default sort)
+- `status` + `category` together (your search module already needs this — confirm it's there)
+- `sellerId` on listings (for "my listings" views)
+- `createdAt` if you sort by "newest" (very common default sort)
 
 ```prisma
 model Listing {
@@ -90,10 +90,10 @@ model Listing {
 Listing photos are almost always the largest payload on your highest-traffic pages (browse, search results). This is the highest-leverage performance fix available to you, and it's cheap.
 
 > ** Validation Checklist**
-> - [ ] Are uploaded images resized/compressed before storage, or stored at original upload size?
-> - [ ] Does the listing grid use a thumbnail size, not the full-resolution image?
-> - [ ] Are images served via a CDN or platform with automatic optimization (most storage providers like Cloudinary, S3+CloudFront, or even Vercel's image handling do this), rather than served raw from your own server?
-> - [ ] Do images use lazy loading (`loading="lazy"`) below the fold?
+- [ ] Are uploaded images resized/compressed before storage, or stored at original upload size?
+- [ ] Does the listing grid use a thumbnail size, not the full-resolution image?
+- [ ] Are images served via a CDN or platform with automatic optimization (most storage providers like Cloudinary, S3+CloudFront, or even Vercel's image handling do this), rather than served raw from your own server?
+- [ ] Do images use lazy loading (`loading="lazy"`) below the fold?
 
 ---
 

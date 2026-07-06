@@ -76,10 +76,10 @@ If you're unsure whether something is a resource, ask: *would my target develope
 > My locked MVP endpoints from Phase 0: [paste your endpoint list]
 >
 > Identify the resources (nouns) this API should expose. For each resource:
-> - Resource name (plural, hyphenated if needed)
-> - One-line description of what it represents
-> - Whether it should be nested under another resource, and why
-> - 2-3 essential fields it would obviously need (no full schema yet)
+- Resource name (plural, hyphenated if needed)
+- One-line description of what it represents
+- Whether it should be nested under another resource, and why
+- 2-3 essential fields it would obviously need (no full schema yet)
 >
 > Keep this to the minimum resources needed for my locked MVP scope.
 > Don't propose resources beyond what my endpoint list requires.

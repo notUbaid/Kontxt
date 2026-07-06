@@ -47,7 +47,7 @@ If you're on Expo managed workflow, use Expo's push service now; it wraps FCM/AP
 
 This is where most teams get it wrong on the first try.
 
-> ⚠️ **Common mistake:** storing the push token as a single column on the `users` table (`users.push_token`). This breaks the moment a user has two devices, and it silently overwrites valid tokens with stale ones on logout/login across devices.
+> ️ **Common mistake:** storing the push token as a single column on the `users` table (`users.push_token`). This breaks the moment a user has two devices, and it silently overwrites valid tokens with stale ones on logout/login across devices.
 
 **Correct shape:** a separate `device_tokens` table.
 
@@ -82,7 +82,7 @@ Two payload types exist, and conflating them causes the most confusing bugs in p
 
 **Production default: send both (hybrid).** The `notification` block guarantees the OS shows something even if your app is dead. The `data` block carries the routing info (`type`, `entityId`) your app needs once the user taps it.
 
-> 🔒 **Rule:** keep payloads to IDs and types only — never the full message content. Push payloads are capped at ~4KB, get cached in OS notification history, and go stale if the underlying content changes before the user taps. Fetch fresh content from your API on tap.
+>  **Rule:** keep payloads to IDs and types only — never the full message content. Push payloads are capped at ~4KB, get cached in OS notification history, and go stale if the underlying content changes before the user taps. Fetch fresh content from your API on tap.
 
 ```json
 {
@@ -101,13 +101,13 @@ Three models, not interchangeable:
 - **Topic-based (FCM topics):** client subscribes to a topic string (e.g. `news-tech`), server publishes once. Cheap, but no filtering — every subscriber gets it.
 - **Segment-based:** a computed cohort from a query over your own database ("users inactive 7+ days who completed onboarding"). FCM topics can't express this — you need a backend job that queries, then fans out direct sends.
 
-> 💡 If your roadmap includes any kind of re-engagement or lifecycle campaign, build the segment-query path now, even if Phase 3 only implements transactional sends first. Retrofitting segmentation onto a topics-only architecture means redesigning your subscription model later.
+>  If your roadmap includes any kind of re-engagement or lifecycle campaign, build the segment-query path now, even if Phase 3 only implements transactional sends first. Retrofitting segmentation onto a topics-only architecture means redesigning your subscription model later.
 
 ---
 
 ## Decision 5 — Delivery Infrastructure
 
-> ⚠️ **Never send pushes synchronously inside a request handler.** `POST /orders/:id/ship` should not block on an FCM call. If FCM is slow, your API is now slow. If FCM errors, your unrelated business logic fails too.
+> ️ **Never send pushes synchronously inside a request handler.** `POST /orders/:id/ship` should not block on an FCM call. If FCM is slow, your API is now slow. If FCM errors, your unrelated business logic fails too.
 
 **Correct shape:**
 
@@ -187,7 +187,7 @@ Before accepting an AI-generated push architecture, confirm:
 - [ ] Provider credentials are referenced as server-side secrets, never in client code
 - [ ] Multicast/batch sending is used for any fan-out to more than a handful of devices
 
-> ⚠️ If AI-generated code calls `send()` in a loop, one token at a time, inside an API route — that's two red flags at once (no batching, no queue). Push it back and ask for the queued, batched version.
+> ️ If AI-generated code calls `send()` in a loop, one token at a time, inside an API route — that's two red flags at once (no batching, no queue). Push it back and ask for the queued, batched version.
 
 ---
 
