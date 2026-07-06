@@ -202,14 +202,15 @@ export const Onboarding = ({ projects, onCreateProject, onSelectProject, isAuthe
   const [selectedType, setSelectedType] = useState<AppType | null>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
-  // Available types first, coming-soon types grouped at the end
+  // Available types first, coming-soon types grouped at the end. Sorted by popularity.
   const APP_TYPES: AppType[] = [
-    'SaaS', 'Web App', 'Mobile App', 'AI Tool',
+    'SaaS', 'AI Tool', 'Web App', 'Mobile App', 
     'E-commerce', 'Marketplace', 'Internal Tool', 'API Product',
     // Coming Soon
-    'Browser Extension', 'Desktop App', 'Game', 'Web3 dApp',
-    'Data Pipeline', 'Cyber Security (Offensive)', 'Cyber Security (Defensive)', 'Cyber Security (DevSecOps)',
-    'CLI', 'IoT', 'Open Source', 'Custom'
+    'Browser Extension', 'Desktop App', 'Data Pipeline', 'Open Source',
+    'CLI', 'Game', 'Web3 dApp', 'IoT',
+    'Cyber Security (Offensive)', 'Cyber Security (Defensive)', 'Cyber Security (DevSecOps)', 
+    'Custom'
   ];
 
   const handleTypeSelect = (type: AppType) => {
