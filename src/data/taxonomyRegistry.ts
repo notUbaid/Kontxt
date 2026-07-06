@@ -8,7 +8,6 @@ import {
   saasCustomTaxonomy
 } from './taxonomies/saas';
 import {
-  mobileProductionTaxonomy,
   mobileHackathonTaxonomy,
   mobilePersonalTaxonomy,
   mobileCustomTaxonomy
