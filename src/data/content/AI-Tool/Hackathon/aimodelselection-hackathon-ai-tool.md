@@ -11,7 +11,7 @@ estimatedTime: 15 min
 
 Which model you call has real consequences for your demo: latency, cost, output quality, and how forgiving it is of imperfect prompts all vary significantly. This module is about picking fast, using a decision process suited to hackathon time pressure — not exhaustively benchmarking every available option.
 
-> ** Note**
+> [!NOTE]
 > Model names, pricing, and capabilities change frequently. The framework below tells you *how* to choose; verify current model options, pricing, and rate limits directly with whichever provider you're considering before committing, since specifics shift faster than any static guide can track.
 
 ---
@@ -20,7 +20,7 @@ Which model you call has real consequences for your demo: latency, cost, output 
 
 The cost of spending an hour comparing models is almost always higher than the cost of picking a reasonable default and confirming it works for your specific task in the first ten minutes of actually trying it. Model selection paralysis is a real, avoidable time sink.
 
-> ** Warning**
+> [!WARNING]
 > Don't spend your limited hours benchmarking three different providers against your exact task "to be sure." Pick the option your team has used before, or the most commonly recommended current option for your task type, try it against your real test inputs from Target Users immediately, and only switch if it's genuinely failing — not if a different model might theoretically be slightly better.
 
 ---
@@ -35,7 +35,7 @@ The cost of spending an hour comparing models is almost always higher than the c
 | Complex reasoning, multi-step inference, nuanced judgment calls | A more capable model, accepting higher latency | Worth the slower response time if your task genuinely needs deeper reasoning |
 | Anything requiring up-to-date information beyond the model's training | A model with tool use/web search capability, or your own retrieval layer | Don't rely on a model's static knowledge for anything time-sensitive — see the RAG module if this applies |
 
-> ** Tip**
+> [!TIP]
 > If you're unsure which tier your task needs, start with a faster/lighter option and test against your real inputs immediately. If the output quality is genuinely insufficient, escalate to a more capable model — don't default to the most powerful (and slowest) option just because it's the safest-seeming choice. Lower latency directly improves your live demo experience, covered further in Streaming UX.
 
 ---
@@ -53,7 +53,7 @@ This matters more in a hackathon than almost anywhere else, because latency is e
 
 Free-tier or trial API keys often have low rate limits — fine for development, risky if your demo involves multiple calls in quick succession (e.g., a judge asking to try it themselves right after your scripted run). Check your actual tier's limits before relying on it live.
 
-> ** Warning**
+> [!WARNING]
 > Hitting a rate limit mid-demo, in front of judges, is one of the most avoidable live-demo failures. Check your actual usage tier's limits, and if there's any risk, either request a higher limit in advance (many providers offer hackathon/developer credits) or build a clear fallback (cached/seeded response) for if a live call gets rate-limited.
 
 ---

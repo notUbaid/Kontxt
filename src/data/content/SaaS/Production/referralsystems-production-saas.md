@@ -19,7 +19,7 @@ This module is about building a referral mechanism with real engineering rigor: 
 
 No referral mechanism fixes a retention problem. If users aren't sticking around or getting real value, incentivizing them to invite friends just means you're churning more people, faster. Confirm your retention curve (see the Retention module) has actually flattened at a healthy level before investing engineering time in referral infrastructure — otherwise you're optimizing the wrong layer.
 
-> ** Warning**
+> [!WARNING]
 > Referral programs amplify whatever's already true about your product. A great product with strong organic word-of-mouth gets a multiplier from a well-built referral system. A mediocre product gets a faster-cycling list of disappointed invitees who churn just as quickly as the people who inviting them.
 
 ---
@@ -51,7 +51,7 @@ A referral program is only as good as its ability to correctly attribute a new s
 - [ ] Reward only granted after a real qualifying action (e.g., referee completes signup *and* activates, or completes a paid conversion) — not just on link click, which invites trivial gaming
 - [ ] Self-referral blocked (same email domain, same payment method, same device fingerprint flagged for review)
 
-> ** Tip**
+> [!TIP]
 > Tie the reward to **activation**, not signup. If you reward referrers the moment a referee signs up, you incentivize people to spam links to get easy credits from friends who sign up and immediately abandon. Tying the reward to a real usage milestone filters for genuine, valuable referrals.
 
 ---

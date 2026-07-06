@@ -17,7 +17,7 @@ An AI output that just appears, with no indication of how it got there, feels su
 
 A judge watching an AI demo isn't just asking "is this impressive?" — they're often also asking, consciously or not, "is this real, or is this faked/cherry-picked?" Anything you do to make the output's basis visible — what it's based on, how confident it is, what it didn't have enough information to do — directly counters that skepticism, and is usually cheap to add.
 
-> ** Warning**
+> [!WARNING]
 > An AI tool that just produces a confident-looking final answer with zero indication of its basis is more likely to trigger judge skepticism, not less — paradoxically, more visible "showing of work" often increases perceived credibility even though it adds complexity to the screen. Polish and transparency aren't in tension here; a small amount of transparency is itself a polish detail.
 
 ---
@@ -46,7 +46,7 @@ notes above" framing line does real work here.
 
 You don't need a full confidence-scoring system. You do need to avoid presenting every output with identical, maximum confidence when some parts are clearly more certain than others — this is both more honest and, counterintuitively, more impressive, because it signals the system understands its own limitations.
 
-> ** Tip**
+> [!TIP]
 > If your AI feature has any inherently uncertain inference (e.g., inferred urgency, inferred sentiment, inferred categorization not explicitly stated by the user), a small, honest qualifier — "inferred" or a subtle visual distinction from explicitly-stated information — costs very little to add and meaningfully increases perceived trustworthiness. Recall the PRD module's example: "urgency is inferred, not stated explicitly" was written into the spec for exactly this reason.
 
 ---
@@ -55,7 +55,7 @@ You don't need a full confidence-scoring system. You do need to avoid presenting
 
 Connecting back to the empty/null result state from AI Interaction Flows: when there's genuinely nothing good to extract or generate, say so plainly rather than fabricating a plausible-looking but empty result. A model that visibly says "I didn't find clear action items in this" is more trustworthy than one that always produces *something*, because the latter raises the question of whether it's fabricating output even when there's nothing real to extract.
 
-> ** Warning**
+> [!WARNING]
 > Never let your prompt or your UI paper over a genuinely empty or low-confidence result with a fabricated-looking placeholder just to avoid showing "nothing." A judge who notices a result that seems made up — even once — will start doubting everything else your tool showed them.
 
 ---

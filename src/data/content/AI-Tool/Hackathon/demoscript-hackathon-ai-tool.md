@@ -17,7 +17,7 @@ Your deck sets up the problem. This is the literal, rehearsed plan for the live 
 
 A script that only accounts for "everything works perfectly" is a script for the demo you wish you were giving, not the one you're actually giving. Given real model variance and live conditions, plan explicitly for your best-case run, a slightly-off run, and a genuine failure — because any of these is plausible, and only one of them benefits from rehearsal you haven't done.
 
-> ** Warning**
+> [!WARNING]
 > The single biggest demo script mistake for an AI tool: rehearsing only the happy path, dozens of times, until it's smooth — while never once rehearsing what you'll say or do if the live run produces a mediocre or failed result. Confidence in delivering the happy path doesn't transfer to handling the moment it doesn't happen, and that moment is genuinely likely to occur at least once across all your live attempts (rehearsals plus the real one).
 
 ---
@@ -43,7 +43,7 @@ This builds directly on your Conversation Design module's scripted turns — now
            moment — don't just gesture vaguely at the whole screen
 ```
 
-> ** Tip**
+> [!TIP]
 > Plan a specific, brief line to say during the wait, timed to roughly match your actual measured latency from AI Integration. This turns dead air (which feels long and awkward live) into something that feels deliberate, and reinforces that you understand and control what's happening — rather than just hoping it finishes soon.
 
 ---
@@ -52,7 +52,7 @@ This builds directly on your Conversation Design module's scripted turns — now
 
 Between a perfect result and a hard failure, there's a real, common middle case: the model returns something technically valid but slightly underwhelming or imperfect. Have a planned, honest line ready for this, rather than being caught flat-footed by a result that's fine but not your best rehearsed outcome.
 
-> ** Note**
+> [!NOTE]
 > A confident, honest line like "this is a good example of why we built in a retry/review step" or "you can see it's not always perfect — that's why we focused on graceful handling rather than assuming perfect output every time" can turn a mediocre live result into a moment that actually showcases your engineering maturity, rather than a moment you have to awkwardly wave past. This connects directly to the AI Failure States module's reframing — a visible, handled imperfection can read as a strength, not just an absence of failure.
 
 ---

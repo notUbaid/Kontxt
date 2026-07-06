@@ -17,7 +17,7 @@ This is the part of your project a judge actually looks at for the entire durati
 
 A judge never sees your database schema, your API design, or your code quality. They see screens, transitions, and whether interacting with your app feels smooth or janky. This isn't a reason to neglect the backend — your demo still needs to actually work — but it is the reason frontend polish deserves disproportionate time relative to its actual engineering complexity.
 
-> ** Warning**
+> [!WARNING]
 > Teams often allocate time evenly across backend and frontend because that feels balanced. It isn't the right allocation for a hackathon. If you're running low on time, cut backend scope before cutting frontend polish — a slightly simpler backend that's invisible either way costs you nothing in judging; a rough, unfinished-looking UI costs you visibly, on every screen, for the entire demo.
 
 ---
@@ -26,7 +26,7 @@ A judge never sees your database schema, your API design, or your code quality. 
 
 Same discipline as the Backend Engineering module, applied to the frontend: build the screens in the order a judge will see them, wiring each one to its real backend endpoint as you go — not building every screen with placeholder data and connecting them all at the end.
 
-> ** Tip**
+> [!TIP]
 > Connecting screens early, even roughly, surfaces integration mismatches (a field name that doesn't match, a response shape that's different than expected) while you still have time to fix them. Discovering a frontend/backend mismatch during your final demo rehearsal is one of the worst-timed bugs to find.
 
 ---
@@ -49,7 +49,7 @@ Don't hand-roll buttons, modals, dropdowns, or form inputs from raw HTML/CSS und
 
 Every screen has a moment before data exists (loading) and a state where there's nothing yet (empty). These are not edge cases in a demo — they're guaranteed to be visible, because your demo necessarily starts from an empty/loading state every single time you run it live.
 
-> ** Warning**
+> [!WARNING]
 > A screen that looks broken or blank during the 2-3 seconds before data loads is one of the most common "this looks unfinished" signals to a judge — and unlike a rare edge case, this state is *guaranteed* to appear in every single demo run, including the live one in front of judges. Treat it as a Must-Have, not a Nice-to-Have. The UI Polish module covers how to make this state actually feel intentional rather than just "less broken."
 
 ---

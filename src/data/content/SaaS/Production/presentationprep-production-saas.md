@@ -19,7 +19,7 @@ This is the module right before Pitch Deck, and the two are deliberately separat
 
 A status report tells someone everything that happened. A presentation makes a specific claim and supports it with the minimum necessary evidence. Most weak presentations are status reports wearing a presentation's clothing — exhaustive, accurate, and completely unpersuasive because the audience can't find the actual point.
 
-> ** Tip**
+> [!TIP]
 > Before building a single slide, write the conclusion you want someone to reach in one sentence. "Retention has flattened at a healthy 35%, proving product-market fit in our core segment" is a claim. "Here's our retention chart" is not — it's just data, waiting for someone else to draw a conclusion you should have drawn for them.
 
 ---
@@ -59,7 +59,7 @@ A presentation that works usually follows a recognizable shape: a real problem, 
    a wishlist
 ```
 
-> ** Warning**
+> [!WARNING]
 > Don't open with your solution. Audiences who don't yet believe the problem is real won't be persuaded by how elegant your solution is — they'll just wonder why you're solving something they don't think matters. Earn the problem first.
 
 ---
@@ -73,7 +73,7 @@ Every claim in your presentation should trace back to something you can actually
 - [ ] Known weaknesses or open questions are acknowledged rather than hidden — a sharp question that exposes an unaddressed weakness damages credibility far more than proactively naming it does
 - [ ] Projections are clearly labeled as projections, distinct from historical fact
 
-> ** Note**
+> [!NOTE]
 > The fastest way to lose a room's trust is one inflated number that someone in the audience happens to know is wrong. Precision and honesty about what you don't yet know is a stronger credibility signal than an impressively confident but unverifiable claim.
 
 ---

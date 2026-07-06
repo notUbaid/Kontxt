@@ -19,7 +19,7 @@ This is still not a full UX design exercise. It's the minimum detail needed to s
 
 A real product needs to handle many paths — new users, returning users, error states, edge cases. A hackathon demo follows exactly one path, every time, on stage. Your job here is to define that one path with total clarity, and to explicitly *not* design for paths the demo will never take.
 
-> ** Warning**
+> [!WARNING]
 > Don't design a flow with five different branches "just in case." Every branch is a screen someone has to build and a state someone has to handle. If a branch doesn't appear in your literal demo script, it doesn't belong in your hackathon user flow — build it later only if time allows, never before the core path is solid.
 
 ---
@@ -75,7 +75,7 @@ You don't need comprehensive error handling. You need to know what happens in th
 
 Once the flow is screen-by-screen, assigning ownership becomes obvious — and conflicts become visible immediately, while they're still cheap to resolve.
 
-> ** Tip**
+> [!TIP]
 > Write the flow in a shared doc and literally put a name next to each screen before building starts. If two screens share state (e.g., the result screen needs data shaped a specific way from the processing step), make sure both owners agree on that shape before either starts — this is the same handoff-point discipline from the PRD's data model section, applied at the UI level.
 
 ---

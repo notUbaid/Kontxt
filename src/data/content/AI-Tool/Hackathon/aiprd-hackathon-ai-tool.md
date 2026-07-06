@@ -17,7 +17,7 @@ Same purpose as any hackathon PRD: a fast, shared reference that keeps your team
 
 If you wrote "user uploads a file" as a feature, you'd specify what file types, what happens to it, and what comes out the other end. An AI feature deserves the same precision: what goes into the model, what's expected to come out, and what "good" looks like — even briefly. Without this, your prompt engineer and your frontend builder will quietly build against two different assumptions about what the AI returns.
 
-> ** Warning**
+> [!WARNING]
 > "AI generates a summary" is not a spec. Does it return plain text or structured JSON? A fixed length or variable? Does it always succeed, or can it return "I don't have enough information"? Two people building against an unspecified AI feature will build incompatible pieces — discovered, as usual, at the worst possible time.
 
 ---
@@ -68,7 +68,7 @@ Writing this down — especially the output format and the "what if there's noth
 
 Decide, in the PRD itself, what the user (and the demo) sees if the AI call fails, times out, or returns something clearly wrong. This doesn't need to be built yet — that happens in the AI Failure States module — but deciding the *intended* behavior now means your frontend and backend builders aren't guessing independently later.
 
-> ** Tip**
+> [!TIP]
 > A simple default that works for most AI tools: "show a clear, specific error message, never a silent failure or a fabricated-looking fallback result." Write this decision into the PRD explicitly so nobody has to make the call mid-build under time pressure.
 
 ---

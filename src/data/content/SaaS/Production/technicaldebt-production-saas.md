@@ -19,7 +19,7 @@ This module is about making that invisible cost visible enough to compete fairly
 
 "Technical debt" gets used as a catch-all guilt word. It's more useful to think of it the way the metaphor actually implies: a deliberate or accidental loan against future velocity, taken out for a reason.
 
-> ** Tip**
+> [!TIP]
 > Some debt is *good* debt — a shortcut taken deliberately to ship and validate an idea faster, with a clear plan to pay it down once you know the feature matters. Other debt is *bad* debt — code that's just poorly understood, accumulated by accident with no one tracking it. Treat these differently; only one of them was a real tradeoff decision.
 
 ---
@@ -59,7 +59,7 @@ Trigger to fix: When we sign our first custom-pricing enterprise deal.
 
 This format does the actual work: it explains the tradeoff, names the real cost, and — critically — defines a **trigger** for when it stops being acceptable. Debt entries without a trigger condition just sit on a list forever, never quite urgent enough to address.
 
-> ** Warning**
+> [!WARNING]
 > A technical debt backlog that only ever grows and never gets paid down isn't a tracking failure — it's a sign that debt items are being logged without real cost analysis attached. If every single entry feels equally vague and equally low-priority, the team has no actual way to compare them against feature work, and debt will always lose that comparison by default.
 
 ---

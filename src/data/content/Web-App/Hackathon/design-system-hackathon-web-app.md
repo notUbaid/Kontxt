@@ -19,7 +19,7 @@ This module is about making those decisions once, fast, before parallel building
 
 Judges can't evaluate your code quality in a 3-minute demo. They can absolutely see whether your screens feel like one coherent product or four different ones stapled together. A simple design executed consistently beats an ambitious design executed inconsistently, every time, in front of a judge.
 
-> ** Warning**
+> [!WARNING]
 > The most visible hackathon tell is a login screen built by one person and a results screen built by another, using different fonts, different button styles, and different spacing — because nobody locked in shared decisions before splitting up. This is fixable in 15 minutes at the start. It's expensive to fix after the fact, and judges notice immediately.
 
 ---
@@ -39,7 +39,7 @@ You need exactly four categories of decisions, made once, written down somewhere
 
 Once decided, these four things alone make screens built by different people in parallel look like they belong together, even without a shared component library.
 
-> ** Tip**
+> [!TIP]
 > If your stack uses Tailwind CSS (a strong default choice for hackathon speed — see the Tech Stack module), put these decisions directly into your `tailwind.config` as custom theme values. This makes consistency nearly automatic: everyone pulls from the same token set by default instead of having to remember the hex codes.
 
 ---
@@ -68,7 +68,7 @@ only ones worth the upfront shared investment.
 
 This is a hackathon trap worth naming directly: spending an hour browsing Dribbble or debating font pairings is design exploration, not design system work. Make these four decisions fast — they don't need to be perfect, they need to be locked and shared.
 
-> ** Note**
+> [!NOTE]
 > A boring but consistent palette, decided in 10 minutes, beats a beautiful palette debated for an hour. The hour you save goes directly into building and polishing your actual wow moment, which is what's actually being judged.
 
 ---

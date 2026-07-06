@@ -41,7 +41,7 @@ Go through your actual stack and list every place user data flows.
 
 Fill this out for your actual product. This single table is the source of truth that any privacy policy — AI-drafted or lawyer-drafted — must accurately reflect.
 
-> ** Tip**
+> [!TIP]
 > Every third-party SDK or API you call is a data-sharing relationship, even if you didn't think of it that way. Your error tracker sees stack traces that may include user data. Your analytics tool sees user IDs and behavior. List all of them.
 
 ---
@@ -56,7 +56,7 @@ You don't need to become a privacy lawyer, but you do need to know which rules a
 | CCPA/CPRA (California) | You meet revenue/data volume thresholds and have California users | Right to know, right to delete, right to opt out of "sale" of data |
 | COPPA (US) | Your product could be used by children under 13 | Parental consent requirements — often easiest to simply prohibit under-13 use in your Terms |
 
-> ** Note**
+> [!NOTE]
 > If you have zero EU users and zero children using your product, your compliance burden is much lower — but "I don't think we have EU users" is not the same as verified. Check your analytics for actual visitor geography before assuming.
 
 ---
@@ -101,7 +101,7 @@ Never publish AI-drafted legal text without checking it against reality. Specifi
 - [ ] The contact method listed for privacy requests is real and monitored
 - [ ] A qualified professional has reviewed the final draft before it goes live, especially for any jurisdiction-specific clauses
 
-> ** Warning**
+> [!WARNING]
 > The most expensive privacy policy mistake isn't a missing policy — it's a policy that makes promises your system can't keep. "We will delete all your data within 30 days" is a real commitment. If you say it, your backend needs an actual deletion job that fulfills it, not just good intentions.
 
 ---

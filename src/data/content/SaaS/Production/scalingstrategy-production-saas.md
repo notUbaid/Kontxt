@@ -19,7 +19,7 @@ This module is about deciding *when* to invest in each, because investing too ea
 
 Engineers love solving scaling problems — they're interesting, technical, and feel like "doing it right." This makes it easy to build for 100,000 users when you have 200, burning months on infrastructure nobody is stressing yet, instead of shipping features that would actually grow that number.
 
-> ** Warning**
+> [!WARNING]
 > The classic mistake: re-architecting a monolith into microservices, adding a message queue, and setting up multi-region deployment — all before product-market fit is confirmed. If your current architecture isn't actually failing under your current load, that engineering time should go toward the product problems that are actually slowing growth.
 
 ---
@@ -61,7 +61,7 @@ When you do have a genuine technical bottleneck, scale the specific thing that's
 
 Each step is more expensive in engineering time and complexity than the one before it. Don't skip to step 6 because it's the most interesting problem to work on — exhaust the cheap fixes first.
 
-> ** Note**
+> [!NOTE]
 > A single well-placed database index can sometimes fix what looks like a "we need to scale our infrastructure" problem entirely. Always profile and check the actual slow query before reaching for bigger hardware or a more complex architecture.
 
 ---

@@ -17,7 +17,7 @@ You measured your full integrated latency in the previous module. This one is ab
 
 A response that takes 6 seconds but shows visible progress the entire time often feels faster than a response that takes 3 seconds but shows nothing until it's done. Streaming isn't just a technical capability — it's a direct lever on how your wait time is experienced, which matters enormously in a live demo where every second of silence feels longer to a nervous presenter and a watching judge alike.
 
-> ** Warning**
+> [!WARNING]
 > A blank or static loading screen during a multi-second wait reads as "is this broken?" far faster than the same wait with visible, incremental progress. If your measured full-path latency from AI Integration is more than a couple seconds, a generic spinner is actively working against you, not just being merely unimpressive.
 
 ---
@@ -41,7 +41,7 @@ If your output is structured data (per the Structured Outputs module) rather tha
 
 Most current model provider SDKs support streaming responses directly — check your provider's current documentation for the specific implementation pattern, since exact syntax varies and changes over time. The core experience to build is: text appears progressively as it's generated, rather than all at once after a complete wait.
 
-> ** Tip**
+> [!TIP]
 > Streaming text in a chat-style interface is one of the lowest-effort, highest-perceived-impact pieces of polish available for an AI tool — judges are used to seeing this pattern from familiar AI products, and its absence (a long wait, then a sudden complete block of text) can make your tool feel comparatively dated even if the underlying output quality is just as good.
 
 ---
@@ -63,7 +63,7 @@ Try: "Analyzing input..." → "Extracting key points..." →
      to build than true partial-result streaming for structured data.
 ```
 
-> ** Note**
+> [!NOTE]
 > These staged messages don't need to map with perfect technical precision to your actual internal processing steps — what matters for the demo experience is that the user sees forward motion and specific, legible context for the wait, rotating naturally as time passes, rather than one static message the whole time.
 
 ---

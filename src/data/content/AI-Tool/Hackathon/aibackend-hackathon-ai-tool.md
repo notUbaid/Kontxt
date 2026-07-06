@@ -17,7 +17,7 @@ You have a working prompt, a structured output guarantee, and (if needed) a retr
 
 Everything interesting and risky already happened in the previous modules — prompt design, output validation, retrieval. Your backend's job now is to be the reliable, unglamorous layer that calls those pieces correctly, handles their known failure modes, and returns a clean result to the frontend. Boring, predictable backend code is exactly what you want here — this isn't where your wow moment lives.
 
-> ** Warning**
+> [!WARNING]
 > Don't use backend implementation time to "improve" your prompt or retrieval logic on the fly. If you find yourself tweaking the prompt while writing the endpoint, stop — that's Prompt Engineering work bleeding into a different phase, and it usually means you skipped sufficient testing earlier. Go back and test there explicitly rather than patching prompts ad hoc inside endpoint code.
 
 ---
@@ -47,7 +47,7 @@ the distinct states from your AI Interaction Flows planning.
 
 Don't scatter the model call, structured output validation (from Structured Outputs), and retry logic (also from that module) across multiple files or duplicate it if you have more than one AI-powered endpoint. A single, reusable function that handles "call model, validate, retry once, return state-tagged result" keeps your actual endpoint code simple and reduces the chance of inconsistent failure handling across different parts of your app.
 
-> ** Tip**
+> [!TIP]
 > Even in a fast hackathon build, this one piece of organization pays for itself almost immediately — if you discover a bug in your retry logic the night before submission, you want to fix it in one place, not hunt through every endpoint that happens to call the model.
 
 ---

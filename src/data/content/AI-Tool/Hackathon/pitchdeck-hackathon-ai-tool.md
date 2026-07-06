@@ -17,7 +17,7 @@ Your tool works, fails gracefully, and feels intentional to use. Now you need a 
 
 A hackathon pitch deck is short — often 3-5 slides — because the live demo is the actual proof. The deck's only real job is making sure the judge understands the problem and the approach clearly enough that the demo lands with full context, not blind. Don't try to convey everything in the deck; save the impressive part for the live moment you've spent the whole build hardening.
 
-> ** Warning**
+> [!WARNING]
 > Don't put your AI output's actual result on a slide as a screenshot and call that your demo. Judges have seen this pattern enough times to be skeptical of it — a screenshot can be cherry-picked or staged in a way a live run can't be. Show the result live, in the demo; use the deck to set up why that live moment matters.
 
 ---
@@ -57,7 +57,7 @@ Judges evaluating AI tools specifically are primed to ask "could this just be a 
 
 Most judges care more about the result and the experience than your specific model choice or prompt engineering approach — that detail matters far more in Q&A, where you can go as deep as asked, than on a slide everyone has to read in a few seconds. Resist the urge to show your architecture diagram or prompt structure on a slide; have it ready to discuss if asked.
 
-> ** Tip**
+> [!TIP]
 > If you do mention your tech stack or model choice, one line is enough: "built on [model], with retrieval over [your data source]" — a single line of credibility, not a slide of architecture. Save deeper technical discussion (your failure handling, your prompt iteration process, your structured output validation) for genuine follow-up questions, where it'll actually be appreciated rather than skimmed past.
 
 ---

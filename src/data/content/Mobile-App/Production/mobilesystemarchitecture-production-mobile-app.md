@@ -88,7 +88,7 @@ Beginners either put everything in components (unmaintainable past 20 screens) o
 | Cross-screen client state (theme, draft post) | Zustand | Minimal boilerplate vs Redux |
 | Auth session | Secure storage + a thin auth context | Never in Zustand/AsyncStorage unencrypted |
 
-> ** Tip**
+> [!TIP]
 > If you're reaching for Redux in 2026, stop. React Query eliminates 80% of the reason Redux existed (server state caching). Zustand covers what's left in a fraction of the code. Redux is defensible at large-team scale; it's overengineering for a production app built by 1-5 people.
 
 ---
@@ -186,7 +186,7 @@ You cannot `console.log` your way through a crash that happened on a stranger's 
 | Backend logging | Structured logs (JSON) on your API layer | Failed requests, slow queries, auth failures |
 | Uptime/API health | A simple health-check endpoint + external monitor (e.g. UptimeRobot) | Backend outages before users report them |
 
-> ** Tip**
+> [!TIP]
 > Set up Sentry before you need it, not after your first production crash report with no stack trace. Retrofitting error tracking after launch means your first real incidents are debugged blind.
 
 ---
@@ -250,7 +250,7 @@ Output as a table: screen | deep link pattern | required push
 payload fields.
 ```
 
-> ** Tip**
+> [!TIP]
 > Don't paste your entire codebase into these prompts. Paste the architecture summary and the specific screens/flows in question. A focused prompt gets a focused, checkable answer — a huge context dump gets a generic one.
 
 ---

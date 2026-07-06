@@ -46,7 +46,7 @@ These aren't legal questions yet — they're product and risk decisions only you
 | Payment and refunds | What's your actual refund policy? This must match what your Stripe/payment configuration enforces |
 | Governing law | Which jurisdiction's laws apply if there's a dispute? |
 
-> ** Tip**
+> [!TIP]
 > Don't promise an SLA (uptime guarantee) you haven't engineered for. If your ToS says "99.9% uptime guaranteed" but you're running on a single server with no redundancy, you've created a liability that your infrastructure can't back up. Either build the reliability first, or don't make the promise yet.
 
 ---
@@ -60,7 +60,7 @@ This is the engineering-relevant check most founders skip. Your terms have to be
 - **"We may suspend accounts for violations"** requires an actual admin process to do that — even a manual one
 - **Subscription terms** (auto-renewal, cancellation notice period) must match your actual billing logic, not just the words in the document
 
-> ** Warning**
+> [!WARNING]
 > A mismatch between your ToS and your actual product behavior isn't just sloppy — it can be used against you in a dispute. If your terms say cancellations take effect "immediately" but your billing logic still charges the next cycle, that's a real, fixable bug with legal consequences, not just a UX inconsistency.
 
 ---
@@ -104,7 +104,7 @@ than assuming a default.
 - [ ] Governing law and dispute resolution clauses match where your company is actually incorporated/operating
 - [ ] The document doesn't contradict your Privacy Policy (e.g., data retention claims should match across both documents)
 
-> ** Note**
+> [!NOTE]
 > Read your own Terms of Service as if you were the user. If a clause would feel like a bait-and-switch to you in that position, it's worth a second look — not necessarily because it's illegal, but because trust, once lost from a hostile-feeling ToS, is hard to win back.
 
 ---

@@ -17,7 +17,7 @@ Before any model selection, prompt writing, or code — get specific about what 
 
 It's a starting impulse, and a fine one — but it's not yet a project. The strongest personal AI tools usually start from a real, specific annoyance: something you do manually and wish you didn't, something you forget and wish you were reminded of, something messy you wish were organized automatically. Find that specific annoyance before reaching for a model.
 
-> ** Tip**
+> [!TIP]
 > A good test: can you describe a real, recent moment where this problem actually bothered you? "I wanted to build a chatbot" doesn't pass this test. "Last week I spent twenty minutes manually copying receipt totals into a spreadsheet and wished I could just photograph them" does. If you can't recall a real recent moment, the problem might not be concrete enough yet.
 
 ---
@@ -62,7 +62,7 @@ Format: I want [tool] to help me [do what], so I stop having to
 
 A personal project benefits from staying small enough to actually finish, especially as a side project competing with the rest of your life for time. Resist scoping in every adjacent feature you can imagine — start with the one core thing that addresses your actual annoyance.
 
-> ** Warning**
+> [!WARNING]
 > The most common personal-project failure isn't a bad idea — it's scope creep from a reasonable starting idea into something that needs months of work before it's usable at all, at which point motivation often runs out before anything ships. Define the smallest version that would already solve your real, specific annoyance from Step 1, and build that first.
 
 ---

@@ -17,7 +17,7 @@ Your prompt asks for a specific format. This module is about actually guaranteei
 
 A prompt that says "respond in JSON" usually gets you something that looks like JSON most of the time — until it doesn't, and your frontend crashes trying to parse a response that has a stray sentence before the actual JSON, or a trailing comma, or a field name that drifted slightly from your spec. This is exactly the kind of bug that passes every rehearsal and then fails live on the one run that matters.
 
-> ** Warning**
+> [!WARNING]
 > "It worked every time I tested it" is not the same claim as "it's guaranteed to work." Plain-text-requested JSON has a real, non-zero failure rate even with a good prompt. If your demo depends on parsing the model's output into a UI, that failure rate needs to be addressed structurally, not just hoped away by a well-worded prompt.
 
 ---
@@ -26,7 +26,7 @@ A prompt that says "respond in JSON" usually gets you something that looks like 
 
 Most current major model providers offer some form of native structured output enforcement — a way to specify a schema that the API guarantees (or strongly constrains) the response to match, rather than relying purely on prompt instructions. This is meaningfully more reliable than prompt-only formatting requests.
 
-> ** Note**
+> [!NOTE]
 > Specific feature names, capabilities, and exact guarantees vary by provider and change over time — check your chosen provider's current API documentation directly for how they support structured/schema-constrained output (sometimes called "JSON mode," "structured outputs," "function calling," or "tool use" depending on the provider and how you're using it). Don't rely on memory for this; verify against current docs before building against an assumed behavior.
 
 **Decision Card — Reliability Tiers**
@@ -64,7 +64,7 @@ This validation layer is also exactly where the AI Failure States module's plann
 
 If validation fails, a single retry (re-sending the same request, sometimes with a slightly adjusted prompt noting the previous attempt's issue) often resolves a one-off formatting miss. Don't build an elaborate, multi-attempt retry system for a hackathon — one retry, then fall back to your planned failure state, is enough.
 
-> ** Tip**
+> [!TIP]
 > A simple rule that covers most cases: try once, validate, retry once if invalid, then show your planned fallback/error state if it fails twice. This is enough resilience for a live demo without over-engineering a retry system you don't have time to build or test thoroughly.
 
 ---

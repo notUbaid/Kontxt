@@ -19,7 +19,7 @@ The previous module taught you how to *read* a retention curve. This module is a
 
 Most user-level churn decisions happen in the first few sessions, not gradually over months. A user who doesn't reach real value in their first week is very unlikely to suddenly "get it" in month three. This means retention work is disproportionately about the **first-run experience**, not about adding more features for existing power users.
 
-> ** Tip**
+> [!TIP]
 > If you're choosing where to spend limited engineering time between "polish onboarding" and "build a new feature requested by power users," polish onboarding first — unless your retention curve has already flattened at a healthy level and your problem has genuinely shifted to deepening engagement for existing users.
 
 ---
@@ -61,7 +61,7 @@ A trigger works when it reminds the user of something genuinely useful waiting f
 
 A trigger that exists only to manufacture an open ("We miss you! ") with no actual new value behind it trains users to treat your notifications as noise. Once a user starts ignoring your emails, re-engaging them later is far harder than if you'd never sent the empty ones.
 
-> ** Note**
+> [!NOTE]
 > Before adding any notification, ask: "If I were the user, would I be glad I got this?" If the honest answer is "probably not," the notification is solving your retention anxiety, not the user's actual need.
 
 ---

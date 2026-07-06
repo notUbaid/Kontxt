@@ -19,7 +19,7 @@ If your tool is single-shot (one input, one output, no back-and-forth), much of 
 
 The biggest mistake in AI tool conversation design is treating the chat interface as an open-ended box where the user can type anything and the model will figure it out. That approach is genuinely hard to make reliable, and it's especially risky live, where an unexpected user input (including your own, if you fumble the demo) can derail things in front of judges. A designed path — even one disguised as a free-form chat — is far more reliable.
 
-> ** Warning**
+> [!WARNING]
 > "Just let them type anything, the model is smart enough" is a real risk in a live hackathon demo specifically. The model being capable in general doesn't mean it'll handle an unexpected input gracefully in the one specific flow you're demoing, under time pressure, with no chance to recover gracefully if it goes sideways.
 
 ---
@@ -63,7 +63,7 @@ response that leads into your demo's natural ending point.
 
 Even in a guided flow, plan for the user (or you, mid-demo) saying something unexpected. You don't need comprehensive handling — same hackathon discipline as everywhere else in this curriculum — but you need a deliberate, graceful default rather than an undefined one.
 
-> ** Tip**
+> [!TIP]
 > A simple, reliable default: if input doesn't match what the flow expects, have the system respond with a brief clarifying redirect ("I can help with that once I have your notes or a voice memo — could you share those?") rather than attempting to interpret arbitrary off-topic input. This keeps a stray or off-script moment from derailing the whole demo into unpredictable model behavior.
 
 ---

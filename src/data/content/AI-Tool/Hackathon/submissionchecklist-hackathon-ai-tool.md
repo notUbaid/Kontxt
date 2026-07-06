@@ -17,7 +17,7 @@ Everything up to this point has been about building and rehearsing a great demo.
 
 Every other module in this curriculum gave you room to cut scope, defer polish, or make judgment calls about what's worth your remaining time. This one doesn't. If the hackathon requires a public repo, a working deployed link, and a submission form filled out by a deadline, those things have to exist exactly as specified — there's no "good enough" version of a missing requirement.
 
-> ** Warning**
+> [!WARNING]
 > Teams that build an excellent project and then submit minutes late, or with a broken public repo link, or missing a required field, lose points (or get disqualified) for reasons that have nothing to do with how good their actual work was. Treat the submission checklist with the same seriousness as your AI Failure States rehearsal — verify it directly, don't assume it's fine.
 
 ---
@@ -43,7 +43,7 @@ Every hackathon's submission requirements differ — don't assume based on a pre
 
 Open your deployed link, your repo, and your video in a private/incognito browser window, or ask someone outside your team to check. Things that work because you're still logged in, or because your browser has cached state from earlier testing, can fail completely for someone encountering them cold — exactly how a judge will encounter them.
 
-> ** Tip**
+> [!TIP]
 > This is the same discipline as testing your demo on the actual device/screen you'll present on — verify your submission artifacts the way the actual evaluator will experience them, not the way you, with all your accumulated local context, experience them.
 
 ---
@@ -52,7 +52,7 @@ Open your deployed link, your repo, and your video in a private/incognito browse
 
 Submission platforms can be slow or experience high traffic right before a deadline, especially for popular hackathons. Plan to submit with real buffer — not because the deadline itself moved, but because the platform's behavior under load near a deadline is its own risk factor, separate from your project's actual readiness.
 
-> ** Warning**
+> [!WARNING]
 > "I'll submit right at the deadline" assumes the submission platform, your internet connection, and every required field will all cooperate perfectly in that exact moment. Submit with at least 15-30 minutes of buffer if your event allows it, specifically to absorb any last-minute platform or connectivity issue.
 
 ---

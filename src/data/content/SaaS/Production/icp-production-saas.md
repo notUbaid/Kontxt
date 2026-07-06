@@ -60,7 +60,7 @@ Answer these in order. Each answer constrains the next one — don't jump around
 **4. The disqualifiers**
 - Who looks like your ICP but isn't? Be explicit — this prevents scope creep later.
 
-> ** Tip**
+> [!TIP]
 > Disqualifiers are the most skipped part of an ICP and the most valuable. "We're not for solo freelancers" or "we're not for enterprises needing custom contracts" tells you exactly which feature requests to say no to for the next year.
 
 ---
@@ -120,7 +120,7 @@ Be direct about weaknesses. Don't validate a vague ICP just because
 I wrote it confidently.
 ```
 
-> ** Tip**
+> [!TIP]
 > Don't ask AI to invent your ICP from scratch based on your product idea alone — it will produce something generic and demographically plausible but untested. Use AI to stress-test an ICP you've already reasoned through from a real observed problem (yours, a friend's, or research you've done), not to originate it.
 
 ---

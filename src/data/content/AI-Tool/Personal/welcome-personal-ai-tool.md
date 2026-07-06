@@ -19,7 +19,7 @@ This module sets the actual frame for everything that follows.
 
 There's no judge, no investor, no team depending on this. The two things actually worth optimizing for are: do you learn something real building it, and does it genuinely solve the problem you built it for — for you, and maybe a few other people, if you choose to share it. Everything in this curriculum is calibrated to that, not to impressing anyone on a deadline.
 
-> ** Tip**
+> [!TIP]
 > Permission to go slower is not permission to skip rigor. A personal AI tool still benefits enormously from real prompt testing, real failure handling, and real verification of AI-generated code — the absence of a deadline means you have *more* room to do this well, not a reason to skip it.
 
 ---
@@ -43,7 +43,7 @@ None of this should be intimidating — it's simply the shape of the extra care 
 
 The modules ahead follow a sensible build order: defining the problem and confirming AI genuinely fits it, designing the interaction, choosing a model and writing a real prompt, building the actual application, deploying it responsibly, and then growing/maintaining it over time. Personal-mode guidance throughout favors **learning, low cost, and realistic solo maintenance** over production-grade infrastructure you don't need yet.
 
-> ** Note**
+> [!NOTE]
 > Where a production curriculum might tell you to build comprehensive monitoring or enterprise-grade security, this curriculum will generally point you toward the simplest version that's still genuinely safe and correct — appropriate for a project you're maintaining yourself, for your own use or a small audience.
 
 ---

@@ -17,7 +17,7 @@ Your app exists locally. Now it needs to exist somewhere a judge can reach — o
 
 The single biggest hosting-related risk in a hackathon isn't picking the wrong platform — it's deploying for the first time right before your demo slot and discovering something that worked locally doesn't work in production. Get a deployed URL live as early as possible, even with an incomplete app, and redeploy continuously as you build.
 
-> ** Warning**
+> [!WARNING]
 > "It works on my machine" is not the same claim as "it works on the deployed URL." Environment variables, OAuth redirect URIs (see the Authentication module), and build-time configuration are common sources of local-vs-deployed mismatches. The only way to catch these with enough time to fix them is deploying continuously throughout the build, not once at the end.
 
 ---
@@ -38,7 +38,7 @@ If you followed the Tech Stack module's consolidation advice, hosting setup shou
 
 Don't wait for a complete app. Deploy a barely-functional version the moment your project exists, confirm the deployment pipeline itself works, then keep pushing updates as you build. This catches configuration problems (missing environment variables, wrong build settings) while they're cheap one-line fixes, not late-stage emergencies.
 
-> ** Tip**
+> [!TIP]
 > Set up auto-deploy on every push to your main branch from the very first commit. This means every team member's merged work is automatically live on the real URL within minutes, and you get continuous confirmation that nothing has silently broken in production.
 
 ---
@@ -64,7 +64,7 @@ Any API key, especially for an AI provider, needs to live in your hosting platfo
 
 Despite deploying early and often, venue wifi at hackathons is a real, recurring point of failure — both for your deployed app's connectivity and for your ability to reach it live. Know how to run your app locally as a fallback, and confirm beforehand whether your venue allows presenting from a local instance if the network fails.
 
-> ** Warning**
+> [!WARNING]
 > Don't assume venue wifi will support your live demo, especially if your app makes real-time calls to an external AI API during the demo itself. Test your actual demo flow on the venue's network if you can, before your slot — and know your fallback plan (local instance, pre-recorded backup, or cached/seeded results) if the live network lets you down.
 
 ---

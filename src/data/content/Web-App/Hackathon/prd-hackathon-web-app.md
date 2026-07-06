@@ -19,7 +19,7 @@ If your MVP feature list from the last module is the *what*, this is the shared 
 
 Nobody is judging your PRD. It's pure internal infrastructure — a single page your team can glance at mid-build to settle a "wait, I thought we were doing it this way" disagreement before it costs you an hour of rework.
 
-> ** Warning**
+> [!WARNING]
 > Skipping this step entirely is the second most common hackathon failure after bad scoping. Teams agree on an idea verbally, split up to build in parallel, and discover four hours later that two people built incompatible assumptions about how a core flow works — because nothing was written down precisely enough to catch the mismatch earlier.
 
 ---
@@ -67,7 +67,7 @@ Notice this matches the demo-path action list from MVP Features almost exactly �
 
 You don't need a full schema diagram. You need enough agreement that your frontend developer and backend developer aren't building against two different mental models of what a "project" or "user" object looks like.
 
-> ** Tip**
+> [!TIP]
 > A few lines of pseudo-JSON often beats a formal schema diagram for speed: `{ user: { id, email, name }, project: { id, ownerId, title, status } }`. This is fast to write, fast to read, and forces the same clarity a diagram would — without the time cost of actually drawing one.
 
 ---
@@ -110,7 +110,7 @@ here.
 - [ ] The out-of-scope list explicitly includes anything that was discussed and cut earlier, so it doesn't quietly resurface mid-build
 - [ ] It fits on one page or one screen — if it doesn't, something non-essential crept back in
 
-> ** Note**
+> [!NOTE]
 > The real test of a hackathon PRD isn't whether it's well-written. It's whether, four hours into building, someone can glance at it and immediately resolve a disagreement without a meeting. If it can't do that, it didn't capture the decisions that actually mattered.
 
 ---

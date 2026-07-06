@@ -17,7 +17,7 @@ You ran the basic "why AI" test in Problem Definition. This module goes deeper, 
 
 Language models are excellent at tasks involving understanding varied, unstructured input and producing flexible, context-appropriate output. They're genuinely unreliable at precise computation, perfect recall of specific facts not in their context, and tasks requiring guaranteed consistency every single time. Matching your task honestly to these strengths and weaknesses saves you from building around a fundamental mismatch.
 
-> ** Warning**
+> [!WARNING]
 > A common personal-project trap: asking a model to do something requiring perfect, guaranteed accuracy (exact financial calculations, precise date math, retrieving a specific fact you need to be 100% certain about) when a model's actual reliability for that specific operation is good-but-not-guaranteed. If precision matters and you can compute or look it up directly, do that — reserve the model for the parts that genuinely benefit from its flexibility.
 
 ---
@@ -59,7 +59,7 @@ The model handles "read this messy real-world text and figure out
 the structure." Code handles "now do exact math with that structure."
 ```
 
-> ** Tip**
+> [!TIP]
 > If you find yourself asking the model to both extract information *and* perform a precise calculation in the same step, split it into two steps: extraction (AI), then calculation (code). This single split resolves a large fraction of "the AI got the math wrong" frustrations in personal AI tools.
 
 ---
@@ -68,7 +68,7 @@ the structure." Code handles "now do exact math with that structure."
 
 Not every personal use case needs the same reliability bar. A tool that drafts a casual summary for your own reading has a different acceptable error rate than one that tracks something you'll rely on for an actual decision (e.g., tax-relevant expense categorization).
 
-> ** Note**
+> [!NOTE]
 > Be honest with yourself about which category your project falls into. If the output matters enough that a wrong answer could cause a real problem (financial, medical, or otherwise consequential), build in a verification step where you personally review AI output before trusting it — don't let a personal project quietly become something you rely on uncritically just because it's convenient.
 
 ---

@@ -70,7 +70,7 @@ Do this exactly once, right before you consider yourself done — ideally with a
 3. Play the demo video from the actual submitted link, not your local file.
 4. Re-read the submission form once, field by field, against the hackathon's stated requirements.
 
-> ** Tip**
+> [!TIP]
 > "It worked when I tested it earlier" is not the same as "it works right now." Deployments can silently break from an expired free-tier database pause, a rotated key, or an unrelated last-minute commit. Test from the actual submitted links, at the actual end, not from memory of an earlier check.
 
 ---
@@ -96,7 +96,7 @@ product ideas — I only need a compliance check against what's
 explicitly required.
 ```
 
-> ** Tip**
+> [!TIP]
 > Paste the actual hackathon rules text into this prompt, not a summary from memory. Requirements vary a lot between events, and a generic checklist will miss something specific to this one (e.g., a required tag in your repo name, a specific submission category).
 
 ---

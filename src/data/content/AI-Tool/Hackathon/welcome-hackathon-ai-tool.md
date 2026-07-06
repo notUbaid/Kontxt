@@ -19,7 +19,7 @@ This module sets the actual rules of the game before you touch a prompt or a lin
 
 Most hackathon categories let you pre-build and just run through a rehearsed flow. An AI tool often has to actually call a model live, in front of judges, with real latency, real variance in output quality, and real risk of an unexpected response. Your entire build philosophy here should account for that risk from hour one, not discover it the night before submission.
 
-> ** Warning**
+> [!WARNING]
 > The single most common AI-tool hackathon failure isn't a bad idea — it's a live demo where the model takes 12 seconds to respond, or returns something subtly wrong, and the team has no plan for either. Both are foreseeable. Both are addressed later in this curriculum (Streaming UX and AI Failure States), but the planning starts now, with how you think about the project overall.
 
 ---
@@ -43,7 +43,7 @@ None of this means AI tools are harder to build well in a hackathon — they're 
 
 Every module ahead is tuned for building an AI tool under hackathon time pressure specifically. **Model Selection** and **Prompt Engineering** get you a working core fast. **Streaming UX** and **AI Failure States** — easy to skip, expensive to skip — make sure your live demo survives contact with a real model call in front of judges. **Trust & Transparency** addresses something AI tools specifically need that other apps don't: showing the user (and the judge) enough about what the AI is doing that the output feels credible rather than magical-and-suspicious.
 
-> ** Tip**
+> [!TIP]
 > If you only remember one thing from this module: build your fallback for "the AI gives a bad answer live" at the same time you build the happy path, not after. It's the single highest-leverage piece of risk mitigation specific to this category of hackathon project.
 
 ---

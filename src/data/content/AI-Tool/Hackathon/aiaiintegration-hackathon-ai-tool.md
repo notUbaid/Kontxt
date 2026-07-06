@@ -17,7 +17,7 @@ Every individual piece has been built and tested separately: the prompt, the str
 
 This is the most common place a hackathon AI tool fails despite every individual component having been verified: the prompt was tested directly against sample input, the endpoint was tested with a mocked request, the frontend was tested against a mocked response — but the full path, real user input flowing through the real frontend, real backend, real model call, real response back to the real frontend, was never run start to finish until the actual demo.
 
-> ** Warning**
+> [!WARNING]
 > "I tested the prompt and I tested the endpoint and I tested the frontend" is not the same claim as "I tested the whole thing together." Run the complete, real path — actual user action in the actual UI, all the way through to the actual rendered result — multiple times before considering your AI tool done.
 
 ---
@@ -40,7 +40,7 @@ Not a code review. Not checking that each piece individually looks correct. Actu
 
 Your Model Selection module measured raw model latency. The full integrated path adds network round-trips, any retrieval step, validation, and rendering — the total time a user actually experiences is the sum of all of it, not just the model call in isolation.
 
-> ** Tip**
+> [!TIP]
 > Time the full path from the moment a user clicks submit to the moment the result is visibly rendered, using a stopwatch during a real test run — not the model API's reported latency alone. If this total feels meaningfully slower than your earlier model-only measurement, that gap tells you where additional overhead (retrieval, validation, network) is coming from, and whether your Streaming UX plan needs to account for it.
 
 ---

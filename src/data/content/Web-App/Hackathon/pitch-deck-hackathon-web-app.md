@@ -17,7 +17,7 @@ That distinction changes everything about what should be on each slide.
 
 ## The One Rule
 
-> ** Tip**
+> [!TIP]
 > Every slide exists to support what you're saying out loud — not to replace it. If a slide can be read and fully understood without you speaking, it has too much text on it.
 
 Slides are a backdrop. Your voice and your live demo carry the actual argument.
@@ -106,7 +106,7 @@ Hosting     Vercel + Google Cloud
 
 Pick whichever communicates your technical decisions more clearly. Do not include both.
 
-> ** Warning**
+> [!WARNING]
 > Don't overengineer this slide trying to look impressive. A simple, accurate architecture is more credible than a complex diagram with unnecessary layers. Judges who are engineers will see through padding immediately.
 
 ---

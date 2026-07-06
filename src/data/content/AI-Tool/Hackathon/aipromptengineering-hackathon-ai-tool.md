@@ -17,7 +17,7 @@ This is the actual core engineering work of your AI tool. Everything before this
 
 The single most common AI-tool hackathon mistake at this stage: writing a prompt, trying it once with a clean example, seeing a good result, and moving on. A prompt needs to work *reliably* across the range of real inputs from your Target Users module — one good result tells you almost nothing about that.
 
-> ** Warning**
+> [!WARNING]
 > Your demo will use one specific input, but a judge might ask to try their own, and even your own rehearsed demo input might come out slightly differently each time (most models have some non-determinism by default). A prompt tested once against one clean example is a prompt you don't actually know works — test it multiple times, against the varied inputs you generated in the Target Users module.
 
 ---
@@ -54,7 +54,7 @@ This structure — role, task, exact output format, explicit rules, the actual i
 
 If your PRD specifies JSON or another structured format, say so explicitly and show the exact shape you want — don't just describe it in prose and hope the model infers the right structure. (The Structured Outputs module covers this in more technical depth; this is the prompt-level foundation for it.)
 
-> ** Tip**
+> [!TIP]
 > Including a literal example of the desired output shape in your prompt — even a short one — meaningfully increases format consistency compared to describing the shape only in words. Show, don't just tell, when it comes to structured output.
 
 ---
@@ -78,7 +78,7 @@ Run your prompt against every test input you generated in the Target Users modul
 
 When a test reveals a failure, add a specific rule addressing that exact failure — don't just pad the prompt with generic instructions hoping something sticks. A focused, evidence-driven prompt outperforms a long, unfocused one.
 
-> ** Note**
+> [!NOTE]
 > If the model invents action items not actually present in the input, add a specific rule: "Only include items explicitly stated or clearly implied — do not infer items the input doesn't support." This kind of targeted fix, added in response to an observed failure, is far more reliable than a vague "be accurate" instruction added preemptively.
 
 ---

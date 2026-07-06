@@ -32,7 +32,7 @@ Unlike Privacy Policy and ToS, which every SaaS needs, this category is conditio
 | Security/Compliance Page (SOC 2, etc.) | Enterprise prospects are asking about your security posture before they'll sign |
 | Accessibility Statement | You want to publicly commit to an accessibility standard (often expected by enterprise/government customers) |
 
-> ** Tip**
+> [!TIP]
 > Most early-stage SaaS companies need zero of these at launch. They become necessary the first time an enterprise prospect's procurement or legal team sends you a vendor security questionnaire — which is usually your actual trigger, not a calendar date.
 
 ---
@@ -48,7 +48,7 @@ If you sell B2B and your customer's business data includes their end users' pers
 - Notifying the customer of a data breach within a specific timeframe
 - Listing your subprocessors (your own third-party tools — hosting, email, analytics) so the customer's compliance team can review them
 
-> ** Warning**
+> [!WARNING]
 > Your DPA's subprocessor list has to actually match your infrastructure. If you list AWS but you actually use a different host, or you add a new analytics tool six months later without updating the list, you're in breach of the agreement you signed — this is a living document, not a one-time draft.
 
 ---
@@ -91,7 +91,7 @@ the requirement.
 - [ ] SLA uptime commitments match what your infrastructure can actually deliver (see the Launch Checklist module's performance and monitoring sections — don't promise what you haven't engineered)
 - [ ] A qualified professional has reviewed any document that will be attached to a signed contract with a paying customer, since these carry direct contractual liability in a way your public-facing ToS may not
 
-> ** Note**
+> [!NOTE]
 > A DPA or SLA isn't just a published page like a Privacy Policy — it's typically a signed exhibit to a customer contract. Treat the review bar accordingly: higher stakes than a footer link, lower volume than your core legal documents.
 
 ---

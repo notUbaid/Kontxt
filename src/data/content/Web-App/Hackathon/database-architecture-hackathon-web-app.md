@@ -17,7 +17,7 @@ You sketched a rough data model in your PRD. This module turns that sketch into 
 
 A production database anticipates future features, scale, and data you don't have yet. A hackathon database needs to hold exactly the data your demo flow touches — nothing more. Every extra table, every "just in case we need this" column, is time spent on a feature that doesn't exist instead of time spent making your actual demo path solid.
 
-> ** Warning**
+> [!WARNING]
 > Don't design for hypothetical future features ("what if we add teams later" or "what if users need roles"). If it's not in your Must-Have feature list, it doesn't get a table or a column. You can always add it in five minutes later if you somehow have spare time — which, in a hackathon, you almost never do.
 
 ---
@@ -56,7 +56,7 @@ In production, normalization prevents data inconsistency at scale. At hackathon 
 | Data that would normally get its own lookup table (e.g., a fixed status enum) | Just use a string/enum column directly — skip the separate table |
 | Data you're tempted to model relationally "for correctness" but only ever query one way | Denormalize freely — store it duplicated or nested if that's faster to build against |
 
-> ** Tip**
+> [!TIP]
 > If you're using a tool like Supabase or Firebase, lean into whatever its fastest default pattern is — a flexible JSON column for loosely structured data, a simple flat table for everything else. Optimize for "what can I query and display fastest," not for textbook schema design.
 
 ---

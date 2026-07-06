@@ -21,7 +21,7 @@ Most developers jump straight to code because it feels like progress. Defining a
 
 A vague idea produces a vague product. A vague product is impossible to scope, impossible to design, and impossible to know when it's done.
 
-> ** Warning**
+> [!WARNING]
 > "I want to build something like X but better" is not an idea. It's a direction. You need a destination.
 
 ---

@@ -42,7 +42,7 @@ A hackathon auth flow needs exactly three things — nothing more:
 
 That's it. No password reset flow, no email verification enforcement, no multi-factor auth, no "remember me" — none of it moves your demo forward.
 
-> ** Tip**
+> [!TIP]
 > Pick Google OAuth over email/password if your demo audience is judges, not real end users. It's faster to build (no form validation, no error states to handle) and faster to demo (one click instead of typing credentials on stage).
 
 ---
@@ -129,7 +129,7 @@ Give me the minimal working code, not a production-grade auth
 system.
 ```
 
-> ** Tip**
+> [!TIP]
 > Explicitly telling AI what to skip is as important as telling it what to build. Without the exclusion list, most models default to "production-grade" scaffolding that costs you time you don't have.
 
 ---

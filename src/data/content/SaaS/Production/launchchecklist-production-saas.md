@@ -32,7 +32,7 @@ Every seam between two systems is where production incidents live:
 - Your app ↔ Auth provider
 - Your app ↔ Third-party APIs
 
-> ** Tip**
+> [!TIP]
 > If you only have time to test one category before launch, test the seams involving money and auth. A broken "forgot password" page is annoying. A broken webhook that double-charges a customer is a support nightmare and a refund liability.
 
 ---

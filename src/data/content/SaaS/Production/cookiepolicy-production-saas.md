@@ -26,7 +26,7 @@ This is the single most common implementation bug, and it's a compliance failure
 
 **Correct pattern:** Non-essential scripts (analytics, ads, session recording) do not load until the user explicitly consents. Only strictly necessary cookies (session tokens, CSRF protection, login state) are allowed to load before consent.
 
-> ** Warning**
+> [!WARNING]
 > If your cookie banner library only *hides the banner* on dismiss but your analytics script tag is sitting unconditionally in your page `<head>`, you are not compliant under GDPR/ePrivacy — you're tracking before consent and just hiding the evidence visually. This is one of the most common and most checked violations.
 
 ---
@@ -86,7 +86,7 @@ The exact implementation depends on your tooling — most cookie consent librari
 - [ ] If the user rejects non-essential cookies, those scripts genuinely don't load on the next page view either — not just the current one
 - [ ] Users can change their mind later — a "Cookie Settings" link in your footer reopens the preference panel, it doesn't require clearing browser data manually
 
-> ** Tip**
+> [!TIP]
 > Geotargeting your banner (showing the strict opt-in version only to EU/UK visitors, and a lighter version elsewhere) is common practice and reduces friction for visitors in regions with looser requirements. But verify your actual obligations for non-EU regions — some US states (like California, under CCPA) have their own opt-out requirements, just structured differently than GDPR's opt-in model.
 
 ---
@@ -128,7 +128,7 @@ My primary user base is located in: [regions]
 - [ ] Rejecting cookies doesn't break core functionality (login, checkout) — only non-essential features should be affected
 - [ ] The consent choice persists across page navigations and return visits, not just within a single session
 
-> ** Note**
+> [!NOTE]
 > The network tab test above is the only way to be sure. Reading your own banner's UI text tells you nothing about whether the underlying script actually respects the choice — that's a behavior you have to observe directly, with consent rejected, watching what requests fire.
 
 ---

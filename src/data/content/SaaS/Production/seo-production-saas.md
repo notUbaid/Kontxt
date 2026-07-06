@@ -23,7 +23,7 @@ This module covers the engineering side of SEO: the part that's your job, not yo
 
 If technical SEO is broken, content SEO can't save you. A brilliant blog post on a page that returns a 404 to Googlebot, or that takes 8 seconds to render its content, will never rank — no matter how well written it is.
 
-> ** Tip**
+> [!TIP]
 > If your product is gated entirely behind a login (most B2B SaaS dashboards are), your SEO surface is really just your marketing site and public docs — not the app itself. Scope your effort there first.
 
 ---
@@ -87,7 +87,7 @@ For a SaaS, the most relevant schema types are:
 - `SoftwareApplication` — describes your product for search engines
 - `FAQPage` — if you have a public FAQ section, this can produce expandable result snippets
 
-> ** Note**
+> [!NOTE]
 > Structured data is a "nice to have," not a launch blocker. Prioritize crawlability, rendering, and Core Web Vitals first — those affect whether you rank at all. Structured data affects how attractive your listing looks once you do.
 
 ---

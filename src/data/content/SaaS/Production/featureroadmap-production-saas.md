@@ -19,7 +19,7 @@ The failure mode at this stage isn't a lack of ideas. It's the opposite — too 
 
 Anyone can generate a list of features worth building. The actual skill is having a consistent, defensible way to rank them — one you'd apply the same way regardless of who's asking or how compellingly they argued for their pet feature.
 
-> ** Tip**
+> [!TIP]
 > Write your prioritization criteria down *before* you list candidate features, not after. If you pick criteria after seeing the list, you'll unconsciously choose criteria that justify the feature you already wanted to build.
 
 ---
@@ -64,7 +64,7 @@ Effort:     Real engineering estimate, not an optimistic guess made
             before looking at the actual code.
 ```
 
-> ** Warning**
+> [!WARNING]
 > The most common scoring mistake is inflating Confidence because a feature *feels* obviously good. If your only evidence is "a customer asked for this once," your confidence should be genuinely low — not adjusted upward because you personally find the idea compelling.
 
 ---
@@ -73,7 +73,7 @@ Effort:     Real engineering estimate, not an optimistic guess made
 
 A roadmap that says yes to everything isn't a roadmap — it's a backlog with no decisions in it. Explicitly maintaining a "not now" list, with the reasoning written down, does two things: it protects your team's focus, and it gives you a fast, respectful answer the next time someone asks about that feature.
 
-> ** Note**
+> [!NOTE]
 > "Not now, because X" is a complete, professional answer to a feature request. You don't owe every requester a yes, and a clearly reasoned no (with the door open to revisit later) builds more trust than vague non-committal stalling.
 
 ---

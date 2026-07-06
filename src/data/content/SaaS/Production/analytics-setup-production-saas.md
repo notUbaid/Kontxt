@@ -28,7 +28,7 @@ A pageview tells you someone loaded `/signup`. It doesn't tell you if they:
 
 Without event-level tracking tied to a funnel, every one of those outcomes looks identical in your dashboard: "1 pageview." You need to instrument the *steps*, not just the *page loads*.
 
-> ** Tip**
+> [!TIP]
 > If you can only track one thing before launch, track your activation funnel: Signup → Email Verified → First Key Action Completed. This single funnel will tell you more about product health than every other metric combined.
 
 ---
@@ -68,7 +68,7 @@ Resist the urge to track everything. Untracked, undifferentiated event floods ar
 
 - Scroll depth, click heatmaps, micro-interactions
 
-> ** Warning**
+> [!WARNING]
 > Don't let analytics instrumentation block your launch. Tier 1 events take an afternoon. Tier 2 and 3 can wait until you have real users generating real data to learn from.
 
 ---

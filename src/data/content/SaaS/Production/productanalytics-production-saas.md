@@ -21,7 +21,7 @@ A 60% signup-to-activation rate sounds bad in isolation. It might be excellent f
 
 The fix is always the same: **compare the same metric across two slices** (this week vs. last week, paid users vs. free, mobile vs. desktop) rather than staring at a single absolute number and guessing whether it's good.
 
-> ** Tip**
+> [!TIP]
 > The most useful question in analytics is rarely "is this number good?" It's "did this number change, and what changed right before it did?" Correlate metric shifts with your own deploy log, pricing change, or marketing push before assuming something organic happened.
 
 ---
@@ -58,7 +58,7 @@ Retention curves almost always drop sharply at first, then flatten. The flatteni
       D1  D7  D14  D30  D60  D90
 ```
 
-> ** Note**
+> [!NOTE]
 > A curve that flattens at 40% and stays flat is healthier than one that starts at 70% and keeps sliding toward zero. The flattening point represents your **retained core** — the users who genuinely found ongoing value. A still-declining curve at day 90 means you haven't found that core yet, regardless of how good day-1 numbers looked.
 
 ---

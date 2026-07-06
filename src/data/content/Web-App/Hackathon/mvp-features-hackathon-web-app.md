@@ -17,7 +17,7 @@ You have your one-sentence idea and your wow moment. Now you need the actual fea
 
 In a real startup, MVP means "the smallest thing real users would actually find valuable." In a hackathon, it means something tighter: **the smallest thing that makes your wow moment demonstrable to a judge in under 3 minutes.** That's a more brutal cut than startup MVP thinking, because you're not trying to retain a real user — you're trying to land one specific moment, once, live.
 
-> ** Warning**
+> [!WARNING]
 > "It would be cool if it also did X" is the most expensive sentence in a hackathon. Every feature you add beyond the core demo path is hours not spent polishing the path that actually gets judged — and is also one more thing that can break live, in front of the judges, at the worst possible moment.
 
 ---
@@ -66,7 +66,7 @@ This reframing alone tends to cut 30-50% of an initial feature brainstorm, becau
 
 Decide right now whether your demo will use live, real-time generated data or pre-seeded demo data — this decision affects what you build and how much you can trust it on stage.
 
-> ** Tip**
+> [!TIP]
 > Live generation is more impressive when it works, but it's also a live risk: API timeouts, rate limits, or a flaky network can sink your demo in front of judges. A hybrid approach — primarily live, with a pre-seeded fallback path you can switch to instantly if something breaks — is usually the safer Must-Have decision. This connects directly to the **Demo Data** module later in this curriculum; decide the strategy now so the rest of your build supports it.
 
 ---
@@ -110,7 +110,7 @@ Here's my full feature brainstorm list:
 - [ ] A clear decision exists for live vs. seeded demo data, made now rather than discovered as a crisis the night before submission
 - [ ] Nice-to-Have items are written down somewhere visible, so nobody quietly works on one instead of polishing Must-Have
 
-> ** Note**
+> [!NOTE]
 > If your Must-Have list still feels ambitious after this exercise, that's useful information now — not a problem to discover six hours before submission. Go back to Idea Definition and cut the idea itself, not just the feature list around it.
 
 ---

@@ -17,7 +17,7 @@ You know which part of your tool is AI-driven and which is plain code. This modu
 
 The default instinct for many AI tools is "make it a chat interface" — but that's not always the best fit. If your real use case is "take a photo of a receipt and get a categorized expense entry," a chat interface adds friction compared to a simple upload-and-result flow. Design the interaction around your actual real-world usage moment, not around what AI products typically look like.
 
-> ** Tip**
+> [!TIP]
 > Picture the actual moment you'll use this tool — are you standing in a kitchen with a receipt, talking out loud while walking, sitting at a desk reviewing something carefully? That real moment should drive your interaction design more than any general assumption about what an "AI tool" interface should look like.
 
 ---
@@ -60,7 +60,7 @@ If no, this is more occasional/exploratory: a bit more conversational
 
 Even in a personal tool with a forgiving, low-stakes context, decide deliberately what happens with unexpected input — not because a judge is watching, but because *you* will hit this eventually, and a confusing or silently-wrong response erodes your own trust in a tool you built to make your life easier.
 
-> ** Note**
+> [!NOTE]
 > If your tool expects a receipt photo and you accidentally upload something else, a clear "that doesn't look like a receipt — try again?" response is far better than either a confusing fabricated result or a silent crash. Design this now, even briefly — it's cheap to add and meaningfully improves the tool's day-to-day trustworthiness.
 
 ---

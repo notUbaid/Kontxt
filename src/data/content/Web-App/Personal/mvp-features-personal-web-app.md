@@ -35,7 +35,7 @@ When you sit down to plan features, the list grows fast. Every idea feels import
 
 None of it belongs in v1.
 
-> ** Warning**
+> [!WARNING]
 > Every feature you add to your MVP is a multiplier on time-to-ship. One extra feature doesn't add a week — it adds a week plus the integration complexity, the edge cases, the UI to support it, and the decisions that weren't necessary before. Cut harder than feels comfortable.
 
 ---
@@ -127,7 +127,7 @@ For each Core feature, estimate in days — not hours — and then double it.
 
 If your realistic total is more than 3–4 weeks of solo evening/weekend work, your MVP is still too large. Cut more.
 
-> ** Tip**
+> [!TIP]
 > "3–4 weeks of solo evening work" is roughly 20–30 hours. If you're honest about how much time you have each week, this gives you a real deadline to aim for — which is the only way personal projects ship.
 
 ---

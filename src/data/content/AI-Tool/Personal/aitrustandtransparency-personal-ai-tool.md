@@ -17,7 +17,7 @@ There's no judge to convince here — but there's someone arguably more importan
 
 Unlike a hackathon demo where the risk is a judge's skepticism, the risk here is the opposite direction: you built this tool, you're motivated to believe it works well, and over repeated use it's easy to drift into trusting its output uncritically — especially for the exact use cases (financial tracking, scheduling, anything with real consequences) where an unverified mistake could actually matter.
 
-> ** Warning**
+> [!WARNING]
 > The most likely failure mode for a personal AI tool isn't a dramatic crash — it's a slow, unnoticed drift where you stop checking outputs because they've "always been right before," right up until one isn't, and you don't catch it because you'd stopped looking. Build habits and lightweight UI cues now that keep this from happening quietly over months of use.
 
 ---
@@ -34,7 +34,7 @@ Not every output from your tool carries the same stakes. Be honest about which o
 | Affects a real record you rely on | Categorized expense entries feeding into a budget you check monthly | Worth a quick glance/confirm step before it's saved |
 | Higher-stakes or hard to reverse | Anything tied to taxes, medical tracking, or a decision with real consequences | Build in an explicit "review before saving" step, every time, no exceptions |
 
-> ** Tip**
+> [!TIP]
 > A simple pattern that works well for a personal tool: low-stakes output saves automatically; medium/high-stakes output shows a brief "does this look right?" confirmation before committing. This single design choice does most of the work of keeping you appropriately skeptical without adding friction to the parts that don't need it.
 
 ---
@@ -63,7 +63,7 @@ original input every time you want to verify something.
 
 If your tool infers something not explicitly present in the input (a category guessed from context, a priority level the model decided rather than one you stated), a small visual distinction between "this was explicitly in the input" and "this was inferred" keeps you appropriately calibrated about how much to trust each piece.
 
-> ** Note**
+> [!NOTE]
 > This doesn't need to be elaborate — even a subtle visual treatment (lighter text, a small icon, an "inferred" label) is enough to remind your future self, scanning quickly, which values deserve a closer look if something seems off.
 
 ---

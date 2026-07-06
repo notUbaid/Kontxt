@@ -19,7 +19,7 @@ This module gets you to a demo-ready data state in the shortest time possible.
 
 ## The Rule: Seed Before You Demo
 
-> ** Warning**
+> [!WARNING]
 > Never demo against a database you've been casually testing in. Real test data is garbage. It has `test`, `asdf`, and `user@user.com` everywhere. Judges are pattern-matching on professionalism. Garbage data breaks that pattern immediately.
 
 Your demo data should tell a convincing story. Users named John Smith with email `john@test.com` are a red flag. A project management app with tasks called "task1", "task2" is a red flag. A social app with one follower is a red flag.
@@ -59,7 +59,7 @@ Write a script that wipes the database and inserts exactly what you need.
 
 For a Supabase/PostgreSQL app with a Vite + React frontend, this goes in a file like `scripts/seed.ts` and runs once.
 
-> ** Tip**
+> [!TIP]
 > Always make the seed script idempotent. It should delete existing data before inserting. This means you can re-run it before every demo run-through and always start from a known, clean state.
 
 **Copy Prompt**
@@ -139,7 +139,7 @@ const users = Array.from({ length: 20 }, () => ({
 }))
 ```
 
-> ** Warning**
+> [!WARNING]
 > Always pass a seed value (`faker.seed(42)`). Without it, every run produces different data. You will rehearse with one dataset and demo with a different one. Don't.
 
 ---

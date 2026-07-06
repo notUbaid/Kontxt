@@ -21,7 +21,7 @@ The single rule that fixes most bad decks: **every slide should make exactly one
 
 If you can't summarize a slide's purpose in one sentence, it's actually two slides trying to share space, and the audience will leave with neither point landing clearly.
 
-> ** Warning**
+> [!WARNING]
 > The most common deck failure isn't bad design — it's slides that try to communicate three ideas at once because cutting content feels like losing information. It isn't. It's making the one idea that matters actually visible instead of competing with two others for attention.
 
 ---
@@ -76,7 +76,7 @@ Pitch decks are usually *presented*, with you talking, not handed out as a docum
 - **Large numbers for key stats.** A retention or growth number that matters should be the most visually dominant element on its slide, not buried in a sentence.
 - **Consistent visual language throughout** — same fonts, same color logic, same chart style. Inconsistency reads as rushed even when the content is strong.
 
-> ** Tip**
+> [!TIP]
 > If you're sending the deck to be read *without* you presenting (common for investor decks reviewed asynchronously), you need slightly more on-slide text than a deck you'll present live — but the one-idea-per-slide discipline still applies. Add a few extra body sentences for clarity, not extra ideas competing for the same slide.
 
 ---

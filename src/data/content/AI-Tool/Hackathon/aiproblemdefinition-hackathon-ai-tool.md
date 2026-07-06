@@ -17,7 +17,7 @@ Before model selection, before prompts, before any code — you need a problem n
 
 A huge fraction of weak AI hackathon submissions start from the tool, not the problem — "let's build something with [model/API]" — and only afterward go looking for a problem to justify it. This produces demos that feel like a tech demo wearing a problem's clothing. Judges notice immediately when AI is decorative rather than load-bearing.
 
-> ** Warning**
+> [!WARNING]
 > If you can describe your idea without mentioning AI at all, and it still sounds like a complete, useful product, then AI might not be central to what you're building — which is a real risk in an AI tool category specifically. Make sure the AI is doing something that's actually hard or impossible without it, not just automating something a simple form or lookup could do equally well.
 
 ---
@@ -36,7 +36,7 @@ For every candidate problem, ask explicitly: what is AI doing here that a determ
 | Calculating something with a deterministic formula | Poor fit | Don't ask a model to do math a function should do directly |
 | Classifying messy, real-world input into flexible categories | Strong fit | Pattern recognition across varied input is exactly where LLMs add value over hardcoded rules |
 
-> ** Tip**
+> [!TIP]
 > If your idea uses AI for the part where input is genuinely unpredictable or open-ended, and plain code for everything deterministic, you've found the right split. The best AI-tool hackathon projects are usually a small amount of AI doing something genuinely hard, surrounded by ordinary, reliable code doing everything else.
 
 ---
@@ -65,7 +65,7 @@ A vague problem ("help people write better") produces inconsistent AI outputs th
 
 Same discipline as a regular hackathon idea, applied quickly: name a specific kind of person who has this exact problem, even if briefly. This keeps your prompt design grounded later — knowing your real user's actual input style (a rushed freelancer's voice memo vs. a student's lecture notes) directly shapes what kind of messy, real input you should test your prompts against.
 
-> ** Note**
+> [!NOTE]
 > You don't need formal user research here. You need one sentence: "[specific type of person] who currently does [the painful manual version of this task]." That sentence will keep reappearing — in your PRD, in your prompt design, in your pitch.
 
 ---

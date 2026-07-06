@@ -19,7 +19,7 @@ The goal isn't to make you a growth hacker. It's to keep you from either ignorin
 
 Every channel works for someone. Most don't work for you. The mistake isn't picking the "wrong" channel in some absolute sense — it's picking a channel that's mismatched to your product's actual sales motion, price point, and buyer behavior.
 
-> ** Tip**
+> [!TIP]
 > Match your channel to how your buyer actually makes decisions. A $15/month tool with self-serve signup fits content marketing and SEO (buyers self-educate, then try it). A $50,000/year enterprise tool does not — that buyer needs a sales conversation, case studies, and outbound outreach, not a blog post.
 
 ---
@@ -46,7 +46,7 @@ Marketing effectiveness depends on infrastructure you control. These are worth d
 - [ ] **Fast-loading, SEO-correct landing pages** for any paid campaign, since slow pages waste ad spend on traffic that bounces before converting (see the SEO module)
 - [ ] **A working referral or sharing mechanism**, if your product has natural virality potential — this is often more cost-effective than any paid channel, but only if the actual sharing flow is frictionless
 
-> ** Warning**
+> [!WARNING]
 > Spending on paid ads before your attribution tracking works is spending blind. You'll generate clicks and signups but won't be able to tell which ad, audience, or channel actually produced a paying customer — meaning you can't tell what to scale up versus cut. Fix tracking before scaling spend, not after.
 
 ---

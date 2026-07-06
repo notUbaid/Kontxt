@@ -261,7 +261,7 @@ Power users discover these through tooltips or a simple reference, not through d
 // Show shortcut hints in the UI
 <button
   onClick={handleSubmit}
-  title="Send message (⌘ + Enter)"
+  title="Send message ( + Enter)"
 >
   Send
 </button>
@@ -280,9 +280,9 @@ function ShortcutReference() {
     <div className="shortcuts">
       <h3>Keyboard shortcuts</h3>
       <dl>
-        <dt>⌘ + Enter</dt><dd>Send message</dd>
-        <dt>⌘ + K</dt><dd>New conversation</dd>
-        <dt>⌘ + /</dt><dd>Show shortcuts</dd>
+        <dt> + Enter</dt><dd>Send message</dd>
+        <dt> + K</dt><dd>New conversation</dd>
+        <dt> + /</dt><dd>Show shortcuts</dd>
       </dl>
     </div>
   )
@@ -398,7 +398,7 @@ Be specific. Suggest actual copy where possible.
 - [ ] Welcome screen is not shown again after first visit
 - [ ] Tooltips on any UI element that isn't self-explanatory
 - [ ] Model gracefully redirects when asked outside its scope
-- [ ] ⌘+Enter keyboard shortcut works and is discoverable
+- [ ] +Enter keyboard shortcut works and is discoverable
 - [ ] README covers setup in under 10 minutes (if sharing the repo)
 - [ ] .env.example committed with all required variables documented
 - [ ] Error messages are plain language (no raw API errors shown)

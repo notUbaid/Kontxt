@@ -50,7 +50,7 @@ A tight structure beats a clever one. Use this unless your hackathon's format ex
 - What data is pre-loaded so the demo doesn't start from an empty state
 - A fallback plan if wifi fails (a screen recording as backup, ready to play instantly)
 
-> ** Tip**
+> [!TIP]
 > Pre-seed your database with realistic demo data before you go on stage. A demo starting from a completely empty app forces you to type/click through setup steps live, burning your limited time on the least interesting part of your product.
 
 ---
@@ -79,7 +79,7 @@ Judges almost always ask at least one question. The most common ones, and how to
 - **"What was the hardest technical part?"** — Pick one real thing and explain it in one sentence a non-technical judge could follow, then offer to go deeper if they want.
 - **"How is this different from [existing tool]?"** — Know your competitive angle before you're asked. Not knowing this on the spot is a bigger loss than a mediocre answer to a hard technical question.
 
-> ** Tip**
+> [!TIP]
 > If a judge asks something you don't know, "I haven't figured that out yet, here's how I'd approach it" beats bluffing. Judges have seen hundreds of demos — a confident, honest gap reads far better than an obviously improvised answer.
 
 ---
@@ -106,7 +106,7 @@ Keep your feedback blunt and specific — I'd rather fix this now
 than find out on stage.
 ```
 
-> ** Tip**
+> [!TIP]
 > Don't ask AI to write your whole pitch script from scratch — it'll sound generic. Use it to stress-test the specific pitch you already know how to give, the same way you'd use a friend as a practice audience.
 
 ---

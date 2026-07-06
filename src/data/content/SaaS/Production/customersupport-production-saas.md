@@ -17,7 +17,7 @@ Customer support isn't a department you build later — at launch, it's you, pos
 
 Every support ticket is one of two things: a UX problem you can fix, or a genuine question that reveals a documentation gap. Treat your early support inbox as your highest-signal source of product feedback — it tells you exactly where real users get confused, which is far more reliable than guessing.
 
-> ** Tip**
+> [!TIP]
 > Tag every ticket by root cause as you handle it: "bug," "confusing UI," "missing docs," "billing question," "feature request." After two weeks, look at the distribution. If 40% of tickets are "confusing UI" on one specific screen, that's a roadmap item with actual evidence behind it — not a hunch.
 
 ---
@@ -35,7 +35,7 @@ Every support ticket is one of two things: a UX problem you can fix, or a genuin
 
 Don't reach for an enterprise helpdesk platform on day one. A well-organized shared inbox handles the first few hundred users fine, and you'll have real usage patterns informing your tool choice by the time you outgrow it.
 
-> ** Warning**
+> [!WARNING]
 > Don't put your only support contact behind a contact form with no visible email address and no response time expectation. Early users churn fast when they feel ignored, and "we'll get back to you eventually" with no signal of when reads as no one being there at all.
 
 ---
@@ -48,7 +48,7 @@ You don't need a formal SLA (see the Legal Documents module) to set an internal 
 - [ ] What counts as urgent (e.g., billing failures, account lockouts) and gets faster response
 - [ ] Where this expectation is communicated to users — even a simple line on your support page
 
-> ** Note**
+> [!NOTE]
 > Having no stated expectation doesn't mean you're flexible — it means users assume the worst when they don't hear back quickly. A clear "we respond within 1 business day" line reduces anxious follow-up emails more than actually answering faster would.
 
 ---

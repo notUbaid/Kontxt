@@ -23,7 +23,7 @@ A demo is not a tour of your app. It is not a feature list. It is not a technica
 
 A demo is a story with a beginning, a conflict, and a resolution — told through your product.
 
-> ** Tip**
+> [!TIP]
 > The strongest demos follow this structure: **"Here's a real problem. Watch us solve it right now."** Everything else is filler.
 
 If you can't state the problem your app solves in one sentence, that's the first thing to fix.
@@ -75,7 +75,7 @@ After each run:
 - [ ] Did you skip over something because it looked rough? Either fix it or cut it from the demo.
 - [ ] Did the "wow moment" actually land, or did it need more setup?
 
-> ** Warning**
+> [!WARNING]
 > Do not rehearse in your head. Rehearse out loud, with your hands on the keyboard, on the actual demo machine. Silent mental walkthroughs don't expose the mistakes that live demos expose.
 
 ---
@@ -147,7 +147,7 @@ Have one specific answer ready. Not a list. One clear next feature that would me
 **"What was the hardest part?"**
 This is an invitation to show technical depth. Pick the most technically interesting problem you solved. If nothing was technically interesting, pick the most interesting product decision.
 
-> ** Tip**
+> [!TIP]
 > Prepare answers for three likely questions before you present. You will get at least one of them. The difference between a confident answer and a stumbling one is having thought about it once beforehand.
 
 ---
@@ -162,7 +162,7 @@ Stay calm. Judges have seen broken demos before. What they remember is how you h
 
 **App crashes or goes blank:** This is what your screen recording is for. Pivot: "Let me show you what this looks like working" and play the recording. Then explain what happened briefly and move on.
 
-> ** Warning**
+> [!WARNING]
 > Never apologize excessively for a broken demo. One "sorry about that" is fine. More than one shifts the entire room's energy toward the failure instead of your product.
 
 ---

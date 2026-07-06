@@ -17,7 +17,7 @@ Your backend returns a clean, state-tagged response. This module is about buildi
 
 Your backend's response includes an explicit status: success, empty, or error. If your frontend only has UI for "success," the other two states will look broken the moment they occur — and given real model variance, they will occur, possibly during your live demo.
 
-> ** Warning**
+> [!WARNING]
 > A frontend built only against the happy-path response is a frontend that's untested against roughly a third of its own backend's possible outcomes. Build and visually verify all three states before considering the screen done — not just the one you expect to see during your rehearsed run.
 
 ---
@@ -45,7 +45,7 @@ status: "error"   → A clear, specific error message, distinct from
                      different situations and should look different.
 ```
 
-> ** Note**
+> [!NOTE]
 > Visually distinguishing "empty" from "error" matters more than it might seem. A judge (or real user) who sees the same generic gray box for both will assume the app is broken even when it actually worked correctly and just had nothing to report.
 
 ---
@@ -60,7 +60,7 @@ This connects directly to UI Polish's loading-state guidance, with an AI-specifi
 
 Carry forward the call-triggering discipline from AI Interaction Flows directly into the actual component: the submit control should be disabled (not just visually different, but functionally unable to trigger a second call) for the entire duration of the in-flight state, re-enabling only once success, empty, or error resolves.
 
-> ** Warning**
+> [!WARNING]
 > A disabled-looking button that can still be clicked (a common bug when only the visual style changes but the click handler isn't actually gated) doesn't prevent the duplicate-call problem — it just hides it slightly better. Verify the actual click handler checks the in-flight state, not just that the button looks disabled.
 
 ---

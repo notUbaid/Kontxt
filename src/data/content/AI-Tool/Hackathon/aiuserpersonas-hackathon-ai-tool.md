@@ -17,7 +17,7 @@ You named a specific type of person briefly in the last module. This module goes
 
 In a typical web app, knowing your user mostly shapes UI decisions. In an AI tool, it shapes something more fundamental: what kind of text, voice, or data your model will actually receive, and how messy, ambiguous, or context-dependent that input will realistically be. Get this wrong, and your prompt — tuned against a clean example you imagined — breaks the moment it meets real input shaped differently than you expected.
 
-> ** Warning**
+> [!WARNING]
 > A common AI-tool hackathon mistake: designing and testing your prompt against tidy, well-formed example input that doesn't resemble what your actual target user would realistically provide. A rushed freelancer's voice memo has false starts, filler words, and tangents. A student's lecture notes have abbreviations and incomplete sentences. If you only test against clean input, your live demo is at risk the moment a judge's real, messier input (or even your own nervous, off-script demo input) doesn't match what you tuned for.
 
 ---
@@ -65,7 +65,7 @@ You don't need exhaustive coverage — you need to have tried at least one input
 
 The example input you choose for your actual live demo should be representative of your real target user, not a cherry-picked best case that happens to make your AI look unrealistically polished. A demo that's too clean can backfire if a judge then tries their own input and sees a meaningfully worse result — the gap itself damages credibility more than a moderately good result would have.
 
-> ** Tip**
+> [!TIP]
 > Pick a demo input that's good but believably real — the kind of input your actual target user would plausibly provide on a normal day, not their best possible day. This protects you if a judge wants to try it themselves with their own input, since the gap between your demo and their attempt will be smaller.
 
 ---

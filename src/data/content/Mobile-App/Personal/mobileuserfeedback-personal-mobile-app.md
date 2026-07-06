@@ -19,7 +19,7 @@ For a personal project, feedback serves a specific purpose: it tells you whether
 
 If you built this app to solve your own problem, your own opinion about whether it works is the least useful data point you have — you already know how to use it, you already understand its quirks, and you're motivated to think it's good. Real feedback comes from someone seeing it for the first time, with no context, hitting friction you've stopped noticing.
 
-> ** Tip**
+> [!TIP]
 > The most valuable feedback moment is usually watching someone use your app for the first time without explaining anything to them. Wherever they pause, look confused, or tap the wrong thing — that's real signal. Their *verbal* feedback afterward is useful too, but watching in silence catches problems people won't think to mention out loud.
 
 ---
@@ -36,7 +36,7 @@ Personal-project feedback doesn't need a formal research process, but it does be
 | "Do you like it?" | "Would you use this again next week without me asking?" | Tests genuine ongoing value, not politeness |
 | "Any feedback?" | "Walk me through what you just did, step by step" | Surfaces the actual mental model they had, which may differ from what you intended |
 
-> ** Warning**
+> [!WARNING]
 > Friends and family tend to be politely positive regardless of what they actually think, especially about something you clearly put real effort into. Treat enthusiastic praise from people close to you as a weak signal, and watch their actual behavior (did they open it again the next day, unprompted?) as a much stronger one.
 
 ---
@@ -68,7 +68,7 @@ small personal app doesn't need yet.
 
 Not all feedback deserves equal weight. A passing comment from one person isn't the same signal as the same complaint from three separate people who don't know each other.
 
-> ** Note**
+> [!NOTE]
 > If only one person ever mentions an issue, it might be specific to them — their device, their use case, a one-off misunderstanding. If multiple, unconnected people independently hit the same friction, that's a real pattern worth fixing, regardless of how minor any single report sounded on its own.
 
 ---

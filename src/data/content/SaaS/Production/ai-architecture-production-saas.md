@@ -47,7 +47,7 @@ This module is not about prompt engineering. It's about the decisions that deter
 ```
 ┌────────┐   ┌─────────────┐   ┌──────────────┐
 │ Client │──│  Your API   │──│ AI Provider  │
-│        │◀──│ (validates, │◀──│ (Claude/GPT) │
+│        │──│ (validates, │──│ (Claude/GPT) │
 └────────┘   │  logs, caps  │   └──────────────┘
        │   cost)   │
        └──────┬───────┘
@@ -69,7 +69,7 @@ Don't pick one model for the whole product. Match model tier to job tier.
 | **Mid-tier model** | Most generation and conversational features | Best cost/quality balance for user-facing text generation |
 | **Frontier model** | Complex reasoning, agentic multi-step tasks, anything customer-facing where quality directly drives retention | Cost is justified when output quality is the product |
 
-> ** Tip**
+> [!TIP]
 > Route by job, not by feature name. A "summarize" feature might need a frontier model for a 50-page legal document but a cheap model for a 3-sentence Slack message. Build your architecture so the model choice is a parameter of the call, not hardcoded per feature.
 
 ---
@@ -177,7 +177,7 @@ Propose the schema and the minimal logging code for our API layer
 to write to it on every AI call.
 ```
 
-> ** Tip**
+> [!TIP]
 > When asking AI to help design your AI architecture, give it the job type and constraints explicitly (as above), not just "help me add AI to my app." A vague prompt produces a generic chatbot wrapper; a specific one produces an architecture matched to your actual feature.
 
 ---

@@ -19,7 +19,7 @@ The risk with feedback isn't collecting too little. It's collecting it badly —
 
 Analytics fails quietly through bad instrumentation. Feedback fails loudly through bias — and the bias is usually invisible to the person collecting it, because it feels like listening.
 
-> ** Warning**
+> [!WARNING]
 > The most common feedback trap is over-indexing on your most vocal users. The customer who emails you five times a week is not a representative sample — they're an outlier, in either direction. Their feedback is valuable as one data point, not as a stand-in for what your average user thinks.
 
 ---
@@ -53,7 +53,7 @@ This invites a polite "sure, that'd be nice" regardless of whether dark mode wou
 
 This surfaces what's actually costing the user time or causing them to consider leaving — which may have nothing to do with dark mode at all.
 
-> ** Tip**
+> [!TIP]
 > The "Five Whys" technique works well in user interviews. When a user says "I wish it had X feature," ask why they want it. Then ask why that matters. Often the third or fourth "why" reveals the actual underlying problem, which might be solved more simply than the originally requested feature.
 
 ---

@@ -56,7 +56,7 @@ Once connected, Vercel redeploys automatically on every push to your main branch
 | `main` | Production URL | What you actually share with people |
 | Any other branch / PR | A unique preview URL | Test a change before merging, without touching production |
 
-> ** Tip**
+> [!TIP]
 > Preview deployments are the most underused feature by beginners. Push a feature branch, get a real live URL to test on before merging to `main` — this catches "works on my machine" bugs before they hit your actual live site.
 
 ---
@@ -115,7 +115,7 @@ production mode. Ask me for specific config files only if you
 genuinely need them to diagnose this — don't guess.
 ```
 
-> ** Tip**
+> [!TIP]
 > Always paste the actual deployment log error, not a paraphrase of it. "It doesn't work" produces generic troubleshooting; the real error message usually points directly at the cause.
 
 ---

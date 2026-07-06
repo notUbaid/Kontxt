@@ -40,9 +40,9 @@ These are the non-negotiable pages for a credible e-commerce demo:
 | **Product Detail Page** | Individual product with images, description, add-to-cart |  Critical |
 | **Cart** | Items selected, quantity control, subtotal |  Critical |
 | **Checkout** | Form, order summary, payment trigger |  Critical |
-| **Order Confirmation** | Post-purchase success state | 🟠 High |
-| **About** | Brand story, builds trust during demo | 🟡 Medium |
-| **404** | Signals production quality | 🟡 Medium |
+| **Order Confirmation** | Post-purchase success state |  High |
+| **About** | Brand story, builds trust during demo |  Medium |
+| **404** | Signals production quality |  Medium |
 
 > **Cut everything else.** A contact page, blog, FAQ, and account dashboard are not worth your time. Judges don't need them. Build the 6 critical pages exceptionally well.
 

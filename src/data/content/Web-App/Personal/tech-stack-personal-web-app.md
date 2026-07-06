@@ -89,7 +89,7 @@ Hosting     Vercel or Netlify
 
 Best for: note-taking apps, trackers, tools, anything where the user's own data doesn't need server-side processing.
 
-> ** Tip**
+> [!TIP]
 > If you're not sure whether you need a backend, ask: "Does my app need to do anything that requires server-side code?" — sending emails, processing payments, calling APIs that require secret keys, running scheduled jobs. If the answer is no, you probably don't need one.
 
 ---

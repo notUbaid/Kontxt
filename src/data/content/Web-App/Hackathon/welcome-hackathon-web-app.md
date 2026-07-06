@@ -23,7 +23,7 @@ In production, you optimize for: maintainability, security, scalability, real us
 
 In a hackathon, you optimize for: what a judge sees and feels in the 3-5 minutes they spend on your project.
 
-> ** Warning**
+> [!WARNING]
 > The most common hackathon failure isn't a bug. It's spending six hours building a robust backend nobody will ever stress-test, while your UI looks unfinished and your demo has nothing compelling to show. Judges remember what they saw, not what's architecturally sound underneath it.
 
 ---
@@ -50,7 +50,7 @@ This isn't an excuse to write reckless code — it's a deliberate allocation of 
 
 Every module ahead is tuned for hackathon mode specifically. When you reach **Tech Stack**, you'll get speed-optimized recommendations, not the most "correct" architecture. When you reach **UI Polish**, you'll get guidance on what actually reads as impressive in a live demo. The philosophy stays consistent throughout:
 
-> ** Tip**
+> [!TIP]
 > Whenever a module gives you two options — the fast one and the "proper" one — and you're in hackathon mode, take the fast one unless the proper one is also the fast one. There's no prize for code quality nobody will see.
 
 ---

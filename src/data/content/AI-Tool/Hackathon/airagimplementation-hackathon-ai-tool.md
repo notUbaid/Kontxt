@@ -17,7 +17,7 @@ RAG (Retrieval-Augmented Generation) is the right answer to a specific problem: 
 
 Many hackathon teams reach for RAG because it sounds technically impressive, not because their actual demo requires retrieving from an external knowledge source. If your AI feature only needs to process the input the user directly gives it in that moment (a document they upload, a transcript they provide), you don't need RAG — you just need to pass that input directly into your prompt. RAG specifically matters when the relevant knowledge *isn't* in the user's immediate input and needs to be fetched from somewhere else.
 
-> ** Warning**
+> [!WARNING]
 > Building a vector database, embedding pipeline, and retrieval layer for a hackathon project that could have just included the relevant document directly in the prompt is a significant, avoidable time sink. Check your actual context window limits first — many hackathon-scale use cases fit entirely within a single prompt's context without retrieval at all.
 
 ---
@@ -59,7 +59,7 @@ multi-step retrieval chains — these are real techniques for serious
 production RAG systems, not hackathon-scale necessities.
 ```
 
-> ** Tip**
+> [!TIP]
 > Check whether your chosen backend platform (from the Tech Stack module) already offers vector search built in — many do. Using a feature you've already got access to is far faster than introducing an entirely new specialized service just for retrieval.
 
 ---
@@ -76,7 +76,7 @@ A RAG pipeline has two places it can fail independently: retrieval might fetch i
 | Retrieved chunks look correct, but output is still poor | Generation problem — the prompt isn't using the chunks well | Revisit your prompt's instructions for how to use the provided context (Prompt Engineering module) |
 | Output says "I don't have enough information" when the answer is clearly in your source | Retrieval problem — relevant chunk wasn't fetched | Check chunk size and retrieval count; may need to retrieve more chunks or rethink chunking |
 
-> ** Note**
+> [!NOTE]
 > Always check what was actually retrieved before assuming the model's reasoning is at fault. A model given the wrong context will produce a wrong-looking answer even with a perfect prompt — that's a retrieval bug wearing a generation bug's symptoms.
 
 ---

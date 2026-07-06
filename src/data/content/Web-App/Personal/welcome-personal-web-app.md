@@ -21,7 +21,7 @@ Hackathons are easy to finish. The deadline forces it.
 
 Personal projects are easy to start and hard to finish. Most of them stall somewhere between "working prototype" and "thing I'd actually show someone." Not because the builder lost interest — but because without external pressure, the scope quietly expands, the standards quietly rise, and the project quietly becomes something too big to ship.
 
-> ** Warning**
+> [!WARNING]
 > The most common personal project failure isn't technical. It's scope creep combined with perfectionism. You add one more feature before launch. Then one more. The bar for "ready" keeps moving. A year later the project lives on your laptop and nowhere else.
 
 This curriculum is designed to help you avoid that. Every module pushes you toward a shippable, maintainable, thing-you're-proud-of — not an endless build.
@@ -65,7 +65,7 @@ You'll be using AI tools throughout — Kontxt, Cursor, Copilot, or similar. In 
 
 In a hackathon you accept AI output quickly and move on. In Personal mode, you have the time to understand what AI generates — and that understanding is part of the point.
 
-> ** Tip**
+> [!TIP]
 > Whenever AI generates something you don't fully understand, treat that as a learning moment, not a green light to paste and move on. The goal is to build a project *and* grow as an engineer. A codebase you don't understand is technical debt you'll pay every time you touch it.
 
 This curriculum will tell you when to trust AI output quickly and when to slow down and review it carefully.

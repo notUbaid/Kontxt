@@ -17,7 +17,7 @@ Auth is one of the most over-built parts of a typical hackathon project relative
 
 Unless your idea's wow moment is literally about authentication (it almost never is), auth is pure plumbing. The right amount of time to spend on it is the minimum that makes your demo flow work — not a moment more.
 
-> ** Warning**
+> [!WARNING]
 > Building a full email/password system with verification emails, password reset flows, and account settings is a classic hackathon time sink. None of that will be seen or judged. Every hour spent here is an hour not spent on your wow moment.
 
 ---
@@ -39,7 +39,7 @@ For the vast majority of hackathon projects, **social login through your platfor
 
 Before building anything, check this against your actual user flow: does your demo *require* distinguishing between different logged-in users, or does it just need *some* gate so the app feels like a real product?
 
-> ** Tip**
+> [!TIP]
 > If your demo only ever shows one user's session, live, on one laptop, you may not need real persistent accounts at all — a single hardcoded "demo user" session can be entirely sufficient, freeing up real auth-building time for your actual feature. Be honest about whether this is true for your specific flow before defaulting to building real auth out of habit.
 
 ---
@@ -66,7 +66,7 @@ If you do need real auth, use whatever your chosen backend platform provides out
 
 Auth has a specific failure mode worth guarding against: it often works perfectly on your local machine and then breaks once deployed, because OAuth redirect URIs need to match your production URL exactly. Test the full login flow on your actual deployed demo URL as soon as you have one — not for the first time during your dress rehearsal.
 
-> ** Warning**
+> [!WARNING]
 > The single most common "it worked yesterday" hackathon bug is an OAuth redirect URI configured for `localhost` that silently breaks once you deploy to your actual demo URL. Add the production URL to your OAuth provider's allowed redirects the moment you have a deployed URL, not the night before submission.
 
 ---

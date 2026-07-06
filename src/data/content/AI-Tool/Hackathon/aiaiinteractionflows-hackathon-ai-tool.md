@@ -17,7 +17,7 @@ Conversation Design mapped *what* gets said. This module maps *what actually hap
 
 Even a single-shot AI feature has at least three states: idle (waiting for input), in-flight (the call is running), and resolved (success or failure). Treating these as one undifferentiated blob — "the user submits, then stuff happens, then they see a result" — is exactly how teams end up with a janky-feeling demo, because each state needs different UI and different handling, and skipping that planning means discovering the gaps live.
 
-> ** Warning**
+> [!WARNING]
 > The most common AI interaction bug in a hackathon demo: a user (or judge) double-clicks the submit button because nothing visibly happened in the first half-second, triggering two simultaneous AI calls and a confusing double result. This is a flow design problem, not a model problem — and it's entirely preventable by mapping your states explicitly before building.
 
 ---
@@ -62,7 +62,7 @@ Decide explicitly:
 
 If your conversation has more than one turn, decide what carries forward from one AI call to the next — and make sure it's actually passed in the prompt, not assumed to be remembered by the model on its own (most API calls are stateless by default; context has to be explicitly included each time).
 
-> ** Tip**
+> [!TIP]
 > If your flow has a follow-up turn ("want me to also draft an email about this?"), the model needs the previous turn's input and output explicitly included in the next call's context — it doesn't remember automatically just because it's "the same conversation" in your UI. Decide what's carried forward now, so your backend implementation in the next phase has a clear target instead of discovering a broken-memory bug mid-build.
 
 ---

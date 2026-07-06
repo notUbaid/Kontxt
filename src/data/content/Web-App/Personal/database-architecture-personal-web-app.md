@@ -62,7 +62,7 @@ Post >──< Tag   (implemented via a join table: PostTag)
 **One-to-One**
 One entity has exactly one of another. A User has one Profile. Less common — often a sign the data belongs in the same table.
 
-> ** Tip**
+> [!TIP]
 > Most personal project schemas are 3–6 tables with one-to-many relationships. If you're designing more than 8 tables for an MVP, you're probably modeling future features. Cut back to what the MVP actually needs.
 
 ---

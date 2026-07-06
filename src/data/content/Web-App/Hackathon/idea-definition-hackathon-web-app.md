@@ -19,7 +19,7 @@ Most hackathon teams don't fail because their idea was bad. They fail because th
 
 In a hackathon, "what should we build?" and "what should we cut?" are the same question asked twice. An idea that sounds impressive but requires five integrated systems to demo will lose to a narrow idea that does one thing flawlessly, every time.
 
-> ** Warning**
+> [!WARNING]
 > The most common hackathon idea-stage mistake: describing your idea as a platform, an ecosystem, or "like Uber but for X" — and meaning it literally. You have hours, not months. Your idea needs to compress into one core loop a judge can see work, live, in under two minutes.
 
 ---
@@ -65,7 +65,7 @@ Whatever your actual time budget, cut your first idea in half. Then check if it 
 
 Every winning hackathon demo has a specific moment the judge remembers afterward — not a feature list, one moment. Decide what yours is *before* you build, so every hour of work points toward making that moment land.
 
-> ** Tip**
+> [!TIP]
 > Your wow moment is usually the one place AI does something that looks like magic to someone watching — instant generation, a surprisingly accurate transformation, something that would have taken a human noticeably longer. Build everything else as the minimum scaffolding required to set that single moment up convincingly.
 
 ---
@@ -109,7 +109,7 @@ Idea: [your one-sentence idea]
 - [ ] No part of your plan depends on an external approval process (API access, OAuth review) that could stall you unpredictably
 - [ ] Every team member could explain the idea the same way, in the same sentence, if asked separately
 
-> ** Note**
+> [!NOTE]
 > If two teammates describe the idea differently when asked separately, you don't have one idea yet — you have two ideas wearing the same name. Resolve this now; it's far cheaper than discovering it mid-build.
 
 ---

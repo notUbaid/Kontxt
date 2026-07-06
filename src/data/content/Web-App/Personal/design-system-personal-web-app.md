@@ -21,7 +21,7 @@ Most solo developers skip this step and design in the browser — picking colors
 
 The result is an app where every screen looks slightly different. The button on the login page is a different shade of blue than the button on the dashboard. Headings are inconsistently sized. Spacing is arbitrary.
 
-> ** Warning**
+> [!WARNING]
 > Inconsistency is the thing users notice most, even when they can't name it. It makes an app feel unfinished regardless of how much work went into it. A consistent visual system costs less than an hour to define and pays off on every screen you build after it.
 
 ---
@@ -60,7 +60,7 @@ If you're genuinely unsure, these are safe, professional starting points:
 
 Pick one. Apply it as your Primary. Everything else follows from it.
 
-> ** Tip**
+> [!TIP]
 > For light mode apps, use `#FFFFFF` or a very light neutral (`#F8FAFC`) as Background, `#FFFFFF` as Surface, `#0F172A` as Text, and `#64748B` as Muted. These work with almost any Primary color without fighting it.
 
 ---

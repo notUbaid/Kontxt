@@ -17,7 +17,7 @@ This module has been referenced throughout the entire AI Tool curriculum — the
 
 For a regular web app, a rare error state might genuinely never occur during a 3-minute demo. For an AI tool, model calls have real, non-trivial failure rates — timeouts, rate limits, malformed output, occasionally just a poor-quality response. Across enough live demo attempts (including your own rehearsals, and any judge who wants to try it themselves), you will very likely encounter at least one of these. How your tool handles that moment is now part of what's being judged, not an unfortunate accident outside the demo's scope.
 
-> ** Warning**
+> [!WARNING]
 > An unhandled failure — a raw error message, a frozen UI, a console error visible if anyone's watching dev tools, a crash — is far more damaging to a judge's impression than almost any other single thing that could go wrong. A graceful, designed failure state, by contrast, can actually read as a sign of careful engineering. The difference between these two outcomes is entirely something you control in advance.
 
 ---
@@ -65,7 +65,7 @@ Generic "Something went wrong, please try again" is an acceptable fallback for t
 
 This is the step most teams skip, and it's the one that actually matters. Don't just write the error-handling code — deliberately trigger each failure mode at least once, on your real deployed app, and confirm the experience is what you intended. Temporarily use an invalid API key to test the failure path. Send an input you know produces an empty result. If you can simulate a timeout (e.g., artificially delaying a response), do that too.
 
-> ** Tip**
+> [!TIP]
 > Treat triggering each failure state deliberately as part of your demo rehearsal, not a separate quality-assurance step you might skip if you run out of time. If a judge sees your tool handle an unexpected hiccup smoothly and visibly, that can leave as strong an impression as a flawless run — it demonstrates the tool (and the team) is robust, not just lucky.
 
 ---

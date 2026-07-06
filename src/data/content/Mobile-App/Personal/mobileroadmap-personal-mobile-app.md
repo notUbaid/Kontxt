@@ -19,7 +19,7 @@ The goal here isn't a formal product roadmap. It's an honest answer to "what do 
 
 A company roadmap is constrained by budget, headcount, and deadlines. Yours is constrained by something different and easy to forget: your own continued interest in the project. The most common way personal projects die isn't a technical wall — it's the builder losing motivation because the next steps felt like obligations instead of things they actually wanted to do.
 
-> ** Tip**
+> [!TIP]
 > Before planning what to build next, ask yourself honestly: do I still want to work on this? If the answer is genuinely no, that's useful information too — not every personal project needs to become a permanent commitment, and consciously deciding to wind one down is different from quietly abandoning it out of guilt.
 
 ---
@@ -38,7 +38,7 @@ Using the patterns surfaced in the Feedback module, sort what you know into cate
 
 Unlike a company roadmap, the third bucket is legitimate here — and sometimes the most important one. A personal project is allowed to prioritize what's enjoyable to build, not only what's measurably justified.
 
-> ** Warning**
+> [!WARNING]
 > Don't let an unprioritized feedback backlog quietly turn into a list of obligations. If every item on your list feels like something you "should" do rather than something you want to do, you've built a job for yourself out of a side project — and that's a common reason people stop working on things they otherwise enjoyed.
 
 ---
@@ -68,7 +68,7 @@ common way motivation quietly drains away.
 
 Just like the production and hackathon curricula, an honest "not now" (or even "not ever") list protects your time and your motivation. For a personal project specifically, it's also fine to decide something is permanently out of scope simply because you don't want to build it — no business justification required.
 
-> ** Note**
+> [!NOTE]
 > "I don't want to build that" is a complete answer for a personal project, even if a piece of feedback suggested it and even if it would objectively make the app better. You're not obligated to build everything that would help — you're building something you want to keep working on.
 
 ---
