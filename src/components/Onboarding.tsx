@@ -174,17 +174,41 @@ const HIGH_RISK_WARNINGS: Partial<Record<AppType, { title: string; message: stri
   },
 };
 
+// App types that are fully disabled (no content ready for any mode)
+const COMING_SOON_TYPES: Set<AppType> = new Set([
+  'Browser Extension',
+  'Cyber Security (Defensive)',
+  'Cyber Security (DevSecOps)',
+  'Cyber Security (Offensive)',
+  'Data Pipeline',
+  'Desktop App',
+  'Game',
+  'Web3 dApp',
+  'CLI',
+  'IoT',
+  'Open Source',
+  'Custom',
+]);
+
+// Specific modes disabled per app type (partial availability)
+const COMING_SOON_MODES: Partial<Record<AppType, Set<Mode>>> = {
+  'AI Tool': new Set(['Production']),
+  'Internal Tool': new Set(['Production']),
+};
+
 export const Onboarding = ({ projects, onCreateProject, onSelectProject, isAuthenticated, setIsAuthenticated }: OnboardingProps) => {
   const [view, setView] = useState<'home' | 'new' | 'mode' | 'confirm'>('home');
   const [projectName, setProjectName] = useState('');
   const [selectedType, setSelectedType] = useState<AppType | null>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
+  // Available types first, coming-soon types grouped at the end
   const APP_TYPES: AppType[] = [
     'SaaS', 'Web App', 'Mobile App', 'AI Tool',
     'E-commerce', 'Marketplace', 'Internal Tool', 'API Product',
-    'Web3 dApp', 'Data Pipeline', 'Browser Extension', 'Desktop App',
-    'Game', 'Cyber Security (Offensive)', 'Cyber Security (Defensive)', 'Cyber Security (DevSecOps)',
+    // Coming Soon
+    'Browser Extension', 'Desktop App', 'Game', 'Web3 dApp',
+    'Data Pipeline', 'Cyber Security (Offensive)', 'Cyber Security (Defensive)', 'Cyber Security (DevSecOps)',
     'CLI', 'IoT', 'Open Source', 'Custom'
   ];
 
@@ -369,17 +393,32 @@ export const Onboarding = ({ projects, onCreateProject, onSelectProject, isAuthe
               {APP_TYPES.map((type) => {
                 const meta = TYPE_META[type];
                 const Icon = meta.icon;
+                const isComingSoon = COMING_SOON_TYPES.has(type);
                 return (
                   <button
                     key={type}
-                    onClick={() => handleTypeSelect(type)}
-                    className="p-4 rounded-xl border-2 border-primary/10 text-left hover:border-primary/50 hover:bg-primary/5 transition-all hover:scale-[1.02] bg-background shadow-sm group"
+                    onClick={() => !isComingSoon && handleTypeSelect(type)}
+                    disabled={isComingSoon}
+                    className={`p-4 rounded-xl border-2 text-left transition-all bg-background shadow-sm group relative ${
+                      isComingSoon
+                        ? 'border-muted/40 opacity-50 cursor-not-allowed grayscale'
+                        : 'border-primary/10 hover:border-primary/50 hover:bg-primary/5 hover:scale-[1.02]'
+                    }`}
                   >
-                    <div className="p-2.5 rounded-lg bg-muted/50 inline-block mb-3 text-primary group-hover:bg-primary/10 transition-colors">
+                    {isComingSoon && (
+                      <span className="absolute top-2 right-2 text-[9px] font-bold uppercase tracking-widest text-muted-foreground/70 bg-muted/60 px-1.5 py-0.5 rounded-full">
+                        Soon
+                      </span>
+                    )}
+                    <div className={`p-2.5 rounded-lg inline-block mb-3 transition-colors ${
+                      isComingSoon
+                        ? 'bg-muted/30 text-muted-foreground/50'
+                        : 'bg-muted/50 text-primary group-hover:bg-primary/10'
+                    }`}>
                       <Icon size={22} />
                     </div>
-                    <h4 className="font-bold text-foreground text-sm">{type}</h4>
-                    <p className="text-xs text-muted-foreground mt-1 leading-snug">{meta.description}</p>
+                    <h4 className={`font-bold text-sm ${isComingSoon ? 'text-muted-foreground/60' : 'text-foreground'}`}>{type}</h4>
+                    <p className={`text-xs mt-1 leading-snug ${isComingSoon ? 'text-muted-foreground/40' : 'text-muted-foreground'}`}>{meta.description}</p>
                   </button>
                 );
               })}
@@ -453,23 +492,38 @@ export const Onboarding = ({ projects, onCreateProject, onSelectProject, isAuthe
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {getModeData().map((mode) => (
-                <button
-                  key={mode.id}
-                  onClick={() => handleModeSelect(mode.id)}
-                  className={`p-6 rounded-2xl border-2 text-left transition-all hover:scale-[1.02] hover:shadow-md bg-background group ${mode.color}`}
-                >
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 rounded-lg bg-background border-2 border-inherit">
-                      <mode.icon size={24} />
+              {getModeData().map((mode) => {
+                const isModeDisabled = selectedType ? COMING_SOON_MODES[selectedType]?.has(mode.id) ?? false : false;
+                return (
+                  <button
+                    key={mode.id}
+                    onClick={() => !isModeDisabled && handleModeSelect(mode.id)}
+                    disabled={isModeDisabled}
+                    className={`p-6 rounded-2xl border-2 text-left transition-all bg-background group relative ${
+                      isModeDisabled
+                        ? 'border-muted/30 opacity-45 cursor-not-allowed grayscale'
+                        : `${mode.color} hover:scale-[1.02] hover:shadow-md`
+                    }`}
+                  >
+                    {isModeDisabled && (
+                      <span className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/70 bg-muted/60 px-2 py-0.5 rounded-full">
+                        Coming Soon
+                      </span>
+                    )}
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className={`p-3 rounded-lg bg-background border-2 ${isModeDisabled ? 'border-muted/30' : 'border-inherit'}`}>
+                        <mode.icon size={24} />
+                      </div>
+                      <h2 className={`text-2xl font-bold ${isModeDisabled ? 'text-muted-foreground/50' : ''}`}>{mode.title}</h2>
                     </div>
-                    <h2 className="text-2xl font-bold">{mode.title}</h2>
-                  </div>
-                  <p className="text-muted-foreground font-medium group-hover:text-foreground transition-colors">
-                    {mode.desc}
-                  </p>
-                </button>
-              ))}
+                    <p className={`font-medium transition-colors ${
+                      isModeDisabled ? 'text-muted-foreground/40' : 'text-muted-foreground group-hover:text-foreground'
+                    }`}>
+                      {mode.desc}
+                    </p>
+                  </button>
+                );
+              })}
             </div>
           </div>
         )}
