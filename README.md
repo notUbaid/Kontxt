@@ -2,7 +2,7 @@
 
 > [!WARNING]  
 > 🚧 **WORK IN PROGRESS** 🚧  
-> Kontxt is currently under active development. Expect rapid changes, breaking updates, and features actively being built!
+> Kontxt is currently under active development. Expect rapid changes, breaking updates, and features actively being built.
 
 <br />
 
