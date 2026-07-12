@@ -24,7 +24,7 @@
 
 Kontxt is not a code editor. It is a **project brain and software-building curriculum** wrapped into an interactive platform. 
 
-In an era where AI agents (like Cursor, Windsurf, Lovable, and GitHub Copilot) can write the code for you, the bottleneck is no longer *how* to code, but *what* to code. Kontxt bridges this gap by teaching you how to think like a Software Architect and Product Builder. 
+In an era where AI agents (like Cursor, Windsurf, Lovable, Claude Code and GitHub Copilot) can write the code for you, the bottleneck is no longer *how* to code, but *what* to code. Kontxt bridges this gap by teaching you how to think like a Software Architect and Product Builder. 
 
 It guides you phase-by-phase through the software development lifecycle (SDLC) ensuring your AI tools have the exact **Context** they need to generate production-ready software without hallucinating or building the wrong thing.
 
